@@ -74,6 +74,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
     强制RSS已防止速率限制
   Load More Videos: 加载更多视频
+  Error Channels: 有错误的频道
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -566,6 +567,7 @@ Video:
     intro: 介绍
     sponsor: 赞助者
     recap: 回顾
+    filler: 过滤器
   translated from English: 从英语翻译而来
   Skipped segment: 跳过片段
 Videos:

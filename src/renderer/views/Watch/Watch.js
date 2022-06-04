@@ -276,6 +276,12 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: this.channelThumbnail,
+            channelName: this.channelName,
+            channelId: this.channelId
+          })
+
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -561,7 +567,14 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          const channelThumb = result.authorThumbnails[1]
+          this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: channelThumb?.url,
+            channelName: result.author,
+            channelId: result.authorId
+          })
+
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
@@ -1268,7 +1281,8 @@ export default Vue.extend({
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
-      'invidiousGetVideoInformation'
+      'invidiousGetVideoInformation',
+      'updateSubscriptionDetails'
     ])
   }
 })

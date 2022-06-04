@@ -4,12 +4,13 @@
       @content
 
 .topNav
-  position: fixed
+  position: sticky
   z-index: 4
   left: 0
   right: 0
   top: 0
   height: 60px
+  width: 100%
   line-height: 60px
   background-color: var(--card-bg-color)
   -webkit-box-shadow: 0px 2px 1px 0px var(--primary-shadow-color)
@@ -23,6 +24,9 @@
 
   @include top-nav-is-colored
     background-color: var(--primary-color)
+
+  @media only screen and (max-width: 680px)
+    position: fixed
 
 .menuIcon // the hamburger button
   @media only screen and (max-width: 680px)
@@ -160,7 +164,3 @@
       left: 0
       right: 0
       margin: 95px 10px 0px
-
-    @media only screen and (min-width: 681px)
-      &.expand
-        margin-left: 100px

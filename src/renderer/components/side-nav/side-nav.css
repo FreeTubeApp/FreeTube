@@ -3,11 +3,10 @@
   height: calc(100vh - 60px);
   width: 200px;
   overflow-x: hidden;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 4;
-  margin-top: 60px;
+  position: sticky;
+  left: 0;
+  top: 60px;
+  z-index: 3;
   box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
   background-color: var(--side-nav-color);
   transition-property: width;
@@ -168,6 +167,10 @@
   }
 
   .sideNav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
     display: flex;
   }
 

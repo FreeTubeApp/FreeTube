@@ -78,6 +78,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscriptions
+  # channels that were likely deleted
+  Error Channels: Channels with Errors
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting

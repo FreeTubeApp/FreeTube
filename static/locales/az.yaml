@@ -118,30 +118,33 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Tənzimləmələr'
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Dəyişikliklərin
+    qüvvəyə minməsi üçün tətbiq yenidən başladılmalıdır. Yenidən başladılsın və dəyişiklik
+    tətbiq edilsin?'
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
-    System Default: ''
+    General Settings: 'Ümumi Tənzimləmələr'
+    Check for Updates: 'Yeniləmələri Yoxlayın'
+    Check for Latest Blog Posts: 'Ən Son Bloq Yazılarını Yoxlayın'
+    Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən
+      Arxa Uca Qayıdış'
+    Enable Search Suggestions: 'Axtarış Təkliflərini Aktivləşdirin'
+    Default Landing Page: 'Defolt Açılış Səhifəsi'
+    Locale Preference: 'Yerli Seçim'
+    System Default: 'Sistem Defoltu'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Tərcih edilən API Arxa Ucu'
+      Local API: 'Yerli API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Video Baxış Növü'
+      Grid: 'Izgara'
+      List: 'Siyahı'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
+      Thumbnail Preference: 'Miniatürə Üstünlük Verilir'
+      Default: 'Defolt'
+      Beginning: 'Başlanğıc'
+      Middle: 'Orta'
+      End: 'Son'
     Current Invidious Instance: ''
     # $ is replaced with the default Invidious instance
     The currently set default instance is $: ''
