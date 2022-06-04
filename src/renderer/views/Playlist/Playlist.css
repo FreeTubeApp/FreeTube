@@ -1,18 +1,42 @@
+.routerView {
+  display: flex;
+}
+
 .playlistInfo {
   background-color: var(--card-bg-color);
-  padding: 10px;
-  float: left;
-  position: fixed;
-  top: 60px;
-  width: 30%;
-  height: 100%;
+  box-sizing: border-box;
+  height: calc(100vh - 96px);
+  margin-right: 1em;
   overflow-y: auto;
+  padding: 10px;
+  position: sticky;
+  top: 78px;
+  width: 30%;
 }
 
 .playlistItems {
-  float: right;
-  width: 60%;
-  padding: 10px;
   display: grid;
   grid-gap: 10px;
+  margin: 0;
+  padding: 10px;
+  width: 60%;
+}
+
+@media only screen and (max-width: 800px) {
+  .routerView {
+    flex-direction: column;
+  }
+
+  .playlistInfo {
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .playlistItems {
+    box-sizing: border-box;
+    width: 100%;
+  }
 }
