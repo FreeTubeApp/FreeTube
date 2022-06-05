@@ -393,6 +393,8 @@ Settings:
     Choose Path: Вибрати шлях
     Ask Download Path: Запитувати шлях завантаження
     Download Behavior: Поведінка завантаження
+    Download in app: Завантажити в застосунку
+    Open in web browser: Відкрити у переглядачі
 About:
   #On About page
   About: 'Про'
