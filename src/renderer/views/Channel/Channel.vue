@@ -8,17 +8,16 @@
     />
     <ft-card
       v-else
-      class="card"
+      class="card channelDetails"
     >
-      <img
-        v-if="bannerUrl !== null"
-        class="channelBanner"
-        :src="bannerUrl"
-      >
-      <img
-        v-else
-        class="defaultChannelBanner"
-      >
+      <div
+        class="channelBannerContainer"
+        :class="{
+          default: !bannerUrl
+        }"
+        :style="{ '--banner-url': `url('${bannerUrl}')` }"
+      />
+
       <div
         class="channelInfoContainer"
       >
@@ -35,19 +34,20 @@
             <div
               class="channelLineContainer"
             >
-              <span
+              <h1
                 class="channelName"
               >
                 {{ channelName }}
-              </span>
-              <span
+              </h1>
+
+              <p
                 v-if="subCount !== null"
                 class="channelSubCount"
               >
                 {{ formattedSubCount }}
                 <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
                 <span v-else>{{ $t("Channel.Subscribers") }}</span>
-              </span>
+              </p>
             </div>
           </div>
 
