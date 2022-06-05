@@ -1,9 +1,14 @@
 .bubblePadding {
   position: relative;
   width: 100px;
-  height: 115px;
+  height: 100px;
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;
   -o-transition: background 0.2s ease-out;
@@ -20,10 +25,8 @@
 .bubble {
   width: 50px;
   height: 50px;
-  margin-bottom: 5px;
-  margin-left: 25px;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
 }
 
 .selected {
@@ -41,8 +44,10 @@
 }
 
 .channelName {
+  display: block;
   font-size: 13px;
-  height: 60px;
   overflow: hidden;
   text-align: center;
+  text-overflow: ellipsis;
+  width: 100%;
 }
