@@ -64,50 +64,35 @@
           v-if="!errorMessage"
           class="channelInfoTabs"
         >
-          <div
-            class="tab"
-            :class="(currentTab==='videos')?'selectedTab':''"
-            @click="changeTab('videos')"
-          >
-            {{ $t("Channel.Videos.Videos").toUpperCase() }}
+          <div class="tabs">
+            <div
+              class="tab"
+              :class="(currentTab==='videos')?'selectedTab':''"
+              @click="changeTab('videos')"
+            >
+              {{ $t("Channel.Videos.Videos").toUpperCase() }}
+            </div>
+            <div
+              class="tab"
+              :class="(currentTab==='playlists')?'selectedTab':''"
+              @click="changeTab('playlists')"
+            >
+              {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
+            </div>
+            <div
+              class="tab"
+              :class="(currentTab==='about')?'selectedTab':''"
+              @click="changeTab('about')"
+            >
+              {{ $t("Channel.About.About").toUpperCase() }}
+            </div>
           </div>
-          <div
-            class="tab"
-            :class="(currentTab==='playlists')?'selectedTab':''"
-            @click="changeTab('playlists')"
-          >
-            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
-          </div>
-          <div
-            class="tab"
-            :class="(currentTab==='about')?'selectedTab':''"
-            @click="changeTab('about')"
-          >
-            {{ $t("Channel.About.About").toUpperCase() }}
-          </div>
+
           <ft-input
             :placeholder="$t('Channel.Search Channel')"
             :select-on-focus="true"
             class="channelSearch"
             @click="newSearch"
-          />
-          <ft-select
-            v-show="currentTab === 'videos'"
-            class="sortSelect"
-            :value="videoSelectValues[0]"
-            :select-names="videoSelectNames"
-            :select-values="videoSelectValues"
-            :placeholder="$t('Search Filters.Sort By.Sort By')"
-            @change="videoSortBy = $event"
-          />
-          <ft-select
-            v-show="currentTab === 'playlists'"
-            class="sortSelect"
-            :value="playlistSelectValues[0]"
-            :select-names="playlistSelectNames"
-            :select-values="playlistSelectValues"
-            :placeholder="$t('Search Filters.Sort By.Sort By')"
-            @change="playlistSortBy = $event"
           />
         </ft-flex-box>
       </div>
@@ -146,6 +131,24 @@
           />
         </ft-flex-box>
       </div>
+      <ft-select
+        v-show="currentTab === 'videos'"
+        class="sortSelect"
+        :value="videoSelectValues[0]"
+        :select-names="videoSelectNames"
+        :select-values="videoSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="videoSortBy = $event"
+      />
+      <ft-select
+        v-show="currentTab === 'playlists'"
+        class="sortSelect"
+        :value="playlistSelectValues[0]"
+        :select-names="playlistSelectNames"
+        :select-values="playlistSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="playlistSortBy = $event"
+      />
       <ft-loader
         v-if="isElementListLoading"
       />
