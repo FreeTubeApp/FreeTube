@@ -1,6 +1,7 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell, nativeTheme
+  powerSaveBlocker, screen, session, shell, nativeTheme,
+  clipboard
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -21,8 +22,19 @@ function runApp() {
     showSaveImageAs: true,
     showCopyImageAddress: true,
     prepend: (defaultActions, parameters, browserWindow) => [
+      // TODO: Find a way to move "paste and go" below the default "paste" action.
       {
-        label: 'Show Video Statistics',
+        label: 'Paste and Go',
+        visible: parameters.isEditable,
+        enabled: clipboard.readText(),
+        click() {
+          const target = browserWindow.webContents || (browserWindow.id && browserWindow)
+          target.paste()
+          target.sendInputEvent({ type: 'keydown', keyCode: 'Enter' })
+        }
+      },
+      {
+        label: 'Toggle Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
           browserWindow.webContents.send('showVideoStatistics')
