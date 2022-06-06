@@ -363,6 +363,9 @@ Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
     Choose Path: 选择路径
+    Download in app: 应用内下载
+    Open in web browser: 在网络浏览器内打开
+    Download Behavior: 下载行为
 About:
   #On About page
   About: '关于'
