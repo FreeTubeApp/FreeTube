@@ -88,6 +88,7 @@ Subscriptions:
     gözləyin.'
   Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
   Load More Videos: 'Daha çox Video Yükləyin'
+  Error Channels: Xətalı Kanallar
 More: 'Daha Çox'
 Trending:
   Trending: 'Trenddədir'
@@ -145,19 +146,22 @@ Settings:
       Beginning: 'Başlanğıc'
       Middle: 'Orta'
       End: 'Son'
-    Current Invidious Instance: ''
+    Current Invidious Instance: 'Cari Invidious Nümunəsi'
     # $ is replaced with the default Invidious instance
-    The currently set default instance is $: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+    The currently set default instance is $: 'Hazırda təyin edilmiş standart nümunə
+      $-dır'
+    No default instance has been set: 'Defolt nümunə təyin edilməyib'
+    Current instance will be randomized on startup: 'Cari nümunə başlanğıcda təsadüfi
+      olacaq'
+    Set Current Instance as Default: 'Cari Nümunəni Defolt Olaraq Təyin edin'
+    Clear Default Instance: 'Defolt Nümunəni Sil'
+    View all Invidious instance information: 'Bütün Invidious instansiya məlumatlarına
+      baxın'
+    Region for Trending: 'Trendlər Üçün Region'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
-      Open Link: ''
+      External Link Handling: 'Xarici Keçid Hazırlama'
+      Open Link: 'Linki Açın'
       Ask Before Opening Link: ''
       No Action: ''
   Theme Settings:
