@@ -1,5 +1,5 @@
 =dual-column-template
-  grid-template: "video video sidebar" 0fr "info info sidebar" auto "info info sidebar" auto / 1fr 1fr 1fr
+  grid-template: "video video sidebar" 0fr "info info sidebar" 1fr "info info sidebar" 1fr / 1fr 1fr 1fr
 
 =theatre-mode-template
   grid-template: "video video video" auto "info info sidebar" auto "info info sidebar" auto / 1fr 1fr 1fr
@@ -29,7 +29,7 @@
     grid-area: video
 
     .videoAreaMargin
-      margin: 0px 8px 16px
+      margin: 0 0 16px
 
     .videoPlayer
       grid-column: 1
@@ -61,11 +61,16 @@
           margin-top: 10px
 
   .watchVideo
-    margin: 0px 8px 16px
+    margin: 0 0 16px
     grid-column: 1
 
   .infoArea
     grid-area: info
+    position: relative
+
+    @media only screen and (min-width: 901px)
+      position: sticky
+      top: 76px
 
   .sidebarArea
     grid-area: sidebar
@@ -83,4 +88,7 @@
     height: 500px
 
   .watchVideoRecommendations, .theatreRecommendations
-    margin: 0 8px 16px
+    margin: 0 0 16px
+
+    @media only screen and (min-width: 901px)
+      margin: 0 8px 16px

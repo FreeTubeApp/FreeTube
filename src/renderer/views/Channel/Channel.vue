@@ -3,22 +3,21 @@
     ref="search"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && !errorMessage"
       :fullscreen="true"
     />
     <ft-card
       v-else
-      class="card"
+      class="card channelDetails"
     >
-      <img
-        v-if="bannerUrl !== null"
-        class="channelBanner"
-        :src="bannerUrl"
-      >
-      <img
-        v-else
-        class="defaultChannelBanner"
-      >
+      <div
+        class="channelBannerContainer"
+        :class="{
+          default: !bannerUrl
+        }"
+        :style="{ '--banner-url': `url('${bannerUrl}')` }"
+      />
+
       <div
         class="channelInfoContainer"
       >
@@ -35,19 +34,20 @@
             <div
               class="channelLineContainer"
             >
-              <span
+              <h1
                 class="channelName"
               >
                 {{ channelName }}
-              </span>
-              <span
+              </h1>
+
+              <p
                 v-if="subCount !== null"
                 class="channelSubCount"
               >
                 {{ formattedSubCount }}
                 <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
                 <span v-else>{{ $t("Channel.Subscribers") }}</span>
-              </span>
+              </p>
             </div>
           </div>
           <ft-subscribe-button
@@ -61,6 +61,7 @@
         </div>
 
         <ft-flex-box
+          v-if="!errorMessage"
           class="channelInfoTabs"
         >
           <div
@@ -112,7 +113,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading"
+      v-if="!isLoading && !errorMessage"
       class="card"
     >
       <div
@@ -193,6 +194,14 @@
           <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
+    </ft-card>
+    <ft-card
+      v-if="errorMessage"
+      class="card"
+    >
+      <p>
+        {{ errorMessage }}
+      </p>
     </ft-card>
   </div>
 </template>

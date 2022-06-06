@@ -15,7 +15,7 @@ const config = {
   mode: process.env.NODE_ENV,
   devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
-    workerSample: path.join(__dirname, '../src/utilities/workerSample.ts'),
+    workerSample: path.join(__dirname, '../src/utilities/workerSample.js'),
   },
   output: {
     libraryTarget: 'commonjs2',
@@ -52,7 +52,7 @@ const config = {
       '@': path.join(__dirname, '../src/'),
       src: path.join(__dirname, '../src/'),
     },
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.js', '.json'],
   },
   target: 'node',
 }

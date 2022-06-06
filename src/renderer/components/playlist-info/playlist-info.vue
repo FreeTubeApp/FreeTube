@@ -8,22 +8,27 @@
         @click="playFirstVideo"
       >
     </div>
-    <h2>
-      {{ title }}
-    </h2>
-    <p>
-      {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
-      <span v-if="infoSource !== 'local'">
-        {{ $t("Playlist.Last Updated On") }}
-      </span>
-      {{ lastUpdated }}
-    </p>
+
+    <div class="playlistStats">
+      <h2 class="playlistTitle">
+        {{ title }}
+      </h2>
+      <p>
+        {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
+        <span v-if="infoSource !== 'local'">
+          {{ $t("Playlist.Last Updated On") }}
+        </span>
+        {{ lastUpdated }}
+      </p>
+    </div>
+
     <p
       class="playlistDescription"
-    >
-      {{ description }}
-    </p>
+      v-text="description"
+    />
+
     <hr>
+
     <div
       class="playlistChannel"
       @click="goToChannel"
@@ -38,7 +43,9 @@
         {{ channelName }}
       </h3>
     </div>
+
     <br>
+
     <ft-list-dropdown
       :title="$t('Playlist.Share Playlist.Share Playlist')"
       :label-names="shareHeaders"
