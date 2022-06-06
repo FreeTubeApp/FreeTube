@@ -262,6 +262,7 @@ const state = {
   videoPlaybackRateMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   downloadFolderPath: '',
+  downloadBehavior: 'download',
   enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,

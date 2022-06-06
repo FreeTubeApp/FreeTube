@@ -2,17 +2,22 @@
   position: relative;
 }
 
-.ft-input-component.showClearTextButton {
+.ft-input-component.search.showClearTextButton {
   padding-left: 30px;
 }
 
-.ft-input-component.clearTextButtonVisible,
-.ft-input-component.showClearTextButton:focus-within {
+.ft-input-component.search.clearTextButtonVisible,
+.ft-input-component.search.showClearTextButton:focus-within {
   padding-left: 0;
 }
 
-.clearTextButtonVisible .ft-input,
-.ft-input-component.showClearTextButton:focus-within .ft-input {
+.ft-input-component.showClearTextButton:not(.search) .ft-input {
+  padding-left: 46px;
+}
+
+/* Main search input */
+.clearTextButtonVisible.search .ft-input,
+.ft-input-component.search.showClearTextButton:focus-within .ft-input {
   padding-left: 46px;
 }
 

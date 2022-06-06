@@ -86,6 +86,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
+  Error Channels: Hugbúnaðarrásir með villum
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -245,6 +246,18 @@ Settings:
       Enable: Virkja skjámyndatöku
       Format Label: Snið skjámynda
       Quality Label: Gæði skjámynda
+      Error:
+        Forbidden Characters: Bannaðir stafir
+        Empty File Name: Autt skráaheiti
+      File Name Tooltip: Þú getur notað breyturnar hér fyrir neðan. %Y ár 4-stafa.
+        %M mánuður 2-stafa. %D dagur 2-stafa. %H klukkustundir 2-stafa. %N mínútur
+        2-stafa. %S sekúndur 2-stafa. %T millísekúndur 3-stafa. %s sekúndur í myndskeiði.
+        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs. Þú getur líka
+        notað "\" eða "/" til að útbúa undirmöppur.
+      Ask Path: Spyrja um möppu til að vista í
+      Folder Label: Mappa undir skjámyndir
+      Folder Button: Veldu möppu
+      File Name Label: Mynstur skráaheita
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -363,6 +376,9 @@ Settings:
     Download Settings: Stillingar niðurhals
     Ask Download Path: Spyrja hvar eigi að vista skrár
     Choose Path: Veldu slóð
+    Download in app: Sækja í forritinu
+    Open in web browser: Opna í vafra
+    Download Behavior: Hegðun við niðurhal
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -786,3 +802,5 @@ Are you sure you want to open this link?: Ertu viss um að þú viljir opna þen
 Downloading has completed: Búið er að sækja "$"
 Starting download: Byrja að sækja "$"
 Downloading failed: Vandamál kom upp við að sækja "$"
+Screenshot Error: Skjámyndataka mistókst. $
+Screenshot Success: Vistaði skjámynd sem "$"

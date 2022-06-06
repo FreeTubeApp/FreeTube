@@ -187,6 +187,10 @@ export default Vue.extend({
       })
     },
 
+    downloadBehavior: function () {
+      return this.$store.getters.getDownloadBehavior
+    },
+
     formatTypeOptions: function () {
       return [
         {
@@ -423,11 +427,15 @@ export default Vue.extend({
       const linkName = selectedDownloadLinkOption.label
       const extension = this.grabExtensionFromUrl(linkName)
 
-      this.downloadMedia({
-        url: url,
-        title: this.title,
-        extension: extension
-      })
+      if (this.downloadBehavior === 'open') {
+        this.openExternalLink(url)
+      } else {
+        this.downloadMedia({
+          url: url,
+          title: this.title,
+          extension: extension
+        })
+      }
     },
 
     grabExtensionFromUrl: function (url) {

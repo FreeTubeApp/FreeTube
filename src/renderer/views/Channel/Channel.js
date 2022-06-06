@@ -53,6 +53,7 @@ export default Vue.extend({
       shownElementList: [],
       apiUsed: '',
       isFamilyFriendly: false,
+      errorMessage: '',
       videoSelectValues: [
         'newest',
         'oldest',
@@ -101,16 +102,14 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
 
-    isSubscribed: function () {
-      const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
+    subscriptionInfo: function () {
+      return this.activeProfile.subscriptions.find((channel) => {
         return channel.id === this.id
-      })
+      }) ?? null
+    },
 
-      if (subIndex === -1) {
-        return false
-      } else {
-        return true
-      }
+    isSubscribed: function () {
+      return this.subscriptionInfo !== null
     },
 
     subscribedText: function () {
@@ -262,6 +261,11 @@ export default Vue.extend({
       this.apiUsed = 'local'
       const expectedId = this.id
       ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
+        if (response.alertMessage) {
+          this.setErrorMessage(response.alertMessage)
+          return
+        }
+        this.errorMessage = ''
         if (expectedId !== this.id) {
           return
         }
@@ -414,8 +418,10 @@ export default Vue.extend({
           this.bannerUrl = null
         }
 
+        this.errorMessage = ''
         this.isLoading = false
       }).catch((err) => {
+        this.setErrorMessage(err.responseJSON.error)
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
@@ -656,6 +662,16 @@ export default Vue.extend({
           }
         }
       }
+    },
+
+    setErrorMessage: function (errorMessage) {
+      this.isLoading = false
+      this.errorMessage = errorMessage
+      this.id = this.subscriptionInfo.id
+      this.channelName = this.subscriptionInfo.name
+      this.thumbnailUrl = this.subscriptionInfo.thumbnail
+      this.bannerUrl = null
+      this.subCount = null
     },
 
     handleFetchMore: function () {

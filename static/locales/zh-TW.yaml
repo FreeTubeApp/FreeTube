@@ -74,6 +74,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
+  Error Channels: 有錯誤的頻道
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -364,6 +365,9 @@ Settings:
     Download Settings: 下載設定
     Ask Download Path: 詢問下載路徑
     Choose Path: 選擇路徑
+    Download in app: 在應用程式中下載
+    Open in web browser: 在網路瀏覽器中開啟
+    Download Behavior: 下載行為
 About:
   #On About page
   About: '關於'

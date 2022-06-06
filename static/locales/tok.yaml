@@ -1,167 +1,154 @@
 # Put the name of your locale in the same language
-Locale Name: 'Azərbaycanca'
-FreeTube: 'FreeTube'
+Locale Name: 'toki pona'
+FreeTube: ''
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tətbiqin bu hissəsi hələ hazır deyil.İnkişaf bitdikdən sonra geri qayıdın.
+  ilo ni li pona ala. tenpo kama la, o kama.
 
 # Webkit Menu Bar
-File: 'Fayl'
-Quit: 'Çıxış'
-Edit: 'Redaktə Edin'
-Undo: 'Geri alın'
-Redo: 'Təkrarla'
-Cut: 'Kəsin'
-Copy: 'Kopyalayın'
-Paste: 'Yapışdır'
-Delete: 'Silin'
-Select all: 'Hamısını seçin'
-Reload: 'Yenidən Yükləyin'
-Force Reload: 'Zorla Yenidən Yükləmə'
-Toggle Developer Tools: 'Tərtibatçı Seçimlərini Aç/Bağla'
-Actual size: 'Həqiqi Ölçü'
-Zoom in: 'Yaxınlaşdırın'
-Zoom out: 'Uzaqlaşdırın'
-Toggle fullscreen: 'Tam ekranda göstər'
-Window: 'Pəncərə'
-Minimize: 'Kiçildin'
-Close: 'Bağlayın'
-Back: 'Geri'
-Forward: 'İrəli'
-Open New Window: 'Yeni Pəncərə Açın'
+File: 'ijo'
+Quit: 'tawa'
+Edit: 'ante'
+Undo: 'tawa monsi'
+Redo: 'tawa sinpin'
+Cut: 'kama jo e ni'
+Copy: 'jasima'
+Paste: 'pali jasima'
+Delete: 'weka'
+Select all: 'kama jo e sitelin ale'
+Reload: 'kama sin'
+Force Reload: 'o kama sin'
+Toggle Developer Tools: 'ante e ilo pi jan nasin'
+Actual size: 'suli lon'
+Zoom in: 'lukin suli'
+Zoom out: 'lukin lili'
+Toggle fullscreen: 'ante e sitelin suli'
+Window: 'sitelin'
+Minimize: 'kama lili'
+Close: 'pini'
+Back: 'tawa monsi'
+Forward: 'tawa sinpin'
+Open New Window: 'open lon sitelin sin'
 
-Version $ is now available!  Click for more details: '$ versiyası artıq mövcuddur!
-  Ətraflı məlumat üçün klikləyin'
-Download From Site: 'Saytdan Endirin'
-A new blog is now available, $. Click to view more: 'İndi yeni blog mövcuddur, $.
-  Daha çoxuna baxmaq üçün klikləyin'
-Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
+Version $ is now available!  Click for more details: 'ilo pi nanpa $ li lon! open
+  la, sina ken sona mute.'
+Download From Site: 'poki e sitelin ni'
+A new blog is now available, $. Click to view more: 'lipu sin li lon. ona li $. open
+  la, sina ken lukin mute.'
+Are you sure you want to open this link?: 'sina wile ala wile open e ni?'
 
 # Search Bar
-Search / Go to URL: 'Axtarış / URL-ə Keçin'
+Search / Go to URL: 'alasa / tawa lupa'
 Search Bar:
-  Clear Input: 'Girişi Təmizləyin'
+  Clear Input: 'weka e sitelin'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Axtarış Filtrləri'
+  Search Filters: 'alasa kepeken nasin'
   Sort By:
-    Sort By: 'Sırala'
-    Most Relevant: 'Ən Münasib'
-    Rating: 'Qiymətləndirmə'
-    Upload Date: 'Yükləmə Tarixi'
-    View Count: 'Baxış Sayı'
+    Sort By: 'nasin li seme?'
+    Most Relevant: 'sama e wile sina'
+    Rating: 'pona'
+    Upload Date: ''
+    View Count: ''
   Time:
-    Time: 'Vaxt'
-    Any Time: 'İstənilən Vaxt'
-    Last Hour: 'Son Saat'
-    Today: 'Bu gün'
-    This Week: 'Bu Həftə'
-    This Month: 'Bu Ay'
-    This Year: 'Bu İl'
+    Time: ''
+    Any Time: ''
+    Last Hour: ''
+    Today: ''
+    This Week: ''
+    This Month: ''
+    This Year: ''
   Type:
-    Type: 'Növ'
-    All Types: 'Bütün Növlər'
-    Videos: 'Videolar'
-    Channels: 'Kanallar'
+    Type: ''
+    All Types: ''
+    Videos: ''
+    Channels: ''
     #& Playlists
   Duration:
-    Duration: 'Müddət'
-    All Durations: 'Bütün Müddətlər'
-    Short (< 4 minutes): 'Qısa (<4 dəqiqədən az)'
-    Long (> 20 minutes): 'Uzun (> 20 dəqiqədən çox)'
+    Duration: ''
+    All Durations: ''
+    Short (< 4 minutes): ''
+    Long (> 20 minutes): ''
   # On Search Page
-  Search Results: 'Axtarış Nəticələri'
-  Fetching results. Please wait: 'Nəticələr alınır. Zəhmət olmasa, gözləyin'
-  Fetch more results: 'Daha çox nəticə əldə edin'
-  There are no more results for this search: 'Bu axtarış üçün başqa nəticə yoxdur'
+  Search Results: ''
+  Fetching results. Please wait: ''
+  Fetch more results: ''
+  There are no more results for this search: ''
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Abunəliklər'
-  Latest Subscriptions: 'Ən Son Abunəliklər'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Bu
-    profilin çoxlu sayda abunəsi var.Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
-    zorlanır'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik
-    siyahınız hazırda boşdur. Abunəlikləri burada görmək üçün əlavə etməyə başlayın.'
-  'Getting Subscriptions. Please wait.': 'Abunəliklərin əldə edilməsi. Zəhmət olmasa,
-    gözləyin.'
-  Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
-  Load More Videos: 'Daha çox Video Yükləyin'
-  Error Channels: Xətalı Kanallar
-More: 'Daha Çox'
+  Subscriptions: ''
+  # channels that were likely deleted
+  Error Channels: ''
+  Latest Subscriptions: ''
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
+  'Getting Subscriptions. Please wait.': ''
+  Refresh Subscriptions: ''
+  Load More Videos: ''
+More: ''
 Trending:
-  Trending: 'Trenddədir'
-  Default: 'Defolt'
-  Music: 'Musiqi'
-  Gaming: 'Oyun'
-  Movies: 'Filmlər'
-  Trending Tabs: 'Trend Tablar'
-Most Popular: 'Ən Populyar'
-Playlists: 'Pleylistlər'
+  Trending: ''
+  Default: ''
+  Music: ''
+  Gaming: ''
+  Movies: ''
+  Trending Tabs: ''
+Most Popular: ''
+Playlists: ''
 User Playlists:
-  Your Playlists: 'Pleylistləriniz'
-  Playlist Message: 'Bu səhifə tam işləyən pleylistləri əks etdirmir. O, yalnız saxladığınız
-    və ya sevimli seçdiyiniz videoları sadalayır. İş başa çatdıqda, hazırda buradakı
-    bütün videolar "Sevimlilər" pleylistinə köçürüləcək.'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Saxladığınız
-    videolarınız boşdur. Videonun burada qeyd edilməsi üçün onun küncündəki saxlayın
-    düyməsini klikləyin'
-  Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
-  Search bar placeholder: 'Pleylistdə Axtarın'
+  Your Playlists: ''
+  Playlist Message: ''
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
+  Empty Search Message: ''
+  Search bar placeholder: ''
 History:
   # On History Page
-  History: 'Tarixçə'
-  Watch History: 'Baxış Tarixçəsi'
-  Your history list is currently empty.: 'Tarixçə siyahınız hazırda boşdur.'
-  Empty Search Message: 'Tarixçənizdə axtarışınıza uyğun video yoxdur'
-  Search bar placeholder: "Tarixçədə Axtarın"
+  History: ''
+  Watch History: ''
+  Your history list is currently empty.: ''
+  Empty Search Message: ''
+  Search bar placeholder: ""
 Settings:
   # On Settings Page
-  Settings: 'Tənzimləmələr'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Dəyişikliklərin
-    qüvvəyə minməsi üçün tətbiq yenidən başladılmalıdır. Yenidən başladılsın və dəyişiklik
-    tətbiq edilsin?'
+  Settings: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: 'Ümumi Tənzimləmələr'
-    Check for Updates: 'Yeniləmələri Yoxlayın'
-    Check for Latest Blog Posts: 'Ən Son Bloq Yazılarını Yoxlayın'
-    Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən
-      Arxa Uca Qayıdış'
-    Enable Search Suggestions: 'Axtarış Təkliflərini Aktivləşdirin'
-    Default Landing Page: 'Defolt Açılış Səhifəsi'
-    Locale Preference: 'Yerli Seçim'
-    System Default: 'Sistem Defoltu'
+    General Settings: ''
+    Check for Updates: ''
+    Check for Latest Blog Posts: ''
+    Fallback to Non-Preferred Backend on Failure: ''
+    Enable Search Suggestions: ''
+    Default Landing Page: ''
+    Locale Preference: ''
+    System Default: ''
     Preferred API Backend:
-      Preferred API Backend: 'Tərcih edilən API Arxa Ucu'
-      Local API: 'Yerli API'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: ''
+      Local API: ''
+      Invidious API: ''
     Video View Type:
-      Video View Type: 'Video Baxış Növü'
-      Grid: 'Izgara'
-      List: 'Siyahı'
+      Video View Type: ''
+      Grid: ''
+      List: ''
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatürə Üstünlük Verilir'
-      Default: 'Defolt'
-      Beginning: 'Başlanğıc'
-      Middle: 'Orta'
-      End: 'Son'
-    Current Invidious Instance: 'Cari Invidious Nümunəsi'
+      Thumbnail Preference: ''
+      Default: ''
+      Beginning: ''
+      Middle: ''
+      End: ''
+    Current Invidious Instance: ''
     # $ is replaced with the default Invidious instance
-    The currently set default instance is $: 'Hazırda təyin edilmiş standart nümunə
-      $-dır'
-    No default instance has been set: 'Defolt nümunə təyin edilməyib'
-    Current instance will be randomized on startup: 'Cari nümunə başlanğıcda təsadüfi
-      olacaq'
-    Set Current Instance as Default: 'Cari Nümunəni Defolt Olaraq Təyin edin'
-    Clear Default Instance: 'Defolt Nümunəni Sil'
-    View all Invidious instance information: 'Bütün Invidious instansiya məlumatlarına
-      baxın'
-    Region for Trending: 'Trendlər Üçün Region'
+    The currently set default instance is $: ''
+    No default instance has been set: ''
+    Current instance will be randomized on startup: ''
+    Set Current Instance as Default: ''
+    Clear Default Instance: ''
+    View all Invidious instance information: ''
+    Region for Trending: ''
     #! List countries
     External Link Handling:
-      External Link Handling: 'Xarici Keçid Hazırlama'
-      Open Link: 'Linki Açın'
+      External Link Handling: ''
+      Open Link: ''
       Ask Before Opening Link: ''
       No Action: ''
   Theme Settings:

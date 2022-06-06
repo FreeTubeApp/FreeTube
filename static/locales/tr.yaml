@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
+  Error Channels: Hatalı Kanallar
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -398,6 +399,9 @@ Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
     Download Settings: İndirme Ayarları
+    Download Behavior: İndirme Davranışı
+    Download in app: Uygulamada indir
+    Open in web browser: Web tarayıcısında aç
 About:
   #On About page
   About: 'Hakkında'
