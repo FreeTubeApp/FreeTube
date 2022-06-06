@@ -79,7 +79,18 @@ export default Vue.extend({
     }
   },
   methods: {
-    subscribe: function (profile, subscribe = true) {
+    subscribe: function (profile, subscribe = true, event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+        event.preventDefault()
+        if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
+          return
+        } else if (event.key !== 'Enter' && event.key !== ' ') {
+          return
+        }
+      }
       const profileIndex = this.profileList.findIndex((profileInList) => {
         return profileInList._id === profile._id
       })

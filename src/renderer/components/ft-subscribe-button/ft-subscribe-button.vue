@@ -9,8 +9,8 @@
         @click="handleSubscription"
       />
       <ft-button
-        :aria-label="$t('Profile.Show Profile List')"
-        :title="$t('Profile.Show Profile List')"
+        :aria-label="$t('Profile.Show Unubscribed Profiles')"
+        :title="$t('Profile.Show Unsubscribed Profiles')"
         class="subIconButton plusButton"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
@@ -21,8 +21,8 @@
         />
       </ft-button>
       <ft-button
-        :aria-label="$t('Profile.Show Profile List')"
-        :title="$t('Profile.Show Profile List')"
+        :aria-label="$t('Profile.Show Subscribed Profiles')"
+        :title="$t('Profile.Show Subscribed Profiles')"
         class="subIconButton minusButton"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
@@ -41,7 +41,9 @@
         v-for="(profile, index) in notSubscribedProfiles"
         :key="index"
         class="profile"
-        @click="subscribe(profile)"
+        tabindex="0"
+        @keydown="subscribe(profile, true, $event)"
+        @click="subscribe(profile, true)"
       >
         <div
           class="colorOption"
@@ -49,13 +51,10 @@
         >
           <div
             class="initial"
+            :title="profile.name"
+            :aria-label="profile.name"
           >
             {{ notSubscribedProfileInitials[index] }}
-          </div>
-          <div
-            class="profileName"
-          >
-            {{ profile.name }}
           </div>
         </div>
       </div>
@@ -68,6 +67,8 @@
         v-for="(profile, index) in subscribedProfiles"
         :key="index"
         class="profile"
+        tabindex="0"
+        @keydown="subscribe(profile, false, $event)"
         @click="subscribe(profile, false)"
       >
         <div
@@ -76,13 +77,10 @@
         >
           <div
             class="initial"
+            :title="profile.name"
+            :aria-label="profile.name"
           >
             {{ subscribedProfileInitials[index] }}
-          </div>
-          <div
-            class="profileName"
-          >
-            {{ profile.name }}
           </div>
         </div>
       </div>
