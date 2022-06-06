@@ -399,6 +399,9 @@ Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
     Download Settings: İndirme Ayarları
+    Download Behavior: İndirme Davranışı
+    Download in app: Uygulamada indir
+    Open in web browser: Web tarayıcısında aç
 About:
   #On About page
   About: 'Hakkında'
