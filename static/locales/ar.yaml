@@ -390,6 +390,9 @@ Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
     Ask Download Path: اطلب مسار التنزيل
+    Download Behavior: سلوك التحميل
+    Open in web browser: فتح في متصفح الويب
+    Download in app: تحميل في التطبيق
 About:
   #On About page
   About: 'حول'
