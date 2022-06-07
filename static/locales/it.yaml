@@ -249,7 +249,7 @@ Settings:
       File Name Tooltip: Puoi usare le seguenti variabili. %Y Anno 4 cifre. %M Mese
         2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuto 2 cifre. %S Secondo
         2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi
-        del video 3 cifre. %i ID video. Puoi anche usare "\" or "/" per creare sottocartelle.
+        del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -356,17 +356,17 @@ Settings:
     All playlists has been successfully exported: Tutte le playlist sono state esportate
       con successo
   Distraction Free Settings:
-    Hide Popular Videos: Nascondi "Più popolari"
-    Hide Trending Videos: Nascondi "Tendenze"
+    Hide Popular Videos: Nascondi i video più popolari
+    Hide Trending Videos: Nascondi le tendenze
     Hide Recommended Videos: Nascondi i suggerimenti sui video successivi
-    Hide Comment Likes: Nascondi "Mi piace" dai commenti
+    Hide Comment Likes: Nascondi Mi piace dai commenti
     Hide Channel Subscribers: Nascondi il numero di iscritti
     Hide Video Views: Nascondi le visualizzazioni dei video
-    Distraction Free Settings: Impostazioni della modalità "Senza distrazioni"
+    Distraction Free Settings: Impostazioni della modalità senza distrazioni
     Hide Live Chat: Nascondi la chat live
-    Hide Video Likes And Dislikes: Nascondi "Mi piace" e "Non mi piace"
+    Hide Video Likes And Dislikes: Nascondi Mi piace e Non mi piace
     Hide Active Subscriptions: Nascondi le iscrizioni attive
-    Hide Playlists: Nascondi "Playlist"
+    Hide Playlists: Nascondi le playlist
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?
@@ -383,7 +383,7 @@ Settings:
     Ip: Ip
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
-    Clicking on Test Proxy will send a request to: Cliccando su "Testa proxy" verrà
+    Clicking on Test Proxy will send a request to: Cliccando su Testa proxy verrà
       inviata una richiesta a
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
@@ -412,7 +412,7 @@ Settings:
     Download Settings: Impostazioni di scaricamento
     Ask Download Path: Chiedi il percorso di scaricamento
     Choose Path: Scegli il percorso
-    Download Behavior: Scarica il comportamento
+    Download Behavior: Comportamento degli scaricamenti
     Open in web browser: Apri nel browser web
     Download in app: Scarica nell'app
 About:
@@ -762,14 +762,14 @@ Profile:
   Delete Selected: Elimina i selezionati
   Select None: Deseleziona tutto
   Select All: Seleziona tutto
-  $ selected: '"$" selezionato'
+  $ selected: '$ selezionato'
   Other Channels: Altri canali
   Subscription List: Lista iscrizioni
-  $ is now the active profile: '"$" è diventato il tuo profilo attivo'
+  $ is now the active profile: '$ è diventato il tuo profilo attivo'
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
     è stato cambiato in profilo primario
-  Removed $ from your profiles: Hai rimosso "$" dai tuoi profili
-  Your default profile has been set to $: '"$" è stato impostato come profilo predefinito'
+  Removed $ from your profiles: Hai rimosso $ dai tuoi profili
+  Your default profile has been set to $: '$ è stato impostato come profilo predefinito'
   Profile has been updated: Il profilo è stato aggiornato
   Profile has been created: Il profilo è stato creato
   Your profile name cannot be empty: Il nome del profilo non può essere vuoto
@@ -843,7 +843,7 @@ Tooltips:
       un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
       un'icona per aprire il video nel lettore esterno .
-    DefaultCustomArgumentsTemplate: '(Predefinito: "$")'
+    DefaultCustomArgumentsTemplate: '(Predefinito: $)'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
       , FreeTube eliminerà automaticamente i metafile creati durante la visione del
@@ -867,8 +867,8 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
-Downloading has completed: '"$" è stato scaricato'
-Starting download: Sto iniziando a scaricare "$"
-Downloading failed: C'è stato un problema nello scaricamento di "$"
-Screenshot Success: Cattura schermata salvato come "$"
+Downloading has completed: '$ è stato scaricato'
+Starting download: Sto iniziando a scaricare $
+Downloading failed: C'è stato un problema nello scaricamento di $
+Screenshot Success: Cattura schermata salvato come «$»
 Screenshot Error: Cattura schermata fallito. $
