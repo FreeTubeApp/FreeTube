@@ -412,6 +412,9 @@ Settings:
     Download Settings: Impostazioni di scaricamento
     Ask Download Path: Chiedi il percorso di scaricamento
     Choose Path: Scegli il percorso
+    Download Behavior: Scarica il comportamento
+    Open in web browser: Apri nel browser web
+    Download in app: Scarica nell'app
 About:
   #On About page
   About: 'Informazioni'
