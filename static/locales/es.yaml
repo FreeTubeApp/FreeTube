@@ -76,6 +76,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
   Load More Videos: Cargar más vídeos
+  Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
   Default: Por defecto
@@ -237,6 +238,8 @@ Settings:
       Enable: Habilitar capturas de pantalla
       Quality Label: Calidad de las capturas de pantalla
       Format Label: Formato de las capturas de pantalla
+      File Name Label: Patrón de nombre de archivo
+      Folder Label: Carpeta de capturas de pantalla
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -370,6 +373,10 @@ Settings:
       SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
     SponsorBlock Settings: Ajustes de SponsorBlock
+    Category Color: Color de categoría
+    Skip Options:
+      Show In Seek Bar: Mostrar en la barra de búsqueda
+      Do Nothing: No hacer nada
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -380,6 +387,8 @@ Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
     Choose Path: Elegir ruta
+    Download in app: Descargar en la aplicación
+    Open in web browser: Abrir en el navegador web
 About:
   #On About page
   About: 'Acerca de'
@@ -610,6 +619,7 @@ Video:
     outro: epílogo
     intro: introducción
     sponsor: patrocinador
+    recap: Recapitulación
   Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
