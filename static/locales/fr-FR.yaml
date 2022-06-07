@@ -420,6 +420,9 @@ Settings:
     Download Settings: 'Paramètres de téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
     Choose Path: 'Choisir l''emplacement'
+    Download Behavior: Comportement de téléchargement
+    Download in app: Télécharger dans l'appli
+    Open in web browser: Ouvrir dans le navigateur web
 About:
   #On About page
   About: 'À propos'
