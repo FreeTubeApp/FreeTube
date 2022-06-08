@@ -34,7 +34,7 @@
       </ft-button>
     </div>
     <div
-      v-if="showProfiles==='subscribed'"
+      v-if="showProfiles === 'subscribed'"
       id="profileList"
     >
       <div
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div
-      v-if="showProfiles==='unsubscribed'"
+      v-if="showProfiles === 'unsubscribed'"
       id="profileList"
     >
       <div
