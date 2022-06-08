@@ -127,6 +127,7 @@
 
 .channelSearch {
   margin-top: 10px;
+  max-width: 320px;
 }
 
 .elementListLoading {
@@ -171,5 +172,6 @@
 
   .channelSearch {
     width: 100%;
+    max-width: none;
   }
 }
