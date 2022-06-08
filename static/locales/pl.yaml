@@ -406,6 +406,9 @@ Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
     Choose Path: Wybierz folder
+    Download Behavior: Sposób pobierania
+    Download in app: Pobierz w aplikacji
+    Open in web browser: Otwórz w przeglądarce
 About:
   #On About page
   About: 'O projekcie'
