@@ -53,7 +53,18 @@ const config = {
       ]
     }
   ],
-  files: ['_icons/iconColor.*', 'icon.svg', './dist/**/*', '!./dist/web/**/*'],
+  files: [
+    '_icons/iconColor.*',
+    'icon.svg',
+    './dist/**/*',
+    '!./dist/web/**/*',
+    '!**/{.github,Jenkinsfile}',
+    '!**/{CHANGES.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,DEVELOPMENT.md,docs,docs.md,examples,History.md,HISTORY.md,README.md,TODO.md,UPGRADE_GUIDE.md,UPGRADING.md}',
+    '!**/{commitlint.config.js,.editorconfig,.eslintignore,.eslintrc.{js,yml},.nvmrc,.nycrc{,.json},.prettierrc{,.yaml},tslint.json}',
+    '!**/{.babelrc,bower.json,Gruntfile.js,Makefile,rollup.config.js,tsconfig.json}',
+    '!**/*.{{,c,m}js,min,ts}.map',
+    '!**/*.d.ts'
+  ],
   dmg: {
     contents: [
       {

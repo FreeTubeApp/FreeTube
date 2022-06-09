@@ -25,7 +25,7 @@
     "build-release": "node _scripts/build.js",
     "build-release:arm64": "node _scripts/build.js arm64",
     "build-release:arm32": "node _scripts/build.js arm32",
-    "clean": "rimraf build/ dashFiles/ dist/ storyboards/",
+    "clean": "rimraf build/ static/dashFiles/ dist/ static/storyboards/",
     "debug": "run-s rebuild:electron debug-runner",
     "debug-runner": "node _scripts/dev-runner.js --remote-debug",
     "dev": "run-s rebuild:electron dev-runner",

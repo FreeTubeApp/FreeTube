@@ -37,7 +37,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
@@ -165,28 +165,32 @@ if (isDevMode) {
             from: path.join(__dirname, '../static'),
             to: path.join(__dirname, '../dist/web/static'),
             globOptions: {
-              ignore: ['.*', 'pwabuilder-sw.js'],
+              dot: true,
+              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
             },
           },
           {
             from: path.join(__dirname, '../static'),
             to: path.join(__dirname, '../dist/static'),
             globOptions: {
-              ignore: ['.*', 'pwabuilder-sw.js'],
+              dot: true,
+              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
             },
           },
           {
             from: path.join(__dirname, '../_icons'),
             to: path.join(__dirname, '../dist/web/_icons'),
             globOptions: {
-              ignore: ['.*'],
+              dot: true,
+              ignore: ['**/.*'],
             },
           },
           {
             from: path.join(__dirname, '../src/renderer/assets/img'),
             to: path.join(__dirname, '../dist/web/images'),
             globOptions: {
-              ignore: ['.*'],
+              dot: true,
+              ignore: ['**/.*'],
             },
           },
         ]
