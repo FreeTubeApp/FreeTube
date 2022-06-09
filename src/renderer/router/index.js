@@ -14,9 +14,50 @@ import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 
-Vue.use(Router)
+function isQueryEmpty(query) {
+  return (
+    typeof query === 'undefined' ||
+    query === null ||
+    Object.keys(query).length === 0
+  )
+}
 
-const router = new Router({
+class CustomRouter extends Router {
+  push(location) {
+    // only navigates if the location is not identical to the current location
+
+    if (typeof location === 'string') {
+      if (location.includes('?')) {
+        const urlParts = location.split('?')
+
+        if (
+          urlParts[0] !== router.currentRoute.path ||
+          new URLSearchParams(urlParts[1]) !==
+            new URLSearchParams(router.currentRoute.query)
+        ) {
+          return super.push(location)
+        }
+      } else if (
+        location !== router.currentRoute.path &&
+        isQueryEmpty(router.currentRoute.query)
+      ) {
+        return super.push(location)
+      }
+    } else {
+      if (
+        location.path !== router.currentRoute.path &&
+        (isQueryEmpty(location.query) ||
+          location.query !== router.currentRoute.query)
+      ) {
+        return super.push(location)
+      }
+    }
+  }
+}
+
+Vue.use(CustomRouter)
+
+const router = new CustomRouter({
   routes: [
     {
       path: '/',
@@ -142,7 +183,7 @@ const router = new Router({
       component: Watch
     }
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (savedPosition !== null) {
