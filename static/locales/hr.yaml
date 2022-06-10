@@ -78,6 +78,7 @@ Subscriptions:
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
   Load More Videos: Učitaj još videa
+  Error Channels: Kanali s greškama
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -228,6 +229,16 @@ Settings:
     Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
     Video Playback Rate Interval: Interval brzine reprodukcije videa
     Max Video Playback Rate: Maksimalna brzina reprodukcije videa
+    Screenshot:
+      Enable: Aktiviraj snimanje ekrana
+      Format Label: Format snimke ekrana
+      Quality Label: Kvaliteta snimke ekrana
+      Error:
+        Forbidden Characters: Zabranjeni znakovi
+        Empty File Name: Prazno ime datoteke
+      Folder Label: Mapa snimke ekrana
+      Folder Button: Odaberi mapu
+      Ask Path: Zatraži mapu za spremanje
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
