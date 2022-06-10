@@ -239,6 +239,12 @@ Settings:
       Folder Label: Mapa snimke ekrana
       Folder Button: Odaberi mapu
       Ask Path: Zatraži mapu za spremanje
+      File Name Label: Format imena datoteke
+      File Name Tooltip: Možeš koristiti sljedeće varijable. %Y godina 4 znamenke.
+        %M mjesec 2 znamenke. %D dan 2 znamenke. %H sat 2 znamenke. %N minuta 2 znamenke.
+        %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
+        videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
+        podmapa.
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -612,12 +618,13 @@ Video:
   Save Video: Spremi video
   translated from English: prevedeno iz engleskog
   Sponsor Block category:
-    music offtopic: druga vrsta glazbe
-    interaction: interakcija
-    self-promotion: samopromocija
-    outro: kraj
-    intro: uvod
-    sponsor: sponzor
+    music offtopic: Druga vrsta glazbe
+    interaction: Interakcija
+    self-promotion: Samopromocija
+    outro: Kraj
+    intro: Uvod
+    sponsor: Sponzor
+    recap: Rekapitulacija
   Skipped segment: Preskočeni segment
   External Player:
     Unsupported Actions:
