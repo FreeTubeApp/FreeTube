@@ -379,6 +379,13 @@ Settings:
       sponzora (standardno je https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviraj blokiranja sponzora
     SponsorBlock Settings: Postavke blokiranja sponzora
+    Skip Options:
+      Auto Skip: Automatsko preskakanje
+      Show In Seek Bar: Pokaži u traci napretka
+      Skip Option: Opcija preskakanja
+      Prompt To Skip: Poziv za preskakanje
+      Do Nothing: Ne čini ništa
+    Category Color: Boja kategorije
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
@@ -389,6 +396,9 @@ Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
     Ask Download Path: Zatraži stazu preuzimanja
+    Download in app: Preuzmi u aplikaciji
+    Open in web browser: Otvori u web-pregledniku
+    Download Behavior: Ponašanje preuzimanja
 About:
   #On About page
   About: 'Informacije'
@@ -841,3 +851,5 @@ Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu
 Downloading failed: Došlo je do problema prilikom preuzimanja „$”
 Downloading has completed: „$” je preuzeto
 Starting download: Početak preuzimanja „$”
+Screenshot Success: Snimka ekrana je spremljena pod „$”
+Screenshot Error: Neuspjela snimka ekrana. $
