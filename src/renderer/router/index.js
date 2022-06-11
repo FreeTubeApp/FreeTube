@@ -14,14 +14,6 @@ import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 
-function isQueryEmpty(query) {
-  return (
-    typeof query === 'undefined' ||
-    query === null ||
-    Object.keys(query).length === 0
-  )
-}
-
 class CustomRouter extends Router {
   push(location) {
     // only navigates if the location is not identical to the current location
