@@ -26,31 +26,30 @@ class CustomRouter extends Router {
   push(location) {
     // only navigates if the location is not identical to the current location
 
+    const currentQueryUSP = new URLSearchParams(router.currentRoute.query)
+    let newPath = ''
+    let newQueryUSP = new URLSearchParams()
+
     if (typeof location === 'string') {
       if (location.includes('?')) {
         const urlParts = location.split('?')
-
-        if (
-          urlParts[0] !== router.currentRoute.path ||
-          new URLSearchParams(urlParts[1]) !==
-            new URLSearchParams(router.currentRoute.query)
-        ) {
-          return super.push(location)
-        }
-      } else if (
-        location !== router.currentRoute.path &&
-        isQueryEmpty(router.currentRoute.query)
-      ) {
-        return super.push(location)
+        newPath = urlParts[0]
+        newQueryUSP = new URLSearchParams(urlParts[1])
+      } else {
+        newPath = location
+        // newQueryUSP already empty
       }
     } else {
-      if (
-        location.path !== router.currentRoute.path &&
-        (isQueryEmpty(location.query) ||
-          location.query !== router.currentRoute.query)
-      ) {
-        return super.push(location)
-      }
+      newPath = location.path
+      newQueryUSP = new URLSearchParams(location.query)
+    }
+
+    const pathsAreDiff = router.currentRoute.path !== newPath
+    // Comparing `URLSearchParams` objects directly will always be different
+    const queriesAreDiff = newQueryUSP.toString() !== currentQueryUSP.toString()
+
+    if (pathsAreDiff || queriesAreDiff) {
+      return super.push(location)
     }
   }
 }
