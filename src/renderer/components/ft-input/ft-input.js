@@ -87,28 +87,6 @@ export default Vue.extend({
       return this.inputData.length > 0
     }
   },
-  watch: {
-    inputDataPresent: function (newVal, oldVal) {
-      if (newVal) {
-        // The button needs to be visible **immediately**
-        // To allow user to see the transition
-        this.clearTextButtonExisting = true
-        // The transition is not rendered if this property is set right after
-        // It's visible
-        setTimeout(() => {
-          this.clearTextButtonVisible = true
-        }, 0)
-      } else {
-        // Hide the button with transition
-        this.clearTextButtonVisible = false
-        // Remove the button after the transition
-        // 0.2s in CSS = 200ms in JS
-        setTimeout(() => {
-          this.clearTextButtonExisting = false
-        }, 200)
-      }
-    }
-  },
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
@@ -136,13 +114,17 @@ export default Vue.extend({
     },
 
     handleClearTextClick: function () {
+      // No action if no input text
+      if (!this.inputDataPresent) { return }
+
       this.inputData = ''
       this.handleActionIconChange()
       this.updateVisibleDataList()
-      this.$emit('input', this.inputData)
+
+      const inputElement = document.getElementById(this.id)
+      inputElement.value = ''
 
       // Focus on input element after text is clear for better UX
-      const inputElement = document.getElementById(this.id)
       inputElement.focus()
     },
 

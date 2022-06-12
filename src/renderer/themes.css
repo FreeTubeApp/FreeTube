@@ -1,4 +1,4 @@
-.light {
+.system[data-system-theme*='light'], .light {
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
   --tertiary-text-color: #757575;
@@ -22,7 +22,7 @@
   --logo-text: url("~../../_icons/textColorSmall.png");
 }
 
-.dark {
+.system[data-system-theme*='dark'], .dark {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #ddd;
   --tertiary-text-color: #999;
@@ -61,7 +61,7 @@
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
     --scrollbar-color: #515151;
     --scrollbar-color-hover: #424242;
-    --side-nav-color: #000000;
+    --side-nav-color: #0f0f0f;
     --side-nav-hover-color: #212121;
     --side-nav-active-color: #303030;
     --search-bar-color: #262626;
@@ -619,6 +619,8 @@
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
   color: var(--primary-text-color);
   background-color: var(--bg-color);
   --red-500: #f44336;

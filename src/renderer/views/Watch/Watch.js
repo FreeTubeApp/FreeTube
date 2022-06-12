@@ -75,7 +75,8 @@ export default Vue.extend({
       playlistId: '',
       timestamp: null,
       playNextTimeout: null,
-      playNextCountDownIntervalId: null
+      playNextCountDownIntervalId: null,
+      pictureInPictureButtonInverval: null
     }
   },
   computed: {
@@ -174,6 +175,25 @@ export default Vue.extend({
           }
           break
       }
+    },
+    activeFormat: function (format) {
+      clearInterval(this.pictureInPictureButtonInverval)
+
+      // only hide/show the button once the player is available
+      this.pictureInPictureButtonInverval = setInterval(() => {
+        if (!this.hidePlayer) {
+          const pipButton = document.querySelector('.vjs-picture-in-picture-control')
+          if (pipButton === null) {
+            return
+          }
+          if (format === 'audio') {
+            pipButton.classList.add('vjs-hidden')
+          } else {
+            pipButton.classList.remove('vjs-hidden')
+          }
+          clearInterval(this.pictureInPictureButtonInverval)
+        }
+      }, 100)
     }
   },
   mounted: function () {
@@ -256,6 +276,12 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: this.channelThumbnail,
+            channelName: this.channelName,
+            channelId: this.channelId
+          })
+
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -310,7 +336,7 @@ export default Vue.extend({
             }
           }
 
-          if ((this.isLive || this.isLiveContent) && !this.isUpcoming) {
+          if ((this.isLive && this.isLiveContent) && !this.isUpcoming) {
             this.enableLegacyFormat()
 
             this.videoSourceList = result.formats.filter((format) => {
@@ -402,8 +428,9 @@ export default Vue.extend({
                   )
 
                   if (!standardLocale.startsWith('en') && noLocaleCaption) {
-                    const baseUrl = result.player_response.captions.playerCaptionsRenderer.baseUrl
-                    this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, baseUrl)
+                    captionTracks.forEach((caption) => {
+                      this.tryAddingTranslatedLocaleCaption(captionTracks, standardLocale, caption.baseUrl)
+                    })
                   }
                 }
 
@@ -540,7 +567,14 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          const channelThumb = result.authorThumbnails[1]
+          this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: channelThumb?.url,
+            channelName: result.author,
+            channelId: result.authorId
+          })
+
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
@@ -1136,6 +1170,13 @@ export default Vue.extend({
           label = `${this.$t('Locale Name')} (translated from English)`
         }
 
+        const indexTranslated = captionTracks.findIndex((item) => {
+          return item.name.simpleText === label
+        })
+        if (indexTranslated !== -1) {
+          return
+        }
+
         if (enCaptionExists) {
           url = new URL(captionTracks[enCaptionIdx].baseUrl)
         } else {
@@ -1240,7 +1281,8 @@ export default Vue.extend({
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
-      'invidiousGetVideoInformation'
+      'invidiousGetVideoInformation',
+      'updateSubscriptionDetails'
     ])
   }
 })

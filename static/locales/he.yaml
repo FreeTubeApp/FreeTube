@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
+  Error Channels: ערוצים עם שגיאות
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -99,12 +100,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: לא
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
   Search bar placeholder: חיפוש ברשימת הנגינה
+  Empty Search Message: אין סרטונים בפלייליסט הזה שעונים לחיפוש שלך
 History:
   # On History Page
   History: 'היסטוריה'
   Watch History: 'היסטוריית צפייה'
   Your history list is currently empty.: 'ההיסטוריה שלך ריקה כרגע.'
   Search bar placeholder: חיפוש בהיסטוריה
+  Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -157,6 +160,7 @@ Settings:
       Dark: 'חשוך'
       Light: 'בהיר'
       Dracula: 'דרקולה'
+      System Default: ברירת המחדל של המערכת
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -222,6 +226,23 @@ Settings:
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עצמת השמע
     Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
     Fast-Forward / Rewind Interval: משך קפיצה / חזרה
+    Max Video Playback Rate: קצב נגינת וידאו מרבי
+    Video Playback Rate Interval: הפרש קצב נגינת וידאו
+    Screenshot:
+      Enable: הפעלת צילום מסך
+      Format Label: תצורת צילום מסך
+      Ask Path: לשאול באיזו תיקייה לשמור
+      File Name Label: תבנית שם קובץ
+      Error:
+        Forbidden Characters: תווים אסורים
+        Empty File Name: שם קובץ ריק
+      Folder Label: תיקיית צילומי מסך
+      Quality Label: איכות צילום מסך
+      Folder Button: בחירת תיקייה
+      File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
+        ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
+        ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
+        ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -354,10 +375,20 @@ Settings:
     Enable SponsorBlock: הפעלת חוסם מממנים
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
       המממנים (ברירת המחדל היא https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: אפשרות דילוג
+      Auto Skip: דילוג אוטומטי
+      Show In Seek Bar: הצגה בסרגל האיתור
+      Do Nothing: לא לעשות כלום
+      Prompt To Skip: לשאול אם לדלג
+    Category Color: צבע קטגוריה
   Download Settings:
     Download Settings: הגדרות הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
     Choose Path: בחירת נתיב
+    Download Behavior: התנהגות הורדה
+    Download in app: הורדה ביישומון
+    Open in web browser: פתיחה בדפדפן
 About:
   #On About page
   About: 'על אודות'
@@ -582,10 +613,12 @@ Video:
   Sponsor Block category:
     outro: סיום
     self-promotion: קידום עצמי
-    interaction: מבוא
+    interaction: אינטראקציה
     sponsor: נותן חסות
     intro: פתיח
     music offtopic: מוזיקה - לא בהקשר
+    filler: ממלא מקום
+    recap: סיכום
   External Player:
     video: סרטון
     playlist: פלייליסט
@@ -691,6 +724,7 @@ Comments:
   From $channelName: מערוץ $channelName
   And others: ואחרים
   Pinned by: ננעץ על ידי
+  Member: חבר
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -725,7 +759,7 @@ Tooltips:
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
       אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube.
-    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לפניות API.
+    Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.
     External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן\
@@ -783,3 +817,5 @@ Downloading has completed: הורדת "$" הסתיימה
 Playing Next Video Interval: הסרטון הבא יתחיל מיד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
+Screenshot Success: צילום המסך נשמר בתור „$”
+Screenshot Error: צילום המסך נכשל. $

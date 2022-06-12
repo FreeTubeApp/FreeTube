@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Español'
+Locale Name: 'español'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -76,6 +76,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
   Load More Videos: Cargar más vídeos
+  Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
   Default: Por defecto
@@ -84,7 +85,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Favoritos'
+Playlists: 'Tus favoritos'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -93,12 +94,15 @@ User Playlists:
     solo muestra los vídeos guardados. En futuras actualizaciones, estos vídeos migrarán
     a la lista de reproducción «Favoritos».
   Search bar placeholder: Buscar en la lista de reproducción
+  Empty Search Message: No hay vídeos en esta lista de reproducción que coincidan
+    con tu búsqueda
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Historial de reproducción'
   Your history list is currently empty.: 'Tu historial está vacío.'
   Search bar placeholder: Buscar en el historial
+  Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -155,6 +159,7 @@ Settings:
       Dark: 'Oscuro'
       Light: 'Claro'
       Dracula: 'Drácula'
+      System Default: Valor predeterminado del sistema
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -223,6 +228,18 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
     Scroll Playback Rate Over Video Player: Cambiar la velocidad de reproducción con
       el ratón
+    Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
+    Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
+    Screenshot:
+      Folder Button: Seleccionar una carpeta
+      Error:
+        Forbidden Characters: Caracteres prohibidos
+        Empty File Name: Nombre de archivo vacío
+      Enable: Habilitar capturas de pantalla
+      Quality Label: Calidad de las capturas de pantalla
+      Format Label: Formato de las capturas de pantalla
+      File Name Label: Patrón de nombre de archivo
+      Folder Label: Carpeta de capturas de pantalla
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -355,7 +372,11 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
       SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
-    SponsorBlock Settings: SponsorBlock
+    SponsorBlock Settings: Ajustes de SponsorBlock
+    Category Color: Color de categoría
+    Skip Options:
+      Show In Seek Bar: Mostrar en la barra de búsqueda
+      Do Nothing: No hacer nada
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -366,6 +387,8 @@ Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
     Choose Path: Elegir ruta
+    Download in app: Descargar en la aplicación
+    Open in web browser: Abrir en el navegador web
 About:
   #On About page
   About: 'Acerca de'
@@ -483,7 +506,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Favoritos'
+    Playlists: 'Playlists'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -596,6 +619,7 @@ Video:
     outro: epílogo
     intro: introducción
     sponsor: patrocinador
+    recap: Recapitulación
   Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
@@ -627,6 +651,12 @@ Video:
     Bitrate: Tasa de bits
     Volume: Volumen
     Mimetype: Tipo de medio
+    Resolution: Resolución
+    Player Dimensions: Dimensiones del reproductor
+    Bandwidth: Ancho de banda
+    Video ID: ID de vídeo
+    Buffered: En búfer
+    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
 Videos:
   #& Sort By
   Sort By:
@@ -703,6 +733,7 @@ Comments:
   From $channelName: de $channelName
   And others: y otros
   Pinned by: Fijado por
+  Member: Miembro
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -810,5 +841,7 @@ External link opening has been disabled in the general settings: Se ha desactiva
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
   enlace?
 Starting download: Inicio de la descarga de «$»
-Downloading has completed: '"$" ha terminado de descargarse'
-Downloading failed: Hubo un problema al descargar "$"
+Downloading has completed: '«$» ha terminado de descargarse'
+Downloading failed: Hubo un problema al descargar «$»
+Screenshot Success: Captura de pantalla guardada como «$»
+Screenshot Error: Captura de pantalla fallida. $

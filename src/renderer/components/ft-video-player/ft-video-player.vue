@@ -7,6 +7,7 @@
       controls
       preload="auto"
       :data-setup="JSON.stringify(dataSetup)"
+      crossorigin="anonymous"
       @touchstart="handleTouchStart"
       @touchend="handleTouchEnd"
     >

@@ -17,8 +17,8 @@ Paste: 'Paste'
 Delete: 'Delete'
 Select all: 'Select all'
 Reload: 'Reload'
-Force Reload: 'Force Reload'
-Toggle Developer Tools: 'Toggle Developer Tools'
+Force Reload: 'Force reload'
+Toggle Developer Tools: 'Toggle developer tools'
 Actual size: 'Actual size'
 Zoom in: 'Zoom in'
 Zoom out: 'Zoom out'
@@ -41,32 +41,32 @@ Search / Go to URL: 'Search / Go to URL'
 Search Filters:
   Search Filters: 'Search Filters'
   Sort By:
-    Sort By: 'Sort By'
-    Most Relevant: 'Most Relevant'
+    Sort By: 'Sort by'
+    Most Relevant: 'Most relevant'
     Rating: 'Rating'
     Upload Date: 'Upload date'
-    View Count: 'View Count'
+    View Count: 'View count'
   Time:
     Time: 'Time'
-    Any Time: 'Any Time'
-    Last Hour: 'Last Hour'
+    Any Time: 'Any time'
+    Last Hour: 'Last hour'
     Today: 'Today'
-    This Week: 'This Week'
-    This Month: 'This Month'
-    This Year: 'This Year'
+    This Week: 'This week'
+    This Month: 'This month'
+    This Year: 'This year'
   Type:
     Type: 'Type'
-    All Types: 'All Types'
+    All Types: 'All types'
     Videos: 'Videos'
     Channels: 'Channels'
     #& Playlists
   Duration:
     Duration: 'Duration'
-    All Durations: 'All Durations'
+    All Durations: 'All durations'
     Short (< 4 minutes): 'Short (< 4 minutes)'
     Long (> 20 minutes): 'Long (> 20 minutes)'
   # On Search Page
-  Search Results: 'Search Results'
+  Search Results: 'Search results'
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'
 # Sidebar
@@ -74,14 +74,15 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptions'
-  Latest Subscriptions: 'Latest Subscriptions'
+  Latest Subscriptions: 'Latest subscriptions'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Your
     Subscription list is currently empty. Start adding subscriptions to see them here.'
   'Getting Subscriptions. Please wait.': 'Getting Subscriptions. Please wait.'
   Refresh Subscriptions: 'Refresh Subscriptions'
-  Load More Videos: Load More Videos
+  Load More Videos: Load more videos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
+  Error Channels: Channels with errors
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -100,12 +101,14 @@ User Playlists:
     saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
   Search bar placeholder: Search in Playlist
+  Empty Search Message: There are no videos in this playlist that match your search
 History:
   # On History Page
   History: 'History'
   Watch History: 'Watch History'
   Your history list is currently empty.: 'Your history list is currently empty.'
   Search bar placeholder: Search in History
+  Empty Search Message: There are no videos in your history that match your search
 Settings:
   # On Settings Page
   Settings: 'Settings'
@@ -160,6 +163,7 @@ Settings:
       Base Theme: 'Base theme'
       Black: 'Black'
       Dark: 'Dark'
+      System Default: 'System Default'
       Light: 'Light'
       Dracula: 'Dracula'
     Main Color Theme:
@@ -227,6 +231,23 @@ Settings:
     Display Play Button In Video Player: Display play button in video player
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
     Scroll Playback Rate Over Video Player: Scroll playback rate over video player
+    Video Playback Rate Interval: Video playback rate interval
+    Max Video Playback Rate: Max video playback rate
+    Screenshot:
+      File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2
+        digits. %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2
+        digits. %T Millisecond 3 digits. %s Video Second. %t Video Millisecond 3 digits.
+        %i Video ID. You can also use \ or / to create subfolders.
+      Error:
+        Forbidden Characters: Forbidden characters
+        Empty File Name: Empty file name
+      Folder Button: Select folder
+      Enable: Enable screenshot
+      Quality Label: Screenshot quality
+      Folder Label: Screenshot folder
+      Format Label: Screenshot format
+      Ask Path: Ask for Save Folder
+      File Name Label: Filename pattern
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -365,10 +386,20 @@ Settings:
       Url (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Enable SponsorBlock
     SponsorBlock Settings: SponsorBlock Settings
+    Skip Options:
+      Skip Option: Skip option
+      Auto Skip: Auto skip
+      Show In Seek Bar: Show in seek bar
+      Prompt To Skip: Prompt to skip
+      Do Nothing: Do nothing
+    Category Color: Category colour
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
+    Download Behavior: Download behaviour
+    Open in web browser: Open in web browser
+    Download in app: Download in app
 About:
   #On About page
   About: About
@@ -574,12 +605,14 @@ Video:
   Save Video: Save Video
   translated from English: translated from English
   Sponsor Block category:
-    music offtopic: music offtopic
-    interaction: interaction
-    self-promotion: self-promotion
-    outro: outro
-    intro: intro
-    sponsor: sponsor
+    music offtopic: Music offtopic
+    interaction: Interaction
+    self-promotion: Self-promotion
+    outro: Outro
+    intro: Intro
+    sponsor: Sponsor
+    recap: Recap
+    filler: Filler
   Skipped segment: Skipped segment
   External Player:
     # $ is replaced with the external player
@@ -694,6 +727,7 @@ Comments:
   Pinned by: Pinned by
   From $channelName: from $channelName
   And others: and others
+  Member: Member
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -789,6 +823,8 @@ Search Bar:
 External link opening has been disabled in the general settings: External link opening
   has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
-Downloading has completed: '"$" has finished downloading'
-Starting download: Starting download of "$"
-Downloading failed: There was an issue downloading "$"
+Downloading has completed: '‘$’ has finished downloading'
+Starting download: Starting download of ‘$’
+Downloading failed: There was an issue downloading ‘$’
+Screenshot Error: Screenshot failed. $
+Screenshot Success: Saved screenshot as ‘$’

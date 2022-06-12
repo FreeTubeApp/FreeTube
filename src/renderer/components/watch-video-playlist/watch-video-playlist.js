@@ -98,6 +98,17 @@ export default Vue.extend({
           break
       }
     }
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('previoustrack', this.playPreviousVideo)
+      navigator.mediaSession.setActionHandler('nexttrack', this.playNextVideo)
+    }
+  },
+  beforeDestroy: function () {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('previoustrack', null)
+      navigator.mediaSession.setActionHandler('nexttrack', null)
+    }
   },
   methods: {
     goToPlaylist: function () {

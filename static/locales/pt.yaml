@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Português'
+Locale Name: 'português'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
     evitar que a sua rede seja bloqueada
+  Error Channels: Canais com erros
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Guias de tendências
@@ -100,12 +101,15 @@ User Playlists:
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
   Search bar placeholder: Procurar na lista de reprodução
+  Empty Search Message: Não há vídeos nesta lista de reprodução que correspondam à
+    sua pesquisa
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'O seu histórico está vazio.'
   Search bar placeholder: Procurar no histórico
+  Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
 Settings:
   # On Settings Page
   Settings: 'Definições'
@@ -160,6 +164,7 @@ Settings:
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
+      System Default: Predefinição do sistema
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -226,6 +231,23 @@ Settings:
     Scroll Volume Over Video Player: Utilizar roda do rato sobre o vídeo para alterar
       o volume
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
+    Max Video Playback Rate: Velocidade máxima de reprodução de vídeos
+    Video Playback Rate Interval: Intervalo da velocidade de reprodução de vídeos
+    Screenshot:
+      Enable: Permitir capturas de ecrã
+      Format Label: Formato das capturas de ecrã
+      Quality Label: Qualidade da captura de ecrã
+      Folder Button: Selecionar pasta
+      File Name Label: Padrão do nome de ficheiro
+      Error:
+        Forbidden Characters: Caracteres proibidos
+        Empty File Name: Nome do ficheiro vazio
+      File Name Tooltip: Pode usar as variáveis abaixo. %Y Ano 4 dígitos. %M Mês 2
+        dígitos. %D Dia 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S Segundo
+        2 dígitos. %T Milissegundos 3 dígitos. %s Vídeo Segundo. %t Vídeo Milissegundo
+        3 dígitos. %i I Vídeo ID. Também pode usar "\" ou "/" para criar subpastas.
+      Folder Label: Pasta das capturas de ecrã
+      Ask Path: Perguntar onde guardar
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Lembrar histórico'
@@ -329,6 +351,13 @@ Settings:
       (Por omissão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ligar SponsorBlock
     SponsorBlock Settings: Definições SponsorBlock
+    Skip Options:
+      Skip Option: Ignorar opção
+      Auto Skip: Ignorar automático
+      Show In Seek Bar: Mostrar na barra de busca
+      Prompt To Skip: Perguntar para ignorar
+      Do Nothing: Não fazer nada
+    Category Color: Cor da categoria
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
@@ -588,12 +617,12 @@ Video:
     video: vídeo
     OpenInTemplate: Abrir com $
   Sponsor Block category:
-    music offtopic: música fora de tópico
-    interaction: interação
-    self-promotion: autopromoção
-    outro: fim
-    intro: início
-    sponsor: patrocínio
+    music offtopic: Música fora de tópico
+    interaction: Interação
+    self-promotion: Auto-promoção
+    outro: Após
+    intro: Introdução
+    sponsor: Patrocinador
   Skipped segment: Secção passada à frente
   translated from English: traduzido do inglês
   Started streaming on: Transmissão iniciada a
@@ -624,6 +653,16 @@ Video:
     player resolution: Janela de visualização
     buffered: Buffered
     Mimetype: Tipo de mídia da Internet
+    Video ID: ID do vídeo
+    Player Dimensions: Dimensões do reprodutor
+    Bitrate: Taxa de bits
+    Volume: Volume
+    Video statistics are not available for legacy videos: As estatísticas de vídeo
+      não estão disponíveis para vídeos mais antigos
+    Resolution: Resolução
+    Bandwidth: Largura de banda
+    Buffered: Em buffer
+    Dropped / Total Frames: Fotogramas perdidos / total de fotogramas
 Videos:
   #& Sort By
   Sort By:
@@ -701,6 +740,7 @@ Comments:
   Pinned by: Fixado por
   And others: e outros
   From $channelName: de $channelName
+  Member: Membro
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -803,3 +843,5 @@ External link opening has been disabled in the general settings: A abertura da l
 Starting download: A descarregar "$"
 Downloading failed: Ouve um problema ao descarregar "$"
 Downloading has completed: '"$" foi descarregado'
+Screenshot Success: Captura de ecrã guardada como "$"
+Screenshot Error: A captura de ecrã falhou. $

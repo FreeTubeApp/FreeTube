@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="dataReady"
     id="app"
     :class="{
       hideOutlines: hideOutlines,
@@ -11,7 +12,6 @@
     <ft-flex-box
       v-if="showUpdatesBanner || showBlogBanner"
       class="flexBox routerView"
-      :class="{ expand: !isOpen }"
     >
       <ft-notification-banner
         v-if="showUpdatesBanner"
@@ -35,7 +35,6 @@
       <RouterView
         ref="router"
         class="routerView"
-        :class="{ expand: !isOpen }"
       />
       <!-- </keep-alive> -->
     </transition>

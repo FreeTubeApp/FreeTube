@@ -74,6 +74,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
+  Error Channels: 有錯誤的頻道
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -88,12 +89,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
   Search bar placeholder: 在播放清單搜尋
+  Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
 History:
   # On History Page
   History: '觀看紀錄'
   Watch History: '觀看紀錄'
   Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
   Search bar placeholder: 在觀看紀錄中搜尋
+  Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -145,6 +148,7 @@ Settings:
       Dark: '深色'
       Light: '淺色'
       Dracula: '德古拉'
+      System Default: 系統預設值
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -211,6 +215,22 @@ Settings:
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
     Scroll Playback Rate Over Video Player: 在影片播放程式上捲動播放速度
+    Max Video Playback Rate: 最大影片播放速率
+    Video Playback Rate Interval: 影片播放速率間隔
+    Screenshot:
+      Enable: 啟用螢幕截圖
+      Format Label: 螢幕截圖格式
+      Quality Label: 螢幕截圖品質
+      Folder Button: 選取資料夾
+      File Name Label: 檔案名稱模式
+      Error:
+        Forbidden Characters: 禁止的字元
+        Empty File Name: 空的檔案名稱
+      Ask Path: 詢問儲存的資料夾
+      Folder Label: 螢幕截圖資料夾
+      File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N
+        為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。您也可以使用 "\"
+        或 "/" 來建立子資料夾。
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -328,6 +348,13 @@ Settings:
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
     SponsorBlock Settings: SponsorBlock 設定
+    Skip Options:
+      Skip Option: 略過選項
+      Auto Skip: 自動略過
+      Show In Seek Bar: 在進度列中顯示
+      Prompt To Skip: 提示略過
+      Do Nothing: 不要做任何事
+    Category Color: 分類色彩
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -338,6 +365,9 @@ Settings:
     Download Settings: 下載設定
     Ask Download Path: 詢問下載路徑
     Choose Path: 選擇路徑
+    Download in app: 在應用程式中下載
+    Open in web browser: 在網路瀏覽器中開啟
+    Download Behavior: 下載行為
 About:
   #On About page
   About: '關於'
@@ -516,6 +546,8 @@ Video:
     outro: 其他
     intro: 介紹
     sponsor: 贊助商
+    recap: 回顧
+    filler: 填充
   Skipped segment: 已跳過的片段
   External Player:
     Unsupported Actions:
@@ -621,6 +653,7 @@ Comments:
   And others: 與其他人
   From $channelName: 來自 $channelName
   Pinned by: 釘選由
+  Member: 成員
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -728,3 +761,5 @@ Are you sure you want to open this link?: 您確定您想要開啟此連結嗎�
 Downloading failed: 下載「$」時發生問題
 Downloading has completed: 「$」已下載結束
 Starting download: 正在開始下載「$」
+Screenshot Success: 已儲存螢幕截圖為 "$"
+Screenshot Error: 螢幕截圖失敗。 $

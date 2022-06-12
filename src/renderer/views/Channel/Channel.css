@@ -2,26 +2,32 @@
   position: relative;
   width: 85%;
   margin: 0 auto 20px;
+  box-sizing: border-box;
 }
 
-.channelBanner {
-  width: 100%;
-  max-height: 200px;
+.channelDetails {
+  padding: 0 0 16px;
 }
 
-.defaultChannelBanner {
+.channelBannerContainer {
+  background: center / cover no-repeat var(--banner-url, transparent);
+  height: 13vw;
+  min-height: 110px;
+  max-height: 32vh;
   width: 100%;
-  max-height: 200px;
-  height:200px;
-  background-color: black;
+}
+
+.channelBannerContainer.default {
   background-image: url("images/defaultBanner.png");
+  background-repeat: repeat;
+  background-size: contain;
 }
 
 .channelInfoContainer {
-  width: 100%;
   position: relative;
   background-color: var(--card-bg-color);
   margin-top: 10px;
+  padding: 0 16px;
 }
 
 .channelInfo {
@@ -142,4 +148,9 @@
   justify-content: center;
   flex-direction: column;
   padding-left: 1em;
+}
+
+.channelLineContainer h1,
+.channelLineContainer p {
+  margin: 0;
 }

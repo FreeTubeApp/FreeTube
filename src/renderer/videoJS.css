@@ -490,6 +490,16 @@ body.vjs-full-window {
   content: url(assets/img/close_theatre.svg)
 }
 
+.vjs-icon-screenshot {
+  margin-top: 3px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.vjs-icon-screenshot::before {
+  content: url(assets/img/camera.svg)
+}
+
 @media only screen and (max-width: 1350px) {
   .videoPlayer .vjs-button-theatre {
     display: none

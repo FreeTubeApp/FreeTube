@@ -36,12 +36,12 @@ export default Vue.extend({
       return this.$store.getters.getEnableSearchSuggestions
     },
 
-    searchSettings: function () {
-      return this.$store.getters.getSearchSettings
+    searchInput: function () {
+      return this.$refs.searchInput.$refs.input
     },
 
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
+    searchSettings: function () {
+      return this.$store.getters.getSearchSettings
     },
 
     barColor: function () {
@@ -69,7 +69,7 @@ export default Vue.extend({
     },
 
     backwardText: function () {
-      return this.$t('Backward')
+      return this.$t('Back')
     },
 
     newWindowText: function () {
@@ -195,6 +195,10 @@ export default Vue.extend({
 
       // Close the filter panel
       this.showFilters = false
+    },
+
+    focusSearch: function () {
+      this.searchInput.focus()
     },
 
     getSearchSuggestionsDebounce: function (query) {

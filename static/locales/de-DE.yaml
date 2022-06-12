@@ -79,6 +79,7 @@ Subscriptions:
     Profil hat eine große Anzahl von Abonnements.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
   Load More Videos: Mehr Videos laden
+  Error Channels: Kanäle mit Fehlern
 Trending:
   Trending: Trends
   Trending Tabs: Trendtabs
@@ -98,12 +99,15 @@ User Playlists:
     die Arbeiten abgeschlossen sind, werden alle Videos, die sich derzeit hier befinden,
     in eine Wiedergabeliste „Favoriten“ migriert.
   Search bar placeholder: In Wiedergabeliste suchen
+  Empty Search Message: Es gibt keine Videos in dieser Wiedergabeliste, die deiner
+    Suche entsprechen
 History:
   # On History Page
   History: Verlauf
   Watch History: Wiedergabeverlauf
   Your history list is currently empty.: Dein Verlauf ist aktuell leer.
   Search bar placeholder: Im Verlauf suchen
+  Empty Search Message: Es gibt keine Videos in Ihrem Verlauf, die deiner Suche entsprechen
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -159,6 +163,7 @@ Settings:
       Dark: Dunkel
       Light: Hell
       Dracula: Dracula
+      System Default: Systemvoreinstellung
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Themas
       Red: Rot
@@ -225,6 +230,24 @@ Settings:
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Video-Player
+    Video Playback Rate Interval: Intervall für die Videowiedergaberate
+    Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
+    Screenshot:
+      Enable: Bildschirmfotos aktivieren
+      Format Label: Bildschirmfotoformat
+      Quality Label: Bildschirmfotoqualität
+      Ask Path: Nach dem Ordner fragen
+      Folder Label: Bildschirmfoto-Ordner
+      Folder Button: Ordner auswählen
+      File Name Label: Dateinamen-Muster
+      Error:
+        Forbidden Characters: Verbotene Zeichen
+        Empty File Name: Leerer Dateiname
+      File Name Tooltip: Sie können die folgenden Variablen verwenden. %Y Jahr 4-stellig.
+        %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
+        %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
+        Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
+        Unterordner zu erstellen.
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -367,6 +390,13 @@ Settings:
       URL (Standard ist https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviere SponsorBlock
     SponsorBlock Settings: SponsorBlock-Einstellungen
+    Skip Options:
+      Skip Option: Option überspringen
+      Auto Skip: Automatisch überspringen
+      Show In Seek Bar: In Suchleiste anzeigen
+      Prompt To Skip: Aufforderung zum Überspringen
+      Do Nothing: Nichts tun
+    Category Color: Kategoriefarbe
   External Player Settings:
     Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
     External Player: Externer Player
@@ -377,6 +407,9 @@ Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladen-Pfad fragen
     Choose Path: Pfad wählen
+    Download Behavior: Download-Verhalten
+    Download in app: In der Anwendung herunterladen
+    Open in web browser: Im Webbrowser öffnen
 About:
   #On About page
   About: Über
@@ -569,12 +602,13 @@ Video:
   Save Video: Video speichern
   translated from English: Aus dem Englischen übersetzt
   Sponsor Block category:
-    music offtopic: Musik (Offtopic)
+    music offtopic: Musik Offtopic
     interaction: Interaktion
     self-promotion: Eigenwerbung
     outro: Outro
     intro: Intro
     sponsor: Sponsor
+    recap: Rekapitulation
   Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In $ öffnen
@@ -697,6 +731,7 @@ Comments:
   From $channelName: von $channelName
   And others: und andere
   Pinned by: Angeheftet von
+  Member: Mitglied
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -846,3 +881,5 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: Das Herunterladen von $ ist abgeschlossen
 Starting download: Das Herunterladen von $ hat begonnen
 Downloading failed: Es gab ein Problem beim Herunterladen von $
+Screenshot Success: Bildschirmfoto gespeichert als „$“
+Screenshot Error: Bildschirmfoto fehlgeschlagen. $

@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Català'
+Locale Name: 'català'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -104,12 +104,15 @@ User Playlists:
     acabat, tots els vídeos que hi ha actualment es migraran a una llista de reproducció
     de "favorites".
   Search bar placeholder: Cerca a la llista de reproducció
+  Empty Search Message: No hi ha cap vídeo en aquesta llista de reproducció que coincideixi
+    amb la teva cerca
 History:
   # On History Page
   History: 'Historial'
   Watch History: 'Veure l''historial'
   Your history list is currently empty.: 'El teu historial està actualment buit.'
   Search bar placeholder: Cerca a l'historial
+  Empty Search Message: No hi ha cap vídeo a l'historial que coincideixi amb la cerca
 Settings:
   # On Settings Page
   Settings: 'Configuració'
@@ -165,6 +168,7 @@ Settings:
       Dark: 'Fosc'
       Light: 'Clar'
       Dracula: 'Dràcula'
+      System Default: Valor per defecte del sistema
     Main Color Theme:
       Main Color Theme: 'Tema principal del color'
       Red: 'Vermell'
@@ -231,6 +235,9 @@ Settings:
     Next Video Interval: Interval de vídeo següent
     Scroll Playback Rate Over Video Player: Desplaça la velocitat de reproducció sobre
       el reproductor de vídeo
+    Fast-Forward / Rewind Interval: Interval d'Avançament / Retrocés Ràpid
+    Max Video Playback Rate: Velocitat màxima de reproducció de vídeo
+    Video Playback Rate Interval: Interval de velocitat de reproducció de vídeo
   Privacy Settings:
     Privacy Settings: 'Configuració de la Privacitat'
     Remember History: 'Recorda l''historial'
@@ -251,7 +258,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Recupera els canals de continguts des de l''RSS'
     Manage Subscriptions: 'Gestiona les subscripcions'
   Data Settings:
     Data Settings: 'Configuració de les dades'
@@ -268,7 +275,7 @@ Settings:
     Import History: 'Importa l''historial'
     Export History: 'Exporta l''historial'
     Profile object has insufficient data, skipping item: 'Aquest perfil no té dades
-      suficients, saltant l''objecte'
+      suficients, ometent l''objecte'
     All subscriptions and profiles have been successfully imported: 'Totes les subscripcions
       i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han
@@ -369,7 +376,7 @@ Settings:
   Download Settings:
     Choose Path: Escull el camí
     Download Settings: Configuració de les descàrregues
-    Ask Download Path: Demana un camí de descàrrega
+    Ask Download Path: Demaneu la ruta de descàrrega
 About:
   #On About page
   About: 'Sobre'
@@ -419,178 +426,237 @@ About:
   FreeTube Wiki: FreeTube Wiki
 Profile:
   Profile Select: 'Selecciona perfil'
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
-  Subscription List: ''
-  Other Channels: ''
-  $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  All Channels: 'Tots els canals'
+  Profile Manager: 'Gestor de Perfils'
+  Create New Profile: 'Crea un Nou Perfil'
+  Edit Profile: 'Editar el perfil'
+  Color Picker: 'Selector de colors'
+  Custom Color: 'Color personalitzat'
+  Profile Preview: 'Vista prèvia del perfil'
+  Create Profile: 'Crear un perfil'
+  Update Profile: 'Actualitzar el perfil'
+  Make Default Profile: 'Establir un perfil per defecte'
+  Delete Profile: 'Suprimir el perfil'
+  Are you sure you want to delete this profile?: 'Estàs segur que vols suprimir aquest
+    perfil?'
+  All subscriptions will also be deleted.: 'També se suprimiran totes les subscripcions.'
+  Profile could not be found: 'No s''ha pogut trobar el perfil'
+  Your profile name cannot be empty: 'El nom del perfil no pot estar buit'
+  Profile has been created: 'S''ha creat el perfil'
+  Profile has been updated: 'S''ha actualitzat el perfil'
+  Your default profile has been set to $: 'El vostre perfil predeterminat s''ha establert
+    a $'
+  Removed $ from your profiles: 'S''ha eliminat $ dels teus perfils'
+  Your default profile has been changed to your primary profile: 'El perfil per defecte
+    s''ha canviat al perfil principal'
+  $ is now the active profile: '$ és ara el perfil actiu'
+  Subscription List: 'Lista de Subcripcions'
+  Other Channels: 'Altres Canals'
+  $ selected: '$ seleccionat'
+  Select All: 'Selecciona Tot'
+  Select None: 'Selecciona Ningú'
+  Delete Selected: 'Esborra Seleccionats'
+  Add Selected To Profile: 'Afegeix Seleccionats al Perfil'
+  No channel(s) have been selected: 'Cap canal s''ha seleccionat'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'Aquest és el teu perfil principal. Estàs segur que vols esborrar els canals seleccionats?
+    Els mateixos canals seran esborrats de qualsevol perfil en que es troben.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Estàs
+    segur que vols esborrar els canals seleccionats? Açò no esborrarà el canal de
+    qualsevol altre perfil.'
 #On Channel Page
   Profile Settings: Configuració del perfil
+  Profile Filter: Filtre de perfil
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Subscriptor'
+  Subscribers: 'Subscriptors'
+  Subscribe: 'Subscriu-te'
+  Unsubscribe: 'Des-subscriu-te'
+  Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les
+    teves subscripcions'
+  Removed subscription from $ other channel(s): 'Elimina subscripció de altres $ canals(s)'
+  Added channel to your subscriptions: 'Afegeix canal a les teves subscripcions'
+  Search Channel: 'Cerca Canal'
+  Your search results have returned 0 results: 'Els resultats de la teva cerca han
+    retornat 0 resultats'
+  Sort By: 'Ordena Per'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Vídeos'
+    This channel does not currently have any videos: 'Aquest canal no té actualment
+      cap vídeo'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Més Nou'
+      Oldest: 'Més Vell'
+      Most Popular: 'Més Popular'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Llistes De Reproducció'
+    This channel does not currently have any playlists: 'Aquest canal no té actualment
+      cap llista de reproducció'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Últim Vídeo Afegit'
+      Newest: 'Més Nou'
+      Oldest: 'Més Vell'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Sobre'
+    Channel Description: 'Descripció del Canal'
+    Featured Channels: 'Canals Destacats'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Mark As Watched: 'Marca Com A Vist'
+  Remove From History: 'Esborra De L''Historial'
+  Video has been marked as watched: 'El vídeo ha sigut marcat com a vist'
+  Video has been removed from your history: 'El vídeo ha sigut eliminat del teu historial'
+  Open in YouTube: 'Obri a YouTube'
+  Copy YouTube Link: 'Copia Enllaç de YouTube'
+  Open YouTube Embedded Player: 'Obri Reproductor de YouTube Incrustat'
+  Copy YouTube Embedded Player Link: 'Copia el Enllaç del Reproductor de YouTube Incrustat'
+  Open in Invidious: 'Obri a Invidious'
+  Copy Invidious Link: 'Copia Enllaç d''Invidious'
+  View: 'Visualitza'
+  Views: 'Visualitzacions'
+  Loop Playlist: 'Llista de reproducció en bucle'
+  Shuffle Playlist: 'Llista de reproducció en aleatori'
+  Reverse Playlist: 'Llista de reproducció invertida'
+  Play Next Video: 'Reprodueix el vídeo següent'
+  Play Previous Video: 'Reprodueix el vídeo anterior'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
+  Watching: 'Visualitzant'
+  Watched: 'Visualitzat'
+  Autoplay: 'Reproducció Automàtica'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  Live: 'Directe'
+  Live Now: 'Ara en directe'
+  Live Chat: 'Xat en directe'
+  Enable Live Chat: 'Activa el xat en directe'
+  Live Chat is currently not supported in this build.: 'No s’admet el xat en directe
+    en aquesta construcció.'
+  'Chat is disabled or the Live Stream has ended.': 'El Xat està desactivat o la Reproducció
+    En Directe ha finalitzat.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'El Xat En Directe
+    està activat. Els missatges del Xat apareixeran ací una vegada s''envien.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'El
+    Xat En Directe està actualment no soportat per la API d''Indivious. Es requereix
+    una connexió directa a YouTube.'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
+    Jan: 'Gen'
+    Feb: 'Feb'
+    Mar: 'Mar'
+    Apr: 'Abr'
+    May: 'Maig'
+    Jun: 'Juny'
+    Jul: 'Jul'
+    Aug: 'Ago'
+    Sep: 'Set'
+    Oct: 'Oct'
+    Nov: 'Nov'
+    Dec: 'Des'
+    Second: 'Segon'
+    Seconds: 'Segons'
+    Minute: 'Minut'
+    Minutes: 'Minuts'
+    Hour: 'Hora'
+    Hours: 'Hores'
+    Day: 'Dia'
+    Days: 'Dies'
+    Week: 'Setmana'
+    Weeks: 'Setmanes'
+    Month: 'Mes'
+    Months: 'Mesos'
+    Year: 'Any'
+    Years: 'Anys'
+    Ago: 'Fa'
+    Upcoming: 'S''estrena el'
+  Published on: 'Publicat el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % fa'
 #& Videos
+  Audio:
+    High: Alta
+    Best: Millor
+    Low: Baixa
+    Medium: Mitjana
+  Started streaming on: Retransmissió iniciada el
+  Sponsor Block category:
+    interaction: interacció
+    sponsor: patrocinador
+    music offtopic: música fora de tema
+    intro: introducció
+    outro: conclusió
+    self-promotion: autopromoció
+  Skipped segment: Segment saltat
+  External Player:
+    Unsupported Actions:
+      starting video at offset: començant el vídeo al òfset
+      setting a playback rate: establint una velocitat de reproducció
+    OpenInTemplate: Obri a $
+    OpeningTemplate: Obrint $ a %…
+    video: vídeo
+    playlist: llista de reproducció
+    UnsupportedActionTemplate: '$ no soporta: %'
+  Save Video: Desa el Vídeo
+  Premieres on: S'estrena el
+  audio only: només àudio
+  Video has been saved: El vídeo s'ha desat
+  Video has been removed from your saved list: El vídeo ha sigut eliminat de la teva
+    llista desada
+  Open Channel in YouTube: Obri Canal a YouTube
+  Copy YouTube Channel Link: Copia Enllaç del Canal de YouTube
+  Open Channel in Invidious: Obri Canal a Invidious
+  Copy Invidious Channel Link: Copia Enllaç del Canal d'Invidious
+  Starting soon, please refresh the page to check again: Començant prompte, si us
+    plau recàrrega la pàgina per comprovar-ho de nou
+  Download Video: Descàrrega El Vídeo
+  video only: només vídeo
+  Streamed on: Retransmès en directe el
+  translated from English: traduït de l'anglès
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Més Nou'
+    Oldest: 'Més Vell'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Visualitza La Llista De Reproducció Sencera'
+  Videos: 'Vídeos'
+  View: 'Visualitza'
+  Views: 'Visualitzacions'
+  Last Updated On: 'Última Actualització'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Comparteix La Llista De Reproducció'
+    Copy YouTube Link: 'Copia Enllaç De YouTube'
+    Open in YouTube: 'Obri a YouTube'
+    Copy Invidious Link: 'Copia Enllaç d''Indivious'
+    Open in Invidious: 'Obri a Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+Toggle Theatre Mode: 'Conmuta El Mode Cinema'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Canvia Els Formats De Vídeo'
+  Use Dash Formats: 'Utilitza Formats DASH'
+  Use Legacy Formats: 'Utilitza els formats llegats'
+  Use Audio Formats: 'Utilitza els formats d’àudio'
+  Dash formats are not available for this video: 'Els formats DASH no són disponibles
+    per aquest vídeo'
+  Audio formats are not available for this video: 'Els formats d''audio no són disponibles
+    per aquest vídeo'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Comparteix Vídeo'
+  Include Timestamp: 'Afegeix Marca De Temps'
+  Copy Link: 'Copia l''Enllaç'
+  Open Link: 'Obri l''Enllaç'
+  Copy Embed: 'Copia Incrustat'
+  Open Embed: 'Obri Incrustat'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'URL d''Invidious copiada al porta-retalls'
+  Invidious Embed URL copied to clipboard: 'URL d''Incrustació d''Invidious copiada
+    al porta-retalls'
+  YouTube URL copied to clipboard: 'URL de YouTube copiada al porta-retalls'
+  YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
+    porta-retalls'
 Mini Player: ''
 Comments:
   Comments: ''
@@ -624,8 +690,8 @@ Playing next video in 5 seconds.  Click to cancel: ''
 Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
-Yes: ''
-No: ''
+Yes: 'Sí'
+No: 'No'
 More: Més
 Open New Window: Obre una finestra nova
 Search Bar:

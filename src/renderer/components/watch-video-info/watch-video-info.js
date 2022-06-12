@@ -118,12 +118,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      formatTypeLabel: 'VIDEO FORMATS',
-      formatTypeValues: [
-        'dash',
-        'legacy',
-        'audio'
-      ]
+      formatTypeLabel: 'VIDEO FORMATS'
     }
   },
   computed: {
@@ -175,23 +170,33 @@ export default Vue.extend({
       return this.inFavoritesPlaylist ? 'base favorite' : 'base'
     },
 
-    downloadLinkNames: function () {
+    downloadLinkOptions: function () {
       return this.downloadLinks.map((download) => {
-        return download.label
+        return {
+          label: download.label,
+          value: download.url
+        }
       })
     },
 
-    downloadLinkValues: function () {
-      return this.downloadLinks.map((download) => {
-        return download.url
-      })
+    downloadBehavior: function () {
+      return this.$store.getters.getDownloadBehavior
     },
 
-    formatTypeNames: function () {
+    formatTypeOptions: function () {
       return [
-        this.$t('Change Format.Use Dash Formats').toUpperCase(),
-        this.$t('Change Format.Use Legacy Formats').toUpperCase(),
-        this.$t('Change Format.Use Audio Formats').toUpperCase()
+        {
+          label: this.$t('Change Format.Use Dash Formats').toUpperCase(),
+          value: 'dash'
+        },
+        {
+          label: this.$t('Change Format.Use Legacy Formats').toUpperCase(),
+          value: 'legacy'
+        },
+        {
+          label: this.$t('Change Format.Use Audio Formats').toUpperCase(),
+          value: 'audio'
+        }
       ]
     },
 
@@ -409,15 +414,20 @@ export default Vue.extend({
     },
 
     handleDownload: function (index) {
-      const url = this.downloadLinkValues[index]
-      const linkName = this.downloadLinkNames[index]
+      const selectedDownloadLinkOption = this.downloadLinkOptions[index]
+      const url = selectedDownloadLinkOption.value
+      const linkName = selectedDownloadLinkOption.label
       const extension = this.grabExtensionFromUrl(linkName)
 
-      this.downloadMedia({
-        url: url,
-        title: this.title,
-        extension: extension
-      })
+      if (this.downloadBehavior === 'open') {
+        this.openExternalLink(url)
+      } else {
+        this.downloadMedia({
+          url: url,
+          title: this.title,
+          extension: extension
+        })
+      }
     },
 
     grabExtensionFromUrl: function (url) {
