@@ -54,13 +54,13 @@
   padding: 0 4px;
 }
 
-.buttonContainer {
+.unsubscribeContainer {
   flex-grow: 0;
   display: flex;
   align-items: center;
 }
 
-.btn {
+.unsubscribeContainer .btn {
   padding: 5px 10px;
 }
 

@@ -53,7 +53,7 @@
           v-if="!hideText"
           class="navLabel"
         >
-          {{ $t('Channels.Channels') }}
+          {{ $t("Channels.Channels") }}
         </p>
       </div>
       <div

@@ -9,6 +9,7 @@
         :show-action-button="false"
         :spellcheck="false"
         @input="handleInput"
+        @clear="query = ''"
       />
       <ft-flex-box
         v-if="activeSubscriptionList.length === 0"
@@ -19,11 +20,11 @@
       </ft-flex-box>
       <template v-else>
         <ft-flex-box class="count">
-          {{ $t('Channels.Count').replace('$', channelsList.length) }}
+          {{ $t('Channels.Count').replace('$', channelList.length) }}
         </ft-flex-box>
         <ft-flex-box class="channels">
           <div
-            v-for="channel in channelsList"
+            v-for="channel in channelList"
             :key="channel.key"
             class="channel"
           >
@@ -32,6 +33,7 @@
                 class="channelThumbnail"
                 :src="thumbnailURL(channel.thumbnail)"
                 @click="goToChannel(channel.id)"
+                @error.once="updateThumbnail(channel)"
               >
             </div>
             <div
@@ -41,18 +43,25 @@
             >
               {{ channel.name }}
             </div>
-            <div class="buttonContainer">
+            <div class="unsubscribeContainer">
               <ft-button
                 :label="$t('Channels.Unsubscribe')"
                 background-color="var(--search-bar-color)"
                 text-color="var(--secondary-text-color)"
-                @click="unsubscribeChannel(channel.id, channel.name)"
+                @click="handleUnsubscribeButtonClick(channel)"
               />
             </div>
           </div>
         </ft-flex-box>
       </template>
     </ft-card>
+    <ft-prompt
+      v-if="showUnsubscribePrompt"
+      :label="$t('Channels.Unsubscribe Prompt').replace('$', channelToUnsubscribe.name)"
+      :option-names="unsubscribePromptNames"
+      :option-values="unsubscribePromptValues"
+      @click="handleUnsubscribePromptClick"
+    />
   </div>
 </template>
 
