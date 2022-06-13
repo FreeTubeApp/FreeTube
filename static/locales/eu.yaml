@@ -64,126 +64,180 @@ Search Filters:
     Duration: 'Iraupena'
     All Durations: 'Edozein iraupen'
     Short (< 4 minutes): 'Laburra (<4 minutu)'
-    Long (> 20 minutes): ''
+    Long (> 20 minutes): 'Luzea (> 20 minutu)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
+  Search Results: 'Emaitzak bilatu'
+  Fetching results. Please wait: 'Emaitzak ekartzen. Itxaron faborez'
+  Fetch more results: 'Emaitza gehiago ekarri'
+  There are no more results for this search: 'Ez da emaitza gehiagorik bilaketa honentzat'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
-More: ''
+  Subscriptions: 'Harpidetzak'
+  Latest Subscriptions: 'Azken harpidetzak'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Honako
+    profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
+    harpidetzen zerrenda hutsik da. Has zaitez harpidetzak gehitzen hemen ikusteko'
+  'Getting Subscriptions. Please wait.': 'Harpidetzak eskuratzen. Itxaron mesedez.'
+  Refresh Subscriptions: 'Harpidetzak freskatu'
+  Load More Videos: 'Bideo gehiago kargatu'
+  Error Channels: Akatsak dituzten kateak
+More: 'Gehiago'
 Trending:
-  Trending: ''
-Most Popular: ''
-Playlists: ''
+  Trending: 'Joerak'
+  Default: Lehenetsia
+  Music: Musika
+  Gaming: Bideo jokoak
+  Movies: Filmak
+  Trending Tabs: Lehenetsitako erlaitzak
+Most Popular: 'Ikusienak'
+Playlists: 'Erreprodukzio zerrendak'
 User Playlists:
-  Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
+  Your Playlists: 'Zure erreprodukzio zerrendak'
+  Playlist Message: 'Orrialde honek ez ditu guztiz funtzionatzen duten erreprodukzio-zerrendak
+    islatzen. Gorde dituzun edo gogoko dituzun bideoak bakarrik zerrendatzen ditu.
+    Lana amaitzen denean, hemen dauden bideo guztiak "Gogokoak" erreprodukzio-zerrenda
+    batera migratuko dira.'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Gordetako
+    bideoak hutsik daude. Egin klik bideoaren izkinan den "gorde" botoian hemen zerrendatzeko'
+  Search bar placeholder: Bilatu Erreprodukzio-zerrendan
+  Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
+    bat datorren bideorik
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Historikoa'
+  Watch History: 'Historikoa ikusi'
+  Your history list is currently empty.: 'Zure historia-zerrenda hutsik dago une honetan.'
+  Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
+  Search bar placeholder: Bilatu historikoan
 Settings:
   # On Settings Page
-  Settings: ''
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  Settings: 'Ezarpenak'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikazioa
+    berrabiarazi behar da aldaketek eragina izan dezaten. Berrabiarazi eta aldaketa
+    aplikatu?'
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    General Settings: 'Ezarpen orokorrak'
+    Check for Updates: 'Eguneraketak bilatu'
+    Check for Latest Blog Posts: 'Egiaztatu blogeko azken argitalpenak'
+    Fallback to Non-Preferred Backend on Failure: 'Hutsegitean, hobetsi gabeko backend-era
+      itzuli'
+    Enable Search Suggestions: 'Gaitu bilaketa-iradokizunak'
+    Default Landing Page: 'Lehenetsitako hasierako orria'
+    Locale Preference: 'Tokiko hobespena'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'API Backend hobetsia'
+      Local API: 'Tokiko API'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Bideo-ikuspegi mota'
+      Grid: 'Lauki-sarea'
+      List: 'Zerrenda'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
+      Thumbnail Preference: 'Miniatura-hobespena'
+      Default: 'Lehenetsia'
+      Beginning: 'Hasiera'
+      Middle: 'Erdian'
+      End: 'Bukaera'
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+    View all Invidious instance information: 'Invidious instantzia guztien informazioa
+      ikusi'
+    Region for Trending: 'Joeren eskualdea'
         #! List countries
+    The currently set default instance is $: Une honetan ezarritako instantzia lehenetsia
+      $ da
+    Current Invidious Instance: Oraingo Invidious instantzia
+    External Link Handling:
+      External Link Handling: Kanpo esteken kudeaketa
+      Open Link: Ireki esteka
+      Ask Before Opening Link: Esteka ireki aurretik galdetu
+      No Action: Ekintzarik ez
+    Set Current Instance as Default: Ezarri Uneko Instantzia lehenetsi gisa
+    System Default: Sistemak lehenetsitakoa
+    No default instance has been set: Ez da instantzia lehenetsirik ezarri
+    Current instance will be randomized on startup: Uneko instantzia ausaz banatuko
+      da abiaraztean
+    Clear Default Instance: Garbitu lehenetsitako instantzia
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
+    Theme Settings: 'Gaien ezarpenak'
+    Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
+    Expand Side Bar by Default: 'Zabaldu alboko barra lehenespenez'
+    Disable Smooth Scrolling: 'Desgaitu korritze leuna'
+    UI Scale: 'Erabiltzaile interfazearen eskala'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Oinarrizko Gaia'
+      Black: 'Beltza'
+      Dark: 'Iluna'
+      Light: 'Argia'
+      Dracula: Drakula
+      System Default: Sistemak lehenetsia
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Oinarrizko koloreen gaia'
+      Red: 'Gorria'
+      Pink: 'Larrosa'
+      Purple: 'Ubela'
+      Deep Purple: 'Ubel bizia'
+      Indigo: 'Indigo kolorea'
+      Blue: 'Urdina'
+      Light Blue: 'Urdin argia'
+      Cyan: 'Zian'
+      Teal: 'Berde-urdina'
+      Green: 'Berdea'
+      Light Green: 'Berde argia'
+      Lime: 'Lima'
+      Yellow: 'Horia'
+      Amber: 'Anbar-kolorekoa'
+      Orange: 'Laranja'
+      Deep Orange: 'Laranja bizia'
+      Dracula Pink: Drakula larrosa
+      Dracula Cyan: Drakula zian
+      Dracula Orange: Drakula laranja
+      Dracula Purple: Drakula ubela
+      Dracula Red: Drakula gorria
+      Dracula Green: Drakula berdea
+      Dracula Yellow: Drakula horia
+    Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
+    Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Player Settings: 'Erreprodukzioaren ezarpenak'
+    Force Local Backend for Legacy Formats: 'Behartu backend lokala Legacy formatuentzat'
+    Play Next Video: 'Hurrengo bideoa erreproduzitu'
+    Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
+    Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
+    Proxy Videos Through Invidious: 'Invidious bitarteko Proxy bideoak'
+    Autoplay Playlists: 'Erreprodukzio automatikoan diren erreprodukzio zerrendak'
+    Enable Theatre Mode by Default: 'Gaitu Antzerki modua lehenespenez'
     Playlist Next Video Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Default Volume: 'Lehenetsitako bolumena'
+    Default Playback Rate: 'Lehenetsitako erreprodukzio tasa'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Lehenetsitako bideo formatua'
+      Dash Formats: 'DASH formatuak'
+      Legacy Formats: 'Legacy formatuak'
+      Audio Formats: 'Audio formatuak'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Lehenetsitako kalitatea'
+      Auto: 'Automatikoa'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Fast-Forward / Rewind Interval: Aurrera / atzera egiteko tartea
+    Scroll Volume Over Video Player: Aldatu bolumena bideo erreproduzitzailean
+    Next Video Interval: Hurrengo bideo tartea
+    Screenshot:
+      Enable: Bidea eman pantaila argazkiei
+    Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
+    Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
+    Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
+    Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
