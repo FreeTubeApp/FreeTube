@@ -83,7 +83,7 @@ function cacheFirstFetch(event) {
   event.respondWith(
     fromCache(event.request).then(
       function (response) {
-        // The response was found in the cache so we responde with it and update the entry
+        // The response was found in the cache so we respond with it and update the entry
 
         // This is where we call the server to get the newest version of the
         // file to use the next time we show view
