@@ -147,7 +147,8 @@ function runApp() {
       session.defaultSession.cookies.set({
         url: url,
         name: 'CONSENT',
-        value: 'YES+'
+        value: 'YES+',
+        sameSite: 'no_restriction'
       })
     })
 
