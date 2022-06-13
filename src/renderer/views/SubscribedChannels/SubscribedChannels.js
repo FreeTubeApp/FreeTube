@@ -25,7 +25,7 @@ export default Vue.extend({
         url: /(.+=\w{1})\d+(.+)/,
         ivToIv: /^.+(ggpht.+)/,
         ivToYt: /^.+ggpht\/(.+)/,
-        ytToIv: /^.+ggpht\.com\/(ytc\/)?([^/]+)/
+        ytToIv: /^.+ggpht\.com\/(.+)/
       },
       thumbnailSize: 176,
       ytBaseURL: 'https://yt3.ggpht.com',
@@ -162,7 +162,7 @@ export default Vue.extend({
       let newURL = originalURL
       if (originalURL.indexOf('ggpht.com') > -1) {
         if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht/$1$2`)
+          newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht/$1`)
         }
       } else {
         if (this.backendPreference === 'local') { // IV to YT
