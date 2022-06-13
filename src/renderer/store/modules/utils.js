@@ -181,8 +181,8 @@ const actions = {
     }
   },
 
-  replaceDownloadFilename(_, titleOriginal) {
-    let titleNew = titleOriginal
+  replaceFilenameForbiddenChars(_, filenameOriginal) {
+    let filenameNew = filenameOriginal
     let forbiddenChars = {}
     switch (process.platform) {
       case 'win32':
@@ -209,13 +209,13 @@ const actions = {
     }
 
     for (const forbiddenChar in forbiddenChars) {
-      titleNew = titleNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
+      filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
     }
-    return titleNew
+    return filenameNew
   },
 
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
-    const fileName = `${await dispatch('replaceDownloadFilename', title)}.${extension}`
+    const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
     const usingElectron = rootState.settings.usingElectron
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
@@ -248,6 +248,17 @@ const actions = {
 
       folderPath = response.filePath
     } else {
+      if (!fs.existsSync(folderPath)) {
+        try {
+          fs.mkdirSync(folderPath, { recursive: true })
+        } catch (err) {
+          console.error(err)
+          this.showToast({
+            message: err
+          })
+          return
+        }
+      }
       folderPath = path.join(folderPath, fileName)
     }
 
