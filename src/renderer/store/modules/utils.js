@@ -326,7 +326,7 @@ const actions = {
       if (platform === 'win32') {
         // https://www.boost.org/doc/libs/1_78_0/libs/filesystem/doc/portability_guide.htm
         // https://stackoverflow.com/questions/1976007/
-        const noForbiddenChars = ['<', '>', ':', '"', '/', '|'].every(char => {
+        const noForbiddenChars = ['<', '>', ':', '"', '/', '|', '?', '*'].every(char => {
           return parsedString.indexOf(char) === -1
         })
         if (!noForbiddenChars) {
