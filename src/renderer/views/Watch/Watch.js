@@ -1119,7 +1119,7 @@ export default Vue.extend({
           interval: Number(interval) // How long one image is used
         })
       })
-      // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
+      // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STORYBOARD ARRAY ELEMENTS
       this.buildVTTFileLocally(storyboardArray[1]).then(async (results) => {
         const userData = await this.getUserDataPath()
         let fileLocation
