@@ -234,93 +234,153 @@ Settings:
     Next Video Interval: Hurrengo bideo tartea
     Screenshot:
       Enable: Bidea eman pantaila argazkiei
+      Error:
+        Empty File Name: Fitxategi izena hutsik
+        Forbidden Characters: Debekatutako karaktereak
+      Format Label: Pantaila-argazkiaren formatua
+      Quality Label: Pantaila-argazkiaren kalitatea
+      Ask Path: Eskatu Gordetzeko karpeta
+      Folder Label: Pantaila-argazkien karpeta
+      Folder Button: Hautatu karpeta
+      File Name Label: Fitxategi-izenen eredua
     Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Automatically Remove Video Meta Files: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
+    Remember History: 'Historikoa oroitu'
+    Save Watched Progress: 'Ikusitakoaren progresioa gorde'
+    Automatically Remove Video Meta Files: 'Bideo metafitxategiak ezabatu automatikoki'
+    Clear Search Cache: 'Bilaketen cachea ezabatu'
+    Are you sure you want to clear out your search cache?: 'Ziur al zaude bilaketa-cachea
+      garbitu nahi duzula?'
+    Search cache has been cleared: 'Bilaketa cachea ezabatu berri da'
+    Remove Watch History: 'Historikoa ikusteko aukera ezabatu'
+    Are you sure you want to remove your entire watch history?: 'Ziur al zaude ikusitakoaren
+      historiko osoa ezabatu nahi duzula?'
+    Watch history has been cleared: 'Ikusitakoaren historikoa ezabatu berri da'
+    Remove All Subscriptions / Profiles: 'Harpidetza / Profil guztiak ezabatu'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ziur
+      al zaude zure profil eta harpidetza guztiak ezabatu nahi dituzula? Ezingo duzu
+      atzera egin.'
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Subscription Settings: 'Harpidetzen ezarpenak'
+    Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
+    Fetch Feeds from RSS: 'RSS jarioak eskuratu'
+    Manage Subscriptions: 'Harpidetzak kudeatu'
   Distraction Free Settings:
-    Distraction Free Settings: ''
-    Hide Video Views: ''
-    Hide Video Likes And Dislikes: ''
-    Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
-    Hide Recommended Videos: ''
-    Hide Trending Videos: ''
-    Hide Popular Videos: ''
-    Hide Playlists: ''
-    Hide Live Chat: ''
-    Hide Active Subscriptions: ''
+    Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
+    Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
+    Hide Video Likes And Dislikes: 'Bideoen atsegiteak eta desatsegiteak ezkutatu'
+    Hide Channel Subscribers: 'Kanalaren harpidedun kopurua ezkutatu'
+    Hide Comment Likes: 'Iruzkinen atsegiteak ezkutatu'
+    Hide Recommended Videos: 'Gomendatutako bideoak ezkutatu'
+    Hide Trending Videos: 'Bideo ikusienak ezkutatu'
+    Hide Popular Videos: 'Bideo ospetsuak ezkutatu'
+    Hide Playlists: 'Erreprodukzio zerrendak ezkutatu'
+    Hide Live Chat: 'Zuzeneko txata ezkutatu'
+    Hide Active Subscriptions: 'Harpidetza aktiboak ezkutatu'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Check for Legacy Subscriptions: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
-    Manage Subscriptions: ''
+    Data Settings: 'Datuen ezarpenak'
+    Select Import Type: 'Hautatu Inportazio mota'
+    Select Export Type: 'Hautatu esportazio mota'
+    Import Subscriptions: 'Harpidetzak inportatu'
+    Import FreeTube: 'Freetube inportatu'
+    Import YouTube: 'Youtubetik inportatu'
+    Import NewPipe: 'Newpipetik inportatu'
+    Check for Legacy Subscriptions: 'Legacy harpidetzak bilatu'
+    Export Subscriptions: 'Harpidetzak esportatu'
+    Export FreeTube: 'Freetubera esportatu'
+    Export YouTube: 'Youtubera esportatu'
+    Export NewPipe: 'Newpipera esportatu'
+    Import History: 'Historikoa inportatu'
+    Export History: 'Historikoa esportatu'
+    Profile object has insufficient data, skipping item: 'Profileko objektuak ez du
+      datu nahikorik, elementutik ateratzen'
+    All subscriptions and profiles have been successfully imported: 'Profil eta harpidetza
+      guztiak ongi inportatu dira'
+    All subscriptions have been successfully imported: 'Harpidetza guztiak ongi inportatu
+      dira'
+    One or more subscriptions were unable to be imported: 'Zenbait harpidetza ezin
+      izan dira inportatu'
+    Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
+    This might take a while, please wait: 'Baliteke denbora pixka bat behar izatea,
+      itxaron mesedez'
+    Invalid history file: 'Historia fitxategi baliogabea'
+    Subscriptions have been successfully exported: 'Harpidetzak ongi esportatu dira'
+    History object has insufficient data, skipping item: 'Historiako objektuak ez
+      du datu nahikorik, elementutik ateratzen'
+    All watched history has been successfully imported: 'Ikusitakoaren historikoa
+      ongi inportatu da'
+    All watched history has been successfully exported: 'Ikusitakoaren historikoa
+      ongi esportatu da'
+    Unable to read file: 'Ezin da fitxategia irakurri'
+    Unable to write file: 'Ezin da fitxategia idatzi'
+    Unknown data key: 'Datu-gako ezezaguna'
+    How do I import my subscriptions?: 'Nola inporta ditzaket nire harpidetzak?'
+    Manage Subscriptions: 'Harpidetzak kudeatu'
+    Import Playlists: Erreprodukzio zerrendak inportatu
+    Export Playlists: Erreprodukzio zerrendak esportatu
+    All playlists has been successfully imported: Erreprodukzio zerrenda guztiak ongi
+      inportatu dira
+    All playlists has been successfully exported: Erreprodukzio zerrenda guztiak ongi
+      esportatu dira
+    Playlist insufficient data: Ez da datu nahikorik "$" erreprodukzio zerrendarentzat,
+      elementutik ateratzen
   Proxy Settings:
-    Proxy Settings: ''
-    Enable Tor / Proxy: ''
-    Proxy Protocol: ''
-    Proxy Host: ''
-    Proxy Port Number: ''
-    Clicking on Test Proxy will send a request to: ''
-    Test Proxy: ''
-    Your Info: ''
-    Ip: ''
-    Country: ''
-    Region: ''
-    City: ''
-    Error getting network information. Is your proxy configured properly?: ''
+    Proxy Settings: 'Proxy-aren ezarpenak'
+    Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
+    Proxy Protocol: 'Proxy protokoloa'
+    Proxy Host: 'Proxy ostalaria'
+    Proxy Port Number: 'Proxy portu zenbakia'
+    Clicking on Test Proxy will send a request to: 'Test Proxy-n klik eginez gero,
+      eskaera bat bidaliko da'
+    Test Proxy: 'Proxy-a frogatu'
+    Your Info: 'Zure informazioa'
+    Ip: 'Ip'
+    Country: 'Herrialdea'
+    Region: 'Eskualdea'
+    City: 'Hiria'
+    Error getting network information. Is your proxy configured properly?: 'Errore
+      bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta
+      al dago?'
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena
+      egin
+    External Player Settings: Kanpoko erreproduzitzailearen ezarpenak
+    External Player: Kanpoko erreproduzitzailea
+    Custom External Player Executable: Lehenetsitako kanpo erreproduzitzailea exekutagarria
+    Custom External Player Arguments: Lehenetsitako kanpo erreproduzitzailea argudioak
+  Download Settings:
+    Download Settings: Deskargen ezarpenak
+    Ask Download Path: Deskargaren ibilbidea galdetu
+    Choose Path: Ibilbidea hautatu
+    Download Behavior: Deskargen portaera
+    Open in web browser: Nabigatzailean ireki
+    Download in app: Aplikazioetan deskargatu
+  SponsorBlock Settings:
+    Skip Options:
+      Prompt To Skip: Saltatzeko abisua
+      Show In Seek Bar: Erakutsi Bilaketen barran
+      Do Nothing: Ez egin ezer
+      Skip Option: Aukera saltatu
+      Auto Skip: Saltatze automatikoa
+    Category Color: Kolore kategoria
+    Notify when sponsor segment is skipped: Jakinarazi babesleen segmentua saltatzen
+      denean
+    Enable SponsorBlock: Babesleak blokeatzea ahalbidetu
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko
+      API Url (lehenetsia https://sponsor.ajay.app da)
+    SponsorBlock Settings: Babesleak blokeatzeko ezarpenak
 About:
   #On About page
-  About: ''
-  Beta: ''
-  Source code: ''
-  Licensed under the AGPLv3: ''
-  View License: ''
-  Downloads / Changelog: ''
+  About: 'Honi buruz'
+  Beta: 'Beta'
+  Source code: 'Kode iturria'
+  Licensed under the AGPLv3: 'AGPLv3 lizentziapean'
+  View License: 'Lizentzia ikusi'
+  Downloads / Changelog: 'Deskargak / Aldaketen erregistroa'
   GitHub releases: ''
   Help: ''
   FreeTube Wiki: ''
