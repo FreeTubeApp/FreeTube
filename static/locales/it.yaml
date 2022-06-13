@@ -512,9 +512,9 @@ Video:
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia collegamento YouTube'
-  Open YouTube Embedded Player: 'Apri lettore YouTube incorporato'
+  Open YouTube Embedded Player: 'Apri con lettore YouTube incorporato'
   Copy YouTube Embedded Player Link: 'Copia collegamento del lettore YouTube incorporato'
-  Open in Invidious: 'Apri in Invidious'
+  Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia collegamento Invidious'
   View: 'Vista'
   Views: 'Visualizzazioni'
@@ -585,9 +585,9 @@ Video:
   video only: solo video
   Download Video: Scarica il video
   Copy Invidious Channel Link: Copia collegamento del canale Invidious
-  Open Channel in Invidious: Apri il canale su Invidious
+  Open Channel in Invidious: Apri il canale con Invidious
   Copy YouTube Channel Link: Copia collegamento del canale YouTube
-  Open Channel in YouTube: Apri il canale in YouTube
+  Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
   Video has been removed from your saved list: Il video è stato rimosso dalla tua
@@ -660,7 +660,7 @@ Playlist:
     Copy YouTube Link: 'Copia collegamento YouTube'
     Open in YouTube: 'Apri con YouTube'
     Copy Invidious Link: 'Copia collegamento Invidious'
-    Open in Invidious: 'Apri in Invidious'
+    Open in Invidious: 'Apri con Invidious'
 
 # On Video Watch Page
 #* Published
@@ -680,8 +680,8 @@ Share:
   Share Video: 'Condividi video'
   Copy Link: 'Copia collegamento'
   Open Link: 'Apri collegamento'
-  Copy Embed: 'Copia codice da Incorporare'
-  Open Embed: 'Apri codice da Incorporare'
+  Copy Embed: 'Copia codice da incorporare'
+  Open Embed: 'Apri codice da incorporare'
   # On Click
   Invidious URL copied to clipboard: 'Collegamento a Invidious copiato negli appunti'
   Invidious Embed URL copied to clipboard: 'Collegamento a Invidious da incorporare
