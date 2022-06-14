@@ -129,7 +129,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'API Backend hobetsia'
       Local API: 'Tokiko API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious API-a'
     Video View Type:
       Video View Type: 'Bideo-ikuspegi mota'
       Grid: 'Lauki-sarea'
@@ -480,87 +480,134 @@ Channel:
     Featured Channels: 'Nabarmendutako kanalak'
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Save Video: ''
-  Video has been saved: ''
-  Video has been removed from your saved list: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  Open Channel in YouTube: ''
-  Copy YouTube Channel Link: ''
-  Open Channel in Invidious: ''
-  Copy Invidious Channel Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Remove From History: 'Historikotik ezabatu'
+  Video has been marked as watched: 'Bideoa ikusia gisa ezarri da'
+  Video has been removed from your history: 'Bideoa zure historikotik ezabatu egin
+    da'
+  Save Video: 'Gorde bideoa'
+  Video has been saved: 'Bideoa ongi gorde da'
+  Video has been removed from your saved list: 'Bideoa gordetakoen zerrendatik kendu
+    da'
+  Open in YouTube: 'Youtuben ireki'
+  Copy YouTube Link: 'Youtube-ren esteka kopiatu'
+  Open YouTube Embedded Player: 'Youtuberen erreproduzitzaile integratua ireki'
+  Copy YouTube Embedded Player Link: 'Youtuberen erreproduzitzaile integratuaren esteka
+    kopiatu'
+  Open in Invidious: 'Invidious-en ireki'
+  Copy Invidious Link: 'Invidious-en esteka kopiatu'
+  Open Channel in YouTube: 'Kanala Youtube-n ireki'
+  Copy YouTube Channel Link: 'Youtubeko kanalaren esteka kopiatu'
+  Open Channel in Invidious: 'Kanala Invidious-en ireki'
+  Copy Invidious Channel Link: 'Invidious-eko kanalaren esteka kopiatu'
+  View: 'Ikusi'
+  Views: 'Ikustaldiak'
+  Loop Playlist: 'etengabeko erreprodukzio zerrenda'
+  Shuffle Playlist: 'Nahasketa erreprodukzio zerrenda'
+  Reverse Playlist: 'Alderantzizko erreprodukzio zerrenda'
+  Play Next Video: 'Hurrengo bideoa ikusi'
+  Play Previous Video: 'Aurreko bideoa ikusi'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Ikusten'
+  Watched: 'Ikusitakoak'
+  Autoplay: 'Automatikoki ikusi'
+  Starting soon, please refresh the page to check again: 'Laster hasiko da, mesedez,
+    freskatu orria berriro egiaztatzeko'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
+  Live: 'Zuzenekoak'
+  Live Now: 'Uneko zuzenekoak'
+  Live Chat: 'Zuzenekoaren txata'
+  Enable Live Chat: 'Zuzeneko txata aktibatu'
+  Live Chat is currently not supported in this build.: 'Zuzeneko txata ez da oraindik
+    onartzen konpilazio honetan.'
+  'Chat is disabled or the Live Stream has ended.': 'Txata desgaituta dago edo zuzeneko
+    igorpena amaitu da.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Zuzeneko txata
+    gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Zuzeneko
+    txata ez da onartzen Invidious APIarekin. Beharrezkoa da  YouTube-ra zuzenean
+    konektatzea.'
+  Download Video: 'Bideoa deskargatu'
+  video only: 'Bideoa soilik'
+  audio only: 'Audioa soilik'
   Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
+    Low: 'Eskasa'
+    Medium: 'Erdi-mailakoa'
+    High: 'Altua'
+    Best: 'Onena'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
-  Streamed on: ''
-  Started streaming on: ''
-  translated from English: ''
+    Jan: 'Urtarrila'
+    Feb: 'Otsaila'
+    Mar: 'Martxoa'
+    Apr: 'Apirila'
+    May: 'Maiatza'
+    Jun: 'Ekaina'
+    Jul: 'Uztaila'
+    Aug: 'Abuztua'
+    Sep: 'Iraila'
+    Oct: 'Urria'
+    Nov: 'Azaroa'
+    Dec: 'Abendua'
+    Second: 'Segundua'
+    Seconds: 'Segundoak'
+    Minute: 'Minutua'
+    Minutes: 'Minutuak'
+    Hour: 'Ordua'
+    Hours: 'Orduak'
+    Day: 'Eguna'
+    Days: 'Egunak'
+    Week: 'Astea'
+    Weeks: 'Asteak'
+    Month: 'Hilabetea'
+    Months: 'Hilabeteak'
+    Year: 'Urtea'
+    Years: 'Urteak'
+    Ago: 'Duela'
+    Upcoming: 'Estreinaldiak'
+  Published on: 'Noiz argitaratua'
+  Streamed on: 'Noiz zuzenean emana'
+  Started streaming on: 'Noiz hasi zen zuzenekoa'
+  translated from English: 'Ingelesetik itzulia'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'Duela $ %'
 #& Videos
+  External Player:
+    Unsupported Actions:
+      opening playlists: erreprodukzio zerrendak irekitzen
+      shuffling playlists: erreprodukzio zerrendak nahasten
+      setting a playback rate: erreprodukzio tasa ezarri
+      reversing playlists: erreprodukzio zerrendak alderantzizkatzen
+      starting video at offset: hasierako bideoa offset moduan
+      opening specific video in a playlist (falling back to opening the video): erreprodukzio
+        zerrenda batean bideoa irekitzen (bideoa berriz ere irekitzen)
+      looping playlists: erreprodukzio zerrendak etengabe erreproduzitzen
+    OpenInTemplate: $-an irekia
+    video: bideoa
+    OpeningTemplate: $ irekitzen %-an...
+    UnsupportedActionTemplate: '$-k ez du onartzen: %'
+    playlist: erreprodukzio zerrenda
+  Stats:
+    Video ID: Bideoaren identifikatzailea
+    Bitrate: biten tasa
+    Volume: Bolumena
+    Bandwidth: Banda zabalera
+    Buffered: Bufferera igota
+    Video statistics are not available for legacy videos: Bideoen estatistikak ez
+      daude eskuragarri legacy bideoentzat
+    Resolution: Bereizmena
+    Player Dimensions: Erreproduzitzailearen neurriak
+    Dropped / Total Frames: Bidalitako / Guztira Frame-ak
+    Mimetype: MIME mota
+  Sponsor Block category:
+    music offtopic: Gaiaz kanpoko musika
+    interaction: Elkarrekintza
+    sponsor: Babeslea
+    outro: Bukaera
+    self-promotion: Autosustapena
+    recap: Laburpen
+    filler: Betegarria
+    intro: Sarrera
+  Skipped segment: Saltatu egin da segmentua
+  Premieres on: Estreinaldiak
 Videos:
   #& Sort By
   Sort By:
