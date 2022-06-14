@@ -34,7 +34,7 @@
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
-          @timeupdate="updateCurrentChapter"
+          v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
           v-if="!isLoading && isUpcoming"
