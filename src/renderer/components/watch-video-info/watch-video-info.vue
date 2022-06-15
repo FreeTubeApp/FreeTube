@@ -114,7 +114,7 @@
           @click="handleFormatChange"
         />
         <ft-share-button
-          v-if="!hideShare"
+          v-if="!hideSharingActions"
           :id="id"
           :get-timestamp="getTimestamp"
           :playlist-id="playlistId"

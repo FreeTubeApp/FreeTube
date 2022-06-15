@@ -107,7 +107,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-description
-        v-if="!isLoading && !hideDescription"
+        v-if="!isLoading && !hideVideoDescription"
         :published="videoPublished"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"

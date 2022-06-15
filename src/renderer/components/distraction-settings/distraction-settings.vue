@@ -39,16 +39,16 @@
           @change="updateHideActiveSubscriptions"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Description')"
+          :label="$t('Settings.Distraction Free Settings.Hide Video Description')"
           :compact="true"
-          :default-value="hideDescription"
-          @change="updateHideDescription"
+          :default-value="hideVideoDescription"
+          @change="updateHideVideoDescription"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Share')"
+          :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
           :compact="true"
-          :default-value="hideShare"
-          @change="updateHideShare"
+          :default-value="hideSharingActions"
+          @change="updateHideSharingActions"
         />
       </div>
       <div class="switchColumn">

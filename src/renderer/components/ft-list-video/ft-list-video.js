@@ -117,8 +117,8 @@ export default Vue.extend({
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
 
-    hideShare: function() {
-      return this.$store.getters.getHideShare
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
     },
 
     dropdownOptions: function () {
@@ -131,7 +131,7 @@ export default Vue.extend({
           value: 'history'
         }
       )
-      if (!this.hideShare) {
+      if (!this.hideSharingActions) {
         options.push(
           {
             type: 'divider'

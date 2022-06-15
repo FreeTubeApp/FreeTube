@@ -140,8 +140,8 @@ export default Vue.extend({
     hideComments: function () {
       return this.$store.getters.getHideComments
     },
-    hideDescription: function () {
-      return this.$store.getters.getHideDescription
+    hideVideoDescription: function () {
+      return this.$store.getters.getHideVideoDescription
     },
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly

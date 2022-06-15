@@ -126,8 +126,8 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    hideShare: function() {
-      return this.$store.getters.getHideShare
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
     },
 
     hideUnsubscribeButton: function() {
