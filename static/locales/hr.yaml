@@ -78,6 +78,7 @@ Subscriptions:
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
   Load More Videos: Učitaj još videa
+  Error Channels: Kanali s greškama
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -228,6 +229,22 @@ Settings:
     Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
     Video Playback Rate Interval: Interval brzine reprodukcije videa
     Max Video Playback Rate: Maksimalna brzina reprodukcije videa
+    Screenshot:
+      Enable: Aktiviraj snimanje ekrana
+      Format Label: Format snimke ekrana
+      Quality Label: Kvaliteta snimke ekrana
+      Error:
+        Forbidden Characters: Zabranjeni znakovi
+        Empty File Name: Prazno ime datoteke
+      Folder Label: Mapa snimke ekrana
+      Folder Button: Odaberi mapu
+      Ask Path: Zatraži mapu za spremanje
+      File Name Label: Format imena datoteke
+      File Name Tooltip: Možeš koristiti sljedeće varijable. %Y godina 4 znamenke.
+        %M mjesec 2 znamenke. %D dan 2 znamenke. %H sat 2 znamenke. %N minuta 2 znamenke.
+        %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
+        videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
+        podmapa.
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -362,6 +379,13 @@ Settings:
       sponzora (standardno je https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviraj blokiranja sponzora
     SponsorBlock Settings: Postavke blokiranja sponzora
+    Skip Options:
+      Auto Skip: Automatsko preskakanje
+      Show In Seek Bar: Pokaži u traci napretka
+      Skip Option: Opcija preskakanja
+      Prompt To Skip: Poziv za preskakanje
+      Do Nothing: Ne čini ništa
+    Category Color: Boja kategorije
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
@@ -372,6 +396,9 @@ Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
     Ask Download Path: Zatraži stazu preuzimanja
+    Download in app: Preuzmi u aplikaciji
+    Open in web browser: Otvori u web-pregledniku
+    Download Behavior: Ponašanje preuzimanja
 About:
   #On About page
   About: 'Informacije'
@@ -601,12 +628,14 @@ Video:
   Save Video: Spremi video
   translated from English: prevedeno iz engleskog
   Sponsor Block category:
-    music offtopic: druga vrsta glazbe
-    interaction: interakcija
-    self-promotion: samopromocija
-    outro: kraj
-    intro: uvod
-    sponsor: sponzor
+    music offtopic: Druga vrsta glazbe
+    interaction: Interakcija
+    self-promotion: Samopromocija
+    outro: Kraj
+    intro: Uvod
+    sponsor: Sponzor
+    recap: Rekapitulacija
+    filler: Dodatni materijal
   Skipped segment: Preskočeni segment
   External Player:
     Unsupported Actions:
@@ -822,3 +851,5 @@ Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu
 Downloading failed: Došlo je do problema prilikom preuzimanja „$”
 Downloading has completed: „$” je preuzeto
 Starting download: Početak preuzimanja „$”
+Screenshot Success: Snimka ekrana je spremljena pod „$”
+Screenshot Error: Neuspjela snimka ekrana. $

@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
+  Error Channels: ערוצים עם שגיאות
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -227,6 +228,21 @@ Settings:
     Fast-Forward / Rewind Interval: משך קפיצה / חזרה
     Max Video Playback Rate: קצב נגינת וידאו מרבי
     Video Playback Rate Interval: הפרש קצב נגינת וידאו
+    Screenshot:
+      Enable: הפעלת צילום מסך
+      Format Label: תצורת צילום מסך
+      Ask Path: לשאול באיזו תיקייה לשמור
+      File Name Label: תבנית שם קובץ
+      Error:
+        Forbidden Characters: תווים אסורים
+        Empty File Name: שם קובץ ריק
+      Folder Label: תיקיית צילומי מסך
+      Quality Label: איכות צילום מסך
+      Folder Button: בחירת תיקייה
+      File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
+        ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
+        ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
+        ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -359,10 +375,20 @@ Settings:
     Enable SponsorBlock: הפעלת חוסם מממנים
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
       המממנים (ברירת המחדל היא https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: אפשרות דילוג
+      Auto Skip: דילוג אוטומטי
+      Show In Seek Bar: הצגה בסרגל האיתור
+      Do Nothing: לא לעשות כלום
+      Prompt To Skip: לשאול אם לדלג
+    Category Color: צבע קטגוריה
   Download Settings:
     Download Settings: הגדרות הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
     Choose Path: בחירת נתיב
+    Download Behavior: התנהגות הורדה
+    Download in app: הורדה ביישומון
+    Open in web browser: פתיחה בדפדפן
 About:
   #On About page
   About: 'על אודות'
@@ -587,10 +613,12 @@ Video:
   Sponsor Block category:
     outro: סיום
     self-promotion: קידום עצמי
-    interaction: מבוא
+    interaction: אינטראקציה
     sponsor: נותן חסות
     intro: פתיח
     music offtopic: מוזיקה - לא בהקשר
+    filler: ממלא מקום
+    recap: סיכום
   External Player:
     video: סרטון
     playlist: פלייליסט
@@ -789,3 +817,5 @@ Downloading has completed: הורדת "$" הסתיימה
 Playing Next Video Interval: הסרטון הבא יתחיל מיד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
+Screenshot Success: צילום המסך נשמר בתור „$”
+Screenshot Error: צילום המסך נכשל. $

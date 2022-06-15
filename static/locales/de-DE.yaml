@@ -407,6 +407,9 @@ Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladen-Pfad fragen
     Choose Path: Pfad wählen
+    Download Behavior: Download-Verhalten
+    Download in app: In der Anwendung herunterladen
+    Open in web browser: Im Webbrowser öffnen
 About:
   #On About page
   About: Über
