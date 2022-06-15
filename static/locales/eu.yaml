@@ -243,6 +243,11 @@ Settings:
       Folder Label: Pantaila-argazkien karpeta
       Folder Button: Hautatu karpeta
       File Name Label: Fitxategi-izenen eredua
+      File Name Tooltip: Hurrengo aldagaiak balia ditzakezu. %U Urtea 4 digitu. %H
+        Hilabetea 2 digitu. %E Eguna 2 digitu. %O Ordua 2 digitu. %M Minutu 2 digitu.
+        %S segundo 2 digitu. %T milisegundo 3 digitu. %s Bideoaren segundoa. %t Bideoaren
+        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea. "\" edo "/" baliatu
+        ahal dituzu azpikarpetak sortzeko.
     Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
     Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
@@ -611,109 +616,187 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Berriena'
+    Oldest: 'Zaharrena'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
+  Videos: 'Bideoak'
+  View: 'Ikusi'
+  Views: 'Ikustaldiak'
+  Last Updated On: 'Azkenengoz eguneratua'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Erreprodukzio-zerrenda partekatu'
+    Copy YouTube Link: 'Youtube-ko esteka kopiatu'
+    Open in YouTube: 'Youtube-n ireki'
+    Copy Invidious Link: 'Invidious-eko esteka kopiatu'
+    Open in Invidious: 'Invidious-en ireki'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+  Playlist: Erreprodukzio-zerrenda
+Toggle Theatre Mode: 'Aldatu Antzerki modura'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Bideoen formatuak aldatu'
+  Use Dash Formats: 'DASH formatuak erabili'
+  Use Legacy Formats: 'Legacy formatuak erabili'
+  Use Audio Formats: 'Audio formatuak erabili'
+  Dash formats are not available for this video: 'DASH formatuak ez dira eskuragarri
+    bideo honentzat'
+  Audio formats are not available for this video: 'Audio formatuak ez dira eskuragarri
+    bideo honentzat'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Bideoa partekatu'
+  Include Timestamp: 'Timestamp erantsi'
+  Copy Link: 'Esteka kopiatu'
+  Open Link: 'Esteka ireki'
+  Copy Embed: 'Kopiatu integratuta'
+  Open Embed: 'Integratuta ireki'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious-eko URL-a arbelean itsatsi da'
+  Invidious Embed URL copied to clipboard: 'Invidious-eko URL integratua arbelera
+    itsatsi da'
+  Invidious Channel URL copied to clipboard: 'Invidious-eko kanalaren URL-a arbelera
+    itsatsi da'
+  YouTube URL copied to clipboard: 'Youtube-ko URL-a arbelean itsatsi da'
+  YouTube Embed URL copied to clipboard: 'Youtube-ko URL integratua arbelean itsatsi
+    da'
+  YouTube Channel URL copied to clipboard: 'Youtube-ko kanalaren URL-a arbelean itsatsi
+    da'
 
-Mini Player: ''
+Mini Player: 'Erreproduzitzaile txikia'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
+  Comments: 'Iruzkinak'
+  Click to View Comments: 'Klikatu iruzkinak ikustearren'
+  Getting comment replies, please wait: 'Iruzkinen erantzunak eskuratzen. Itxaron
+    mesedez'
+  There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
+  Show Comments: 'Iruzkinak erakutsi'
+  Hide Comments: 'Iruzkinak ezkutatu'
+  Sort by: 'Honen arabera sailkatuta'
+  Top comments: 'Iruzkin nagusiak'
+  Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-Up Next: ''
+  View: 'Ikusi'
+  Hide: 'Ezkutatu'
+  Replies: 'Erantzunak'
+  Reply: 'Erantzun'
+  There are no comments available for this video: 'Ez da iruzkin eskuragarririk bideo
+    honentzat'
+  Load More Comments: 'Iruzkin gehiago kargatu'
+  No more comments available: 'Iruzkin eskuragarri gehiagorik ez'
+  Member: Kide
+  Show More Replies: Erantzun gehiago erakutsi
+  From $channelName: $kanalIzenetik
+  And others: eta bestelakoak
+  Pinned by: Honengatik ainguratuta
+Up Next: 'Hurrengoa'
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen backend-a.
+      Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari
+      bat behar du konektatzeko.'
+    Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren
+      bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen
+      ordezko metodo gisa, posible denean.'
+    Thumbnail Preference: 'FreeTube-ko miniatura guztiak bideoaren fotograma batengatik
+      ordezkatuko dira lehenetsitako irudi txikiarekin ordez.'
+    Invidious Instance: 'API deientzat Individious-eko instantzia, zeinetara Freetube
+      konektatuko den.'
+    Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun
+      herrialdeko joerako bideoak hautatzeko. Youtube-k ez ditu onartzen bistaratzen
+      diren herrialde guztiak.'
+    External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin\
+      \ den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako\
+      \ nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Force Local Backend for Legacy Formats: 'Soilik funtzionatzen du Individious-en
+      APIa zure lehenetsitakoa denean. Aukera dagoenean, tokiko APIa eta azken honek
+      bidalitako legacy formatuak ibiliko dira, Individious-ek bidalitakoak baino.
+      Lagungarria da herrialdeek ezarritako mugen ondorioz Individious-eko bideoak
+      ezin direnean ikusi.'
+    Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
+      da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
+      du.'
+    Default Video Format: 'Erabiliko diren formatuak ezarri bideo bat erreproduzitzerakoan.
+      DASH formatuek kalitate handiagoak onartzen dituzte. Bestalde, Legacy formatuak
+      720 puntutara mugatuta badaude ere banda zabalera gutxiago kontsumitzen dute.
+      Audio formatuak audio fluxuak baino ez dira.'
+    Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol
+      tekla sakatu eta mantendu (Komando tekla MAC-etan) eta saguaren gurpila aurrera
+      eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu
+      eta mantendu (Komando tekla MAC-etan) eta ondoren saguaren ezkerreko botoia
+      sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan
+      aldaketarik egin ez bada).
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
+      beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
+      izateaz gain, IP-en blokeoak saihesten ditu. Aldiz, zuzenekoaren egoeraren edo
+      bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
   Privacy Settings:
-    Remove Video Meta Files: ''
+    Remove Video Meta Files: 'Gaituta dagoenean, FreeTube-k automatikoki ezabatzen
+      ditu bideoen erreprodukzioan sortutako metafitxategiak, bistaratze orria ixten
+      denean.'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing Next Video Interval: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+  External Player Settings:
+    Custom External Player Executable: Lehentasunez, Freetube-k uste izango du hautatutako
+      kanpo erreproduzitzailea aurkitu dezakeela PATH ingurune aldagaiari esker. Beharrezkoa
+      balitz, ohiko PATH-a ezarri ahalko litzateke.
+    DefaultCustomArgumentsTemplate: "(Lehenetsia: '$')"
+    Ignore Warnings: Jakinarazpenak kendu, uneko kanpo erreproduzitzaileak uneko ekintza
+      onartzen ez duenean (esaterako, alderantzizko erreprodukzio zerrendak, etab.).
+    External Player: Kanpo erreproduzitzaile bat hautatuz gero, bideoa edo erreproduzkio
+      zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan.
+    Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak,
+      puntu eta komaz bereizita (';'), kanpoko erreproduzitzailera pasatzea nahi duzu.
+Local API Error (Click to copy): 'Tokiko API-ak huts egin du (klikatu kopiatzeko)'
+Invidious API Error (Click to copy): 'Individious-eko APIak huts egin du (klikatu
+  kopiatzeko)'
+Falling back to Invidious API: 'Individious-eko APIra itzultzen'
+Falling back to the local API: 'Tokiko APIra itzultzen'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo
+  hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean
+  erabilgarri ez dagoelako gerta daiteke.'
+Subscriptions have not yet been implemented: 'Harpidetzak ez dira oraindik aktibatu'
+Loop is now disabled: 'Etengabeko erreprodukzioa desaktibatu egin da'
+Loop is now enabled: 'Etengabeko ereprodukzioa aktibatu egin da'
+Shuffle is now disabled: 'Erreprodukzioen nahasketak desaktibatu egin dira'
+Shuffle is now enabled: 'Erreprodukzioen nahasketak aktibatu egin dira'
+The playlist has been reversed: 'Erreprodukzio zerrenda alderantzizkatua izan da'
+Playing Next Video: 'Hurrengo bideoa erreproduzitzen'
+Playing Previous Video: 'Aurreko bideoa erreproduzitzen'
+Playing Next Video Interval: 'Denbora gutxi barru hurrengo bideoa erreproduzituko
+  da. Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen.
+  Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen.
+  Klikatu deuseztatzeko.'
+Canceled next video autoplay: 'Hurrengo bideoa automatikoki erreproduzituko da'
+'The playlist has ended.  Enable loop to continue playing': 'Erreprodukzio zerrenda
+  bukatu da. Etengabeko erreprodukzioa aktibatu erreproduzitzen jarraitzeko'
 
-Yes: ''
-No: ''
+Yes: 'Bai'
+No: 'Ez'
 Search Bar:
   Clear Input: Sarrera garbitu
 Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
 Open New Window: Leiho berria ireki
+Default Invidious instance has been set to $: Lehenetsitako Individious-eko instantzia
+  $ gisa ezarri da
+Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia
+  ezabatu egin da
+External link opening has been disabled in the general settings: Kanpo estekak irekitzea
+  desaktibatu egin da ezarpen orokorretan
+Downloading has completed: '"$" deskargatu egin da'
+Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
+  ezin da aplikazioan ireki
+Hashtags have not yet been implemented, try again later: Etiketak ez dira oraindik
+  aktibatu, berriz ere saiatu zaitez beranduago
+Downloading failed: Akats bat gertatu da "$" deskargatzerakoan
+Screenshot Success: Pantaila-argazkia gode da "$" gisa
+Screenshot Error: Pantaila-argazkiak huts egin du. $
+Starting download: '"$"-ren deskarga abiatzen'
