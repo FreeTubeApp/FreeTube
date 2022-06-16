@@ -303,6 +303,7 @@ export default Vue.extend({
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
+        videoLength: this.lengthSeconds,
         playlistId: this.playlistId,
         playlistIndex: this.getPlaylistIndex(),
         playlistReverse: this.getPlaylistReverse(),
