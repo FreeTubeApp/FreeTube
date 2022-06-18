@@ -230,10 +230,12 @@ Settings:
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
-    None: None
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
