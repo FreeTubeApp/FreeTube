@@ -895,7 +895,7 @@ const actions = {
       args.push(...defaultCustomArguments)
     }
 
-    if (payload.watchProgress > 0) {
+    if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
         args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
       } else {
