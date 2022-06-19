@@ -29,10 +29,15 @@
 		width: auto
 
 		@at-root
-			.dark &
+			.dark &, .system[data-system-theme*='dark'] &
 				filter: brightness(0.868)
 
-			.light &
+			.black &
+				filter: brightness(0.933)
+
+			/* no changes for the dracula theme */
+
+			.light &, .system[data-system-theme*='light'] &
 				filter: invert(0.87)
 
 	.invidious
@@ -48,8 +53,11 @@
 			margin-right: 2px
 
 			@at-root
-				.dark &
+				.dark &,
+				.black &,
+				.dracula &,
+				.system[data-system-theme*='dark'] &
 					background-image: url(~../../assets/img/invidious-logo-dark.svg)
 
-				.light &
+				.light &, .system[data-system-theme*='light'] &
 					background-image: url(~../../assets/img/invidious-logo-light.svg)
