@@ -60,7 +60,7 @@
     "js-yaml": "^4.1.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
-    "marked": "^4.0.15",
+    "marked": "^4.0.17",
     "nedb-promises": "^5.0.1",
     "opml-to-json": "^1.0.1",
     "rss-parser": "^3.12.0",
