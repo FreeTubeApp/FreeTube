@@ -93,11 +93,6 @@ body:
         - other
     validations:
       required: true
-  - type: input
-    attributes:
-      label: 'Last Known Working FreeTube Version (If Any)'
-      description: What is the last version of FreeTube this worked in, if applicable?
-      placeholder: v0.14.0
   - type: dropdown
     attributes: 
       label: Primary API used
@@ -108,6 +103,11 @@ body:
         - Invidious API
     validations:
       required: true
+  - type: input
+    attributes:
+      label: 'Last Known Working FreeTube Version (If Any)'
+      description: What is the last version of FreeTube this worked in, if applicable?
+      placeholder: v0.14.0
   - type: textarea
     attributes:
       label: Additional Information
