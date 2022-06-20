@@ -82,6 +82,7 @@ Subscriptions:
   Load More Videos: Load more videos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
+  Error Channels: Channels with errors
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -396,6 +397,9 @@ Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
+    Download Behavior: Download behaviour
+    Open in web browser: Open in web browser
+    Download in app: Download in app
 About:
   #On About page
   About: About

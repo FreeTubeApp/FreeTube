@@ -83,6 +83,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
+  Error Channels: Канали з помилками
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -391,6 +392,9 @@ Settings:
     Download Settings: Налаштування завантаження
     Choose Path: Вибрати шлях
     Ask Download Path: Запитувати шлях завантаження
+    Download Behavior: Поведінка завантаження
+    Download in app: Завантажити в застосунку
+    Open in web browser: Відкрити у переглядачі
 About:
   #On About page
   About: 'Про'

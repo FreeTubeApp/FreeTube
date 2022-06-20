@@ -147,7 +147,8 @@ function runApp() {
       session.defaultSession.cookies.set({
         url: url,
         name: 'CONSENT',
-        value: 'YES+'
+        value: 'YES+',
+        sameSite: 'no_restriction'
       })
     })
 
@@ -801,8 +802,12 @@ function runApp() {
           { role: 'toggledevtools' },
           { type: 'separator' },
           { role: 'resetzoom' },
-          { role: 'zoomin' },
+          { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+Plus' },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+=', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+numadd', visible: false },
           { role: 'zoomout' },
+          { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
           { role: 'togglefullscreen' }
         ]

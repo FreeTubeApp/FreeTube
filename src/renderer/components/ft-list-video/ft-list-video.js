@@ -252,6 +252,7 @@ export default Vue.extend({
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,
+        videoLength: this.data.lengthSeconds,
         playlistId: this.playlistId,
         playlistIndex: this.playlistIndex,
         playlistReverse: this.playlistReverse,
