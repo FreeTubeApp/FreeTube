@@ -75,19 +75,24 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: 'Installation Method (If applicable)'
+      label: Installation Method
       options:
+        - .apk
         - .AppImage
+        - AUR
+        - Chocolatey
         - .deb
         - .dmg
         - .exe
         - Flathub
+        - .pacman
         - Portable
         - .rpm
+        - winget
         - .zip
         - other
     validations:
-      required: false
+      required: true
   - type: input
     attributes:
       label: 'Last Known Working FreeTube Version (If Any)'
@@ -102,7 +107,7 @@ body:
         - Local API
         - Invidious API
     validations:
-      required: false
+      required: true
   - type: textarea
     attributes:
       label: Additional Information
