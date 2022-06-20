@@ -29,11 +29,11 @@ export default Vue.extend({
     'watch-video-recommendations': WatchVideoRecommendations
   },
   beforeRouteLeave: function (to, from, next) {
-    this.handleRouteChange()
+    this.handleRouteChange(this.videoId)
     window.removeEventListener('beforeunload', this.handleWatchProgress)
     next()
   },
-  data: function() {
+  data: function () {
     return {
       isLoading: false,
       firstLoad: true,
@@ -144,13 +144,13 @@ export default Vue.extend({
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
-    theatrePossible: function() {
+    theatrePossible: function () {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     }
   },
   watch: {
     $route() {
-      this.handleRouteChange()
+      this.handleRouteChange(this.videoId)
       // react to route changes...
       this.videoId = this.$route.params.id
 
@@ -220,14 +220,14 @@ export default Vue.extend({
     window.addEventListener('beforeunload', this.handleWatchProgress)
   },
   methods: {
-    changeTimestamp: function(timestamp) {
+    changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
-    toggleTheatreMode: function() {
+    toggleTheatreMode: function () {
       this.useTheatreMode = !this.useTheatreMode
     },
 
-    getVideoInformationLocal: function() {
+    getVideoInformationLocal: function () {
       if (this.firstLoad) {
         this.isLoading = true
       }
@@ -535,7 +535,7 @@ export default Vue.extend({
         })
     },
 
-    getVideoInformationInvidious: function() {
+    getVideoInformationInvidious: function () {
       if (this.firstLoad) {
         this.isLoading = true
       }
@@ -967,7 +967,11 @@ export default Vue.extend({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleRouteChange: async function () {
+    handleRouteChange: async function (videoId) {
+      // if the user navigates to another video, the ipc call for the userdata path
+      // takes long enough for the video id to have already changed to the new one
+      // receiving it as an arg instead of accessing it ourselves means we always have the right one
+
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
 
@@ -977,14 +981,13 @@ export default Vue.extend({
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
-          const playerId = this.videoId
           setTimeout(() => {
             player.play()
             player.on('leavepictureinpicture', (event) => {
               const watchTime = player.currentTime()
               if (this.$route.fullPath.includes('/watch')) {
                 const routeId = this.$route.params.id
-                if (routeId === playerId) {
+                if (routeId === videoId) {
                   const activePlayer = $('.ftVideoPlayer video').get(0)
                   activePlayer.currentTime = watchTime
                 }
@@ -1000,23 +1003,23 @@ export default Vue.extend({
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
         if (this.isDev) {
-          const dashFileLocation = `static/dashFiles/${this.videoId}.xml`
-          const vttFileLocation = `static/storyboards/${this.videoId}.vtt`
+          const dashFileLocation = `static/dashFiles/${videoId}.xml`
+          const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
-          if (fs.existsSync('static/dashFiles/') && fs.existsSync(dashFileLocation)) {
+          if (fs.existsSync(dashFileLocation)) {
             fs.rmSync(dashFileLocation)
           }
-          if (fs.existsSync('static/storyboards/') && fs.existsSync(vttFileLocation)) {
+          if (fs.existsSync(vttFileLocation)) {
             fs.rmSync(vttFileLocation)
           }
         } else {
-          const dashFileLocation = `${userData}/dashFiles/${this.videoId}.xml`
-          const vttFileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+          const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
+          const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
-          if (fs.existsSync(`${userData}/dashFiles/`) && fs.existsSync(dashFileLocation)) {
+          if (fs.existsSync(dashFileLocation)) {
             fs.rmSync(dashFileLocation)
           }
-          if (fs.existsSync(`${userData}/storyboards/`) && fs.existsSync(vttFileLocation)) {
+          if (fs.existsSync(vttFileLocation)) {
             fs.rmSync(vttFileLocation)
           }
         }
