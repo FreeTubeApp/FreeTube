@@ -15,7 +15,7 @@ export default Vue.extend({
     },
 
     restrictedMessage: function () {
-      const contentType = this.$('Age Restricted.Type.' + this.contentTypeString)
+      const contentType = this.$t('Age Restricted.Type.' + this.contentTypeString)
       return this.$t('Age Restricted.This $contentType is age restricted').replace('$contentType', contentType)
     }
   }
