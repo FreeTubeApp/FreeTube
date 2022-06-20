@@ -3,6 +3,7 @@
     <ft-card class="card">
       <h3>{{ $t('Channels.Title') }}</h3>
       <ft-input
+        v-show="subscribedChannels.length > 0"
         ref="searchBarChannels"
         :placeholder="$t('Channels.Search bar placeholder')"
         :show-clear-text-button="true"
