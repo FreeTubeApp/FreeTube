@@ -97,7 +97,7 @@ Channels:
   Empty: Your channel list is currently empty.
   Unsubscribe: Unsubscribe
   Unsubscribed: $ has been removed from your subscriptions
-  Unsubscribe Prompt: Are you sure you want to unsubscribe "$"?
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from "$"?
 Trending:
   Trending: Trending
   Default: Default
