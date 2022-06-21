@@ -288,6 +288,10 @@ Settings:
     Hide Live Chat: 'Не показувати живий чат'
     Hide Active Subscriptions: Сховати активні підписки
     Hide Playlists: Сховати добірки
+    Hide Video Description: Сховати опис відео
+    Hide Comments: Сховати коментарі
+    Hide Sharing Actions: Сховати дії поширення
+    Hide Live Streams: Сховати прямі трансляції
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -395,6 +399,11 @@ Settings:
     Download Behavior: Поведінка завантаження
     Download in app: Завантажити в застосунку
     Open in web browser: Відкрити у переглядачі
+  Parental Control Settings:
+    Parental Control Settings: Налаштування батьківського контролю
+    Hide Unsubscribe Button: Сховати кнопку скасування підписки
+    Show Family Friendly Only: Показати лише для сімейного перегляду
+    Hide Search Bar: Сховати панель пошуку
 About:
   #On About page
   About: 'Про'
@@ -835,3 +844,9 @@ Download folder does not exist: Каталог завантаження "$" не
   «запитати теку».
 Screenshot Success: Знімок екрана збережено як «$»
 Screenshot Error: Не вдалося зробити знімок екрана. $
+New Window: Нове вікно
+Age Restricted:
+  This $contentType is age restricted: Цей $ має обмеження за віком
+  Type:
+    Video: Відео
+    Channel: Канал
