@@ -292,6 +292,10 @@ Settings:
     Hide Playlists: 'Fela spilunarlista'
     Hide Live Chat: 'Fela spjall í beinni'
     Hide Active Subscriptions: 'Fela virkar áskriftir'
+    Hide Live Streams: Fela streymi í beinni
+    Hide Sharing Actions: Fela deiliaðgerðir
+    Hide Video Description: Fela lýsingu á myndskeiði
+    Hide Comments: Fela athugasemdir
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -379,6 +383,11 @@ Settings:
     Download in app: Sækja í forritinu
     Open in web browser: Opna í vafra
     Download Behavior: Hegðun við niðurhal
+  Parental Control Settings:
+    Hide Unsubscribe Button: Fela hnapp til að segja upp áskrift
+    Show Family Friendly Only: Aðeins sýna fjölskylduvænt efni
+    Hide Search Bar: Fela leitarstiku
+    Parental Control Settings: Stillingar foreldrastýringar
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -804,3 +813,9 @@ Starting download: Byrja að sækja "$"
 Downloading failed: Vandamál kom upp við að sækja "$"
 Screenshot Error: Skjámyndataka mistókst. $
 Screenshot Success: Vistaði skjámynd sem "$"
+Age Restricted:
+  Type:
+    Channel: Rás
+    Video: Myndskeið
+  This $contentType is age restricted: Þetta $ er með aldurstakmörkunum
+New Window: Nýr gluggi
