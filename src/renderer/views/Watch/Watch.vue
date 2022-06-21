@@ -11,7 +11,10 @@
       v-if="isLoading"
       :fullscreen="true"
     />
-    <div class="videoArea">
+    <div
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      class="videoArea"
+    >
       <div class="videoAreaMargin">
         <ft-video-player
           v-if="!isLoading && !hidePlayer && !isUpcoming"
@@ -64,7 +67,15 @@
         </div>
       </div>
     </div>
-    <div class="infoArea">
+    <ft-age-restricted
+      v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'Video'"
+    />
+    <div
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      class="infoArea"
+    >
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
@@ -96,7 +107,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-description
-        v-if="!isLoading"
+        v-if="!isLoading && !hideVideoDescription"
         :published="videoPublished"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
@@ -105,7 +116,7 @@
         @timestamp-event="changeTimestamp"
       />
       <watch-video-comments
-        v-if="!isLoading && !isLive"
+        v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
@@ -114,7 +125,10 @@
         @timestamp-event="changeTimestamp"
       />
     </div>
-    <div class="sidebarArea">
+    <div
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      class="sidebarArea"
+    >
       <watch-video-live-chat
         v-if="!isLoading && isLive"
         :video-id="videoId"

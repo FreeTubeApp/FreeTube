@@ -13,6 +13,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 export default Vue.extend({
   name: 'Watch',
@@ -26,7 +27,8 @@ export default Vue.extend({
     'watch-video-comments': WatchVideoComments,
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
-    'watch-video-recommendations': WatchVideoRecommendations
+    'watch-video-recommendations': WatchVideoRecommendations,
+    'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
     this.handleRouteChange(this.videoId)
@@ -42,6 +44,7 @@ export default Vue.extend({
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
+      isFamilyFriendly: false,
       isLive: false,
       isLiveContent: false,
       isUpcoming: false,
@@ -133,6 +136,15 @@ export default Vue.extend({
     },
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
+    hideVideoDescription: function () {
+      return this.$store.getters.getHideVideoDescription
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
     youtubeNoCookieEmbeddedFrame: function () {
@@ -300,6 +312,7 @@ export default Vue.extend({
               break
           }
 
+          this.isFamilyFriendly = result.videoDetails.isFamilySafe
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
             video.authorId = video.author.id
@@ -586,6 +599,7 @@ export default Vue.extend({
             return format
           })
           this.isLive = result.liveNow
+          this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.currentInvidiousInstance + caption.url
             caption.type = ''
