@@ -378,6 +378,7 @@ Settings:
     Hide Video Description: Masquer la description de la vidéo
     Hide Comments: Masquer les commentaires
     Hide Live Streams: Masquer les flux en direct
+    Hide Sharing Actions: Masquer les actions de partage
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -429,6 +430,8 @@ Settings:
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
+    Parental Control Settings: Paramètres du contrôle parental
+    Show Family Friendly Only: Afficher uniquement le contenu familial
 About:
   #On About page
   About: 'À propos'
@@ -794,7 +797,7 @@ Profile:
   Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
-  All Channels: Tous les canaux
+  All Channels: Tous les chaînes
   Profile Select: Sélection du profil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous
     sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas
@@ -914,3 +917,5 @@ New Window: Nouvelle fenêtre
 Age Restricted:
   Type:
     Video: Vidéo
+    Channel: Chaîne
+  This $contentType is age restricted: Ce $ est soumis à une limite d'âge
