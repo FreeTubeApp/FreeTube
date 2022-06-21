@@ -75,24 +75,24 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: 'Installation Method (If applicable)'
+      label: Installation Method
       options:
+        - .apk
         - .AppImage
+        - AUR
+        - Chocolatey
         - .deb
         - .dmg
         - .exe
         - Flathub
+        - .pacman
         - Portable
         - .rpm
+        - winget
         - .zip
         - other
     validations:
-      required: false
-  - type: input
-    attributes:
-      label: 'Last Known Working FreeTube Version (If Any)'
-      description: What is the last version of FreeTube this worked in, if applicable?
-      placeholder: v0.14.0
+      required: true
   - type: dropdown
     attributes: 
       label: Primary API used
@@ -102,7 +102,12 @@ body:
         - Local API
         - Invidious API
     validations:
-      required: false
+      required: true
+  - type: input
+    attributes:
+      label: 'Last Known Working FreeTube Version (If Any)'
+      description: What is the last version of FreeTube this worked in, if applicable?
+      placeholder: v0.14.0
   - type: textarea
     attributes:
       label: Additional Information
