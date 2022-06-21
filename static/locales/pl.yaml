@@ -362,6 +362,10 @@ Settings:
     Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
     Hide Playlists: Schowaj playlistę
+    Hide Video Description: Schowaj opis filmu
+    Hide Comments: Schowaj komentarze
+    Hide Sharing Actions: Schowaj linki do dzielenia się filmem
+    Hide Live Streams: Schowaj transmisje na żywo
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -409,6 +413,11 @@ Settings:
     Download Behavior: Sposób pobierania
     Download in app: Pobierz w aplikacji
     Open in web browser: Otwórz w przeglądarce
+  Parental Control Settings:
+    Parental Control Settings: Opcje kontroli rodzicielskiej
+    Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
+    Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
+    Hide Search Bar: Schowaj pole wyszukiwania
 About:
   #On About page
   About: 'O projekcie'
@@ -873,3 +882,9 @@ Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączo
   tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. $
 Screenshot Success: Zapisano zrzut ekranu jako "$"
+Age Restricted:
+  Type:
+    Channel: kanał
+    Video: film
+  This $contentType is age restricted: Ten $ ma ograniczenie wiekowe
+New Window: Nowe okno
