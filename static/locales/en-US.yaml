@@ -289,6 +289,10 @@ Settings:
     Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
+    Hide Video Description: Hide Video Description
+    Hide Comments: Hide Comments
+    Hide Live Streams: Hide Live Streams
+    Hide Sharing Actions: Hide Sharing Actions
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -361,6 +365,11 @@ Settings:
       Prompt To Skip: Prompt To Skip
       Do Nothing: Do Nothing
     Category Color: Category Color
+  Parental Control Settings:
+    Parental Control Settings: Parental Control Settings
+    Hide Unsubscribe Button: Hide Unsubscribe Button
+    Show Family Friendly Only: Show Family Friendly Only
+    Hide Search Bar: Hide Search Bar
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
@@ -756,6 +765,12 @@ Default Invidious instance has been set to $: Default Invidious instance has bee
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
+Age Restricted:
+  # $contentType is replaced with video or channel
+  This $contentType is age restricted: This $ is age restricted
+  Type:
+    Channel: Channel
+    Video: Video
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"$" has finished downloading'
 Starting download: 'Starting download of "$"'
