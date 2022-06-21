@@ -375,6 +375,9 @@ Settings:
     Distraction Free Settings: Mode sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
     Hide Playlists: Masquer les listes de lecture
+    Hide Video Description: Masquer la description de la vidéo
+    Hide Comments: Masquer les commentaires
+    Hide Live Streams: Masquer les flux en direct
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -423,6 +426,9 @@ Settings:
     Download Behavior: Comportement de téléchargement
     Download in app: Télécharger dans l'appli
     Open in web browser: Ouvrir dans le navigateur web
+  Parental Control Settings:
+    Hide Unsubscribe Button: Masquer le bouton de désabonnement
+    Hide Search Bar: Masquer la barre de recherche
 About:
   #On About page
   About: 'À propos'
@@ -905,3 +911,6 @@ Download folder does not exist: 'Le répertoire "$" de téléchargement n''exist
 Screenshot Success: Capture d'écran enregistrée sous « $ »
 Screenshot Error: La capture d'écran a échoué. $
 New Window: Nouvelle fenêtre
+Age Restricted:
+  Type:
+    Video: Vidéo
