@@ -357,6 +357,10 @@ Settings:
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
+    Hide Live Streams: Canlı Yayınları Gizle
+    Hide Sharing Actions: Paylaşım Eylemlerini Gizle
+    Hide Video Description: Video Açıklamasını Gizle
+    Hide Comments: Yorumları Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -402,6 +406,11 @@ Settings:
     Download Behavior: İndirme Davranışı
     Download in app: Uygulamada indir
     Open in web browser: Web tarayıcısında aç
+  Parental Control Settings:
+    Parental Control Settings: Ebeveyn Denetimi Ayarları
+    Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
+    Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
+    Hide Search Bar: Arama Çubuğunu Gizle
 About:
   #On About page
   About: 'Hakkında'
@@ -856,3 +865,8 @@ Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor"
 Screenshot Success: Ekran görüntüsü "$" olarak kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. $
 New Window: Yeni Pencere
+Age Restricted:
+  This $contentType is age restricted: Bu $ yaş kısıtlamalıdır
+  Type:
+    Channel: Kanal
+    Video: Video
