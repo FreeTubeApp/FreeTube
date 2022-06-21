@@ -345,6 +345,10 @@ Settings:
     Hide Video Views: הסתרת תצוגות סרטונים
     Hide Active Subscriptions: הסתרת מינויים פעילים
     Hide Playlists: הסתרת פלייליסטים
+    Hide Live Streams: הסתרת תזרימים חיים
+    Hide Sharing Actions: הסתרת פעולות שיתוף
+    Hide Comments: הסתרת הערות
+    Hide Video Description: הסתרת תיאור וידאו
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -389,6 +393,11 @@ Settings:
     Download Behavior: התנהגות הורדה
     Download in app: הורדה ביישומון
     Open in web browser: פתיחה בדפדפן
+  Parental Control Settings:
+    Parental Control Settings: הגדרות בקרת הורים
+    Hide Search Bar: הסתרת סרגל החיפוש
+    Hide Unsubscribe Button: הסתרת כפתור ביטול מינוי
+    Show Family Friendly Only: הצגת דברים ידידותיים למשפחה בלבד
 About:
   #On About page
   About: 'על אודות'
@@ -819,3 +828,9 @@ Playing Next Video Interval: הסרטון הבא יתחיל מיד. לחיצה �
   לביטול.
 Screenshot Success: צילום המסך נשמר בתור „$”
 Screenshot Error: צילום המסך נכשל. $
+New Window: חלון חדש
+Age Restricted:
+  Type:
+    Channel: ערוץ
+    Video: סרטון
+  This $contentType is age restricted: ה$ הזה מוגבל בגיל
