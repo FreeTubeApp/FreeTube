@@ -126,6 +126,8 @@ export default Vue.extend({
 
       // Focus on input element after text is clear for better UX
       inputElement.focus()
+
+      this.$emit('clear')
     },
 
     handleActionIconChange: function() {
