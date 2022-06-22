@@ -10,7 +10,7 @@ let targets
 const platform = os.platform()
 const cpus = os.cpus()
 
-if (platform == 'darwin') {
+if (platform === 'darwin') {
   let arch = Arch.x64
 
   if (args[2] === 'arm64') {
