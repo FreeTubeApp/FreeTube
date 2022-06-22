@@ -349,6 +349,10 @@ Settings:
     Distraction Free Settings: إعدادات عدم الإزعاج
     Hide Active Subscriptions: اخفي الإشتراكات الناشطة
     Hide Playlists: إخفاء قوائم التشغيل
+    Hide Video Description: إخفاء وصف الفيديو
+    Hide Comments: إخفاء التعليقات
+    Hide Sharing Actions: إخفاء إجراءات المشاركة
+    Hide Live Streams: إخفاء البث المباشر
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -393,6 +397,11 @@ Settings:
     Download Behavior: سلوك التحميل
     Open in web browser: فتح في متصفح الويب
     Download in app: تحميل في التطبيق
+  Parental Control Settings:
+    Hide Search Bar: إخفاء شريط البحث
+    Parental Control Settings: إعدادات الرقابة الأبوية
+    Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
+    Show Family Friendly Only: عرض مناسب للعائلة فقط
 About:
   #On About page
   About: 'حول'
@@ -833,3 +842,9 @@ Downloading canceled: تم إلغاء التحميل من قبل المستخد�
 Starting download: بدء تنزيل "$"
 Screenshot Success: تم حفظ لقطة الشاشة كا"$"
 Screenshot Error: فشل أخذ لقطة للشاشة. $
+New Window: نافذة جديدة
+Age Restricted:
+  Type:
+    Channel: القناة
+    Video: فيديو
+  This $contentType is age restricted: هذا $ مقيد بالفئة العمرية
