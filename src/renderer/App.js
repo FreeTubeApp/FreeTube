@@ -364,7 +364,7 @@ export default Vue.extend({
         // there is no other way to pass the URL to click callback
         this.lastExternalLinkToBeOpened = el.href
         this.showExternalLinkOpeningPrompt = true
-      } else {
+      } else if (event.type === 'click') {
         // Open links externally
         this.openExternalLink(el.href)
       }
