@@ -26,7 +26,7 @@ if (platform === 'darwin') {
   }
   
   targets = Platform.WINDOWS.createTarget(['nsis', 'zip', 'portable', 'squirrel'], arch)
-} else if (platform == 'linux') {
+} else if (platform === 'linux') {
   let arch = Arch.x64
 
   if (args[2] === 'arm64') {
