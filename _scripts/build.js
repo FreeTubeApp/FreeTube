@@ -18,7 +18,7 @@ if (platform === 'darwin') {
   }
   
   targets = Platform.MAC.createTarget(['DMG','zip'], arch)
-} else if (platform == 'win32') {
+} else if (platform === 'win32') {
   let arch = Arch.x64
 
   if (args[2] === 'arm64') {
