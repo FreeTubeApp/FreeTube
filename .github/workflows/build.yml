@@ -238,7 +238,7 @@ jobs:
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-arm64-portable
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}-win.zip
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-win.zip
         
     - name: Upload Windows x64 Portable Artifact
       uses: actions/upload-artifact@v2
@@ -266,4 +266,4 @@ jobs:
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.dmg
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}.dmg
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.dmg
