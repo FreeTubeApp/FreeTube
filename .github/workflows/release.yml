@@ -254,3 +254,26 @@ jobs:
         asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.dmg
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.dmg
         asset_content_type: application/x-apple-diskimage
+        
+    - name: Upload Mac x64 .zip Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-x64.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-mac.zip
+        asset_content_type: application/x-apple-diskimage
+
+    - name: Upload Mac arm64 .zip Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
+        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-mac.zip
+        asset_content_type: application/x-apple-diskimage
+    
