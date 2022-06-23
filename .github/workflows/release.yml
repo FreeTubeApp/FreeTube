@@ -208,7 +208,7 @@ jobs:
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
         asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.zip
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-win.zip
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-win.zip
         asset_content_type: application/zip
         
     - name: Upload Windows x64 portable Release
@@ -252,5 +252,5 @@ jobs:
       with:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ secrets.UPLOAD_ID }}/assets{?name,label}
         asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.dmg
-        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.dmg
+        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.dmg
         asset_content_type: application/x-apple-diskimage
