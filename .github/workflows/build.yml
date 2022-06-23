@@ -267,3 +267,17 @@ jobs:
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.dmg
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.dmg
+        
+    - name: Upload Mac x64 .zip Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.zip
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.zip
+
+    - name: Upload Mac arm64 .zip Artifact
+      uses: actions/upload-artifact@v2
+      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
+        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
