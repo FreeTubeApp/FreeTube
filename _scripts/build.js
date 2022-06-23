@@ -25,7 +25,7 @@ if (platform === 'darwin') {
     arch = Arch.arm64
   }
   
-  targets = Platform.WINDOWS.createTarget(['nsis', 'zip', 'portable', 'squirrel'], arch)
+  targets = Platform.WINDOWS.createTarget(['nsis', 'zip', 'portable'], arch)
 } else if (platform === 'linux') {
   let arch = Arch.x64
 
@@ -117,7 +117,7 @@ const config = {
   },
   win: {
     icon: '_icons/icon.ico',
-    target: ['nsis', 'zip', 'portable', 'squirrel'],
+    target: ['nsis', 'zip', 'portable'],
   },
   nsis: {
     allowToChangeInstallationDirectory: true,
