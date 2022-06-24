@@ -7,7 +7,7 @@ pre-commit:
     lint:
       # Only runs when any file with filename
       # matching the glob is being committed
-      glob: "*.{js,ts,vue}"
+      glob: "*.{js,vue}"
       run: npx eslint --no-color {staged_files}
 
 
