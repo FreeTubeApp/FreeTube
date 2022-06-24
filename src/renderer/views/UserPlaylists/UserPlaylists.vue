@@ -23,6 +23,7 @@
         :show-clear-text-button="true"
         :show-action-button="false"
         @input="(input) => query = input"
+        @clear="query = ''"
       />
       <ft-flex-box
         v-show="fullData.length === 0"
