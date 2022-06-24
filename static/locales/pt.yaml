@@ -386,6 +386,10 @@ Settings:
     Hide Video Likes And Dislikes: Esconder gostos em vídeos
     Hide Video Views: Esconder visualizações
     Distraction Free Settings: Definições de distrações
+    Hide Video Description: Ocultar descrição do vídeo
+    Hide Sharing Actions: Esconder ações de partilhar
+    Hide Live Streams: Esconder transmissões em direto
+    Hide Comments: Esconder comentários
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -399,6 +403,14 @@ Settings:
     Download Settings: Configurações de descarregamento
     Ask Download Path: Perguntar pelo local onde descarregar
     Choose Path: Escolher local
+    Download in app: Descarregar na aplicação
+    Open in web browser: Abrir no navegador da Internet
+    Download Behavior: Comportamento de descarregar
+  Parental Control Settings:
+    Hide Unsubscribe Button: Esconder botão "anular subscrição"
+    Show Family Friendly Only: Mostrar apenas "para famílias"
+    Hide Search Bar: Esconder barra de pesquisa
+    Parental Control Settings: Configurações de controlo parental
 About:
   #On About page
   About: 'Sobre'
@@ -559,8 +571,8 @@ Video:
   Enable Live Chat: 'Permitir chat ao vivo'
   Live Chat is currently not supported in this build.: 'Atualmente o chat ao vivo
     não se encontra a funcionar nesta versão.'
-  'Chat is disabled or the Live Stream has ended.': 'O chat foi desativado ou a transmissão
-    ao vivo já terminou.'
+  'Chat is disabled or the Live Stream has ended.': 'A conversação foi desativada
+    ou a transmissão em direto já terminou.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Chat ao vivo
     ativado. As mensagens vão aparecer aqui ao serem enviadas.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'O
@@ -845,3 +857,9 @@ Downloading failed: Ouve um problema ao descarregar "$"
 Downloading has completed: '"$" foi descarregado'
 Screenshot Success: Captura de ecrã guardada como "$"
 Screenshot Error: A captura de ecrã falhou. $
+Age Restricted:
+  This $contentType is age restricted: Este $ tem restrição de idade
+  Type:
+    Channel: Canal
+    Video: Vídeo
+New Window: Nova janela
