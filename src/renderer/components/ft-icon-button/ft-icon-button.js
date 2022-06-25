@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import $ from 'jquery'
 
 export default Vue.extend({
   name: 'FtIconButton',
@@ -64,7 +63,7 @@ export default Vue.extend({
   },
   methods: {
     toggleDropdown: function () {
-      const dropdownBox = $(`#${this.id}`)
+      const dropdownBox = document.getElementById(this.id)
 
       if (this.dropdownShown) {
         dropdownBox.get(0).style.display = 'none'
@@ -99,7 +98,7 @@ export default Vue.extend({
     },
 
     focusOut: function () {
-      const dropdownBox = $(`#${this.id}`)
+      const dropdownBox = document.getElementById(this.id)
 
       dropdownBox.focusout()
       dropdownBox.get(0).style.display = 'none'

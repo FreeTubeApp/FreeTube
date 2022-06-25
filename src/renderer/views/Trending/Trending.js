@@ -6,7 +6,6 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
-import $ from 'jquery'
 import ytrend from 'yt-trending-scraper'
 
 export default Vue.extend({
@@ -71,10 +70,10 @@ export default Vue.extend({
             ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
-          const tabNode = $(`#${tab}Tab`)
+          const tabNode = document.getElementById(`${tab}Tab`)
           event.target.setAttribute('tabindex', '-1')
-          tabNode.attr('tabindex', '0')
-          tabNode[0].focus()
+          tabNode.setAttribute('tabindex', '0')
+          tabNode.focus()
         }
 
         event.preventDefault()
@@ -82,15 +81,15 @@ export default Vue.extend({
           return
         }
       }
-      const currentTabNode = $('.trendingInfoTabs > .tab[aria-selected="true"]')
-      const newTabNode = $(`#${tab}Tab`)
+      const currentTabNode = document.querySelector('.trendingInfoTabs > .tab[aria-selected="true"]')
+      const newTabNode = document.getElementById(`${tab}Tab`)
 
       // switch selectability from currently focused tab to new tab
-      $('.trendingInfoTabs > .tab[tabindex="0"]').attr('tabindex', '-1')
-      newTabNode.attr('tabindex', '0')
+      document.querySelector('.trendingInfoTabs > .tab[tabindex="0"]').setAttribute('tabindex', '-1')
+      newTabNode.setAttribute('tabindex', '0')
 
-      currentTabNode.attr('aria-selected', 'false')
-      newTabNode.attr('aria-selected', 'true')
+      currentTabNode.setAttribute('aria-selected', 'false')
+      newTabNode.setAttribute('aria-selected', 'true')
       this.currentTab = tab
       if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
         this.getTrendingInfoCache()
@@ -134,7 +133,7 @@ export default Vue.extend({
         const currentTab = this.currentTab
         this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
-        document.querySelector(`#${this.currentTab}Tab`).focus()
+        document.getElementById(`${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -193,7 +192,7 @@ export default Vue.extend({
         const currentTab = this.currentTab
         this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
-        document.querySelector(`#${this.currentTab}Tab`).focus()
+        document.getElementById(`${this.currentTab}Tab`).focus()
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')

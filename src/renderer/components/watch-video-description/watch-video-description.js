@@ -2,7 +2,6 @@ import Vue from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
-import $ from 'jquery'
 
 export default Vue.extend({
   name: 'WatchVideoDescription',
@@ -37,7 +36,7 @@ export default Vue.extend({
     }
 
     if (/^\s*$/.test(this.shownDescription)) {
-      $('.videoDescription')[0].style.display = 'none'
+      document.querySelector('.videoDescription').style.display = 'none'
     }
   },
   methods: {

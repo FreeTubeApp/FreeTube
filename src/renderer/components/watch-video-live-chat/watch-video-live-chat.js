@@ -5,7 +5,6 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
-import $ from 'jquery'
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
 
@@ -171,10 +170,10 @@ export default Vue.extend({
 
       comment.messageHtml = autolinker.link(comment.messageHtml)
 
-      const liveChatComments = $('.liveChatComments')
-      const liveChatMessage = $('.liveChatMessage')
+      const liveChatComments = document.querySelector('.liveChatComments')
+      const liveChatMessage = document.querySelector('.liveChatMessage')
 
-      if (typeof (liveChatComments.get(0)) === 'undefined' && typeof (liveChatMessage.get(0)) === 'undefined') {
+      if (liveChatComments === null && liveChatMessage === null) {
         console.log("Can't find chat object.  Stopping chat connection")
         this.liveChat.stop()
         return
@@ -211,7 +210,7 @@ export default Vue.extend({
       }
 
       if (this.stayAtBottom) {
-        liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+        liveChatComments.scrollTo({ top: liveChatComments.scrollHeight })
       }
 
       if (this.comments.length > 150 && this.stayAtBottom) {
@@ -236,9 +235,8 @@ export default Vue.extend({
     },
 
     onScroll: function (event) {
-      const liveChatComments = $('.liveChatComments').get(0)
+      const liveChatComments = document.querySelector('.liveChatComments')
       if (event.wheelDelta >= 0 && this.stayAtBottom) {
-        $('.liveChatComments').data('animating', 0)
         this.stayAtBottom = false
 
         if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
@@ -252,8 +250,8 @@ export default Vue.extend({
     },
 
     scrollToBottom: function () {
-      const liveChatComments = $('.liveChatComments')
-      liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      const liveChatComments = document.querySelector('.liveChatComments')
+      liveChatComments.scrollTo({ top: liveChatComments.scrollHeight })
       this.stayAtBottom = true
       this.showScrollToBottom = false
     },

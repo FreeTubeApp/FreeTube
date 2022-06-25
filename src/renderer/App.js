@@ -9,7 +9,6 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
-import $ from 'jquery'
 import { marked } from 'marked'
 import Parser from 'rss-parser'
 import { IpcChannels } from '../constants'
@@ -57,7 +56,7 @@ export default Vue.extend({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
-    usingElectron: function() {
+    usingElectron: function () {
       return this.$store.getters.getUsingElectron
     },
     showProgressBar: function () {
@@ -81,9 +80,9 @@ export default Vue.extend({
     windowTitle: function () {
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
         let title =
-        this.$route.meta.path === '/home'
-          ? process.env.PRODUCT_NAME
-          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+          this.$route.meta.path === '/home'
+            ? process.env.PRODUCT_NAME
+            : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
         if (!title) {
           title = process.env.PRODUCT_NAME
         }
@@ -138,13 +137,13 @@ export default Vue.extend({
 
     secColor: 'checkThemeSettings',
 
-    $route () {
+    $route() {
       // react to route changes...
       // Hide top nav filter panel on page change
       this.$refs.topNav.hideFilters()
     }
   },
-  created () {
+  created() {
     this.checkThemeSettings()
     this.setWindowTitle()
   },
@@ -209,31 +208,34 @@ export default Vue.extend({
         const { version } = require('../../package.json')
         const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
 
-        $.getJSON(requestUrl, (response) => {
-          const tagName = response[0].tag_name
-          const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = marked.parse(response[0].body)
-          this.changeLogTitle = response[0].name
+        fetch(requestUrl)
+          .then((response) => response.json())
+          .then((json) => {
+            const tagName = json[0].tag_name
+            const versionNumber = tagName.replace('v', '').replace('-beta', '')
+            this.updateChangelog = marked.parse(json[0].body)
+            this.changeLogTitle = json[0].name
 
-          const message = this.$t('Version $ is now available!  Click for more details')
-          this.updateBannerMessage = message.replace('$', versionNumber)
+            const message = this.$t('Version $ is now available!  Click for more details')
+            this.updateBannerMessage = message.replace('$', versionNumber)
 
-          const appVersion = version.split('.')
-          const latestVersion = versionNumber.split('.')
+            const appVersion = version.split('.')
+            const latestVersion = versionNumber.split('.')
 
-          if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
-            this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
-            this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
-            this.showUpdatesBanner = true
-          }
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(requestUrl)
-          console.log(error)
-        })
+            if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
+              this.showUpdatesBanner = true
+            } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
+              this.showUpdatesBanner = true
+            } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
+              this.showUpdatesBanner = true
+            }
+          })
+          .catch((error) => {
+            console.group('checkForNewUpdates error')
+            console.error(requestUrl)
+            console.error(error)
+            console.groupEnd('checkForNewUpdates error')
+          })
       }
     },
 
@@ -295,8 +297,8 @@ export default Vue.extend({
     },
 
     activateKeyboardShortcuts: function () {
-      $(document).on('keydown', this.handleKeyboardShortcuts)
-      $(document).on('mousedown', () => {
+      document.addEventListener('keydown', this.handleKeyboardShortcuts)
+      document.addEventListener('mousedown', () => {
         this.hideOutlines = true
       })
     },
@@ -329,16 +331,20 @@ export default Vue.extend({
     },
 
     openAllLinksExternally: function () {
-      $(document).on('click', 'a[href^="http"]', (event) => {
-        this.handleLinkClick(event)
+      document.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a' && event.target.href.startsWith('http')) {
+          this.handleLinkClick(event)
+        }
       })
 
-      $(document).on('auxclick', 'a[href^="http"]', (event) => {
-        // auxclick fires for all clicks not performed with the primary button
-        // only handle the link click if it was the middle button,
-        // otherwise the context menu breaks
-        if (event.button === 1) {
-          this.handleLinkClick(event)
+      document.addEventListener('auxclick', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a' && event.target.href.startsWith('http')) {
+          if (event.button === 1) {
+            // auxclick fires for all clicks not performed with the primary button
+            // only handle the link click if it was the middle button,
+            // otherwise the context menu breaks
+            this.handleLinkClick(event)
+          }
         }
       })
     },
@@ -373,7 +379,7 @@ export default Vue.extend({
       }
     },
 
-    handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
+    handleYoutubeLink: function (href, { doCreateNewWindow = false } = {}) {
       this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
@@ -473,7 +479,7 @@ export default Vue.extend({
       })
     },
 
-    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
+    openInternalPath: function ({ path, doCreateNewWindow, query = {} }) {
       if (this.usingElectron && doCreateNewWindow) {
         const { ipcRenderer } = require('electron')
 
@@ -516,7 +522,7 @@ export default Vue.extend({
       }
     },
 
-    setWindowTitle: function() {
+    setWindowTitle: function () {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }

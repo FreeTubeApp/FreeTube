@@ -130,6 +130,12 @@
   overflow-y: auto;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .liveChatComments {
+    scroll-behavior: smooth;
+  }
+}
+
 .comment .superChatMessage {
   padding: 5px;
 }

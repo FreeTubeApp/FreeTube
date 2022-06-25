@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import $ from 'jquery'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
@@ -36,8 +35,8 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    $('#profileList').focusout(() => {
-      $('#profileList')[0].style.display = 'none'
+    document.getElementById('profileList').addEventListener('focusout', (event) => {
+      event.currentTarget.style.display = 'none'
       // When pressing the profile button
       // It will make the menu reappear if we set `profileListShown` immediately
       setTimeout(() => {
@@ -47,14 +46,14 @@ export default Vue.extend({
   },
   methods: {
     toggleProfileList: function () {
-      const profileList = $('#profileList')
+      const profileList = document.getElementById('profileList')
 
       if (this.profileListShown) {
-        profileList.get(0).style.display = 'none'
+        profileList.style.display = 'none'
         this.profileListShown = false
       } else {
-        profileList.get(0).style.display = 'inline'
-        profileList.get(0).focus()
+        profileList.style.display = 'inline'
+        profileList.focus()
         this.profileListShown = true
       }
     },
@@ -63,7 +62,7 @@ export default Vue.extend({
       this.$router.push({
         path: '/settings/profile/'
       })
-      $('#profileList').focusout()
+      document.getElementById('profileList').dispatchEvent(new FocusEvent('focusout'))
     },
 
     setActiveProfile: function (profile) {
@@ -80,7 +79,7 @@ export default Vue.extend({
         }
       }
 
-      $('#profileList').trigger('focusout')
+      document.getElementById('profileList').dispatchEvent(new FocusEvent('focusout'))
     },
 
     ...mapActions([

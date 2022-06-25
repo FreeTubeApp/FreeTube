@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import fs from 'fs'
 
 const state = {
@@ -25,11 +24,12 @@ const actions = {
   async fetchInvidiousInstances({ commit }, payload) {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
-    let response
     let instances = []
     try {
-      response = await $.getJSON(requestUrl)
-      instances = response.filter((instance) => {
+      const response = await fetch(requestUrl)
+      const json = await response.json()
+
+      instances = json.filter((instance) => {
         if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
           return false
         } else {
@@ -71,17 +71,18 @@ const actions = {
 
   invidiousAPICall({ state }, payload) {
     return new Promise((resolve, reject) => {
-      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + $.param(payload.params)
+      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + new URLSearchParams(payload.params).toString()
 
-      $.getJSON(requestUrl, (response) => {
-        resolve(response)
-      }).fail((xhr, textStatus, error) => {
-        console.log(xhr)
-        console.log(textStatus)
-        console.log(requestUrl)
-        console.log(error)
-        reject(xhr)
-      })
+      fetch(requestUrl)
+        .then((response) => response.json())
+        .then((json) => resolve(json))
+        .catch((error) => {
+          console.group('Invidious API error')
+          console.error(requestUrl)
+          console.error(error)
+          console.groupEnd('Invidious API error')
+          reject(error)
+        })
     })
   },
 

@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 const state = {}
 const getters = {}
 
@@ -18,18 +16,21 @@ const actions = {
 
         const requestUrl = `${rootState.settings.sponsorBlockUrl}/api/skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
 
-        $.getJSON(requestUrl, (response) => {
-          const segments = response
-            .filter((result) => result.videoID === videoId)
-            .flatMap((result) => result.segments)
-          resolve(segments)
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(requestUrl)
-          console.log(error)
-          reject(xhr)
-        })
+        fetch(requestUrl)
+          .then((response) => response.json())
+          .then((json) => {
+            const segments = json
+              .filter((result) => result.videoID === videoId)
+              .flatMap((result) => result.segments)
+            resolve(segments)
+          })
+          .catch((error) => {
+            console.group('SponsorBlock error')
+            console.error(requestUrl)
+            console.error(error)
+            console.groupEnd('SponsorBlock error')
+            reject(error)
+          })
       })
     })
   }
