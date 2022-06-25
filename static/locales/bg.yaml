@@ -101,11 +101,16 @@ User Playlists:
     изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
     приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
     „Любими“.
+  Search bar placeholder: Търсене в плейлиста
+  Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето
+    ви
 History:
   # On History Page
   History: 'История'
   Watch History: 'История на гледане'
   Your history list is currently empty.: 'Списъкът с история на гледанията е празен.'
+  Search bar placeholder: Търсене в историята
+  Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -162,6 +167,7 @@ Settings:
       Dark: 'Тъмна'
       Light: 'Светла'
       Dracula: Дракула
+      System Default: Стандартна за системата
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -228,6 +234,26 @@ Settings:
       видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
     Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
+    Scroll Playback Rate Over Video Player: Превъртане на скоростта на възпроизвеждане
+      над видео плейъра
+    Max Video Playback Rate: Максимална скорост на възпроизвеждане на видео
+    Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане на видео
+    Screenshot:
+      Enable: Включване на снимки на екрана
+      Quality Label: Качество на снимка на екрана
+      Ask Path: Питане за папка за запазване
+      Folder Label: Папка за снимка на екрана
+      File Name Label: Модел за име на файл
+      Error:
+        Forbidden Characters: Забранени символи
+        Empty File Name: Празно име на файл
+      File Name Tooltip: Можете да използвате променливите по-долу. %Y Година 4 цифри.
+        %M Месец 2 цифри. %D Ден 2 цифри. %H Час 2 цифри. %N Минута 2 цифри. %S Секунда
+        2 цифри. %T Милисекунда 3 цифри. %s Видеосекунда. %t Видео милисекунда 3 цифри.
+        %i ID на видеото. Можете също така да използвате "\" или "/", за да създадете
+        подпапки.
+      Format Label: Формат за снимка на екрана
+      Folder Button: Избиране на папка
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -289,6 +315,12 @@ Settings:
     How do I import my subscriptions?: 'Как да внеса абонаментите си?'
     Check for Legacy Subscriptions: Проверка за стари абонаменти
     Manage Subscriptions: Управление на абонаменти
+    Export Playlists: Изнасяне на плейлисти
+    All playlists has been successfully imported: Всички плейлисти са внесени успешно
+    Import Playlists: Внасяне на плейлисти
+    Playlist insufficient data: Недостатъчно данни за плейлист "$", прескачане на
+      елемент
+    All playlists has been successfully exported: Всички плейлисти са изнесени успешно
   Advanced Settings:
     Advanced Settings: 'Разширени настройки'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
@@ -354,6 +386,13 @@ Settings:
     SponsorBlock Settings: SponsorBlock настройки
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       адрес (по подразбиране е https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: Опция за пропускане
+      Auto Skip: Автоматично пропускане
+      Show In Seek Bar: Показване в лентата за търсене
+      Prompt To Skip: Подкана за пропускане
+      Do Nothing: Не правете нищо
+    Category Color: Категория Цвят
   External Player Settings:
     Custom External Player Arguments: Персонализирани аргументи за външен плейър
     Custom External Player Executable: Персонализирано изпълнение на външен плейър
@@ -361,6 +400,10 @@ Settings:
       действия
     External Player: Външен плейър
     External Player Settings: Настройки за външен плейър
+  Download Settings:
+    Download Settings: Настройки за изтегляне
+    Choose Path: Избор на път
+    Ask Download Path: Питане за пътя за изтегляне
 About:
   #On About page
   About: 'Относно'
@@ -584,12 +627,14 @@ Video:
   Save Video: Запазване на видео
   translated from English: преведено от английски
   Sponsor Block category:
-    interaction: взаимодействие
-    self-promotion: самореклама
-    outro: епилог
-    intro: въведение
-    sponsor: спонсор
-    music offtopic: музика извън темата
+    interaction: Взаимодействие
+    self-promotion: Самореклама
+    outro: Епилог
+    intro: Въведение
+    sponsor: Спонсор
+    music offtopic: Музика извън темата
+    recap: Резюме
+    filler: Запълване
   Skipped segment: Пропуснат сегмент
   External Player:
     Unsupported Actions:
@@ -606,6 +651,27 @@ Video:
     playlist: плейлист
     video: видео
     OpenInTemplate: Отваряне във $
+  Stats:
+    fps: Кадри в секунда
+    video id: Идентификатор на видеоклип (YouTube)
+    player resolution: Изглед
+    volume: Сила на звука
+    frame drop: Пропускане на кадър
+    bandwidth: Скорост на свързване
+    buffered: Буферирани
+    out of: от
+    Resolution: Резолюция
+    Video ID: Идентификатор на видеоклипа
+    Player Dimensions: Размери на плейъра
+    Bitrate: Побитова скорост
+    Bandwidth: Пропускателна способност
+    Volume: Сила на звука
+    Dropped / Total Frames: Отпаднали / Общо кадри
+    Mimetype: MIME тип
+    Buffered: Буферирани
+    Video statistics are not available for legacy videos: Статистиката не е налична
+      за наследени видеоклипове
+  Premieres on: Премиера на
 Videos:
   #& Sort By
   Sort By:
@@ -676,6 +742,10 @@ Comments:
   Top comments: Последни коментари
   Sort by: Сортиране по
   Show More Replies: Показване на още отговори
+  Pinned by: Прихванато от
+  From $channelName: от $channelName
+  And others: и други
+  Member: Член
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -719,6 +789,12 @@ Tooltips:
       избран Invidious интерфейс. Когато е активиран, локалният интерфейс ще използва
       старите формати вместо тези на Invidious. Това помага когато видеата, получавани
       от Invidious не вървят поради регионални ограничения.
+    Scroll Playback Rate Over Video Player: Докато курсорът е върху видеоклипа, натиснете
+      и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката
+      напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете
+      и задръжте клавиша Control (Command Key на Mac) и щракнете с левия бутон на
+      мишката, за да се върнете бързо към скоростта на възпроизвеждане по подразбиране
+      (1x, освен ако не е променена в настройките).
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
       избере страната, за която това се отнася. Не всички страни показани тук се поддържат
@@ -770,3 +846,8 @@ Search Bar:
   Clear Input: Изчистване на въведеното
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази
   връзка?
+Downloading has completed: '"$" приключи изтеглянето'
+Starting download: Започва изтегляне на "$"
+Downloading failed: Имаше проблем при изтеглянето на "$"
+Screenshot Error: Снимката на екрана е неуспешна. $
+Screenshot Success: Запазена снимка на екрана като "$"

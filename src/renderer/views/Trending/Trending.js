@@ -53,7 +53,7 @@ export default Vue.extend({
   },
   mounted: function () {
     if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
-      this.shownResults = this.trendingCache
+      this.getTrendingInfoCache()
     } else {
       this.getTrendingInfo()
     }
@@ -92,7 +92,11 @@ export default Vue.extend({
       currentTabNode.attr('aria-selected', 'false')
       newTabNode.attr('aria-selected', 'true')
       this.currentTab = tab
-      this.getTrendingInfo()
+      if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
+        this.getTrendingInfoCache()
+      } else {
+        this.getTrendingInfo()
+      }
     },
 
     getTrendingInfo () {
@@ -127,7 +131,8 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
+        const currentTab = this.currentTab
+        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
@@ -148,6 +153,14 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
+      })
+    },
+
+    getTrendingInfoCache: function() {
+      this.isLoading = true
+      setTimeout(() => {
+        this.shownResults = this.trendingCache[this.currentTab]
+        this.isLoading = false
       })
     },
 
@@ -177,7 +190,8 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
+        const currentTab = this.currentTab
+        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {

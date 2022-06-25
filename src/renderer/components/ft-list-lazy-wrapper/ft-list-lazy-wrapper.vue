@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="data.type !== undefined && (data.type === 'video' ? ((!data.liveNow && (data.lengthSeconds != null)) || (!hideLiveStreams)) : true)"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
       once: true,

@@ -80,8 +80,8 @@ Subscriptions:
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
-  Movies: Film
-  Gaming: Spill
+  Movies: Filmer
+  Gaming: Dataspill
   Music: Musikk
   Default: Forvalg
 Most Popular: 'Mest populært'
@@ -347,7 +347,7 @@ Settings:
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillinger
   External Player Settings:
-    Custom External Player Arguments: Egendefinerte argumenter for ekstern spiller
+    Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
     Ignore Unsupported Action Warnings: Ignorer advarsler om ustøttede handlinger
     External Player Settings: Innstillinger for ekstern avspiller

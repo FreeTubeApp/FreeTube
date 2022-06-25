@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import dateFormat from 'dateformat'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'Playlist',
@@ -36,6 +36,9 @@ export default Vue.extend({
     },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   watch: {
@@ -81,6 +84,12 @@ export default Vue.extend({
           infoSource: 'local'
         }
 
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: this.infoData.channelThumbnail,
+          channelName: this.infoData.channelName,
+          channelId: this.infoData.channelId
+        })
+
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
             const channelName = video.author.name
@@ -113,10 +122,7 @@ export default Vue.extend({
 
       const payload = {
         resource: 'playlists',
-        id: this.playlistId,
-        params: {
-          page: this.playlistPage
-        }
+        id: this.playlistId
       }
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
@@ -136,19 +142,18 @@ export default Vue.extend({
           infoSource: 'invidious'
         }
 
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: result.authorThumbnails[2].url,
+          channelName: this.infoData.channelName,
+          channelId: this.infoData.channelId
+        })
+
         const dateString = new Date(result.updated * 1000)
-        dateString.setDate(dateString.getDate() + 1)
-        this.infoData.lastUpdated = dateFormat(dateString, 'mmm dS, yyyy')
+        this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
         this.playlistItems = this.playlistItems.concat(result.videos)
 
-        if (this.playlistItems.length < result.videoCount) {
-          console.log('getting next page')
-          this.playlistPage++
-          this.getPlaylistInvidious()
-        } else {
-          this.isLoading = false
-        }
+        this.isLoading = false
       }).catch((err) => {
         console.log(err)
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -181,7 +186,8 @@ export default Vue.extend({
 
     ...mapActions([
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo'
+      'invidiousGetPlaylistInfo',
+      'updateSubscriptionDetails'
     ])
   }
 })

@@ -6,7 +6,9 @@
       search: isSearch,
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
-      showClearTextButton: showClearTextButton
+      showClearTextButton: showClearTextButton,
+      clearTextButtonVisible: inputDataPresent,
+      disabled: disabled
     }"
   >
     <label
@@ -22,11 +24,11 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton && clearTextButtonExisting"
+      v-if="showClearTextButton"
       icon="times-circle"
       class="clearInputTextButton"
       :class="{
-        visible: clearTextButtonVisible
+        visible: inputDataPresent
       }"
       tabindex="0"
       role="button"
@@ -37,6 +39,7 @@
     />
     <input
       :id="id"
+      ref="input"
       v-model="inputData"
       :list="idDataList"
       class="ft-input"

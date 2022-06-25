@@ -4,7 +4,6 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import i18n from './i18n/index'
-// import 'material-design-icons/iconfont/material-icons.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
@@ -32,7 +31,7 @@ new Vue({
   render: h => h(App)
 })
 
-// to avoild accesing electorn api from web app build
+// to avoid accessing electron api from web app build
 if (window && window.process && window.process.type === 'renderer') {
   const { ipcRenderer } = require('electron')
 

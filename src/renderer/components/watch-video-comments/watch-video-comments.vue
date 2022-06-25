@@ -64,17 +64,37 @@
           @keydown.enter.prevent="$goToChannel(comment.authorLink)"
         >
         <p
+          v-if="comment.isPinned"
+          class="commentPinned"
+        >
+          <font-awesome-icon
+            icon="thumbtack"
+          />
+          {{ $t("Comments.Pinned by") }} {{ channelName }}
+        </p>
+        <p
           class="commentAuthorWrapper"
         >
           <span
             class="commentAuthor"
             role="link"
             tabindex="0"
+            :class="{
+              commentOwner: comment.isOwner
+            }"
             @click="$goToChannel(comment.authorLink)"
             @keydown.enter.prevent="$goToChannel(comment.authorLink)"
           >
             {{ comment.author }}
           </span>
+          <img
+            v-if="comment.isMember"
+            :src="comment.memberIconUrl"
+            :title="$t('Comments.Member')"
+            :aria-label="$t('Comments.Member')"
+            class="commentMemberIcon"
+            alt=""
+          >
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -86,6 +106,7 @@
         />
         <p class="commentLikeCount">
           <font-awesome-icon
+            v-if="!hideCommentLikes"
             icon="thumbs-up"
           />
           {{ comment.likes }}
@@ -121,6 +142,8 @@
             {{ comment.numReplies }}
             <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
             <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
+            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From $channelName").replace("$channelName", channelName) }}</span>
+            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies">{{ $t("Comments.And others") }}</span>
           </span>
         </p>
         <div
@@ -143,10 +166,20 @@
                 class="commentAuthor"
                 role="link"
                 tabindex="0"
-                @keydown.enter.prevent="$goToChannel(comment.authorLink)"
+                :class="{
+                  commentOwner: reply.isOwner
+                }"
+                @keydown.enter.prevent="$goToChannel(reply.authorLink)"
+                @click="$goToChannel(reply.authorLink)"
               >
                 {{ reply.author }}
               </span>
+              <img
+                v-if="reply.isMember"
+                :src="reply.memberIconUrl"
+                class="commentMemberIcon"
+                alt=""
+              >
               <span class="commentDate">
                 {{ reply.time }}
               </span>
@@ -158,6 +191,7 @@
             />
             <p class="commentLikeCount">
               <font-awesome-icon
+                v-if="!hideCommentLikes"
                 icon="thumbs-up"
               />
               {{ reply.likes }}

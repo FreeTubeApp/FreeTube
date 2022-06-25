@@ -27,12 +27,14 @@
               class="channelName"
               role="link"
               tabindex="0"
+              :title="channelName"
               @click="$goToChannel(channelId)"
               @keydown.enter.prevent="$goToChannel(channelId)"
             >
               {{ channelName }}
             </div>
             <ft-button
+              v-if="!hideUnsubscribeButton"
               :label="subscribedText"
               class="subscribeButton"
               background-color="var(--primary-color)"
@@ -57,6 +59,20 @@
         <div
           class="likeSection"
         >
+          <div>
+            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ parsedLikeCount }}</span>
+          </div>
+        </div>
+      </div>
+      <!--
+      // Uncomment if suitable solution for bringing back dislikes is introduced
+      <div
+        v-if="!hideVideoLikesAndDislikes"
+        class="likeBarContainer"
+      >
+        <div
+          class="likeSection"
+        >
           <div
             class="likeBar"
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
@@ -67,6 +83,7 @@
           </div>
         </div>
       </div>
+      -->
       <div class="videoOptions">
         <ft-icon-button
           v-if="!isUpcoming"
@@ -90,9 +107,9 @@
           class="option"
           theme="secondary"
           icon="download"
-          :dropdown-names="downloadLinkNames"
-          :dropdown-values="downloadLinkValues"
-          @click="openExternalLink"
+          :return-index="true"
+          :dropdown-options="downloadLinkOptions"
+          @click="handleDownload"
         />
         <ft-icon-button
           v-if="!isUpcoming"
@@ -100,11 +117,11 @@
           class="option"
           theme="secondary"
           icon="file-video"
-          :dropdown-names="formatTypeNames"
-          :dropdown-values="formatTypeValues"
+          :dropdown-options="formatTypeOptions"
           @click="handleFormatChange"
         />
         <ft-share-button
+          v-if="!hideSharingActions"
           :id="id"
           :get-timestamp="getTimestamp"
           :playlist-id="playlistId"

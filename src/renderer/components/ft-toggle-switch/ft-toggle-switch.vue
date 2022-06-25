@@ -1,7 +1,10 @@
 <template>
   <div
     class="switch-ctn"
-    :class="{compact}"
+    :class="{
+      compact,
+      disabled: disabled
+    }"
   >
     <input
       :id="id"
@@ -17,7 +20,9 @@
       :for="id"
       class="switch-label"
     >
-      {{ label }}
+      <span class="switch-label-text">
+        {{ label }}
+      </span>
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"

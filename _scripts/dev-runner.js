@@ -115,17 +115,20 @@ function startRenderer(callback) {
     console.log(`\nWatching file changes for ${name} script...`)
   })
 
-  const server = new WebpackDevServer(compiler, {
+  const server = new WebpackDevServer({
     static: {
       directory: path.join(process.cwd(), 'static'),
       watch: {
-        ignored: /(dashFiles|storyboards)\/*/
+        ignored: [
+          /(dashFiles|storyboards)\/*/,
+          '/**/.DS_Store',
+        ]
       }
     },
     port
-  })
+  }, compiler)
 
-  server.listen(port, '', err => {
+  server.startCallback(err => {
     if (err) console.error(err)
 
     callback()

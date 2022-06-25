@@ -75,6 +75,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tällä
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
+  Error Channels: Kanavat, joissa on virheitä
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -92,11 +93,15 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Et
     ole tallentanut videoita. Paina "Tallenna" painiketta videon kulmassa tallentaaksesi
     sen tänne
+  Search bar placeholder: Etsi soittolistalta
+  Empty Search Message: Tällä soittolistalla ei ole videoita, jotka vastaavat hakuasi
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Katseluhistoria'
   Your history list is currently empty.: Historiasi on tällä hetkellä tyhjä.
+  Search bar placeholder: Etsi historiasta
+  Empty Search Message: Historiassasi ei ole videoita, jotka vastaisivat hakuasi
 Settings:
   # On Settings Page
   Settings: 'Asetukset'
@@ -150,6 +155,7 @@ Settings:
       Dark: 'Tumma'
       Light: 'Vaalea'
       Dracula: 'Dracula'
+      System Default: Järjestelmän oletusarvo
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -180,6 +186,7 @@ Settings:
     UI Scale: Käyttöliittymän koko
     Disable Smooth Scrolling: Poista tasainen vieritys käytöstä
     Expand Side Bar by Default: Laajenna sivupalkki oletusarvoisesti
+    Hide Side Bar Labels: Piilota sivupalkin nimikkeet
   Player Settings:
     Player Settings: 'Soittimen asetukset'
     Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
@@ -215,6 +222,20 @@ Settings:
     Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
       päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
+    Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
+    Max Video Playback Rate: Videon maksimitoistonopeus
+    Video Playback Rate Interval: Videon toistonopeuden aikaväli
+    Screenshot:
+      Error:
+        Forbidden Characters: Kielletyt merkit
+        Empty File Name: Tyhjä tiedostonimi
+      Enable: Ota kuvakaappaus käyttöön
+      Folder Label: Kuvakaappauskansio
+      Folder Button: Valitse kansio
+      Format Label: Kuvakaappauksen muoto
+      Quality Label: Kuvakaappauksen laatu
+      File Name Label: Tiedostonimimalli
+      Ask Path: Kysy tallennuskansiota
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -307,6 +328,13 @@ Settings:
     Data Settings: Data-asetukset
     Check for Legacy Subscriptions: Tarkista vanhat tilaukset
     Manage Subscriptions: Hallitse tilauksia
+    All playlists has been successfully imported: Kaikki soittolistat on onnistuneesti
+      tuotu
+    All playlists has been successfully exported: Kaikki soittolistat on viety onnistuneesti
+    Import Playlists: Tuo soittolistoja
+    Export Playlists: Vie soittolistoja
+    Playlist insufficient data: Riittämätön määrä tietoja ”$” -soittolistalle, ohitetaan
+      kohde
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -319,6 +347,10 @@ Settings:
     Hide Video Views: Piilota videon katselukerrat
     Hide Active Subscriptions: Piilota aktiiviset tilaukset
     Hide Playlists: Piilota soittolistat
+    Hide Comments: Piilota kommentit
+    Hide Video Description: Piilota videon kuvaus
+    Hide Live Streams: Piilota suorat lähetykset
+    Hide Sharing Actions: Piilota jakamistoiminnot
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -344,6 +376,13 @@ Settings:
       API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
     Enable SponsorBlock: Kytke SponsorBlock-sponsoriesto päälle
     SponsorBlock Settings: SponsorBlock-sponsorieston asetukset
+    Skip Options:
+      Skip Option: Ohita vaihtoehto
+      Auto Skip: Automaattinen ohitus
+      Show In Seek Bar: Näytä hakupalkissa
+      Do Nothing: Älä tee mitään
+      Prompt To Skip: Ehdota ohittamista
+    Category Color: Luokan väri
   External Player Settings:
     Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
     Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava
@@ -351,6 +390,18 @@ Settings:
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
+  Download Settings:
+    Download Settings: Latausasetukset
+    Choose Path: Valitse polku
+    Ask Download Path: Kysy latauspolkua
+    Download Behavior: Latauksen toiminta
+    Download in app: Lataa sovelluksessa
+    Open in web browser: Avaa selaimessa
+  Parental Control Settings:
+    Parental Control Settings: Perheasetukset
+    Hide Unsubscribe Button: Piilota Peruuta tilaus -paninike
+    Show Family Friendly Only: Näytä vain koko perheelle sopiva sisältö
+    Hide Search Bar: Piilota hakupalkki
 About:
   #On About page
   About: 'Tietoja'
@@ -535,18 +586,38 @@ Video:
     video: video
     OpenInTemplate: Avaa täten $
   Sponsor Block category:
-    music offtopic: musiikki aihepiirin ulkopuolelta
-    interaction: kanssakäyminen
-    self-promotion: itsepromootio
-    outro: loppu
-    intro: alku
-    sponsor: sponsori
+    music offtopic: Musiikki aihepiirin ulkopuolelta
+    interaction: Kanssakäyminen
+    self-promotion: Itsepromootio
+    outro: Loppu
+    intro: Alku
+    sponsor: Sponsori
   Skipped segment: Ylihypätty osio
   translated from English: käännetty englanninkielestä
   Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
+  Stats:
+    video id: Videon tunniste (YouTube)
+    player resolution: Näkymäikkuna
+    bandwidth: Yhteyden nopeus
+    buffered: Puskuroitu
+    volume: Äänenvoimakkuus
+    fps: Kuvanopeus
+    out of: /
+    Video ID: Videotunnus
+    Bitrate: Tiedonsiirtonopeus
+    Bandwidth: Kaistanleveys
+    Mimetype: Internet-mediatyyppi
+    Video statistics are not available for legacy videos: Vanhojen videoiden videotilastot
+      eivät ole saatavilla
+    Player Dimensions: Soittimen mitat
+    Volume: Äänenvoimakkuus
+    Buffered: Puskuroitu
+    Resolution: Resoluutio
+    Dropped / Total Frames: Pudotettu / Yhteensä
+  Premieres on: Julkaistaan
 Videos:
   #& Sort By
   Sort By:
@@ -616,6 +687,10 @@ Comments:
   Top comments: Suosituimmat kommentit
   Sort by: Lajitteluperuste
   Show More Replies: Näytä enemmän vastauksia
+  Pinned by: Kiinnittänyt
+  From $channelName: kanavalta $channelName
+  And others: ja muut
+  Member: Jäsen
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -638,7 +713,7 @@ Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
 
 Yes: 'Kyllä'
 No: 'Ei'
-Locale Name: Suomi
+Locale Name: suomi
 The playlist has been reversed: Soittolista on muutettu käänteiseksi
 Profile:
   $ is now the active profile: $ on nyt aktiivinen profiili
@@ -716,6 +791,11 @@ Tooltips:
       Kun valittuna, paikallinen API käyttää vanhoja formaatteja Invidiousin käyttämien
       sijaan. Tämä auttaa, jos Invidiousin palauttamat videot eivät toimi maarajoituksien
       takia.
+    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina
+      CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi
+      toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
+      määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa)
+      painettuna ja paina hiiren vasenta näppäintä.
   Privacy Settings:
     Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
       meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
@@ -730,6 +810,7 @@ Tooltips:
       Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
     External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
       (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
+    DefaultCustomArgumentsTemplate: "(Oletus: '$')"
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -748,3 +829,14 @@ Search Bar:
 External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
   on poistettu käytöstä yleisissä asetuksissa
 Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?
+Downloading failed: Videon "$" lataamisessa havaittiin ongelma
+Downloading has completed: Videon "$" lataus on valmis
+Starting download: Aloitetaan lataamaan "$"
+Screenshot Success: Kuvakaappaus tallennettu nimellä ”$”
+New Window: Uusi ikkuna
+Age Restricted:
+  This $contentType is age restricted: Tämä $ on ikärajoitettu
+  Type:
+    Video: Video
+    Channel: Kanava
+Screenshot Error: Ruutukaappaus epäonnistui. $

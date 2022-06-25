@@ -3,7 +3,7 @@
     <div
       class="colorOption"
       :title="$t('Profile.Toggle Profile List')"
-      :style="{ background: profileList[activeProfile].bgColor, color: profileList[activeProfile].textColor }"
+      :style="{ background: activeProfile.bgColor, color: activeProfile.textColor }"
       tabindex="0"
       role="button"
       @click="toggleProfileList"
@@ -13,7 +13,7 @@
       <div
         class="initial"
       >
-        {{ profileInitials[activeProfile] }}
+        {{ activeProfileInitial }}
       </div>
     </div>
     <ft-card
@@ -62,7 +62,7 @@
         </div>
       </div>
       <ft-icon-button
-        class="profileSettings"
+        id="profileSettings"
         :title="$t('Profile.Open Profile Settings')"
         icon="sliders-h"
         role="link"

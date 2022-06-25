@@ -26,6 +26,10 @@ export default Vue.extend({
     tooltip: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   }
 })

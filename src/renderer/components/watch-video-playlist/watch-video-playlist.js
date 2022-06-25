@@ -98,6 +98,17 @@ export default Vue.extend({
           break
       }
     }
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('previoustrack', this.playPreviousVideo)
+      navigator.mediaSession.setActionHandler('nexttrack', this.playNextVideo)
+    }
+  },
+  beforeDestroy: function () {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('previoustrack', null)
+      navigator.mediaSession.setActionHandler('nexttrack', null)
+    }
   },
   methods: {
     goToPlaylist: function () {
@@ -328,10 +339,7 @@ export default Vue.extend({
 
       const payload = {
         resource: 'playlists',
-        id: this.playlistId,
-        params: {
-          page: this.playlistPage
-        }
+        id: this.playlistId
       }
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
@@ -345,13 +353,7 @@ export default Vue.extend({
         this.channelId = result.authorId
         this.playlistItems = this.playlistItems.concat(result.videos)
 
-        if (this.playlistItems.length < result.videoCount) {
-          console.log('getting next page')
-          this.playlistPage++
-          this.getPlaylistInformationInvidious()
-        } else {
-          this.isLoading = false
-        }
+        this.isLoading = false
       }).catch((err) => {
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')

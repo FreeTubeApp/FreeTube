@@ -32,23 +32,23 @@
     >
       <slot>
         <ul
-          v-if="dropdownNames.length > 0"
+          v-if="dropdownOptions.length > 0"
           class="list"
           role="listbox"
           aria-expanded="false"
         >
           <li
-            v-for="(label, index) in dropdownNames"
+            v-for="(option, index) in dropdownOptions"
             :id="title + '-' + index"
             :key="index"
-            class="listItem"
             role="option"
             aria-selected="false"
             tabindex="-1"
-            @click="handleDropdownClick(index, $event)"
-            @keydown="handleDropdownClick(index, $event)"
+            :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
+            @click="handleDropdownClick({url: option.value, index: index}, $event)"
+            @keydown="handleDropdownClick({url: option.value, index: index}, $event)"
           >
-            {{ label }}
+            {{ option.type === 'divider' ? '' : option.label }}
           </li>
         </ul>
       </slot>

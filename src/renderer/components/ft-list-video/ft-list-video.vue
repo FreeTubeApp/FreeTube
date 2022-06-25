@@ -12,13 +12,13 @@
     <div class="info">
       <ft-icon-button
         class="optionsButton"
+        icon="ellipsis-v"
         :title="$t('Video.Show Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"
         dropdown-position-x="left"
-        :dropdown-names="optionsNames"
-        :dropdown-values="optionsValues"
+        :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
       <h2 class="resultHeading">
@@ -28,6 +28,7 @@
             path: `/watch/${id}`,
             query: playlistId ? {playlistId} : {}
           }"
+          :title="title"
         >
           {{ title }}
         </router-link>
@@ -37,7 +38,9 @@
           class="channelName"
           :to="`/channel/${channelId}`"
         >
-          <span>{{ channelName }}</span>
+          <span
+            :title="channelName"
+          >{{ channelName }}</span>
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>

@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
+  Error Channels: Hatalı Kanallar
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -100,11 +101,15 @@ User Playlists:
     Yalnızca kaydettiğiniz veya favorilerinize eklediğiniz videoları listeler. İş
     bittiğinde, şu anda burada bulunan tüm videolar bir 'Favoriler' oynatma listesine
     taşınacaktır.
+  Search bar placeholder: Oynatma Listesinde Ara
+  Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
 History:
   # On History Page
   History: 'Geçmiş'
   Watch History: 'İzleme Geçmişi'
   Your history list is currently empty.: 'Geçmişin şu anda boş.'
+  Search bar placeholder: Geçmişte Ara
+  Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -158,6 +163,7 @@ Settings:
       Dark: 'Koyu'
       Light: 'Açık'
       Dracula: 'Drakula'
+      System Default: Sistem Öntanımlı Değeri
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -223,6 +229,26 @@ Settings:
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
+    Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
+      Hızını Denetle
+    Video Playback Rate Interval: Video Oynatma Hızı Aralığı
+    Max Video Playback Rate: En Yüksek Video Oynatma Hızı
+    Screenshot:
+      Quality Label: Ekran Görüntüsü Kalitesi
+      Ask Path: Kaydedileceği Klasörü Sor
+      Folder Label: Ekran Görüntüsü Klasörü
+      File Name Label: Dosya Adı Kalıbı
+      Error:
+        Forbidden Characters: Yasak Karakterler
+        Empty File Name: Boş Dosya Adı
+      Format Label: Ekran Görüntüsü Biçimi
+      Enable: Ekran Görüntüsünü Etkinleştir
+      Folder Button: Klasör Seç
+      File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak.
+        %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak.
+        %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video
+        Milisaniyesi 3 basamak. %i Video Kimliği. Alt klasörler oluşturmak için "\"
+        veya "/" kullanabilirsiniz.
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -284,6 +310,13 @@ Settings:
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
     Check for Legacy Subscriptions: Eski Abonelikleri Denetle
     Manage Subscriptions: Abonelikleri Yönet
+    Export Playlists: Oynatma Listelerini Dışa Aktar
+    All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
+      içe aktarıldı
+    Playlist insufficient data: '"$" oynatma listesi için yetersiz veri, öge atlanıyor'
+    Import Playlists: Oynatma Listelerini İçe Aktar
+    All playlists has been successfully exported: Tüm oynatma listeleri başarıyla
+      dışa aktarıldı
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
@@ -324,6 +357,10 @@ Settings:
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
+    Hide Live Streams: Canlı Yayınları Gizle
+    Hide Sharing Actions: Paylaşım Eylemlerini Gizle
+    Hide Video Description: Video Açıklamasını Gizle
+    Hide Comments: Yorumları Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -349,12 +386,31 @@ Settings:
       URL'si (Öntanımlı olarak https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
     SponsorBlock Settings: SponsorBlock Ayarları
+    Skip Options:
+      Skip Option: Atlama Seçeneği
+      Auto Skip: Otomatik Atla
+      Show In Seek Bar: Arama Çubuğunda Göster
+      Prompt To Skip: Atlamak İçin Sor
+      Do Nothing: Hiçbir Şey Yapma
+    Category Color: Kategori Rengi
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
     External Player Settings: Harici Oynatıcı Ayarları
+  Download Settings:
+    Choose Path: Yol Seç
+    Ask Download Path: İndirme yolu için sor
+    Download Settings: İndirme Ayarları
+    Download Behavior: İndirme Davranışı
+    Download in app: Uygulamada indir
+    Open in web browser: Web tarayıcısında aç
+  Parental Control Settings:
+    Parental Control Settings: Ebeveyn Denetimi Ayarları
+    Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
+    Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
+    Hide Search Bar: Arama Çubuğunu Gizle
 About:
   #On About page
   About: 'Hakkında'
@@ -582,12 +638,14 @@ Video:
   Save Video: Videoyu Kaydet
   translated from English: İngilizceden çevrildi
   Sponsor Block category:
-    music offtopic: müzik konu dışı
-    interaction: etkileşim
-    self-promotion: kendini tanıtma
-    outro: çıkış
-    intro: giriş
-    sponsor: sponsor
+    music offtopic: Müzik Konu Dışı
+    interaction: Etkileşim
+    self-promotion: Kendini Tanıtma
+    outro: Çıkış
+    intro: Giriş
+    sponsor: Sponsor
+    recap: Özet
+    filler: Dolgu
   Skipped segment: Atlanan bölüm
   External Player:
     Unsupported Actions:
@@ -604,6 +662,27 @@ Video:
     playlist: oynatma listesi
     video: video
     OpenInTemplate: $ içinde aç
+  Premieres on: İlk gösterim tarihi
+  Stats:
+    volume: Ses Seviyesi
+    out of: /
+    player resolution: Görüntü Penceresi
+    fps: FPS
+    frame drop: Çerçeve Kaybı
+    video id: Video Kimliği (YouTube)
+    bandwidth: Bağlantı Hızı
+    buffered: Arabelleğe Alınan
+    Video ID: Video Kimliği
+    Resolution: Çözünürlük
+    Player Dimensions: Oynatıcı Boyutları
+    Bitrate: Bit Hızı
+    Volume: Ses Seviyesi
+    Bandwidth: Bant Genişliği
+    Buffered: Arabelleğe Alınan
+    Dropped / Total Frames: Düşürülen / Toplam Çerçeve Sayısı
+    Mimetype: MIME Türü
+    Video statistics are not available for legacy videos: Video istatistikleri eski
+      videolar için kullanılabilir değil
 Videos:
   #& Sort By
   Sort By:
@@ -675,6 +754,10 @@ Comments:
   Sort by: Sıralama ölçütü
   No more comments available: Başka yorum yok
   Show More Replies: Daha Fazla Yanıt Göster
+  From $channelName: $channelName'den
+  And others: ve diğerleri
+  Pinned by: Sabitleyen
+  Member: Üye
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -719,6 +802,11 @@ Tooltips:
       döndürülen biçimler yerine onun döndürdüğü eski biçimler kullanılacaktır. Invidious
       tarafından döndürülen videolar ülke kısıtlamaları nedeniyle oynatılmadığında
       yardımcı olur.
+    Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
+      videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
+      hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı
+      oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek
+      için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
@@ -768,3 +856,17 @@ External link opening has been disabled in the general settings: Harici bağlant
   genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
   misiniz?
+Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
+Starting download: '"$" indirme işlemi başlatılıyor'
+Downloading has completed: '"$" indirme işlemi tamamlandı'
+Downloading failed: '"$" indirilirken bir sorun oluştu'
+Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
+  geri dönülüyor.
+Screenshot Success: Ekran görüntüsü "$" olarak kaydedildi
+Screenshot Error: Ekran görüntüsü başarısız oldu. $
+New Window: Yeni Pencere
+Age Restricted:
+  This $contentType is age restricted: Bu $ yaş kısıtlamalıdır
+  Type:
+    Channel: Kanal
+    Video: Video

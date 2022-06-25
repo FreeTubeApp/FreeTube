@@ -6,6 +6,7 @@ import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -117,17 +118,20 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      formatTypeLabel: 'VIDEO FORMATS',
-      formatTypeValues: [
-        'dash',
-        'legacy',
-        'audio'
-      ]
+      formatTypeLabel: 'VIDEO FORMATS'
     }
   },
   computed: {
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
     },
 
     currentLocale: function () {
@@ -174,23 +178,33 @@ export default Vue.extend({
       return this.inFavoritesPlaylist ? 'base favorite' : 'base'
     },
 
-    downloadLinkNames: function () {
+    downloadLinkOptions: function () {
       return this.downloadLinks.map((download) => {
-        return download.label
+        return {
+          label: download.label,
+          value: download.url
+        }
       })
     },
 
-    downloadLinkValues: function () {
-      return this.downloadLinks.map((download) => {
-        return download.url
-      })
+    downloadBehavior: function () {
+      return this.$store.getters.getDownloadBehavior
     },
 
-    formatTypeNames: function () {
+    formatTypeOptions: function () {
       return [
-        this.$t('Change Format.Use Dash Formats').toUpperCase(),
-        this.$t('Change Format.Use Legacy Formats').toUpperCase(),
-        this.$t('Change Format.Use Audio Formats').toUpperCase()
+        {
+          label: this.$t('Change Format.Use Dash Formats').toUpperCase(),
+          value: 'dash'
+        },
+        {
+          label: this.$t('Change Format.Use Legacy Formats').toUpperCase(),
+          value: 'legacy'
+        },
+        {
+          label: this.$t('Change Format.Use Audio Formats').toUpperCase(),
+          value: 'audio'
+        }
       ]
     },
 
@@ -199,7 +213,7 @@ export default Vue.extend({
     },
 
     parsedLikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
+      if (this.hideVideoLikesAndDislikes || this.likeCount === null) {
         return null
       }
 
@@ -208,7 +222,7 @@ export default Vue.extend({
     },
 
     parsedDislikeCount: function () {
-      if (this.hideVideoLikesAndDislikes) {
+      if (this.hideVideoLikesAndDislikes || this.dislikeCount === null) {
         return null
       }
 
@@ -228,7 +242,7 @@ export default Vue.extend({
     },
 
     isSubscribed: function () {
-      const subIndex = this.profileList[this.activeProfile].subscriptions.findIndex((channel) => {
+      const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
         return channel.id === this.channelId
       })
 
@@ -297,6 +311,7 @@ export default Vue.extend({
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
+        videoLength: this.lengthSeconds,
         playlistId: this.playlistId,
         playlistIndex: this.getPlaylistIndex(),
         playlistReverse: this.getPlaylistReverse(),
@@ -318,7 +333,7 @@ export default Vue.extend({
         return
       }
 
-      const currentProfile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
       if (this.isSubscribed) {
@@ -331,13 +346,13 @@ export default Vue.extend({
           message: this.$t('Channel.Channel has been removed from your subscriptions')
         })
 
-        if (this.activeProfile === 0) {
+        if (this.activeProfile._id === MAIN_PROFILE_ID) {
           // Check if a subscription exists in a different profile.
           // Remove from there as well.
           let duplicateSubscriptions = 0
 
           this.profileList.forEach((profile) => {
-            if (profile._id === 'allChannels') {
+            if (profile._id === MAIN_PROFILE_ID) {
               return
             }
             const parsedProfile = JSON.parse(JSON.stringify(profile))
@@ -376,7 +391,7 @@ export default Vue.extend({
           message: this.$t('Channel.Added channel to your subscriptions')
         })
 
-        if (this.activeProfile !== 0) {
+        if (this.activeProfile._id !== MAIN_PROFILE_ID) {
           const index = primaryProfile.subscriptions.findIndex((channel) => {
             return channel.id === this.channelId
           })
@@ -401,6 +416,32 @@ export default Vue.extend({
           this.$parent.enableAudioFormat()
           break
       }
+    },
+
+    handleDownload: function (index) {
+      const selectedDownloadLinkOption = this.downloadLinkOptions[index]
+      const url = selectedDownloadLinkOption.value
+      const linkName = selectedDownloadLinkOption.label
+      const extension = this.grabExtensionFromUrl(linkName)
+
+      if (this.downloadBehavior === 'open') {
+        this.openExternalLink(url)
+      } else {
+        this.downloadMedia({
+          url: url,
+          title: this.title,
+          extension: extension
+        })
+      }
+    },
+
+    grabExtensionFromUrl: function (url) {
+      const regex = /\/(\w*)/i
+      const group = url.match(regex)
+      if (group.length === 0) {
+        return ''
+      }
+      return group[1]
     },
 
     addToPlaylist: function () {
@@ -450,7 +491,8 @@ export default Vue.extend({
       'updateProfile',
       'addVideo',
       'removeVideo',
-      'openExternalLink'
+      'openExternalLink',
+      'downloadMedia'
     ])
   }
 })

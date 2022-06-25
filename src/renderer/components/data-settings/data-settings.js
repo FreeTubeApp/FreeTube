@@ -5,6 +5,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
@@ -52,6 +53,9 @@ export default Vue.extend({
     },
     profileList: function () {
       return this.$store.getters.getProfileList
+    },
+    allPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
     },
     importSubscriptionsPromptNames: function () {
       const importFreeTube = this.$t('Settings.Data Settings.Import FreeTube')
@@ -165,7 +169,7 @@ export default Vue.extend({
               message: message
             })
           } else {
-            if (profileObject.name === 'All Channels' || profileObject._id === 'allChannels') {
+            if (profileObject.name === 'All Channels' || profileObject._id === MAIN_PROFILE_ID) {
               primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
               primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
                 const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
@@ -244,8 +248,9 @@ export default Vue.extend({
           return
         }
         const textDecode = new TextDecoder('utf-8').decode(data)
-        console.log(textDecode)
-        const youtubeSubscriptions = textDecode.split('\n')
+        const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
+          return sub !== ''
+        })
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
         const subscriptions = []
 
@@ -315,8 +320,6 @@ export default Vue.extend({
 
         let textDecode = new TextDecoder('utf-8').decode(data)
         textDecode = JSON.parse(textDecode)
-
-        console.log(textDecode)
 
         const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
         const subscriptions = []
@@ -680,7 +683,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -763,7 +766,7 @@ export default Vue.extend({
         return object
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -815,7 +818,7 @@ export default Vue.extend({
         }
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -854,10 +857,14 @@ export default Vue.extend({
       let exportText = 'Channel ID,Channel URL,Channel title\n'
       this.profileList[0].subscriptions.forEach((channel) => {
         const channelUrl = `https://www.youtube.com/channel/${channel.id}`
-        exportText += `${channel.id},${channelUrl},${channel.name}\n`
+        let channelName = channel.name
+        if (channelName.search(',') !== -1) { // add quotations if channel has comma in name
+          channelName = `"${channelName}"`
+        }
+        exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -910,7 +917,7 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -1041,7 +1048,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await this.showSaveDialog({ options })
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -1070,6 +1077,168 @@ export default Vue.extend({
           this.showToast({
             message: this.$t('Settings.Data Settings.All watched history has been successfully exported')
           })
+        })
+      })
+    },
+
+    importPlaylists: async function () {
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['db']
+          }
+        ]
+      }
+
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths.length === 0) {
+        return
+      }
+
+      const filePath = response.filePaths[0]
+
+      fs.readFile(filePath, async (err, data) => {
+        if (err) {
+          const message = this.$t('Settings.Data Settings.Unable to read file')
+          this.showToast({
+            message: `${message}: ${err}`
+          })
+          return
+        }
+
+        const playlists = JSON.parse(data)
+
+        playlists.forEach(async (playlistData) => {
+          // We would technically already be done by the time the data is parsed,
+          // however we want to limit the possibility of malicious data being sent
+          // to the app, so we'll only grab the data we need here.
+          const requiredKeys = [
+            'playlistName',
+            'videos'
+          ]
+
+          const optionalKeys = [
+            '_id',
+            'protected',
+            'removeOnWatched'
+          ]
+
+          const requiredVideoKeys = [
+            'videoId',
+            'title',
+            'author',
+            'authorId',
+            'published',
+            'lengthSeconds',
+            'timeAdded',
+            'isLive',
+            'paid',
+            'type'
+          ]
+
+          const playlistObject = {}
+
+          Object.keys(playlistData).forEach((key) => {
+            if (!requiredKeys.includes(key) && !optionalKeys.includes(key)) {
+              const message = `${this.$t('Settings.Data Settings.Unknown data key')}: ${key}`
+              this.showToast({
+                message: message
+              })
+            } else if (key === 'videos') {
+              const videoArray = []
+              playlistData.videos.forEach((video) => {
+                let hasAllKeys = true
+                requiredVideoKeys.forEach((videoKey) => {
+                  if (!Object.keys(video).includes(videoKey)) {
+                    hasAllKeys = false
+                  }
+                })
+
+                if (hasAllKeys) {
+                  videoArray.push(video)
+                }
+              })
+
+              playlistObject[key] = videoArray
+            } else {
+              playlistObject[key] = playlistData[key]
+            }
+          })
+
+          const objectKeys = Object.keys(playlistObject)
+
+          if ((objectKeys.length < requiredKeys.length) || playlistObject.videos.length === 0) {
+            const message = this.$t('Settings.Data Settings.Playlist insufficient data').replace('$', playlistData.playlistName)
+            this.showToast({
+              message: message
+            })
+          } else {
+            const existingPlaylist = this.allPlaylists.find((playlist) => {
+              return playlist.playlistName === playlistObject.playlistName
+            })
+
+            if (existingPlaylist !== undefined) {
+              playlistObject.videos.forEach((video) => {
+                const existingVideo = existingPlaylist.videos.find((x) => {
+                  return x.videoId === video.videoId
+                })
+
+                if (existingVideo === undefined) {
+                  const payload = {
+                    playlistName: existingPlaylist.playlistName,
+                    videoData: video
+                  }
+
+                  this.addVideo(payload)
+                }
+              })
+            } else {
+              this.addPlaylist(playlistObject)
+            }
+          }
+        })
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.All playlists has been successfully imported')
+        })
+      })
+    },
+
+    exportPlaylists: async function () {
+      const date = new Date().toISOString().split('T')[0]
+      const exportFileName = 'freetube-playlists-' + date + '.db'
+
+      const options = {
+        defaultPath: exportFileName,
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['db']
+          }
+        ]
+      }
+
+      const response = await this.showSaveDialog({ options })
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      const filePath = response.filePath
+
+      fs.writeFile(filePath, JSON.stringify(this.allPlaylists), (writeErr) => {
+        if (writeErr) {
+          const message = this.$t('Settings.Data Settings.Unable to write file')
+          this.showToast({
+            message: `${message}: ${writeErr}`
+          })
+          return
+        }
+
+        this.showToast({
+          message: this.$t('Settings.Data Settings.All playlists has been successfully exported')
         })
       })
     },
@@ -1140,7 +1309,7 @@ export default Vue.extend({
 
     getChannelInfoLocal: function (channelId) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelInfo(channelId, 'latest').then(async (response) => {
+        ytch.getChannelInfo({ channelId: channelId }).then(async (response) => {
           resolve(response)
         }).catch((err) => {
           console.log(err)
@@ -1177,7 +1346,9 @@ export default Vue.extend({
       'calculateColorLuminance',
       'showOpenDialog',
       'showSaveDialog',
-      'getUserDataPath'
+      'getUserDataPath',
+      'addPlaylist',
+      'addVideo'
     ]),
 
     ...mapMutations([

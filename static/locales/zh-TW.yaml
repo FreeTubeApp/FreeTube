@@ -74,6 +74,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
+  Error Channels: 有錯誤的頻道
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -87,11 +88,15 @@ User Playlists:
   Your Playlists: '您的播放清單'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
+  Search bar placeholder: 在播放清單搜尋
+  Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
 History:
   # On History Page
-  History: '歷史紀錄'
-  Watch History: '觀看歷史紀錄'
-  Your history list is currently empty.: 您的歷史紀錄清單目前是空的。
+  History: '觀看紀錄'
+  Watch History: '觀看紀錄'
+  Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
+  Search bar placeholder: 在觀看紀錄中搜尋
+  Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -143,6 +148,7 @@ Settings:
       Dark: '深色'
       Light: '淺色'
       Dracula: '德古拉'
+      System Default: 系統預設值
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -208,6 +214,23 @@ Settings:
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
+    Scroll Playback Rate Over Video Player: 在影片播放程式上捲動播放速度
+    Max Video Playback Rate: 最大影片播放速率
+    Video Playback Rate Interval: 影片播放速率間隔
+    Screenshot:
+      Enable: 啟用螢幕截圖
+      Format Label: 螢幕截圖格式
+      Quality Label: 螢幕截圖品質
+      Folder Button: 選取資料夾
+      File Name Label: 檔案名稱模式
+      Error:
+        Forbidden Characters: 禁止的字元
+        Empty File Name: 空的檔案名稱
+      Ask Path: 詢問儲存的資料夾
+      Folder Label: 螢幕截圖資料夾
+      File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N
+        為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。您也可以使用 "\"
+        或 "/" 來建立子資料夾。
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -244,14 +267,14 @@ Settings:
       #& No
 
   Privacy Settings:
-    Watch history has been cleared: 觀看紀錄已清除
-    Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看歷史紀錄嗎？
-    Remove Watch History: 移除觀看歷史紀錄
+    Watch history has been cleared: 已刪除觀看紀錄
+    Are you sure you want to remove your entire watch history?: 您確定要移除全部的觀看紀錄嗎？
+    Remove Watch History: 移除觀看紀錄
     Search cache has been cleared: 搜尋快取已清除
     Are you sure you want to clear out your search cache?: 您確定要清除搜尋快取嗎？
     Clear Search Cache: 清除搜尋快取
     Save Watched Progress: 儲存觀看進度
-    Remember History: 儲存歷史紀錄
+    Remember History: 儲存觀看紀錄
     Privacy Settings: 隱私設定
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
@@ -263,16 +286,16 @@ Settings:
     Unable to read file: 無法讀取檔案
     All watched history has been successfully exported: 所有觀看紀錄已成功匯出
     All watched history has been successfully imported: 所有觀看紀錄已成功匯入
-    History object has insufficient data, skipping item: 歷史紀錄物件資料不足，正在跳過項目
+    History object has insufficient data, skipping item: 觀看紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
-    Invalid history file: 無效的歷史紀錄檔案
+    Invalid history file: 無效的觀看紀錄檔案
     This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
     Profile object has insufficient data, skipping item: 設定檔物件資料不足，正在跳過項目
-    Export History: 匯出歷史紀錄
-    Import History: 匯入歷史紀錄
+    Export History: 匯出觀看紀錄
+    Import History: 匯入觀看紀錄
     Export NewPipe: 匯出NewPipe
     Export YouTube: 匯出YouTube
     Export FreeTube: 匯出FreeTube
@@ -287,6 +310,11 @@ Settings:
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被匯入
     Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
+    Import Playlists: 匯入播放清單
+    All playlists has been successfully imported: 所有播放清單都已成功匯入
+    Export Playlists: 匯出播放清單
+    Playlist insufficient data: 「$」播放清單的資料不足，正在略過項目
+    All playlists has been successfully exported: 所有播放清單都已成功匯出
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾設定
@@ -299,6 +327,10 @@ Settings:
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
     Hide Playlists: 隱藏播放清單
+    Hide Video Description: 隱藏影片描述
+    Hide Comments: 隱藏留言
+    Hide Live Streams: 隱藏直播串流
+    Hide Sharing Actions: 隱藏分享動作
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -320,12 +352,31 @@ Settings:
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
     SponsorBlock Settings: SponsorBlock 設定
+    Skip Options:
+      Skip Option: 略過選項
+      Auto Skip: 自動略過
+      Show In Seek Bar: 在進度列中顯示
+      Prompt To Skip: 提示略過
+      Do Nothing: 不要做任何事
+    Category Color: 分類色彩
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
     External Player Settings: 外部播放程式設定
+  Download Settings:
+    Download Settings: 下載設定
+    Ask Download Path: 詢問下載路徑
+    Choose Path: 選擇路徑
+    Download in app: 在應用程式中下載
+    Open in web browser: 在網路瀏覽器中開啟
+    Download Behavior: 下載行為
+  Parental Control Settings:
+    Hide Unsubscribe Button: 隱藏取消訂閱按鈕
+    Show Family Friendly Only: 僅顯示適合家庭觀看
+    Hide Search Bar: 隱藏搜尋列
+    Parental Control Settings: 家長控制設定
 About:
   #On About page
   About: '關於'
@@ -468,9 +519,9 @@ Video:
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
 #& Videos
-  Video has been removed from your history: 影片已從您的歷史紀錄中移除
+  Video has been removed from your history: 影片已從您的觀看紀錄中移除
   Video has been marked as watched: 影片標記為已觀看
-  Remove From History: 從歷史紀錄中移除
+  Remove From History: 從觀看紀錄中移除
   Mark As Watched: 標記為已觀看
   Autoplay: 自動播放
   Play Previous Video: 播放前一影片
@@ -504,6 +555,8 @@ Video:
     outro: 其他
     intro: 介紹
     sponsor: 贊助商
+    recap: 回顧
+    filler: 填充
   Skipped segment: 已跳過的片段
   External Player:
     Unsupported Actions:
@@ -519,6 +572,26 @@ Video:
     playlist: 播放清單
     video: 視訊
     OpenInTemplate: 在 $ 中開啟
+  Premieres on: 首映日期
+  Stats:
+    buffered: 已緩衝
+    out of: 中的
+    video id: Video ID (YouTube)
+    volume: 音量
+    player resolution: 視野
+    fps: FPS
+    frame drop: 丟棄畫面
+    bandwidth: 連線速度
+    Resolution: 解析度
+    Player Dimensions: 播放器大小
+    Bitrate: 位元率
+    Volume: 音量
+    Bandwidth: 頻寬
+    Buffered: 已緩衝
+    Dropped / Total Frames: 丟棄／總畫面數
+    Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
+    Video ID: 影片 ID
+    Mimetype: 多媒體類型
 Videos:
   #& Sort By
   Sort By:
@@ -586,6 +659,10 @@ Comments:
   Sort by: 排序方式
   No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
+  And others: 與其他人
+  From $channelName: 來自 $channelName
+  Pinned by: 釘選由
+  Member: 成員
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -659,6 +736,8 @@ Tooltips:
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
     Force Local Backend for Legacy Formats: 僅當 Invidious API 是您預設 API 時才有效。啟用後，區域
       API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
+    Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
+      Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
@@ -688,3 +767,14 @@ Search Bar:
   Clear Input: 清除輸入
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
+Downloading failed: 下載「$」時發生問題
+Downloading has completed: 「$」已下載結束
+Starting download: 正在開始下載「$」
+Screenshot Success: 已儲存螢幕截圖為 "$"
+Screenshot Error: 螢幕截圖失敗。 $
+New Window: 新視窗
+Age Restricted:
+  This $contentType is age restricted: 此 $ 有年齡限制
+  Type:
+    Channel: 頻道
+    Video: 影片

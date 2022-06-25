@@ -7,6 +7,7 @@ FreeTube: FreeTube
 
 # Webkit Menu Bar
 File: File
+New Window: New Window
 Quit: Quit
 Edit: Edit
 Undo: Undo
@@ -82,6 +83,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscriptions
+  # channels that were likely deleted
+  Error Channels: Channels with Errors
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
@@ -106,11 +109,15 @@ User Playlists:
     videos currently here will be migrated to a 'Favorites' playlist.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
     it listed here
+  Empty Search Message: There are no videos in this playlist that matches your search
+  Search bar placeholder: Search in Playlist
 History:
   # On History Page
   History: History
   Watch History: Watch History
   Your history list is currently empty.: Your history list is currently empty.
+  Empty Search Message: There are no videos in your history that matches your search
+  Search bar placeholder: "Search in History"
 Settings:
   # On Settings Page
   Settings: Settings
@@ -166,6 +173,7 @@ Settings:
       Base Theme: Base Theme
       Black: Black
       Dark: Dark
+      System Default: System Default
       Light: Light
       Dracula: Dracula
     Main Color Theme:
@@ -205,11 +213,14 @@ Settings:
     Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
+    Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Next Video Interval: Next Video Interval
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
+    Max Video Playback Rate: Max Video Playback Rate
+    Video Playback Rate Interval: Video Playback Rate Interval
     Default Video Format:
       Default Video Format: Default Video Format
       Dash Formats: DASH Formats
@@ -227,6 +238,20 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Screenshot:
+      Enable: Enable Screenshot
+      Format Label: Screenshot Format
+      Quality Label: Screenshot Quality
+      Ask Path: Ask for Save Folder
+      Folder Label: Screenshot Folder
+      Folder Button: Select Folder
+      File Name Label: Filename Pattern
+      File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2 digits.
+        %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2 digits. %T Millisecond 3 digits.
+        %s Video Second. %t Video Millisecond 3 digits. %i Video ID. You can also use "\" or "/" to create subfolders.
+      Error:
+        Forbidden Characters: Forbidden Characters
+        Empty File Name: Empty File Name
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -267,6 +292,10 @@ Settings:
     Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
+    Hide Video Description: Hide Video Description
+    Hide Comments: Hide Comments
+    Hide Live Streams: Hide Live Streams
+    Hide Sharing Actions: Hide Sharing Actions
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -282,6 +311,8 @@ Settings:
     Export NewPipe: Export NewPipe
     Import History: Import History
     Export History: Export History
+    Import Playlists: Import Playlists
+    Export Playlists: Export Playlists
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -300,6 +331,11 @@ Settings:
     All watched history has been successfully imported: All watched history has been
       successfully imported
     All watched history has been successfully exported: All watched history has been
+      successfully exported
+    Playlist insufficient data: Insufficient data for "$" playlist, skipping item
+    All playlists has been successfully imported: All playlists has been
+      successfully imported
+    All playlists has been successfully exported: All playlists has been
       successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
@@ -325,6 +361,25 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+    Skip Options:
+      Skip Option: Skip Option
+      Auto Skip: Auto Skip
+      Show In Seek Bar: Show In Seek Bar
+      Prompt To Skip: Prompt To Skip
+      Do Nothing: Do Nothing
+    Category Color: Category Color
+  Parental Control Settings:
+    Parental Control Settings: Parental Control Settings
+    Hide Unsubscribe Button: Hide Unsubscribe Button
+    Show Family Friendly Only: Show Family Friendly Only
+    Hide Search Bar: Hide Search Bar
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
+    Download Behavior: Download Behavior
+    Download in app: Download in app
+    Open in web browser: Open in web browser
 About:
   #On About page
   About: About
@@ -466,6 +521,7 @@ Video:
   Starting soon, please refresh the page to check again: Starting soon, please refresh
     the page to check again
   # As in a Live Video
+  Premieres on: Premieres on
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -526,12 +582,14 @@ Video:
   Publicationtemplate: $ % ago
   Skipped segment: Skipped segment
   Sponsor Block category:
-    sponsor: sponsor
-    intro: intro
-    outro: outro
-    self-promotion: self-promotion
-    interaction: interaction
-    music offtopic: music offtopic
+    sponsor: Sponsor
+    intro: Intro
+    outro: Outro
+    self-promotion: Self-Promotion
+    interaction: Interaction
+    music offtopic: Music Offtopic
+    recap: Recap
+    filler: Filler
   External Player:
     # $ is replaced with the external player
     OpenInTemplate: Open in $
@@ -549,6 +607,17 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
+  Stats:
+    Video statistics are not available for legacy videos: Video statistics are not available for legacy videos
+    Video ID: Video ID
+    Resolution: Resolution
+    Player Dimensions: Player Dimensions
+    Bitrate: Bitrate
+    Volume: Volume
+    Bandwidth: Bandwidth
+    Buffered: Buffered
+    Dropped / Total Frames: Dropped / Total Frames
+    Mimetype: Mimetype
 #& Videos
 Videos:
   #& Sort By
@@ -612,16 +681,20 @@ Comments:
   Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
-  # Context: View 10 Replies, View 1 Reply
+  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   View: View
   Hide: Hide
   Replies: Replies
   Show More Replies: Show More Replies
   Reply: Reply
+  From $channelName: from $channelName
+  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   Load More Comments: Load More Comments
   No more comments available: No more comments available
+  Pinned by: Pinned by
+  Member: Member
 Up Next: Up Next
 
 #Tooltips
@@ -653,6 +726,10 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
+    Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
+      hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
+      the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
+      to quickly return to the default playback rate (1x unless it has been changed in the settings).
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail.
@@ -698,7 +775,18 @@ Default Invidious instance has been set to $: Default Invidious instance has bee
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
+Age Restricted:
+  # $contentType is replaced with video or channel
+  This $contentType is age restricted: This $ is age restricted
+  Type:
+    Channel: Channel
+    Video: Video
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+Downloading has completed: '"$" has finished downloading'
+Starting download: 'Starting download of "$"'
+Downloading failed: 'There was an issue downloading "$"'
+Screenshot Success: Saved screenshot as "$"
+Screenshot Error: Screenshot failed. $
 
 Yes: Yes
 No: No

@@ -52,7 +52,7 @@ export default Vue.extend({
       firstOption[0].focus()
     },
     handleDropdownClick: function(index, event) {
-      if (!this.$handleDropdownKeyboardEvent(event)) {
+      if (!this.$handleDropdownKeyboardEvent(event, event?.target)) {
         return
       }
 

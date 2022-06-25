@@ -7,6 +7,8 @@ import { SocksProxyAgent } from 'socks-proxy-agent'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { HttpProxyAgent } from 'http-proxy-agent'
 
+import i18n from '../../i18n/index'
+
 const state = {
   isYtSearchRunning: false
 }
@@ -288,10 +290,15 @@ const actions = {
             break
         }
       }
-      const locale = settings.currentLocale.replace('-', '_')
+      let locale = i18n.locale.replace('_', '-')
+
+      if (locale === 'nn') {
+        locale = 'no'
+      }
+
       ytpl(playlistId, {
         hl: locale,
-        limit: 'Infinity',
+        limit: Infinity,
         requestOptions: { agent }
       }).then((result) => {
         resolve(result)

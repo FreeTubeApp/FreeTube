@@ -3,8 +3,10 @@
     <select
       :id="$unspace(placeholder)"
       class="select-text"
+      :class="{disabled: disabled}"
       :value="value"
       :name="$unspace(placeholder)"
+      :disabled="disabled"
       @change="$emit('change', $event.target.value)"
     >
       <option
@@ -24,6 +26,7 @@
     <label
       class="select-label"
       :for="$unspace(placeholder)"
+      :hidden="disabled"
     >
       {{ placeholder }}
     </label>

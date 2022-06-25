@@ -35,6 +35,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -45,6 +49,10 @@ export default Vue.extend({
 
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+
+    hideViews: function () {
+      return this.$store.getters.getHideVideoViews
     },
 
     shareHeaders: function () {
@@ -83,7 +91,7 @@ export default Vue.extend({
 
     // Causes errors if not put inside of a check
     if (typeof (this.data.viewCount) !== 'undefined') {
-      this.viewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.viewCount = this.hideViews ? null : this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
 
     if (typeof (this.data.videoCount) !== 'undefined') {

@@ -32,6 +32,10 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
+    returnIndex: {
+      type: Boolean,
+      default: false
+    },
     dropdownPositionX: {
       type: String,
       default: 'center'
@@ -40,11 +44,11 @@ export default Vue.extend({
       type: String,
       default: 'bottom'
     },
-    dropdownNames: {
-      type: Array,
-      default: () => { return [] }
-    },
-    dropdownValues: {
+    dropdownOptions: {
+      // Array of objects with these properties
+      // - type: ('labelValue'|'divider', default to 'labelValue' for less typing)
+      // - label: String (if type == 'labelValue')
+      // - value: String (if type == 'labelValue')
       type: Array,
       default: () => { return [] }
     }
@@ -115,27 +119,32 @@ export default Vue.extend({
     },
 
     handleIconClick: function () {
-      if (this.forceDropdown || (this.dropdownNames.length > 0 && this.dropdownValues.length > 0)) {
+      if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.toggleDropdown()
       } else {
         this.$emit('click')
       }
     },
 
-    handleDropdownClick: function (index, event) {
-      if (!this.$handleDropdownKeyboardEvent(event)) {
+    handleDropdownClick: function ({ url, index }, event) {
+      if (!this.$handleDropdownKeyboardEvent(event, event?.target)) {
         return
       }
 
-      const listbox = $(`#${this.id}`)
-      const allOptions = listbox.children()
+      // const listbox = $(`#${this.id}`)
+      // const allOptions = listbox.children()
 
-      allOptions.attr('aria-selected', 'false')
-      allOptions.attr('tabindex', '-1')
-      event.target.setAttribute('aria-selected', 'true')
-      event.target.setAttribute('tabindex', '0')
+      // allOptions.attr('aria-selected', 'false')
+      // allOptions.attr('tabindex', '-1')
+      // event.target.setAttribute('aria-selected', 'true')
+      // event.target.setAttribute('tabindex', '0')
 
-      this.$emit('click', this.dropdownValues[index])
+      if (this.returnIndex) {
+        this.$emit('click', index)
+      } else {
+        this.$emit('click', url)
+      }
+
       this.focusOut()
     }
   }

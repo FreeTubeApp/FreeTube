@@ -1,8 +1,11 @@
+import { MAIN_PROFILE_ID } from '../../../constants'
+
 const state = {
   allSubscriptionsList: [],
   profileSubscriptions: {
-    activeProfile: 0,
-    videoList: []
+    activeProfile: MAIN_PROFILE_ID,
+    videoList: [],
+    errorChannels: []
   }
 }
 

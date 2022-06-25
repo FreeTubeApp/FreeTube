@@ -62,10 +62,10 @@ export default Vue.extend({
       profileList[0].style.display = 'inline'
       this.profileListShown = true
 
-      const openProfile = $(`#profile-${this.activeProfile}`)
+      const openProfile = $(`#profile-${this.activeProfile.name}`)
       openProfile.attr('tabindex', '0')
       openProfile.attr('aria-selected', 'true')
-      openProfile[0].focus()
+      openProfile[0]?.focus()
     },
 
     openProfileSettings: function () {
@@ -76,28 +76,25 @@ export default Vue.extend({
     },
 
     setActiveProfile: function (profile, event) {
-      if (!this.$handleDropdownKeyboardEvent(event, $('.profileSettings')[0])) {
+      const openProfileSettingsButton = document.getElementById('profileSettings')
+      if (!this.$handleDropdownKeyboardEvent(event, event?.currentTarget, openProfileSettingsButton)) {
         return
       }
 
-      $(`#profile-${this.activeProfile}`).attr('aria-selected', 'false')
+      const activeProfile = document.getElementById(`profile-${this.activeProfile.name}`)
+      activeProfile?.setAttribute('aria-selected', 'false')
 
-      if (this.profileList[this.activeProfile]._id === profile._id) {
-        return
+      if (this.activeProfile._id !== profile._id) {
+        const targetProfile = this.profileList.find((x) => {
+          return x._id === profile._id
+        })
+
+        if (targetProfile) {
+          this.updateActiveProfile(targetProfile._id)
+          const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
+          this.showToast({ message })
+        }
       }
-      const index = this.profileList.findIndex((x) => {
-        return x._id === profile._id
-      })
-
-      if (index === -1) {
-        return
-      }
-
-      this.updateActiveProfile(index)
-      const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
-      this.showToast({
-        message: message
-      })
 
       $('#profileList').trigger('focusout')
     },

@@ -75,7 +75,8 @@ Subscriptions:
   Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
-    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
+    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
+  Error Channels: القنوات التي بها أخطاء
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -92,11 +93,15 @@ User Playlists:
   Playlist Message: هذه الصفحة لا تظهر قائمات التشغيل بشكل كامل, وإنما تظهر فيديوات
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
+  Search bar placeholder: بحث في قائمة التشغيل
+  Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
 History:
   # On History Page
   History: 'السجلّ'
   Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
+  Search bar placeholder: البحث في السجل
+  Empty Search Message: لا توجد مقاطع فيديو في السجل الخاص بك تطابق بحثك
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'
@@ -150,6 +155,7 @@ Settings:
       Dark: 'داكن'
       Light: 'فاتح'
       Dracula: 'دراكولا'
+      System Default: افتراضيات النظام
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -215,6 +221,24 @@ Settings:
     Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
+    Scroll Playback Rate Over Video Player: معدل تمرير التشغيل عبر مشغل الفيديو
+    Max Video Playback Rate: أقصى معدل تشغيل الفيديو
+    Video Playback Rate Interval: الفاصل الزمني لمعدل تشغيل الفيديو
+    Screenshot:
+      Enable: تفعيل لقطة الشاشة
+      Error:
+        Forbidden Characters: أحرف ممنوعة
+        Empty File Name: اسم المِلَفّ فارغ
+      Folder Button: اختر مجلد
+      File Name Label: نمط اسم المِلَفّ
+      Ask Path: اسأل عن موقع الحفظ
+      Folder Label: موقع لقطة الشاشة
+      Format Label: صيغة لقطة الشاشة
+      Quality Label: جودة لقطة الشاشة
+      File Name Tooltip: يمكنك استخدام المتغيرات أدناه. %Y السنة 4 أرقام. %M الشهر
+        2 أرقام. % D اليوم 2 أرقام. ٪ H ساعة 2 أرقام. % N دقيقة 2 أرقام. %S الثانية
+        2 أرقام. % T ميلي ثانية 3 أرقام. %s الفيديو الثاني. % t فيديو ميلي ثانية 3
+        أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -308,6 +332,11 @@ Settings:
       من الاشتراكات
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
+    All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
+    Playlist insufficient data: بيانات غير كافية لقائمة التشغيل "$"، تخطي العنصر
+    All playlists has been successfully exported: تم تصدير جميع قوائم التشغيل بنجاح
+    Import Playlists: استيراد قوائم التشغيل
+    Export Playlists: تصدير قوائم التشغيل
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -320,6 +349,10 @@ Settings:
     Distraction Free Settings: إعدادات عدم الإزعاج
     Hide Active Subscriptions: اخفي الإشتراكات الناشطة
     Hide Playlists: إخفاء قوائم التشغيل
+    Hide Video Description: إخفاء وصف الفيديو
+    Hide Comments: إخفاء التعليقات
+    Hide Sharing Actions: إخفاء إجراءات المشاركة
+    Hide Live Streams: إخفاء البث المباشر
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -344,12 +377,31 @@ Settings:
       عنوان (الافتراضي هو https://sponsor.ajay.app)
     Enable SponsorBlock: تفعيل حجب الرعاة
     SponsorBlock Settings: إعدادات حظر الرعاة
+    Category Color: لون الفئة
+    Skip Options:
+      Auto Skip: تخطي تلقائي
+      Prompt To Skip: موجه للتخطي
+      Skip Option: تخطي الخِيار
+      Show In Seek Bar: إظهار في الشريط
+      Do Nothing: لا تفعل شيئا
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+  Download Settings:
+    Download Settings: إعدادات التنزيل
+    Choose Path: اختر المسار
+    Ask Download Path: اطلب مسار التنزيل
+    Download Behavior: سلوك التحميل
+    Open in web browser: فتح في متصفح الويب
+    Download in app: تحميل في التطبيق
+  Parental Control Settings:
+    Hide Search Bar: إخفاء شريط البحث
+    Parental Control Settings: إعدادات الرقابة الأبوية
+    Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
+    Show Family Friendly Only: عرض مناسب للعائلة فقط
 About:
   #On About page
   About: 'حول'
@@ -574,7 +626,9 @@ Video:
     self-promotion: الترويج الذاتي
     outro: الخاتمة
     intro: المقدمة
-    sponsor: الراعي
+    sponsor: الرعاة
+    filler: حشو
+    recap: الخلاصة
   Skipped segment: تم تخطي المقطع
   External Player:
     Unsupported Actions:
@@ -591,6 +645,27 @@ Video:
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في $
+  Premieres on: العرض الأول بتاريخ
+  Stats:
+    video id: معرف الفيديو (يوتيوب)
+    player resolution: المعاينه
+    fps: معدل الإطارات
+    frame drop: إسقاط الإطار
+    buffered: مخزنة
+    out of: خارج عن
+    bandwidth: سرعة الاتصال
+    volume: الصوت
+    Video statistics are not available for legacy videos: إحصائيات الفيديو غير متوفرة
+      لمقاطع الفيديو القديمة
+    Video ID: معرف الفيديو
+    Resolution: الدقة
+    Bitrate: معدل البت
+    Player Dimensions: عدد اللاعبين
+    Volume: الصوت
+    Bandwidth: عرض النطاق الترددي
+    Buffered: مخزنة
+    Dropped / Total Frames: إسقاط / إجمالي الإطارات
+    Mimetype: نمط ميمي
 Videos:
   #& Sort By
   Sort By:
@@ -658,6 +733,10 @@ Comments:
   Top comments: أهم التعليقات
   Sort by: الترتيب حسب
   Show More Replies: إظهار المزيد من الردود
+  Pinned by: تم التثبيت بواسطة
+  And others: و اخرين
+  From $channelName: من $ channelName
+  Member: عضو
 Up Next: 'التالي'
 
 # Toast Messages
@@ -714,6 +793,11 @@ Tooltips:
       الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى.
       التنسيقات القديمة محدودة بجودة 720p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
       التنسيقات الصوتية هي للتدفق الصوتي فقط.
+    Scroll Playback Rate Over Video Player: أثناء وجود المؤشر فوق الفيديو، اضغط مع
+      الاستمرار على مفتاح التحكم (مفتاح القيادة على Mac) ومرر عجلة الماوس للأمام أو
+      للخلف للتحكم في معدل التشغيل. اضغط مع الاستمرار على مفتاح التحكم (مفتاح الأوامر
+      على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم
+      يتم تغييره في الإعدادات).
   Privacy Settings:
     Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
       تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
@@ -751,3 +835,16 @@ Search Bar:
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
+Downloading has completed: انتهى "$" من التنزيل
+Downloading failed: حدثت مشكلة أثناء تنزيل "$"
+Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
+Downloading canceled: تم إلغاء التحميل من قبل المستخدم
+Starting download: بدء تنزيل "$"
+Screenshot Success: تم حفظ لقطة الشاشة كا"$"
+Screenshot Error: فشل أخذ لقطة للشاشة. $
+New Window: نافذة جديدة
+Age Restricted:
+  Type:
+    Channel: القناة
+    Video: فيديو
+  This $contentType is age restricted: هذا $ مقيد بالفئة العمرية

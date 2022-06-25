@@ -25,7 +25,7 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
     activeSubscriptions: function () {
-      const profile = JSON.parse(JSON.stringify(this.profileList[this.activeProfile]))
+      const profile = JSON.parse(JSON.stringify(this.activeProfile))
       return profile.subscriptions.sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()

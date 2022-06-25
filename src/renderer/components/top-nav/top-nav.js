@@ -7,6 +7,8 @@ import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
+import { IpcChannels } from '../../../constants'
+
 export default Vue.extend({
   name: 'TopNav',
   components: {
@@ -30,16 +32,20 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    hideSearchBar: function () {
+      return this.$store.getters.getHideSearchBar
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
 
-    searchSettings: function () {
-      return this.$store.getters.getSearchSettings
+    searchInput: function () {
+      return this.$refs.searchInput.$refs.input
     },
 
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
+    searchSettings: function () {
+      return this.$store.getters.getSearchSettings
     },
 
     barColor: function () {
@@ -58,12 +64,16 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     },
 
+    expandSideBar: function () {
+      return this.$store.getters.getExpandSideBar
+    },
+
     forwardText: function () {
       return this.$t('Forward')
     },
 
     backwardText: function () {
-      return this.$t('Backward')
+      return this.$t('Back')
     },
 
     newWindowText: function () {
@@ -78,9 +88,12 @@ export default Vue.extend({
       searchContainer.style.display = 'none'
     }
 
-    if (localStorage.getItem('expandSideBar') === 'true') {
-      this.toggleSideNav()
-    }
+    // Store is not up-to-date when the component mounts, so we use timeout.
+    setTimeout(() => {
+      if (this.expandSideBar) {
+        this.toggleSideNav()
+      }
+    }, 0)
 
     window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth
@@ -161,10 +174,10 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId } = result
+            const { channelId, subPath } = result
 
             this.$router.push({
-              path: `/channel/${channelId}`
+              path: `/channel/${channelId}/${subPath}`
             })
             break
           }
@@ -186,6 +199,10 @@ export default Vue.extend({
 
       // Close the filter panel
       this.showFilters = false
+    },
+
+    focusSearch: function () {
+      this.searchInput.focus()
     },
 
     getSearchSuggestionsDebounce: function (query) {
@@ -303,7 +320,7 @@ export default Vue.extend({
     createNewWindow: function () {
       if (this.usingElectron) {
         const { ipcRenderer } = require('electron')
-        ipcRenderer.send('createNewWindow')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
       } else {
         // Web placeholder
       }

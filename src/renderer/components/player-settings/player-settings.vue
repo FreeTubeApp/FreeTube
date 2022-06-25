@@ -43,6 +43,13 @@
           @change="updateVideoVolumeMouseScroll"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Scroll Playback Rate Over Video Player')"
+          :compact="true"
+          :default-value="videoPlaybackRateMouseScroll"
+          :tooltip="$t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
+          @change="updateVideoPlaybackRateMouseScroll"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
           :compact="true"
           :default-value="displayVideoPlayButton"
@@ -103,10 +110,26 @@
         :label="$t('Settings.Player Settings.Default Playback Rate')"
         :default-value="defaultPlayback"
         :min-value="0.25"
-        :max-value="3"
+        :max-value="8"
         :step="0.25"
         value-extension="×"
         @change="updateDefaultPlayback"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Max Video Playback Rate')"
+        :default-value="maxVideoPlaybackRate"
+        :min-value="2"
+        :max-value="10"
+        :step="1"
+        value-extension="x"
+        @change="updateMaxVideoPlaybackRate"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
+        :value="videoPlaybackRateInterval"
+        :select-names="playbackRateIntervalValues"
+        :select-values="playbackRateIntervalValues"
+        @change="updateVideoPlaybackRateInterval"
       />
     </ft-flex-box>
     <ft-flex-box>
@@ -126,6 +149,88 @@
         @change="updateDefaultQuality"
       />
     </ft-flex-box>
+    <br>
+    <ft-flex-box>
+      <ft-toggle-switch
+        :label="$t('Settings.Player Settings.Screenshot.Enable')"
+        :default-value="enableScreenshot"
+        @change="updateEnableScreenshot"
+      />
+    </ft-flex-box>
+    <div v-if="enableScreenshot">
+      <ft-flex-box>
+        <ft-select
+          :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"
+          :value="screenshotFormat"
+          :select-names="screenshotFormatNames"
+          :select-values="screenshotFormatValues"
+          @change="handleUpdateScreenshotFormat"
+        />
+        <ft-slider
+          :label="$t('Settings.Player Settings.Screenshot.Quality Label')"
+          :default-value="screenshotQuality"
+          :min-value="0"
+          :max-value="100"
+          :step="1"
+          value-extension="%"
+          :disabled="screenshotFormat !== 'jpg'"
+          @change="updateScreenshotQuality"
+        />
+      </ft-flex-box>
+      <ft-flex-box>
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Screenshot.Ask Path')"
+          :default-value="screenshotAskPath"
+          @change="updateScreenshotAskPath"
+        />
+      </ft-flex-box>
+      <ft-flex-box
+        v-if="!screenshotAskPath"
+        class="screenshotFolderContainer"
+      >
+        <p class="screenshotFolderLabel">
+          {{ $t('Settings.Player Settings.Screenshot.Folder Label') }}
+        </p>
+        <ft-input
+          class="screenshotFolderPath"
+          :placeholder="screenshotFolderPlaceholder"
+          :show-action-button="false"
+          :show-label="false"
+          :disabled="true"
+        />
+        <ft-button
+          :label="$t('Settings.Player Settings.Screenshot.Folder Button')"
+          class="screenshotFolderButton"
+          @click="chooseScreenshotFolder"
+        />
+      </ft-flex-box>
+      <ft-flex-box class="screenshotFolderContainer">
+        <p class="screenshotFilenamePatternTitle">
+          {{ $t('Settings.Player Settings.Screenshot.File Name Label') }}
+          <ft-tooltip
+            class="selectTooltip"
+            position="bottom"
+            :tooltip="$t('Settings.Player Settings.Screenshot.File Name Tooltip')"
+          />
+        </p>
+        <ft-input
+          class="screenshotFilenamePatternInput"
+          placeholder=""
+          :value="screenshotFilenamePattern"
+          :spellcheck="false"
+          :show-action-button="false"
+          :show-label="false"
+          @input="handleScreenshotFilenamePatternChanged"
+        />
+        <ft-input
+          class="screenshotFilenamePatternExample"
+          :placeholder="`${screenshotFilenameExample}`"
+          :show-action-button="false"
+          :show-label="false"
+          :disabled="true"
+        />
+      </ft-flex-box>
+    </div>
   </details>
 </template>
 
