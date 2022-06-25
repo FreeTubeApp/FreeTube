@@ -355,6 +355,10 @@ Settings:
     Distraction Free Settings: Postavke za nesmetan rad
     Hide Active Subscriptions: Sakrij aktivne pretplate
     Hide Playlists: Sakrij zbirke
+    Hide Comments: Sakrij komentare
+    Hide Sharing Actions: Sakrij radnje dijeljenja
+    Hide Video Description: Sakrij opis videa
+    Hide Live Streams: Sakrij prijenose uživo
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -399,6 +403,10 @@ Settings:
     Download in app: Preuzmi u aplikaciji
     Open in web browser: Otvori u web-pregledniku
     Download Behavior: Ponašanje preuzimanja
+  Parental Control Settings:
+    Parental Control Settings: Postavke roditeljskog nadzora
+    Hide Unsubscribe Button: Sakrij gumb za odjavu
+    Hide Search Bar: Sakrij traku pretrage
 About:
   #On About page
   About: 'Informacije'
@@ -853,3 +861,9 @@ Downloading has completed: „$” je preuzeto
 Starting download: Početak preuzimanja „$”
 Screenshot Success: Snimka ekrana je spremljena pod „$”
 Screenshot Error: Neuspjela snimka ekrana. $
+New Window: Novi prozor
+Age Restricted:
+  This $contentType is age restricted: Ovaj $ je dobno ograničen
+  Type:
+    Channel: Kanal
+    Video: Video
