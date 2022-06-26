@@ -13,7 +13,8 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64, osx-arm64 ]
+#        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64, osx-arm64 ]
+        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64 ]
         include:
         - runtime: linux-x64
           os: ubuntu-18.04
@@ -27,8 +28,8 @@ jobs:
         - runtime: osx-x64
           os: macOS-latest
 
-        - runtime: osx-arm64
-          os: macOS-latest
+#        - runtime: osx-arm64
+#          os: macOS-latest
           
         - runtime: win-x64
           os: windows-latest
@@ -275,9 +276,9 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.zip
 
-    - name: Upload Mac arm64 .zip Artifact
-      uses: actions/upload-artifact@v2
-      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
+#    - name: Upload Mac arm64 .zip Artifact
+#      uses: actions/upload-artifact@v2
+#      if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
+#      with:
+#        name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
+#        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
