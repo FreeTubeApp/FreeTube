@@ -791,8 +791,8 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Default Video Format: Postavi formate za reprodukciju videa. DASH formati mogu
-      reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
-      su zato brži. Audioformati sadrže samo audiosnimke.
+      reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
+      su zato brži. Audioformati sadrže samo prijenose audiosnimaka.
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
