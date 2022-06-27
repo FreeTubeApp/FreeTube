@@ -13,8 +13,16 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-#        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64, osx-arm64 ]
-        runtime: [ linux-x64, linux-armv7l, linux-arm64, win-x64, win-arm64, osx-x64 ]
+        runtime: 
+          - linux-x64
+          - linux-armv7l
+          - linux-arm64
+          - win-x64
+          - win-arm64
+          - osx-x64
+          # `osx-arm64` disabled due to "macOS gatekeeper"
+          # See details in https://github.com/FreeTubeApp/FreeTube/pull/2113
+          # - osx-arm64
         include:
         - runtime: linux-x64
           os: ubuntu-latest
