@@ -62,7 +62,7 @@ Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetu
 
 Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-Windows Portable: [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
+PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
 Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
