@@ -199,13 +199,13 @@ export default Vue.extend({
     },
 
     handleKeyDown: function (keyCode) {
-      if (this.dataList.length === 0) { return }
+      if (this.visibleDataList.length === 0) { return }
       // Update selectedOption based on arrow key pressed
       if (keyCode === 40) {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
+        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
       } else if (keyCode === 38) {
-        if (this.searchState.selectedOption === -1) {
-          this.searchState.selectedOption = this.dataList.length - 1
+        if (this.searchState.selectedOption < 1) {
+          this.searchState.selectedOption = this.visibleDataList.length - 1
         } else {
           this.searchState.selectedOption--
         }
