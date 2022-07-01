@@ -49,7 +49,7 @@
       @input="e => handleInput(e.target.value)"
       @focus="handleFocus"
       @blur="handleInputBlur"
-      @keydown="e => handleKeyDown(e.keyCode)"
+      @keydown="handleKeyDown"
     >
     <font-awesome-icon
       v-if="showActionButton"
