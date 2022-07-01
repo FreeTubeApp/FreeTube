@@ -19,7 +19,7 @@
         @change="updateUseRssFeeds"
       />
     </ft-flex-box>
-    <br>
+    <br v-if="false">
     <ft-flex-box>
       <ft-select
         v-if="false"
@@ -29,7 +29,7 @@
         :select-values="viewValues"
       />
     </ft-flex-box>
-    <br>
+    <br v-if="false">
     <ft-flex-box>
       <ft-button
         v-if="false"
