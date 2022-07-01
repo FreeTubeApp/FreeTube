@@ -198,7 +198,8 @@ export default Vue.extend({
       this.handleClick()
     },
 
-    handleKeyDown: function (keyCode) {
+    handleKeyDown: function (event) {
+      const keyCode = event.keyCode
       if (this.visibleDataList.length === 0) { return }
       // Update selectedOption based on arrow key pressed
       if (keyCode === 40) {
@@ -219,6 +220,7 @@ export default Vue.extend({
       }
       // Update Input box value if arrow keys were pressed
       if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
+        event.preventDefault()
         this.inputData = this.visibleDataList[this.searchState.selectedOption]
       } else {
         this.updateVisibleDataList()
