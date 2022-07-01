@@ -222,8 +222,6 @@ export default Vue.extend({
       if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
         event.preventDefault()
         this.inputData = this.visibleDataList[this.searchState.selectedOption]
-      } else {
-        this.updateVisibleDataList()
       }
     },
 
