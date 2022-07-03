@@ -84,6 +84,7 @@ Subscriptions:
     профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
     на ограниченията
   Load More Videos: Зареждане на още видеа
+  Error Channels: Канали с грешки
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
@@ -360,6 +361,10 @@ Settings:
     Distraction Free Settings: Настройки за неразсейване
     Hide Active Subscriptions: Скриване на активните абонаменти
     Hide Playlists: Скриване на плейлисти
+    Hide Video Description: Скриване описанието на видеото
+    Hide Comments: Скриване на коментари
+    Hide Sharing Actions: Скриване на действията за споделяне
+    Hide Live Streams: Скриване на предавания на живо
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -404,6 +409,14 @@ Settings:
     Download Settings: Настройки за изтегляне
     Choose Path: Избор на път
     Ask Download Path: Питане за пътя за изтегляне
+    Download Behavior: Поведение при изтегляне
+    Download in app: Изтегляне в приложението
+    Open in web browser: Отваряне в уеб браузър
+  Parental Control Settings:
+    Parental Control Settings: Настройки за родителски контрол
+    Hide Unsubscribe Button: Скриване на бутона за отписване
+    Show Family Friendly Only: Показване само за семейства
+    Hide Search Bar: Скриване на лентата за търсене
 About:
   #On About page
   About: 'Относно'
@@ -851,3 +864,9 @@ Starting download: Започва изтегляне на "$"
 Downloading failed: Имаше проблем при изтеглянето на "$"
 Screenshot Error: Снимката на екрана е неуспешна. $
 Screenshot Success: Запазена снимка на екрана като "$"
+New Window: Нов прозорец
+Age Restricted:
+  This $contentType is age restricted: Този $ е с възрастово ограничение
+  Type:
+    Channel: Канал
+    Video: Видео
