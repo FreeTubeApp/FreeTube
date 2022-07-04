@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import { uniqueId } from 'lodash'
+
+let idCounter = 0
 
 export default Vue.extend({
   name: 'FtTooltip',
@@ -15,7 +16,7 @@ export default Vue.extend({
     }
   },
   data() {
-    const id = uniqueId('ft-tooltip-')
+    const id = `ft-tooltip-${++idCounter}`
 
     return {
       id
