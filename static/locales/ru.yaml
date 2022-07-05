@@ -356,6 +356,10 @@ Settings:
     Hide Video Views: Скрыть просмотры видео
     Hide Active Subscriptions: Скрыть активные подписки
     Hide Playlists: Скрыть плейлисты
+    Hide Live Streams: Скрыть прямые трансляции
+    Hide Sharing Actions: Скрыть действия общего доступа
+    Hide Comments: Скрыть комментарии
+    Hide Video Description: Скрыть описание видео
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -402,6 +406,11 @@ Settings:
     Download in app: Загрузить в приложении
     Download Behavior: Поведение при загрузке
     Open in web browser: Открыть в браузере
+  Parental Control Settings:
+    Show Family Friendly Only: Показать только семейный контент
+    Parental Control Settings: Настройки родительского контроля
+    Hide Unsubscribe Button: Скрыть кнопку отписки
+    Hide Search Bar: Скрыть строку поиска
 About:
   #On About page
   About: 'О FreeTube'
@@ -852,3 +861,9 @@ Downloading has completed: '"$" закончил загрузку'
 Downloading failed: Возникла проблема с загрузкой "$"
 Screenshot Success: Снимок экрана сохранён как "$"
 Screenshot Error: Снимок экрана не удался. $
+New Window: Новое окно
+Age Restricted:
+  This $contentType is age restricted: Это $ ограничен по возрасту
+  Type:
+    Channel: Канал
+    Video: Видео
