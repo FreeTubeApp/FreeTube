@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -23,7 +24,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-age-restricted': FtAgeRestricted
   },
   data: function () {
     return {
@@ -50,6 +52,7 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
+      isFamilyFriendly: false,
       errorMessage: '',
       videoSelectValues: [
         'newest',
@@ -73,6 +76,14 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
     currentInvidiousInstance: function () {
@@ -264,6 +275,7 @@ export default Vue.extend({
         const channelThumbnailUrl = response.authorThumbnails[2].url
         this.id = channelId
         this.channelName = channelName
+        this.isFamilyFriendly = response.isFamilyFriendly
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
@@ -383,6 +395,7 @@ export default Vue.extend({
         this.channelName = channelName
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         this.id = channelId
+        this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {

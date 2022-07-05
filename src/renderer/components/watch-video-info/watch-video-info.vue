@@ -27,6 +27,7 @@
               {{ channelName }}
             </div>
             <ft-button
+              v-if="!hideUnsubscribeButton"
               :label="subscribedText"
               class="subscribeButton"
               background-color="var(--primary-color)"
@@ -113,6 +114,7 @@
           @click="handleFormatChange"
         />
         <ft-share-button
+          v-if="!hideSharingActions"
           :id="id"
           :get-timestamp="getTimestamp"
           :playlist-id="playlistId"

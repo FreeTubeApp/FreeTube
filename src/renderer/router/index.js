@@ -14,9 +14,41 @@ import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 
-Vue.use(Router)
+class CustomRouter extends Router {
+  push(location) {
+    // only navigates if the location is not identical to the current location
 
-const router = new Router({
+    const currentQueryUSP = new URLSearchParams(router.currentRoute.query)
+    let newPath = ''
+    let newQueryUSP = new URLSearchParams()
+
+    if (typeof location === 'string') {
+      if (location.includes('?')) {
+        const urlParts = location.split('?')
+        newPath = urlParts[0]
+        newQueryUSP = new URLSearchParams(urlParts[1])
+      } else {
+        newPath = location
+        // newQueryUSP already empty
+      }
+    } else {
+      newPath = location.path
+      newQueryUSP = new URLSearchParams(location.query)
+    }
+
+    const pathsAreDiff = router.currentRoute.path !== newPath
+    // Comparing `URLSearchParams` objects directly will always be different
+    const queriesAreDiff = newQueryUSP.toString() !== currentQueryUSP.toString()
+
+    if (pathsAreDiff || queriesAreDiff) {
+      return super.push(location)
+    }
+  }
+}
+
+Vue.use(CustomRouter)
+
+const router = new CustomRouter({
   routes: [
     {
       path: '/',
@@ -142,7 +174,7 @@ const router = new Router({
       component: Watch
     }
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (savedPosition !== null) {

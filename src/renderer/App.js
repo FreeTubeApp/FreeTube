@@ -334,14 +334,17 @@ export default Vue.extend({
       })
 
       $(document).on('auxclick', 'a[href^="http"]', (event) => {
-        this.handleLinkClick(event)
+        // auxclick fires for all clicks not performed with the primary button
+        // only handle the link click if it was the middle button,
+        // otherwise the context menu breaks
+        if (event.button === 1) {
+          this.handleLinkClick(event)
+        }
       })
     },
 
     handleLinkClick: function (event) {
       const el = event.currentTarget
-      console.log(this.usingElectron)
-      console.log(el)
       event.preventDefault()
 
       // Check if it's a YouTube link

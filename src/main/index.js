@@ -147,7 +147,8 @@ function runApp() {
       session.defaultSession.cookies.set({
         url: url,
         name: 'CONSENT',
-        value: 'YES+'
+        value: 'YES+',
+        sameSite: 'no_restriction'
       })
     })
 
@@ -769,7 +770,21 @@ function runApp() {
     const template = [
       {
         label: 'File',
-        submenu: [{ role: 'quit' }]
+        submenu: [
+          {
+            label: 'New Window',
+            accelerator: 'CmdOrCtrl+N',
+            click: (_menuItem, _browserWindow, _event) => {
+              createWindow({
+                replaceMainWindow: false,
+                showWindowNow: true
+              })
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
+          { role: 'quit' }
+        ]
       },
       {
         label: 'Edit',
@@ -801,8 +816,12 @@ function runApp() {
           { role: 'toggledevtools' },
           { type: 'separator' },
           { role: 'resetzoom' },
-          { role: 'zoomin' },
+          { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+Plus' },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+=', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+numadd', visible: false },
           { role: 'zoomout' },
+          { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
           { role: 'togglefullscreen' }
         ]

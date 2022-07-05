@@ -44,504 +44,759 @@ Search Filters:
     Sort By: 'Ordenatze irizpidea'
     Most Relevant: 'Egokitasuna'
     Rating: 'Balorazioa'
-    Upload Date: ''
-    View Count: ''
+    Upload Date: 'Igoera data'
+    View Count: 'Kontua ikusi'
   Time:
     Time: 'Denbora'
     Any Time: 'Edozein unetan'
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Last Hour: 'Azken ordua'
+    Today: 'Gaur'
+    This Week: 'Aste honetan'
+    This Month: 'Hilabete honetan'
+    This Year: 'Aurten'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'Mota'
+    All Types: 'Mota guztietakoak'
+    Videos: 'Bideoak'
+    Channels: 'Kanalak'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Iraupena'
+    All Durations: 'Edozein iraupen'
+    Short (< 4 minutes): 'Laburra (<4 minutu)'
+    Long (> 20 minutes): 'Luzea (> 20 minutu)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
+  Search Results: 'Emaitzak bilatu'
+  Fetching results. Please wait: 'Emaitzak ekartzen. Itxaron faborez'
+  Fetch more results: 'Emaitza gehiago ekarri'
+  There are no more results for this search: 'Ez da emaitza gehiagorik bilaketa honentzat'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  'Getting Subscriptions. Please wait.': ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
-More: ''
+  Subscriptions: 'Harpidetzak'
+  Latest Subscriptions: 'Azken harpidetzak'
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Honako
+    profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
+    harpidetzen zerrenda hutsik da. Has zaitez harpidetzak gehitzen hemen ikusteko'
+  'Getting Subscriptions. Please wait.': 'Harpidetzak eskuratzen. Itxaron mesedez.'
+  Refresh Subscriptions: 'Harpidetzak freskatu'
+  Load More Videos: 'Bideo gehiago kargatu'
+  Error Channels: Akatsak dituzten kateak
+More: 'Gehiago'
 Trending:
-  Trending: ''
-Most Popular: ''
-Playlists: ''
+  Trending: 'Joerak'
+  Default: Lehenetsia
+  Music: Musika
+  Gaming: Bideo jokoak
+  Movies: Filmak
+  Trending Tabs: Lehenetsitako erlaitzak
+Most Popular: 'Ikusienak'
+Playlists: 'Erreprodukzio zerrendak'
 User Playlists:
-  Your Playlists: ''
-  Playlist Message: ''
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
+  Your Playlists: 'Zure erreprodukzio zerrendak'
+  Playlist Message: 'Orrialde honek ez ditu guztiz funtzionatzen duten erreprodukzio-zerrendak
+    islatzen. Gorde dituzun edo gogoko dituzun bideoak bakarrik zerrendatzen ditu.
+    Lana amaitzen denean, hemen dauden bideo guztiak "Gogokoak" erreprodukzio-zerrenda
+    batera migratuko dira.'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Gordetako
+    bideoak hutsik daude. Egin klik bideoaren izkinan den "gorde" botoian hemen zerrendatzeko'
+  Search bar placeholder: Bilatu Erreprodukzio-zerrendan
+  Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin
+    bat datorren bideorik
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Historikoa'
+  Watch History: 'Historikoa ikusi'
+  Your history list is currently empty.: 'Zure historia-zerrenda hutsik dago une honetan.'
+  Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
+  Search bar placeholder: Bilatu historikoan
 Settings:
   # On Settings Page
-  Settings: ''
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  Settings: 'Ezarpenak'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikazioa
+    berrabiarazi behar da aldaketek eragina izan dezaten. Berrabiarazi eta aldaketa
+    aplikatu?'
   General Settings:
-    General Settings: ''
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    General Settings: 'Ezarpen orokorrak'
+    Check for Updates: 'Eguneraketak bilatu'
+    Check for Latest Blog Posts: 'Egiaztatu blogeko azken argitalpenak'
+    Fallback to Non-Preferred Backend on Failure: 'Hutsegitean, hobetsi gabeko backend-era
+      itzuli'
+    Enable Search Suggestions: 'Gaitu bilaketa-iradokizunak'
+    Default Landing Page: 'Lehenetsitako hasierako orria'
+    Locale Preference: 'Tokiko hobespena'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'API Backend hobetsia'
+      Local API: 'Tokiko API'
+      Invidious API: 'Invidious API-a'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Bideo-ikuspegi mota'
+      Grid: 'Lauki-sarea'
+      List: 'Zerrenda'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
+      Thumbnail Preference: 'Miniatura-hobespena'
+      Default: 'Lehenetsia'
+      Beginning: 'Hasiera'
+      Middle: 'Erdian'
+      End: 'Bukaera'
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+    View all Invidious instance information: 'Invidious instantzia guztien informazioa
+      ikusi'
+    Region for Trending: 'Joeren eskualdea'
         #! List countries
+    The currently set default instance is $: Une honetan ezarritako instantzia lehenetsia
+      $ da
+    Current Invidious Instance: Oraingo Invidious instantzia
+    External Link Handling:
+      External Link Handling: Kanpo esteken kudeaketa
+      Open Link: Ireki esteka
+      Ask Before Opening Link: Esteka ireki aurretik galdetu
+      No Action: Ekintzarik ez
+    Set Current Instance as Default: Ezarri Uneko Instantzia lehenetsi gisa
+    System Default: Sistemak lehenetsitakoa
+    No default instance has been set: Ez da instantzia lehenetsirik ezarri
+    Current instance will be randomized on startup: Uneko instantzia ausaz banatuko
+      da abiaraztean
+    Clear Default Instance: Garbitu lehenetsitako instantzia
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
+    Theme Settings: 'Gaien ezarpenak'
+    Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
+    Expand Side Bar by Default: 'Zabaldu alboko barra lehenespenez'
+    Disable Smooth Scrolling: 'Desgaitu korritze leuna'
+    UI Scale: 'Erabiltzaile interfazearen eskala'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      Light: ''
+      Base Theme: 'Oinarrizko Gaia'
+      Black: 'Beltza'
+      Dark: 'Iluna'
+      Light: 'Argia'
+      Dracula: Drakula
+      System Default: Sistemak lehenetsia
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-    Secondary Color Theme: ''
+      Main Color Theme: 'Oinarrizko koloreen gaia'
+      Red: 'Gorria'
+      Pink: 'Larrosa'
+      Purple: 'Ubela'
+      Deep Purple: 'Ubel bizia'
+      Indigo: 'Indigo kolorea'
+      Blue: 'Urdina'
+      Light Blue: 'Urdin argia'
+      Cyan: 'Zian'
+      Teal: 'Berde-urdina'
+      Green: 'Berdea'
+      Light Green: 'Berde argia'
+      Lime: 'Lima'
+      Yellow: 'Horia'
+      Amber: 'Anbar-kolorekoa'
+      Orange: 'Laranja'
+      Deep Orange: 'Laranja bizia'
+      Dracula Pink: Drakula larrosa
+      Dracula Cyan: Drakula zian
+      Dracula Orange: Drakula laranja
+      Dracula Purple: Drakula ubela
+      Dracula Red: Drakula gorria
+      Dracula Green: Drakula berdea
+      Dracula Yellow: Drakula horia
+    Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
+    Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
   Player Settings:
-    Player Settings: ''
-    Force Local Backend for Legacy Formats: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
-    Enable Theatre Mode by Default: ''
+    Player Settings: 'Erreprodukzioaren ezarpenak'
+    Force Local Backend for Legacy Formats: 'Behartu backend lokala Legacy formatuentzat'
+    Play Next Video: 'Hurrengo bideoa erreproduzitu'
+    Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
+    Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
+    Proxy Videos Through Invidious: 'Invidious bitarteko Proxy bideoak'
+    Autoplay Playlists: 'Erreprodukzio automatikoan diren erreprodukzio zerrendak'
+    Enable Theatre Mode by Default: 'Gaitu Antzerki modua lehenespenez'
     Playlist Next Video Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Default Volume: 'Lehenetsitako bolumena'
+    Default Playback Rate: 'Lehenetsitako erreprodukzio tasa'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Lehenetsitako bideo formatua'
+      Dash Formats: 'DASH formatuak'
+      Legacy Formats: 'Legacy formatuak'
+      Audio Formats: 'Audio formatuak'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Lehenetsitako kalitatea'
+      Auto: 'Automatikoa'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Fast-Forward / Rewind Interval: Aurrera / atzera egiteko tartea
+    Scroll Volume Over Video Player: Aldatu bolumena bideo erreproduzitzailean
+    Next Video Interval: Hurrengo bideo tartea
+    Screenshot:
+      Enable: Bidea eman pantaila argazkiei
+      Error:
+        Empty File Name: Fitxategi izena hutsik
+        Forbidden Characters: Debekatutako karaktereak
+      Format Label: Pantaila-argazkiaren formatua
+      Quality Label: Pantaila-argazkiaren kalitatea
+      Ask Path: Eskatu Gordetzeko karpeta
+      Folder Label: Pantaila-argazkien karpeta
+      Folder Button: Hautatu karpeta
+      File Name Label: Fitxategi-izenen eredua
+      File Name Tooltip: Hurrengo aldagaiak balia ditzakezu. %U Urtea 4 digitu. %H
+        Hilabetea 2 digitu. %E Eguna 2 digitu. %O Ordua 2 digitu. %M Minutu 2 digitu.
+        %S segundo 2 digitu. %T milisegundo 3 digitu. %s Bideoaren segundoa. %t Bideoaren
+        milisegundoa 3 digitu. %i Bideoaren Identifikatzailea. "\" edo "/" baliatu
+        ahal dituzu azpikarpetak sortzeko.
+    Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
+    Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
+    Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
+    Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Automatically Remove Video Meta Files: ''
-    Clear Search Cache: ''
-    Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Privacy Settings: 'Pribatutasunari buruzko ezarpenak'
+    Remember History: 'Historikoa oroitu'
+    Save Watched Progress: 'Ikusitakoaren progresioa gorde'
+    Automatically Remove Video Meta Files: 'Bideo metafitxategiak ezabatu automatikoki'
+    Clear Search Cache: 'Bilaketen cachea ezabatu'
+    Are you sure you want to clear out your search cache?: 'Ziur al zaude bilaketa-cachea
+      garbitu nahi duzula?'
+    Search cache has been cleared: 'Bilaketa cachea ezabatu berri da'
+    Remove Watch History: 'Historikoa ikusteko aukera ezabatu'
+    Are you sure you want to remove your entire watch history?: 'Ziur al zaude ikusitakoaren
+      historiko osoa ezabatu nahi duzula?'
+    Watch history has been cleared: 'Ikusitakoaren historikoa ezabatu berri da'
+    Remove All Subscriptions / Profiles: 'Harpidetza / Profil guztiak ezabatu'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ziur
+      al zaude zure profil eta harpidetza guztiak ezabatu nahi dituzula? Ezingo duzu
+      atzera egin.'
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Subscription Settings: 'Harpidetzen ezarpenak'
+    Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
+    Fetch Feeds from RSS: 'RSS jarioak eskuratu'
+    Manage Subscriptions: 'Harpidetzak kudeatu'
   Distraction Free Settings:
-    Distraction Free Settings: ''
-    Hide Video Views: ''
-    Hide Video Likes And Dislikes: ''
-    Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
-    Hide Recommended Videos: ''
-    Hide Trending Videos: ''
-    Hide Popular Videos: ''
-    Hide Playlists: ''
-    Hide Live Chat: ''
-    Hide Active Subscriptions: ''
+    Distraction Free Settings: 'Oharkabetasunak ekiditeko ezarpenak'
+    Hide Video Views: 'Bideoen ikustaldi kopurua ezkutatu'
+    Hide Video Likes And Dislikes: 'Bideoen atsegiteak eta desatsegiteak ezkutatu'
+    Hide Channel Subscribers: 'Kanalaren harpidedun kopurua ezkutatu'
+    Hide Comment Likes: 'Iruzkinen atsegiteak ezkutatu'
+    Hide Recommended Videos: 'Gomendatutako bideoak ezkutatu'
+    Hide Trending Videos: 'Bideo ikusienak ezkutatu'
+    Hide Popular Videos: 'Bideo ospetsuak ezkutatu'
+    Hide Playlists: 'Erreprodukzio zerrendak ezkutatu'
+    Hide Live Chat: 'Zuzeneko txata ezkutatu'
+    Hide Active Subscriptions: 'Harpidetza aktiboak ezkutatu'
   Data Settings:
-    Data Settings: ''
-    Select Import Type: ''
-    Select Export Type: ''
-    Import Subscriptions: ''
-    Import FreeTube: ''
-    Import YouTube: ''
-    Import NewPipe: ''
-    Check for Legacy Subscriptions: ''
-    Export Subscriptions: ''
-    Export FreeTube: ''
-    Export YouTube: ''
-    Export NewPipe: ''
-    Import History: ''
-    Export History: ''
-    Profile object has insufficient data, skipping item: ''
-    All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
-    Invalid subscriptions file: ''
-    This might take a while, please wait: ''
-    Invalid history file: ''
-    Subscriptions have been successfully exported: ''
-    History object has insufficient data, skipping item: ''
-    All watched history has been successfully imported: ''
-    All watched history has been successfully exported: ''
-    Unable to read file: ''
-    Unable to write file: ''
-    Unknown data key: ''
-    How do I import my subscriptions?: ''
-    Manage Subscriptions: ''
+    Data Settings: 'Datuen ezarpenak'
+    Select Import Type: 'Hautatu Inportazio mota'
+    Select Export Type: 'Hautatu esportazio mota'
+    Import Subscriptions: 'Harpidetzak inportatu'
+    Import FreeTube: 'Freetube inportatu'
+    Import YouTube: 'Youtubetik inportatu'
+    Import NewPipe: 'Newpipetik inportatu'
+    Check for Legacy Subscriptions: 'Legacy harpidetzak bilatu'
+    Export Subscriptions: 'Harpidetzak esportatu'
+    Export FreeTube: 'Freetubera esportatu'
+    Export YouTube: 'Youtubera esportatu'
+    Export NewPipe: 'Newpipera esportatu'
+    Import History: 'Historikoa inportatu'
+    Export History: 'Historikoa esportatu'
+    Profile object has insufficient data, skipping item: 'Profileko objektuak ez du
+      datu nahikorik, elementutik ateratzen'
+    All subscriptions and profiles have been successfully imported: 'Profil eta harpidetza
+      guztiak ongi inportatu dira'
+    All subscriptions have been successfully imported: 'Harpidetza guztiak ongi inportatu
+      dira'
+    One or more subscriptions were unable to be imported: 'Zenbait harpidetza ezin
+      izan dira inportatu'
+    Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
+    This might take a while, please wait: 'Baliteke denbora pixka bat behar izatea,
+      itxaron mesedez'
+    Invalid history file: 'Historia fitxategi baliogabea'
+    Subscriptions have been successfully exported: 'Harpidetzak ongi esportatu dira'
+    History object has insufficient data, skipping item: 'Historiako objektuak ez
+      du datu nahikorik, elementutik ateratzen'
+    All watched history has been successfully imported: 'Ikusitakoaren historikoa
+      ongi inportatu da'
+    All watched history has been successfully exported: 'Ikusitakoaren historikoa
+      ongi esportatu da'
+    Unable to read file: 'Ezin da fitxategia irakurri'
+    Unable to write file: 'Ezin da fitxategia idatzi'
+    Unknown data key: 'Datu-gako ezezaguna'
+    How do I import my subscriptions?: 'Nola inporta ditzaket nire harpidetzak?'
+    Manage Subscriptions: 'Harpidetzak kudeatu'
+    Import Playlists: Erreprodukzio zerrendak inportatu
+    Export Playlists: Erreprodukzio zerrendak esportatu
+    All playlists has been successfully imported: Erreprodukzio zerrenda guztiak ongi
+      inportatu dira
+    All playlists has been successfully exported: Erreprodukzio zerrenda guztiak ongi
+      esportatu dira
+    Playlist insufficient data: Ez da datu nahikorik "$" erreprodukzio zerrendarentzat,
+      elementutik ateratzen
   Proxy Settings:
-    Proxy Settings: ''
-    Enable Tor / Proxy: ''
-    Proxy Protocol: ''
-    Proxy Host: ''
-    Proxy Port Number: ''
-    Clicking on Test Proxy will send a request to: ''
-    Test Proxy: ''
-    Your Info: ''
-    Ip: ''
-    Country: ''
-    Region: ''
-    City: ''
-    Error getting network information. Is your proxy configured properly?: ''
+    Proxy Settings: 'Proxy-aren ezarpenak'
+    Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
+    Proxy Protocol: 'Proxy protokoloa'
+    Proxy Host: 'Proxy ostalaria'
+    Proxy Port Number: 'Proxy portu zenbakia'
+    Clicking on Test Proxy will send a request to: 'Test Proxy-n klik eginez gero,
+      eskaera bat bidaliko da'
+    Test Proxy: 'Proxy-a frogatu'
+    Your Info: 'Zure informazioa'
+    Ip: 'Ip'
+    Country: 'Herrialdea'
+    Region: 'Eskualdea'
+    City: 'Hiria'
+    Error getting network information. Is your proxy configured properly?: 'Errore
+      bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta
+      al dago?'
+  External Player Settings:
+    Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena
+      egin
+    External Player Settings: Kanpoko erreproduzitzailearen ezarpenak
+    External Player: Kanpoko erreproduzitzailea
+    Custom External Player Executable: Lehenetsitako kanpo erreproduzitzailea exekutagarria
+    Custom External Player Arguments: Lehenetsitako kanpo erreproduzitzailea argudioak
+  Download Settings:
+    Download Settings: Deskargen ezarpenak
+    Ask Download Path: Deskargaren ibilbidea galdetu
+    Choose Path: Ibilbidea hautatu
+    Download Behavior: Deskargen portaera
+    Open in web browser: Nabigatzailean ireki
+    Download in app: Aplikazioetan deskargatu
+  SponsorBlock Settings:
+    Skip Options:
+      Prompt To Skip: Saltatzeko abisua
+      Show In Seek Bar: Erakutsi Bilaketen barran
+      Do Nothing: Ez egin ezer
+      Skip Option: Aukera saltatu
+      Auto Skip: Saltatze automatikoa
+    Category Color: Kolore kategoria
+    Notify when sponsor segment is skipped: Jakinarazi babesleen segmentua saltatzen
+      denean
+    Enable SponsorBlock: Babesleak blokeatzea ahalbidetu
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko
+      API Url (lehenetsia https://sponsor.ajay.app da)
+    SponsorBlock Settings: Babesleak blokeatzeko ezarpenak
 About:
   #On About page
-  About: ''
-  Beta: ''
-  Source code: ''
-  Licensed under the AGPLv3: ''
-  View License: ''
-  Downloads / Changelog: ''
-  GitHub releases: ''
-  Help: ''
-  FreeTube Wiki: ''
-  FAQ: ''
-  Report a problem: ''
-  GitHub issues: ''
-  Please check for duplicates before posting: ''
-  Website: ''
-  Blog: ''
-  Email: ''
-  Mastodon: ''
-  Chat on Matrix: ''
-  Please read the: ''
-  room rules: ''
-  Translate: ''
-  Credits: ''
-  FreeTube is made possible by: ''
-  these people and projects: ''
-  Donate: ''
+  About: 'Honi buruz'
+  Beta: 'Beta'
+  Source code: 'Kode iturria'
+  Licensed under the AGPLv3: 'AGPLv3 lizentziapean'
+  View License: 'Lizentzia ikusi'
+  Downloads / Changelog: 'Deskargak / Aldaketen erregistroa'
+  GitHub releases: 'Github argitalpenak'
+  Help: 'Laguntza'
+  FreeTube Wiki: 'Freetuberen wikia'
+  FAQ: 'Ohiko galderak'
+  Report a problem: 'Arazo baten berri eman'
+  GitHub issues: 'Github-en gaiak'
+  Please check for duplicates before posting: 'Mesedez, egiaztatu bikoiztutakoak ote
+    dauden argitaratu aurretik'
+  Website: 'Webgunea'
+  Blog: 'Blog-a'
+  Email: 'Helbide elektronikoa'
+  Mastodon: 'Mastodon'
+  Chat on Matrix: 'Matrix-en txata'
+  Please read the: 'Irakur ezazu mesedez'
+  room rules: 'Gelaren arauak'
+  Translate: 'Itzuli'
+  Credits: 'Kredituak'
+  FreeTube is made possible by: 'Freetube honakoei esker sortu da'
+  these people and projects: 'Hurrengo pertsonak eta proiektuak'
+  Donate: 'Donazioa egin'
 
 Profile:
-  Profile Select: ''
-  Profile Filter: ''
-  All Channels: ''
-  Profile Manager: ''
-  Create New Profile: ''
-  Edit Profile: ''
-  Color Picker: ''
-  Custom Color: ''
-  Profile Preview: ''
-  Create Profile: ''
-  Update Profile: ''
-  Make Default Profile: ''
-  Delete Profile: ''
-  Are you sure you want to delete this profile?: ''
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
-  Your profile name cannot be empty: ''
-  Profile has been created: ''
-  Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
-  Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
-  Subscription List: ''
-  Other Channels: ''
-  $ selected: ''
-  Select All: ''
-  Select None: ''
-  Delete Selected: ''
-  Add Selected To Profile: ''
-  No channel(s) have been selected: ''
+  Profile Select: 'Hautatu profila'
+  Profile Filter: 'Profilaren iragazkiak'
+  All Channels: 'Kanal guztiak'
+  Profile Manager: 'Profilaren kudeatzailea'
+  Create New Profile: 'Profil berria sortu'
+  Edit Profile: 'Profila editatu'
+  Color Picker: 'Kolore hautatzailea'
+  Custom Color: 'Kolore lehenetsia'
+  Profile Preview: 'Profilaren aurreikuspena'
+  Create Profile: 'Profila sortu'
+  Update Profile: 'Profila eguneratu'
+  Make Default Profile: 'Lehenetsitako profil gisa hautatu'
+  Delete Profile: 'Profila ezabatu'
+  Are you sure you want to delete this profile?: 'Ziur al zaude profil hau ezabatu
+    nahi duzula?'
+  All subscriptions will also be deleted.: 'Harpidetza guztiak ere ezabatuko dira.'
+  Profile could not be found: 'Ezin izan da profila aurkitu'
+  Your profile name cannot be empty: 'Zure profilaren izena ezin da hutsik egon'
+  Profile has been created: 'Profila ongi eratu da'
+  Profile has been updated: 'Profila ongi eguneratu da'
+  Your default profile has been set to $: 'Zure lehenetsitako profila $ gisa ezarri
+    da'
+  Removed $ from your profiles: '$ ezabatu berri da zure profiletatik'
+  Your default profile has been changed to your primary profile: 'Profil lehenetsia
+    zure profil nagusi gisa ezarri da'
+  $ is now the active profile: '$ da profil aktibo berria'
+  Subscription List: 'Harpidetzen zerrenda'
+  Other Channels: 'Beste kanalak'
+  $ selected: '$ ezarria'
+  Select All: 'Denak hautatu'
+  Select None: 'Bat ere ez hautatu'
+  Delete Selected: 'hautatutakoa ezabatu'
+  Add Selected To Profile: 'Hautatutakoa profilera gehitu'
+  No channel(s) have been selected: 'Kanal bat ere ez da hautatu'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
+  : 'Hau da zure profil nagusia. Ziur al zaude hautatutako kanalak ezabatu nahi dituzula?
+    Kanal hauek ageri diren profil guztietan ezabatuko dira.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ziur
+    al zaude hautatutako kanalak ezabatu nahi dituzula? Honek ez du kanala beste profil
+    batetik ezabatuko.'
 #On Channel Page
+  Profile Settings: Profilaren ezarpenak
 Channel:
-  Subscriber: ''
-  Subscribers: ''
-  Subscribe: ''
-  Unsubscribe: ''
-  Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
-  Added channel to your subscriptions: ''
-  Search Channel: ''
-  Your search results have returned 0 results: ''
-  Sort By: ''
+  Subscriber: 'Harpideduna'
+  Subscribers: 'Harpidedunak'
+  Subscribe: 'Harpidetu'
+  Unsubscribe: 'Harpidetza kendu'
+  Channel has been removed from your subscriptions: 'kanala zure harpidetzetatik kendu
+    da'
+  Removed subscription from $ other channel(s): 'Harpidetza beste $ kanaletatik ezabatu
+    da'
+  Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
+  Search Channel: 'Kanala bilatu'
+  Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
+  Sort By: 'Ordenatu honen arabera'
   Videos:
-    Videos: ''
-    This channel does not currently have any videos: ''
+    Videos: 'Bideoak'
+    This channel does not currently have any videos: 'Kanal honek ez du bideorik'
     Sort Types:
-      Newest: ''
-      Oldest: ''
-      Most Popular: ''
+      Newest: 'Berrienak'
+      Oldest: 'Zaharrenak'
+      Most Popular: 'Jarraituenak'
   Playlists:
-    Playlists: ''
-    This channel does not currently have any playlists: ''
+    Playlists: 'Erreprodukzio zerrendak'
+    This channel does not currently have any playlists: 'Kanal honek ez du erreprodukzio
+      zerrendarik'
     Sort Types:
-      Last Video Added: ''
-      Newest: ''
-      Oldest: ''
+      Last Video Added: 'Gehitutako azken bideoak'
+      Newest: 'Berrienak'
+      Oldest: 'Zaharrenak'
   About:
-    About: ''
-    Channel Description: ''
-    Featured Channels: ''
+    About: 'Honi buruz'
+    Channel Description: 'Kanalaren deskribapena'
+    Featured Channels: 'Nabarmendutako kanalak'
 Video:
-  Mark As Watched: ''
-  Remove From History: ''
-  Video has been marked as watched: ''
-  Video has been removed from your history: ''
-  Save Video: ''
-  Video has been saved: ''
-  Video has been removed from your saved list: ''
-  Open in YouTube: ''
-  Copy YouTube Link: ''
-  Open YouTube Embedded Player: ''
-  Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
-  Open Channel in YouTube: ''
-  Copy YouTube Channel Link: ''
-  Open Channel in Invidious: ''
-  Copy Invidious Channel Link: ''
-  View: ''
-  Views: ''
-  Loop Playlist: ''
-  Shuffle Playlist: ''
-  Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Mark As Watched: 'Ikusitako gisa jarri'
+  Remove From History: 'Historikotik ezabatu'
+  Video has been marked as watched: 'Bideoa ikusia gisa ezarri da'
+  Video has been removed from your history: 'Bideoa zure historikotik ezabatu egin
+    da'
+  Save Video: 'Gorde bideoa'
+  Video has been saved: 'Bideoa ongi gorde da'
+  Video has been removed from your saved list: 'Bideoa gordetakoen zerrendatik kendu
+    da'
+  Open in YouTube: 'Youtuben ireki'
+  Copy YouTube Link: 'Youtube-ren esteka kopiatu'
+  Open YouTube Embedded Player: 'Youtuberen erreproduzitzaile integratua ireki'
+  Copy YouTube Embedded Player Link: 'Youtuberen erreproduzitzaile integratuaren esteka
+    kopiatu'
+  Open in Invidious: 'Invidious-en ireki'
+  Copy Invidious Link: 'Invidious-en esteka kopiatu'
+  Open Channel in YouTube: 'Kanala Youtube-n ireki'
+  Copy YouTube Channel Link: 'Youtubeko kanalaren esteka kopiatu'
+  Open Channel in Invidious: 'Kanala Invidious-en ireki'
+  Copy Invidious Channel Link: 'Invidious-eko kanalaren esteka kopiatu'
+  View: 'Ikusi'
+  Views: 'Ikustaldiak'
+  Loop Playlist: 'etengabeko erreprodukzio zerrenda'
+  Shuffle Playlist: 'Nahasketa erreprodukzio zerrenda'
+  Reverse Playlist: 'Alderantzizko erreprodukzio zerrenda'
+  Play Next Video: 'Hurrengo bideoa ikusi'
+  Play Previous Video: 'Aurreko bideoa ikusi'
   # Context is "X People Watching"
-  Watching: ''
-  Watched: ''
-  Autoplay: ''
-  Starting soon, please refresh the page to check again: ''
+  Watching: 'Ikusten'
+  Watched: 'Ikusitakoak'
+  Autoplay: 'Automatikoki ikusi'
+  Starting soon, please refresh the page to check again: 'Laster hasiko da, mesedez,
+    freskatu orria berriro egiaztatzeko'
   # As in a Live Video
-  Live: ''
-  Live Now: ''
-  Live Chat: ''
-  Enable Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
+  Live: 'Zuzenekoak'
+  Live Now: 'Uneko zuzenekoak'
+  Live Chat: 'Zuzenekoaren txata'
+  Enable Live Chat: 'Zuzeneko txata aktibatu'
+  Live Chat is currently not supported in this build.: 'Zuzeneko txata ez da oraindik
+    onartzen konpilazio honetan.'
+  'Chat is disabled or the Live Stream has ended.': 'Txata desgaituta dago edo zuzeneko
+    igorpena amaitu da.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Zuzeneko txata
+    gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Zuzeneko
+    txata ez da onartzen Invidious APIarekin. Beharrezkoa da  YouTube-ra zuzenean
+    konektatzea.'
+  Download Video: 'Bideoa deskargatu'
+  video only: 'Bideoa soilik'
+  audio only: 'Audioa soilik'
   Audio:
-    Low: ''
-    Medium: ''
-    High: ''
-    Best: ''
+    Low: 'Eskasa'
+    Medium: 'Erdi-mailakoa'
+    High: 'Altua'
+    Best: 'Onena'
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
-  Streamed on: ''
-  Started streaming on: ''
-  translated from English: ''
+    Jan: 'Urtarrila'
+    Feb: 'Otsaila'
+    Mar: 'Martxoa'
+    Apr: 'Apirila'
+    May: 'Maiatza'
+    Jun: 'Ekaina'
+    Jul: 'Uztaila'
+    Aug: 'Abuztua'
+    Sep: 'Iraila'
+    Oct: 'Urria'
+    Nov: 'Azaroa'
+    Dec: 'Abendua'
+    Second: 'Segundua'
+    Seconds: 'Segundoak'
+    Minute: 'Minutua'
+    Minutes: 'Minutuak'
+    Hour: 'Ordua'
+    Hours: 'Orduak'
+    Day: 'Eguna'
+    Days: 'Egunak'
+    Week: 'Astea'
+    Weeks: 'Asteak'
+    Month: 'Hilabetea'
+    Months: 'Hilabeteak'
+    Year: 'Urtea'
+    Years: 'Urteak'
+    Ago: 'Duela'
+    Upcoming: 'Estreinaldiak'
+  Published on: 'Noiz argitaratua'
+  Streamed on: 'Noiz zuzenean emana'
+  Started streaming on: 'Noiz hasi zen zuzenekoa'
+  translated from English: 'Ingelesetik itzulia'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: 'Duela $ %'
 #& Videos
+  External Player:
+    Unsupported Actions:
+      opening playlists: erreprodukzio zerrendak irekitzen
+      shuffling playlists: erreprodukzio zerrendak nahasten
+      setting a playback rate: erreprodukzio tasa ezarri
+      reversing playlists: erreprodukzio zerrendak alderantzizkatzen
+      starting video at offset: hasierako bideoa offset moduan
+      opening specific video in a playlist (falling back to opening the video): erreprodukzio
+        zerrenda batean bideoa irekitzen (bideoa berriz ere irekitzen)
+      looping playlists: erreprodukzio zerrendak etengabe erreproduzitzen
+    OpenInTemplate: $-an irekia
+    video: bideoa
+    OpeningTemplate: $ irekitzen %-an...
+    UnsupportedActionTemplate: '$-k ez du onartzen: %'
+    playlist: erreprodukzio zerrenda
+  Stats:
+    Video ID: Bideoaren identifikatzailea
+    Bitrate: biten tasa
+    Volume: Bolumena
+    Bandwidth: Banda zabalera
+    Buffered: Bufferera igota
+    Video statistics are not available for legacy videos: Bideoen estatistikak ez
+      daude eskuragarri legacy bideoentzat
+    Resolution: Bereizmena
+    Player Dimensions: Erreproduzitzailearen neurriak
+    Dropped / Total Frames: Bidalitako / Guztira Frame-ak
+    Mimetype: MIME mota
+  Sponsor Block category:
+    music offtopic: Gaiaz kanpoko musika
+    interaction: Elkarrekintza
+    sponsor: Babeslea
+    outro: Bukaera
+    self-promotion: Autosustapena
+    recap: Laburpen
+    filler: Betegarria
+    intro: Sarrera
+  Skipped segment: Saltatu egin da segmentua
+  Premieres on: Estreinaldiak
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: 'Berriena'
+    Oldest: 'Zaharrena'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
-  Last Updated On: ''
+  View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
+  Videos: 'Bideoak'
+  View: 'Ikusi'
+  Views: 'Ikustaldiak'
+  Last Updated On: 'Azkenengoz eguneratua'
   Share Playlist:
-    Share Playlist: ''
-    Copy YouTube Link: ''
-    Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Share Playlist: 'Erreprodukzio-zerrenda partekatu'
+    Copy YouTube Link: 'Youtube-ko esteka kopiatu'
+    Open in YouTube: 'Youtube-n ireki'
+    Copy Invidious Link: 'Invidious-eko esteka kopiatu'
+    Open in Invidious: 'Invidious-en ireki'
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
+  Playlist: Erreprodukzio-zerrenda
+Toggle Theatre Mode: 'Aldatu Antzerki modura'
 Change Format:
-  Change Video Formats: ''
-  Use Dash Formats: ''
-  Use Legacy Formats: ''
-  Use Audio Formats: ''
-  Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
+  Change Video Formats: 'Bideoen formatuak aldatu'
+  Use Dash Formats: 'DASH formatuak erabili'
+  Use Legacy Formats: 'Legacy formatuak erabili'
+  Use Audio Formats: 'Audio formatuak erabili'
+  Dash formats are not available for this video: 'DASH formatuak ez dira eskuragarri
+    bideo honentzat'
+  Audio formats are not available for this video: 'Audio formatuak ez dira eskuragarri
+    bideo honentzat'
 Share:
-  Share Video: ''
-  Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
-  Copy Embed: ''
-  Open Embed: ''
+  Share Video: 'Bideoa partekatu'
+  Include Timestamp: 'Timestamp erantsi'
+  Copy Link: 'Esteka kopiatu'
+  Open Link: 'Esteka ireki'
+  Copy Embed: 'Kopiatu integratuta'
+  Open Embed: 'Integratuta ireki'
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'Invidious-eko URL-a arbelean itsatsi da'
+  Invidious Embed URL copied to clipboard: 'Invidious-eko URL integratua arbelera
+    itsatsi da'
+  Invidious Channel URL copied to clipboard: 'Invidious-eko kanalaren URL-a arbelera
+    itsatsi da'
+  YouTube URL copied to clipboard: 'Youtube-ko URL-a arbelean itsatsi da'
+  YouTube Embed URL copied to clipboard: 'Youtube-ko URL integratua arbelean itsatsi
+    da'
+  YouTube Channel URL copied to clipboard: 'Youtube-ko kanalaren URL-a arbelean itsatsi
+    da'
 
-Mini Player: ''
+Mini Player: 'Erreproduzitzaile txikia'
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Show Comments: ''
-  Hide Comments: ''
-  Sort by: ''
-  Top comments: ''
-  Newest first: ''
+  Comments: 'Iruzkinak'
+  Click to View Comments: 'Klikatu iruzkinak ikustearren'
+  Getting comment replies, please wait: 'Iruzkinen erantzunak eskuratzen. Itxaron
+    mesedez'
+  There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
+  Show Comments: 'Iruzkinak erakutsi'
+  Hide Comments: 'Iruzkinak ezkutatu'
+  Sort by: 'Honen arabera sailkatuta'
+  Top comments: 'Iruzkin nagusiak'
+  Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply
-  View: ''
-  Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
-  No more comments available: ''
-Up Next: ''
+  View: 'Ikusi'
+  Hide: 'Ezkutatu'
+  Replies: 'Erantzunak'
+  Reply: 'Erantzun'
+  There are no comments available for this video: 'Ez da iruzkin eskuragarririk bideo
+    honentzat'
+  Load More Comments: 'Iruzkin gehiago kargatu'
+  No more comments available: 'Iruzkin eskuragarri gehiagorik ez'
+  Member: Kide
+  Show More Replies: Erantzun gehiago erakutsi
+  From $channelName: $kanalIzenetik
+  And others: eta bestelakoak
+  Pinned by: Honengatik ainguratuta
+Up Next: 'Hurrengoa'
 
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Thumbnail Preference: ''
-    Invidious Instance: ''
-    Region for Trending: ''
+    Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen backend-a.
+      Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari
+      bat behar du konektatzeko.'
+    Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren
+      bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen
+      ordezko metodo gisa, posible denean.'
+    Thumbnail Preference: 'FreeTube-ko miniatura guztiak bideoaren fotograma batengatik
+      ordezkatuko dira lehenetsitako irudi txikiarekin ordez.'
+    Invidious Instance: 'API deientzat Individious-eko instantzia, zeinetara Freetube
+      konektatuko den.'
+    Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun
+      herrialdeko joerako bideoak hautatzeko. Youtube-k ez ditu onartzen bistaratzen
+      diren herrialde guztiak.'
+    External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin\
+      \ den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako\
+      \ nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
-    Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Force Local Backend for Legacy Formats: 'Soilik funtzionatzen du Individious-en
+      APIa zure lehenetsitakoa denean. Aukera dagoenean, tokiko APIa eta azken honek
+      bidalitako legacy formatuak ibiliko dira, Individious-ek bidalitakoak baino.
+      Lagungarria da herrialdeek ezarritako mugen ondorioz Individious-eko bideoak
+      ezin direnean ikusi.'
+    Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
+      da, YouTube-ra zuzeneko konexioa egin beharrean. APIaren hobespena gainidazten
+      du.'
+    Default Video Format: 'Erabiliko diren formatuak ezarri bideo bat erreproduzitzerakoan.
+      DASH formatuek kalitate handiagoak onartzen dituzte. Bestalde, Legacy formatuak
+      720 puntutara mugatuta badaude ere banda zabalera gutxiago kontsumitzen dute.
+      Audio formatuak audio fluxuak baino ez dira.'
+    Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol
+      tekla sakatu eta mantendu (Komando tekla MAC-etan) eta saguaren gurpila aurrera
+      eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu
+      eta mantendu (Komando tekla MAC-etan) eta ondoren saguaren ezkerreko botoia
+      sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan
+      aldaketarik egin ez bada).
   Subscription Settings:
-    Fetch Feeds from RSS: ''
+    Fetch Feeds from RSS: 'Posible denean, Freetube-k bere lehenetsitako metodoa erabili
+      beharrean RSS-ak baliatuko ditu zure harpidetzen jariora konektatzeko. RSS arinagoa
+      izateaz gain, IP-en blokeoak saihesten ditu. Aldiz, zuzenekoaren egoeraren edo
+      bideoaren iraupenaren informaziorik ez du ematen, besteak beste'
   Privacy Settings:
-    Remove Video Meta Files: ''
+    Remove Video Meta Files: 'Gaituta dagoenean, FreeTube-k automatikoki ezabatzen
+      ditu bideoen erreprodukzioan sortutako metafitxategiak, bistaratze orria ixten
+      denean.'
 
 # Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
-Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
-Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing Next Video Interval: ''
-Canceled next video autoplay: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+  External Player Settings:
+    Custom External Player Executable: Lehentasunez, Freetube-k uste izango du hautatutako
+      kanpo erreproduzitzailea aurkitu dezakeela PATH ingurune aldagaiari esker. Beharrezkoa
+      balitz, ohiko PATH-a ezarri ahalko litzateke.
+    DefaultCustomArgumentsTemplate: "(Lehenetsia: '$')"
+    Ignore Warnings: Jakinarazpenak kendu, uneko kanpo erreproduzitzaileak uneko ekintza
+      onartzen ez duenean (esaterako, alderantzizko erreprodukzio zerrendak, etab.).
+    External Player: Kanpo erreproduzitzaile bat hautatuz gero, bideoa edo erreproduzkio
+      zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan.
+    Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak,
+      puntu eta komaz bereizita (';'), kanpoko erreproduzitzailera pasatzea nahi duzu.
+Local API Error (Click to copy): 'Tokiko API-ak huts egin du (klikatu kopiatzeko)'
+Invidious API Error (Click to copy): 'Individious-eko APIak huts egin du (klikatu
+  kopiatzeko)'
+Falling back to Invidious API: 'Individious-eko APIra itzultzen'
+Falling back to the local API: 'Tokiko APIra itzultzen'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo
+  hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean
+  erabilgarri ez dagoelako gerta daiteke.'
+Subscriptions have not yet been implemented: 'Harpidetzak ez dira oraindik aktibatu'
+Loop is now disabled: 'Etengabeko erreprodukzioa desaktibatu egin da'
+Loop is now enabled: 'Etengabeko ereprodukzioa aktibatu egin da'
+Shuffle is now disabled: 'Erreprodukzioen nahasketak desaktibatu egin dira'
+Shuffle is now enabled: 'Erreprodukzioen nahasketak aktibatu egin dira'
+The playlist has been reversed: 'Erreprodukzio zerrenda alderantzizkatua izan da'
+Playing Next Video: 'Hurrengo bideoa erreproduzitzen'
+Playing Previous Video: 'Aurreko bideoa erreproduzitzen'
+Playing Next Video Interval: 'Denbora gutxi barru hurrengo bideoa erreproduzituko
+  da. Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen.
+  Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen.
+  Klikatu deuseztatzeko.'
+Canceled next video autoplay: 'Hurrengo bideoa automatikoki erreproduzituko da'
+'The playlist has ended.  Enable loop to continue playing': 'Erreprodukzio zerrenda
+  bukatu da. Etengabeko erreprodukzioa aktibatu erreproduzitzen jarraitzeko'
 
-Yes: ''
-No: ''
+Yes: 'Bai'
+No: 'Ez'
 Search Bar:
   Clear Input: Sarrera garbitu
 Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
 Open New Window: Leiho berria ireki
+Default Invidious instance has been set to $: Lehenetsitako Individious-eko instantzia
+  $ gisa ezarri da
+Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia
+  ezabatu egin da
+External link opening has been disabled in the general settings: Kanpo estekak irekitzea
+  desaktibatu egin da ezarpen orokorretan
+Downloading has completed: '"$" deskargatu egin da'
+Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
+  ezin da aplikazioan ireki
+Hashtags have not yet been implemented, try again later: Etiketak ez dira oraindik
+  aktibatu, berriz ere saiatu zaitez beranduago
+Downloading failed: Akats bat gertatu da "$" deskargatzerakoan
+Screenshot Success: Pantaila-argazkia gode da "$" gisa
+Screenshot Error: Pantaila-argazkiak huts egin du. $
+Starting download: '"$"-ren deskarga abiatzen'

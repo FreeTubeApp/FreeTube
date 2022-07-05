@@ -33,6 +33,11 @@ export default Vue.extend({
       visible: this.firstScreen
     }
   },
+  computed: {
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    }
+  },
   methods: {
     onVisibilityChanged: function (visible) {
       this.visible = visible

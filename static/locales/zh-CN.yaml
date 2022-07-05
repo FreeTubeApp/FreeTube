@@ -325,6 +325,10 @@ Settings:
     Distraction Free Settings: 零打扰设置
     Hide Active Subscriptions: 隐藏活跃的订阅
     Hide Playlists: 隐藏播放列表
+    Hide Live Streams: 隐藏直播
+    Hide Sharing Actions: 隐藏分享操作
+    Hide Comments: 隐藏评论
+    Hide Video Description: 隐藏视频描述
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -363,6 +367,14 @@ Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
     Choose Path: 选择路径
+    Download in app: 应用内下载
+    Open in web browser: 在网络浏览器内打开
+    Download Behavior: 下载行为
+  Parental Control Settings:
+    Parental Control Settings: 家长控制设置
+    Show Family Friendly Only: 仅显示“家庭友好”视频
+    Hide Search Bar: 隐藏搜索栏
+    Hide Unsubscribe Button: 隐藏“取消订阅”按钮
 About:
   #On About page
   About: '关于'
@@ -751,3 +763,9 @@ Downloading canceled: 用户取消了下载
 Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
 Screenshot Error: 截屏失败。$
 Screenshot Success: 另存截屏为 “$”
+New Window: 新窗口
+Age Restricted:
+  Type:
+    Channel: 频道
+    Video: 视频
+  This $contentType is age restricted: 此 $ 有年龄限制
