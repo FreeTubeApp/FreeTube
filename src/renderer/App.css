@@ -15,13 +15,14 @@
 }
 
 .banner {
-  margin-top: 16px;
+  margin: 16px auto 0 auto;
   width: 90%;
 }
 
 .flexBox {
   margin: 0;
   flex: 1 1 0%;
+  flex-direction: column;
 }
 
 #changeLogText {
