@@ -9,10 +9,8 @@
   >
     <top-nav ref="topNav" />
     <side-nav ref="sideNav" />
-    <ft-flex-box
-      v-if="showUpdatesBanner || showBlogBanner"
-      class="flexBox routerView"
-    >
+
+    <ft-flex-box class="flexBox">
       <ft-notification-banner
         v-if="showUpdatesBanner"
         class="banner"
@@ -25,19 +23,21 @@
         :message="blogBannerMessage"
         @click="handleNewBlogBannerClick"
       />
+
+      <transition
+        v-if="dataReady"
+        mode="out-in"
+        name="fade"
+      >
+        <!-- <keep-alive> -->
+        <RouterView
+          ref="router"
+          class="routerView"
+        />
+        <!-- </keep-alive> -->
+      </transition>
     </ft-flex-box>
-    <transition
-      v-if="dataReady"
-      mode="out-in"
-      name="fade"
-    >
-      <!-- <keep-alive> -->
-      <RouterView
-        ref="router"
-        class="routerView"
-      />
-      <!-- </keep-alive> -->
-    </transition>
+
     <ft-prompt
       v-if="showReleaseNotes"
       @click="showReleaseNotes = !showReleaseNotes"
