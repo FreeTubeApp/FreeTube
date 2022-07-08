@@ -90,6 +90,15 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
+Channels:
+  Channels: Channels
+  Title: Channel List
+  Search bar placeholder: Search Channels
+  Count: $ channel(s) found.
+  Empty: Your channel list is currently empty.
+  Unsubscribe: Unsubscribe
+  Unsubscribed: $ has been removed from your subscriptions
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from "$"?
 Trending:
   Trending: Trending
   Default: Default

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
+import SubscribedChannels from '../views/SubscribedChannels/SubscribedChannels.vue'
 import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
 import ProfileEdit from '../views/ProfileEdit/ProfileEdit.vue'
 import Trending from '../views/Trending/Trending.vue'
@@ -65,6 +66,14 @@ const router = new CustomRouter({
         icon: 'fa-home'
       },
       component: Subscriptions
+    },
+    {
+      path: '/subscribedchannels',
+      meta: {
+        title: 'Channels.Title',
+        icon: 'fa-home'
+      },
+      component: SubscribedChannels
     },
     {
       path: '/settings/profile',
