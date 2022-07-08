@@ -848,3 +848,12 @@ Age Restricted:
     Channel: القناة
     Video: فيديو
   This $contentType is age restricted: هذا $ مقيد بالفئة العمرية
+Channels:
+  Count: تم العثور على قناة (قنوات) $.
+  Unsubscribed: تمت إزالة $ من اشتراكاتك
+  Channels: القنوات
+  Title: قائمة القنوات
+  Search bar placeholder: البحث في القنوات
+  Empty: قائمة قنواتك فارغة حاليا.
+  Unsubscribe: إلغاء الاشتراك
+  Unsubscribe Prompt: هل أنت متأكد من أنك تريد إلغاء الاشتراك من "$"؟
