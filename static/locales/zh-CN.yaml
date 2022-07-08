@@ -769,3 +769,12 @@ Age Restricted:
     Channel: 频道
     Video: 视频
   This $contentType is age restricted: 此 $ 有年龄限制
+Channels:
+  Search bar placeholder: 搜索频道
+  Count: 找到了 $ 个频道。
+  Unsubscribe: 取消订阅
+  Channels: 频道
+  Title: 频道列表
+  Empty: 你的频道列表当前为空。
+  Unsubscribed: 从你的订阅里删除了 $
+  Unsubscribe Prompt: 你确定你要取消订阅 "$" 吗？
