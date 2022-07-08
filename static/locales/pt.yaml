@@ -227,7 +227,7 @@ Settings:
       8k: '8k'
     Fast-Forward / Rewind Interval: Tempo para avançar / recuar
     Next Video Interval: Intervalo entre vídeos
-    Display Play Button In Video Player: Mostrar botão sobre o vídeo quando em pausa
+    Display Play Button In Video Player: Mostrar botão de reproduzir
     Scroll Volume Over Video Player: Utilizar roda do rato sobre o vídeo para alterar
       o volume
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
@@ -349,7 +349,7 @@ Settings:
     Notify when sponsor segment is skipped: Notificar quando um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API do SponsorBlock
       (o predefinido é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ativar bloqueio da publicidade
+    Enable SponsorBlock: Ativar bloqueio da publicidade (SponsorBlock)
     SponsorBlock Settings: Definições de bloqueio de publicidade (SponsorBlock)
     Skip Options:
       Skip Option: Ignorar opção
@@ -393,7 +393,7 @@ Settings:
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
-    Ignore Unsupported Action Warnings: Ignorar avisos sobre opções inválidas
+    Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Leitor externo
     External Player Settings: Definições para leitores de vídeo externos
   The app needs to restart for changes to take effect. Restart and apply change?: A
@@ -606,7 +606,7 @@ Video:
     Year: 'Ano'
     Years: 'Anos'
     Ago: 'Há'
-    Upcoming: 'Estreia a'
+    Upcoming: 'Estreia em'
   Published on: 'Publicado a'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -639,8 +639,8 @@ Video:
     filler: Filler
   Skipped segment: Secção passada à frente
   translated from English: traduzido do inglês
-  Started streaming on: Transmissão iniciada a
-  Streamed on: Transmitido a
+  Started streaming on: Transmissão iniciada em
+  Streamed on: Transmitido em
   Audio:
     Best: Melhor
     High: Alta
@@ -653,9 +653,9 @@ Video:
   Open Channel in Invidious: Abrir canal no Invidious
   Copy YouTube Channel Link: Copiar ligação do canal do YouTube
   Open Channel in YouTube: Abrir canal no YouTube
-  Video has been removed from your saved list: Vídeo removido da sua lista
-  Video has been saved: Vídeo guardado
-  Save Video: Guardar vídeo
+  Video has been removed from your saved list: Vídeo removido da lista de favoritos
+  Video has been saved: Vídeo guardado na lista de favoritos
+  Save Video: Guardar vídeo nos favoritos
   Premieres on: Estreia a
   Stats:
     video id: Video ID (YouTube)
@@ -733,7 +733,7 @@ Share:
 Mini Player: 'Mini-leitor'
 Comments:
   Comments: 'Comentários'
-  Click to View Comments: 'Clicar para ver comentários'
+  Click to View Comments: 'Ver comentários'
   Getting comment replies, please wait: 'A receber respostas ao comentário, por favor
     aguarde'
   Show Comments: 'Mostrar comentários'
@@ -748,8 +748,8 @@ Comments:
   There are no more comments for this video: Não há mais comentários neste vídeo
   No more comments available: Não existem mais comentários
   Show More Replies: Mostrar mais respostas
-  Newest first: Mais recentes primeiro
-  Top comments: Comentários principais
+  Newest first: Mais recentes
+  Top comments: Melhores comentários
   Sort by: Ordenar por
   Pinned by: Fixado por
   And others: e outros
