@@ -870,3 +870,12 @@ Age Restricted:
   Type:
     Channel: Kanal
     Video: Video
+Channels:
+  Empty: Kanal listeniz şu anda boş.
+  Channels: Kanallar
+  Title: Kanal Listesi
+  Search bar placeholder: Kanalları Ara
+  Count: $ kanal bulundu.
+  Unsubscribe: Abonelikten çık
+  Unsubscribed: $ aboneliklerinizden kaldırıldı
+  Unsubscribe Prompt: '"$" aboneliğinden çıkmak istediğinizden emin misiniz?'
