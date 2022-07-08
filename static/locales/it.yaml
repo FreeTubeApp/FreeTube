@@ -98,7 +98,7 @@ User Playlists:
     aggiungerlo qui
   Playlist Message: Questa pagina non è rappresentativa di una playlist completa.
     Mostra solo i video che hai salvato o aggiunto ai preferiti. A lavoro finito,
-    tutti i video che si trovano qui saranno spostati in una playlist dei Preferiti.
+    tutti i video che si trovano qui saranno spostati in una playlist preferiti.
   Search bar placeholder: Cerca nella Playlist
   Empty Search Message: Non ci sono video in questa playlist che corrispondono alla
     tua ricerca
@@ -199,7 +199,7 @@ Settings:
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
-      obsoleti'
+      legacy'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -211,7 +211,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati obsoleti'
+      Legacy Formats: 'Formati legacy'
       Audio Formats: 'Formati Audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
@@ -346,7 +346,7 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni obsolete
+    Check for Legacy Subscriptions: Controlla le iscrizioni legacy
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
@@ -640,7 +640,7 @@ Video:
     video id: ID video (YouTube)
     player resolution: Finestra di visualizzazione
     Video statistics are not available for legacy videos: Le statistiche sui video
-      non sono disponibili per i video obsoleti
+      non sono disponibili per i video legacy
     Video ID: ID video
     Resolution: Risoluzione
     Player Dimensions: Dimensioni del lettore
@@ -678,9 +678,9 @@ Playlist:
 Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Video Formats: 'Cambia formato video'
-  Use Dash Formats: 'Utilizza formati DASH'
-  Use Legacy Formats: 'Utilizza formati obsoleti'
-  Use Audio Formats: 'Utilizza formati Audio'
+  Use Dash Formats: 'Usa i formati DASH'
+  Use Legacy Formats: 'Usa i formati legacy'
+  Use Audio Formats: 'Usa i formati audio'
   Audio formats are not available for this video: I formati Audio non sono disponibili
     per questo video
   Dash formats are not available for this video: I formati DASH non sono disponibili
@@ -806,9 +806,9 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitate, le API locali useranno i formati obsoleti al
-      posto di quelli di Invidious. Utile quando i video di Invidious non vengono
-      riprodotti a causa di restrizioni geografiche.
+      predefinita. Quando abilitate, le API locali useranno i formati legacy al posto
+      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
+      a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati DASH possono riprodurre qualità maggiore. I formati Legacy sono limitati
       ad un massimo di 720p ma usano meno banda. I formati Audio riproducono solo
@@ -887,3 +887,12 @@ Age Restricted:
     Channel: Canale
     Video: Video
 New Window: Nuova finestra
+Channels:
+  Unsubscribed: $ è stato rimosso dalle tue iscrizioni
+  Title: Elenco canali
+  Channels: Canali
+  Search bar placeholder: Cerca canali
+  Count: $ canale/i trovato/i.
+  Empty: L'elenco dei tuoi canali è attualmente vuoto.
+  Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "$"?
+  Unsubscribe: Annulla l'iscrizione
