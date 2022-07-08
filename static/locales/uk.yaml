@@ -850,3 +850,12 @@ Age Restricted:
   Type:
     Video: Відео
     Channel: Канал
+Channels:
+  Count: 'Знайдено каналів: $.'
+  Empty: Ваш список каналів наразі порожній.
+  Unsubscribe Prompt: Ви впевнені, що хочете відписатися від «$»?
+  Channels: Канали
+  Title: Список каналів
+  Unsubscribe: Відписатися
+  Search bar placeholder: Пошук каналів
+  Unsubscribed: $ вилучено з ваших підписок
