@@ -242,8 +242,8 @@ Settings:
       File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
         Miesiąc 2 cyfry. %D Dzień 2 cyfry. %H Godzina 2 cyfry. %N Minuta 2 cyfry.
         %S Sekunda 2 cyfry. %T Milisekunda 3 cyfry. %s Sekunda filmu. %t Milisekunda
-        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając "\"
-        albo "/".'
+        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając „\”
+        albo „/”.'
       Error:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
@@ -346,7 +346,7 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty "$", pomijam
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „$”, pomijam
       element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
@@ -874,17 +874,26 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '"$" został pobrany'
-Starting download: Rozpoczęto pobieranie "$"
-Downloading failed: Wystąpił problem z pobieraniem "$"
+Downloading has completed: '„$” został pobrany'
+Starting download: Rozpoczęto pobieranie „$”
+Downloading failed: Wystąpił problem z pobieraniem „$”
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. $
-Screenshot Success: Zapisano zrzut ekranu jako "$"
+Screenshot Success: Zapisano zrzut ekranu jako „$”
 Age Restricted:
   Type:
     Channel: kanał
     Video: film
   This $contentType is age restricted: Ten $ ma ograniczenie wiekowe
 New Window: Nowe okno
+Channels:
+  Title: Lista kanałów
+  Count: Znaleziono $ kanał(y/ów).
+  Empty: Twoja lista kanałów jest na razie pusta.
+  Unsubscribe: Odsubskrybuj
+  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „$”?
+  Unsubscribed: $ został usunięty z Twoich subskrypcji
+  Channels: Kanały
+  Search bar placeholder: Przeszukaj kanały
