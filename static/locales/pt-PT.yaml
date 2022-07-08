@@ -501,8 +501,8 @@ Video:
   Video has been marked as watched: O vídeo foi marcado como visto
   Video has been removed from your history: O vídeo foi removido do seu histórico
   Save Video: Guardar vídeo
-  Video has been saved: Vídeo guardado
-  Video has been removed from your saved list: Vídeo removido da sua lista
+  Video has been saved: Vídeo guardado na lista de favoritos
+  Video has been removed from your saved list: Vídeo removido da lista de favoritos
   Open in YouTube: Abrir no YouTube
   Copy YouTube Link: Copiar ligação do YouTube
   Open YouTube Embedded Player: Abrir reprodutor YouTube embutido
@@ -573,8 +573,8 @@ Video:
     Ago: Há
     Upcoming: Estreia a
   Published on: Publicado a
-  Streamed on: Transmitido a
-  Started streaming on: Transmissão iniciada a
+  Streamed on: Transmitido em
+  Started streaming on: Transmissão iniciada em
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: Há $ %
 #& Videos
@@ -679,15 +679,15 @@ Share:
 Mini Player: Mini-leitor
 Comments:
   Comments: Comentários
-  Click to View Comments: Clicar para ver comentários
+  Click to View Comments: Ver comentários
   Getting comment replies, please wait: A receber respostas ao comentário, por favor
     aguarde
   There are no more comments for this video: Não há mais comentários neste vídeo
   Show Comments: Mostrar comentários
   Hide Comments: Ocultar comentários
   Sort by: Ordenar por
-  Top comments: Comentários principais
-  Newest first: Mais recentes primeiro
+  Top comments: Melhores comentários
+  Newest first: Mais recentes
   # Context: View 10 Replies, View 1 Reply
   View: Mostrar
   Hide: Ocultar
