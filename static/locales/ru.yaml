@@ -867,3 +867,12 @@ Age Restricted:
   Type:
     Channel: Канал
     Video: Видео
+Channels:
+  Title: Список каналов
+  Count: $ каналов найдено.
+  Empty: Список каналов пуст.
+  Channels: Каналы
+  Search bar placeholder: Поиск каналов
+  Unsubscribe: Отписаться
+  Unsubscribed: $ был удален из ваших подписок
+  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "$"?
