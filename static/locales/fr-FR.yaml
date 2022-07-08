@@ -919,3 +919,8 @@ Age Restricted:
     Video: Vidéo
     Channel: Chaîne
   This $contentType is age restricted: Ce $ est soumis à une limite d'âge
+Channels:
+  Channels: Chaînes
+  Title: Liste des chaînes
+  Empty: Votre liste de chaînes est actuellement vide.
+  Unsubscribe: Se désabonner
