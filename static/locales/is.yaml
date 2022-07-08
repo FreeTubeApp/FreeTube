@@ -819,3 +819,12 @@ Age Restricted:
     Video: Myndskeið
   This $contentType is age restricted: Þetta $ er með aldurstakmörkunum
 New Window: Nýr gluggi
+Channels:
+  Search bar placeholder: Leita í rásum
+  Count: $ rás/rásir fundust.
+  Empty: Rásalistinn þinn er tómur.
+  Unsubscribed: $ hefur verið fjarlægð úr áskriftunum þínum
+  Unsubscribe Prompt: Ertu viss um að þú viljir hætta áskrift að "$"?
+  Channels: Rásir
+  Title: Rásalisti
+  Unsubscribe: Segja upp áskrift
