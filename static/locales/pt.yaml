@@ -117,17 +117,17 @@ Settings:
     General Settings: 'Definições gerais'
     Check for Updates: 'Verificar se há atualizações'
     Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
-    Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação não
-      preferido em caso de falha'
+    Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário
+      em caso de falha'
     Enable Search Suggestions: 'Ativar sugestões de pesquisa'
     Default Landing Page: 'Página inicial'
     Locale Preference: 'Idioma'
     Preferred API Backend:
-      Preferred API Backend: 'Sistema de ligação favorito'
+      Preferred API Backend: 'Sistema de ligação preferido'
       Local API: 'API local'
       Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: 'Disposição de vídeos'
+      Video View Type: 'Disposição dos vídeos'
       Grid: 'Grelha'
       List: 'Lista'
     Thumbnail Preference:
@@ -157,7 +157,7 @@ Settings:
       No Action: Nenhuma ação
   Theme Settings:
     Theme Settings: 'Definições de tema'
-    Match Top Bar with Main Color: 'Utilizar cor principal para barra superior'
+    Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
     Base Theme:
       Base Theme: 'Tema base'
       Black: 'Preto'
@@ -168,7 +168,7 @@ Settings:
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
-      Pink: 'Cor de rosa'
+      Pink: 'Cor-de-rosa'
       Purple: 'Roxo'
       Deep Purple: 'Roxo escuro'
       Indigo: 'Indigo'
@@ -186,26 +186,26 @@ Settings:
       Dracula Cyan: 'Drácula ciano'
       Dracula Green: 'Drácula verde'
       Dracula Orange: 'Drácula laranja'
-      Dracula Pink: 'Drácula rosa'
+      Dracula Pink: 'Drácula cor-de-rosa'
       Dracula Purple: 'Drácula roxo'
       Dracula Red: 'Drácula vermelho'
       Dracula Yellow: 'Drácula amarelo'
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
-    UI Scale: Mudança de escala da interface
-    Disable Smooth Scrolling: Desligar deslocação suavizada
+    UI Scale: Escala da interface gráfica
+    Disable Smooth Scrolling: Desativar deslocação suave
     Expand Side Bar by Default: Expandir barra lateral por predefinição
-    Hide Side Bar Labels: Ocultar etiquetas da barra lateral
+    Hide Side Bar Labels: Ocultar texto dos ícones da barra lateral
   Player Settings:
     Player Settings: 'Definições do leitor de vídeo'
     Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
       formatos antigos'
     Play Next Video: 'Reproduzir vídeo seguinte'
-    Turn on Subtitles by Default: 'Ligar legendas automaticamente'
+    Turn on Subtitles by Default: 'Ativar legendas automaticamente'
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
-    Proxy Videos Through Invidious: 'Utilizar Invidious como intermediário'
+    Proxy Videos Through Invidious: 'Utilizar Invidious com proxy'
     Autoplay Playlists: 'Reproduzir listas de reprodução automaticamente'
-    Enable Theatre Mode by Default: 'Ligar modo cinema por predefinição'
+    Enable Theatre Mode by Default: 'Ativar modo cinema por predefinição'
     Default Volume: 'Volume'
     Default Playback Rate: 'Velocidade de reprodução'
     Default Video Format:
@@ -225,9 +225,9 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Tempo para avançar / voltar atrás
+    Fast-Forward / Rewind Interval: Tempo para avançar / recuar
     Next Video Interval: Intervalo entre vídeos
-    Display Play Button In Video Player: Mostrar botão sobre vídeo quando em pausa
+    Display Play Button In Video Player: Mostrar botão sobre o vídeo quando em pausa
     Scroll Volume Over Video Player: Utilizar roda do rato sobre o vídeo para alterar
       o volume
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
@@ -268,8 +268,8 @@ Settings:
       dos vídeo
   Subscription Settings:
     Subscription Settings: 'Definições de subscrições'
-    Hide Videos on Watch: 'Esconder vídeos visualizados'
-    Fetch Feeds from RSS: 'Buscar informações através de RSS'
+    Hide Videos on Watch: 'Ocultar vídeos visualizados'
+    Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Manage Subscriptions: 'Gerir subscrições'
   Data Settings:
     Data Settings: 'Definições de dados'
@@ -309,7 +309,7 @@ Settings:
     Unknown data key: 'Chave dada é desconhecida'
     How do I import my subscriptions?: 'Como posso importar as minhas subscrições?'
     Manage Subscriptions: Gerir subscrições
-    Check for Legacy Subscriptions: Verificar se há subscrições em formato pré-v0.8.0
+    Check for Legacy Subscriptions: Verificar se há subscrições no formato pré-v0.8.0
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
     Playlist insufficient data: Dados insuficientes para a lista de reprodução "$",
@@ -346,16 +346,16 @@ Settings:
       #& No
 
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Avisar quando um anúncio for ignorado
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
-      (Por omissão é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ligar SponsorBlock
-    SponsorBlock Settings: Definições SponsorBlock
+    Notify when sponsor segment is skipped: Notificar quando um anúncio for ignorado
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API do SponsorBlock
+      (o predefinido é https://sponsor.ajay.app)
+    Enable SponsorBlock: Ativar bloqueio da publicidade
+    SponsorBlock Settings: Definições de bloqueio de publicidade (SponsorBlock)
     Skip Options:
       Skip Option: Ignorar opção
       Auto Skip: Ignorar automático
       Show In Seek Bar: Mostrar na barra de busca
-      Prompt To Skip: Perguntar para ignorar
+      Prompt To Skip: Perguntar se quero ignorar
       Do Nothing: Não fazer nada
     Category Color: Cor da categoria
   Proxy Settings:
@@ -372,24 +372,24 @@ Settings:
     Proxy Port Number: Porta do proxy
     Proxy Host: Anfitrião do proxy
     Proxy Protocol: Protocolo do proxy
-    Enable Tor / Proxy: Ligar Tor / proxy
+    Enable Tor / Proxy: Ativar Tor / proxy
     Proxy Settings: Definições de proxy
   Distraction Free Settings:
-    Hide Active Subscriptions: Esconder subscrições da barra lateral
-    Hide Live Chat: Esconder chat ao vivo
-    Hide Playlists: Esconder listas de reprodução
-    Hide Popular Videos: Esconder mais populares
-    Hide Trending Videos: Esconder tendências
-    Hide Recommended Videos: Esconder vídeos recomendados
-    Hide Comment Likes: Esconder gostos em comentários
-    Hide Channel Subscribers: Esconder nº de subscritores
-    Hide Video Likes And Dislikes: Esconder gostos em vídeos
-    Hide Video Views: Esconder visualizações
+    Hide Active Subscriptions: Ocultar subscrições da barra lateral
+    Hide Live Chat: Ocultar conversação em direto
+    Hide Playlists: Ocultar listas de reprodução
+    Hide Popular Videos: Ocultar mais populares
+    Hide Trending Videos: Ocultar tendências
+    Hide Recommended Videos: Ocultar vídeos recomendados
+    Hide Comment Likes: Ocultar "gostos" em comentários
+    Hide Channel Subscribers: Ocultar nº de subscritores
+    Hide Video Likes And Dislikes: Ocultar "gostos" em vídeos
+    Hide Video Views: Ocultar visualizações
     Distraction Free Settings: Definições de distrações
     Hide Video Description: Ocultar descrição do vídeo
-    Hide Sharing Actions: Esconder ações de partilhar
-    Hide Live Streams: Esconder transmissões em direto
-    Hide Comments: Esconder comentários
+    Hide Sharing Actions: Ocultar ações de partilhar
+    Hide Live Streams: Ocultar transmissões em direto
+    Hide Comments: Ocultar comentários
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -407,9 +407,9 @@ Settings:
     Open in web browser: Abrir no navegador da Internet
     Download Behavior: Comportamento de descarregar
   Parental Control Settings:
-    Hide Unsubscribe Button: Esconder botão "anular subscrição"
+    Hide Unsubscribe Button: Ocultar botão "anular subscrição"
     Show Family Friendly Only: Mostrar apenas "para famílias"
-    Hide Search Bar: Esconder barra de pesquisa
+    Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de controlo parental
 About:
   #On About page
@@ -565,19 +565,19 @@ Video:
   Watched: 'Visto'
   Autoplay: 'Reprodução automática'
   # As in a Live Video
-  Live: 'Ao vivo'
-  Live Now: 'Ao vivo agora'
-  Live Chat: 'Chat ao vivo'
-  Enable Live Chat: 'Permitir chat ao vivo'
-  Live Chat is currently not supported in this build.: 'Atualmente o chat ao vivo
-    não se encontra a funcionar nesta versão.'
+  Live: 'Em direto'
+  Live Now: 'Em direto agora'
+  Live Chat: 'Conversação em direto'
+  Enable Live Chat: 'Permitir conversação em direto'
+  Live Chat is currently not supported in this build.: 'Atualmente a conversação em
+    direto não se encontra a funcionar nesta versão.'
   'Chat is disabled or the Live Stream has ended.': 'A conversação foi desativada
     ou a transmissão em direto já terminou.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat ao vivo
-    ativado. As mensagens vão aparecer aqui ao serem enviadas.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'O
-    chat ao vivo não se encontra a funcionar com a API Invividious. É necessária uma
-    ligação direta ao YouTube.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'A conversação
+    em direto está ativada. As mensagens vão aparecer aqui.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'A
+    conversação em direto não se encontra a funcionar com a API Invividious. É necessária
+    uma ligação direta ao YouTube.'
   Published:
     Jan: 'Jan'
     Feb: 'Fev'
@@ -635,6 +635,8 @@ Video:
     outro: Após
     intro: Introdução
     sponsor: Patrocinador
+    recap: Recap
+    filler: Filler
   Skipped segment: Secção passada à frente
   translated from English: traduzido do inglês
   Started streaming on: Transmissão iniciada a
@@ -735,10 +737,10 @@ Comments:
   Getting comment replies, please wait: 'A receber respostas ao comentário, por favor
     aguarde'
   Show Comments: 'Mostrar comentários'
-  Hide Comments: 'Esconder comentários'
+  Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
   View: 'Mostrar'
-  Hide: 'Esconder'
+  Hide: 'Ocultar'
   Replies: 'Respostas'
   Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo não contém nenhum comentário'
@@ -798,10 +800,10 @@ Tooltips:
     Remove Video Meta Files: Quando ativado, ao fechar uma página o FreeTube apagará
       automaticamente os metaficheiros criados durante a reprodução de um vídeo.
   Subscription Settings:
-    Fetch Feeds from RSS: Quando ativado, o FreeTube irá buscar as suas subscrições
-      através de RSS em vez do método normal. RSS é mais rápido e previne ser bloqueado
-      pelo YouTube, mas não disponibiliza informações como a duração de um vídeo ou
-      se este é ao vivo
+    Fetch Feeds from RSS: Quando ativado, o FreeTube irá obter as suas subscrições
+      através de RSS em vez do método normal. O RSS é mais rápido e impede que seja
+      bloqueado pelo YouTube, mas não disponibiliza informações como a duração dos
+      vídeos ou se são transmissões em direto
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
       por ponto e vírgula (';'), que quiser dar ao leitor externo.
@@ -821,9 +823,9 @@ Tooltips:
     Proxy Videos Through Invidious: Conectar-se-á ao Invidious para obter vídeos em
       vez de fazer uma ligação direta com o YouTube. Ignora a preferência de API.
     Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é o seu sistema preferido. Quando ativada, a API local irá ser usada para ir
-      buscar os formatos antigos, invés daqueles devolvidos pelo Invidious. Útil quando
-      os vídeos dados pelo Invidious não funcionam devido a restrições geográficas.
+      é o seu sistema preferido. Quando ativada, a API local irá ser usada para usar
+      os formatos antigos, em vez dos usados pelo Invidious. Útil quando os vídeos
+      do Invidious não funcionam devido a restrições geográficas.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
       e mantenha premida a tecla Control (tecla Command no Mac) e rode a roda do rato
       para frente ou para trás para controlar a taxa de reprodução. Pressione e mantenha
@@ -836,14 +838,14 @@ Tooltips:
       facto a funcionar devido ao YouTube.
     Invidious Instance: O servidor Invidious ao qual o FreeTube se irá ligar para
       fazer chamadas através da API.
-    Thumbnail Preference: Todas as antevisões dos vídeos no FreeTube serão substituídas
-      por um quadro do vídeo em vez da imagem padrão.
+    Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas
+      por um fotograma do vídeo em vez da miniatura original.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, o FreeTube tentará usar automaticamente a sua API não preferida
-      como substituição caso esta opção esteja ativada.
+      um problema, o FreeTube tentará usar automaticamente a sua API secundária como
+      alternativa caso esta opção esteja ativada.
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube.
       A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
-      para se ligar.
+      para fazer a ligação.
     External Link Handling: "Escolha o comportamento padrão quando uma ligação, que\
       \ não pode ser aberta no FreeTube, é aberta.\nPor padrão, o FreeTube abrirá\
       \ a ligação clicado no seu navegador de Internet padrão.\n"
@@ -863,3 +865,12 @@ Age Restricted:
     Channel: Canal
     Video: Vídeo
 New Window: Nova janela
+Channels:
+  Count: $ canais encontrados.
+  Empty: A sua lista de canais está neste momento vazia.
+  Unsubscribe: Anular subscrição
+  Unsubscribed: $ foi removido das suas subscrições
+  Search bar placeholder: Procurar canais
+  Channels: Canais
+  Title: Lista de canais
+  Unsubscribe Prompt: Quer mesmo deixar a subscrição de "$"?
