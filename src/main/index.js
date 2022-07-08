@@ -34,7 +34,7 @@ function runApp() {
         }
       },
       {
-        label: 'Toggle Video Statistics',
+        label: 'Show / Hide Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
           browserWindow.webContents.send('showVideoStatistics')
