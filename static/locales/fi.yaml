@@ -235,6 +235,7 @@ Settings:
       Format Label: Kuvakaappauksen muoto
       Quality Label: Kuvakaappauksen laatu
       File Name Label: Tiedostonimimalli
+      Ask Path: Kysy tallennuskansiota
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -346,6 +347,10 @@ Settings:
     Hide Video Views: Piilota videon katselukerrat
     Hide Active Subscriptions: Piilota aktiiviset tilaukset
     Hide Playlists: Piilota soittolistat
+    Hide Comments: Piilota kommentit
+    Hide Video Description: Piilota videon kuvaus
+    Hide Live Streams: Piilota suorat lähetykset
+    Hide Sharing Actions: Piilota jakamistoiminnot
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -376,6 +381,7 @@ Settings:
       Auto Skip: Automaattinen ohitus
       Show In Seek Bar: Näytä hakupalkissa
       Do Nothing: Älä tee mitään
+      Prompt To Skip: Ehdota ohittamista
     Category Color: Luokan väri
   External Player Settings:
     Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
@@ -391,6 +397,11 @@ Settings:
     Download Behavior: Latauksen toiminta
     Download in app: Lataa sovelluksessa
     Open in web browser: Avaa selaimessa
+  Parental Control Settings:
+    Parental Control Settings: Perheasetukset
+    Hide Unsubscribe Button: Piilota Peruuta tilaus -paninike
+    Show Family Friendly Only: Näytä vain koko perheelle sopiva sisältö
+    Hide Search Bar: Piilota hakupalkki
 About:
   #On About page
   About: 'Tietoja'
@@ -822,3 +833,10 @@ Downloading failed: Videon "$" lataamisessa havaittiin ongelma
 Downloading has completed: Videon "$" lataus on valmis
 Starting download: Aloitetaan lataamaan "$"
 Screenshot Success: Kuvakaappaus tallennettu nimellä ”$”
+New Window: Uusi ikkuna
+Age Restricted:
+  This $contentType is age restricted: Tämä $ on ikärajoitettu
+  Type:
+    Video: Video
+    Channel: Kanava
+Screenshot Error: Ruutukaappaus epäonnistui. $

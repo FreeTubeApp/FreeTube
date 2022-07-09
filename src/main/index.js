@@ -770,7 +770,21 @@ function runApp() {
     const template = [
       {
         label: 'File',
-        submenu: [{ role: 'quit' }]
+        submenu: [
+          {
+            label: 'New Window',
+            accelerator: 'CmdOrCtrl+N',
+            click: (_menuItem, _browserWindow, _event) => {
+              createWindow({
+                replaceMainWindow: false,
+                showWindowNow: true
+              })
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
+          { role: 'quit' }
+        ]
       },
       {
         label: 'Edit',

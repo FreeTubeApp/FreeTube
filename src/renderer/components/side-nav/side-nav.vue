@@ -33,6 +33,30 @@
         </p>
       </div>
       <div
+        class="navOption mobileShow"
+        role="button"
+        tabindex="0"
+        :title="$t('Channels.Channels')"
+        @click="navigate('subscribedchannels')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="list"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t("Channels.Channels") }}
+        </p>
+      </div>
+      <div
         v-if="!hideTrendingVideos"
         class="navOption mobileHidden"
         role="button"

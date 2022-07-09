@@ -126,6 +126,8 @@ export default Vue.extend({
 
       // Focus on input element after text is clear for better UX
       inputElement.focus()
+
+      this.$emit('clear')
     },
 
     handleActionIconChange: function() {
@@ -182,7 +184,7 @@ export default Vue.extend({
 
       if (inputElement !== null) {
         inputElement.addEventListener('keydown', (event) => {
-          if (event.keyCode === 13) {
+          if (event.key === 'Enter') {
             this.handleClick()
           }
         })
@@ -196,14 +198,14 @@ export default Vue.extend({
       this.handleClick()
     },
 
-    handleKeyDown: function (keyCode) {
-      if (this.dataList.length === 0) { return }
+    handleKeyDown: function (event) {
+      if (this.visibleDataList.length === 0) { return }
       // Update selectedOption based on arrow key pressed
-      if (keyCode === 40) {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
-      } else if (keyCode === 38) {
-        if (this.searchState.selectedOption === -1) {
-          this.searchState.selectedOption = this.dataList.length - 1
+      if (event.key === 'ArrowDown') {
+        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+      } else if (event.key === 'ArrowUp') {
+        if (this.searchState.selectedOption < 1) {
+          this.searchState.selectedOption = this.visibleDataList.length - 1
         } else {
           this.searchState.selectedOption--
         }
@@ -212,14 +214,13 @@ export default Vue.extend({
       }
 
       // Key pressed isn't enter
-      if (keyCode !== 13) {
+      if (event.key !== 'Enter') {
         this.searchState.showOptions = true
       }
       // Update Input box value if arrow keys were pressed
-      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
+      if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.searchState.selectedOption !== -1) {
+        event.preventDefault()
         this.inputData = this.visibleDataList[this.searchState.selectedOption]
-      } else {
-        this.updateVisibleDataList()
       }
     },
 

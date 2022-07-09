@@ -117,69 +117,76 @@ export default Vue.extend({
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
 
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
     dropdownOptions: function () {
       const options = []
-
       options.push(
         {
           label: this.watched
             ? this.$t('Video.Remove From History')
             : this.$t('Video.Mark As Watched'),
           value: 'history'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Copy YouTube Link'),
-          value: 'copyYoutube'
-        },
-        {
-          label: this.$t('Video.Copy YouTube Embedded Player Link'),
-          value: 'copyYoutubeEmbed'
-        },
-        {
-          label: this.$t('Video.Copy Invidious Link'),
-          value: 'copyInvidious'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Open in YouTube'),
-          value: 'openYoutube'
-        },
-        {
-          label: this.$t('Video.Open YouTube Embedded Player'),
-          value: 'openYoutubeEmbed'
-        },
-        {
-          label: this.$t('Video.Open in Invidious'),
-          value: 'openInvidious'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Copy YouTube Channel Link'),
-          value: 'copyYoutubeChannel'
-        },
-        {
-          label: this.$t('Video.Copy Invidious Channel Link'),
-          value: 'copyInvidiousChannel'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Open Channel in YouTube'),
-          value: 'openYoutubeChannel'
-        },
-        {
-          label: this.$t('Video.Open Channel in Invidious'),
-          value: 'openInvidiousChannel'
         }
       )
+      if (!this.hideSharingActions) {
+        options.push(
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Link'),
+            value: 'copyYoutube'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Embedded Player Link'),
+            value: 'copyYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Link'),
+            value: 'copyInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open in YouTube'),
+            value: 'openYoutube'
+          },
+          {
+            label: this.$t('Video.Open YouTube Embedded Player'),
+            value: 'openYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Open in Invidious'),
+            value: 'openInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Channel Link'),
+            value: 'copyYoutubeChannel'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Channel Link'),
+            value: 'copyInvidiousChannel'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open Channel in YouTube'),
+            value: 'openYoutubeChannel'
+          },
+          {
+            label: this.$t('Video.Open Channel in Invidious'),
+            value: 'openInvidiousChannel'
+          }
+        )
+      }
 
       return options
     },
@@ -203,6 +210,11 @@ export default Vue.extend({
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
     },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },

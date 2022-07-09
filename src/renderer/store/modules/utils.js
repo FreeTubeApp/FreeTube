@@ -1,6 +1,7 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
@@ -180,8 +181,41 @@ const actions = {
     }
   },
 
+  replaceFilenameForbiddenChars(_, filenameOriginal) {
+    let filenameNew = filenameOriginal
+    let forbiddenChars = {}
+    switch (process.platform) {
+      case 'win32':
+        forbiddenChars = {
+          '<': '＜', // U+FF1C
+          '>': '＞', // U+FF1E
+          ':': '：', // U+FF1A
+          '"': '＂', // U+FF02
+          '/': '／', // U+FF0F
+          '\\': '＼', // U+FF3C
+          '|': '｜', // U+FF5C
+          '?': '？', // U+FF1F
+          '*': '＊' // U+FF0A
+        }
+        break
+      case 'darwin':
+        forbiddenChars = { '/': '／', ':': '：' }
+        break
+      case 'linux':
+        forbiddenChars = { '/': '／' }
+        break
+      default:
+        break
+    }
+
+    for (const forbiddenChar in forbiddenChars) {
+      filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
+    }
+    return filenameNew
+  },
+
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
-    const fileName = `${title}.${extension}`
+    const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
     const usingElectron = rootState.settings.usingElectron
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
@@ -213,6 +247,19 @@ const actions = {
       }
 
       folderPath = response.filePath
+    } else {
+      if (!fs.existsSync(folderPath)) {
+        try {
+          fs.mkdirSync(folderPath, { recursive: true })
+        } catch (err) {
+          console.error(err)
+          this.showToast({
+            message: err
+          })
+          return
+        }
+      }
+      folderPath = path.join(folderPath, fileName)
     }
 
     dispatch('showToast', {
