@@ -870,3 +870,12 @@ Age Restricted:
   Type:
     Channel: Канал
     Video: Видео
+Channels:
+  Count: Намерени са $ канала.
+  Unsubscribe: Отписване
+  Unsubscribed: $ е премахнат от абонаментите
+  Unsubscribe Prompt: Сигурни ли сте, че искате да се отпишете от "$"?
+  Search bar placeholder: Търсене на канали
+  Channels: Канали
+  Title: Списък с канали
+  Empty: Списъкът с канали в момента е празен.
