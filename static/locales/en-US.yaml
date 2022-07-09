@@ -731,7 +731,7 @@ Tooltips:
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
-      video (playlist if supported) in the external player, on the thumbnail.
+      video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.
     Custom External Player Executable: By default, FreeTube will assume that the chosen external
       player can be found via the PATH environment variable. If needed, a custom path can
       be set here.
