@@ -834,8 +834,9 @@ Tooltips:
     Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının
       PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
       burada özel bir yol ayarlanabilir.
-    External Player: Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
+    External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+      Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '$')"
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
