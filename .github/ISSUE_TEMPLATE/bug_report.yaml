@@ -87,6 +87,7 @@ body:
         - Flathub
         - .pacman
         - Portable
+        - PortableApps
         - .rpm
         - winget
         - .zip
