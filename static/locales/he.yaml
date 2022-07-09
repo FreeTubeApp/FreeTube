@@ -798,7 +798,8 @@ Tooltips:
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
       (למשל: היפוך רשימת נגינה וכו׳).'
     External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
-      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת.
+      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת. אזהרה, הגדרות Invidious לא משפיעות
+      על נגנים חיצוניים.
     Custom External Player Executable: כברירת מחדל FreeTube יניח שהנגן החיצוני הנבחר
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
     Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
@@ -834,3 +835,12 @@ Age Restricted:
     Channel: ערוץ
     Video: סרטון
   This $contentType is age restricted: ה$ הזה מוגבל בגיל
+Channels:
+  Search bar placeholder: חיפוש ערוצים
+  Empty: רשימת הערוצים שלך ריקה כרגע.
+  Unsubscribe: ביטול מינוי
+  Unsubscribed: $ הוסר מרשימת המינויים שלך
+  Count: נמצאו $ ערוצים.
+  Channels: ערוצים
+  Title: רשימת ערוצים
+  Unsubscribe Prompt: לבטל את המינוי על „$”?
