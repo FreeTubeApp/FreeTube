@@ -851,7 +851,8 @@ Tooltips:
       il lettore esterno scelto tramite la variabile d'ambiente PATH. Se necessario,
       un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
-      un'icona per aprire il video nel lettore esterno .
+      un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
+      Attenzione, le impostazioni Invidious non influiscono sui lettori esterni.
     DefaultCustomArgumentsTemplate: '(Predefinito: $)'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
