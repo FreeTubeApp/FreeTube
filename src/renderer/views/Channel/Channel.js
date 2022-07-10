@@ -26,7 +26,7 @@ export default Vue.extend({
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
-    'ft-community-post': FtCommunityPost
+    'ft-community-post': FtCommunityPost,
     'ft-age-restricted': FtAgeRestricted
   },
   data: function () {
