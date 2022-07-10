@@ -122,7 +122,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading && currentTab !== 'community' && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)" 
+      v-if="!isLoading && currentTab !== 'community' && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
