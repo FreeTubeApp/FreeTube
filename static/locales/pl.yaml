@@ -849,6 +849,7 @@ Tooltips:
       odtwarzacz (n.p. odwracanie playlist, itp.).
     External Player: Wybranie zewnętrznego odtwarzacza spowoduje wyświetlenie na miniaturkach
       ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
+      Uwaga! Ustawienia Invidious nie mają wpływu na zewnętrzny odtwarzacz.
     Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
       oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
