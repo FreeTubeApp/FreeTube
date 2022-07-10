@@ -83,6 +83,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Získávám odběry. Prosím čekejte.'
   Refresh Subscriptions: 'Obnovit odběry'
   Load More Videos: 'Načíst více videí'
+  Error Channels: Kanály s chybami
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -236,6 +237,21 @@ Settings:
       myši
     Max Video Playback Rate: Maximální rychlost přehrávání videa
     Video Playback Rate Interval: Interval rychlosti přehrávání videa
+    Screenshot:
+      Error:
+        Forbidden Characters: Zakázané znaky
+        Empty File Name: Prázdný název souboru
+      File Name Label: Vzor názvu souboru
+      File Name Tooltip: Můžete použít proměnné níže. %Y Rok 4 číslice. %M Měsíc 2
+        číslice. %D Den 2 číslice. %H Hodina 2 číslice. %N Minuta 2 číslice. %S Sekunda
+        2 číslice. %T Milisekunda 3 číslice. %s Sekunda videa. %t Milisekunda videa
+        3 číslice. %i ID videa. Můžete také použít "\" nebo "/" pro vytvoření podsložek.
+      Ask Path: Zeptat se na složku pro uložení
+      Folder Label: Složka snímků obrazovky
+      Enable: Povolit snímek obrazovky
+      Format Label: Formát snímku obrazovky
+      Quality Label: Kvalita snímku obrazovky
+      Folder Button: Vybrat složku
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -253,7 +269,7 @@ Settings:
       opravdu odstranit všechna odebírání a profily? Toto nelze vrátit zpět.'
     Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
   Subscription Settings:
-    Subscription Settings: 'Nastavení odebírání'
+    Subscription Settings: 'Nastavení odběrů'
     Hide Videos on Watch: 'Skrýt přehrané video'
     Fetch Feeds from RSS: 'Načíst kanály z RSS'
     Manage Subscriptions: 'Spravovat odebírané kanály'
@@ -269,11 +285,15 @@ Settings:
     Hide Live Chat: 'Skrýt chat'
     Hide Active Subscriptions: Skrýt aktivní odběry
     Hide Playlists: Skrýt playlist
+    Hide Video Description: Skrýt popis videa
+    Hide Comments: Skrýt komentáře
+    Hide Live Streams: Skrýt živé streamy
+    Hide Sharing Actions: Skrýt akce sdílení
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
     Select Export Type: 'Vybrat typ exportu'
-    Import Subscriptions: 'Importovat odebírané videa'
+    Import Subscriptions: 'Importovat odběry'
     Import FreeTube: 'Importovat FreeTube'
     Import YouTube: 'Importovat YouTube'
     Import NewPipe: 'Importovat NewPipe'
@@ -356,12 +376,18 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Chyba při
       získávání informací o síti. Je vaše proxy správně nakonfigurována?
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Upozornit, když je sponzorový segment
-      přeskočen
+    Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
       API (Výchozí je https://sponsor.ajay.app)
     Enable SponsorBlock: Zapnout SponsorBlock
     SponsorBlock Settings: Nastavení SponsorBlock
+    Skip Options:
+      Do Nothing: Nic nedělat
+      Skip Option: Možnost přeskočení
+      Auto Skip: Automaticky přeskočit
+      Prompt To Skip: Zeptat se na přeskočení
+      Show In Seek Bar: Zobrazit v liště
+    Category Color: Barva kategorie
   External Player Settings:
     Custom External Player Arguments: Argumenty vlastního externího přehrávače
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
@@ -372,6 +398,14 @@ Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
     Download Settings: Nastavení stahování
     Choose Path: Zvolit cestu
+    Download in app: Stáhnout v aplikaci
+    Open in web browser: Otevřít v prohlížeči
+    Download Behavior: Chování stahování
+  Parental Control Settings:
+    Parental Control Settings: Nastavení rodičovské kontroly
+    Hide Search Bar: Skrýt lištu vyhledávání
+    Show Family Friendly Only: Zobrazit pouze obsah vhodný pro rodiny
+    Hide Unsubscribe Button: Skrýt tlačítko ke zrušení odběru
 About:
   #On About page
   About: 'O aplikaci'
@@ -590,12 +624,14 @@ Video:
     seznamu
   translated from English: přeloženo z angličtiny
   Sponsor Block category:
-    music offtopic: hudební offtopic
-    interaction: interakce
-    self-promotion: self-promotion
-    outro: závěr
-    intro: úvod
-    sponsor: sponzor
+    music offtopic: Není hudba
+    interaction: Interakce
+    self-promotion: Sebepropagace
+    outro: Outro
+    intro: Intro
+    sponsor: Sponzor
+    recap: Shrnutí
+    filler: Výplň
   Skipped segment: Přeskočený segment
   External Player:
     Unsupported Actions:
@@ -614,7 +650,7 @@ Video:
     OpenInTemplate: Otevřít v $
   Premieres on: Premiéry zapnuty
   Stats:
-    Mimetype: Mimetype
+    Mimetype: Typ int. média
     Video statistics are not available for legacy videos: Statistiky videí nejsou
       k dispozici pro starší videa
     Video ID: ID videa
@@ -623,7 +659,7 @@ Video:
     Bitrate: Bitrate
     Volume: Hlasitost
     Bandwidth: Bandwidth
-    Buffered: Buffered
+    Buffered: V mezipaměti
     Dropped / Total Frames: Vyřazené / Celkový počet snímků
 Videos:
   #& Sort By
@@ -754,8 +790,9 @@ Tooltips:
   External Player Settings:
     Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
       aktuální akci (např. obrácení seznamů skladeb apod.).
-    External Player: Volba externího přehrávače zobrazí ikonu, pro otevření videa
-      (pokud je podporován seznam skladeb) v externím přehrávači, zobrazí na náhledu.
+    External Player: Volba externího přehrávače zobrazí ikonu pro otevření videa (či
+      seznamu skladeb, pokud je podporován) v externím přehrávači, na náhledu. Varování,
+      nastavení Invidious neovlivňují externí přehrávače.
     Custom External Player Arguments: Jakékoliv vlastní argumenty příkazové řádky,
       oddělené středníkem (';'), které chcete předávat externímu přehrávač.
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
@@ -805,3 +842,20 @@ Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
 Downloading has completed: Bylo dokončeno stahování "$"
 Downloading failed: Došlo k problému při stahování "$"
 Starting download: Zahájení stahování "$"
+New Window: Nové okno
+Age Restricted:
+  This $contentType is age restricted: Toto $ je omezeno věkem
+  Type:
+    Channel: kanál
+    Video: video
+Channels:
+  Channels: Kanály
+  Title: Seznam kanálů
+  Unsubscribed: Kanál $ byl odebrán z vašich odběrů
+  Unsubscribe Prompt: Opavdu chcete zrušit odběr kanálu "$"?
+  Empty: Seznam vašich kanálů je momentálně prázdný.
+  Search bar placeholder: Hledat kanály
+  Count: Nalezeno $ kanálů.
+  Unsubscribe: Zrušit odběr
+Screenshot Success: Snímek uložen jako „$“
+Screenshot Error: Snímek selhal. $
