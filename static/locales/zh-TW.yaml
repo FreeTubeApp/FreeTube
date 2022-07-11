@@ -753,7 +753,8 @@ Tooltips:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
-    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
+      設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'$'）
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
@@ -778,3 +779,12 @@ Age Restricted:
   Type:
     Channel: 頻道
     Video: 影片
+Channels:
+  Channels: 頻道
+  Title: 頻道清單
+  Search bar placeholder: 搜尋頻道
+  Unsubscribe: 取消訂閱
+  Count: 找到 $ 個頻道。
+  Empty: 您的頻道清單目前為空。
+  Unsubscribe Prompt: 您確定您想要從「$」取消訂閱嗎？
+  Unsubscribed: $ 已從您的訂閱移除
