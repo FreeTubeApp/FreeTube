@@ -9,21 +9,25 @@
   >
     <top-nav ref="topNav" />
     <side-nav ref="sideNav" />
-
-    <ft-flex-box class="flexBox">
-      <ft-notification-banner
-        v-if="showUpdatesBanner"
-        class="banner"
-        :message="updateBannerMessage"
-        @click="handleUpdateBannerClick"
-      />
-      <ft-notification-banner
-        v-if="showBlogBanner"
-        class="banner"
-        :message="blogBannerMessage"
-        @click="handleNewBlogBannerClick"
-      />
-
+    <ft-flex-box
+      class="flexBox routerView"
+    >
+      <div
+        v-if="showUpdatesBanner || showBlogBanner"
+      >
+        <ft-notification-banner
+          v-if="showUpdatesBanner"
+          class="banner"
+          :message="updateBannerMessage"
+          @click="handleUpdateBannerClick"
+        />
+        <ft-notification-banner
+          v-if="showBlogBanner"
+          class="banner"
+          :message="blogBannerMessage"
+          @click="handleNewBlogBannerClick"
+        />
+      </div>
       <transition
         v-if="dataReady"
         mode="out-in"
@@ -34,7 +38,7 @@
           ref="router"
           class="routerView"
         />
-        <!-- </keep-alive> -->
+      <!-- </keep-alive> -->
       </transition>
     </ft-flex-box>
 
