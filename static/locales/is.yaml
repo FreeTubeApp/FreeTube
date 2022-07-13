@@ -765,7 +765,8 @@ Tooltips:
       má setja sérsniðna slóð hér.
     External Player: Sé valinn utanaðkomandi spilari, birtist táknmynd á smámyndinni
       til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
-      utanaðkomandi spilara.
+      utanaðkomandi spilara. Aðvörun, stillingar Invidious hafa ekki áhrif á utanaðkomandi
+      spilara.
     DefaultCustomArgumentsTemplate: "(Sjálfgefið: '$')"
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
