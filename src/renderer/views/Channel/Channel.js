@@ -191,6 +191,9 @@ export default Vue.extend({
       this.shownElementList = []
       this.apiUsed = ''
       this.isLoading = true
+      this.latestCommunityPosts = []
+      this.communityContinuationString = ''
+      this.communityContinuationAPIString = ''
 
       if (!this.usingElectron) {
         this.getVideoInformationInvidious()
