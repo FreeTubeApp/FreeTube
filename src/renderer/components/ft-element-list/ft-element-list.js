@@ -32,7 +32,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    console.log("thisisis", this)
+    console.log('thisisis', this)
     if (this.display === '') {
       this.displayValue = this.listType
     }
