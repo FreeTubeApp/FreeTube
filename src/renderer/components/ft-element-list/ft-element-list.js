@@ -14,11 +14,27 @@ export default Vue.extend({
     data: {
       type: Array,
       required: true
+    },
+    display: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  },
+  data: function () {
+    return {
+      displayValue: this.display
     }
   },
   computed: {
     listType: function () {
       return this.$store.getters.getListType
+    }
+  },
+  mounted: function () {
+    console.log("thisisis", this)
+    if (this.display === '') {
+      this.displayValue = this.listType
     }
   }
 })

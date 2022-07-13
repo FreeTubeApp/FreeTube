@@ -122,7 +122,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading && currentTab !== 'community' && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
+      v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
@@ -187,18 +187,15 @@
         <ft-element-list
           v-show="currentTab === 'community'"
           :data="latestCommunityPosts"
+          :display="'list'"
         />
-        <!-- <ft-flex-box
+        <ft-flex-box
           v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Community.This channel currently does not have any posts ") }}
+            {{ $t("Channel.Videos.This channel does not currently have any posts") }}
           </p>
-        </ft-flex-box> -->
-        <ft-element-list
-          v-show="currentTab === 'search'"
-          :data="searchResults"
-        />
+        </ft-flex-box>
         <ft-flex-box
           v-if="currentTab === 'search' && searchResults.length === 0"
         >
@@ -215,35 +212,6 @@
         </div>
       </div>
     </ft-card>
-    <div
-      v-if="!isLoading && currentTab === 'community' && !errorMessage"
-    >
-      <ft-card
-        v-for="(post, index) in latestCommunityPosts"
-        :key="index"
-        class="card"
-      >
-        <div
-          class="community-post-container"
-        >
-          <ft-community-post
-            :data="post"
-            appearance=""
-          />
-        </div>
-      </ft-card>
-      <div
-        v-if="showFetchMoreButton"
-        class="getNextPage"
-        role="button"
-        tabindex="0"
-        @click="handleFetchMore"
-        @keydown.space.prevent="handleFetchMore"
-        @keydown.enter.prevent="handleFetchMore"
-      >
-        <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
-      </div>
-    </div>
     <ft-card
       v-if="errorMessage"
       class="card"

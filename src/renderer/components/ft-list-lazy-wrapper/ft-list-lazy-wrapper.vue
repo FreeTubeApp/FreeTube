@@ -25,6 +25,10 @@
       :appearance="appearance"
       :data="data"
     />
+    <ft-community-post
+      v-if="data.type === 'community' && visible"
+      :data="data"
+    />
   </div>
 </template>
 
