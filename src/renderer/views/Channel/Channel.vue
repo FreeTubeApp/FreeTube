@@ -193,7 +193,7 @@
           v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Videos.This channel does not currently have any posts") }}
+            {{ $t("Channel.Community.This channel currently does not have any posts") }}
           </p>
         </ft-flex-box>
         <ft-flex-box
