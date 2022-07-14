@@ -33,6 +33,7 @@
         @keypress="historyForward"
       />
       <font-awesome-icon
+        v-if="!hideSearchBar"
         class="navSearchIcon navIcon"
         icon="search"
         role="button"
@@ -66,6 +67,7 @@
     <div class="middle">
       <div class="searchContainer">
         <ft-input
+          v-if="!hideSearchBar"
           ref="searchInput"
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
@@ -78,6 +80,7 @@
           @click="goToSearch"
         />
         <font-awesome-icon
+          v-if="!hideSearchBar"
           class="navFilterIcon navIcon"
           :class="{ filterChanged: searchFilterValueChanged }"
           icon="filter"
@@ -88,6 +91,7 @@
         />
       </div>
       <ft-search-filters
+        v-if="!hideSearchBar"
         v-show="showFilters"
         class="searchFilters"
         @filterValueUpdated="handleSearchFilterValueChanged"

@@ -327,6 +327,10 @@ Settings:
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
     Hide Playlists: 隱藏播放清單
+    Hide Video Description: 隱藏影片描述
+    Hide Comments: 隱藏留言
+    Hide Live Streams: 隱藏直播串流
+    Hide Sharing Actions: 隱藏分享動作
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -368,6 +372,11 @@ Settings:
     Download in app: 在應用程式中下載
     Open in web browser: 在網路瀏覽器中開啟
     Download Behavior: 下載行為
+  Parental Control Settings:
+    Hide Unsubscribe Button: 隱藏取消訂閱按鈕
+    Show Family Friendly Only: 僅顯示適合家庭觀看
+    Hide Search Bar: 隱藏搜尋列
+    Parental Control Settings: 家長控制設定
 About:
   #On About page
   About: '關於'
@@ -744,7 +753,8 @@ Tooltips:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
-    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
+      設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'$'）
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
@@ -763,3 +773,18 @@ Downloading has completed: 「$」已下載結束
 Starting download: 正在開始下載「$」
 Screenshot Success: 已儲存螢幕截圖為 "$"
 Screenshot Error: 螢幕截圖失敗。 $
+New Window: 新視窗
+Age Restricted:
+  This $contentType is age restricted: 此 $ 有年齡限制
+  Type:
+    Channel: 頻道
+    Video: 影片
+Channels:
+  Channels: 頻道
+  Title: 頻道清單
+  Search bar placeholder: 搜尋頻道
+  Unsubscribe: 取消訂閱
+  Count: 找到 $ 個頻道。
+  Empty: 您的頻道清單目前為空。
+  Unsubscribe Prompt: 您確定您想要從「$」取消訂閱嗎？
+  Unsubscribed: $ 已從您的訂閱移除

@@ -230,6 +230,22 @@ Settings:
       видеоплеера
     Max Video Playback Rate: Максимальная скорость воспроизведения
     Video Playback Rate Interval: Интервал скорости воспроизведения видео
+    Screenshot:
+      Ask Path: Спрашивать, куда сохранять
+      Error:
+        Forbidden Characters: Запрещенные символы
+        Empty File Name: Пустое имя файла
+      Format Label: Формат снимков экрана
+      Folder Label: Папка снимков экрана
+      Folder Button: Выбрать папку
+      Enable: Включить снимки экрана
+      Quality Label: Качество снимков экрана
+      File Name Label: Шаблон имени файла
+      File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M
+        Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды
+        2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео
+        3 цифры. %i Идентификатор видео. Вы также можете использовать "\" или "/"
+        для создания подпапок.
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -340,6 +356,10 @@ Settings:
     Hide Video Views: Скрыть просмотры видео
     Hide Active Subscriptions: Скрыть активные подписки
     Hide Playlists: Скрыть плейлисты
+    Hide Live Streams: Скрыть прямые трансляции
+    Hide Sharing Actions: Скрыть действия общего доступа
+    Hide Comments: Скрыть комментарии
+    Hide Video Description: Скрыть описание видео
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -365,6 +385,13 @@ Settings:
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
     SponsorBlock Settings: SponsorBlock
+    Skip Options:
+      Skip Option: Опция пропуска
+      Prompt To Skip: Предлагать пропустить
+      Auto Skip: Автопропуск
+      Show In Seek Bar: Показать на панели
+      Do Nothing: Ничего не делать
+    Category Color: Цвет категории
   External Player Settings:
     Custom External Player Arguments: Аргументы внешнего проигрывателя
     Custom External Player Executable: Исполняемый файл внешнего проигрывателя
@@ -376,6 +403,14 @@ Settings:
     Download Settings: Скачивание
     Ask Download Path: Запрашивать путь при скачивании
     Choose Path: Выберите путь
+    Download in app: Загрузить в приложении
+    Download Behavior: Поведение при загрузке
+    Open in web browser: Открыть в браузере
+  Parental Control Settings:
+    Show Family Friendly Only: Показать только семейный контент
+    Parental Control Settings: Настройки родительского контроля
+    Hide Unsubscribe Button: Скрыть кнопку отписки
+    Hide Search Bar: Скрыть строку поиска
 About:
   #On About page
   About: 'О FreeTube'
@@ -438,7 +473,7 @@ Channel:
   Subscribers: 'Подписчиков'
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'
-  Search Channel: 'Поиск канала'
+  Search Channel: 'Поиск на канале'
   Your search results have returned 0 results: 'По вашему запросу найдено 0 результатов'
   Sort By: 'Сортировать по'
   Videos:
@@ -555,12 +590,14 @@ Video:
   Save Video: Добавить видео в сохраненные
   translated from English: переведен с Английского
   Sponsor Block category:
-    music offtopic: сегмент без музыки
-    interaction: напоминание о подписке (взаимодействие)
-    self-promotion: самореклама
-    outro: концовка
-    intro: вступление
-    sponsor: спонсор
+    music offtopic: Сегмент без музыки
+    interaction: Напоминание о подписке (взаимодействие)
+    self-promotion: Самореклама
+    outro: Концовка
+    intro: Вступление
+    sponsor: Спонсор
+    recap: Краткое содержание
+    filler: Филлер
   Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
@@ -674,6 +711,7 @@ Comments:
   From $channelName: от $channelName
   And others: и других
   Pinned by: Закреплено
+  Member: Участник
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -798,7 +836,8 @@ Tooltips:
       внешний плеер можно найти через переменную окружения PATH. При необходимости
       здесь можно задать собственный путь.
     External Player: При выборе внешнего плеера на миниатюре появится значок, позволяющий
-      открыть видео (плейлист, если поддерживается) во внешнем плеере.
+      открыть видео (плейлист, если поддерживается) во внешнем плеере. Внимание, настройки
+      Invidious не применяются к внешним плеерам.
     DefaultCustomArgumentsTemplate: "(По умолчанию: '$')"
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
@@ -821,3 +860,20 @@ Are you sure you want to open this link?: Вы действительно хот
 Starting download: Запуск загрузки "$"
 Downloading has completed: '"$" закончил загрузку'
 Downloading failed: Возникла проблема с загрузкой "$"
+Screenshot Success: Снимок экрана сохранён как "$"
+Screenshot Error: Снимок экрана не удался. $
+New Window: Новое окно
+Age Restricted:
+  This $contentType is age restricted: Это $ ограничен по возрасту
+  Type:
+    Channel: Канал
+    Video: Видео
+Channels:
+  Title: Список каналов
+  Count: $ каналов найдено.
+  Empty: Список каналов пуст.
+  Channels: Каналы
+  Search bar placeholder: Поиск каналов
+  Unsubscribe: Отписаться
+  Unsubscribed: $ был удален из ваших подписок
+  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "$"?

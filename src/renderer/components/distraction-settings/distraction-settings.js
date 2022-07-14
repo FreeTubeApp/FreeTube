@@ -45,6 +45,18 @@ export default Vue.extend({
     },
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
+    },
+    hideVideoDescription: function () {
+      return this.$store.getters.getHideVideoDescription
+    },
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
     }
   },
   methods: {
@@ -68,7 +80,11 @@ export default Vue.extend({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
-      'updateDefaultTheatreMode'
+      'updateDefaultTheatreMode',
+      'updateHideVideoDescription',
+      'updateHideComments',
+      'updateHideLiveStreams',
+      'updateHideSharingActions'
     ])
   }
 })

@@ -80,6 +80,7 @@ Subscriptions:
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te vermijden
   Load More Videos: Meer video's laden
+  Error Channels: Kanalen met storingen
 Trending:
   Trending: 'Actuele'
   Trending Tabs: Tendingtabbladen
@@ -163,6 +164,7 @@ Settings:
       Dark: 'Donker'
       Light: 'Licht'
       Dracula: 'Dracula'
+      System Default: Standaardwaarde van systeem
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -230,6 +232,23 @@ Settings:
     Scroll Playback Rate Over Video Player: Afspeelsnelheid op videospeler scrollen
     Max Video Playback Rate: Maximale afspeelsnelheid
     Video Playback Rate Interval: Interval video-afspeelsnelheid
+    Screenshot:
+      Enable: Schermafbeelding inschakelen
+      Format Label: Schermafbeelding bestandstype
+      Quality Label: Grootte van schermafbeelding
+      Ask Path: Vragen in welke map op te slaan
+      Folder Label: Schermafbeeldingen map
+      Folder Button: Kies map
+      Error:
+        Forbidden Characters: Niet toegestane tekens
+        Empty File Name: Lege bestandsnaam
+      File Name Label: Bestandsnaam indeling
+      File Name Tooltip: 'U kunt de volgende variabelen gebruiken: %Y viercijferig
+        jaartal; %M tweecijferige maand; %D tweecijferige dagstelling; %H tweecijferig
+        uur; $N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
+        %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
+        video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
+        te maken.'
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
@@ -346,6 +365,10 @@ Settings:
     Distraction Free Settings: Instellingen voor afleidingsvrij kijken
     Hide Active Subscriptions: Actieve abonnementen verbergen
     Hide Playlists: Afspeellijsten verbergen
+    Hide Sharing Actions: Verberg knoppen om te delen
+    Hide Video Description: Verberg de beschrijving van de video
+    Hide Comments: Verberg de reacties
+    Hide Live Streams: Verberg rechtstreekse uitzendingen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten en verandering toepassen?
@@ -372,6 +395,13 @@ Settings:
       SponsorBlock (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock inschakelen
     SponsorBlock Settings: SponsorBlock-instellingen
+    Skip Options:
+      Show In Seek Bar: Weergeven in zoekbalk
+      Skip Option: Overslaan knop
+      Auto Skip: Vanzelf overslaan
+      Prompt To Skip: Voorstel om over te slaan
+      Do Nothing: Niets uitvoeren
+    Category Color: Kleur van categorie
   External Player Settings:
     Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
     Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
@@ -384,6 +414,14 @@ Settings:
     Choose Path: Pad kiezen
     Download Settings: Downloadinstellingen
     Ask Download Path: Om downloadpad vragen
+    Download in app: Opslaan in programma
+    Open in web browser: Openen in webstruiner
+    Download Behavior: Gedrag opslaan
+  Parental Control Settings:
+    Hide Unsubscribe Button: Verberg knop "Afmelden"
+    Parental Control Settings: Instellingen voor ouderlijk toezicht
+    Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
+    Hide Search Bar: Zoekbalk verbergen
 About:
   #On About page
   About: 'Over'
@@ -564,12 +602,14 @@ Video:
   Save Video: Video opslaan
   translated from English: vertaald uit het Engels
   Sponsor Block category:
-    music offtopic: ongerelateerde muziek
+    music offtopic: niet belangrijke muziek
     interaction: interactie
     self-promotion: zelfpromotie
-    outro: uitbreng
-    intro: introductie
+    outro: uitleiding
+    intro: inleiding
     sponsor: sponsor
+    recap: samenvatting
+    filler: opvulling
   Skipped segment: Overgeslagen segment
   External Player:
     Unsupported Actions:
@@ -684,6 +724,7 @@ Comments:
   From $channelName: van $channelName
   And others: en anderen
   Pinned by: Vastgemaakt door
+  Member: lid
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -810,9 +851,10 @@ Tooltips:
     Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen
       videospeler kan worden benaderd via het PATH omgevingsvariabele. Wanneer nodig
       kan er hier een aangepast pad worden ingevoerd.
-    External Player: Door het kiezen van een externe videospeler zal er een icoontje
-      verschijnen op het thumbnail waarmee de video (Of afspeellijst wanneer ondersteund)
-      in de geselecteerde externe videospeler kan worden geopend.
+    External Player: 'Door het kiezen van een externe videospeler zal er een icoontje
+      verschijnen op het thumbnail waarmee de video (of afspeellijst indien ondersteund)
+      in de gekozen externe videospeler kan worden geopend. Let op: Invidious instellingen
+      beïnvloeden externe videospelers niet.'
     DefaultCustomArgumentsTemplate: "(Standaard: '$')"
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
@@ -837,3 +879,19 @@ Starting download: Begin download van "$"
 Downloading failed: Probleem bij download van "$"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
+New Window: Nieuw Venster
+Age Restricted:
+  This $contentType is age restricted: Deze $ is leeftijdsbeperkt
+  Type:
+    Channel: Kanaal
+    Video: Video
+Screenshot Success: Schermafbeelding opgeslagen als "$"
+Channels:
+  Title: Lijst van kanalen
+  Search bar placeholder: Zoek naar kanalen
+  Count: $ kanalen gevonden.
+  Channels: Kanalen
+  Empty: Uw lijst van kanalen is thans leeg.
+  Unsubscribe: Afmelden
+  Unsubscribed: $ is verwijderd uit uw lijst van abonnees
+Screenshot Error: Schermafbeelding kon niet worden opgeslagen. $

@@ -242,8 +242,8 @@ Settings:
       File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
         Miesiąc 2 cyfry. %D Dzień 2 cyfry. %H Godzina 2 cyfry. %N Minuta 2 cyfry.
         %S Sekunda 2 cyfry. %T Milisekunda 3 cyfry. %s Sekunda filmu. %t Milisekunda
-        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając "\"
-        albo "/".'
+        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając „\”
+        albo „/”.'
       Error:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
@@ -346,7 +346,7 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty "$", pomijam
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „$”, pomijam
       element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
@@ -362,6 +362,10 @@ Settings:
     Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
     Hide Playlists: Schowaj playlistę
+    Hide Video Description: Schowaj opis filmu
+    Hide Comments: Schowaj komentarze
+    Hide Sharing Actions: Schowaj linki do dzielenia się filmem
+    Hide Live Streams: Schowaj transmisje na żywo
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -406,6 +410,14 @@ Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
     Choose Path: Wybierz folder
+    Download Behavior: Sposób pobierania
+    Download in app: Pobierz w aplikacji
+    Open in web browser: Otwórz w przeglądarce
+  Parental Control Settings:
+    Parental Control Settings: Opcje kontroli rodzicielskiej
+    Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
+    Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
+    Hide Search Bar: Schowaj pole wyszukiwania
 About:
   #On About page
   About: 'O projekcie'
@@ -837,6 +849,7 @@ Tooltips:
       odtwarzacz (n.p. odwracanie playlist, itp.).
     External Player: Wybranie zewnętrznego odtwarzacza spowoduje wyświetlenie na miniaturkach
       ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
+      Uwaga! Ustawienia Invidious nie mają wpływu na zewnętrzny odtwarzacz.
     Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
       oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
@@ -862,11 +875,26 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '"$" został pobrany'
-Starting download: Rozpoczęto pobieranie "$"
-Downloading failed: Wystąpił problem z pobieraniem "$"
+Downloading has completed: '„$” został pobrany'
+Starting download: Rozpoczęto pobieranie „$”
+Downloading failed: Wystąpił problem z pobieraniem „$”
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. $
-Screenshot Success: Zapisano zrzut ekranu jako "$"
+Screenshot Success: Zapisano zrzut ekranu jako „$”
+Age Restricted:
+  Type:
+    Channel: kanał
+    Video: film
+  This $contentType is age restricted: Ten $ ma ograniczenie wiekowe
+New Window: Nowe okno
+Channels:
+  Title: Lista kanałów
+  Count: Znaleziono $ kanał(y/ów).
+  Empty: Twoja lista kanałów jest na razie pusta.
+  Unsubscribe: Odsubskrybuj
+  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „$”?
+  Unsubscribed: $ został usunięty z Twoich subskrypcji
+  Channels: Kanały
+  Search bar placeholder: Przeszukaj kanały

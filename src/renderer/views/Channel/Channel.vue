@@ -7,7 +7,7 @@
       :fullscreen="true"
     />
     <ft-card
-      v-else
+      v-else-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card channelDetails"
     >
       <div
@@ -51,6 +51,7 @@
             </div>
           </div>
           <ft-subscribe-button
+            v-if="!hideUnsubscribeButton"
             class="subscribeButtons"
             :channel-id="id"
             :channel-name="channelName"
@@ -113,7 +114,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading && !errorMessage"
+      v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
@@ -203,6 +204,11 @@
         {{ errorMessage }}
       </p>
     </ft-card>
+    <ft-age-restricted
+      v-else-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'Channel'"
+    />
   </div>
 </template>
 

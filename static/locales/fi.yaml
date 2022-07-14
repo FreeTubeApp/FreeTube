@@ -75,6 +75,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tällä
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
+  Error Channels: Kanavat, joissa on virheitä
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -224,6 +225,17 @@ Settings:
     Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
     Max Video Playback Rate: Videon maksimitoistonopeus
     Video Playback Rate Interval: Videon toistonopeuden aikaväli
+    Screenshot:
+      Error:
+        Forbidden Characters: Kielletyt merkit
+        Empty File Name: Tyhjä tiedostonimi
+      Enable: Ota kuvakaappaus käyttöön
+      Folder Label: Kuvakaappauskansio
+      Folder Button: Valitse kansio
+      Format Label: Kuvakaappauksen muoto
+      Quality Label: Kuvakaappauksen laatu
+      File Name Label: Tiedostonimimalli
+      Ask Path: Kysy tallennuskansiota
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -335,6 +347,10 @@ Settings:
     Hide Video Views: Piilota videon katselukerrat
     Hide Active Subscriptions: Piilota aktiiviset tilaukset
     Hide Playlists: Piilota soittolistat
+    Hide Comments: Piilota kommentit
+    Hide Video Description: Piilota videon kuvaus
+    Hide Live Streams: Piilota suorat lähetykset
+    Hide Sharing Actions: Piilota jakamistoiminnot
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -360,6 +376,13 @@ Settings:
       API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
     Enable SponsorBlock: Kytke SponsorBlock-sponsoriesto päälle
     SponsorBlock Settings: SponsorBlock-sponsorieston asetukset
+    Skip Options:
+      Skip Option: Ohita vaihtoehto
+      Auto Skip: Automaattinen ohitus
+      Show In Seek Bar: Näytä hakupalkissa
+      Do Nothing: Älä tee mitään
+      Prompt To Skip: Ehdota ohittamista
+    Category Color: Luokan väri
   External Player Settings:
     Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
     Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava
@@ -371,6 +394,14 @@ Settings:
     Download Settings: Latausasetukset
     Choose Path: Valitse polku
     Ask Download Path: Kysy latauspolkua
+    Download Behavior: Latauksen toiminta
+    Download in app: Lataa sovelluksessa
+    Open in web browser: Avaa selaimessa
+  Parental Control Settings:
+    Parental Control Settings: Perheasetukset
+    Hide Unsubscribe Button: Piilota Peruuta tilaus -paninike
+    Show Family Friendly Only: Näytä vain koko perheelle sopiva sisältö
+    Hide Search Bar: Piilota hakupalkki
 About:
   #On About page
   About: 'Tietoja'
@@ -555,12 +586,12 @@ Video:
     video: video
     OpenInTemplate: Avaa täten $
   Sponsor Block category:
-    music offtopic: musiikki aihepiirin ulkopuolelta
-    interaction: kanssakäyminen
-    self-promotion: itsepromootio
-    outro: loppu
-    intro: alku
-    sponsor: sponsori
+    music offtopic: Musiikki aihepiirin ulkopuolelta
+    interaction: Kanssakäyminen
+    self-promotion: Itsepromootio
+    outro: Loppu
+    intro: Alku
+    sponsor: Sponsori
   Skipped segment: Ylihypätty osio
   translated from English: käännetty englanninkielestä
   Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
@@ -801,3 +832,11 @@ Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin
 Downloading failed: Videon "$" lataamisessa havaittiin ongelma
 Downloading has completed: Videon "$" lataus on valmis
 Starting download: Aloitetaan lataamaan "$"
+Screenshot Success: Kuvakaappaus tallennettu nimellä ”$”
+New Window: Uusi ikkuna
+Age Restricted:
+  This $contentType is age restricted: Tämä $ on ikärajoitettu
+  Type:
+    Video: Video
+    Channel: Kanava
+Screenshot Error: Ruutukaappaus epäonnistui. $

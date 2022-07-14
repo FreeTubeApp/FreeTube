@@ -1167,8 +1167,8 @@ export default Vue.extend({
 
     toggleVideoLoop: async function () {
       if (!this.player.loop()) {
-        const currentTheme = localStorage.getItem('mainColor')
-        const colorNames = this.$store.state.utils.colorClasses
+        const currentTheme = this.$store.state.settings.mainColor
+        const colorNames = this.$store.state.utils.colorNames
         const colorValues = this.$store.state.utils.colorValues
 
         const nameIndex = colorNames.findIndex((color) => {
