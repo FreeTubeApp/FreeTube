@@ -332,7 +332,7 @@ Settings:
     Notify when sponsor segment is skipped: 広告セグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 広告ブロック API URL（デフォルト
       https://sponsor.ajay.app）
-    Enable SponsorBlock: 広告ブロック有効
+    Enable SponsorBlock: 広告ブロックの有効化
     SponsorBlock Settings: 広告ブロック設定
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
