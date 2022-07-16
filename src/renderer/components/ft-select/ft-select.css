@@ -58,7 +58,9 @@
   /* Use custom arrow */
 .select .select-text {
   appearance: none;
-  -webkit-appearance:none
+  -webkit-appearance:none;
+  text-overflow: ellipsis;
+  padding-right: 1.1rem;
 }
 
 .iconSelect {
