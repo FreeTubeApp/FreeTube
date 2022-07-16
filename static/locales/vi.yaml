@@ -77,6 +77,7 @@ Subscriptions:
   Refresh Subscriptions: Refresh đăng ký
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Kênh
     này có nhiều người đăng ký. Buộc RSS để tránh bị giới hạn
+  Error Channels: Các kênh lỗi
 Trending:
   Trending: 'Xu hướng'
   Movies: Phim
@@ -91,12 +92,19 @@ User Playlists:
   Search bar placeholder: Tìm kiếm trong danh sách phát
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Video
     đã lưu của bạn trống rỗng. Nhấp vào nút lưu ở góc video để được liệt kê tại đây
+  Empty Search Message: Không có video nào trong danh sách này trùng với những gì
+    bạn đang tìm
+  Playlist Message: Trang này không liệt kê tất cả danh sách video bạn đã theo giỏi.
+    Nó chỉ hiển thị các video mà bạn đã lưu hoặc thêm vào mục yêu thích. Khi xong
+    việc, tất cả các video trên trang này sẽ được chuyển vào danh sách 'yêu thích'
 History:
   # On History Page
   History: 'Lịch sử'
   Watch History: 'Lịch sử xem'
   Your history list is currently empty.: Lịch sử của bạn hiện đang trống.
   Search bar placeholder: Tìm kiếm trong Lịch sử
+  Empty Search Message: Không có video nào trong lịch sử của bạn trùng với những gì
+    bạn đang tìm kiếm
 Settings:
   # On Settings Page
   Settings: 'Cài đặt'
@@ -151,6 +159,7 @@ Settings:
       Dark: 'Tối'
       Light: 'Sáng'
       Dracula: 'Ma cà rồng'
+      System Default: Mặc định hệ thống
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -217,6 +226,24 @@ Settings:
     Display Play Button In Video Player: Hiển thị nút phát trong trình phát video
     Next Video Interval: Khoảng thời gian Video Tiếp theo
     Fast-Forward / Rewind Interval: Khoảng thời gian tua đi / tua lại
+    Screenshot:
+      Enable: Bật chức năng Chụp màn hình
+      Format Label: Định dạng chụp màn hình
+      Quality Label: Chất lượng chụp màn hình
+      File Name Label: Kiểu tên tệp
+      Folder Label: Chụp màn hình thư mục
+      Ask Path: Yêu cầu thứ mục lưu
+      Folder Button: Chọn thư mục
+      Error:
+        Empty File Name: Tên tệp. trống
+        Forbidden Characters: Các ký từ bị cấm
+      File Name Tooltip: Bạn có thể dùng các biến số dưới đây. %Y Năm 4 chữ số. %M
+        Tháng 2 chữ số. %D Ngày 2 chữ số. %H Giờ 2 chữ số. %N Phút 2 chữ số. %S Giây
+        2 chữ số. %T Phầm trăm giây 3 chữ số. %s Giây Video. %t Phần trăm giây Video
+        3 chữ số. %i Video ID. Bạn cũng có thể dùng dấu "\" hoặc "/" để tạo các thư
+        mục con.
+    Max Video Playback Rate: Tốc độ phát lại tối đa
+    Video Playback Rate Interval: khoảng cách phát lại video
   Subscription Settings:
     Subscription Settings: 'Cài đặt đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -294,6 +321,14 @@ Settings:
     Select Import Type: Chọn kiểu nhập vào
     Data Settings: Dữ liệu
     Manage Subscriptions: Quản lý đăng ký
+    Import Playlists: Thêm danh sách phát
+    All playlists has been successfully imported: Tất cả các danh sách phát đã được
+      thêm vào thành công
+    All playlists has been successfully exported: Tất cả các danh sách phát đã được
+      xuất thành công
+    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "$", bỏ qua mục
+      này
+    Export Playlists: Xuất danh sách phát
   Distraction Free Settings:
     Hide Live Chat: Giấu live chat
     Hide Popular Videos: Giấu video phổ biến
@@ -306,6 +341,10 @@ Settings:
     Distraction Free Settings: Chế độ không phân tâm
     Hide Active Subscriptions: Ẩn Đăng ký Hiện hoạt
     Hide Playlists: Ẩn danh sách phát
+    Hide Comments: Ẩn bình luận
+    Hide Live Streams: Ẩn phát trực tiếp
+    Hide Video Description: Ẩn mổ tả video
+    Hide Sharing Actions: Ẩn hoạt động chia sẻ
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
       có muốn xóa toàn bộ đăng ký và profiles không? Điều này không thể phục hồi.
@@ -321,6 +360,7 @@ Settings:
     Save Watched Progress: Lưu quá trình xem
     Remember History: Nhớ lịch sử
     Privacy Settings: Thiết lập quyền riêng tư
+    Automatically Remove Video Meta Files: Tự động xúa các tệp meta video
   The app needs to restart for changes to take effect. Restart and apply change?: App
     cần khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp đặt?
   Proxy Settings:
@@ -332,6 +372,13 @@ Settings:
     Proxy Protocol: Giao thức proxy
     Proxy Port Number: Số Cổng Proxy
     City: Thành phố
+    Ip: Ip
+    Your Info: Thông tin của bạn
+    Error getting network information. Is your proxy configured properly?: Lỗi nhận
+      thông tin mạng. Proxy của bạn đã được cài đặc đúng cách chưa?
+    Clicking on Test Proxy will send a request to: Nhấn vào Proxy thử nghiệm sẽ gửi
+      yêu cầu đến
+    Test Proxy: Proxy thử nghiệm
   SponsorBlock Settings:
     Enable SponsorBlock: Bật SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
@@ -339,6 +386,9 @@ Settings:
   External Player Settings:
     External Player Settings: Cài đặt trình phát video bên ngoài
     External Player: Trình phát video bên ngoài
+    Custom External Player Arguments: Chứng minh trình phát bên ngoài tùy chỉnh
+    Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
+    Custom External Player Executable: Chạy trình phát bên ngoài tuỳ chỉnh
 About:
   #On About page
   About: 'Giới thiệu'
@@ -640,3 +690,13 @@ Search Bar:
   Clear Input: Xóa đầu vào
 More: Thêm
 Are you sure you want to open this link?: Anh có chắc là muốn mở đường không?
+New Window: Cửa Sổ Mới
+Channels:
+  Channels: Kênh
+  Title: Danh sách kênh
+  Search bar placeholder: Tìm Kênh
+  Empty: Danh sách kênh của bạn hiện đang trống.
+  Unsubscribed: $ đã bị xoá khỏi danh sách kênh đã đăng ký của bạn
+  Unsubscribe Prompt: Bạn có chắc răng bạn muốn huỷ đăng ký kênh "$"?
+  Unsubscribe: Huỷ đăng ký kênh
+  Count: $kênh đã tìm được.
