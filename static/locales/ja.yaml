@@ -74,6 +74,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
+  Error Channels: エラーが発生したチャンネル
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -216,6 +217,19 @@ Settings:
     Scroll Playback Rate Over Video Player: 動画の再生速度の調整
     Max Video Playback Rate: 最大動画再生速度
     Video Playback Rate Interval: 動画再生速度間隔
+    Screenshot:
+      File Name Label: ファイル名のパターン
+      File Name Tooltip: 以下の変数が使用できます。%Y 4 桁の年。%M 2 桁の月。%D 2 桁の日。%H 2 桁の時間。%N 2 桁の分。%S
+        2 桁の秒。%T 3 桁のミリ秒。%s 2 桁の動画の秒数。%t 3 桁の動画のミリ秒。%i 動画 ID。「\」または「/」を使用してサブフォルダを作成できます。
+      Error:
+        Forbidden Characters: 使用禁止文字
+        Empty File Name: ファイル名が空
+      Folder Label: スクリーンショットのフォルダ
+      Quality Label: スクリーンショット画像の品質
+      Enable: スクリーンショットの有効化
+      Format Label: スクリーンショットのファイル形式
+      Ask Path: 保存フォルダを尋ねる
+      Folder Button: フォルダーの選択
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -313,6 +327,10 @@ Settings:
     Distraction Free Settings: 集中モード
     Hide Active Subscriptions: 使用中の登録チャンネルの非表示
     Hide Playlists: 再生リストの非表示
+    Hide Video Description: 動画説明の非表示
+    Hide Comments: コメントの非表示
+    Hide Live Streams: ライブ配信の非表示
+    Hide Sharing Actions: 共有の非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -334,6 +352,13 @@ Settings:
       https://sponsor.ajay.app）
     Enable SponsorBlock: 広告ブロックの有効化
     SponsorBlock Settings: 広告ブロック設定
+    Skip Options:
+      Skip Option: オプションのスキップ
+      Auto Skip: 自動スキップ
+      Show In Seek Bar: 動画の進行状況バーの非表示
+      Prompt To Skip: ログイン プロンプトのスキップ
+      Do Nothing: 何もしない
+    Category Color: カテゴリの色
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
@@ -341,9 +366,17 @@ Settings:
     External Player: 外部プレーヤー
     External Player Settings: 外部プレーヤーの設定
   Download Settings:
-    Download Settings: 設定のダウンロード
+    Download Settings: ダウンロードの設定
     Ask Download Path: ダウンロードパスの設定
     Choose Path: パスの選択
+    Download Behavior: ダウンロードの処理方法
+    Open in web browser: Web ブラウザで開く
+    Download in app: アプリでダウンロード
+  Parental Control Settings:
+    Hide Search Bar: 検索ボックスの非表示
+    Parental Control Settings: 制限付きモードの設定
+    Show Family Friendly Only: ファミリー向けのみ表示
+    Hide Unsubscribe Button: 登録解除ボタンの非表示
 About:
   #On About page
   About: 'About'
@@ -511,11 +544,13 @@ Video:
   translated from English: 英語から翻訳
   Sponsor Block category:
     sponsor: 広告
-    music offtopic: 話題外の音楽
-    interaction: 相互作用
-    self-promotion: 自己宣伝
-    outro: その他
-    intro: イントロ
+    music offtopic: 音楽以外
+    interaction: インタラクション
+    self-promotion: 自己紹介
+    outro: アウトロ（末尾）
+    intro: イントロ（冒頭）
+    recap: 要約
+    filler: フィラー（穴埋め）
   Skipped segment: スキップされたセグメント
   External Player:
     OpeningTemplate: '% で $ を開く...'
@@ -714,7 +749,8 @@ Tooltips:
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（動画リストの反転など）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube　は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。
-    External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンが表示されます。
+    External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
+      の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト: '$'）"
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
@@ -731,3 +767,20 @@ Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"$" のダウンロードを開始します'
 Downloading has completed: '"$" のダウンロードが終了しました'
 Downloading failed: '"$" のダウンロード中に問題が発生しました'
+Age Restricted:
+  This $contentType is age restricted: $ は 18 歳以上の視聴者向け動画です
+  Type:
+    Channel: チャンネル
+    Video: 動画
+Channels:
+  Channels: チャンネル
+  Unsubscribe: 登録解除
+  Unsubscribed: $ のチャンネル登録を解除しました
+  Title: チャンネル一覧
+  Search bar placeholder: チャンネル検索
+  Unsubscribe Prompt: 「$」のチャンネル登録を解除しますか？
+  Count: $ 件のチャンネルが見つかりました。
+  Empty: 現在、チャンネル一覧は空です。
+Screenshot Success: スクリーンショットを「$」として保存しました
+Screenshot Error: スクリーンショットに失敗しました。$
+New Window: 新しいウィンドウ
