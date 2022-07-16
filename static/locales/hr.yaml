@@ -831,7 +831,8 @@ Tooltips:
       gledanja.
   External Player Settings:
     External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje
-      videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi.
+      videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,
+      Invidious postavke ne utječu na vanjske playere.
     Custom External Player Arguments: Svi prilagođeni argumenti naredbenog retka,
       odvojene točka-zarezom (;), koje želiš da se proslijede vanjskom playeru.
     Ignore Warnings: Nemoj prikazati upozorenja kad trenutačni vanjski player ne podržava
@@ -868,3 +869,12 @@ Age Restricted:
   Type:
     Channel: Kanal
     Video: Video
+Channels:
+  Channels: Kanali
+  Title: Popis kanala
+  Search bar placeholder: Pretraži kanale
+  Count: $ kanala pronađena.
+  Empty: Tvoj popis kanala je trenutačno prazan.
+  Unsubscribe: Prekini pretplatu
+  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „$”?
+  Unsubscribed: $ je uklonjen iz tvojih pretplata
