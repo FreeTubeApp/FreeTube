@@ -383,12 +383,33 @@ Settings:
     Enable SponsorBlock: Bật SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Mặc định là https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: Tuỳ chọn lượt bỏ
+      Show In Seek Bar: Hiển thị trong thanh tìm kiếm
+      Auto Skip: Tự động lượt bỏ
+      Prompt To Skip: Nhắc nhở lượt bỏ
+      Do Nothing: Không làm gì hết
+    Notify when sponsor segment is skipped: Thông báo khi đoạn quảng cáo bị bỏ qua
+    Category Color: Bản màu
+    SponsorBlock Settings: Cài đặt SponsorBlock
   External Player Settings:
     External Player Settings: Cài đặt trình phát video bên ngoài
     External Player: Trình phát video bên ngoài
     Custom External Player Arguments: Chứng minh trình phát bên ngoài tùy chỉnh
     Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
     Custom External Player Executable: Chạy trình phát bên ngoài tuỳ chỉnh
+  Parental Control Settings:
+    Parental Control Settings: Cài đặt trình kiểm soát của phụ huynh
+    Hide Unsubscribe Button: Ẩn Nút Huỷ Đăng Ký
+    Show Family Friendly Only: Chỉ hiển thị những nội dung gia đình và thân thiện
+    Hide Search Bar: Ẩn thanh tìm kiếm
+  Download Settings:
+    Download Behavior: Thói quen tải xuống
+    Download in app: Tải xuống trong ứng dụng
+    Open in web browser: Mở trên trình duyệt
+    Ask Download Path: Yêu cầu đường dẫn tải xuống
+    Choose Path: Chọn đường dẫn
+    Download Settings: Cài đặt tải xuống
 About:
   #On About page
   About: 'Giới thiệu'
@@ -434,6 +455,11 @@ About:
   Blog: Blog
   Credits: Tín dụng
   Donate: Quyên tặng
+  GitHub issues: Sự cố GitHub
+  FreeTube Wiki: FreeTube Wiki
+  Beta: Thử nghiệm
+  Downloads / Changelog: Tải xuống / bản ghi changelog
+  GitHub releases: Phiên bản GitHub
 Channel:
   Subscriber: 'Người đăng ký'
   Subscribers: 'Người đăng ký'
