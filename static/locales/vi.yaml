@@ -460,6 +460,13 @@ About:
   Beta: Thử nghiệm
   Downloads / Changelog: Tải xuống / bản ghi changelog
   GitHub releases: Phiên bản GitHub
+  Please check for duplicates before posting: Vui lòng kiểm tra các bản sao trước
+    khi đăng
+  Chat on Matrix: Trò chuyện trên Ma trận
+  room rules: quy định phòng chat
+  FreeTube is made possible by: FreeTube được tạo ra bởi
+  these people and projects: những người và dự án
+  Please read the: Hãy đọc
 Channel:
   Subscriber: 'Người đăng ký'
   Subscribers: 'Người đăng ký'
@@ -549,7 +556,7 @@ Video:
     Minute: Phút
   Published on: 'Phát hành vào'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % vừa qua'
+  Publicationtemplate: '$ % trước'
 #& Videos
   Video has been removed from your history: Video đã được xóa khỏi lịch sử của bạn
   Video has been marked as watched: Video đánh dấu đã xem
@@ -573,6 +580,53 @@ Video:
   Loop Playlist: Lặp lại Playlist
   Open Channel in YouTube: Mở kênh này trên YouTube
   Copy YouTube Channel Link: Sao chép Nối kết Kênh YouTube
+  Skipped segment: Phân đoạn đã bỏ qua
+  Sponsor Block category:
+    sponsor: Nhà tài trợ
+    intro: Giới thiệu
+    self-promotion: Tự thúc đẩy
+    interaction: Tương tác
+    music offtopic: Nhạc ngoại tuyến
+    outro: Kết thúc
+    recap: Tóm tắt
+    filler: Bộ lọc
+  Stats:
+    Resolution: Độ phân giải
+    Player Dimensions: Khối lượng phát
+    Bandwidth: Băng thông
+    Buffered: Đệm
+    Video ID: Video
+    Video statistics are not available for legacy videos: Số liệu thống kê video không
+      có sẵn cho các video tiếp nôi
+    Mimetype: Mimetype
+    Dropped / Total Frames: Bị drop / tống số khung hình
+    Bitrate: Tốc độ Bitrate
+    Volume: Volume
+  Premieres on: Công chiếu vào lúc
+  Streamed on: Phát trực tiếp vào lúc
+  Started streaming on: Bắt đầu.phát trực tiếp vào lúc
+  translated from English: Được dịch từ tiếng Anh
+  External Player:
+    playlist: danh sách phát
+    Unsupported Actions:
+      opening specific video in a playlist (falling back to opening the video): mở
+        video cụ thể trong danh sách phát (quay lại mục mở video)
+      setting a playback rate: Đặt tốc độ tua lại
+      opening playlists: mở danh sách phát
+      starting video at offset: Bắt đầu video ở khoản giữa
+      shuffling playlists: xáo trộn danh sách phát
+      reversing playlists: đảo ngược danh sách phát
+      looping playlists: lập lại danh sách phát
+    OpeningTemplate: Mở $ trong %....
+    UnsupportedActionTemplate: '$ không hổ trợ: %'
+    OpenInTemplate: Mở trong $
+    video: video
+  Open Channel in Invidious: Mở kênh ưu tiên
+  Copy Invidious Channel Link: Sao chép đường dẫn kênh ưu tiên
+  Video has been removed from your saved list: Video đã bị xoá khỏi danh sách lưu
+    trữ của bạn
+  Video has been saved: Video đã được lưu
+  Save Video: Lưu Video
 Videos:
   #& Sort By
   Sort By:
@@ -597,6 +651,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Danh sách phát
 Toggle Theatre Mode: 'Chuyển đổi chế độ rạp hát'
 Change Format:
   Change Video Formats: 'Chuyển đổi định dạng video'
@@ -620,6 +675,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'Youtube Embed URL sao chép đến clipboard'
   Include Timestamp: Có kèm dấu thời gian
   YouTube Channel URL copied to clipboard: Đã copy link kênh Youtube
+  Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
@@ -640,6 +696,11 @@ Comments:
   Top comments: Top bình luận
   Sort by: Sắp xếp theo
   There are no more comments for this video: Không có bình luận cho video này
+  Member: Thành viên
+  From $channelName: từ $tên kênh
+  And others: Và những thứ khác
+  Pinned by: Được ghim bởi
+  Show More Replies: Hiện thêm câu trả lời
 Up Next: 'Tiếp theo'
 
 # Toast Messages
@@ -706,6 +767,8 @@ Profile:
   Profile Manager: Quản lý Profile
   All Channels: Tất cả kênh
   Profile Select: Chọn Profile
+  Profile Filter: Bộ lọc hồ sơ
+  Profile Settings: Cài đặt hồ sơ cá nhân
 A new blog is now available, $. Click to view more: Một blog mới đã có, $. Nhấn để
   xem chi tiết
 Download From Site: Tải từ website
@@ -726,3 +789,28 @@ Channels:
   Unsubscribe Prompt: Bạn có chắc răng bạn muốn huỷ đăng ký kênh "$"?
   Unsubscribe: Huỷ đăng ký kênh
   Count: $kênh đã tìm được.
+Tooltips:
+  General Settings:
+    Thumbnail Preference: Tất cả các hình thu nhỏ trên FreeTube sẽ được thay thế bằng
+      khung hình của video thay vì hình thu nhỏ mặc định.
+    External Link Handling: "Chọn tác vụ mặc định khi một liên kết không thể mở được\
+      \ nhập vào FreeTube.\nTheo mặc định, FreeTube sẽ mở liên kết này trong trình\
+      \ duyệt mặc định của bạn.\n"
+    Fallback to Non-Preferred Backend on Failure: Khi API ưu tiên của bạn gặp sự cố,
+      FreeTube sẽ tự động sử dụng API không ưu tiên của bạn làm phương án dự phòng
+      khi nó được bật lên.
+    Preferred API Backend: Chọn backend mà FreeTube sử dụng để lấy dữ liệu. API cục
+      bộ là một trình trích xuất tích hợp sẵn. API Invidious yêu cầu máy chủ Invidious
+      để kết nối.
+    Invidious Instance: Phiên bản Invidious mà FreeTube sẽ kết nối với để gọi các
+      lệnh API.
+    Region for Trending: Xu hướng khu vực cho phép bạn chọn các video thịnh hành của
+      quốc gia mà bạn muốn hiển thị. Không phải tất cả các quốc gia được hiển thị
+      đều được YouTube hỗ trợ.
+  Player Settings:
+    Force Local Backend for Legacy Formats: Chỉ hoạt động khi API Invidious là mặc
+      định của bạn. Khi được bật lên, API cục bộ sẽ chạy và sử dụng các định dạng
+      kế thừa được trả về thay vì các định dạng được trả về bởi Invidious. Điều này
+      có ích khi các video do Invidious trả về không phát được do giới hạn quốc gia.
+    Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay
+      vì kết nối trực tiếp với YouTube. Ghi đè tùy chọn API.
