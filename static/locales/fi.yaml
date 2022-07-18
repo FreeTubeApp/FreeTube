@@ -808,8 +808,9 @@ Tooltips:
     Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu
       ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta.
       Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
-    External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
-      (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
+    External Player: Ulkoisen soittimen valitseminen näyttää pikkukuvassa kuvakkeen,
+      jolla voit avata videon (soittolistan, jos se on tuettu) ulkoisessa soittimessa.
+      Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin soittimiin.
     DefaultCustomArgumentsTemplate: "(Oletus: '$')"
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
@@ -840,3 +841,12 @@ Age Restricted:
     Video: Video
     Channel: Kanava
 Screenshot Error: Ruutukaappaus epäonnistui. $
+Channels:
+  Channels: Kanavat
+  Title: Kanavaluettelo
+  Search bar placeholder: Etsi kanavia
+  Count: $ kanava(a) löydetty.
+  Empty: Kanavaluettelosi on tällä hetkellä tyhjä.
+  Unsubscribe: Peruuta tilaus
+  Unsubscribe Prompt: Oletko varma, että haluat peruuttaa tilauksen ”$”-kanavaan?
+  Unsubscribed: $ on poistettu tilauksistasi
