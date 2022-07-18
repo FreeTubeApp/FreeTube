@@ -812,8 +812,9 @@ Tooltips:
     Custom External Player Executable: Por omissão, o FreeTube assume que o leitor
       externo escolhido pode ser encontrado através da variável PATH. Se for preciso,
       um caminho personalizado pode ser escolhido aqui.
-    External Player: Escolher um leitor externo irá mostrar um ícone na miniatura
-      do vídeo, para abrir o vídeo (lista de reprodução se possível) nesse leitor.
+    External Player: Escolher um leitor externo irá mostrar um ícone, para abrir o
+      vídeo (lista de reprodução, se suportado) no leitor externo, na miniatura do
+      vídeo. Aviso, as configurações do Invidious não afetam os reprodutores externos.
     DefaultCustomArgumentsTemplate: "(padrão: '$')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
