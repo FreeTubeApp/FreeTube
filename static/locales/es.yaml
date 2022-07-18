@@ -845,3 +845,16 @@ Downloading has completed: '«$» ha terminado de descargarse'
 Downloading failed: Hubo un problema al descargar «$»
 Screenshot Success: Captura de pantalla guardada como «$»
 Screenshot Error: Captura de pantalla fallida. $
+New Window: Nueva ventana
+Channels:
+  Channels: Canales
+  Title: Lista de canales
+  Search bar placeholder: Buscar canales
+  Count: $ canal(es) encontrado(s).
+  Empty: Tu lista de canales está actualmente vacía.
+  Unsubscribe: Cancelar la suscripción
+  Unsubscribed: $ ha sido eliminado de tus suscripciones
+Age Restricted:
+  Type:
+    Channel: Canal
+    Video: Vídeo
