@@ -15,6 +15,24 @@
   color: var(--tertiary-text-color);
 }
 
+.playlistProggressBar {
+  margin-left: 10px;
+}
+
+/* needs to be here or else it will devault to green */
+.playlistProggressBar::-webkit-progress-value {
+    background: var(--accent-color);
+}
+
+.playlistProggressBar::-webkit-progress-bar {
+  background-color: var(--secondary-text-color);
+}
+
+/* dosent work without this. no idea why you need to define it twice. */
+.playlistProggressBar {
+    background: var(--accent-color);
+}
+
 .playlistIcon {
   font-size: 20px;
   padding: 10px;

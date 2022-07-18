@@ -96,7 +96,7 @@
     "electron-builder-squirrel-windows": "^22.13.1",
     "electron-debug": "^3.2.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",

@@ -22,7 +22,11 @@
         class="playlistIndex"
       >
         - {{ currentVideoIndex }} / {{ playlistVideoCount }}
-        <progress :value="currentVideoIndex" :max="playlistVideoCount"></progress>
+        <progress
+          class="playlistProggressBar"
+          :value="currentVideoIndex"
+          :max="playlistVideoCount"
+        />
       </span>
       <p>
         <font-awesome-icon
