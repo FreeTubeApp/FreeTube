@@ -814,3 +814,56 @@ Tooltips:
       có ích khi các video do Invidious trả về không phát được do giới hạn quốc gia.
     Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay
       vì kết nối trực tiếp với YouTube. Ghi đè tùy chọn API.
+    Default Video Format: Cài đặt các định dạng được dùng khi phát video. Định dạng
+      DASH có thể phát với chất lượng cao hơn. Các định dạng cũ được giới hạn ở mức
+      tối đa là 720p nhưng chúng tiêu tốn ít băng thông hơn. Định dạng âm thanh là
+      những luồng chỉ phát âm thanh.
+    Scroll Playback Rate Over Video Player: Khi con trỏ chuột ở trên video, hãy nhấn
+      và giữ phím Control (Phím Command trên máy Mac) và cuộn con lăn chuột tới hoặc
+      lui để kiểm soát tốc độ phát. Nhấn và giữ phím Control (Phím Command trên Mac)
+      và nhấp chuột trái để lập tức trở về tốc độ phát mặc định (1x trừ khi nó đã
+      được thay đổi trong cài đặt).
+  External Player Settings:
+    Custom External Player Arguments: Bất kỳ tham số dòng lệnh tùy chỉnh nào, được
+      phân tách bằng dấu chấm phẩy (';'), bạn muốn được chuyển đến trình phát bên
+      ngoài.
+    Custom External Player Executable: Theo mặc định, FreeTube sẽ giả định rằng trình
+      phát bên ngoài đã chọn có thể được tìm thấy thông qua biến môi trường PATH.
+      Nếu cần, bạn có thể đặt một đường dẫn tuỳ chọn ở đây,
+    Ignore Warnings: 'Loại bỏ cảnh báo khi trình phát bên ngoài hiện tại không hỗ
+      trợ cho thao tác hiện tại (ví dụ: đảo ngược danh sách phát, v.v.).'
+    DefaultCustomArgumentsTemplate: "(Mặc định: '$')"
+    External Player: Chọn một trình phát bên ngoài sẽ hiển thị một biểu tượng để mở
+      video (danh sách phát nếu được hỗ trợ) trong trình phát bên ngoài, trên hình
+      thu nhỏ của video. Cảnh báo, cài đặt Invidious không ảnh hưởng đến trình phát
+      bên ngoài.
+  Subscription Settings:
+    Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương
+      thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh
+      việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video
+      hoặc trạng thái phát trực tiếp
+  Privacy Settings:
+    Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
+      được tạo trong quá trình phát lại video, khi trang xem bị đóng.
+Age Restricted:
+  This $contentType is age restricted: $ này bị giới hạn độ tuổi
+  Type:
+    Channel: Kênh
+    Video: Video
+Hashtags have not yet been implemented, try again later: Thẻ hashtag chưa thể dùng
+  được, hãy thử lại sau
+Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. |
+  Phát video tiếp theo sau {nextVideoInterval} giây nữa. Nhấn vào để hủy. | Phát video
+  tiếp theo sau {nextVideoInterval} giây. Nhấn vào để hủy.
+Downloading has completed: '"$" đã hoàn tất quá trình tải xuống'
+External link opening has been disabled in the general settings: Tính năng mở liên
+  kết bên ngoài đã bị tắt trong cài đặt chung
+Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "$"
+Default Invidious instance has been cleared: Phiên bản Invidious mặc định đã bị xóa
+Screenshot Success: Ảnh chụp màn hình đã lưu thành "$"
+Screenshot Error: Chụp màn hình không thành công. $
+Default Invidious instance has been set to $: Phiên bản Invidious mặc định đã được
+  đặt thành $
+Unknown YouTube url type, cannot be opened in app: Dạng YouTube URL không xác định,
+  không thể mở trong ứng dụng này
+Starting download: Bắt đầu tải xuống "$"
