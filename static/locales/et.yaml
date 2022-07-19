@@ -83,6 +83,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Sellel
     profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teeme
     RSS-voo päringud harvemini
+  Error Channels: Vigadega kanalid
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -164,6 +165,7 @@ Settings:
       Dark: 'Tume'
       Light: 'Hele'
       Dracula: 'Dracula'
+      System Default: Süsteemi vaikeseadistus
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -231,6 +233,22 @@ Settings:
     Scroll Playback Rate Over Video Player: Videomängija kohal saad muuta taasesituskiirust
     Max Video Playback Rate: Video suurim taasesituskiirus
     Video Playback Rate Interval: Video taasesituskiiruse intervall
+    Screenshot:
+      Ask Path: Küsi salvestuskausta
+      Folder Label: Kuvatõmmise kaust
+      Format Label: Kuvatõmmise vorming
+      Quality Label: Kuvatõmmise kvaliteet
+      Folder Button: Vali kaust
+      File Name Label: Failinime muster
+      Error:
+        Forbidden Characters: Keelatud tähemärgid
+        Empty File Name: Puuduv failinimi
+      Enable: Luba kuvatõmmise tegemine
+      File Name Tooltip: Võid kasutada allpool näidatud muutujaid. %Y 4-numbriline
+        aasta. %M 2-numbriline kuu. %D 2-numbriline päev. %H 2-numbriline tund 2.
+        %N 2-numbriline minut. %S 2-numbriline sekund. %T 3-numbriline millisekund.
+        %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
+        Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -331,6 +349,10 @@ Settings:
     Hide Video Likes And Dislikes: Peida videote meeldimiste ja mittemeeldimiste arvud
     Hide Video Views: Peida videote vaatamiskordade arv
     Distraction Free Settings: Seadista endale võimalikult rahulik videote vaatamine
+    Hide Video Description: Peida video kirjeldus
+    Hide Comments: Peida kommentaarid
+    Hide Live Streams: Peida otseülekanded
+    Hide Sharing Actions: Peida jagamisega seotud toimingud
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -355,6 +377,13 @@ Settings:
       API aadress (vaikimisi on see https://sponsor.ajay.app)
     Enable SponsorBlock: Kasuta toetajate vaadet
     SponsorBlock Settings: Toetajate vaate seadistused
+    Skip Options:
+      Auto Skip: Jäta valik automaatselt vahele
+      Show In Seek Bar: Näita otsinguribal
+      Prompt To Skip: Paku vahelejätmise võimalust
+      Skip Option: Jäta valik vahele
+      Do Nothing: Ära tee midagi
+    Category Color: Kategooria värv
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Välise meediamängija seadistused
@@ -365,6 +394,14 @@ Settings:
     Download Settings: Allalaadimise seadistused
     Ask Download Path: Küsi kausta, kuhu soovid faile alla laadida
     Choose Path: Vali asukoht
+    Download Behavior: Tegevus allalaadimisel
+    Open in web browser: Ava veebibrauseris
+    Download in app: Ava rakenduses
+  Parental Control Settings:
+    Parental Control Settings: Vanemliku järelevalve seadistused
+    Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
+    Show Family Friendly Only: Näita ainult peresõbralikku sisu
+    Hide Search Bar: Peida otsinguriba
 About:
   #On About page
   About: 'Rakenduse teave'
@@ -578,12 +615,14 @@ Video:
   video only: vaid videovoog
   Download Video: Laadi video alla
   Sponsor Block category:
-    music offtopic: esitatava muusika teemaväline teave
-    self-promotion: meie rakenduse reklaam
-    interaction: suhtlus
-    intro: sissejuhatus
-    outro: väljajuhatus
-    sponsor: toetaja
+    music offtopic: Esitatava muusika teemaväline teave
+    self-promotion: Meie rakenduse reklaam
+    interaction: Suhtlus
+    intro: Sissejuhatus
+    outro: Väljajuhatus
+    sponsor: Toetaja
+    filler: Täitevideo
+    recap: Kokkuvõte
   Skipped segment: Vahelejäetud lõik
   External Player:
     UnsupportedActionTemplate: 'Rakenduses $ puudub tugi: %'
@@ -690,11 +729,12 @@ Comments:
   Sort by: Sortimise alus
   No more comments available: Rohkem kommentaare pole
   Newest first: Uuemad esimesena
-  Top comments: Populaarsemad kommentaarid
+  Top comments: Parimad kommentaarid
   Show More Replies: Näita järgmisi vastuseid
   And others: ja teised
   Pinned by: Esiplaanile tõstja
   From $channelName: kanalist $channelName
+  Member: Liige
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -736,8 +776,9 @@ Tooltips:
       järjekorra pööramine) ei toeta siis ära näita hoiatusi.
     Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
       mida sa soovid välisele meediamängijale saata.
-    External Player: Seadistades välise meediamängija kuvame pisipildil ikooni video
-      (või esitusloendi) esitamiseks välises meediamängijas.
+    External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video\
+      \ (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e\
+      \ seadistused ei mõjuta välise meediamängija kasutamist."
     DefaultCustomArgumentsTemplate: "(Vaikimisi: '$')"
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
@@ -790,3 +831,20 @@ Are you sure you want to open this link?: Oled kindel, et soovid seda linki avad
 Downloading has completed: „$“ allalaadimine on lõppenud
 Starting download: „$“ allalaadimine algas
 Downloading failed: „$“ allalaadimisel tekkis viga
+New Window: Uus aken
+Screenshot Error: Kuvatõmmise tegemine ei õnnestunud. $
+Channels:
+  Channels: Kanalid
+  Title: Kanalite loend
+  Search bar placeholder: Otsi kanaleid
+  Count: Leidsime $ kanali(t).
+  Empty: Sinu kanalite loend on praegu tühi.
+  Unsubscribe: Loobu tellimusest
+  Unsubscribed: $ on sinu tellimustest eemaldatud
+  Unsubscribe Prompt: Kas oled kindel, et soovid „$“ tellimusest loobuda?
+Age Restricted:
+  This $contentType is age restricted: See $ on vanusepiiranguga
+  Type:
+    Channel: Kanal
+    Video: Video
+Screenshot Success: Kuvatõmmis on salvestatud faili „$“
