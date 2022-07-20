@@ -164,6 +164,7 @@ Settings:
       Light: 'Açık'
       Dracula: 'Drakula'
       System Default: Sistem Öntanımlı Değeri
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -189,6 +190,20 @@ Settings:
       Dracula Purple: 'Drakula Mor'
       Dracula Red: 'Drakula Kırmızı'
       Dracula Yellow: 'Drakula Sarı'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Gül Suyu
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Catppuccin Mocha Eflatun
+      Catppuccin Mocha Red: Catppuccin Mocha Kırmızı
+      Catppuccin Mocha Maroon: Catppuccin Mocha Bordo
+      Catppuccin Mocha Peach: Catppuccin Mocha Şeftali
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Gökyüzü
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Mavi
+      Catppuccin Mocha Pink: Catppuccin Mocha Pembe
+      Catppuccin Mocha Yellow: Catppuccin Mocha Sarı
+      Catppuccin Mocha Green: Catppuccin Mocha Yeşil
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanta
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
