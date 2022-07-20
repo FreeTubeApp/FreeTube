@@ -23,7 +23,7 @@
       >
         - {{ currentVideoIndex }} / {{ playlistVideoCount }}
         <progress
-          class="playlistProggressBar"
+          class="playlistProgressBar"
           :value="currentVideoIndex"
           :max="playlistVideoCount"
         />
