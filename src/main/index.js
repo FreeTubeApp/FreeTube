@@ -185,6 +185,8 @@ function runApp() {
           return '#000000'
         case 'dracula':
           return '#282a36'
+        case 'catppuccin-mocha':
+          return '#1e1e2e'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

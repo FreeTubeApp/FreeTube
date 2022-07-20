@@ -112,6 +112,30 @@
   --logo-text: url("~../../_icons/textDraculaLightSmall.png");
 }
 
+.catppuccinMocha {
+  --primary-text-color: #cdd6f4;
+  --secondary-text-color: #bac2de;
+  --tertiary-text-color: #a6adc8;
+  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --primary-shadow-color: rgba(0, 0, 0, 0.75);
+  --title-color: var(--accent-color);
+  --bg-color: #1e1e2e;
+  --link-color: var(--accent-color);
+  --link-visited-color: var(--accent-color-visited);
+  --favorite-icon-color: #f9e2af;
+  --card-bg-color: #181825;
+  --secondary-card-bg-color: #1e1e2e;
+  --scrollbar-color: #313244;
+  --scrollbar-color-hover: #3D4051;
+  --side-nav-color: #181825;
+  --side-nav-hover-color: #11111b;
+  --side-nav-active-color: #11111b;
+  --search-bar-color: #313244;
+  --instance-menu-color: var(--search-bar-color);
+  --logo-icon: url("~../../_icons/iconCatppuccinMochaLightSmall.png");
+  --logo-text: url("~../../_icons/textCatppuccinMochaLightSmall.png");
+}
+
 .mainRed {
   --primary-color: #f44336;
   --primary-color-hover: #e53935;
@@ -317,6 +341,132 @@
   --text-with-main-color: #282A36;
   --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
   --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
+}
+
+.mainCatppuccinMochaRosewater {
+  --primary-color: #f5e0dc;
+  --primary-color-hover: #fceeec;
+  --primary-color-active: #e1c8c3;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaFlamingo {
+  --primary-color: #f2cdcd;
+  --primary-color-hover: #f2e1e1;
+  --primary-color-active: #ddb7b7;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaPink {
+  --primary-color: #f5c2e7;
+  --primary-color-hover: #f3d2ea;
+  --primary-color-active: #dca3cd;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaMauve {
+  --primary-color: #cba6f7;
+  --primary-color-hover: #d4b7f8;
+  --primary-color-active: #b38fdf;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaRed {
+  --primary-color: #f38ba8;
+  --primary-color-hover: #f0a4b9;
+  --primary-color-active: #de7693;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaMaroon {
+  --primary-color: #eba0ac;
+  --primary-color-hover: #eabbc3;
+  --primary-color-active: #d68895;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaPeach {
+  --primary-color: #fab387;
+  --primary-color-hover: #f7c7a9;
+  --primary-color-active: #e1996d;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaYellow {
+  --primary-color: #f9e2af;
+  --primary-color-hover: #feeecd;
+  --primary-color-active: #dec48d;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaGreen {
+  --primary-color: #a6e3a1;
+  --primary-color-hover: #bfebbb;
+  --primary-color-active: #86c780;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaTeal {
+  --primary-color: #94e2d5;
+  --primary-color-hover: #aceae0;
+  --primary-color-active: #6fc5b7;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaSky {
+  --primary-color: #89dceb;
+  --primary-color-hover: #a3e4f0;
+  --primary-color-active: #68bcca;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaSapphire {
+  --primary-color: #74c7ec;
+  --primary-color-hover: #93d1ed;
+  --primary-color-active: #59a9cf;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaBlue {
+  --primary-color: #89b4fa;
+  --primary-color-hover: #a6c8ff;
+  --primary-color-active: #6593df;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+}
+
+.mainCatppuccinMochaLavender {
+  --primary-color: #b4befe;
+  --primary-color-hover: #c9d0ff;
+  --primary-color-active: #8d98e4;
+  --text-with-main-color: #1e1e2e;
+  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .secRed {
@@ -616,6 +766,188 @@
   --accent-color-opacity2: rgba(98,114,164,0.12);
   --accent-color-opacity3: rgba(98,114,164,0.16);
   --accent-color-opacity4: rgba(98,114,164,0.24);
+}
+
+.secCatppuccinMochaRosewater {
+  --accent-color: #f5e0dc;
+  --accent-color-hover: #fceeec;
+  --accent-color-active: #e1c8c3;
+  --accent-color-light: #F8EAE7;
+  --accent-color-visited: #D3A197;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(245,224,220,0.04);
+  --accent-color-opacity2: rgba(245,224,220,0.12);
+  --accent-color-opacity3: rgba(245,224,220,0.16);
+  --accent-color-opacity4: rgba(245,224,220,0.24);
+}
+
+.secCatppuccinMochaFlamingo {
+  --accent-color: #f2cdcd;
+  --accent-color-hover: #f3d7d7;
+  --accent-color-active: #ddb7b7;
+  --accent-color-light: #F7DFDF;
+  --accent-color-visited: #cf9898;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(242,205,205,0.04);
+  --accent-color-opacity2: rgba(242,205,205,0.12);
+  --accent-color-opacity3: rgba(242,205,205,0.16);
+  --accent-color-opacity4: rgba(242,205,205,0.24);
+}
+
+.secCatppuccinMochaPink {
+  --accent-color: #f5c2e7;
+  --accent-color-hover: #f3cee9;
+  --accent-color-active: #dca3cd;
+  --accent-color-light: #f4dbed;
+  --accent-color-visited: #d28fc0;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(245,194,231,0.04);
+  --accent-color-opacity2: rgba(245,194,231,0.12);
+  --accent-color-opacity3: rgba(245,194,231,0.16);
+  --accent-color-opacity4: rgba(245,194,231,0.24);
+}
+
+.secCatppuccinMochaMauve {
+  --accent-color: #cba6f7;
+  --accent-color-hover: #d4b7f8;
+  --accent-color-active: #b38fdf;
+  --accent-color-light: #D6B9F9;
+  --accent-color-visited: #A171DA;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(203,166,247,0.04);
+  --accent-color-opacity2: rgba(203,166,247,0.12);
+  --accent-color-opacity3: rgba(203,166,247,0.16);
+  --accent-color-opacity4: rgba(203,166,247,0.24);
+}
+
+.secCatppuccinMochaRed {
+  --accent-color: #f38ba8;
+  --accent-color-hover: #f399b2;
+  --accent-color-active: #de7693;
+  --accent-color-light: #F5A3BA;
+  --accent-color-visited: #D56C89;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(243,139,168,0.04);
+  --accent-color-opacity2: rgba(243,139,168,0.12);
+  --accent-color-opacity3: rgba(243,139,168,0.16);
+  --accent-color-opacity4: rgba(243,139,168,0.24);
+}
+
+.secCatppuccinMochaMaroon {
+  --accent-color: #eba0ac;
+  --accent-color-hover: #ebb4bd;
+  --accent-color-active: #d68895;
+  --accent-color-light: #F0B7C0;
+  --accent-color-visited: #C86A79;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(235,160,172,0.04);
+  --accent-color-opacity2: rgba(235,160,172,0.12);
+  --accent-color-opacity3: rgba(235,160,172,0.16);
+  --accent-color-opacity4: rgba(235,160,172,0.24);
+}
+
+.secCatppuccinMochaPeach {
+  --accent-color: #fab387;
+  --accent-color-hover: #f7bd99;
+  --accent-color-active: #e1996d;
+  --accent-color-light: #FBC4A2;
+  --accent-color-visited: #D78A5B;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(250,179,135,0.04);
+  --accent-color-opacity2: rgba(250,179,135,0.12);
+  --accent-color-opacity3: rgba(250,179,135,0.16);
+  --accent-color-opacity4: rgba(250,179,135,0.24);
+}
+
+.secCatppuccinMochaYellow {
+  --accent-color: #f9e2af;
+  --accent-color-hover: #f9e7bf;
+  --accent-color-active: #dec48d;
+  --accent-color-light: #FBECCB;
+  --accent-color-visited: #D5B05D;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(249,226,175,0.04);
+  --accent-color-opacity2: rgba(249,226,175,0.12);
+  --accent-color-opacity3: rgba(249,226,175,0.16);
+  --accent-color-opacity4: rgba(249,226,175,0.24);
+}
+
+.secCatppuccinMochaGreen {
+  --accent-color: #a6e3a1;
+  --accent-color-hover: #b6e3b2;
+  --accent-color-active: #86c780;
+  --accent-color-light: #BCEAB8;
+  --accent-color-visited: #6ED166;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(166,227,161,0.04);
+  --accent-color-opacity2: rgba(166,227,161,0.12);
+  --accent-color-opacity3: rgba(166,227,161,0.16);
+  --accent-color-opacity4: rgba(166,227,161,0.24);
+}
+
+.secCatppuccinMochaTeal {
+  --accent-color: #94e2d5;
+  --accent-color-hover: #a1dfd5;
+  --accent-color-active: #6fc5b7;
+  --accent-color-light: #AFE9DF;
+  --accent-color-visited: #5CCCB9;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(148,226,213,0.04);
+  --accent-color-opacity2: rgba(148,226,213,0.12);
+  --accent-color-opacity3: rgba(148,226,213,0.16);
+  --accent-color-opacity4: rgba(148,226,213,0.24);
+}
+
+.secCatppuccinMochaSky {
+  --accent-color: #89dceb;
+  --accent-color-hover: #99dfeb;
+  --accent-color-active: #68bcca;
+  --accent-color-light: #9FE3EF;
+  --accent-color-visited: #64C2D3;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(137,220,235,0.04);
+  --accent-color-opacity2: rgba(137,220,235,0.12);
+  --accent-color-opacity3: rgba(137,220,235,0.16);
+  --accent-color-opacity4: rgba(137,220,235,0.24);
+}
+
+.secCatppuccinMochaSapphire {
+  --accent-color: #74c7ec;
+  --accent-color-hover: #84c7e6;
+  --accent-color-active: #59a9cf;
+  --accent-color-light: #93D4F0;
+  --accent-color-visited: #6AB6D7;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(116,199,236,0.04);
+  --accent-color-opacity2: rgba(116,199,236,0.12);
+  --accent-color-opacity3: rgba(116,199,236,0.16);
+  --accent-color-opacity4: rgba(116,199,236,0.24);
+}
+
+.secCatppuccinMochaBlue {
+  --accent-color: #89b4fa;
+  --accent-color-hover: #9bbef6;
+  --accent-color-active: #6593df;
+  --accent-color-light: #A7C7FB;
+  --accent-color-visited: #739CDD;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(137,220,235,0.04);
+  --accent-color-opacity2: rgba(137,220,235,0.12);
+  --accent-color-opacity3: rgba(137,220,235,0.16);
+  --accent-color-opacity4: rgba(137,220,235,0.24);
+}
+
+.secCatppuccinMochaLavender {
+  --accent-color: #b4befe;
+  --accent-color-hover: #c9d0ff;
+  --accent-color-active: #8d98e4;
+  --accent-color-light: #D2D8FE;
+  --accent-color-visited: #96A1E9;
+  --text-with-accent-color: #1e1e2e;
+  --accent-color-opacity1: rgba(180,190,254,0.04);
+  --accent-color-opacity2: rgba(180,190,254,0.12);
+  --accent-color-opacity3: rgba(180,190,254,0.16);
+  --accent-color-opacity4: rgba(180,190,254,0.24);
 }
 
 body {
