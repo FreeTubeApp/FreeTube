@@ -161,6 +161,7 @@ Settings:
       Light: 'בהיר'
       Dracula: 'דרקולה'
       System Default: ברירת המחדל של המערכת
+      Catppuccin Mocha: מוקה קפוצ׳ינו
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -186,6 +187,20 @@ Settings:
       Dracula Purple: 'דרקולה סגול'
       Dracula Red: 'דרקולה אדום'
       Dracula Yellow: 'דרקולה צהוב'
+      Catppuccin Mocha Rosewater: מוקה קפוצ׳ינו מי ורדים
+      Catppuccin Mocha Red: מוקה קפוצ׳ינו אדום
+      Catppuccin Mocha Maroon: מוקה קפוצ׳ינו ערמון
+      Catppuccin Mocha Peach: מוקה קפוצ׳ינו אפרסק
+      Catppuccin Mocha Yellow: מוקה קפוצ׳ינו צהוב
+      Catppuccin Mocha Sky: מוקה קפוצ׳ינו שמיים
+      Catppuccin Mocha Flamingo: מוקה קפוצ׳ינו פלמינגו
+      Catppuccin Mocha Mauve: מוקה קפוצ׳ינו ארגמן
+      Catppuccin Mocha Pink: מוקה קפוצ׳ינו ורוד
+      Catppuccin Mocha Green: מוקה קפוצ׳ינו ירוק
+      Catppuccin Mocha Sapphire: מוקה קפוצ׳ינו ספיר
+      Catppuccin Mocha Lavender: מוקה קפוצ׳ינו לבנדר
+      Catppuccin Mocha Teal: מוקה קפוצ׳ינו ירקרק-כחלחל
+      Catppuccin Mocha Blue: מוקה קפוצ׳ינו כחול
     Secondary Color Theme: 'צבע משני'
         #* Main Color Theme
     UI Scale: גודל הממשק
