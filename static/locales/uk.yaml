@@ -173,6 +173,7 @@ Settings:
       Light: 'Світла'
       Dracula: 'Дракула'
       System Default: Тема системи
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -198,6 +199,20 @@ Settings:
       Dracula Purple: 'Дракула Фіолетова'
       Dracula Red: 'Дракула Червона'
       Dracula Yellow: 'Дракула Жовта'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
