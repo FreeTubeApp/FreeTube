@@ -177,6 +177,7 @@ Settings:
       Light: 'Ljóst'
       Dracula: 'Drakúla'
       System Default: Sjálfgefið í kerfinu
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -202,6 +203,20 @@ Settings:
       Dracula Purple: 'Drakúla Purpurablátt'
       Dracula Red: 'Drakúla Rautt'
       Dracula Yellow: 'Drakúla Gult'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha rósavatn
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamingó
+      Catppuccin Mocha Mauve: Catppuccin Mocha lillablátt
+      Catppuccin Mocha Red: Catppuccin Mocha rautt
+      Catppuccin Mocha Maroon: Catppuccin Mocha kastaníubrúnt
+      Catppuccin Mocha Green: Catppuccin Mocha grænt
+      Catppuccin Mocha Teal: Catppuccin Mocha sægrænt
+      Catppuccin Mocha Sky: Catppuccin Mocha himinblátt
+      Catppuccin Mocha Blue: Catppuccin Mocha blátt
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Pink: Catppuccin Mocha bleikt
+      Catppuccin Mocha Peach: Catppuccin Mocha ferskju
+      Catppuccin Mocha Yellow: Catppuccin Mocha gult
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safír
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
