@@ -81,6 +81,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': '구독 목록을 가져오는 중입니다. 잠시만 기다려 주세요.'
   Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
+  Error Channels: 오류가 있는 채널
 Trending:
   Trending: '트렌딩'
   Trending Tabs: 트렌딩 탭
@@ -162,6 +163,7 @@ Settings:
       Light: '밝은 테마'
       Dracula: '드라큘라'
       System Default: 시스템 기본값
+      Catppuccin Mocha: 카푸치노 모카
     Main Color Theme:
       Main Color Theme: '메인 색상 테마'
       Red: '빨강'
@@ -187,6 +189,20 @@ Settings:
       Dracula Purple: '드라큘라 보라'
       Dracula Red: '드라큘라 빨강'
       Dracula Yellow: '드라큘라 노랑'
+      Catppuccin Mocha Rosewater: 카푸치노 모카 로즈워터
+      Catppuccin Mocha Flamingo: 카푸치노 모카 플라밍고
+      Catppuccin Mocha Pink: 카푸치노 모카 핑크
+      Catppuccin Mocha Mauve: 카푸치노 모카 자주빛
+      Catppuccin Mocha Red: 카푸치노 모카 빨강
+      Catppuccin Mocha Maroon: 카푸치노 모카 적갈색
+      Catppuccin Mocha Peach: 카푸치노 모카 복숭아
+      Catppuccin Mocha Yellow: 카푸치노 모카 노랑
+      Catppuccin Mocha Green: 카푸치노 모카 녹색
+      Catppuccin Mocha Sapphire: 카푸치노 모카 사파이어
+      Catppuccin Mocha Blue: 카푸치노 모카 파랑
+      Catppuccin Mocha Lavender: 카푸치노 모카 라벤더
+      Catppuccin Mocha Teal: 카푸치노 모카 청록색
+      Catppuccin Mocha Sky: 카푸치노 모카 하늘색
     Secondary Color Theme: '보조색상테마'
         #* Main Color Theme
     Hide Side Bar Labels: 사이드 바 레이블 숨기기
@@ -226,6 +242,20 @@ Settings:
     Scroll Playback Rate Over Video Player: 비디오 플레이어 위로 스크롤 재생 속도
     Max Video Playback Rate: 최대 비디오 재생 속도
     Video Playback Rate Interval: 비디오 재생 속도 간격
+    Screenshot:
+      Folder Label: 스크린샷 폴더
+      Ask Path: 폴더 저장 요청
+      Folder Button: 폴더 선택
+      Error:
+        Empty File Name: 빈 파일 이름
+        Forbidden Characters: 금지된 문자
+      Enable: 스크린샷 사용
+      Format Label: 스크린샷 형식
+      Quality Label: 스크린샷 품질
+      File Name Label: 파일 이름 패턴
+      File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
+        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
+        "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
   Privacy Settings:
     Privacy Settings: '개인정보 설정'
     Remember History: '기록 저장하기'
@@ -257,6 +287,10 @@ Settings:
     Hide Live Chat: '실시간 댓글 숨기기'
     Hide Playlists: 재생 목록 숨기기
     Hide Active Subscriptions: 활성 구독 숨기기
+    Hide Sharing Actions: 공유 작업 숨기기
+    Hide Live Streams: 라이브 스트림 숨기기
+    Hide Video Description: 비디오 설명 숨기기
+    Hide Comments: 주석 숨기기
   Data Settings:
     Data Settings: '데이터 설정'
     Select Import Type: '가져오기 유형 선택'
@@ -337,6 +371,10 @@ Settings:
     Notify when sponsor segment is skipped: 스폰서 구간을 건너뛸 경우 알림
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       주소 (기본 주소는 https://sponsor.ajay.app 입니다)
+    Skip Options:
+      Auto Skip: 자동 건너뛰기
+      Show In Seek Bar: 탐색 막대에 표시
+      Skip Option: 옵션 건너뛰기
   External Player Settings:
     External Player Settings: 외부 플레이어 설정
     Custom External Player Arguments: 사용자 정의 외부 플레이어 인수
@@ -691,3 +729,13 @@ Default Invidious instance has been cleared: 기본 Invidious 인스턴스가 �
 Are you sure you want to open this link?: 이 링크를 여시겠습니까?
 Search Bar:
   Clear Input: 입력 지우기
+New Window: 새 창
+Channels:
+  Channels: 채널
+  Title: 채널 목록
+  Search bar placeholder: 채널 검색
+  Empty: 채널 목록이 비어 있습니다.
+  Unsubscribe: 구독 취소
+  Unsubscribe Prompt: '"$"에서 구독을 취소하시겠습니까?'
+  Count: $ 채널이 발견되었습니다.
+  Unsubscribed: $ 구독에서 제거되었습니다
