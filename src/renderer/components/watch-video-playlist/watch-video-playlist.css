@@ -15,22 +15,24 @@
   color: var(--tertiary-text-color);
 }
 
-.playlistProggressBar {
+.playlistProgressBar {
   margin-left: 10px;
+  /* > In order to let ::-webkit-progress-value take effect, appearance needs to be set to none on the <progress> element. */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
+  appearance: none;
 }
 
-/* needs to be here or else it will devault to green */
-.playlistProggressBar::-webkit-progress-value {
-    background: var(--accent-color);
+.playlistProgressBar::-webkit-progress-value {
+  /* Color for filled part */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
+  /* background-color is required to be declared here to prevent color being green */
+  background-color: var(--accent-color);
 }
 
-.playlistProggressBar::-webkit-progress-bar {
+.playlistProgressBar::-webkit-progress-bar {
+  /* Color for unfilled part */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-bar */
   background-color: var(--secondary-text-color);
-}
-
-/* dosent work without this. no idea why you need to define it twice. */
-.playlistProggressBar {
-    background: var(--accent-color);
 }
 
 .playlistIcon {
