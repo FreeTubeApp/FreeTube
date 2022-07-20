@@ -156,6 +156,7 @@ Settings:
       Light: 'فاتح'
       Dracula: 'دراكولا'
       System Default: افتراضيات النظام
+      Catppuccin Mocha: كاتبوتشين موكا
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -181,6 +182,20 @@ Settings:
       Dracula Purple: 'دراكولا إرجواني'
       Dracula Red: 'دراكولا أحمر'
       Dracula Yellow: 'دراكولا أصفر'
+      Catppuccin Mocha Rosewater: كاتبوتشين موكا ماء الورد
+      Catppuccin Mocha Flamingo: كاتبوتشين موكا فلامنغو
+      Catppuccin Mocha Peach: كاتبوتشين موكا الخوخ
+      Catppuccin Mocha Green: كاتبوتشين موكا اخضر
+      Catppuccin Mocha Teal: كاتبوتشين موكا تيل
+      Catppuccin Mocha Sky: كاتبوتشين موكا سماوي
+      Catppuccin Mocha Sapphire: كاتبوتشين موكا سافير
+      Catppuccin Mocha Blue: كاتبوتشين موكا ازرق
+      Catppuccin Mocha Lavender: كاتبوتشين موكا لافندر
+      Catppuccin Mocha Mauve: كاتبوتشين موكا موف
+      Catppuccin Mocha Pink: كاتبوتشين موكا الوردية
+      Catppuccin Mocha Red: كاتبوتشين موكا أحمر
+      Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
+      Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
