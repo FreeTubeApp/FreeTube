@@ -162,6 +162,7 @@ Settings:
       Light: 'Jasny'
       Dracula: 'Drakula'
       System Default: Domyślny systemu
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -187,6 +188,14 @@ Settings:
       Dracula Purple: 'Dracula Fioletowy'
       Dracula Red: 'Dracula Czerwony'
       Dracula Yellow: 'Dracula Żółty'
+      Catppuccin Mocha Pink: Catppuccin Mocha Różowy
+      Catppuccin Mocha Red: Catppuccin Mocha Czerwony
+      Catppuccin Mocha Yellow: Catppuccin Mocha Żółty
+      Catppuccin Mocha Green: Catppuccin Mocha Zielony
+      Catppuccin Mocha Teal: Catppuccin Mocha Turkusowy
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lawendowy
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Szafirowy
+      Catppuccin Mocha Blue: Catppuccin Mocha Niebieski
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
