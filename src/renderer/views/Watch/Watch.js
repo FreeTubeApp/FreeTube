@@ -294,6 +294,7 @@ export default Vue.extend({
             channelId: this.channelId
           })
 
+          this.genre = result.genre
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -564,6 +565,7 @@ export default Vue.extend({
             throw new Error(result.error)
           }
 
+          this.genre = result.genre
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
           if (this.hideVideoLikesAndDislikes) {
@@ -757,11 +759,18 @@ export default Vue.extend({
       if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
         const player = this.$refs.videoPlayer.player
 
-        if (player !== null && this.saveWatchedProgress) {
+        if (player !== null && this.saveWatchedProgress && this.genre !== 'Music') {
           const currentTime = this.getWatchedProgress()
           const payload = {
             videoId: this.videoId,
             watchProgress: currentTime
+          }
+          this.updateWatchProgress(payload)
+        }
+        if (this.genre === 'Music') {
+          const payload = {
+            videoId: this.videoId,
+            watchProgress: 0
           }
           this.updateWatchProgress(payload)
         }
