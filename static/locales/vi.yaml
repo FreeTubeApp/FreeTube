@@ -96,7 +96,7 @@ User Playlists:
     bạn đang tìm
   Playlist Message: Trang này không liệt kê tất cả danh sách video bạn đã theo giỏi.
     Nó chỉ hiển thị các video mà bạn đã lưu hoặc thêm vào mục yêu thích. Khi xong
-    việc, tất cả các video trên trang này sẽ được chuyển vào danh sách 'yêu thích'
+    việc, tất cả các video trên trang này sẽ được chuyển vào danh sách 'yêu thích'.
 History:
   # On History Page
   History: 'Lịch sử'
@@ -160,6 +160,7 @@ Settings:
       Light: 'Sáng'
       Dracula: 'Ma cà rồng'
       System Default: Mặc định hệ thống
+      Catppuccin Mocha: Catppuccin Mocha - Màu cà phê
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -185,6 +186,20 @@ Settings:
       Dracula Purple: 'Ma cà rồng Tím'
       Dracula Red: 'Ma cà rồng Đỏ'
       Dracula Yellow: 'Ma cà rồng Vàng'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater Màu hoa hồng
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo Màu hồng hạc
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink Màu hồng hạc
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve - Màu tím
+      Catppuccin Mocha Red: Catppuccin Mocha Red Màu đỏ
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon Màu nâu tim
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach Màu đào
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow Màu vàng
+      Catppuccin Mocha Green: Catppuccin Mocha Green Màu xanh lục
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal Màu mòng két
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky Màu xanh da trời
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire màu xanh
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender Màu tím nhạt
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue Màu xanh
     Secondary Color Theme: 'Màu chủ đề thứ hai'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -829,7 +844,7 @@ Tooltips:
       ngoài.
     Custom External Player Executable: Theo mặc định, FreeTube sẽ giả định rằng trình
       phát bên ngoài đã chọn có thể được tìm thấy thông qua biến môi trường PATH.
-      Nếu cần, bạn có thể đặt một đường dẫn tuỳ chọn ở đây,
+      Nếu cần, bạn có thể đặt một đường dẫn tuỳ chọn ở đây.
     Ignore Warnings: 'Loại bỏ cảnh báo khi trình phát bên ngoài hiện tại không hỗ
       trợ cho thao tác hiện tại (ví dụ: đảo ngược danh sách phát, v.v.).'
     DefaultCustomArgumentsTemplate: "(Mặc định: '$')"
