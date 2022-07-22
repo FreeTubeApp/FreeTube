@@ -293,8 +293,7 @@ export default Vue.extend({
             channelName: this.channelName,
             channelId: this.channelId
           })
-
-          this.genre = result.genre
+          this.genre = result.videoDetails.category
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
