@@ -6,7 +6,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Выйти'
-Edit: 'Редактировать'
+Edit: 'Править'
 Undo: 'Отменить'
 Redo: 'Повторить'
 Cut: 'Вырезать'
@@ -17,7 +17,7 @@ Select all: 'Выбрать все'
 Reload: 'Перезагрузить'
 Force Reload: 'Принудительная перезагрузка'
 Toggle Developer Tools: 'Переключить инструменты разработчика'
-Actual size: 'Фактический размер'
+Actual size: 'Настоящий размер'
 Zoom in: 'Увеличить'
 Zoom out: 'Уменьшить'
 Toggle fullscreen: 'Включить полноэкранный режим'
@@ -28,14 +28,14 @@ Back: 'Назад'
 Forward: 'Вперед'
 
 # Search Bar
-Search / Go to URL: 'Поиск / Перейти по URL'
+Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
   Search Filters: 'Фильтры поиска'
   Sort By:
-    Sort By: 'Сортировать по'
-    Most Relevant: 'Наиболее релевантным'
-    Rating: 'Рейтингу'
+    Sort By: 'Упорядочивать по'
+    Most Relevant: 'Наиболее подходящим'
+    Rating: 'Оценке'
     Upload Date: 'Дате загрузки'
     View Count: 'Количеству просмотров'
   Time:
@@ -58,11 +58,11 @@ Search Filters:
     Short (< 4 minutes): 'Короткие (< 4 минут)'
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
-  Search Results: 'Результаты поиска'
-  Fetching results. Please wait: 'Получение результатов, подождите'
-  Fetch more results: 'Получить больше результатов'
+  Search Results: 'Итоги поиска'
+  Fetching results. Please wait: 'Получение выдачи, подождите'
+  Fetch more results: 'Получить больше выдачи'
 # Sidebar
-  There are no more results for this search: Больше нет результатов по этому запросу
+  There are no more results for this search: Больше нет выдачи по этому запросу
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
@@ -73,9 +73,9 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
   Refresh Subscriptions: Обновить подписки
   Getting Subscriptions. Please wait.: Получение подписок, подождите.
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Этот
-    профиль имеет большое количество подписок. Принудительно используется RSS, чтобы
-    избежать ограничения скорости
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Эта
+    учётная запись имеет большое количество подписок. Принудительно используется RSS,
+    чтобы избежать ограничения скорости
   Load More Videos: Загрузить больше видео
   Error Channels: Каналы с ошибками
 Trending:
@@ -114,7 +114,7 @@ Settings:
       при сбое'
     Enable Search Suggestions: 'Отображать поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
-    Locale Preference: 'Язык программы'
+    Locale Preference: 'Язык приложения'
     Preferred API Backend:
       Preferred API Backend: 'Предпочитаемый API Backend'
       Local API: 'Локальный API'
@@ -139,8 +139,8 @@ Settings:
     System Default: Системные установки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
     Set Current Instance as Default: Установить текущий экземпляр по умолчанию
-    Current instance will be randomized on startup: При запуске текущий экземпляр
-      будет выбран случайным образом
+    Current instance will be randomized on startup: Текущий экземпляр при запуске
+      будет выбран случайно
     No default instance has been set: Не установлен экземпляр по умолчанию
     The currently set default instance is $: 'Текущий установленный экземпляр по умолчанию:
       $'
@@ -158,7 +158,7 @@ Settings:
       Black: 'Чёрная'
       Dark: 'Тёмная'
       Light: 'Светлая'
-      Dracula: 'Цвета Dracula'
+      Dracula: 'Дракула'
       System Default: Системная
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
@@ -194,21 +194,21 @@ Settings:
   Player Settings:
     Player Settings: 'Проигрыватель'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
-      Backend для устаревших форматов'
+      движок для устаревших форматов'
     Remember History: 'Запоминать историю'
     Play Next Video: 'Воспроизводить следующее видео'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
     Autoplay Videos: 'Автовоспроизведение видео'
     Proxy Videos Through Invidious: 'Смотреть видео через прокси Invidious'
     Autoplay Playlists: 'Автовоспроизведение плейлистов'
-    Enable Theatre Mode by Default: 'Включать режим театра'
+    Enable Theatre Mode by Default: 'Включать режим широкого экрана'
     Default Volume: 'Громкость по умолчанию'
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
     Default Video Format:
       Default Video Format: 'Формат видео по умолчанию'
       Dash Formats: 'DASH'
-      Legacy Formats: 'Устаревший'
-      Audio Formats: 'Аудио'
+      Legacy Formats: 'Устаревшие форматы'
+      Audio Formats: 'Звуковые форматы'
     Default Quality:
       Default Quality: 'Качество по умолчанию'
       Auto: 'Авто'
@@ -222,14 +222,14 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
-    Scroll Volume Over Video Player: Прокрутка громкости поверх видеоплеера
-    Next Video Interval: Интервал следующего видео
-    Display Play Button In Video Player: Отображать кнопку воспроизведения в видеоплеере
-    Fast-Forward / Rewind Interval: Интервал перемотки вперед/назад
+    Scroll Volume Over Video Player: Прокрутка громкости поверх видеопроигрывателя
+    Next Video Interval: Промежуток к переходу на следующее видео
+    Display Play Button In Video Player: Отображать кнопку воспроизведения в видеопроигрывателе
+    Fast-Forward / Rewind Interval: Промежуток перемотки вперёд/назад
     Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх
-      видеоплеера
-    Max Video Playback Rate: Максимальная скорость воспроизведения
-    Video Playback Rate Interval: Интервал скорости воспроизведения видео
+      видеопроигрывателя
+    Max Video Playback Rate: Предельная скорость воспроизведения
+    Video Playback Rate Interval: Промежуток скорости воспроизведения видео
     Screenshot:
       Ask Path: Спрашивать, куда сохранять
       Error:
@@ -299,7 +299,7 @@ Settings:
     Remember History: Запоминать историю
     Privacy Settings: Конфиденциальность
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Выполнить
-      удаление всех подписок и профилей?  Невозможно отменить.
+      удаление всех подписок и учётных записей?  Невозможно отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
     Automatically Remove Video Meta Files: Автоудаление метафайлов видео
   Data Settings:
@@ -354,7 +354,7 @@ Settings:
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
     Hide Video Views: Скрыть просмотры видео
-    Hide Active Subscriptions: Скрыть активные подписки
+    Hide Active Subscriptions: Скрыть действующие подписки
     Hide Playlists: Скрыть плейлисты
     Hide Live Streams: Скрыть прямые трансляции
     Hide Sharing Actions: Скрыть действия общего доступа
@@ -381,10 +381,10 @@ Settings:
     Proxy Settings: Прокси
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Уведомлять о пропущенном отрезке спонсора
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-адрес SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
-    SponsorBlock Settings: SponsorBlock
+    SponsorBlock Settings: Настройки SponsorBlock
     Skip Options:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
@@ -395,7 +395,7 @@ Settings:
   External Player Settings:
     Custom External Player Arguments: Аргументы внешнего проигрывателя
     Custom External Player Executable: Исполняемый файл внешнего проигрывателя
-    Ignore Unsupported Action Warnings: Игнорировать предупреждения о неподдерживаемых
+    Ignore Unsupported Action Warnings: Пропускать предупреждения о неподдерживаемых
       действиях
     External Player: Внешний проигрыватель
     External Player Settings: Внешний проигрыватель
@@ -413,7 +413,7 @@ Settings:
     Hide Search Bar: Скрыть строку поиска
 About:
   #On About page
-  About: 'О FreeTube'
+  About: 'О приложении'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Это
     программное обеспечение с авторским левом распространяется под свободной лицензией
@@ -474,8 +474,8 @@ Channel:
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'
   Search Channel: 'Поиск на канале'
-  Your search results have returned 0 results: 'По вашему запросу найдено 0 результатов'
-  Sort By: 'Сортировать по'
+  Your search results have returned 0 results: 'По вашему запросу ничего не найдено'
+  Sort By: 'Упорядочивать по'
   Videos:
     Videos: 'Видео'
     This channel does not currently have any videos: 'На этом канале в настоящее время
@@ -568,7 +568,7 @@ Video:
   Play Next Video: Воспроизвести следующее видео
   Reverse Playlist: Обратный порядок плейлиста
   Shuffle Playlist: Перемешать плейлист
-  Loop Playlist: Зациклить плейлист
+  Loop Playlist: Повторять плейлист
   Starting soon, please refresh the page to check again: Скоро начнется, обновите
     страницу, чтобы проверить еще раз
   Audio:
@@ -576,7 +576,7 @@ Video:
     High: Высокое
     Medium: Среднее
     Low: Низкое
-  audio only: только аудио
+  audio only: только звук
   video only: только видео
   Download Video: Скачать видео
   Copy Invidious Channel Link: Скопировать ссылку на канал Invidious
@@ -601,7 +601,7 @@ Video:
   Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
-      looping playlists: зацикленные плейлисты
+      looping playlists: повторение плейлистов
       shuffling playlists: перемешивание плейлистов
       reversing playlists: реверсирование плейлистов
       opening specific video in a playlist (falling back to opening the video): открытие
@@ -627,7 +627,7 @@ Video:
       для устаревших видео
     Video ID: ID видео
     Resolution: Разрешение
-    Player Dimensions: Размеры плеера
+    Player Dimensions: Размеры проигрывателя
     Bitrate: Битрейт
     Volume: Громкость
     Bandwidth: Пропускная способность
@@ -660,14 +660,14 @@ Playlist:
 #* Published
 #& Views
   Playlist: Плейлист
-Toggle Theatre Mode: 'Переключить режим театра'
+Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
   Change Video Formats: 'Изменить форматы видео'
   Use Dash Formats: 'Использовать Dash форматы'
   Use Legacy Formats: 'Использовать устаревшие форматы'
-  Use Audio Formats: 'Использовать аудио форматы'
-  Audio formats are not available for this video: Аудио форматы недоступны для этого
-    видео
+  Use Audio Formats: 'Использовать звуковые форматы'
+  Audio formats are not available for this video: Звуковые форматы недоступны для
+    этого видео
   Dash formats are not available for this video: DASH форматы недоступены для этого
     видео
 Share:
@@ -677,17 +677,18 @@ Share:
   Copy Embed: 'Скопировать встраиваемые'
   Open Embed: 'Открыть встраиваемые'
   # On Click
-  Invidious URL copied to clipboard: 'URL Invidious скопирован в буфер обмена'
-  Invidious Embed URL copied to clipboard: 'Встраиваемый URL Invidious скопирован
+  Invidious URL copied to clipboard: 'Адрес Invidious скопирован в буфер обмена'
+  Invidious Embed URL copied to clipboard: 'Встраиваемый адрес Invidious скопирован
     в буфер обмена'
-  YouTube URL copied to clipboard: 'URL Youtube скопирован в буфер обмена'
-  YouTube Embed URL copied to clipboard: 'Встраиваемый URL YouTube скопирован в буфер
-    обмена'
+  YouTube URL copied to clipboard: 'Адрес Youtube скопирован в буфер обмена'
+  YouTube Embed URL copied to clipboard: 'Встраиваемый адрес YouTube скопирован в
+    буфер обмена'
   Include Timestamp: Включить отметку времени
-  YouTube Channel URL copied to clipboard: URL канала YouTube скопирован в буфер обмена
-  Invidious Channel URL copied to clipboard: URL-адрес канала Invidious скопирован
+  YouTube Channel URL copied to clipboard: Адрес канала YouTube скопирован в буфер
+    обмена
+  Invidious Channel URL copied to clipboard: Сетевой адрес канала Invidious скопирован
     в буфер обмена
-Mini Player: 'Мини-плеер'
+Mini Player: 'Мини-проигрыватель'
 Comments:
   Comments: 'Комментарии'
   Click to View Comments: 'Нажмите, чтобы просмотреть комментарии'
@@ -706,7 +707,7 @@ Comments:
   No more comments available: Больше комментариев нет
   Newest first: Сначала новые
   Top comments: Лучшим комментариям
-  Sort by: Сортировать по
+  Sort by: Упорядочивать по
   Show More Replies: Показать больше ответов
   From $channelName: от $channelName
   And others: и других
@@ -715,13 +716,15 @@ Comments:
 Up Next: 'Следующий'
 
 # Toast Messages
-Local API Error (Click to copy): 'Ошибка локального API (Нажмите, чтобы скопировать)'
-Invidious API Error (Click to copy): 'Ошибка invidious API (Нажмите, чтобы скопировать)'
-Falling back to Invidious API: 'Возврат к Invidious API'
-Falling back to the local API: 'Возврат к локальному API'
+Local API Error (Click to copy): 'Ошибка локальных средств разработки (Нажмите, чтобы
+  скопировать)'
+Invidious API Error (Click to copy): 'Ошибка средств разработки invidious (Нажмите,
+  чтобы скопировать)'
+Falling back to Invidious API: 'Возврат к средствам разработки Invidious'
+Falling back to the local API: 'Возврат к локальным средствам разработки'
 Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
-Loop is now disabled: 'Зацикливание теперь отключено'
-Loop is now enabled: 'Зацикливание теперь включено'
+Loop is now disabled: 'Повторение теперь отключено'
+Loop is now enabled: 'Повторение теперь включено'
 Shuffle is now disabled: 'Перемешивание теперь отключено'
 Shuffle is now enabled: 'Перемешивание теперь включено'
 Playing Next Video: 'Воспроизведение следующего видео'
@@ -730,51 +733,52 @@ Playing next video in 5 seconds.  Click to cancel: 'Воспроизведени
   через 5 секунд. Нажмите, чтобы отменить.'
 Canceled next video autoplay: 'Отменено автовоспроизведение следующего видео'
 'The playlist has ended.  Enable loop to continue playing': 'Плейлист закончился.
-  Включите зацикливание, чтобы продолжить воспроизведение'
+  Включите повторение, чтобы продолжить воспроизведение'
 
 Yes: 'Да'
 No: 'Нет'
 Locale Name: Русский
 Profile:
-  $ is now the active profile: $ теперь активный профиль
-  Your default profile has been changed to your primary profile: Профиль по умолчанию
-    был изменён на ваш основной профиль
-  Profile has been updated: Профиль обновлён
-  Removed $ from your profiles: $ удалён из профилей
-  Your default profile has been set to $: Профилем по умолчанию установлен $
-  Profile has been created: Профиль создан
-  Your profile name cannot be empty: Имя вашего профиля не может быть пустым
-  Profile could not be found: Не удалось найти профиль
+  $ is now the active profile: Теперь $ действующая учётная запись
+  Your default profile has been changed to your primary profile: Учётная запись по
+    умолчанию была изменена на вашу основную
+  Profile has been updated: Учётная запись обновлена
+  Removed $ from your profiles: Теперь учётная запись $ удалена
+  Your default profile has been set to $: Теперь $ установлена вашей учётной записью
+    по умолчанию
+  Profile has been created: Учётная запись создана
+  Your profile name cannot be empty: Имя вашей учётной записи не может быть пустым
+  Profile could not be found: Не удалось найти учётную запись
   All subscriptions will also be deleted.: Все подписки также будут удалены.
-  Are you sure you want to delete this profile?: Удалить этот профиль?
-  Delete Profile: Удалить профиль
-  Make Default Profile: Сделать профилем по умолчанию
-  Update Profile: Обновить профиль
-  Create Profile: Создать профиль
+  Are you sure you want to delete this profile?: Удалить эту учётную запись?
+  Delete Profile: Удалить учётную запись
+  Make Default Profile: Сделать учётной записью по умолчанию
+  Update Profile: Обновить учётную запись
+  Create Profile: Создать учётную запись
   Profile Preview: Предпросмотр профиля
   Custom Color: Свой цвет
   Color Picker: Выбор цвета
-  Edit Profile: Изменить профиль
-  Create New Profile: Создать новый профиль
-  Profile Manager: Менеджер профилей
+  Edit Profile: Изменить учётную запись
+  Create New Profile: Создать новую учётную запись
+  Profile Manager: Менеджер учётных записей
   All Channels: Все каналы
-  Profile Select: Выбор профиля
+  Profile Select: Выбор учётной записи
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Удалить
-    выбранные каналы? Это не приведёт к удалению каналов из любого другого профиля.
+    выбранные каналы? Это не приведёт к удалению каналов из любой другой учётной записи.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Это ваш основной профиль. Вы уверены, что хотите удалить выбранные каналы? Те
-    же каналы будут удалены из любого профиля, в котором они находятся.
+  : Это ваша основная учётная запись. Вы уверены, что хотите удалить выбранные каналы?
+    Те же каналы будут удалены из любой учётной записи, в которой они находятся.
   No channel(s) have been selected: Каналы не выбраны
-  Add Selected To Profile: Добавить выбранное в профиль
+  Add Selected To Profile: Добавить выбранное в учётную запись
   Delete Selected: Удалить выбранное
   Select None: Ничего не выбрано
   Select All: Выбрать все
   $ selected: Выбрано $
   Other Channels: Другие каналы
   Subscription List: Список подписок
-  Profile Filter: Фильтры профилей
-  Profile Settings: Профиль
+  Profile Filter: Фильтры учётных записей
+  Profile Settings: Учётная запись
 The playlist has been reversed: Плейлист был перевернут
 A new blog is now available, $. Click to view more: Доступен новый блог $. Нажмите
   здесь, чтобы посмотреть подробности
@@ -798,7 +802,7 @@ Tooltips:
       подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
       трендовые видео. Не все отображаемые страны поддерживаются YouTube.
-    External Link Handling: "Выберите действие при клике на ссылку, которая не может\
+    External Link Handling: "Выберите действие при нажатии на ссылку, которая не может\
       \ быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере\
       \ по умолчанию.\n"
   Subscription Settings:
@@ -809,48 +813,49 @@ Tooltips:
   Player Settings:
     Default Video Format: Устанавливает форматы, используемые при воспроизведении
       видео. Формат DASH может воспроизводить более высокое качество. Устаревшие форматы
-      ограничены максимумом 720p, но используют меньшую полосу пропускания. Аудио
-      форматы - это только аудио потоки.
+      ограничены пределом в 720p, но используют меньшую полосу пропускания. Звуковые
+      форматы - это только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
-      вместо прямого подключения к YouTube. Переопределяет предпочтения API.
+      вместо прямого подключения к YouTube. Переопределяет предпочтения средств разработки.
     Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
-      Invidious API. Если этот параметр включен, локальный API будет работать и использовать
-      устаревшие форматы вместо форматов Invidious. Помогает, когда видео, возвращенные
-      Invidious, не воспроизводятся из-за ограничений страны.
-    Scroll Playback Rate Over Video Player: Пока курсор находится над видео, нажмите
-      и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите колесо мыши
-      вперед или назад, чтобы контролировать скорость воспроизведения. Нажмите и удерживайте
-      клавишу Control (клавиша Command на Mac) и щелкните левой кнопкой мыши, чтобы
-      быстро вернуться к типовой скорости воспроизведения (1x, если она не была изменена
-      в настройках).
+      средства разработки Invidious. Если эта настройка включена, локальные средства
+      разработки будут работать и использовать устаревшие форматы вместо форматов
+      Invidious. Помогает, когда видео, возвращенные Invidious, не воспроизводятся
+      из-за ограничений страны.
+    Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео,
+      нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите
+      колесо мыши вперед или назад, чтобы изменять скорость воспроизведения. Нажмите
+      и удерживайте клавишу Control (клавиша Command на Mac) и щелкните левой кнопкой
+      мыши, чтобы быстро вернуться к обычной скорости воспроизведения (1x, если она
+      не была изменена в настройках).
   Privacy Settings:
-    Remove Video Meta Files: Если этот параметр включен, FreeTube автоматически удаляет
-      метафайлы, созданные во время воспроизведения видео, когда страница просмотра
+    Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
+      метаданные, созданные во время воспроизведения видео, когда страница просмотра
       закрывается.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
-    Ignore Warnings: Подавлять предупреждения, когда текущий внешний плеер не поддерживает
-      текущее действие (например,переворот плейлистов и т.д.).
+    Ignore Warnings: Подавлять предупреждения, когда текущий внешний проигрыватель
+      не поддерживает текущее действие (например,переворот плейлистов и т.д.).
     Custom External Player Executable: По умолчанию FreeTube будет считать, что выбранный
-      внешний плеер можно найти через переменную окружения PATH. При необходимости
+      внешний проигрыватель можно найти через переменную окружения PATH. При необходимости
       здесь можно задать собственный путь.
-    External Player: При выборе внешнего плеера на миниатюре появится значок, позволяющий
-      открыть видео (плейлист, если поддерживается) во внешнем плеере. Внимание, настройки
-      Invidious не применяются к внешним плеерам.
+    External Player: При выборе внешнего проигрывателя на миниатюре появится значок,
+      позволяющий открыть видео (плейлист, если поддерживается) во внешнем проигрывателе.
+      Внимание, настройки Invidious не применяются к внешним проигрывателям.
     DefaultCustomArgumentsTemplate: "(По умолчанию: '$')"
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены.
-Hashtags have not yet been implemented, try again later: Хэштеги еще не реализованы,
-  попробуйте позже
-Unknown YouTube url type, cannot be opened in app: Неизвестный тип URL-адреса YouTube,
-  не может быть открыт в приложении
+Hashtags have not yet been implemented, try again later: Распределительные метки еще
+  не сделаны, попробуйте позже
+Unknown YouTube url type, cannot be opened in app: Неизвестный тип сетевого адреса
+  YouTube, не может быть открыт в приложении
 Open New Window: Открыть новое окно
-Default Invidious instance has been cleared: Экземпляр Invidious по умолчанию очищен
-Default Invidious instance has been set to $: Экземпляр Invidious по умолчанию установлен
+Default Invidious instance has been cleared: Образец Invidious по умолчанию очищен
+Default Invidious instance has been set to $: Образец Invidious по умолчанию установлен
   на $
 External link opening has been disabled in the general settings: Открытие внешних
   ссылок отключено в настройках
