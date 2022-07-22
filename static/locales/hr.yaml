@@ -161,6 +161,7 @@ Settings:
       Light: 'Svijetla'
       Dracula: 'Drakula'
       System Default: Standard sustava
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -186,6 +187,20 @@ Settings:
       Dracula Purple: 'Drakula Ljubičasta'
       Dracula Red: 'Drakula Crvena'
       Dracula Yellow: 'Drakula Žuta'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Ružičasta
+      Catppuccin Mocha Mauve: Catppuccin Mocha Ljubičasta
+      Catppuccin Mocha Red: Catppuccin Mocha Crvena
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kestenjasta
+      Catppuccin Mocha Peach: Catppuccin Mocha Breskva
+      Catppuccin Mocha Yellow: Catppuccin Mocha Žuta
+      Catppuccin Mocha Teal: Catppuccin Mocha Plavozelena
+      Catppuccin Mocha Sky: Catppuccin Mocha Nebo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Plava
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Catppuccin Mocha Green: Catppuccin Mocha Zelena
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
