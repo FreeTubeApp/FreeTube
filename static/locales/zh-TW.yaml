@@ -149,6 +149,7 @@ Settings:
       Light: '淺色'
       Dracula: '德古拉'
       System Default: 系統預設值
+      Catppuccin Mocha: 卡布奇諾摩卡
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -174,6 +175,20 @@ Settings:
       Dracula Purple: '德古拉 紫'
       Dracula Red: '德古拉 红'
       Dracula Yellow: '德古拉 黄'
+      Catppuccin Mocha Yellow: 卡布奇諾摩卡黃色
+      Catppuccin Mocha Green: 卡布奇諾摩卡綠色
+      Catppuccin Mocha Flamingo: 卡布奇諾摩卡紅鶴
+      Catppuccin Mocha Teal: 卡布奇諾摩卡藍綠色
+      Catppuccin Mocha Rosewater: 卡布奇諾摩卡玫瑰水
+      Catppuccin Mocha Lavender: 卡布奇諾摩卡薰衣草色
+      Catppuccin Mocha Blue: 卡布奇諾摩卡藍色
+      Catppuccin Mocha Pink: 卡布奇諾摩卡粉紅
+      Catppuccin Mocha Red: 卡布奇諾摩卡紅色
+      Catppuccin Mocha Mauve: 卡布奇諾摩卡紫紅色
+      Catppuccin Mocha Maroon: 卡布奇諾摩卡褐紅色
+      Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
+      Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
+      Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
