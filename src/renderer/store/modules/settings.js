@@ -260,6 +260,7 @@ const state = {
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
+  videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   downloadFolderPath: '',
   downloadBehavior: 'download',

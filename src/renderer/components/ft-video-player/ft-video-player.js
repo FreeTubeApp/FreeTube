@@ -178,6 +178,10 @@ export default Vue.extend({
       return this.$store.getters.getVideoPlaybackRateMouseScroll
     },
 
+    videoSkipMouseScroll: function () {
+      return this.$store.getters.getVideoSkipMouseScroll
+    },
+
     useSponsorBlock: function () {
       return this.$store.getters.getUseSponsorBlock
     },
@@ -453,6 +457,9 @@ export default Vue.extend({
           this.player.el_.firstChild.style.pointerEvents = 'none'
           this.player.on('click', this.handlePlayerClick)
         }
+        if (this.videoSkipMouseScroll) {
+          this.player.on('wheel', this.mouseScrollSkip)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
@@ -689,6 +696,19 @@ export default Vue.extend({
           } else if (event.wheelDelta < 0) {
             this.changePlayBackRate(-0.05)
           }
+        }
+      }
+    },
+
+    mouseScrollSkip: function (event) {
+      if (event.target && (event.target.matches('.vjs-tech') || event.target.matches('.ftVideoPlayer'))) {
+        event.preventDefault()
+
+        if (event.wheelDelta > 0) {
+          this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+        }
+        if (event.wheelDelta < 0) {
+          this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
         }
       }
     },
