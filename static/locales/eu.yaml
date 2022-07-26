@@ -172,6 +172,7 @@ Settings:
       Light: 'Argia'
       Dracula: Drakula
       System Default: Sistemak lehenetsia
+      Catppuccin Mocha: Catppuccin Motxa
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -197,6 +198,20 @@ Settings:
       Dracula Red: Drakula gorria
       Dracula Green: Drakula berdea
       Dracula Yellow: Drakula horia
+      Catppuccin Mocha Flamingo: Catppuccin Motxa Flamingo
+      Catppuccin Mocha Pink: Catppuccin Motxa Larrosa
+      Catppuccin Mocha Sapphire: Catppuccin Motxa Zafiro
+      Catppuccin Mocha Lavender: Catppuccin Motxa Izpilikua
+      Catppuccin Mocha Blue: Catppuccin Motxa Urdina
+      Catppuccin Mocha Rosewater: Catppuccin Motxa urlarrosa
+      Catppuccin Mocha Mauve: Catppuccin Motxa Ubela
+      Catppuccin Mocha Red: Catppuccin Motxa Gorria
+      Catppuccin Mocha Maroon: Catppuccin Motxa Marroia
+      Catppuccin Mocha Peach: Catppuccin Motxa Mertxika
+      Catppuccin Mocha Yellow: Catppuccin Motxa Horia
+      Catppuccin Mocha Green: Catppuccin Motxa Berdea
+      Catppuccin Mocha Teal: Catppuccin Motxa Zertzeta
+      Catppuccin Mocha Sky: Catppuccin Motxa Zerua
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
@@ -286,6 +301,10 @@ Settings:
     Hide Playlists: 'Erreprodukzio zerrendak ezkutatu'
     Hide Live Chat: 'Zuzeneko txata ezkutatu'
     Hide Active Subscriptions: 'Harpidetza aktiboak ezkutatu'
+    Hide Sharing Actions: Partekatze ekintzak ezkutatu
+    Hide Video Description: Bideoaren deskribapena ezkutatu
+    Hide Comments: Iruzkinak ezkutatu
+    Hide Live Streams: Zuzeneko emanaldiak ezkutatu
   Data Settings:
     Data Settings: 'Datuen ezarpenak'
     Select Import Type: 'Hautatu Inportazio mota'
@@ -378,6 +397,11 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko
       API Url (lehenetsia https://sponsor.ajay.app da)
     SponsorBlock Settings: Babesleak blokeatzeko ezarpenak
+  Parental Control Settings:
+    Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
+    Hide Unsubscribe Button: Harpidetza kendu botoia ezkutatu
+    Parental Control Settings: Gurasoen kontrolaren ezarpenak
+    Hide Search Bar: Bilaketa barra ezkutatu
 About:
   #On About page
   About: 'Honi buruz'
@@ -752,7 +776,8 @@ Tooltips:
     Ignore Warnings: Jakinarazpenak kendu, uneko kanpo erreproduzitzaileak uneko ekintza
       onartzen ez duenean (esaterako, alderantzizko erreprodukzio zerrendak, etab.).
     External Player: Kanpo erreproduzitzaile bat hautatuz gero, bideoa edo erreproduzkio
-      zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan.
+      zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan. Kontuz,
+      Individious-en ezarpenek ez dituzte kanpo erreproduzitzaileak trabatzen.
     Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak,
       puntu eta komaz bereizita (';'), kanpoko erreproduzitzailera pasatzea nahi duzu.
 Local API Error (Click to copy): 'Tokiko API-ak huts egin du (klikatu kopiatzeko)'
@@ -800,3 +825,18 @@ Downloading failed: Akats bat gertatu da "$" deskargatzerakoan
 Screenshot Success: Pantaila-argazkia gode da "$" gisa
 Screenshot Error: Pantaila-argazkiak huts egin du. $
 Starting download: '"$"-ren deskarga abiatzen'
+New Window: Leiho berria
+Channels:
+  Channels: Kanalak
+  Title: Kanalen zerrenda
+  Search bar placeholder: Kanalak bilatu
+  Unsubscribe: Harpidetza kendu
+  Unsubscribed: $ zure harpidetzen zerrendatik ezabatu da
+  Unsubscribe Prompt: Ziur al zaude "$"-ren harpidetza kendu nahi duzula?
+  Count: $ kanal aurkitu dira.
+  Empty: Zure kanalen zerrenda hutsik da.
+Age Restricted:
+  This $contentType is age restricted: Honako $ adin muga du
+  Type:
+    Channel: Kanala
+    Video: Bideoa
