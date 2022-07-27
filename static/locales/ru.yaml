@@ -190,7 +190,7 @@ Settings:
     UI Scale: Масштаб интерфейса
     Expand Side Bar by Default: Расширить боковую панель
     Disable Smooth Scrolling: Отключить плавную прокрутку
-    Hide Side Bar Labels: Скрыть текст ярлыков боковой панели
+    Hide Side Bar Labels: Скрыть надписи боковой панели
   Player Settings:
     Player Settings: 'Проигрыватель'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
