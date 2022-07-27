@@ -77,6 +77,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
     de banda
+  Error Channels: Canais com erros
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -159,6 +160,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Padrão do sistema
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -184,6 +186,7 @@ Settings:
       Dracula Purple: 'Drácula Roxa'
       Dracula Red: 'Drácula Vermelha'
       Dracula Yellow: 'Drácula Amarelo'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -229,6 +232,17 @@ Settings:
       de vídeo
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
+    Screenshot:
+      File Name Label: Padrão de nome de arquivo
+      Enable: Ativar captura de tela
+      Ask Path: Peça para escolher a pasta de salvamento
+      Folder Label: Pasta de captura de tela
+      Folder Button: Selecionar pasta
+      Error:
+        Empty File Name: Nome do arquivo vazio
+        Forbidden Characters: Caracteres proibidos
+      Format Label: Formato da captura de tela
+      Quality Label: Qualidade da captura de tela
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -345,6 +359,10 @@ Settings:
     Hide Video Views: Ocultar Visualizações de Vídeo
     Hide Active Subscriptions: Ocultar Inscrições Ativas
     Hide Playlists: Ocultar listas de reprodução
+    Hide Video Description: Ocultar descrição do vídeo
+    Hide Sharing Actions: Ocultar ações de compartilhamento
+    Hide Comments: Ocultar comentários
+    Hide Live Streams: Ocultar transmissões ao vivo
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -371,6 +389,13 @@ Settings:
       (o padrão é https://sponsor.ajay.app)
     Enable SponsorBlock: Ativar o Bloqueio de Patrocinadores
     SponsorBlock Settings: Configurações de Bloqueio de Patrocinadores
+    Skip Options:
+      Show In Seek Bar: Mostrar na barra de busca
+      Prompt To Skip: Solicitar para pular
+      Do Nothing: Não fazer nada
+      Auto Skip: Pular automaticamente
+      Skip Option: Opção de pular
+    Category Color: Cor da categoria
   External Player Settings:
     Custom External Player Arguments: Argumentos de player externo personalizados
     External Player: Player externo
@@ -381,6 +406,14 @@ Settings:
     Download Settings: Configurações de download
     Ask Download Path: Peça o caminho de download
     Choose Path: Escolha o caminho
+    Open in web browser: Abrir no navegador da web
+    Download in app: Baixe no aplicativo
+    Download Behavior: Comportamento de download
+  Parental Control Settings:
+    Show Family Friendly Only: Mostrar Apenas Amigável à Família
+    Hide Search Bar: Ocultar barra de pesquisa
+    Parental Control Settings: Configurações de Controle Parental
+    Hide Unsubscribe Button: Ocultar botão de cancelamento de inscrição
 About:
   #On About page
   About: 'Sobre'
@@ -560,11 +593,13 @@ Video:
   translated from English: traduzido do inglês
   Sponsor Block category:
     music offtopic: Música fora do contexto
-    interaction: interação
-    self-promotion: autopromoção
-    outro: epílogo
-    intro: introdução
-    sponsor: patrocinador
+    interaction: Interação
+    self-promotion: Auto-Promoção
+    outro: Conclusão
+    intro: Introdução
+    sponsor: Patrocinador
+    filler: Enchimento
+    recap: Recapitulação
   Skipped segment: Segmentos pulados
   External Player:
     Unsupported Actions:
@@ -808,8 +843,9 @@ Tooltips:
     Custom External Player Executable: Por padrão, o FreeTube assumirá que o player
       externo escolhido pode ser encontrado por meio da variável de ambiente PATH.
       Se necessário, um caminho personalizado pode ser definido aqui.
-    External Player: A escolha de um reprodutor externo exibirá um ícone para abrir
-      o vídeo (lista de reprodução, se houver suporte) no reprodutor externo, na miniatura.
+    External Player: A escolha de um player externo exibirá um ícone, para abrir o
+      vídeo (lista de reprodução, se compatível) no player externo, na miniatura.
+      Aviso, as configurações do Invidious não afetam os players externos.
     DefaultCustomArgumentsTemplate: "(Padrão: '$')"
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
@@ -833,3 +869,19 @@ Downloading has completed: '"$" terminou de baixar'
 Starting download: Iniciando o download de "$"
 Downloading failed: Ocorreu um problema ao fazer o download de "$"
 New Window: Nova janela
+Channels:
+  Channels: Canais
+  Title: Lista de Canais
+  Search bar placeholder: Buscar Canais
+  Empty: Sua lista de canais está vazia no momento.
+  Unsubscribe: Cancelar inscrição
+  Unsubscribed: $ foi removido de suas assinaturas
+  Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "$"?
+  Count: $ canal(is) encontrado(s).
+Age Restricted:
+  This $contentType is age restricted: Este $ tem restrição de idade
+  Type:
+    Channel: Canal
+    Video: Vídeo
+Screenshot Success: Captura de tela salva como "$"
+Screenshot Error: Falha na captura de tela. $
