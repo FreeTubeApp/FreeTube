@@ -116,9 +116,9 @@ Settings:
     Default Landing Page: 'Целевая страница по умолчанию'
     Locale Preference: 'Язык приложения'
     Preferred API Backend:
-      Preferred API Backend: 'Предпочитаемый API Backend'
-      Local API: 'Локальный API'
-      Invidious API: 'Invidious API'
+      Preferred API Backend: 'Предпочитаемый движок набора функций'
+      Local API: 'Локальный набор функций'
+      Invidious API: 'Набор функций Invidious'
     Video View Type:
       Video View Type: 'Тип отображения видео'
       Grid: 'Сеткой'
@@ -456,7 +456,7 @@ About:
   Blog: Блог
   Website: Сайт
   Report a problem: Сообщить о проблеме
-  FAQ: ЧаВо
+  FAQ: ЧАВО
   FreeTube Wiki: Вики FreeTube
   Help: Помощь
   GitHub releases: Релизы на GitHub
@@ -528,8 +528,8 @@ Video:
   Live chat is enabled.  Chat messages will appear here once sent.: 'Чат трансляции
     включен. Сообщения чата будут отображаться здесь после отправки.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Чат
-    трансляции в настоящее время не поддерживается Invidious API. Требуется прямое
-    подключение к YouTube.'
+    трансляции в настоящее время не поддерживается набором функций Invidious. Требуется
+    прямое подключение к YouTube.'
   Published:
     Jan: 'Янв'
     Feb: 'Фев'
@@ -716,12 +716,12 @@ Comments:
 Up Next: 'Следующий'
 
 # Toast Messages
-Local API Error (Click to copy): 'Ошибка локальных средств разработки (Нажмите, чтобы
+Local API Error (Click to copy): 'Ошибка локального набора функций (Нажмите, чтобы
   скопировать)'
-Invidious API Error (Click to copy): 'Ошибка средств разработки invidious (Нажмите,
-  чтобы скопировать)'
-Falling back to Invidious API: 'Возврат к средствам разработки Invidious'
-Falling back to the local API: 'Возврат к локальным средствам разработки'
+Invidious API Error (Click to copy): 'Ошибка набора функций invidious (Нажмите, чтобы
+  скопировать)'
+Falling back to Invidious API: 'Возврат к набору функций Invidious'
+Falling back to the local API: 'Возврат к локальному набору функций'
 Subscriptions have not yet been implemented: 'Подписки еще не реализованы'
 Loop is now disabled: 'Повторение теперь отключено'
 Loop is now enabled: 'Повторение теперь включено'
@@ -792,14 +792,14 @@ Tooltips:
   General Settings:
     Thumbnail Preference: Все эскизы во FreeTube будут заменены кадром видео вместо
       эскиза по умолчанию.
-    Invidious Instance: Экземпляр Invidious, к которому FreeTube будет подключаться
-      для вызовов API.
-    Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого API
-      есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
-      API в качестве резервного метода, если он включен.
-    Preferred API Backend: Выберите бэкенд, который FreeTube будет использовать для
-      получения данных. Локальный API - это встроенный экстрактор. API Invidious требует
-      подключения к серверу Invidious.
+    Invidious Instance: Образец Invidious, к которому FreeTube будет подключаться
+      для вызовов набора функций.
+    Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора
+      функций есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
+      набор функций в качестве запасного метода, если он включен.
+    Preferred API Backend: Выберите движок, который FreeTube будет использовать для
+      получения данных. Локальный набор функций - это встроенный экстрактор. Набор
+      функций Invidious требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
       трендовые видео. Не все отображаемые страны поддерживаются YouTube.
     External Link Handling: "Выберите действие при нажатии на ссылку, которая не может\
@@ -816,12 +816,12 @@ Tooltips:
       ограничены пределом в 720p, но используют меньшую полосу пропускания. Звуковые
       форматы - это только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
-      вместо прямого подключения к YouTube. Переопределяет предпочтения средств разработки.
+      вместо прямого подключения к YouTube. Переопределяет предпочтения набора функций.
     Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
-      средства разработки Invidious. Если эта настройка включена, локальные средства
-      разработки будут работать и использовать устаревшие форматы вместо форматов
-      Invidious. Помогает, когда видео, возвращенные Invidious, не воспроизводятся
-      из-за ограничений страны.
+      набор функций Invidious. Если эта настройка включена, локальный набор функций
+      будет работать и использовать устаревшие форматы вместо форматов Invidious.
+      Помогает, когда видео, возвращенные Invidious, не воспроизводятся из-за ограничений
+      страны.
     Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео,
       нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите
       колесо мыши вперед или назад, чтобы изменять скорость воспроизведения. Нажмите
