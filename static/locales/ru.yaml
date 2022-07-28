@@ -160,6 +160,7 @@ Settings:
       Light: 'Светлая'
       Dracula: 'Дракула'
       System Default: Системная
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
