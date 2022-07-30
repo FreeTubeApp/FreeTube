@@ -65,8 +65,8 @@
       </div>
     </div>
     <div
-      class="infoArea"
       ref="infoArea"
+      class="infoArea"
       :class="{ infoAreaSticky }"
     >
       <watch-video-info
