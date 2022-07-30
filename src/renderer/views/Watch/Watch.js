@@ -79,7 +79,8 @@ export default Vue.extend({
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      pictureInPictureButtonInverval: null
+      pictureInPictureButtonInverval: null,
+      infoAreaSticky: true
     }
   },
   computed: {
