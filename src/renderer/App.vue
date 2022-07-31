@@ -14,6 +14,7 @@
     >
       <div
         v-if="showUpdatesBanner || showBlogBanner"
+        class="banner-wrapper"
       >
         <ft-notification-banner
           v-if="showUpdatesBanner"
