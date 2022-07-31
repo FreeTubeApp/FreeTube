@@ -74,7 +74,9 @@
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      ref="infoArea"
       class="infoArea"
+      :class="{ infoAreaSticky }"
     >
       <watch-video-info
         v-if="!isLoading"

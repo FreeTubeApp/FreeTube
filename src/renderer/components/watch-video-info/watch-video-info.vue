@@ -96,6 +96,7 @@
         />
         <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
+          ref="downloadButton"
           :title="$t('Video.Download Video')"
           class="option"
           theme="secondary"
