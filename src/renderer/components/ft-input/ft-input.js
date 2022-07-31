@@ -95,13 +95,13 @@ export default Vue.extend({
     setTimeout(this.addListener, 200)
   },
   methods: {
-    handleClick: function () {
+    handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) { return }
 
       this.searchState.showOptions = false
       this.$emit('input', this.inputData)
-      this.$emit('click', this.inputData)
+      this.$emit('click', this.inputData, { event: e })
     },
 
     handleInput: function (val) {
@@ -185,7 +185,7 @@ export default Vue.extend({
       if (inputElement !== null) {
         inputElement.addEventListener('keydown', (event) => {
           if (event.key === 'Enter') {
-            this.handleClick()
+            this.handleClick(event)
           }
         })
       }
