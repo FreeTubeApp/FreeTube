@@ -26,6 +26,15 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
+          :label="$t('Settings.Privacy Settings.Save Watched Progress For Music')"
+          :compact="true"
+          :disabled="!rememberHistory || !saveWatchedProgress"
+          :default-value="saveWatchedProgressForMusic"
+          @change="updateSaveWatchedProgressForMusic"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
           :label="$t('Settings.Privacy Settings.Automatically Remove Video Meta Files')"
           :compact="true"
           :default-value="removeVideoMetaFiles"

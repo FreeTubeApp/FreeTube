@@ -101,6 +101,9 @@ export default Vue.extend({
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
     },
+    saveWatchedProgressForMusic: function () {
+      return this.$store.getters.getSaveWatchedProgressForMusic
+    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -758,7 +761,7 @@ export default Vue.extend({
       if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
         const player = this.$refs.videoPlayer.player
 
-        if (player !== null && this.saveWatchedProgress && this.genre !== 'Music') {
+        if (player !== null && this.saveWatchedProgress && this.saveWatchedProgressForMusic) {
           const currentTime = this.getWatchedProgress()
           const payload = {
             videoId: this.videoId,
@@ -766,7 +769,7 @@ export default Vue.extend({
           }
           this.updateWatchProgress(payload)
         }
-        if (this.genre === 'Music') {
+        if (this.genre === 'Music' && !this.saveWatchedProgressForMusic) {
           const payload = {
             videoId: this.videoId,
             watchProgress: 0
