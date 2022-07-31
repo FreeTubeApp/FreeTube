@@ -166,6 +166,7 @@ Settings:
       Light: 'Hele'
       Dracula: 'Dracula'
       System Default: Süsteemi vaikeseadistus
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -191,6 +192,20 @@ Settings:
       Dracula Purple: 'Dracula Purpurpunane'
       Dracula Red: 'Dracula Punane'
       Dracula Yellow: 'Dracula Kollane'
+      Catppuccin Mocha Blue: Catppuccin Mocha Sinine
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanipunane
+      Catppuccin Mocha Pink: Catppuccin Mocha Roosa
+      Catppuccin Mocha Mauve: Catppuccin Mocha Lillakas
+      Catppuccin Mocha Green: Catppuccin Mocha Roheline
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Roosivesi
+      Catppuccin Mocha Red: Catppuccin Mocha Punane
+      Catppuccin Mocha Peach: Catppuccin Mocha Oranž
+      Catppuccin Mocha Yellow: Catppuccin Mocha Kollane
+      Catppuccin Mocha Teal: Catppuccin Mocha Rohekassinine
+      Catppuccin Mocha Sky: Catppuccin Mocha Helesinine
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safiir
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -378,7 +393,7 @@ Settings:
     Enable SponsorBlock: Kasuta toetajate vaadet
     SponsorBlock Settings: Toetajate vaate seadistused
     Skip Options:
-      Auto Skip: Jäta valik automaatselt vahele
+      Auto Skip: Automaatne vahelejätmine
       Show In Seek Bar: Näita otsinguribal
       Prompt To Skip: Paku vahelejätmise võimalust
       Skip Option: Jäta valik vahele
@@ -396,7 +411,7 @@ Settings:
     Choose Path: Vali asukoht
     Download Behavior: Tegevus allalaadimisel
     Open in web browser: Ava veebibrauseris
-    Download in app: Ava rakenduses
+    Download in app: Lae alla rakenduses
   Parental Control Settings:
     Parental Control Settings: Vanemliku järelevalve seadistused
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
@@ -616,11 +631,11 @@ Video:
   Download Video: Laadi video alla
   Sponsor Block category:
     music offtopic: Esitatava muusika teemaväline teave
-    self-promotion: Meie rakenduse reklaam
+    self-promotion: Enesereklaam
     interaction: Suhtlus
     intro: Sissejuhatus
-    outro: Väljajuhatus
-    sponsor: Toetaja
+    outro: Lõputiitrid
+    sponsor: Sponsor
     filler: Täitevideo
     recap: Kokkuvõte
   Skipped segment: Vahelejäetud lõik
@@ -796,8 +811,8 @@ Tooltips:
     Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel.
       Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri
       kasutamist.
-    Invidious Instance: Invidious'e teenuse server, mida FreeTube API päringute jaoks
-      kasutab.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube kasutab API kutse
+      tegemisel.
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa\
       \ avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
   Player Settings:
