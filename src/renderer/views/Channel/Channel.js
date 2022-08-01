@@ -170,6 +170,7 @@ export default Vue.extend({
   watch: {
     $route() {
       // react to route changes...
+      this.originalId = this.$route.params.id
       this.id = this.$route.params.id
       this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.latestVideosPage = 2
@@ -232,6 +233,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    this.originalId = this.$route.params.id
     this.id = this.$route.params.id
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
@@ -259,14 +261,14 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
-      const expectedId = this.id
-      ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
+      const expectedId = this.originalId
+      ytch.getChannelInfo({ channelId: this.id }).then((response) => {
         if (response.alertMessage) {
           this.setErrorMessage(response.alertMessage)
           return
         }
         this.errorMessage = ''
-        if (expectedId !== this.id) {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -332,9 +334,9 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
-      const expectedId = this.id
-      ytch.getChannelVideos({ channelId: expectedId, sortBy: this.videoSortBy }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelVideos({ channelId: this.id, sortBy: this.videoSortBy }).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -383,9 +385,9 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      const expectedId = this.id
-      this.invidiousGetChannelInfo(expectedId).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      this.invidiousGetChannelInfo(this.id).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -463,9 +465,9 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
-      const expectedId = this.id
-      ytch.getChannelPlaylistInfo({ channelId: expectedId, sortBy: this.playlistSortBy }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelPlaylistInfo({ channelId: this.id, sortBy: this.playlistSortBy }).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
