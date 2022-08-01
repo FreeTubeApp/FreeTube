@@ -95,12 +95,14 @@ User Playlists:
     Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
     todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
   Search bar placeholder: Pesquisar na Lista de Reprodução
+  Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'Seu Histórico está vazio no momento.'
   Search bar placeholder: Pesquisar no histórico
+  Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
 Settings:
   # On Settings Page
   Settings: 'Configurações'
@@ -156,6 +158,7 @@ Settings:
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
+      System Default: Padrão do sistema
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -224,6 +227,8 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalo de avanço / retrocesso rápido
     Scroll Playback Rate Over Video Player: Rolar a taxa de reprodução sobre o reprodutor
       de vídeo
+    Max Video Playback Rate: Taxa máxima de reprodução de vídeo
+    Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -321,6 +326,13 @@ Settings:
     Profile object has insufficient data, skipping item: O objeto Perfil possui dados
       insuficientes, pulando item
     Manage Subscriptions: Administrar Inscrições
+    Import Playlists: Importar listas de reprodução
+    Export Playlists: Exportar listas de reprodução
+    Playlist insufficient data: Dados insuficientes para "$" playlist, pulando item
+    All playlists has been successfully exported: Todas as listas de reprodução foram
+      exportadas com sucesso
+    All playlists has been successfully imported: Todas as listas de reprodução foram
+      importadas com sucesso
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -579,6 +591,17 @@ Video:
     buffered: Buffered
     out of: de
     player resolution: Janela de exibição
+    Mimetype: Tipo de mídia da Internet
+    Video statistics are not available for legacy videos: As estatísticas de vídeo
+      não estão disponíveis para vídeos mais antigos
+    Video ID: ID do vídeo
+    Player Dimensions: Dimensões do reprodutor
+    Bitrate: Taxa de bits
+    Volume: Volume
+    Bandwidth: Largura de banda
+    Resolution: Resolução
+    Buffered: Em buffer
+    Dropped / Total Frames: Quadros perdidos / Total de quadros
 Videos:
   #& Sort By
   Sort By:
@@ -656,6 +679,7 @@ Comments:
   Pinned by: Fixado por
   And others: e outros
   From $channelName: de $channelName
+  Member: Membro
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -678,7 +702,7 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
-Locale Name: Português (BR)
+Locale Name: português (BR)
 Profile:
   Delete Profile: Deletar Perfil
   Update Profile: Atualizar Perfil

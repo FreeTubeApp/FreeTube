@@ -167,7 +167,9 @@ const state = {
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
-  // currentTheme: 'lightRed',
+  baseTheme: 'system',
+  mainColor: 'Red',
+  secColor: 'Blue',
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
@@ -185,6 +187,7 @@ const state = {
   externalPlayerExecutable: '',
   externalPlayerIgnoreWarnings: false,
   externalPlayerCustomArgs: '',
+  expandSideBar: false,
   forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
   hideChannelSubscriptions: false,
@@ -200,6 +203,7 @@ const state = {
   hideLabelsSideBar: false,
   landingPage: 'subscriptions',
   listType: 'grid',
+  maxVideoPlaybackRate: 3,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
@@ -211,13 +215,53 @@ const state = {
   saveWatchedProgress: true,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
+  sponsorBlockSponsor: {
+    color: 'Blue',
+    skip: 'autoSkip'
+  },
+  sponsorBlockSelfPromo: {
+    color: 'Yellow',
+    skip: 'showInSeekBar'
+  },
+  sponsorBlockInteraction: {
+    color: 'Green',
+    skip: 'showInSeekBar'
+  },
+  sponsorBlockIntro: {
+    color: 'Orange',
+    skip: 'doNothing'
+  },
+  sponsorBlockOutro: {
+    color: 'Orange',
+    skip: 'doNothing'
+  },
+  sponsorBlockRecap: {
+    color: 'Orange',
+    skip: 'doNothing'
+  },
+  sponsorBlockMusicOffTopic: {
+    color: 'Orange',
+    skip: 'doNothing'
+  },
+  sponsorBlockFiller: {
+    color: 'Orange',
+    skip: 'doNothing'
+  },
   thumbnailPreference: '',
   useProxy: false,
   useRssFeeds: false,
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
-  downloadFolderPath: ''
+  videoPlaybackRateInterval: 0.25,
+  downloadFolderPath: '',
+  downloadBehavior: 'download',
+  enableScreenshot: false,
+  screenshotFormat: 'png',
+  screenshotQuality: 95,
+  screenshotAskPath: false,
+  screenshotFolderPath: '',
+  screenshotFilenamePattern: '%Y%M%D-%H%N%S'
 }
 
 const stateWithSideEffects = {
@@ -228,12 +272,31 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocale = await dispatch('getSystemLocale')
-
-        targetLocale = Object.keys(i18n.messages).find((locale) => {
-          const localeName = locale.replace('-', '_')
-          return localeName.includes(systemLocale.replace('-', '_'))
+        const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
+        const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
+        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => { // filter out other languages
+          const localeLang = locale.replace('-', '_').split('_')[0]
+          return localeLang.includes(systemLocaleLang)
+        }).sort((a, b) => {
+          const aLocaleName = a.replace('-', '_')
+          const bLocaleName = b.replace('-', '_')
+          const aLocale = aLocaleName.split('_') // ex: [en, US]
+          const bLocale = bLocaleName.split('_')
+          if (aLocale.includes(systemLocaleName)) { // country & language match, prefer a
+            return -1
+          } else if (bLocale.includes(systemLocaleName)) { // country & language match, prefer b
+            return 1
+          } else if (aLocale.length === 1) { // no country code for a, prefer a
+            return -1
+          } else if (bLocale.length === 1) { // no country code for b, prefer b
+            return 1
+          } else { // a & b have different country code from system, sort alphabetically
+            return aLocaleName.localeCompare(bLocaleName)
+          }
         })
+        if (targetLocaleOptions.length > 0) {
+          targetLocale = targetLocaleOptions[0]
+        }
 
         // Go back to default value if locale is unavailable
         if (!targetLocale) {
@@ -322,7 +385,9 @@ const customActions = {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
 
-        commit(defaultMutationId(_id), value)
+        if (Object.keys(mutations).includes(defaultMutationId(_id))) {
+          commit(defaultMutationId(_id), value)
+        }
       }
     } catch (errMessage) {
       console.error(errMessage)

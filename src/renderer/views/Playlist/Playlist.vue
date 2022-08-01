@@ -4,11 +4,13 @@
       v-if="isLoading"
       :fullscreen="true"
     />
+
     <playlist-info
       v-if="!isLoading"
       :data="infoData"
       class="playlistInfo"
     />
+
     <ft-card
       v-if="!isLoading"
       class="playlistItems"

@@ -1,34 +1,43 @@
 <template>
   <div>
     <ft-loader
-      v-if="isLoading"
+      v-show="isLoading"
       :fullscreen="true"
     />
     <ft-card
-      v-else
+      v-show="!isLoading"
       class="card"
     >
       <h3>{{ $t("History.History") }}</h3>
       <ft-input
+        v-show="fullData.length > 0"
         ref="searchBar"
         :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
-        @input="filterHistory"
+        @input="(input) => query = input"
+        @clear="query = ''"
       />
       <ft-flex-box
-        v-if="activeData.length === 0"
+        v-show="fullData.length === 0"
       >
         <p class="message">
           {{ $t("History['Your history list is currently empty.']") }}
         </p>
       </ft-flex-box>
+      <ft-flex-box
+        v-show="activeData.length === 0 && fullData.length > 0"
+      >
+        <p class="message">
+          {{ $t("History['Empty Search Message']") }}
+        </p>
+      </ft-flex-box>
       <ft-element-list
-        v-else
+        v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
       />
       <ft-flex-box
-        v-if="activeData.length < historyCache.length"
+        v-if="showLoadMoreButton"
       >
         <ft-button
           label="Load More"

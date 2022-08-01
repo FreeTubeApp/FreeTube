@@ -95,13 +95,13 @@
         />
         <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
+          ref="downloadButton"
           :title="$t('Video.Download Video')"
           class="option"
           theme="secondary"
           icon="download"
           :return-index="true"
-          :dropdown-names="downloadLinkNames"
-          :dropdown-values="downloadLinkValues"
+          :dropdown-options="downloadLinkOptions"
           @click="handleDownload"
         />
         <ft-icon-button
@@ -110,8 +110,7 @@
           class="option"
           theme="secondary"
           icon="file-video"
-          :dropdown-names="formatTypeNames"
-          :dropdown-values="formatTypeValues"
+          :dropdown-options="formatTypeOptions"
           @click="handleFormatChange"
         />
         <ft-share-button

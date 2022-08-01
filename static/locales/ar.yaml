@@ -75,7 +75,8 @@ Subscriptions:
   Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
-    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول  للاشتراكات
+    هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
+  Error Channels: القنوات التي بها أخطاء
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -93,12 +94,14 @@ User Playlists:
     إحتفضت عليها أو فضّلتها. عندما يكمل العمل بالكامل على هذه الصفحة, سترى كل فيديواتك
     هنا تنتقل إلى قائمة تشغيل تسمى "المفضلة".
   Search bar placeholder: بحث في قائمة التشغيل
+  Empty Search Message: لا توجد مقاطع فيديو في قائمة التشغيل هذه تتطابق مع بحثك
 History:
   # On History Page
   History: 'السجلّ'
   Watch History: 'سجلّ المشاهدات'
   Your history list is currently empty.: 'قائمة سجلّك فارغة حالياً.'
   Search bar placeholder: البحث في السجل
+  Empty Search Message: لا توجد مقاطع فيديو في السجل الخاص بك تطابق بحثك
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'
@@ -152,6 +155,7 @@ Settings:
       Dark: 'داكن'
       Light: 'فاتح'
       Dracula: 'دراكولا'
+      System Default: افتراضيات النظام
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -218,6 +222,23 @@ Settings:
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
     Scroll Playback Rate Over Video Player: معدل تمرير التشغيل عبر مشغل الفيديو
+    Max Video Playback Rate: أقصى معدل تشغيل الفيديو
+    Video Playback Rate Interval: الفاصل الزمني لمعدل تشغيل الفيديو
+    Screenshot:
+      Enable: تفعيل لقطة الشاشة
+      Error:
+        Forbidden Characters: أحرف ممنوعة
+        Empty File Name: اسم المِلَفّ فارغ
+      Folder Button: اختر مجلد
+      File Name Label: نمط اسم المِلَفّ
+      Ask Path: اسأل عن موقع الحفظ
+      Folder Label: موقع لقطة الشاشة
+      Format Label: صيغة لقطة الشاشة
+      Quality Label: جودة لقطة الشاشة
+      File Name Tooltip: يمكنك استخدام المتغيرات أدناه. %Y السنة 4 أرقام. %M الشهر
+        2 أرقام. % D اليوم 2 أرقام. ٪ H ساعة 2 أرقام. % N دقيقة 2 أرقام. %S الثانية
+        2 أرقام. % T ميلي ثانية 3 أرقام. %s الفيديو الثاني. % t فيديو ميلي ثانية 3
+        أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -352,6 +373,13 @@ Settings:
       عنوان (الافتراضي هو https://sponsor.ajay.app)
     Enable SponsorBlock: تفعيل حجب الرعاة
     SponsorBlock Settings: إعدادات حظر الرعاة
+    Category Color: لون الفئة
+    Skip Options:
+      Auto Skip: تخطي تلقائي
+      Prompt To Skip: موجه للتخطي
+      Skip Option: تخطي الخِيار
+      Show In Seek Bar: إظهار في الشريط
+      Do Nothing: لا تفعل شيئا
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
@@ -362,6 +390,9 @@ Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
     Ask Download Path: اطلب مسار التنزيل
+    Download Behavior: سلوك التحميل
+    Open in web browser: فتح في متصفح الويب
+    Download in app: تحميل في التطبيق
 About:
   #On About page
   About: 'حول'
@@ -586,7 +617,9 @@ Video:
     self-promotion: الترويج الذاتي
     outro: الخاتمة
     intro: المقدمة
-    sponsor: الراعي
+    sponsor: الرعاة
+    filler: حشو
+    recap: الخلاصة
   Skipped segment: تم تخطي المقطع
   External Player:
     Unsupported Actions:
@@ -613,6 +646,17 @@ Video:
     out of: خارج عن
     bandwidth: سرعة الاتصال
     volume: الصوت
+    Video statistics are not available for legacy videos: إحصائيات الفيديو غير متوفرة
+      لمقاطع الفيديو القديمة
+    Video ID: معرف الفيديو
+    Resolution: الدقة
+    Bitrate: معدل البت
+    Player Dimensions: عدد اللاعبين
+    Volume: الصوت
+    Bandwidth: عرض النطاق الترددي
+    Buffered: مخزنة
+    Dropped / Total Frames: إسقاط / إجمالي الإطارات
+    Mimetype: نمط ميمي
 Videos:
   #& Sort By
   Sort By:
@@ -683,6 +727,7 @@ Comments:
   Pinned by: تم التثبيت بواسطة
   And others: و اخرين
   From $channelName: من $ channelName
+  Member: عضو
 Up Next: 'التالي'
 
 # Toast Messages
@@ -786,3 +831,5 @@ Downloading failed: حدثت مشكلة أثناء تنزيل "$"
 Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
 Starting download: بدء تنزيل "$"
+Screenshot Success: تم حفظ لقطة الشاشة كا"$"
+Screenshot Error: فشل أخذ لقطة للشاشة. $

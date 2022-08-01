@@ -1,17 +1,22 @@
 .colorOption {
   width: 40px;
   height: 40px;
-  margin: 10px;
   cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   border-radius: 50%;
   -webkit-border-radius: 50%;
+}
+
+.colorOption:hover {
+  box-shadow: 0 0 0 2px var(--side-nav-hover-color);
 }
 
 .initial {
   font-size: 20px;
   line-height: 1em;
   text-align: center;
-  padding: 10px 0;
 }
 
 #profileList {
@@ -57,6 +62,7 @@
   float: left;
   position: relative;
   bottom: 5px;
+  margin: 10px;
 }
 
 .profileName {

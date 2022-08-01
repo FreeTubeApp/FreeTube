@@ -89,6 +89,31 @@ const actions = {
     commit('setProfileList', profiles)
   },
 
+  async updateSubscriptionDetails({ getters, dispatch }, { channelThumbnailUrl, channelName, channelId }) {
+    const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
+    const profileList = getters.getProfileList
+    for (const profile of profileList) {
+      const currentProfileCopy = JSON.parse(JSON.stringify(profile))
+      const channel = currentProfileCopy.subscriptions.find((channel) => {
+        return channel.id === channelId
+      }) ?? null
+      if (channel === null) { continue }
+      let updated = false
+      if (channel.name !== channelName || (channel.thumbnail !== thumbnail && thumbnail !== null)) {
+        if (thumbnail !== null) {
+          channel.thumbnail = thumbnail
+        }
+        channel.name = channelName
+        updated = true
+      }
+      if (updated) {
+        await dispatch('updateProfile', currentProfileCopy)
+      } else { // channel has not been updated, stop iterating through profiles
+        break
+      }
+    }
+  },
+
   async createProfile({ commit }, profile) {
     try {
       const newProfile = await DBProfileHandlers.create(profile)

@@ -64,7 +64,11 @@
         </div>
       </div>
     </div>
-    <div class="infoArea">
+    <div
+      ref="infoArea"
+      class="infoArea"
+      :class="{ infoAreaSticky }"
+    >
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
