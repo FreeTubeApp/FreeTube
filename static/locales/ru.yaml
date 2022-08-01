@@ -6,11 +6,11 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Выйти'
-Edit: 'Править'
+Edit: 'Изменить'
 Undo: 'Отменить'
 Redo: 'Повторить'
 Cut: 'Вырезать'
-Copy: 'Копировать'
+Copy: 'Скопировать'
 Paste: 'Вставить'
 Delete: 'Удалить'
 Select all: 'Выбрать все'
@@ -28,12 +28,12 @@ Back: 'Назад'
 Forward: 'Вперед'
 
 # Search Bar
-Search / Go to URL: 'Поиск / Перейти по адресу'
+Search / Go to URL: 'Поиск/Перейти по адресу'
   # In Filter Button
 Search Filters:
   Search Filters: 'Фильтры поиска'
   Sort By:
-    Sort By: 'Упорядочивать по'
+    Sort By: 'Сортировать по'
     Most Relevant: 'Наиболее подходящим'
     Rating: 'Оценке'
     Upload Date: 'Дате загрузки'
@@ -59,10 +59,10 @@ Search Filters:
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
   Search Results: 'Итоги поиска'
-  Fetching results. Please wait: 'Получение выдачи, подождите'
-  Fetch more results: 'Получить больше выдачи'
+  Fetching results. Please wait: 'Получение результатов. Подождите'
+  Fetch more results: 'Получить больше результатов'
 # Sidebar
-  There are no more results for this search: Больше нет выдачи по этому запросу
+  There are no more results for this search: Больше результатов по этому запросу нет
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
@@ -110,8 +110,8 @@ Settings:
   Settings: 'Настройки'
   General Settings:
     General Settings: 'Общие настройки'
-    Fallback to Non-Preferred Backend on Failure: 'Откатить к нежелательному Backend''у
-      при сбое'
+    Fallback to Non-Preferred Backend on Failure: 'Откатить к непредпочтительному
+      движку при сбое'
     Enable Search Suggestions: 'Отображать поисковые предложения'
     Default Landing Page: 'Целевая страница по умолчанию'
     Locale Preference: 'Язык приложения'
@@ -158,9 +158,9 @@ Settings:
       Black: 'Чёрная'
       Dark: 'Тёмная'
       Light: 'Светлая'
-      Dracula: 'Дракула'
+      Dracula: 'Dracula'
       System Default: Системная
-      Catppuccin Mocha: Мокко с капучином
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -186,6 +186,20 @@ Settings:
       Dracula Purple: 'Фиолетовый - Dracula'
       Dracula Red: 'Красный - Dracula'
       Dracula Yellow: 'Жёлтый - Dracula'
+      Catppuccin Mocha Green: Зелёный - Catppuccin Mocha
+      Catppuccin Mocha Teal: Бирюзовый - Catppuccin Mocha
+      Catppuccin Mocha Rosewater: Розовая вода - Catppuccin Mocha
+      Catppuccin Mocha Flamingo: Фламинго - Catppuccin Mocha
+      Catppuccin Mocha Pink: Розовый - Catppuccin Mocha
+      Catppuccin Mocha Mauve: Лиловый - Catppuccin Mocha
+      Catppuccin Mocha Red: Красный - Catppuccin Mocha
+      Catppuccin Mocha Maroon: Бордовый - Catppuccin Mocha
+      Catppuccin Mocha Peach: Персиковый - Catppuccin Mocha
+      Catppuccin Mocha Yellow: Жёлтый - Catppuccin Mocha
+      Catppuccin Mocha Sky: Небесный - Catppuccin Mocha
+      Catppuccin Mocha Sapphire: Сапфировый - Catppuccin Mocha
+      Catppuccin Mocha Blue: Синий - Catppuccin Mocha
+      Catppuccin Mocha Lavender: Лавандовый - Catppuccin Mocha
     Secondary Color Theme: 'Вторичный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
@@ -193,7 +207,7 @@ Settings:
     Disable Smooth Scrolling: Отключить плавную прокрутку
     Hide Side Bar Labels: Скрыть надписи боковой панели
   Player Settings:
-    Player Settings: 'Проигрыватель'
+    Player Settings: 'Настройки проигрывателя'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
       движок для устаревших форматов'
     Remember History: 'Запоминать историю'
@@ -461,7 +475,7 @@ About:
   FreeTube Wiki: Вики FreeTube
   Help: Помощь
   GitHub releases: Релизы на GitHub
-  Downloads / Changelog: Скачивание / Список изменений
+  Downloads / Changelog: Скачать/Список изменений
   View License: Посмотреть лицензию
   Licensed under the AGPLv3: Лицензия AGPLv3
   Source code: Исходный код
@@ -476,7 +490,7 @@ Channel:
   Unsubscribe: 'Отписаться'
   Search Channel: 'Поиск на канале'
   Your search results have returned 0 results: 'По вашему запросу ничего не найдено'
-  Sort By: 'Упорядочивать по'
+  Sort By: 'Сортировать по'
   Videos:
     Videos: 'Видео'
     This channel does not currently have any videos: 'На этом канале в настоящее время
@@ -544,8 +558,8 @@ Video:
     Oct: 'Окт'
     Nov: 'Ноя'
     Dec: 'Дек'
-    Second: 'Секунд'
-    Seconds: 'Секунды'
+    Second: 'Секунда'
+    Seconds: 'Секунд'
     Hour: 'Час'
     Hours: 'Часов'
     Day: 'День'
@@ -559,7 +573,7 @@ Video:
     Ago: 'Назад'
     Upcoming: 'Премьера'
     Minutes: Минут
-    Minute: Минуты
+    Minute: Минута
   Published on: 'Опубликовано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % назад'
@@ -571,7 +585,7 @@ Video:
   Shuffle Playlist: Перемешать плейлист
   Loop Playlist: Повторять плейлист
   Starting soon, please refresh the page to check again: Скоро начнется, обновите
-    страницу, чтобы проверить еще раз
+    страницу, чтобы проверить ещё раз
   Audio:
     Best: Лучшее
     High: Высокое
@@ -589,7 +603,7 @@ Video:
   Video has been removed from your saved list: Видео было удалено из списка сохраненных
   Video has been saved: Видео было добавлено в сохраненные
   Save Video: Добавить видео в сохраненные
-  translated from English: переведен с Английского
+  translated from English: переведён с английского
   Sponsor Block category:
     music offtopic: Сегмент без музыки
     interaction: Напоминание о подписке (взаимодействие)
@@ -664,12 +678,12 @@ Playlist:
 Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
   Change Video Formats: 'Изменить форматы видео'
-  Use Dash Formats: 'Использовать Dash форматы'
+  Use Dash Formats: 'Использовать форматы DASH'
   Use Legacy Formats: 'Использовать устаревшие форматы'
   Use Audio Formats: 'Использовать звуковые форматы'
   Audio formats are not available for this video: Звуковые форматы недоступны для
     этого видео
-  Dash formats are not available for this video: DASH форматы недоступены для этого
+  Dash formats are not available for this video: Форматы DASH недоступны для этого
     видео
 Share:
   Share Video: 'Поделиться видео'
@@ -681,7 +695,7 @@ Share:
   Invidious URL copied to clipboard: 'Адрес Invidious скопирован в буфер обмена'
   Invidious Embed URL copied to clipboard: 'Встраиваемый адрес Invidious скопирован
     в буфер обмена'
-  YouTube URL copied to clipboard: 'Адрес Youtube скопирован в буфер обмена'
+  YouTube URL copied to clipboard: 'Адрес YouTube скопирован в буфер обмена'
   YouTube Embed URL copied to clipboard: 'Встраиваемый адрес YouTube скопирован в
     буфер обмена'
   Include Timestamp: Включить отметку времени
@@ -719,7 +733,7 @@ Up Next: 'Следующий'
 # Toast Messages
 Local API Error (Click to copy): 'Ошибка локального набора функций (Нажмите, чтобы
   скопировать)'
-Invidious API Error (Click to copy): 'Ошибка набора функций invidious (Нажмите, чтобы
+Invidious API Error (Click to copy): 'Ошибка набора функций Invidious (Нажмите, чтобы
   скопировать)'
 Falling back to Invidious API: 'Возврат к набору функций Invidious'
 Falling back to the local API: 'Возврат к локальному набору функций'
@@ -740,46 +754,46 @@ Yes: 'Да'
 No: 'Нет'
 Locale Name: Русский
 Profile:
-  $ is now the active profile: Теперь $ действующая учётная запись
-  Your default profile has been changed to your primary profile: Учётная запись по
-    умолчанию была изменена на вашу основную
-  Profile has been updated: Учётная запись обновлена
-  Removed $ from your profiles: Теперь учётная запись $ удалена
-  Your default profile has been set to $: Теперь $ установлена вашей учётной записью
-    по умолчанию
-  Profile has been created: Учётная запись создана
-  Your profile name cannot be empty: Имя вашей учётной записи не может быть пустым
-  Profile could not be found: Не удалось найти учётную запись
+  $ is now the active profile: Теперь $ активный профиль
+  Your default profile has been changed to your primary profile: Профиль по умолчанию
+    был изменен на ваш основной
+  Profile has been updated: Профиль был обновлён
+  Removed $ from your profiles: Теперь $ удалён из профилей
+  Your default profile has been set to $: Теперь $ установлен профилем по умолчанию
+  Profile has been created: Профиль был создан
+  Your profile name cannot be empty: Имя профиля не может быть пустым
+  Profile could not be found: Не удалось найти профиль
   All subscriptions will also be deleted.: Все подписки также будут удалены.
-  Are you sure you want to delete this profile?: Удалить эту учётную запись?
-  Delete Profile: Удалить учётную запись
-  Make Default Profile: Сделать учётной записью по умолчанию
-  Update Profile: Обновить учётную запись
-  Create Profile: Создать учётную запись
+  Are you sure you want to delete this profile?: Хотите удалить этот профиль?
+  Delete Profile: Удалить профиль
+  Make Default Profile: Сделать профилем по умолчанию
+  Update Profile: Обновить профиль
+  Create Profile: Создать профиль
   Profile Preview: Предпросмотр профиля
   Custom Color: Свой цвет
   Color Picker: Выбор цвета
-  Edit Profile: Изменить учётную запись
-  Create New Profile: Создать новую учётную запись
-  Profile Manager: Менеджер учётных записей
+  Edit Profile: Изменить профиль
+  Create New Profile: Создать новый профиль
+  Profile Manager: Менеджер профилей
   All Channels: Все каналы
-  Profile Select: Выбор учётной записи
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Удалить
-    выбранные каналы? Это не приведёт к удалению каналов из любой другой учётной записи.
+  Profile Select: Выбор профиля
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Хотите
+    удалить выбранные каналы? Это не приведёт к удалению каналов из любого другого
+    профиля.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : Это ваша основная учётная запись. Вы уверены, что хотите удалить выбранные каналы?
-    Те же каналы будут удалены из любой учётной записи, в которой они находятся.
-  No channel(s) have been selected: Каналы не выбраны
-  Add Selected To Profile: Добавить выбранное в учётную запись
+  : Это ваш основной профиль.  Вы уверены, что хотите удалить выбранные каналы?  Те
+    же каналы будут удалены из любого профиля, в котором они находятся.
+  No channel(s) have been selected: Не выбран канал(ы)
+  Add Selected To Profile: Добавить выбранное в профиль
   Delete Selected: Удалить выбранное
   Select None: Ничего не выбрано
   Select All: Выбрать все
   $ selected: Выбрано $
   Other Channels: Другие каналы
   Subscription List: Список подписок
-  Profile Filter: Фильтры учётных записей
-  Profile Settings: Учётная запись
+  Profile Filter: Фильтр профилей
+  Profile Settings: Настройки профиля
 The playlist has been reversed: Плейлист был перевернут
 A new blog is now available, $. Click to view more: Доступен новый блог $. Нажмите
   здесь, чтобы посмотреть подробности
@@ -796,11 +810,11 @@ Tooltips:
     Invidious Instance: Образец Invidious, к которому FreeTube будет подключаться
       для вызовов набора функций.
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора
-      функций есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
-      набор функций в качестве запасного метода, если он включен.
+      функций есть проблема, FreeTube автоматически попытается использовать ваш непредпочтительный
+      API в качестве запасного метода, если он включен.
     Preferred API Backend: Выберите движок, который FreeTube будет использовать для
-      получения данных. Локальный набор функций - это встроенный экстрактор. Набор
-      функций Invidious требует подключения к серверу Invidious.
+      получения данных. Локальный API — это встроенный экстрактор. Набор функций Invidious
+      требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
       трендовые видео. Не все отображаемые страны поддерживаются YouTube.
     External Link Handling: "Выберите действие при нажатии на ссылку, которая не может\
@@ -814,8 +828,8 @@ Tooltips:
   Player Settings:
     Default Video Format: Устанавливает форматы, используемые при воспроизведении
       видео. Формат DASH может воспроизводить более высокое качество. Устаревшие форматы
-      ограничены пределом в 720p, но используют меньшую полосу пропускания. Звуковые
-      форматы - это только звуковые потоки.
+      ограничены пределом в 720p, но используют меньшую пропускную способность. Звуковые
+      форматы — только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео
       вместо прямого подключения к YouTube. Переопределяет предпочтения набора функций.
     Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
@@ -836,8 +850,8 @@ Tooltips:
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
-    Ignore Warnings: Подавлять предупреждения, когда текущий внешний проигрыватель
-      не поддерживает текущее действие (например,переворот плейлистов и т.д.).
+    Ignore Warnings: Скрыть предупреждения, когда текущий внешний проигрыватель не
+      поддерживает текущее действие (например, обратный порядок плейлистов и т. д.).
     Custom External Player Executable: По умолчанию FreeTube будет считать, что выбранный
       внешний проигрыватель можно найти через переменную окружения PATH. При необходимости
       здесь можно задать собственный путь.
@@ -850,10 +864,10 @@ Playing Next Video Interval: Воспроизведение следующего
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
   для отмены.
-Hashtags have not yet been implemented, try again later: Распределительные метки еще
+Hashtags have not yet been implemented, try again later: Распределительные метки ещё
   не сделаны, попробуйте позже
-Unknown YouTube url type, cannot be opened in app: Неизвестный тип сетевого адреса
-  YouTube, не может быть открыт в приложении
+Unknown YouTube url type, cannot be opened in app: Неизвестный тип адреса YouTube,
+  невозможно открыть в приложении
 Open New Window: Открыть новое окно
 Default Invidious instance has been cleared: Образец Invidious по умолчанию очищен
 Default Invidious instance has been set to $: Образец Invidious по умолчанию установлен
@@ -870,13 +884,13 @@ Screenshot Success: Снимок экрана сохранён как "$"
 Screenshot Error: Снимок экрана не удался. $
 New Window: Новое окно
 Age Restricted:
-  This $contentType is age restricted: Это $ ограничен по возрасту
+  This $contentType is age restricted: У $ ограничение по возрасту
   Type:
     Channel: Канал
     Video: Видео
 Channels:
   Title: Список каналов
-  Count: $ каналов найдено.
+  Count: $ канал(ов) найдено.
   Empty: Список каналов пуст.
   Channels: Каналы
   Search bar placeholder: Поиск каналов
