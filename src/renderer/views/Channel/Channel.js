@@ -33,6 +33,7 @@ export default Vue.extend({
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
+      idType: 0,
       channelName: '',
       bannerUrl: '',
       thumbnailUrl: '',
@@ -172,6 +173,7 @@ export default Vue.extend({
       // react to route changes...
       this.originalId = this.$route.params.id
       this.id = this.$route.params.id
+      this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
       this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.latestVideosPage = 2
       this.searchPage = 2
@@ -235,6 +237,7 @@ export default Vue.extend({
   mounted: function () {
     this.originalId = this.$route.params.id
     this.id = this.$route.params.id
+    this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
@@ -262,7 +265,7 @@ export default Vue.extend({
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
       const expectedId = this.originalId
-      ytch.getChannelInfo({ channelId: this.id }).then((response) => {
+      ytch.getChannelInfo({ channelId: this.id, channelIdType: this.idType }).then((response) => {
         if (response.alertMessage) {
           this.setErrorMessage(response.alertMessage)
           return
@@ -276,6 +279,8 @@ export default Vue.extend({
         const channelName = response.author
         const channelThumbnailUrl = response.authorThumbnails[2].url
         this.id = channelId
+        // set the id type to 1 so that searching and sorting work
+        this.idType = 1
         this.channelName = channelName
         this.isFamilyFriendly = response.isFamilyFriendly
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
@@ -335,7 +340,7 @@ export default Vue.extend({
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
       const expectedId = this.originalId
-      ytch.getChannelVideos({ channelId: this.id, sortBy: this.videoSortBy }).then((response) => {
+      ytch.getChannelVideos({ channelId: this.id, channelIdType: this.idType, sortBy: this.videoSortBy }).then((response) => {
         if (expectedId !== this.originalId) {
           return
         }
@@ -466,7 +471,7 @@ export default Vue.extend({
 
     getPlaylistsLocal: function () {
       const expectedId = this.originalId
-      ytch.getChannelPlaylistInfo({ channelId: this.id, sortBy: this.playlistSortBy }).then((response) => {
+      ytch.getChannelPlaylistInfo({ channelId: this.id, channelIdType: this.idType, sortBy: this.playlistSortBy }).then((response) => {
         if (expectedId !== this.originalId) {
           return
         }
@@ -734,7 +739,7 @@ export default Vue.extend({
 
     searchChannelLocal: function () {
       if (this.searchContinuationString === '') {
-        ytch.searchChannel({ channelId: this.id, query: this.lastSearchQuery }).then((response) => {
+        ytch.searchChannel({ channelId: this.id, channelIdType: this.idType, query: this.lastSearchQuery }).then((response) => {
           console.log(response)
           this.searchResults = response.items
           this.isElementListLoading = false
