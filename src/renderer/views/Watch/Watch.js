@@ -761,13 +761,15 @@ export default Vue.extend({
       if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
         const player = this.$refs.videoPlayer.player
 
-        if (player !== null && this.saveWatchedProgress && this.saveWatchedProgressForMusic) {
-          const currentTime = this.getWatchedProgress()
-          const payload = {
-            videoId: this.videoId,
-            watchProgress: currentTime
+        if (player !== null && this.saveWatchedProgress) {
+          if (this.saveWatchedProgressForMusic || (!this.saveWatchedProgressForMusic && this.genre !== 'Music')) {
+            const currentTime = this.getWatchedProgress()
+            const payload = {
+              videoId: this.videoId,
+              watchProgress: currentTime
+            }
+            this.updateWatchProgress(payload)
           }
-          this.updateWatchProgress(payload)
         }
         if (this.genre === 'Music' && !this.saveWatchedProgressForMusic) {
           const payload = {
