@@ -35,7 +35,7 @@ export default Vue.extend({
       return this.$store.getters.getSaveWatchedProgress
     },
     saveWatchedProgressForMusic: function () {
-      return this.$store.getters.getSaveWatchedProgress
+      return this.$store.getters.getSaveWatchedProgressForMusic
     },
     removeVideoMetaFiles: function () {
       return this.$store.getters.getRemoveVideoMetaFiles
