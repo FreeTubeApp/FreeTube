@@ -7,7 +7,6 @@ import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
-import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 
 export default Vue.extend({
