@@ -240,6 +240,15 @@ Settings:
       1440p: 'QHD'
       4k: 'UHD'
       8k: '8K UHD'
+    Screenshot:
+      Enable: Aktivér Skærmbillede
+      Format Label: Skærmbillede Format
+      Quality Label: Skærmbillede Kvalitet
+    Next Video Interval: Næste Videointerval
+    Max Video Playback Rate: Maks Videoafspilningshastighed
+    Display Play Button In Video Player: Vis Afspilningsknap I Videoafspiller
+    Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
+    Video Playback Rate Interval: Videoafspilningshastighed Interval
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
