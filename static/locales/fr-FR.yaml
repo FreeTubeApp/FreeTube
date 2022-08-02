@@ -29,7 +29,7 @@ Back: 'Retour'
 Forward: 'Avancer'
 
 # Search Bar
-Search / Go to URL: 'Rechercher / Aller à l''URL'
+Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de recherche'
@@ -199,6 +199,15 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Moka Eau de Rose
       Catppuccin Mocha Mauve: Catppuccin Moka Mauve
       Catppuccin Mocha Red: Catppuccin Moka Rouge
+      Catppuccin Mocha Green: Catppuccin moka vert
+      Catppuccin Mocha Blue: Catppuccin moka bleu
+      Catppuccin Mocha Maroon: Catpuccin moka marron
+      Catppuccin Mocha Peach: Catpuccin moka pêche
+      Catppuccin Mocha Yellow: Catppuccin moka jaune
+      Catppuccin Mocha Sky: Catppuccin moka ciel
+      Catppuccin Mocha Sapphire: Catppuccin moka saphir
+      Catppuccin Mocha Lavender: Catppuccin moka lavande
+      Catppuccin Mocha Teal: Catppuccin moka bleu sarcelle
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
