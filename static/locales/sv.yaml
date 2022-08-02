@@ -84,12 +84,14 @@ Subscriptions:
     här profilen har ett stort antal prenumerationer.  Tvinga RSS för att undvika
     ränta begränsa
   Load More Videos: Se mer
+  Error Channels: Kanaler med fel
 Trending:
   Trending: 'Trender'
   Movies: Filmer
   Gaming: Spel
   Music: Musik
   Default: Standard
+  Trending Tabs: Trendande Tabbar
 Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
 User Playlists:
@@ -100,11 +102,15 @@ User Playlists:
   Playlist Message: Den här sidan är inte reflekterande av fullt fungerande spellistor.
     Den listar bara videor som du har sparat eller favorited. När arbetet är klart
     kommer alla videor som för närvarande här att migreras till en spellista för 'Favoriter'.
+  Search bar placeholder: Sök i Spellista
+  Empty Search Message: Det finns inga videor i denna spellista som matchar din sökning
 History:
   # On History Page
   History: 'Historik'
   Watch History: 'Visningshistorik'
   Your history list is currently empty.: 'Historiken är för närvarande tom.'
+  Empty Search Message: Det finns inga videor i din historik som matchar din sökning
+  Search bar placeholder: Sök i Historiken
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -158,6 +164,8 @@ Settings:
       Dark: 'Mörkt'
       Light: 'Ljust'
       Dracula: 'Dracula'
+      System Default: Systemstandard
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -183,11 +191,21 @@ Settings:
       Dracula Purple: 'Dracula Lila'
       Dracula Red: 'Dracula Röd'
       Dracula Yellow: 'Dracula Gul'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Grönt
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
     Expand Side Bar by Default: Expandera sidpanelen som standard
     Disable Smooth Scrolling: Inaktivera mjuk rullning
+    Hide Side Bar Labels: Göm text i sidpanelen
   Player Settings:
     Player Settings: 'Spelarinställningar'
     Force Local Backend for Legacy Formats: 'Tvinga lokal resurser för äldre format'
@@ -749,3 +767,13 @@ Search Bar:
   Clear Input: Rensa inmatning
 Are you sure you want to open this link?: Är du säker på att du vill öppna den här
   länken?
+New Window: Nytt Fönster
+Channels:
+  Channels: Kanaler
+  Title: Kanallista
+  Search bar placeholder: Sök Kanaler
+  Unsubscribe: Avprenumerera
+  Unsubscribed: $ blev bortagen från dina prenumerationer
+  Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "$"?
+  Count: $ kanal(er) hittade.
+  Empty: Din kanallista är tom.
