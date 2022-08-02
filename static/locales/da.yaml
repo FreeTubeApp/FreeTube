@@ -83,9 +83,15 @@ Subscriptions:
   Refresh Subscriptions: 'Genopfrisk Abonnementer'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
-    profil har et stort antal abonnementer.  Tving RSS for at undgå adgangsbegrænsning
+    profil har et stort antal abonnementer.  Tvinger RSS for at undgå adgangsbegrænsning
+  Error Channels: Kanaler med Fejl
 Trending:
   Trending: 'På Mode'
+  Music: Musik
+  Trending Tabs: Trend Faner
+  Gaming: Gaming
+  Default: Standard
+  Movies: Film
 Most Popular: 'Mest Populære'
 Playlists: 'Spillelister'
 User Playlists:
@@ -96,11 +102,16 @@ User Playlists:
   Playlist Message: Denne side afspejler ikke fuldt funktionelle spillelister. Den
     optegner blot videoer, som du har gemt eller favoriseret. Når arbejdet er færdigt,
     vil alle videoer her blive flyttet til en 'Favoritter'-spilleliste.
+  Search bar placeholder: Søg i Playliste
+  Empty Search Message: Der er ingen videoer i denne playliste, der passer til din
+    søgning
 History:
   # On History Page
   History: 'Historik'
   Watch History: 'Set Historik'
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
+  Empty Search Message: Der er ingen videoer i din historie som passer til din søgning
+  Search bar placeholder: Søg i Historie
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
@@ -132,6 +143,19 @@ Settings:
     Region for Trending: 'Område for Mode'
         #! List countries
     View all Invidious instance information: Vis al Invidious-instans-information
+    Clear Default Instance: Ryd Standard Instans
+    External Link Handling:
+      External Link Handling: Ekstern Link Håndtering
+      Open Link: Åbn Link
+      No Action: Ingen Handling
+      Ask Before Opening Link: Spørg Før Link Åbnes
+    Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
+      ved opstart
+    System Default: Systemstandard
+    The currently set default instance is $: Den nuværende standardinstans er $
+    Current Invidious Instance: Nuværende Invidious-instans
+    No default instance has been set: Ingen standardinstans er angivet
+    Set Current Instance as Default: Angiv Nuværende Instans som Standard
   Theme Settings:
     Theme Settings: 'Temaindstillinger'
     Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
@@ -141,17 +165,19 @@ Settings:
       Dark: 'Mørkt'
       Light: 'Lyst'
       Dracula: 'Dracula'
+      System Default: Systemstandard
+      Catppuccin Mocha: Catppuccin Mokka
     Main Color Theme:
       Main Color Theme: 'Primært Farvetema'
       Red: 'Rødt'
       Pink: 'Lyserødt'
       Purple: 'Lilla'
       Deep Purple: 'Mørkelilla'
-      Indigo: 'Indigo'
+      Indigo: 'Indigoblå'
       Blue: 'Blåt'
       Light Blue: 'Lyseblåt'
       Cyan: 'Cyan'
-      Teal: 'Blågrønt'
+      Teal: 'Turkisfarvet'
       Green: 'Grønt'
       Light Green: 'Lysegrønt'
       Lime: 'Limegrønt'
@@ -166,11 +192,26 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Rødt'
       Dracula Yellow: 'Dracula Gult'
+      Catppuccin Mocha Green: Catppuccin Mokka Grønt
+      Catppuccin Mocha Rosewater: Catppuccin Mokka Rosenvand
+      Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
+      Catppuccin Mocha Mauve: Capttuccin Mokka Lysviolet
+      Catppuccin Mocha Peach: Catppuccin Mokka Ferskenfarvet
+      Catppuccin Mocha Yellow: Catppuccin Mokka Gult
+      Catppuccin Mocha Pink: Catppuccin Mokka Lyserødt
+      Catppuccin Mocha Red: Catppuccin Mokka Rødt
+      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrunt
+      Catppuccin Mocha Teal: Catppuccin Mokka Turkisfarvet
+      Catppuccin Mocha Sky: Catppuccin Mokka Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
+      Catppuccin Mocha Blue: Catppuccin Mokka Blåt
+      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendelblå
     Secondary Color Theme: 'Sekundært Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade
     Disable Smooth Scrolling: Deaktivér Jævn Rulning
-    Expand Side Bar by Default: Udvid Sidebjælke som Standard
+    Expand Side Bar by Default: Udvid Sidebar som Standard
+    Hide Side Bar Labels: Skjul Sidebarens Etiketter
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
     Force Local Backend for Legacy Formats: 'Tving Lokal Server for Gamle Formater'
@@ -184,7 +225,7 @@ Settings:
     Default Playback Rate: 'Standard Afspilningshastighed'
     Default Video Format:
       Default Video Format: 'Standard Videoformat'
-      Dash Formats: 'Dash-Formater'
+      Dash Formats: 'DASH-Formater'
       Legacy Formats: 'Gamle Formater'
       Audio Formats: 'Lydformater'
     Default Quality:
@@ -315,6 +356,9 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
+  SponsorBlock Settings:
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Standard er https://sponsor.ajay.app)
 About:
   #On About page
   About: 'Om'
@@ -561,10 +605,10 @@ Playlist:
 Toggle Theatre Mode: 'Slå Biograftilstand til/fra'
 Change Format:
   Change Video Formats: 'Skift Videoformater'
-  Use Dash Formats: 'Brug Dash-Formater'
+  Use Dash Formats: 'Brug DASH-Formater'
   Use Legacy Formats: 'Brug Gamle Formater'
   Use Audio Formats: 'Brug Lydformater'
-  Dash formats are not available for this video: 'Dash-formater er ikke tilgængelige
+  Dash formats are not available for this video: 'DASH-formater er ikke tilgængelige
     for denne video'
   Audio formats are not available for this video: 'Lydformater er ikke tilgængelige
     for denne video'
@@ -604,7 +648,12 @@ Comments:
   Newest first: Nyeste Først
   Top comments: Topkommentarer
   Sort by: Sortér efter
-Up Next: 'Kommer Om Lidt'
+  From $channelName: fra $channelName
+  Pinned by: Fastgjort af
+  And others: og andre
+  Show More Replies: Vis Flere Svar
+  Member: Medlem
+Up Next: 'Næste'
 
 # Toast Messages
 Local API Error (Click to copy): 'Lokal API-Fejl (Klik for at kopiere)'
@@ -632,31 +681,62 @@ This video is unavailable because of missing formats. This can happen due to cou
   utilgængelighed.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Når aktiveret, vil FreeTube bruge RSS, i stedet for dens
-      standard metoder, til at gribe din abonnementsstrøm. RSS er hurtigere og forhindrer
-      IP-blokering, men tilbyder ikke visse informationer, som videolængde eller direkte-status
+    Fetch Feeds from RSS: Når aktiveret vil FreeTube bruge RSS, i stedet for dens
+      standardmetoder, for at hente din abonnementsfeed. RSS er hurtigere og forhindrer
+      IP-blokering, men tilbyder ikke visse informationer som videolængde eller direkte-status
   Player Settings:
-    Default Video Format: Indstil formaterne, til brug ved afspilning af video. Dash-formater
-      kan afspille højere kvaliteter. Gamle formater er begrænsede til maks HD, men
-      bruger mindre båndbredde. Lydformater er blot lydudsendelser
-    Proxy Videos Through Invidious: Vil forbinde til Invidious, for at servere videoer,
-      i stedet for at oprette direkte forbindelse til YouTube. Overskriver API-indstilling
-    Force Local Backend for Legacy Formats: Virker kun, når Invidious-APIen er din
-      standard. Når aktiveret, vil den lokale API køre og bruge de gamle formater,
+    Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
+      kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
+      men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
+    Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
+      i stedet for at oprette en direkte forbindelse til YouTube. Tilsidesætter API-præference.
+    Force Local Backend for Legacy Formats: Virker kun når Invidious-API'en er din
+      standard. Når det er aktiveret, vil den lokale API køre og bruge de gamle formater,
       den giver, i stedet for dem Invidious giver. Hjælper når de videoer, der gives
-      af Invidious ikke spiller på grund af landerestriktioner
+      af Invidious, ikke spiller på grund af landerestriktioner.
+    Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
+      hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
+      bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
+      (Command-tast på Mac) nede og venstreklik musen for hurtigt at vende tilbage
+      til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
   General Settings:
-    Region for Trending: Området for mode tillader dig, at vælge hvilket lands videoer
-      på mode, du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
-      af YouTube
-    Preferred API Backend: Vælg den server, som FreeTube bruger til at anskaffe data.
-      Den lokale API er et inbygget dekomprimeringsværktøj. Invidious-APIen kræver
+    Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
+      på trend du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
+      af YouTube.
+    Preferred API Backend: Vælg den server som FreeTube bruger til at anskaffe data.
+      Den lokale API er et indbygget dekomprimeringsværktøj. Invidious-API'en kræver
       en Invidious-server at forbinde til.
     Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
-      API-opkald. Ryd den aktuelle instans, for at se en liste over offentlige instanser,
-      at vælge mellem
-    Thumbnail Preference: Alle forhåndsvisninger i FreeTube vil blive erstattet med
-      et billede af videoen, i stedet for standard-forhåndsvisningen
+      API-opkald.
+    Thumbnail Preference: Alle miniaturebilleder i FreeTube vil blive erstattet med
+      et billede af videoen, i stedet for standard-miniaturebilledet.
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
-      problem, vil FreeTube automatisk forsøge, at bruge din ikke-foretrukne API som
-      tilbagefaldsmetode, når aktiveret
+      problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
+      reservemetode, når det er aktiveret.
+    External Link Handling: "Vælg standardopførslen for når du klikker på et link,\
+      \ der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,\
+      \ du klikker på, i din standardbrowser.\n"
+  External Player Settings:
+    Custom External Player Executable: Som standard antager FreeTube at den valgte
+      eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
+      kan blive angivet her hvis det er nødvendigt.
+    DefaultCustomArgumentsTemplate: "(Standard: '$')"
+New Window: Nyt Vindue
+More: Mere
+Open New Window: Åbn Nyt Vindue
+Channels:
+  Channels: Kanaler
+  Title: Kanalliste
+  Count: $ kanal(er) fundet.
+  Unsubscribe Prompt: Er du sikker på at du vil slutte dit abonnement på "$"?
+  Search bar placeholder: Søg Kanaler
+  Empty: Din kanalliste er i øjeblikket tom.
+  Unsubscribe: Slut abonnement
+  Unsubscribed: $ er fjernet fra dine abonnementer
+Default Invidious instance has been set to $: Standard Invidious-instans er blevet
+  sat til $
+Default Invidious instance has been cleared: Standard Invidious-instans er blevet
+  ryddet
+Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
+Search Bar:
+  Clear Input: Ryd Input
