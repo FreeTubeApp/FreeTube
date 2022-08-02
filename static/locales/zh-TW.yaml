@@ -67,7 +67,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   Latest Subscriptions: '最新訂閱'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始添加訂閱。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始新增訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
@@ -108,7 +108,7 @@ Settings:
     Locale Preference: '介面語言'
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
-      Local API: '區域API'
+      Local API: '本機 API'
       Invidious API: 'Invidious API(應用程式介面)'
     Video View Type:
       Video View Type: '影片觀看類別'
@@ -169,7 +169,7 @@ Settings:
       Orange: '橙'
       Deep Orange: '深橙'
       Dracula Cyan: '德古拉 青'
-      Dracula Green: '德古拉 绿'
+      Dracula Green: '德古拉 綠'
       Dracula Orange: '德古拉 橙'
       Dracula Pink: '德古拉 粉'
       Dracula Purple: '德古拉 紫'
