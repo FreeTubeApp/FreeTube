@@ -155,17 +155,17 @@ Settings:
       Open Link: Link öffnen
       External Link Handling: Handhabung externer Links
   Theme Settings:
-    Theme Settings: Thema-Einstellungen
+    Theme Settings: Farbschema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
-      Base Theme: Grundlegendes Thema
+      Base Theme: Grundlegendes Farbschema
       Black: Schwarz
       Dark: Dunkel
       Light: Hell
       Dracula: Dracula
       System Default: Systemvoreinstellung
     Main Color Theme:
-      Main Color Theme: Hauptfarbe des Themas
+      Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
       Pink: Rosa
       Purple: Lila
@@ -189,7 +189,7 @@ Settings:
       Dracula Purple: Dracula Lila
       Dracula Red: Dracula Rot
       Dracula Yellow: Dracula Gelb
-    Secondary Color Theme: Sekundäres Farbenthema
+    Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
@@ -719,7 +719,7 @@ Share:
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
-  Click to View Comments: Klicke um Kommentare anzuzeigen
+  Click to View Comments: Klicke, um Kommentare anzuzeigen
   Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
