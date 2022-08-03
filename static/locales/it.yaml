@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca o aggiungi collegamento YouTube'
+Search / Go to URL: 'Cerca o aggiungi link YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -152,8 +152,8 @@ Settings:
     System Default: Predefinito del sistema
     External Link Handling:
       No Action: Nessuna azione
-      Ask Before Opening Link: Chiedi prima di aprire il collegamento
-      Open Link: Apri il collegamento
+      Ask Before Opening Link: Chiedi prima di aprire il link
+      Open Link: Apri il link
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
@@ -535,11 +535,11 @@ Video:
   Video has been marked as watched: 'Il video è stato contrassegnato come già visto'
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
-  Copy YouTube Link: 'Copia collegamento YouTube'
+  Copy YouTube Link: 'Copia link YouTube'
   Open YouTube Embedded Player: 'Apri con lettore YouTube incorporato'
-  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore YouTube incorporato'
+  Copy YouTube Embedded Player Link: 'Copia link del lettore YouTube incorporato'
   Open in Invidious: 'Apri con Invidious'
-  Copy Invidious Link: 'Copia collegamento Invidious'
+  Copy Invidious Link: 'Copia link Invidious'
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
@@ -608,9 +608,9 @@ Video:
   audio only: solo audio
   video only: solo video
   Download Video: Scarica il video
-  Copy Invidious Channel Link: Copia collegamento del canale Invidious
+  Copy Invidious Channel Link: Copia link del canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
-  Copy YouTube Channel Link: Copia collegamento del canale YouTube
+  Copy YouTube Channel Link: Copia link del canale YouTube
   Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
@@ -681,9 +681,9 @@ Playlist:
   Last Updated On: 'Ultimo aggiornamento il'
   Share Playlist:
     Share Playlist: 'Condividi la playlist'
-    Copy YouTube Link: 'Copia collegamento YouTube'
+    Copy YouTube Link: 'Copia link YouTube'
     Open in YouTube: 'Apri con YouTube'
-    Copy Invidious Link: 'Copia collegamento Invidious'
+    Copy Invidious Link: 'Copia link Invidious'
     Open in Invidious: 'Apri con Invidious'
 
 # On Video Watch Page
@@ -702,8 +702,8 @@ Change Format:
     per questo video
 Share:
   Share Video: 'Condividi video'
-  Copy Link: 'Copia collegamento'
-  Open Link: 'Apri collegamento'
+  Copy Link: 'Copia link'
+  Open Link: 'Apri link'
   Copy Embed: 'Copia codice da incorporare'
   Open Embed: 'Apri codice da incorporare'
   # On Click
@@ -855,8 +855,8 @@ Tooltips:
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube.
     External Link Handling: "Scegli il comportamento predefinito quando si clicca\
-      \ su un collegamento che non può essere aperto in FreeTube.\nPer impostazione\
-      \ predefinita FreeTube aprirà il collegamento nel browser predefinito.\n"
+      \ su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita\
+      \ FreeTube aprirà il link nel browser predefinito.\n"
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
@@ -885,14 +885,13 @@ Default Invidious instance has been set to $: L'istanza predefinita di Invidious
   stata impostata a $
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
-Unknown YouTube url type, cannot be opened in app: Tipo di collegamento YouTube sconosciuto,
+Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
   non può essere aperto nell'applicazione
 Search Bar:
   Clear Input: Cancella l'ingresso
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
-Are you sure you want to open this link?: Sei sicuro/sicura di voler aprire questo
-  collegamento?
+Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Downloading has completed: '$ è stato scaricato'
 Starting download: Sto iniziando a scaricare $
 Downloading failed: C'è stato un problema nello scaricamento di $
