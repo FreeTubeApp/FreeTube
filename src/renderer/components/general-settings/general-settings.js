@@ -122,8 +122,8 @@ export default Vue.extend({
         this.$t('Settings.General Settings.System Default')
       ]
 
-      Object.keys(this.$i18n.messages).forEach((locale) => {
-        const localeName = this.$i18n.messages[locale]['Locale Name']
+      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
+        const localeName = localeData['Locale Name']
         if (typeof localeName !== 'undefined') {
           names.push(localeName)
         } else {
