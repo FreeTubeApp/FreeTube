@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Eesti'
+Locale Name: 'eesti keel'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -388,10 +388,10 @@ Settings:
     rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Anna teada, kui toetajate vaade jääb vahele
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Toetajate vaate
-      API aadress (vaikimisi on see https://sponsor.ajay.app)
-    Enable SponsorBlock: Kasuta toetajate vaadet
-    SponsorBlock Settings: Toetajate vaate seadistused
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock'i API
+      URL (vaikimisi https://sponsor.ajay.app)
+    Enable SponsorBlock: Kasuta SponsorBlock'i
+    SponsorBlock Settings: SponsorBlock seadistused
     Skip Options:
       Auto Skip: Automaatne vahelejätmine
       Show In Seek Bar: Näita otsinguribal
@@ -419,7 +419,7 @@ Settings:
     Hide Search Bar: Peida otsinguriba
 About:
   #On About page
-  About: 'Rakenduse teave'
+  About: 'Teave'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
@@ -444,12 +444,12 @@ About:
   these people and projects: tänu nendele inimestele ja projektidele
   FreeTube is made possible by: FreeTube loomine ja arendamine on olnud võimalik
   Credits: Tänuavaldused
-  Translate: Tõlked
+  Translate: Tõlgi
   room rules: jututoa reeglitega
   Please read the: Palun kindlasti tutvu
   Chat on Matrix: Vestle meiega Matrix'i võrgus
   Mastodon: Mikroblogiteenus Mastodon
-  Blog: Ajaveeb
+  Blog: Blogi
   Website: Veebisait
   Please check for duplicates before posting: Enne uue veateate tegemist palun kontrolli,
     kas sellest on juba meile teada antud
