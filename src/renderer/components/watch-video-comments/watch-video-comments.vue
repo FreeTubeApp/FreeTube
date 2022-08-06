@@ -175,7 +175,7 @@
             </p>
           </div>
           <div
-            v-if="comment.replies.length < comment.numReplies"
+            v-if="comment.replyToken !== null"
             class="showMoreReplies"
             @click="getCommentReplies(index)"
           >
