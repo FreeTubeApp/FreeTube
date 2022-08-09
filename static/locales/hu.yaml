@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'magyar'
+Locale Name: 'Magyar'
 FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -104,11 +104,13 @@ User Playlists:
     Csak azokat a videókat sorolja fel, amelyeket Ön elmentett vagy a kedvencek közé
     helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
     lejátszási listára.
+  Search bar placeholder: Keresés a lejátszási listában
 History:
   # On History Page
   History: 'Előzmények'
   Watch History: 'Korábbi megtekintések'
   Your history list is currently empty.: 'Az előzmények listája jelenleg üres.'
+  Search bar placeholder: Keresés az előzmények között
 Settings:
   # On Settings Page
   Settings: 'Beállítások'
