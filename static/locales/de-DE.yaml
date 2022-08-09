@@ -164,6 +164,7 @@ Settings:
       Light: Hell
       Dracula: Dracula
       System Default: Systemvoreinstellung
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -189,6 +190,19 @@ Settings:
       Dracula Purple: Dracula Lila
       Dracula Red: Dracula Rot
       Dracula Yellow: Dracula Gelb
+      Catppuccin Mocha Green: Catppuccin Mocha Grün
+      Catppuccin Mocha Blue: Catppuccin Mocha Blau
+      Catppuccin Mocha Peach: Catppuccin Mocha Pfirsich
+      Catppuccin Mocha Yellow: Catppuccin Mocha Gelb
+      Catppuccin Mocha Sky: Catppuccin Mocha Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Saphir
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenwasser
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Rot
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -618,6 +632,7 @@ Video:
     intro: Intro
     sponsor: Sponsor
     recap: Rekapitulation
+    filler: Füller
   Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In $ öffnen
