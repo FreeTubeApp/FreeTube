@@ -378,6 +378,9 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
     External Player Settings: 外部播放器设置
+    Players:
+      None:
+        Name: 无
   Download Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
