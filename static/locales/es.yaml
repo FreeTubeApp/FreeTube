@@ -383,6 +383,9 @@ Settings:
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
     External Player Settings: Reproductor externo
+    Players:
+      None:
+        Name: Ninguno
   Download Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga

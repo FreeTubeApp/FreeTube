@@ -107,6 +107,7 @@ const state = {
     '#B4BEFE'
   ],
   externalPlayerNames: [],
+  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -166,6 +167,10 @@ const getters = {
 
   getExternalPlayerNames () {
     return state.externalPlayerNames
+  },
+
+  getExternalPlayerNameTranslationKeys () {
+    return state.externalPlayerNameTranslationKeys
   },
 
   getExternalPlayerValues () {
@@ -939,10 +944,11 @@ const actions = {
     }
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -950,6 +956,7 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -1160,6 +1167,10 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
+  },
+
+  setExternalPlayerNameTranslationKeys (state, value) {
+    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {
