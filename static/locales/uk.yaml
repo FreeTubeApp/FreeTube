@@ -407,6 +407,9 @@ Settings:
       дії
     External Player: Зовнішній програвач
     External Player Settings: Параметри зовнішнього програвача
+    Players:
+      None:
+        Name: Немає
   Download Settings:
     Download Settings: Налаштування завантаження
     Choose Path: Вибрати шлях
