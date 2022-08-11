@@ -380,6 +380,9 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
     External Player Settings: 外部播放程式設定
+    Players:
+      None:
+        Name: 無
   Download Settings:
     Download Settings: 下載設定
     Ask Download Path: 詢問下載路徑
