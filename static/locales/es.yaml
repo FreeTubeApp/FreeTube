@@ -857,6 +857,7 @@ Channels:
   Empty: Tu lista de canales está actualmente vacía.
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: $ ha sido eliminado de tus suscripciones
+  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "$"?
 Age Restricted:
   Type:
     Channel: Canal
