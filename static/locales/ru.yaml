@@ -414,6 +414,9 @@ Settings:
       действиях
     External Player: Внешний проигрыватель
     External Player Settings: Внешний проигрыватель
+    Players:
+      None:
+        Name: Нет
   Download Settings:
     Download Settings: Скачивание
     Ask Download Path: Запрашивать путь при скачивании
