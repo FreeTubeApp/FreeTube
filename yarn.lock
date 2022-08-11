@@ -7517,10 +7517,9 @@ ytdl-core@^3.2.2:
     miniget "^2.0.1"
     sax "^1.1.3"
 
-ytdl-core@^4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.11.0.tgz#79a3ea94d9d662b4b3acecdb1372ed3f1a9ea9db"
-  integrity sha512-Q3hCLiUA9AOGQXzPvno14GN+HgF9wsO1ZBHlj0COTcyxjIyFpWvMfii0UC4/cAbVaIjEdbWB71GdcGuc4J1Lmw==
+"ytdl-core@git+https://github.com/absidue/node-ytdl-core#temp-fix-11-08-2022":
+  version "0.0.0-development"
+  resolved "git+https://github.com/absidue/node-ytdl-core#22f6c2cbffa0bb242af799ce143e9e2f260019c4"
   dependencies:
     m3u8stream "^0.8.6"
     miniget "^4.2.2"
