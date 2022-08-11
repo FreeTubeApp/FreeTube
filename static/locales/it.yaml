@@ -427,6 +427,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
+    Players:
+      None:
+        Name: Nessuno
   Download Settings:
     Download Settings: Impostazioni di scaricamento
     Ask Download Path: Chiedi il percorso di scaricamento
