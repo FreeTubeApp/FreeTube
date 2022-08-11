@@ -414,6 +414,9 @@ Settings:
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
     External Player Settings: Harici Oynatıcı Ayarları
+    Players:
+      None:
+        Name: Yok
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
