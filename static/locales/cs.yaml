@@ -409,6 +409,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorovat varování u nepodporovaných akcích
     External Player: Externí přehrávač
     External Player Settings: Nastavení externího přehrávače
+    Players:
+      None:
+        Name: Žádný
   Download Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
     Download Settings: Nastavení stahování
