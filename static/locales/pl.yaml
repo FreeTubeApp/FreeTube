@@ -421,6 +421,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
     External Player: Zewnętrzny odtwarzacz
     External Player Settings: Ustawienia zewnętrznego odtwarzacza
+    Players:
+      None:
+        Name: Żaden
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
