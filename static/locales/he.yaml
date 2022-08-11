@@ -388,6 +388,9 @@ Settings:
     Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
     Ignore Unsupported Action Warnings: התעלמות מאזהרות על פעולות שאינן נתמכות
     Custom External Player Arguments: משתנים לנגן חיצוני בהתאמה אישית
+    Players:
+      None:
+        Name: ללא
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
     SponsorBlock Settings: הגדרות חוסם מממנים
