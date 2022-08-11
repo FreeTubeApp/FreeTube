@@ -411,6 +411,9 @@ Settings:
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+    Players:
+      None:
+        Name: Bez
   Download Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
