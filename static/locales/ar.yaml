@@ -405,6 +405,9 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+    Players:
+      None:
+        Name: لاشيء
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
