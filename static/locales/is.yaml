@@ -391,6 +391,9 @@ Settings:
     Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
     External Player: Utanaðkomandi spilari
     External Player Settings: Stillingar utanaðkomandi spilara
+    Players:
+      None:
+        Name: Ekkert
   Download Settings:
     Download Settings: Stillingar niðurhals
     Ask Download Path: Spyrja hvar eigi að vista skrár
