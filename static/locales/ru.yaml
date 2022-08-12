@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Эта часть приложения еще не готова. Вернитесь позже, когда будет достигнут прогресс.
+  Эта часть приложения ещё не готова. Вернитесь позже, когда выйдет новая версия.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -15,8 +15,8 @@ Paste: 'Вставить'
 Delete: 'Удалить'
 Select all: 'Выбрать все'
 Reload: 'Перезагрузить'
-Force Reload: 'Принудительная перезагрузка'
-Toggle Developer Tools: 'Переключить инструменты разработчика'
+Force Reload: 'Принудительно обновить'
+Toggle Developer Tools: 'Отобразить инструменты для разработчиков'
 Actual size: 'Настоящий размер'
 Zoom in: 'Увеличить'
 Zoom out: 'Уменьшить'
@@ -25,15 +25,15 @@ Window: 'Окно'
 Minimize: 'Свернуть'
 Close: 'Закрыть'
 Back: 'Назад'
-Forward: 'Вперед'
+Forward: 'Вперёд'
 
 # Search Bar
-Search / Go to URL: 'Поиск/Перейти по адресу'
+Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
   Search Filters: 'Фильтры поиска'
   Sort By:
-    Sort By: 'Сортировать по'
+    Sort By: 'Упорядочивать по'
     Most Relevant: 'Наиболее подходящим'
     Rating: 'Оценке'
     Upload Date: 'Дате загрузки'
@@ -62,7 +62,7 @@ Search Filters:
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'
 # Sidebar
-  There are no more results for this search: Больше результатов по этому запросу нет
+  There are no more results for this search: Больше выдачи по этому запросу нет
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
@@ -158,9 +158,9 @@ Settings:
       Black: 'Чёрная'
       Dark: 'Тёмная'
       Light: 'Светлая'
-      Dracula: 'Dracula'
+      Dracula: 'Дракула'
       System Default: Системная
-      Catppuccin Mocha: Catppuccin Mocha
+      Catppuccin Mocha: Мокко с капучино
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
