@@ -383,6 +383,9 @@ Settings:
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
     External Player Settings: Reproductor externo
+    Players:
+      None:
+        Name: Ninguno
   Download Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
@@ -845,3 +848,17 @@ Downloading has completed: '«$» ha terminado de descargarse'
 Downloading failed: Hubo un problema al descargar «$»
 Screenshot Success: Captura de pantalla guardada como «$»
 Screenshot Error: Captura de pantalla fallida. $
+New Window: Nueva ventana
+Channels:
+  Channels: Canales
+  Title: Lista de canales
+  Search bar placeholder: Buscar canales
+  Count: $ canal(es) encontrado(s).
+  Empty: Tu lista de canales está actualmente vacía.
+  Unsubscribe: Cancelar la suscripción
+  Unsubscribed: $ ha sido eliminado de tus suscripciones
+  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "$"?
+Age Restricted:
+  Type:
+    Channel: Canal
+    Video: Vídeo

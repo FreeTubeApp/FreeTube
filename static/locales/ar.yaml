@@ -156,6 +156,7 @@ Settings:
       Light: 'فاتح'
       Dracula: 'دراكولا'
       System Default: افتراضيات النظام
+      Catppuccin Mocha: كاتبوتشين موكا
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -181,6 +182,20 @@ Settings:
       Dracula Purple: 'دراكولا إرجواني'
       Dracula Red: 'دراكولا أحمر'
       Dracula Yellow: 'دراكولا أصفر'
+      Catppuccin Mocha Rosewater: كاتبوتشين موكا ماء الورد
+      Catppuccin Mocha Flamingo: كاتبوتشين موكا فلامنغو
+      Catppuccin Mocha Peach: كاتبوتشين موكا الخوخ
+      Catppuccin Mocha Green: كاتبوتشين موكا اخضر
+      Catppuccin Mocha Teal: كاتبوتشين موكا تيل
+      Catppuccin Mocha Sky: كاتبوتشين موكا سماوي
+      Catppuccin Mocha Sapphire: كاتبوتشين موكا سافير
+      Catppuccin Mocha Blue: كاتبوتشين موكا ازرق
+      Catppuccin Mocha Lavender: كاتبوتشين موكا لافندر
+      Catppuccin Mocha Mauve: كاتبوتشين موكا موف
+      Catppuccin Mocha Pink: كاتبوتشين موكا الوردية
+      Catppuccin Mocha Red: كاتبوتشين موكا أحمر
+      Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
+      Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -349,6 +364,10 @@ Settings:
     Distraction Free Settings: إعدادات عدم الإزعاج
     Hide Active Subscriptions: اخفي الإشتراكات الناشطة
     Hide Playlists: إخفاء قوائم التشغيل
+    Hide Video Description: إخفاء وصف الفيديو
+    Hide Comments: إخفاء التعليقات
+    Hide Sharing Actions: إخفاء إجراءات المشاركة
+    Hide Live Streams: إخفاء البث المباشر
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -386,6 +405,9 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+    Players:
+      None:
+        Name: لاشيء
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
@@ -393,6 +415,11 @@ Settings:
     Download Behavior: سلوك التحميل
     Open in web browser: فتح في متصفح الويب
     Download in app: تحميل في التطبيق
+  Parental Control Settings:
+    Hide Search Bar: إخفاء شريط البحث
+    Parental Control Settings: إعدادات الرقابة الأبوية
+    Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
+    Show Family Friendly Only: عرض مناسب للعائلة فقط
 About:
   #On About page
   About: 'حول'
@@ -805,7 +832,8 @@ Tooltips:
       على المشغل الخارجي المختار عبر متغير بيئة PATH. إذا لزم الأمر ، يمكن تعيين مسار
       مخصص هنا.
     External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
-      إذا كان مدعوما) في المشغل الخارجي، على الصورة المصغرة.
+      إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
+      Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '$')"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
@@ -833,3 +861,18 @@ Downloading canceled: تم إلغاء التحميل من قبل المستخد�
 Starting download: بدء تنزيل "$"
 Screenshot Success: تم حفظ لقطة الشاشة كا"$"
 Screenshot Error: فشل أخذ لقطة للشاشة. $
+New Window: نافذة جديدة
+Age Restricted:
+  Type:
+    Channel: القناة
+    Video: فيديو
+  This $contentType is age restricted: هذا $ مقيد بالفئة العمرية
+Channels:
+  Count: تم العثور على قناة (قنوات) $.
+  Unsubscribed: تمت إزالة $ من اشتراكاتك
+  Channels: القنوات
+  Title: قائمة القنوات
+  Search bar placeholder: البحث في القنوات
+  Empty: قائمة قنواتك فارغة حاليا.
+  Unsubscribe: إلغاء الاشتراك
+  Unsubscribe Prompt: هل أنت متأكد من أنك تريد إلغاء الاشتراك من "$"؟

@@ -185,6 +185,8 @@ function runApp() {
           return '#000000'
         case 'dracula':
           return '#282a36'
+        case 'catppuccin-mocha':
+          return '#1e1e2e'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -816,8 +818,12 @@ function runApp() {
           { role: 'toggledevtools' },
           { type: 'separator' },
           { role: 'resetzoom' },
-          { role: 'zoomin' },
+          { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+Plus' },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+=', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+numadd', visible: false },
           { role: 'zoomout' },
+          { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
           { role: 'togglefullscreen' }
         ]

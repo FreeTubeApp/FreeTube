@@ -148,6 +148,7 @@ Settings:
       Light: '浅'
       Dracula: '德古拉'
       System Default: 系统默认
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -166,13 +167,27 @@ Settings:
       Amber: '黄褐'
       Orange: '橙'
       Deep Orange: '深橙'
-      Dracula Cyan: '德古拉 青'
-      Dracula Green: '德古拉 绿'
-      Dracula Orange: '德古拉 橙'
-      Dracula Pink: '德古拉 粉'
-      Dracula Purple: '德古拉 紫'
-      Dracula Red: '德古拉 红'
-      Dracula Yellow: '德古拉 黄'
+      Dracula Cyan: 'Dracula Cyan'
+      Dracula Green: 'Dracula Green'
+      Dracula Orange: 'Dracula Orange'
+      Dracula Pink: 'Dracula Pink'
+      Dracula Purple: 'Dracula Purple'
+      Dracula Red: 'Dracula Red'
+      Dracula Yellow: 'Dracula Yellow'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -325,6 +340,10 @@ Settings:
     Distraction Free Settings: 零打扰设置
     Hide Active Subscriptions: 隐藏活跃的订阅
     Hide Playlists: 隐藏播放列表
+    Hide Live Streams: 隐藏直播
+    Hide Sharing Actions: 隐藏分享操作
+    Hide Comments: 隐藏评论
+    Hide Video Description: 隐藏视频描述
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -359,6 +378,9 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
     External Player Settings: 外部播放器设置
+    Players:
+      None:
+        Name: 无
   Download Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
@@ -366,6 +388,11 @@ Settings:
     Download in app: 应用内下载
     Open in web browser: 在网络浏览器内打开
     Download Behavior: 下载行为
+  Parental Control Settings:
+    Parental Control Settings: 家长控制设置
+    Show Family Friendly Only: 仅显示“家庭友好”视频
+    Hide Search Bar: 隐藏搜索栏
+    Hide Unsubscribe Button: 隐藏“取消订阅”按钮
 About:
   #On About page
   About: '关于'
@@ -728,7 +755,7 @@ Tooltips:
     Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
     External Link Handling: "选择单击一个无法在 FreeTube 中打开的链接时触发的默认操作。\n默认情况下，FreeTube 将在您的默认浏览器中打开所点击链接。\n"
   External Player Settings:
-    External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。
+    External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。警告，Invidious 设置不影响外部播放器。
     Custom External Player Executable: 默认情况下，FreeTube 假设选择的外部播放器可以通过 PATH 环境变量找到。如果需要，可以在这里设置自定义路径。
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
     DefaultCustomArgumentsTemplate: "(默认: '$')"
@@ -754,3 +781,18 @@ Downloading canceled: 用户取消了下载
 Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
 Screenshot Error: 截屏失败。$
 Screenshot Success: 另存截屏为 “$”
+New Window: 新窗口
+Age Restricted:
+  Type:
+    Channel: 频道
+    Video: 视频
+  This $contentType is age restricted: 此 $ 有年龄限制
+Channels:
+  Search bar placeholder: 搜索频道
+  Count: 找到了 $ 个频道。
+  Unsubscribe: 取消订阅
+  Channels: 频道
+  Title: 频道列表
+  Empty: 你的频道列表当前为空。
+  Unsubscribed: 从你的订阅里删除了 $
+  Unsubscribe Prompt: 你确定你要取消订阅 "$" 吗？

@@ -33,7 +33,8 @@ export default Vue.extend({
         'light',
         'dark',
         'black',
-        'dracula'
+        'dracula',
+        'catppuccinMocha'
       ]
     }
   },
@@ -91,7 +92,8 @@ export default Vue.extend({
         this.$t('Settings.Theme Settings.Base Theme.Light'),
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Black'),
-        this.$t('Settings.Theme Settings.Base Theme.Dracula')
+        this.$t('Settings.Theme Settings.Base Theme.Dracula'),
+        this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha')
       ]
     },
 

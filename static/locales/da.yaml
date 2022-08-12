@@ -83,24 +83,35 @@ Subscriptions:
   Refresh Subscriptions: 'Genopfrisk Abonnementer'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
-    profil har et stort antal abonnementer.  Tving RSS for at undgå adgangsbegrænsning
+    profil har et stort antal abonnementer.  Tvinger RSS for at undgå adgangsbegrænsning
+  Error Channels: Kanaler med Fejl
 Trending:
-  Trending: 'På Mode'
+  Trending: 'Trender'
+  Music: Musik
+  Trending Tabs: Trend Faner
+  Gaming: Gaming
+  Default: Standard
+  Movies: Film
 Most Popular: 'Mest Populære'
-Playlists: 'Spillelister'
+Playlists: 'Playlister'
 User Playlists:
-  Your Playlists: 'Dine Spillelister'
+  Your Playlists: 'Dine Playlister'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Din
     liste over gemte videoer er tom. Klik på gem-knappen i hjørnet af en video, for
     at få den optegnet her
-  Playlist Message: Denne side afspejler ikke fuldt funktionelle spillelister. Den
-    optegner blot videoer, som du har gemt eller favoriseret. Når arbejdet er færdigt,
-    vil alle videoer her blive flyttet til en 'Favoritter'-spilleliste.
+  Playlist Message: Denne side afspejler ikke fuldt funktionelle playlister. Den optegner
+    blot videoer som du har gemt eller favoriseret. Når arbejdet er færdigt, vil alle
+    videoer her blive flyttet til en 'Favoritter'-playliste.
+  Search bar placeholder: Søg i Playliste
+  Empty Search Message: Der er ingen videoer i denne playliste, der passer til din
+    søgning
 History:
   # On History Page
   History: 'Historik'
   Watch History: 'Set Historik'
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
+  Empty Search Message: Der er ingen videoer i din historie som passer til din søgning
+  Search bar placeholder: Søg i Historie
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
@@ -132,6 +143,19 @@ Settings:
     Region for Trending: 'Område for Mode'
         #! List countries
     View all Invidious instance information: Vis al Invidious-instans-information
+    Clear Default Instance: Ryd Standard Instans
+    External Link Handling:
+      External Link Handling: Ekstern Link Håndtering
+      Open Link: Åbn Link
+      No Action: Ingen Handling
+      Ask Before Opening Link: Spørg Før Link Åbnes
+    Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
+      ved opstart
+    System Default: Systemstandard
+    The currently set default instance is $: Den nuværende standardinstans er $
+    Current Invidious Instance: Nuværende Invidious-instans
+    No default instance has been set: Ingen standardinstans er angivet
+    Set Current Instance as Default: Angiv Nuværende Instans som Standard
   Theme Settings:
     Theme Settings: 'Temaindstillinger'
     Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
@@ -141,17 +165,19 @@ Settings:
       Dark: 'Mørkt'
       Light: 'Lyst'
       Dracula: 'Dracula'
+      System Default: Systemstandard
+      Catppuccin Mocha: Catppuccin Mokka
     Main Color Theme:
       Main Color Theme: 'Primært Farvetema'
       Red: 'Rødt'
       Pink: 'Lyserødt'
       Purple: 'Lilla'
       Deep Purple: 'Mørkelilla'
-      Indigo: 'Indigo'
+      Indigo: 'Indigoblå'
       Blue: 'Blåt'
       Light Blue: 'Lyseblåt'
       Cyan: 'Cyan'
-      Teal: 'Blågrønt'
+      Teal: 'Turkisfarvet'
       Green: 'Grønt'
       Light Green: 'Lysegrønt'
       Lime: 'Limegrønt'
@@ -166,11 +192,26 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Rødt'
       Dracula Yellow: 'Dracula Gult'
+      Catppuccin Mocha Green: Catppuccin Mokka Grønt
+      Catppuccin Mocha Rosewater: Catppuccin Mokka Rosenvand
+      Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
+      Catppuccin Mocha Mauve: Capttuccin Mokka Lysviolet
+      Catppuccin Mocha Peach: Catppuccin Mokka Ferskenfarvet
+      Catppuccin Mocha Yellow: Catppuccin Mokka Gult
+      Catppuccin Mocha Pink: Catppuccin Mokka Lyserødt
+      Catppuccin Mocha Red: Catppuccin Mokka Rødt
+      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrunt
+      Catppuccin Mocha Teal: Catppuccin Mokka Turkisfarvet
+      Catppuccin Mocha Sky: Catppuccin Mokka Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
+      Catppuccin Mocha Blue: Catppuccin Mokka Blåt
+      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendelblå
     Secondary Color Theme: 'Sekundært Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade
     Disable Smooth Scrolling: Deaktivér Jævn Rulning
-    Expand Side Bar by Default: Udvid Sidebjælke som Standard
+    Expand Side Bar by Default: Udvid Sidebar som Standard
+    Hide Side Bar Labels: Skjul Sidebarens Etiketter
   Player Settings:
     Player Settings: 'Afspilningsindstillinger'
     Force Local Backend for Legacy Formats: 'Tving Lokal Server for Gamle Formater'
@@ -178,27 +219,49 @@ Settings:
     Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
     Autoplay Videos: 'Autospil Videoer'
     Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
-    Autoplay Playlists: 'Autospil Spillelister'
+    Autoplay Playlists: 'Autospil Playlister'
     Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
     Default Volume: 'Standard Lydstyrke'
     Default Playback Rate: 'Standard Afspilningshastighed'
     Default Video Format:
       Default Video Format: 'Standard Videoformat'
-      Dash Formats: 'Dash-Formater'
+      Dash Formats: 'DASH-Formater'
       Legacy Formats: 'Gamle Formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Standardkvalitet'
       Auto: 'Automatisk'
-      144p: 'qqVGA'
-      240p: 'QVGA'
-      360p: 'nHD'
-      480p: 'SD/VGA'
-      720p: 'HD'
-      1080p: 'Fuld HD'
-      1440p: 'QHD'
-      4k: 'UHD'
-      8k: '8K UHD'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
+    Screenshot:
+      Enable: Aktivér Skærmbillede
+      Format Label: Skærmbillede Format
+      Quality Label: Skærmbillede Kvalitet
+      Folder Button: Vælg Mappe
+      File Name Label: Filnavn Mønster
+      Error:
+        Forbidden Characters: Forbudte Karakterer
+        Empty File Name: Tomt Filnavn
+      File Name Tooltip: Du kan bruge variabler nedenfor. %Y År 4 tal. %M Måned 2
+        tal. %D Dag 2 tal. %H Time 2 tal. %N Minut 2 tal. %S Sekund 2 tal. %T Millisekund
+        3 tal. %s Video-sekund. %t Video-millisekund 3 tal. %i Video-ID. Du kan også
+        bruge "\" eller "/" til at oprette undermapper.
+      Ask Path: Spørg efter Mappe til at Gemme
+      Folder Label: Mappe til Skærmbilleder
+    Next Video Interval: Næste Videointerval
+    Max Video Playback Rate: Maks Videoafspilningshastighed
+    Display Play Button In Video Player: Vis Afspilningsknap I Videoafspiller
+    Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
+    Video Playback Rate Interval: Videoafspilningshastighed Interval
+    Scroll Playback Rate Over Video Player: Scroll-afspilningshastighed i Videoafspiller
+    Scroll Volume Over Video Player: Scroll-lydstyrke i Videoafspiller
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
@@ -215,6 +278,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
       du sikker på, at du vil fjerne alle abonnementer og profiler?  Dette kan ikke
       fortrydes.'
+    Automatically Remove Video Meta Files: Fjern Automatisk Video Metafiler
   Subscription Settings:
     Subscription Settings: 'Abonnementsindstillinger'
     Hide Videos on Watch: 'Skjul Videoer på Se'
@@ -234,7 +298,7 @@ Settings:
     Export NewPipe: 'Eksportér NewPipe'
     Import History: 'Importér Historik'
     Export History: 'Eksportér Historik'
-    Profile object has insufficient data, skipping item: 'Profilobjekt har utilstrækkelig
+    Profile object has insufficient data, skipping item: 'Profilobjekt har utilstrækkeligt
       data, springer objektet over'
     All subscriptions and profiles have been successfully imported: 'Det lykkedes
       at importere alle abonnementer og profiler'
@@ -258,6 +322,14 @@ Settings:
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
     Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
+    Export Playlists: Eksportér Playlister
+    Playlist insufficient data: Utilstrækkeligt data for "$" playlist, springer objektet
+      over
+    Import Playlists: Importér Playlister
+    All playlists has been successfully imported: Alle playlister er blevet importeret
+      succesfuldt
+    All playlists has been successfully exported: Alle playlister er blevet eksporteret
+      succesfuldt
   Advanced Settings:
     Advanced Settings: 'Avancerede indstillinger'
     Enable Debug Mode (Prints data to the console): 'Aktivér fejlretningstilstand
@@ -300,7 +372,7 @@ Settings:
     Proxy Host: Proxy-Vært
     Proxy Protocol: Proxy-Protokol
     Enable Tor / Proxy: Aktivér Tor / Proxy
-    Proxy Settings: Proxy-Indstillinger
+    Proxy Settings: Indstillinger for Proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Skjul Aktive Abonnementer
     Hide Live Chat: Skjul Direkte Chat
@@ -312,9 +384,47 @@ Settings:
     Hide Video Likes And Dislikes: Skjul Video-Tilkendegivelser
     Hide Video Views: Skjul Videovisninger
     Distraction Free Settings: Distraktionsfri Indstillinger
+    Hide Live Streams: Skjul Livestreams
+    Hide Comments: Skjul Kommentarer
+    Hide Sharing Actions: Skjul Delingshandlinger
+    Hide Video Description: Skjul Videobeskrivelse
+    Hide Playlists: Skjul Playlister
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
+  SponsorBlock Settings:
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      Url (Standard er https://sponsor.ajay.app)
+    Skip Options:
+      Auto Skip: Auto Spring Over
+      Skip Option: Spring Over Indstilling
+      Prompt To Skip: Prompt til at Springe Over
+      Show In Seek Bar: Vis på Tidslinjen
+      Do Nothing: Gør Intet
+    Category Color: Kategorifarve
+    Notify when sponsor segment is skipped: Notificér når et sponsorsegment springes
+      over
+    SponsorBlock Settings: Indstillinger for SponsorBlock
+    Enable SponsorBlock: Aktivér SponsorBlock
+  Download Settings:
+    Open in web browser: Åbn i webbrowser
+    Download Settings: Downloadindstillinger
+    Choose Path: Vælg Sti
+    Ask Download Path: Spørg efter sti for downloads
+    Download Behavior: Download-adfærd
+    Download in app: Download i appen
+  Parental Control Settings:
+    Hide Unsubscribe Button: Skjul Afmeldingsknap
+    Show Family Friendly Only: Vis Blot Familievenligt
+    Parental Control Settings: Forældrekontrolsindstillinger
+    Hide Search Bar: Skjul Søgefeltet
+  External Player Settings:
+    Custom External Player Executable: Brugerdefineret Ekstern Afspiller Eksekverbar
+      Fil
+    Custom External Player Arguments: Brugerdefineret Ekstern Afspiller Argumenter
+    External Player: Ekstern Afspiller
+    Ignore Unsupported Action Warnings: Ignorér Advarsler Om Ikke-understøttede Handlinger
+    External Player Settings: Indstillinger for Ekstern Afspiller
 About:
   #On About page
   About: 'Om'
@@ -413,6 +523,8 @@ Profile:
     du sikker på, at du vil slette de valgte kanaler?  Dette vil ikke slette kanalen
     fra nogen anden profil.'
 #On Channel Page
+  Profile Filter: Profilfilter
+  Profile Settings: Profilindstillinger
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnenter'
@@ -434,9 +546,9 @@ Channel:
       Oldest: 'Ældste'
       Most Popular: 'Mest Populære'
   Playlists:
-    Playlists: 'Spillelister'
+    Playlists: 'Playlister'
     This channel does not currently have any playlists: 'Denne kanal har i øjeblikket
-      ingen spillelister'
+      ingen playlister'
     Sort Types:
       Last Video Added: 'Sidste Tilføjede Video'
       Newest: 'Nyeste'
@@ -458,9 +570,9 @@ Video:
   Copy Invidious Link: 'Kopiér Indvidious-Link'
   View: 'Vis'
   Views: 'Visninger'
-  Loop Playlist: 'Gentag Spilleliste'
-  Shuffle Playlist: 'Bland Spilleliste'
-  Reverse Playlist: 'Vend Spilleliste Om'
+  Loop Playlist: 'Gentag Playliste'
+  Shuffle Playlist: 'Bland Playliste'
+  Reverse Playlist: 'Vend Playliste Om'
   Play Next Video: 'Afspil Næste Video'
   Play Previous Video: 'Afspil Forrige Video'
   # Context is "X People Watching"
@@ -476,8 +588,8 @@ Video:
   Enable Live Chat: 'Aktivér Direkte Chat'
   Live Chat is currently not supported in this build.: 'Direkte Chat understøttes
     i øjeblikket ikke i dette build.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Direkte
-    Udsendelse er slut.'
+  'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Livestream
+    er slut.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Direkte chat
     er aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Direkte
@@ -534,6 +646,45 @@ Video:
   audio only: kun lyd
   video only: kun video
   Download Video: Hent Video
+  Premieres on: Har premiere på
+  Stats:
+    Resolution: Skærmopløsning
+    Player Dimensions: Afspillerdimensioner
+    Bitrate: Bitrate
+    Volume: Lydstyrke
+    Bandwidth: Båndbredde
+    Buffered: Bufferet
+    Dropped / Total Frames: Tabte / Antal Billeder
+    Mimetype: Mimetype
+    Video statistics are not available for legacy videos: Videostatistikker er ikke
+      tilgængelige for gamle videoer
+    Video ID: Video ID
+  translated from English: oversat fra engelsk
+  Sponsor Block category:
+    intro: Intro
+    sponsor: Sponsor
+    recap: Opsummering
+    music offtopic: Musik Off-topic
+    outro: Outtro
+    self-promotion: Selvpromovering
+    interaction: Interaktion
+    filler: Fyldstof
+  External Player:
+    Unsupported Actions:
+      opening playlists: åbner playlister
+      reversing playlists: vender playlister om
+      starting video at offset: starter video ved begyndelsen
+      opening specific video in a playlist (falling back to opening the video): åbner
+        specifik video i en playliste (falder tilbage til at åbne videoen)
+      setting a playback rate: indstiller en afspilningshastighed
+      shuffling playlists: blander playlister
+      looping playlists: gentager playlister
+    OpeningTemplate: Åbner $ i %...
+    OpenInTemplate: Åbn i $
+    video: video
+    playlist: playliste
+    UnsupportedActionTemplate: '$ understøtter ikke: %'
+  Skipped segment: Sprunget over segment
 Videos:
   #& Sort By
   Sort By:
@@ -543,13 +694,13 @@ Videos:
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: 'Vis Hele Spilleliste'
+  View Full Playlist: 'Vis Hele Playliste'
   Videos: 'Videoer'
   View: 'Visning'
   Views: 'Visninger'
   Last Updated On: 'Sidst Opdateret'
   Share Playlist:
-    Share Playlist: 'Del Spilleliste'
+    Share Playlist: 'Del Playliste'
     Copy YouTube Link: 'Kopiér YouTube-Link'
     Open in YouTube: 'Åbn i YouTube'
     Copy Invidious Link: 'Kopiér Indvidious-Link'
@@ -558,13 +709,14 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Playliste
 Toggle Theatre Mode: 'Slå Biograftilstand til/fra'
 Change Format:
   Change Video Formats: 'Skift Videoformater'
-  Use Dash Formats: 'Brug Dash-Formater'
+  Use Dash Formats: 'Brug DASH-Formater'
   Use Legacy Formats: 'Brug Gamle Formater'
   Use Audio Formats: 'Brug Lydformater'
-  Dash formats are not available for this video: 'Dash-formater er ikke tilgængelige
+  Dash formats are not available for this video: 'DASH-formater er ikke tilgængelige
     for denne video'
   Audio formats are not available for this video: 'Lydformater er ikke tilgængelige
     for denne video'
@@ -604,7 +756,12 @@ Comments:
   Newest first: Nyeste Først
   Top comments: Topkommentarer
   Sort by: Sortér efter
-Up Next: 'Kommer Om Lidt'
+  From $channelName: fra $channelName
+  Pinned by: Fastgjort af
+  And others: og andre
+  Show More Replies: Vis Flere Svar
+  Member: Medlem
+Up Next: 'Næste'
 
 # Toast Messages
 Local API Error (Click to copy): 'Lokal API-Fejl (Klik for at kopiere)'
@@ -616,14 +773,14 @@ Loop is now disabled: 'Gentagelse er nu deaktiveret'
 Loop is now enabled: 'Gentagelse er nu aktiveret'
 Shuffle is now disabled: 'Bland er nu deaktiveret'
 Shuffle is now enabled: 'Bland er nu aktiveret'
-The playlist has been reversed: 'Spillelisten er blevet vendt om'
+The playlist has been reversed: 'Playlisten er blevet vendt om'
 Playing Next Video: 'Afspiller Næste Video'
 Playing Previous Video: 'Afspiller Forrige Video'
 Playing next video in 5 seconds.  Click to cancel: 'Afspiller næste video om 5 sekunder.
   Klik for at afbryde.'
 Canceled next video autoplay: 'Afbrød næste videos autospilning'
-'The playlist has ended.  Enable loop to continue playing': 'Spillelisten er slut.  Aktivér
-  gentagelse, for at fortsætte afspilning'
+'The playlist has ended.  Enable loop to continue playing': 'Playlisten er slut.  Aktivér
+  gentagelse for at fortsætte afspilning'
 
 Yes: 'Ja'
 No: 'Nej'
@@ -632,31 +789,92 @@ This video is unavailable because of missing formats. This can happen due to cou
   utilgængelighed.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Når aktiveret, vil FreeTube bruge RSS, i stedet for dens
-      standard metoder, til at gribe din abonnementsstrøm. RSS er hurtigere og forhindrer
-      IP-blokering, men tilbyder ikke visse informationer, som videolængde eller direkte-status
+    Fetch Feeds from RSS: Når det er aktiveret vil FreeTube bruge RSS, i stedet for
+      dens standardmetoder, for at hente din abonnementsfeed. RSS er hurtigere og
+      forhindrer IP-blokering, men tilbyder ikke visse informationer som videolængde
+      eller direkte-status
   Player Settings:
-    Default Video Format: Indstil formaterne, til brug ved afspilning af video. Dash-formater
-      kan afspille højere kvaliteter. Gamle formater er begrænsede til maks HD, men
-      bruger mindre båndbredde. Lydformater er blot lydudsendelser
-    Proxy Videos Through Invidious: Vil forbinde til Invidious, for at servere videoer,
-      i stedet for at oprette direkte forbindelse til YouTube. Overskriver API-indstilling
-    Force Local Backend for Legacy Formats: Virker kun, når Invidious-APIen er din
-      standard. Når aktiveret, vil den lokale API køre og bruge de gamle formater,
+    Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
+      kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
+      men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
+    Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
+      i stedet for at oprette en direkte forbindelse til YouTube. Tilsidesætter API-præference.
+    Force Local Backend for Legacy Formats: Virker kun når Invidious-API'en er din
+      standard. Når det er aktiveret, vil den lokale API køre og bruge de gamle formater,
       den giver, i stedet for dem Invidious giver. Hjælper når de videoer, der gives
-      af Invidious ikke spiller på grund af landerestriktioner
+      af Invidious, ikke spiller på grund af landerestriktioner.
+    Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
+      hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
+      bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
+      (Command-tast på Mac) nede og venstreklik musen for hurtigt at vende tilbage
+      til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
   General Settings:
-    Region for Trending: Området for mode tillader dig, at vælge hvilket lands videoer
-      på mode, du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
-      af YouTube
-    Preferred API Backend: Vælg den server, som FreeTube bruger til at anskaffe data.
-      Den lokale API er et inbygget dekomprimeringsværktøj. Invidious-APIen kræver
+    Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
+      på trend du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
+      af YouTube.
+    Preferred API Backend: Vælg den server som FreeTube bruger til at anskaffe data.
+      Den lokale API er et indbygget dekomprimeringsværktøj. Invidious-API'en kræver
       en Invidious-server at forbinde til.
     Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
-      API-opkald. Ryd den aktuelle instans, for at se en liste over offentlige instanser,
-      at vælge mellem
-    Thumbnail Preference: Alle forhåndsvisninger i FreeTube vil blive erstattet med
-      et billede af videoen, i stedet for standard-forhåndsvisningen
+      API-opkald.
+    Thumbnail Preference: Alle miniaturebilleder i FreeTube vil blive erstattet med
+      et billede af videoen, i stedet for standard-miniaturebilledet.
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
-      problem, vil FreeTube automatisk forsøge, at bruge din ikke-foretrukne API som
-      tilbagefaldsmetode, når aktiveret
+      problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
+      reservemetode, når det er aktiveret.
+    External Link Handling: "Vælg standardopførslen for når du klikker på et link,\
+      \ der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,\
+      \ du klikker på, i din standardbrowser.\n"
+  External Player Settings:
+    Custom External Player Executable: Som standard antager FreeTube at den valgte
+      eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
+      kan blive angivet her hvis det er nødvendigt.
+    DefaultCustomArgumentsTemplate: "(Standard: '$')"
+    Custom External Player Arguments: Alle brugerdefinerede kommandolinjeargumenter,
+      opdelt med semikoloner (';'), du ønsker viderebragt til den eksterne afspiller.
+    External Player: 'Valg af ekstern afspiller vil fremvise et ikon, for åbning af
+      videoen (playliste hvis understøttet) i den eksterne afspiller, på miniaturebilledet.
+      Advarsel: Invidious-indstillinger har ingen effekt på eksterne afspillere.'
+    Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
+      den gældende handling (fx vende playlister om, etc.).
+  Privacy Settings:
+    Remove Video Meta Files: Når det er aktiveret, sletter FreeTube automatisk metafiler
+      oprettet under videoafspilning, når siden lukkes.
+New Window: Nyt Vindue
+More: Mere
+Open New Window: Åbn Nyt Vindue
+Channels:
+  Channels: Kanaler
+  Title: Kanalliste
+  Count: $ kanal(er) fundet.
+  Unsubscribe Prompt: Er du sikker på at du vil afmelde dit abonnement på "$"?
+  Search bar placeholder: Søg Kanaler
+  Empty: Din kanalliste er i øjeblikket tom.
+  Unsubscribe: Afmeld
+  Unsubscribed: $ er fjernet fra dine abonnementer
+Default Invidious instance has been set to $: Standard Invidious-instans er blevet
+  sat til $
+Default Invidious instance has been cleared: Standard Invidious-instans er blevet
+  ryddet
+Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
+Search Bar:
+  Clear Input: Ryd Input
+Age Restricted:
+  Type:
+    Video: Video
+    Channel: Kanal
+  This $contentType is age restricted: Denne $ er aldersbegrænset
+Downloading failed: Der var et problem med at downloade "$"
+Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
+  åbnes i appen
+Screenshot Error: Skærmbillede mislykkedes. $
+Hashtags have not yet been implemented, try again later: Hashtags er ikke implementeret
+  endnu, prøv igen senere
+External link opening has been disabled in the general settings: Åbning af eksterne
+  links er slået fra i generelle indstillinger
+Starting download: Starter download af "$"
+Downloading has completed: '"$" er færdig med at downloade'
+Screenshot Success: Gemte skærmbillede som "$"
+Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. |
+  Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
+  næste video om {nextVideoInterval} sekunder. Klik for at afbryde.

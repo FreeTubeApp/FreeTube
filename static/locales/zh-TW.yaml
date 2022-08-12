@@ -67,7 +67,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   Latest Subscriptions: '最新訂閱'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始添加訂閱。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始新增訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
@@ -108,7 +108,7 @@ Settings:
     Locale Preference: '介面語言'
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
-      Local API: '區域API'
+      Local API: '本機 API'
       Invidious API: 'Invidious API(應用程式介面)'
     Video View Type:
       Video View Type: '影片觀看類別'
@@ -149,6 +149,7 @@ Settings:
       Light: '淺色'
       Dracula: '德古拉'
       System Default: 系統預設值
+      Catppuccin Mocha: 卡布奇諾摩卡
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -168,12 +169,26 @@ Settings:
       Orange: '橙'
       Deep Orange: '深橙'
       Dracula Cyan: '德古拉 青'
-      Dracula Green: '德古拉 绿'
+      Dracula Green: '德古拉 綠'
       Dracula Orange: '德古拉 橙'
       Dracula Pink: '德古拉 粉'
       Dracula Purple: '德古拉 紫'
       Dracula Red: '德古拉 红'
       Dracula Yellow: '德古拉 黄'
+      Catppuccin Mocha Yellow: 卡布奇諾摩卡黃色
+      Catppuccin Mocha Green: 卡布奇諾摩卡綠色
+      Catppuccin Mocha Flamingo: 卡布奇諾摩卡紅鶴
+      Catppuccin Mocha Teal: 卡布奇諾摩卡藍綠色
+      Catppuccin Mocha Rosewater: 卡布奇諾摩卡玫瑰水
+      Catppuccin Mocha Lavender: 卡布奇諾摩卡薰衣草色
+      Catppuccin Mocha Blue: 卡布奇諾摩卡藍色
+      Catppuccin Mocha Pink: 卡布奇諾摩卡粉紅
+      Catppuccin Mocha Red: 卡布奇諾摩卡紅色
+      Catppuccin Mocha Mauve: 卡布奇諾摩卡紫紅色
+      Catppuccin Mocha Maroon: 卡布奇諾摩卡褐紅色
+      Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
+      Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
+      Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -327,6 +342,10 @@ Settings:
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
     Hide Playlists: 隱藏播放清單
+    Hide Video Description: 隱藏影片描述
+    Hide Comments: 隱藏留言
+    Hide Live Streams: 隱藏直播串流
+    Hide Sharing Actions: 隱藏分享動作
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -361,6 +380,9 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
     External Player Settings: 外部播放程式設定
+    Players:
+      None:
+        Name: 無
   Download Settings:
     Download Settings: 下載設定
     Ask Download Path: 詢問下載路徑
@@ -368,6 +390,11 @@ Settings:
     Download in app: 在應用程式中下載
     Open in web browser: 在網路瀏覽器中開啟
     Download Behavior: 下載行為
+  Parental Control Settings:
+    Hide Unsubscribe Button: 隱藏取消訂閱按鈕
+    Show Family Friendly Only: 僅顯示適合家庭觀看
+    Hide Search Bar: 隱藏搜尋列
+    Parental Control Settings: 家長控制設定
 About:
   #On About page
   About: '關於'
@@ -744,7 +771,8 @@ Tooltips:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
-    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
+      設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'$'）
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
@@ -763,3 +791,18 @@ Downloading has completed: 「$」已下載結束
 Starting download: 正在開始下載「$」
 Screenshot Success: 已儲存螢幕截圖為 "$"
 Screenshot Error: 螢幕截圖失敗。 $
+New Window: 新視窗
+Age Restricted:
+  This $contentType is age restricted: 此 $ 有年齡限制
+  Type:
+    Channel: 頻道
+    Video: 影片
+Channels:
+  Channels: 頻道
+  Title: 頻道清單
+  Search bar placeholder: 搜尋頻道
+  Unsubscribe: 取消訂閱
+  Count: 找到 $ 個頻道。
+  Empty: 您的頻道清單目前為空。
+  Unsubscribe Prompt: 您確定您想要從「$」取消訂閱嗎？
+  Unsubscribed: $ 已從您的訂閱移除

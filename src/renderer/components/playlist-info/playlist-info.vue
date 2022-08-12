@@ -47,6 +47,7 @@
     <br>
 
     <ft-list-dropdown
+      v-if="!hideSharingActions"
       :title="$t('Playlist.Share Playlist.Share Playlist')"
       :label-names="shareHeaders"
       :label-values="shareValues"

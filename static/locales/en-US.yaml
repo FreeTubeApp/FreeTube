@@ -90,6 +90,15 @@ Subscriptions:
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
 More: More
+Channels:
+  Channels: Channels
+  Title: Channel List
+  Search bar placeholder: Search Channels
+  Count: $ channel(s) found.
+  Empty: Your channel list is currently empty.
+  Unsubscribe: Unsubscribe
+  Unsubscribed: $ has been removed from your subscriptions
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from "$"?
 Trending:
   Trending: Trending
   Default: Default
@@ -173,6 +182,7 @@ Settings:
       System Default: System Default
       Light: Light
       Dracula: Dracula
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -198,6 +208,20 @@ Settings:
       Dracula Purple: Dracula Purple
       Dracula Red: Dracula Red
       Dracula Yellow: Dracula Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -255,6 +279,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -289,6 +316,10 @@ Settings:
     Hide Playlists: Hide Playlists
     Hide Live Chat: Hide Live Chat
     Hide Active Subscriptions: Hide Active Subscriptions
+    Hide Video Description: Hide Video Description
+    Hide Comments: Hide Comments
+    Hide Live Streams: Hide Live Streams
+    Hide Sharing Actions: Hide Sharing Actions
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -361,6 +392,11 @@ Settings:
       Prompt To Skip: Prompt To Skip
       Do Nothing: Do Nothing
     Category Color: Category Color
+  Parental Control Settings:
+    Parental Control Settings: Parental Control Settings
+    Hide Unsubscribe Button: Hide Unsubscribe Button
+    Show Family Friendly Only: Show Family Friendly Only
+    Hide Search Bar: Hide Search Bar
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
@@ -713,7 +749,7 @@ Tooltips:
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
-      video (playlist if supported) in the external player, on the thumbnail.
+      video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.
     Custom External Player Executable: By default, FreeTube will assume that the chosen external
       player can be found via the PATH environment variable. If needed, a custom path can
       be set here.
@@ -756,6 +792,12 @@ Default Invidious instance has been set to $: Default Invidious instance has bee
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
+Age Restricted:
+  # $contentType is replaced with video or channel
+  This $contentType is age restricted: This $ is age restricted
+  Type:
+    Channel: Channel
+    Video: Video
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"$" has finished downloading'
 Starting download: 'Starting download of "$"'

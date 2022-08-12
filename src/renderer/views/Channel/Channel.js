@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -23,7 +24,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-age-restricted': FtAgeRestricted
   },
   data: function () {
     return {
@@ -31,6 +33,7 @@ export default Vue.extend({
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
+      idType: 0,
       channelName: '',
       bannerUrl: '',
       thumbnailUrl: '',
@@ -50,6 +53,7 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
+      isFamilyFriendly: false,
       errorMessage: '',
       videoSelectValues: [
         'newest',
@@ -73,6 +77,14 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
     currentInvidiousInstance: function () {
@@ -159,7 +171,9 @@ export default Vue.extend({
   watch: {
     $route() {
       // react to route changes...
+      this.originalId = this.$route.params.id
       this.id = this.$route.params.id
+      this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
       this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.latestVideosPage = 2
       this.searchPage = 2
@@ -221,7 +235,9 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    this.originalId = this.$route.params.id
     this.id = this.$route.params.id
+    this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
@@ -248,14 +264,14 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
-      const expectedId = this.id
-      ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
+      const expectedId = this.originalId
+      ytch.getChannelInfo({ channelId: this.id, channelIdType: this.idType }).then((response) => {
         if (response.alertMessage) {
           this.setErrorMessage(response.alertMessage)
           return
         }
         this.errorMessage = ''
-        if (expectedId !== this.id) {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -263,7 +279,10 @@ export default Vue.extend({
         const channelName = response.author
         const channelThumbnailUrl = response.authorThumbnails[2].url
         this.id = channelId
+        // set the id type to 1 so that searching and sorting work
+        this.idType = 1
         this.channelName = channelName
+        this.isFamilyFriendly = response.isFamilyFriendly
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
@@ -320,9 +339,9 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
-      const expectedId = this.id
-      ytch.getChannelVideos({ channelId: expectedId, sortBy: this.videoSortBy }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelVideos({ channelId: this.id, channelIdType: this.idType, sortBy: this.videoSortBy }).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -371,9 +390,9 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      const expectedId = this.id
-      this.invidiousGetChannelInfo(expectedId).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      this.invidiousGetChannelInfo(this.id).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -383,6 +402,7 @@ export default Vue.extend({
         this.channelName = channelName
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         this.id = channelId
+        this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {
@@ -450,9 +470,9 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
-      const expectedId = this.id
-      ytch.getChannelPlaylistInfo({ channelId: expectedId, sortBy: this.playlistSortBy }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelPlaylistInfo({ channelId: this.id, channelIdType: this.idType, sortBy: this.playlistSortBy }).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -719,7 +739,7 @@ export default Vue.extend({
 
     searchChannelLocal: function () {
       if (this.searchContinuationString === '') {
-        ytch.searchChannel({ channelId: this.id, query: this.lastSearchQuery }).then((response) => {
+        ytch.searchChannel({ channelId: this.id, channelIdType: this.idType, query: this.lastSearchQuery }).then((response) => {
           console.log(response)
           this.searchResults = response.items
           this.isElementListLoading = false

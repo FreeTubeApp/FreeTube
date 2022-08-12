@@ -173,6 +173,7 @@ Settings:
       Light: 'Світла'
       Dracula: 'Дракула'
       System Default: Тема системи
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -198,6 +199,20 @@ Settings:
       Dracula Purple: 'Дракула Фіолетова'
       Dracula Red: 'Дракула Червона'
       Dracula Yellow: 'Дракула Жовта'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -288,6 +303,10 @@ Settings:
     Hide Live Chat: 'Не показувати живий чат'
     Hide Active Subscriptions: Сховати активні підписки
     Hide Playlists: Сховати добірки
+    Hide Video Description: Сховати опис відео
+    Hide Comments: Сховати коментарі
+    Hide Sharing Actions: Сховати дії поширення
+    Hide Live Streams: Сховати прямі трансляції
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -388,6 +407,9 @@ Settings:
       дії
     External Player: Зовнішній програвач
     External Player Settings: Параметри зовнішнього програвача
+    Players:
+      None:
+        Name: Немає
   Download Settings:
     Download Settings: Налаштування завантаження
     Choose Path: Вибрати шлях
@@ -395,6 +417,11 @@ Settings:
     Download Behavior: Поведінка завантаження
     Download in app: Завантажити в застосунку
     Open in web browser: Відкрити у переглядачі
+  Parental Control Settings:
+    Parental Control Settings: Налаштування батьківського контролю
+    Hide Unsubscribe Button: Сховати кнопку скасування підписки
+    Show Family Friendly Only: Показати лише для сімейного перегляду
+    Hide Search Bar: Сховати панель пошуку
 About:
   #On About page
   About: 'Про'
@@ -785,6 +812,7 @@ Tooltips:
       тут можна призначити нетиповий шлях.
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
       відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
+      Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
     DefaultCustomArgumentsTemplate: "(Типово: '$')"
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
@@ -835,3 +863,18 @@ Download folder does not exist: Каталог завантаження "$" не
   «запитати теку».
 Screenshot Success: Знімок екрана збережено як «$»
 Screenshot Error: Не вдалося зробити знімок екрана. $
+New Window: Нове вікно
+Age Restricted:
+  This $contentType is age restricted: Цей $ має обмеження за віком
+  Type:
+    Video: Відео
+    Channel: Канал
+Channels:
+  Count: 'Знайдено каналів: $.'
+  Empty: Ваш список каналів наразі порожній.
+  Unsubscribe Prompt: Ви впевнені, що хочете відписатися від «$»?
+  Channels: Канали
+  Title: Список каналів
+  Unsubscribe: Відписатися
+  Search bar placeholder: Пошук каналів
+  Unsubscribed: $ вилучено з ваших підписок

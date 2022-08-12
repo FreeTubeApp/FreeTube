@@ -361,6 +361,10 @@ Settings:
     Hide Active Subscriptions: Hide Active Subscriptions
     Distraction Free Settings: Distraction Free Settings
     Hide Playlists: Hide Playlists
+    Hide Comments: Hide comments
+    Hide Video Description: Hide video description
+    Hide Live Streams: Hide live streams
+    Hide Sharing Actions: Hide sharing actions
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -400,6 +404,11 @@ Settings:
     Download Behavior: Download behaviour
     Open in web browser: Open in web browser
     Download in app: Download in app
+  Parental Control Settings:
+    Hide Unsubscribe Button: Hide Unsubscribe button
+    Parental Control Settings: Parental control settings
+    Show Family Friendly Only: Show family-friendly only
+    Hide Search Bar: Hide search bar
 About:
   #On About page
   About: About
@@ -794,6 +803,7 @@ Tooltips:
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening
       the video (playlist if supported) in the external player, on the thumbnail.
+      Warning, Invidious settings do not affect external players.
     Custom External Player Executable: By default, FreeTube will assume that the chosen
       external player can be found via the PATH environment variable. If needed, a
       custom path can be set here.
@@ -828,3 +838,18 @@ Starting download: Starting download of ‘$’
 Downloading failed: There was an issue downloading ‘$’
 Screenshot Error: Screenshot failed. $
 Screenshot Success: Saved screenshot as ‘$’
+New Window: New window
+Channels:
+  Empty: Your channel list is currently empty.
+  Unsubscribe: Unsubscribe
+  Unsubscribed: $ has been removed from your subscriptions
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from ‘$’?
+  Title: Channel list
+  Search bar placeholder: Search channels
+  Channels: Channels
+  Count: $ channel(s) found.
+Age Restricted:
+  This $contentType is age restricted: This $ is age restricted
+  Type:
+    Video: Video
+    Channel: Channel

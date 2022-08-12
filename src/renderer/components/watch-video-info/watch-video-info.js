@@ -126,6 +126,14 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
     currentLocale: function () {
       return this.$store.getters.getCurrentLocale
     },

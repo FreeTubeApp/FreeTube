@@ -1,0 +1,79 @@
+.card {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.message {
+  color: var(--tertiary-text-color);
+}
+
+.count {
+  margin-top: 1rem;
+}
+
+.channels {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr) );
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+.thumbnailContainer {
+  flex-grow: 0;
+  display: flex;
+  align-items: center;
+}
+
+.channelThumbnail {
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.channelName {
+  flex-grow: 1;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  padding: 0 4px;
+}
+
+.unsubscribeContainer {
+  flex-grow: 0;
+  display: flex;
+  align-items: center;
+}
+
+.unsubscribeContainer .btn {
+  padding: 5px 10px;
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    width: 90%;
+  }
+
+  .channels {
+    gap: 1.5rem;
+  }
+
+  .channelThumbnail {
+    height: 80px;
+  }
+}
