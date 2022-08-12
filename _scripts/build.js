@@ -146,6 +146,7 @@ builder
   .build({
     targets,
     config,
+    publish: 'never'
   })
   .then(m => {
     console.log(m)
