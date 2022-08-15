@@ -414,7 +414,7 @@ export default Vue.extend({
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-
+          channel.channelId = channel.authorId
           return channel
         })
         this.latestVideos = response.latestVideos
