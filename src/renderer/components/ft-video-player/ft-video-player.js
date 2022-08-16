@@ -1807,8 +1807,10 @@ export default Vue.extend({
           case 77:
             // M Key
             // Toggle Mute
-            event.preventDefault()
-            this.toggleMute()
+            if (!event.metaKey) {
+              event.preventDefault()
+              this.toggleMute()
+            }
             break
           case 67:
             // C Key
