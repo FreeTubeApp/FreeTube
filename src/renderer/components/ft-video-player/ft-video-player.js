@@ -73,6 +73,10 @@ export default Vue.extend({
     videoId: {
       type: String,
       required: true
+    },
+    lengthSeconds: {
+      type: Number,
+      required: true
     }
   },
   data: function () {
@@ -566,6 +570,10 @@ export default Vue.extend({
             })
           })
         })
+      }).catch((error) => {
+        this.showToast({
+          message: error.message
+        })
       })
     },
 
@@ -627,8 +635,8 @@ export default Vue.extend({
       markerDiv.style.position = 'absolute'
       markerDiv.style.opacity = '0.6'
       markerDiv.style['background-color'] = marker.color
-      markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
-      markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+      markerDiv.style.width = (marker.duration / this.lengthSeconds) * 100 + '%'
+      markerDiv.style.marginLeft = (marker.time / this.lengthSeconds) * 100 + '%'
       markerDiv.title = this.sponsorBlockTranslatedCategory(marker.category)
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
