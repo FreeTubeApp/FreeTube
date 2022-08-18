@@ -435,6 +435,9 @@ Settings:
     External Player Settings: Paramètres du lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
+    Players:
+      None:
+        Name: Aucun
   Download Settings:
     Download Settings: 'Paramètres de téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
