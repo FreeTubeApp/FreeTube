@@ -431,12 +431,12 @@ Settings:
       None:
         Name: Nessuno
   Download Settings:
-    Download Settings: Impostazioni di scaricamento
-    Ask Download Path: Chiedi il percorso di scaricamento
-    Choose Path: Scegli il percorso
-    Download Behavior: Comportamento degli scaricamenti
+    Download Settings: Impostazioni download
+    Ask Download Path: Chiedi il percorso di download
+    Choose Path: Scegli percorso
+    Download Behavior: Comportamento download
     Open in web browser: Apri nel browser web
-    Download in app: Scarica nell'app
+    Download in app: Download nell'app
   Parental Control Settings:
     Hide Unsubscribe Button: Nascondi il pulsante Annulla iscrizione
     Parental Control Settings: Impostazioni di controllo parentale
@@ -481,7 +481,7 @@ About:
   FAQ: Domande frequenti
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
-  Downloads / Changelog: Download e changelog
+  Downloads / Changelog: Download / Changelog
   GitHub releases: Versioni pubblicate su GitHub
   these people and projects: queste persone e questi progetti
   FreeTube is made possible by: FreeTube è reso possibile grazie a
@@ -610,7 +610,7 @@ Video:
     Low: Basso
   audio only: solo audio
   video only: solo video
-  Download Video: Scarica il video
+  Download Video: Download video
   Copy Invidious Channel Link: Copia link del canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
   Copy YouTube Channel Link: Copia link del canale YouTube
@@ -774,7 +774,7 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
   $. Clicca per saperne di più
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
-Download From Site: Scarica dal sito
+Download From Site: Download dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
@@ -895,9 +895,9 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
-Downloading has completed: '$ è stato scaricato'
-Starting download: Sto iniziando a scaricare $
-Downloading failed: C'è stato un problema nello scaricamento di $
+Downloading has completed: 'Il download di "$" è terminato'
+Starting download: Avvio del download di "$"
+Downloading failed: Si è verificato un problema durante il download di "$"
 Screenshot Success: Cattura schermata salvato come «$»
 Screenshot Error: Cattura schermata fallito. $
 Age Restricted:
