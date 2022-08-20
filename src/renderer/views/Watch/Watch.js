@@ -400,8 +400,7 @@ export default Vue.extend({
               let upcomingTimeLeft = upcomingTimestamp - new Date();
               let timeUnit;
               if(upcomingTimeLeft <= 0) {
-                  //TODO use string from locale files.
-                  this.upcomingTimeLeft = "Starting now";
+                  this.upcomingTimeLeft = this.$t('Video.Starting Soon');
               } else {
                 upcomingTimeLeft = upcomingTimeLeft / 1000;
                 timeUnit = 'Second';
