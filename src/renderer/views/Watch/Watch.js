@@ -49,6 +49,7 @@ export default Vue.extend({
       isLiveContent: false,
       isUpcoming: false,
       upcomingTimestamp: null,
+      upcomingTimeLeft: null,
       activeFormat: 'legacy',
       thumbnail: '',
       videoId: '',
@@ -391,6 +392,9 @@ export default Vue.extend({
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
+
+              const upcomingTimeLeft = upcomingTimestamp - new Date();
+              this.upcomingTimeLeft = Math.floor(upcomingTimeLeft / 1000 / 60);
             } else {
               this.upcomingTimestamp = null
             }
