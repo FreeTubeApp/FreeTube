@@ -27,6 +27,7 @@
           :format="activeFormat"
           :thumbnail="thumbnail"
           :video-id="videoId"
+          :length-seconds="videoLengthSeconds"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
           @ready="checkIfWatched"
