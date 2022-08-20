@@ -423,8 +423,8 @@ export default Vue.extend({
                 }
                 timeUnit = this.$t('Video.Published.' + timeUnit)
 
-                //TODO lowercase timeunit + a template might be needed here
-                this.upcomingTimeLeft = upcomingTimeLeft + " " + timeUnit;
+                //TODO a template might be needed here but idk how they work
+                this.upcomingTimeLeft = upcomingTimeLeft + " " + timeUnit.toLowerCase();
               }
             } else {
               this.upcomingTimestamp = null
