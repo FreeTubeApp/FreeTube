@@ -404,26 +404,27 @@ export default Vue.extend({
                   this.upcomingTimeLeft = "Starting now";
               } else {
                 upcomingTimeLeft = upcomingTimeLeft / 1000;
-                if (upcomingTimeLeft <= 60) {
-                  timeUnit = this.$t('Video.Published.Seconds');
-                } else {
-
+                timeUnit = 'Second';
+                if (upcomingTimeLeft > 60) {
                   upcomingTimeLeft = upcomingTimeLeft / 60;
-                  if (upcomingTimeLeft <= 120) {
-                  timeUnit = this.$t('Video.Published.Minutes');
-                  } else {
-
+                  timeUnit = 'Minute';
+                  if (upcomingTimeLeft > 120) {
                     upcomingTimeLeft = upcomingTimeLeft / 60;
-                    if (upcomingTimeLeft <= 24) {
-                       timeUnit = this.$t('Video.Published.Hours');
-                    } else {
-                       upcomingTimeLeft = upcomingTimeLeft / 24;
-                       timeUnit = this.$t('Video.Published.Days');
+                      timeUnit = 'Hour';
+                    if (upcomingTimeLeft > 24) {
+                      upcomingTimeLeft = upcomingTimeLeft / 24;
+                      timeUnit = 'Day';
                     }
                   }
                 }
+                upcomingTimeLeft = Math.floor(upcomingTimeLeft);
+                if (upcomingTimeLeft !== 1) {
+                    timeUnit = timeUnit + 's'
+                }
+                timeUnit = this.$t('Video.Published.' + timeUnit)
+
                 //TODO lowercase timeunit + a template might be needed here
-                this.upcomingTimeLeft = Math.floor(upcomingTimeLeft) + " " + timeUnit;
+                this.upcomingTimeLeft = upcomingTimeLeft + " " + timeUnit;
               }
             } else {
               this.upcomingTimestamp = null
