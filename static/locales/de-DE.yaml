@@ -155,17 +155,18 @@ Settings:
       Open Link: Link öffnen
       External Link Handling: Handhabung externer Links
   Theme Settings:
-    Theme Settings: Thema-Einstellungen
+    Theme Settings: Farbschema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
-      Base Theme: Grundlegendes Thema
+      Base Theme: Grundlegendes Farbschema
       Black: Schwarz
       Dark: Dunkel
       Light: Hell
       Dracula: Dracula
       System Default: Systemvoreinstellung
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
-      Main Color Theme: Hauptfarbe des Themas
+      Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
       Pink: Rosa
       Purple: Lila
@@ -189,7 +190,20 @@ Settings:
       Dracula Purple: Dracula Lila
       Dracula Red: Dracula Rot
       Dracula Yellow: Dracula Gelb
-    Secondary Color Theme: Sekundäres Farbenthema
+      Catppuccin Mocha Green: Catppuccin Mocha Grün
+      Catppuccin Mocha Blue: Catppuccin Mocha Blau
+      Catppuccin Mocha Peach: Catppuccin Mocha Pfirsich
+      Catppuccin Mocha Yellow: Catppuccin Mocha Gelb
+      Catppuccin Mocha Sky: Catppuccin Mocha Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Saphir
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenwasser
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Rot
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
+    Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
@@ -353,17 +367,21 @@ Settings:
     All playlists has been successfully exported: Alle Wiedergabelisten wurden erfolgreich
       exportiert
   Distraction Free Settings:
-    Hide Live Chat: Live-Chat verbergen
-    Hide Popular Videos: Beliebte Videos verbergen
-    Hide Trending Videos: Trends verbergen
-    Hide Recommended Videos: Vorgeschlagene Videos verbergen
-    Hide Channel Subscribers: Kanal-Abonnenten verbergen
-    Hide Comment Likes: Kommentarbewertungen verbergen
-    Hide Video Likes And Dislikes: Videobewertungen verbergen
+    Hide Live Chat: Live-Chat ausblenden
+    Hide Popular Videos: Beliebte Videos ausblenden
+    Hide Trending Videos: Trends ausblenden
+    Hide Recommended Videos: Vorgeschlagene Videos ausblenden
+    Hide Channel Subscribers: Kanal-Abonnenten ausblenden
+    Hide Comment Likes: Kommentarbewertungen ausblenden
+    Hide Video Likes And Dislikes: Videobewertungen ausblenden
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
     Hide Active Subscriptions: Aktive Abonnements ausblenden
     Hide Playlists: Wiedergabelisten ausblenden
+    Hide Comments: Kommentare ausblenden
+    Hide Video Description: Videobeschreibung verstecken
+    Hide Live Streams: Livestreams ausblenden
+    Hide Sharing Actions: Freigabe-Aktionen ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -410,6 +428,11 @@ Settings:
     Download Behavior: Download-Verhalten
     Download in app: In der Anwendung herunterladen
     Open in web browser: Im Webbrowser öffnen
+  Parental Control Settings:
+    Parental Control Settings: Einstellungen der Kindersicherung
+    Hide Unsubscribe Button: „Abo entfernen“-Schaltfläche ausblenden
+    Show Family Friendly Only: Nur familienfreundlich anzeigen
+    Hide Search Bar: Suchleiste ausblenden
 About:
   #On About page
   About: Über
@@ -609,6 +632,7 @@ Video:
     intro: Intro
     sponsor: Sponsor
     recap: Rekapitulation
+    filler: Füller
   Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In $ öffnen
@@ -710,7 +734,7 @@ Share:
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
-  Click to View Comments: Klicke um Kommentare anzuzeigen
+  Click to View Comments: Klicke, um Kommentare anzuzeigen
   Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
@@ -855,9 +879,10 @@ Tooltips:
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
       der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
       kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
-    External Player: Wenn ein externer Player gewählt wird, wird ein Symbol auf dem
-      Vorschaubild gezeigt, um das Video (Wiedergabeliste falls unterstützt) darin
-      zu öffnen.
+    External Player: Wenn Sie einen externen Player auswählen, wird auf der Miniaturansicht
+      ein Symbol angezeigt, mit dem Sie das Video (und die Wiedergabeliste, falls
+      unterstützt) im externen Player öffnen können. Achtung, die Einstellungen von
+      Invidious wirken sich nicht auf externe Player aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „$“)'
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -883,3 +908,18 @@ Starting download: Das Herunterladen von $ hat begonnen
 Downloading failed: Es gab ein Problem beim Herunterladen von $
 Screenshot Success: Bildschirmfoto gespeichert als „$“
 Screenshot Error: Bildschirmfoto fehlgeschlagen. $
+New Window: Neues Fenster
+Age Restricted:
+  Type:
+    Video: Video
+    Channel: Kanal
+  This $contentType is age restricted: Dieses $ ist altersbeschränkt
+Channels:
+  Channels: Kanäle
+  Title: Kanalliste
+  Search bar placeholder: Kanäle durchsuchen
+  Count: $ Kanal/Kanäle gefunden.
+  Empty: Ihre Kanalliste ist derzeit leer.
+  Unsubscribe: Abo entfernen
+  Unsubscribed: $ wurde aus deinen Abonnements entfernt
+  Unsubscribe Prompt: Bist du sicher, dass du „$“ aus dem Abos entfernen willst?

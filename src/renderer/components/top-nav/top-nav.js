@@ -174,10 +174,11 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, idType, subPath } = result
 
             this.$router.push({
-              path: `/channel/${channelId}/${subPath}`
+              path: `/channel/${channelId}/${subPath}`,
+              query: { idType }
             })
             break
           }

@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca o aggiungi collegamento YouTube'
+Search / Go to URL: 'Cerca o aggiungi link YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -152,8 +152,8 @@ Settings:
     System Default: Predefinito del sistema
     External Link Handling:
       No Action: Nessuna azione
-      Ask Before Opening Link: Chiedi prima di aprire il collegamento
-      Open Link: Apri il collegamento
+      Ask Before Opening Link: Chiedi prima di aprire il link
+      Open Link: Apri il link
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
@@ -165,6 +165,7 @@ Settings:
       Light: 'Chiaro'
       Dracula: 'Dracula'
       System Default: Predefinito del sistema
+      Catppuccin Mocha: Catppuccin moka
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -190,6 +191,20 @@ Settings:
       Dracula Purple: 'Dracula viola'
       Dracula Red: 'Dracula rosso'
       Dracula Yellow: 'Dracula giallo'
+      Catppuccin Mocha Pink: Catppuccin moka rosa
+      Catppuccin Mocha Mauve: Catppuccin moka malva
+      Catppuccin Mocha Red: Catppuccin moka rosso
+      Catppuccin Mocha Maroon: Catppuccin moka marrone
+      Catppuccin Mocha Blue: Catppuccin moka blu
+      Catppuccin Mocha Green: Catppuccin moka verde
+      Catppuccin Mocha Sapphire: Catppuccin moka zaffiro
+      Catppuccin Mocha Yellow: Catppuccin moka giallo
+      Catppuccin Mocha Rosewater: Catppuccin moka acqua di rose
+      Catppuccin Mocha Flamingo: Catppuccin moka fenicottero
+      Catppuccin Mocha Lavender: Catppuccin moka lavanda
+      Catppuccin Mocha Peach: Catppuccin moka pesca
+      Catppuccin Mocha Teal: Catppuccin moka alzavola
+      Catppuccin Mocha Sky: Catppuccin moka cielo
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni interfaccia utente
@@ -412,13 +427,16 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
+    Players:
+      None:
+        Name: Nessuno
   Download Settings:
-    Download Settings: Impostazioni di scaricamento
-    Ask Download Path: Chiedi il percorso di scaricamento
-    Choose Path: Scegli il percorso
-    Download Behavior: Comportamento degli scaricamenti
+    Download Settings: Impostazioni download
+    Ask Download Path: Chiedi il percorso di download
+    Choose Path: Scegli percorso
+    Download Behavior: Comportamento download
     Open in web browser: Apri nel browser web
-    Download in app: Scarica nell'app
+    Download in app: Download nell'app
   Parental Control Settings:
     Hide Unsubscribe Button: Nascondi il pulsante Annulla iscrizione
     Parental Control Settings: Impostazioni di controllo parentale
@@ -463,7 +481,7 @@ About:
   FAQ: Domande frequenti
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
-  Downloads / Changelog: Download e changelog
+  Downloads / Changelog: Download / Changelog
   GitHub releases: Versioni pubblicate su GitHub
   these people and projects: queste persone e questi progetti
   FreeTube is made possible by: FreeTube è reso possibile grazie a
@@ -486,7 +504,7 @@ Channel:
   Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
-  Search Channel: 'Cerca un canale'
+  Search Channel: 'Cerca nel canale'
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Sort By: 'Ordina per'
   Videos:
@@ -520,11 +538,11 @@ Video:
   Video has been marked as watched: 'Il video è stato contrassegnato come già visto'
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
-  Copy YouTube Link: 'Copia collegamento YouTube'
+  Copy YouTube Link: 'Copia link YouTube'
   Open YouTube Embedded Player: 'Apri con lettore YouTube incorporato'
-  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore YouTube incorporato'
+  Copy YouTube Embedded Player Link: 'Copia link del lettore YouTube incorporato'
   Open in Invidious: 'Apri con Invidious'
-  Copy Invidious Link: 'Copia collegamento Invidious'
+  Copy Invidious Link: 'Copia link Invidious'
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
@@ -592,10 +610,10 @@ Video:
     Low: Basso
   audio only: solo audio
   video only: solo video
-  Download Video: Scarica il video
-  Copy Invidious Channel Link: Copia collegamento del canale Invidious
+  Download Video: Download video
+  Copy Invidious Channel Link: Copia link del canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
-  Copy YouTube Channel Link: Copia collegamento del canale YouTube
+  Copy YouTube Channel Link: Copia link del canale YouTube
   Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
@@ -666,9 +684,9 @@ Playlist:
   Last Updated On: 'Ultimo aggiornamento il'
   Share Playlist:
     Share Playlist: 'Condividi la playlist'
-    Copy YouTube Link: 'Copia collegamento YouTube'
+    Copy YouTube Link: 'Copia link YouTube'
     Open in YouTube: 'Apri con YouTube'
-    Copy Invidious Link: 'Copia collegamento Invidious'
+    Copy Invidious Link: 'Copia link Invidious'
     Open in Invidious: 'Apri con Invidious'
 
 # On Video Watch Page
@@ -687,8 +705,8 @@ Change Format:
     per questo video
 Share:
   Share Video: 'Condividi video'
-  Copy Link: 'Copia collegamento'
-  Open Link: 'Apri collegamento'
+  Copy Link: 'Copia link'
+  Open Link: 'Apri link'
   Copy Embed: 'Copia codice da incorporare'
   Open Embed: 'Apri codice da incorporare'
   # On Click
@@ -756,7 +774,7 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
   $. Clicca per saperne di più
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
-Download From Site: Scarica dal sito
+Download From Site: Download dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
@@ -840,8 +858,8 @@ Tooltips:
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube.
     External Link Handling: "Scegli il comportamento predefinito quando si clicca\
-      \ su un collegamento che non può essere aperto in FreeTube.\nPer impostazione\
-      \ predefinita FreeTube aprirà il collegamento nel browser predefinito.\n"
+      \ su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita\
+      \ FreeTube aprirà il link nel browser predefinito.\n"
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
@@ -870,16 +888,16 @@ Default Invidious instance has been set to $: L'istanza predefinita di Invidious
   stata impostata a $
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
-Unknown YouTube url type, cannot be opened in app: Tipo di collegamento YouTube sconosciuto,
+Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
   non può essere aperto nell'applicazione
 Search Bar:
-  Clear Input: Cancella l'ingresso
+  Clear Input: Pulisci ricerca
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
-Are you sure you want to open this link?: Sei sicuro di voler aprire questo collegamento?
-Downloading has completed: '$ è stato scaricato'
-Starting download: Sto iniziando a scaricare $
-Downloading failed: C'è stato un problema nello scaricamento di $
+Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
+Downloading has completed: 'Il download di "$" è terminato'
+Starting download: Avvio del download di "$"
+Downloading failed: Si è verificato un problema durante il download di "$"
 Screenshot Success: Cattura schermata salvato come «$»
 Screenshot Error: Cattura schermata fallito. $
 Age Restricted:
@@ -895,5 +913,5 @@ Channels:
   Search bar placeholder: Cerca canali
   Count: $ canale/i trovato/i.
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
-  Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "$"?
+  Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «$»?
   Unsubscribe: Annulla l'iscrizione

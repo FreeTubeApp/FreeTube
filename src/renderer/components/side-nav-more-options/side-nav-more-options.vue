@@ -22,6 +22,29 @@
       class="moreOptionContainer"
     >
       <div
+        class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
+        :title="$t('Channels.Channels')"
+        @click="navigate('subscribedchannels')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            icon="list"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          class="navLabel"
+        >
+          {{ $t("Channels.Channels") }}
+        </p>
+      </div>
+      <div
         v-if="!hideTrendingVideos"
         class="navOption"
         :title="$t('Trending.Trending')"

@@ -50,7 +50,22 @@ const state = {
     'DraculaPink',
     'DraculaPurple',
     'DraculaRed',
-    'DraculaYellow'
+    'DraculaYellow',
+    'CatppuccinMochaRosewater',
+    'CatppuccinMochaFlamingo',
+    'CatppuccinMochaPink',
+    'CatppuccinMochaMauve',
+    'CatppuccinMochaRed',
+    'CatppuccinMochaMaroon',
+    'CatppuccinMochaPeach',
+    'CatppuccinMochaYellow',
+    'CatppuccinMochaGreen',
+    'CatppuccinMochaTeal',
+    'CatppuccinMochaSky',
+    'CatppuccinMochaSapphire',
+    'CatppuccinMochaBlue',
+    'CatppuccinMochaLavender'
+
   ],
   colorValues: [
     '#d50000',
@@ -75,9 +90,24 @@ const state = {
     '#FF79C6',
     '#BD93F9',
     '#FF5555',
-    '#F1FA8C'
+    '#F1FA8C',
+    '#F5E0DC',
+    '#F2CDCD',
+    '#F5C2E7',
+    '#CBA6F7',
+    '#F38BA8',
+    '#EBA0AC',
+    '#FAB387',
+    '#F9E2AF',
+    '#A6E3A1',
+    '#94E2D5',
+    '#89DCEB',
+    '#74C7EC',
+    '#89B4FA',
+    '#B4BEFE'
   ],
   externalPlayerNames: [],
+  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -137,6 +167,10 @@ const getters = {
 
   getExternalPlayerNames () {
     return state.externalPlayerNames
+  },
+
+  getExternalPlayerNameTranslationKeys () {
+    return state.externalPlayerNameTranslationKeys
   },
 
   getExternalPlayerValues () {
@@ -592,7 +626,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(c|channel|user)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -690,7 +724,9 @@ const actions = {
 
       */
       case 'channel': {
-        const channelId = url.pathname.match(channelPattern).groups.channelId
+        const match = url.pathname.match(channelPattern)
+        const channelId = match.groups.channelId
+        const idType = ['channel', 'user', 'c'].indexOf(match.groups.type) + 1
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
@@ -712,6 +748,7 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
+          idType,
           subPath
         }
       }
@@ -907,10 +944,11 @@ const actions = {
     }
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -918,6 +956,7 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -1128,6 +1167,10 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
+  },
+
+  setExternalPlayerNameTranslationKeys (state, value) {
+    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

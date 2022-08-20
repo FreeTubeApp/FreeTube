@@ -165,6 +165,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Predefinição do sistema
+      Catppuccin Mocha: Capuchino mocha
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -190,6 +191,20 @@ Settings:
       Dracula Purple: 'Drácula roxo'
       Dracula Red: 'Drácula vermelho'
       Dracula Yellow: 'Drácula amarelo'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da interface gráfica
@@ -812,8 +827,9 @@ Tooltips:
     Custom External Player Executable: Por omissão, o FreeTube assume que o leitor
       externo escolhido pode ser encontrado através da variável PATH. Se for preciso,
       um caminho personalizado pode ser escolhido aqui.
-    External Player: Escolher um leitor externo irá mostrar um ícone na miniatura
-      do vídeo, para abrir o vídeo (lista de reprodução se possível) nesse leitor.
+    External Player: Escolher um leitor externo irá mostrar um ícone, para abrir o
+      vídeo (lista de reprodução, se suportado) no leitor externo, na miniatura do
+      vídeo. Aviso, as configurações do Invidious não afetam os reprodutores externos.
     DefaultCustomArgumentsTemplate: "(padrão: '$')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.

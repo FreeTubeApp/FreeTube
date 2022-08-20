@@ -300,6 +300,18 @@ export default Vue.extend({
           }
         ]
       })
+
+      this.$watch('$refs.downloadButton.dropdownShown', (dropdownShown) => {
+        this.$parent.infoAreaSticky = !dropdownShown
+
+        if (dropdownShown && window.innerWidth >= 901) {
+          // adds a slight delay so we know that the dropdown has shown up
+          // and won't mess up our scrolling
+          Promise.resolve().then(() => {
+            this.$parent.$refs.infoArea.scrollIntoView()
+          })
+        }
+      })
     }
   },
   methods: {

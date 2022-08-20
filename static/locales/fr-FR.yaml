@@ -29,7 +29,7 @@ Back: 'Retour'
 Forward: 'Avancer'
 
 # Search Bar
-Search / Go to URL: 'Rechercher / Aller à l''URL'
+Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de recherche'
@@ -168,6 +168,7 @@ Settings:
       Light: 'Clair'
       Dracula: 'Dracula'
       System Default: Paramètres système
+      Catppuccin Mocha: Catppuccin Moka
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -193,6 +194,20 @@ Settings:
       Dracula Purple: 'Dracula Violet'
       Dracula Red: 'Dracula Rouge'
       Dracula Yellow: 'Dracula Jaune'
+      Catppuccin Mocha Flamingo: Catppuccin Moka Flamant Rose
+      Catppuccin Mocha Pink: Catppuccin Moka Rose
+      Catppuccin Mocha Rosewater: Catppuccin Moka Eau de Rose
+      Catppuccin Mocha Mauve: Catppuccin Moka Mauve
+      Catppuccin Mocha Red: Catppuccin Moka Rouge
+      Catppuccin Mocha Green: Catppuccin moka vert
+      Catppuccin Mocha Blue: Catppuccin moka bleu
+      Catppuccin Mocha Maroon: Catpuccin moka marron
+      Catppuccin Mocha Peach: Catpuccin moka pêche
+      Catppuccin Mocha Yellow: Catppuccin moka jaune
+      Catppuccin Mocha Sky: Catppuccin moka ciel
+      Catppuccin Mocha Sapphire: Catppuccin moka saphir
+      Catppuccin Mocha Lavender: Catppuccin moka lavande
+      Catppuccin Mocha Teal: Catppuccin moka bleu sarcelle
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -420,6 +435,9 @@ Settings:
     External Player Settings: Paramètres du lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
+    Players:
+      None:
+        Name: Aucun
   Download Settings:
     Download Settings: 'Paramètres de téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
@@ -884,7 +902,7 @@ Tooltips:
       un chemin personnalisé peut être défini ici.
     External Player: La sélection du lecteur externe affichera une icône sur la miniature
       qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
-      externe.
+      externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
     DefaultCustomArgumentsTemplate: '(Par défaut : « $ »)'
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
@@ -927,4 +945,4 @@ Channels:
   Search bar placeholder: Rechercher des chaînes
   Count: $ chaîne(s) trouvée(s).
   Unsubscribed: $ a été supprimé de vos abonnements
-  Unsubscribe Prompt: Êtes-vous sûr de vouloir vous désabonner de "$" ?
+  Unsubscribe Prompt: Êtes-vous sûr·e de vouloir vous désabonner de « $ » ?

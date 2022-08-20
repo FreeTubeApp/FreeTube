@@ -75,12 +75,13 @@ Subscriptions:
   Subscriptions: '구독'
   Latest Subscriptions: '최근 구독'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: '이
-    프로필에서 최대 구독 제한을 초과 하였습니다. RSS 피드 구독 수신으로 전환 합니다.'
+    프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독한
     채널이 없습니다. 구독 피드를 보려면 원하시는 채널을 구독하세요'
   'Getting Subscriptions. Please wait.': '구독 목록을 가져오는 중입니다. 잠시만 기다려 주세요.'
   Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
+  Error Channels: 오류가 있는 채널
 Trending:
   Trending: '트렌딩'
   Trending Tabs: 트렌딩 탭
@@ -162,6 +163,7 @@ Settings:
       Light: '밝은 테마'
       Dracula: '드라큘라'
       System Default: 시스템 기본값
+      Catppuccin Mocha: 카푸치노 모카
     Main Color Theme:
       Main Color Theme: '메인 색상 테마'
       Red: '빨강'
@@ -187,6 +189,20 @@ Settings:
       Dracula Purple: '드라큘라 보라'
       Dracula Red: '드라큘라 빨강'
       Dracula Yellow: '드라큘라 노랑'
+      Catppuccin Mocha Rosewater: 카푸치노 모카 로즈워터
+      Catppuccin Mocha Flamingo: 카푸치노 모카 플라밍고
+      Catppuccin Mocha Pink: 카푸치노 모카 핑크
+      Catppuccin Mocha Mauve: 카푸치노 모카 자주빛
+      Catppuccin Mocha Red: 카푸치노 모카 빨강
+      Catppuccin Mocha Maroon: 카푸치노 모카 적갈색
+      Catppuccin Mocha Peach: 카푸치노 모카 복숭아
+      Catppuccin Mocha Yellow: 카푸치노 모카 노랑
+      Catppuccin Mocha Green: 카푸치노 모카 녹색
+      Catppuccin Mocha Sapphire: 카푸치노 모카 사파이어
+      Catppuccin Mocha Blue: 카푸치노 모카 파랑
+      Catppuccin Mocha Lavender: 카푸치노 모카 라벤더
+      Catppuccin Mocha Teal: 카푸치노 모카 청록색
+      Catppuccin Mocha Sky: 카푸치노 모카 하늘색
     Secondary Color Theme: '보조색상테마'
         #* Main Color Theme
     Hide Side Bar Labels: 사이드 바 레이블 숨기기
@@ -226,6 +242,20 @@ Settings:
     Scroll Playback Rate Over Video Player: 비디오 플레이어 위로 스크롤 재생 속도
     Max Video Playback Rate: 최대 비디오 재생 속도
     Video Playback Rate Interval: 비디오 재생 속도 간격
+    Screenshot:
+      Folder Label: 스크린샷 폴더
+      Ask Path: 폴더 저장 요청
+      Folder Button: 폴더 선택
+      Error:
+        Empty File Name: 빈 파일 이름
+        Forbidden Characters: 금지된 문자
+      Enable: 스크린샷 사용
+      Format Label: 스크린샷 형식
+      Quality Label: 스크린샷 품질
+      File Name Label: 파일 이름 패턴
+      File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
+        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
+        "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
   Privacy Settings:
     Privacy Settings: '개인정보 설정'
     Remember History: '기록 저장하기'
@@ -246,7 +276,7 @@ Settings:
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
     Manage Subscriptions: '구독 관리'
   Distraction Free Settings:
-    Distraction Free Settings: '방해 금지 모드 설정'
+    Distraction Free Settings: '방해받지 않는 모드 설정'
     Hide Video Views: '조회수 숨기기'
     Hide Video Likes And Dislikes: '좋아하는 비디오와 싫어하는 비디오 숨기기'
     Hide Channel Subscribers: '채널 구독자 숨기기'
@@ -257,6 +287,10 @@ Settings:
     Hide Live Chat: '실시간 댓글 숨기기'
     Hide Playlists: 재생 목록 숨기기
     Hide Active Subscriptions: 활성 구독 숨기기
+    Hide Sharing Actions: 공유 작업 숨기기
+    Hide Live Streams: 라이브 스트림 숨기기
+    Hide Video Description: 비디오 설명 숨기기
+    Hide Comments: 주석 숨기기
   Data Settings:
     Data Settings: '데이터 설정'
     Select Import Type: '가져오기 유형 선택'
@@ -337,6 +371,13 @@ Settings:
     Notify when sponsor segment is skipped: 스폰서 구간을 건너뛸 경우 알림
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       주소 (기본 주소는 https://sponsor.ajay.app 입니다)
+    Skip Options:
+      Auto Skip: 자동 건너뛰기
+      Show In Seek Bar: 탐색 막대에 표시
+      Skip Option: 옵션 건너뛰기
+      Do Nothing: 아무것도 안 함
+      Prompt To Skip: 건너뛰기 확인
+    Category Color: 범주 색상
   External Player Settings:
     External Player Settings: 외부 플레이어 설정
     Custom External Player Arguments: 사용자 정의 외부 플레이어 인수
@@ -347,6 +388,14 @@ Settings:
     Download Settings: 다운로드 설정
     Ask Download Path: 다운로드 경로 요청
     Choose Path: 경로 선택
+    Download Behavior: 다운로드 동작
+    Download in app: 앱에서 다운로드
+    Open in web browser: 웹 브라우저에서 열기
+  Parental Control Settings:
+    Parental Control Settings: 자녀 보호 설정
+    Hide Unsubscribe Button: 구독 취소 단추 숨기기
+    Hide Search Bar: 검색 막대 숨기기
+    Show Family Friendly Only: 가족 친목만 표시
 About:
   #On About page
   About: '정보'
@@ -446,7 +495,7 @@ Channel:
   Sort By: '정렬하기'
   Videos:
     Videos: '비디오'
-    This channel does not currently have any videos: '이 채널에는  비디오가 없습니다'
+    This channel does not currently have any videos: '이 채널에는 현재 비디오가 없습니다'
     Sort Types:
       Newest: '새로운 영상부터'
       Oldest: '오래된 영상부터'
@@ -491,7 +540,7 @@ Video:
   Starting soon, please refresh the page to check again: '곧 시작됩니다. 다시 확인하려면 페이지를 새로고침하십시오'
   # As in a Live Video
   Live: '라이브'
-  Live Now: ''
+  Live Now: '지금 생방송'
   Live Chat: '라이브 채팅'
   Enable Live Chat: '라이브 채팅 활성화'
   Live Chat is currently not supported in this build.: '라이브 채팅은 현재 이 빌드에서 지원되지 않습니다.'
@@ -525,43 +574,79 @@ Video:
     Seconds: '초'
     Minute: '분'
     Minutes: '분'
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
-  Published on: ''
-  Streamed on: ''
-  Started streaming on: ''
+    Hour: '시'
+    Hours: '시'
+    Day: '일'
+    Days: '일'
+    Week: '주'
+    Weeks: '주'
+    Month: '월'
+    Months: '월'
+    Year: '년'
+    Years: '년'
+    Ago: '전에'
+    Upcoming: '초연일'
+  Published on: '게시일'
+  Streamed on: '스트리밍됨'
+  Started streaming on: '스트리밍 시작'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: ''
+  Publicationtemplate: '$ % 전'
 #& Videos
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
   Stats:
     Mimetype: 미디어 타입
+    Video statistics are not available for legacy videos: 레거시 비디오에 대한 비디오 통계를 사용할
+      수 없습니다
+    Player Dimensions: 플레이어 치수
+    Bandwidth: 대역폭
+    Video ID: 비디오 ID
+    Resolution: 해상도
+    Bitrate: 비트 전송률
+    Volume: 음량
+    Buffered: 버퍼링된
+    Dropped / Total Frames: 손실된 / 총 프레임 수
   Premieres on: 개봉일
+  External Player:
+    Unsupported Actions:
+      opening specific video in a playlist (falling back to opening the video): 재생
+        목록에서 특정 비디오 열기 (비디오 열기로 되돌아가기)
+      reversing playlists: 재생 목록 되돌리기
+      shuffling playlists: 재생 목록을 뒤섞기
+      looping playlists: 재생 목록 반복
+      starting video at offset: 오프셋에서 비디오 시작
+      setting a playback rate: 재생 속도 설정
+      opening playlists: 재생 목록 열기
+    UnsupportedActionTemplate: '$ 지원하지 않음: %'
+    OpenInTemplate: $로 열기
+    OpeningTemplate: '%에서 $를 여는 중...'
+    video: 비디오
+    playlist: 재생목록
+  Sponsor Block category:
+    music offtopic: 음악 주제에서 벗어나기
+    recap: 씌우기
+    filler: 필터
+    sponsor: 스폰서
+    intro: 도입부
+    outro: 결말부
+    self-promotion: 자기 홍보
+    interaction: 상호 작용
+  translated from English: 영어에서 번역됨
+  Skipped segment: 건너뛴 세그먼트
 Videos:
   #& Sort By
   Sort By:
-    Newest: ''
-    Oldest: ''
+    Newest: '최신의'
+    Oldest: '오래된'
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: ''
-  Videos: ''
-  View: ''
-  Views: ''
+  View Full Playlist: '전체 재생 목록 보기'
+  Videos: '비디오'
+  View: '보기'
+  Views: '보기'
   Last Updated On: '마지막 업데이트 날짜'
   Share Playlist:
     Share Playlist: '재생 목록 공유'
@@ -573,6 +658,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: 재생 목록
 Toggle Theatre Mode: '극장 모드 전환'
 Change Format:
   Change Video Formats: '비디오 형식 변경'
@@ -586,8 +672,8 @@ Share:
   Include Timestamp: '타임스탬프 포함'
   Copy Link: '링크 복사'
   Open Link: '링크 열기'
-  Copy Embed: ''
-  Open Embed: ''
+  Copy Embed: '임베드 복사'
+  Open Embed: '임베드 열기'
   # On Click
   Invidious URL copied to clipboard: 'Invidious URL이 클립보드에 복사되었습니다'
   Invidious Embed URL copied to clipboard: 'Invidious 임베드 URL이 클립보드에 복사되었습니다'
@@ -611,12 +697,16 @@ Comments:
   View: '보기'
   Hide: '숨기기'
   Replies: '답글'
-  Reply: ''
+  Reply: '회신'
   There are no comments available for this video: '이 영상에 대한 댓글이 없습니다'
   Load More Comments: '더 많은 댓글 불러오기'
   No more comments available: '더 이상 사용할 수 있는 댓글이 없습니다'
   Show More Replies: 더 많은 답글 보기
-Up Next: ''
+  From $channelName: $channelName에서
+  Pinned by: 에 의해 고정
+  And others: 및 기타
+  Member: 구성원
+Up Next: '다음 위로'
 
 #Tooltips
 Tooltips:
@@ -639,6 +729,9 @@ Tooltips:
       API 기본 설정을 재정의합니다.'
     Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다.
       레거시 형식은 최대 720p로 제한되지만 더 적은 대역폭을 사용합니다. 오디오 형식은 오디오 전용 스트림입니다.'
+    Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command
+      키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게
+      누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
   Subscription Settings:
     Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더
       빠르고 IP 차단을 방지하지만 비디오 길이 또는 라이브 상태와 같은 특정 정보를 제공하지 않습니다'
@@ -646,7 +739,8 @@ Tooltips:
 # Toast Messages
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(기본: '$')"
-    External Player: 외부 플레이어를 선택하면 썸네일에 외부 플레이어에서 비디오(지원되는 경우 재생 목록)를 열기 위한 아이콘이 표시됩니다.
+    External Player: 외부 플레이어를 선택하면 썸네일에서 비디오 (지원되는 경우 재생 목록)를 열 수 있는 아이콘이 표시됩니다. 경고,
+      위반 설정은 외부 플레이어에 영향을 주지 않습니다.
     Custom External Player Executable: 기본적으로 FreeTube는 PATH 환경 변수를 통해 선택한 외부 플레이어를
       찾을 수 있다고 가정합니다. 필요한 경우 여기에서 사용자 정의 경로를 설정할 수 있습니다.
     Ignore Warnings: '현재 외부 플레이어가 현재 작업을 지원하지 않는 경우(예: 재생 목록 반전 등) 경고를 표시하지 않습니다.'
@@ -691,3 +785,23 @@ Default Invidious instance has been cleared: 기본 Invidious 인스턴스가 �
 Are you sure you want to open this link?: 이 링크를 여시겠습니까?
 Search Bar:
   Clear Input: 입력 지우기
+New Window: 새 창
+Channels:
+  Channels: 채널
+  Title: 채널 목록
+  Search bar placeholder: 채널 검색
+  Empty: 채널 목록이 비어 있습니다.
+  Unsubscribe: 구독 취소
+  Unsubscribe Prompt: '"$"에서 구독을 취소하시겠습니까?'
+  Count: $ 채널이 발견되었습니다.
+  Unsubscribed: $ 구독에서 제거되었습니다
+Age Restricted:
+  Type:
+    Video: 비디오
+    Channel: 채널
+  This $contentType is age restricted: 이 $는 연령 제한입니다
+Downloading has completed: '"$" 다운로드가 완료되었습니다'
+Starting download: '"$" 다운로드를 시작하는 중'
+Downloading failed: '"$"를 다운로드하는 동안 문제가 발생했습니다'
+Screenshot Error: 스크린샷이 실패했습니다. $
+Screenshot Success: 스크린샷을 "$"로 저장
