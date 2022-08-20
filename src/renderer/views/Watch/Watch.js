@@ -393,10 +393,37 @@ export default Vue.extend({
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
 
-              const upcomingTimeLeft = upcomingTimestamp - new Date();
-              this.upcomingTimeLeft = Math.floor(upcomingTimeLeft / 1000 / 60);
+              let upcomingTimeLeft = upcomingTimestamp - new Date();
+              let timeUnit;
+              if(upcomingTimeLeft <= 0) {
+                  //TODO use string from locale files.
+                  this.upcomingTimeLeft = "Starting now";
+              } else {
+                upcomingTimeLeft = upcomingTimeLeft / 1000;
+                if (upcomingTimeLeft <= 60) {
+                  timeUnit = this.$t('Video.Published.Seconds');
+                } else {
+
+                  upcomingTimeLeft = upcomingTimeLeft / 60;
+                  if (upcomingTimeLeft <= 120) {
+                  timeUnit = this.$t('Video.Published.Minutes');
+                  } else {
+
+                    upcomingTimeLeft = upcomingTimeLeft / 60;
+                    if (upcomingTimeLeft <= 24) {
+                       timeUnit = this.$t('Video.Published.Hours');
+                    } else {
+                       upcomingTimeLeft = upcomingTimeLeft / 24;
+                       timeUnit = this.$t('Video.Published.Days');
+                    }
+                  }
+                }
+                //TODO lowercase timeunit + a template might be needed here
+                this.upcomingTimeLeft = Math.floor(upcomingTimeLeft) + " " + timeUnit;
+              }
             } else {
               this.upcomingTimestamp = null
+              this.upcomingTimeLeft = null
             }
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
