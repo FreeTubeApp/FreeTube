@@ -97,13 +97,9 @@
           <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
         </template>
         <span
-          v-if="uploadedTime !== '' && !isLive && !inHistory"
-          class="uploadedTime"
-        >• {{ uploadedTime }}</span>
-        <span
-          v-if="inHistory"
           class="uploadedTime"
         >• {{ publishedText }}</span>
+
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
