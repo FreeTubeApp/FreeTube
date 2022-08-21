@@ -421,6 +421,9 @@ Settings:
     External Player Settings: Externe Player-Einstellungen
     Custom External Player Executable: Ausführbares, externes Player-Programm
     Custom External Player Arguments: Gewählte Einstellungen für externen Player
+    Players:
+      None:
+        Name: Keine
   Download Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladen-Pfad fragen
