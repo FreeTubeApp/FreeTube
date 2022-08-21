@@ -7,7 +7,7 @@ import cp from 'child_process'
 
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
-import { ImageCache } from './ImageCache'
+import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 
 if (process.argv.includes('--version')) {
   app.exit()
@@ -194,12 +194,10 @@ function runApp() {
         response.on('end', () => {
           const data = Buffer.concat(chunks)
 
-          const age = parseInt(response.headers.age ?? 0)
-          const maxAge = parseInt(response.headers['cache-control'].match(/max-age=([0-9]+)/)[1])
-
+          const expiryTimestamp = extractExpiryTimestamp(response.headers)
           const mimeType = response.headers['content-type']
 
-          imageCache.add(url, mimeType, data, maxAge - age)
+          imageCache.add(url, mimeType, data, expiryTimestamp)
 
           // eslint-disable-next-line node/no-callback-literal
           callback({
