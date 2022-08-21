@@ -397,33 +397,33 @@ export default Vue.extend({
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
 
-              let upcomingTimeLeft = upcomingTimestamp - new Date();
-              let timeUnit;
-              if(upcomingTimeLeft <= 0) {
-                  this.upcomingTimeLeft = this.$t('Video.Starting Soon');
+              let upcomingTimeLeft = upcomingTimestamp - new Date()
+              let timeUnit
+              if (upcomingTimeLeft <= 0) {
+                this.upcomingTimeLeft = this.$t('Video.Starting Soon')
               } else {
-                upcomingTimeLeft = upcomingTimeLeft / 1000;
-                timeUnit = 'Second';
+                upcomingTimeLeft = upcomingTimeLeft / 1000
+                timeUnit = 'Second'
                 if (upcomingTimeLeft > 60) {
-                  upcomingTimeLeft = upcomingTimeLeft / 60;
-                  timeUnit = 'Minute';
+                  upcomingTimeLeft = upcomingTimeLeft / 60
+                  timeUnit = 'Minute'
                   if (upcomingTimeLeft > 120) {
-                    upcomingTimeLeft = upcomingTimeLeft / 60;
-                      timeUnit = 'Hour';
+                    upcomingTimeLeft = upcomingTimeLeft / 60
+                    timeUnit = 'Hour'
                     if (upcomingTimeLeft > 24) {
-                      upcomingTimeLeft = upcomingTimeLeft / 24;
-                      timeUnit = 'Day';
+                      upcomingTimeLeft = upcomingTimeLeft / 24
+                      timeUnit = 'Day'
                     }
                   }
                 }
-                upcomingTimeLeft = Math.floor(upcomingTimeLeft);
+                upcomingTimeLeft = Math.floor(upcomingTimeLeft)
                 if (upcomingTimeLeft !== 1) {
-                    timeUnit = timeUnit + 's'
+                  timeUnit = timeUnit + 's'
                 }
                 timeUnit = this.$t('Video.Published.' + timeUnit)
 
-                //TODO a template might be needed here but idk how they work
-                this.upcomingTimeLeft = upcomingTimeLeft + " " + timeUnit.toLowerCase();
+                // TODO a template might be needed here but idk how they work
+                this.upcomingTimeLeft = upcomingTimeLeft + ' ' + timeUnit.toLowerCase()
               }
             } else {
               this.upcomingTimestamp = null
