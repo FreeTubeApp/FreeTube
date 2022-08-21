@@ -156,6 +156,7 @@ function runApp() {
     })
 
     protocol.registerBufferProtocol('imagecache', (request, callback) => {
+      // Remove `imagecache://` prefix
       const url = decodeURIComponent(request.url.substring(13))
       if (imageCache.has(url)) {
         const cached = imageCache.get(url)
