@@ -166,58 +166,59 @@ function runApp() {
           mimeType: cached.mimeType,
           data: cached.data
         })
-      } else {
-        const newRequest = net.request({
-          method: request.method,
-          url
-        })
-
-        // Electron doesn't allow certain headers to be set:
-        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
-        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
-        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
-
-        for (const header of Object.keys(request.headers)) {
-          if (!blacklistedHeaders.includes(header.toLowerCase())) {
-            newRequest.setHeader(header, request.headers[header])
-          }
-        }
-
-        newRequest.on('response', (response) => {
-          const chunks = []
-          response.on('data', (chunk) => {
-            chunks.push(chunk)
-          })
-
-          response.on('end', () => {
-            const data = Buffer.concat(chunks)
-
-            const age = parseInt(response.headers.age ?? 0)
-            const maxAge = parseInt(response.headers['cache-control'].match(/max-age=([0-9]+)/)[1])
-
-            const mimeType = response.headers['content-type']
-
-            imageCache.add(url, mimeType, data, maxAge - age)
-
-            // eslint-disable-next-line node/no-callback-literal
-            callback({
-              mimeType,
-              data: data
-            })
-          })
-
-          response.on('error', (error) => {
-            console.log('error', error)
-            // eslint-disable-next-line node/no-callback-literal
-            callback({
-              statusCode: response.statusCode ?? 400
-            })
-            throw error
-          })
-        })
-
-        newRequest.end()
+        return
       }
+
+      const newRequest = net.request({
+        method: request.method,
+        url
+      })
+
+      // Electron doesn't allow certain headers to be set:
+      // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+      // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+      const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
+
+      for (const header of Object.keys(request.headers)) {
+        if (!blacklistedHeaders.includes(header.toLowerCase())) {
+          newRequest.setHeader(header, request.headers[header])
+        }
+      }
+
+      newRequest.on('response', (response) => {
+        const chunks = []
+        response.on('data', (chunk) => {
+          chunks.push(chunk)
+        })
+
+        response.on('end', () => {
+          const data = Buffer.concat(chunks)
+
+          const age = parseInt(response.headers.age ?? 0)
+          const maxAge = parseInt(response.headers['cache-control'].match(/max-age=([0-9]+)/)[1])
+
+          const mimeType = response.headers['content-type']
+
+          imageCache.add(url, mimeType, data, maxAge - age)
+
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            mimeType,
+            data: data
+          })
+        })
+
+        response.on('error', (error) => {
+          console.log('error', error)
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            statusCode: response.statusCode ?? 400
+          })
+          throw error
+        })
+      })
+
+      newRequest.end()
     })
 
     const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
