@@ -570,10 +570,6 @@ export default Vue.extend({
             })
           })
         })
-      }).catch((error) => {
-        this.showToast({
-          message: error.message
-        })
       })
     },
 
