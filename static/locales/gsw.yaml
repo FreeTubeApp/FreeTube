@@ -1,42 +1,47 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Schwiizerdütsch'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  De Teil vom Programm isch nonig fertig. Bitte chum zumene spötere Ziitpunkt wider
+  zrugg.
 
 # Webkit Menu Bar
-File: ''
-New Window: ''
-Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
-Open New Window: ''
+File: 'Datei'
+New Window: 'Nois Fäischter'
+Quit: 'Beände'
+Edit: 'Bearbeite'
+Undo: 'Rückgängig'
+Redo: 'Widerherstellä'
+Cut: 'Usschniide'
+Copy: 'Kopierä'
+Paste: 'Iifüege'
+Delete: 'Lösche'
+Select all: 'Alles uswähle'
+Reload: 'Aktualisierä'
+Force Reload: 'Aktualisierig erzwingä'
+Toggle Developer Tools: 'Entwicklerwerchzüüg aktivierä/deaktivierä'
+Actual size: 'Originalgrössi'
+Zoom in: 'Vergrösserä'
+Zoom out: 'Verchlinerä'
+Toggle fullscreen: 'Vollbild aktivierä'
+Window: 'Fäischter'
+Minimize: 'Minimierä'
+Close: 'Schlüsse'
+Back: 'Zrugg'
+Forward: 'Füre'
+Open New Window: 'Nois Fäischter ufmache'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
-Are you sure you want to open this link?: ''
+Version $ is now available!  Click for more details: 'Version $ isch jetzt verfüegbar!
+  Klick für meh Details.'
+Download From Site: 'Vo de Website abelade'
+A new blog is now available, $. Click to view more: 'En neue Blogiitrag isch jetzt
+  verfüegbar, $. Klick zum en aaluege'
+Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufmache
+  wotsch?'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Bar:
   Clear Input: ''
   # In Filter Button
