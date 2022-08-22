@@ -56,6 +56,7 @@ async function restartElectron() {
     // '--enable-logging', // Enable to show logs from all electron processes
     remoteDebugging ? '--inspect=9222' : '',
     remoteDebugging ? '--remote-debugging-port=9223' : '',
+    // '--experiments-disable-disk-cache'
   ],
     // { stdio: 'inherit' } // required for logs to actually appear in the stdout
   )

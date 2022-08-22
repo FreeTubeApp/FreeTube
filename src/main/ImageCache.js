@@ -12,7 +12,7 @@ export class ImageCache {
   }
 
   add(url, mimeType, data, expiry) {
-    this._cache.set(url, { mimeType: mimeType, data, expiry })
+    this._cache.set(url, { mimeType, data, expiry })
   }
 
   has(url) {

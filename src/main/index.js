@@ -9,9 +9,19 @@ import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 
+let experimentsDisableDiskCache = false
+
 if (process.argv.includes('--version')) {
   app.exit()
 } else {
+  experimentsDisableDiskCache = process.argv.includes('--experiments-disable-disk-cache')
+
+  if (experimentsDisableDiskCache) {
+    // the http cache causes excessive disk usage during video playback
+    // we've got a custom image cache to make up for disabling the http cache
+    app.commandLine.appendSwitch('disable-http-cache')
+  }
+
   runApp()
 }
 
@@ -45,15 +55,10 @@ function runApp() {
 
   let mainWindow
   let startupUrl
-  const imageCache = new ImageCache()
 
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
-
-  // the http cache causes excessive disk usage during video playback
-  // we've got a custom image cache to make up for disabling the http cache
-  app.commandLine.appendSwitch('disable-http-cache')
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -155,84 +160,95 @@ function runApp() {
       })
     })
 
-    protocol.registerBufferProtocol('imagecache', (request, callback) => {
-      // Remove `imagecache://` prefix
-      const url = decodeURIComponent(request.url.substring(13))
-      if (imageCache.has(url)) {
-        const cached = imageCache.get(url)
+    if (experimentsDisableDiskCache) {
+      console.log('disabling disk cache')
+      // experimental as it increases RAM use in favour of reduced disk use
 
-        // eslint-disable-next-line node/no-callback-literal
-        callback({
-          mimeType: cached.mimeType,
-          data: cached.data
-        })
-        return
-      }
+      // image cache
 
-      const newRequest = net.request({
-        method: request.method,
-        url
-      })
+      const imageCache = new ImageCache()
 
-      // Electron doesn't allow certain headers to be set:
-      // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
-      // also blacklist Origin and Referrer as we don't want to let YouTube know about them
-      const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
+      protocol.registerBufferProtocol('imagecache', (request, callback) => {
+        // Remove `imagecache://` prefix
+        const url = decodeURIComponent(request.url.substring(13))
+        if (imageCache.has(url)) {
+          const cached = imageCache.get(url)
 
-      for (const header of Object.keys(request.headers)) {
-        if (!blacklistedHeaders.includes(header.toLowerCase())) {
-          newRequest.setHeader(header, request.headers[header])
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            mimeType: cached.mimeType,
+            data: cached.data
+          })
+          return
         }
-      }
 
-      newRequest.on('response', (response) => {
-        const chunks = []
-        response.on('data', (chunk) => {
-          chunks.push(chunk)
+        const newRequest = net.request({
+          method: request.method,
+          url
         })
 
-        response.on('end', () => {
-          const data = Buffer.concat(chunks)
+        // Electron doesn't allow certain headers to be set:
+        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
 
-          const expiryTimestamp = extractExpiryTimestamp(response.headers)
-          const mimeType = response.headers['content-type']
+        for (const header of Object.keys(request.headers)) {
+          if (!blacklistedHeaders.includes(header.toLowerCase())) {
+            newRequest.setHeader(header, request.headers[header])
+          }
+        }
 
-          imageCache.add(url, mimeType, data, expiryTimestamp)
+        newRequest.on('response', (response) => {
+          const chunks = []
+          response.on('data', (chunk) => {
+            chunks.push(chunk)
+          })
 
-          // eslint-disable-next-line node/no-callback-literal
-          callback({
-            mimeType,
-            data: data
+          response.on('end', () => {
+            const data = Buffer.concat(chunks)
+
+            const expiryTimestamp = extractExpiryTimestamp(response.headers)
+            const mimeType = response.headers['content-type']
+
+            imageCache.add(url, mimeType, data, expiryTimestamp)
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              mimeType,
+              data: data
+            })
+          })
+
+          response.on('error', (error) => {
+            console.log('error', error)
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              statusCode: response.statusCode ?? 400
+            })
+            throw error
           })
         })
 
-        response.on('error', (error) => {
-          console.log('error', error)
-          // eslint-disable-next-line node/no-callback-literal
-          callback({
-            statusCode: response.statusCode ?? 400
-          })
-          throw error
-        })
+        newRequest.end()
       })
 
-      newRequest.end()
-    })
+      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
+      session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
+        // the requests made by the imagecache:// handler to fetch the image,
+        // are allowed through, as their resourceType is 'other'
+        if (details.resourceType === 'image') {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            redirectURL: `imagecache://${encodeURIComponent(details.url)}`
+          })
+        } else {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({})
+        }
+      })
 
-    const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
-    session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
-      // the requests made by the imagecache:// handler to fetch the image,
-      // are allowed through, as their resourceType is 'other'
-      if (details.resourceType === 'image') {
-        // eslint-disable-next-line node/no-callback-literal
-        callback({
-          redirectURL: `imagecache://${encodeURIComponent(details.url)}`
-        })
-      } else {
-        // eslint-disable-next-line node/no-callback-literal
-        callback({})
-      }
-    })
+      // --- end of `if experimentsDisableDiskCache` ---
+    }
 
     await createWindow()
 
