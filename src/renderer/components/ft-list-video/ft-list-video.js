@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+
 import DateFormatter from '../../mixins/DateFormatter'
 
 export default Vue.extend({
