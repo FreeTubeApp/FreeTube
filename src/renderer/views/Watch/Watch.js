@@ -591,7 +591,7 @@ export default Vue.extend({
             channelName: result.author,
             channelId: result.authorId
           })
-
+          console.log('recommended:', result.recommendedVideos)
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
