@@ -398,32 +398,39 @@ export default Vue.extend({
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
-              let timeUnit
               if (upcomingTimeLeft <= 0) {
                 this.upcomingTimeLeft = this.$t('Video.Starting Soon')
               } else {
+                // Convert from ms to second
                 upcomingTimeLeft = upcomingTimeLeft / 1000
-                timeUnit = 'Second'
+                let timeUnitI18nPartialKey = 'Second'
+
                 if (upcomingTimeLeft > 60) {
                   upcomingTimeLeft = upcomingTimeLeft / 60
-                  timeUnit = 'Minute'
-                  if (upcomingTimeLeft > 120) {
-                    upcomingTimeLeft = upcomingTimeLeft / 60
-                    timeUnit = 'Hour'
-                    if (upcomingTimeLeft > 24) {
-                      upcomingTimeLeft = upcomingTimeLeft / 24
-                      timeUnit = 'Day'
-                    }
-                  }
+                  timeUnitI18nPartialKey = 'Minute'
                 }
+
+	            // Youtube switches to showing time left in minutes at 120 minutes remaining
+	            if (timeUnitI18nPartialKey === 'Minute' && upcomingTimeLeft > 120) {
+	              upcomingTimeLeft = upcomingTimeLeft / 60
+	              timeUnitI18nPartialKey = 'Hour'
+	            }
+	              
+	            if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
+	              upcomingTimeLeft = upcomingTimeLeft / 24
+	              timeUnitI18nPartialKey = 'Day'
+	            }
+                
+                // Value after decimal not to be displayed
+                // e.g. > 2 days = display as `2 days`
                 upcomingTimeLeft = Math.floor(upcomingTimeLeft)
                 if (upcomingTimeLeft !== 1) {
-                  timeUnit = timeUnit + 's'
+                  timeUnitI18nPartialKey = timeUnitI18nPartialKey + 's'
                 }
-                timeUnit = this.$t('Video.Published.' + timeUnit)
+                const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
 
-                // TODO a template might be needed here but idk how they work
-                this.upcomingTimeLeft = upcomingTimeLeft + ' ' + timeUnit.toLowerCase()
+                // TODO a I18n entry for time format might be needed here
+                this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
               }
             } else {
               this.upcomingTimestamp = null
