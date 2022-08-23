@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import DateFormatter from '../../mixins/DateFormatter';
 
 export default Vue.extend({
   name: 'FtListVideo',
   components: {
     'ft-icon-button': FtIconButton
   },
+  mixins: [
+    DateFormatter
+  ],
   props: {
     data: {
       type: Object,
@@ -83,6 +87,8 @@ export default Vue.extend({
     },
 
     inHistory: function () {
+      console.log(JSON.stringify(this.$t('Video.Published')))
+
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
       return this.$router.currentRoute.name === 'history'
@@ -399,9 +405,14 @@ export default Vue.extend({
       if (typeof (this.data.premiereTimestamp) !== 'undefined') {
         this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
       } else {
-        this.publishedText = this.data.publishedText
+        this.publishedText = this.toLocalePublicationString({
+          publishedText: this.publishedText,
+          publishedDate: this.data.publishedDate || this.data.published,
+          isLive: this.isLive,
+          isUpcoming: this.isUpcoming,
+          isRSS: this.data.isRSS
+        })
       }
-
       if (this.hideVideoViews) {
         this.hideViews = true
       } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
@@ -510,7 +521,6 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'toLocalePublicationString',
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',

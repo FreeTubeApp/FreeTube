@@ -6,6 +6,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 import ytcm from '@freetube/yt-comment-scraper'
+import DateFormatter from '../../mixins/DateFormatter'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -15,6 +16,9 @@ export default Vue.extend({
     'ft-select': FtSelect,
     'ft-timestamp-catcher': FtTimestampCatcher
   },
+  mixins: [
+    DateFormatter
+  ],
   props: {
     id: {
       type: String,
@@ -409,7 +413,6 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'toLocalePublicationString',
       'invidiousAPICall'
     ])
   }
