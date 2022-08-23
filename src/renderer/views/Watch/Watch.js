@@ -398,40 +398,39 @@ export default Vue.extend({
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
-              if (upcomingTimeLeft <= 0) {
-                this.upcomingTimeLeft = this.$t('Video.Starting Soon')
-              } else {
-                // Convert from ms to second
-                upcomingTimeLeft = upcomingTimeLeft / 1000
-                let timeUnitI18nPartialKey = 'Second'
-
-                if (upcomingTimeLeft > 60) {
-                  upcomingTimeLeft = upcomingTimeLeft / 60
-                  timeUnitI18nPartialKey = 'Minute'
-                }
-
-                // Youtube switches to showing time left in minutes at 120 minutes remaining
-                if (timeUnitI18nPartialKey === 'Minute' && upcomingTimeLeft > 120) {
-                  upcomingTimeLeft = upcomingTimeLeft / 60
-                  timeUnitI18nPartialKey = 'Hour'
-                }
-
-                if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
-                  upcomingTimeLeft = upcomingTimeLeft / 24
-                  timeUnitI18nPartialKey = 'Day'
-                }
-
-                // Value after decimal not to be displayed
-                // e.g. > 2 days = display as `2 days`
-                upcomingTimeLeft = Math.floor(upcomingTimeLeft)
-                if (upcomingTimeLeft !== 1) {
-                  timeUnitI18nPartialKey = timeUnitI18nPartialKey + 's'
-                }
-                const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
-
-                // TODO a I18n entry for time format might be needed here
-                this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
+              if (upcomingTimeLeft < 0) {
+                this.upcomingTimeLeft = 0
               }
+              // Convert from ms to second
+              upcomingTimeLeft = upcomingTimeLeft / 1000
+              let timeUnitI18nPartialKey = 'Second'
+
+              if (upcomingTimeLeft > 60) {
+                upcomingTimeLeft = upcomingTimeLeft / 60
+                timeUnitI18nPartialKey = 'Minute'
+              }
+
+              // Youtube switches to showing time left in minutes at 120 minutes remaining
+              if (timeUnitI18nPartialKey === 'Minute' && upcomingTimeLeft > 120) {
+                upcomingTimeLeft = upcomingTimeLeft / 60
+                timeUnitI18nPartialKey = 'Hour'
+              }
+
+              if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
+                upcomingTimeLeft = upcomingTimeLeft / 24
+                timeUnitI18nPartialKey = 'Day'
+              }
+
+              // Value after decimal not to be displayed
+              // e.g. > 2 days = display as `2 days`
+              upcomingTimeLeft = Math.floor(upcomingTimeLeft)
+              if (upcomingTimeLeft !== 1) {
+                timeUnitI18nPartialKey = timeUnitI18nPartialKey + 's'
+              }
+              const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
+
+              // TODO a I18n entry for time format might be needed here
+              this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
             } else {
               this.upcomingTimestamp = null
               this.upcomingTimeLeft = null
