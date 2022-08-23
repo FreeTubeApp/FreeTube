@@ -410,17 +410,17 @@ export default Vue.extend({
                   timeUnitI18nPartialKey = 'Minute'
                 }
 
-	            // Youtube switches to showing time left in minutes at 120 minutes remaining
-	            if (timeUnitI18nPartialKey === 'Minute' && upcomingTimeLeft > 120) {
-	              upcomingTimeLeft = upcomingTimeLeft / 60
-	              timeUnitI18nPartialKey = 'Hour'
-	            }
-	              
-	            if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
-	              upcomingTimeLeft = upcomingTimeLeft / 24
-	              timeUnitI18nPartialKey = 'Day'
-	            }
-                
+                // Youtube switches to showing time left in minutes at 120 minutes remaining
+                if (timeUnitI18nPartialKey === 'Minute' && upcomingTimeLeft > 120) {
+                  upcomingTimeLeft = upcomingTimeLeft / 60
+                  timeUnitI18nPartialKey = 'Hour'
+                }
+
+                if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
+                  upcomingTimeLeft = upcomingTimeLeft / 24
+                  timeUnitI18nPartialKey = 'Day'
+                }
+
                 // Value after decimal not to be displayed
                 // e.g. > 2 days = display as `2 days`
                 upcomingTimeLeft = Math.floor(upcomingTimeLeft)
