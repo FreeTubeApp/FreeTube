@@ -398,20 +398,13 @@ export default Vue.extend({
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
-              if (upcomingTimeLeft < 0) {
-                this.upcomingTimeLeft = 0
-              }
-              // Convert from ms to second
-              upcomingTimeLeft = upcomingTimeLeft / 1000
-              let timeUnitI18nPartialKey = 'Second'
 
-              if (upcomingTimeLeft > 60) {
-                upcomingTimeLeft = upcomingTimeLeft / 60
-                timeUnitI18nPartialKey = 'Minute'
-              }
+              // Convert from ms to second to minute
+              upcomingTimeLeft = (upcomingTimeLeft / 1000) / 60
+              let timeUnitI18nPartialKey = 'Minute'
 
               // Youtube switches to showing time left in minutes at 120 minutes remaining
-              if (timeUnitI18nPartialKey === 'Minute' && upcomingTimeLeft > 120) {
+              if (upcomingTimeLeft > 120) {
                 upcomingTimeLeft = upcomingTimeLeft / 60
                 timeUnitI18nPartialKey = 'Hour'
               }
@@ -429,8 +422,14 @@ export default Vue.extend({
               }
               const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
 
-              // TODO a I18n entry for time format might be needed here
-              this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
+              // Displays when less than a minute remains
+              // Looks better than `Premieres in x seconds`
+              if (upcomingTimeLeft < 1) {
+                this.upcomingTimeLeft = this.$t('Video.Published.Less than a minute').toLowerCase()
+              } else {
+                // TODO a I18n entry for time format might be needed here
+                this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
+              }
             } else {
               this.upcomingTimestamp = null
               this.upcomingTimeLeft = null
