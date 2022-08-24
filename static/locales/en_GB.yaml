@@ -166,6 +166,7 @@ Settings:
       System Default: 'System Default'
       Light: 'Light'
       Dracula: 'Dracula'
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -191,6 +192,20 @@ Settings:
       Dracula Purple: 'Dracula Purple'
       Dracula Red: 'Dracula Red'
       Dracula Yellow: 'Dracula Yellow'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -254,6 +269,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: 'Privacy Settings'
     Remember History: 'Remember History'
