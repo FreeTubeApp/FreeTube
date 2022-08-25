@@ -411,6 +411,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Leitor externo
     External Player Settings: Definições para leitores de vídeo externos
+    Players:
+      None:
+        Name: Nenhum
   The app needs to restart for changes to take effect. Restart and apply change?: A
     aplicação precisa de reiniciar para que as alterações façam efeito. Reiniciar
     e aplicar as alterações?
