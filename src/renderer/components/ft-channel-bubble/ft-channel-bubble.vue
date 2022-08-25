@@ -12,7 +12,7 @@
       class="bubble selected"
     >
       <font-awesome-icon
-        icon="check"
+        :icon="['fas', 'check']"
         class="icon"
       />
     </div>

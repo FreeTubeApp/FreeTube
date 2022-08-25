@@ -16,7 +16,7 @@
         {{ errorMessage }}
       </p>
       <font-awesome-icon
-        icon="exclamation-circle"
+        :icon="['fas', 'exclamation-circle']"
         class="errorIcon"
       />
       <ft-button
@@ -190,7 +190,7 @@
       >
         <font-awesome-icon
           class="icon"
-          icon="arrow-down"
+          :icon="['fas', 'arrow-down']"
         />
       </div>
     </div>

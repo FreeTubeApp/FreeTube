@@ -48,7 +48,7 @@
     </ft-card>
     <ft-icon-button
       v-if="!isLoading"
-      icon="sync"
+      :icon="['fas', 'sync']"
       class="floatingTopButton"
       :title="$t('Subscriptions.Refresh Subscriptions')"
       :size="12"

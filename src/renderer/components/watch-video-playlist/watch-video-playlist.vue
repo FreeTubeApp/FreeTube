@@ -33,33 +33,33 @@
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: loopEnabled }"
-          icon="retweet"
+          :icon="['fas', 'retweet']"
           :title="$t('Video.Loop Playlist')"
           @click="toggleLoop"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: shuffleEnabled }"
-          icon="random"
+          :icon="['fas', 'random']"
           :title="$t('Video.Shuffle Playlist')"
           @click="toggleShuffle"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: reversePlaylist }"
-          icon="exchange-alt"
+          :icon="['fas', 'exchange-alt']"
           :title="$t('Video.Reverse Playlist')"
           @click="toggleReversePlaylist"
         />
         <font-awesome-icon
           class="playlistIcon"
-          icon="step-backward"
+          :icon="['fas', 'step-backward']"
           :title="$t('Video.Play Previous Video')"
           @click="playPreviousVideo"
         />
         <font-awesome-icon
           class="playlistIcon"
-          icon="step-forward"
+          :icon="['fas', 'step-forward']"
           :title="$t('Video.Play Next Video')"
           @click="playNextVideo"
         />
@@ -77,7 +77,7 @@
             <font-awesome-icon
               v-if="currentVideoIndex === (index + 1)"
               class="videoIndexIcon"
-              icon="play"
+              :icon="['fas', 'play']"
             />
             <p
               v-else
