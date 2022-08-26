@@ -79,15 +79,15 @@
     "yt-channel-info": "^3.0.4",
     "yt-dash-manifest-generator": "1.1.0",
     "yt-trending-scraper": "^2.0.1",
-    "ytdl-core": "git+https://github.com/absidue/node-ytdl-core#temp-fix-11-08-2022",
+    "ytdl-core": "^4.11.1",
     "ytpl": "^2.3.0",
     "ytsr": "^3.8.0"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.0.5",
     "@babel/core": "^7.17.10",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/preset-env": "^7.17.10",
+    "@evilmartians/lefthook": "^1.0.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^9.0.1",
