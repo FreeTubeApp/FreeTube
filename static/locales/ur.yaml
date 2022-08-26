@@ -1,0 +1,810 @@
+# Put the name of your locale in the same language
+Locale Name: 'اردو' 
+FreeTube: 'FreeTube'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  'ایپ کا یہ حصہ ابھی تک تیار نہیں ہے۔ جب پیش رفت ہو جائے تو بعد میں واپس آئیں۔'
+
+# Webkit Menu Bar
+File: 'فائل'
+New Window: 'نئی کھڑکی'
+Quit: 'چھوڑو'
+Edit: 'ترمیم'
+Undo: 'کالعدم'
+Redo: 'دوبارہ کریں۔'
+Cut: 'کاٹنا'
+Copy: 'کاپی'
+Paste: 'چسپاں کریں۔'
+Delete: 'حذف کریں۔'
+Select all: 'تمام منتخب کریں'
+Reload: 'دوبارہ لوڈ کریں۔'
+Force Reload: 'زبردستی دوبارہ لوڈ کریں۔'
+Toggle Developer Tools: 'ڈویلپر ٹولز کو ٹوگل کریں۔'
+Actual size: 'اصل سائز'
+Zoom in: 'زوم ان کریں۔'
+Zoom out: 'دور کرنا'
+Toggle fullscreen: 'پوری اسکرین کو ٹوگل کریں۔'
+Window: 'کھڑکی'
+Minimize: 'کم سے کم کرنا'
+Close: 'بند کریں'
+Back: 'پیچھے'
+Forward: 'آگے'
+Open New Window: 'نئی ونڈو کھولیں۔'
+
+Version $ is now available!  Click for more details: 'ورژن $ اب دستیاب ہے! کلک کریں۔
+   مزید تفصیلات کے لیے'
+Download From Site: 'سائٹ سے ڈاؤن لوڈ کریں۔'
+A new blog is now available, $. Click to view more: 'ایک نیا بلاگ اب دستیاب ہے، $.
+   مزید دیکھنے کے لیے کلک کریں۔'
+Are you sure you want to open this link?: 'کیا آپ واقعی اس لنک کو کھولنا چاہتے ہیں؟'
+
+# Search Bar
+Search / Go to URL: 'تلاش کریں / یو آر ایل پر جائیں۔'
+Search Bar:
+  Clear Input: 'ان پٹ صاف کریں۔'
+  # In Filter Button
+Search Filters:
+  Search Filters: 'فلٹرز تلاش کریں۔'
+  Sort By:
+    Sort By: Sort By
+    Most Relevant: Most Relevant
+    Rating: Rating
+    Upload Date: Upload Date
+    View Count: View Count
+  Time:
+    Time: Time
+    Any Time: Any Time
+    Last Hour: Last Hour
+    Today: Today
+    This Week: This Week
+    This Month: This Month
+    This Year: This Year
+  Type:
+    Type: Type
+    All Types: All Types
+    Videos: Videos
+    Channels: Channels
+    #& Playlists
+  Duration:
+    Duration: Duration
+    All Durations: All Durations
+    Short (< 4 minutes): Short (< 4 minutes)
+    Long (> 20 minutes): Long (> 20 minutes)
+  # On Search Page
+  Search Results: Search Results
+  Fetching results. Please wait: Fetching results. Please wait
+  Fetch more results: Fetch more results
+  There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں۔'
+# Sidebar
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: Subscriptions
+  # channels that were likely deleted
+  Error Channels: Channels with Errors
+  Latest Subscriptions: Latest Subscriptions
+  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'یہ
+     پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ شرح کو محدود کرنے سے بچنے کے لیے آر ایس ایس کو مجبور کرنا'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'آپ کا
+     رکنیت کی فہرست فی الحال خالی ہے۔ انہیں یہاں دیکھنے کے لیے سبسکرپشنز شامل کرنا شروع کریں۔'
+  'Getting Subscriptions. Please wait.': 'سبسکرپشنز حاصل کرنا۔ برائے مہربانی انتظار کریں.' 
+  Refresh Subscriptions: 'سبسکرپشنز کو ریفریش کریں۔'
+  Load More Videos: 'مزید ویڈیوز لوڈ کریں۔'
+More: 'مزید'
+Channels:
+  Channels: 'چینلز'
+  Title: 'چینل کی فہرست'
+  Search bar placeholder: 'چینلز تلاش کریں۔'
+  Count: '$چینل ملا۔'
+  Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
+  Unsubscribe: 'ان سبسکرائب کریں۔'
+  Unsubscribed: '$ کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
+  Unsubscribe Prompt: 'کیا آپ واقعی "$" سے ان سبسکرائب کرنا چاہتے ہیں؟'
+Trending:
+  Trending: Trending
+  Default: Default
+  Music: Music
+  Gaming: Gaming
+  Movies: Movies
+  Trending Tabs: Trending Tabs
+Most Popular: Most Popular
+Playlists: Playlists
+User Playlists:
+  Your Playlists: Your Playlists
+  Playlist Message: 'یہ صفحہ مکمل طور پر کام کرنے والی پلے لسٹس کا عکاس نہیں ہے۔ یہ صرف
+     ان ویڈیوز کی فہرست بناتا ہے جنہیں آپ نے محفوظ کیا ہے یا پسند کیا ہے۔ جب کام ختم ہو جائے تو سب
+     فی الحال یہاں موجود ویڈیوز کو 'پسندیدہ' پلے لسٹ میں منتقل کر دیا جائے گا۔'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Your saved videos are empty. Click on the save button on the corner of a video to have
+    it listed here
+  Empty Search Message: 'اس پلے لسٹ میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش سے مماثل ہوں۔'
+  Search bar placeholder: 'پلے لسٹ میں تلاش کریں۔'
+History:
+  # On History Page
+  History: 'تاریخ'
+  Watch History: 'تاریخ دیکھیں'
+  Your history list is currently empty.: 'آپ کی تاریخ کی فہرست فی الحال خالی ہے۔'
+  Empty Search Message: 'آپ کی سرگزشت میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش سے مماثل ہوں۔'
+  Search bar placeholder: "تاریخ میں تلاش کریں۔"
+Settings:
+  # On Settings Page
+  Settings: 
+  The app needs to restart for changes to take effect. Restart and apply change?: 'دی
+     تبدیلیاں اثر انداز ہونے کے لیے ایپ کو دوبارہ شروع کرنے کی ضرورت ہے۔ دوبارہ شروع کریں اور تبدیلی کا اطلاق کریں؟'
+  General Settings: 'ترتیبات'
+    General Settings: 'عام ترتیبات'
+    Check for Updates: 'اپ ڈیٹ کے لیے چیک کریں'
+    Check for Latest Blog Posts: 'تازہ ترین بلاگ پوسٹس چیک کریں۔'
+    Fallback to Non-Preferred Backend on Failure: 'غیر ترجیحی بیک اینڈ پر فال بیک
+       ناکامی پر'
+    Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں۔'
+    Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
+    Locale Preference: Locale Preference
+    System Default: System Default
+    Preferred API Backend:
+      Preferred API Backend: Preferred API Backend
+      Local API: Local API
+      Invidious API: Invidious API
+    Video View Type:
+      Video View Type: Video View Type
+      Grid: Grid
+      List: List
+    Thumbnail Preference:
+      Thumbnail Preference: Thumbnail Preference
+      Default: Default
+      Beginning: Beginning
+      Middle: Middle
+      End: End
+    Current Invidious Instance: Current Invidious Instance
+    # $ is replaced with the default Invidious instance
+    The currently set default instance is $: The currently set default instance is $
+    No default instance has been set: No default instance has been set
+    Current instance will be randomized on startup: Current instance will be randomized on startup
+    Set Current Instance as Default: Set Current Instance as Default
+    Clear Default Instance: Clear Default Instance
+    View all Invidious instance information: View all Invidious instance information
+    Region for Trending: Region for Trending
+    #! List countries
+    External Link Handling:
+      External Link Handling: External Link Handling
+      Open Link: Open Link
+      Ask Before Opening Link: Ask Before Opening Link
+      No Action: No Action
+  Theme Settings:
+    Theme Settings: Theme Settings
+    Match Top Bar with Main Color: Match Top Bar with Main Color
+    Expand Side Bar by Default: Expand Side Bar by Default
+    Disable Smooth Scrolling: Disable Smooth Scrolling
+    UI Scale: UI Scale
+    Hide Side Bar Labels: Hide Side Bar Labels
+    Base Theme:
+      Base Theme: Base Theme
+      Black: Black
+      Dark: Dark
+      System Default: System Default
+      Light: Light
+      Dracula: Dracula
+      Catppuccin Mocha: Catppuccin Mocha
+    Main Color Theme:
+      Main Color Theme: Main Color Theme
+      Red: Red
+      Pink: Pink
+      Purple: Purple
+      Deep Purple: Deep Purple
+      Indigo: Indigo
+      Blue: Blue
+      Light Blue: Light Blue
+      Cyan: Cyan
+      Teal: Teal
+      Green: Green
+      Light Green: Light Green
+      Lime: Lime
+      Yellow: Yellow
+      Amber: Amber
+      Orange: Orange
+      Deep Orange: Deep Orange
+      Dracula Cyan: Dracula Cyan
+      Dracula Green: Dracula Green
+      Dracula Orange: Dracula Orange
+      Dracula Pink: Dracula Pink
+      Dracula Purple: Dracula Purple
+      Dracula Red: Dracula Red
+      Dracula Yellow: Dracula Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+    Secondary Color Theme: Secondary Color Theme
+        #* Main Color Theme
+  Player Settings:
+    Player Settings: Player Settings
+    Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
+    Play Next Video: Play Next Video
+    Turn on Subtitles by Default: Turn on Subtitles by Default
+    Autoplay Videos: Autoplay Videos
+    Proxy Videos Through Invidious: Proxy Videos Through Invidious
+    Autoplay Playlists: Autoplay Playlists
+    Enable Theatre Mode by Default: Enable Theatre Mode by Default
+    Scroll Volume Over Video Player: Scroll Volume Over Video Player
+    Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
+    Display Play Button In Video Player: Display Play Button In Video Player
+    Next Video Interval: Next Video Interval
+    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
+    Default Volume: Default Volume
+    Default Playback Rate: Default Playback Rate
+    Max Video Playback Rate: Max Video Playback Rate
+    Video Playback Rate Interval: Video Playback Rate Interval
+    Default Video Format:
+      Default Video Format: Default Video Format
+      Dash Formats: DASH Formats
+      Legacy Formats: Legacy Formats
+      Audio Formats: Audio Formats
+    Default Quality:
+      Default Quality: Default Quality
+      Auto: Auto
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
+    Screenshot:
+      Enable: Enable Screenshot
+      Format Label: Screenshot Format
+      Quality Label: Screenshot Quality
+      Ask Path: Ask for Save Folder
+      Folder Label: Screenshot Folder
+      Folder Button: Select Folder
+      File Name Label: Filename Pattern
+      File Name Tooltip: 'آپ ذیل میں متغیرات استعمال کر سکتے ہیں۔ %Y سال کے 4 ہندسے۔ %M مہینہ 2 ہندسے۔
+         %D دن کے 2 ہندسے۔ %H گھنٹے 2 ہندسے۔ %N منٹ 2 ہندسے۔ %S دوسرے 2 ہندسے۔ %T ملی سیکنڈ 3 ہندسے۔
+         %s ویڈیو سیکنڈ۔ %t ویڈیو ملی سیکنڈ 3 ہندسے۔ %i ویڈیو ID۔ آپ ذیلی فولڈر بنانے کے لیے "\" یا "/" بھی استعمال کر سکتے ہیں۔'
+      Error:
+        Forbidden Characters: Forbidden Characters
+        Empty File Name: Empty File Name
+  External Player Settings:
+    External Player Settings: External Player Settings
+    External Player: External Player
+    Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
+    Custom External Player Executable: Custom External Player Executable
+    Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
+  Privacy Settings:
+    Privacy Settings: Privacy Settings
+    Remember History: Remember History
+    Save Watched Progress: Save Watched Progress
+    Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
+    Clear Search Cache: Clear Search Cache
+    Are you sure you want to clear out your search cache?: Are you sure you want to
+      clear out your search cache?
+    Search cache has been cleared: Search cache has been cleared
+    Remove Watch History: Remove Watch History
+    Are you sure you want to remove your entire watch history?: Are you sure you want
+      to remove your entire watch history?
+    Watch history has been cleared: Watch history has been cleared
+    Remove All Subscriptions / Profiles: Remove All Subscriptions / Profiles
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Are
+      you sure you want to remove all subscriptions and profiles?  This cannot be
+      undone.
+  Subscription Settings:
+    Subscription Settings: Subscription Settings
+    Hide Videos on Watch: Hide Videos on Watch
+    Fetch Feeds from RSS: Fetch Feeds from RSS
+    Manage Subscriptions: Manage Subscriptions
+  Distraction Free Settings:
+    Distraction Free Settings: Distraction Free Settings
+    Hide Video Views: Hide Video Views
+    Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
+    Hide Channel Subscribers: Hide Channel Subscribers
+    Hide Comment Likes: Hide Comment Likes
+    Hide Recommended Videos: Hide Recommended Videos
+    Hide Trending Videos: Hide Trending Videos
+    Hide Popular Videos: Hide Popular Videos
+    Hide Playlists: Hide Playlists
+    Hide Live Chat: Hide Live Chat
+    Hide Active Subscriptions: Hide Active Subscriptions
+    Hide Video Description: Hide Video Description
+    Hide Comments: Hide Comments
+    Hide Live Streams: Hide Live Streams
+    Hide Sharing Actions: Hide Sharing Actions
+  Data Settings:
+    Data Settings: Data Settings
+    Select Import Type: Select Import Type
+    Select Export Type: Select Export Type
+    Import Subscriptions: Import Subscriptions
+    Import FreeTube: Import FreeTube
+    Import YouTube: Import YouTube
+    Import NewPipe: Import NewPipe
+    Check for Legacy Subscriptions: Check for Legacy Subscriptions
+    Export Subscriptions: Export Subscriptions
+    Export FreeTube: Export FreeTube
+    Export YouTube: Export YouTube
+    Export NewPipe: Export NewPipe
+    Import History: Import History
+    Export History: Export History
+    Import Playlists: Import Playlists
+    Export Playlists: Export Playlists
+    Profile object has insufficient data, skipping item: 'پروفائل آبجیکٹ ناکافی ہے۔
+       ڈیٹا، آئٹم کو چھوڑنا'
+    All subscriptions and profiles have been successfully imported: 'تمام سبسکرپشنز
+       اور پروفائلز کو کامیابی کے ساتھ درآمد کیا گیا ہے۔'
+    All subscriptions have been successfully imported: 'تمام سبسکرپشنز ہو چکی ہیں۔
+       کامیابی سے درآمد کیا گیا۔'
+    One or more subscriptions were unable to be imported: 'ایک یا زیادہ سبسکرپشنز
+       درآمد کرنے کے قابل نہیں تھے'
+    Invalid subscriptions file: Invalid subscriptions file
+    This might take a while, please wait: This might take a while, please wait
+    Invalid history file: Invalid history file
+    Subscriptions have been successfully exported: 'سبسکرپشنز کامیابی سے ہو گئی ہیں۔
+       برآمد'
+    History object has insufficient data, skipping item: 'تاریخ کا اعتراض ناکافی ہے۔
+       ڈیٹا، آئٹم کو چھوڑنا'
+    All watched history has been successfully imported: 'تمام دیکھی گئی تاریخ رہی ہے۔
+       کامیابی سے درآمد کیا گیا۔'
+    All watched history has been successfully exported: 'تمام دیکھی گئی تاریخ رہی ہے۔
+       کامیابی سے برآمد'
+    Playlist insufficient data: '"$" پلے لسٹ کے لیے ناکافی ڈیٹا، آئٹم کو چھوڑنا'
+    All playlists has been successfully imported: 'تمام پلے لسٹ ہو چکی ہیں۔
+       کامیابی سے درآمد کیا گیا۔'
+    All playlists has been successfully exported: 'تمام پلے لسٹ ہو چکی ہیں۔
+       کامیابی سے برآمد'
+    Unable to read file: Unable to read file
+    Unable to write file: Unable to write file
+    Unknown data key: Unknown data key
+    How do I import my subscriptions?: How do I import my subscriptions?
+    Manage Subscriptions: Manage Subscriptions
+  Proxy Settings:
+    Proxy Settings: Proxy Settings
+    Enable Tor / Proxy: Enable Tor / Proxy
+    Proxy Protocol: Proxy Protocol
+    Proxy Host: Proxy Host
+    Proxy Port Number: Proxy Port Number
+    Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
+    Test Proxy: Test Proxy
+    Your Info: Your Info
+    Ip: Ip
+    Country: Country
+    Region: Region
+    City: City
+    Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock Settings
+    Enable SponsorBlock: Enable SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+    Skip Options:
+      Skip Option: Skip Option
+      Auto Skip: Auto Skip
+      Show In Seek Bar: Show In Seek Bar
+      Prompt To Skip: Prompt To Skip
+      Do Nothing: Do Nothing
+    Category Color: Category Color
+  Parental Control Settings:
+    Parental Control Settings: Parental Control Settings
+    Hide Unsubscribe Button: Hide Unsubscribe Button
+    Show Family Friendly Only: Show Family Friendly Only
+    Hide Search Bar: Hide Search Bar
+  Download Settings:
+    Download Settings: Download Settings
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
+    Download Behavior: Download Behavior
+    Download in app: Download in app
+    Open in web browser: Open in web browser
+About:
+  #On About page
+  About: About
+  Beta: Beta
+  Source code: Source code
+  Licensed under the AGPLv3: Licensed under the AGPLv3
+  View License: View License
+  Downloads / Changelog: Downloads / Changelog
+  GitHub releases: GitHub releases
+  Help: Help
+  FreeTube Wiki: FreeTube Wiki
+  FAQ: FAQ
+  Report a problem: Report a problem
+  GitHub issues: GitHub issues
+  Please check for duplicates before posting: 'براہ کرم پوسٹ کرنے سے پہلے ڈپلیکیٹس کی جانچ کریں۔'
+  Website: Website
+  Blog: Blog
+  Email: Email
+  Mastodon: Mastodon
+  Chat on Matrix: Chat on Matrix
+  Please read the: Please read the
+  room rules: room rules
+  Translate: Translate
+  Credits: Credits
+  FreeTube is made possible by: FreeTube is made possible by
+  these people and projects: these people and projects
+  Donate: Donate
+
+Profile:
+  Profile Settings: Profile Settings
+  Profile Select: Profile Select
+  Profile Filter: Profile Filter
+  All Channels: All Channels
+  Profile Manager: Profile Manager
+  Create New Profile: Create New Profile
+  Edit Profile: Edit Profile
+  Color Picker: Color Picker
+  Custom Color: Custom Color
+  Profile Preview: Profile Preview
+  Create Profile: Create Profile
+  Update Profile: Update Profile
+  Make Default Profile: Make Default Profile
+  Delete Profile: Delete Profile
+  Are you sure you want to delete this profile?: 'کیا آپ واقعی اسے حذف کرنا چاہتے ہیں۔
+     پروفائل؟'
+  All subscriptions will also be deleted.: 'تمام سبسکرپشنز بھی حذف کر دی جائیں گی۔'
+  Profile could not be found: 'پروفائل نہیں مل سکا'
+  Your profile name cannot be empty: 'آپ کا پروفائل نام خالی نہیں ہو سکتا'
+  Profile has been created: 'پروفائل بن گیا ہے۔'
+  Profile has been updated: 'پروفائل کو اپ ڈیٹ کر دیا گیا ہے۔'
+  Your default profile has been set to $: 'آپ کا ڈیفالٹ پروفائل $ پر سیٹ کر دیا گیا ہے۔'
+  Removed $ from your profiles: Removed $ from your profiles
+  Your default profile has been changed to your primary profile: Your default profile
+    has been changed to your primary profile
+  $ is now the active profile: $ is now the active profile
+  Subscription List: Subscription List
+  Other Channels: Other Channels
+  $ selected: $ selected
+  Select All: Select All
+  Select None: Select None
+  Delete Selected: Delete Selected
+  Add Selected To Profile: Add Selected To Profile
+  No channel(s) have been selected: No channel(s) have been selected
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : 'یہ آپ کا بنیادی پروفائل ہے۔ کیا آپ واقعی منتخب چینلز کو حذف کرنا چاہتے ہیں؟ دی
+     ایک جیسے چینلز کو کسی بھی پروفائل میں حذف کر دیا جائے گا جس میں وہ پائے جائیں گے۔'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'ہیں
+     کیا آپ واقعی منتخب چینلز کو حذف کرنا چاہتے ہیں؟ اس سے چینل حذف نہیں ہوگا۔
+     کسی دوسرے پروفائل سے۔'
+#On Channel Page
+Channel:
+  Subscriber: Subscriber
+  Subscribers: Subscribers
+  Subscribe: Subscribe
+  Unsubscribe: Unsubscribe
+  Channel has been removed from your subscriptions: Channel has been removed from
+    your subscriptions
+  Removed subscription from $ other channel(s): Removed subscription from $ other
+    channel(s)
+  Added channel to your subscriptions: Added channel to your subscriptions
+  Search Channel: Search Channel
+  Your search results have returned 0 results: Your search results have returned 0
+    results
+  Sort By: Sort By
+  Videos:
+    Videos: Videos
+    This channel does not currently have any videos: This channel does not currently
+      have any videos
+    Sort Types:
+      Newest: Newest
+      Oldest: Oldest
+      Most Popular: Most Popular
+  Playlists:
+    Playlists: Playlists
+    This channel does not currently have any playlists: This channel does not currently
+      have any playlists
+    Sort Types:
+      Last Video Added: Last Video Added
+      Newest: Newest
+      Oldest: Oldest
+  About:
+    About: About
+    Channel Description: Channel Description
+    Featured Channels: Featured Channels
+Video:
+  Mark As Watched: Mark As Watched
+  Remove From History: Remove From History
+  Video has been marked as watched: Video has been marked as watched
+  Video has been removed from your history: Video has been removed from your history
+  Save Video: Save Video
+  Video has been saved: Video has been saved
+  Video has been removed from your saved list: Video has been removed from your saved list
+  Open in YouTube: Open in YouTube
+  Copy YouTube Link: Copy YouTube Link
+  Open YouTube Embedded Player: Open YouTube Embedded Player
+  Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
+  Open in Invidious: Open in Invidious
+  Copy Invidious Link: Copy Invidious Link
+  Open Channel in YouTube: Open Channel in YouTube
+  Copy YouTube Channel Link: Copy YouTube Channel Link
+  Open Channel in Invidious: Open Channel in Invidious
+  Copy Invidious Channel Link: Copy Invidious Channel Link
+  View: View
+  Views: Views
+  Loop Playlist: Loop Playlist
+  Shuffle Playlist: Shuffle Playlist
+  Reverse Playlist: Reverse Playlist
+  Play Next Video: Play Next Video
+  Play Previous Video: Play Previous Video
+  # Context is "X People Watching"
+  Watching: Watching
+  Watched: Watched
+  Autoplay: Autoplay
+  Starting soon, please refresh the page to check again: Starting soon, please refresh
+    the page to check again
+  # As in a Live Video
+  Premieres on: Premieres on
+  Live: Live
+  Live Now: Live Now
+  Live Chat: Live Chat
+  Enable Live Chat: Enable Live Chat
+  Live Chat is currently not supported in this build.: Live Chat is currently not
+    supported in this build.
+  'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream
+    has ended.
+  Live chat is enabled.  Chat messages will appear here once sent.: Live chat is enabled.  Chat
+    messages will appear here once sent.
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
+    Chat is currently not supported with the Invidious API.  A direct connection to
+    YouTube is required.
+  Download Video: Download Video
+  video only: video only
+  audio only: audio only
+  Audio:
+    Low: Low
+    Medium: Medium
+    High: High
+    Best: Best
+  Published:
+    Jan: Jan
+    Feb: Feb
+    Mar: Mar
+    Apr: Apr
+    May: May
+    Jun: Jun
+    Jul: Jul
+    Aug: Aug
+    Sep: Sep
+    Oct: Oct
+    Nov: Nov
+    Dec: Dec
+    Second: Second
+    Seconds: Seconds
+    Minute: Minute
+    Minutes: Minutes
+    Hour: Hour
+    Hours: Hours
+    Day: Day
+    Days: Days
+    Week: Week
+    Weeks: Weeks
+    Month: Month
+    Months: Months
+    Year: Year
+    Years: Years
+    Ago: Ago
+    Upcoming: Premieres on
+  Published on: Published on
+  Streamed on: Streamed on
+  Started streaming on: Started streaming on
+  translated from English: translated from English
+  # $ is replaced with the number and % with the unit (days, hours, minutes...)
+  Publicationtemplate: $ % ago
+  Skipped segment: Skipped segment
+  Sponsor Block category:
+    sponsor: Sponsor
+    intro: Intro
+    outro: Outro
+    self-promotion: Self-Promotion
+    interaction: Interaction
+    music offtopic: Music Offtopic
+    recap: Recap
+    filler: Filler
+  External Player:
+    # $ is replaced with the external player
+    OpenInTemplate: Open in $
+    video: video
+    playlist: playlist
+    # $ is replaced with the current context (see video/playlist above) and % the external player setting
+    OpeningTemplate: Opening $ in %...
+    # $ is replaced with the external player and % with the unsupported action
+    UnsupportedActionTemplate: '$ does not support: %'
+    Unsupported Actions:
+      starting video at offset: starting video at offset
+      setting a playback rate: setting a playback rate
+      opening playlists: opening playlists
+      opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
+      reversing playlists: reversing playlists
+      shuffling playlists: shuffling playlists
+      looping playlists: looping playlists
+  Stats:
+    Video statistics are not available for legacy videos: Video statistics are not available for legacy videos
+    Video ID: Video ID
+    Resolution: Resolution
+    Player Dimensions: Player Dimensions
+    Bitrate: Bitrate
+    Volume: Volume
+    Bandwidth: Bandwidth
+    Buffered: Buffered
+    Dropped / Total Frames: Dropped / Total Frames
+    Mimetype: Mimetype
+#& Videos
+Videos:
+  #& Sort By
+  Sort By:
+    Newest: Newest
+    Oldest: Oldest
+    #& Most Popular
+#& Playlists
+Playlist:
+  #& About
+  Playlist: Playlist
+  View Full Playlist: View Full Playlist
+  Videos: Videos
+  View: View
+  Views: Views
+  Last Updated On: Last Updated On
+  Share Playlist:
+    Share Playlist: Share Playlist
+    Copy YouTube Link: Copy YouTube Link
+    Open in YouTube: Open in YouTube
+    Copy Invidious Link: Copy Invidious Link
+    Open in Invidious: Open in Invidious
+
+# On Video Watch Page
+#* Published
+#& Views
+Toggle Theatre Mode: Toggle Theatre Mode
+Change Format:
+  Change Video Formats: Change Video Formats
+  Use Dash Formats: Use DASH Formats
+  Use Legacy Formats: Use Legacy Formats
+  Use Audio Formats: Use Audio Formats
+  Dash formats are not available for this video: DASH formats are not available for
+    this video
+  Audio formats are not available for this video: Audio formats are not available
+    for this video
+Share:
+  Share Video: Share Video
+  Include Timestamp: Include Timestamp
+  Copy Link: Copy Link
+  Open Link: Open Link
+  Copy Embed: Copy Embed
+  Open Embed: Open Embed
+  # On Click
+  Invidious URL copied to clipboard: Invidious URL copied to clipboard
+  Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
+  Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
+  YouTube URL copied to clipboard: YouTube URL copied to clipboard
+  YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
+  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+
+Mini Player: Mini Player
+Comments:
+  Comments: Comments
+  Click to View Comments: Click to View Comments
+  Getting comment replies, please wait: Getting comment replies, please wait
+  There are no more comments for this video: There are no more comments for this video
+  Show Comments: Show Comments
+  Hide Comments: Hide Comments
+  Sort by: Sort by
+  Top comments: Top comments
+  Newest first: Newest First
+  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
+  View: View
+  Hide: Hide
+  Replies: Replies
+  Show More Replies: Show More Replies
+  Reply: Reply
+  From $channelName: from $channelName
+  And others: and others
+  There are no comments available for this video: There are no comments available
+    for this video
+  Load More Comments: Load More Comments
+  No more comments available: No more comments available
+  Pinned by: Pinned by
+  Member: Member
+Up Next: Up Next
+
+#Tooltips
+Tooltips:
+  General Settings:
+    Preferred API Backend: 'اس بیک اینڈ کا انتخاب کریں جسے FreeTube ڈیٹا حاصل کرنے کے لیے استعمال کرتا ہے۔ دی
+       لوکل API ایک بلٹ ان ایکسٹریکٹر ہے۔ Invidious API کو Invidious سرور کی ضرورت ہے۔
+       سے منسلک کرنے کے لئے.'
+    Fallback to Non-Preferred Backend on Failure: 'جب آپ کے پسندیدہ API میں کوئی مسئلہ ہو،
+       FreeTube خود بخود آپ کے غیر ترجیحی API کو فال بیک کے طور پر استعمال کرنے کی کوشش کرے گا۔
+       فعال ہونے پر طریقہ۔'
+    Thumbnail Preference: 'FreeTube کے تمام تھمب نیلز کو اس سے بدل دیا جائے گا۔
+       پہلے سے طے شدہ تھمب نیل کے بجائے ویڈیو کا ایک فریم۔'
+    Invidious Instance: 'Invidious مثال جس سے FreeTube API کے لیے جڑے گا۔
+       کالز'
+    Region for Trending: 'رجحانات کا علاقہ آپ کو یہ منتخب کرنے کی اجازت دیتا ہے کہ کس ملک کا رجحان ہے۔
+       ویڈیوز جو آپ دکھانا چاہتے ہیں۔ ظاہر کردہ تمام ممالک اصل میں نہیں ہیں۔
+       یوٹیوب کے ذریعہ تعاون یافتہ۔'
+    External Link Handling: |
+     'جب کوئی لنک، جسے FreeTube میں نہیں کھولا جا سکتا، پر کلک کیا جاتا ہے تو پہلے سے طے شدہ طرز عمل کا انتخاب کریں۔
+       بطور ڈیفالٹ FreeTube آپ کے ڈیفالٹ براؤزر میں کلک کردہ لنک کو کھول دے گا۔'
+  Player Settings:
+    Force Local Backend for Legacy Formats: 'صرف اس وقت کام کرتا ہے جب Invidious API آپ کا ہو۔
+       پہلے سے طے شدہ فعال ہونے پر، مقامی API چلائے گا اور لوٹے گئے لیگیسی فارمیٹس کا استعمال کرے گا۔
+       اس کے بجائے Invidious کی طرف سے واپس آنے والوں کی بجائے۔ ویڈیوز واپس آنے پر مدد کرتا ہے۔
+       ملک کی پابندیوں کی وجہ سے Invidious نہ کھیلیں۔'
+    Proxy Videos Through Invidious: 'اس کی بجائے ویڈیوز پیش کرنے کے لیے Invidious سے منسلک ہوں گے۔
+       یوٹیوب سے براہ راست کنکشن بنانے کا۔ API کی ترجیح کو اوور رائیڈ کرتا ہے۔'
+    Default Video Format: 'ویڈیو چلتے وقت استعمال ہونے والے فارمیٹس کو سیٹ کریں۔ DASH فارمیٹس کر سکتے ہیں۔
+       اعلی خصوصیات کو کھیلیں. لیگیسی فارمیٹس زیادہ سے زیادہ 720p تک محدود ہیں لیکن کم استعمال کرتے ہیں۔
+       بینڈوڈتھ. آڈیو فارمیٹس صرف آڈیو سلسلے ہیں۔'
+    Scroll Playback Rate Over Video Player: 'جب کرسر ویڈیو پر ہے، دبائیں اور
+       کنٹرول کلید (میک پر کمانڈ کی) کو تھامیں اور کنٹرول کرنے کے لیے ماؤس وہیل کو آگے یا پیچھے کی طرف اسکرول کریں۔
+       پلے بیک کی شرح. کنٹرول کی (میک پر کمانڈ کی) کو دبائیں اور تھامیں اور ماؤس پر بائیں کلک کریں۔
+       ڈیفالٹ پلے بیک ریٹ پر تیزی سے واپس آنے کے لیے (1x جب تک اسے سیٹنگز میں تبدیل نہ کیا گیا ہو)۔'
+  External Player Settings:
+    External Player: 'ایک بیرونی کھلاڑی کا انتخاب ایک آئیکن ظاہر کرے گا، کھولنے کے لیے
+       تھمب نیل پر، بیرونی پلیئر میں ویڈیو (اگر سپورٹ ہو تو پلے لسٹ)۔ انتباہ، ناگوار ترتیبات بیرونی کھلاڑیوں کو متاثر نہیں کرتی ہیں۔'
+    Custom External Player Executable: 'پہلے سے طے شدہ طور پر، FreeTube یہ فرض کرے گا کہ منتخب کردہ بیرونی
+       پلیئر کو PATH ماحولیاتی متغیر کے ذریعے پایا جا سکتا ہے۔ اگر ضرورت ہو تو، ایک اپنی مرضی کے مطابق راستہ کر سکتے ہیں
+       یہاں مقرر کیا جائے.'
+    Ignore Warnings: 'انتباہات کو دبائیں جب موجودہ بیرونی کھلاڑی تعاون نہیں کرتا ہے۔
+       موجودہ کارروائی (مثلاً پلے لسٹ کو تبدیل کرنا، وغیرہ)۔'
+    Custom External Player Arguments: 
+    'کوئی بھی حسب ضرورت کمانڈ لائن آرگومنٹس، جو سیمیکولنز (';') سے الگ کیے گئے ہیں،
+       آپ بیرونی کھلاڑی کو منتقل کرنا چاہتے ہیں۔'
+    # $ is replaced with the default custom arguments for the current player, if defined.
+    DefaultCustomArgumentsTemplate: '(پہلے سے طے شدہ: ''$'')'
+  Subscription Settings:
+    Fetch Feeds from RSS: 'فعال ہونے پر، FreeTube اپنے ڈیفالٹ کے بجائے RSS کا استعمال کرے گا۔
+       آپ کی سبسکرپشن فیڈ حاصل کرنے کا طریقہ۔ آر ایس ایس تیز ہے اور آئی پی کو بلاک کرنے سے روکتا ہے،
+       لیکن کچھ معلومات فراہم نہیں کرتا ہے جیسے ویڈیو کا دورانیہ یا لائیو اسٹیٹس'
+  Privacy Settings:
+    Remove Video Meta Files: 'فعال ہونے پر، FreeTube ویڈیو پلے بیک کے دوران بنائی گئی میٹا فائلوں کو خود بخود حذف کر دیتا ہے،
+       جب دیکھنے کا صفحہ بند ہوتا ہے۔'
+
+# Toast Messages
+Local API Error (Click to copy): Local API Error (Click to copy)
+Invidious API Error (Click to copy): Invidious API Error (Click to copy)
+Falling back to Invidious API: Falling back to Invidious API
+Falling back to the local API: Falling back to the local API
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
+   ویڈیو غائب فارمیٹس کی وجہ سے دستیاب نہیں ہے۔ یہ ملک کی وجہ سے ہوسکتا ہے۔
+   غیر دستیابی'
+Subscriptions have not yet been implemented: 'سبسکرپشنز کو ابھی تک نافذ نہیں کیا گیا ہے۔'
+Unknown YouTube url type, cannot be opened in app: 'نامعلوم YouTube url قسم، ایپ میں نہیں کھولی جا سکتی'
+Hashtags have not yet been implemented, try again later: 'ہیش ٹیگز ابھی لاگو نہیں ہوئے، بعد میں دوبارہ کوشش کریں۔'
+Loop is now disabled: 'لوپ اب غیر فعال ہے۔'
+Loop is now enabled: 'لوپ اب فعال ہے۔'
+Shuffle is now disabled: 'شفل اب غیر فعال ہے۔'
+Shuffle is now enabled: 'شفل اب فعال ہے۔'
+The playlist has been reversed: 'پلے لسٹ کو الٹ دیا گیا ہے۔'
+Playing Next Video: 'اگلا ویڈیو چل رہا ہے۔'
+Playing Previous Video: 'پچھلا ویڈیو چل رہا ہے۔'
+Playing Next Video Interval: 'اگلی ویڈیو بغیر کسی وقت چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔'
+Canceled next video autoplay: 'اگلی ویڈیو آٹو پلے منسوخ کر دی گئی۔'
+# $ is replaced with the default Invidious instance
+Default Invidious instance has been set to $: 'ڈیفالٹ Invidious مثال کو $ پر سیٹ کر دیا گیا ہے۔'
+Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال کو صاف کر دیا گیا ہے۔'
+'The playlist has ended.  Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔ فعال
+   کھیل جاری رکھنے کے لیے لوپ'
+Age Restricted:
+  # $contentType is replaced with video or channel
+  This $contentType is age restricted: 'یہ $ عمر کی پابندی ہے۔'
+  Type:
+    Channel: 'چینل'
+    Video: 'ویڈیو'
+External link opening has been disabled in the general settings: 'عام ترتیبات میں بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے۔'
+Downloading has completed: '"$" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'
+Starting download: '"$" کا ڈاؤن لوڈ شروع ہو رہا ہے'
+Downloading failed: '"$" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
+Screenshot Success: 'اسکرین شاٹ کو بطور "$" محفوظ کیا گیا'
+Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ $'
+
+Yes: Yes
+No: No
