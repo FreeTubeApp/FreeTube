@@ -192,11 +192,17 @@ const state = {
   hideActiveSubscriptions: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
+  hideComments: false,
+  hideVideoDescription: false,
   hideLiveChat: false,
+  hideLiveStreams: false,
   hidePlaylists: false,
   hidePopularVideos: false,
   hideRecommendedVideos: false,
+  hideSearchBar: false,
+  hideSharingActions: false,
   hideTrendingVideos: false,
+  hideUnsubscribeButton: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
@@ -213,6 +219,7 @@ const state = {
   rememberHistory: true,
   removeVideoMetaFiles: true,
   saveWatchedProgress: true,
+  showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
   sponsorBlockSponsor: {
@@ -255,6 +262,7 @@ const state = {
   videoPlaybackRateMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   downloadFolderPath: '',
+  downloadBehavior: 'download',
   enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
@@ -271,12 +279,31 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocale = await dispatch('getSystemLocale')
-
-        targetLocale = Object.keys(i18n.messages).find((locale) => {
-          const localeName = locale.replace('-', '_')
-          return localeName.includes(systemLocale.replace('-', '_'))
+        const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
+        const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
+        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => { // filter out other languages
+          const localeLang = locale.replace('-', '_').split('_')[0]
+          return localeLang.includes(systemLocaleLang)
+        }).sort((a, b) => {
+          const aLocaleName = a.replace('-', '_')
+          const bLocaleName = b.replace('-', '_')
+          const aLocale = aLocaleName.split('_') // ex: [en, US]
+          const bLocale = bLocaleName.split('_')
+          if (aLocale.includes(systemLocaleName)) { // country & language match, prefer a
+            return -1
+          } else if (bLocale.includes(systemLocaleName)) { // country & language match, prefer b
+            return 1
+          } else if (aLocale.length === 1) { // no country code for a, prefer a
+            return -1
+          } else if (bLocale.length === 1) { // no country code for b, prefer b
+            return 1
+          } else { // a & b have different country code from system, sort alphabetically
+            return aLocaleName.localeCompare(bLocaleName)
+          }
         })
+        if (targetLocaleOptions.length > 0) {
+          targetLocale = targetLocaleOptions[0]
+        }
 
         // Go back to default value if locale is unavailable
         if (!targetLocale) {

@@ -1,6 +1,7 @@
 import IsEqual from 'lodash.isequal'
 import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
@@ -49,7 +50,22 @@ const state = {
     'DraculaPink',
     'DraculaPurple',
     'DraculaRed',
-    'DraculaYellow'
+    'DraculaYellow',
+    'CatppuccinMochaRosewater',
+    'CatppuccinMochaFlamingo',
+    'CatppuccinMochaPink',
+    'CatppuccinMochaMauve',
+    'CatppuccinMochaRed',
+    'CatppuccinMochaMaroon',
+    'CatppuccinMochaPeach',
+    'CatppuccinMochaYellow',
+    'CatppuccinMochaGreen',
+    'CatppuccinMochaTeal',
+    'CatppuccinMochaSky',
+    'CatppuccinMochaSapphire',
+    'CatppuccinMochaBlue',
+    'CatppuccinMochaLavender'
+
   ],
   colorValues: [
     '#d50000',
@@ -74,9 +90,24 @@ const state = {
     '#FF79C6',
     '#BD93F9',
     '#FF5555',
-    '#F1FA8C'
+    '#F1FA8C',
+    '#F5E0DC',
+    '#F2CDCD',
+    '#F5C2E7',
+    '#CBA6F7',
+    '#F38BA8',
+    '#EBA0AC',
+    '#FAB387',
+    '#F9E2AF',
+    '#A6E3A1',
+    '#94E2D5',
+    '#89DCEB',
+    '#74C7EC',
+    '#89B4FA',
+    '#B4BEFE'
   ],
   externalPlayerNames: [],
+  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -138,6 +169,10 @@ const getters = {
     return state.externalPlayerNames
   },
 
+  getExternalPlayerNameTranslationKeys () {
+    return state.externalPlayerNameTranslationKeys
+  },
+
   getExternalPlayerValues () {
     return state.externalPlayerValues
   },
@@ -180,8 +215,41 @@ const actions = {
     }
   },
 
+  replaceFilenameForbiddenChars(_, filenameOriginal) {
+    let filenameNew = filenameOriginal
+    let forbiddenChars = {}
+    switch (process.platform) {
+      case 'win32':
+        forbiddenChars = {
+          '<': '＜', // U+FF1C
+          '>': '＞', // U+FF1E
+          ':': '：', // U+FF1A
+          '"': '＂', // U+FF02
+          '/': '／', // U+FF0F
+          '\\': '＼', // U+FF3C
+          '|': '｜', // U+FF5C
+          '?': '？', // U+FF1F
+          '*': '＊' // U+FF0A
+        }
+        break
+      case 'darwin':
+        forbiddenChars = { '/': '／', ':': '：' }
+        break
+      case 'linux':
+        forbiddenChars = { '/': '／' }
+        break
+      default:
+        break
+    }
+
+    for (const forbiddenChar in forbiddenChars) {
+      filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
+    }
+    return filenameNew
+  },
+
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
-    const fileName = `${title}.${extension}`
+    const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
     const usingElectron = rootState.settings.usingElectron
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
@@ -213,6 +281,19 @@ const actions = {
       }
 
       folderPath = response.filePath
+    } else {
+      if (!fs.existsSync(folderPath)) {
+        try {
+          fs.mkdirSync(folderPath, { recursive: true })
+        } catch (err) {
+          console.error(err)
+          this.showToast({
+            message: err
+          })
+          return
+        }
+      }
+      folderPath = path.join(folderPath, fileName)
     }
 
     dispatch('showToast', {
@@ -326,7 +407,7 @@ const actions = {
       if (platform === 'win32') {
         // https://www.boost.org/doc/libs/1_78_0/libs/filesystem/doc/portability_guide.htm
         // https://stackoverflow.com/questions/1976007/
-        const noForbiddenChars = ['<', '>', ':', '"', '/', '|'].every(char => {
+        const noForbiddenChars = ['<', '>', ':', '"', '/', '|', '?', '*'].every(char => {
           return parsedString.indexOf(char) === -1
         })
         if (!noForbiddenChars) {
@@ -545,7 +626,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(c|channel|user)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -643,7 +724,9 @@ const actions = {
 
       */
       case 'channel': {
-        const channelId = url.pathname.match(channelPattern).groups.channelId
+        const match = url.pathname.match(channelPattern)
+        const channelId = match.groups.channelId
+        const idType = ['channel', 'user', 'c'].indexOf(match.groups.type) + 1
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
@@ -665,6 +748,7 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
+          idType,
           subPath
         }
       }
@@ -860,10 +944,11 @@ const actions = {
     }
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -871,6 +956,7 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -895,7 +981,7 @@ const actions = {
       args.push(...defaultCustomArguments)
     }
 
-    if (payload.watchProgress > 0) {
+    if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
         args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
       } else {
@@ -1081,6 +1167,10 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
+  },
+
+  setExternalPlayerNameTranslationKeys (state, value) {
+    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

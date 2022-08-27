@@ -9,6 +9,8 @@ We may remove your pull request if you do not use this provided PR template corr
 Please select what type of pull request this is:
 - [ ] Bugfix
 - [ ] Feature Implementation
+- [ ] Documentation
+- [ ] Other
 
 **Related issue**
 Please link the issue your pull request is referring to. If this pull request fully resolves the relevant issue, put "closes" before the issue number. Example: "closes #123456".

@@ -84,6 +84,12 @@ export default Vue.extend({
           infoSource: 'local'
         }
 
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: this.infoData.channelThumbnail,
+          channelName: this.infoData.channelName,
+          channelId: this.infoData.channelId
+        })
+
         this.playlistItems = result.items.map((video) => {
           if (typeof video.author !== 'undefined') {
             const channelName = video.author.name
@@ -136,6 +142,12 @@ export default Vue.extend({
           infoSource: 'invidious'
         }
 
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: result.authorThumbnails[2].url,
+          channelName: this.infoData.channelName,
+          channelId: this.infoData.channelId
+        })
+
         const dateString = new Date(result.updated * 1000)
         this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
@@ -174,7 +186,8 @@ export default Vue.extend({
 
     ...mapActions([
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo'
+      'invidiousGetPlaylistInfo',
+      'updateSubscriptionDetails'
     ])
   }
 })

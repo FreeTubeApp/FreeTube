@@ -126,6 +126,14 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
     currentLocale: function () {
       return this.$store.getters.getCurrentLocale
     },
@@ -177,6 +185,10 @@ export default Vue.extend({
           value: download.url
         }
       })
+    },
+
+    downloadBehavior: function () {
+      return this.$store.getters.getDownloadBehavior
     },
 
     formatTypeOptions: function () {
@@ -288,6 +300,18 @@ export default Vue.extend({
           }
         ]
       })
+
+      this.$watch('$refs.downloadButton.dropdownShown', (dropdownShown) => {
+        this.$parent.infoAreaSticky = !dropdownShown
+
+        if (dropdownShown && window.innerWidth >= 901) {
+          // adds a slight delay so we know that the dropdown has shown up
+          // and won't mess up our scrolling
+          Promise.resolve().then(() => {
+            this.$parent.$refs.infoArea.scrollIntoView()
+          })
+        }
+      })
     }
   },
   methods: {
@@ -299,6 +323,7 @@ export default Vue.extend({
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
+        videoLength: this.lengthSeconds,
         playlistId: this.playlistId,
         playlistIndex: this.getPlaylistIndex(),
         playlistReverse: this.getPlaylistReverse(),
@@ -415,11 +440,15 @@ export default Vue.extend({
       const linkName = selectedDownloadLinkOption.label
       const extension = this.grabExtensionFromUrl(linkName)
 
-      this.downloadMedia({
-        url: url,
-        title: this.title,
-        extension: extension
-      })
+      if (this.downloadBehavior === 'open') {
+        this.openExternalLink(url)
+      } else {
+        this.downloadMedia({
+          url: url,
+          title: this.title,
+          extension: extension
+        })
+      }
     },
 
     grabExtensionFromUrl: function (url) {

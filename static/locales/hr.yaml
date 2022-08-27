@@ -78,6 +78,7 @@ Subscriptions:
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
   Load More Videos: Učitaj još videa
+  Error Channels: Kanali s greškama
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -160,6 +161,7 @@ Settings:
       Light: 'Svijetla'
       Dracula: 'Drakula'
       System Default: Standard sustava
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -185,6 +187,20 @@ Settings:
       Dracula Purple: 'Drakula Ljubičasta'
       Dracula Red: 'Drakula Crvena'
       Dracula Yellow: 'Drakula Žuta'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Ružičasta
+      Catppuccin Mocha Mauve: Catppuccin Mocha Ljubičasta
+      Catppuccin Mocha Red: Catppuccin Mocha Crvena
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kestenjasta
+      Catppuccin Mocha Peach: Catppuccin Mocha Breskva
+      Catppuccin Mocha Yellow: Catppuccin Mocha Žuta
+      Catppuccin Mocha Teal: Catppuccin Mocha Plavozelena
+      Catppuccin Mocha Sky: Catppuccin Mocha Nebo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Plava
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Catppuccin Mocha Green: Catppuccin Mocha Zelena
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -228,6 +244,22 @@ Settings:
     Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
     Video Playback Rate Interval: Interval brzine reprodukcije videa
     Max Video Playback Rate: Maksimalna brzina reprodukcije videa
+    Screenshot:
+      Enable: Aktiviraj snimanje ekrana
+      Format Label: Format snimke ekrana
+      Quality Label: Kvaliteta snimke ekrana
+      Error:
+        Forbidden Characters: Zabranjeni znakovi
+        Empty File Name: Prazno ime datoteke
+      Folder Label: Mapa snimke ekrana
+      Folder Button: Odaberi mapu
+      Ask Path: Zatraži mapu za spremanje
+      File Name Label: Format imena datoteke
+      File Name Tooltip: Možeš koristiti sljedeće varijable. %Y godina 4 znamenke.
+        %M mjesec 2 znamenke. %D dan 2 znamenke. %H sat 2 znamenke. %N minuta 2 znamenke.
+        %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
+        videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
+        podmapa.
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -338,6 +370,10 @@ Settings:
     Distraction Free Settings: Postavke za nesmetan rad
     Hide Active Subscriptions: Sakrij aktivne pretplate
     Hide Playlists: Sakrij zbirke
+    Hide Comments: Sakrij komentare
+    Hide Sharing Actions: Sakrij radnje dijeljenja
+    Hide Video Description: Sakrij opis videa
+    Hide Live Streams: Sakrij prijenose uživo
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -362,16 +398,34 @@ Settings:
       sponzora (standardno je https://sponsor.ajay.app)
     Enable SponsorBlock: Aktiviraj blokiranja sponzora
     SponsorBlock Settings: Postavke blokiranja sponzora
+    Skip Options:
+      Auto Skip: Automatsko preskakanje
+      Show In Seek Bar: Pokaži u traci napretka
+      Skip Option: Opcija preskakanja
+      Prompt To Skip: Poziv za preskakanje
+      Do Nothing: Ne čini ništa
+    Category Color: Boja kategorije
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+    Players:
+      None:
+        Name: Bez
   Download Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
     Ask Download Path: Zatraži stazu preuzimanja
+    Download in app: Preuzmi u aplikaciji
+    Open in web browser: Otvori u web-pregledniku
+    Download Behavior: Ponašanje preuzimanja
+  Parental Control Settings:
+    Parental Control Settings: Postavke roditeljskog nadzora
+    Hide Unsubscribe Button: Sakrij gumb za odjavu
+    Hide Search Bar: Sakrij traku pretrage
+    Show Family Friendly Only: Prikaži samo prikladne za obitelji
 About:
   #On About page
   About: 'Informacije'
@@ -541,18 +595,18 @@ Video:
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
-    Jan: 'sij'
-    Feb: 'velj'
-    Mar: 'ožu'
-    Apr: 'tra'
-    May: 'svi'
-    Jun: 'lip'
-    Jul: 'srp'
-    Aug: 'kol'
-    Sep: 'ruj'
-    Oct: 'lis'
-    Nov: 'stu'
-    Dec: 'pro'
+    Jan: 'sij.'
+    Feb: 'velj.'
+    Mar: 'ožu.'
+    Apr: 'tra.'
+    May: 'svi.'
+    Jun: 'lip.'
+    Jul: 'srp.'
+    Aug: 'kol.'
+    Sep: 'ruj.'
+    Oct: 'lis.'
+    Nov: 'stu.'
+    Dec: 'pro.'
     Second: 's'
     Seconds: 's'
     Minute: 'min'
@@ -561,12 +615,12 @@ Video:
     Hours: 'h'
     Day: 'dan'
     Days: 'dana'
-    Week: 'tj'
-    Weeks: 'tj'
-    Month: 'mj'
-    Months: 'mj'
-    Year: 'g'
-    Years: 'g'
+    Week: 'tj.'
+    Weeks: 'tj.'
+    Month: 'mj.'
+    Months: 'mj.'
+    Year: 'god.'
+    Years: 'god.'
     Ago: 'Prije'
     Upcoming: 'Premijera'
   Published on: 'Objavljeno'
@@ -601,12 +655,14 @@ Video:
   Save Video: Spremi video
   translated from English: prevedeno iz engleskog
   Sponsor Block category:
-    music offtopic: druga vrsta glazbe
-    interaction: interakcija
-    self-promotion: samopromocija
-    outro: kraj
-    intro: uvod
-    sponsor: sponzor
+    music offtopic: Druga vrsta glazbe
+    interaction: Interakcija
+    self-promotion: Samopromocija
+    outro: Kraj
+    intro: Uvod
+    sponsor: Sponzor
+    recap: Rekapitulacija
+    filler: Dodatni materijal
   Skipped segment: Preskočeni segment
   External Player:
     Unsupported Actions:
@@ -753,8 +809,8 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Default Video Format: Postavi formate za reprodukciju videa. DASH formati mogu
-      reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
-      su zato brži. Audioformati sadrže samo audiosnimke.
+      reproducirati višu kvalitetu slike. Stari formati su ograničeni na 720 p, ali
+      su zato brži. Audioformati sadrže samo prijenose audiosnimaka.
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom
       umjesto izravnog povezivanja s YouTubeom. Zanemaruje postavke sučelja.
     Force Local Backend for Legacy Formats: Radi samo, kad se Invidious postavi kao
@@ -793,7 +849,8 @@ Tooltips:
       gledanja.
   External Player Settings:
     External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje
-      videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi.
+      videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,
+      Invidious postavke ne utječu na vanjske playere.
     Custom External Player Arguments: Svi prilagođeni argumenti naredbenog retka,
       odvojene točka-zarezom (;), koje želiš da se proslijede vanjskom playeru.
     Ignore Warnings: Nemoj prikazati upozorenja kad trenutačni vanjski player ne podržava
@@ -822,3 +879,20 @@ Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu
 Downloading failed: Došlo je do problema prilikom preuzimanja „$”
 Downloading has completed: „$” je preuzeto
 Starting download: Početak preuzimanja „$”
+Screenshot Success: Snimka ekrana je spremljena pod „$”
+Screenshot Error: Neuspjela snimka ekrana. $
+New Window: Novi prozor
+Age Restricted:
+  This $contentType is age restricted: Ovaj $ je dobno ograničen
+  Type:
+    Channel: Kanal
+    Video: Video
+Channels:
+  Channels: Kanali
+  Title: Popis kanala
+  Search bar placeholder: Pretraži kanale
+  Count: $ kanala pronađena.
+  Empty: Tvoj popis kanala je trenutačno prazan.
+  Unsubscribe: Prekini pretplatu
+  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „$”?
+  Unsubscribed: $ je uklonjen iz tvojih pretplata

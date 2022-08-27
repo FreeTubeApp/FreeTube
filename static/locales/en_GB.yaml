@@ -82,6 +82,7 @@ Subscriptions:
   Load More Videos: Load more videos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
+  Error Channels: Channels with errors
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -165,6 +166,7 @@ Settings:
       System Default: 'System Default'
       Light: 'Light'
       Dracula: 'Dracula'
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -190,6 +192,20 @@ Settings:
       Dracula Purple: 'Dracula Purple'
       Dracula Red: 'Dracula Red'
       Dracula Yellow: 'Dracula Yellow'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -253,6 +269,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: 'Privacy Settings'
     Remember History: 'Remember History'
@@ -360,6 +379,10 @@ Settings:
     Hide Active Subscriptions: Hide Active Subscriptions
     Distraction Free Settings: Distraction Free Settings
     Hide Playlists: Hide Playlists
+    Hide Comments: Hide comments
+    Hide Video Description: Hide video description
+    Hide Live Streams: Hide live streams
+    Hide Sharing Actions: Hide sharing actions
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -396,6 +419,14 @@ Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
     Choose Path: Choose Path
+    Download Behavior: Download behaviour
+    Open in web browser: Open in web browser
+    Download in app: Download in app
+  Parental Control Settings:
+    Hide Unsubscribe Button: Hide Unsubscribe button
+    Parental Control Settings: Parental control settings
+    Show Family Friendly Only: Show family-friendly only
+    Hide Search Bar: Hide search bar
 About:
   #On About page
   About: About
@@ -790,6 +821,7 @@ Tooltips:
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening
       the video (playlist if supported) in the external player, on the thumbnail.
+      Warning, Invidious settings do not affect external players.
     Custom External Player Executable: By default, FreeTube will assume that the chosen
       external player can be found via the PATH environment variable. If needed, a
       custom path can be set here.
@@ -824,3 +856,18 @@ Starting download: Starting download of ‘$’
 Downloading failed: There was an issue downloading ‘$’
 Screenshot Error: Screenshot failed. $
 Screenshot Success: Saved screenshot as ‘$’
+New Window: New window
+Channels:
+  Empty: Your channel list is currently empty.
+  Unsubscribe: Unsubscribe
+  Unsubscribed: $ has been removed from your subscriptions
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from ‘$’?
+  Title: Channel list
+  Search bar placeholder: Search channels
+  Channels: Channels
+  Count: $ channel(s) found.
+Age Restricted:
+  This $contentType is age restricted: This $ is age restricted
+  Type:
+    Video: Video
+    Channel: Channel

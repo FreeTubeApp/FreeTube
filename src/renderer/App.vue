@@ -10,36 +10,39 @@
     <top-nav ref="topNav" />
     <side-nav ref="sideNav" />
     <ft-flex-box
-      v-if="showUpdatesBanner || showBlogBanner"
       class="flexBox routerView"
-      :class="{ expand: !isOpen }"
     >
-      <ft-notification-banner
-        v-if="showUpdatesBanner"
-        class="banner"
-        :message="updateBannerMessage"
-        @click="handleUpdateBannerClick"
-      />
-      <ft-notification-banner
-        v-if="showBlogBanner"
-        class="banner"
-        :message="blogBannerMessage"
-        @click="handleNewBlogBannerClick"
-      />
-    </ft-flex-box>
-    <transition
-      v-if="dataReady"
-      mode="out-in"
-      name="fade"
-    >
-      <!-- <keep-alive> -->
-      <RouterView
-        ref="router"
-        class="routerView"
-        :class="{ expand: !isOpen }"
-      />
+      <div
+        v-if="showUpdatesBanner || showBlogBanner"
+        class="banner-wrapper"
+      >
+        <ft-notification-banner
+          v-if="showUpdatesBanner"
+          class="banner"
+          :message="updateBannerMessage"
+          @click="handleUpdateBannerClick"
+        />
+        <ft-notification-banner
+          v-if="showBlogBanner"
+          class="banner"
+          :message="blogBannerMessage"
+          @click="handleNewBlogBannerClick"
+        />
+      </div>
+      <transition
+        v-if="dataReady"
+        mode="out-in"
+        name="fade"
+      >
+        <!-- <keep-alive> -->
+        <RouterView
+          ref="router"
+          class="routerView"
+        />
       <!-- </keep-alive> -->
-    </transition>
+      </transition>
+    </ft-flex-box>
+
     <ft-prompt
       v-if="showReleaseNotes"
       @click="showReleaseNotes = !showReleaseNotes"

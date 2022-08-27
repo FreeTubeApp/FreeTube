@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
+  Error Channels: Hatalı Kanallar
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -163,6 +164,7 @@ Settings:
       Light: 'Açık'
       Dracula: 'Drakula'
       System Default: Sistem Öntanımlı Değeri
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -188,6 +190,20 @@ Settings:
       Dracula Purple: 'Drakula Mor'
       Dracula Red: 'Drakula Kırmızı'
       Dracula Yellow: 'Drakula Sarı'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Gül Suyu
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Catppuccin Mocha Eflatun
+      Catppuccin Mocha Red: Catppuccin Mocha Kırmızı
+      Catppuccin Mocha Maroon: Catppuccin Mocha Bordo
+      Catppuccin Mocha Peach: Catppuccin Mocha Şeftali
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Gökyüzü
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Mavi
+      Catppuccin Mocha Pink: Catppuccin Mocha Pembe
+      Catppuccin Mocha Yellow: Catppuccin Mocha Sarı
+      Catppuccin Mocha Green: Catppuccin Mocha Yeşil
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanta
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -356,6 +372,10 @@ Settings:
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
+    Hide Live Streams: Canlı Yayınları Gizle
+    Hide Sharing Actions: Paylaşım Eylemlerini Gizle
+    Hide Video Description: Video Açıklamasını Gizle
+    Hide Comments: Yorumları Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -394,10 +414,21 @@ Settings:
     Ignore Unsupported Action Warnings: Desteklenmeyen Eylem Uyarılarını Yok Say
     External Player: Harici Oynatıcı
     External Player Settings: Harici Oynatıcı Ayarları
+    Players:
+      None:
+        Name: Yok
   Download Settings:
     Choose Path: Yol Seç
     Ask Download Path: İndirme yolu için sor
     Download Settings: İndirme Ayarları
+    Download Behavior: İndirme Davranışı
+    Download in app: Uygulamada indir
+    Open in web browser: Web tarayıcısında aç
+  Parental Control Settings:
+    Parental Control Settings: Ebeveyn Denetimi Ayarları
+    Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
+    Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
+    Hide Search Bar: Arama Çubuğunu Gizle
 About:
   #On About page
   About: 'Hakkında'
@@ -821,8 +852,9 @@ Tooltips:
     Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının
       PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
       burada özel bir yol ayarlanabilir.
-    External Player: Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
+    External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
+      Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '$')"
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
@@ -851,3 +883,18 @@ Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor"
   geri dönülüyor.
 Screenshot Success: Ekran görüntüsü "$" olarak kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. $
+New Window: Yeni Pencere
+Age Restricted:
+  This $contentType is age restricted: Bu $ yaş kısıtlamalıdır
+  Type:
+    Channel: Kanal
+    Video: Video
+Channels:
+  Empty: Kanal listeniz şu anda boş.
+  Channels: Kanallar
+  Title: Kanal Listesi
+  Search bar placeholder: Kanalları Ara
+  Count: $ kanal bulundu.
+  Unsubscribe: Abonelikten çık
+  Unsubscribed: $ aboneliklerinizden kaldırıldı
+  Unsubscribe Prompt: '"$" aboneliğinden çıkmak istediğinizden emin misiniz?'

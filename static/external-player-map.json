@@ -1,11 +1,13 @@
 [
     {
         "name": "None",
+        "nameTranslationKey": "Settings.External Player Settings.Players.None.Name",
         "value": "",
         "cmdArguments": null
     },
     {
         "name": "mpv",
+        "nameTranslationKey": "Settings.External Player Settings.Players.mpv.Name",
         "value": "mpv",
         "cmdArguments": {
             "defaultExecutable": "mpv",
@@ -23,6 +25,7 @@
     },
     {
         "name": "VLC",
+        "nameTranslationKey": "Settings.External Player Settings.Players.VLC.Name",
         "value": "vlc",
         "cmdArguments": {
             "defaultExecutable": "vlc",
@@ -40,6 +43,7 @@
     },
     {
         "name": "iina",
+        "nameTranslationKey": "Settings.External Player Settings.Players.iina.Name",
         "value": "iina",
         "cmdArguments": {
             "defaultExecutable": "iina",

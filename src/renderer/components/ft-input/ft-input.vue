@@ -6,6 +6,7 @@
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
       showClearTextButton: showClearTextButton,
+      clearTextButtonVisible: inputDataPresent,
       disabled: disabled
     }"
   >
@@ -22,11 +23,11 @@
       />
     </label>
     <font-awesome-icon
-      v-if="showClearTextButton && clearTextButtonExisting"
+      v-if="showClearTextButton"
       icon="times-circle"
       class="clearInputTextButton"
       :class="{
-        visible: clearTextButtonVisible
+        visible: inputDataPresent
       }"
       tabindex="0"
       role="button"
@@ -48,7 +49,7 @@
       @input="e => handleInput(e.target.value)"
       @focus="handleFocus"
       @blur="handleInputBlur"
-      @keydown="e => handleKeyDown(e.keyCode)"
+      @keydown="handleKeyDown"
     >
     <font-awesome-icon
       v-if="showActionButton"

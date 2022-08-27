@@ -27,6 +27,7 @@
               {{ channelName }}
             </div>
             <ft-button
+              v-if="!hideUnsubscribeButton"
               :label="subscribedText"
               class="subscribeButton"
               background-color="var(--primary-color)"
@@ -95,6 +96,7 @@
         />
         <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
+          ref="downloadButton"
           :title="$t('Video.Download Video')"
           class="option"
           theme="secondary"
@@ -113,6 +115,7 @@
           @click="handleFormatChange"
         />
         <ft-share-button
+          v-if="!hideSharingActions"
           :id="id"
           :get-timestamp="getTimestamp"
           :playlist-id="playlistId"

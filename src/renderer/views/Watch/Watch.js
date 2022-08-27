@@ -13,6 +13,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 export default Vue.extend({
   name: 'Watch',
@@ -26,14 +27,15 @@ export default Vue.extend({
     'watch-video-comments': WatchVideoComments,
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
-    'watch-video-recommendations': WatchVideoRecommendations
+    'watch-video-recommendations': WatchVideoRecommendations,
+    'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
-    this.handleRouteChange()
+    this.handleRouteChange(this.videoId)
     window.removeEventListener('beforeunload', this.handleWatchProgress)
     next()
   },
-  data: function() {
+  data: function () {
     return {
       isLoading: false,
       firstLoad: true,
@@ -42,6 +44,7 @@ export default Vue.extend({
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
       hidePlayer: false,
+      isFamilyFriendly: false,
       isLive: false,
       isLiveContent: false,
       isUpcoming: false,
@@ -76,7 +79,8 @@ export default Vue.extend({
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      pictureInPictureButtonInverval: null
+      pictureInPictureButtonInverval: null,
+      infoAreaSticky: true
     }
   },
   computed: {
@@ -128,11 +132,23 @@ export default Vue.extend({
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
     },
+    autoplayPlaylists: function () {
+      return this.$store.getters.getAutoplayPlaylists
+    },
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
     },
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
+    hideVideoDescription: function () {
+      return this.$store.getters.getHideVideoDescription
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     },
 
     youtubeNoCookieEmbeddedFrame: function () {
@@ -144,13 +160,13 @@ export default Vue.extend({
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
-    theatrePossible: function() {
+    theatrePossible: function () {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     }
   },
   watch: {
     $route() {
-      this.handleRouteChange()
+      this.handleRouteChange(this.videoId)
       // react to route changes...
       this.videoId = this.$route.params.id
 
@@ -220,14 +236,14 @@ export default Vue.extend({
     window.addEventListener('beforeunload', this.handleWatchProgress)
   },
   methods: {
-    changeTimestamp: function(timestamp) {
+    changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
-    toggleTheatreMode: function() {
+    toggleTheatreMode: function () {
       this.useTheatreMode = !this.useTheatreMode
     },
 
-    getVideoInformationLocal: function() {
+    getVideoInformationLocal: function () {
       if (this.firstLoad) {
         this.isLoading = true
       }
@@ -276,6 +292,12 @@ export default Vue.extend({
             this.channelName = result.player_response.videoDetails.author
             this.channelThumbnail = result.player_response.embedPreview.thumbnailPreviewRenderer.videoDetails.embeddedPlayerOverlayVideoDetailsRenderer.channelThumbnail.thumbnails[0].url
           }
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: this.channelThumbnail,
+            channelName: this.channelName,
+            channelId: this.channelId
+          })
+
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
 
@@ -294,6 +316,7 @@ export default Vue.extend({
               break
           }
 
+          this.isFamilyFriendly = result.videoDetails.isFamilySafe
           this.recommendedVideos = result.related_videos.map((video) => {
             video.videoId = video.id
             video.authorId = video.author.id
@@ -529,7 +552,7 @@ export default Vue.extend({
         })
     },
 
-    getVideoInformationInvidious: function() {
+    getVideoInformationInvidious: function () {
       if (this.firstLoad) {
         this.isLoading = true
       }
@@ -561,7 +584,14 @@ export default Vue.extend({
           }
           this.channelId = result.authorId
           this.channelName = result.author
-          this.channelThumbnail = result.authorThumbnails[1] ? result.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          const channelThumb = result.authorThumbnails[1]
+          this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: channelThumb?.url,
+            channelName: result.author,
+            channelId: result.authorId
+          })
+
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
@@ -573,6 +603,7 @@ export default Vue.extend({
             return format
           })
           this.isLive = result.liveNow
+          this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
             caption.url = this.currentInvidiousInstance + caption.url
             caption.type = ''
@@ -901,7 +932,7 @@ export default Vue.extend({
     },
 
     handleVideoEnded: function () {
-      if (!this.watchingPlaylist && !this.playNextVideo) {
+      if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
         return
       }
 
@@ -954,7 +985,11 @@ export default Vue.extend({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    handleRouteChange: async function () {
+    handleRouteChange: async function (videoId) {
+      // if the user navigates to another video, the ipc call for the userdata path
+      // takes long enough for the video id to have already changed to the new one
+      // receiving it as an arg instead of accessing it ourselves means we always have the right one
+
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
 
@@ -964,14 +999,13 @@ export default Vue.extend({
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && !player.paused() && player.isInPictureInPicture()) {
-          const playerId = this.videoId
           setTimeout(() => {
             player.play()
             player.on('leavepictureinpicture', (event) => {
               const watchTime = player.currentTime()
               if (this.$route.fullPath.includes('/watch')) {
                 const routeId = this.$route.params.id
-                if (routeId === playerId) {
+                if (routeId === videoId) {
                   const activePlayer = $('.ftVideoPlayer video').get(0)
                   activePlayer.currentTime = watchTime
                 }
@@ -987,23 +1021,23 @@ export default Vue.extend({
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
         if (this.isDev) {
-          const dashFileLocation = `static/dashFiles/${this.videoId}.xml`
-          const vttFileLocation = `static/storyboards/${this.videoId}.vtt`
+          const dashFileLocation = `static/dashFiles/${videoId}.xml`
+          const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
-          if (fs.existsSync('static/dashFiles/') && fs.existsSync(dashFileLocation)) {
+          if (fs.existsSync(dashFileLocation)) {
             fs.rmSync(dashFileLocation)
           }
-          if (fs.existsSync('static/storyboards/') && fs.existsSync(vttFileLocation)) {
+          if (fs.existsSync(vttFileLocation)) {
             fs.rmSync(vttFileLocation)
           }
         } else {
-          const dashFileLocation = `${userData}/dashFiles/${this.videoId}.xml`
-          const vttFileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+          const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
+          const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
-          if (fs.existsSync(`${userData}/dashFiles/`) && fs.existsSync(dashFileLocation)) {
+          if (fs.existsSync(dashFileLocation)) {
             fs.rmSync(dashFileLocation)
           }
-          if (fs.existsSync(`${userData}/storyboards/`) && fs.existsSync(vttFileLocation)) {
+          if (fs.existsSync(vttFileLocation)) {
             fs.rmSync(vttFileLocation)
           }
         }
@@ -1106,7 +1140,7 @@ export default Vue.extend({
           interval: Number(interval) // How long one image is used
         })
       })
-      // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STROYBOARD ARRAY ELEMENTS
+      // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STORYBOARD ARRAY ELEMENTS
       this.buildVTTFileLocally(storyboardArray[1]).then(async (results) => {
         const userData = await this.getUserDataPath()
         let fileLocation
@@ -1268,7 +1302,8 @@ export default Vue.extend({
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
-      'invidiousGetVideoInformation'
+      'invidiousGetVideoInformation',
+      'updateSubscriptionDetails'
     ])
   }
 })

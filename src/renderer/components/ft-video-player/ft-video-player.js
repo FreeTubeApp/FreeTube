@@ -73,6 +73,10 @@ export default Vue.extend({
     videoId: {
       type: String,
       required: true
+    },
+    lengthSeconds: {
+      type: Number,
+      required: true
     }
   },
   data: function () {
@@ -627,8 +631,8 @@ export default Vue.extend({
       markerDiv.style.position = 'absolute'
       markerDiv.style.opacity = '0.6'
       markerDiv.style['background-color'] = marker.color
-      markerDiv.style.width = (marker.duration / this.player.duration()) * 100 + '%'
-      markerDiv.style.marginLeft = (marker.time / this.player.duration()) * 100 + '%'
+      markerDiv.style.width = (marker.duration / this.lengthSeconds) * 100 + '%'
+      markerDiv.style.marginLeft = (marker.time / this.lengthSeconds) * 100 + '%'
       markerDiv.title = this.sponsorBlockTranslatedCategory(marker.category)
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
@@ -1167,8 +1171,8 @@ export default Vue.extend({
 
     toggleVideoLoop: async function () {
       if (!this.player.loop()) {
-        const currentTheme = localStorage.getItem('mainColor')
-        const colorNames = this.$store.state.utils.colorClasses
+        const currentTheme = this.$store.state.settings.mainColor
+        const colorNames = this.$store.state.utils.colorNames
         const colorValues = this.$store.state.utils.colorValues
 
         const nameIndex = colorNames.findIndex((color) => {
@@ -1807,8 +1811,10 @@ export default Vue.extend({
           case 77:
             // M Key
             // Toggle Mute
-            event.preventDefault()
-            this.toggleMute()
+            if (!event.metaKey) {
+              event.preventDefault()
+              this.toggleMute()
+            }
             break
           case 67:
             // C Key

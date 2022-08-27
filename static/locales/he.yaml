@@ -82,6 +82,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
+  Error Channels: ערוצים עם שגיאות
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -160,6 +161,7 @@ Settings:
       Light: 'בהיר'
       Dracula: 'דרקולה'
       System Default: ברירת המחדל של המערכת
+      Catppuccin Mocha: מוקה קפוצ׳ינו
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -185,6 +187,20 @@ Settings:
       Dracula Purple: 'דרקולה סגול'
       Dracula Red: 'דרקולה אדום'
       Dracula Yellow: 'דרקולה צהוב'
+      Catppuccin Mocha Rosewater: מוקה קפוצ׳ינו מי ורדים
+      Catppuccin Mocha Red: מוקה קפוצ׳ינו אדום
+      Catppuccin Mocha Maroon: מוקה קפוצ׳ינו ערמון
+      Catppuccin Mocha Peach: מוקה קפוצ׳ינו אפרסק
+      Catppuccin Mocha Yellow: מוקה קפוצ׳ינו צהוב
+      Catppuccin Mocha Sky: מוקה קפוצ׳ינו שמיים
+      Catppuccin Mocha Flamingo: מוקה קפוצ׳ינו פלמינגו
+      Catppuccin Mocha Mauve: מוקה קפוצ׳ינו ארגמן
+      Catppuccin Mocha Pink: מוקה קפוצ׳ינו ורוד
+      Catppuccin Mocha Green: מוקה קפוצ׳ינו ירוק
+      Catppuccin Mocha Sapphire: מוקה קפוצ׳ינו ספיר
+      Catppuccin Mocha Lavender: מוקה קפוצ׳ינו לבנדר
+      Catppuccin Mocha Teal: מוקה קפוצ׳ינו ירקרק-כחלחל
+      Catppuccin Mocha Blue: מוקה קפוצ׳ינו כחול
     Secondary Color Theme: 'צבע משני'
         #* Main Color Theme
     UI Scale: גודל הממשק
@@ -227,6 +243,21 @@ Settings:
     Fast-Forward / Rewind Interval: משך קפיצה / חזרה
     Max Video Playback Rate: קצב נגינת וידאו מרבי
     Video Playback Rate Interval: הפרש קצב נגינת וידאו
+    Screenshot:
+      Enable: הפעלת צילום מסך
+      Format Label: תצורת צילום מסך
+      Ask Path: לשאול באיזו תיקייה לשמור
+      File Name Label: תבנית שם קובץ
+      Error:
+        Forbidden Characters: תווים אסורים
+        Empty File Name: שם קובץ ריק
+      Folder Label: תיקיית צילומי מסך
+      Quality Label: איכות צילום מסך
+      Folder Button: בחירת תיקייה
+      File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
+        ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
+        ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
+        ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -329,6 +360,10 @@ Settings:
     Hide Video Views: הסתרת תצוגות סרטונים
     Hide Active Subscriptions: הסתרת מינויים פעילים
     Hide Playlists: הסתרת פלייליסטים
+    Hide Live Streams: הסתרת תזרימים חיים
+    Hide Sharing Actions: הסתרת פעולות שיתוף
+    Hide Comments: הסתרת הערות
+    Hide Video Description: הסתרת תיאור וידאו
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -353,16 +388,34 @@ Settings:
     Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
     Ignore Unsupported Action Warnings: התעלמות מאזהרות על פעולות שאינן נתמכות
     Custom External Player Arguments: משתנים לנגן חיצוני בהתאמה אישית
+    Players:
+      None:
+        Name: ללא
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
     SponsorBlock Settings: הגדרות חוסם מממנים
     Enable SponsorBlock: הפעלת חוסם מממנים
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
       המממנים (ברירת המחדל היא https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: אפשרות דילוג
+      Auto Skip: דילוג אוטומטי
+      Show In Seek Bar: הצגה בסרגל האיתור
+      Do Nothing: לא לעשות כלום
+      Prompt To Skip: לשאול אם לדלג
+    Category Color: צבע קטגוריה
   Download Settings:
     Download Settings: הגדרות הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
     Choose Path: בחירת נתיב
+    Download Behavior: התנהגות הורדה
+    Download in app: הורדה ביישומון
+    Open in web browser: פתיחה בדפדפן
+  Parental Control Settings:
+    Parental Control Settings: הגדרות בקרת הורים
+    Hide Search Bar: הסתרת סרגל החיפוש
+    Hide Unsubscribe Button: הסתרת כפתור ביטול מינוי
+    Show Family Friendly Only: הצגת דברים ידידותיים למשפחה בלבד
 About:
   #On About page
   About: 'על אודות'
@@ -587,10 +640,12 @@ Video:
   Sponsor Block category:
     outro: סיום
     self-promotion: קידום עצמי
-    interaction: מבוא
+    interaction: אינטראקציה
     sponsor: נותן חסות
     intro: פתיח
     music offtopic: מוזיקה - לא בהקשר
+    filler: ממלא מקום
+    recap: סיכום
   External Player:
     video: סרטון
     playlist: פלייליסט
@@ -761,7 +816,8 @@ Tooltips:
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
       (למשל: היפוך רשימת נגינה וכו׳).'
     External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
-      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת.
+      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת. אזהרה, הגדרות Invidious לא משפיעות
+      על נגנים חיצוניים.
     Custom External Player Executable: כברירת מחדל FreeTube יניח שהנגן החיצוני הנבחר
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
     Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
@@ -789,3 +845,20 @@ Downloading has completed: הורדת "$" הסתיימה
 Playing Next Video Interval: הסרטון הבא יתחיל מיד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
+Screenshot Success: צילום המסך נשמר בתור „$”
+Screenshot Error: צילום המסך נכשל. $
+New Window: חלון חדש
+Age Restricted:
+  Type:
+    Channel: ערוץ
+    Video: סרטון
+  This $contentType is age restricted: ה$ הזה מוגבל בגיל
+Channels:
+  Search bar placeholder: חיפוש ערוצים
+  Empty: רשימת הערוצים שלך ריקה כרגע.
+  Unsubscribe: ביטול מינוי
+  Unsubscribed: $ הוסר מרשימת המינויים שלך
+  Count: נמצאו $ ערוצים.
+  Channels: ערוצים
+  Title: רשימת ערוצים
+  Unsubscribe Prompt: לבטל את המינוי על „$”?

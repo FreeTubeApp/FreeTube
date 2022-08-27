@@ -37,6 +37,13 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     }
   },
   watch: {
@@ -94,6 +101,7 @@ export default Vue.extend({
 
       if (sameSearch.length > 0) {
         console.log(sameSearch)
+
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.
@@ -117,6 +125,8 @@ export default Vue.extend({
         this.isLoading = true
         payload.options.pages = 1
       }
+
+      payload.options.safeSearch = this.showFamilyFriendlyOnly
 
       this.ytSearch(payload).then((result) => {
         console.log(result)

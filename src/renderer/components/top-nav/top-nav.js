@@ -32,6 +32,10 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    hideSearchBar: function () {
+      return this.$store.getters.getHideSearchBar
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
@@ -42,10 +46,6 @@ export default Vue.extend({
 
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
-    },
-
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
     },
 
     barColor: function () {
@@ -174,10 +174,11 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, idType, subPath } = result
 
             this.$router.push({
-              path: `/channel/${channelId}/${subPath}`
+              path: `/channel/${channelId}/${subPath}`,
+              query: { idType }
             })
             break
           }

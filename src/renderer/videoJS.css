@@ -350,7 +350,7 @@
   line-height: 1;
   font-weight: normal;
   font-style: normal;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   word-break: initial;
 }
 .video-js:-moz-full-screen {

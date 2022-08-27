@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
+import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -23,7 +24,8 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
-    'ft-element-list': FtElementList
+    'ft-element-list': FtElementList,
+    'ft-age-restricted': FtAgeRestricted
   },
   data: function () {
     return {
@@ -31,6 +33,7 @@ export default Vue.extend({
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
+      idType: 0,
       channelName: '',
       bannerUrl: '',
       thumbnailUrl: '',
@@ -50,6 +53,8 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
+      isFamilyFriendly: false,
+      errorMessage: '',
       videoSelectValues: [
         'newest',
         'oldest',
@@ -74,6 +79,14 @@ export default Vue.extend({
       return this.$store.getters.getBackendFallback
     },
 
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -90,16 +103,14 @@ export default Vue.extend({
       return this.$store.getters.getActiveProfile
     },
 
-    isSubscribed: function () {
-      const subIndex = this.activeProfile.subscriptions.findIndex((channel) => {
+    subscriptionInfo: function () {
+      return this.activeProfile.subscriptions.find((channel) => {
         return channel.id === this.id
-      })
+      }) ?? null
+    },
 
-      if (subIndex === -1) {
-        return false
-      } else {
-        return true
-      }
+    isSubscribed: function () {
+      return this.subscriptionInfo !== null
     },
 
     subscribedText: function () {
@@ -160,7 +171,9 @@ export default Vue.extend({
   watch: {
     $route() {
       // react to route changes...
+      this.originalId = this.$route.params.id
       this.id = this.$route.params.id
+      this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
       this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.latestVideosPage = 2
       this.searchPage = 2
@@ -222,7 +235,9 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    this.originalId = this.$route.params.id
     this.id = this.$route.params.id
+    this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
@@ -249,22 +264,33 @@ export default Vue.extend({
 
     getChannelInfoLocal: function () {
       this.apiUsed = 'local'
-      const expectedId = this.id
-      ytch.getChannelInfo({ channelId: expectedId }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelInfo({ channelId: this.id, channelIdType: this.idType }).then((response) => {
+        if (response.alertMessage) {
+          this.setErrorMessage(response.alertMessage)
+          return
+        }
+        this.errorMessage = ''
+        if (expectedId !== this.originalId) {
           return
         }
 
-        this.id = response.authorId
-        this.channelName = response.author
+        const channelId = response.authorId
+        const channelName = response.author
+        const channelThumbnailUrl = response.authorThumbnails[2].url
+        this.id = channelId
+        // set the id type to 1 so that searching and sorting work
+        this.idType = 1
+        this.channelName = channelName
+        this.isFamilyFriendly = response.isFamilyFriendly
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
           this.subCount = response.subscriberCount.toFixed(0)
         }
-        console.log(response)
-        this.thumbnailUrl = response.authorThumbnails[2].url
+        this.thumbnailUrl = channelThumbnailUrl
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.items
         this.relatedChannels.forEach(relatedChannel => {
@@ -313,9 +339,9 @@ export default Vue.extend({
 
     getChannelVideosLocal: function () {
       this.isElementListLoading = true
-      const expectedId = this.id
-      ytch.getChannelVideos({ channelId: expectedId, sortBy: this.videoSortBy }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelVideos({ channelId: this.id, channelIdType: this.idType, sortBy: this.videoSortBy }).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -364,26 +390,31 @@ export default Vue.extend({
       this.isLoading = true
       this.apiUsed = 'invidious'
 
-      const expectedId = this.id
-      this.invidiousGetChannelInfo(expectedId).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      this.invidiousGetChannelInfo(this.id).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
         console.log(response)
-        this.channelName = response.author
+        const channelName = response.author
+        const channelId = response.authorId
+        this.channelName = channelName
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
-        this.id = response.authorId
+        this.id = channelId
+        this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
           this.subCount = null
         } else {
           this.subCount = response.subCount
         }
-        this.thumbnailUrl = response.authorThumbnails[3].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        const thumbnail = response.authorThumbnails[3].url
+        this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
           channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-
+          channel.channelId = channel.authorId
           return channel
         })
         this.latestVideos = response.latestVideos
@@ -394,8 +425,10 @@ export default Vue.extend({
           this.bannerUrl = null
         }
 
+        this.errorMessage = ''
         this.isLoading = false
       }).catch((err) => {
+        this.setErrorMessage(err.responseJSON.error)
         console.log(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
@@ -437,9 +470,9 @@ export default Vue.extend({
     },
 
     getPlaylistsLocal: function () {
-      const expectedId = this.id
-      ytch.getChannelPlaylistInfo({ channelId: expectedId, sortBy: this.playlistSortBy }).then((response) => {
-        if (expectedId !== this.id) {
+      const expectedId = this.originalId
+      ytch.getChannelPlaylistInfo({ channelId: this.id, channelIdType: this.idType, sortBy: this.playlistSortBy }).then((response) => {
+        if (expectedId !== this.originalId) {
           return
         }
 
@@ -580,7 +613,7 @@ export default Vue.extend({
           message: this.$t('Channel.Channel has been removed from your subscriptions')
         })
 
-        if (this.activeProfile === MAIN_PROFILE_ID) {
+        if (this.activeProfile._id === MAIN_PROFILE_ID) {
           // Check if a subscription exists in a different profile.
           // Remove from there as well.
           let duplicateSubscriptions = 0
@@ -625,7 +658,7 @@ export default Vue.extend({
           message: this.$t('Channel.Added channel to your subscriptions')
         })
 
-        if (this.activeProfile !== MAIN_PROFILE_ID) {
+        if (this.activeProfile._id !== MAIN_PROFILE_ID) {
           const index = primaryProfile.subscriptions.findIndex((channel) => {
             return channel.id === this.id
           })
@@ -636,6 +669,16 @@ export default Vue.extend({
           }
         }
       }
+    },
+
+    setErrorMessage: function (errorMessage) {
+      this.isLoading = false
+      this.errorMessage = errorMessage
+      this.id = this.subscriptionInfo.id
+      this.channelName = this.subscriptionInfo.name
+      this.thumbnailUrl = this.subscriptionInfo.thumbnail
+      this.bannerUrl = null
+      this.subCount = null
     },
 
     handleFetchMore: function () {
@@ -696,7 +739,7 @@ export default Vue.extend({
 
     searchChannelLocal: function () {
       if (this.searchContinuationString === '') {
-        ytch.searchChannel({ channelId: this.id, query: this.lastSearchQuery }).then((response) => {
+        ytch.searchChannel({ channelId: this.id, channelIdType: this.idType, query: this.lastSearchQuery }).then((response) => {
           console.log(response)
           this.searchResults = response.items
           this.isElementListLoading = false
@@ -779,7 +822,8 @@ export default Vue.extend({
       'showToast',
       'updateProfile',
       'invidiousGetChannelInfo',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'updateSubscriptionDetails'
     ])
   }
 })

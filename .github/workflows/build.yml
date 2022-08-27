@@ -25,7 +25,7 @@ jobs:
           # - osx-arm64
         include:
         - runtime: linux-x64
-          os: ubuntu-18.04
+          os: ubuntu-latest
 
         - runtime: linux-armv7l
           os: ubuntu-latest
