@@ -13,6 +13,7 @@ import DistractionSettings from '../../components/distraction-settings/distracti
 import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
 import ParentControlSettings from '../../components/parental-control-settings/parental-control-settings.vue'
+import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -30,7 +31,8 @@ export default Vue.extend({
     'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
     'download-settings': DownloadSettings,
-    'parental-control-settings': ParentControlSettings
+    'parental-control-settings': ParentControlSettings,
+    'experimental-settings': ExperimentalSettings
   },
   computed: {
     usingElectron: function () {

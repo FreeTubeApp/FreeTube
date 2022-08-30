@@ -55,8 +55,7 @@ async function restartElectron() {
     path.join(__dirname, '../dist/main.js'),
     // '--enable-logging', // Enable to show logs from all electron processes
     remoteDebugging ? '--inspect=9222' : '',
-    remoteDebugging ? '--remote-debugging-port=9223' : '',
-    // '--experiments-disable-disk-cache'
+    remoteDebugging ? '--remote-debugging-port=9223' : ''
   ],
     // { stdio: 'inherit' } // required for logs to actually appear in the stdout
   )

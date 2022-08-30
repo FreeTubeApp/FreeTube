@@ -8,20 +8,11 @@ import cp from 'child_process'
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
-
-let experimentsDisableDiskCache = false
+import { existsSync } from 'fs'
 
 if (process.argv.includes('--version')) {
   app.exit()
 } else {
-  experimentsDisableDiskCache = process.argv.includes('--experiments-disable-disk-cache')
-
-  if (experimentsDisableDiskCache) {
-    // the http cache causes excessive disk usage during video playback
-    // we've got a custom image cache to make up for disabling the http cache
-    app.commandLine.appendSwitch('disable-http-cache')
-  }
-
   runApp()
 }
 
@@ -59,6 +50,17 @@ function runApp() {
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
+
+  // command line switches need to be added before the app ready event first
+  // that means we can't use the normal settings system as that is asynchonous,
+  // doing it synchronously ensures that we add it before the event fires
+  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  if (replaceHttpCache) {
+    // the http cache causes excessive disk usage during video playback
+    // we've got a custom image cache to make up for disabling the http cache
+    // experimental as it increases RAM use in favour of reduced disk use
+    app.commandLine.appendSwitch('disable-http-cache')
+  }
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -160,11 +162,8 @@ function runApp() {
       })
     })
 
-    if (experimentsDisableDiskCache) {
-      console.log('disabling disk cache')
-      // experimental as it increases RAM use in favour of reduced disk use
-
-      // image cache
+    if (replaceHttpCache) {
+      // in-memory image cache
 
       const imageCache = new ImageCache()
 
