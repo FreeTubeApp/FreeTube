@@ -6,10 +6,10 @@
       </h3>
     </summary>
     <hr>
+    <p class="experimental-warning">
+      {{ $t('Settings.Experimental Settings.Warning') }}
+    </p>
     <ft-flex-box>
-      <p class="experimental-warning">
-        {{ $t('Settings.Experimental Settings.Warning') }}
-      </p>
       <ft-toggle-switch
         tooltip-position="top"
         :label="$t('Settings.Experimental Settings.Replace HTTP Cache')"
