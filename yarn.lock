@@ -1017,12 +1017,12 @@
     axios "^0.21.1"
     tslib "^1.11.1"
 
-"@freetube/yt-comment-scraper@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@freetube/yt-comment-scraper/-/yt-comment-scraper-6.1.0.tgz#13583dedf5cf0cff6d42d155ef5f2474c64fd4ee"
-  integrity sha512-Cj6Of7DPkTH1ax1AcaOn0xul179YsnfaNNoH11lQ4xUxUrmtf70Qj04+FDI+7/O/qsOR3RMq1mreCvM6BQI6Aw==
+"@freetube/yt-comment-scraper@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@freetube/yt-comment-scraper/-/yt-comment-scraper-6.2.0.tgz#ed11d65111d03076ff842eb9c3eb25413f8632ab"
+  integrity sha512-69mBsvQ50rUBTUDfR6s1OaiH2sEmmx9T0uV2Qpp0ckMhL0sxxMZtxujraHV2FHDtOm5jG7uygi3Gseb54C9DGw==
   dependencies:
-    axios "^0.21.1"
+    axios "^0.27.2"
 
 "@freetube/yt-trending-scraper@^3.1.0":
   version "3.1.0"
