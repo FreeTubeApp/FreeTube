@@ -1965,13 +1965,6 @@ axios@^0.21.1:
   dependencies:
     follow-redirects "^1.14.0"
 
-axios@^0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.1.tgz#1ede41c51fcf51bbbd6fd43669caaa4f0495aaa9"
-  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
-  dependencies:
-    follow-redirects "^1.14.8"
-
 axios@^0.27.2:
   version "0.27.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
@@ -3727,7 +3720,7 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-follow-redirects@^1.0.0, follow-redirects@^1.14.0, follow-redirects@^1.14.8:
+follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.0.tgz#06441868281c86d0dda4ad8bdaead2d02dca89d4"
   integrity sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==
@@ -7496,12 +7489,12 @@ youtube-suggest@^1.1.2:
     node-fetch "^2.6.0"
     smol-jsonp "^1.0.0"
 
-yt-channel-info@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/yt-channel-info/-/yt-channel-info-3.0.4.tgz#16004068376f443df1806daf0cd6d22c69ef0301"
-  integrity sha512-MdW3upNBfcws4uth8HFL0XymxlgmuTcCu3sleXSDJml8jLOKl0iiYJe//vT00F1OXGFzSVGfQrXqf29RzkMPKw==
+yt-channel-info@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/yt-channel-info/-/yt-channel-info-3.1.0.tgz#a37c98838d78a9643e7d1efc3a7fdb3b51a6b3bd"
+  integrity sha512-XofGVuocgXxzIDVgEFQw4ZOs4e1hIobmBKnv51YMARg+/RBjSO3sU5AQHgcG43n5apuzAb0k0XnEN+/DyYWC2A==
   dependencies:
-    axios "^0.26.1"
+    axios "^0.27.2"
 
 yt-dash-manifest-generator@1.1.0:
   version "1.1.0"
