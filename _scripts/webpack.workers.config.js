@@ -63,11 +63,7 @@ const config = {
 if (isDevMode) {
   // any dev only config
 } else {
-  config.plugins.push(
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    })
-  )
+  // any producation only config
 }
 
 module.exports = config

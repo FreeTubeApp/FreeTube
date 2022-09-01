@@ -185,10 +185,7 @@ if (isDevMode) {
           },
         ]
       }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    })
+    )
   )
 }
 
