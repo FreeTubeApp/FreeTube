@@ -1024,6 +1024,13 @@
   dependencies:
     axios "^0.21.1"
 
+"@freetube/yt-trending-scraper@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@freetube/yt-trending-scraper/-/yt-trending-scraper-3.1.0.tgz#51e20931b0d8a8d32216ecead320bbbcbb7ca959"
+  integrity sha512-qPyQaxU7Bv3e6HXn/ULH2h6iy1Egh3l7NKUgzuqPFHA7dAxbmMN7Ozr4QFnwXVnNYzfEdTsR+GFs9v71ChVJkQ==
+  dependencies:
+    axios "^0.27.2"
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -1964,6 +1971,14 @@ axios@^0.26.1:
   integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
   dependencies:
     follow-redirects "^1.14.8"
+
+axios@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+  dependencies:
+    follow-redirects "^1.14.9"
+    form-data "^4.0.0"
 
 babel-eslint@^10.1.0:
   version "10.1.0"
@@ -3716,6 +3731,11 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.0, follow-redirects@^1.14.8:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.0.tgz#06441868281c86d0dda4ad8bdaead2d02dca89d4"
   integrity sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==
+
+follow-redirects@^1.14.9:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
+  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
 forever-agent@~0.6.1:
   version "0.6.1"
@@ -7490,13 +7510,6 @@ yt-dash-manifest-generator@1.1.0:
   dependencies:
     xml-js "^1.6.11"
     ytdl-core "^3.2.2"
-
-yt-trending-scraper@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/yt-trending-scraper/-/yt-trending-scraper-2.0.1.tgz#830ab96faaccca22001043ca72147f83fb099ffd"
-  integrity sha512-VTgIfVbRTMWUFn6Ir/XtEF2MBaYUU2JeaZxCtshfiyPI9yrOutp4A/0L755nl7Ip3Cigp8EW159/JH+z7Is7Jg==
-  dependencies:
-    axios "^0.21.1"
 
 ytdl-core@^3.2.2:
   version "3.4.2"
