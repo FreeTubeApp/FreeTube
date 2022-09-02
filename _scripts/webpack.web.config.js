@@ -46,11 +46,8 @@ const config = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {},
           },
-          {
-            loader: 'css-loader',
-          },
+          'css-loader',
           {
             loader: 'sass-loader',
             options: {
@@ -67,8 +64,7 @@ const config = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
+            loader: MiniCssExtractPlugin.loader
           },
           'css-loader',
         ],
@@ -183,11 +179,7 @@ if (isDevMode) {
               ignore: ['**/.*'],
             },
           },
-        ]
-      }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      ]
     })
   )
 }

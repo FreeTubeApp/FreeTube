@@ -69,12 +69,8 @@ if (isDevMode) {
     new CopyWebpackPlugin({
         patterns: [
           {
-            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-          },
-          {
             from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/web/static'),
+            to: path.join(__dirname, '../dist/static'),
             globOptions: {
               dot: true,
               ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
@@ -96,11 +92,7 @@ if (isDevMode) {
               ignore: ['**/.*'],
             },
           },
-        ]
-      }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      ]
     })
   )
 }
