@@ -309,7 +309,8 @@ export default Vue.extend({
             // workaround for description localization
             const descriptionLines = result.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.description.runs
             this.videoDescription = descriptionLines?.join('\n') ?? ''
-          } catch {
+          } catch (err) {
+            console.error('Failed to extract localised video description, falling back to the standard one.', err)
             // if the workaround for localization fails, this sets the description to the potentially non-localized value
             this.videoDescription = result.player_response.videoDetails.shortDescription
           }
