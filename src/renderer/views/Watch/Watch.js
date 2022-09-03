@@ -274,8 +274,13 @@ export default Vue.extend({
 
             throw new Error(`${reason}: ${subReason}`)
           }
-
-          this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text
+          try {
+            // workaround for title localization
+            this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text
+          } catch {
+            // if the workaround for localization fails, this sets the title to the potentially non-localized value
+            this.videoTitle = result.videoDetails.title
+          }
           this.videoViewCount = parseInt(
             result.player_response.videoDetails.viewCount,
             10
@@ -299,10 +304,16 @@ export default Vue.extend({
           })
 
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
-          const descriptionLines = result.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.description.runs
-          this.videoDescription = ''
-          for (let i = 0; i < descriptionLines.length; i++) {
-            this.videoDescription += `${descriptionLines[i].text}\n`
+          try {
+            // workaround for description localization
+            const descriptionLines = result.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.description.runs
+            this.videoDescription = ''
+            for (let i = 0; i < descriptionLines.length; i++) {
+              this.videoDescription += `${descriptionLines[i].text}\n`
+            }
+          } catch {
+            // if the workaround for localization fails, this sets the description to the potentially non-localized value
+            this.videoDescription = result.player_response.videoDetails.shortDescription
           }
 
           switch (this.thumbnailPreference) {
