@@ -299,7 +299,11 @@ export default Vue.extend({
           })
 
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
-          this.videoDescription = result.player_response.videoDetails.shortDescription
+          const descriptionLines = result.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.description.runs
+          this.videoDescription = ''
+          for (let i = 0; i < descriptionLines.length; i++) {
+            this.videoDescription += `${descriptionLines[i].text}\n`
+          }
 
           switch (this.thumbnailPreference) {
             case 'start':
