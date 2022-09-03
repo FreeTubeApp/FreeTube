@@ -277,7 +277,8 @@ export default Vue.extend({
           try {
             // workaround for title localization
             this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text
-          } catch {
+          } catch (err) {
+            console.error('Failed to extract localised video title, falling back to the standard one.', err)
             // if the workaround for localization fails, this sets the title to the potentially non-localized value
             this.videoTitle = result.videoDetails.title
           }
