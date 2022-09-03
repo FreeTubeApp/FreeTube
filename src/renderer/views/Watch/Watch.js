@@ -275,7 +275,7 @@ export default Vue.extend({
             throw new Error(`${reason}: ${subReason}`)
           }
 
-          this.videoTitle = result.videoDetails.title
+          this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text
           this.videoViewCount = parseInt(
             result.player_response.videoDetails.viewCount,
             10
