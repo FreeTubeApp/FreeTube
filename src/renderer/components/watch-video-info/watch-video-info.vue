@@ -107,7 +107,7 @@
         />
         <ft-icon-button
           v-if="!isUpcoming"
-          :title="$t('Change Format.Change Video Formats')"
+          :title="$t('Change Format.Change Media Formats')"
           class="option"
           theme="secondary"
           icon="file-video"

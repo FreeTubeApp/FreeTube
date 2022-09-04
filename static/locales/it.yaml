@@ -695,7 +695,7 @@ Playlist:
   Playlist: Playlist
 Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
-  Change Video Formats: 'Cambia formato video'
+  Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
   Use Legacy Formats: 'Usa i formati legacy'
   Use Audio Formats: 'Usa i formati audio'
