@@ -160,6 +160,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Valor predeterminado del sistema
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -185,6 +186,8 @@ Settings:
       Dracula Purple: 'Drácula púrpura'
       Dracula Red: 'Drácula rojo'
       Dracula Yellow: 'Drácula amarillo'
+      Catppuccin Mocha Pink: Catppuccin Moca Rosa
+      Catppuccin Mocha Mauve: Catppuccin Mocha Malva
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
