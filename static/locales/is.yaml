@@ -595,6 +595,7 @@ Video:
     Years: 'árum'
     Ago: 'síðan'
     Upcoming: 'Frumsýnt'
+    Less than a minute: Minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
@@ -648,6 +649,7 @@ Video:
       í boði fyrir eldri gerðir myndskeiða
     Bitrate: Bitahraði
     Volume: Hljóðstyrkur
+  Premieres in: Frumsýnt eftir
 Videos:
   #& Sort By
   Sort By:
