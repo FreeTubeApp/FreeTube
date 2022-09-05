@@ -90,7 +90,7 @@
     "@evilmartians/lefthook": "^1.0.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
-    "copy-webpack-plugin": "^9.0.1",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "5.2.6",
     "electron": "^20.1.1",
     "electron-builder": "^23.0.3",
