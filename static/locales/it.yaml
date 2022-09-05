@@ -591,6 +591,7 @@ Video:
     Upcoming: 'Première il'
     Minutes: Minuti
     Minute: Minuto
+    Less than a minute: Meno di un minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
@@ -668,6 +669,7 @@ Video:
     Buffered: Memoria buffer
     Dropped / Total Frames: Frame persi / Frame totali
     Mimetype: Tipo di media
+  Premieres in: Anteprima in
 Videos:
   #& Sort By
   Sort By:
