@@ -49,6 +49,7 @@ export default Vue.extend({
       isLiveContent: false,
       isUpcoming: false,
       upcomingTimestamp: null,
+      upcomingTimeLeft: null,
       activeFormat: 'legacy',
       thumbnail: '',
       videoId: '',
@@ -395,8 +396,43 @@ export default Vue.extend({
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
+
+              let upcomingTimeLeft = upcomingTimestamp - new Date()
+
+              // Convert from ms to second to minute
+              upcomingTimeLeft = (upcomingTimeLeft / 1000) / 60
+              let timeUnitI18nPartialKey = 'Minute'
+
+              // Youtube switches to showing time left in minutes at 120 minutes remaining
+              if (upcomingTimeLeft > 120) {
+                upcomingTimeLeft = upcomingTimeLeft / 60
+                timeUnitI18nPartialKey = 'Hour'
+              }
+
+              if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
+                upcomingTimeLeft = upcomingTimeLeft / 24
+                timeUnitI18nPartialKey = 'Day'
+              }
+
+              // Value after decimal not to be displayed
+              // e.g. > 2 days = display as `2 days`
+              upcomingTimeLeft = Math.floor(upcomingTimeLeft)
+              if (upcomingTimeLeft !== 1) {
+                timeUnitI18nPartialKey = timeUnitI18nPartialKey + 's'
+              }
+              const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
+
+              // Displays when less than a minute remains
+              // Looks better than `Premieres in x seconds`
+              if (upcomingTimeLeft < 1) {
+                this.upcomingTimeLeft = this.$t('Video.Published.Less than a minute').toLowerCase()
+              } else {
+                // TODO a I18n entry for time format might be needed here
+                this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
+              }
             } else {
               this.upcomingTimestamp = null
+              this.upcomingTimeLeft = null
             }
           } else {
             this.videoLengthSeconds = parseInt(result.videoDetails.lengthSeconds)
