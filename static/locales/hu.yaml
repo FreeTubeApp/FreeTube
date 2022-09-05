@@ -636,7 +636,7 @@ Playlist:
   Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
-  Change Video Formats: 'Videoformátumok módosítása'
+  Change Media Formats: 'Videoformátumok módosítása'
   Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
     keresztül) formátumok használata'
   Use Legacy Formats: 'Örökölt formátumok használata'
