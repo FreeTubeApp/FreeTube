@@ -611,6 +611,7 @@ Video:
     Upcoming: 'Avant-première le'
     Minutes: minutes
     Minute: minute
+    Less than a minute: Moins d'une minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a $ %'
@@ -689,6 +690,7 @@ Video:
     Buffered: En mémoire tampon
     Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
+  Premieres in: Première en
 Videos:
   #& Sort By
   Sort By:
