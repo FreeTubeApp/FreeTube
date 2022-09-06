@@ -5,7 +5,55 @@ import router from './router/index'
 import store from './store/index'
 import i18n from './i18n/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import {
+  faAngleDown,
+  faArrowDown,
+  faArrowLeft,
+  faArrowRight,
+  faBars,
+  faBookmark,
+  faCheck,
+  faClone,
+  faCommentDots,
+  faCopy,
+  faDownload,
+  faEllipsisH,
+  faEllipsisV,
+  faEnvelope,
+  faExchangeAlt,
+  faExclamationCircle,
+  faExternalLinkAlt,
+  faFileDownload,
+  faFileVideo,
+  faFilter,
+  faFire,
+  faGlobe,
+  faHeart,
+  faHistory,
+  faInfoCircle,
+  faLanguage,
+  faList,
+  faNewspaper,
+  faPlay,
+  faQuestionCircle,
+  faRandom,
+  faRetweet,
+  faRss,
+  faSatelliteDish,
+  faSearch,
+  faShareAlt,
+  faSlidersH,
+  faSortDown,
+  faStar,
+  faStepBackward,
+  faStepForward,
+  faSync,
+  faThumbsUp,
+  faThumbtack,
+  faTimes,
+  faTimesCircle,
+  faUsers
+} from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
 import { faMonero } from '@fortawesome/free-brands-svg-icons/faMonero'
@@ -18,7 +66,62 @@ Vue.config.devtools = isDev
 Vue.config.performance = isDev
 Vue.config.productionTip = isDev
 
-library.add(fas, faGithub, faBitcoin, faMonero, faMastodon)
+library.add(
+  // solid icons
+  faAngleDown,
+  faArrowDown,
+  faArrowLeft,
+  faArrowRight,
+  faBars,
+  faBookmark,
+  faCheck,
+  faClone,
+  faCommentDots,
+  faCopy,
+  faDownload,
+  faEllipsisH,
+  faEllipsisV,
+  faEnvelope,
+  faExchangeAlt,
+  faExclamationCircle,
+  faExternalLinkAlt,
+  faFileDownload,
+  faFileVideo,
+  faFilter,
+  faFire,
+  faGlobe,
+  faHeart,
+  faHistory,
+  faInfoCircle,
+  faLanguage,
+  faList,
+  faNewspaper,
+  faPlay,
+  faQuestionCircle,
+  faRandom,
+  faRetweet,
+  faRss,
+  faSatelliteDish,
+  faSearch,
+  faShareAlt,
+  faSlidersH,
+  faSortDown,
+  faStar,
+  faStepBackward,
+  faStepForward,
+  faSync,
+  faThumbsUp,
+  faThumbtack,
+  faTimes,
+  faTimesCircle,
+  faUsers,
+
+  // brand icons
+  faGithub,
+  faBitcoin,
+  faMastodon,
+  faMonero
+)
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 

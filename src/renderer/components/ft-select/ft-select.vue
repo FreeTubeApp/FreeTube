@@ -16,7 +16,7 @@
       </option>
     </select>
     <font-awesome-icon
-      icon="sort-down"
+      :icon="['fas', 'sort-down']"
       class="iconSelect"
     />
     <span class="select-highlight" />

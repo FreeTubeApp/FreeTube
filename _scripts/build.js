@@ -58,22 +58,14 @@ const config = {
     'icon.svg',
     './dist/**/*',
     '!dist/web/*',
-    '!**/node_modules/**/.*',
-    '!**/node_modules/**/index.html',
-    '!**/{.github,Jenkinsfile}',
-    '!**/{CHANGES.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,CONTRIBUTION.md,DEVELOPMENT.md,docs,docs.md,docs.mli,examples,History.md,HISTORY.md,README.md,TODO.md,UPGRADE_GUIDE.md,UPGRADING.md}',
-    '!**/{commitlint.config.js,.editorconfig,.eslintignore,.eslintrc.{js,yml},.gitmodules,.huskyrc,.lintstagedrc,.nvmrc,.nycrc{,.json},.prettierrc{,.yaml},tslint.json}',
-    '!**/{.babelrc,bower.json,Gruntfile.js,Makefile,.npmrc.proregistry,rollup.config.js,.tm_properties,.tool-versions,tsconfig.json,webpack.config.js}',
-    '!**/*.{{,c,m}js,min,ts}.map',
-    '!**/*.d.ts',
+    '!node_modules/**/*',
 
-    // only exclude the src directory for specific packages
-    // as some of them have their dist code in there and we don't want to exclude those
-    '!**/node_modules/{@fortawesome/vue-fontawesome,agent-base,jquery,localforage,m3u8-parser,marked,mpd-parser,performance-now,video.js,vue,vue-i18n,vue-router}/src/*',
-    '!**/node_modules/**/{bin,man,scripts}/*',
-    '!**/node_modules/jquery/dist/jquery.slim*.js',
-    '!**/node_modules/video.js/dist/{alt/*,video.js}',
-    '!**/node_modules/@videojs/*/src'
+    // renderer
+    'node_modules/{miniget,ytpl,ytsr}/**/*',
+
+    '!**/README.md',
+    '!**/*.js.map',
+    '!**/*.d.ts',
   ],
   dmg: {
     contents: [

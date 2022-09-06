@@ -4,15 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const {
-  dependencies,
-  devDependencies,
-  productName,
-} = require('../package.json')
+const { productName } = require('../package.json')
 
-const externals = Object.keys(dependencies).concat(Object.keys(devDependencies))
 const isDevMode = process.env.NODE_ENV === 'development'
-const whiteListedModules = ['vue']
 
 const config = {
   name: 'renderer',
@@ -32,7 +26,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  externals: externals.filter(d => !whiteListedModules.includes(d)),
+  // webpack spits out errors while inlining ytpl and ytsr as
+  // they dynamically import their package.json file to extract the bug report URL
+  // the error: "Critical dependency: the request of a dependency is an expression"
+  externals: ['ytpl', 'ytsr'],
   module: {
     rules: [
       {

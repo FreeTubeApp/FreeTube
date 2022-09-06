@@ -47,7 +47,7 @@
             class="premiereDate"
           >
             <font-awesome-icon
-              icon="satellite-dish"
+              :icon="['fas', 'satellite-dish']"
               class="premiereIcon"
             />
             <p

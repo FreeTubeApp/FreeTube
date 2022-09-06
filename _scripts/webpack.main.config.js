@@ -2,15 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const {
-  dependencies,
-  devDependencies,
-  productName,
-} = require('../package.json')
+const { productName } = require('../package.json')
 
-const externals = Object.keys(dependencies).concat(Object.keys(devDependencies))
 const isDevMode = process.env.NODE_ENV === 'development'
-const whiteListedModules = []
 
 const config = {
   name: 'main',
@@ -19,7 +13,10 @@ const config = {
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
-  externals: externals.filter(d => !whiteListedModules.includes(d)),
+  // webpack spits out errors while inlining electron-debug as
+  // it tries to dynamically load dependencies
+  // the error: "Critical dependency: the request of a dependency is an expression"
+  externals: ['electron-debug'],
   module: {
     rules: [
       {

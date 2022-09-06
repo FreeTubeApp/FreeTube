@@ -67,7 +67,7 @@ export default Vue.extend({
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
-      actionButtonIconName: 'search'
+      actionButtonIconName: ['fas', 'search']
     }
   },
   computed: {
@@ -136,7 +136,7 @@ export default Vue.extend({
 
       if (!this.inputDataPresent) {
         // Change back to default icon if text is blank
-        this.actionButtonIconName = 'search'
+        this.actionButtonIconName = ['fas', 'search']
         return
       }
 
@@ -165,15 +165,15 @@ export default Vue.extend({
 
           if (isYoutubeLink) {
             // Go to URL (i.e. Video/Playlist/Channel
-            this.actionButtonIconName = 'arrow-right'
+            this.actionButtonIconName = ['fas', 'arrow-right']
           } else {
             // Search with text
-            this.actionButtonIconName = 'search'
+            this.actionButtonIconName = ['fas', 'search']
           }
         })
       } catch (ex) {
         // On exception, consider text as invalid URL
-        this.actionButtonIconName = 'search'
+        this.actionButtonIconName = ['fas', 'search']
         // Rethrow exception
         throw ex
       }
