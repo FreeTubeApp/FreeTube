@@ -13,15 +13,19 @@ const cpus = os.cpus()
 if (platform === 'darwin') {
   let arch = Arch.x64
 
-// Macbook Air 2020 with M1 = 'Apple M1'
-  // Macbook Pro 2021 with M1 Pro = 'Apple M1 Pro'
-  if (cpus[0].model.startsWith('Apple')) {
+  if (args[2] === 'arm64') {
     arch = Arch.arm64
   }
-
-  targets = Platform.MAC.createTarget(['dmg'], arch)
+  
+  targets = Platform.MAC.createTarget(['DMG','zip'], arch)
 } else if (platform === 'win32') {
-  targets = Platform.WINDOWS.createTarget()
+  let arch = Arch.x64
+
+  if (args[2] === 'arm64') {
+    arch = Arch.arm64
+  }
+  
+  targets = Platform.WINDOWS.createTarget(['nsis', 'zip', 'portable'], arch)
 } else if (platform === 'linux') {
   let arch = Arch.x64
 
@@ -126,7 +130,7 @@ const config = {
   },
   win: {
     icon: '_icons/icon.ico',
-    target: ['nsis', 'zip', 'portable', 'squirrel'],
+    target: ['nsis', 'zip', 'portable'],
   },
   nsis: {
     allowToChangeInstallationDirectory: true,
