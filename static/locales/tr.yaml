@@ -633,6 +633,7 @@ Video:
     Years: 'Yıl'
     Ago: 'Önce'
     Upcoming: 'İlk gösterim tarihi'
+    Less than a minute: Bir dakikadan az
   Published on: 'Yayımlanma tarihi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % önce'
@@ -701,6 +702,7 @@ Video:
     Mimetype: MIME Türü
     Video statistics are not available for legacy videos: Video istatistikleri eski
       videolar için kullanılabilir değil
+  Premieres in: İlk gösterim
 Videos:
   #& Sort By
   Sort By:
