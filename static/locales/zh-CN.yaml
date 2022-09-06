@@ -522,6 +522,7 @@ Video:
     Upcoming: '首映于'
     Minutes: 分钟
     Minute: 分钟
+    Less than a minute: 不到一分钟
   Published on: '发布于'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 之前'
@@ -600,6 +601,7 @@ Video:
     filler: 过滤器
   translated from English: 从英语翻译而来
   Skipped segment: 跳过片段
+  Premieres in: 首映于
 Videos:
   #& Sort By
   Sort By:
