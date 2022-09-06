@@ -619,6 +619,7 @@ Video:
     Years: 'Років'
     Ago: 'Тому'
     Upcoming: 'Прем''єри'
+    Less than a minute: Менш як за хвилину
   Published on: 'Опубліковано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % тому'
@@ -675,6 +676,7 @@ Video:
     Buffered: Буферизовано
     Video statistics are not available for legacy videos: Статистика відео недоступна
       для застарілих відео
+  Premieres in: Прем'єри в
 Videos:
   #& Sort By
   Sort By:
