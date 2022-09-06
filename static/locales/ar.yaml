@@ -7,7 +7,7 @@ FreeTube: 'فريتيوب'
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'إغلاق'
+Quit: 'خروج'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -608,6 +608,7 @@ Video:
     Years: 'سنوات'
     Ago: 'منذ'
     Upcoming: 'يبدأ العرض'
+    Less than a minute: أقل من دقيقة
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -684,6 +685,7 @@ Video:
     Buffered: مخزنة
     Dropped / Total Frames: إسقاط / إجمالي الإطارات
     Mimetype: نمط ميمي
+  Premieres in: العرض الأول في
 Videos:
   #& Sort By
   Sort By:
