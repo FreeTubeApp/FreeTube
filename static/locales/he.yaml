@@ -614,6 +614,7 @@ Video:
     Years: 'שנים'
     Ago: 'לפני'
     Upcoming: 'שידור הבכורה ישודר ב־'
+    Less than a minute: פחות מדקה
   Published on: 'פורסם'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
@@ -681,6 +682,7 @@ Video:
     Buffered: שמור בזיכרון
     Dropped / Total Frames: תמוניות שהושמטו / סה״כ
     Mimetype: סוג MIME
+  Premieres in: בכורה בעוד
 Videos:
   #& Sort By
   Sort By:
