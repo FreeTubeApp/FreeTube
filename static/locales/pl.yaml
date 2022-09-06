@@ -593,6 +593,7 @@ Video:
     Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
+    Less than a minute: mniej niż minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
@@ -670,6 +671,7 @@ Video:
     Video statistics are not available for legacy videos: Statystyki filmu nie są
       dostępne dla starych formatów
     Dropped / Total Frames: Opuszczone klatki / klatki ogółem
+  Premieres in: Premiera za
 Videos:
   #& Sort By
   Sort By:
