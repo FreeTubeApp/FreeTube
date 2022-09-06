@@ -630,6 +630,7 @@ Video:
     Years: 'lety'
     Ago: 'Před'
     Upcoming: 'Premiéra'
+    Less than a minute: Méně než minuta
   Published on: 'Publikováno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'před $ %'
@@ -679,6 +680,7 @@ Video:
     Bandwidth: Bandwidth
     Buffered: V mezipaměti
     Dropped / Total Frames: Vyřazené / Celkový počet snímků
+  Premieres in: Premiéra za
 Videos:
   #& Sort By
   Sort By:
