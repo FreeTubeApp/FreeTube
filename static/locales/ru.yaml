@@ -577,6 +577,7 @@ Video:
     Upcoming: 'Премьера'
     Minutes: Минут
     Minute: Минута
+    Less than a minute: Менее минуты
   Published on: 'Опубликовано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % назад'
