@@ -623,6 +623,7 @@ Video:
     Years: 'god.'
     Ago: 'Prije'
     Upcoming: 'Premijera'
+    Less than a minute: Manje od jedne minute
   Published on: 'Objavljeno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'prije $ %'
@@ -700,6 +701,7 @@ Video:
     Buffered: Učitano u memoriju
     Mimetype: Mimetype
     Dropped / Total Frames: Ispušteni/ukupni kadrovi
+  Premieres in: Premijera u
 Videos:
   #& Sort By
   Sort By:
