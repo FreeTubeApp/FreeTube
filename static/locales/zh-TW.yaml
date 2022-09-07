@@ -533,6 +533,7 @@ Video:
     Upcoming: '首播於'
     Minutes: 分鐘
     Minute: 分鐘
+    Less than a minute: 少於一分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -610,6 +611,7 @@ Video:
     Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
     Video ID: 影片 ID
     Mimetype: 多媒體類型
+  Premieres in: 首映於
 Videos:
   #& Sort By
   Sort By:
