@@ -7,7 +7,7 @@
       {{ $t("Chapters") }}
 
       <span class="currentChapter">
-        • {{ chapters[currentChapterIndex].title }}
+        • {{ chapters[currentIndex].title }}
       </span>
 
       <font-awesome-icon
@@ -26,8 +26,8 @@
         v-for="(chapter, index) in chapters"
         :key="index"
         class="chapter"
-        :class="{ current: index === currentChapterIndex }"
-        @click="changeChapter(chapter.startSeconds)"
+        :class="{ current: index === currentIndex }"
+        @click="changeChapter(index)"
       >
         <img
           v-if="!compact"

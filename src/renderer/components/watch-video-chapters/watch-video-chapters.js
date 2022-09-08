@@ -22,12 +22,24 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      showChapters: false
+      showChapters: false,
+      currentIndex: 0
     }
   },
+  watch: {
+    currentChapterIndex: function (value) {
+      if (this.currentIndex !== value) {
+        this.currentIndex = value
+      }
+    }
+  },
+  mounted: function () {
+    this.currentIndex = this.currentChapterIndex
+  },
   methods: {
-    changeChapter: function(seconds) {
-      this.$emit('timestamp-event', seconds)
+    changeChapter: function(index) {
+      this.currentIndex = index
+      this.$emit('timestamp-event', this.chapters[index].startSeconds)
     }
   }
 })
