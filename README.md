@@ -66,6 +66,8 @@ Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
 PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
+Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
+
 Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
 ### Automated Builds (Nightly / Weekly)
