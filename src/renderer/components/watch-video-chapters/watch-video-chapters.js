@@ -7,6 +7,10 @@ export default Vue.extend({
     'ft-card': FtCard
   },
   props: {
+    compact: {
+      type: Boolean,
+      default: false
+    },
     chapters: {
       type: Array,
       required: true

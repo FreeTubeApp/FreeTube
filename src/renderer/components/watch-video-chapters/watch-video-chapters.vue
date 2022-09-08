@@ -4,43 +4,42 @@
       class="chaptersTitle"
       @click="showChapters = !showChapters"
     >
-      <span>
-        {{ $t("Chapters") }}
-      </span>
+      {{ $t("Chapters") }}
+
       <span class="currentChapter">
-        {{ chapters[currentChapterIndex].title }}
+        • {{ chapters[currentChapterIndex].title }}
       </span>
+
+      <font-awesome-icon
+        class="chaptersChevron"
+        :icon="['fas', 'chevron-right']"
+        :rotation="showChapters ? 90 : null"
+        :class="{ open: showChapters }"
+      />
     </h3>
     <div
-      v-if="showChapters"
+      v-show="showChapters"
       class="chaptersWrapper"
+      :class="{ compact }"
     >
       <div
         v-for="(chapter, index) in chapters"
         :key="index"
         class="chapter"
+        :class="{ current: index === currentChapterIndex }"
         @click="changeChapter(chapter.startSeconds)"
       >
-        <div
-          v-if="chapter.thumbnail"
+        <img
+          v-if="!compact"
           class="chapterThumbnail"
+          :src="chapter.thumbnail"
         >
-          <img
-            :src="chapter.thumbnail"
-            class="chapterImage"
-            :class="{ chapterImageCurrent: index === currentChapterIndex }"
-          >
+        <div class="chapterTimestamp">
+          {{ chapter.timestamp }}
         </div>
-        <div class="chapterInfo">
-          <p class="chapterTitle">
-            {{ chapter.title }}
-          </p>
-          <div class="chapterTimestamp">
-            <span>
-              {{ chapter.timestamp }}
-            </span>
-          </div>
-        </div>
+        <p class="chapterTitle">
+          {{ chapter.title }}
+        </p>
       </div>
     </div>
   </ft-card>

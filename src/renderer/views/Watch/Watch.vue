@@ -112,6 +112,7 @@
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
+        :compact="backendPreference === 'invidious'"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
         class="watchVideo"
