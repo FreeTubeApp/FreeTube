@@ -410,6 +410,9 @@ Settings:
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
+    Players:
+      None:
+        Name: Ei mitään
   Download Settings:
     Download Settings: Latausasetukset
     Choose Path: Valitse polku
@@ -560,6 +563,7 @@ Video:
     Upcoming: 'Ensiesitys'
     Minutes: Minuuttia
     Minute: Minuutti
+    Less than a minute: Vähemmän kuin minuutti
   Published on: 'Julkaistu'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % sitten'
