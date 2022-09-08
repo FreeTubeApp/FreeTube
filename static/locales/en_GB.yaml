@@ -608,6 +608,7 @@ Video:
     Years: 'Years'
     Ago: 'Ago'
     Upcoming: 'Premieres on'
+    Less than a minute: Less than a minute
   Published on: 'Published on'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % ago'
@@ -680,6 +681,7 @@ Video:
     Video statistics are not available for legacy videos: Video statistics are not
       available for legacy videos
     Video ID: Video ID
+  Premieres in: Premieres in
 Videos:
   #& Sort By
   Sort By:
