@@ -89,6 +89,7 @@ body:
         - Portable
         - PortableApps
         - .rpm
+        - Scoop
         - winget
         - .zip
         - other
