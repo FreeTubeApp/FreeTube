@@ -60,8 +60,8 @@ Search Filters:
     Long (> 20 minutes): Lang (> 20 Minuten)
   # On Search Page
   Search Results: Suchergebnisse
-  Fetching results. Please wait: Lade Ergebnisse. Bitte warten
-  Fetch more results: Lade mehr Ergebnisse
+  Fetching results. Please wait: Ergebnisse werden geladen. Bitte warten
+  Fetch more results: Mehr Ergebnisse laden
 # Sidebar
   There are no more results for this search: Keine weiteren Ergebnisse für diese Suche
     vorhanden
@@ -74,7 +74,7 @@ Subscriptions:
     zu sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abonnements aktualisieren
-  Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
+  Getting Subscriptions. Please wait.: Abonnements werden geladen. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abonnements.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
@@ -115,7 +115,7 @@ Settings:
     General Settings: Allgemeine Einstellungen
     Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
       bei Fehlschlag zurück
-    Enable Search Suggestions: Aktiviere Suchvorschläge
+    Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standardseite
 
     Locale Preference: Spracheinstellung
@@ -203,6 +203,7 @@ Settings:
       Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
       Catppuccin Mocha Red: Catppuccin Mocha Rot
       Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
+      Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -749,7 +750,7 @@ Comments:
   Replies: Antworten
   Reply: Antworten
   There are no comments available for this video: Für dieses Video gibt es keine Kommentare
-  Load More Comments: Lade mehr Kommentare
+  Load More Comments: Mehr Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
   No more comments available: Keine Kommentare mehr verfügbar
