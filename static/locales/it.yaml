@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca o aggiungi link YouTube'
+Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -153,7 +153,7 @@ Settings:
     External Link Handling:
       No Action: Nessuna azione
       Ask Before Opening Link: Chiedi prima di aprire il link
-      Open Link: Apri il link
+      Open Link: Apri il collegamento
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
@@ -776,7 +776,7 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
   $. Clicca per saperne di più
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
-Download From Site: Download dal sito
+Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei
@@ -896,7 +896,8 @@ Search Bar:
   Clear Input: Pulisci ricerca
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
-Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
+Are you sure you want to open this link?: Sei sicuro/sicura di voler aprire questo
+  collegamento?
 Downloading has completed: 'Il download di "$" è terminato'
 Starting download: Avvio del download di "$"
 Downloading failed: Si è verificato un problema durante il download di "$"
