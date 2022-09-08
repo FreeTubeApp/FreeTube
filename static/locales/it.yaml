@@ -152,7 +152,7 @@ Settings:
     System Default: Predefinito del sistema
     External Link Handling:
       No Action: Nessuna azione
-      Ask Before Opening Link: Chiedi prima di aprire il link
+      Ask Before Opening Link: Chiedi prima di aprire il collegamento
       Open Link: Apri il collegamento
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
@@ -538,11 +538,11 @@ Video:
   Video has been marked as watched: 'Il video è stato contrassegnato come già visto'
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
-  Copy YouTube Link: 'Copia link YouTube'
+  Copy YouTube Link: 'Copia collegamento YouTube'
   Open YouTube Embedded Player: 'Apri con lettore YouTube incorporato'
-  Copy YouTube Embedded Player Link: 'Copia link del lettore YouTube incorporato'
+  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore YouTube incorporato'
   Open in Invidious: 'Apri con Invidious'
-  Copy Invidious Link: 'Copia link Invidious'
+  Copy Invidious Link: 'Copia collegamento Invidious'
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
@@ -612,9 +612,9 @@ Video:
   audio only: solo audio
   video only: solo video
   Download Video: Download video
-  Copy Invidious Channel Link: Copia link del canale Invidious
+  Copy Invidious Channel Link: Copia collegamento canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
-  Copy YouTube Channel Link: Copia link del canale YouTube
+  Copy YouTube Channel Link: Copia collegamento canale YouTube
   Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
@@ -686,9 +686,9 @@ Playlist:
   Last Updated On: 'Ultimo aggiornamento il'
   Share Playlist:
     Share Playlist: 'Condividi la playlist'
-    Copy YouTube Link: 'Copia link YouTube'
+    Copy YouTube Link: 'Copia collegamento YouTube'
     Open in YouTube: 'Apri con YouTube'
-    Copy Invidious Link: 'Copia link Invidious'
+    Copy Invidious Link: 'Copia collegamento Invidious'
     Open in Invidious: 'Apri con Invidious'
 
 # On Video Watch Page
@@ -707,8 +707,8 @@ Change Format:
     per questo video
 Share:
   Share Video: 'Condividi video'
-  Copy Link: 'Copia link'
-  Open Link: 'Apri link'
+  Copy Link: 'Copia collegamento'
+  Open Link: 'Apri collegamento'
   Copy Embed: 'Copia codice da incorporare'
   Open Embed: 'Apri codice da incorporare'
   # On Click
@@ -860,8 +860,8 @@ Tooltips:
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube.
     External Link Handling: "Scegli il comportamento predefinito quando si clicca\
-      \ su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita\
-      \ FreeTube aprirà il link nel browser predefinito.\n"
+      \ su un collegamento che non può essere aperto in FreeTube.\nPer impostazione\
+      \ predefinita FreeTube aprirà il collegamento nel browser predefinito.\n"
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
@@ -890,7 +890,7 @@ Default Invidious instance has been set to $: L'istanza predefinita di Invidious
   stata impostata a $
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
-Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
+Unknown YouTube url type, cannot be opened in app: Tipo di collegamento YouTube sconosciuto,
   non può essere aperto nell'applicazione
 Search Bar:
   Clear Input: Pulisci ricerca
