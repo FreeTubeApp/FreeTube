@@ -163,6 +163,9 @@ export default Vue.extend({
     },
     theatrePossible: function () {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
+    },
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
     }
   },
   watch: {
@@ -409,13 +412,14 @@ export default Vue.extend({
 
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
+              const locale = this.currentLocale.replace('_', '-')
               const timestampOptions = {
                 month: 'long',
                 day: 'numeric',
                 hour: 'numeric',
                 minute: '2-digit'
               }
-              this.upcomingTimestamp = upcomingTimestamp.toLocaleString('default', timestampOptions)
+              this.upcomingTimestamp = upcomingTimestamp.toLocaleString([locale, 'en'], timestampOptions)
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
 
