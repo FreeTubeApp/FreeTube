@@ -409,7 +409,13 @@ export default Vue.extend({
 
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
-              this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
+              const timestampOptions = {
+                  month: 'long',
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: '2-digit'
+              }
+              this.upcomingTimestamp = upcomingTimestamp.toLocaleString('default', timestampOptions)
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
 
