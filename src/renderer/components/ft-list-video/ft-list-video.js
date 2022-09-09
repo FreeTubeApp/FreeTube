@@ -88,7 +88,6 @@ export default Vue.extend({
     },
 
     inHistory: function () {
-
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
       return this.$router.currentRoute.name === 'history'
