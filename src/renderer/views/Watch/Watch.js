@@ -410,10 +410,10 @@ export default Vue.extend({
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
               const timestampOptions = {
-                  month: 'long',
-                  day: 'numeric',
-                  hour: 'numeric',
-                  minute: '2-digit'
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
               }
               this.upcomingTimestamp = upcomingTimestamp.toLocaleString('default', timestampOptions)
 
