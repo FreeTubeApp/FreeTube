@@ -20,7 +20,7 @@ Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox
 
 Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
 
-Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/browsers/#extensions).
+Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/desktop-browsers/#additional-resources).
 
 If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 

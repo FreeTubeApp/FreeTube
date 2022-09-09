@@ -614,6 +614,7 @@ Video:
     Years: 'שנים'
     Ago: 'לפני'
     Upcoming: 'שידור הבכורה ישודר ב־'
+    Less than a minute: פחות מדקה
   Published on: 'פורסם'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
@@ -681,6 +682,7 @@ Video:
     Buffered: שמור בזיכרון
     Dropped / Total Frames: תמוניות שהושמטו / סה״כ
     Mimetype: סוג MIME
+  Premieres in: בכורה בעוד
 Videos:
   #& Sort By
   Sort By:
@@ -708,7 +710,7 @@ Playlist:
   Playlist: פלייליסט
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
-  Change Video Formats: 'שינוי תצורות הסרטונים'
+  Change Media Formats: 'שינוי תצורות הסרטונים'
   Use Dash Formats: 'שימוש בתצורות DASH'
   Use Legacy Formats: 'שימוש בתצורות המיושנות'
   Use Audio Formats: 'שימוש בתצורות שמע'

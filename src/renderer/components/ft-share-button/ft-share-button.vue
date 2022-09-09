@@ -3,7 +3,7 @@
     ref="iconButton"
     :title="$t('Share.Share Video')"
     theme="secondary"
-    icon="share-alt"
+    :icon="['fas', 'share-alt']"
     dropdown-position-x="left"
     :force-dropdown="true"
   >
@@ -31,14 +31,14 @@
           class="action"
           @click="copyYoutube()"
         >
-          <font-awesome-icon icon="copy" />
+          <font-awesome-icon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Link") }}
         </ft-button>
         <ft-button
           class="action"
           @click="openYoutube()"
         >
-          <font-awesome-icon icon="globe" />
+          <font-awesome-icon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
@@ -46,7 +46,7 @@
           background-color="var(--accent-color-active)"
           @click="copyYoutubeEmbed()"
         >
-          <font-awesome-icon icon="copy" />
+          <font-awesome-icon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
@@ -54,7 +54,7 @@
           background-color="var(--accent-color-active)"
           @click="openYoutubeEmbed()"
         >
-          <font-awesome-icon icon="globe" />
+          <font-awesome-icon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Embed") }}
         </ft-button>
       </div>
@@ -70,14 +70,14 @@
           class="action"
           @click="copyInvidious()"
         >
-          <font-awesome-icon icon="copy" />
+          <font-awesome-icon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Link") }}
         </ft-button>
         <ft-button
           class="action"
           @click="openInvidious()"
         >
-          <font-awesome-icon icon="globe" />
+          <font-awesome-icon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
@@ -85,7 +85,7 @@
           background-color="var(--accent-color-active)"
           @click="copyInvidiousEmbed()"
         >
-          <font-awesome-icon icon="copy" />
+          <font-awesome-icon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
@@ -93,7 +93,7 @@
           background-color="var(--accent-color-active)"
           @click="openInvidiousEmbed()"
         >
-          <font-awesome-icon icon="globe" />
+          <font-awesome-icon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Embed") }}
         </ft-button>
       </div>

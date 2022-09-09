@@ -75,7 +75,7 @@
     </ft-card>
     <ft-icon-button
       v-if="!isLoading"
-      icon="sync"
+      :icon="['fas', 'sync']"
       class="floatingTopButton"
       :size="12"
       theme="primary"

@@ -2,18 +2,11 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const {
-  dependencies,
-  devDependencies,
-  productName,
-} = require('../package.json')
+const { productName } = require('../package.json')
 
-const externals = Object.keys(dependencies).concat(Object.keys(devDependencies))
 const isDevMode = process.env.NODE_ENV === 'development'
-const whiteListedModules = ['vue']
 
 const config = {
   name: 'renderer',
@@ -33,7 +26,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  externals: externals.filter(d => !whiteListedModules.includes(d)),
+  // webpack spits out errors while inlining ytpl and ytsr as
+  // they dynamically import their package.json file to extract the bug report URL
+  // the error: "Critical dependency: the request of a dependency is an expression"
+  externals: ['ytpl', 'ytsr'],
   module: {
     rules: [
       {
@@ -54,11 +50,8 @@ const config = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {},
           },
-          {
-            loader: 'css-loader',
-          },
+          'css-loader',
           {
             loader: 'sass-loader',
             options: {
@@ -75,8 +68,7 @@ const config = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
+            loader: MiniCssExtractPlugin.loader
           },
           'css-loader',
         ],
@@ -151,53 +143,6 @@ if (isDevMode) {
   config.plugins.push(
     new webpack.DefinePlugin({
       __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
-    })
-  )
-} else {
-  config.plugins.push(
-    new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-          },
-          {
-            from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/web/static'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/static'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/web/_icons'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../src/renderer/assets/img'),
-            to: path.join(__dirname, '../dist/web/images'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-        ]
-      }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
     })
   )
 }

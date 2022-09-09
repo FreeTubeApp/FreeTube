@@ -7,7 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import $ from 'jquery'
-import ytrend from 'yt-trending-scraper'
+import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
 
 export default Vue.extend({
   name: 'Trending',
@@ -124,7 +124,7 @@ export default Vue.extend({
         geoLocation: this.region
       }
 
-      ytrend.scrape_trending_page(param).then((result) => {
+      scrapeTrendingPage(param).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })

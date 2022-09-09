@@ -13,15 +13,19 @@ const cpus = os.cpus()
 if (platform === 'darwin') {
   let arch = Arch.x64
 
-// Macbook Air 2020 with M1 = 'Apple M1'
-  // Macbook Pro 2021 with M1 Pro = 'Apple M1 Pro'
-  if (cpus[0].model.startsWith('Apple')) {
+  if (args[2] === 'arm64') {
     arch = Arch.arm64
   }
-
-  targets = Platform.MAC.createTarget(['dmg'], arch)
+  
+  targets = Platform.MAC.createTarget(['DMG','zip'], arch)
 } else if (platform === 'win32') {
-  targets = Platform.WINDOWS.createTarget()
+  let arch = Arch.x64
+
+  if (args[2] === 'arm64') {
+    arch = Arch.arm64
+  }
+  
+  targets = Platform.WINDOWS.createTarget(['nsis', 'zip', 'portable'], arch)
 } else if (platform === 'linux') {
   let arch = Arch.x64
 
@@ -58,22 +62,14 @@ const config = {
     'icon.svg',
     './dist/**/*',
     '!dist/web/*',
-    '!**/node_modules/**/.*',
-    '!**/node_modules/**/index.html',
-    '!**/{.github,Jenkinsfile}',
-    '!**/{CHANGES.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,CONTRIBUTION.md,DEVELOPMENT.md,docs,docs.md,docs.mli,examples,History.md,HISTORY.md,README.md,TODO.md,UPGRADE_GUIDE.md,UPGRADING.md}',
-    '!**/{commitlint.config.js,.editorconfig,.eslintignore,.eslintrc.{js,yml},.gitmodules,.huskyrc,.lintstagedrc,.nvmrc,.nycrc{,.json},.prettierrc{,.yaml},tslint.json}',
-    '!**/{.babelrc,bower.json,Gruntfile.js,Makefile,.npmrc.proregistry,rollup.config.js,.tm_properties,.tool-versions,tsconfig.json,webpack.config.js}',
-    '!**/*.{{,c,m}js,min,ts}.map',
-    '!**/*.d.ts',
+    '!node_modules/**/*',
 
-    // only exclude the src directory for specific packages
-    // as some of them have their dist code in there and we don't want to exclude those
-    '!**/node_modules/{@fortawesome/vue-fontawesome,agent-base,jquery,localforage,m3u8-parser,marked,mpd-parser,performance-now,video.js,vue,vue-i18n,vue-router}/src/*',
-    '!**/node_modules/**/{bin,man,scripts}/*',
-    '!**/node_modules/jquery/dist/jquery.slim*.js',
-    '!**/node_modules/video.js/dist/{alt/*,video.js}',
-    '!**/node_modules/@videojs/*/src'
+    // renderer
+    'node_modules/{miniget,ytpl,ytsr}/**/*',
+
+    '!**/README.md',
+    '!**/*.js.map',
+    '!**/*.d.ts',
   ],
   dmg: {
     contents: [
@@ -134,7 +130,7 @@ const config = {
   },
   win: {
     icon: '_icons/icon.ico',
-    target: ['nsis', 'zip', 'portable', 'squirrel'],
+    target: ['nsis', 'zip', 'portable'],
   },
   nsis: {
     allowToChangeInstallationDirectory: true,
