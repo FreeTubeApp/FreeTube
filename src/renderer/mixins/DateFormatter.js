@@ -1,17 +1,17 @@
 const DateFormatter = {
   methods: {
-    toLocalePublicationString (videoData) {
-      if (videoData.isLive) {
+    toLocalePublicationString ({ publishedText, publishedDate, isLive = false, isUpcoming = false, isRSS = false }) {
+      if (isLive) {
         const liveStreamString = this.$t('Video.Watching')
         return '0' + liveStreamString
-      } else if (videoData.isUpcoming || videoData.publishText === null) {
+      } else if (isUpcoming || publishedText === null) {
         // the check for null is currently just an inferring of knowledge,
         // because there is no other possibility left
         const upcomingString = this.$t('Video.Published.Upcoming')
-        return `${upcomingString}: ${videoData.publishedText}`
+        return `${upcomingString}: ${publishedText}`
       }
       const now = new Date()
-      const publishedDate = new Date(videoData.publishedDate)
+      publishedDate = new Date(publishedDate)
       const dateDiff = now - publishedDate
       const unitAndNumeral = this.unitAndNumberFromMillis(dateDiff)
       return this.stringFromNumberAndUnit(unitAndNumeral)
