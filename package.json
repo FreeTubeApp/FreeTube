@@ -53,7 +53,7 @@
     "@freetube/yt-comment-scraper": "^6.2.0",
     "@freetube/yt-trending-scraper": "^3.1.0",
     "@silvermine/videojs-quality-selector": "^1.2.5",
-    "autolinker": "^3.15.0",
+    "autolinker": "^4.0.0",
     "electron-context-menu": "^3.1.2",
     "http-proxy-agent": "^4.0.1",
     "https-proxy-agent": "^5.0.0",
