@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -249,6 +250,10 @@ export default Vue.extend({
 
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
@@ -424,7 +429,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         this.hideViews = true
       } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.parsedViewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.parsedViewCount = Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
