@@ -726,13 +726,20 @@ export default Vue.extend({
             // MM:SS Text
             // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
             // MM:SS - Text
-            const chapterMatches = result.description.matchAll(/^(?<timestamp>(?:(?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))\s+(?:[-–•—]\s+)?(?<title>.+)$/gm)
+            // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored
+            // HH:MM - HH:MM - Text // end timestamp is ignored
+            const chapterMatches = result.description.matchAll(/^(?<timestamp>(?:(?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(?:\s*[-–—]\s*(?:\d+:)?\d+:\d+)?\s+(?:[-–•—]\s*)?(?<title>.+)$/gm)
 
             for (const { groups } of chapterMatches) {
               let start = 60 * Number(groups.minutes) + Number(groups.seconds)
 
               if (groups.hours) {
                 start += 3600 * Number(groups.hours)
+              }
+
+              // replace previous chapter with current one if they have an identical start time
+              if (chapters.length > 0 && chapters[chapters.length - 1].startSeconds === start) {
+                chapters.pop()
               }
 
               chapters.push({
