@@ -1498,6 +1498,8 @@ export default Vue.extend({
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>` */
           })
+          // the default width is 3em which is too narrow for qualitly labels with fps e.g. 1080p60
+          button.style.width = '4em'
           return $(button).html(
             $(beginningHtml + qualityHtml + endingHtml).attr(
               'title',
