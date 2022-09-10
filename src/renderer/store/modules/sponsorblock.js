@@ -24,10 +24,16 @@ const actions = {
             .flatMap((result) => result.segments)
           resolve(segments)
         }).fail((xhr, textStatus, error) => {
+          // 404 means that there are no segments registered for the video
+          if (xhr.status === 404) {
+            resolve([])
+            return
+          }
+
           console.log(xhr)
           console.log(textStatus)
           console.log(requestUrl)
-          console.log(error)
+          console.error(error)
           reject(xhr)
         })
       })
