@@ -105,6 +105,7 @@ If you ever have any questions, feel free to make an issue here on GitHub.  Alte
 You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
 
 ## Donate
+If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  
 
 * [FreeTube on Liberapay](https://liberapay.com/FreeTube)
 
@@ -112,7 +113,7 @@ You can also stay up to date by reading the [FreeTube Blog](https://write.as/fre
 
 * Monero Address: `48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB`
 
-If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
+While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
