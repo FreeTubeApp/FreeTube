@@ -109,8 +109,9 @@ export default Vue.extend({
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
-    goToSearch: async function (query) {
+    goToSearch: async function (query, { event }) {
       const appWidth = $(window).width()
+      const doCreateNewWindow = event && event.shiftKey
 
       if (appWidth <= 680) {
         const searchContainer = $('.searchContainer').get(0)
@@ -133,9 +134,10 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            this.$router.push({
+            this.openInternalPath({
               path: `/watch/${videoId}`,
-              query: query
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -153,9 +155,10 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            this.$router.push({
+            this.openInternalPath({
               path: `/search/${encodeURIComponent(searchQuery)}`,
-              query
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -174,24 +177,27 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, idType, subPath } = result
 
-            this.$router.push({
-              path: `/channel/${channelId}/${subPath}`
+            this.openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
+              query: { idType },
+              doCreateNewWindow
             })
             break
           }
 
           case 'invalid_url':
           default: {
-            this.$router.push({
+            this.openInternalPath({
               path: `/search/${encodeURIComponent(query)}`,
               query: {
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
                 duration: this.searchSettings.duration
-              }
+              },
+              doCreateNewWindow
             })
           }
         }
@@ -315,6 +321,27 @@ export default Vue.extend({
 
     toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
+    },
+
+    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
+      if (this.usingElectron && doCreateNewWindow) {
+        const { ipcRenderer } = require('electron')
+
+        // Combine current document path and new "hash" as new window startup URL
+        const newWindowStartupURL = [
+          window.location.href.split('#')[0],
+          `#${path}?${(new URLSearchParams(query)).toString()}`
+        ].join('')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+          windowStartupUrl: newWindowStartupURL
+        })
+      } else {
+        // Web
+        this.$router.push({
+          path,
+          query
+        })
+      }
     },
 
     createNewWindow: function () {

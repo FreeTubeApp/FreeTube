@@ -1,42 +1,47 @@
 # Put the name of your locale in the same language
-Locale Name: 'ខ្មែរ'
-FreeTube: 'ខ្មែរ'
+Locale Name: 'Schwiizerdütsch'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ខ្មែរ
+  De Teil vom Programm isch nonig fertig. Bitte chum zumene spötere Ziitpunkt wider
+  zrugg.
 
 # Webkit Menu Bar
-File: 'ខ្មែរ'
-Quit: 'ខ្មែរ'
-Edit: 'ខ្មែរ'
-Undo: 'ខ្មែរ'
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
-Open New Window: ''
+File: 'Datei'
+New Window: 'Nois Fäischter'
+Quit: 'Beände'
+Edit: 'Bearbeite'
+Undo: 'Rückgängig'
+Redo: 'Widerherstellä'
+Cut: 'Usschniide'
+Copy: 'Kopierä'
+Paste: 'Iifüege'
+Delete: 'Lösche'
+Select all: 'Alles uswähle'
+Reload: 'Aktualisierä'
+Force Reload: 'Aktualisierig erzwingä'
+Toggle Developer Tools: 'Entwicklerwerchzüüg aktivierä/deaktivierä'
+Actual size: 'Originalgrössi'
+Zoom in: 'Vergrösserä'
+Zoom out: 'Verchlinerä'
+Toggle fullscreen: 'Vollbild aktivierä'
+Window: 'Fäischter'
+Minimize: 'Minimierä'
+Close: 'Schlüsse'
+Back: 'Zrugg'
+Forward: 'Füre'
+Open New Window: 'Nois Fäischter ufmache'
 
-Version $ is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, $. Click to view more: ''
-Are you sure you want to open this link?: ''
+Version $ is now available!  Click for more details: 'Version $ isch jetzt verfüegbar!
+  Klick für meh Details.'
+Download From Site: 'Vo de Website abelade'
+A new blog is now available, $. Click to view more: 'En neue Blogiitrag isch jetzt
+  verfüegbar, $. Klick zum en aaluege'
+Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufmache
+  wotsch?'
 
 # Search Bar
-Search / Go to URL: ''
+Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Bar:
   Clear Input: ''
   # In Filter Button
@@ -76,6 +81,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: ''
+  # channels that were likely deleted
+  Error Channels: ''
   Latest Subscriptions: ''
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
@@ -83,6 +90,15 @@ Subscriptions:
   Refresh Subscriptions: ''
   Load More Videos: ''
 More: ''
+Channels:
+  Channels: ''
+  Title: ''
+  Search bar placeholder: ''
+  Count: ''
+  Empty: ''
+  Unsubscribe: ''
+  Unsubscribed: ''
+  Unsubscribe Prompt: ''
 Trending:
   Trending: ''
   Default: ''
@@ -158,8 +174,10 @@ Settings:
       Base Theme: ''
       Black: ''
       Dark: ''
+      System Default: ''
       Light: ''
       Dracula: ''
+      Catppuccin Mocha: ''
     Main Color Theme:
       Main Color Theme: ''
       Red: ''
@@ -185,6 +203,20 @@ Settings:
       Dracula Purple: ''
       Dracula Red: ''
       Dracula Yellow: ''
+      Catppuccin Mocha Rosewater: ''
+      Catppuccin Mocha Flamingo: ''
+      Catppuccin Mocha Pink: ''
+      Catppuccin Mocha Mauve: ''
+      Catppuccin Mocha Red: ''
+      Catppuccin Mocha Maroon: ''
+      Catppuccin Mocha Peach: ''
+      Catppuccin Mocha Yellow: ''
+      Catppuccin Mocha Green: ''
+      Catppuccin Mocha Teal: ''
+      Catppuccin Mocha Sky: ''
+      Catppuccin Mocha Sapphire: ''
+      Catppuccin Mocha Blue: ''
+      Catppuccin Mocha Lavender: ''
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
@@ -222,12 +254,27 @@ Settings:
       1440p: ''
       4k: ''
       8k: ''
+    Screenshot:
+      Enable: ''
+      Format Label: ''
+      Quality Label: ''
+      Ask Path: ''
+      Folder Label: ''
+      Folder Button: ''
+      File Name Label: ''
+      File Name Tooltip: ''
+      Error:
+        Forbidden Characters: ''
+        Empty File Name: ''
   External Player Settings:
     External Player Settings: ''
     External Player: ''
     Ignore Unsupported Action Warnings: ''
     Custom External Player Executable: ''
     Custom External Player Arguments: ''
+    Players:
+      None:
+        Name: ''
   Privacy Settings:
     Privacy Settings: ''
     Remember History: ''
@@ -258,6 +305,10 @@ Settings:
     Hide Playlists: ''
     Hide Live Chat: ''
     Hide Active Subscriptions: ''
+    Hide Video Description: ''
+    Hide Comments: ''
+    Hide Live Streams: ''
+    Hide Sharing Actions: ''
   Data Settings:
     Data Settings: ''
     Select Import Type: ''
@@ -313,10 +364,25 @@ Settings:
     Enable SponsorBlock: ''
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Notify when sponsor segment is skipped: ''
+    Skip Options:
+      Skip Option: ''
+      Auto Skip: ''
+      Show In Seek Bar: ''
+      Prompt To Skip: ''
+      Do Nothing: ''
+    Category Color: ''
+  Parental Control Settings:
+    Parental Control Settings: ''
+    Hide Unsubscribe Button: ''
+    Show Family Friendly Only: ''
+    Hide Search Bar: ''
   Download Settings:
     Download Settings: ''
     Ask Download Path: ''
     Choose Path: ''
+    Download Behavior: ''
+    Download in app: ''
+    Open in web browser: ''
 About:
   #On About page
   About: ''
@@ -503,6 +569,8 @@ Video:
     self-promotion: ''
     interaction: ''
     music offtopic: ''
+    recap: ''
+    filler: ''
   External Player:
     # $ is replaced with the external player
     OpenInTemplate: ''
@@ -603,6 +671,7 @@ Comments:
   Load More Comments: ''
   No more comments available: ''
   Pinned by: ''
+  Member: ''
 Up Next: ''
 
 #Tooltips
@@ -653,10 +722,18 @@ Canceled next video autoplay: ''
 Default Invidious instance has been set to $: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended.  Enable loop to continue playing': ''
+Age Restricted:
+  # $contentType is replaced with video or channel
+  This $contentType is age restricted: ''
+  Type:
+    Channel: ''
+    Video: ''
 External link opening has been disabled in the general settings: ''
 Downloading has completed: ''
 Starting download: ''
 Downloading failed: ''
+Screenshot Success: ''
+Screenshot Error: ''
 
 Yes: ''
 No: ''

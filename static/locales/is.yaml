@@ -391,6 +391,9 @@ Settings:
     Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
     External Player: Utanaðkomandi spilari
     External Player Settings: Stillingar utanaðkomandi spilara
+    Players:
+      None:
+        Name: Ekkert
   Download Settings:
     Download Settings: Stillingar niðurhals
     Ask Download Path: Spyrja hvar eigi að vista skrár
@@ -592,6 +595,7 @@ Video:
     Years: 'árum'
     Ago: 'síðan'
     Upcoming: 'Frumsýnt'
+    Less than a minute: Minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
@@ -645,6 +649,7 @@ Video:
       í boði fyrir eldri gerðir myndskeiða
     Bitrate: Bitahraði
     Volume: Hljóðstyrkur
+  Premieres in: Frumsýnt eftir
 Videos:
   #& Sort By
   Sort By:
@@ -672,7 +677,7 @@ Playlist:
   Playlist: Spilunarlisti
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
-  Change Video Formats: 'Skipta um myndskeiðasnið'
+  Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
   Use Legacy Formats: 'Nota eldri skráasnið'
   Use Audio Formats: 'Nota hljóðskráasnið'

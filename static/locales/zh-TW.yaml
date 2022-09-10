@@ -380,6 +380,9 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
     External Player Settings: 外部播放程式設定
+    Players:
+      None:
+        Name: 無
   Download Settings:
     Download Settings: 下載設定
     Ask Download Path: 詢問下載路徑
@@ -530,6 +533,7 @@ Video:
     Upcoming: '首播於'
     Minutes: 分鐘
     Minute: 分鐘
+    Less than a minute: 少於一分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -607,6 +611,7 @@ Video:
     Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
     Video ID: 影片 ID
     Mimetype: 多媒體類型
+  Premieres in: 首映於
 Videos:
   #& Sort By
   Sort By:
@@ -634,7 +639,7 @@ Playlist:
   Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
-  Change Video Formats: '變更影片格式'
+  Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'

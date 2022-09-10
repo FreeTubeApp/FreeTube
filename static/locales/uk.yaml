@@ -407,6 +407,9 @@ Settings:
       дії
     External Player: Зовнішній програвач
     External Player Settings: Параметри зовнішнього програвача
+    Players:
+      None:
+        Name: Немає
   Download Settings:
     Download Settings: Налаштування завантаження
     Choose Path: Вибрати шлях
@@ -616,6 +619,7 @@ Video:
     Years: 'Років'
     Ago: 'Тому'
     Upcoming: 'Прем''єри'
+    Less than a minute: Менш як за хвилину
   Published on: 'Опубліковано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % тому'
@@ -672,6 +676,7 @@ Video:
     Buffered: Буферизовано
     Video statistics are not available for legacy videos: Статистика відео недоступна
       для застарілих відео
+  Premieres in: Прем'єри в
 Videos:
   #& Sort By
   Sort By:
@@ -699,7 +704,7 @@ Playlist:
   Playlist: Добірка
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
-  Change Video Formats: 'Зміна форматів відео'
+  Change Media Formats: 'Зміна форматів відео'
   Use Dash Formats: 'Використовувати формати DASH'
   Use Legacy Formats: 'Використовувати застарілі формати'
   Use Audio Formats: 'Використовувати аудіоформати'

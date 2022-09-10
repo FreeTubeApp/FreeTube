@@ -191,6 +191,20 @@ Settings:
       Dracula Purple: 'Drácula roxo'
       Dracula Red: 'Drácula vermelho'
       Dracula Yellow: 'Drácula amarelo'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da interface gráfica
@@ -397,6 +411,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Leitor externo
     External Player Settings: Definições para leitores de vídeo externos
+    Players:
+      None:
+        Name: Nenhum
   The app needs to restart for changes to take effect. Restart and apply change?: A
     aplicação precisa de reiniciar para que as alterações façam efeito. Reiniciar
     e aplicar as alterações?
@@ -705,7 +722,7 @@ Playlist:
   Playlist: Lista de reprodução
 Toggle Theatre Mode: 'Alternar modo cinema'
 Change Format:
-  Change Video Formats: 'Mudar formatos do vídeo'
+  Change Media Formats: 'Mudar formatos do vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
   Use Legacy Formats: 'Utilizar formatos antigos'
   Use Audio Formats: 'Utilizar formatos de áudio'

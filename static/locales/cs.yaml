@@ -409,6 +409,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorovat varování u nepodporovaných akcích
     External Player: Externí přehrávač
     External Player Settings: Nastavení externího přehrávače
+    Players:
+      None:
+        Name: Žádný
   Download Settings:
     Ask Download Path: Zeptat se na cestu umístění souboru
     Download Settings: Nastavení stahování
@@ -627,6 +630,7 @@ Video:
     Years: 'lety'
     Ago: 'Před'
     Upcoming: 'Premiéra'
+    Less than a minute: Méně než minuta
   Published on: 'Publikováno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'před $ %'
@@ -676,6 +680,7 @@ Video:
     Bandwidth: Bandwidth
     Buffered: V mezipaměti
     Dropped / Total Frames: Vyřazené / Celkový počet snímků
+  Premieres in: Premiéra za
 Videos:
   #& Sort By
   Sort By:
@@ -703,7 +708,7 @@ Playlist:
   Playlist: Playlist
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
-  Change Video Formats: 'Změnit formát videa'
+  Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít DASH formáty'
   Use Legacy Formats: 'Použít starší formáty'
   Use Audio Formats: 'Použít zvukové formáty'

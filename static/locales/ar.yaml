@@ -7,7 +7,7 @@ FreeTube: 'فريتيوب'
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'إغلاق'
+Quit: 'خروج'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -405,6 +405,9 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+    Players:
+      None:
+        Name: لاشيء
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
@@ -605,6 +608,7 @@ Video:
     Years: 'سنوات'
     Ago: 'منذ'
     Upcoming: 'يبدأ العرض'
+    Less than a minute: أقل من دقيقة
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -681,6 +685,7 @@ Video:
     Buffered: مخزنة
     Dropped / Total Frames: إسقاط / إجمالي الإطارات
     Mimetype: نمط ميمي
+  Premieres in: العرض الأول في
 Videos:
   #& Sort By
   Sort By:
@@ -708,7 +713,7 @@ Playlist:
   Playlist: قائمة التشغيل
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
-  Change Video Formats: 'تغيير تنسيقات الفيديو'
+  Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
   Use Legacy Formats: 'استخدم التنسيقات التراثية'
   Use Audio Formats: 'استخدم تنسيقات الصوت'

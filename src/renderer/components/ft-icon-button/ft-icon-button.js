@@ -9,8 +9,8 @@ export default Vue.extend({
       default: ''
     },
     icon: {
-      type: String,
-      default: 'ellipsis-v'
+      type: Array,
+      default: () => ['fas', 'ellipsis-v']
     },
     theme: {
       type: String,

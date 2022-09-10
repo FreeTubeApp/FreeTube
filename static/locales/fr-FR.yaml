@@ -435,6 +435,9 @@ Settings:
     External Player Settings: Paramètres du lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
+    Players:
+      None:
+        Name: Aucun
   Download Settings:
     Download Settings: 'Paramètres de téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
@@ -608,6 +611,7 @@ Video:
     Upcoming: 'Avant-première le'
     Minutes: minutes
     Minute: minute
+    Less than a minute: Moins d'une minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a $ %'
@@ -686,6 +690,7 @@ Video:
     Buffered: En mémoire tampon
     Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
+  Premieres in: Première en
 Videos:
   #& Sort By
   Sort By:
@@ -713,7 +718,7 @@ Playlist:
   Playlist: Liste de lecture
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
-  Change Video Formats: 'Changer le format de la vidéo'
+  Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
   Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format Audio'

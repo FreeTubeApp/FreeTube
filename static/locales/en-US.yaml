@@ -279,6 +279,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -539,6 +542,7 @@ Video:
     the page to check again
   # As in a Live Video
   Premieres on: Premieres on
+  Premieres in: Premieres in
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -589,6 +593,7 @@ Video:
     Years: Years
     Ago: Ago
     Upcoming: Premieres on
+    Less than a minute: Less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
@@ -661,7 +666,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
-  Change Video Formats: Change Video Formats
+  Change Media Formats: Change Media Formats
   Use Dash Formats: Use DASH Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats

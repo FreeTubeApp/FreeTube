@@ -20,7 +20,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 
 * Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
 
-Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/browsers/#extensions).
+Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/desktop-browsers/#additional-resources).
 
 If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
@@ -65,6 +65,8 @@ These builds are maintained by the community.  While they should be safe, downlo
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
 * PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
+
+* Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 

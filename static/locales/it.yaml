@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca o aggiungi link YouTube'
+Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -153,7 +153,7 @@ Settings:
     External Link Handling:
       No Action: Nessuna azione
       Ask Before Opening Link: Chiedi prima di aprire il link
-      Open Link: Apri il link
+      Open Link: Apri link
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
@@ -427,13 +427,16 @@ Settings:
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
+    Players:
+      None:
+        Name: Nessuno
   Download Settings:
-    Download Settings: Impostazioni di scaricamento
-    Ask Download Path: Chiedi il percorso di scaricamento
-    Choose Path: Scegli il percorso
-    Download Behavior: Comportamento degli scaricamenti
+    Download Settings: Impostazioni download
+    Ask Download Path: Chiedi il percorso di download
+    Choose Path: Scegli percorso
+    Download Behavior: Comportamento download
     Open in web browser: Apri nel browser web
-    Download in app: Scarica nell'app
+    Download in app: Download nell'app
   Parental Control Settings:
     Hide Unsubscribe Button: Nascondi il pulsante Annulla iscrizione
     Parental Control Settings: Impostazioni di controllo parentale
@@ -478,7 +481,7 @@ About:
   FAQ: Domande frequenti
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
-  Downloads / Changelog: Download e changelog
+  Downloads / Changelog: Download / Changelog
   GitHub releases: Versioni pubblicate su GitHub
   these people and projects: queste persone e questi progetti
   FreeTube is made possible by: FreeTube è reso possibile grazie a
@@ -501,7 +504,7 @@ Channel:
   Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
-  Search Channel: 'Cerca un canale'
+  Search Channel: 'Cerca nel canale'
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Sort By: 'Ordina per'
   Videos:
@@ -588,6 +591,7 @@ Video:
     Upcoming: 'Première il'
     Minutes: Minuti
     Minute: Minuto
+    Less than a minute: Meno di un minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
@@ -607,10 +611,10 @@ Video:
     Low: Basso
   audio only: solo audio
   video only: solo video
-  Download Video: Scarica il video
-  Copy Invidious Channel Link: Copia link del canale Invidious
+  Download Video: Download video
+  Copy Invidious Channel Link: Copia link canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
-  Copy YouTube Channel Link: Copia link del canale YouTube
+  Copy YouTube Channel Link: Copia link canale YouTube
   Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
@@ -665,6 +669,7 @@ Video:
     Buffered: Memoria buffer
     Dropped / Total Frames: Frame persi / Frame totali
     Mimetype: Tipo di media
+  Premieres in: Anteprima in
 Videos:
   #& Sort By
   Sort By:
@@ -692,7 +697,7 @@ Playlist:
   Playlist: Playlist
 Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
-  Change Video Formats: 'Cambia formato video'
+  Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
   Use Legacy Formats: 'Usa i formati legacy'
   Use Audio Formats: 'Usa i formati audio'
@@ -888,13 +893,13 @@ Hashtags have not yet been implemented, try again later: Gli hashtag non sono an
 Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
   non può essere aperto nell'applicazione
 Search Bar:
-  Clear Input: Cancella l'ingresso
+  Clear Input: Pulisci ricerca
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
-Downloading has completed: '$ è stato scaricato'
-Starting download: Sto iniziando a scaricare $
-Downloading failed: C'è stato un problema nello scaricamento di $
+Downloading has completed: 'Il download di "$" è terminato'
+Starting download: Avvio del download di "$"
+Downloading failed: Si è verificato un problema durante il download di "$"
 Screenshot Success: Cattura schermata salvato come «$»
 Screenshot Error: Cattura schermata fallito. $
 Age Restricted:
