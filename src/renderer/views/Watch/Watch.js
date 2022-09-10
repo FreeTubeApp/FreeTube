@@ -14,6 +14,7 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'Watch',
@@ -165,7 +166,7 @@ export default Vue.extend({
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
-      return this.$store.getters.getCurrentLocale
+      return i18n.locale.replace('_', '-')
     }
   },
   watch: {
@@ -412,14 +413,13 @@ export default Vue.extend({
 
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
-              const locale = this.currentLocale.replace('_', '-')
               const timestampOptions = {
                 month: 'long',
                 day: 'numeric',
                 hour: 'numeric',
                 minute: '2-digit'
               }
-              this.upcomingTimestamp = upcomingTimestamp.toLocaleString([locale, 'default'], timestampOptions)
+              this.upcomingTimestamp = upcomingTimestamp.toLocaleString(this.currentLocale, timestampOptions)
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
 
