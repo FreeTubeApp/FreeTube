@@ -419,7 +419,7 @@ export default Vue.extend({
                 hour: 'numeric',
                 minute: '2-digit'
               }
-              this.upcomingTimestamp = upcomingTimestamp.toLocaleString(this.currentLocale, timestampOptions)
+              this.upcomingTimestamp = Intl.DateTimeFormat(this.currentLocale, timestampOptions).format(upcomingTimestamp)
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
 
