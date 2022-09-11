@@ -116,7 +116,6 @@ export default Vue.extend({
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
       this.handleActionIconChange()
-      this.updateVisibleDataList()
       this.$emit('input', val)
     },
 
