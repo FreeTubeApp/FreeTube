@@ -14,11 +14,11 @@ addressed.
 
 ### Browser Extension
 
-FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extension, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings for it to work.
+FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings for it to work.
 
-Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
+* Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
 
-Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
+* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
 
 Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/desktop-browsers/#additional-resources).
 
@@ -50,25 +50,25 @@ Go to [FreeTube's Documentation](https://docs.freetubeapp.io/) if you'd like to 
 
 ### Official Downloads
 
-[GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
+* [GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
 
-[FreeTube Website](https://freetubeapp.io/#download)
+* [FreeTube Website](https://freetubeapp.io/#download)
 
-Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
+* Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
 
 ### Unofficial Downloads
 
 These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
 
-Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
+* Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 
-Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
+* Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
+* PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
-Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
+* Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
-Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
+* Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
 ### Automated Builds (Nightly / Weekly)
 
@@ -105,14 +105,15 @@ If you ever have any questions, feel free to make an issue here on GitHub.  Alte
 You can also stay up to date by reading the [FreeTube Blog](https://write.as/freetube/).  [View the welcome blog](https://write.as/freetube/welcome-to-freetube-blogs).
 
 ## Donate
+If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  
 
-[FreeTube on Liberapay](https://liberapay.com/FreeTube)
+* [FreeTube on Liberapay](https://liberapay.com/FreeTube)
 
-Bitcoin Address: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS
+* Bitcoin Address: `1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS`
 
-Monero Address: 48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB
+* Monero Address: `48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB`
 
-If you enjoy using FreeTube, you're welcome to leave a donation using the following methods.  While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
+While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
