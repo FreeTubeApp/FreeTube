@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 const { productName } = require('../package.json')
 
@@ -98,6 +100,14 @@ const config = {
         }
       },
     ],
+  },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new JsonMinimizerPlugin(),
+      new CssMinimizerPlugin()
+    ]
   },
   node: {
     __dirname: isDevMode,

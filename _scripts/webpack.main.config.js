@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
 const { productName } = require('../package.json')
 
@@ -29,6 +30,13 @@ const config = {
         loader: 'node-loader',
       },
     ],
+  },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new JsonMinimizerPlugin()
+    ]
   },
   node: {
     __dirname: isDevMode,
