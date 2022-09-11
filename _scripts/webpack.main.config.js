@@ -73,22 +73,6 @@ if (isDevMode) {
               ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
             },
           },
-          {
-            from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/_icons'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../src/renderer/assets/img'),
-            to: path.join(__dirname, '../dist/images'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
       ]
     })
   )
