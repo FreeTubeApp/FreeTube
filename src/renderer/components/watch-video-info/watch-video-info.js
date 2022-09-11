@@ -239,7 +239,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         return null
       }
-      return Intl.NumberFormat(this.currentLocale).format(this.viewCount.toString) + ` ${this.$t('Video.Views').toLowerCase()}`
+      return Intl.NumberFormat(this.currentLocale).format(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
     isSubscribed: function () {
