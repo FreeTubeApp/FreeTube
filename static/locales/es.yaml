@@ -3,7 +3,8 @@ Locale Name: 'Español'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección del aplicación no está lista. Regresa más tarde cuando hayamos progresado.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
+  hecho progresos.
 
 # Webkit Menu Bar
 File: 'Archivo'
