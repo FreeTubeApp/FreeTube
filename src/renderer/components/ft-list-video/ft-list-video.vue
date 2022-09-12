@@ -34,7 +34,7 @@
       <ft-icon-button
         v-if="externalPlayer !== ''"
         :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
-        icon="external-link-alt"
+        :icon="['fas', 'external-link-alt']"
         class="externalPlayerIcon"
         theme="base"
         :padding="appearance === `watchPlaylistItem` ? 6 : 7"
@@ -44,7 +44,7 @@
       <ft-icon-button
         v-if="!isLive"
         :title="$t('Video.Save Video')"
-        icon="star"
+        :icon="['fas', 'star']"
         class="favoritesIcon"
         :theme="favoriteIconTheme"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
@@ -66,13 +66,13 @@
     <div class="info">
       <ft-icon-button
         class="optionsButton"
+        :icon="['fas', 'ellipsis-v']"
         title="More Options"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"
         dropdown-position-x="left"
-        :dropdown-names="optionsNames"
-        :dropdown-values="optionsValues"
+        :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
       <router-link

@@ -31,8 +31,7 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataAvailable: false,
-      proxyTestUrl: 'https://api.ipify.org?format=json',
-      proxyTestUrl1: 'https://freegeoip.app/json/',
+      proxyTestUrl: 'https://ipwho.is/',
       proxyId: '',
       proxyCountry: '',
       proxyRegion: '',
@@ -125,11 +124,11 @@ export default Vue.extend({
       if (!this.useProxy) {
         this.enableProxy()
       }
-      $.getJSON(this.proxyTestUrl1, (response) => {
+      $.getJSON(this.proxyTestUrl, (response) => {
         console.log(response)
         this.proxyIp = response.ip
-        this.proxyCountry = response.country_name
-        this.proxyRegion = response.region_name
+        this.proxyCountry = response.country
+        this.proxyRegion = response.region
         this.proxyCity = response.city
         this.dataAvailable = true
       }).fail((xhr, textStatus, error) => {

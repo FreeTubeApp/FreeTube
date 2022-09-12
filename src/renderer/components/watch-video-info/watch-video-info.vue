@@ -34,6 +34,7 @@
               </div>
             </router-link>
             <ft-button
+              v-if="!hideUnsubscribeButton"
               :label="subscribedText"
               class="subscribeButton"
               background-color="var(--primary-color)"
@@ -59,7 +60,7 @@
           class="likeSection"
         >
           <div>
-            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ parsedLikeCount }}</span>
+            <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
           </div>
         </div>
       </div>
@@ -77,8 +78,8 @@
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
           />
           <div>
-            <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ parsedLikeCount }}</span>
-            <span class="dislikeCount"><font-awesome-icon icon="thumbs-down" /> {{ parsedDislikeCount }}</span>
+            <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
+            <span class="dislikeCount"><font-awesome-icon :icon="['fas', 'thumbs-down']" /> {{ parsedDislikeCount }}</span>
           </div>
         </div>
       </div>
@@ -87,7 +88,7 @@
         <ft-icon-button
           v-if="!isUpcoming"
           :title="$t('Video.Save Video')"
-          icon="star"
+          :icon="['fas', 'star']"
           class="option"
           :theme="favoriteIconTheme"
           @click="toggleSave"
@@ -95,33 +96,33 @@
         <ft-icon-button
           v-if="externalPlayer !== ''"
           :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
-          icon="external-link-alt"
+          :icon="['fas', 'external-link-alt']"
           class="option"
           theme="secondary"
           @click="handleExternalPlayer"
         />
         <ft-icon-button
           v-if="!isUpcoming && downloadLinks.length > 0"
+          ref="downloadButton"
           :title="$t('Video.Download Video')"
           class="option"
           theme="secondary"
-          icon="download"
+          :icon="['fas', 'download']"
           :return-index="true"
-          :dropdown-names="downloadLinkNames"
-          :dropdown-values="downloadLinkValues"
+          :dropdown-options="downloadLinkOptions"
           @click="handleDownload"
         />
         <ft-icon-button
           v-if="!isUpcoming"
-          :title="$t('Change Format.Change Video Formats')"
+          :title="$t('Change Format.Change Media Formats')"
           class="option"
           theme="secondary"
-          icon="file-video"
-          :dropdown-names="formatTypeNames"
-          :dropdown-values="formatTypeValues"
+          :icon="['fas', 'file-video']"
+          :dropdown-options="formatTypeOptions"
           @click="handleFormatChange"
         />
         <ft-share-button
+          v-if="!hideSharingActions"
           :id="id"
           :get-timestamp="getTimestamp"
           :playlist-id="playlistId"

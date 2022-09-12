@@ -3,33 +3,29 @@
   src: url(assets/font/Roboto-Regular.ttf);
 }
 
-body {
-  min-height: 100vh;
-}
-
 #app {
-  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  height: 100%;
 }
 
 .routerView {
-  margin-left: 200px;
-  margin-top: 80px;
-  transition-property: margin;
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-}
-
-.expand {
-  margin-left: 80px;
+  flex: 1 1 0%;
+  margin: 18px 10px;
 }
 
 .banner {
   width: 85%;
+  margin: 20px auto 0;
+}
+
+.banner-wrapper {
+  margin: 0 10px;
 }
 
 .flexBox {
-  margin-top: 60px;
-  margin-bottom: -75px;
+  display: block;
 }
 
 #changeLogText {
@@ -46,13 +42,13 @@ body {
 }
 
 @media only screen and (max-width: 680px) {
-  .expand, .routerView {
-    margin-left: 0px;
-    margin-bottom: 80px;
+  .routerView {
+    margin: 68px 8px 68px;
   }
 
   .banner {
-    width: 90%;
+    width: 80%;
+    margin-top: 20px;
   }
 
   .flexBox {

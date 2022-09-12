@@ -3,22 +3,21 @@
     ref="search"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && !errorMessage"
       :fullscreen="true"
     />
     <ft-card
-      v-else
-      class="card"
+      v-else-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      class="card channelDetails"
     >
-      <img
-        v-if="bannerUrl !== null"
-        class="channelBanner"
-        :src="bannerUrl"
-      >
-      <img
-        v-else
-        class="defaultChannelBanner"
-      >
+      <div
+        class="channelBannerContainer"
+        :class="{
+          default: !bannerUrl
+        }"
+        :style="{ '--banner-url': `url('${bannerUrl}')` }"
+      />
+
       <div
         class="channelInfoContainer"
       >
@@ -35,23 +34,25 @@
             <div
               class="channelLineContainer"
             >
-              <span
+              <h1
                 class="channelName"
               >
                 {{ channelName }}
-              </span>
-              <span
+              </h1>
+
+              <p
                 v-if="subCount !== null"
                 class="channelSubCount"
               >
                 {{ formattedSubCount }}
                 <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
                 <span v-else>{{ $t("Channel.Subscribers") }}</span>
-              </span>
+              </p>
             </div>
           </div>
 
           <ft-button
+            v-if="!hideUnsubscribeButton"
             :label="subscribedText"
             background-color="var(--primary-color)"
             text-color="var(--text-with-main-color)"
@@ -61,6 +62,7 @@
         </div>
 
         <ft-flex-box
+          v-if="!errorMessage"
           class="channelInfoTabs"
         >
           <div
@@ -112,7 +114,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading"
+      v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
@@ -138,10 +140,10 @@
           <ft-channel-bubble
             v-for="(channel, index) in relatedChannels"
             :key="index"
-            :channel-name="channel.author"
-            :channel-id="channel.authorId"
+            :channel-name="channel.author || channel.channelName"
+            :channel-id="channel.channelId"
             :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
-            @click="goToChannel(channel.authorId)"
+            @click="goToChannel(channel.channelId)"
           />
         </ft-flex-box>
       </div>
@@ -190,10 +192,23 @@
           class="getNextPage"
           @click="handleFetchMore"
         >
-          <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
     </ft-card>
+    <ft-card
+      v-if="errorMessage"
+      class="card"
+    >
+      <p>
+        {{ errorMessage }}
+      </p>
+    </ft-card>
+    <ft-age-restricted
+      v-else-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'Channel'"
+    />
   </div>
 </template>
 

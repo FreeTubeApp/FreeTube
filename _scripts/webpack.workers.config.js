@@ -15,7 +15,7 @@ const config = {
   mode: process.env.NODE_ENV,
   devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
-    workerSample: path.join(__dirname, '../src/utilities/workerSample.ts'),
+    workerSample: path.join(__dirname, '../src/utilities/workerSample.js'),
   },
   output: {
     libraryTarget: 'commonjs2',
@@ -26,7 +26,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
@@ -52,7 +52,7 @@ const config = {
       '@': path.join(__dirname, '../src/'),
       src: path.join(__dirname, '../src/'),
     },
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.js', '.json'],
   },
   target: 'node',
 }
@@ -63,11 +63,7 @@ const config = {
 if (isDevMode) {
   // any dev only config
 } else {
-  config.plugins.push(
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    })
-  )
+  // any producation only config
 }
 
 module.exports = config

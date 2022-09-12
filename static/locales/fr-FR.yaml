@@ -29,7 +29,7 @@ Back: 'Retour'
 Forward: 'Avancer'
 
 # Search Bar
-Search / Go to URL: 'Rechercher / Aller à l''URL'
+Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de recherche'
@@ -80,6 +80,7 @@ Subscriptions:
     profil comporte un grand nombre d'abonnements.  Le flux RSS outrepassera la limite
     fixée
   Load More Videos: Charger plus de vidéos
+  Error Channels: Chaînes avec des erreurs
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -99,12 +100,16 @@ User Playlists:
     Une fois le travail terminé, toutes les vidéos actuellement présentes ici seront
     migrées vers une liste de lecture « Favoris ».
   Search bar placeholder: Recherche dans la liste de lecture
+  Empty Search Message: Il n'y a pas de vidéos dans cette liste de lecture qui correspondent
+    à votre recherche
 History:
   # On History Page
   History: 'Historique'
   Watch History: 'Historique de visionnage'
   Your history list is currently empty.: 'Votre historique est vide.'
   Search bar placeholder: "Recherche dans l'historique"
+  Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent
+    à votre recherche
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
@@ -162,6 +167,8 @@ Settings:
       Dark: 'Sombre'
       Light: 'Clair'
       Dracula: 'Dracula'
+      System Default: Paramètres système
+      Catppuccin Mocha: Catppuccin Moka
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -187,6 +194,20 @@ Settings:
       Dracula Purple: 'Dracula Violet'
       Dracula Red: 'Dracula Rouge'
       Dracula Yellow: 'Dracula Jaune'
+      Catppuccin Mocha Flamingo: Catppuccin Moka Flamant Rose
+      Catppuccin Mocha Pink: Catppuccin Moka Rose
+      Catppuccin Mocha Rosewater: Catppuccin Moka Eau de Rose
+      Catppuccin Mocha Mauve: Catppuccin Moka Mauve
+      Catppuccin Mocha Red: Catppuccin Moka Rouge
+      Catppuccin Mocha Green: Catppuccin moka vert
+      Catppuccin Mocha Blue: Catppuccin moka bleu
+      Catppuccin Mocha Maroon: Catpuccin moka marron
+      Catppuccin Mocha Peach: Catpuccin moka pêche
+      Catppuccin Mocha Yellow: Catppuccin moka jaune
+      Catppuccin Mocha Sky: Catppuccin moka ciel
+      Catppuccin Mocha Sapphire: Catppuccin moka saphir
+      Catppuccin Mocha Lavender: Catppuccin moka lavande
+      Catppuccin Mocha Teal: Catppuccin moka bleu sarcelle
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -233,6 +254,24 @@ Settings:
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
     Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
       lecteur vidéo
+    Video Playback Rate Interval: Intervalle de débit de lecture vidéo
+    Max Video Playback Rate: Débit de lecture vidéo maximal
+    Screenshot:
+      Enable: Activer les captures d'écran
+      Ask Path: Demander le dossier de sauvegarde
+      Folder Button: Sélectionner un dossier
+      Error:
+        Forbidden Characters: Caractères interdits
+        Empty File Name: Nom de fichier vide
+      File Name Tooltip: Vous pouvez utiliser les variables suivantes. %Y Année 4
+        chiffres. %M Mois 2 chiffres. %D Jour 2 chiffres. %H Heure 2 chiffres. %N
+        Minute 2 chiffres. %S Second 2 chiffres. %T Milliseconde 3 chiffres. %s Video
+        Second. %t Milliseconde vidéo 3 chiffres. %i Video ID. Vous pouvez également
+        utiliser \ ou / pour créer des sous-dossiers.
+      Quality Label: Qualité des captures d'écran
+      Format Label: Format des captures d'écran
+      File Name Label: Modèle de nom de fichier
+      Folder Label: Dossier de capture d'écran
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -331,6 +370,14 @@ Settings:
       n'ont pas pu être importés
     Check for Legacy Subscriptions: Vérifier les abonnements Legacy
     Manage Subscriptions: Gérer les abonnements
+    Import Playlists: Importer des listes de lecture
+    Export Playlists: Exporter des listes de lecture
+    Playlist insufficient data: Données insuffisantes pour la liste de lecture « $ »,
+      saut de l'élément
+    All playlists has been successfully imported: Toutes les listes de lecture ont
+      été importées avec succès
+    All playlists has been successfully exported: Toutes les listes de lecture ont
+      été exportées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J'aime et Je n'aime pas des vidéos
     Hide Comment Likes: Masquer les J'aime dans les commentaires
@@ -343,6 +390,10 @@ Settings:
     Distraction Free Settings: Mode sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
     Hide Playlists: Masquer les listes de lecture
+    Hide Video Description: Masquer la description de la vidéo
+    Hide Comments: Masquer les commentaires
+    Hide Live Streams: Masquer les flux en direct
+    Hide Sharing Actions: Masquer les actions de partage
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -370,6 +421,13 @@ Settings:
       (la valeur par défaut est https://sponsor.ajay.app)
     Enable SponsorBlock: Activer SponsorBlock
     SponsorBlock Settings: Paramètres de SponsorBlock
+    Skip Options:
+      Skip Option: Ignorer l'option
+      Auto Skip: Ignorer automatiquement
+      Show In Seek Bar: Afficher dans la barre de recherche
+      Prompt To Skip: Inviter à ignorer
+      Do Nothing: Ne rien faire
+    Category Color: Couleur de la catégorie
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les
       actions non prises en charge
@@ -377,10 +435,21 @@ Settings:
     External Player Settings: Paramètres du lecteur externe
     Custom External Player Arguments: Arguments personnalisés du lecteur externe
     Custom External Player Executable: Exécutable de lecteur externe personnalisé
+    Players:
+      None:
+        Name: Aucun
   Download Settings:
     Download Settings: 'Paramètres de téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
     Choose Path: 'Choisir l''emplacement'
+    Download Behavior: Comportement de téléchargement
+    Download in app: Télécharger dans l'appli
+    Open in web browser: Ouvrir dans le navigateur web
+  Parental Control Settings:
+    Hide Unsubscribe Button: Masquer le bouton de désabonnement
+    Hide Search Bar: Masquer la barre de recherche
+    Parental Control Settings: Paramètres du contrôle parental
+    Show Family Friendly Only: Afficher uniquement le contenu familial
 About:
   #On About page
   About: 'À propos'
@@ -542,6 +611,7 @@ Video:
     Upcoming: 'Avant-première le'
     Minutes: minutes
     Minute: minute
+    Less than a minute: Moins d'une minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a $ %'
@@ -574,12 +644,14 @@ Video:
   Save Video: Enregistrer la vidéo
   translated from English: traduit de l'anglais
   Sponsor Block category:
-    music offtopic: musique hors sujet
-    interaction: interaction
-    sponsor: sponsor
-    self-promotion: autopromotion
-    outro: outro
-    intro: intro
+    music offtopic: Musique hors sujet
+    interaction: Interaction
+    sponsor: Sponsor
+    self-promotion: Autopromotion
+    outro: Conclusion
+    intro: Intro
+    filler: Bouche-trou
+    recap: Récap
   Skipped segment: Segment ignoré
   External Player:
     playlist: liste de lecture
@@ -606,7 +678,19 @@ Video:
     bandwidth: "Vitesse de connexion"
     buffered: "En tampon"
     out of: "sur"
+    Player Dimensions: Dimensions du lecteur
+    Bitrate: Débit binaire
+    Volume: Volume
+    Mimetype: Type de médias
+    Video statistics are not available for legacy videos: Les statistiques vidéo ne
+      sont pas disponibles pour les anciennes vidéos
+    Resolution: Résolution
+    Bandwidth: Bande passante
+    Video ID: Identifiant vidéo
+    Buffered: En mémoire tampon
+    Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
+  Premieres in: Première en
 Videos:
   #& Sort By
   Sort By:
@@ -634,7 +718,7 @@ Playlist:
   Playlist: Liste de lecture
 Toggle Theatre Mode: 'Mode Cinéma'
 Change Format:
-  Change Video Formats: 'Changer le format de la vidéo'
+  Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
   Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format Audio'
@@ -685,6 +769,7 @@ Comments:
   From $channelName: de $channelName
   Pinned by: Épinglé par
   And others: et d'autres
+  Member: Membre
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -708,7 +793,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français
+Locale Name: français
 Profile:
   $ is now the active profile: $ est maintenant le profil actif
   Your default profile has been changed to your primary profile: Votre profil par
@@ -732,7 +817,7 @@ Profile:
   Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
-  All Channels: Tous les canaux
+  All Channels: Tous les chaînes
   Profile Select: Sélection du profil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous
     sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas
@@ -819,7 +904,7 @@ Tooltips:
       un chemin personnalisé peut être défini ici.
     External Player: La sélection du lecteur externe affichera une icône sur la miniature
       qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
-      externe.
+      externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
     DefaultCustomArgumentsTemplate: '(Par défaut : « $ »)'
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
@@ -846,3 +931,20 @@ Downloading failed: 'Il y a eu un problème lors du téléchargement de $'
 Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
 Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas.
   Mode sans répertoire activé.'
+Screenshot Success: Capture d'écran enregistrée sous « $ »
+Screenshot Error: La capture d'écran a échoué. $
+New Window: Nouvelle fenêtre
+Age Restricted:
+  Type:
+    Video: Vidéo
+    Channel: Chaîne
+  This $contentType is age restricted: Ce $ est soumis à une limite d'âge
+Channels:
+  Channels: Chaînes
+  Title: Liste des chaînes
+  Empty: Votre liste de chaînes est actuellement vide.
+  Unsubscribe: Se désabonner
+  Search bar placeholder: Rechercher des chaînes
+  Count: $ chaîne(s) trouvée(s).
+  Unsubscribed: $ a été supprimé de vos abonnements
+  Unsubscribe Prompt: Êtes-vous sûr·e de vouloir vous désabonner de « $ » ?

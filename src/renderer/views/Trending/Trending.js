@@ -7,7 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import $ from 'jquery'
-import ytrend from 'yt-trending-scraper'
+import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
 
 export default Vue.extend({
   name: 'Trending',
@@ -53,7 +53,7 @@ export default Vue.extend({
   },
   mounted: function () {
     if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
-      this.shownResults = this.trendingCache
+      this.getTrendingInfoCache()
     } else {
       this.getTrendingInfo()
     }
@@ -92,7 +92,11 @@ export default Vue.extend({
       currentTabNode.attr('aria-selected', 'false')
       newTabNode.attr('aria-selected', 'true')
       this.currentTab = tab
-      this.getTrendingInfo()
+      if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
+        this.getTrendingInfoCache()
+      } else {
+        this.getTrendingInfo()
+      }
     },
 
     getTrendingInfo () {
@@ -120,14 +124,15 @@ export default Vue.extend({
         geoLocation: this.region
       }
 
-      ytrend.scrape_trending_page(param).then((result) => {
+      scrapeTrendingPage(param).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults, this.currentTab)
+        const currentTab = this.currentTab
+        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
@@ -148,6 +153,14 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
+      })
+    },
+
+    getTrendingInfoCache: function() {
+      this.isLoading = true
+      setTimeout(() => {
+        this.shownResults = this.trendingCache[this.currentTab]
+        this.isLoading = false
       })
     },
 
@@ -177,7 +190,8 @@ export default Vue.extend({
 
         this.shownResults = returnData
         this.isLoading = false
-        this.$store.commit('setTrendingCache', this.shownResults, this.trendingCache)
+        const currentTab = this.currentTab
+        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {

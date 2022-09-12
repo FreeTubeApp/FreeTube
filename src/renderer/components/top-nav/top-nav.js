@@ -32,16 +32,20 @@ export default Vue.extend({
       return this.$store.getters.getUsingElectron
     },
 
+    hideSearchBar: function () {
+      return this.$store.getters.getHideSearchBar
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
 
-    searchSettings: function () {
-      return this.$store.getters.getSearchSettings
+    searchInput: function () {
+      return this.$refs.searchInput.$refs.input
     },
 
-    isSideNavOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
+    searchSettings: function () {
+      return this.$store.getters.getSearchSettings
     },
 
     barColor: function () {
@@ -60,12 +64,16 @@ export default Vue.extend({
       return this.$store.getters.getBackendPreference
     },
 
+    expandSideBar: function () {
+      return this.$store.getters.getExpandSideBar
+    },
+
     forwardText: function () {
       return this.$t('Forward')
     },
 
     backwardText: function () {
-      return this.$t('Backward')
+      return this.$t('Back')
     },
 
     newWindowText: function () {
@@ -80,9 +88,12 @@ export default Vue.extend({
       searchContainer.style.display = 'none'
     }
 
-    if (localStorage.getItem('expandSideBar') === 'true') {
-      this.toggleSideNav()
-    }
+    // Store is not up-to-date when the component mounts, so we use timeout.
+    setTimeout(() => {
+      if (this.expandSideBar) {
+        this.toggleSideNav()
+      }
+    }, 0)
 
     window.addEventListener('resize', function (event) {
       const width = event.srcElement.innerWidth
@@ -98,8 +109,9 @@ export default Vue.extend({
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
-    goToSearch: async function (query) {
+    goToSearch: async function (query, { event }) {
       const appWidth = $(window).width()
+      const doCreateNewWindow = event && event.shiftKey
 
       if (appWidth <= 680) {
         const searchContainer = $('.searchContainer').get(0)
@@ -122,9 +134,10 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            this.$router.push({
+            this.openInternalPath({
               path: `/watch/${videoId}`,
-              query: query
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -142,9 +155,10 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            this.$router.push({
+            this.openInternalPath({
               path: `/search/${encodeURIComponent(searchQuery)}`,
-              query
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -163,24 +177,27 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, idType, subPath } = result
 
-            this.$router.push({
-              path: `/channel/${channelId}/${subPath}`
+            this.openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
+              query: { idType },
+              doCreateNewWindow
             })
             break
           }
 
           case 'invalid_url':
           default: {
-            this.$router.push({
+            this.openInternalPath({
               path: `/search/${encodeURIComponent(query)}`,
               query: {
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
                 duration: this.searchSettings.duration
-              }
+              },
+              doCreateNewWindow
             })
           }
         }
@@ -188,6 +205,10 @@ export default Vue.extend({
 
       // Close the filter panel
       this.showFilters = false
+    },
+
+    focusSearch: function () {
+      this.searchInput.focus()
     },
 
     getSearchSuggestionsDebounce: function (query) {
@@ -300,6 +321,27 @@ export default Vue.extend({
 
     toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
+    },
+
+    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
+      if (this.usingElectron && doCreateNewWindow) {
+        const { ipcRenderer } = require('electron')
+
+        // Combine current document path and new "hash" as new window startup URL
+        const newWindowStartupURL = [
+          window.location.href.split('#')[0],
+          `#${path}?${(new URLSearchParams(query)).toString()}`
+        ].join('')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+          windowStartupUrl: newWindowStartupURL
+        })
+      } else {
+        // Web
+        this.$router.push({
+          path,
+          query
+        })
+      }
     },
 
     createNewWindow: function () {

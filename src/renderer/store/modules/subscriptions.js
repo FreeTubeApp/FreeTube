@@ -4,7 +4,8 @@ const state = {
   allSubscriptionsList: [],
   profileSubscriptions: {
     activeProfile: MAIN_PROFILE_ID,
-    videoList: []
+    videoList: [],
+    errorChannels: []
   }
 }
 

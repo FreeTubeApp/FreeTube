@@ -18,7 +18,7 @@
         class="getNextPage"
         @click="nextPage"
       >
-        <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+        <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
       </div>
     </ft-card>
   </div>

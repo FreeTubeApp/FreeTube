@@ -50,7 +50,7 @@
 }
 
 .pure-material-slider > input:disabled + span {
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    opacity: 0.38;
 }
 
 /* Webkit | Track */

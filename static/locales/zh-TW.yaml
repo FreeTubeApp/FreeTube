@@ -67,13 +67,14 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   Latest Subscriptions: '最新訂閱'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始添加訂閱。'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。在這裡開始新增訂閱。'
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
+  Error Channels: 有錯誤的頻道
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -88,12 +89,14 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 您播放清單的影片是空的。點擊影片角落的星星按鈕以將其列在此處
   Playlist Message: 此頁面無法列出完整的播放清單。其僅列出您已儲存或加入最愛的影片。工作完成後，所有目前在此的影片都會轉移到「最愛」播放清單。
   Search bar placeholder: 在播放清單搜尋
+  Empty Search Message: 此播放清單中沒有與您的搜尋相符的影片
 History:
   # On History Page
   History: '觀看紀錄'
   Watch History: '觀看紀錄'
   Your history list is currently empty.: 尚未觀賞過任何影片，因此觀看紀錄清單為空。
   Search bar placeholder: 在觀看紀錄中搜尋
+  Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -105,7 +108,7 @@ Settings:
     Locale Preference: '介面語言'
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
-      Local API: '區域API'
+      Local API: '本機 API'
       Invidious API: 'Invidious API(應用程式介面)'
     Video View Type:
       Video View Type: '影片觀看類別'
@@ -145,6 +148,8 @@ Settings:
       Dark: '深色'
       Light: '淺色'
       Dracula: '德古拉'
+      System Default: 系統預設值
+      Catppuccin Mocha: 卡布奇諾摩卡
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -164,12 +169,26 @@ Settings:
       Orange: '橙'
       Deep Orange: '深橙'
       Dracula Cyan: '德古拉 青'
-      Dracula Green: '德古拉 绿'
+      Dracula Green: '德古拉 綠'
       Dracula Orange: '德古拉 橙'
       Dracula Pink: '德古拉 粉'
       Dracula Purple: '德古拉 紫'
       Dracula Red: '德古拉 红'
       Dracula Yellow: '德古拉 黄'
+      Catppuccin Mocha Yellow: 卡布奇諾摩卡黃色
+      Catppuccin Mocha Green: 卡布奇諾摩卡綠色
+      Catppuccin Mocha Flamingo: 卡布奇諾摩卡紅鶴
+      Catppuccin Mocha Teal: 卡布奇諾摩卡藍綠色
+      Catppuccin Mocha Rosewater: 卡布奇諾摩卡玫瑰水
+      Catppuccin Mocha Lavender: 卡布奇諾摩卡薰衣草色
+      Catppuccin Mocha Blue: 卡布奇諾摩卡藍色
+      Catppuccin Mocha Pink: 卡布奇諾摩卡粉紅
+      Catppuccin Mocha Red: 卡布奇諾摩卡紅色
+      Catppuccin Mocha Mauve: 卡布奇諾摩卡紫紅色
+      Catppuccin Mocha Maroon: 卡布奇諾摩卡褐紅色
+      Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
+      Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
+      Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -211,6 +230,22 @@ Settings:
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
     Fast-Forward / Rewind Interval: 快轉／倒帶間隔
     Scroll Playback Rate Over Video Player: 在影片播放程式上捲動播放速度
+    Max Video Playback Rate: 最大影片播放速率
+    Video Playback Rate Interval: 影片播放速率間隔
+    Screenshot:
+      Enable: 啟用螢幕截圖
+      Format Label: 螢幕截圖格式
+      Quality Label: 螢幕截圖品質
+      Folder Button: 選取資料夾
+      File Name Label: 檔案名稱模式
+      Error:
+        Forbidden Characters: 禁止的字元
+        Empty File Name: 空的檔案名稱
+      Ask Path: 詢問儲存的資料夾
+      Folder Label: 螢幕截圖資料夾
+      File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N
+        為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。您也可以使用 "\"
+        或 "/" 來建立子資料夾。
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -290,6 +325,11 @@ Settings:
     One or more subscriptions were unable to be imported: 一個或者更多訂閱無法被匯入
     Check for Legacy Subscriptions: 檢查舊版訂閱
     Manage Subscriptions: 管理訂閱
+    Import Playlists: 匯入播放清單
+    All playlists has been successfully imported: 所有播放清單都已成功匯入
+    Export Playlists: 匯出播放清單
+    Playlist insufficient data: 「$」播放清單的資料不足，正在略過項目
+    All playlists has been successfully exported: 所有播放清單都已成功匯出
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾設定
@@ -302,6 +342,10 @@ Settings:
     Hide Channel Subscribers: 隱藏頻道訂閱者
     Hide Active Subscriptions: 隱藏作用中的訂閱
     Hide Playlists: 隱藏播放清單
+    Hide Video Description: 隱藏影片描述
+    Hide Comments: 隱藏留言
+    Hide Live Streams: 隱藏直播串流
+    Hide Sharing Actions: 隱藏分享動作
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -323,12 +367,34 @@ Settings:
       網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
     SponsorBlock Settings: SponsorBlock 設定
+    Skip Options:
+      Skip Option: 略過選項
+      Auto Skip: 自動略過
+      Show In Seek Bar: 在進度列中顯示
+      Prompt To Skip: 提示略過
+      Do Nothing: 不要做任何事
+    Category Color: 分類色彩
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
     Ignore Unsupported Action Warnings: 忽略不支援的動作警告
     External Player: 外部播放程式
     External Player Settings: 外部播放程式設定
+    Players:
+      None:
+        Name: 無
+  Download Settings:
+    Download Settings: 下載設定
+    Ask Download Path: 詢問下載路徑
+    Choose Path: 選擇路徑
+    Download in app: 在應用程式中下載
+    Open in web browser: 在網路瀏覽器中開啟
+    Download Behavior: 下載行為
+  Parental Control Settings:
+    Hide Unsubscribe Button: 隱藏取消訂閱按鈕
+    Show Family Friendly Only: 僅顯示適合家庭觀看
+    Hide Search Bar: 隱藏搜尋列
+    Parental Control Settings: 家長控制設定
 About:
   #On About page
   About: '關於'
@@ -467,6 +533,7 @@ Video:
     Upcoming: '首播於'
     Minutes: 分鐘
     Minute: 分鐘
+    Less than a minute: 少於一分鐘
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -507,6 +574,8 @@ Video:
     outro: 其他
     intro: 介紹
     sponsor: 贊助商
+    recap: 回顧
+    filler: 填充
   Skipped segment: 已跳過的片段
   External Player:
     Unsupported Actions:
@@ -532,6 +601,17 @@ Video:
     fps: FPS
     frame drop: 丟棄畫面
     bandwidth: 連線速度
+    Resolution: 解析度
+    Player Dimensions: 播放器大小
+    Bitrate: 位元率
+    Volume: 音量
+    Bandwidth: 頻寬
+    Buffered: 已緩衝
+    Dropped / Total Frames: 丟棄／總畫面數
+    Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
+    Video ID: 影片 ID
+    Mimetype: 多媒體類型
+  Premieres in: 首映於
 Videos:
   #& Sort By
   Sort By:
@@ -559,7 +639,7 @@ Playlist:
   Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
-  Change Video Formats: '變更影片格式'
+  Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
@@ -602,6 +682,7 @@ Comments:
   And others: 與其他人
   From $channelName: 來自 $channelName
   Pinned by: 釘選由
+  Member: 成員
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -692,7 +773,8 @@ Tooltips:
     Custom External Player Arguments: 任何您想要傳遞給外部播放程式的自訂命令列參數，以半形冒號分隔 (';')。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
-    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
+      設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'$'）
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
@@ -706,3 +788,23 @@ Search Bar:
   Clear Input: 清除輸入
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
+Downloading failed: 下載「$」時發生問題
+Downloading has completed: 「$」已下載結束
+Starting download: 正在開始下載「$」
+Screenshot Success: 已儲存螢幕截圖為 "$"
+Screenshot Error: 螢幕截圖失敗。 $
+New Window: 新視窗
+Age Restricted:
+  This $contentType is age restricted: 此 $ 有年齡限制
+  Type:
+    Channel: 頻道
+    Video: 影片
+Channels:
+  Channels: 頻道
+  Title: 頻道清單
+  Search bar placeholder: 搜尋頻道
+  Unsubscribe: 取消訂閱
+  Count: 找到 $ 個頻道。
+  Empty: 您的頻道清單目前為空。
+  Unsubscribe Prompt: 您確定您想要從「$」取消訂閱嗎？
+  Unsubscribed: $ 已從您的訂閱移除

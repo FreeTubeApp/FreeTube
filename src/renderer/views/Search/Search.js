@@ -4,7 +4,7 @@ import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import ytTrendScraper from 'yt-trending-scraper'
+import { calculateLengthInSeconds } from '@freetube/yt-trending-scraper/src/HtmlParser'
 
 export default Vue.extend({
   name: 'Search',
@@ -37,6 +37,13 @@ export default Vue.extend({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+    showFamilyFriendlyOnly: function() {
+      return this.$store.getters.getShowFamilyFriendlyOnly
     }
   },
   watch: {
@@ -94,6 +101,7 @@ export default Vue.extend({
 
       if (sameSearch.length > 0) {
         console.log(sameSearch)
+
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.
@@ -117,6 +125,8 @@ export default Vue.extend({
         this.isLoading = true
         payload.options.pages = 1
       }
+
+      payload.options.safeSearch = this.showFamilyFriendlyOnly
 
       this.ytSearch(payload).then((result) => {
         console.log(result)
@@ -144,7 +154,7 @@ export default Vue.extend({
             let videoDuration = video.duration
             const videoId = video.id
             if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
-              videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
+              videoDuration = calculateLengthInSeconds(video.duration)
             }
             dataToShow.push(
               {

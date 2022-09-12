@@ -19,7 +19,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="rss"
+            :icon="['fas', 'rss']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -30,6 +30,30 @@
           class="navLabel"
         >
           {{ $t("Subscriptions.Subscriptions") }}
+        </p>
+      </div>
+      <div
+        class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
+        :title="$t('Channels.Channels')"
+        @click="navigate('subscribedchannels')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'list']"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t("Channels.Channels") }}
         </p>
       </div>
       <div
@@ -45,7 +69,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="fire"
+            :icon="['fas', 'fire']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -71,7 +95,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="users"
+            :icon="['fas', 'users']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -97,7 +121,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="bookmark"
+            :icon="['fas', 'bookmark']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -125,7 +149,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="history"
+            :icon="['fas', 'history']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -151,7 +175,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="sliders-h"
+            :icon="['fas', 'sliders-h']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -176,7 +200,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="info-circle"
+            :icon="['fas', 'info-circle']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width

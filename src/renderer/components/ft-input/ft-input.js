@@ -67,7 +67,7 @@ export default Vue.extend({
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
-      actionButtonIconName: 'search'
+      actionButtonIconName: ['fas', 'search']
     }
   },
   computed: {
@@ -87,28 +87,6 @@ export default Vue.extend({
       return this.inputData.length > 0
     }
   },
-  watch: {
-    inputDataPresent: function (newVal, oldVal) {
-      if (newVal) {
-        // The button needs to be visible **immediately**
-        // To allow user to see the transition
-        this.clearTextButtonExisting = true
-        // The transition is not rendered if this property is set right after
-        // It's visible
-        setTimeout(() => {
-          this.clearTextButtonVisible = true
-        }, 0)
-      } else {
-        // Hide the button with transition
-        this.clearTextButtonVisible = false
-        // Remove the button after the transition
-        // 0.2s in CSS = 200ms in JS
-        setTimeout(() => {
-          this.clearTextButtonExisting = false
-        }, 200)
-      }
-    }
-  },
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
@@ -117,13 +95,13 @@ export default Vue.extend({
     setTimeout(this.addListener, 200)
   },
   methods: {
-    handleClick: function () {
+    handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) { return }
 
       this.searchState.showOptions = false
       this.$emit('input', this.inputData)
-      this.$emit('click', this.inputData)
+      this.$emit('click', this.inputData, { event: e })
     },
 
     handleInput: function (val) {
@@ -136,14 +114,20 @@ export default Vue.extend({
     },
 
     handleClearTextClick: function () {
+      // No action if no input text
+      if (!this.inputDataPresent) { return }
+
       this.inputData = ''
       this.handleActionIconChange()
       this.updateVisibleDataList()
-      this.$emit('input', this.inputData)
+
+      const inputElement = document.getElementById(this.id)
+      inputElement.value = ''
 
       // Focus on input element after text is clear for better UX
-      const inputElement = document.getElementById(this.id)
       inputElement.focus()
+
+      this.$emit('clear')
     },
 
     handleActionIconChange: function() {
@@ -152,7 +136,7 @@ export default Vue.extend({
 
       if (!this.inputDataPresent) {
         // Change back to default icon if text is blank
-        this.actionButtonIconName = 'search'
+        this.actionButtonIconName = ['fas', 'search']
         return
       }
 
@@ -181,15 +165,15 @@ export default Vue.extend({
 
           if (isYoutubeLink) {
             // Go to URL (i.e. Video/Playlist/Channel
-            this.actionButtonIconName = 'arrow-right'
+            this.actionButtonIconName = ['fas', 'arrow-right']
           } else {
             // Search with text
-            this.actionButtonIconName = 'search'
+            this.actionButtonIconName = ['fas', 'search']
           }
         })
       } catch (ex) {
         // On exception, consider text as invalid URL
-        this.actionButtonIconName = 'search'
+        this.actionButtonIconName = ['fas', 'search']
         // Rethrow exception
         throw ex
       }
@@ -200,8 +184,8 @@ export default Vue.extend({
 
       if (inputElement !== null) {
         inputElement.addEventListener('keydown', (event) => {
-          if (event.keyCode === 13) {
-            this.handleClick()
+          if (event.key === 'Enter') {
+            this.handleClick(event)
           }
         })
       }
@@ -214,14 +198,14 @@ export default Vue.extend({
       this.handleClick()
     },
 
-    handleKeyDown: function (keyCode) {
-      if (this.dataList.length === 0) { return }
+    handleKeyDown: function (event) {
+      if (this.visibleDataList.length === 0) { return }
       // Update selectedOption based on arrow key pressed
-      if (keyCode === 40) {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.dataList.length
-      } else if (keyCode === 38) {
-        if (this.searchState.selectedOption === -1) {
-          this.searchState.selectedOption = this.dataList.length - 1
+      if (event.key === 'ArrowDown') {
+        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+      } else if (event.key === 'ArrowUp') {
+        if (this.searchState.selectedOption < 1) {
+          this.searchState.selectedOption = this.visibleDataList.length - 1
         } else {
           this.searchState.selectedOption--
         }
@@ -230,14 +214,13 @@ export default Vue.extend({
       }
 
       // Key pressed isn't enter
-      if (keyCode !== 13) {
+      if (event.key !== 'Enter') {
         this.searchState.showOptions = true
       }
       // Update Input box value if arrow keys were pressed
-      if ((keyCode === 40 || keyCode === 38) && this.searchState.selectedOption !== -1) {
+      if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.searchState.selectedOption !== -1) {
+        event.preventDefault()
         this.inputData = this.visibleDataList[this.searchState.selectedOption]
-      } else {
-        this.updateVisibleDataList()
       }
     },
 

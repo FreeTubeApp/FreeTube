@@ -52,7 +52,7 @@
           class="commentPinned"
         >
           <font-awesome-icon
-            icon="thumbtack"
+            :icon="['fas', 'thumbtack']"
           />
           {{ $t("Comments.Pinned by") }} {{ channelName }}
         </p>
@@ -68,6 +68,14 @@
           >
             {{ comment.author }}
           </span>
+          <img
+            v-if="comment.isMember"
+            :src="comment.memberIconUrl"
+            :title="$t('Comments.Member')"
+            :aria-label="$t('Comments.Member')"
+            class="commentMemberIcon"
+            alt=""
+          >
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -80,7 +88,7 @@
         <p class="commentLikeCount">
           <font-awesome-icon
             v-if="!hideCommentLikes"
-            icon="thumbs-up"
+            :icon="['fas', 'thumbs-up']"
           />
           {{ comment.likes }}
           <span
@@ -92,11 +100,11 @@
               class="commentHeartBadgeImg"
             >
             <font-awesome-icon
-              icon="heart"
+              :icon="['fas', 'heart']"
               class="commentHeartBadgeWhite"
             />
             <font-awesome-icon
-              icon="heart"
+              :icon="['fas', 'heart']"
               class="commentHeartBadgeRed"
             />
           </span>
@@ -137,6 +145,12 @@
               >
                 {{ reply.author }}
               </span>
+              <img
+                v-if="reply.isMember"
+                :src="reply.memberIconUrl"
+                class="commentMemberIcon"
+                alt=""
+              >
               <span class="commentDate">
                 {{ reply.time }}
               </span>
@@ -149,7 +163,7 @@
             <p class="commentLikeCount">
               <font-awesome-icon
                 v-if="!hideCommentLikes"
-                icon="thumbs-up"
+                :icon="['fas', 'thumbs-up']"
               />
               {{ reply.likes }}
             </p>
@@ -161,7 +175,7 @@
             </p>
           </div>
           <div
-            v-if="comment.replies.length < comment.numReplies"
+            v-if="comment.replyToken !== null"
             class="showMoreReplies"
             @click="getCommentReplies(index)"
           >

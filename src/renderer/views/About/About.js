@@ -22,32 +22,32 @@ export default Vue.extend({
           content: `<a href="https://github.com/FreeTubeApp/FreeTube">GitHub: FreeTubeApp/FreeTube</a><br>${this.$t('About.Licensed under the AGPLv3')} <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${this.$t('About.View License')}</a>`
         },
         {
-          icon: 'file-download',
+          icon: ['fas', 'file-download'],
           title: this.$t('About.Downloads / Changelog'),
           content: `<a href="https://github.com/FreeTubeApp/FreeTube/releases">${this.$t('About.GitHub releases')}</a>`
         },
         {
-          icon: 'question-circle',
+          icon: ['fas', 'question-circle'],
           title: this.$t('About.Help'),
           content: `<a href="https://docs.freetubeapp.io/">${this.$t('About.FreeTube Wiki')}</a> / <a href="https://docs.freetubeapp.io/faq/">${this.$t('About.FAQ')}</a>`
         },
         {
-          icon: 'exclamation-circle',
+          icon: ['fas', 'exclamation-circle'],
           title: this.$t('About.Report a problem'),
           content: `<a href="https://github.com/FreeTubeApp/FreeTube/issues">${this.$t('About.GitHub issues')}</a><br>${this.$t('About.Please check for duplicates before posting')}`
         },
         {
-          icon: 'globe',
+          icon: ['fas', 'globe'],
           title: this.$t('About.Website'),
           content: '<a href="https://freetubeapp.io/">https://freetubeapp.io/</a>'
         },
         {
-          icon: 'newspaper',
+          icon: ['fas', 'newspaper'],
           title: this.$t('About.Blog'),
           content: '<a href="https://blog.freetubeapp.io">https://blog.freetubeapp.io</a>'
         },
         {
-          icon: 'envelope',
+          icon: ['fas', 'envelope'],
           title: this.$t('About.Email'),
           content: '<a href="mailto:FreeTubeApp@protonmail.com">FreeTubeApp@protonmail.com</a>'
         },
@@ -57,22 +57,22 @@ export default Vue.extend({
           content: '<a href="https://mastodon.technology/@FreeTube">@FreeTube@mastodon.technology</a>'
         },
         {
-          icon: 'comment-dots',
+          icon: ['fas', 'comment-dots'],
           title: this.$t('About.Chat on Matrix'),
           content: `<a href="https://matrix.to/#/#freetube:matrix.org?via=matrix.org&via=privacytools.io&via=tchncs.de">#freetube:matrix.org</a><br>${this.$t('About.Please read the')} <a href="https://docs.freetubeapp.io/community/matrix/">${this.$t('About.room rules')}</a>`
         },
         {
-          icon: 'language',
+          icon: ['fas', 'language'],
           title: this.$t('About.Translate'),
           content: '<a href="https://hosted.weblate.org/engage/free-tube/">https://hosted.weblate.org/engage/free-tube/</a>'
         },
         {
-          icon: 'users',
+          icon: ['fas', 'users'],
           title: this.$t('About.Credits'),
           content: `${this.$t('About.FreeTube is made possible by')} <a href="https://docs.freetubeapp.io/credits/">${this.$t('About.these people and projects')}</a>`
         },
         {
-          icon: 'heart',
+          icon: ['fas', 'heart'],
           title: `${this.$t('About.Donate')} - Liberapay`,
           content: '<a href="https://liberapay.com/FreeTube">https://liberapay.com/FreeTube</a>'
         },

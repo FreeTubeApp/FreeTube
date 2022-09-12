@@ -3,32 +3,44 @@
 
 .playlistThumbnail img
   width: 100%
-
   cursor: pointer
+
+  @media only screen and (max-width: 800px)
+    display: none
+
+.playlistStats
+  font-size: 15px
+
+.playlistStats p
+  color: var(--secondary-text-color)
+  margin: 0
+
+.playlistTitle
+  margin-bottom: 0.1em
 
 .playlistDescription
   max-height: 20vh
   overflow-y: auto
+  white-space: break-spaces
 
   @media only screen and (max-width: 500px)
     max-height: 10vh
 
 .playlistChannel
-  height: 70px
+  display: flex
+  align-items: center
+  gap: 8px
+  height: 40px
 
   /* Indicates the box can be clicked to navigate */
   cursor: pointer
 
 .channelThumbnail
-  width: 70px
+  width: 40px
   float: left
   border-radius: 200px 200px 200px 200px
   -webkit-border-radius: 200px 200px 200px 200px
 
 .channelName
-  float: left
-  position: relative
-  width: 200px
-  margin-left: 10px
-  top: 5px
+  margin: 0
   font-size: 15px

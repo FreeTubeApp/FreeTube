@@ -8,6 +8,22 @@
       v-else
       class="card"
     >
+      <div
+        v-if="errorChannels.length !== 0"
+      >
+        <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
+        <div>
+          <ft-channel-bubble
+            v-for="(channel, index) in errorChannels"
+            :key="index"
+            :channel-name="channel.name"
+            :channel-id="channel.id"
+            :channel-thumbnail="channel.thumbnail"
+            class="channelBubble"
+            @click="goToChannel(channel.id)"
+          />
+        </div>
+      </div>
       <h3>{{ $t("Subscriptions.Subscriptions") }}</h3>
       <ft-flex-box
         v-if="activeVideoList.length === 0"
@@ -32,7 +48,7 @@
     </ft-card>
     <ft-icon-button
       v-if="!isLoading"
-      icon="sync"
+      :icon="['fas', 'sync']"
       class="floatingTopButton"
       :title="$t('Subscriptions.Refresh Subscriptions')"
       :size="12"

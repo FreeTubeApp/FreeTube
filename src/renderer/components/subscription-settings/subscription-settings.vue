@@ -19,23 +19,6 @@
         @change="updateUseRssFeeds"
       />
     </ft-flex-box>
-    <br>
-    <ft-flex-box>
-      <ft-select
-        v-if="false"
-        placeholder="Subscription View Type"
-        :value="viewValues[0]"
-        :select-names="viewNames"
-        :select-values="viewValues"
-      />
-    </ft-flex-box>
-    <br>
-    <ft-flex-box>
-      <ft-button
-        v-if="false"
-        label="Manage My Subscriptions"
-      />
-    </ft-flex-box>
   </details>
 </template>
 

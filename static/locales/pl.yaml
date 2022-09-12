@@ -78,6 +78,7 @@ Subscriptions:
     profil posiada dużą liczbę subskrypcji. Wymuszenie RSS w celu uniknięcia ograniczenia
     dostępu
   Load More Videos: Załaduj więcej filmów
+  Error Channels: Kanały z błędami
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -97,12 +98,15 @@ User Playlists:
     prace nad tą stroną zostaną zakończone, wszystkie filmy tu obecne zostaną przeniesione
     do playlisty „Ulubione”.
   Search bar placeholder: Przeszukaj playlisty
+  Empty Search Message: Na tej playliście nie ma filmów, które pasowałyby do Twojego
+    zapytania
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Historia oglądania'
   Your history list is currently empty.: 'Twoja historia jest obecnie pusta.'
   Search bar placeholder: Przeszukaj historię
+  Empty Search Message: W historii nie ma filmów, które pasowałyby do Twojego zapytania
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
@@ -157,6 +161,8 @@ Settings:
       Dark: 'Ciemny'
       Light: 'Jasny'
       Dracula: 'Drakula'
+      System Default: Domyślny systemu
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -182,6 +188,20 @@ Settings:
       Dracula Purple: 'Dracula Fioletowy'
       Dracula Red: 'Dracula Czerwony'
       Dracula Yellow: 'Dracula Żółty'
+      Catppuccin Mocha Pink: Catppuccin Mocha Różowy
+      Catppuccin Mocha Red: Catppuccin Mocha Czerwony
+      Catppuccin Mocha Yellow: Catppuccin Mocha Żółty
+      Catppuccin Mocha Green: Catppuccin Mocha Zielony
+      Catppuccin Mocha Teal: Catppuccin Mocha Turkusowy
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lawendowy
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Szafirowy
+      Catppuccin Mocha Blue: Catppuccin Mocha Niebieski
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Woda Różana
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flaming
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Peach: Catppuccin Mocha Brzoskwiniowy
+      Catppuccin Mocha Sky: Catppuccin Mocha Kolor Nieba
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kasztanowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -225,6 +245,24 @@ Settings:
     Fast-Forward / Rewind Interval: Interwał przewijania
     Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
       myszy na obszarze odtwarzania
+    Max Video Playback Rate: Maksymalna szybkość odtwarzania
+    Video Playback Rate Interval: Przeskoki w wyborze prędkości odtwarzania
+    Screenshot:
+      Format Label: Format zrzutu
+      Quality Label: Jakość zrzutu
+      Ask Path: Pytaj o folder zapisu
+      Folder Label: Folder ze zrzutami
+      Folder Button: Wybierz folder
+      File Name Label: Wzorzec nazwy pliku
+      File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
+        Miesiąc 2 cyfry. %D Dzień 2 cyfry. %H Godzina 2 cyfry. %N Minuta 2 cyfry.
+        %S Sekunda 2 cyfry. %T Milisekunda 3 cyfry. %s Sekunda filmu. %t Milisekunda
+        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając „\”
+        albo „/”.'
+      Error:
+        Forbidden Characters: Niedozwolone znaki
+        Empty File Name: Pusta nazwa pliku
+      Enable: Włącz zrzuty ekranu
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -291,8 +329,8 @@ Settings:
       pomyślnie wyeksportowana
     All watched history has been successfully imported: Cała historia oglądania została
       pomyślnie zaimportowana
-    History object has insufficient data, skipping item: Obiekt historii ma niewystarczające
-      dane, pomijam element
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą
+      ilość danych, pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem
       wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
@@ -302,8 +340,8 @@ Settings:
       z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje
       i profile zostały z powodzeniem zaimportowane
-    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczające
-      dane, pomijam element
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą
+      ilość danych, pomijam element
     Export History: Wyeksportuj historię
     Import History: Zaimportuj historię
     Export FreeTube: Eksport do FreeTube
@@ -321,6 +359,12 @@ Settings:
       co najmniej jednej subskrypcji
     Check for Legacy Subscriptions: Sprawdź subskrypcje ze starej wersji
     Manage Subscriptions: Zarządzaj subskrypcjami
+    Export Playlists: Wyeksportuj playlisty
+    All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „$”, pomijam
+      element
+    Import Playlists: Zaimportuj playlisty
+    All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -333,6 +377,10 @@ Settings:
     Hide Video Views: Schowaj wyświetlenia filmów
     Hide Active Subscriptions: Schowaj aktywne subskrypcje
     Hide Playlists: Schowaj playlistę
+    Hide Video Description: Schowaj opis filmu
+    Hide Comments: Schowaj komentarze
+    Hide Sharing Actions: Schowaj linki do dzielenia się filmem
+    Hide Live Streams: Schowaj transmisje na żywo
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -359,6 +407,13 @@ Settings:
       API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
     Enable SponsorBlock: Włącz SponsorBlock
     SponsorBlock Settings: Ustawienia SponsorBlock
+    Skip Options:
+      Skip Option: Opcja pominięcia
+      Auto Skip: Pomijaj automatycznie
+      Show In Seek Bar: Pokaż na pasku postępu
+      Prompt To Skip: Zapytaj, czy pominąć
+      Do Nothing: Nic nie rób
+    Category Color: Kolor segmentu
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -366,10 +421,21 @@ Settings:
     Ignore Unsupported Action Warnings: Ignoruj ostrzeżenia o nieobsługiwanych działaniach
     External Player: Zewnętrzny odtwarzacz
     External Player Settings: Ustawienia zewnętrznego odtwarzacza
+    Players:
+      None:
+        Name: Żaden
   Download Settings:
     Ask Download Path: Pytaj o lokalizację pobierania
     Download Settings: Ustawienia pobierania
     Choose Path: Wybierz folder
+    Download Behavior: Sposób pobierania
+    Download in app: Pobierz w aplikacji
+    Open in web browser: Otwórz w przeglądarce
+  Parental Control Settings:
+    Parental Control Settings: Opcje kontroli rodzicielskiej
+    Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
+    Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
+    Hide Search Bar: Schowaj pole wyszukiwania
 About:
   #On About page
   About: 'O projekcie'
@@ -527,6 +593,7 @@ Video:
     Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
+    Less than a minute: mniej niż minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
@@ -565,6 +632,8 @@ Video:
     outro: z ekranem końcowym
     intro: z intrem
     sponsor: sponsorowany
+    filler: z wypełniaczem
+    recap: z podsumowaniem
   Skipped segment: Pominięto segment
   External Player:
     Unsupported Actions:
@@ -591,6 +660,18 @@ Video:
     bandwidth: Prędkość połączenia
     fps: FPS
     frame drop: Pominięte klatki
+    Video ID: ID filmu
+    Resolution: Rozdzielczość
+    Player Dimensions: Wymiary odtwarzacza
+    Bitrate: Szybkość transmisji
+    Volume: Głośność
+    Bandwidth: Przepustowość
+    Buffered: Zbuforowano
+    Mimetype: Typ MIME
+    Video statistics are not available for legacy videos: Statystyki filmu nie są
+      dostępne dla starych formatów
+    Dropped / Total Frames: Opuszczone klatki / klatki ogółem
+  Premieres in: Premiera za
 Videos:
   #& Sort By
   Sort By:
@@ -618,7 +699,7 @@ Playlist:
   Playlist: Playlista
 Toggle Theatre Mode: 'Aktywuj tryb kinowy'
 Change Format:
-  Change Video Formats: 'Zmień formaty wideo'
+  Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
   Use Legacy Formats: 'Użyj starych formatów'
   Use Audio Formats: 'Użyj formatów audio'
@@ -667,6 +748,7 @@ Comments:
   And others: i innych
   Pinned by: Przypięty przez
   From $channelName: od $channelName
+  Member: Wspierający
 Up Next: 'Następne'
 
 # Toast Messages
@@ -780,13 +862,14 @@ Tooltips:
       na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
       wartości (1x, chyba że została zmieniona w ustawieniach).
   Privacy Settings:
-    Remove Video Meta Files: Po włączeniu, FreeTube automatycznie usunie pliki metadanych
+    Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
     External Player: Wybranie zewnętrznego odtwarzacza spowoduje wyświetlenie na miniaturkach
       ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
+      Uwaga! Ustawienia Invidious nie mają wpływu na zewnętrzny odtwarzacz.
     Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
       oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
@@ -812,9 +895,26 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '"$" został pobrany'
-Starting download: Rozpoczęto pobieranie "$"
-Downloading failed: Wystąpił problem z pobieraniem "$"
+Downloading has completed: '„$” został pobrany'
+Starting download: Rozpoczęto pobieranie „$”
+Downloading failed: Wystąpił problem z pobieraniem „$”
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
+Screenshot Error: Wykonanie zrzutu nie powiodło się. $
+Screenshot Success: Zapisano zrzut ekranu jako „$”
+Age Restricted:
+  Type:
+    Channel: kanał
+    Video: film
+  This $contentType is age restricted: Ten $ ma ograniczenie wiekowe
+New Window: Nowe okno
+Channels:
+  Title: Lista kanałów
+  Count: Znaleziono $ kanał(y/ów).
+  Empty: Twoja lista kanałów jest na razie pusta.
+  Unsubscribe: Odsubskrybuj
+  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „$”?
+  Unsubscribed: $ został usunięty z Twoich subskrypcji
+  Channels: Kanały
+  Search bar placeholder: Przeszukaj kanały

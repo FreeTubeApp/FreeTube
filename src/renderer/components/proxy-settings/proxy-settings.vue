@@ -45,7 +45,7 @@
         class="center"
         :style="{opacity: useProxy ? 1 : 0.4}"
       >
-        {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} https://freegeoip.app/json/
+        {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} {{ proxyTestUrl }}
       </p>
       <ft-flex-box>
         <ft-button
