@@ -51,7 +51,12 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          },
           {
             loader: 'sass-loader',
             options: {
@@ -70,30 +75,27 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          }
         ],
       },
       {
         test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            esModule: false,
-            limit: 10000,
-            name: 'imgs/[name]--[folder].[ext]',
-          },
-        },
+        type: 'asset/resource',
+        generator: {
+          filename: 'imgs/[name][ext]'
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            esModule: false,
-            limit: 10000,
-            name: 'fonts/[name]--[folder].[ext]',
-          },
-        },
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
       },
     ],
   },
