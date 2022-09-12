@@ -67,7 +67,7 @@ export default Vue.extend({
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
-      actionButtonIconName: 'search'
+      actionButtonIconName: ['fas', 'search']
     }
   },
   computed: {
@@ -95,13 +95,13 @@ export default Vue.extend({
     setTimeout(this.addListener, 200)
   },
   methods: {
-    handleClick: function () {
+    handleClick: function (e) {
       // No action if no input text
       if (!this.inputDataPresent) { return }
 
       this.searchState.showOptions = false
       this.$emit('input', this.inputData)
-      this.$emit('click', this.inputData)
+      this.$emit('click', this.inputData, { event: e })
     },
 
     handleInput: function (val) {
@@ -136,7 +136,7 @@ export default Vue.extend({
 
       if (!this.inputDataPresent) {
         // Change back to default icon if text is blank
-        this.actionButtonIconName = 'search'
+        this.actionButtonIconName = ['fas', 'search']
         return
       }
 
@@ -165,15 +165,15 @@ export default Vue.extend({
 
           if (isYoutubeLink) {
             // Go to URL (i.e. Video/Playlist/Channel
-            this.actionButtonIconName = 'arrow-right'
+            this.actionButtonIconName = ['fas', 'arrow-right']
           } else {
             // Search with text
-            this.actionButtonIconName = 'search'
+            this.actionButtonIconName = ['fas', 'search']
           }
         })
       } catch (ex) {
         // On exception, consider text as invalid URL
-        this.actionButtonIconName = 'search'
+        this.actionButtonIconName = ['fas', 'search']
         // Rethrow exception
         throw ex
       }
@@ -185,7 +185,7 @@ export default Vue.extend({
       if (inputElement !== null) {
         inputElement.addEventListener('keydown', (event) => {
           if (event.key === 'Enter') {
-            this.handleClick()
+            this.handleClick(event)
           }
         })
       }

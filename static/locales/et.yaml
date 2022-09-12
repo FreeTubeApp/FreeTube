@@ -702,7 +702,7 @@ Playlist:
   Playlist: Esitusloend
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
-  Change Video Formats: 'Muuda videovorminguid'
+  Change Media Formats: 'Muuda videovorminguid'
   Use Dash Formats: 'Kasuta DASH-vorminguid'
   Use Legacy Formats: 'Kasuta pärandvorminguid'
   Use Audio Formats: 'Kasuta helivorminguid'

@@ -19,7 +19,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="rss"
+            :icon="['fas', 'rss']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -43,7 +43,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="list"
+            :icon="['fas', 'list']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -69,7 +69,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="fire"
+            :icon="['fas', 'fire']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -95,7 +95,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="users"
+            :icon="['fas', 'users']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -121,7 +121,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="bookmark"
+            :icon="['fas', 'bookmark']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -149,7 +149,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="history"
+            :icon="['fas', 'history']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -175,7 +175,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="sliders-h"
+            :icon="['fas', 'sliders-h']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -200,7 +200,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="info-circle"
+            :icon="['fas', 'info-circle']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width

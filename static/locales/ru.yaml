@@ -469,7 +469,7 @@ About:
   room rules: правила комнаты
   Please read the: Изучите
   Chat on Matrix: Чат на Matrix
-  Mastodon: Mastodon
+  Mastodon: Mastodon (Мастодон)
   Email: Электронная почта
   Blog: Блог
   Website: Сайт
@@ -577,6 +577,7 @@ Video:
     Upcoming: 'Премьера'
     Minutes: Минут
     Minute: Минута
+    Less than a minute: Менее минуты
   Published on: 'Опубликовано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % назад'
@@ -653,6 +654,7 @@ Video:
     Mimetype: MIME-типы
     Buffered: Буферизовано
   Premieres on: Премьеры
+  Premieres in: Премьеры в
 Videos:
   #& Sort By
   Sort By:
@@ -680,7 +682,7 @@ Playlist:
   Playlist: Плейлист
 Toggle Theatre Mode: 'Переключить режим широкого экрана'
 Change Format:
-  Change Video Formats: 'Изменить форматы видео'
+  Change Media Formats: 'Изменить форматы видео'
   Use Dash Formats: 'Использовать форматы DASH'
   Use Legacy Formats: 'Использовать устаревшие форматы'
   Use Audio Formats: 'Использовать звуковые форматы'

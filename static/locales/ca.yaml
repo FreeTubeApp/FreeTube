@@ -635,7 +635,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Conmuta El Mode Cinema'
 Change Format:
-  Change Video Formats: 'Canvia Els Formats De Vídeo'
+  Change Media Formats: 'Canvia Els Formats De Vídeo'
   Use Dash Formats: 'Utilitza Formats DASH'
   Use Legacy Formats: 'Utilitza els formats llegats'
   Use Audio Formats: 'Utilitza els formats d’àudio'

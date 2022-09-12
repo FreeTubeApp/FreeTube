@@ -4,7 +4,7 @@
       {{ title }}
       <font-awesome-icon
         class="angleDownIcon"
-        icon="angle-down"
+        :icon="['fas', 'angle-down']"
       />
     </div>
     <ul>

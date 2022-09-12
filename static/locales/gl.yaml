@@ -613,7 +613,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Activar modo cinema'
 Change Format:
-  Change Video Formats: 'Mudar formato do vídeo'
+  Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Utilizar formato Dash'
   Use Legacy Formats: 'Utilizar formato antigo (Legacy)'
   Use Audio Formats: 'Utilizar formato só de audio'

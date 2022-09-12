@@ -4,7 +4,7 @@ import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import ytTrendScraper from 'yt-trending-scraper'
+import { calculateLengthInSeconds } from '@freetube/yt-trending-scraper/src/HtmlParser'
 
 export default Vue.extend({
   name: 'Search',
@@ -154,7 +154,7 @@ export default Vue.extend({
             let videoDuration = video.duration
             const videoId = video.id
             if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
-              videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
+              videoDuration = calculateLengthInSeconds(video.duration)
             }
             dataToShow.push(
               {

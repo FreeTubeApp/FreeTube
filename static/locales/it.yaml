@@ -31,7 +31,7 @@ Back: 'Indietro'
 Forward: 'Avanti'
 
 # Search Bar
-Search / Go to URL: 'Cerca o aggiungi link YouTube'
+Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
@@ -153,7 +153,7 @@ Settings:
     External Link Handling:
       No Action: Nessuna azione
       Ask Before Opening Link: Chiedi prima di aprire il link
-      Open Link: Apri il link
+      Open Link: Apri link
       External Link Handling: Gestione dei collegamenti esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
@@ -591,6 +591,7 @@ Video:
     Upcoming: 'Première il'
     Minutes: Minuti
     Minute: Minuto
+    Less than a minute: Meno di un minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
@@ -611,9 +612,9 @@ Video:
   audio only: solo audio
   video only: solo video
   Download Video: Download video
-  Copy Invidious Channel Link: Copia link del canale Invidious
+  Copy Invidious Channel Link: Copia link canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
-  Copy YouTube Channel Link: Copia link del canale YouTube
+  Copy YouTube Channel Link: Copia link canale YouTube
   Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Stream iniziato il
   Streamed on: Streaming il
@@ -668,6 +669,7 @@ Video:
     Buffered: Memoria buffer
     Dropped / Total Frames: Frame persi / Frame totali
     Mimetype: Tipo di media
+  Premieres in: Anteprima in
 Videos:
   #& Sort By
   Sort By:
@@ -695,7 +697,7 @@ Playlist:
   Playlist: Playlist
 Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
-  Change Video Formats: 'Cambia formato video'
+  Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
   Use Legacy Formats: 'Usa i formati legacy'
   Use Audio Formats: 'Usa i formati audio'
@@ -774,7 +776,7 @@ A new blog is now available, $. Click to view more: Un nuovo blog è ora disponi
   $. Clicca per saperne di più
 Version $ is now available!  Click for more details: La versione $ è ora disponibile!
   Clicca per maggiori dettagli
-Download From Site: Download dal sito
+Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei

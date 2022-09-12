@@ -47,14 +47,14 @@
             class="premiereDate"
           >
             <font-awesome-icon
-              icon="satellite-dish"
+              :icon="['fas', 'satellite-dish']"
               class="premiereIcon"
             />
             <p
               v-if="upcomingTimestamp !== null"
               class="premiereText"
             >
-              {{ $t("Video.Premieres on") }}:
+              {{ $t("Video.Premieres in") }} {{ upcomingTimeLeft }}
               <br>
               {{ upcomingTimestamp }}
             </p>
