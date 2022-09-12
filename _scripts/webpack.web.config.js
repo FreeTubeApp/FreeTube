@@ -109,7 +109,10 @@ const config = {
     dns: 'empty'
   },
   plugins: [
-    // new WriteFilePlugin(),
+    new webpack.DefinePlugin({
+      'process.env.PRODUCT_NAME': JSON.stringify(productName),
+      'process.env.IS_ELECTRON': false
+    }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
@@ -117,9 +120,6 @@ const config = {
       nodeModules: false,
     }),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-    }),
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',

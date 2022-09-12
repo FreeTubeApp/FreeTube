@@ -38,10 +38,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -86,7 +82,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!this.usingElectron) {
+    if (!process.env.IS_ELECTRON) {
       this.getPlaylistInformationInvidious()
     } else {
       switch (this.backendPreference) {

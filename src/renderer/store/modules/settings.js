@@ -343,8 +343,8 @@ const stateWithSideEffects = {
 
   uiScale: {
     defaultValue: 100,
-    sideEffectsHandler: ({ state: { usingElectron } }, value) => {
-      if (usingElectron) {
+    sideEffectsHandler: (_, value) => {
+      if (process.env.IS_ELECTRON) {
         const { webFrame } = require('electron')
         webFrame.setZoomFactor(value / 100)
       }
@@ -353,11 +353,9 @@ const stateWithSideEffects = {
 }
 
 const customState = {
-  usingElectron: (window?.process?.type === 'renderer')
 }
 
 const customGetters = {
-  getUsingElectron: (state) => state.usingElectron
 }
 
 const customMutations = {}

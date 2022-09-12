@@ -32,9 +32,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -100,7 +97,7 @@ export default Vue.extend({
     },
 
     getTrendingInfo () {
-      if (!this.usingElectron) {
+      if (!process.env.IS_ELECTRON) {
         this.getVideoInformationInvidious()
       } else {
         switch (this.backendPreference) {
@@ -145,7 +142,7 @@ export default Vue.extend({
             navigator.clipboard.writeText(err)
           }
         })
-        if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
+        if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
           this.showToast({
             message: this.$t('Falling back to Invidious API')
           })
@@ -205,7 +202,7 @@ export default Vue.extend({
           }
         })
 
-        if (!this.usingElectron || (this.backendPreference === 'invidious' && this.backendFallback)) {
+        if (!process.env.IS_ELECTRON || (this.backendPreference === 'invidious' && this.backendFallback)) {
           this.showToast({
             message: this.$t('Falling back to Local API')
           })

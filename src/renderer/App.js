@@ -57,9 +57,6 @@ export default Vue.extend({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
-    usingElectron: function() {
-      return this.$store.getters.getUsingElectron
-    },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
@@ -161,7 +158,7 @@ export default Vue.extend({
         this.grabHistory()
         this.grabAllPlaylists()
 
-        if (this.usingElectron) {
+        if (process.env.IS_ELECTRON) {
           console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
@@ -474,7 +471,7 @@ export default Vue.extend({
     },
 
     openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
-      if (this.usingElectron && doCreateNewWindow) {
+      if (process.env.IS_ELECTRON && doCreateNewWindow) {
         const { ipcRenderer } = require('electron')
 
         // Combine current document path and new "hash" as new window startup URL
