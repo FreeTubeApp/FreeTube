@@ -110,9 +110,9 @@ Most Popular: ''
 Playlists: ''
 User Playlists:
   Your Playlists: ''
-  Playlist Message: 'یہ صفحہ مکمل طور پر کام کرنے والی پلے لسٹس کا عکاس نہیں ہے۔ یہ صرف
+  Playlist Message: یہ صفحہ مکمل طور پر کام کرنے والی پلے لسٹس کا عکاس نہیں ہے۔ یہ صرف
      ان ویڈیوز کی فہرست بناتا ہے جنہیں آپ نے محفوظ کیا ہے یا پسند کیا ہے۔ جب کام ختم ہو جائے تو سب
-     فی الحال یہاں موجود ویڈیوز کو 'پسندیدہ' پلے لسٹ میں منتقل کر دیا جائے گا۔'
+     فی الحال یہاں موجود ویڈیوز کو 'پسندیدہ' پلے لسٹ میں منتقل کر دیا جائے گا۔
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: 'اس پلے لسٹ میں کوئی ایسی ویڈیوز نہیں ہیں جو آپ کی تلاش سے مماثل ہوں۔'
   Search bar placeholder: 'پلے لسٹ میں تلاش کریں۔'
@@ -155,7 +155,7 @@ Settings:
     Current Invidious Instance: ''
     # $ is replaced with the default Invidious instance
     The currently set default instance is $: ''
-    No default instance has been set:''
+    No default instance has been set: ''
     Current instance will be randomized on startup: ''
     Set Current Instance as Default: ''
     Clear Default Instance: ''
@@ -169,13 +169,13 @@ Settings:
       No Action: ''
   Theme Settings:
     Theme Settings: ''
-    Match Top Bar with Main Color:''
+    Match Top Bar with Main Color: ''
     Expand Side Bar by Default: ''
     Disable Smooth Scrolling: ''
     UI Scale: ''
-    Hide Side Bar Labels:''
+    Hide Side Bar Labels: ''
     Base Theme:
-      Base Theme:''
+      Base Theme: ''
       Black: ''
       Dark: ''
       System Default: ''
@@ -736,8 +736,8 @@ Tooltips:
     Ignore Warnings: 'انتباہات کو دبائیں جب موجودہ بیرونی کھلاڑی تعاون نہیں کرتا ہے۔
        موجودہ کارروائی (مثلاً پلے لسٹ کو تبدیل کرنا، وغیرہ)۔'
     Custom External Player Arguments: 
-    'کوئی بھی حسب ضرورت کمانڈ لائن آرگومنٹس، جو سیمیکولنز (';') سے الگ کیے گئے ہیں،
-       آپ بیرونی کھلاڑی کو منتقل کرنا چاہتے ہیں۔'
+    کوئی بھی حسب ضرورت کمانڈ لائن آرگومنٹس، جو سیمیکولنز (';') سے الگ کیے گئے ہیں،
+       آپ بیرونی کھلاڑی کو منتقل کرنا چاہتے ہیں۔
     # $ is replaced with the default custom arguments for the current player, if defined.
     DefaultCustomArgumentsTemplate: '(پہلے سے طے شدہ: ''$'')'
   Subscription Settings:
