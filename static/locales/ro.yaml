@@ -86,6 +86,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
     vitezei
+  Error Channels: Canale cu erori
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
@@ -105,12 +106,14 @@ User Playlists:
     Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
     aici vor fi migrate într-o listă de redare "Favorite".
   Search bar placeholder: Căutare în lista de redare
+  Empty Search Message: Nu sunt videoclipuri pentru căutarea ta
 History:
   # On History Page
   History: 'Istoric'
   Watch History: 'Istoricul vizionărilor'
   Your history list is currently empty.: 'Lista dvs. de istoric este momentan goală.'
   Search bar placeholder: Căutare în istoric
+  Empty Search Message: Nu sunt videoclipuri în istoricul tău pentru termenii căutați
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -165,6 +168,8 @@ Settings:
       Dark: 'Întunecat'
       Light: 'Aprinsă'
       Dracula: 'Dracula'
+      System Default: Setări implicite
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -190,6 +195,20 @@ Settings:
       Dracula Purple: 'Dracula Violet'
       Dracula Red: 'Dracula Roşu'
       Dracula Yellow: 'Dracula Chihlimbar'
+      Catppuccin Mocha Pink: Catppuccin Mocha Roz
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mov
+      Catppuccin Mocha Red: Catppuccin Mocha Roșu
+      Catppuccin Mocha Yellow: Catppuccin Mocha Galben
+      Catppuccin Mocha Green: Catppuccin Mocha Verde
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Albastru
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Albastru
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavandă
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maro
+      Catppuccin Mocha Peach: Catppuccin Mocha Piersică
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Apă de Trandafiri
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala UI
@@ -229,6 +248,26 @@ Settings:
     Next Video Interval: Următorul interval video
     Display Play Button In Video Player: Afișați butonul de redare în playerul video
     Scroll Volume Over Video Player: Derulați volumul peste playerul video
+    Screenshot:
+      Quality Label: Calitatea capturii de ecran
+      Ask Path: Întreabă pentru dosarul de salvare
+      Folder Label: Dosarul pentru capturi de ecran
+      Folder Button: Selectează dosar
+      File Name Label: Tiparul denumirii fișierelor
+      Error:
+        Forbidden Characters: Caractere interzise
+        Empty File Name: Denumiri de fișiere goale
+      File Name Tooltip: Poți folosi variabile mai jos. %Y An patru numere. %M Lună
+        doua numere. %D Zi două numere. %H oră două numere. %N Minute două numere.
+        %S Secunde două numere. %T Milisecunde trei numere. %s Secunda din videoclip.
+        %t Milisecunda din videoclip trei numere. %i Numele videoclipului. Poți folosi
+        și "\" sau "/" pentru a creea subdosare.
+      Enable: Activează captura de ecran
+      Format Label: Formatul capturii de ecran
+    Video Playback Rate Interval: Intervalul de redare video
+    Max Video Playback Rate: Viteza maximă de redare
+    Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
+      de scroll
   Privacy Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
@@ -329,6 +368,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorați avertismentele de acțiune nesuportată
     External Player: Player extern
     External Player Settings: Setări pentru playerul extern
+    Players:
+      None:
+        Name: Fără
   Distraction Free Settings:
     Hide Active Subscriptions: Ascundeți abonamentele active
     Hide Live Chat: Ascundeți Chat-ul Live
@@ -341,6 +383,10 @@ Settings:
     Hide Video Likes And Dislikes: Ascundeți like-urile și dislike-urile din video
     Hide Video Views: Ascundeți vizualizările video
     Distraction Free Settings: Setări împotriva distragerii atenției
+    Hide Video Description: Ascunde descrierea videoclipului
+    Hide Comments: Ascunde comentariile
+    Hide Live Streams: Ascunde stream-urile live
+    Hide Sharing Actions: Ascunde butoanele de sharing
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -348,6 +394,13 @@ Settings:
       SponsorBlock (Cel implicit este https://sponsor.ajay.app)
     Enable SponsorBlock: Activați SponsorBlock
     SponsorBlock Settings: Setări SponsorBlock
+    Skip Options:
+      Auto Skip: Sari automat
+      Skip Option: Sari peste această opțiune
+      Show In Seek Bar: Arată în bara de derulare
+      Prompt To Skip: Întreabă pentru a sării
+      Do Nothing: Nu fă nimic
+    Category Color: Culoarea categoriilor
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Eroare
       la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
@@ -368,6 +421,14 @@ Settings:
     Ask Download Path: Solicită calea de descărcare
     Choose Path: Alege calea
     Download Settings: Setări de descărcare
+    Download Behavior: Comportamentul descărcărilor
+    Download in app: Descarcă în aplicație
+    Open in web browser: Deschide în browser-ul web
+  Parental Control Settings:
+    Hide Unsubscribe Button: Ascunde butonul de dezabonare
+    Parental Control Settings: Setările controlului parental
+    Show Family Friendly Only: Arata numai conținut family friendly
+    Hide Search Bar: Ascunde bara de căutare
 About:
   #On About page
   About: 'Despre'
@@ -561,6 +622,7 @@ Video:
     Years: 'Ani'
     Ago: 'În urmă'
     Upcoming: 'În premieră la'
+    Less than a minute: Mai putin de un minut
   Published on: 'Publicat pe'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'acum $ %'
@@ -581,12 +643,14 @@ Video:
     video: video
     OpenInTemplate: Deschideți în $
   Sponsor Block category:
-    music offtopic: muzică offtopic
-    interaction: interacțiune
-    self-promotion: auto-promovare
-    outro: outro
-    intro: introducere
-    sponsor: sponsor
+    music offtopic: Muzică offtopic
+    interaction: Interacțiune
+    self-promotion: Autopromovare
+    outro: Outro
+    intro: Introducere
+    sponsor: Sponsor
+    recap: Recapitulare
+    filler: Filler
   Skipped segment: Segment omis
   translated from English: tradus din engleză
   Started streaming on: A început să transmită pe
@@ -628,6 +692,7 @@ Video:
     Dropped / Total Frames: Cadre pierdute / totale
     Mimetype: Mimetype
   Premieres on: Premieră pe
+  Premieres in: Are premiera în
 Videos:
   #& Sort By
   Sort By:
@@ -705,6 +770,7 @@ Comments:
   And others: și altele
   From $channelName: de la $channelName
   Pinned by: Lipit de
+  Member: Membru
 Up Next: 'În continuare'
 
 # Toast Messages
@@ -766,7 +832,8 @@ Tooltips:
       extern ales poate fi găsit prin intermediul variabilei de mediu PATH. Dacă este
       necesar, aici poate fi setată o cale personalizată.
     External Player: Alegerea unui player extern va afișa o pictogramă, pentru a deschide
-      videoclipul (lista de redare, dacă este acceptată) în playerul extern, pe miniatură.
+      videoclipul (playlist, dacă este acceptat) în playerul extern, pe thumbnail.
+      Atenție, setările Invidious nu afectează playerele externe.
     DefaultCustomArgumentsTemplate: "(Implicit: '$')"
   Player Settings:
     Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele
@@ -808,3 +875,20 @@ External link opening has been disabled in the general settings: Deschiderea lin
 Starting download: Se începe descărcarea a "$"
 Downloading failed: A existat o problemă la descărcarea "$"
 Downloading has completed: '"$" s-a terminat de descărcat'
+New Window: Fereastră nouă
+Age Restricted:
+  This $contentType is age restricted: Acest $ este restricționat datorită vârstei
+  Type:
+    Channel: Canal
+    Video: Video
+Channels:
+  Channels: Canale
+  Title: Listă de canale
+  Search bar placeholder: Caută canale
+  Count: $ canal(e) găsit(e).
+  Empty: Lista ta de canale este goală.
+  Unsubscribe: Dezabonează-te
+  Unsubscribed: $ a fost eliminat din lista ta de abonamente
+  Unsubscribe Prompt: Ești sigur că dorești să te dezabonezi de la "$"?
+Screenshot Success: Capturi de ecran salvate ca "$"
+Screenshot Error: Captura de ecran a eșuat

@@ -1,9 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'español'
+Locale Name: 'Español'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección de la app no está lista. Regresa más tarde cuando hayamos progresado.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
+  hecho progresos.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -85,7 +86,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Tus favoritos'
+Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -243,6 +244,12 @@ Settings:
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
+      Ask Path: Pedir la Carpeta para Guardar
+      File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
+        %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
+        %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
+        Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
+        crear subcarpetas.
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -351,6 +358,8 @@ Settings:
     Distraction Free Settings: Modo sin distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
+    Hide Video Description: Ocultar la descripción del vídeo
+    Hide Comments: Ocultar los comentarios
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -380,6 +389,8 @@ Settings:
     Skip Options:
       Show In Seek Bar: Mostrar en la barra de búsqueda
       Do Nothing: No hacer nada
+      Skip Option: Omitir opción
+      Auto Skip: Salto automático
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -395,6 +406,10 @@ Settings:
     Choose Path: Elegir ruta
     Download in app: Descargar en la aplicación
     Open in web browser: Abrir en el navegador web
+  Parental Control Settings:
+    Hide Unsubscribe Button: Ocultar botón de anular suscripción
+    Hide Search Bar: Ocultar barra de búsqueda
+    Parental Control Settings: Ajustes del control para padres
 About:
   #On About page
   About: 'Acerca de'
@@ -588,6 +603,7 @@ Video:
     Years: 'años'
     Ago: 'Hace'
     Upcoming: 'Se estrenará el'
+    Less than a minute: Menos de un minuto
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -620,11 +636,11 @@ Video:
   translated from English: traducido del inglés
   Sponsor Block category:
     music offtopic: música fuera de tema
-    interaction: interacción
-    self-promotion: autopromoción
+    interaction: Interacción
+    self-promotion: Auto promoción
     outro: epílogo
-    intro: introducción
-    sponsor: patrocinador
+    intro: Introducción
+    sponsor: Patrocinador
     recap: Recapitulación
   Skipped segment: Segmento saltado
   External Player:
@@ -663,6 +679,7 @@ Video:
     Video ID: ID de vídeo
     Buffered: En búfer
     Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
+  Premieres in: Estrenos en
 Videos:
   #& Sort By
   Sort By:
@@ -865,3 +882,4 @@ Age Restricted:
   Type:
     Channel: Canal
     Video: Vídeo
+  This $contentType is age restricted: Este $ tiene restricción de edad

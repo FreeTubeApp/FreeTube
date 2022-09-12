@@ -47,7 +47,12 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          },
           {
             loader: 'sass-loader',
             options: {
@@ -66,7 +71,12 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          }
         ],
       },
       {
@@ -75,25 +85,17 @@ const config = {
       },
       {
         test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            esModule: false,
-            limit: 10000,
-            name: 'imgs/[name]--[folder].[ext]',
-          },
-        },
+        type: 'asset/resource',
+        generator: {
+          filename: 'imgs/[name][ext]'
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            esModule: false,
-            limit: 10000,
-            name: 'fonts/[name]--[folder].[ext]',
-          },
-        },
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
       },
     ],
   },
@@ -161,22 +163,6 @@ if (isDevMode) {
             globOptions: {
               dot: true,
               ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/web/_icons'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../src/renderer/assets/img'),
-            to: path.join(__dirname, '../dist/web/images'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
             },
           },
       ]

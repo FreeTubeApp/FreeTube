@@ -18,8 +18,8 @@
   --side-nav-active-color: #757575;
   --search-bar-color: #f5f5f5;
   --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("~../../_icons/iconColorSmall.png");
-  --logo-text: url("~../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconColorSmall.png");
+  --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .system[data-system-theme*='dark'], .dark {
@@ -42,8 +42,8 @@
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
   --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("~../../_icons/iconColorSmall.png");
-  --logo-text: url("~../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconColorSmall.png");
+  --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .black {
@@ -66,8 +66,8 @@
     --side-nav-active-color: #303030;
     --search-bar-color: #262626;
     --instance-menu-color: var(--search-bar-color);
-	  --logo-icon: url("~../../_icons/iconColorSmall.png");
-   	--logo-text: url("~../../_icons/textColorSmall.png");
+    --logo-icon: url("../../_icons/iconColorSmall.png");
+    --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .gray {
@@ -84,8 +84,8 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #212121;
-  --logo-icon: url("~../../_icons/iconColorSmall.png");
-  --logo-text: url("~../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconColorSmall.png");
+  --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .dracula {
@@ -108,8 +108,8 @@
   --side-nav-active-color: #3D4051;
   --search-bar-color: #3E3F4A;
   --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("~../../_icons/iconDraculaLightSmall.png");
-  --logo-text: url("~../../_icons/textDraculaLightSmall.png");
+  --logo-icon: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .catppuccinMocha {
@@ -132,8 +132,8 @@
   --side-nav-active-color: #11111b;
   --search-bar-color: #313244;
   --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("~../../_icons/iconCatppuccinMochaLightSmall.png");
-  --logo-text: url("~../../_icons/textCatppuccinMochaLightSmall.png");
+  --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.png");
+  --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
 }
 
 .mainRed {
@@ -141,8 +141,8 @@
   --primary-color-hover: #e53935;
   --primary-color-active: #c62828;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainPink {
@@ -150,8 +150,8 @@
   --primary-color-hover: #D81B60;
   --primary-color-active: #AD1457;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainPurple {
@@ -159,8 +159,8 @@
   --primary-color-hover: #8E24AA;
   --primary-color-active: #6A1B9A;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainDeepPurple {
@@ -168,8 +168,8 @@
   --primary-color-hover: #5E35B1;
   --primary-color-active: #4527A0;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainIndigo {
@@ -177,8 +177,8 @@
   --primary-color-hover: #3949AB;
   --primary-color-active: #283593;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainBlue {
@@ -186,8 +186,8 @@
   --primary-color-hover: #1E88E5;
   --primary-color-active: #1565C0;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainLightBlue {
@@ -195,8 +195,8 @@
   --primary-color-hover: #039BE5;
   --primary-color-active: #0277BD;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainCyan {
@@ -204,8 +204,8 @@
   --primary-color-hover: #00ACC1;
   --primary-color-active: #00838F;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainTeal {
@@ -213,8 +213,8 @@
   --primary-color-hover: #00897B;
   --primary-color-active: #00695C;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainGreen {
@@ -222,8 +222,8 @@
   --primary-color-hover: #43A047;
   --primary-color-active: #2E7D32;
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("~../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("~../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainLightGreen {
@@ -231,8 +231,8 @@
   --primary-color-hover: #7CB342;
   --primary-color-active: #558B2F;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainLime {
@@ -240,8 +240,8 @@
   --primary-color-hover: #C0CA33;
   --primary-color-active: #9E9D24;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainYellow {
@@ -249,8 +249,8 @@
   --primary-color-hover: #FDD835;
   --primary-color-active: #F9A825;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainAmber {
@@ -258,8 +258,8 @@
   --primary-color-hover: #FFB300;
   --primary-color-active: #FF8F00;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainOrange {
@@ -267,8 +267,8 @@
   --primary-color-hover: #FB8C00;
   --primary-color-active: #EF6C00;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainDeepOrange {
@@ -276,8 +276,8 @@
   --primary-color-hover: #F4511E;
   --primary-color-active: #D84315;
   --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("~../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textBlackSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainDraculaCyan {
@@ -285,8 +285,8 @@
   --primary-color-hover: #97EBFD;
   --primary-color-active: #7DD2E4;
   --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainDraculaGreen {
@@ -294,8 +294,8 @@
   --primary-color-hover: #62FB88;
   --primary-color-active: #48E16F;
   --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainDraculaOrange {
@@ -303,8 +303,8 @@
   --primary-color-hover: #FFBF7B;
   --primary-color-active: #E6A661;
   --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainDraculaPink {
@@ -312,8 +312,8 @@
   --primary-color-hover: #FF86CC;
   --primary-color-active: #E66DB2;
   --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .mainDraculaPurple {
@@ -321,8 +321,8 @@
   --primary-color-hover: #C49EFA;
   --primary-color-active: #AA84E0;
   --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .mainDraculaRed {
@@ -330,8 +330,8 @@
   --primary-color-hover: #FF6666;
   --primary-color-active: #E64D4D;
   --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaLightSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .mainDraculaYellow {
@@ -339,8 +339,8 @@
   --primary-color-hover: #F2FB98;
   --primary-color-active: #D9E17E;
   --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("~../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textDraculaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainCatppuccinMochaRosewater {
@@ -348,8 +348,8 @@
   --primary-color-hover: #fceeec;
   --primary-color-active: #e1c8c3;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaFlamingo {
@@ -357,8 +357,8 @@
   --primary-color-hover: #f2e1e1;
   --primary-color-active: #ddb7b7;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaPink {
@@ -366,8 +366,8 @@
   --primary-color-hover: #f3d2ea;
   --primary-color-active: #dca3cd;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaMauve {
@@ -375,8 +375,8 @@
   --primary-color-hover: #d4b7f8;
   --primary-color-active: #b38fdf;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaRed {
@@ -384,8 +384,8 @@
   --primary-color-hover: #f0a4b9;
   --primary-color-active: #de7693;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaMaroon {
@@ -393,8 +393,8 @@
   --primary-color-hover: #eabbc3;
   --primary-color-active: #d68895;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaPeach {
@@ -402,8 +402,8 @@
   --primary-color-hover: #f7c7a9;
   --primary-color-active: #e1996d;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaYellow {
@@ -411,8 +411,8 @@
   --primary-color-hover: #feeecd;
   --primary-color-active: #dec48d;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaGreen {
@@ -420,8 +420,8 @@
   --primary-color-hover: #bfebbb;
   --primary-color-active: #86c780;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaTeal {
@@ -429,8 +429,8 @@
   --primary-color-hover: #aceae0;
   --primary-color-active: #6fc5b7;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaSky {
@@ -438,8 +438,8 @@
   --primary-color-hover: #a3e4f0;
   --primary-color-active: #68bcca;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaSapphire {
@@ -447,8 +447,8 @@
   --primary-color-hover: #93d1ed;
   --primary-color-active: #59a9cf;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaBlue {
@@ -456,8 +456,8 @@
   --primary-color-hover: #a6c8ff;
   --primary-color-active: #6593df;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .mainCatppuccinMochaLavender {
@@ -465,8 +465,8 @@
   --primary-color-hover: #c9d0ff;
   --primary-color-active: #8d98e4;
   --text-with-main-color: #1e1e2e;
-  --logo-icon-bar-color: url("~../../_icons/iconCatppuccinMochaDarkSmall.png");
-  --logo-text-bar-color: url("~../../_icons/textCatppuccinMochaDarkSmall.png");
+  --logo-icon-bar-color: url("../../_icons/iconCatppuccinMochaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textCatppuccinMochaDarkSmall.png");
 }
 
 .secRed {

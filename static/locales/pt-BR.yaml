@@ -1,7 +1,8 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte da aplicação está em desenvolvimento. Volte mais tarde.
+  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando já houver
+  progresso.
 
 # Webkit Menu Bar
 File: 'Arquivo'
@@ -20,7 +21,7 @@ Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
 Actual size: 'Tamanho real'
 Zoom in: 'Aumentar ampliação'
 Zoom out: 'Diminuir ampliação'
-Toggle fullscreen: 'Alternar tela-cheia'
+Toggle fullscreen: 'Alternar tela cheia'
 Window: 'Janela'
 Minimize: 'Minimizar'
 Close: 'Fechar'
@@ -28,19 +29,19 @@ Back: 'Voltar'
 Forward: 'Avançar'
 
 # Search Bar
-Search / Go to URL: 'Pesquisar / Ir para o URL'
+Search / Go to URL: 'Buscar/Ir ao URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtros de pesquisa'
+  Search Filters: 'Filtros de busca'
   Sort By:
-    Sort By: 'Classificar por'
-    Most Relevant: 'Relevância'
+    Sort By: 'Ordenar por'
+    Most Relevant: 'Mais relevantes'
     Rating: 'Avaliação'
     Upload Date: 'Data de envio'
     View Count: 'Número de visualizações'
   Time:
-    Time: 'Data do upload'
-    Any Time: 'Qualquer hora'
+    Time: 'Tempo'
+    Any Time: 'Qualquer momento'
     Last Hour: 'Última hora'
     Today: 'Hoje'
     This Week: 'Esta semana'
@@ -56,27 +57,26 @@ Search Filters:
     Duration: 'Duração'
     All Durations: 'Qualquer duração'
     Short (< 4 minutes): 'Curto (< 4 minutos)'
-    Long (> 20 minutes): 'Longo (> 20 Minutos)'
+    Long (> 20 minutes): 'Longo (> 20 minutos)'
   # On Search Page
-  Search Results: 'Resultados da pesquisa'
-  Fetching results. Please wait: 'Buscando resultados. Por favor, aguarde'
+  Search Results: 'Resultados da busca'
+  Fetching results. Please wait: 'Buscando resultados. Por favor, espere'
   Fetch more results: 'Buscar mais resultados'
 # Sidebar
-  There are no more results for this search: Não há mais resultados para esta pesquisa
+  There are no more results for this search: Não há mais resultados para esta busca
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Inscrições'
   Latest Subscriptions: 'Últimas inscrições'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sua
-    lista de inscrições está vazia no momento. Comece a adicionar assinaturas para
-    vê-las aqui.'
+    lista de inscrições está vazia. Comece a se inscrever para as ver aqui.'
   'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
-  Refresh Subscriptions: Atualizar Inscrições
-  'Getting Subscriptions. Please wait.': Obtendo Inscrições. Por favor aguarde.
+  Refresh Subscriptions: Atualizar inscrições
+  'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, espere.
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
-    perfil tem um grande número de inscrições.  Forçando RSS para evitar limitação
-    de banda
+    perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
+    de rede
   Error Channels: Canais com erros
 Trending:
   Trending: 'Em alta'
@@ -187,6 +187,18 @@ Settings:
       Dracula Red: 'Drácula Vermelha'
       Dracula Yellow: 'Drácula Amarelo'
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Pink: Catppuccin Mocha Rosa
+      Catppuccin Mocha Red: Catppuccin Mocha Vermelho
+      Catppuccin Mocha Maroon: Catppuccin Mocha Castanho
+      Catppuccin Mocha Blue: Catppuccin Mocha Azul
+      Catppuccin Mocha Peach: Catppuccin Mocha Pêssego
+      Catppuccin Mocha Green: Catppuccin Mocha Verde
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safira
+      Catppuccin Mocha Yellow: Catppuccin Mocha Amarelo
+      Catppuccin Mocha Sky: Catppuccin Mocha Céu
+      Catppuccin Mocha Teal: Catppuccin Mocha Verde-azulado
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -235,7 +247,7 @@ Settings:
     Screenshot:
       File Name Label: Padrão de nome de arquivo
       Enable: Ativar captura de tela
-      Ask Path: Peça para escolher a pasta de salvamento
+      Ask Path: Perguntar onde salvar
       Folder Label: Pasta de captura de tela
       Folder Button: Selecionar pasta
       Error:
@@ -243,6 +255,11 @@ Settings:
         Forbidden Characters: Caracteres proibidos
       Format Label: Formato da captura de tela
       Quality Label: Qualidade da captura de tela
+      File Name Tooltip: Você pode usar as variáveis abaixo. %Y Ano 4 dígitos. %M
+        Mês 2 dígitos. %D Dia 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S
+        Segundo 2 dígitos. %T Milissegundo 3 dígitos. %s Segundo do vídeo. %t Milissegundo
+        do vídeo 3 dígitos. %i ID do vídeo. Você também pode usar "\" ou "/" para
+        criar subpastas.
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -402,12 +419,15 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorar avisos de ação não suportada
     External Player Settings: Configurações do player externo
     Custom External Player Executable: Executável de player externo personalizado
+    Players:
+      None:
+        Name: Nenhum
   Download Settings:
     Download Settings: Configurações de download
     Ask Download Path: Peça o caminho de download
     Choose Path: Escolha o caminho
-    Open in web browser: Abrir no navegador da web
-    Download in app: Baixe no aplicativo
+    Open in web browser: Abrir no navegador web
+    Download in app: Baixar no aplicativo
     Download Behavior: Comportamento de download
   Parental Control Settings:
     Show Family Friendly Only: Mostrar Apenas Amigável à Família
@@ -560,6 +580,7 @@ Video:
     Upcoming: 'Futuramente em'
     Minutes: Minutos
     Minute: Minuto
+    Less than a minute: Menos de um minuto
   Published on: 'Publicado em'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -637,6 +658,7 @@ Video:
     Resolution: Resolução
     Buffered: Em buffer
     Dropped / Total Frames: Quadros perdidos / Total de quadros
+  Premieres in: Estréias em
 Videos:
   #& Sort By
   Sort By:
@@ -737,7 +759,7 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
-Locale Name: português (BR)
+Locale Name: Português (BR)
 Profile:
   Delete Profile: Deletar Perfil
   Update Profile: Atualizar Perfil
@@ -780,11 +802,11 @@ Profile:
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
   Profile Filter: Filtro de Perfil
   Profile Settings: Configurações de Perfil
-Version $ is now available!  Click for more details: Versão $ está disponível agora!  Clique
-  para mais detalhes
+Version $ is now available!  Click for more details: A versão $ já está disponível!
+  Clique para mais detalhes
 A new blog is now available, $. Click to view more: Um novo blog está disponível,
   $. Clique para ver mais
-Download From Site: Fazer download pelo site
+Download From Site: Baixar do site
 The playlist has been reversed: A lista de reprodução foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível por causa de formatos faltantes. Isso pode acontecer devido
@@ -856,23 +878,23 @@ Hashtags have not yet been implemented, try again later: Hashtags ainda não for
   implementadas, tente novamente mais tarde
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
   não pode ser aberta no aplicativo
-Open New Window: Abrir Uma Nova Janela
+Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: A instância padrão Invidious foi limpa
 Default Invidious instance has been set to $: A instância padrão Invidious foi definida
   para $
 Search Bar:
-  Clear Input: Apagar a inserção
+  Clear Input: Limpar entrada
 External link opening has been disabled in the general settings: A abertura de link
   externo foi desativada nas configurações gerais
-Are you sure you want to open this link?: Tem certeza que deseja abrir este link?
+Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"$" terminou de baixar'
 Starting download: Iniciando o download de "$"
 Downloading failed: Ocorreu um problema ao fazer o download de "$"
 New Window: Nova janela
 Channels:
   Channels: Canais
-  Title: Lista de Canais
-  Search bar placeholder: Buscar Canais
+  Title: Lista de canais
+  Search bar placeholder: Buscar canais
   Empty: Sua lista de canais está vazia no momento.
   Unsubscribe: Cancelar inscrição
   Unsubscribed: $ foi removido de suas assinaturas
