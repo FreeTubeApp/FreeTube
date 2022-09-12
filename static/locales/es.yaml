@@ -840,8 +840,10 @@ Tooltips:
       (;) cada argumento será enviado al reproductor externo.
     Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
       (ej. invertir listas de reproducción, etc.).
-    External Player: Al elegir un reproductor externo, aparecerá un botón en las miniaturas
-      de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
+    External Player: La elección de un reproductor externo mostrará un icono, para
+      abrir el vídeo (lista de reproducción si es compatible) en el reproductor externo,
+      en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
+      externos.
     DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
