@@ -87,6 +87,13 @@ export default Vue.extend({
       return this.inputData.length > 0
     }
   },
+  watch: {
+    dataList(val, oldVal) {
+      if (val !== oldVal) {
+        this.updateVisibleDataList()
+      }
+    }
+  },
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
@@ -109,7 +116,6 @@ export default Vue.extend({
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
       this.handleActionIconChange()
-      this.updateVisibleDataList()
       this.$emit('input', val)
     },
 
