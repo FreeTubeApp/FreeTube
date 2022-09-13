@@ -1160,10 +1160,10 @@
   dependencies:
     axios "^0.27.2"
 
-"@freetube/yt-trending-scraper@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@freetube/yt-trending-scraper/-/yt-trending-scraper-3.1.0.tgz#51e20931b0d8a8d32216ecead320bbbcbb7ca959"
-  integrity sha512-qPyQaxU7Bv3e6HXn/ULH2h6iy1Egh3l7NKUgzuqPFHA7dAxbmMN7Ozr4QFnwXVnNYzfEdTsR+GFs9v71ChVJkQ==
+"@freetube/yt-trending-scraper@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@freetube/yt-trending-scraper/-/yt-trending-scraper-3.1.1.tgz#82d11ac3dad3ea25bc0f30d68e315364e9977046"
+  integrity sha512-qgWFLefcKiLfJmETtEeDVuv9MQ50JFwkGlR3NITDG/SzdrhTFBizG5Ggs34sub6UQd6M6Ib8HxI/lgtKYqN7qA==
   dependencies:
     axios "^0.27.2"
 
