@@ -397,10 +397,7 @@ export default Vue.extend({
                 })
               }
 
-              for (let i = 0; i < chapters.length - 1; i++) {
-                chapters[i].endSeconds = chapters[i + 1].startSeconds
-              }
-              chapters.at(-1).endSeconds = parseInt(result.videoDetails.lengthSeconds)
+              this.addChaptersEndSeconds(chapters, result.videoDetails.lengthSeconds)
 
               // prevent vue from adding reactivity which isn't needed
               // as the chapter objects are read-only after this anyway
@@ -726,9 +723,9 @@ export default Vue.extend({
             // MM:SS Text
             // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
             // MM:SS - Text
-            // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored
+            // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
             // HH:MM - HH:MM - Text // end timestamp is ignored
-            const chapterMatches = result.description.matchAll(/^(?<timestamp>(?:(?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(?:\s*[-–—]\s*(?:\d+:)?\d+:\d+)?\s+(?:[-–•—]\s*)?(?<title>.+)$/gm)
+            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>[0-9]+):)?(?<minutes>[0-9]+):(?<seconds>[0-9]+))(\s*[-–—]\s*(?:[0-9]+:)?[0-9]+:[0-9]+)?\s+([-–•—]\s*)?(?<title>.+)$/gm)
 
             for (const { groups } of chapterMatches) {
               let start = 60 * Number(groups.minutes) + Number(groups.seconds)
@@ -751,10 +748,7 @@ export default Vue.extend({
             }
 
             if (chapters.length > 0) {
-              for (let i = 0; i < chapters.length - 1; i++) {
-                chapters[i].endSeconds = chapters[i + 1].startSeconds
-              }
-              chapters.at(-1).endSeconds = result.lengthSeconds
+              this.addChaptersEndSeconds(chapters, result.lengthSeconds)
 
               // prevent vue from adding reactivity which isn't needed
               // as the chapter objects are read-only after this anyway
@@ -924,6 +918,13 @@ export default Vue.extend({
         const path = part.navigationEndpoint.commandMetadata.webCommandMetadata.url
         return `https://www.youtube.com${path}`
       }
+    },
+
+    addChaptersEndSeconds: function (chapters, videoLengthSeconds) {
+      for (let i = 0; i < chapters.length - 1; i++) {
+        chapters[i].endSeconds = chapters[i + 1].startSeconds
+      }
+      chapters.at(-1).endSeconds = videoLengthSeconds
     },
 
     updateCurrentChapter: function () {
