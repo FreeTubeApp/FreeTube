@@ -25,10 +25,6 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
-      },
     ],
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
