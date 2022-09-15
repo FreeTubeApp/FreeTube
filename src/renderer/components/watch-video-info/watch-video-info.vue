@@ -19,6 +19,7 @@
               <img
                 :src="channelThumbnail"
                 class="channelThumbnail"
+                @click="goToChannel"
               >
             </router-link>
           </div>
@@ -29,6 +30,7 @@
             >
               <div
                 class="channelName"
+                @click="goToChannel"
               >
                 {{ channelName }}
               </div>
