@@ -62,11 +62,6 @@ export default Vue.extend({
     isDev: function () {
       return process.env.NODE_ENV === 'development'
     },
-
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },

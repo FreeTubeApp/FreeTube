@@ -135,7 +135,7 @@ new Vue({
 })
 
 // to avoid accessing electron api from web app build
-if (window && window.process && window.process.type === 'renderer') {
+if (process.env.IS_ELECTRON) {
   const { ipcRenderer } = require('electron')
 
   // handle menu event updates from main script

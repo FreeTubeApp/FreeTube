@@ -67,10 +67,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -185,7 +181,7 @@ export default Vue.extend({
       this.apiUsed = ''
       this.isLoading = true
 
-      if (!this.usingElectron) {
+      if (!process.env.IS_ELECTRON) {
         this.getVideoInformationInvidious()
       } else {
         switch (this.backendPreference) {
@@ -241,7 +237,7 @@ export default Vue.extend({
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
-    if (!this.usingElectron) {
+    if (!process.env.IS_ELECTRON) {
       this.getVideoInformationInvidious()
     } else {
       switch (this.backendPreference) {

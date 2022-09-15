@@ -193,8 +193,7 @@ const getters = {
 
 async function invokeIRC(context, IRCtype, webCbk, payload = null) {
   let response = null
-  const usingElectron = context.rootState.settings.usingElectron
-  if (usingElectron) {
+  if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
     response = await ipcRenderer.invoke(IRCtype, payload)
   } else if (webCbk) {
@@ -205,9 +204,8 @@ async function invokeIRC(context, IRCtype, webCbk, payload = null) {
 }
 
 const actions = {
-  openExternalLink ({ rootState }, url) {
-    const usingElectron = rootState.settings.usingElectron
-    if (usingElectron) {
+  openExternalLink (_, url) {
+    if (process.env.IS_ELECTRON) {
       const ipcRenderer = require('electron').ipcRenderer
       ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
@@ -250,7 +248,6 @@ const actions = {
 
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
     const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
-    const usingElectron = rootState.settings.usingElectron
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
     const startMessage = translations['Starting download'].replace('$', title)
@@ -258,7 +255,7 @@ const actions = {
     const errorMessage = translations['Downloading failed'].replace('$', title)
     let folderPath = rootState.settings.downloadFolderPath
 
-    if (!usingElectron) {
+    if (!process.env.IS_ELECTRON) {
       // Add logic here in the future
       return
     }

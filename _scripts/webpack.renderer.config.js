@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 const { productName } = require('../package.json')
 
@@ -36,10 +37,6 @@ const config = {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
       },
       {
         test: /\.vue$/,
@@ -99,13 +96,23 @@ const config = {
       },
     ],
   },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new CssMinimizerPlugin()
+    ]
+  },
   node: {
     __dirname: isDevMode,
     __filename: isDevMode,
     global: isDevMode,
   },
   plugins: [
-    // new WriteFilePlugin(),
+    new webpack.DefinePlugin({
+      'process.env.PRODUCT_NAME': JSON.stringify(productName),
+      'process.env.IS_ELECTRON': true
+    }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
@@ -115,9 +122,6 @@ const config = {
         : false,
     }),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-    }),
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',

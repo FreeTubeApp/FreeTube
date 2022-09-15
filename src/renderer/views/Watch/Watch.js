@@ -88,9 +88,6 @@ export default Vue.extend({
     isDev: function () {
       return process.env.NODE_ENV === 'development'
     },
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
     historyCache: function () {
       return this.$store.getters.getHistoryCache
     },
@@ -221,7 +218,7 @@ export default Vue.extend({
     this.checkIfPlaylist()
     this.checkIfTimestamp()
 
-    if (!this.usingElectron) {
+    if (!process.env.IS_ELECTRON) {
       this.getVideoInformationInvidious()
     } else {
       switch (this.backendPreference) {
@@ -591,7 +588,7 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private'))) {
+          if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private'))) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -897,7 +894,7 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
+          if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -1153,7 +1150,7 @@ export default Vue.extend({
     createInvidiousDashManifest: function () {
       let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
-      if (this.proxyVideos || !this.usingElectron) {
+      if (this.proxyVideos || !process.env.IS_ELECTRON) {
         url = url + '?local=true'
       }
 

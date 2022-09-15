@@ -156,7 +156,7 @@ Settings:
     The currently set default instance is $: Současné výchozí instance je $
     External Link Handling:
       No Action: Žádná akce
-      Ask Before Opening Link: Před otevřením se zeptat
+      Ask Before Opening Link: Před otevřením odkazu se zeptat
       Open Link: Otevřít odkaz
       External Link Handling: Používání externích odkazů
   Theme Settings:
@@ -247,7 +247,7 @@ Settings:
     Next Video Interval: Další interval videa
     Display Play Button In Video Player: Zobrazit tlačítko 'přehrát' ve video přehrávači
     Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
-    Fast-Forward / Rewind Interval: Interval rychlého převíjení vpřed / vzad
+    Fast-Forward / Rewind Interval: Interval rychlého přetáčení vpřed / vzad
     Scroll Playback Rate Over Video Player: Změna rychlosti přehrávání posuvem kolečka
       myši
     Max Video Playback Rate: Maximální rychlost přehrávání videa
@@ -461,7 +461,7 @@ About:
   Donate: Přispět
   Credits: Poděkování
   room rules: pravidla místnosti
-  Please read the: Prosím, přečtěte si
+  Please read the: Přečtěte si prosím
   Chat on Matrix: Chat na síti Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -474,10 +474,10 @@ About:
   Translate: Překlady
   these people and projects: těmto lidem a projektům
   FreeTube is made possible by: FreeTube je možné udělat díky
-  Please check for duplicates before posting: Před odesláním zkontrolujte duplicity
+  Please check for duplicates before posting: Před odesláním prosím zkontrolujte duplicity
   GitHub issues: Chyby na GitHub
   Report a problem: Nahlásit problém
-  Help: Pomoc
+  Help: Nápověda
   GitHub releases: Vydaní na GitHub
 Profile:
   Profile Select: 'Výběr profilu'
@@ -548,7 +548,7 @@ Channel:
       Newest: 'Nejnovější'
       Oldest: 'Nejstarší'
   About:
-    About: 'O'
+    About: 'O kanálu'
     Channel Description: 'Popis kanálu'
     Featured Channels: 'Doporučené kanály'
 Video:
@@ -633,7 +633,7 @@ Video:
     Less than a minute: Méně než minuta
   Published on: 'Publikováno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'před $ %'
+  Publicationtemplate: '$ %'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
