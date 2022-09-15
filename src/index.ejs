@@ -21,7 +21,7 @@
     <!-- Set `__static` path to static files in production -->
     <script>
     try {
-      if (process.env.NODE_ENV !== 'development')
+      if ('<%= process.env.NODE_ENV %>' !== 'development')
         window.__static = require('path')
           .join(__dirname, '/static')
           .replace(/\\/g, '\\\\')
@@ -34,7 +34,7 @@
     // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
 
     // Check compatibility for the browser we're running this in
-    if ("serviceWorker" in navigator && (window && window.process && window.process.type !== 'renderer')) {
+    if ("serviceWorker" in navigator && !<%= process.env.IS_ELECTRON %>) {
       if (navigator.serviceWorker.controller) {
         console.log("[PWA Builder] active service worker found, no need to register");
       } else {

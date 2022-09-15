@@ -59,10 +59,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -83,7 +79,7 @@ export default Vue.extend({
     }
   },
   created: function () {
-    if (!this.usingElectron) {
+    if (!process.env.IS_ELECTRON) {
       this.hasError = true
       this.errorMessage = this.$t('Video["Live Chat is currently not supported in this build."]')
     } else {
