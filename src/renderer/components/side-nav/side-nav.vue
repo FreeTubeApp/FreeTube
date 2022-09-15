@@ -225,6 +225,7 @@
           role="button"
           tabindex="0"
           @keypress="goToChannel(channel.id)"
+          @click="goToChannel(channel.id)"
         >
           <router-link
             :to="`/channel/${channel.id}`"
