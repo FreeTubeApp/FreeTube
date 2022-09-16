@@ -443,7 +443,7 @@ Settings:
     Ask Download Path: 'Demander l''emplacement de téléchargement'
     Choose Path: 'Choisir l''emplacement'
     Download Behavior: Comportement de téléchargement
-    Download in app: Télécharger dans l'appli
+    Download in app: Télécharger dans l'application
     Open in web browser: Ouvrir dans le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
@@ -690,7 +690,7 @@ Video:
     Buffered: En mémoire tampon
     Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
-  Premieres in: Première en
+  Premieres in: Première dans
 Videos:
   #& Sort By
   Sort By:
@@ -793,7 +793,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: français
+Locale Name: Français
 Profile:
   $ is now the active profile: $ est maintenant le profil actif
   Your default profile has been changed to your primary profile: Votre profil par
