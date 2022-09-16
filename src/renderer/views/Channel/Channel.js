@@ -181,20 +181,13 @@ export default Vue.extend({
       this.apiUsed = ''
       this.isLoading = true
 
-      if (!process.env.IS_ELECTRON) {
-        this.getVideoInformationInvidious()
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getChannelInfoInvidious()
+        this.getPlaylistsInvidious()
       } else {
-        switch (this.backendPreference) {
-          case 'local':
-            this.getChannelInfoLocal()
-            this.getChannelVideosLocal()
-            this.getPlaylistsLocal()
-            break
-          case 'invidious':
-            this.getChannelInfoInvidious()
-            this.getPlaylistsInvidious()
-            break
-        }
+        this.getChannelInfoLocal()
+        this.getChannelVideosLocal()
+        this.getPlaylistsLocal()
       }
     },
 
@@ -237,20 +230,13 @@ export default Vue.extend({
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
-    if (!process.env.IS_ELECTRON) {
-      this.getVideoInformationInvidious()
+    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      this.getChannelInfoInvidious()
+      this.getPlaylistsInvidious()
     } else {
-      switch (this.backendPreference) {
-        case 'local':
-          this.getChannelInfoLocal()
-          this.getChannelVideosLocal()
-          this.getPlaylistsLocal()
-          break
-        case 'invidious':
-          this.getChannelInfoInvidious()
-          this.getPlaylistsInvidious()
-          break
-      }
+      this.getChannelInfoLocal()
+      this.getChannelVideosLocal()
+      this.getPlaylistsLocal()
     }
   },
   methods: {

@@ -82,17 +82,10 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!process.env.IS_ELECTRON) {
+    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
-      switch (this.backendPreference) {
-        case 'local':
-          this.getPlaylistInformationLocal()
-          break
-        case 'invidious':
-          this.getPlaylistInformationInvidious()
-          break
-      }
+      this.getPlaylistInformationLocal()
     }
 
     if ('mediaSession' in navigator) {
