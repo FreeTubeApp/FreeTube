@@ -197,6 +197,7 @@ Settings:
       Catppuccin Mocha Maroon: Catppuccin Mocha Granate
       Catppuccin Mocha Teal: Catppuccin Moka Verde azulado
       Catppuccin Mocha Rosewater: Catppuccin Mocha Agua de Rosas
+      Catppuccin Mocha Sky: Catppuccin Mocha Cielo
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
@@ -368,6 +369,8 @@ Settings:
     Hide Playlists: Ocultar listas de reproducción
     Hide Video Description: Ocultar la descripción del vídeo
     Hide Comments: Ocultar los comentarios
+    Hide Live Streams: Ocultar retransmisiones en directo
+    Hide Sharing Actions: Ocultar acciones de uso compartido
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -399,6 +402,7 @@ Settings:
       Do Nothing: No hacer nada
       Skip Option: Omitir opción
       Auto Skip: Salto automático
+      Prompt To Skip: Solicitar que se omita
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -414,10 +418,12 @@ Settings:
     Choose Path: Elegir ruta
     Download in app: Descargar en la aplicación
     Open in web browser: Abrir en el navegador web
+    Download Behavior: Comportamiento de la descarga
   Parental Control Settings:
     Hide Unsubscribe Button: Ocultar botón de anular suscripción
     Hide Search Bar: Ocultar barra de búsqueda
     Parental Control Settings: Ajustes del control para padres
+    Show Family Friendly Only: Mostrar solo apto para familias
 About:
   #On About page
   About: 'Acerca de'
