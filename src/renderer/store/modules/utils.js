@@ -284,7 +284,7 @@ const actions = {
           fs.mkdirSync(folderPath, { recursive: true })
         } catch (err) {
           console.error(err)
-          this.showToast({
+          dispatch('showToast', {
             message: err
           })
           return
