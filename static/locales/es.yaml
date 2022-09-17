@@ -642,6 +642,7 @@ Video:
     intro: Introducción
     sponsor: Patrocinador
     recap: Recapitulación
+    filler: Relleno
   Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
