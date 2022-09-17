@@ -277,7 +277,7 @@ export default Vue.extend({
           }
           try {
             // workaround for title localization
-            this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text
+            this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs.map(run => run.text).join('')
           } catch (err) {
             console.error('Failed to extract localised video title, falling back to the standard one.', err)
             // if the workaround for localization fails, this sets the title to the potentially non-localized value
@@ -802,7 +802,7 @@ export default Vue.extend({
     processDescriptionPart(part, fallbackDescription) {
       const timestampRegex = /^([0-9]+:)?[0-9]+:[0-9]+$/
 
-      if (typeof part.navigationEndpoint === 'undefined' || part.navigationEndpoint === null) {
+      if (typeof part.navigationEndpoint === 'undefined' || part.navigationEndpoint === null || part.text.startsWith('#')) {
         return part.text
       }
 
