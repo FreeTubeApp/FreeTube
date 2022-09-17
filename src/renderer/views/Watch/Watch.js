@@ -218,17 +218,10 @@ export default Vue.extend({
     this.checkIfPlaylist()
     this.checkIfTimestamp()
 
-    if (!process.env.IS_ELECTRON) {
+    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getVideoInformationInvidious()
     } else {
-      switch (this.backendPreference) {
-        case 'local':
-          this.getVideoInformationLocal()
-          break
-        case 'invidious':
-          this.getVideoInformationInvidious()
-          break
-      }
+      this.getVideoInformationLocal()
     }
 
     window.addEventListener('beforeunload', this.handleWatchProgress)
@@ -588,7 +581,7 @@ export default Vue.extend({
             }
           })
           console.log(err)
-          if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private'))) {
+          if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
             })
@@ -1151,7 +1144,7 @@ export default Vue.extend({
       let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
       if (this.proxyVideos || !process.env.IS_ELECTRON) {
-        url = url + '?local=true'
+        url += '?local=true'
       }
 
       return [
