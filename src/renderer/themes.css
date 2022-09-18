@@ -70,6 +70,14 @@
     --logo-text: url("../../_icons/textColorSmall.png");
 }
 
+.black .topNav,.black .sideNav {
+  box-shadow: 0 0 0 2px #ddddddc7 !important;
+}
+
+.black .ft-card {
+  box-shadow: inset 0 0 0 2px #ddddddc7 !important;
+}
+
 .gray {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #E0E0E0;
