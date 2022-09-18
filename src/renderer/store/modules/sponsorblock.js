@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 const state = {}
 const getters = {}
 
@@ -18,24 +16,30 @@ const actions = {
 
         const requestUrl = `${rootState.settings.sponsorBlockUrl}/api/skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
 
-        $.getJSON(requestUrl, (response) => {
-          const segments = response
-            .filter((result) => result.videoID === videoId)
-            .flatMap((result) => result.segments)
-          resolve(segments)
-        }).fail((xhr, textStatus, error) => {
-          // 404 means that there are no segments registered for the video
-          if (xhr.status === 404) {
-            resolve([])
-            return
-          }
+        fetch(requestUrl)
+          .then((response) => {
+            // 404 means that there are no segments registered for the video
+            if (response.status === 404) {
+              resolve([])
+              return
+            }
 
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(requestUrl)
-          console.error(error)
-          reject(xhr)
-        })
+            response.json()
+              .then((json) => {
+                const segments = json
+                  .filter((result) => result.videoID === videoId)
+                  .flatMap((result) => result.segments)
+                resolve(segments)
+              })
+              .catch((error) => {
+                console.error('failed to fetch SponsorBlock segments', requestUrl, error)
+                reject(error)
+              })
+          })
+          .catch((error) => {
+            console.error('failed to fetch SponsorBlock segments', requestUrl, error)
+            reject(error)
+          })
       })
     })
   }

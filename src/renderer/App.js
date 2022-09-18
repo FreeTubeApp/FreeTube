@@ -206,31 +206,31 @@ export default Vue.extend({
         const { version } = require('../../package.json')
         const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
 
-        $.getJSON(requestUrl, (response) => {
-          const tagName = response[0].tag_name
-          const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = marked.parse(response[0].body)
-          this.changeLogTitle = response[0].name
+        fetch(requestUrl)
+          .then((response) => response.json())
+          .then((json) => {
+            const tagName = json[0].tag_name
+            const versionNumber = tagName.replace('v', '').replace('-beta', '')
+            this.updateChangelog = marked.parse(json[0].body)
+            this.changeLogTitle = json[0].name
 
-          const message = this.$t('Version $ is now available!  Click for more details')
-          this.updateBannerMessage = message.replace('$', versionNumber)
+            const message = this.$t('Version $ is now available!  Click for more details')
+            this.updateBannerMessage = message.replace('$', versionNumber)
 
-          const appVersion = version.split('.')
-          const latestVersion = versionNumber.split('.')
+            const appVersion = version.split('.')
+            const latestVersion = versionNumber.split('.')
 
-          if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
-            this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
-            this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
-            this.showUpdatesBanner = true
-          }
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(requestUrl)
-          console.log(error)
-        })
+            if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
+              this.showUpdatesBanner = true
+            } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
+              this.showUpdatesBanner = true
+            } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
+              this.showUpdatesBanner = true
+            }
+          })
+          .catch((error) => {
+            console.error('errored while checking for updates', requestUrl, error)
+          })
       }
     },
 
