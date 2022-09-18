@@ -17,7 +17,7 @@ jobs:
                 "labels": ["B: visual"]
               },
               {
-                "keywords": ["AUR", "Chocolatey", "PortableApps", "winget", "Scoop"],
+                "keywords": ["AUR", "Chocolatey", "PortableApps", "winget", "Scoop", "MPR"],
                 "labels": ["B: Unofficial Download"]
               },
               {
