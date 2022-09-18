@@ -207,7 +207,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -279,7 +279,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -345,7 +345,8 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'ytSearch',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'copyToClipboard'
     ])
   }
 })

@@ -246,6 +246,36 @@ const actions = {
     return filenameNew
   },
 
+  async copyToClipboard ({ dispatch }, { content, name, t = (content) => { return content } }) {
+    if (navigator.clipboard !== undefined) {
+      try {
+        await navigator.clipboard.writeText(content)
+        if (name !== undefined) {
+          dispatch('showToast', {
+            message: t(`${name} copied to clipboard`)
+          })
+        }
+      } catch (error) {
+        if (name !== undefined) {
+          dispatch('showToast', {
+            message: `${t(`${name} copy to clipboard failed`)}: ${error}`,
+            time: 5000
+          })
+        } else {
+          dispatch('showToast', {
+            message: `${t('Clipboard.Copy failed')}: ${error}`,
+            time: 5000
+          })
+        }
+      }
+    } else {
+      dispatch('showToast', {
+        message: t('Clipboard.Can not access without a secure connection'),
+        time: 5000
+      })
+    }
+  },
+
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
     const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
     const locale = i18n._vm.locale

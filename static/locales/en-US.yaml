@@ -683,11 +683,20 @@ Share:
   Open Embed: Open Embed
   # On Click
   Invidious URL copied to clipboard: Invidious URL copied to clipboard
+  Invidious URL copy to clipboard failed: Failed to copy Invidious URL to clipboard
   Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
+  Invidious Embed URL copy to clipboard failed: Failed to copy Invidious URL to clipboard
   Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
+  Invidious Channel URL copy to clipboard failed: Failed to copy Invidious Channel to clipboard
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
+  YouTube URL copy to clipboard failed: Failed to copy YouTube URL to clipboard
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
+  YouTube Embed URL copy to clipboard failed: Failed to copy YouTube Embed URL to clipboard
   YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+  YouTube Channel URL copy to clipboard failed: Failed to copy YouTube Channel URL to clipboard
+Clipboard:
+  Copy failed: Copy to clipboard failed
+  Can not access without a secure connection: Can not access clipboard without a secure connection
 
 Mini Player: Mini Player
 Comments:

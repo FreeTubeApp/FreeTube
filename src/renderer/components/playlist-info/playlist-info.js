@@ -107,19 +107,13 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
-          navigator.clipboard.writeText(youtubeUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: youtubeUrl, name: 'Share.YouTube URL', t: this.$t })
           break
         case 'openYoutube':
           this.openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
-          navigator.clipboard.writeText(invidiousUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: invidiousUrl, name: 'Share.Invidious URL', t: this.$t })
           break
         case 'openInvidious':
           this.openExternalLink(invidiousUrl)
@@ -146,7 +140,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'openExternalLink'
+      'openExternalLink',
+      'copyToClipboard'
     ])
   }
 })
