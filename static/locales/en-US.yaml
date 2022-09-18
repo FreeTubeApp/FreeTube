@@ -690,7 +690,10 @@ Share:
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
   YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
 
-Chapters: Chapters
+Chapters:
+  Chapters: Chapters
+  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
 Mini Player: Mini Player
 Comments:

@@ -48,7 +48,8 @@
           :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
           :compact="true"
           :default-value="hideSharingActions"
-          @change="updateHideSharingActions" />
+          @change="updateHideSharingActions"
+        />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Chapters')"
           :compact="true"

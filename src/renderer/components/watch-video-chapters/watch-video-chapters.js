@@ -26,6 +26,11 @@ export default Vue.extend({
       currentIndex: 0
     }
   },
+  computed: {
+    currentTitle: function () {
+      return this.chapters[this.currentIndex].title
+    }
+  },
   watch: {
     currentChapterIndex: function (value) {
       if (this.currentIndex !== value) {
@@ -40,6 +45,28 @@ export default Vue.extend({
     changeChapter: function(index) {
       this.currentIndex = index
       this.$emit('timestamp-event', this.chapters[index].startSeconds)
+    },
+
+    navigateChapters(direction) {
+      const chapterElements = Array.from(this.$refs.chaptersWrapper.children)
+      const focusedIndex = chapterElements.indexOf(document.activeElement)
+
+      let newIndex = focusedIndex
+      if (direction === 'up') {
+        if (focusedIndex === 0) {
+          newIndex = chapterElements.length - 1
+        } else {
+          newIndex--
+        }
+      } else {
+        if (focusedIndex === chapterElements.length - 1) {
+          newIndex = 0
+        } else {
+          newIndex++
+        }
+      }
+
+      chapterElements[newIndex].focus()
     }
   }
 })
