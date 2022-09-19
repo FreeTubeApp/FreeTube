@@ -14,10 +14,6 @@ const config = {
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
-  // webpack spits out errors while inlining electron-debug as
-  // it tries to dynamically load dependencies
-  // the error: "Critical dependency: the request of a dependency is an expression"
-  externals: ['electron-debug'],
   module: {
     rules: [
       {

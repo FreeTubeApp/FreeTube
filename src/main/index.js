@@ -80,10 +80,6 @@ function runApp() {
         }
       }
     })
-  } else {
-    require('electron-debug')({
-      showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
-    })
   }
 
   app.on('ready', async (_, __) => {
@@ -303,10 +299,20 @@ function runApp() {
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
-      if (newWindow.isVisible()) { return }
+      if (newWindow.isVisible()) {
+        // only open the dev tools if they aren't already open
+        if (isDev && !newWindow.webContents.isDevToolsOpened()) {
+          newWindow.webContents.openDevTools({ activate: false })
+        }
+        return
+      }
 
       newWindow.show()
       newWindow.focus()
+
+      if (isDev) {
+        newWindow.webContents.openDevTools({ activate: false })
+      }
     })
 
     newWindow.once('close', async () => {
@@ -816,6 +822,21 @@ function runApp() {
             accelerator: 'CmdOrCtrl+Shift+R'
           },
           { role: 'toggledevtools' },
+          { role: 'toggledevtools', accelerator: 'f12', visible: false },
+          {
+            label: 'Enter Inspect Element Mode',
+            accelerator: 'CmdOrCtrl+Shift+C',
+            click: (_, window) => {
+              if (window.webContents.isDevToolsOpened()) {
+                window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+              } else {
+                window.webContents.once('devtools-opened', () => {
+                  window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+                })
+                window.webContents.openDevTools()
+              }
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
           { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
