@@ -14,6 +14,7 @@ import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-vid
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'Watch',
@@ -160,6 +161,9 @@ export default Vue.extend({
     },
     theatrePossible: function () {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
+    },
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   watch: {
@@ -354,7 +358,7 @@ export default Vue.extend({
             } else if (subCount >= 10000) {
               this.channelSubscriptionCountText = `${subCount / 1000}K`
             } else {
-              this.channelSubscriptionCountText = subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              this.channelSubscriptionCountText = Intl.NumberFormat(this.currentLocale).format(subCount)
             }
           }
 

@@ -13,6 +13,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'Search',
@@ -132,11 +133,15 @@ export default Vue.extend({
       ]
     },
 
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
+    },
+
     formattedSubCount: function () {
       if (this.hideChannelSubscriptions) {
         return null
       }
-      return this.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      return Intl.NumberFormat(this.currentLocale).format(this.subCount)
     },
 
     showFetchMoreButton: function () {
