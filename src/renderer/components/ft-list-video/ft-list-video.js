@@ -520,7 +520,8 @@ export default Vue.extend({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
-      'openExternalLink'
+      'openExternalLink',
+      'copyToClipboard'
     ])
   }
 })

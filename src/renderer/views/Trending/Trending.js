@@ -208,7 +208,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'copyToClipboard'
     ])
   }
 })
