@@ -305,7 +305,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -337,7 +337,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -362,7 +362,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
       })
@@ -417,7 +417,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err.responseJSON.error, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err.responseJSON.error })
           }
         })
         this.isLoading = false
@@ -445,7 +445,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
       })
@@ -472,7 +472,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -498,7 +498,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
       })
@@ -524,7 +524,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err.responseJSON.error, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err.responseJSON.error })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -567,7 +567,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err.responseJSON.error, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err.responseJSON.error })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -733,7 +733,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err })
             }
           })
           if (this.backendPreference === 'local' && this.backendFallback) {
@@ -758,7 +758,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err })
             }
           })
         })
@@ -786,7 +786,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {

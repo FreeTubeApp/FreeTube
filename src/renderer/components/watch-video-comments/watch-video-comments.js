@@ -188,7 +188,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendFallback && this.backendPreference === 'local') {
@@ -223,7 +223,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendFallback && this.backendPreference === 'local') {
@@ -339,7 +339,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${xhr.responseText}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: xhr.responseText, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: xhr.responseText })
           }
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
@@ -396,7 +396,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${xhr.responseText}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: xhr.responseText, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: xhr.responseText })
           }
         })
         this.isLoading = false

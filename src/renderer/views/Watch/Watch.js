@@ -577,7 +577,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err })
             }
           })
           console.log(err)
@@ -762,7 +762,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err.responseText, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err.responseText })
             }
           })
           console.log(err)
@@ -883,7 +883,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err })
             }
           })
           console.log(err)

@@ -246,31 +246,33 @@ const actions = {
     return filenameNew
   },
 
-  async copyToClipboard ({ dispatch }, { content, name, t = (content) => { return content } }) {
+  async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
+    const locale = i18n._vm.locale
+    const translations = i18n._vm.messages[locale]
     if (navigator.clipboard !== undefined) {
       try {
         await navigator.clipboard.writeText(content)
-        if (name !== undefined) {
+        if (messageOnSuccess !== undefined) {
           dispatch('showToast', {
-            message: t(`${name} copied to clipboard`)
+            message: messageOnSuccess
           })
         }
       } catch (error) {
-        if (name !== undefined) {
+        if (messageOnError !== undefined) {
           dispatch('showToast', {
-            message: `${t(`${name} copy to clipboard failed`)}: ${error}`,
+            message: `${messageOnError}: ${error}`,
             time: 5000
           })
         } else {
           dispatch('showToast', {
-            message: `${t('Clipboard.Copy failed')}: ${error}`,
+            message: `${translations.Clipboard['Copy failed']}: ${error}`,
             time: 5000
           })
         }
       }
     } else {
       dispatch('showToast', {
-        message: t('Clipboard.Can not access without a secure connection'),
+        message: translations.Clipboard['Can not access without a secure connection'],
         time: 5000
       })
     }

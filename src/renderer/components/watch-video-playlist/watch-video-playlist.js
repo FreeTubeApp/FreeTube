@@ -313,7 +313,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -354,7 +354,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {

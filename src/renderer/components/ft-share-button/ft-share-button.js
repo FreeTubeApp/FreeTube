@@ -83,7 +83,7 @@ export default Vue.extend({
     },
 
     copyInvidious() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousURL), name: 'Share.Invidious URL', t: this.$t.bind(this) })
+      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousURL), messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -93,7 +93,7 @@ export default Vue.extend({
     },
 
     copyYoutube() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeShareURL), name: 'Share.YouTube URL', t: this.$t.bind(this) })
+      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeShareURL), messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -103,7 +103,7 @@ export default Vue.extend({
     },
 
     copyYoutubeEmbed() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeEmbedURL), name: 'Share.YouTube Embed URL', t: this.$t.bind(this) })
+      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeEmbedURL), messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -113,7 +113,7 @@ export default Vue.extend({
     },
 
     copyInvidiousEmbed() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousEmbedURL), name: 'Share.Invidious Embed URL', t: this.$t.bind(this) })
+      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousEmbedURL), messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 

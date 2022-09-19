@@ -107,13 +107,13 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
-          this.copyToClipboard({ content: youtubeUrl, name: 'Share.YouTube URL', t: this.$t })
+          this.copyToClipboard({ content: youtubeUrl, messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
           this.openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
-          this.copyToClipboard({ content: invidiousUrl, name: 'Share.Invidious URL', t: this.$t })
+          this.copyToClipboard({ content: invidiousUrl, messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
           this.openExternalLink(invidiousUrl)

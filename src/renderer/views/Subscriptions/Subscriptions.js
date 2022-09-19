@@ -260,7 +260,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err })
             }
           })
           switch (failedAttempts) {
@@ -323,7 +323,7 @@ export default Vue.extend({
               message: `${errorMessage}: ${err}`,
               time: 10000,
               action: () => {
-                this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+                this.copyToClipboard({ content: err })
               }
             })
             switch (failedAttempts) {
@@ -371,7 +371,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err.responseText, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err.responseText })
             }
           })
           switch (failedAttempts) {
@@ -422,7 +422,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err, t: this.$t.bind(this) })
+              this.copyToClipboard({ content: err })
             }
           })
           if (err.toString().match(/500/)) {
