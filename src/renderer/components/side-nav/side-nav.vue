@@ -229,6 +229,7 @@
         >
           <router-link
             :to="`/channel/${channel.id}`"
+            class="channelLink"
           >
             <div
               class="thumbnailContainer"
