@@ -3,8 +3,7 @@ Locale Name: 'Română'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
-  progrese.
+  Această parte a aplicației nu este gata încă. Revino mai târziu pentru modificări.
 
 # Webkit Menu Bar
 File: 'Filă'
@@ -82,7 +81,7 @@ Subscriptions:
     a le vedea aici.'
   'Getting Subscriptions. Please wait.': 'Se obțin abonamentele. Vă rugăm să așteptați.'
   Refresh Subscriptions: 'Reîmprospătați abonamentele'
-  Load More Videos: Încărcați mai multe videoclipuri
+  Load More Videos: Încarcă mai mult
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
     vitezei
@@ -105,7 +104,7 @@ User Playlists:
     Aceasta enumeră doar videoclipurile pe care le-ați salvat sau le-ați favorizat.
     Când lucrările vor fi finalizate, toate videoclipurile care se află în prezent
     aici vor fi migrate într-o listă de redare "Favorite".
-  Search bar placeholder: Căutare în lista de redare
+  Search bar placeholder: Caută în Listă De Redare
   Empty Search Message: Nu sunt videoclipuri pentru căutarea ta
 History:
   # On History Page
@@ -226,14 +225,14 @@ Settings:
     Autoplay Playlists: 'Redați automat listele de redare'
     Enable Theatre Mode by Default: 'Activați modul teatru în mod implicit'
     Default Volume: 'Volum implicit'
-    Default Playback Rate: 'Rata de redare implicită'
+    Default Playback Rate: 'Viteza de redare implicită'
     Default Video Format:
       Default Video Format: 'Format video implicit'
       Dash Formats: 'Formate DASH'
       Legacy Formats: 'Formate vechi'
       Audio Formats: 'Formate audio'
     Default Quality:
-      Default Quality: 'Calitatea implicită'
+      Default Quality: 'Calitate implicită'
       Auto: 'Automat'
       144p: '144p'
       240p: '240p'
@@ -272,7 +271,7 @@ Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
     Save Watched Progress: 'Salvați progresul de vizionare'
-    Clear Search Cache: 'Ștergeți memoria cache de căutare'
+    Clear Search Cache: 'Sterge Cache-ul Căutărilor'
     Are you sure you want to clear out your search cache?: 'Sunteți sigur că doriți
       să ștergeți memoria cache de căutare?'
     Search cache has been cleared: 'Memoria cache de căutare a fost ștearsă'
@@ -280,24 +279,24 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Sunteți sigur că
       doriți să vă ștergeți întregul istoric al vizionărilor?'
     Watch history has been cleared: 'Istoricul vizionărilor a fost șters'
-    Remove All Subscriptions / Profiles: 'Eliminați toate abonamentele / profilurile'
+    Remove All Subscriptions / Profiles: 'Elimină toate abonamentele / profilurile'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți
       sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
       nu poate fi anulat.'
     Automatically Remove Video Meta Files: Îndepărtați automat fișierele meta video
   Subscription Settings:
     Subscription Settings: 'Setări de abonament'
-    Hide Videos on Watch: 'Ascundeți videoclipurile la vizionare'
+    Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Manage Subscriptions: 'Gestionați abonamentele'
   Data Settings:
     Data Settings: 'Setări de date'
-    Select Import Type: 'Selectați tipul de import'
-    Select Export Type: 'Selectați tipul de export'
-    Import Subscriptions: 'Importați abonamente'
-    Import FreeTube: 'Importați FreeTube'
-    Import YouTube: 'Importați YouTube'
-    Import NewPipe: 'Importați NewPipe'
+    Select Import Type: 'Selectează tipul de import'
+    Select Export Type: 'Selectează tipul de export'
+    Import Subscriptions: 'Importă abonamente'
+    Import FreeTube: 'Importă FreeTube'
+    Import YouTube: 'Importă YouTube'
+    Import NewPipe: 'Importă NewPipe'
     Export Subscriptions: 'Exportați abonamentele'
     Export FreeTube: 'Exportați FreeTube'
     Export YouTube: 'Exportați YouTube'
@@ -372,16 +371,16 @@ Settings:
       None:
         Name: Fără
   Distraction Free Settings:
-    Hide Active Subscriptions: Ascundeți abonamentele active
-    Hide Live Chat: Ascundeți Chat-ul Live
-    Hide Playlists: Ascundeți listele de redare
-    Hide Popular Videos: Ascundeți videoclipurile populare
+    Hide Active Subscriptions: Ascunde abonamentele active
+    Hide Live Chat: Ascunde Chat-ul Live
+    Hide Playlists: Ascunde listele de redare
+    Hide Popular Videos: Ascunde videoclipurile populare
     Hide Trending Videos: Ascundeți videoclipurile în tendințe
-    Hide Recommended Videos: Ascundeți videoclipurile recomandate
-    Hide Comment Likes: Ascundeți aprecierile comentariilor
-    Hide Channel Subscribers: Ascundeți abonații canalului
-    Hide Video Likes And Dislikes: Ascundeți like-urile și dislike-urile din video
-    Hide Video Views: Ascundeți vizualizările video
+    Hide Recommended Videos: Ascunde videoclipurile recomandate
+    Hide Comment Likes: Ascunde aprecierile comentariilor
+    Hide Channel Subscribers: Ascunde abonații canalului
+    Hide Video Likes And Dislikes: Ascunde like-urile și dislike-urile din video
+    Hide Video Views: Ascunde vizualizările video
     Distraction Free Settings: Setări împotriva distragerii atenției
     Hide Video Description: Ascunde descrierea videoclipului
     Hide Comments: Ascunde comentariile
@@ -408,7 +407,7 @@ Settings:
     Region: Regiune
     Country: Țară
     Ip: IP
-    Your Info: Informațiile dvs.
+    Your Info: Informațiile tale
     Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se
       va trimite o cerere către
     Test Proxy: Testați Proxy
@@ -499,7 +498,7 @@ Profile:
   Profile has been updated: 'Profilul a fost actualizat'
   Your default profile has been set to $: 'Profilul dvs. implicit a fost setat la
     $'
-  Removed $ from your profiles: 'Ați eliminat $ din profilurile dvs.'
+  Removed $ from your profiles: 'Ai eliminat $ din profilurile tale'
   Your default profile has been changed to your primary profile: 'Profilul dvs. implicit
     a fost schimbat în profilul dvs. principal'
   $ is now the active profile: '$ este acum profilul activ'
@@ -527,7 +526,7 @@ Channel:
   Subscribe: 'Abonați-vă'
   Unsubscribe: 'Dezabonați-vă'
   Channel has been removed from your subscriptions: 'Canalul a fost eliminat din abonamentele
-    dvs.'
+    tale'
   Removed subscription from $ other channel(s): 'Abonament eliminat de pe $ alt(e)
     canal(e)'
   Added channel to your subscriptions: 'Adăugat canal la abonamentele tale'
@@ -801,10 +800,10 @@ Search Bar:
   Clear Input: Ștergeți intrarea
 Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest
   link?
-Open New Window: Deschideți fereastră nouă
+Open New Window: Deschide fereastră nouă
 Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
 Default Invidious instance has been set to $: Instanța implicită Invidious a fost
-  setată la $.
+  setată la $
 Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp.
   Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
   secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
@@ -821,7 +820,7 @@ Tooltips:
     Fetch Feeds from RSS: Atunci când este activată, FreeTube va utiliza RSS în locul
       metodei implicite pentru a prelua feed-ul de abonament. RSS este mai rapid și
       previne blocarea IP-ului, dar nu oferă anumite informații, cum ar fi durata
-      videoclipului sau starea live.
+      videoclipului sau starea live
   External Player Settings:
     Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
       separate prin punct și virgulă (";"), pe care doriți să le transmiteți playerului
