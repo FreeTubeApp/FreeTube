@@ -1318,7 +1318,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              this.copyToClipboard({ content: err.responseJSON.error })
+              this.copyToClipboard({ content: err })
             }
           })
 
