@@ -271,7 +271,7 @@ export default Vue.extend({
           }
           try {
             // workaround for title localization
-            this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs[0].text
+            this.videoTitle = result.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.title.runs.map(run => run.text).join('')
           } catch (err) {
             console.error('Failed to extract localised video title, falling back to the standard one.', err)
             // if the workaround for localization fails, this sets the title to the potentially non-localized value
@@ -302,8 +302,20 @@ export default Vue.extend({
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           try {
             // workaround for description localization
-            const descriptionLines = result.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.description?.runs
-            this.videoDescription = descriptionLines?.map(line => line.text).join('') ?? ''
+            const descriptionRuns = result.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.description?.runs
+
+            if (!Array.isArray(descriptionRuns)) {
+              // eslint-disable-next-line no-throw-literal
+              throw ['not an array', descriptionRuns]
+            }
+
+            const fallbackDescription = result.player_response.videoDetails.shortDescription
+
+            // YouTube truncates links in the localised description
+            // so we need to fix them here, so that autolinker can do it's job properly later on
+            this.videoDescription = descriptionRuns
+              .map(run => this.processDescriptionPart(run, fallbackDescription))
+              .join('')
           } catch (err) {
             console.error('Failed to extract localised video description, falling back to the standard one.', err)
             // if the workaround for localization fails, this sets the description to the potentially non-localized value
@@ -779,6 +791,56 @@ export default Vue.extend({
             this.isLoading = false
           }
         })
+    },
+
+    processDescriptionPart(part, fallbackDescription) {
+      const timestampRegex = /^([0-9]+:)?[0-9]+:[0-9]+$/
+
+      if (typeof part.navigationEndpoint === 'undefined' || part.navigationEndpoint === null || part.text.startsWith('#')) {
+        return part.text
+      }
+
+      if (part.navigationEndpoint.urlEndpoint) {
+        const urlWithTracking = part.navigationEndpoint.urlEndpoint.url
+        const url = new URL(urlWithTracking)
+
+        if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
+          // remove utm tracking parameters
+          const realURL = new URL(url.searchParams.get('q'))
+
+          realURL.searchParams.delete('utm_source')
+          realURL.searchParams.delete('utm_medium')
+          realURL.searchParams.delete('utm_campaign')
+          realURL.searchParams.delete('utm_term')
+          realURL.searchParams.delete('utm_content')
+
+          return realURL.toString()
+        } else if (fallbackDescription.includes(urlWithTracking)) {
+          // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
+          // only use it if it exists in the fallback description
+          // otherwise assume YouTube has changed it's tracking URLs and throw an error
+          return urlWithTracking
+        }
+
+        // eslint-disable-next-line no-throw-literal
+        throw `Failed to extract real URL from tracking URL: ${urlWithTracking}`
+      } else if (part.navigationEndpoint.watchEndpoint) {
+        if (timestampRegex.test(part.text)) {
+          return part.text
+        }
+        const watchEndpoint = part.navigationEndpoint.watchEndpoint
+
+        let videoURL = `https://www.youtube.com/watch?v=${watchEndpoint.videoId}`
+        if (watchEndpoint.startTimeSeconds !== 0) {
+          videoURL += `&t=${watchEndpoint.startTimeSeconds}s`
+        }
+        return videoURL
+      } else {
+        // Some YouTube URLs don't have the urlEndpoint so we handle them here
+
+        const path = part.navigationEndpoint.commandMetadata.webCommandMetadata.url
+        return `https://www.youtube.com${path}`
+      }
     },
 
     addToHistory: function (watchProgress) {
