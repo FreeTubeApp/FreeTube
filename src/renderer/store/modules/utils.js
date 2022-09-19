@@ -257,7 +257,7 @@ const actions = {
   async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
-    if (navigator.clipboard !== undefined) {
+    if (navigator.clipboard !== undefined && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(content)
         if (messageOnSuccess !== undefined) {
