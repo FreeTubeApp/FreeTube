@@ -246,6 +246,14 @@ const actions = {
     return filenameNew
   },
 
+  /**
+   * This writes to the clipboard. If an error occurs during the copy,
+   * a toast with the error is shown. If the copy is successful and
+   * there is a success message, a toast with that message is shown.
+   * @param {string} content the content to be copied to the clipboard
+   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   */
   async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
