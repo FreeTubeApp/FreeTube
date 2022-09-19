@@ -64,6 +64,8 @@ These builds are maintained by the community.  While they should be safe, downlo
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
+* makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
+
 * PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
 
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
