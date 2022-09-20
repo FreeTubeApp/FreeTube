@@ -92,6 +92,11 @@ export default Vue.extend({
       if (val !== oldVal) {
         this.updateVisibleDataList()
       }
+    },
+    inputData(val, oldVal) {
+      if (val !== oldVal) {
+        this.updateVisibleDataList()
+      }
     }
   },
   mounted: function () {
