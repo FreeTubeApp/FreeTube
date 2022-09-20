@@ -322,7 +322,7 @@ export default Vue.extend({
           this.openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
-          this.copyToClipboard({ content: this.invidiousChannelUrl, messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
+          this.copyToClipboard({ content: this.invidiousChannelUrl, messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
           break
         case 'openInvidiousChannel':
           this.openExternalLink(this.invidiousChannelUrl)
