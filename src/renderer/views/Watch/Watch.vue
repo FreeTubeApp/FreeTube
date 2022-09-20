@@ -28,6 +28,7 @@
           :thumbnail="thumbnail"
           :video-id="videoId"
           :length-seconds="videoLengthSeconds"
+          :chapters="videoChapters"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
           @ready="checkIfWatched"
