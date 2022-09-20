@@ -126,7 +126,6 @@ export default Vue.extend({
       fetch(this.proxyTestUrl)
         .then((response) => response.json())
         .then((json) => {
-          console.log(json)
           this.proxyIp = json.ip
           this.proxyCountry = json.country
           this.proxyRegion = json.region
