@@ -255,8 +255,6 @@ const actions = {
    * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
    */
   async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
-    const locale = i18n._vm.locale
-    const translations = i18n._vm.messages[locale]
     if (navigator.clipboard !== undefined && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(content)
@@ -266,7 +264,7 @@ const actions = {
           })
         }
       } catch (error) {
-          console.error(`Failed to copy ${content} to clipboard`, error)
+        console.error(`Failed to copy ${content} to clipboard`, error)
         if (messageOnError !== undefined) {
           dispatch('showToast', {
             message: `${messageOnError}: ${error}`,
@@ -274,14 +272,14 @@ const actions = {
           })
         } else {
           dispatch('showToast', {
-            message: `${translations.Clipboard['Copy failed']}: ${error}`,
+            message: `${i18n.t('Clipboard.Copy failed')}: ${error}`,
             time: 5000
           })
         }
       }
     } else {
       dispatch('showToast', {
-        message: translations.Clipboard['Can not access without a secure connection'],
+        message: i18n.t('Clipboard.Cannot access clipboard without a secure connection'),
         time: 5000
       })
     }
