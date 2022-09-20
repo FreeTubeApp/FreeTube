@@ -251,7 +251,8 @@ function runApp() {
 
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
-      const { maximized, ...bounds } = boundsDoc.value
+      console.log({ boundsDoc })
+      const { maximized, fullScreen, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
         .getAllDisplays()
         .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
@@ -267,6 +268,10 @@ function runApp() {
 
       if (maximized) {
         newWindow.maximize()
+      }
+
+      if (fullScreen) {
+        newWindow.setFullScreen(true)
       }
     }
 
@@ -322,7 +327,8 @@ function runApp() {
 
       const value = {
         ...newWindow.getNormalBounds(),
-        maximized: newWindow.isMaximized()
+        maximized: newWindow.isMaximized(),
+        fullScreen: newWindow.isFullScreen()
       }
 
       await baseHandlers.settings._updateBounds(value)
