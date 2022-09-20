@@ -209,7 +209,7 @@ const actions = {
       const ipcRenderer = require('electron').ipcRenderer
       ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
-      // Web placeholder
+      window.open(url, '_blank')
     }
   },
 
@@ -256,7 +256,7 @@ const actions = {
     let folderPath = rootState.settings.downloadFolderPath
 
     if (!process.env.IS_ELECTRON) {
-      // Add logic here in the future
+      dispatch('openExternalLink', url)
       return
     }
 
