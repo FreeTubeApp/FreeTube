@@ -266,6 +266,7 @@ const actions = {
           })
         }
       } catch (error) {
+          console.error(`Failed to copy ${content} to clipboard`, error)
         if (messageOnError !== undefined) {
           dispatch('showToast', {
             message: `${messageOnError}: ${error}`,
