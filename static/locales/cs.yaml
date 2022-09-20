@@ -32,8 +32,8 @@ Forward: 'Dopředu'
 Version $ is now available!  Click for more details: 'Verze $ je k dispozici! Klikněte
   pro více informací'
 Download From Site: 'Stáhnout ze stránky'
-A new blog is now available, $. Click to view more: 'Nový blog je dostupný, $. Kliknutím
-  zobrazíte více'
+A new blog is now available, $. Click to view more: 'Je dostupný nový článek na blogu:
+  $. Kliknutím zobrazíte více'
 
 # Search Bar
 Search / Go to URL: 'Hledat / Přejít na URL'
@@ -91,16 +91,16 @@ Trending:
   Gaming: Hry
   Music: Hudba
   Default: Výchozí
-Most Popular: 'Nejpopulárnější'
+Most Popular: 'Populární'
 Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Vaše playlisty'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Vaše
     uložená videa jsou prázdná. Kliknutím na tlačítko Uložit v rohu videa jej zobrazíte
     zde
-  Playlist Message: Tato stránka neodráží plně funkční seznamy skladeb. Uvádí pouze
-    videa, která jste uložili nebo zařadili mezi oblíbená. Po dokončení práce budou
-    všechna aktuálně zde umístěná videa přenesena do seznamu „Oblíbené“.
+  Playlist Message: Tato stránka neodráží plně funkční playlisty. Uvádí pouze videa,
+    která jste si uložili nebo zařadili mezi oblíbená. Po dokončení práce budou všechna
+    aktuálně zde umístěná videa přenesena do seznamu „Oblíbené“.
   Search bar placeholder: Hledat v playlistech
   Empty Search Message: V tomto playlistu nejsou žádná videa, která by odpovídala
     vašemu vyhledávání
@@ -142,9 +142,9 @@ Settings:
       End: 'Konec'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
       (Výchozí je https://invidious.snopyta.org)'
-    Region for Trending: 'Region pro trendy'
+    Region for Trending: 'Oblast pro trendy'
         #! List countries
-    View all Invidious instance information: Zobrazit všechny informace o instanci
+    View all Invidious instance information: Zobrazit všechny informace o instancích
       Invidious
     System Default: Výchozí nastavení systému
     Clear Default Instance: Vymazat výchozí instanci
@@ -152,13 +152,13 @@ Settings:
     Current instance will be randomized on startup: Při startu bude vybrána náhodná
       instance
     Current Invidious Instance: Současná instance Invidious
-    No default instance has been set: Není nastavena žádný výchozí instance
+    No default instance has been set: Není nastavena žádná výchozí instance
     The currently set default instance is $: Současné výchozí instance je $
     External Link Handling:
       No Action: Žádná akce
       Ask Before Opening Link: Před otevřením odkazu se zeptat
       Open Link: Otevřít odkaz
-      External Link Handling: Používání externích odkazů
+      External Link Handling: Zpracování externích odkazů
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
@@ -343,8 +343,8 @@ Settings:
     Unknown data key: 'Neznámý datový klíč'
     How do I import my subscriptions?: 'Jak mohu importovat své odebírané kanály?'
     Manage Subscriptions: Spravovat odběry
-    Import Playlists: Importovat Playlisty
-    Export Playlists: Exportovat Playlisty
+    Import Playlists: Importovat playlisty
+    Export Playlists: Exportovat playlisty
     Playlist insufficient data: Nedostačující data pro playlist "$", přeskakuji
     All playlists has been successfully imported: Všechny playlisty byly úspěšně importovány
     All playlists has been successfully exported: Všechny playlisty byly úspěšně exportovány
@@ -392,9 +392,9 @@ Settings:
       získávání informací o síti. Je vaše proxy správně nakonfigurována?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
-      API (Výchozí je https://sponsor.ajay.app)
-    Enable SponsorBlock: Zapnout SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
+      (výchozí je https://sponsor.ajay.app)
+    Enable SponsorBlock: Povolit SponsorBlock
     SponsorBlock Settings: Nastavení SponsorBlock
     Skip Options:
       Do Nothing: Nic nedělat
@@ -539,7 +539,7 @@ Channel:
     Sort Types:
       Newest: 'Nejnovější'
       Oldest: 'Nejstarší'
-      Most Popular: 'Nejpopulárnější'
+      Most Popular: 'Populární'
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Tento kanál nemá žádné playlisty'
@@ -646,8 +646,8 @@ Video:
     music offtopic: Není hudba
     interaction: Interakce
     self-promotion: Sebepropagace
-    outro: Outro
-    intro: Intro
+    outro: Závěr
+    intro: Úvod
     sponsor: Sponzor
     recap: Shrnutí
     filler: Výplň
@@ -656,13 +656,13 @@ Video:
     Unsupported Actions:
       opening specific video in a playlist (falling back to opening the video): Otevření
         specifického videa v seznamu skladeb
-      opening playlists: otevřít seznamy skladeb
+      opening playlists: otevírání playlistů
       starting video at offset: spuštění videa v určitém úseku
       looping playlists: opakovaní seznamů skladeb
       shuffling playlists: míchání seznamů skladeb
       reversing playlists: obrácení seznamů skladeb
       setting a playback rate: nastavení rychlosti přehrávání
-    playlist: seznam skladeb
+    playlist: playlist
     UnsupportedActionTemplate: '$ nepodporuje: %'
     OpeningTemplate: Otevřít $ v %...
     video: video
