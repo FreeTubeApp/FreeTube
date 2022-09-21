@@ -1330,35 +1330,36 @@ export default Vue.extend({
         const url = new URL(caption.baseUrl)
         url.searchParams.set('fmt', 'vtt')
 
-        $.get(url.toString(), response => {
-          // The character '#' needs to be percent-encoded in a (data) URI
-          // because it signals an identifier, which means anything after it
-          // is automatically removed when the URI is used as a source
-          let vtt = response.replace(/#/g, '%23')
+        fetch(url)
+          .then((response) => response.text())
+          .then((text) => {
+            // The character '#' needs to be percent-encoded in a (data) URI
+            // because it signals an identifier, which means anything after it
+            // is automatically removed when the URI is used as a source
+            let vtt = text.replace(/#/g, '%23')
 
-          // A lot of videos have messed up caption positions that need to be removed
-          // This can be either because this format isn't really used by YouTube
-          // or because it's expected for the player to be able to somehow
-          // wrap the captions so that they won't step outside its boundaries
-          //
-          // Auto-generated captions are also all aligned to the start
-          // so those instances must also be removed
-          // In addition, all aligns seem to be fixed to "start" when they do pop up in normal captions
-          // If it's prominent enough that people start to notice, it can be removed then
-          if (caption.kind === 'asr') {
-            vtt = vtt.replace(/ align:start| position:\d{1,3}%/g, '')
-          } else {
-            vtt = vtt.replace(/ position:\d{1,3}%/g, '')
-          }
+            // A lot of videos have messed up caption positions that need to be removed
+            // This can be either because this format isn't really used by YouTube
+            // or because it's expected for the player to be able to somehow
+            // wrap the captions so that they won't step outside its boundaries
+            //
+            // Auto-generated captions are also all aligned to the start
+            // so those instances must also be removed
+            // In addition, all aligns seem to be fixed to "start" when they do pop up in normal captions
+            // If it's prominent enough that people start to notice, it can be removed then
+            if (caption.kind === 'asr') {
+              vtt = vtt.replace(/ align:start| position:\d{1,3}%/g, '')
+            } else {
+              vtt = vtt.replace(/ position:\d{1,3}%/g, '')
+            }
 
-          caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
-          resolve(caption)
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(error)
-          reject(error)
-        })
+            caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`
+            resolve(caption)
+          })
+          .catch((error) => {
+            console.error(error)
+            reject(error)
+          })
       }))
     },
 
