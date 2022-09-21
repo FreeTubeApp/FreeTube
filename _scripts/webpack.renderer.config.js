@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
 const { productName } = require('../package.json')
 
@@ -149,6 +150,19 @@ if (isDevMode) {
   config.plugins.push(
     new webpack.DefinePlugin({
       __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
+    })
+  )
+} else {
+  const processLocalesPlugin = new ProcessLocalesPlugin({
+    compress: true,
+    inputDir: path.join(__dirname, '../static/locales'),
+    outputDir: 'static/locales',
+  })
+
+  config.plugins.push(
+    processLocalesPlugin,
+    new webpack.DefinePlugin({
+      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
     })
   )
 }

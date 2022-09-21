@@ -281,7 +281,7 @@ const stateWithSideEffects = {
       if (value === 'system') {
         const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
         const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
-        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => { // filter out other languages
+        const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
           return localeLang.includes(systemLocaleLang)
         }).sort((a, b) => {
@@ -315,6 +315,10 @@ const stateWithSideEffects = {
             { message: `Locale not found, defaulting to ${defaultLocale}` }
           )
         }
+      }
+
+      if (process.env.NODE_ENV !== 'development') {
+        await i18n.loadLocale(targetLocale)
       }
 
       i18n.locale = targetLocale

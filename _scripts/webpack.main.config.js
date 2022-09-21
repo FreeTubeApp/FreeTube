@@ -27,7 +27,9 @@ const config = {
   optimization: {
     minimizer: [
       '...', // extend webpack's list instead of overwriting it
-      new JsonMinimizerPlugin()
+      new JsonMinimizerPlugin({
+        exclude: /\/locales\/.*\.json/
+      })
     ]
   },
   node: {
@@ -70,7 +72,7 @@ if (isDevMode) {
             to: path.join(__dirname, '../dist/static'),
             globOptions: {
               dot: true,
-              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
+              ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
             },
           },
       ]

@@ -138,7 +138,7 @@ export default Vue.extend({
   },
   computed: {
     currentLocale: function () {
-      return this.$store.getters.getCurrentLocale
+      return this.$i18n.locale
     },
 
     defaultPlayback: function () {
