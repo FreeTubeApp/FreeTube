@@ -54,7 +54,7 @@
               v-if="upcomingTimestamp !== null"
               class="premiereText"
             >
-              {{ $t("Video.Premieres in") }} {{ upcomingTimeLeft }}
+              {{ $t("Video.Premieres") }} {{ upcomingTimeLeft }}
               <br>
               {{ upcomingTimestamp }}
             </p>
