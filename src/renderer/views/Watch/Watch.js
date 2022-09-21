@@ -593,7 +593,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           console.log(err)
@@ -778,7 +778,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err.responseText)
+              this.copyToClipboard({ content: err.responseText })
             }
           })
           console.log(err)
@@ -949,7 +949,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           console.log(err)
@@ -1409,7 +1409,8 @@ export default Vue.extend({
       'getUserDataPath',
       'ytGetVideoInformation',
       'invidiousGetVideoInformation',
-      'updateSubscriptionDetails'
+      'updateSubscriptionDetails',
+      'copyToClipboard'
     ])
   }
 })

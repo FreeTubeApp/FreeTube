@@ -76,9 +76,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    copy(text) {
-      navigator.clipboard.writeText(text)
-    },
 
     openInvidious() {
       this.openExternalLink(this.getFinalUrl(this.invidiousURL))
@@ -86,10 +83,7 @@ export default Vue.extend({
     },
 
     copyInvidious() {
-      this.showToast({
-        message: this.$t('Share.Invidious URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.invidiousURL))
+      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousURL), messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -99,10 +93,7 @@ export default Vue.extend({
     },
 
     copyYoutube() {
-      this.showToast({
-        message: this.$t('Share.YouTube URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.youtubeShareURL))
+      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeShareURL), messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -112,10 +103,7 @@ export default Vue.extend({
     },
 
     copyYoutubeEmbed() {
-      this.showToast({
-        message: this.$t('Share.YouTube Embed URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.youtubeEmbedURL))
+      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeEmbedURL), messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -125,10 +113,7 @@ export default Vue.extend({
     },
 
     copyInvidiousEmbed() {
-      this.showToast({
-        message: this.$t('Share.Invidious Embed URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.invidiousEmbedURL))
+      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousEmbedURL), messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
       this.$refs.iconButton.focusOut()
     },
 
@@ -145,7 +130,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'openExternalLink'
+      'openExternalLink',
+      'copyToClipboard'
     ])
   }
 })

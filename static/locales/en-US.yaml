@@ -688,6 +688,9 @@ Share:
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
   YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+Clipboard:
+  Copy failed: Copy to clipboard failed
+  Cannot access clipboard without a secure connection: Cannot access clipboard without a secure connection
 
 Mini Player: Mini Player
 Comments:

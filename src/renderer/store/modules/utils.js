@@ -246,6 +246,45 @@ const actions = {
     return filenameNew
   },
 
+  /**
+   * This writes to the clipboard. If an error occurs during the copy,
+   * a toast with the error is shown. If the copy is successful and
+   * there is a success message, a toast with that message is shown.
+   * @param {string} content the content to be copied to the clipboard
+   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   */
+  async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
+    if (navigator.clipboard !== undefined && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(content)
+        if (messageOnSuccess !== undefined) {
+          dispatch('showToast', {
+            message: messageOnSuccess
+          })
+        }
+      } catch (error) {
+        console.error(`Failed to copy ${content} to clipboard`, error)
+        if (messageOnError !== undefined) {
+          dispatch('showToast', {
+            message: `${messageOnError}: ${error}`,
+            time: 5000
+          })
+        } else {
+          dispatch('showToast', {
+            message: `${i18n.t('Clipboard.Copy failed')}: ${error}`,
+            time: 5000
+          })
+        }
+      }
+    } else {
+      dispatch('showToast', {
+        message: i18n.t('Clipboard.Cannot access clipboard without a secure connection'),
+        time: 5000
+      })
+    }
+  },
+
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
     const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
     const locale = i18n._vm.locale
