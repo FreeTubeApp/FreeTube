@@ -419,6 +419,11 @@ export default Vue.extend({
                 hour: 'numeric',
                 minute: '2-digit'
               }
+              if (new Date().getFullYear() < upcomingTimestamp.getFullYear()) {
+                Object.defineProperty(timestampOptions, 'year', {
+                  value: 'numeric'
+                })
+              }
               this.upcomingTimestamp = Intl.DateTimeFormat(this.currentLocale, timestampOptions).format(upcomingTimestamp)
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
