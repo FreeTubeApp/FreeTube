@@ -1089,116 +1089,113 @@ export default Vue.extend({
       }
 
       const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths.length === 0) {
+      if (response.canceled || response.filePaths?.length === 0) {
         return
       }
+      let data
+      try {
+        data = await this.readFileFromDialog({ response })
+      } catch (exception) {
+        console.error(exception)
+        this.showToast({
+          message: exception
+        })
+        return
+      }
+      const playlists = JSON.parse(data)
 
-      const filePath = response.filePaths[0]
+      playlists.forEach(async (playlistData) => {
+        // We would technically already be done by the time the data is parsed,
+        // however we want to limit the possibility of malicious data being sent
+        // to the app, so we'll only grab the data we need here.
+        const requiredKeys = [
+          'playlistName',
+          'videos'
+        ]
 
-      fs.readFile(filePath, async (err, data) => {
-        if (err) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${err}`
-          })
-          return
-        }
+        const optionalKeys = [
+          '_id',
+          'protected',
+          'removeOnWatched'
+        ]
 
-        const playlists = JSON.parse(data)
+        const requiredVideoKeys = [
+          'videoId',
+          'title',
+          'author',
+          'authorId',
+          'published',
+          'lengthSeconds',
+          'timeAdded',
+          'isLive',
+          'paid',
+          'type'
+        ]
 
-        playlists.forEach(async (playlistData) => {
-          // We would technically already be done by the time the data is parsed,
-          // however we want to limit the possibility of malicious data being sent
-          // to the app, so we'll only grab the data we need here.
-          const requiredKeys = [
-            'playlistName',
-            'videos'
-          ]
+        const playlistObject = {}
 
-          const optionalKeys = [
-            '_id',
-            'protected',
-            'removeOnWatched'
-          ]
-
-          const requiredVideoKeys = [
-            'videoId',
-            'title',
-            'author',
-            'authorId',
-            'published',
-            'lengthSeconds',
-            'timeAdded',
-            'isLive',
-            'paid',
-            'type'
-          ]
-
-          const playlistObject = {}
-
-          Object.keys(playlistData).forEach((key) => {
-            if (!requiredKeys.includes(key) && !optionalKeys.includes(key)) {
-              const message = `${this.$t('Settings.Data Settings.Unknown data key')}: ${key}`
-              this.showToast({
-                message: message
-              })
-            } else if (key === 'videos') {
-              const videoArray = []
-              playlistData.videos.forEach((video) => {
-                let hasAllKeys = true
-                requiredVideoKeys.forEach((videoKey) => {
-                  if (!Object.keys(video).includes(videoKey)) {
-                    hasAllKeys = false
-                  }
-                })
-
-                if (hasAllKeys) {
-                  videoArray.push(video)
-                }
-              })
-
-              playlistObject[key] = videoArray
-            } else {
-              playlistObject[key] = playlistData[key]
-            }
-          })
-
-          const objectKeys = Object.keys(playlistObject)
-
-          if ((objectKeys.length < requiredKeys.length) || playlistObject.videos.length === 0) {
-            const message = this.$t('Settings.Data Settings.Playlist insufficient data').replace('$', playlistData.playlistName)
+        Object.keys(playlistData).forEach((key) => {
+          if (!requiredKeys.includes(key) && !optionalKeys.includes(key)) {
+            const message = `${this.$t('Settings.Data Settings.Unknown data key')}: ${key}`
             this.showToast({
               message: message
             })
-          } else {
-            const existingPlaylist = this.allPlaylists.find((playlist) => {
-              return playlist.playlistName === playlistObject.playlistName
-            })
-
-            if (existingPlaylist !== undefined) {
-              playlistObject.videos.forEach((video) => {
-                const existingVideo = existingPlaylist.videos.find((x) => {
-                  return x.videoId === video.videoId
-                })
-
-                if (existingVideo === undefined) {
-                  const payload = {
-                    playlistName: existingPlaylist.playlistName,
-                    videoData: video
-                  }
-
-                  this.addVideo(payload)
+          } else if (key === 'videos') {
+            const videoArray = []
+            playlistData.videos.forEach((video) => {
+              let hasAllKeys = true
+              requiredVideoKeys.forEach((videoKey) => {
+                if (!Object.keys(video).includes(videoKey)) {
+                  hasAllKeys = false
                 }
               })
-            } else {
-              this.addPlaylist(playlistObject)
-            }
+
+              if (hasAllKeys) {
+                videoArray.push(video)
+              }
+            })
+
+            playlistObject[key] = videoArray
+          } else {
+            playlistObject[key] = playlistData[key]
           }
         })
 
-        this.showToast({
-          message: this.$t('Settings.Data Settings.All playlists has been successfully imported')
-        })
+        const objectKeys = Object.keys(playlistObject)
+
+        if ((objectKeys.length < requiredKeys.length) || playlistObject.videos.length === 0) {
+          const message = this.$t('Settings.Data Settings.Playlist insufficient data').replace('$', playlistData.playlistName)
+          this.showToast({
+            message: message
+          })
+        } else {
+          const existingPlaylist = this.allPlaylists.find((playlist) => {
+            return playlist.playlistName === playlistObject.playlistName
+          })
+
+          if (existingPlaylist !== undefined) {
+            playlistObject.videos.forEach((video) => {
+              const existingVideo = existingPlaylist.videos.find((x) => {
+                return x.videoId === video.videoId
+              })
+
+              if (existingVideo === undefined) {
+                const payload = {
+                  playlistName: existingPlaylist.playlistName,
+                  videoData: video
+                }
+
+                this.addVideo(payload)
+              }
+            })
+          } else {
+            this.addPlaylist(playlistObject)
+          }
+        }
+      })
+
+      this.showToast({
+        message: this.$t('Settings.Data Settings.All playlists has been successfully imported')
       })
     },
 
