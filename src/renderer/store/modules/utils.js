@@ -428,6 +428,16 @@ const actions = {
           const files = Array.from(fileInput.files)
           resolve({ canceled: false, files })
         }
+        const listenForEnd = () => {
+          setTimeout(() => {
+            window.removeEventListener('focus', listenForEnd)
+            if (fileInput.files.length === 0) {
+              // if the file picker is closed, and there are no files, so it was canceled
+              resolve({ canceled: true })
+            }
+          }, 100)
+        }
+        window.addEventListener('focus', listenForEnd)
         fileInput.click()
       })
     }

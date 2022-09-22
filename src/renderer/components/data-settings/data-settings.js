@@ -963,7 +963,7 @@ export default Vue.extend({
       }
 
       const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths.length === 0) {
+      if (response.canceled || response.filePaths?.length === 0) {
         return
       }
       let textDecode
