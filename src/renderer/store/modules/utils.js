@@ -424,6 +424,10 @@ const actions = {
       return new Promise((resolve) => {
         const fileInput = document.createElement('input')
         fileInput.setAttribute('type', 'file')
+        if (options?.filters[0]?.extensions !== undefined) {
+          // this will map the given extensions from the options to the accept attribute of the input
+          fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
+        }
         fileInput.onchange = () => {
           const files = Array.from(fileInput.files)
           resolve({ canceled: false, files })
