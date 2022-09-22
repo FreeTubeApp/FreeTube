@@ -306,83 +306,82 @@ export default Vue.extend({
       }
     },
 
-    handleYoutubeImportFile: function (filePath) {
-      fs.readFile(filePath, async (err, data) => {
-        if (err) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
+    handleYoutubeImportFile: async function (response) {
+      let textDecode
+      try {
+        textDecode = await this.readFileFromDialog({ response })
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        this.showToast({
+          message: `${message}: ${err}`
+        })
+        return
+      }
+      textDecode = JSON.parse(textDecode)
+
+      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+      const subscriptions = []
+
+      this.showToast({
+        message: this.$t('Settings.Data Settings.This might take a while, please wait')
+      })
+
+      this.updateShowProgressBar(true)
+      this.setProgressBarPercentage(0)
+
+      let count = 0
+
+      textDecode.forEach((channel) => {
+        const snippet = channel.snippet
+
+        if (typeof snippet === 'undefined') {
+          const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
           this.showToast({
-            message: `${message}: ${err}`
+            message: message
           })
-          return
+
+          throw new Error('Unable to find channel data')
         }
 
-        let textDecode = new TextDecoder('utf-8').decode(data)
-        textDecode = JSON.parse(textDecode)
+        const subscription = {
+          id: snippet.resourceId.channelId,
+          name: snippet.title,
+          thumbnail: snippet.thumbnails.default.url
+        }
 
-        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-        const subscriptions = []
-
-        this.showToast({
-          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+        const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+          return sub.id === subscription.id || sub.name === subscription.name
         })
 
-        this.updateShowProgressBar(true)
-        this.setProgressBarPercentage(0)
+        const subDuplicateExists = subscriptions.findIndex((sub) => {
+          return sub.id === subscription.id || sub.name === subscription.name
+        })
 
-        let count = 0
+        if (subExists === -1 && subDuplicateExists === -1) {
+          subscriptions.push(subscription)
+        }
 
-        textDecode.forEach((channel) => {
-          const snippet = channel.snippet
+        count++
 
-          if (typeof snippet === 'undefined') {
-            const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+        const progressPercentage = (count / textDecode.length) * 100
+        this.setProgressBarPercentage(progressPercentage)
+
+        if (count === textDecode.length) {
+          primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
+          this.updateProfile(primaryProfile)
+
+          if (subscriptions.length < count) {
             this.showToast({
-              message: message
+              message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
             })
-
-            throw new Error('Unable to find channel data')
+          } else {
+            this.showToast({
+              message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+            })
           }
 
-          const subscription = {
-            id: snippet.resourceId.channelId,
-            name: snippet.title,
-            thumbnail: snippet.thumbnails.default.url
-          }
-
-          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-            return sub.id === subscription.id || sub.name === subscription.name
-          })
-
-          const subDuplicateExists = subscriptions.findIndex((sub) => {
-            return sub.id === subscription.id || sub.name === subscription.name
-          })
-
-          if (subExists === -1 && subDuplicateExists === -1) {
-            subscriptions.push(subscription)
-          }
-
-          count++
-
-          const progressPercentage = (count / textDecode.length) * 100
-          this.setProgressBarPercentage(progressPercentage)
-
-          if (count === textDecode.length) {
-            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
-            this.updateProfile(primaryProfile)
-
-            if (subscriptions.length < count) {
-              this.showToast({
-                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-              })
-            } else {
-              this.showToast({
-                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-              })
-            }
-
-            this.updateShowProgressBar(false)
-          }
-        })
+          this.updateShowProgressBar(false)
+        }
       })
     },
 
@@ -416,12 +415,11 @@ export default Vue.extend({
       }
 
       const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths.length === 0) {
+      if (response.canceled || response.filePaths?.length === 0) {
         return
       }
 
-      const filePath = response.filePaths[0]
-      this.handleYoutubeImportFile(filePath)
+      this.handleYoutubeImportFile(response)
     },
 
     importOpmlYouTubeSubscriptions: async function () {
