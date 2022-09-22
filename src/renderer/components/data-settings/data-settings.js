@@ -115,106 +115,105 @@ export default Vue.extend({
       }
     },
 
-    handleFreetubeImportFile: function (filePath) {
-      fs.readFile(filePath, async (err, data) => {
-        if (err) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${err}`
-          })
-          return
-        }
+    handleFreetubeImportFile: async function (response) {
+      let textDecode
+      try {
+        textDecode = await this.readFileFromDialog({ response })
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        this.showToast({
+          message: `${message}: ${err}`
+        })
+        return
+      }
+      textDecode = textDecode.split('\n')
+      textDecode.pop()
+      textDecode = textDecode.map(data => JSON.parse(data))
 
-        let textDecode = new TextDecoder('utf-8').decode(data)
-        textDecode = textDecode.split('\n')
-        textDecode.pop()
-        textDecode = textDecode.map(data => JSON.parse(data))
+      const firstEntry = textDecode[0]
+      if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
+        // Old FreeTube subscriptions format detected, so convert it to the new one:
+        textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
+      }
 
-        const firstEntry = textDecode[0]
-        if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
-          // Old FreeTube subscriptions format detected, so convert it to the new one:
-          textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
-        }
+      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
-        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+      textDecode.forEach((profileData) => {
+        // We would technically already be done by the time the data is parsed,
+        // however we want to limit the possibility of malicious data being sent
+        // to the app, so we'll only grab the data we need here.
 
-        textDecode.forEach((profileData) => {
-          // We would technically already be done by the time the data is parsed,
-          // however we want to limit the possibility of malicious data being sent
-          // to the app, so we'll only grab the data we need here.
+        const requiredKeys = [
+          '_id',
+          'name',
+          'bgColor',
+          'textColor',
+          'subscriptions'
+        ]
 
-          const requiredKeys = [
-            '_id',
-            'name',
-            'bgColor',
-            'textColor',
-            'subscriptions'
-          ]
-
-          const profileObject = {}
-          Object.keys(profileData).forEach((key) => {
-            if (!requiredKeys.includes(key)) {
-              const message = this.$t('Settings.Data Settings.Unknown data key')
-              this.showToast({
-                message: `${message}: ${key}`
-              })
-            } else {
-              profileObject[key] = profileData[key]
-            }
-          })
-
-          if (Object.keys(profileObject).length < requiredKeys.length) {
-            const message = this.$t('Settings.Data Settings.Profile object has insufficient data, skipping item')
+        const profileObject = {}
+        Object.keys(profileData).forEach((key) => {
+          if (!requiredKeys.includes(key)) {
+            const message = this.$t('Settings.Data Settings.Unknown data key')
             this.showToast({
-              message: message
+              message: `${message}: ${key}`
             })
           } else {
-            if (profileObject.name === 'All Channels' || profileObject._id === MAIN_PROFILE_ID) {
-              primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
-              primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
-                const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
-                  return x.name === sub.name
-                })
-
-                return profileIndex === index
-              })
-              this.updateProfile(primaryProfile)
-            } else {
-              const existingProfileIndex = this.profileList.findIndex((profile) => {
-                return profile.name.includes(profileObject.name)
-              })
-
-              if (existingProfileIndex !== -1) {
-                const existingProfile = JSON.parse(JSON.stringify(this.profileList[existingProfileIndex]))
-                existingProfile.subscriptions = existingProfile.subscriptions.concat(profileObject.subscriptions)
-                existingProfile.subscriptions = existingProfile.subscriptions.filter((sub, index) => {
-                  const profileIndex = existingProfile.subscriptions.findIndex((x) => {
-                    return x.name === sub.name
-                  })
-
-                  return profileIndex === index
-                })
-                this.updateProfile(existingProfile)
-              } else {
-                this.updateProfile(profileObject)
-              }
-
-              primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
-              primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
-                const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
-                  return x.name === sub.name
-                })
-
-                return profileIndex === index
-              })
-              this.updateProfile(primaryProfile)
-            }
+            profileObject[key] = profileData[key]
           }
         })
 
-        this.showToast({
-          message: this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported')
-        })
+        if (Object.keys(profileObject).length < requiredKeys.length) {
+          const message = this.$t('Settings.Data Settings.Profile object has insufficient data, skipping item')
+          this.showToast({
+            message: message
+          })
+        } else {
+          if (profileObject.name === 'All Channels' || profileObject._id === MAIN_PROFILE_ID) {
+            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
+            primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
+              const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
+                return x.name === sub.name
+              })
+
+              return profileIndex === index
+            })
+            this.updateProfile(primaryProfile)
+          } else {
+            const existingProfileIndex = this.profileList.findIndex((profile) => {
+              return profile.name.includes(profileObject.name)
+            })
+
+            if (existingProfileIndex !== -1) {
+              const existingProfile = JSON.parse(JSON.stringify(this.profileList[existingProfileIndex]))
+              existingProfile.subscriptions = existingProfile.subscriptions.concat(profileObject.subscriptions)
+              existingProfile.subscriptions = existingProfile.subscriptions.filter((sub, index) => {
+                const profileIndex = existingProfile.subscriptions.findIndex((x) => {
+                  return x.name === sub.name
+                })
+
+                return profileIndex === index
+              })
+              this.updateProfile(existingProfile)
+            } else {
+              this.updateProfile(profileObject)
+            }
+
+            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(profileObject.subscriptions)
+            primaryProfile.subscriptions = primaryProfile.subscriptions.filter((sub, index) => {
+              const profileIndex = primaryProfile.subscriptions.findIndex((x) => {
+                return x.name === sub.name
+              })
+
+              return profileIndex === index
+            })
+            this.updateProfile(primaryProfile)
+          }
+        }
+      })
+
+      this.showToast({
+        message: this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported')
       })
     },
 
@@ -230,12 +229,11 @@ export default Vue.extend({
       }
 
       const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths.length === 0) {
+      if (response.canceled || response.filePaths?.length === 0) {
         return
       }
 
-      const filePath = response.filePaths[0]
-      this.handleFreetubeImportFile(filePath)
+      this.handleFreetubeImportFile(response)
     },
 
     handleYoutubeCsvImportFile: function(filePath) { // first row = header, last row = empty
@@ -969,10 +967,10 @@ export default Vue.extend({
       let textDecode
       try {
         textDecode = await this.readFileFromDialog({ response })
-      } catch (exception) {
-        console.error(exception)
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
         this.showToast({
-          message: exception
+          message: `${message}: ${err}`
         })
         return
       }
@@ -1095,10 +1093,10 @@ export default Vue.extend({
       let data
       try {
         data = await this.readFileFromDialog({ response })
-      } catch (exception) {
-        console.error(exception)
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
         this.showToast({
-          message: exception
+          message: `${message}: ${err}`
         })
         return
       }
