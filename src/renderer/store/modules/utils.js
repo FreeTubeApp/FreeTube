@@ -395,9 +395,15 @@ const actions = {
     return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
+  /**
+   * @param {Object} response the response from `showOpenDialog`
+   * @param {Number} index which file to read (defaults to the first in the response)
+   * @returns the text contents of the selected file
+   */
   async readFileFromDialog(context, { response, index = 0 }) {
     return await new Promise((resolve, reject) => {
       if (process.env.IS_ELECTRON) {
+        // if this is Electron, use fs
         fs.readFile(response.filePaths[index], (err, data) => {
           if (err) {
             reject(err)
@@ -406,6 +412,7 @@ const actions = {
           resolve(new TextDecoder('utf-8').decode(data))
         })
       } else {
+        // if this is web, use FileReader
         try {
           const reader = new FileReader()
           reader.onload = function (file) {
