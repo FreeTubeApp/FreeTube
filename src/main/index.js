@@ -27,6 +27,13 @@ function runApp() {
         click: () => {
           browserWindow.webContents.send('showVideoStatistics')
         }
+      },
+      {
+        label: 'Open in a New Window',
+        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        click: () => {
+          createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
+        }
       }
     ]
   })
