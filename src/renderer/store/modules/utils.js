@@ -426,7 +426,7 @@ const actions = {
         fileInput.setAttribute('type', 'file')
         fileInput.onchange = function() {
           const files = Array.from(fileInput.files)
-          resolve({ cancelled: files.length > 0, files })
+          resolve({ canceled: false, files })
         }
         fileInput.click()
       })
