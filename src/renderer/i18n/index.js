@@ -55,6 +55,10 @@ class CustomVueI18n extends VueI18n {
       } else {
         const url = new URL(window.location.href)
         url.hash = ''
+        if (url.pathname.endsWith('index.html')) {
+          url.pathname = url.pathname.replace(/index\.html$/, '')
+        }
+
         if (url.pathname) {
           url.pathname += `/static/locales/${locale}.json`
         } else {
