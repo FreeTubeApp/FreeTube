@@ -424,7 +424,7 @@ const actions = {
       return new Promise((resolve) => {
         const fileInput = document.createElement('input')
         fileInput.setAttribute('type', 'file')
-        fileInput.onchange = function() {
+        fileInput.onchange = () => {
           const files = Array.from(fileInput.files)
           resolve({ canceled: false, files })
         }
