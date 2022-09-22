@@ -432,7 +432,7 @@ const actions = {
           setTimeout(() => {
             window.removeEventListener('focus', listenForEnd)
             if (fileInput.files.length === 0) {
-              // if the file picker is closed, and there are no files, so it was canceled
+              // if the file picker is closed and there are no files, it was canceled
               resolve({ canceled: true })
             }
           }, 100)
