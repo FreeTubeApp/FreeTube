@@ -430,9 +430,9 @@ const actions = {
           delete fileInput.onchange
         }
         const listenForEnd = () => {
+          window.removeEventListener('focus', listenForEnd)
           // 1 second timeout on the response from the file picker to prevent awaiting forever
           setTimeout(() => {
-            window.removeEventListener('focus', listenForEnd)
             if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
               // if there are no files and the onchange has not been triggered, the file-picker was canceled
               resolve({ canceled: true })
