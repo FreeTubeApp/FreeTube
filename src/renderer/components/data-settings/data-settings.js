@@ -236,74 +236,74 @@ export default Vue.extend({
       this.handleFreetubeImportFile(response)
     },
 
-    handleYoutubeCsvImportFile: function(filePath) { // first row = header, last row = empty
-      fs.readFile(filePath, async (err, data) => {
-        if (err) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${err}`
-          })
-          return
-        }
-        const textDecode = new TextDecoder('utf-8').decode(data)
-        const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
-          return sub !== ''
-        })
-        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-        const subscriptions = []
-
+    handleYoutubeCsvImportFile: async function(response) { // first row = header, last row = empty
+      let textDecode
+      try {
+        textDecode = await this.readFileFromDialog({ response })
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
         this.showToast({
-          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+          message: `${message}: ${err}`
         })
+        return
+      }
+      const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
+        return sub !== ''
+      })
+      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+      const subscriptions = []
 
-        this.updateShowProgressBar(true)
-        this.setProgressBarPercentage(0)
-        let count = 0
-        for (let i = 1; i < (youtubeSubscriptions.length - 1); i++) {
-          const channelId = youtubeSubscriptions[i].split(',')[0]
-          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-            return sub.id === channelId
-          })
-          if (subExists === -1) {
-            let channelInfo
-            if (this.backendPreference === 'invidious') { // only needed for thumbnail
-              channelInfo = await this.getChannelInfoInvidious(channelId)
-            } else {
-              channelInfo = await this.getChannelInfoLocal(channelId)
-            }
+      this.showToast({
+        message: this.$t('Settings.Data Settings.This might take a while, please wait')
+      })
 
-            if (typeof channelInfo.author !== 'undefined') {
-              const subscription = {
-                id: channelId,
-                name: channelInfo.author,
-                thumbnail: channelInfo.authorThumbnails[1].url
-              }
-              subscriptions.push(subscription)
-            }
+      this.updateShowProgressBar(true)
+      this.setProgressBarPercentage(0)
+      let count = 0
+      for (let i = 1; i < (youtubeSubscriptions.length - 1); i++) {
+        const channelId = youtubeSubscriptions[i].split(',')[0]
+        const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+          return sub.id === channelId
+        })
+        if (subExists === -1) {
+          let channelInfo
+          if (this.backendPreference === 'invidious') { // only needed for thumbnail
+            channelInfo = await this.getChannelInfoInvidious(channelId)
+          } else {
+            channelInfo = await this.getChannelInfoLocal(channelId)
           }
 
-          count++
-
-          const progressPercentage = (count / (youtubeSubscriptions.length - 1)) * 100
-          this.setProgressBarPercentage(progressPercentage)
-          if (count + 1 === (youtubeSubscriptions.length - 1)) {
-            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
-            this.updateProfile(primaryProfile)
-
-            if (subscriptions.length < count + 2) {
-              this.showToast({
-                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-              })
-            } else {
-              this.showToast({
-                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-              })
+          if (typeof channelInfo.author !== 'undefined') {
+            const subscription = {
+              id: channelId,
+              name: channelInfo.author,
+              thumbnail: channelInfo.authorThumbnails[1].url
             }
-
-            this.updateShowProgressBar(false)
+            subscriptions.push(subscription)
           }
         }
-      })
+
+        count++
+
+        const progressPercentage = (count / (youtubeSubscriptions.length - 1)) * 100
+        this.setProgressBarPercentage(progressPercentage)
+        if (count + 1 === (youtubeSubscriptions.length - 1)) {
+          primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
+          this.updateProfile(primaryProfile)
+
+          if (subscriptions.length < count + 2) {
+            this.showToast({
+              message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+            })
+          } else {
+            this.showToast({
+              message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+            })
+          }
+
+          this.updateShowProgressBar(false)
+        }
+      }
     },
 
     handleYoutubeImportFile: function (filePath) {
@@ -397,12 +397,11 @@ export default Vue.extend({
         ]
       }
       const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths.length === 0) {
+      if (response.canceled || response.filePaths?.length === 0) {
         return
       }
 
-      const filePath = response.filePaths[0]
-      this.handleYoutubeCsvImportFile(filePath)
+      this.handleYoutubeCsvImportFile(response)
     },
 
     importYouTubeSubscriptions: async function () {
