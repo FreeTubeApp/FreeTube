@@ -224,23 +224,28 @@
           :title="channel.name"
           role="button"
           tabindex="0"
-          @click="goToChannel(channel.id)"
           @keypress="goToChannel(channel.id)"
+          @click="goToChannel(channel.id)"
         >
-          <div
-            class="thumbnailContainer"
+          <router-link
+            :to="`/channel/${channel.id}`"
+            class="channelLink"
           >
-            <img
-              class="channelThumbnail"
-              :src="channel.thumbnail"
+            <div
+              class="thumbnailContainer"
             >
-          </div>
-          <p
-            v-if="isOpen"
-            class="navLabel"
-          >
-            {{ channel.name }}
-          </p>
+              <img
+                class="channelThumbnail"
+                :src="channel.thumbnail"
+              >
+            </div>
+            <p
+              v-if="isOpen"
+              class="navLabel"
+            >
+              {{ channel.name }}
+            </p>
+          </router-link>
         </div>
       </div>
     </div>

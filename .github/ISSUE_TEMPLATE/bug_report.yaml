@@ -85,10 +85,12 @@ body:
         - .dmg
         - .exe
         - Flathub
+        - MPR
         - .pacman
         - Portable
         - PortableApps
         - .rpm
+        - Scoop
         - winget
         - .zip
         - other

@@ -193,8 +193,7 @@ const getters = {
 
 async function invokeIRC(context, IRCtype, webCbk, payload = null) {
   let response = null
-  const usingElectron = context.rootState.settings.usingElectron
-  if (usingElectron) {
+  if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
     response = await ipcRenderer.invoke(IRCtype, payload)
   } else if (webCbk) {
@@ -205,13 +204,12 @@ async function invokeIRC(context, IRCtype, webCbk, payload = null) {
 }
 
 const actions = {
-  openExternalLink ({ rootState }, url) {
-    const usingElectron = rootState.settings.usingElectron
-    if (usingElectron) {
+  openExternalLink (_, url) {
+    if (process.env.IS_ELECTRON) {
       const ipcRenderer = require('electron').ipcRenderer
       ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
-      // Web placeholder
+      window.open(url, '_blank')
     }
   },
 
@@ -248,9 +246,47 @@ const actions = {
     return filenameNew
   },
 
+  /**
+   * This writes to the clipboard. If an error occurs during the copy,
+   * a toast with the error is shown. If the copy is successful and
+   * there is a success message, a toast with that message is shown.
+   * @param {string} content the content to be copied to the clipboard
+   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   */
+  async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
+    if (navigator.clipboard !== undefined && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(content)
+        if (messageOnSuccess !== undefined) {
+          dispatch('showToast', {
+            message: messageOnSuccess
+          })
+        }
+      } catch (error) {
+        console.error(`Failed to copy ${content} to clipboard`, error)
+        if (messageOnError !== undefined) {
+          dispatch('showToast', {
+            message: `${messageOnError}: ${error}`,
+            time: 5000
+          })
+        } else {
+          dispatch('showToast', {
+            message: `${i18n.t('Clipboard.Copy failed')}: ${error}`,
+            time: 5000
+          })
+        }
+      }
+    } else {
+      dispatch('showToast', {
+        message: i18n.t('Clipboard.Cannot access clipboard without a secure connection'),
+        time: 5000
+      })
+    }
+  },
+
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
     const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
-    const usingElectron = rootState.settings.usingElectron
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
     const startMessage = translations['Starting download'].replace('$', title)
@@ -258,8 +294,8 @@ const actions = {
     const errorMessage = translations['Downloading failed'].replace('$', title)
     let folderPath = rootState.settings.downloadFolderPath
 
-    if (!usingElectron) {
-      // Add logic here in the future
+    if (!process.env.IS_ELECTRON) {
+      dispatch('openExternalLink', url)
       return
     }
 
@@ -287,7 +323,7 @@ const actions = {
           fs.mkdirSync(folderPath, { recursive: true })
         } catch (err) {
           console.error(err)
-          this.showToast({
+          dispatch('showToast', {
             message: err
           })
           return

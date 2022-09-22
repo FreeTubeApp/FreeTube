@@ -7,6 +7,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -135,7 +136,7 @@ export default Vue.extend({
     },
 
     currentLocale: function () {
-      return this.$store.getters.getCurrentLocale
+      return i18n.locale.replace('_', '-')
     },
 
     profileList: function () {
@@ -238,7 +239,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         return null
       }
-      return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ` ${this.$t('Video.Views').toLowerCase()}`
+      return Intl.NumberFormat(this.currentLocale).format(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
     isSubscribed: function () {

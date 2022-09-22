@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  この部分のアプリは未完成です。完成後に実行してください。
+  アプリのこの部分は未完成です。完成後に実行してください。
 
 # Webkit Menu Bar
 File: 'ファイル'
@@ -16,11 +16,11 @@ Delete: '削除'
 Select all: 'すべて選択'
 Reload: '再読み込み'
 Force Reload: '強制的に再読み込み'
-Toggle Developer Tools: '開発者ツールに切替'
+Toggle Developer Tools: '開発者ツールの切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
 Zoom out: '縮小'
-Toggle fullscreen: '全画面に変更'
+Toggle fullscreen: '全画面の切替'
 Window: 'ウィンドウ'
 Minimize: '最小化'
 Close: '閉じる'
@@ -397,7 +397,7 @@ Settings:
     Hide Unsubscribe Button: 登録解除ボタンの非表示
 About:
   #On About page
-  About: 'About'
+  About: '概要'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -527,6 +527,7 @@ Video:
     Upcoming: '公開予定日'
     Minutes: 分
     Minute: 分
+    Less than a minute: 1分以内
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -605,6 +606,7 @@ Video:
     Video statistics are not available for legacy videos: 従来のビデオでは、ビデオ統計を使用できません
     Bandwidth: 帯域幅
     Dropped / Total Frames: ドロップ率 / 総フレーム数
+  Premieres in: 配信開始まで
 Videos:
   #& Sort By
   Sort By:
@@ -673,7 +675,7 @@ Comments:
   Sort by: 並び替え
   Show More Replies: その他の返信を表示する
   And others: その他
-  Pinned by: ピン留め
+  Pinned by: によって固定されています
   From $channelName: $channelName から
   Member: メンバー
 Up Next: '次の動画'
@@ -737,7 +739,7 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, $. Click to view more: '新着ブログ公開、$。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新の Ver. $ 登場！　詳細はクリックして確認してください
+Version $ is now available!  Click for more details: 最新バージョン $ 配信中！　詳細はクリックして確認してください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:

@@ -188,7 +188,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendFallback && this.backendPreference === 'local') {
@@ -223,7 +223,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendFallback && this.backendPreference === 'local') {
@@ -339,7 +339,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${xhr.responseText}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
+            this.copyToClipboard({ content: xhr.responseText })
           }
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
@@ -396,7 +396,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${xhr.responseText}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
+            this.copyToClipboard({ content: xhr.responseText })
           }
         })
         this.isLoading = false
@@ -410,7 +410,8 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'copyToClipboard'
     ])
   }
 })

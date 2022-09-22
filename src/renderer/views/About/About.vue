@@ -6,7 +6,7 @@
       </h1>
       <section class="brand">
         <img
-          src="_icons/logoColor.png"
+          src="../../../../_icons/logoColor.png"
           class="logo"
         >
         <div class="version">

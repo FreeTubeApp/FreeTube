@@ -1291,7 +1291,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err.responseJSON.error}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err.responseJSON.error)
+              this.copyToClipboard({ content: err.responseJSON.error })
             }
           })
 
@@ -1318,7 +1318,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
 
@@ -1348,7 +1348,8 @@ export default Vue.extend({
       'showSaveDialog',
       'getUserDataPath',
       'addPlaylist',
-      'addVideo'
+      'addVideo',
+      'copyToClipboard'
     ]),
 
     ...mapMutations([

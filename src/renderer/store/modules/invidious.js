@@ -25,11 +25,11 @@ const actions = {
   async fetchInvidiousInstances({ commit }, payload) {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
-    let response
     let instances = []
     try {
-      response = await $.getJSON(requestUrl)
-      instances = response.filter((instance) => {
+      const response = await fetch(requestUrl)
+      const json = await response.json()
+      instances = json.filter((instance) => {
         if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
           return false
         } else {
@@ -39,7 +39,7 @@ const actions = {
         return instance[1].uri.replace(/\/$/, '')
       })
     } catch (err) {
-      console.log(err)
+      console.error(err)
       // Starts fallback strategy: read from static file
       // And fallback to hardcoded entry(s) if static file absent
       const fileName = 'invidious-instances.json'
@@ -52,7 +52,7 @@ const actions = {
           return entry.url
         })
       } else {
-        console.log('unable to read static file for invidious instances')
+        console.error('unable to read static file for invidious instances')
         instances = [
           'https://invidious.snopyta.org',
           'https://invidious.kavin.rocks/'
@@ -73,15 +73,15 @@ const actions = {
     return new Promise((resolve, reject) => {
       const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + $.param(payload.params)
 
-      $.getJSON(requestUrl, (response) => {
-        resolve(response)
-      }).fail((xhr, textStatus, error) => {
-        console.log(xhr)
-        console.log(textStatus)
-        console.log(requestUrl)
-        console.log(error)
-        reject(xhr)
-      })
+      fetch(requestUrl)
+        .then((response) => response.json())
+        .then((json) => {
+          resolve(json)
+        })
+        .catch((error) => {
+          console.error('Invidious API error', requestUrl, error)
+          reject(error)
+        })
     })
   },
 
