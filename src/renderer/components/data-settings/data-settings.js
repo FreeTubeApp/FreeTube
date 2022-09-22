@@ -434,103 +434,106 @@ export default Vue.extend({
       }
 
       const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths.length === 0) {
+      if (response.canceled || response.filePaths?.length === 0) {
         return
       }
 
-      const filePath = response.filePaths[0]
+      let data
+      try {
+        data = await this.readFileFromDialog({ response })
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        this.showToast({
+          message: `${message}: ${err}`
+        })
+        return
+      }
 
-      fs.readFile(filePath, async (err, data) => {
-        if (err) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${err}`
-          })
-          return
+      let json
+      try {
+        json = await opmlToJSON(data)
+      } catch (err) {
+        console.log(err)
+        console.log('error reading')
+        const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+        this.showToast({
+          message: `${message}: ${err}`
+        })
+      }
+
+      if (json !== undefined) {
+        let feedData = json.children[0].children
+
+        if (typeof feedData === 'undefined') {
+          if (json.title.includes('gPodder')) {
+            feedData = json.children
+          } else {
+            const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+            this.showToast({
+              message: message
+            })
+            return
+          }
         }
 
-        opmlToJSON(data).then((json) => {
-          let feedData = json.children[0].children
+        const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
+        const subscriptions = []
 
-          if (typeof feedData === 'undefined') {
-            if (json.title.includes('gPodder')) {
-              feedData = json.children
+        this.showToast({
+          message: this.$t('Settings.Data Settings.This might take a while, please wait')
+        })
+
+        this.updateShowProgressBar(true)
+        this.setProgressBarPercentage(0)
+
+        let count = 0
+
+        feedData.forEach(async (channel, index) => {
+          const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
+          const subExists = primaryProfile.subscriptions.findIndex((sub) => {
+            return sub.id === channelId
+          })
+          if (subExists === -1) {
+            let channelInfo
+            if (this.backendPreference === 'invidious') {
+              channelInfo = await this.getChannelInfoInvidious(channelId)
             } else {
-              const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-              this.showToast({
-                message: message
-              })
+              channelInfo = await this.getChannelInfoLocal(channelId)
+            }
 
-              return
+            if (typeof channelInfo.author !== 'undefined') {
+              const subscription = {
+                id: channelId,
+                name: channelInfo.author,
+                thumbnail: channelInfo.authorThumbnails[1].url
+              }
+              subscriptions.push(subscription)
             }
           }
 
-          const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-          const subscriptions = []
+          count++
 
-          this.showToast({
-            message: this.$t('Settings.Data Settings.This might take a while, please wait')
-          })
+          const progressPercentage = (count / feedData.length) * 100
+          this.setProgressBarPercentage(progressPercentage)
 
-          this.updateShowProgressBar(true)
-          this.setProgressBarPercentage(0)
+          if (count === feedData.length) {
+            primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
+            this.updateProfile(primaryProfile)
 
-          let count = 0
-
-          feedData.forEach(async (channel, index) => {
-            const channelId = channel.xmlurl.replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
-            const subExists = primaryProfile.subscriptions.findIndex((sub) => {
-              return sub.id === channelId
-            })
-            if (subExists === -1) {
-              let channelInfo
-              if (this.backendPreference === 'invidious') {
-                channelInfo = await this.getChannelInfoInvidious(channelId)
-              } else {
-                channelInfo = await this.getChannelInfoLocal(channelId)
-              }
-
-              if (typeof channelInfo.author !== 'undefined') {
-                const subscription = {
-                  id: channelId,
-                  name: channelInfo.author,
-                  thumbnail: channelInfo.authorThumbnails[1].url
-                }
-                subscriptions.push(subscription)
-              }
+            if (subscriptions.length < count) {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
+              })
+            } else {
+              this.showToast({
+                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
+              })
             }
 
-            count++
-
-            const progressPercentage = (count / feedData.length) * 100
-            this.setProgressBarPercentage(progressPercentage)
-
-            if (count === feedData.length) {
-              primaryProfile.subscriptions = primaryProfile.subscriptions.concat(subscriptions)
-              this.updateProfile(primaryProfile)
-
-              if (subscriptions.length < count) {
-                this.showToast({
-                  message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-                })
-              } else {
-                this.showToast({
-                  message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-                })
-              }
-
-              this.updateShowProgressBar(false)
-            }
-          })
-        }).catch((err) => {
-          console.log(err)
-          console.log('error reading')
-          const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-          this.showToast({
-            message: `${message}: ${err}`
-          })
+            this.updateShowProgressBar(false)
+          }
         })
-      })
+      }
     },
 
     importNewPipeSubscriptions: async function () {
