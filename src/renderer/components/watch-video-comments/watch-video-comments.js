@@ -182,7 +182,7 @@ export default Vue.extend({
       ytcm.getComments(payload).then((response) => {
         this.parseLocalCommentData(response, null)
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -217,7 +217,7 @@ export default Vue.extend({
       ytcm.getCommentReplies(payload).then((response) => {
         this.parseLocalCommentData(response, payload.index)
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -332,8 +332,7 @@ export default Vue.extend({
         this.isLoading = false
         this.showComments = true
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${xhr.responseText}`,
@@ -389,8 +388,7 @@ export default Vue.extend({
         this.commentData[index].showReplies = true
         this.isLoading = false
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${xhr.responseText}`,

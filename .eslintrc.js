@@ -35,9 +35,9 @@ module.exports = {
     'space-before-function-paren': 0,
     'comma-dangle': ['error', 'never'],
     'vue/no-v-html': 'off',
-    'no-console': 0,
-    'no-unused-vars': 1,
-    'no-undef': 1,
-    'vue/no-template-key': 1
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-unused-vars': 'warn',
+    'no-undef': 'warn',
+    'vue/no-template-key': 'warn'
   }
 }

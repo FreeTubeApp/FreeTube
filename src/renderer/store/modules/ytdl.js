@@ -17,10 +17,8 @@ const getters = {}
 
 const actions = {
   ytSearch ({ commit, dispatch, rootState }, payload) {
-    console.log('Performing search please wait...')
     return new Promise((resolve, reject) => {
       if (state.isYtSearchRunning) {
-        console.log('search is running. please try again')
         resolve(false)
       }
 
@@ -90,27 +88,23 @@ const actions = {
           const query = filter || payload.query
 
           ytsr(query, payload.options).then((result) => {
-            console.log(result)
-            console.log('done')
             resolve(result)
           }).catch((err) => {
-            console.log(err)
+            console.error(err)
             reject(err)
           }).finally(() => {
             commit('toggleIsYtSearchRunning')
           })
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           commit('toggleIsYtSearchRunning')
           reject(err)
         })
       } else {
         ytsr(payload.query, payload.options).then((result) => {
-          console.log(result)
-          console.log('done')
           resolve(result)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           reject(err)
         }).finally(() => {
           commit('toggleIsYtSearchRunning')
@@ -172,9 +166,6 @@ const actions = {
       searchSettings = rootState.utils.searchSettings
     }
 
-    console.log(searchSettings)
-    console.log(filter)
-
     if (searchSettings.sortBy !== 'relevance') {
       let filterValue
       switch (searchSettings.sortBy) {
@@ -192,8 +183,6 @@ const actions = {
       filter = await ytsr.getFilters(filterUrl, options)
     }
 
-    console.log(`Current ref: ${filterUrl}`)
-
     if (searchSettings.duration !== '') {
       let filterValue = null
       if (searchSettings.duration === 'short') {
@@ -205,8 +194,6 @@ const actions = {
       filterUrl = filter.get('Duration').get(filterValue).url
       filter = await ytsr.getFilters(filterUrl, options)
     }
-
-    console.log(`Current ref: ${filterUrl}`)
 
     if (searchSettings.time !== '') {
       let filterValue = null
@@ -233,15 +220,11 @@ const actions = {
       filter = await ytsr.getFilters(filterUrl, options)
     }
 
-    console.log(`Current ref: ${filterUrl}`)
-
     if (searchSettings.type !== 'all') {
       const filterValue = searchSettings.type.charAt(0).toUpperCase() + searchSettings.type.slice(1)
       filterUrl = filter.get('Type').get(filterValue).url
       filter = await ytsr.getFilters(filterUrl, options)
     }
-
-    console.log(`Current ref: ${filterUrl}`)
 
     return new Promise((resolve, reject) => {
       resolve(filterUrl)
@@ -250,8 +233,6 @@ const actions = {
 
   ytGetPlaylistInfo ({ rootState }, playlistId) {
     return new Promise((resolve, reject) => {
-      console.log(playlistId)
-      console.log('Getting playlist info please wait...')
       let agent = null
       const settings = rootState.settings
       const useProxy = settings.useProxy
@@ -310,7 +291,6 @@ const actions = {
 
   ytGetVideoInformation ({ rootState }, videoId) {
     return new Promise((resolve, reject) => {
-      console.log('Getting video info please wait...')
       let agent = null
       const settings = rootState.settings
       const useProxy = settings.useProxy

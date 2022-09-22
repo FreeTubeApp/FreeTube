@@ -245,8 +245,6 @@ export default Vue.extend({
 
       this.ytGetVideoInformation(this.videoId)
         .then(async result => {
-          console.log(result)
-
           const playabilityStatus = result.player_response.playabilityStatus
           if (playabilityStatus.status === 'UNPLAYABLE') {
             const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
@@ -284,7 +282,6 @@ export default Vue.extend({
           if ('id' in result.videoDetails.author) {
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.videoDetails.author.name
-            console.log(result)
             if (result.videoDetails.author.thumbnails.length > 0) {
               this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
             }
@@ -607,7 +604,7 @@ export default Vue.extend({
               this.copyToClipboard({ content: err })
             }
           })
-          console.log(err)
+          console.error(err)
           if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
@@ -629,8 +626,6 @@ export default Vue.extend({
 
       this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
-          console.log(result)
-
           if (result.error) {
             throw new Error(result.error)
           }
@@ -784,6 +779,7 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseText}`,
@@ -792,7 +788,7 @@ export default Vue.extend({
               this.copyToClipboard({ content: err.responseText })
             }
           })
-          console.log(err)
+          console.error(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
             this.showToast({
               message: this.$t('Falling back to Local API')
@@ -894,8 +890,6 @@ export default Vue.extend({
         return video.videoId === this.videoId
       })
 
-      console.log(historyIndex)
-
       if (!this.isLive) {
         if (this.timestamp) {
           if (this.timestamp < 0) {
@@ -963,7 +957,7 @@ export default Vue.extend({
               this.copyToClipboard({ content: err })
             }
           })
-          console.log(err)
+          console.error(err)
           if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
@@ -1162,14 +1156,14 @@ export default Vue.extend({
     },
 
     handleVideoError: function (error) {
-      console.log(error)
+      console.error(error)
       if (this.isLive) {
         return
       }
 
       if (error.code === 4) {
         if (this.activeFormat === 'dash') {
-          console.log(
+          console.warn(
             'Unable to play dash formats.  Reverting to legacy formats...'
           )
           this.enableLegacyFormat()

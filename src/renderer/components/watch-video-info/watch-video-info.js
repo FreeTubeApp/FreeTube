@@ -2,7 +2,6 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
@@ -14,7 +13,6 @@ export default Vue.extend({
   components: {
     'ft-card': FtCard,
     'ft-button': FtButton,
-    'ft-list-dropdown': FtListDropdown,
     'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
     'ft-share-button': FtShareButton

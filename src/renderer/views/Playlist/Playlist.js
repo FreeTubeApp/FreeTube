@@ -67,9 +67,6 @@ export default Vue.extend({
       this.isLoading = true
 
       this.ytGetPlaylistInfo(this.playlistId).then((result) => {
-        console.log('done')
-        console.log(result)
-
         this.infoData = {
           id: result.id,
           title: result.title,
@@ -107,9 +104,9 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Falling back to Invidious API')
+          console.warn('Falling back to Invidious API')
           this.getPlaylistInvidious()
         } else {
           this.isLoading = false
@@ -126,9 +123,6 @@ export default Vue.extend({
       }
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
-        console.log('done')
-        console.log(result)
-
         this.infoData = {
           id: result.playlistId,
           title: result.title,
@@ -155,9 +149,9 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          console.log('Error getting data with Invidious, falling back to local backend')
+          console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {
           this.isLoading = false

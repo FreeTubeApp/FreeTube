@@ -528,8 +528,7 @@ export default Vue.extend({
             }
           })
         }).catch((err) => {
-          console.log(err)
-          console.log('error reading')
+          console.error(err)
           const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
           this.showToast({
             message: `${message}: ${err}`
@@ -946,7 +945,7 @@ export default Vue.extend({
       this.handleFreetubeImportFile(dbLocation)
       fs.unlink(dbLocation, (err) => {
         if (err) {
-          console.log(err)
+          console.error(err)
         }
       })
     },
@@ -1285,7 +1284,7 @@ export default Vue.extend({
         this.invidiousAPICall(subscriptionsPayload).then((response) => {
           resolve(response)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseJSON.error}`,
@@ -1312,7 +1311,7 @@ export default Vue.extend({
         ytch.getChannelInfo({ channelId: channelId }).then(async (response) => {
           resolve(response)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
