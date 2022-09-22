@@ -32,7 +32,7 @@ module.exports = {
   plugins: ['vue'],
 
   rules: {
-    'space-before-function-paren': 0,
+    'space-before-function-paren': 'off',
     'comma-dangle': ['error', 'never'],
     'vue/no-v-html': 'off',
     'no-console': ['error', { allow: ['warn', 'error'] }],
