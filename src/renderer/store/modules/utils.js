@@ -395,9 +395,42 @@ const actions = {
     return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
+  async readFileFromDialog(context, { response, index = 0 }) {
+    return await new Promise((resolve, reject) => {
+      if (process.env.IS_ELECTRON) {
+        fs.readFile(response.filePaths[index], (err, data) => {
+          if (err) {
+            reject(err)
+            return
+          }
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+      } else {
+        try {
+          const reader = new FileReader()
+          reader.onload = function (file) {
+            resolve(file.currentTarget.result)
+          }
+          reader.readAsText(response.files[index])
+        } catch (exception) {
+          reject(exception)
+        }
+      }
+    })
+  },
+
   async showOpenDialog (context, options) {
-    // TODO: implement showOpenDialog web compatible callback
-    const webCbk = () => null
+    const webCbk = () => {
+      return new Promise((resolve) => {
+        const fileInput = document.createElement('input')
+        fileInput.setAttribute('type', 'file')
+        fileInput.onchange = function() {
+          const files = Array.from(fileInput.files)
+          resolve({ cancelled: files.length > 0, files })
+        }
+        fileInput.click()
+      })
+    }
     return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 

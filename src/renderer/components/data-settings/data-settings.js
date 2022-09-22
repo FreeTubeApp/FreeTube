@@ -967,67 +967,55 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePaths[0]
+      let textDecode = await this.readFileFromDialog({ response })
+      textDecode = textDecode.split('\n')
+      textDecode.pop()
 
-      fs.readFile(filePath, async (err, data) => {
-        if (err) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${err}`
-          })
-          return
-        }
+      textDecode.forEach((history) => {
+        const historyData = JSON.parse(history)
+        // We would technically already be done by the time the data is parsed,
+        // however we want to limit the possibility of malicious data being sent
+        // to the app, so we'll only grab the data we need here.
+        const requiredKeys = [
+          '_id',
+          'author',
+          'authorId',
+          'description',
+          'isLive',
+          'lengthSeconds',
+          'paid',
+          'published',
+          'timeWatched',
+          'title',
+          'type',
+          'videoId',
+          'viewCount',
+          'watchProgress'
+        ]
 
-        let textDecode = new TextDecoder('utf-8').decode(data)
-        textDecode = textDecode.split('\n')
-        textDecode.pop()
+        const historyObject = {}
 
-        textDecode.forEach((history) => {
-          const historyData = JSON.parse(history)
-          // We would technically already be done by the time the data is parsed,
-          // however we want to limit the possibility of malicious data being sent
-          // to the app, so we'll only grab the data we need here.
-          const requiredKeys = [
-            '_id',
-            'author',
-            'authorId',
-            'description',
-            'isLive',
-            'lengthSeconds',
-            'paid',
-            'published',
-            'timeWatched',
-            'title',
-            'type',
-            'videoId',
-            'viewCount',
-            'watchProgress'
-          ]
-
-          const historyObject = {}
-
-          Object.keys(historyData).forEach((key) => {
-            if (!requiredKeys.includes(key)) {
-              this.showToast({
-                message: `Unknown data key: ${key}`
-              })
-            } else {
-              historyObject[key] = historyData[key]
-            }
-          })
-
-          if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
+        Object.keys(historyData).forEach((key) => {
+          if (!requiredKeys.includes(key)) {
             this.showToast({
-              message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
+              message: `Unknown data key: ${key}`
             })
           } else {
-            this.updateHistory(historyObject)
+            historyObject[key] = historyData[key]
           }
         })
 
-        this.showToast({
-          message: this.$t('Settings.Data Settings.All watched history has been successfully imported')
-        })
+        if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
+          this.showToast({
+            message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
+          })
+        } else {
+          this.updateHistory(historyObject)
+        }
+      })
+
+      this.showToast({
+        message: this.$t('Settings.Data Settings.All watched history has been successfully imported')
       })
     },
 
@@ -1345,6 +1333,7 @@ export default Vue.extend({
       'getRandomColor',
       'calculateColorLuminance',
       'showOpenDialog',
+      'readFileFromDialog',
       'showSaveDialog',
       'getUserDataPath',
       'addPlaylist',
