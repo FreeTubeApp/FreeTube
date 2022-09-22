@@ -80,6 +80,9 @@ export default Vue.extend({
         `${exportYouTube} (.opml)`,
         `${exportNewPipe} (.json)`
       ]
+    },
+    usingElectron: function () {
+      return process.env.IS_ELECTRON
     }
   },
   methods: {
@@ -940,7 +943,7 @@ export default Vue.extend({
     checkForLegacySubscriptions: async function () {
       let dbLocation = await this.getUserDataPath()
       dbLocation = dbLocation + '/subscriptions.db'
-      this.handleFreetubeImportFile(dbLocation)
+      this.handleFreetubeImportFile({ canceled: false, filePaths: [dbLocation] })
       fs.unlink(dbLocation, (err) => {
         if (err) {
           console.log(err)
