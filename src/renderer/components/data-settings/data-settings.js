@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -16,6 +17,7 @@ import ytch from 'yt-channel-info'
 export default Vue.extend({
   name: 'DataSettings',
   components: {
+    'ft-settings-section': FtSettingsSection,
     'ft-card': FtCard,
     'ft-button': FtButton,
     'ft-toggle-switch': FtToggleSwitch,

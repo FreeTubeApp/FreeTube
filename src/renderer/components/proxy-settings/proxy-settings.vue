@@ -1,12 +1,8 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Proxy Settings.Proxy Settings") }}
-      </h3>
-    </summary>
-    <hr>
-    <ft-flex-box class="subscriptionSettingsFlexBox">
+  <ft-settings-section
+    :title="$t('Settings.Proxy Settings.Proxy Settings')"
+  >
+    <ft-flex-box class="settingsFlexStart500px">
       <ft-toggle-switch
         :label="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
         :default-value="useProxy"
@@ -77,8 +73,7 @@
         </p>
       </div>
     </div>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./proxy-settings.js" />
-<style scoped lang="sass" src="./proxy-settings.sass" />

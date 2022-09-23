@@ -1,0 +1,54 @@
+.settingsSection
+  background-color: var(--card-bg-color)
+  width: 85%
+  margin: 0 auto
+
+  &[open]
+    padding-bottom: 15px
+
+  @media only screen and (max-width: 680px)
+    width: 90%
+
+.sectionLine
+  width: 100%
+  height: 2px
+  border: 0
+  margin-top: -1px
+  background-color: var(--primary-color)
+
+.sectionHeader
+  display: block
+  cursor: pointer
+  padding: 1px
+
+.sectionTitle
+  margin-left: 2%
+
+:deep(.switchGrid)
+  display: grid
+  grid-template-columns: auto auto
+  justify-content: space-evenly
+  align-items: center
+
+  @media only screen and (max-width: 680px)
+    grid-template-columns: auto
+
+:deep(.switchColumnGrid)
+  @extend :deep(.switchGrid)
+  align-items: start
+
+:deep(.switchColumn)
+  display: flex
+  flex-direction: column
+  justify-items: start
+
+:deep(.center)
+  text-align: center
+
+@media only screen and (max-width: 460px)
+  :deep(.settingsFlexStart460px)
+    justify-content: flex-start
+
+@media only screen and (max-width: 500px)
+  :deep(.settingsFlexStart500px)
+    justify-content: flex-start
