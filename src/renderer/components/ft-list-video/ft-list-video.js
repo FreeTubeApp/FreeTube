@@ -291,9 +291,6 @@ export default Vue.extend({
     },
 
     handleOptionsClick: function (option) {
-      console.log('Handling share')
-      console.log(option)
-
       switch (option) {
         case 'history':
           if (this.watched) {

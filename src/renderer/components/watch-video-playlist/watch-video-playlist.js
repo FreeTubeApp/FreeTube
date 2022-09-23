@@ -278,9 +278,6 @@ export default Vue.extend({
       this.isLoading = true
 
       this.ytGetPlaylistInfo(this.playlistId).then((result) => {
-        console.log('done')
-        console.log(result)
-
         this.playlistTitle = result.title
         this.playlistItems = result.items
         this.videoCount = result.estimatedItemCount
@@ -307,7 +304,7 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -336,9 +333,6 @@ export default Vue.extend({
       }
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
-        console.log('done')
-        console.log(result)
-
         this.playlistTitle = result.title
         this.videoCount = result.videoCount
         this.channelName = result.author
@@ -348,7 +342,7 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,

@@ -12,6 +12,7 @@
         @click="showImportSubscriptionsPrompt = true"
       />
       <ft-button
+        v-if="usingElectron"
         :label="$t('Settings.Data Settings.Check for Legacy Subscriptions')"
         @click="checkForLegacySubscriptions"
       />

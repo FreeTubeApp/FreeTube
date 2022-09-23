@@ -252,9 +252,9 @@ export default Vue.extend({
       this.invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         if (this.backendFallback) {
-          console.log(
+          console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )
           this.getSearchSuggestionsLocal(query)

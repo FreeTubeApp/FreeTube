@@ -20,7 +20,7 @@ activeLocales.forEach((locale) => {
     const doc = yaml.load(fs.readFileSync(`${fileLocation}${locale}.yaml`))
     messages[locale] = doc
   } catch (e) {
-    console.log(e)
+    console.error(e)
   }
 })
 

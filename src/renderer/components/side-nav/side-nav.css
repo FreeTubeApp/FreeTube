@@ -89,6 +89,11 @@
   transform: translateY(-50%);
 }
 
+.channelLink {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .channelThumbnail {
   border-radius: 50%;
   width: 35px;
