@@ -265,7 +265,6 @@ export default Vue.extend({
       this.setProgressBarPercentage(0)
       let count = 0
 
-      const uniqueIds = new Set()
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
         const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g
         return [...yt.matchAll(splitCSVRegex)].map(s => {
@@ -277,12 +276,7 @@ export default Vue.extend({
         })
       }).filter(channel => {
         if (channel.length === 0) { return false }
-        const id = channel[0]
-        if (!uniqueIds.has(id)) {
-          uniqueIds.add(id)
-          return true
-        }
-        return false
+        return true
       })
       new Promise((resolve) => {
         let finishCount = 0
@@ -336,16 +330,7 @@ export default Vue.extend({
         })
         return
       }
-      const uniqueIds = new Set()
       textDecode = JSON.parse(textDecode)
-        .filter((channel, index) => {
-          const id = channel.snippet.resourceId.channelId
-          if (!uniqueIds.has(id)) {
-            uniqueIds.add(id)
-            return true
-          }
-          return false
-        })
 
       const subscriptions = []
       const errorList = []
@@ -594,14 +579,9 @@ export default Vue.extend({
 
         return
       }
-      const uniqueIds = new Set()
 
       const newPipeSubscriptions = newPipeData.subscriptions.filter((channel, index) => {
-        if (!uniqueIds.has(channel.url)) {
-          uniqueIds.add(channel.url)
-          return channel.service_id === 0
-        }
-        return false
+        return channel.service_id === 0
       })
 
       const subscriptions = []
@@ -1373,14 +1353,14 @@ export default Vue.extend({
       return subscription
     },
 
-    validSubscription(subscription, subscriptions) {
-      if (subscription === null) { return false }
+    validSubscription(subscriptionId, subscriptions) {
+      if (subscriptionId === null) { return false }
       const subExists = this.primaryProfile.subscriptions.findIndex((sub) => {
-        return sub.id === subscription.id
+        return sub.id === subscriptionId
       }) === -1
 
       const subDuplicateExists = subscriptions.findIndex((sub) => {
-        return sub.id === subscription.id
+        return sub.id === subscriptionId
       }) === -1
       return subExists && subDuplicateExists
     },
