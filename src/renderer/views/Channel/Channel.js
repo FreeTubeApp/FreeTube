@@ -304,7 +304,7 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -336,7 +336,7 @@ export default Vue.extend({
         this.videoContinuationString = response.continuation
         this.isElementListLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -361,7 +361,7 @@ export default Vue.extend({
         this.latestVideos = this.latestVideos.concat(response.items)
         this.videoContinuationString = response.continuation
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -383,7 +383,6 @@ export default Vue.extend({
           return
         }
 
-        console.log(response)
         const channelName = response.author
         const channelId = response.authorId
         this.channelName = channelName
@@ -416,7 +415,7 @@ export default Vue.extend({
         this.isLoading = false
       }).catch((err) => {
         this.setErrorMessage(err.responseJSON.error)
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err.responseJSON.error}`,
@@ -444,7 +443,7 @@ export default Vue.extend({
         this.latestVideosPage++
         this.isElementListLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -463,7 +462,6 @@ export default Vue.extend({
           return
         }
 
-        console.log(response)
         this.latestPlaylists = response.items.map((item) => {
           item.proxyThumbnail = false
           return item
@@ -471,7 +469,7 @@ export default Vue.extend({
         this.playlistContinuationString = response.continuation
         this.isElementListLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -493,11 +491,10 @@ export default Vue.extend({
 
     getPlaylistsLocalMore: function () {
       ytch.getChannelPlaylistsMore({ continuation: this.playlistContinuationString }).then((response) => {
-        console.log(response)
         this.latestPlaylists = this.latestPlaylists.concat(response.items)
         this.playlistContinuationString = response.continuation
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -523,7 +520,7 @@ export default Vue.extend({
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err.responseJSON.error}`,
@@ -545,7 +542,7 @@ export default Vue.extend({
 
     getPlaylistsInvidiousMore: function () {
       if (this.playlistContinuationString === null) {
-        console.log('There are no more playlists available for this channel')
+        console.warn('There are no more playlists available for this channel')
         return
       }
 
@@ -566,7 +563,7 @@ export default Vue.extend({
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err.responseJSON.error}`,
@@ -727,12 +724,11 @@ export default Vue.extend({
     searchChannelLocal: function () {
       if (this.searchContinuationString === '') {
         ytch.searchChannel({ channelId: this.id, channelIdType: this.idType, query: this.lastSearchQuery }).then((response) => {
-          console.log(response)
           this.searchResults = response.items
           this.isElementListLoading = false
           this.searchContinuationString = response.continuation
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
@@ -752,12 +748,11 @@ export default Vue.extend({
         })
       } else {
         ytch.searchChannelMore({ continuation: this.searchContinuationString }).then((response) => {
-          console.log(response)
           this.searchResults = this.searchResults.concat(response.items)
           this.isElementListLoading = false
           this.searchContinuationString = response.continuation
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
@@ -785,7 +780,7 @@ export default Vue.extend({
         this.isElementListLoading = false
         this.searchPage++
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,

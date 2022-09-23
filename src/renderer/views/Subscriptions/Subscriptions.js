@@ -254,7 +254,7 @@ export default Vue.extend({
 
           resolve(videos)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
@@ -313,7 +313,7 @@ export default Vue.extend({
 
           resolve(items)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           if (err.toString().match(/404/)) {
             this.errorChannels.push(channel)
             resolve([])
@@ -365,7 +365,7 @@ export default Vue.extend({
             return video
           })))
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseText}`,
@@ -416,7 +416,7 @@ export default Vue.extend({
             return video
           })))
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,

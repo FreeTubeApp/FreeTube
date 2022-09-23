@@ -159,7 +159,6 @@ export default Vue.extend({
         this.grabAllPlaylists()
 
         if (process.env.IS_ELECTRON) {
-          console.log('User is using Electron')
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
@@ -194,11 +193,8 @@ export default Vue.extend({
     },
 
     updateTheme: function (theme) {
-      console.group('updateTheme')
-      console.log('Theme: ', theme)
       document.body.className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
       document.body.dataset.systemTheme = this.systemTheme
-      console.groupEnd()
     },
 
     checkForNewUpdates: function () {

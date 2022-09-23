@@ -456,8 +456,8 @@ export default Vue.extend({
       try {
         json = await opmlToJSON(data)
       } catch (err) {
-        console.log(err)
-        console.log('error reading')
+        console.error(err)
+        console.error('error reading')
         const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
         this.showToast({
           message: `${message}: ${err}`
@@ -466,7 +466,6 @@ export default Vue.extend({
 
       if (json !== undefined) {
         let feedData = json.children[0].children
-
         if (typeof feedData === 'undefined') {
           if (json.title.includes('gPodder')) {
             feedData = json.children
@@ -475,6 +474,7 @@ export default Vue.extend({
             this.showToast({
               message: message
             })
+
             return
           }
         }
@@ -946,7 +946,7 @@ export default Vue.extend({
       this.handleFreetubeImportFile({ canceled: false, filePaths: [dbLocation] })
       fs.unlink(dbLocation, (err) => {
         if (err) {
-          console.log(err)
+          console.error(err)
         }
       })
     },
@@ -1278,7 +1278,7 @@ export default Vue.extend({
         this.invidiousAPICall(subscriptionsPayload).then((response) => {
           resolve(response)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseJSON.error}`,
@@ -1305,7 +1305,7 @@ export default Vue.extend({
         ytch.getChannelInfo({ channelId: channelId }).then(async (response) => {
           resolve(response)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,

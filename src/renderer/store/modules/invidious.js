@@ -46,7 +46,7 @@ const actions = {
       /* eslint-disable-next-line */
       const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
       if (fs.existsSync(`${fileLocation}${fileName}`)) {
-        console.log('reading static file for invidious instances')
+        console.warn('reading static file for invidious instances')
         const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
         instances = JSON.parse(fileData).map((entry) => {
           return entry.url
@@ -98,8 +98,7 @@ const actions = {
       dispatch('invidiousAPICall', payload).then((response) => {
         resolve(response)
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         commit('toggleIsGetChannelInfoRunning')
         reject(xhr)
       })
@@ -111,8 +110,7 @@ const actions = {
       dispatch('invidiousAPICall', payload).then((response) => {
         resolve(response)
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         commit('toggleIsGetChannelInfoRunning')
         reject(xhr)
       })
@@ -130,8 +128,7 @@ const actions = {
       dispatch('invidiousAPICall', payload).then((response) => {
         resolve(response)
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         reject(xhr)
       })
     })

@@ -31,12 +31,5 @@ export default Vue.extend({
     listType: function () {
       return this.$store.getters.getListType
     }
-  },
-  mounted: function () {
-  },
-  methods: {
-    goToChannel: function () {
-      console.log('TODO: ft-list-channel method goToChannel')
-    }
   }
 })
