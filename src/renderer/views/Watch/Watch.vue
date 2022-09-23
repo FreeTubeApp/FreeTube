@@ -57,13 +57,13 @@
               <span
                 class="premiereTextTimeLeft"
               >
-              {{ $t("Video.Premieres in") }} {{ upcomingTimeLeft }}
+                {{ $t("Video.Premieres in") }} {{ upcomingTimeLeft }}
               </span>
               <br>
               <span
                 class="premiereTextTimestamp"
               >
-              {{ upcomingTimestamp }}
+                {{ upcomingTimestamp }}
               </span>
             </p>
             <p
