@@ -644,7 +644,7 @@ export default Vue.extend({
 
       markerDiv.title = chapter.title
       markerDiv.className = 'chapterMarker'
-      markerDiv.style.marginLeft = (chapter.startSeconds / this.lengthSeconds) * 100 - 1 + '%'
+      markerDiv.style.marginLeft = (chapter.startSeconds / this.lengthSeconds) * 100 - 0.5 + '%'
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
