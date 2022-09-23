@@ -415,7 +415,18 @@ export default Vue.extend({
 
             if (typeof startTimestamp !== 'undefined') {
               const upcomingTimestamp = new Date(result.videoDetails.liveBroadcastDetails.startTimestamp)
-              this.upcomingTimestamp = upcomingTimestamp.toLocaleString()
+              const timestampOptions = {
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+              }
+              if (new Date().getFullYear() < upcomingTimestamp.getFullYear()) {
+                Object.defineProperty(timestampOptions, 'year', {
+                  value: 'numeric'
+                })
+              }
+              this.upcomingTimestamp = Intl.DateTimeFormat(this.currentLocale, timestampOptions).format(upcomingTimestamp)
 
               let upcomingTimeLeft = upcomingTimestamp - new Date()
 
