@@ -432,17 +432,17 @@ export default Vue.extend({
 
               // Convert from ms to second to minute
               upcomingTimeLeft = (upcomingTimeLeft / 1000) / 60
-              let timeUnitI18nKey = 'minute'
+              let timeUnit = 'minute'
 
               // Youtube switches to showing time left in minutes at 120 minutes remaining
               if (upcomingTimeLeft > 120) {
                 upcomingTimeLeft = upcomingTimeLeft / 60
-                timeUnitI18nKey = 'hour'
+                timeUnit = 'hour'
               }
 
-              if (timeUnitI18nKey === 'hour' && upcomingTimeLeft > 24) {
+              if (timeUnit === 'hour' && upcomingTimeLeft > 24) {
                 upcomingTimeLeft = upcomingTimeLeft / 24
-                timeUnitI18nKey = 'day'
+                timeUnit = 'day'
               }
 
               // Value after decimal not to be displayed
@@ -455,7 +455,7 @@ export default Vue.extend({
                 this.upcomingTimeLeft = this.$t('Video.Published.In less than a minute').toLowerCase()
               } else {
                 // TODO a I18n entry for time format might be needed here
-                this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnitI18nKey)
+                this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
               }
             } else {
               this.upcomingTimestamp = null
