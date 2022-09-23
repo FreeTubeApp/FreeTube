@@ -13,6 +13,7 @@ import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricte
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'Search',
@@ -67,10 +68,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -136,11 +133,15 @@ export default Vue.extend({
       ]
     },
 
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
+    },
+
     formattedSubCount: function () {
       if (this.hideChannelSubscriptions) {
         return null
       }
-      return this.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      return Intl.NumberFormat(this.currentLocale).format(this.subCount)
     },
 
     showFetchMoreButton: function () {
@@ -185,20 +186,13 @@ export default Vue.extend({
       this.apiUsed = ''
       this.isLoading = true
 
-      if (!this.usingElectron) {
-        this.getVideoInformationInvidious()
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getChannelInfoInvidious()
+        this.getPlaylistsInvidious()
       } else {
-        switch (this.backendPreference) {
-          case 'local':
-            this.getChannelInfoLocal()
-            this.getChannelVideosLocal()
-            this.getPlaylistsLocal()
-            break
-          case 'invidious':
-            this.getChannelInfoInvidious()
-            this.getPlaylistsInvidious()
-            break
-        }
+        this.getChannelInfoLocal()
+        this.getChannelVideosLocal()
+        this.getPlaylistsLocal()
       }
     },
 
@@ -241,20 +235,13 @@ export default Vue.extend({
     this.currentTab = this.$route.params.currentTab ?? 'videos'
     this.isLoading = true
 
-    if (!this.usingElectron) {
-      this.getVideoInformationInvidious()
+    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      this.getChannelInfoInvidious()
+      this.getPlaylistsInvidious()
     } else {
-      switch (this.backendPreference) {
-        case 'local':
-          this.getChannelInfoLocal()
-          this.getChannelVideosLocal()
-          this.getPlaylistsLocal()
-          break
-        case 'invidious':
-          this.getChannelInfoInvidious()
-          this.getPlaylistsInvidious()
-          break
-      }
+      this.getChannelInfoLocal()
+      this.getChannelVideosLocal()
+      this.getPlaylistsLocal()
     }
   },
   methods: {
@@ -323,7 +310,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -355,7 +342,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -380,7 +367,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
       })
@@ -435,7 +422,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err.responseJSON.error })
           }
         })
         this.isLoading = false
@@ -463,7 +450,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
       })
@@ -490,7 +477,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -516,7 +503,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
       })
@@ -542,7 +529,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err.responseJSON.error)
+            this.copyToClipboard({ content: err.responseJSON.error })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -585,7 +572,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseJSON.error}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err.responseJSON.error)
+            this.copyToClipboard({ content: err.responseJSON.error })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -751,7 +738,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           if (this.backendPreference === 'local' && this.backendFallback) {
@@ -776,7 +763,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
         })
@@ -804,7 +791,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -823,7 +810,8 @@ export default Vue.extend({
       'updateProfile',
       'invidiousGetChannelInfo',
       'invidiousAPICall',
-      'updateSubscriptionDetails'
+      'updateSubscriptionDetails',
+      'copyToClipboard'
     ])
   }
 })

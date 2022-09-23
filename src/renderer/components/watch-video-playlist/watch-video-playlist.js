@@ -38,10 +38,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -86,17 +82,10 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!this.usingElectron) {
+    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
-      switch (this.backendPreference) {
-        case 'local':
-          this.getPlaylistInformationLocal()
-          break
-        case 'invidious':
-          this.getPlaylistInformationInvidious()
-          break
-      }
+      this.getPlaylistInformationLocal()
     }
 
     if ('mediaSession' in navigator) {
@@ -324,7 +313,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
@@ -365,7 +354,7 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -403,7 +392,8 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo'
+      'invidiousGetPlaylistInfo',
+      'copyToClipboard'
     ])
   }
 })

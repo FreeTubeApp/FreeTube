@@ -30,10 +30,6 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
-      },
     ],
   },
   node: {

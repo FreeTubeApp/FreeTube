@@ -625,6 +625,7 @@ Video:
     Years: 'Anos'
     Ago: 'Há'
     Upcoming: 'Estreia em'
+    Less than a minute: Menos de um minuto
   Published on: 'Publicado a'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -695,6 +696,7 @@ Video:
     Bandwidth: Largura de banda
     Buffered: Em buffer
     Dropped / Total Frames: Fotogramas perdidos / total de fotogramas
+  Premieres in: Estreia em
 Videos:
   #& Sort By
   Sort By:

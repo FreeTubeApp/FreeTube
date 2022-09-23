@@ -1,9 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'español'
+Locale Name: 'Español'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección de la app no está lista. Regresa más tarde cuando hayamos progresado.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
+  hecho progresos.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -85,7 +86,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Tus favoritos'
+Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -160,7 +161,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Valor predeterminado del sistema
-      Catppuccin Mocha: Catppuccin Mocha
+      Catppuccin Mocha: Catppuccin Moca
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -188,6 +189,18 @@ Settings:
       Dracula Yellow: 'Drácula amarillo'
       Catppuccin Mocha Pink: Catppuccin Moca Rosa
       Catppuccin Mocha Mauve: Catppuccin Mocha Malva
+      Catppuccin Mocha Peach: Catppuccin Moka Melocotón
+      Catppuccin Mocha Green: Catpuccin Moca Verde
+      Catppuccin Mocha Yellow: Catpuccin Moca Amarillo
+      Catppuccin Mocha Red: Catppuccin Moka Rojo
+      Catppuccin Mocha Flamingo: Catppuccin Moka Flamenco
+      Catppuccin Mocha Maroon: Catppuccin Moka Granate
+      Catppuccin Mocha Teal: Catppuccin Moka Verde azulado
+      Catppuccin Mocha Rosewater: Catppuccin Moka Agua de Rosas
+      Catppuccin Mocha Sky: Catppuccin Moka Cielo
+      Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
+      Catppuccin Mocha Blue: Catpuccin Moka Azul
+      Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
@@ -243,6 +256,12 @@ Settings:
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
+      Ask Path: Pedir la Carpeta para Guardar
+      File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
+        %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
+        %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
+        Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
+        crear subcarpetas.
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -351,6 +370,10 @@ Settings:
     Distraction Free Settings: Modo sin distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
+    Hide Video Description: Ocultar la descripción del vídeo
+    Hide Comments: Ocultar los comentarios
+    Hide Live Streams: Ocultar retransmisiones en directo
+    Hide Sharing Actions: Ocultar acciones de uso compartido
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -380,6 +403,9 @@ Settings:
     Skip Options:
       Show In Seek Bar: Mostrar en la barra de búsqueda
       Do Nothing: No hacer nada
+      Skip Option: Omitir opción
+      Auto Skip: Salto automático
+      Prompt To Skip: Solicitar que se omita
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -395,6 +421,12 @@ Settings:
     Choose Path: Elegir ruta
     Download in app: Descargar en la aplicación
     Open in web browser: Abrir en el navegador web
+    Download Behavior: Comportamiento de la descarga
+  Parental Control Settings:
+    Hide Unsubscribe Button: Ocultar botón de anular suscripción
+    Hide Search Bar: Ocultar barra de búsqueda
+    Parental Control Settings: Ajustes del control para padres
+    Show Family Friendly Only: Mostrar solo apto para familias
 About:
   #On About page
   About: 'Acerca de'
@@ -588,6 +620,7 @@ Video:
     Years: 'años'
     Ago: 'Hace'
     Upcoming: 'Se estrenará el'
+    Less than a minute: Menos de un minuto
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -619,13 +652,14 @@ Video:
   Save Video: Guardar el vídeo
   translated from English: traducido del inglés
   Sponsor Block category:
-    music offtopic: música fuera de tema
-    interaction: interacción
-    self-promotion: autopromoción
-    outro: epílogo
-    intro: introducción
-    sponsor: patrocinador
+    music offtopic: Música fuera de tema
+    interaction: Interacción
+    self-promotion: Auto promoción
+    outro: Epílogo
+    intro: Introducción
+    sponsor: Patrocinador
     recap: Recapitulación
+    filler: Relleno
   Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
@@ -663,6 +697,7 @@ Video:
     Video ID: ID de vídeo
     Buffered: En búfer
     Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
+  Premieres in: Estrenos en
 Videos:
   #& Sort By
   Sort By:
@@ -823,8 +858,10 @@ Tooltips:
       (;) cada argumento será enviado al reproductor externo.
     Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
       (ej. invertir listas de reproducción, etc.).
-    External Player: Al elegir un reproductor externo, aparecerá un botón en las miniaturas
-      de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
+    External Player: La elección de un reproductor externo mostrará un icono, para
+      abrir el vídeo (lista de reproducción si es compatible) en el reproductor externo,
+      en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
+      externos.
     DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
@@ -865,3 +902,4 @@ Age Restricted:
   Type:
     Channel: Canal
     Video: Vídeo
+  This $contentType is age restricted: Este $ tiene restricción de edad

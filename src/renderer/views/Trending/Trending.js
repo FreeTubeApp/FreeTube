@@ -32,9 +32,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -100,17 +97,10 @@ export default Vue.extend({
     },
 
     getTrendingInfo () {
-      if (!this.usingElectron) {
-        this.getVideoInformationInvidious()
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getTrendingInfoInvidious()
       } else {
-        switch (this.backendPreference) {
-          case 'local':
-            this.getTrendingInfoLocal()
-            break
-          case 'invidious':
-            this.getTrendingInfoInvidious()
-            break
-        }
+        this.getTrendingInfoLocal()
       }
     },
 
@@ -142,10 +132,10 @@ export default Vue.extend({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
-        if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
+        if (this.backendPreference === 'local' && this.backendFallback) {
           this.showToast({
             message: this.$t('Falling back to Invidious API')
           })
@@ -201,11 +191,11 @@ export default Vue.extend({
           message: `${errorMessage}: ${err.responseText}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err.responseText })
           }
         })
 
-        if (!this.usingElectron || (this.backendPreference === 'invidious' && this.backendFallback)) {
+        if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
           this.showToast({
             message: this.$t('Falling back to Local API')
           })
@@ -218,7 +208,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'copyToClipboard'
     ])
   }
 })

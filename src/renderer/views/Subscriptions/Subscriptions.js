@@ -32,10 +32,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -159,7 +155,7 @@ export default Vue.extend({
       this.errorChannels = []
       this.activeSubscriptionList.forEach(async (channel) => {
         let videos = []
-        if (!this.usingElectron || this.backendPreference === 'invidious') {
+        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           if (useRss) {
             videos = await this.getChannelVideosInvidiousRSS(channel)
           } else {
@@ -264,7 +260,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           switch (failedAttempts) {
@@ -327,7 +323,7 @@ export default Vue.extend({
               message: `${errorMessage}: ${err}`,
               time: 10000,
               action: () => {
-                navigator.clipboard.writeText(err)
+                this.copyToClipboard({ content: err })
               }
             })
             switch (failedAttempts) {
@@ -375,7 +371,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err.responseText })
             }
           })
           switch (failedAttempts) {
@@ -426,7 +422,7 @@ export default Vue.extend({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           if (err.toString().match(/500/)) {
@@ -469,7 +465,8 @@ export default Vue.extend({
       'updateShowProgressBar',
       'updateProfileSubscriptions',
       'updateAllSubscriptionsList',
-      'calculatePublishedDate'
+      'calculatePublishedDate',
+      'copyToClipboard'
     ]),
 
     ...mapMutations([

@@ -32,7 +32,7 @@ export default Vue.extend({
       this.player.play()
     }
 
-    if (this.usingElectron && this.powerSaveBlocker !== null) {
+    if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
       const { ipcRenderer } = require('electron')
       ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
     }
@@ -137,10 +137,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     currentLocale: function () {
       return this.$store.getters.getCurrentLocale
     },
@@ -340,7 +336,7 @@ export default Vue.extend({
       navigator.mediaSession.playbackState = 'none'
     }
 
-    if (this.usingElectron && this.powerSaveBlocker !== null) {
+    if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
       const { ipcRenderer } = require('electron')
       ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
     }
@@ -492,7 +488,7 @@ export default Vue.extend({
             navigator.mediaSession.playbackState = 'playing'
           }
 
-          if (this.usingElectron) {
+          if (process.env.IS_ELECTRON) {
             const { ipcRenderer } = require('electron')
             this.powerSaveBlocker =
               await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
@@ -504,7 +500,7 @@ export default Vue.extend({
             navigator.mediaSession.playbackState = 'paused'
           }
 
-          if (this.usingElectron && this.powerSaveBlocker !== null) {
+          if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
             const { ipcRenderer } = require('electron')
             ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
             this.powerSaveBlocker = null
@@ -534,7 +530,7 @@ export default Vue.extend({
         })
 
         // right click menu
-        if (this.usingElectron) {
+        if (process.env.IS_ELECTRON) {
           const { ipcRenderer } = require('electron')
           ipcRenderer.removeAllListeners('showVideoStatistics')
           ipcRenderer.on('showVideoStatistics', (event) => {
@@ -1498,6 +1494,8 @@ export default Vue.extend({
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>` */
           })
+          // the default width is 3em which is too narrow for qualitly labels with fps e.g. 1080p60
+          button.style.width = '4em'
           return $(button).html(
             $(beginningHtml + qualityHtml + endingHtml).attr(
               'title',
