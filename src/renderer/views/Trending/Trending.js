@@ -107,7 +107,6 @@ export default Vue.extend({
     getTrendingInfoLocal: function () {
       this.isLoading = true
 
-      console.log('getting local trending')
       const param = {
         parseCreatorOnRise: false,
         page: this.currentTab,
@@ -126,7 +125,7 @@ export default Vue.extend({
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
@@ -172,8 +171,6 @@ export default Vue.extend({
           return
         }
 
-        console.log(result)
-
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
@@ -185,7 +182,7 @@ export default Vue.extend({
       }).then(() => {
         document.querySelector(`#${this.currentTab}Tab`).focus()
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err.responseText}`,

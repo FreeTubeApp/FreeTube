@@ -337,7 +337,7 @@ const actions = {
     })
 
     const response = await fetch(url).catch((error) => {
-      console.log(error)
+      console.error(error)
       dispatch('showToast', {
         message: errorMessage
       })
@@ -347,7 +347,7 @@ const actions = {
     const chunks = []
 
     const handleError = (err) => {
-      console.log(err)
+      console.error(err)
       dispatch('showToast', {
         message: errorMessage
       })
@@ -1127,8 +1127,6 @@ const actions = {
     dispatch('showToast', {
       message: openingToast
     })
-
-    console.log(executable, args)
 
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })

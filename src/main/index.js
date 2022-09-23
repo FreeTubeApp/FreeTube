@@ -9,7 +9,6 @@ import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 
 if (process.argv.includes('--version')) {
-  console.log(`v${app.getVersion()}`)
   app.exit()
 } else {
   runApp()
@@ -172,7 +171,7 @@ function runApp() {
       require('vue-devtools').install()
       /* eslint-enable */
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 
@@ -195,7 +194,7 @@ function runApp() {
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
     }).catch((error) => {
-      console.log(error)
+      console.error(error)
       // Default to nativeTheme settings if nothing is found.
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
@@ -258,7 +257,6 @@ function runApp() {
 
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
-      console.log({ boundsDoc })
       const { maximized, fullScreen, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
         .getAllDisplays()
@@ -348,8 +346,6 @@ function runApp() {
         // Which raises "Object has been destroyed" error
         mainWindow = allWindows[0]
       }
-
-      console.log('closed')
     })
   }
 
@@ -401,7 +397,6 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
-    console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
     })

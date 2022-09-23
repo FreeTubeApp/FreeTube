@@ -111,8 +111,6 @@ export default Vue.extend({
         profile._id = this.profileId
       }
 
-      console.log(profile)
-
       if (this.isNew) {
         this.createProfile(profile)
         this.showToast({

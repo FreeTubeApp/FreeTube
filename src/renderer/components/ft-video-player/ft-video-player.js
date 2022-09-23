@@ -157,7 +157,7 @@ export default Vue.extend({
       try {
         return JSON.parse(this.$store.getters.getDefaultCaptionSettings)
       } catch (e) {
-        console.log(e)
+        console.error(e)
         return {}
       }
     },
@@ -343,7 +343,6 @@ export default Vue.extend({
   },
   methods: {
     initializePlayer: async function () {
-      console.log(this.adaptiveFormats)
       const videoPlayer = document.getElementById(this.id)
       if (videoPlayer !== null) {
         if (!this.useDash) {
@@ -1034,7 +1033,7 @@ export default Vue.extend({
 
     enableDashFormat: function () {
       if (this.dashSrc === null) {
-        console.log('No dash format available.')
+        console.warn('No dash format available.')
         return
       }
 
@@ -1047,7 +1046,7 @@ export default Vue.extend({
 
     enableLegacyFormat: function () {
       if (this.sourceList.length === 0) {
-        console.log('No sources available')
+        console.error('No sources available')
         return
       }
 
@@ -1112,7 +1111,6 @@ export default Vue.extend({
       const frameTime = 1 / fps
       const dist = frameTime * step
       this.player.currentTime(this.player.currentTime() + dist)
-      console.log(fps)
     },
 
     changeVolume: function (volume) {
@@ -1427,7 +1425,6 @@ export default Vue.extend({
           VjsButton.call(this, player, options)
         },
         handleClick: (event) => {
-          console.log(event)
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
           this.setDashQualityLevel(bitrate)
@@ -1685,7 +1682,6 @@ export default Vue.extend({
       clearTimeout(this.touchPauseTimeout)
     },
     toggleShowStatsModal: function() {
-      console.log(this.format)
       if (this.format !== 'dash') {
         this.showToast({
           message: this.$t('Video.Stats.Video statistics are not available for legacy videos')

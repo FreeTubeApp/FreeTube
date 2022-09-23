@@ -85,7 +85,6 @@ export default Vue.extend({
     } else {
       switch (this.backendPreference) {
         case 'local':
-          console.log('Getting Chat')
           this.getLiveChatLocal()
           break
         case 'invidious':
@@ -115,13 +114,12 @@ export default Vue.extend({
       this.isLoading = false
 
       this.liveChat.on('start', (liveId) => {
-        console.log('Live chat is enabled')
         this.isLoading = false
       })
 
       this.liveChat.on('end', (reason) => {
-        console.log('Live chat has ended')
-        console.log(reason)
+        console.error('Live chat has ended')
+        console.error(reason)
         this.hasError = true
         this.showEnableChat = false
         this.errorMessage = this.$t('Video["Chat is disabled or the Live Stream has ended."]')
@@ -141,8 +139,6 @@ export default Vue.extend({
     },
 
     parseLiveChatComment: function (comment) {
-      console.log(comment)
-
       if (this.hasEnded) {
         return
       }
@@ -171,13 +167,12 @@ export default Vue.extend({
       const liveChatMessage = $('.liveChatMessage')
 
       if (typeof (liveChatComments.get(0)) === 'undefined' && typeof (liveChatMessage.get(0)) === 'undefined') {
-        console.log("Can't find chat object.  Stopping chat connection")
+        console.error("Can't find chat object.  Stopping chat connection")
         this.liveChat.stop()
         return
       }
 
       this.comments.push(comment)
-      console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
         this.getRandomColorClass().then((data) => {
@@ -211,7 +206,6 @@ export default Vue.extend({
       }
 
       if (this.comments.length > 150 && this.stayAtBottom) {
-        console.log('user is not at bottom')
         this.comments = this.comments.splice(this.comments.length - 150, this.comments.length)
       }
     },

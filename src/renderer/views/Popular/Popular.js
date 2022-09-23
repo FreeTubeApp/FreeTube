@@ -41,15 +41,13 @@ export default Vue.extend({
       this.isLoading = true
       const result = await this.invidiousAPICall(searchPayload)
         .catch((err) => {
-          console.log(err)
+          console.error(err)
         })
 
       if (!result) {
         this.isLoading = false
         return
       }
-
-      console.log(result)
 
       this.shownResults = result.filter((item) => {
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
