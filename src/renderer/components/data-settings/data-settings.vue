@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Data Settings.Data Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Data Settings.Data Settings')"
+  >
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
@@ -69,8 +65,7 @@
       :option-values="subscriptionsPromptValues"
       @click="exportSubscriptions"
     />
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./data-settings.js" />
-<style scoped lang="sass" src="./data-settings.sass" />

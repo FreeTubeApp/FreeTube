@@ -1,12 +1,8 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Subscription Settings.Subscription Settings") }}
-      </h3>
-    </summary>
-    <hr>
-    <ft-flex-box class="subscriptionSettingsFlexBox">
+  <ft-settings-section
+    :title="$t('Settings.Subscription Settings.Subscription Settings')"
+  >
+    <ft-flex-box class="settingsFlexStart500px">
       <ft-toggle-switch
         :label="$t('Settings.Subscription Settings.Hide Videos on Watch')"
         :default-value="hideWatchedSubs"
@@ -19,8 +15,7 @@
         @change="updateUseRssFeeds"
       />
     </ft-flex-box>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./subscription-settings.js" />
-<style scoped lang="sass" src="./subscription-settings.sass" />

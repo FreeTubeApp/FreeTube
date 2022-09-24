@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { mapActions, mapMutations } from 'vuex'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -12,6 +13,7 @@ import debounce from 'lodash.debounce'
 export default Vue.extend({
   name: 'GeneralSettings',
   components: {
+    'ft-settings-section': FtSettingsSection,
     'ft-card': FtCard,
     'ft-select': FtSelect,
     'ft-input': FtInput,

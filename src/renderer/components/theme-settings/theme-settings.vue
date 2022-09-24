@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Theme Settings.Theme Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Theme Settings.Theme Settings')"
+  >
     <ft-flex-box>
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
@@ -70,8 +66,7 @@
       :option-values="restartPromptValues"
       @click="handleSmoothScrolling"
     />
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./theme-settings.js" />
-<style scoped lang="sass" src="./theme-settings.sass" />
