@@ -429,34 +429,30 @@ export default Vue.extend({
 
               // Convert from ms to second to minute
               upcomingTimeLeft = (upcomingTimeLeft / 1000) / 60
-              let timeUnitI18nPartialKey = 'Minute'
+              let timeUnit = 'minute'
 
               // Youtube switches to showing time left in minutes at 120 minutes remaining
               if (upcomingTimeLeft > 120) {
                 upcomingTimeLeft = upcomingTimeLeft / 60
-                timeUnitI18nPartialKey = 'Hour'
+                timeUnit = 'hour'
               }
 
-              if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
+              if (timeUnit === 'hour' && upcomingTimeLeft > 24) {
                 upcomingTimeLeft = upcomingTimeLeft / 24
-                timeUnitI18nPartialKey = 'Day'
+                timeUnit = 'day'
               }
 
               // Value after decimal not to be displayed
               // e.g. > 2 days = display as `2 days`
               upcomingTimeLeft = Math.floor(upcomingTimeLeft)
-              if (upcomingTimeLeft !== 1) {
-                timeUnitI18nPartialKey = timeUnitI18nPartialKey + 's'
-              }
-              const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
 
               // Displays when less than a minute remains
               // Looks better than `Premieres in x seconds`
               if (upcomingTimeLeft < 1) {
-                this.upcomingTimeLeft = this.$t('Video.Published.Less than a minute').toLowerCase()
+                this.upcomingTimeLeft = this.$t('Video.Published.In less than a minute').toLowerCase()
               } else {
                 // TODO a I18n entry for time format might be needed here
-                this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
+                this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
               }
             } else {
               this.upcomingTimestamp = null
