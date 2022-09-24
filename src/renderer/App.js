@@ -9,7 +9,6 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
-import $ from 'jquery'
 import { marked } from 'marked'
 import Parser from 'rss-parser'
 import { IpcChannels } from '../constants'
@@ -288,31 +287,33 @@ export default Vue.extend({
     },
 
     activateKeyboardShortcuts: function () {
-      $(document).on('keydown', this.handleKeyboardShortcuts)
-      $(document).on('mousedown', () => {
+      document.addEventListener('keydown', this.handleKeyboardShortcuts)
+      document.addEventListener('mousedown', () => {
         this.hideOutlines = true
       })
     },
 
     handleKeyboardShortcuts: function (event) {
       if (event.altKey) {
-        switch (event.code) {
+        switch (event.key) {
           case 'ArrowRight':
             this.$refs.topNav.historyForward()
             break
           case 'ArrowLeft':
             this.$refs.topNav.historyBack()
             break
-          case 'KeyD':
+          case 'D':
+          case 'd':
             this.$refs.topNav.focusSearch()
             break
         }
       }
-      switch (event.code) {
+      switch (event.key) {
         case 'Tab':
           this.hideOutlines = false
           break
-        case 'KeyL':
+        case 'L':
+        case 'l':
           if ((process.platform !== 'darwin' && event.ctrlKey) ||
             (process.platform === 'darwin' && event.metaKey)) {
             this.$refs.topNav.focusSearch()
@@ -322,22 +323,26 @@ export default Vue.extend({
     },
 
     openAllLinksExternally: function () {
-      $(document).on('click', 'a[href^="http"]', (event) => {
-        this.handleLinkClick(event)
+      const isExternalLink = (event) => event.target.tagName === 'A' && event.target.href.startsWith('http')
+
+      document.addEventListener('click', (event) => {
+        if (isExternalLink(event)) {
+          this.handleLinkClick(event)
+        }
       })
 
-      $(document).on('auxclick', 'a[href^="http"]', (event) => {
+      document.addEventListener('auxclick', (event) => {
         // auxclick fires for all clicks not performed with the primary button
         // only handle the link click if it was the middle button,
         // otherwise the context menu breaks
-        if (event.button === 1) {
+        if (isExternalLink(event) && event.button === 1) {
           this.handleLinkClick(event)
         }
       })
     },
 
     handleLinkClick: function (event) {
-      const el = event.currentTarget
+      const el = event.target
       event.preventDefault()
 
       // Check if it's a YouTube link
