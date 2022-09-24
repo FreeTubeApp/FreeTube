@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import fs from 'fs'
 
 const state = {
@@ -71,7 +70,7 @@ const actions = {
 
   invidiousAPICall({ state }, payload) {
     return new Promise((resolve, reject) => {
-      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + $.param(payload.params)
+      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + new URLSearchParams(payload.params).toString()
 
       fetch(requestUrl)
         .then((response) => response.json())
