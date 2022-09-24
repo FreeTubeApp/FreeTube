@@ -275,8 +275,7 @@ export default Vue.extend({
           return newVal
         })
       }).filter(channel => {
-        if (channel.length === 0) { return false }
-        return true
+        return channel.length > 0
       })
       new Promise((resolve) => {
         let finishCount = 0
