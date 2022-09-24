@@ -60,7 +60,7 @@ export default Vue.extend({
     },
 
     locale: function () {
-      return this.$store.getters.getCurrentLocale.replace('_', '-')
+      return this.$i18n.locale.replace('_', '-')
     },
 
     backendPreference: function () {

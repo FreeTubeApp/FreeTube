@@ -111,7 +111,7 @@ export default Vue.extend({
     },
 
     localeOptions: function () {
-      return ['system'].concat(Object.keys(this.$i18n.messages))
+      return ['system'].concat(this.$i18n.allLocales)
     },
 
     localeNames: function () {
@@ -119,14 +119,18 @@ export default Vue.extend({
         this.$t('Settings.General Settings.System Default')
       ]
 
-      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
-        const localeName = localeData['Locale Name']
-        if (typeof localeName !== 'undefined') {
-          names.push(localeName)
-        } else {
-          names.push(locale)
-        }
-      })
+      if (process.env.NODE_ENV === 'development') {
+        Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
+          const localeName = localeData['Locale Name']
+          if (typeof localeName !== 'undefined') {
+            names.push(localeName)
+          } else {
+            names.push(locale)
+          }
+        })
+      } else {
+        names.push(...process.env.LOCALE_NAMES)
+      }
 
       return names
     },
