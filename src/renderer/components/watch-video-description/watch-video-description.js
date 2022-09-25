@@ -33,7 +33,8 @@ export default Vue.extend({
       const parsed = this.parseDescriptionHtml(this.descriptionHtml)
 
       // the invidious API returns emtpy html elements when the description is empty
-      // so we need to check for that here
+      // so we need to parse it to see if there is any meaningful text in the html
+      // or if it's just empty html elements e.g. `<p></p>`
 
       const testDiv = document.createElement('div')
       testDiv.innerHTML = parsed
