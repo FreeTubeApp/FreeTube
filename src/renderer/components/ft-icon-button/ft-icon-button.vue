@@ -15,7 +15,8 @@
       @click="handleIconClick"
     />
     <div
-      :id="id"
+      v-show="dropdownShown"
+      ref="dropdown"
       tabindex="-1"
       class="iconDropdown"
       :class="{
@@ -25,6 +26,7 @@
         bottom: dropdownPositionY === 'bottom',
         top: dropdownPositionY === 'top'
       }"
+      @focusout="dropdownShown = false"
     >
       <slot>
         <ul

@@ -79,42 +79,42 @@ export default Vue.extend({
 
     openInvidious() {
       this.openExternalLink(this.getFinalUrl(this.invidiousURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     copyInvidious() {
       this.copyToClipboard({ content: this.getFinalUrl(this.invidiousURL), messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     openYoutube() {
       this.openExternalLink(this.getFinalUrl(this.youtubeURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     copyYoutube() {
       this.copyToClipboard({ content: this.getFinalUrl(this.youtubeShareURL), messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     openYoutubeEmbed() {
       this.openExternalLink(this.getFinalUrl(this.youtubeEmbedURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     copyYoutubeEmbed() {
       this.copyToClipboard({ content: this.getFinalUrl(this.youtubeEmbedURL), messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     openInvidiousEmbed() {
       this.openExternalLink(this.getFinalUrl(this.invidiousEmbedURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     copyInvidiousEmbed() {
       this.copyToClipboard({ content: this.getFinalUrl(this.invidiousEmbedURL), messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hide()
     },
 
     updateIncludeTimestamp() {
