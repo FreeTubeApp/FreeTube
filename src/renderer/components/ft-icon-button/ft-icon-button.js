@@ -89,7 +89,7 @@ export default Vue.extend({
     handleDropdownFocusOut: function () {
       if (this.mouseDownOnIcon) {
         this.mouseDownOnIcon = false
-      } else {
+      } else if (!this.$refs.dropdown.matches(':focus-within')) {
         this.dropdownShown = false
       }
     },
