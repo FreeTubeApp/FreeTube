@@ -27,4 +27,4 @@
 </template>
 
 <script src="./experimental-settings.js" />
-<style scoped lang="sass" src="./experimental-settings.sass" />
+<style scoped src="./experimental-settings.css" />
