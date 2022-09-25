@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Player Settings.Player Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Player Settings.Player Settings')"
+  >
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -231,7 +227,7 @@
         />
       </ft-flex-box>
     </div>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./player-settings.js" />

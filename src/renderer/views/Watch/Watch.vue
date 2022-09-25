@@ -57,7 +57,7 @@
               <span
                 class="premiereTextTimeLeft"
               >
-                {{ $t("Video.Premieres in") }} {{ upcomingTimeLeft }}
+                {{ $t("Video.Premieres") }} {{ upcomingTimeLeft }}
               </span>
               <br>
               <span

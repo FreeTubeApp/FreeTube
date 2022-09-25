@@ -245,8 +245,6 @@ export default Vue.extend({
 
       this.ytGetVideoInformation(this.videoId)
         .then(async result => {
-          console.log(result)
-
           const playabilityStatus = result.player_response.playabilityStatus
           if (playabilityStatus.status === 'UNPLAYABLE') {
             const errorScreen = playabilityStatus.errorScreen.playerErrorMessageRenderer
@@ -284,7 +282,6 @@ export default Vue.extend({
           if ('id' in result.videoDetails.author) {
             this.channelId = result.player_response.videoDetails.channelId
             this.channelName = result.videoDetails.author.name
-            console.log(result)
             if (result.videoDetails.author.thumbnails.length > 0) {
               this.channelThumbnail = result.videoDetails.author.thumbnails[0].url
             }
@@ -432,34 +429,30 @@ export default Vue.extend({
 
               // Convert from ms to second to minute
               upcomingTimeLeft = (upcomingTimeLeft / 1000) / 60
-              let timeUnitI18nPartialKey = 'Minute'
+              let timeUnit = 'minute'
 
               // Youtube switches to showing time left in minutes at 120 minutes remaining
               if (upcomingTimeLeft > 120) {
                 upcomingTimeLeft = upcomingTimeLeft / 60
-                timeUnitI18nPartialKey = 'Hour'
+                timeUnit = 'hour'
               }
 
-              if (timeUnitI18nPartialKey === 'Hour' && upcomingTimeLeft > 24) {
+              if (timeUnit === 'hour' && upcomingTimeLeft > 24) {
                 upcomingTimeLeft = upcomingTimeLeft / 24
-                timeUnitI18nPartialKey = 'Day'
+                timeUnit = 'day'
               }
 
               // Value after decimal not to be displayed
               // e.g. > 2 days = display as `2 days`
               upcomingTimeLeft = Math.floor(upcomingTimeLeft)
-              if (upcomingTimeLeft !== 1) {
-                timeUnitI18nPartialKey = timeUnitI18nPartialKey + 's'
-              }
-              const timeUnitTranslated = this.$t(`Video.Published.${timeUnitI18nPartialKey}`).toLowerCase()
 
               // Displays when less than a minute remains
               // Looks better than `Premieres in x seconds`
               if (upcomingTimeLeft < 1) {
-                this.upcomingTimeLeft = this.$t('Video.Published.Less than a minute').toLowerCase()
+                this.upcomingTimeLeft = this.$t('Video.Published.In less than a minute').toLowerCase()
               } else {
                 // TODO a I18n entry for time format might be needed here
-                this.upcomingTimeLeft = `${upcomingTimeLeft} ${timeUnitTranslated}`
+                this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
               }
             } else {
               this.upcomingTimestamp = null
@@ -607,7 +600,7 @@ export default Vue.extend({
               this.copyToClipboard({ content: err })
             }
           })
-          console.log(err)
+          console.error(err)
           if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
@@ -629,8 +622,6 @@ export default Vue.extend({
 
       this.invidiousGetVideoInformation(this.videoId)
         .then(result => {
-          console.log(result)
-
           if (result.error) {
             throw new Error(result.error)
           }
@@ -784,6 +775,7 @@ export default Vue.extend({
           this.isLoading = false
         })
         .catch(err => {
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseText}`,
@@ -792,7 +784,7 @@ export default Vue.extend({
               this.copyToClipboard({ content: err.responseText })
             }
           })
-          console.log(err)
+          console.error(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
             this.showToast({
               message: this.$t('Falling back to Local API')
@@ -894,8 +886,6 @@ export default Vue.extend({
         return video.videoId === this.videoId
       })
 
-      console.log(historyIndex)
-
       if (!this.isLive) {
         if (this.timestamp) {
           if (this.timestamp < 0) {
@@ -963,7 +953,7 @@ export default Vue.extend({
               this.copyToClipboard({ content: err })
             }
           })
-          console.log(err)
+          console.error(err)
           if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
             this.showToast({
               message: this.$t('Falling back to Invidious API')
@@ -1162,14 +1152,14 @@ export default Vue.extend({
     },
 
     handleVideoError: function (error) {
-      console.log(error)
+      console.error(error)
       if (this.isLive) {
         return
       }
 
       if (error.code === 4) {
         if (this.activeFormat === 'dash') {
-          console.log(
+          console.warn(
             'Unable to play dash formats.  Reverting to legacy formats...'
           )
           this.enableLegacyFormat()

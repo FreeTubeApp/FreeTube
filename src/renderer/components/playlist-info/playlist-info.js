@@ -82,7 +82,6 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    console.log(this.data)
     this.id = this.data.id
     this.firstVideoId = this.data.firstVideoId
     this.title = this.data.title
