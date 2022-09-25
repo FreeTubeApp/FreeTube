@@ -59,7 +59,7 @@ export default Vue.extend({
   },
   methods: {
     // used by the share menu
-    hide: function () {
+    hideDropdown: function () {
       this.dropdownShown = false
     },
 
