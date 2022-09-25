@@ -69,7 +69,7 @@ export default Vue.extend({
 
         if (this.dropdownShown) {
           // wait until the dropdown is visible
-          // then focus it so we can hide it automatically when it looses focus
+          // then focus it so we can hide it automatically when it loses focus
           setTimeout(() => {
             this.$refs.dropdown.focus()
           }, 0)
