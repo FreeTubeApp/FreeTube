@@ -219,12 +219,32 @@ function runApp() {
           })
 
           response.on('error', (error) => {
-            console.log('error', error)
+            console.error('image cache error', error)
+
+            // error objects don't get serialised properly
+            // https://stackoverflow.com/a/53624454
+
+            const errorJson = JSON.stringify(error, (key, value) => {
+              if (value instanceof Error) {
+                return {
+                  // Pull all enumerable properties, supporting properties on custom Errors
+                  ...value,
+                  // Explicitly pull Error's non-enumerable properties
+                  name: value.name,
+                  message: value.message,
+                  stack: value.stack
+                }
+              }
+
+              return value
+            })
+
             // eslint-disable-next-line node/no-callback-literal
             callback({
-              statusCode: response.statusCode ?? 400
+              statusCode: response.statusCode ?? 400,
+              mimeType: 'application/json',
+              data: Buffer.from(errorJson)
             })
-            throw error
           })
         })
 
