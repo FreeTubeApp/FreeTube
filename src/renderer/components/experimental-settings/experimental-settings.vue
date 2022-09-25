@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t('Settings.Experimental Settings.Experimental Settings') }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Experimental Settings.Experimental Settings')"
+  >
     <p class="experimental-warning">
       {{ $t('Settings.Experimental Settings.Warning') }}
     </p>
@@ -27,7 +23,7 @@
       :option-values="restartPromptValues"
       @click="handleReplaceHttpCache"
     />
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./experimental-settings.js" />

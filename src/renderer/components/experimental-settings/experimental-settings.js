@@ -1,6 +1,7 @@
 import { closeSync, existsSync, openSync, rmSync } from 'fs'
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
@@ -8,6 +9,7 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 export default Vue.extend({
   name: 'ExperimentalSettings',
   components: {
+    'ft-settings-section': FtSettingsSection,
     'ft-flex-box': FtFlexBox,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-prompt': FtPrompt
