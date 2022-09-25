@@ -54,7 +54,8 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      dropdownShown: false
+      dropdownShown: false,
+      mouseDownOnIcon: false
     }
   },
   methods: {
@@ -76,6 +77,20 @@ export default Vue.extend({
         }
       } else {
         this.$emit('click')
+      }
+    },
+
+    handleIconMouseDown: function () {
+      if (this.dropdownShown) {
+        this.mouseDownOnIcon = true
+      }
+    },
+
+    handleDropdownFocusOut: function () {
+      if (this.mouseDownOnIcon) {
+        this.mouseDownOnIcon = false
+      } else {
+        this.dropdownShown = false
       }
     },
 

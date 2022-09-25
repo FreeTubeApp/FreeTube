@@ -13,6 +13,7 @@
         fontSize: size + 'px'
       }"
       @click="handleIconClick"
+      @mousedown="handleIconMouseDown"
     />
     <div
       v-show="dropdownShown"
@@ -26,7 +27,7 @@
         bottom: dropdownPositionY === 'bottom',
         top: dropdownPositionY === 'top'
       }"
-      @focusout="dropdownShown = false"
+      @focusout="handleDropdownFocusOut"
     >
       <slot>
         <ul
