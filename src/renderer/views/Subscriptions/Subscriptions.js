@@ -86,6 +86,9 @@ export default Vue.extend({
 
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
+    },
+    loadSubscriptionsAutomatically: function() {
+      return this.$store.getters.getLoadSubscriptionsAutomatically
     }
   },
   watch: {
@@ -116,14 +119,18 @@ export default Vue.extend({
           this.errorChannels = subscriptionList.errorChannels
         }
       } else {
-        this.getProfileSubscriptions()
+        if (this.loadSubscriptionsAutomatically) {
+          this.getProfileSubscriptions()
+        }
       }
 
       this.isLoading = false
-    } else {
+    } else if (this.loadSubscriptionsAutomatically) {
       setTimeout(async () => {
         this.getSubscriptions()
       }, 300)
+    } else {
+      this.isLoading = false
     }
   },
   methods: {

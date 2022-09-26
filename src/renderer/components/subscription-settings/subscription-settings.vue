@@ -14,6 +14,12 @@
         :tooltip="$t('Tooltips.Subscription Settings.Fetch Feeds from RSS')"
         @change="updateUseRssFeeds"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.Subscription Settings.Load Subscriptions Automatically')"
+        :default-value="loadSubscriptionsAutomatically"
+        :tooltip="$t('Tooltips.Subscription Settings.Load Subscriptions Automatically')"
+        @change="updateLoadSubscriptionsAutomatically"
+      />
     </ft-flex-box>
   </ft-settings-section>
 </template>

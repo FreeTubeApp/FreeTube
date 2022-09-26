@@ -22,12 +22,16 @@ export default Vue.extend({
     },
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
+    },
+    loadSubscriptionsAutomatically: function () {
+      return this.$store.getters.getLoadSubscriptionsAutomatically
     }
   },
   methods: {
     ...mapActions([
       'updateHideWatchedSubs',
-      'updateUseRssFeeds'
+      'updateUseRssFeeds',
+      'updateLoadSubscriptionsAutomatically'
     ])
   }
 })
