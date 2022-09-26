@@ -16,6 +16,8 @@ import WatchVideoRecommendations from '../../components/watch-video-recommendati
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default Vue.extend({
   name: 'Watch',
   components: {
@@ -86,9 +88,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
     historyCache: function () {
       return this.$store.getters.getHistoryCache
     },
@@ -1127,7 +1126,7 @@ export default Vue.extend({
 
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
-        if (this.isDev) {
+        if (isDev) {
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
@@ -1174,7 +1173,7 @@ export default Vue.extend({
       const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
-      if (this.isDev) {
+      if (isDev) {
         fileLocation = `static/dashFiles/${this.videoId}.xml`
         uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
@@ -1255,7 +1254,7 @@ export default Vue.extend({
 
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
-        if (this.isDev) {
+        if (isDev) {
           fileLocation = `static/storyboards/${this.videoId}.vtt`
           uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually

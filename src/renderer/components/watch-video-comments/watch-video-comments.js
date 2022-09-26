@@ -42,10 +42,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },

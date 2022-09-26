@@ -21,10 +21,6 @@ export default Vue.extend({
     return {}
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
-
     externalPlayerNames: function () {
       const fallbackNames = this.$store.getters.getExternalPlayerNames
       const nameTranslationKeys = this.$store.getters.getExternalPlayerNameTranslationKeys

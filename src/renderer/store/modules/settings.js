@@ -323,7 +323,6 @@ const stateWithSideEffects = {
 
       i18n.locale = targetLocale
       dispatch('getRegionData', {
-        isDev: process.env.NODE_ENV === 'development',
         locale: targetLocale
       })
     }

@@ -61,9 +61,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },

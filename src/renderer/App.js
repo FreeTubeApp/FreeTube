@@ -50,9 +50,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
@@ -148,7 +145,7 @@ export default Vue.extend({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances({ isDev: this.isDev })
+      await this.fetchInvidiousInstances()
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
@@ -257,7 +254,6 @@ export default Vue.extend({
 
     checkExternalPlayer: async function () {
       const payload = {
-        isDev: this.isDev,
         externalPlayer: this.externalPlayer
       }
       this.getExternalPlayerCmdArgumentsData(payload)

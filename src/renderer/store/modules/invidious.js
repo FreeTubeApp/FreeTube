@@ -21,7 +21,7 @@ const getters = {
 }
 
 const actions = {
-  async fetchInvidiousInstances({ commit }, payload) {
+  async fetchInvidiousInstances({ commit }) {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
     let instances = []
@@ -43,7 +43,7 @@ const actions = {
       // And fallback to hardcoded entry(s) if static file absent
       const fileName = 'invidious-instances.json'
       /* eslint-disable-next-line */
-      const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+      const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
       if (fs.existsSync(`${fileLocation}${fileName}`)) {
         console.warn('reading static file for invidious instances')
         const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
