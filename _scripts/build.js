@@ -8,7 +8,6 @@ const args = process.argv
 
 let targets
 const platform = os.platform()
-const cpus = os.cpus()
 
 if (platform === 'darwin') {
   let arch = Arch.x64
@@ -16,7 +15,7 @@ if (platform === 'darwin') {
   if (args[2] === 'arm64') {
     arch = Arch.arm64
   }
-  
+
   targets = Platform.MAC.createTarget(['DMG','zip', '7z'], arch)
 } else if (platform === 'win32') {
   let arch = Arch.x64
@@ -24,7 +23,7 @@ if (platform === 'darwin') {
   if (args[2] === 'arm64') {
     arch = Arch.arm64
   }
-  
+
   targets = Platform.WINDOWS.createTarget(['nsis', 'zip', '7z', 'portable'], arch)
 } else if (platform === 'linux') {
   let arch = Arch.x64
