@@ -45,11 +45,6 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  // CORS somehow gets re-enabled in Electron v9.0.4
-  // This line disables it.
-  // This line can possible be removed if the issue is fixed upstream
-  app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
-
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
