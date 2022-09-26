@@ -13,7 +13,7 @@
         @keypress="toggleSideNav"
       />
       <font-awesome-icon
-        id="historyArrowBack"
+        ref="historyArrowBack"
         class="navBackIcon navIcon fa-arrow-left"
         :icon="['fas', 'arrow-left']"
         role="button"
@@ -23,7 +23,7 @@
         @keypress="historyBack"
       />
       <font-awesome-icon
-        id="historyArrowForward"
+        ref="historyArrowForward"
         class="navForwardIcon navIcon fa-arrow-right"
         :icon="['fas', 'arrow-right']"
         role="button"
@@ -65,9 +65,13 @@
       </div>
     </div>
     <div class="middle">
-      <div class="searchContainer">
+      <div
+        v-if="!hideSearchBar"
+        v-show="showSearchContainer"
+        ref="searchContainer"
+        class="searchContainer"
+      >
         <ft-input
-          v-if="!hideSearchBar"
           ref="searchInput"
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
@@ -80,7 +84,6 @@
           @click="goToSearch"
         />
         <font-awesome-icon
-          v-if="!hideSearchBar"
           class="navFilterIcon navIcon"
           :class="{ filterChanged: searchFilterValueChanged }"
           :icon="['fas', 'filter']"
