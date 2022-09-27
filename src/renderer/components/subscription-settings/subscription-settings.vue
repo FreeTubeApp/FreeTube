@@ -15,10 +15,10 @@
         @change="updateUseRssFeeds"
       />
       <ft-toggle-switch
-        :label="$t('Settings.Subscription Settings.Load Subscriptions Automatically')"
-        :default-value="loadSubscriptionsAutomatically"
-        :tooltip="$t('Tooltips.Subscription Settings.Load Subscriptions Automatically')"
-        @change="updateLoadSubscriptionsAutomatically"
+        :label="$t('Settings.Subscription Settings.Fetch Automatically')"
+        :default-value="fetchSubscriptionsAutomatically"
+        :tooltip="$t('Tooltips.Subscription Settings.Fetch Automatically')"
+        @change="updateFetchSubscriptionsAutomatically"
       />
     </ft-flex-box>
   </ft-settings-section>

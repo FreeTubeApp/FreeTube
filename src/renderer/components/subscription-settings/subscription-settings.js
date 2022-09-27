@@ -23,15 +23,15 @@ export default Vue.extend({
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
     },
-    loadSubscriptionsAutomatically: function () {
-      return this.$store.getters.getLoadSubscriptionsAutomatically
+    fetchSubscriptionsAutomatically: function () {
+      return this.$store.getters.getFetchSubscriptionsAutomatically
     }
   },
   methods: {
     ...mapActions([
       'updateHideWatchedSubs',
       'updateUseRssFeeds',
-      'updateLoadSubscriptionsAutomatically'
+      'updateFetchSubscriptionsAutomatically'
     ])
   }
 })

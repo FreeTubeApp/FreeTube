@@ -269,7 +269,7 @@ const state = {
   screenshotAskPath: false,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
-  loadSubscriptionsAutomatically: true
+  fetchSubscriptionsAutomatically: true
 }
 
 const stateWithSideEffects = {

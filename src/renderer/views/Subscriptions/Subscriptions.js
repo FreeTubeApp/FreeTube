@@ -87,8 +87,8 @@ export default Vue.extend({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },
-    loadSubscriptionsAutomatically: function() {
-      return this.$store.getters.getLoadSubscriptionsAutomatically
+    fetchSubscriptionsAutomatically: function() {
+      return this.$store.getters.getFetchSubscriptionsAutomatically
     }
   },
   watch: {
@@ -119,13 +119,11 @@ export default Vue.extend({
           this.errorChannels = subscriptionList.errorChannels
         }
       } else {
-        if (this.loadSubscriptionsAutomatically) {
-          this.getProfileSubscriptions()
-        }
+        this.getProfileSubscriptions()
       }
 
       this.isLoading = false
-    } else if (this.loadSubscriptionsAutomatically) {
+    } else if (this.fetchSubscriptionsAutomatically) {
       setTimeout(async () => {
         this.getSubscriptions()
       }, 300)
@@ -237,8 +235,12 @@ export default Vue.extend({
           }
         }))
         this.isLoading = false
-      } else {
+      } else if (this.fetchSubscriptionsAutomatically) {
         this.getSubscriptions()
+      } else if (this.activeProfile._id === this.profileSubscriptions.activeProfile) {
+        this.videoList = this.profileSubscriptions.videoList
+      } else {
+        this.videoList = []
       }
     },
 
