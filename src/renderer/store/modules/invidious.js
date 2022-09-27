@@ -39,6 +39,9 @@ const actions = {
       })
     } catch (err) {
       console.error(err)
+    }
+    // If the invidious instance fetch isn't returning anything interpretable
+    if (instances.length === 0) {
       // Starts fallback strategy: read from static file
       // And fallback to hardcoded entry(s) if static file absent
       const fileName = 'invidious-instances.json'
@@ -58,7 +61,6 @@ const actions = {
         ]
       }
     }
-
     commit('setInvidiousInstancesList', instances)
   },
 
