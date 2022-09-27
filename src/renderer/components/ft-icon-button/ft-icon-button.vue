@@ -13,9 +13,11 @@
         fontSize: size + 'px'
       }"
       @click="handleIconClick"
+      @mousedown="handleIconMouseDown"
     />
     <div
-      :id="id"
+      v-show="dropdownShown"
+      ref="dropdown"
       tabindex="-1"
       class="iconDropdown"
       :class="{
@@ -25,6 +27,7 @@
         bottom: dropdownPositionY === 'bottom',
         top: dropdownPositionY === 'top'
       }"
+      @focusout="handleDropdownFocusOut"
     >
       <slot>
         <ul

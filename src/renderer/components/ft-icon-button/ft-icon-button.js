@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import $ from 'jquery'
 
 export default Vue.extend({
   name: 'FtIconButton',
@@ -56,61 +55,42 @@ export default Vue.extend({
   data: function () {
     return {
       dropdownShown: false,
-      id: ''
+      mouseDownOnIcon: false
     }
   },
-  mounted: function () {
-    this.id = `iconButton${this._uid}`
-  },
   methods: {
-    toggleDropdown: function () {
-      const dropdownBox = $(`#${this.id}`)
-
-      if (this.dropdownShown) {
-        dropdownBox.get(0).style.display = 'none'
-        this.dropdownShown = false
-      } else {
-        dropdownBox.get(0).style.display = 'inline'
-        dropdownBox.get(0).focus()
-        this.dropdownShown = true
-
-        dropdownBox.focusout(() => {
-          const shareLinks = dropdownBox.find('.shareLinks')
-
-          if (shareLinks.length > 0) {
-            if (!shareLinks[0].parentNode.matches(':hover')) {
-              dropdownBox.get(0).style.display = 'none'
-              // When pressing the profile button
-              // It will make the menu reappear if we set `dropdownShown` immediately
-              setTimeout(() => {
-                this.dropdownShown = false
-              }, 100)
-            }
-          } else {
-            dropdownBox.get(0).style.display = 'none'
-            // When pressing the profile button
-            // It will make the menu reappear if we set `dropdownShown` immediately
-            setTimeout(() => {
-              this.dropdownShown = false
-            }, 100)
-          }
-        })
-      }
-    },
-
-    focusOut: function () {
-      const dropdownBox = $(`#${this.id}`)
-
-      dropdownBox.focusout()
-      dropdownBox.get(0).style.display = 'none'
+    // used by the share menu
+    hideDropdown: function () {
       this.dropdownShown = false
     },
 
     handleIconClick: function () {
       if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
-        this.toggleDropdown()
+        this.dropdownShown = !this.dropdownShown
+
+        if (this.dropdownShown) {
+          // wait until the dropdown is visible
+          // then focus it so we can hide it automatically when it loses focus
+          setTimeout(() => {
+            this.$refs.dropdown.focus()
+          }, 0)
+        }
       } else {
         this.$emit('click')
+      }
+    },
+
+    handleIconMouseDown: function () {
+      if (this.dropdownShown) {
+        this.mouseDownOnIcon = true
+      }
+    },
+
+    handleDropdownFocusOut: function () {
+      if (this.mouseDownOnIcon) {
+        this.mouseDownOnIcon = false
+      } else if (!this.$refs.dropdown.matches(':focus-within')) {
+        this.dropdownShown = false
       }
     },
 
@@ -121,7 +101,7 @@ export default Vue.extend({
         this.$emit('click', url)
       }
 
-      this.focusOut()
+      this.dropdownShown = false
     }
   }
 })
