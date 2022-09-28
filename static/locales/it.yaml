@@ -592,6 +592,7 @@ Video:
     Minutes: Minuti
     Minute: Minuto
     Less than a minute: Meno di un minuto
+    In less than a minute: In meno di un minuto
   Published on: 'Pubblicato il'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % fa'
@@ -670,6 +671,7 @@ Video:
     Dropped / Total Frames: Frame persi / Frame totali
     Mimetype: Tipo di media
   Premieres in: Anteprima in
+  Premieres: Première
 Videos:
   #& Sort By
   Sort By:
@@ -917,3 +919,7 @@ Channels:
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «$»?
   Unsubscribe: Annulla l'iscrizione
+Clipboard:
+  Cannot access clipboard without a secure connection: Impossibile accedere agli appunti
+    senza una connessione sicura
+  Copy failed: Copia negli appunti non riuscita
