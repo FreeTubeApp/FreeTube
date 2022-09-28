@@ -634,6 +634,7 @@ Video:
     Ago: 'Önce'
     Upcoming: 'İlk gösterim tarihi'
     Less than a minute: Bir dakikadan az
+    In less than a minute: Bir dakikadan kısa sürede
   Published on: 'Yayımlanma tarihi'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % önce'
@@ -703,6 +704,7 @@ Video:
     Video statistics are not available for legacy videos: Video istatistikleri eski
       videolar için kullanılabilir değil
   Premieres in: İlk gösterim
+  Premieres: İlk gösterim
 Videos:
   #& Sort By
   Sort By:
@@ -900,3 +902,7 @@ Channels:
   Unsubscribe: Abonelikten çık
   Unsubscribed: $ aboneliklerinizden kaldırıldı
   Unsubscribe Prompt: '"$" aboneliğinden çıkmak istediğinizden emin misiniz?'
+Clipboard:
+  Copy failed: Panoya kopyalanamadı
+  Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya
+    erişilemiyor
