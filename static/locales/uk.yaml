@@ -620,6 +620,7 @@ Video:
     Ago: 'Тому'
     Upcoming: 'Прем''єри'
     Less than a minute: Менш як за хвилину
+    In less than a minute: Менше ніж за хвилину
   Published on: 'Опубліковано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % тому'
@@ -677,6 +678,7 @@ Video:
     Video statistics are not available for legacy videos: Статистика відео недоступна
       для застарілих відео
   Premieres in: Прем'єри в
+  Premieres: Прем'єри
 Videos:
   #& Sort By
   Sort By:
@@ -880,3 +882,7 @@ Channels:
   Unsubscribe: Відписатися
   Search bar placeholder: Пошук каналів
   Unsubscribed: $ вилучено з ваших підписок
+Clipboard:
+  Copy failed: Не вдалося скопіювати до буфера обміну
+  Cannot access clipboard without a secure connection: Неможливо отримати доступ до
+    буфера обміну без захищеного з'єднання
