@@ -596,6 +596,7 @@ Video:
     Ago: 'síðan'
     Upcoming: 'Frumsýnt'
     Less than a minute: Minna en mínútu
+    In less than a minute: eftir minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
@@ -650,6 +651,7 @@ Video:
     Bitrate: Bitahraði
     Volume: Hljóðstyrkur
   Premieres in: Frumsýnt eftir
+  Premieres: Frumsýnt
 Videos:
   #& Sort By
   Sort By:
@@ -849,3 +851,7 @@ Channels:
   Channels: Rásir
   Title: Rásalisti
   Unsubscribe: Segja upp áskrift
+Clipboard:
+  Copy failed: Afritun á klippispjald mistókst
+  Cannot access clipboard without a secure connection: Get ekki tengst klippispjaldi
+    án öruggrar tengingar
