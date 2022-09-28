@@ -624,6 +624,7 @@ Video:
     Ago: 'Prije'
     Upcoming: 'Premijera'
     Less than a minute: Manje od jedne minute
+    In less than a minute: Manje od minute
   Published on: 'Objavljeno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'prije $ %'
@@ -702,6 +703,7 @@ Video:
     Mimetype: Mimetype
     Dropped / Total Frames: Ispušteni/ukupni kadrovi
   Premieres in: Premijera u
+  Premieres: Premijere
 Videos:
   #& Sort By
   Sort By:
@@ -898,3 +900,7 @@ Channels:
   Unsubscribe: Prekini pretplatu
   Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „$”?
   Unsubscribed: $ je uklonjen iz tvojih pretplata
+Clipboard:
+  Copy failed: Neuspjelo kopiranje u međuspremnik
+  Cannot access clipboard without a secure connection: Pristup međuspremniku nije
+    moguć bez sigurne veze
