@@ -41,7 +41,7 @@ Search / Go to URL: 'Hledat / Přejít na URL'
 Search Filters:
   Search Filters: 'Vyhledávací filtry'
   Sort By:
-    Sort By: 'Setřídit podle'
+    Sort By: 'Třídit dle'
     Most Relevant: 'Nejrelevantnější'
     Rating: 'Hodnocení'
     Upload Date: 'Datum nahrání'
@@ -631,6 +631,7 @@ Video:
     Ago: 'Před'
     Upcoming: 'Premiéra'
     Less than a minute: Méně než minuta
+    In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ %'
@@ -681,6 +682,7 @@ Video:
     Buffered: V mezipaměti
     Dropped / Total Frames: Vyřazené / Celkový počet snímků
   Premieres in: Premiéra za
+  Premieres: Premiéra
 Videos:
   #& Sort By
   Sort By:
@@ -879,3 +881,7 @@ Channels:
   Unsubscribe: Zrušit odběr
 Screenshot Success: Snímek uložen jako „$“
 Screenshot Error: Snímek selhal. $
+Clipboard:
+  Cannot access clipboard without a secure connection: Nelze přistupovat ke schránce
+    bez zabezpečeného připojení
+  Copy failed: Kopírování do schránky selhalo
