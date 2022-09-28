@@ -12,6 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
 import Parser from 'rss-parser'
 import { IpcChannels } from '../constants'
+import packageDetails from '../../package.json'
 
 let ipcRenderer = null
 
@@ -195,7 +196,6 @@ export default Vue.extend({
 
     checkForNewUpdates: function () {
       if (this.checkForUpdates) {
-        const { version } = require('../../package.json')
         const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
 
         fetch(requestUrl)
@@ -209,7 +209,7 @@ export default Vue.extend({
             const message = this.$t('Version $ is now available!  Click for more details')
             this.updateBannerMessage = message.replace('$', versionNumber)
 
-            const appVersion = version.split('.')
+            const appVersion = packageDetails.version.split('.')
             const latestVersion = versionNumber.split('.')
 
             if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
