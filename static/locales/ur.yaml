@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'اردو' 
+Locale Name: 'اردو'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -86,7 +86,7 @@ Subscriptions:
      پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ شرح کو محدود کرنے سے بچنے کے لیے آر ایس ایس کو مجبور کرنا'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'آپ کا
      رکنیت کی فہرست فی الحال خالی ہے۔ انہیں یہاں دیکھنے کے لیے سبسکرپشنز شامل کرنا شروع کریں۔'
-  'Getting Subscriptions. Please wait.': 'سبسکرپشنز حاصل کرنا۔ برائے مہربانی انتظار کریں.' 
+  'Getting Subscriptions. Please wait.': 'سبسکرپشنز حاصل کرنا۔ برائے مہربانی انتظار کریں.'
   Refresh Subscriptions: 'سبسکرپشنز کو ریفریش کریں۔'
   Load More Videos: 'مزید ویڈیوز لوڈ کریں۔'
 More: 'مزید'
@@ -125,10 +125,10 @@ History:
   Search bar placeholder: "تاریخ میں تلاش کریں۔"
 Settings:
   # On Settings Page
-  Settings: 
+  Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 'دی
      تبدیلیاں اثر انداز ہونے کے لیے ایپ کو دوبارہ شروع کرنے کی ضرورت ہے۔ دوبارہ شروع کریں اور تبدیلی کا اطلاق کریں؟'
-  General Settings: 'ترتیبات'
+  General Settings:
     General Settings: 'عام ترتیبات'
     Check for Updates: 'اپ ڈیٹ کے لیے چیک کریں'
     Check for Latest Blog Posts: 'تازہ ترین بلاگ پوسٹس چیک کریں۔'
@@ -735,8 +735,7 @@ Tooltips:
        یہاں مقرر کیا جائے.'
     Ignore Warnings: 'انتباہات کو دبائیں جب موجودہ بیرونی کھلاڑی تعاون نہیں کرتا ہے۔
        موجودہ کارروائی (مثلاً پلے لسٹ کو تبدیل کرنا، وغیرہ)۔'
-    Custom External Player Arguments: 
-    کوئی بھی حسب ضرورت کمانڈ لائن آرگومنٹس، جو سیمیکولنز (';') سے الگ کیے گئے ہیں،
+    Custom External Player Arguments: کوئی بھی حسب ضرورت کمانڈ لائن آرگومنٹس، جو سیمیکولنز (';') سے الگ کیے گئے ہیں،
        آپ بیرونی کھلاڑی کو منتقل کرنا چاہتے ہیں۔
     # $ is replaced with the default custom arguments for the current player, if defined.
     DefaultCustomArgumentsTemplate: '(پہلے سے طے شدہ: ''$'')'
