@@ -86,6 +86,7 @@ Subscriptions:
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
   Load More Videos: További videók betöltése
+  Error Channels: Hibás csatornák
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
@@ -105,12 +106,16 @@ User Playlists:
     helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
     lejátszási listára.
   Search bar placeholder: Keresés a lejátszási listában
+  Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
+    megfelelnek a keresésnek
 History:
   # On History Page
   History: 'Előzmények'
   Watch History: 'Korábbi megtekintések'
   Your history list is currently empty.: 'Az előzmények listája jelenleg üres.'
   Search bar placeholder: Keresés az előzmények között
+  Empty Search Message: Nincsenek olyan videók az előzmények között, amelyek megfelelnek
+    a keresésnek
 Settings:
   # On Settings Page
   Settings: 'Beállítások'
@@ -153,7 +158,7 @@ Settings:
       példány $
     External Link Handling:
       No Action: Nincs művelet
-      Ask Before Opening Link: Hivatkozás megnyitása előtt mindig legyen kérdés
+      Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
       Open Link: Hivatkozás megnyitása
       External Link Handling: Külső hivatkozás kezelése
   Theme Settings:
@@ -165,9 +170,11 @@ Settings:
       Dark: 'Sötét'
       Light: 'Világos'
       Dracula: 'Drakula'
+      System Default: Rendszer alapértelmezett
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
-      Red: 'Piros'
+      Red: 'Vörös'
       Pink: 'Rózsaszín'
       Purple: 'Lila'
       Deep Purple: 'Mélybíbor'
@@ -188,8 +195,22 @@ Settings:
       Dracula Orange: 'Drakula Narancssárga'
       Dracula Pink: 'Drakula Rózsaszín'
       Dracula Purple: 'Drakula Lila'
-      Dracula Red: 'Drakula Piros'
+      Dracula Red: 'Drakula Vörös'
       Dracula Yellow: 'Drakula Sárga'
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingó
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mályvaszínű
+      Catppuccin Mocha Red: Catppuccin Mocha Vörös
+      Catppuccin Mocha Green: Catppuccin Mocha Zöld
+      Catppuccin Mocha Teal: Catppuccin Mocha Pávakék
+      Catppuccin Mocha Sky: Catppuccin Mocha Égszínkék
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Zafír
+      Catppuccin Mocha Pink: Catppuccin Mocha Rózsaszín
+      Catppuccin Mocha Blue: Catppuccin Mocha Kék
+      Catppuccin Mocha Lavender: Catppuccin Mocha Levendula
+      Catppuccin Mocha Maroon: Catppuccin Mocha Gesztenyebarna
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
+      Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
+      Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -228,10 +249,30 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
     Next Video Interval: Következő videó időköze
-    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó fölötti kerékkel
+    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
     Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
+    Screenshot:
+      Ask Path: Mentési mappa kérése
+      File Name Label: Fájlnévminta
+      Folder Label: Képernyőképek mappa
+      Folder Button: Mappa kijelölése
+      Enable: Képernyőkép engedélyezése
+      Format Label: Képernyőkép formátuma
+      Error:
+        Forbidden Characters: Tiltott karakterek
+        Empty File Name: Üres fájlnév
+      File Name Tooltip: Az alábbi változókat használhatja. %Y 4-számjegyű év. %M
+        2-számjegyű hónap. %D 2-számjegyű nap. %H 2-számjegyű óra. %N 2-számjegyű
+        perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc.
+        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító. Almappák létrehozásához
+        használhatja a "\" vagy a "/" jelet is.
+      Quality Label: Képernyőkép minősége
+    Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó
+      feletti kerékkel szabályozhatja
+    Max Video Playback Rate: Legfeljebb videó lejátszási sebesség
+    Video Playback Rate Interval: Videó lejátszási sebesség időköze
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -331,6 +372,7 @@ Settings:
     Distraction Free Settings: Zavartalan beállítások
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
+    Hide Video Description: Videó leírásának elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -363,6 +405,12 @@ Settings:
     Custom External Player Executable: Egyedi külső lejátszó végrehajthatója
     External Player: Külső lejátszó
     External Player Settings: Külső lejátszó beállításai
+    Players:
+      None:
+        Name: Nincs
+  Download Settings:
+    Ask Download Path: Letöltés elérési útja kérése
+    Choose Path: Letöltés elérési útja kijelölése
 About:
   #On About page
   About: 'Névjegy'
@@ -586,12 +634,12 @@ Video:
   Save Video: Videó mentése
   translated from English: angolról fordítva
   Sponsor Block category:
-    music offtopic: témán kívüli zene
-    interaction: kölcsönhatás
-    self-promotion: önreklám
-    outro: kivezetés
-    intro: bevezetés
-    sponsor: szponzor
+    music offtopic: Témán kívüli zene
+    interaction: Kölcsönhatás
+    self-promotion: Önreklám
+    outro: Kivezetés
+    intro: Bevezetés
+    sponsor: Szponzor
   Skipped segment: Szegmens kihagyva
   External Player:
     Unsupported Actions:
@@ -750,6 +798,12 @@ Tooltips:
       visszaadott örökölt formátumokat fogja használni az Invidious által visszaadottak
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt.
+    Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja
+      meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű),
+      és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához.
+      Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson
+      az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez
+      (1x, hacsak nem módosították a beállításokban).
   Privacy Settings:
     Remove Video Meta Files: Ha engedélyezve van, a SzabadCső automatikusan törli
       a videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
@@ -764,6 +818,7 @@ Tooltips:
       elválasztott argumentumot át kell adni a külső lejátszónak.
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
+      Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „$”)'
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
@@ -784,3 +839,13 @@ Search Bar:
 External link opening has been disabled in the general settings: A külső hivatkozás
   megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
+New Window: Új ablak
+Channels:
+  Channels: Csatornák
+  Title: Csatornalista
+  Search bar placeholder: Csatornák keresése
+  Count: $ csatorna találat.
+  Empty: Csatornalista jelenleg üres.
+  Unsubscribe: Leiratkozás
+  Unsubscribed: $ eltávolítva az feliratkozásáiból
+  Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „$” csatornáról?
