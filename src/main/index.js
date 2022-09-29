@@ -170,7 +170,13 @@ function runApp() {
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+  async function createWindow(
+    {
+      replaceMainWindow = true,
+      windowStartupUrl = null,
+      showWindowNow = false,
+      searchQueryText = null
+    } = { }) {
     // Syncing new window background to theme choice.
     const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
       switch (value) {
@@ -300,6 +306,12 @@ function runApp() {
       global.__static = path
         .join(__dirname, '/static')
         .replace(/\\/g, '\\\\')
+    }
+
+    if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
+      ipcMain.once('searchInputHandlingReady', () => {
+        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      })
     }
 
     // Show when loaded
@@ -445,11 +457,12 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null } = { }) => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null, searchQueryText = null } = { }) => {
     createWindow({
       replaceMainWindow: false,
       showWindowNow: true,
-      windowStartupUrl: windowStartupUrl
+      windowStartupUrl: windowStartupUrl,
+      searchQueryText: searchQueryText
     })
   })
 

@@ -264,6 +264,10 @@ export default Vue.extend({
       this.visibleDataList = visList
     },
 
+    updateInputData: function(text) {
+      this.inputData = text
+    },
+
     ...mapActions([
       'getYoutubeUrlInfo'
     ])

@@ -140,7 +140,8 @@ export default Vue.extend({
             this.openInternalPath({
               path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: searchQuery
             })
             break
           }
@@ -179,7 +180,8 @@ export default Vue.extend({
                 type: this.searchSettings.type,
                 duration: this.searchSettings.duration
               },
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: query
             })
           }
         }
@@ -300,7 +302,7 @@ export default Vue.extend({
       this.$store.commit('toggleSideNav')
     },
 
-    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
+    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
       if (process.env.IS_ELECTRON && doCreateNewWindow) {
         const { ipcRenderer } = require('electron')
 
@@ -310,7 +312,8 @@ export default Vue.extend({
           `#${path}?${(new URLSearchParams(query)).toString()}`
         ].join('')
         ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL
+          windowStartupUrl: newWindowStartupURL,
+          searchQueryText
         })
       } else {
         // Web
@@ -334,6 +337,9 @@ export default Vue.extend({
     },
     hideFilters: function () {
       this.showFilters = false
+    },
+    updateSearchInputText: function(text) {
+      this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
       'showToast',
