@@ -28,7 +28,8 @@ export default Vue.extend({
       isLoading: false,
       dataLimit: 100,
       videoList: [],
-      errorChannels: []
+      errorChannels: [],
+      attemptedFetch: false
     }
   },
   computed: {
@@ -154,6 +155,7 @@ export default Vue.extend({
       this.isLoading = true
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
+      this.attemptedFetch = true
 
       let videoList = []
       let channelCount = 0
@@ -241,6 +243,7 @@ export default Vue.extend({
         this.videoList = this.profileSubscriptions.videoList
       } else {
         this.videoList = []
+        this.attemptedFetch = false
       }
     },
 

@@ -35,7 +35,7 @@
           {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
         </p>
         <p
-          v-else-if="!fetchSubscriptionsAutomatically"
+          v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
           class="message"
         >
           {{ $t("Subscriptions.Disabled Automatic Fetching") }}
