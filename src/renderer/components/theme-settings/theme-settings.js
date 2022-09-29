@@ -142,9 +142,7 @@ export default Vue.extend({
       this.updateDisableSmoothScrolling(
         this.disableSmoothScrollingToggleValue
       ).then(() => {
-        // FIXME: No electron safeguard
         const { ipcRenderer } = require('electron')
-
         ipcRenderer.send('relaunchRequest')
       })
     },
