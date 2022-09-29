@@ -19,23 +19,7 @@ export default Vue.extend({
       replaceHttpCacheLoading: true,
       replaceHttpCache: false,
       replaceHttpCachePath: '',
-      showRestartPrompt: false,
-      restartPromptValues: [
-        'yes',
-        'no'
-      ]
-    }
-  },
-  computed: {
-    restartPromptMessage: function () {
-      return this.$t('Settings["The app needs to restart for changes to take effect. Restart and apply change?"]')
-    },
-
-    restartPromptNames: function () {
-      return [
-        this.$t('Yes'),
-        this.$t('No')
-      ]
+      showRestartPrompt: false
     }
   },
   mounted: function () {

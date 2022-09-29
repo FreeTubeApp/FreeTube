@@ -18,9 +18,9 @@
     </ft-flex-box>
     <ft-prompt
       v-if="showRestartPrompt"
-      :label="restartPromptMessage"
-      :option-names="restartPromptNames"
-      :option-values="restartPromptValues"
+      :label="$t('Settings[\'The app needs to restart for changes to take effect. Restart and apply change?\']')"
+      :option-names="[$t('Yes'), $t('No')]"
+      :option-values="['yes', 'no']"
       @click="handleReplaceHttpCache"
     />
   </ft-settings-section>
