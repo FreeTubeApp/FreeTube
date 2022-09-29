@@ -160,6 +160,7 @@ export default Vue.extend({
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
+          this.enableSetSearchQueryText()
           this.enableOpenUrl()
           this.watchSystemTheme()
           await this.checkExternalPlayer()
@@ -408,7 +409,8 @@ export default Vue.extend({
             this.openInternalPath({
               path,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: searchQuery
             })
             break
           }
@@ -467,7 +469,7 @@ export default Vue.extend({
       })
     },
 
-    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
+    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
       if (process.env.IS_ELECTRON && doCreateNewWindow) {
         const { ipcRenderer } = require('electron')
 
@@ -477,7 +479,8 @@ export default Vue.extend({
           `#${path}?${(new URLSearchParams(query)).toString()}`
         ].join('')
         ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL
+          windowStartupUrl: newWindowStartupURL,
+          searchQueryText
         })
       } else {
         // Web
@@ -486,6 +489,16 @@ export default Vue.extend({
           query
         })
       }
+    },
+
+    enableSetSearchQueryText: function () {
+      ipcRenderer.on('updateSearchInputText', (event, searchQueryText) => {
+        if (searchQueryText) {
+          this.$refs.topNav.updateSearchInputText(searchQueryText)
+        }
+      })
+
+      ipcRenderer.send('searchInputHandlingReady')
     },
 
     enableOpenUrl: function () {
