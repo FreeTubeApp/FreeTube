@@ -83,13 +83,7 @@ export default Vue.extend({
       })
     },
 
-    importSubscriptions: async function (option) {
-      this.showImportSubscriptionsPrompt = false
-
-      if (option === null) {
-        return
-      }
-
+    importSubscriptions: async function () {
       const options = {
         properties: ['openFile'],
         filters: [
@@ -114,14 +108,14 @@ export default Vue.extend({
         })
         return
       }
-      response.filePaths.forEach(file => {
-        if (file.endsWith('.csv')) {
+      response.filePaths.forEach(filePath => {
+        if (filePath.endsWith('.csv')) {
           this.importCsvYouTubeSubscriptions(textDecode)
-        } else if (file.endsWith('.db')) {
+        } else if (filePath.endsWith('.db')) {
           this.importFreeTubeSubscriptions(textDecode)
-        } else if (file.endsWith('.opml') || file.endsWith('.xml')) {
+        } else if (filePath.endsWith('.opml') || filePath.endsWith('.xml')) {
           this.importOpmlYouTubeSubscriptions(textDecode)
-        } else if (file.endsWith('.json')) {
+        } else if (filePath.endsWith('.json')) {
           textDecode = JSON.parse(textDecode)
           if (textDecode.subscriptions) {
             this.importNewPipeSubscriptions(textDecode)
