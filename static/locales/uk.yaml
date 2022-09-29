@@ -307,6 +307,7 @@ Settings:
     Hide Comments: Сховати коментарі
     Hide Sharing Actions: Сховати дії поширення
     Hide Live Streams: Сховати прямі трансляції
+    Hide Chapters: Сховати розділи
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -886,3 +887,9 @@ Clipboard:
   Copy failed: Не вдалося скопіювати до буфера обміну
   Cannot access clipboard without a secure connection: Неможливо отримати доступ до
     буфера обміну без захищеного з'єднання
+Chapters:
+  Chapters: Розділи
+  'Chapters list visible, current chapter: {chapterName}': 'Список розділів видимий,
+    поточний розділ: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований,
+    поточний розділ: {chapterName}'
