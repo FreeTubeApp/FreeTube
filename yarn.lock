@@ -1109,11 +1109,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@evilmartians/lefthook@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@evilmartians/lefthook/-/lefthook-1.0.5.tgz#3698b302c2a7d80eb488f5d721eff8cd85d50e3b"
-  integrity sha512-DgRGCAeMPdtuCSYjm/E3xWCezL+wwDhIa4AFiwJWysIZOTZZh5KTIRPUUXWgGp+WL87sLjrQNecn3zidzo8iUA==
-
 "@fortawesome/fontawesome-common-types@^0.2.36":
   version "0.2.36"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.36.tgz#b44e52db3b6b20523e0c57ef8c42d315532cb903"
@@ -4895,6 +4890,48 @@ lazy-val@^1.0.4, lazy-val@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/lazy-val/-/lazy-val-1.0.5.tgz#6cf3b9f5bc31cee7ee3e369c0832b7583dcd923d"
   integrity sha512-0/BnGCCfyUMkBpeDgWihanIAF9JmZhHBgUhEqzvf+adhNGLoP6TaiI5oF8oyb3I45P+PcnrqihSf01M0l0G5+Q==
+
+lefthook-darwin-arm64@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook-darwin-arm64/-/lefthook-darwin-arm64-1.1.1.tgz#2731ebbeea9ab6ba2e64e6aa77ab9ebc45ab1ba9"
+  integrity sha512-Vs+3kRgC8S8Vz4Xxug6u3wV24BpO3IG/R1D8mZYolHyrS60Nx24ZadV267BjYp7OPe+mwC4xZFwj388YJGF2Ew==
+
+lefthook-darwin-x64@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook-darwin-x64/-/lefthook-darwin-x64-1.1.1.tgz#9a9273774a238a9e63ec922130836f912b6a3ba4"
+  integrity sha512-wrkg2NYBW/y5pnpiTplkn7mbvCe5hkoAUhag+xw6xVyti4GcS5uMFZEJdKzq+LajOK50DhfdmZ2nEud2XM6FQQ==
+
+lefthook-linux-arm64@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook-linux-arm64/-/lefthook-linux-arm64-1.1.1.tgz#2abe1fd01ab9429029618be7d1a7a7734a0c56ce"
+  integrity sha512-CkGPQroJ9jBnW4fwnuHimbKNgR1vbSqBEdQXyZxRg3VGoKoN6Np1LGzcLGu3ySMshaYNqnavGdkp6F86deN5qA==
+
+lefthook-linux-x64@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook-linux-x64/-/lefthook-linux-x64-1.1.1.tgz#b50f9c7fca669bdac728bd2241c85eeaebcc5730"
+  integrity sha512-dmETuxz1Jja2wg2G+NOCKwbrNKanjWkFd1XVSfIisX4tYMLbCesqL7ZosL9rI06SOEDulTZHdmfNj7aEDUPpog==
+
+lefthook-windows-arm64@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook-windows-arm64/-/lefthook-windows-arm64-1.1.1.tgz#b9cb52a8f893eda420663d5a3d687be74f8d01fa"
+  integrity sha512-RaAJFATYuWmbLaHZlcfXR1JsiDu6KCuaXb8W1pJVI+3vXNx9bueVL4ps6KZGxSwnktrdH3pFjbYs88qmsQ5zBw==
+
+lefthook-windows-x64@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook-windows-x64/-/lefthook-windows-x64-1.1.1.tgz#440268207d61d11e6a51375266737d18728f1f27"
+  integrity sha512-zOI1iCnc5U7LS7nHj2raneeviSYHLXzgksrV7Ain+W1F6bYpS+1k5PqCQuLfEspsQYfJGiJo1SeueIcoIzqtiQ==
+
+lefthook@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lefthook/-/lefthook-1.1.1.tgz#4439d12da0a83833254c52fb74a0bec591b1c45b"
+  integrity sha512-IRhJHWEwLlN+FHJnIBamgaIcr53C4iskN+uZ3yzqhoFcaO7kWtmzW3DIPCB48mzlCIOFnjfPvVLX0SyPdkWQCw==
+  optionalDependencies:
+    lefthook-darwin-arm64 "1.1.1"
+    lefthook-darwin-x64 "1.1.1"
+    lefthook-linux-arm64 "1.1.1"
+    lefthook-linux-x64 "1.1.1"
+    lefthook-windows-arm64 "1.1.1"
+    lefthook-windows-x64 "1.1.1"
 
 levn@^0.4.1:
   version "0.4.1"
