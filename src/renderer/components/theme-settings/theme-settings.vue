@@ -14,6 +14,7 @@
         @change="handleExpandSideBar"
       />
       <ft-toggle-switch
+        v-if="usingElectron"
         :label="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
         :default-value="disableSmoothScrollingToggleValue"
         @change="handleRestartPrompt"

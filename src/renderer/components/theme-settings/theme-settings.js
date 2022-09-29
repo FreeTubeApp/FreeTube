@@ -109,6 +109,9 @@ export default Vue.extend({
         const colorName = colorVal.replace(/([A-Z])/g, ' $1').trim()
         return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)
       })
+    },
+    usingElectron: function () {
+      return process.env.IS_ELECTRON
     }
   },
   mounted: function () {
