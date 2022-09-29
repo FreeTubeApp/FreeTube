@@ -320,6 +320,7 @@ Settings:
     Hide Comments: Hide Comments
     Hide Live Streams: Hide Live Streams
     Hide Sharing Actions: Hide Sharing Actions
+    Hide Chapters: Hide Chapters
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -691,6 +692,11 @@ Share:
 Clipboard:
   Copy failed: Copy to clipboard failed
   Cannot access clipboard without a secure connection: Cannot access clipboard without a secure connection
+
+Chapters:
+  Chapters: Chapters
+  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
 Mini Player: Mini Player
 Comments:

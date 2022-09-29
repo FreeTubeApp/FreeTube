@@ -5,3 +5,22 @@
 .ftVideoPlayer {
   width:100%;
 }
+
+:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
+  position: absolute;
+  opacity: 0.6;
+}
+
+:deep(.sponsorBlockMarker) {
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+:deep(.chapterMarker) {
+  height: 120%;
+  top: -10%;
+  width: 1%;
+  border-radius: 999px; /* make sure they are rounded properly*/
+  z-index: 2;
+  background-color: var(--accent-color);
+}

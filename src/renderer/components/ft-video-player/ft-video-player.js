@@ -78,6 +78,10 @@ export default Vue.extend({
     lengthSeconds: {
       type: Number,
       required: true
+    },
+    chapters: {
+      type: Array,
+      default: () => { return [] }
     }
   },
   data: function () {
@@ -430,6 +434,10 @@ export default Vue.extend({
         // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
         this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
+        if (this.chapters.length > 0) {
+          this.chapters.forEach(this.addChapterMarker)
+        }
+
         if (this.useSponsorBlock) {
           this.initializeSponsorBlock()
         }
@@ -523,6 +531,7 @@ export default Vue.extend({
             this.playerStats = this.player.tech({ IWillNotUseThisInPlugins: true }).vhs.stats
             this.updateStatsContent()
           }
+          this.$emit('timeupdate')
         })
 
         this.player.textTrackSettings.on('modalclose', (_) => {
@@ -621,16 +630,22 @@ export default Vue.extend({
     },
 
     addSponsorBlockMarker(marker) {
-      const markerDiv = videojs.dom.createEl('div', {}, {})
+      const markerDiv = videojs.dom.createEl('div')
 
+      markerDiv.title = this.sponsorBlockTranslatedCategory(marker.category)
       markerDiv.className = `sponsorBlockMarker main${this.sponsorSkips.categoryData[marker.category].color}`
-      markerDiv.style.height = '100%'
-      markerDiv.style.position = 'absolute'
-      markerDiv.style.opacity = '0.6'
-      markerDiv.style['background-color'] = marker.color
       markerDiv.style.width = (marker.duration / this.lengthSeconds) * 100 + '%'
       markerDiv.style.marginLeft = (marker.time / this.lengthSeconds) * 100 + '%'
-      markerDiv.title = this.sponsorBlockTranslatedCategory(marker.category)
+
+      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
+    },
+
+    addChapterMarker(chapter) {
+      const markerDiv = videojs.dom.createEl('div')
+
+      markerDiv.title = chapter.title
+      markerDiv.className = 'chapterMarker'
+      markerDiv.style.marginLeft = (chapter.startSeconds / this.lengthSeconds) * 100 - 0.5 + '%'
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },

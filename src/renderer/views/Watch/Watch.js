@@ -8,6 +8,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
+import WatchVideoChapters from '../../components/watch-video-chapters/watch-video-chapters.vue'
 import WatchVideoDescription from '../../components/watch-video-description/watch-video-description.vue'
 import WatchVideoComments from '../../components/watch-video-comments/watch-video-comments.vue'
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
@@ -26,6 +27,7 @@ export default Vue.extend({
     'ft-element-list': FtElementList,
     'ft-video-player': FtVideoPlayer,
     'watch-video-info': WatchVideoInfo,
+    'watch-video-chapters': WatchVideoChapters,
     'watch-video-description': WatchVideoDescription,
     'watch-video-comments': WatchVideoComments,
     'watch-video-live-chat': WatchVideoLiveChat,
@@ -63,6 +65,8 @@ export default Vue.extend({
       videoLikeCount: 0,
       videoDislikeCount: 0,
       videoLengthSeconds: 0,
+      videoChapters: [],
+      videoCurrentChapterIndex: 0,
       channelName: '',
       channelThumbnail: '',
       channelId: '',
@@ -163,6 +167,9 @@ export default Vue.extend({
     },
     currentLocale: function () {
       return i18n.locale.replace('_', '-')
+    },
+    hideChapters: function () {
+      return this.$store.getters.getHideChapters
     }
   },
   watch: {
@@ -369,6 +376,34 @@ export default Vue.extend({
               this.channelSubscriptionCountText = Intl.NumberFormat(this.currentLocale).format(subCount)
             }
           }
+
+          const chapters = []
+          if (!this.hideChapters) {
+            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
+            if (rawChapters) {
+              for (const { chapterRenderer } of rawChapters) {
+                const start = chapterRenderer.timeRangeStartMillis / 1000
+
+                chapters.push({
+                  title: chapterRenderer.title.simpleText,
+                  timestamp: this.formatSecondsAsTimestamp(start),
+                  startSeconds: start,
+                  endSeconds: 0,
+                  thumbnail: chapterRenderer.thumbnail.thumbnails[0].url
+                })
+              }
+
+              this.addChaptersEndSeconds(chapters, result.videoDetails.lengthSeconds)
+
+              // prevent vue from adding reactivity which isn't needed
+              // as the chapter objects are read-only after this anyway
+              // the chapters are checked for every timeupdate event that the player emits
+              // this should lessen the performance and memory impact of the chapters
+              chapters.forEach(Object.freeze)
+            }
+          }
+          // only set this at the end so that there is only a single update to the view
+          this.videoChapters = chapters
 
           if ((this.isLive && this.isLiveContent) && !this.isUpcoming) {
             this.enableLegacyFormat()
@@ -683,6 +718,48 @@ export default Vue.extend({
               break
           }
 
+          const chapters = []
+          if (!this.hideChapters) {
+            // HH:MM:SS Text
+            // MM:SS Text
+            // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
+            // MM:SS - Text
+            // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
+            // HH:MM - HH:MM - Text // end timestamp is ignored
+            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>[0-9]+):)?(?<minutes>[0-9]+):(?<seconds>[0-9]+))(\s*[-–—]\s*(?:[0-9]+:)?[0-9]+:[0-9]+)?\s+([-–•—]\s*)?(?<title>.+)$/gm)
+
+            for (const { groups } of chapterMatches) {
+              let start = 60 * Number(groups.minutes) + Number(groups.seconds)
+
+              if (groups.hours) {
+                start += 3600 * Number(groups.hours)
+              }
+
+              // replace previous chapter with current one if they have an identical start time
+              if (chapters.length > 0 && chapters[chapters.length - 1].startSeconds === start) {
+                chapters.pop()
+              }
+
+              chapters.push({
+                title: groups.title.trim(),
+                timestamp: groups.timestamp,
+                startSeconds: start,
+                endSeconds: 0
+              })
+            }
+
+            if (chapters.length > 0) {
+              this.addChaptersEndSeconds(chapters, result.lengthSeconds)
+
+              // prevent vue from adding reactivity which isn't needed
+              // as the chapter objects are read-only after this anyway
+              // the chapters are checked for every timeupdate event that the player emits
+              // this should lessen the performance and memory impact of the chapters
+              chapters.forEach(Object.freeze)
+            }
+          }
+          this.videoChapters = chapters
+
           if (this.isLive) {
             this.showLegacyPlayer = true
             this.showDashPlayer = false
@@ -842,6 +919,30 @@ export default Vue.extend({
 
         const path = part.navigationEndpoint.commandMetadata.webCommandMetadata.url
         return `https://www.youtube.com${path}`
+      }
+    },
+
+    addChaptersEndSeconds: function (chapters, videoLengthSeconds) {
+      for (let i = 0; i < chapters.length - 1; i++) {
+        chapters[i].endSeconds = chapters[i + 1].startSeconds
+      }
+      chapters.at(-1).endSeconds = videoLengthSeconds
+    },
+
+    updateCurrentChapter: function () {
+      const chapters = this.videoChapters
+      const currentSeconds = this.getTimestamp()
+      const currentChapterStart = chapters[this.videoCurrentChapterIndex].startSeconds
+
+      if (currentSeconds !== currentChapterStart) {
+        let i = currentSeconds < currentChapterStart ? 0 : this.videoCurrentChapterIndex
+
+        for (; i < chapters.length; i++) {
+          if (currentSeconds < chapters[i].endSeconds) {
+            this.videoCurrentChapterIndex = i
+            break
+          }
+        }
       }
     },
 
@@ -1098,6 +1199,7 @@ export default Vue.extend({
 
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
+      this.videoChapters = []
 
       this.handleWatchProgress()
 
@@ -1400,6 +1502,38 @@ export default Vue.extend({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
+    },
+
+    formatSecondsAsTimestamp(time) {
+      if (time === 0) {
+        return '0:00'
+      }
+
+      let hours = 0
+
+      if (time >= 3600) {
+        hours = Math.floor(time / 3600)
+        time = time - hours * 3600
+      }
+
+      let minutes = Math.floor(time / 60)
+      if (minutes < 10 && hours > 0) {
+        minutes = '0' + minutes
+      }
+
+      let seconds = time - minutes * 60
+      if (seconds < 10) {
+        seconds = '0' + seconds
+      }
+
+      let timestamp = ''
+      if (hours > 0) {
+        timestamp = hours + ':' + minutes + ':' + seconds
+      } else {
+        timestamp = minutes + ':' + seconds
+      }
+
+      return timestamp
     },
 
     ...mapActions([

@@ -46,6 +46,12 @@
           :default-value="hideSharingActions"
           @change="updateHideSharingActions"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Chapters')"
+          :compact="true"
+          :default-value="hideChapters"
+          @change="updateHideChapters"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
