@@ -280,20 +280,19 @@ export default Vue.extend({
       new Promise((resolve) => {
         let finishCount = 0
         ytsubs.forEach(async (yt) => {
-          const subscription = await this.subscribeToChannel({
+          const { subscription, result } = await this.subscribeToChannel({
             channelId: yt[0],
             subscriptions: subscriptions,
             channelName: yt[2],
             count: count++,
             total: ytsubs.length
           })
-          if (subscription !== null) {
-            finishCount++
+          if (result === 1) {
             subscriptions.push(subscription)
-          } else {
-            finishCount++
+          } else if (result === -1) {
             errorList.push(yt)
           }
+          finishCount++
           if (finishCount === ytsubs.length) {
             resolve(true)
           }
@@ -301,7 +300,7 @@ export default Vue.extend({
       }).then(_ => {
         this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
         this.updateProfile(this.primaryProfile)
-        if (subscriptions.length < count || errorList.length !== 0) {
+        if (errorList.length !== 0) {
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
           })
@@ -353,7 +352,7 @@ export default Vue.extend({
             })
             throw new Error('Unable to find channel data')
           }
-          const subscription = await this.subscribeToChannel({
+          const { subscription, result } = await this.subscribeToChannel({
             channelId: snippet.resourceId.channelId,
             subscriptions: subscriptions,
             channelName: snippet.title,
@@ -361,13 +360,12 @@ export default Vue.extend({
             count: count++,
             total: textDecode.length
           })
-          if (subscription !== null) {
-            finishCount++
+          if (result === 1) {
             subscriptions.push(subscription)
-          } else {
-            finishCount++
+          } else if (result === -1) {
             errorList.push([snippet.resourceId.channelId, `https://www.youtube.com/channel/${snippet.resourceId.channelId}`, snippet.title])
           }
+          finishCount++
           if (finishCount === textDecode.length) {
             resolve(true)
           }
@@ -375,7 +373,7 @@ export default Vue.extend({
       }).then(_ => {
         this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
         this.updateProfile(this.primaryProfile)
-        if (subscriptions.length < count || errorList.length !== 0) {
+        if (errorList.length !== 0) {
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
           })
@@ -599,20 +597,20 @@ export default Vue.extend({
         let finishCount = 0
         newPipeSubscriptions.forEach(async (channel, index) => {
           const channelId = channel.url.replace(/https:\/\/(www\.)?youtube\.com\/channel\//, '')
-          const subscription = await this.subscribeToChannel({
+          const { subscription, result } = await this.subscribeToChannel({
             channelId: channelId,
             subscriptions: subscriptions,
             channelName: channel.name,
             count: count++,
             total: newPipeSubscriptions.length
           })
-          if (subscription !== null) {
-            finishCount++
+          if (result === 1) {
             subscriptions.push(subscription)
-          } else {
-            finishCount++
+          }
+          if (result === -1) {
             errorList.push([channelId, channel.url, channel.name])
           }
+          finishCount++
           if (finishCount === newPipeSubscriptions.length) {
             resolve(true)
           }
@@ -620,7 +618,7 @@ export default Vue.extend({
       }).then(_ => {
         this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
         this.updateProfile(this.primaryProfile)
-        if (subscriptions.length < count || errorList.count > 0) {
+        if (errorList.count > 0) {
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
           })
@@ -1324,17 +1322,30 @@ export default Vue.extend({
       })
     },
 
+    /*
+    Returns:
+    -1: an error occured
+    0: already subscribed
+    1: successfully subscribed
+    */
     async subscribeToChannel({ channelId, subscriptions, channelName = null, thumbnail = null, count = 0, total = 0 }) {
-      if (!this.validSubscription(channelId, subscriptions)) {
-        return null // already subbed
+      let result = 1
+      if (this.isChannelAlreadySubscribed(channelId, subscriptions)) {
+        return { subscription: null, successMessage: 0 }
       }
+
       let channelInfo
       let subscription = null
       if (channelName === null || thumbnail === null) {
-        if (this.backendPreference === 'invidious') {
-          channelInfo = await this.getChannelInfoInvidious(channelId)
-        } else {
-          channelInfo = await this.getChannelInfoLocal(channelId)
+        try {
+          if (this.backendPreference === 'invidious') {
+            channelInfo = await this.getChannelInfoInvidious(channelId)
+          } else {
+            channelInfo = await this.getChannelInfoLocal(channelId)
+          }
+        } catch (err) {
+          console.error(err)
+          result = -1
         }
       } else {
         channelInfo = { author: channelName, authorThumbnails: [null, { url: thumbnail }] }
@@ -1346,23 +1357,26 @@ export default Vue.extend({
           name: channelInfo.author,
           thumbnail: channelInfo.authorThumbnails[1].url
         }
+      } else {
+        result = -1
       }
       const progressPercentage = (count / (total - 1)) * 100
       this.setProgressBarPercentage(progressPercentage)
-      return subscription
+      return { subscription, result }
     },
 
-    validSubscription(subscriptionId, subscriptions) {
-      if (subscriptionId === null) { return false }
+    isChannelAlreadySubscribed(channelId, subscriptions) {
+      if (channelId === null) { return true }
       const subExists = this.primaryProfile.subscriptions.findIndex((sub) => {
-        return sub.id === subscriptionId
-      }) === -1
+        return sub.id === channelId
+      }) !== -1
 
       const subDuplicateExists = subscriptions.findIndex((sub) => {
-        return sub.id === subscriptionId
-      }) === -1
-      return subExists && subDuplicateExists
+        return sub.id === channelId
+      }) !== -1
+      return subExists || subDuplicateExists
     },
+
     ...mapActions([
       'invidiousAPICall',
       'updateProfile',
