@@ -1151,8 +1151,16 @@ export default Vue.extend({
           this.toggleVideoLoop()
         },
         createControlTextEl: function (button) {
-          return $(button).html($('<div id="loopButton" class="vjs-icon-loop loop-white vjs-button loopWhite"></div>')
-            .attr('title', 'Toggle Loop'))
+          button.title = 'Toggle Loop'
+
+          const div = document.createElement('div')
+
+          div.id = 'loopButton'
+          div.className = 'vjs-icon-loop loop-white vjs-button loopWhite'
+
+          button.appendChild(div)
+
+          return div
         }
       })
       videojs.registerComponent('loopButton', loopButton)
@@ -1197,10 +1205,16 @@ export default Vue.extend({
         },
         createControlTextEl: function (button) {
           // Add class name to button to be able to target it with CSS selector
-          return $(button)
-            .addClass('vjs-button-fullwindow')
-            .html($('<div id="fullwindow" class="vjs-icon-fullwindow-enter vjs-button"></div>')
-              .attr('title', 'Full Window'))
+          button.classList.add('vjs-button-fullwindow')
+          button.title = 'Full Window'
+
+          const div = document.createElement('div')
+          div.id = 'fullwindow'
+          div.className = 'vjs-icon-fullwindow-enter vjs-button'
+
+          button.appendChild(div)
+
+          return div
         }
       })
       videojs.registerComponent('fullWindowButton', fullWindowButton)
@@ -1222,10 +1236,16 @@ export default Vue.extend({
           this.toggleTheatreMode()
         },
         createControlTextEl: function (button) {
-          return $(button)
-            .addClass('vjs-button-theatre')
-            .html($(`<div id="toggleTheatreModeButton" class="vjs-icon-theatre-inactive${theatreModeActive} vjs-button"></div>`))
-            .attr('title', 'Toggle Theatre Mode')
+          button.classList.add('vjs-button-theatre')
+          button.title = 'Toggle Theatre Mode'
+
+          const div = document.createElement('div')
+          div.id = 'toggleTheatreModeButton'
+          div.className = `vjs-icon-theatre-inactive${theatreModeActive} vjs-button`
+
+          button.appendChild(div)
+
+          return button
         }
       })
 
@@ -1258,9 +1278,16 @@ export default Vue.extend({
           video.blur()
         },
         createControlTextEl: function (button) {
-          return $(button)
-            .html('<div id="screenshotButton" class="vjs-icon-screenshot vjs-button vjs-hidden"></div>')
-            .attr('title', 'Screenshot')
+          button.classList.add('vjs-hidden')
+          button.title = 'Screenshot'
+
+          const div = document.createElement('div')
+          div.id = 'screenshotButton'
+          div.className = 'vjs-icon-screenshot vjs-button'
+
+          button.appendChild(div)
+
+          return div
         }
       })
 
@@ -1268,7 +1295,7 @@ export default Vue.extend({
     },
 
     toggleScreenshotButton: function() {
-      const button = document.getElementById('screenshotButton')
+      const button = document.getElementById('screenshotButton').parentNode
       if (this.enableScreenshot && this.format !== 'audio') {
         button.classList.remove('vjs-hidden')
       } else {
@@ -1468,7 +1495,7 @@ export default Vue.extend({
               bitrate = quality.bitrate
             }
 
-            qualityHtml = qualityHtml + `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
+            qualityHtml += `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
               <span class="vjs-menu-item-text" fps="${fps}" bitrate="${bitrate}">${qualityLabel}</span>
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>`
@@ -1488,11 +1515,10 @@ export default Vue.extend({
           })
           // the default width is 3em which is too narrow for qualitly labels with fps e.g. 1080p60
           button.style.width = '4em'
-          return $(button).html(
-            $(beginningHtml + qualityHtml + endingHtml).attr(
-              'title',
-              'Select Quality'
-            ))
+          button.title = 'Select Quality'
+          button.innerHTML = beginningHtml + qualityHtml + endingHtml
+
+          return button.children[0]
         }
       })
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
