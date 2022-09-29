@@ -935,17 +935,6 @@ export default Vue.extend({
       })
     },
 
-    checkForLegacySubscriptions: async function () {
-      let dbLocation = await this.getUserDataPath()
-      dbLocation = dbLocation + '/subscriptions.db'
-      this.handleFreetubeImportFile({ canceled: false, filePaths: [dbLocation] })
-      fs.unlink(dbLocation, (err) => {
-        if (err) {
-          console.error(err)
-        }
-      })
-    },
-
     importHistory: async function () {
       const options = {
         properties: ['openFile'],
@@ -1323,6 +1312,8 @@ export default Vue.extend({
     },
 
     /*
+    TODO: allow default thumbnail to be used to limit requests to YouTube
+    (thumbnail will get updated when user goes to their channel page)
     Returns:
     -1: an error occured
     0: already subscribed
