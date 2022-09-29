@@ -77,6 +77,7 @@ Subscriptions:
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
+  Error Channels: Kanaler med feil
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -94,11 +95,15 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Du
     har ikke lagret noen videoer enda. Klikk på «Lagre»-knappen i hjørnet av en video
     for å sende den hit
+  Empty Search Message: Ingen videoer i denne spillelisten samsvarer med søket ditt
+  Search bar placeholder: Søk i spilleliste
 History:
   # On History Page
   History: 'Historikk'
   Watch History: 'Visningshistorikk'
   Your history list is currently empty.: 'Din historikk er for tiden tom.'
+  Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
+  Search bar placeholder: Søk i historikk
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -153,6 +158,7 @@ Settings:
       Dark: 'Mørk'
       Light: 'Lys'
       Dracula: 'Dracula'
+      System Default: Systemforvalg
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -217,6 +223,8 @@ Settings:
     Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
     Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
+    Screenshot:
+      File Name Label: Filnavnsmønster
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -544,6 +552,10 @@ Video:
     playlist: spilleliste
     video: video
     OpenInTemplate: Åpne i $
+  Stats:
+    Bitrate: Bitrate
+    Volume: Lydstyrke
+    Bandwidth: Båndbredde
 Videos:
   #& Sort By
   Sort By:
@@ -617,6 +629,9 @@ Comments:
   Sort by: Sorter etter
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
+  From $channelName: Fra $channelName
+  Pinned by: Festet av
+  Member: Medlem
 Up Next: 'Neste'
 
 # Toast Messages
@@ -753,3 +768,19 @@ External link opening has been disabled in the general settings: Åpning av ekst
 Search Bar:
   Clear Input: Tøm inndata
 Are you sure you want to open this link?: Åpne denne lenken?
+New Window: Nytt vindu
+Channels:
+  Channels: Kanaler
+  Title: Kanalliste
+  Search bar placeholder: Søk i kanaler
+  Count: Fant $ kanal(er).
+  Empty: Kanallisten din er tom.
+  Unsubscribe: Opphev abonnement
+  Unsubscribed: $ ble fjernet fra dine abonnementer
+  Unsubscribe Prompt: Opphev abonnement på «$»?
+Age Restricted:
+  Type:
+    Channel: Kanal
+    Video: Video
+Chapters:
+  Chapters: Kapitler
