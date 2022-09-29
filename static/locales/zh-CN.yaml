@@ -523,6 +523,7 @@ Video:
     Minutes: 分钟
     Minute: 分钟
     Less than a minute: 不到一分钟
+    In less than a minute: 不到一分钟
   Published on: '发布于'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 之前'
@@ -602,6 +603,7 @@ Video:
   translated from English: 从英语翻译而来
   Skipped segment: 跳过片段
   Premieres in: 首映于
+  Premieres: 首映
 Videos:
   #& Sort By
   Sort By:
@@ -798,3 +800,6 @@ Channels:
   Empty: 你的频道列表当前为空。
   Unsubscribed: 从你的订阅里删除了 $
   Unsubscribe Prompt: 你确定你要取消订阅 "$" 吗？
+Clipboard:
+  Copy failed: 未能复制到剪贴板
+  Cannot access clipboard without a secure connection: 没有安全连接无法访问剪贴板
