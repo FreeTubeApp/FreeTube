@@ -544,7 +544,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Playlists'
+    Playlists: 'Listas de reproducción'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -621,6 +621,7 @@ Video:
     Ago: 'Hace'
     Upcoming: 'Se estrenará el'
     Less than a minute: Menos de un minuto
+    In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -698,6 +699,7 @@ Video:
     Buffered: En búfer
     Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
   Premieres in: Estrenos en
+  Premieres: Estrenos
 Videos:
   #& Sort By
   Sort By:
@@ -903,3 +905,7 @@ Age Restricted:
     Channel: Canal
     Video: Vídeo
   This $contentType is age restricted: Este $ tiene restricción de edad
+Clipboard:
+  Copy failed: Error al copiar al portapapeles
+  Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
+    sin una conexión segura
