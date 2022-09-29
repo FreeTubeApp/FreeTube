@@ -344,6 +344,7 @@ Settings:
     Hide Sharing Actions: 隐藏分享操作
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
+    Hide Chapters: 隐藏章节
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -803,3 +804,7 @@ Channels:
 Clipboard:
   Copy failed: 未能复制到剪贴板
   Cannot access clipboard without a secure connection: 没有安全连接无法访问剪贴板
+Chapters:
+  Chapters: 章节
+  'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
+  'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
