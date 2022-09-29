@@ -332,6 +332,14 @@ Settings:
     How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
     Check for Legacy Subscriptions: Örökölt feliratkozások keresése
     Manage Subscriptions: Feliratkozások kezelése
+    Playlist insufficient data: Nincs elegendő adat a(z) „$” lejátszási listához,
+      elem kihagyása
+    Export Playlists: Lejátszási listák exportálása
+    Import Playlists: Lejátszási listák importálása
+    All playlists has been successfully exported: Az összes lejátszási lista exportálása
+      sikeresen megtörtént
+    All playlists has been successfully imported: Az összes lejátszási lista importálása
+      sikeresen megtörtént
   Advanced Settings:
     Advanced Settings: 'További beállítások'
     Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
@@ -373,6 +381,9 @@ Settings:
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
     Hide Video Description: Videó leírásának elrejtése
+    Hide Comments: Megjegyzések elrejtése
+    Hide Live Streams: Élő adatfolyamok elrejtése
+    Hide Sharing Actions: Megosztási műveletek elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -398,6 +409,13 @@ Settings:
       URL címe (Alapértelmezés: https://sponsor.ajay.app)'
     Enable SponsorBlock: SponsorBlock engedélyezése
     SponsorBlock Settings: SponsorBlock beállításai
+    Skip Options:
+      Skip Option: Beállítás kihagyása
+      Auto Skip: Önműködő kihagyás
+      Show In Seek Bar: Megjelenítés a keresősávban
+      Do Nothing: Nincs művelet
+      Prompt To Skip: Kihagyás kérése
+    Category Color: Kategória színe
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveleti figyelmeztetések figyelmen
       kívül hagyva
@@ -411,6 +429,15 @@ Settings:
   Download Settings:
     Ask Download Path: Letöltés elérési útja kérése
     Choose Path: Letöltés elérési útja kijelölése
+    Download Settings: Letöltési beállítások
+    Download Behavior: Letöltés viselkedése
+    Open in web browser: Megnyitás böngészőben
+    Download in app: Letöltés az alkalmazásban
+  Parental Control Settings:
+    Parental Control Settings: Szülői felügyeleti beállítások
+    Show Family Friendly Only: Kizárólag családbarát megjelenítése
+    Hide Search Bar: Keresősáv elrejtése
+    Hide Unsubscribe Button: Leiratkozás gomb elrejtése
 About:
   #On About page
   About: 'Névjegy'
@@ -611,6 +638,7 @@ Video:
     Years: 'évvel'
     Ago: 'ezelőtt'
     Upcoming: 'Az első előadás hamarosan lesz'
+    In less than a minute: Kevesebb, mint egy perce ezelőtt
   Published on: 'Megjelent'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % ezelőtt'
@@ -628,7 +656,7 @@ Video:
   Open Channel in YouTube: Csatorna megnyitása a YouTube oldalon
   Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
   Started streaming on: Folyamatos átvitel indult
-  Streamed on: Folyamatos átvitele
+  Streamed on: 'Adatfolyam dátuma:'
   Video has been removed from your saved list: A videót eltávolítottuk a mentett listáról
   Video has been saved: A videó mentve
   Save Video: Videó mentése
@@ -640,6 +668,8 @@ Video:
     outro: Kivezetés
     intro: Bevezetés
     sponsor: Szponzor
+    filler: Kitöltő
+    recap: Összegzés
   Skipped segment: Szegmens kihagyva
   External Player:
     Unsupported Actions:
@@ -657,6 +687,13 @@ Video:
     video: videó
     OpenInTemplate: $ megnyításaban
   Premieres on: 'Bemutatkozás dátuma:'
+  Stats:
+    Player Dimensions: Lejátszó méretei
+    Video ID: Videóazonosító
+    Video statistics are not available for legacy videos: Az örökölt videókhoz videóstatisztika
+      nem érhető el
+    Resolution: Felbontás
+  Premieres: Premierek
 Videos:
   #& Sort By
   Sort By:
