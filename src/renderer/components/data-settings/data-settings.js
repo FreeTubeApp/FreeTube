@@ -1321,7 +1321,7 @@ export default Vue.extend({
     */
     async subscribeToChannel({ channelId, subscriptions, channelName = null, thumbnail = null, count = 0, total = 0 }) {
       let result = 1
-      if (this.isChannelAlreadySubscribed(channelId, subscriptions)) {
+      if (this.isChannelSubscribed(channelId, subscriptions)) {
         return { subscription: null, successMessage: 0 }
       }
 
@@ -1356,7 +1356,7 @@ export default Vue.extend({
       return { subscription, result }
     },
 
-    isChannelAlreadySubscribed(channelId, subscriptions) {
+    isChannelSubscribed(channelId, subscriptions) {
       if (channelId === null) { return true }
       const subExists = this.primaryProfile.subscriptions.findIndex((sub) => {
         return sub.id === channelId
