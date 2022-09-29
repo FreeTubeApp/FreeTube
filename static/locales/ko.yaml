@@ -384,6 +384,9 @@ Settings:
     Custom External Player Executable: 사용자 정의 외부 플레이어 실행 파일
     External Player: 외부 플레이어
     Ignore Unsupported Action Warnings: 지원되지 않는 작업 경고 무시
+    Players:
+      None:
+        Name: 이름 *
   Download Settings:
     Download Settings: 다운로드 설정
     Ask Download Path: 다운로드 경로 요청
@@ -586,6 +589,7 @@ Video:
     Years: '년'
     Ago: '전에'
     Upcoming: '초연일'
+    In less than a minute: 1분 이내에
   Published on: '게시일'
   Streamed on: '스트리밍됨'
   Started streaming on: '스트리밍 시작'
@@ -634,6 +638,7 @@ Video:
     interaction: 상호 작용
   translated from English: 영어에서 번역됨
   Skipped segment: 건너뛴 세그먼트
+  Premieres: 프리미어
 Videos:
   #& Sort By
   Sort By:
@@ -805,3 +810,6 @@ Starting download: '"$" 다운로드를 시작하는 중'
 Downloading failed: '"$"를 다운로드하는 동안 문제가 발생했습니다'
 Screenshot Error: 스크린샷이 실패했습니다. $
 Screenshot Success: 스크린샷을 "$"로 저장
+Clipboard:
+  Copy failed: 클립보드에 복사 실패
+  Cannot access clipboard without a secure connection: 안전한 연결 없이 클립보드에 접근할 수 없습니다
