@@ -534,6 +534,7 @@ Video:
     Minutes: 分鐘
     Minute: 分鐘
     Less than a minute: 少於一分鐘
+    In less than a minute: 不到一分鐘內
   Published on: '發布於'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -612,6 +613,7 @@ Video:
     Video ID: 影片 ID
     Mimetype: 多媒體類型
   Premieres in: 首映於
+  Premieres: 首映
 Videos:
   #& Sort By
   Sort By:
@@ -808,3 +810,6 @@ Channels:
   Empty: 您的頻道清單目前為空。
   Unsubscribe Prompt: 您確定您想要從「$」取消訂閱嗎？
   Unsubscribed: $ 已從您的訂閱移除
+Clipboard:
+  Copy failed: 複製到剪貼簿失敗
+  Cannot access clipboard without a secure connection: 無法在沒有安全連線的情況下存取剪貼簿
