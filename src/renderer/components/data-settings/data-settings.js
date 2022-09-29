@@ -57,18 +57,6 @@ export default Vue.extend({
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
-    importSubscriptionsPromptNames: function () {
-      const importFreeTube = this.$t('Settings.Data Settings.Import FreeTube')
-      const importYouTube = this.$t('Settings.Data Settings.Import YouTube')
-      const importNewPipe = this.$t('Settings.Data Settings.Import NewPipe')
-      return [
-        `${importFreeTube} (.db)`,
-        `${importYouTube} (.csv)`,
-        `${importYouTube} (.json)`,
-        `${importYouTube} (.opml)`,
-        `${importNewPipe} (.json)`
-      ]
-    },
     exportSubscriptionsPromptNames: function () {
       const exportFreeTube = this.$t('Settings.Data Settings.Export FreeTube')
       const exportYouTube = this.$t('Settings.Data Settings.Export YouTube')
@@ -95,33 +83,27 @@ export default Vue.extend({
       })
     },
 
-    importSubscriptions: function (option) {
+    importSubscriptions: async function (option) {
       this.showImportSubscriptionsPrompt = false
 
       if (option === null) {
         return
       }
 
-      switch (option) {
-        case 'freetube':
-          this.importFreeTubeSubscriptions()
-          break
-        case 'youtubenew':
-          this.importCsvYouTubeSubscriptions()
-          break
-        case 'youtube':
-          this.importYouTubeSubscriptions()
-          break
-        case 'youtubeold':
-          this.importOpmlYouTubeSubscriptions()
-          break
-        case 'newpipe':
-          this.importNewPipeSubscriptions()
-          break
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: this.$t('Settings.Data Settings.Subscription File'),
+            extensions: ['db', 'csv', 'json', 'opml', 'xml']
+          }
+        ]
       }
-    },
 
-    handleFreetubeImportFile: async function (response) {
+      const response = await this.showOpenDialog(options)
+      if (response.canceled || response.filePaths?.length === 0) {
+        return
+      }
       let textDecode
       try {
         textDecode = await this.readFileFromDialog({ response })
@@ -132,6 +114,25 @@ export default Vue.extend({
         })
         return
       }
+      response.filePaths.forEach(file => {
+        if (file.endsWith('.csv')) {
+          this.importCsvYouTubeSubscriptions(textDecode)
+        } else if (file.endsWith('.db')) {
+          this.importFreeTubeSubscriptions(textDecode)
+        } else if (file.endsWith('.opml') || file.endsWith('.xml')) {
+          this.importOpmlYouTubeSubscriptions(textDecode)
+        } else if (file.endsWith('.json')) {
+          textDecode = JSON.parse(textDecode)
+          if (textDecode.subscriptions) {
+            this.importNewPipeSubscriptions(textDecode)
+          } else {
+            this.importYouTubeSubscriptions(textDecode)
+          }
+        }
+      })
+    },
+
+    importFreeTubeSubscriptions: async function (textDecode) {
       textDecode = textDecode.split('\n')
       textDecode.pop()
       textDecode = textDecode.map(data => JSON.parse(data))
@@ -221,36 +222,7 @@ export default Vue.extend({
       })
     },
 
-    importFreeTubeSubscriptions: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: 'Database File',
-            extensions: ['db']
-          }
-        ]
-      }
-
-      const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-
-      this.handleFreetubeImportFile(response)
-    },
-
-    handleYoutubeCsvImportFile: async function(response) { // first row = header, last row = empty
-      let textDecode
-      try {
-        textDecode = await this.readFileFromDialog({ response })
-      } catch (err) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
-        return
-      }
+    importCsvYouTubeSubscriptions: async function(textDecode) { // first row = header, last row = empty
       const youtubeSubscriptions = textDecode.split('\n').filter(sub => {
         return sub !== ''
       })
@@ -317,19 +289,7 @@ export default Vue.extend({
       })
     },
 
-    handleYoutubeImportFile: async function (response) {
-      let textDecode
-      try {
-        textDecode = await this.readFileFromDialog({ response })
-      } catch (err) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
-        return
-      }
-      textDecode = JSON.parse(textDecode)
-
+    importYouTubeSubscriptions: async function (textDecode) {
       const subscriptions = []
       const errorList = []
 
@@ -390,70 +350,7 @@ export default Vue.extend({
       })
     },
 
-    importCsvYouTubeSubscriptions: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: 'Database File',
-            extensions: ['csv']
-          }
-        ]
-      }
-      const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-
-      this.handleYoutubeCsvImportFile(response)
-    },
-
-    importYouTubeSubscriptions: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: 'Database File',
-            extensions: ['json']
-          }
-        ]
-      }
-
-      const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-
-      this.handleYoutubeImportFile(response)
-    },
-
-    importOpmlYouTubeSubscriptions: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: 'Database File',
-            extensions: ['opml', 'xml']
-          }
-        ]
-      }
-
-      const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-
-      let data
-      try {
-        data = await this.readFileFromDialog({ response })
-      } catch (err) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
-        return
-      }
-
+    importOpmlYouTubeSubscriptions: async function (data) {
       let json
       try {
         json = await opmlToJSON(data)
@@ -476,7 +373,6 @@ export default Vue.extend({
             this.showToast({
               message: message
             })
-
             return
           }
         }
@@ -540,35 +436,7 @@ export default Vue.extend({
       }
     },
 
-    importNewPipeSubscriptions: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: 'Database File',
-            extensions: ['json']
-          }
-        ]
-      }
-
-      const response = await this.showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-
-      let data
-      try {
-        data = await this.readFileFromDialog({ response })
-      } catch (err) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
-        return
-      }
-
-      const newPipeData = JSON.parse(data)
-
+    importNewPipeSubscriptions: async function (newPipeData) {
       if (typeof newPipeData.subscriptions === 'undefined') {
         this.showToast({
           message: this.$t('Settings.Data Settings.Invalid subscriptions file')
@@ -672,7 +540,7 @@ export default Vue.extend({
         defaultPath: exportFileName,
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Subscription File'),
             extensions: ['db']
           }
         ]
@@ -719,7 +587,7 @@ export default Vue.extend({
         defaultPath: exportFileName,
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Subscription File'),
             extensions: ['json']
           }
         ]
@@ -792,7 +660,7 @@ export default Vue.extend({
         defaultPath: exportFileName,
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Subscription File'),
             extensions: ['opml']
           }
         ]
@@ -844,7 +712,7 @@ export default Vue.extend({
         defaultPath: exportFileName,
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Subscription File'),
             extensions: ['csv']
           }
         ]
@@ -889,7 +757,7 @@ export default Vue.extend({
         defaultPath: exportFileName,
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Subscription File'),
             extensions: ['json']
           }
         ]
@@ -940,7 +808,7 @@ export default Vue.extend({
         properties: ['openFile'],
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.History File'),
             extensions: ['db']
           }
         ]
@@ -1022,7 +890,7 @@ export default Vue.extend({
         defaultPath: exportFileName,
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Playlist File'),
             extensions: ['db']
           }
         ]
@@ -1066,7 +934,7 @@ export default Vue.extend({
         properties: ['openFile'],
         filters: [
           {
-            name: 'Database File',
+            name: this.$t('Settings.Data Settings.Playlist File'),
             extensions: ['db']
           }
         ]

@@ -9,7 +9,7 @@
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
-        @click="showImportSubscriptionsPrompt = true"
+        @click="importSubscriptions"
       />
       <ft-button
         :label="$t('Settings.Data Settings.Export Subscriptions')"
@@ -50,13 +50,6 @@
         @click="exportPlaylists"
       />
     </ft-flex-box>
-    <ft-prompt
-      v-if="showImportSubscriptionsPrompt"
-      :label="$t('Settings.Data Settings.Select Import Type')"
-      :option-names="importSubscriptionsPromptNames"
-      :option-values="subscriptionsPromptValues"
-      @click="importSubscriptions"
-    />
     <ft-prompt
       v-if="showExportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Export Type')"
