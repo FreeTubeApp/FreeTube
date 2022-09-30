@@ -4,3 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    labels:
+      - "PR: waiting for review"
+      - "PR: dependencies"
