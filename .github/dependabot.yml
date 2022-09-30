@@ -7,3 +7,10 @@ updates:
     labels:
       - "PR: waiting for review"
       - "PR: dependencies"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "PR: waiting for review"
+      - "PR: dependencies"
