@@ -83,6 +83,9 @@ Subscriptions:
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
   Error Channels: Hatalı Kanallar
+  Disabled Automatic Fetching: Otomatik abonelik getirmeyi devre dışı bıraktınız.
+    Abonelikleri burada görmek için yenileyin.
+  Empty Channels: Abone olduğunuz kanallarda şu anda herhangi bir video yok.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -286,6 +289,7 @@ Settings:
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Manage Subscriptions: 'Abonelikleri Yönet'
+    Fetch Automatically: Akışı Otomatik Olarak Getir
   Data Settings:
     Data Settings: 'Veri Ayarları'
     Select Import Type: 'İçe Aktarma Türünü Seç'
@@ -376,6 +380,7 @@ Settings:
     Hide Sharing Actions: Paylaşım Eylemlerini Gizle
     Hide Video Description: Video Açıklamasını Gizle
     Hide Comments: Yorumları Gizle
+    Hide Chapters: Bölümleri Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -812,6 +817,8 @@ Tooltips:
       için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
       önüne geçer, ancak video süresi veya canlı yayın durumu gibi belirli bilgileri
       sağlamaz
+    Fetch Automatically: Etkinleştirildiğinde, FreeTube yeni bir pencere açıldığında
+      ve profil değiştirirken abonelik akışınızı otomatik olarak getirecektir.
   Player Settings:
     Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. DASH
       biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 720p ile
@@ -906,3 +913,9 @@ Clipboard:
   Copy failed: Panoya kopyalanamadı
   Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya
     erişilemiyor
+Chapters:
+  Chapters: Bölümler
+  'Chapters list visible, current chapter: {chapterName}': 'Bölüm listesi görünür,
+    geçerli bölüm: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli
+    bölüm: {chapterName}'
