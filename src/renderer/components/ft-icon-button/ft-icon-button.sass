@@ -18,9 +18,11 @@
   &.base
     background-color: var(--card-bg-color)
     color: var(--primary-text-color)
+    opacity: 0
 
     &:hover
       background-color: var(--side-nav-hover-color)
+      opacity: 1
 
     &:active
       background-color: var(--side-nav-active-color)
@@ -56,7 +58,7 @@
     color: var(--favorite-icon-color)
 
 .iconDropdown
-  display: inline
+  display: none
   position: absolute
   text-align: center
   list-style-type: none
@@ -67,6 +69,9 @@
   background-color: var(--side-nav-color)
   color: var(--secondary-text-color)
   user-select: none
+
+  &:focus
+    display: inline
 
   &.left
     right: calc(50% - 10px)
