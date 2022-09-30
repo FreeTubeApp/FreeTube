@@ -79,6 +79,9 @@ Subscriptions:
     dostępu
   Load More Videos: Załaduj więcej filmów
   Error Channels: Kanały z błędami
+  Disabled Automatic Fetching: Wyłączyłeś automatyczne pobieranie subskrypcji. Odśwież
+    subskrypcje, by je zobaczyć.
+  Empty Channels: Twoje subskrypcje nie mają obecnie żadnych filmów.
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -276,6 +279,7 @@ Settings:
     Export Subscriptions: 'Eksportuj subskrypcje'
     How do I import my subscriptions?: 'Jak zaimportować swoje subskrypcje?'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
+    Fetch Automatically: Automatycznie odświeżaj subskrypcje
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -381,6 +385,7 @@ Settings:
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj linki do dzielenia się filmem
     Hide Live Streams: Schowaj transmisje na żywo
+    Hide Chapters: Schowaj rozdziały
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -594,6 +599,7 @@ Video:
     Minutes: minut/y
     Minute: minutę
     Less than a minute: mniej niż minutę
+    In less than a minute: Za mniej niż minutę
   Published on: 'Opublikowano'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % temu'
@@ -672,6 +678,7 @@ Video:
       dostępne dla starych formatów
     Dropped / Total Frames: Opuszczone klatki / klatki ogółem
   Premieres in: Premiera za
+  Premieres: Premiery
 Videos:
   #& Sort By
   Sort By:
@@ -829,6 +836,8 @@ Tooltips:
       metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale
       nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
       na żywo
+    Fetch Automatically: Po włączeniu FreeTube będzie automatycznie pobierał Twoje
+      subskrypcje po otwarciu nowego okna lub po zmianie profilu.
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany
       API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API
@@ -918,3 +927,13 @@ Channels:
   Unsubscribed: $ został usunięty z Twoich subskrypcji
   Channels: Kanały
   Search bar placeholder: Przeszukaj kanały
+Clipboard:
+  Copy failed: Skopiowanie do zasobnika nie powiodło się
+  Cannot access clipboard without a secure connection: Bez bezpiecznego połączenia
+    nie można uzyskać dostępu do schowka
+Chapters:
+  Chapters: Rozdziały
+  'Chapters list visible, current chapter: {chapterName}': 'Spis treści widoczny,
+    obecny rozdział: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
+    rozdział: {chapterName}'
