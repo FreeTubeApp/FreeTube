@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import $ from 'jquery'
 import fs from 'fs'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -1214,8 +1213,7 @@ export default Vue.extend({
               if (this.$route.fullPath.includes('/watch')) {
                 const routeId = this.$route.params.id
                 if (routeId === videoId) {
-                  const activePlayer = $('.ftVideoPlayer video').get(0)
-                  activePlayer.currentTime = watchTime
+                  this.$refs.videoPlayer.$refs.video.currentTime = watchTime
                 }
               }
 
