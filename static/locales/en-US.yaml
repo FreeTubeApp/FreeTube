@@ -84,8 +84,9 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
-    Subscription list is currently empty. Start adding subscriptions to see them here.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
+  Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
+  Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
@@ -304,6 +305,7 @@ Settings:
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
+    Fetch Automatically: Fetch Feed Automatically
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Hide Video Views: Hide Video Views
@@ -774,6 +776,8 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration or live status
+    Fetch Automatically: When enabled, FreeTube will automatically fetch
+      your subscription feed when a new window is opened and when switching profile.
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
       when the watch page is closed.

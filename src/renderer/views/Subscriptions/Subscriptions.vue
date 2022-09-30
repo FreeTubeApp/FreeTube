@@ -28,8 +28,23 @@
       <ft-flex-box
         v-if="activeVideoList.length === 0"
       >
-        <p class="message">
+        <p
+          v-if="activeSubscriptionList.length === 0"
+          class="message"
+        >
           {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
+        </p>
+        <p
+          v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
+          class="message"
+        >
+          {{ $t("Subscriptions.Disabled Automatic Fetching") }}
+        </p>
+        <p
+          v-else
+          class="message"
+        >
+          {{ $t("Subscriptions.Empty Channels") }}
         </p>
       </ft-flex-box>
       <ft-element-list

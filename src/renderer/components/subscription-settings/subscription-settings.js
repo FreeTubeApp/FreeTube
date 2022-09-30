@@ -2,14 +2,12 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
   name: 'SubscriptionSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-toggle-switch': FtToggleSwitch,
-    'ft-flex-box': FtFlexBox
+    'ft-toggle-switch': FtToggleSwitch
   },
   data: function () {
     return {
@@ -22,12 +20,16 @@ export default Vue.extend({
     },
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
+    },
+    fetchSubscriptionsAutomatically: function () {
+      return this.$store.getters.getFetchSubscriptionsAutomatically
     }
   },
   methods: {
     ...mapActions([
       'updateHideWatchedSubs',
-      'updateUseRssFeeds'
+      'updateUseRssFeeds',
+      'updateFetchSubscriptionsAutomatically'
     ])
   }
 })
