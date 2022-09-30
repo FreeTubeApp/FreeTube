@@ -82,6 +82,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Questo
     profilo ha un grande numero di iscrizioni. Utilizzerò RSS per evitare limitazioni
   Error Channels: Canali con errori
+  Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
+    Aggiorna gli abbonamenti per vederli qui.
+  Empty Channels: I tuoi canali a cui sei iscritto attualmente non hanno video.
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -296,6 +299,7 @@ Settings:
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
     Fetch Feeds from RSS: Scarica aggiornamenti dai flussi RSS
+    Fetch Automatically: Recupera feed automaticamente
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -386,6 +390,7 @@ Settings:
     Hide Live Streams: Nascondi i video in diretta
     Hide Sharing Actions: Nascondi le azioni di condivisione
     Hide Video Description: Nascondi la descrizione del video
+    Hide Chapters: Nascondi i capitoli
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?
@@ -848,6 +853,8 @@ Tooltips:
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
       blocco dell'IP, ma non forniscono determinate informazioni come la durata del
       video o lo stato della diretta
+    Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
+      dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
   General Settings:
     Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API.
     Thumbnail Preference: Tutte le copertine attraverso FreeTube verranno sostituite
@@ -923,3 +930,9 @@ Clipboard:
   Cannot access clipboard without a secure connection: Impossibile accedere agli appunti
     senza una connessione sicura
   Copy failed: Copia negli appunti non riuscita
+Chapters:
+  Chapters: Capitoli
+  'Chapters list visible, current chapter: {chapterName}': 'Elenco capitoli visibile,
+    capitolo corrente: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Elenco capitoli nascosto,
+    capitolo corrente: {chapterName}'
