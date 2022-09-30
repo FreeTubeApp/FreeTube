@@ -317,6 +317,7 @@ Settings:
     Select Export Type: Velg eksporttype
     Select Import Type: Velg importtype
     Data Settings: Datainnstillinger
+    All playlists has been successfully imported: Importerte alle spillelister
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
@@ -354,12 +355,23 @@ Settings:
       (forvalget er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillinger
+    Skip Options:
+      Do Nothing: Ikke gjør noe
+    Category Color: Kategorifarge
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
     Ignore Unsupported Action Warnings: Ignorer advarsler om ustøttede handlinger
     External Player Settings: Innstillinger for ekstern avspiller
     External Player: Ekstern avspiller
+  Download Settings:
+    Choose Path: Velg sti
+    Download Settings: Nedlastingsinnstillinger
+    Download in app: Last ned i programmet
+    Open in web browser: Åpne i nettleser
+  Parental Control Settings:
+    Parental Control Settings: Foreldrekontroll
+    Hide Search Bar: Skjul søkefelt
 About:
   #On About page
   About: 'Om'
