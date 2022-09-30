@@ -87,6 +87,9 @@ Subscriptions:
     elkerülésére
   Load More Videos: További videók betöltése
   Error Channels: Hibás csatornák
+  Disabled Automatic Fetching: Az önműködő feliratkozási kérés letiltva. Frissítse
+    a feliratkozást a megtekintéséhez.
+  Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
@@ -294,6 +297,7 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
+    Fetch Automatically: Hírcsatorna önműködő lekérése
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -829,6 +833,8 @@ Tooltips:
       helyett RSS-t fog használni a feliratkozás hírcsatornájának megragadásához.
       Az RSS gyorsabb és megakadályozza az IP-zárolást, de nem nyújt bizonyos tájékoztatást,
       például a videó időtartamát vagy az élő állapotot
+    Fetch Automatically: Ha engedélyezve van, a SzabadCső új ablak megnyitásakor és
+      profilváltáskor önműködően lekéri az előfizetési hírfolyamot.
   Player Settings:
     Default Video Format: Állítsa be a videó lejátszásakor használt formátumokat.
       A DASH (dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül)
@@ -850,9 +856,8 @@ Tooltips:
       az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez
       (1x, hacsak nem módosították a beállításokban).
   Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a SzabadCső automatikusan törli
-      a videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
-      bezárul.
+    Remove Video Meta Files: Ha engedélyezve van, a SzabadCső önműködően törli a videolejátszás
+      során létrehozott metafájlokat, amikor a videómegtekintő oldal bezárul.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a SzabadCső feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
