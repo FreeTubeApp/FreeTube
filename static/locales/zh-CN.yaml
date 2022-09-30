@@ -75,6 +75,8 @@ Subscriptions:
     强制RSS已防止速率限制
   Load More Videos: 加载更多视频
   Error Channels: 有错误的频道
+  Disabled Automatic Fetching: 你仅用了自动订阅获取。刷新订阅在此处看到它们。
+  Empty Channels: 你订阅的频道当前没有任何视频。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -257,6 +259,7 @@ Settings:
     Export Subscriptions: '导出订阅'
     How do I import my subscriptions?: '如何导入我的订阅？'
     Fetch Feeds from RSS: 从RSS摘取推送
+    Fetch Automatically: 自动抓取订阅源
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -743,6 +746,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 启用后，FreeTube将使用RSS而非默认方式来取得您的订阅推送。RSS更快而且可避免IP封锁，但不提供某些信息，如影片长度与即时状态
+    Fetch Automatically: 开启后，打开新窗口和切换配置文件时，FreeTube 会自动抓取你的订阅源。
   Player Settings:
     Default Video Format: 设置播放视频时使用的格式。DASH 格式可以播放更高质量的视频。 传统格式限制为最大 720p，但使用较少的带宽。
       音频格式是纯音频流。
