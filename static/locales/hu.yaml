@@ -384,6 +384,7 @@ Settings:
     Hide Comments: Megjegyzések elrejtése
     Hide Live Streams: Élő adatfolyamok elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
+    Hide Chapters: Fejezetek elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -693,6 +694,12 @@ Video:
     Video statistics are not available for legacy videos: Az örökölt videókhoz videóstatisztika
       nem érhető el
     Resolution: Felbontás
+    Mimetype: MIME-típus
+    Volume: Hangerő
+    Bandwidth: Sávszélesség
+    Buffered: Pufferelt
+    Dropped / Total Frames: Elvetve/Összes képkocka
+    Bitrate: Átviteli sebesség
   Premieres: Premierek
 Videos:
   #& Sort By
@@ -772,6 +779,7 @@ Comments:
   From $channelName: 'forrás: $channelName'
   And others: és mások
   Pinned by: 'Kitűzte:'
+  Member: Tag
 Up Next: 'Következő'
 
 # Toast Messages
@@ -886,3 +894,23 @@ Channels:
   Unsubscribe: Leiratkozás
   Unsubscribed: $ eltávolítva az feliratkozásáiból
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „$” csatornáról?
+Age Restricted:
+  Type:
+    Video: Videó
+    Channel: Csatorna
+  This $contentType is age restricted: A(z) $ korhatáros
+Downloading failed: Hiba történt a(z) „$” letöltése során
+Starting download: „$” letöltésének indítása
+Downloading has completed: A(z) „$” letöltése befejeződött
+Screenshot Success: Képernyőkép „$” néven mentve
+Chapters:
+  Chapters: Fejezetek
+  'Chapters list visible, current chapter: {chapterName}': 'Fejezeteklista látható,
+    jelenlegi fejezet: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Fejezeteklista elrejtve,
+    jelenlegi fejezet: {chapterName}'
+Clipboard:
+  Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
+    nem lehet hozzáférni a vágólaphoz
+  Copy failed: A vágólapra másolás nem sikerült
+Screenshot Error: A képernyőkép nem sikerült. $
