@@ -78,6 +78,9 @@ Subscriptions:
     чтобы избежать ограничения скорости
   Load More Videos: Загрузить больше видео
   Error Channels: Каналы с ошибками
+  Disabled Automatic Fetching: Вы отключили автоматическое получение подписок. Обновите
+    подписки, чтобы отобразить результат.
+  Empty Channels: Ваши подписанные каналы в настоящее время не содержат видео.
 Trending:
   Trending: 'Тренды'
   Trending Tabs: Тренды
@@ -274,6 +277,7 @@ Settings:
     Export Subscriptions: 'Экспорт подписок'
     How do I import my subscriptions?: 'Как мне импортировать свои подписки?'
     Fetch Feeds from RSS: Получать ленты из RSS
+    Fetch Automatically: Автоматически получать ленту
   Advanced Settings:
     Advanced Settings: 'Расширенные настройки'
     Enable Debug Mode (Prints data to the console): 'Включить режим отладки (выводит
@@ -375,6 +379,7 @@ Settings:
     Hide Sharing Actions: Скрыть действия общего доступа
     Hide Comments: Скрыть комментарии
     Hide Video Description: Скрыть описание видео
+    Hide Chapters: Скрыть разделы
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -578,6 +583,7 @@ Video:
     Minutes: Минут
     Minute: Минута
     Less than a minute: Менее минуты
+    In less than a minute: Меньше чем через минуту
   Published on: 'Опубликовано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % назад'
@@ -655,6 +661,7 @@ Video:
     Buffered: Буферизовано
   Premieres on: Премьеры
   Premieres in: Премьеры в
+  Premieres: Премьеры
 Videos:
   #& Sort By
   Sort By:
@@ -830,6 +837,8 @@ Tooltips:
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
       блокировку IP, но не предоставляет определенную информацию, такую как продолжительность
       видео или сведения о том, транслируется ли видео в реальном времени
+    Fetch Automatically: Если эта функция включена, FreeTube автоматически будет получать
+      ленту ваших подписок как при открытии нового окна, так при переключении профиля.
   Player Settings:
     Default Video Format: Устанавливает форматы, используемые при воспроизведении
       видео. Формат DASH может воспроизводить более высокое качество. Устаревшие форматы
@@ -902,3 +911,13 @@ Channels:
   Unsubscribe: Отписаться
   Unsubscribed: $ был удален из ваших подписок
   Unsubscribe Prompt: Вы уверены, что хотите отписаться от "$"?
+Clipboard:
+  Copy failed: Не удалось скопировать в буфер обмена
+  Cannot access clipboard without a secure connection: Невозможно получить доступ
+    к буферу обмена без защищенного соединения
+Chapters:
+  Chapters: Разделы
+  'Chapters list visible, current chapter: {chapterName}': 'Список разделов видим,
+    текущий раздел: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Список разделов скрыт,
+    текущий раздел: {chapterName}'
