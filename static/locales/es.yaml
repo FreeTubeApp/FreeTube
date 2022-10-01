@@ -854,7 +854,7 @@ Tooltips:
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
-      \ en un enlace que no se pueda abrirse con FreeTube. \nPor defecto, FreeTube\
+      \ en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube\
       \ abrirá el enlace que a pulsado en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
