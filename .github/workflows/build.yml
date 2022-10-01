@@ -84,7 +84,7 @@ jobs:
         # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
 
     - name: Update package.json version
-      uses: jossef/action-set-json-field@v1
+      uses: jossef/action-set-json-field@v2
       with:
         file: package.json
         field: version
