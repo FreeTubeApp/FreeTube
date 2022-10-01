@@ -13,3 +13,7 @@
   - '_scripts/**/*'         
   - 'src/**/*'          
   - 'static/**/*'       
+
+'PR: dependencies':
+  - 'yarn.lock'
+  - 'package.json'
