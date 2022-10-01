@@ -77,6 +77,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
   Error Channels: القنوات التي بها أخطاء
+  Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات
+    لرؤيتها هنا.
+  Empty Channels: لا تحتوي قنواتك التي اشتركت فيها حاليا على أي مقاطع فيديو.
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -284,6 +287,7 @@ Settings:
     Import Subscriptions: 'استيراد الاشتراكات'
     Export Subscriptions: 'تصدير الاشتراكات'
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
+    Fetch Automatically: جلب الخلاصة تلقائيا
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -368,6 +372,7 @@ Settings:
     Hide Comments: إخفاء التعليقات
     Hide Sharing Actions: إخفاء إجراءات المشاركة
     Hide Live Streams: إخفاء البث المباشر
+    Hide Chapters: إخفاء الفصول
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -609,6 +614,7 @@ Video:
     Ago: 'منذ'
     Upcoming: 'يبدأ العرض'
     Less than a minute: أقل من دقيقة
+    In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -686,6 +692,7 @@ Video:
     Dropped / Total Frames: إسقاط / إجمالي الإطارات
     Mimetype: نمط ميمي
   Premieres in: العرض الأول في
+  Premieres: العرض الأولي
 Videos:
   #& Sort By
   Sort By:
@@ -825,6 +832,8 @@ Tooltips:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
       تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر
+    Fetch Automatically: عند التمكين ، سيقوم FreeTube تلقائيا بجلب خلاصة الاشتراك
+      الخاصة بك عند فتح نافذة جديدة وعند تبديل ملف التعريف.
   External Player Settings:
     Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة مفصولة بفواصل منقوطة
       (';')، تريد تمريرها إلى المشغل الخارجي.
@@ -878,3 +887,13 @@ Channels:
   Empty: قائمة قنواتك فارغة حاليا.
   Unsubscribe: إلغاء الاشتراك
   Unsubscribe Prompt: هل أنت متأكد من أنك تريد إلغاء الاشتراك من "$"؟
+Clipboard:
+  Cannot access clipboard without a secure connection: لا يمكن الوصول إلى الحافظة
+    دون اتصال آمن
+  Copy failed: فشل النسخ إلى الحافظة
+Chapters:
+  Chapters: الفصول
+  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية، الفصل
+    الحالي: {اسم الفصل}'
+  'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
+    الفصل الحالي: {sectionName}'
