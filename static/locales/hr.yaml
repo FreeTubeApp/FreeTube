@@ -79,6 +79,7 @@ Subscriptions:
     će se RSS
   Load More Videos: Učitaj još videa
   Error Channels: Kanali s greškama
+  Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -374,6 +375,7 @@ Settings:
     Hide Sharing Actions: Sakrij radnje dijeljenja
     Hide Video Description: Sakrij opis videa
     Hide Live Streams: Sakrij prijenose uživo
+    Hide Chapters: Sakrij poglavlja
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -904,3 +906,5 @@ Clipboard:
   Copy failed: Neuspjelo kopiranje u međuspremnik
   Cannot access clipboard without a secure connection: Pristup međuspremniku nije
     moguć bez sigurne veze
+Chapters:
+  Chapters: Poglavlja
