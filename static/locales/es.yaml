@@ -78,6 +78,10 @@ Subscriptions:
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
   Load More Videos: Cargar más vídeos
   Error Channels: Canales con errores
+  Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
+    Actualice las suscripciones para verlas aquí.
+  Empty Channels: Los canales a los que está suscrito no tienen actualmente ningún
+    vídeo.
 Trending:
   Trending: 'Tendencias'
   Default: Por defecto
@@ -195,7 +199,7 @@ Settings:
       Catppuccin Mocha Red: Catppuccin Moka Rojo
       Catppuccin Mocha Flamingo: Catppuccin Moka Flamenco
       Catppuccin Mocha Maroon: Catppuccin Moka Granate
-      Catppuccin Mocha Teal: Catppuccin Moka Verde azulado
+      Catppuccin Mocha Teal: Catppuccin Moka Turquesa
       Catppuccin Mocha Rosewater: Catppuccin Moka Agua de Rosas
       Catppuccin Mocha Sky: Catppuccin Moka Cielo
       Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
@@ -284,6 +288,7 @@ Settings:
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
+    Fetch Automatically: Obtener los feed automáticamente
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -371,9 +376,10 @@ Settings:
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
     Hide Video Description: Ocultar la descripción del vídeo
-    Hide Comments: Ocultar los comentarios
+    Hide Comments: Ocultar comentarios
     Hide Live Streams: Ocultar retransmisiones en directo
     Hide Sharing Actions: Ocultar acciones de uso compartido
+    Hide Chapters: Ocultar los capítulos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -425,8 +431,8 @@ Settings:
   Parental Control Settings:
     Hide Unsubscribe Button: Ocultar botón de anular suscripción
     Hide Search Bar: Ocultar barra de búsqueda
-    Parental Control Settings: Ajustes del control para padres
-    Show Family Friendly Only: Mostrar solo apto para familias
+    Parental Control Settings: Ajustes del Control Parental
+    Show Family Friendly Only: Mostrar solo lo apto para las familias
 About:
   #On About page
   About: 'Acerca de'
@@ -653,10 +659,10 @@ Video:
   Save Video: Guardar el vídeo
   translated from English: traducido del inglés
   Sponsor Block category:
-    music offtopic: Música fuera de tema
+    music offtopic: No relacionado con la música
     interaction: Interacción
     self-promotion: Auto promoción
-    outro: Epílogo
+    outro: Otro
     intro: Introducción
     sponsor: Patrocinador
     recap: Recapitulación
@@ -815,18 +821,20 @@ Tooltips:
       predeterminado para recuperar el feed de suscripciones. RSS es más rápido y
       previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
+    Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente
+      su feed de suscripción cuando se abra una nueva ventana y al cambiar de perfil.
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato
       Dash puede reproducir resoluciones más altas. El formato Legacy está limitado
-      a 720p, pero requiere menos ancho de banda. El formato audio se limita a reproducir
-      solo audio.
+      a 720p, pero requiere menos ancho de banda. El formato del audio se limita al
+      reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
     Force Local Backend for Legacy Formats: Solo funcionará si la API de Invidious
-      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
-      de Invidious. Ayudará cuando Invidious no pueda reproducir un vídeo por restricciones
-      regionales.
+      es la preferente. Si la activas, la API local usará el formato Legacy en lugar
+      de Invidious. Esto ayudará cuando Invidious no pueda reproducir un vídeo por
+      culpa de las restricciones regionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -845,9 +853,9 @@ Tooltips:
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
-    External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
-      \ que no pueda ser abierto en FreeTube.\nPor defecto FreeTube abrirá el enlace\
-      \ en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
+      \ en un enlace que no se pueda abrirse con FreeTube. \nPor defecto, FreeTube\
+      \ abrirá el enlace que a pulsado en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
@@ -909,3 +917,9 @@ Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
     sin una conexión segura
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
+    visibles, capítulo actual: {nombredelcapítulo}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
+    ocultos, capítulo actual: {nombredelcapítulo}'
+  Chapters: Capítulos
