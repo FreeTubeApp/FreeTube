@@ -15,54 +15,62 @@
         :aria-label="$t('Trending.Trending Tabs')"
       >
         <div
-          id="defaultTab"
+          ref="default"
           class="tab"
           role="tab"
-          aria-selected="true"
+          :aria-selected="String(currentTab === 'default')"
           aria-controls="trendingPanel"
-          tabindex="0"
-          :class="(currentTab=='default')?'selectedTab':''"
+          :tabindex="currentTab === 'default' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'default' }"
           @click="changeTab('default')"
-          @keydown="changeTab('default', $event)"
+          @keydown.space.enter.prevent="changeTab('default')"
+          @keydown.left.prevent="focusTab('movies')"
+          @keydown.right.prevent="focusTab('music')"
         >
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
         <div
-          id="musicTab"
+          ref="music"
           class="tab"
           role="tab"
-          aria-selected="false"
+          :aria-selected="String(currentTab === 'music')"
           aria-controls="trendingPanel"
-          tabindex="-1"
-          :class="(currentTab=='music')?'selectedTab':''"
+          :tabindex="currentTab === 'music' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'music' }"
           @click="changeTab('music')"
-          @keydown="changeTab('music', $event)"
+          @keydown.space.enter.prevent="changeTab('music')"
+          @keydown.left.prevent="focusTab('default')"
+          @keydown.right.prevent="focusTab('gaming')"
         >
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
         <div
-          id="gamingTab"
+          ref="gaming"
           class="tab"
           role="tab"
-          aria-selected="false"
+          :aria-selected="String(currentTab === 'gaming')"
           aria-controls="trendingPanel"
-          tabindex="-1"
-          :class="(currentTab=='gaming')?'selectedTab':''"
+          :tabindex="currentTab === 'gaming' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'gaming' }"
           @click="changeTab('gaming')"
-          @keydown="changeTab('gaming', $event)"
+          @keydown.space.enter.prevent="changeTab('gaming')"
+          @keydown.left.prevent="focusTab('music')"
+          @keydown.right.prevent="focusTab('movies')"
         >
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
         <div
-          id="moviesTab"
+          ref="movies"
           class="tab"
           role="tab"
-          aria-selected="false"
+          :aria-selected="String(currentTab === 'movies')"
           aria-controls="trendingPanel"
-          tabindex="-1"
-          :class="(currentTab=='movies')?'selectedTab':''"
+          :tabindex="currentTab === 'movies' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'movies' }"
           @click="changeTab('movies')"
-          @keydown="changeTab('movies', $event)"
+          @keydown.space.enter.prevent="changeTab('movies')"
+          @keydown.left.prevent="focusTab('gaming')"
+          @keydown.right.prevent="focusTab('default')"
         >
           {{ $t("Trending.Movies").toUpperCase() }}
         </div>
