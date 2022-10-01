@@ -64,7 +64,7 @@ jobs:
 
     - name: Set Version Number Variable
       id: versionNumber
-      uses: actions/github-script@v3
+      uses: actions/github-script@v6
       env:
         IS_DEV: ${{ contains(github.ref, 'development') }}
         IS_RC: ${{ contains(github.ref, 'RC') }}
