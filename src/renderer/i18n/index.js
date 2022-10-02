@@ -60,7 +60,7 @@ class CustomVueI18n extends VueI18n {
         }
 
         if (url.pathname) {
-          url.pathname += `/static/locales/${locale}.json`
+          url.pathname += `${!url.pathname.endsWith('/') ? '/' : ''}static/locales/${locale}.json`
         } else {
           url.pathname = `/static/locales/${locale}.json`
         }
