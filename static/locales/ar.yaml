@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-FreeTube: 'فريتيوب'
+FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
@@ -56,7 +56,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: 'المدة'
-    All Durations: 'كل المدد'
+    All Durations: 'كل الآوقات'
     Short (< 4 minutes): 'قصير (< 4 دقائق)'
     Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
@@ -64,7 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
-  There are no more results for this search: لم يتبقى المزيد من النتائج لهذا البحث
+  There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
