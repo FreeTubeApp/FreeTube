@@ -15,7 +15,7 @@ body:
       options:
         - label: I have encountered this bug in the [latest release of FreeTube](https://github.com/FreeTubeApp/FreeTube/releases).
           required: true  
-        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a bug report that matches the one I want to file, without success.
+        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for open and closed issues that are similar to the bug report I want to file, without success.
           required: true
         - label: I have searched the [documentation](https://docs.freetubeapp.io/) for information that matches the description of the bug I want to file, without success.
           required: true
