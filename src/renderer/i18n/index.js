@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import fs from 'fs'
-import path from 'path'
 
 // List of locales approved for use
 import activeLocales from '../../../static/locales/activeLocales.json'
@@ -61,7 +60,7 @@ class CustomVueI18n extends VueI18n {
         }
 
         if (url.pathname) {
-          url.pathname = path.join(url.pathname, 'static', 'locales', `${locale}.json`)
+          url.pathname += `${!url.pathname.endsWith('/')?'/':''}static/locales/${locale}.json`
         } else {
           url.pathname = `/static/locales/${locale}.json`
         }
