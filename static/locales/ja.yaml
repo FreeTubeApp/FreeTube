@@ -33,7 +33,7 @@ Search / Go to URL: '検索 / URL の表示'
 Search Filters:
   Search Filters: '検索の絞り込み'
   Sort By:
-    Sort By: '並び替え'
+    Sort By: '並べ替え'
     Most Relevant: '関連度'
     Rating: '評価'
     Upload Date: 'アップロード日'
@@ -454,7 +454,7 @@ Channel:
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネル検索'
   Your search results have returned 0 results: '検索結果はありません'
-  Sort By: '並び替え'
+  Sort By: '並べ替え'
   Videos:
     Videos: '動画'
     This channel does not currently have any videos: 'このチャンネルには動画がありません'
@@ -672,7 +672,7 @@ Comments:
   Top comments: 評価順
   Newest first: 新しい順
   No more comments available: これ以上のコメントはありません
-  Sort by: 並び替え
+  Sort by: 並べ替え
   Show More Replies: その他の返信を表示する
   And others: その他
   Pinned by: によって固定されています
