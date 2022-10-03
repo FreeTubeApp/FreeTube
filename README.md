@@ -54,6 +54,11 @@ If you have issues with the extension working with FreeTube, please create an is
 
 * Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
 
+### Automated Builds (Nightly / Weekly)
+Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
+
+The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
+
 ### Unofficial Downloads
 These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
 
@@ -68,11 +73,6 @@ These builds are maintained by the community.  While they should be safe, downlo
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
-
-### Automated Builds (Nightly / Weekly)
-Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
-
-The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
 
 ## Contributing
 If you like to get your hands dirty and want to contribute, we would love to
