@@ -81,6 +81,10 @@ Subscriptions:
     fixée
   Load More Videos: Charger plus de vidéos
   Error Channels: Chaînes avec des erreurs
+  Disabled Automatic Fetching: Vous avez désactivé la récupération automatique des
+    abonnements. Actualisez les abonnements pour les voir ici.
+  Empty Channels: Les chaînes auxquelles vous êtes abonné·e ne contiennent actuellement
+    aucune vidéo.
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -285,6 +289,7 @@ Settings:
     Export Subscriptions: 'Exporter vos abonnements'
     How do I import my subscriptions?: 'Comment importer mes abonnements ?'
     Fetch Feeds from RSS: Récupération de flux RSS
+    Fetch Automatically: Récupération automatique des flux
   Advanced Settings:
     Advanced Settings: 'Paramètres Avancés'
     Enable Debug Mode (Prints data to the console): 'Activer le mode débug (afficher
@@ -394,6 +399,7 @@ Settings:
     Hide Comments: Masquer les commentaires
     Hide Live Streams: Masquer les flux en direct
     Hide Sharing Actions: Masquer les actions de partage
+    Hide Chapters: Masquer les chapitres
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -612,6 +618,7 @@ Video:
     Minutes: minutes
     Minute: minute
     Less than a minute: Moins d'une minute
+    In less than a minute: En moins d'une minute
   Published on: 'Mise en ligne le'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Il y a $ %'
@@ -691,6 +698,7 @@ Video:
     Dropped / Total Frames: Images perdues / Nombre total d’images
   Premieres on: Première le
   Premieres in: Première dans
+  Premieres: Première
 Videos:
   #& Sort By
   Sort By:
@@ -793,7 +801,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français
+Locale Name: français
 Profile:
   $ is now the active profile: $ est maintenant le profil actif
   Your default profile has been changed to your primary profile: Votre profil par
@@ -852,6 +860,9 @@ Tooltips:
       de sa méthode par défaut pour récupérer votre flux d'abonnement. Le RSS est
       plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations
       comme la durée de la vidéo ou le statut en direct
+    Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement
+      le flux de votre abonnement à l'ouverture d'une nouvelle fenêtre et lors du
+      changement de profil.
   Player Settings:
     Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo.
       Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy
@@ -948,3 +959,13 @@ Channels:
   Count: $ chaîne(s) trouvée(s).
   Unsubscribed: $ a été supprimé de vos abonnements
   Unsubscribe Prompt: Êtes-vous sûr·e de vouloir vous désabonner de « $ » ?
+Clipboard:
+  Copy failed: La copie dans le presse-papiers a échoué
+  Cannot access clipboard without a secure connection: Impossible d'accéder au presse-papiers
+    sans une connexion sécurisée
+Chapters:
+  Chapters: Chapitres
+  'Chapters list visible, current chapter: {chapterName}': 'Liste des chapitres visible,
+    chapitre actuel : {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Liste des chapitres cachée,
+    chapitre actuel : {chapterName}'
