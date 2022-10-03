@@ -83,6 +83,9 @@ Subscriptions:
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
   Error Channels: ערוצים עם שגיאות
+  Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים
+    כדי לצפות בהם כאן.
+  Empty Channels: בערוצים אליהם נרשמת אין כלל סרטונים.
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -279,6 +282,7 @@ Settings:
     Hide Videos on Watch: 'הסתר סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'יבוא עדכונים בעזרת RSS'
     Manage Subscriptions: 'ניהול מנויים'
+    Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
   Data Settings:
     Data Settings: 'הגדרות נתונים'
     Select Import Type: 'בחר את פורמט הייבוא'
@@ -364,6 +368,7 @@ Settings:
     Hide Sharing Actions: הסתרת פעולות שיתוף
     Hide Comments: הסתרת הערות
     Hide Video Description: הסתרת תיאור וידאו
+    Hide Chapters: הסתרת פרקים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -468,7 +473,7 @@ About:
   room rules: כללי החדר
   Please read the: נא לקרוא את
   Chat on Matrix: צ׳אט ב־Matrix
-  Mastodon: Mastodon
+  Mastodon: ‎Mastodon
   Please check for duplicates before posting: נא לבדוק כפילויות בטרם פרסום תקלה
   GitHub issues: תקלות ב־GitHub
   Report a problem: דיווח על תקלה
@@ -615,6 +620,7 @@ Video:
     Ago: 'לפני'
     Upcoming: 'שידור הבכורה ישודר ב־'
     Less than a minute: פחות מדקה
+    In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
@@ -683,6 +689,7 @@ Video:
     Dropped / Total Frames: תמוניות שהושמטו / סה״כ
     Mimetype: סוג MIME
   Premieres in: בכורה בעוד
+  Premieres: בכורות
 Videos:
   #& Sort By
   Sort By:
@@ -813,8 +820,10 @@ Tooltips:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
       לא מספקת חלק מהמידע כמו אורך הסרטון או מצב שידור חי
+    Fetch Automatically: כאשר האפשרות פעילה, FreeTube ימשוך את הזנת המינויים שלך אוטומטית
+      עם פתיחת חלון חדש ובעת החלפת פרופיל.
   External Player Settings:
-    DefaultCustomArgumentsTemplate: '(ברירת מחדל: "$")'
+    DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚$’)'
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
       (למשל: היפוך רשימת נגינה וכו׳).'
     External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
@@ -864,3 +873,13 @@ Channels:
   Channels: ערוצים
   Title: רשימת ערוצים
   Unsubscribe Prompt: לבטל את המינוי על „$”?
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'רשימת הפרקים מוסתרת, הפרק
+    הנוכחי: {chapterName}'
+  Chapters: פרקים
+  'Chapters list visible, current chapter: {chapterName}': 'רשימת הפרקים גלויה, הפרק
+    הנוכחי: {chapterName}'
+Clipboard:
+  Copy failed: ההעתקה ללוח הגזירים נכשלה
+  Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא
+    חיבור מאובטח
