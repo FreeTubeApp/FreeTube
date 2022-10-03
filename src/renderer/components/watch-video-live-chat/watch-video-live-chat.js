@@ -73,8 +73,13 @@ export default Vue.extend({
         return '445px'
       }
     },
+
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+
+    scrollingBehaviour: function () {
+      return this.$store.getters.getDisableSmoothScrolling ? 'auto' : 'smooth'
     }
   },
   created: function () {
@@ -145,6 +150,8 @@ export default Vue.extend({
       comment.messageHtml = ''
 
       comment.message.forEach((text) => {
+        if (typeof text === 'undefined') return
+
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
@@ -197,8 +204,13 @@ export default Vue.extend({
         })
       }
 
-      if (this.stayAtBottom & this.$refs.liveChatComments) {
-        this.$refs.liveChatComments?.scrollTo({ top: this.$refs.liveChatComments.scrollHeight })
+      if (this.stayAtBottom) {
+        setTimeout(() => {
+          this.$refs.liveChatComments?.scrollTo({
+            top: this.$refs.liveChatComments.scrollHeight,
+            behavior: this.scrollingBehaviour
+          })
+        })
       }
 
       if (this.comments.length > 150 && this.stayAtBottom) {
@@ -237,7 +249,10 @@ export default Vue.extend({
     },
 
     scrollToBottom: function () {
-      this.$refs.liveChatComments.scrollTo({ top: this.$refs.liveChatComments.scrollHeight })
+      this.$refs.liveChatComments.scrollTo({
+        top: this.$refs.liveChatComments.scrollHeight,
+        behavior: this.scrollingBehaviour
+      })
       this.stayAtBottom = true
       this.showScrollToBottom = false
     },
