@@ -87,6 +87,9 @@ Subscriptions:
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum
+  Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt.
+    Endurlestu áskriftirnar og þær munu birtast hér.
+  Empty Channels: Rásirnar sem þú ert með í áskrift eru er ekki með nein myndskeið.
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -295,6 +298,7 @@ Settings:
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Manage Subscriptions: 'Sýsla með áskriftir'
+    Fetch Automatically: Sækja streymi sjálfvirkt
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi stillingar'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -311,6 +315,7 @@ Settings:
     Hide Sharing Actions: Fela deiliaðgerðir
     Hide Video Description: Fela lýsingu á myndskeiði
     Hide Comments: Fela athugasemdir
+    Hide Chapters: Fela kafla
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -774,6 +779,8 @@ Tooltips:
       á borð við tímalengd myndskeiða eða stöðu í beinni útsendingu'
 
 # Toast Messages
+    Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
+      þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
   Privacy Settings:
     Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
       sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
@@ -855,3 +862,9 @@ Clipboard:
   Copy failed: Afritun á klippispjald mistókst
   Cannot access clipboard without a secure connection: Get ekki tengst klippispjaldi
     án öruggrar tengingar
+Chapters:
+  Chapters: Kaflar
+  'Chapters list visible, current chapter: {chapterName}': 'Listi yfir kafla sýnilegur,
+    núverandi kafli: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
+    núverandi kafli: {chapterName}'
