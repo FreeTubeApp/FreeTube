@@ -10,7 +10,12 @@ Please note that FreeTube is currently in Beta. While it should work well for
 most users, there are still bugs and missing features that need to be
 addressed.
 
-[Download FreeTube](https://github.com/FreeTubeApp/FreeTube/releases)
+<p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
+
+<hr>
+<p align="center"><a href="#browser-extension">Browser Extension</a> &bull; <a href="#how-does-it-work">How does it work?</a> &bull; <a href="#screenshots">Screenshots</a> &bull; <a href="#features">Features</a> &bull; <a href="#download-links">Download Links</a> &bull; <a href="#contributing">Contributing</a> &bull; <a href="#localization">Localization</a> &bull; <a href="#contact">Contact</a> &bull; <a href="#donate">Donate</a> &bull; <a href="#license">License</a></p>
+<p align="center"><a href="https://freetubeapp.io/">Website</a> &bull; <a href="https://blog.freetubeapp.io/">Blog</a> &bull; <a href="https://docs.freetubeapp.io/faq/">FAQ</a> &bull; <a href="https://docs.freetubeapp.io/">Documentation</a></p>
+<hr>
 
 ### Browser Extension
 
