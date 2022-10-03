@@ -54,7 +54,7 @@ If you have issues with the extension working with FreeTube, please create an is
 
 * Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
 
-### Automated Builds (Nightly / Weekly)
+#### Automated Builds (Nightly / Weekly)
 Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
 
 The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
