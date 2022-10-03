@@ -6,23 +6,17 @@ FreeTube is an open source desktop YouTube player built with privacy in mind.
 Use YouTube without advertisements and prevent Google from tracking you with their cookies and JavaScript.
 Available for Windows, Mac & Linux thanks to Electron.
 
-Please note that FreeTube is currently in Beta. While it should work well for
-most users, there are still bugs and missing features that need to be
-addressed.
+<p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
 
-[Download FreeTube](https://github.com/FreeTubeApp/FreeTube/releases)
+<hr>
+<p align="center"><a href="#browser-extension">Browser Extension</a> &bull; <a href="#how-does-it-work">How does it work?</a> &bull; <a href="#screenshots">Screenshots</a> &bull; <a href="#features">Features</a> &bull; <a href="#download-links">Download Links</a> &bull; <a href="#contributing">Contributing</a> &bull; <a href="#localization">Localization</a> &bull; <a href="#contact">Contact</a> &bull; <a href="#donate">Donate</a> &bull; <a href="#license">License</a></p>
+<p align="center"><a href="https://freetubeapp.io/">Website</a> &bull; <a href="https://blog.freetubeapp.io/">Blog</a> &bull; <a href="https://docs.freetubeapp.io/">Documentation</a> &bull; <a href="https://docs.freetubeapp.io/faq/">FAQ</a> &bull; <a href="https://github.com/FreeTubeApp/FreeTube/discussions">Discussions</a></p>
+<hr>
 
-### Browser Extension
+<b>Please note that FreeTube is currently in Beta. While it should work well for most users, there are still bugs and missing features that need to be addressed. If u do encounter bugs, open an issue in our repository by filling out the [issue template](https://github.com/FreeTubeApp/FreeTube/issues/new/choose).</b>
 
-FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings for it to work.
-
-* Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
-
-* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
-
-Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/desktop-browsers/#additional-resources).
-
-If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
+## Screenshots
+<img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## How does it work?
 FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used.  FreeTube does not use any official APIs to obtain data.  While YouTube can still see your video requests, it can no
@@ -30,9 +24,6 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 to hide your IP while using FreeTube.
 
 Go to [FreeTube's Documentation](https://docs.freetubeapp.io/) if you'd like to know more about how to operate FreeTube and its features.
-
-## Screenshots
-<img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## Features
 * Watch videos without ads
@@ -45,6 +36,18 @@ Go to [FreeTube's Documentation](https://docs.freetubeapp.io/) if you'd like to 
 * Open videos from your browser directly into FreeTube (with extension)
 * Mini Player
 * Full Theme support
+
+### Browser Extension
+
+FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings for it to work.
+
+* Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
+
+* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
+
+Disclaimer: Learn more about why a browser extension is bad for your [privacy](https://www.privacyguides.org/desktop-browsers/#additional-resources).
+
+If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
 ## Download Links
 
