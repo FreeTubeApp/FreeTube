@@ -76,6 +76,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    let previousWidth = window.innerWidth
     if (window.innerWidth <= 680) {
       this.showSearchContainer = false
     }
@@ -88,7 +89,12 @@ export default Vue.extend({
     }, 0)
 
     window.addEventListener('resize', () => {
-      this.showSearchContainer = window.innerWidth > 680
+      // Don't change the status of showSearchContainer if only the height of the window changes
+      // Opening the virtual keyboard can trigger this resize event, but it won't change the width
+      if (previousWidth !== window.innerWidth) {
+        this.showSearchContainer = window.innerWidth > 680
+        previousWidth = window.innerWidth
+      }
     })
 
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
