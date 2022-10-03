@@ -80,6 +80,9 @@ Subscriptions:
     erzwingen
   Load More Videos: Mehr Videos laden
   Error Channels: Kanäle mit Fehlern
+  Disabled Automatic Fetching: Du hast den automatischen Abruf von Abonnements deaktiviert.
+    Aktualisiere die Abonnements, um sie hier zu sehen.
+  Empty Channels: Deine abonnierten Kanäle haben derzeit keine Videos.
 Trending:
   Trending: Trends
   Trending Tabs: Trendtabs
@@ -276,6 +279,7 @@ Settings:
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Fetch Feeds from RSS: Abrufen von RSS-Feeds
+    Fetch Automatically: Feed automatisch abrufen
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -383,6 +387,7 @@ Settings:
     Hide Video Description: Videobeschreibung verstecken
     Hide Live Streams: Livestreams ausblenden
     Hide Sharing Actions: Freigabe-Aktionen ausblenden
+    Hide Chapters: Kapitel ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -594,6 +599,7 @@ Video:
     Minutes: Minuten
     Minute: Minute
     Less than a minute: Weniger als einer Minute
+    In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
   Publicationtemplate: vor $ %
 
@@ -677,6 +683,7 @@ Video:
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
   Premieres in: Premieren in
+  Premieres: Premieren
 Videos:
   #& Sort By
   Sort By:
@@ -857,6 +864,9 @@ Tooltips:
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
       Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
       des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
+    Fetch Automatically: Wenn diese Option aktiviert ist, holt FreeTube automatisch
+      dein Abonnement-Feed, wenn ein neues Fenster geöffnet wird und wenn du das Profil
+      wechselst.
   Player Settings:
     Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
       bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
@@ -929,3 +939,13 @@ Channels:
   Unsubscribe: Abo entfernen
   Unsubscribed: $ wurde aus deinen Abonnements entfernt
   Unsubscribe Prompt: Bist du sicher, dass du „$“ aus dem Abos entfernen willst?
+Clipboard:
+  Copy failed: Kopieren in die Zwischenablage fehlgeschlagen
+  Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage
+    ist ohne sichere Verbindung nicht möglich
+Chapters:
+  Chapters: Kapitel
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste sichtbar,
+    aktuelles Kapitel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
+    aktuelles Kapitel: {chapterName}'
