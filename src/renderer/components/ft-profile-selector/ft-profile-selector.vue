@@ -4,6 +4,7 @@
       class="colorOption"
       :style="{ background: activeProfile.bgColor, color: activeProfile.textColor }"
       @click="toggleProfileList"
+      @mousedown="handleIconMouseDown"
     >
       <div
         class="initial"
@@ -12,8 +13,11 @@
       </div>
     </div>
     <ft-card
-      id="profileList"
+      v-show="profileListShown"
+      ref="profileList"
+      class="profileList"
       tabindex="-1"
+      @focusout="handleProfileListFocusOut"
     >
       <h3
         class="profileListTitle"
