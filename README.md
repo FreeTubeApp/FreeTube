@@ -86,7 +86,7 @@ Thank you very much to the [People and Projects](https://docs.freetubeapp.io/cre
 
 ## Localization
 <a href="https://hosted.weblate.org/engage/free-tube/">
-<img src="https://hosted.weblate.org/widgets/free-tube/-/translations/287x66-grey.png" alt="Translation status" />
+<img src="https://hosted.weblate.org/widgets/free-tube/-/287x66-grey.png" alt="Translation status" />
 </a>
 
 We are actively looking for translations!  We use [Weblate](https://hosted.weblate.org/engage/free-tube/) to make it easy for translators to get involved.  Click on the badge above to learn how to get involved.
