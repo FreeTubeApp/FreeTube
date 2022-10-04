@@ -38,6 +38,7 @@
         <RouterView
           ref="router"
           class="routerView"
+          @showOutlines="hideOutlines = false"
         />
       <!-- </keep-alive> -->
       </transition>
