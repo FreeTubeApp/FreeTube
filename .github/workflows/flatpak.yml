@@ -36,7 +36,7 @@ jobs:
     - name: Install xmlstarlet
       run: sudo apt -y install xmlstarlet
     - name: Create Version Variable
-      uses: bluwy/substitute-string-action@v1
+      uses: bluwy/substitute-string-action@v2
       id: sub
       with:
         _input-text: ${{ fromJson(steps.api_results.outputs.result).tag_name }}
