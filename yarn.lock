@@ -7843,10 +7843,10 @@ yauzl@^2.10.0:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
 
-youtube-suggest@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/youtube-suggest/-/youtube-suggest-1.1.2.tgz#3501a0df74cd12d900f8ee6a44a806c20d8a3ff6"
-  integrity sha512-U1CrSIDf9q4H7lx84YiAPfGyMLIXDmSlOLrwcXBkGJFEUodzrD+ZSYMEpJK5UNVWyzE73yxvwGtqrV0dbNQ6LA==
+youtube-suggest@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/youtube-suggest/-/youtube-suggest-1.2.0.tgz#5f1b445c2b71bfc8a4c89af99775b02cd827e77d"
+  integrity sha512-/ItW6204M+OOHaO4k5DYJGHH+UZjkaKNb7rtAWQaA6zeJvUu3tbveAsm+xTGH+8VfyT/LoAhN9/yOQajduDCJA==
   dependencies:
     node-fetch "^2.6.0"
     smol-jsonp "^1.0.0"
