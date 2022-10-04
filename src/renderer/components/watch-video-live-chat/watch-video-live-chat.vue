@@ -28,6 +28,7 @@
     </div>
     <div
       v-else-if="comments.length === 0"
+      ref="liveChatMessage"
       class="messageContainer liveChatMessage"
     >
       <p
@@ -48,7 +49,6 @@
         <div
           v-for="(comment, index) in superChatComments"
           :key="index"
-          :style="{ backgroundColor: 'var(--primary-color)' }"
           class="superChat"
           :class="comment.superchat.colorClass"
           @click="showSuperChatComment(comment)"
@@ -59,7 +59,6 @@
           >
           <p
             class="superChatContent"
-            :style="{ color: 'var(--text-with-main-color)' }"
           >
             <span
               class="donationAmount"
@@ -105,6 +104,7 @@
         </div>
       </div>
       <div
+        ref="liveChatComments"
         class="liveChatComments"
         :style="{ height: chatHeight }"
         @mousewheel="e => onScroll(e)"
@@ -143,7 +143,7 @@
               v-html="comment.messageHtml"
             />
           </div>
-          <div
+          <template
             v-else
           >
             <img
@@ -180,7 +180,7 @@
                 v-html="comment.messageHtml"
               />
             </p>
-          </div>
+          </template>
         </div>
       </div>
       <div

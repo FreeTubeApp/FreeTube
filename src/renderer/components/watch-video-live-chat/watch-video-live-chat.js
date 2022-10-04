@@ -5,7 +5,6 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
-import $ from 'jquery'
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
 
@@ -74,8 +73,13 @@ export default Vue.extend({
         return '445px'
       }
     },
+
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+
+    scrollingBehaviour: function () {
+      return this.$store.getters.getDisableSmoothScrolling ? 'auto' : 'smooth'
     }
   },
   created: function () {
@@ -146,6 +150,8 @@ export default Vue.extend({
       comment.messageHtml = ''
 
       comment.message.forEach((text) => {
+        if (typeof text === 'undefined') return
+
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
@@ -154,7 +160,7 @@ export default Vue.extend({
             comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
           }
         } else if (typeof (text.alt) !== 'undefined') {
-          const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="24" width="24" />`
+          const htmlImg = `<img src="${text.url}" alt="${text.alt}" class="liveChatEmoji" height="24" width="24" />`
           comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlImg
         } else {
           comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
@@ -163,10 +169,7 @@ export default Vue.extend({
 
       comment.messageHtml = autolinker.link(comment.messageHtml)
 
-      const liveChatComments = $('.liveChatComments')
-      const liveChatMessage = $('.liveChatMessage')
-
-      if (typeof (liveChatComments.get(0)) === 'undefined' && typeof (liveChatMessage.get(0)) === 'undefined') {
+      if (typeof this.$refs.liveChatComments === 'undefined' && typeof this.$refs.liveChatMessage === 'undefined') {
         console.error("Can't find chat object.  Stopping chat connection")
         this.liveChat.stop()
         return
@@ -202,7 +205,12 @@ export default Vue.extend({
       }
 
       if (this.stayAtBottom) {
-        liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+        setTimeout(() => {
+          this.$refs.liveChatComments?.scrollTo({
+            top: this.$refs.liveChatComments.scrollHeight,
+            behavior: this.scrollingBehaviour
+          })
+        })
       }
 
       if (this.comments.length > 150 && this.stayAtBottom) {
@@ -226,9 +234,8 @@ export default Vue.extend({
     },
 
     onScroll: function (event) {
-      const liveChatComments = $('.liveChatComments').get(0)
+      const liveChatComments = this.$refs.liveChatComments
       if (event.wheelDelta >= 0 && this.stayAtBottom) {
-        $('.liveChatComments').data('animating', 0)
         this.stayAtBottom = false
 
         if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
@@ -242,8 +249,10 @@ export default Vue.extend({
     },
 
     scrollToBottom: function () {
-      const liveChatComments = $('.liveChatComments')
-      liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      this.$refs.liveChatComments.scrollTo({
+        top: this.$refs.liveChatComments.scrollHeight,
+        behavior: this.scrollingBehaviour
+      })
       this.stayAtBottom = true
       this.showScrollToBottom = false
     },
