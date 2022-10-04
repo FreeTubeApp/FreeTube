@@ -36,7 +36,12 @@ to hide your IP while using FreeTube.
 * Open videos from your browser directly into FreeTube (with extension)
 * Mini Player
 * Full Theme support
-* Chapters
+* Youtube Chapters
+* Watch videos using iina, mpv or VLC as external player
+* Show family friendly only content
+* SponsorBlock 
+* Make a screenshot within the app
+* Set tor as proxy
 
 ### Browser Extension
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings of the extension for it to work.
