@@ -30,18 +30,28 @@ to hide your IP while using FreeTube.
 * Use YouTube without Google tracking you using cookies and JavaScript
 * Two extractor APIs to choose from (Built in or Invidious)
 * Subscribe to channels without an account
-* Local subscriptions, history, and saved videos
+* Setup tor as proxy
+* View and search your local subscriptions, history, and saved videos
 * Organize your subscriptions into "Profiles" to create a more focused feed
 * Export & import subscriptions
-* Open videos from your browser directly into FreeTube (with extension)
-* Mini Player
-* Full Theme support
+* Browse videos within a channel
+* Youtube Trending
 * Youtube Chapters
-* Watch videos using iina, mpv or VLC as external player
-* Show family friendly only content
+* Most popular videos page based on the set Invidious instance
 * SponsorBlock 
+* Open videos from your browser directly into FreeTube (with extension)
+* Watch videos using iina, mpv or VLC as external player
+* Full Theme support
 * Make a screenshot within the app
-* Set tor as proxy
+* Multiple windows
+* Mini Player (Picture-in-Picture)
+* Keyboard shortcuts
+* Show family friendly only content
+* Show/hide general information about videos (such as description and likes)
+* Show/hide next/related videos
+* Show/hide comments
+* Show/hide live streams
+* Show/hide live chat 
 
 ### Browser Extension
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings of the extension for it to work.
