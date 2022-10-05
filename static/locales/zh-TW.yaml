@@ -75,6 +75,8 @@ Subscriptions:
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
+  Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
+  Empty Channels: 您訂閱的頻道目前沒有任何影片。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -259,6 +261,7 @@ Settings:
     Export Subscriptions: '導出訂閱'
     How do I import my subscriptions?: '如何導入我的訂閱？'
     Fetch Feeds from RSS: 從RSS擷取推送
+    Fetch Automatically: 自動擷取 Feed
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -754,6 +757,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
       IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
+    Fetch Automatically: 啟用後，FreeTube 在開啟新視窗與切換設定檔時，將會自動擷取您的訂閱 feed。
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
