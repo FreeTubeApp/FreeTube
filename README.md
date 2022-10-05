@@ -34,13 +34,12 @@ to hide your IP while using FreeTube.
 * View and search your local subscriptions, history, and saved videos
 * Organize your subscriptions into "Profiles" to create a more focused feed
 * Export & import subscriptions
-* Browse videos within a channel
 * Youtube Trending
 * Youtube Chapters
 * Most popular videos page based on the set Invidious instance
 * SponsorBlock 
 * Open videos from your browser directly into FreeTube (with extension)
-* Watch videos using iina, mpv or VLC as external player
+* Watch videos using an external player
 * Full Theme support
 * Make a screenshot within the app
 * Multiple windows
