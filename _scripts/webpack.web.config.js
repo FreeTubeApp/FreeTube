@@ -150,7 +150,7 @@ const config = {
       static: path.join(__dirname, '../static/'),
     },
     fallback: {
-      buffer: require.resolve('browserify/node_modules/buffer/'),
+      buffer: require.resolve('buffer/'),
       dns: require.resolve('browserify/lib/_empty.js'),
       fs: require.resolve('browserify/lib/_empty.js'),
       http: require.resolve('stream-http'),
