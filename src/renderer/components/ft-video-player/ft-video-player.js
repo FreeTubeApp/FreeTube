@@ -2,7 +2,6 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 
-import $ from 'jquery'
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
 import fs from 'fs'
@@ -302,8 +301,6 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.id = this._uid
-
     const volume = sessionStorage.getItem('volume')
 
     if (volume !== null) {
@@ -348,14 +345,13 @@ export default Vue.extend({
   },
   methods: {
     initializePlayer: async function () {
-      const videoPlayer = document.getElementById(this.id)
-      if (videoPlayer !== null) {
+      if (typeof this.$refs.video !== 'undefined') {
         if (!this.useDash) {
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
           await this.determineDefaultQualityLegacy()
         }
 
-        this.player = videojs(videoPlayer, {
+        this.player = videojs(this.$refs.video, {
           html5: {
             preloadTextTracks: false,
             vhs: {
@@ -957,14 +953,13 @@ export default Vue.extend({
         this.selectedMimeType = 'auto'
       }
 
-      const qualityItems = $('.quality-item').get()
-
-      $('.quality-item').removeClass('quality-selected')
+      const qualityItems = document.querySelectorAll('.quality-item')
 
       qualityItems.forEach((item) => {
-        const qualityText = $(item).find('.vjs-menu-item-text').get(0)
+        item.classList.remove('quality-selected')
+        const qualityText = item.querySelector('.vjs-menu-item-text')
         if (qualityText.innerText === selectedQuality.toLowerCase()) {
-          $(item).addClass('quality-selected')
+          item.classList.add('quality-selected')
         }
       })
 
@@ -1182,6 +1177,8 @@ export default Vue.extend({
     },
 
     toggleVideoLoop: async function () {
+      const loopButton = document.getElementById('loopButton')
+
       if (!this.player.loop()) {
         const currentTheme = this.$store.state.settings.mainColor
         const colorNames = this.$store.state.utils.colorNames
@@ -1193,18 +1190,18 @@ export default Vue.extend({
 
         const themeTextColor = await this.calculateColorLuminance(colorValues[nameIndex])
 
-        $('#loopButton').addClass('vjs-icon-loop-active')
+        loopButton.classList.add('vjs-icon-loop-active')
 
         if (themeTextColor === '#000000') {
-          $('#loopButton').addClass('loop-black')
-          $('#loopButton').removeClass('loop-white')
+          loopButton.classList.add('loop-black')
+          loopButton.classList.remove('loop-white')
         }
 
         this.player.loop(true)
       } else {
-        $('#loopButton').removeClass('vjs-icon-loop-active')
-        $('#loopButton').removeClass('loop-black')
-        $('#loopButton').addClass('loop-white')
+        loopButton.classList.remove('vjs-icon-loop-active')
+        loopButton.classList.remove('loop-black')
+        loopButton.classList.add('loop-white')
         this.player.loop(false)
       }
     },
@@ -1269,11 +1266,11 @@ export default Vue.extend({
 
     toggleTheatreMode: function() {
       if (!this.player.isFullscreen_) {
-        const toggleTheatreModeButton = $('#toggleTheatreModeButton')
+        const toggleTheatreModeButton = document.getElementById('toggleTheatreModeButton')
         if (!this.$parent.useTheatreMode) {
-          toggleTheatreModeButton.addClass('vjs-icon-theatre-active')
+          toggleTheatreModeButton.classList.add('vjs-icon-theatre-active')
         } else {
-          toggleTheatreModeButton.removeClass('vjs-icon-theatre-active')
+          toggleTheatreModeButton.classList.remove('vjs-icon-theatre-active')
         }
       }
 
@@ -1608,8 +1605,8 @@ export default Vue.extend({
           this.player.removeClass('vjs-full-screen')
           this.player.isFullWindow = false
           document.documentElement.style.overflow = this.player.docOrigOverflow
-          $('body').removeClass('vjs-full-window')
-          $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+          document.body.classList.remove('vjs-full-window')
+          document.getElementById('fullwindow').classList.remove('vjs-icon-fullwindow-exit')
           this.player.trigger('exitFullWindow')
         } else {
           this.player.addClass('vjs-full-screen')
@@ -1617,8 +1614,8 @@ export default Vue.extend({
           this.player.isFullWindow = true
           this.player.docOrigOverflow = document.documentElement.style.overflow
           document.documentElement.style.overflow = 'hidden'
-          $('body').addClass('vjs-full-window')
-          $('#fullwindow').addClass('vjs-icon-fullwindow-exit')
+          document.body.classList.add('vjs-full-window')
+          document.getElementById('fullwindow').classList.add('vjs-icon-fullwindow-exit')
           this.player.trigger('enterFullWindow')
         }
       }
@@ -1629,8 +1626,8 @@ export default Vue.extend({
         this.player.isFullWindow = false
         document.documentElement.style.overflow = this.player.docOrigOverflow
         this.player.removeClass('vjs-full-screen')
-        $('body').removeClass('vjs-full-window')
-        $('#fullwindow').removeClass('vjs-icon-fullwindow-exit')
+        document.body.classList.remove('vjs-full-window')
+        document.getElementById('fullwindow').classList.remove('vjs-icon-fullwindow-exit')
         this.player.trigger('exitFullWindow')
       }
     },
@@ -1644,16 +1641,11 @@ export default Vue.extend({
     },
 
     hideMouseTimeout: function () {
-      if (this.id === '') {
-        return
-      }
-
-      const videoPlayer = $(`#${this.id} video`).get(0)
-      if (typeof (videoPlayer) !== 'undefined') {
-        videoPlayer.style.cursor = 'default'
+      if (typeof this.$refs.video !== 'undefined') {
+        this.$refs.video.style.cursor = 'default'
         clearTimeout(this.mouseTimeout)
-        this.mouseTimeout = window.setTimeout(function () {
-          videoPlayer.style.cursor = 'none'
+        this.mouseTimeout = setTimeout(() => {
+          this.$refs.video.style.cursor = 'none'
         }, 2650)
       }
     },
@@ -1694,9 +1686,9 @@ export default Vue.extend({
 
     toggleFullscreenClass: function () {
       if (this.player.isFullscreen()) {
-        $('body').addClass('vjs--full-screen-enabled')
+        document.body.classList.add('vjs--full-screen-enabled')
       } else {
-        $('body').removeClass('vjs--full-screen-enabled')
+        document.body.classList.remove('vjs--full-screen-enabled')
       }
     },
 
