@@ -46,11 +46,7 @@ to hide your IP while using FreeTube.
 * Mini Player (Picture-in-Picture)
 * Keyboard shortcuts
 * Show family friendly only content
-* Show/hide general information about videos (such as description and likes)
-* Show/hide next/related videos
-* Show/hide comments
-* Show/hide live streams
-* Show/hide live chat 
+* Show/hide functionality or elements within the app using the distraction free settings
 
 ### Browser Extension
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings of the extension for it to work.
