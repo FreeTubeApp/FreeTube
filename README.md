@@ -41,7 +41,7 @@ to hide your IP while using FreeTube.
 * Open videos from your browser directly into FreeTube (with extension)
 * Watch videos using an external player
 * Full Theme support
-* Make a screenshot within the app
+* Make a screenshot of a video
 * Multiple windows
 * Mini Player (Picture-in-Picture)
 * Keyboard shortcuts
