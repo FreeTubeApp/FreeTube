@@ -1282,14 +1282,14 @@
   resolved "https://registry.yarnpkg.com/@seald-io/binary-search-tree/-/binary-search-tree-1.0.2.tgz#9f0e5cec5e0acf97f1b495f2f6d3476ddb6a94ed"
   integrity sha512-+pYGvPFAk7wUR+ONMOlc6A+LUN4kOCFwyPLjyaeS7wVibADPHWYJNYsNtyIAwjF1AXQkuaXElnIc4XjKt55QZA==
 
-"@seald-io/nedb@^2.2.0":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@seald-io/nedb/-/nedb-2.2.2.tgz#8036ec9c9a37e278f2d3113b1d57b64d3fab821e"
-  integrity sha512-z91J3pem4ENzHuu9BilOSdlGL2S14OQYePPdvBcPHgHr+s51VIUwQARcOjx21KvtkA27vEpgPqzrVKh7nSlIfw==
+"@seald-io/nedb@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@seald-io/nedb/-/nedb-3.1.0.tgz#6105345a18596f6f9d69f46d7f572efdae32af8e"
+  integrity sha512-5G0hCQGJjOelOutvW1l4VD581XMhTPxpj1BUaCWTEM2MPXR9TzIr0MKMnEjnTA5nEKfujPyvVW7iF3etm1/gKQ==
   dependencies:
     "@seald-io/binary-search-tree" "^1.0.2"
-    async "0.2.10"
     localforage "^1.9.0"
+    util "^0.12.4"
 
 "@silvermine/videojs-quality-selector@^1.2.5":
   version "1.2.5"
@@ -2059,11 +2059,6 @@ async-exit-hook@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/async-exit-hook/-/async-exit-hook-2.0.1.tgz#8bd8b024b0ec9b1c01cccb9af9db29bd717dfaf3"
   integrity sha512-NW2cX8m1Q7KPA7a5M2ULQeZ2wR5qI5PAbw5L0UOMxdioVk9PMZ0h1TmyZEkPYrCvYjDlFICusOu1dlEKAAeXBw==
-
-async@0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
-  integrity sha1-trvgsGdLnXGXCMo43owjfLUmw9E=
 
 async@^3.2.3:
   version "3.2.3"
@@ -5972,12 +5967,12 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-nedb-promises@^5.0.1:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/nedb-promises/-/nedb-promises-5.0.3.tgz#569af2860ff4c269f03582518a89827bdaf40bbe"
-  integrity sha512-hqQZi/T3dMJXQraFohVdatNX1uPDTGuVrqMiEnwA0dJxlC90xctOFG+jeUzPy9hYQGqCV+CpkSBkvUvTJdUApQ==
+nedb-promises@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/nedb-promises/-/nedb-promises-6.2.1.tgz#5280a32fb9c9996e77a93195f595860f88e8454a"
+  integrity sha512-vurL/Hfsk37mbsjYTu+MKnMUytboKBjWWEA0N35ArCBMdDW5x2BAE7Xny4qnlpR90ZuaI8gdWbbGQ2ZoJSp/FQ==
   dependencies:
-    "@seald-io/nedb" "^2.2.0"
+    "@seald-io/nedb" "^3.1.0"
 
 negotiator@0.6.3:
   version "0.6.3"
@@ -8250,7 +8245,7 @@ util@0.10.3:
   dependencies:
     inherits "2.0.1"
 
-util@~0.12.0:
+util@^0.12.4, util@~0.12.0:
   version "0.12.4"
   resolved "https://registry.yarnpkg.com/util/-/util-0.12.4.tgz#66121a31420df8f01ca0c464be15dfa1d1850253"
   integrity sha512-bxZ9qtSlGUWSOy9Qa9Xgk11kSslpuZwaxCg4sNIDj6FLucDab2JxnHwyNTCpHMtK1MjoQiWQ6DiUMZYbSrO+Sw==
