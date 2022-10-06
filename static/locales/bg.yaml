@@ -85,6 +85,9 @@ Subscriptions:
     на ограниченията
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
+  Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано.
+    Обновете абонаментите, за да ги видите тук.
+  Empty Channels: Каналите, за които сте абонирани, в момента нямат никакви видеа.
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
@@ -290,8 +293,9 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
-    Fetch Feeds from RSS: 'Изтегляне на съдържания през RSS'
+    Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Manage Subscriptions: 'Управление на абонаменти'
+    Fetch Automatically: Автоматично извличане на съдържание
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -380,6 +384,7 @@ Settings:
     Hide Comments: Скриване на коментари
     Hide Sharing Actions: Скриване на действията за споделяне
     Hide Live Streams: Скриване на предавания на живо
+    Hide Chapters: Скриване на главите
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -635,6 +640,7 @@ Video:
     Ago: 'преди'
     Upcoming: 'Премиера на'
     Less than a minute: По-малко от минута
+    In less than a minute: След по-малко от минута
   Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Преди $ %'
@@ -705,6 +711,7 @@ Video:
       за наследени видеоклипове
   Premieres on: Премиера на
   Premieres in: Премиери в
+  Premieres: Премиери
 Videos:
   #& Sort By
   Sort By:
@@ -811,6 +818,8 @@ Tooltips:
       получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
       IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
       или дали е на живо
+    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при отваряне
+      на нов прозорец и при смяна на профила.
   Player Settings:
     Default Video Format: Настройка на използваните формати. DASH форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
@@ -900,3 +909,13 @@ Channels:
   Channels: Канали
   Title: Списък с канали
   Empty: Списъкът с канали в момента е празен.
+Clipboard:
+  Cannot access clipboard without a secure connection: Не може да се получи достъп
+    до клипборда без защитена връзка
+  Copy failed: Неуспешно копиране в клипборда
+Chapters:
+  Chapters: Глави
+  'Chapters list visible, current chapter: {chapterName}': 'Списъкът с глави се вижда,
+    текуща глава: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
+    текуща глава: {chapterName}'
