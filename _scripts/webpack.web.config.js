@@ -15,13 +15,16 @@ const isDevMode = process.env.NODE_ENV === 'development'
 const config = {
   name: 'web',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     web: path.join(__dirname, '../src/renderer/main.js'),
   },
   output: {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
+  },
+  externals: {
+    electron: '{}'
   },
   module: {
     rules: [
@@ -113,18 +116,17 @@ const config = {
     ]
   },
   node: {
-    __dirname: isDevMode,
+    __dirname: true,
     __filename: isDevMode,
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-    dns: 'empty'
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.PRODUCT_NAME': JSON.stringify(productName),
       'process.env.IS_ELECTRON': false
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+      Buffer: ['buffer', 'Buffer'],
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -146,6 +148,20 @@ const config = {
       icons: path.join(__dirname, '../_icons/'),
       images: path.join(__dirname, '../src/renderer/assets/img/'),
       static: path.join(__dirname, '../static/'),
+    },
+    fallback: {
+      buffer: require.resolve('buffer/'),
+      dns: require.resolve('browserify/lib/_empty.js'),
+      fs: require.resolve('browserify/lib/_empty.js'),
+      http: require.resolve('stream-http'),
+      https: require.resolve('https-browserify'),
+      net: require.resolve('browserify/lib/_empty.js'),
+      os: require.resolve('os-browserify/browser.js'),
+      path: require.resolve('path-browserify'),
+      stream: require.resolve('stream-browserify'),
+      timers: require.resolve('timers-browserify'),
+      tls: require.resolve('browserify/lib/_empty.js'),
+      vm: require.resolve('vm-browserify')
     },
     extensions: ['.js', '.vue', '.json', '.css'],
   },
