@@ -45,7 +45,7 @@ to hide your IP while using FreeTube.
 * Multiple windows
 * Mini Player (Picture-in-Picture)
 * Keyboard shortcuts
-* Show family friendly only content
+* Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
 
 ### Browser Extension
