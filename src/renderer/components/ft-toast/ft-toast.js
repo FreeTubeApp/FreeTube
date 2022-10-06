@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtToastEvents from './ft-toast-events.js'
+import { setImmediate } from 'timers'
 
 export default Vue.extend({
   name: 'FtToast',
