@@ -673,7 +673,7 @@ Video:
     OpeningTemplate: Otevřít $ v %...
     video: video
     OpenInTemplate: Otevřít v $
-  Premieres on: Premiéry zapnuty
+  Premieres on: Premiéra
   Stats:
     Mimetype: Typ int. média
     Video statistics are not available for legacy videos: Statistiky videí nejsou
@@ -748,7 +748,7 @@ Comments:
   Click to View Comments: 'Kliknutím zobrazíte komentáře'
   Getting comment replies, please wait: 'Dostáváte odpovědi na komentář, počkejte
     prosím'
-  There are no more comments for this video: 'K tomuto videu nejsou žádné další komentáře'
+  There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
   Show Comments: 'Zobrazit komentáře'
   Hide Comments: 'Skrýt komentáře'
   Sort by: 'Seřadit podle'
