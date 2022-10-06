@@ -30,7 +30,7 @@ to hide your IP while using FreeTube.
 * Use YouTube without Google tracking you using cookies and JavaScript
 * Two extractor APIs to choose from (Built in or Invidious)
 * Subscribe to channels without an account
-* Setup tor as proxy
+* Connect to an externally setup tor proxy
 * View and search your local subscriptions, history, and saved videos
 * Organize your subscriptions into "Profiles" to create a more focused feed
 * Export & import subscriptions
