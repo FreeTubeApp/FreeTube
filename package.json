@@ -58,7 +58,6 @@
     "electron-context-menu": "^3.5.0",
     "http-proxy-agent": "^4.0.1",
     "https-proxy-agent": "^5.0.0",
-    "jquery": "^3.6.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "marked": "^4.0.17",
