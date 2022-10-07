@@ -57,6 +57,20 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 
 If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
 
+The following builds are supported:
+
+* .deb
+
+* .dmg
+
+* .exe
+
+* Flatpak
+
+* Portable (Windows only)
+
+* .rpm
+
 ## Download Links
 ### Official Downloads
 * [GitHub Releases](https://github.com/FreeTubeApp/FreeTube/releases)
