@@ -75,6 +75,8 @@ Subscriptions:
     RSS を使用します
   Load More Videos: もっと見る
   Error Channels: エラーが発生したチャンネル
+  Disabled Automatic Fetching: サブスクリプションの自動取得を無効にしました。サブスクリプションを更新して、ここで確認します。
+  Empty Channels: 現在、チャンネル登録しているチャンネルには動画がありません。
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -258,6 +260,7 @@ Settings:
     Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
     Fetch Feeds from RSS: RSS から情報取得
+    Fetch Automatically: フィードを自動的に取得する
   Advanced Settings:
     Advanced Settings: '詳細設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
@@ -346,6 +349,7 @@ Settings:
     Hide Comments: コメントの非表示
     Hide Live Streams: ライブ配信の非表示
     Hide Sharing Actions: 共有の非表示
+    Hide Chapters: チャプターの非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -528,6 +532,7 @@ Video:
     Minutes: 分
     Minute: 分
     Less than a minute: 1分以内
+    In less than a minute: 1 分以内に
   Published on: '公開日'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 前'
@@ -607,6 +612,7 @@ Video:
     Bandwidth: 帯域幅
     Dropped / Total Frames: ドロップ率 / 総フレーム数
   Premieres in: 配信開始まで
+  Premieres: プレミア
 Videos:
   #& Sort By
   Sort By:
@@ -745,6 +751,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると,、FreeTube は、登録チャンネルの情報を、通常の方法の代わりに RSS から取得します。RSS
       は高速であり IP 制限も回避できますが、動画の長さやライブ配信の状態などの詳細情報は提供されていません
+    Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、サブスクリプション
+      フィードを自動的に取得します。
   Player Settings:
     Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
     Force Local Backend for Legacy Formats: Invidious API の選択時にのみ実行します。有効にすると、Invidious
@@ -804,3 +812,12 @@ Channels:
 Screenshot Success: スクリーンショットを「$」として保存しました
 Screenshot Error: スクリーンショットに失敗しました。$
 New Window: 新しいウィンドウ
+Clipboard:
+  Copy failed: クリップボードにコピーできませんでした
+  Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
+Chapters:
+  Chapters: チャプター
+  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター:
+    {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター:
+    {chapterName}'
