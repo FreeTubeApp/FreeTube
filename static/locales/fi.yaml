@@ -76,6 +76,7 @@ Subscriptions:
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
+  Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -269,6 +270,7 @@ Settings:
     Export Subscriptions: 'Vie tilauksia'
     How do I import my subscriptions?: 'Miten voin tuoda tilaukseni?'
     Fetch Feeds from RSS: Nouda RSS-syöte
+    Fetch Automatically: Nouda syöte automaattisesti
   Advanced Settings:
     Advanced Settings: 'Lisäasetukset'
     Enable Debug Mode (Prints data to the console): 'Ota virheenkorjaustila käyttöön
@@ -371,6 +373,7 @@ Settings:
     Hide Video Description: Piilota videon kuvaus
     Hide Live Streams: Piilota suorat lähetykset
     Hide Sharing Actions: Piilota jakamistoiminnot
+    Hide Chapters: Piilota kappaleet
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -564,6 +567,7 @@ Video:
     Minutes: Minuuttia
     Minute: Minuutti
     Less than a minute: Vähemmän kuin minuutti
+    In less than a minute: Alle minuutin kuluessa
   Published on: 'Julkaistu'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % sitten'
@@ -876,3 +880,5 @@ Channels:
   Unsubscribe: Peruuta tilaus
   Unsubscribe Prompt: Oletko varma että haluat peruuttaa tilauksen kanavalle ”$”?
   Unsubscribed: $ on poistettu tilauksistasi
+Clipboard:
+  Copy failed: Kopiointi leikepöydälle epäonnistui
