@@ -38,6 +38,8 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-unused-vars': 'warn',
     'no-undef': 'warn',
-    'vue/no-template-key': 'warn'
+    'vue/no-template-key': 'warn',
+    'vue/no-useless-template-attributes': 'off',
+    'vue/multi-word-component-names': 'off'
   }
 }
