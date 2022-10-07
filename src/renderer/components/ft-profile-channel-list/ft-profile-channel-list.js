@@ -49,8 +49,7 @@ export default Vue.extend({
       return this.$store.getters.getProfileList
     },
     selectedText: function () {
-      const localeText = this.$t('Profile.$ selected')
-      return localeText.replace('$', this.selectedLength)
+      return this.$t('Profile.{number} selected', { number: this.selectedLength })
     },
     deletePromptMessage: function () {
       if (this.isMainProfile) {

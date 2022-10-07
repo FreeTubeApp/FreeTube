@@ -1344,7 +1344,7 @@ export default Vue.extend({
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
         this.showToast({
-          message: this.$t('Screenshot Error').replace('$', err.message)
+          message: this.$t('Screenshot Error', { error: err.message })
         })
         canvas.remove()
         return
@@ -1412,7 +1412,7 @@ export default Vue.extend({
           } catch (err) {
             console.error(err)
             this.showToast({
-              message: this.$t('Screenshot Error').replace('$', err)
+              message: this.$t('Screenshot Error', { error: err })
             })
             canvas.remove()
             return
@@ -1429,11 +1429,11 @@ export default Vue.extend({
             if (err) {
               console.error(err)
               this.showToast({
-                message: this.$t('Screenshot Error').replace('$', err)
+                message: this.$t('Screenshot Error', { error: err })
               })
             } else {
               this.showToast({
-                message: this.$t('Screenshot Success').replace('$', filePath)
+                message: this.$t('Screenshot Success', { filePath })
               })
             }
           })

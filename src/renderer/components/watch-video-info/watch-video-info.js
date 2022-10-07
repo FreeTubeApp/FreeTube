@@ -318,7 +318,6 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -387,9 +386,8 @@ export default Vue.extend({
           })
 
           if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
             this.showToast({
-              message: message.replace('$', duplicateSubscriptions)
+              message: this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
             })
           }
         }

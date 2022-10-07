@@ -265,7 +265,6 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -394,10 +393,6 @@ export default Vue.extend({
         // produces a string according to the template in the locales string
         this.toLocalePublicationString({
           publishText: this.publishedText,
-          templateString: this.$t('Video.Publicationtemplate'),
-          timeStrings: this.$t('Video.Published'),
-          liveStreamString: this.$t('Video.Watching'),
-          upcomingString: this.$t('Video.Published.Upcoming'),
           isLive: this.isLive,
           isUpcoming: this.isUpcoming,
           isRSS: this.data.isRSS

@@ -97,7 +97,7 @@
         />
         <ft-icon-button
           v-if="externalPlayer !== ''"
-          :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
+          :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
           :icon="['fas', 'external-link-alt']"
           class="option"
           theme="secondary"

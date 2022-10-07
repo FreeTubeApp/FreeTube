@@ -1013,7 +1013,7 @@ export default Vue.extend({
         const objectKeys = Object.keys(playlistObject)
 
         if ((objectKeys.length < requiredKeys.length) || playlistObject.videos.length === 0) {
-          const message = this.$t('Settings.Data Settings.Playlist insufficient data').replace('$', playlistData.playlistName)
+          const message = this.$t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
           this.showToast({
             message: message
           })
