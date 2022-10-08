@@ -13,6 +13,7 @@ import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
 
 import { IpcChannels } from '../../../constants'
+import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -547,32 +548,30 @@ export default Vue.extend({
     },
 
     initializeSponsorBlock() {
-      this.sponsorBlockSkipSegments({
-        videoId: this.videoId,
-        categories: this.sponsorSkips.seekBar
-      }).then((skipSegments) => {
-        if (skipSegments.length === 0) {
-          return
-        }
+      sponsorBlockSkipSegments(this.videoId, this.sponsorSkips.seekBar)
+        .then((skipSegments) => {
+          if (skipSegments.length === 0) {
+            return
+          }
 
-        this.player.ready(() => {
-          this.player.on('timeupdate', () => {
-            this.skipSponsorBlocks(skipSegments)
-          })
+          this.player.ready(() => {
+            this.player.on('timeupdate', () => {
+              this.skipSponsorBlocks(skipSegments)
+            })
 
-          skipSegments.forEach(({
-            category,
-            segment: [startTime, endTime]
-          }) => {
-            this.addSponsorBlockMarker({
-              time: startTime,
-              duration: endTime - startTime,
-              color: 'var(--primary-color)',
-              category: category
+            skipSegments.forEach(({
+              category,
+              segment: [startTime, endTime]
+            }) => {
+              this.addSponsorBlockMarker({
+                time: startTime,
+                duration: endTime - startTime,
+                color: 'var(--primary-color)',
+                category: category
+              })
             })
           })
         })
-      })
     },
 
     skipSponsorBlocks(skipSegments) {
@@ -1927,7 +1926,6 @@ export default Vue.extend({
       'calculateColorLuminance',
       'updateDefaultCaptionSettings',
       'showToast',
-      'sponsorBlockSkipSegments',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
       'getPicturesPath',
