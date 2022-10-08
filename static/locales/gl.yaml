@@ -83,6 +83,10 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
   Refresh Subscriptions: 'Actualizar subscricións'
   Load More Videos: 'Cargar máis vídeos'
+  Error Channels: Canles con erros
+  Disabled Automatic Fetching: Desactivaches a obtención automática de subscricións.
+    Actualiza as subscricións para velos aquí.
+  Empty Channels: As túas canles subscritas actualmente non teñen ningún vídeo.
 Trending:
   Trending: 'Tendencias'
 Most Popular: 'Máis populares'
@@ -576,12 +580,12 @@ Video:
     video: vídeo
     OpenInTemplate: Aberto en $
   Sponsor Block category:
-    music offtopic: música fóra de tema
-    interaction: interacción
-    self-promotion: autopromoción
-    outro: outro
-    intro: intro
-    sponsor: patrocinador
+    music offtopic: Música Offtopic
+    interaction: Interacción
+    self-promotion: Autopromoción
+    outro: Outro
+    intro: Intro
+    sponsor: Patrocinador
   Skipped segment: Segmento omitido
   translated from English: traducido do inglés
   Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
@@ -672,9 +676,8 @@ Tooltips:
       FreeTube tentará utilizar a API secundaria automaticamente se é habilitado'
     Thumbnail Preference: 'Tódalas miniaturas en FreeTube serán remplazadas cunha
       imaxe do vídeo no canto da miniatura predeterminada'
-    Invidious Instance: 'A instancia de Invidious á que FreeTube se conectará para
-      as chamadas API. Limpa a instancia actual para veres unha listaxe de instancias
-      públicas'
+    Invidious Instance: 'A instancia de Invidious á que se conectará FreeTube para
+      as chamadas da aplicacion.'
     Region for Trending: 'A rexión das tendencias permíteche escoller os vídeos máis
       populares nun Estado. Non tódolos Estados que se amosan están soportados por
       YouTube.'
@@ -708,9 +711,9 @@ Tooltips:
     Custom External Player Executable: Por defecto, FreeTube asumirá que o reprodutor
       externo elixido pode atoparse a través da variable de entorno PATH. Se é necesario,
       pódese establecer un camiño personalizado aquí.
-    External Player: Se escolle un reprodutor externo, amosarase unha icona para abrir
-      o vídeo (unha lista de reprodución se é compatible) no reprodutor externo, na
-      miniatura.
+    External Player: Ao escoller un reprodutor externo, aparecerá unha icona para
+      abrilo vídeo (lista de reprodución se é compatible) no reprodutor externo, na
+      miniatura. Aviso, a configuración de Invidious non afecta aos reprodutores externos.
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
@@ -744,3 +747,14 @@ Unknown YouTube url type, cannot be opened in app: O tipo de URL de YouTube desc
   non se pode abrir no aplicativo
 More: Máis
 Open New Window: Abrir nova xanela
+New Window: Nova ventá
+Channels:
+  Channels: Canles
+  Title: Lista de canles
+  Search bar placeholder: Busca canles
+  Count: $ canles atopadas.
+  Empty: A túa lista de canles atopase baleira.
+  Unsubscribe: Cancelar a subscrición
+Search Bar:
+  Clear Input: Borrar entrada
+Are you sure you want to open this link?: Estás seguro de que queres abrir esta ligazón?
