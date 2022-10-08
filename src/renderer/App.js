@@ -320,7 +320,7 @@ export default Vue.extend({
     },
 
     openAllLinksExternally: function () {
-      const isExternalLink = (event) => event.target.tagName === 'A' && event.target.href.startsWith('http')
+      const isExternalLink = (event) => event.target.tagName === 'A' && !event.target.href.startsWith(window.location.origin)
 
       document.addEventListener('click', (event) => {
         if (isExternalLink(event)) {
