@@ -484,7 +484,9 @@ export default Vue.extend({
       switch (event.key) {
         case 'r':
         case 'R':
-          this.getSubscriptions()
+          if (!this.isLoading) {
+            this.getSubscriptions()
+          }
           break
       }
     },

@@ -69,7 +69,9 @@ export default Vue.extend({
       switch (event.key) {
         case 'r':
         case 'R':
-          this.fetchPopularInfo()
+          if (!this.isLoading) {
+            this.fetchPopularInfo()
+          }
           break
       }
     },
