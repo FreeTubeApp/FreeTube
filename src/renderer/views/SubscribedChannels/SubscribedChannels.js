@@ -160,7 +160,7 @@ export default Vue.extend({
 
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
-      if (new URL(originalURL).hostname.endsWith('ggpht.com')) {
+      if (new URL(originalURL).hostname === 'yt3.ggpht.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
           newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht/$1`)
         }
