@@ -6,8 +6,12 @@
   &[open]
     padding-bottom: 15px
 
-  @media only screen and (max-width: 680px)
-    width: 90%
+  > div
+    width: 100%
+    padding: 0px 20px
+    box-sizing: border-box
+    @media only screen and (max-width: 800px)
+      margin-bottom: 20px
 
 .sectionLine
   width: 100%
@@ -30,7 +34,7 @@
   justify-content: space-evenly
   align-items: center
 
-  @media only screen and (max-width: 680px)
+  @media only screen and (max-width: 800px)
     grid-template-columns: auto
 
 :deep(.switchColumnGrid)
@@ -52,3 +56,7 @@
 @media only screen and (max-width: 500px)
   :deep(.settingsFlexStart500px)
     justify-content: flex-start
+
+@media only screen and (max-width: 680px)
+  .settingsSection .switchGrid :deep(.text.bottom)
+    left: -40px
