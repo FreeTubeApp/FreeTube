@@ -55,21 +55,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 
 * Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
 
-If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository.
-
-The following builds are supported:
-
-* .deb
-
-* .dmg
-
-* .exe
-
-* Flatpak
-
-* Portable (Windows only)
-
-* .rpm
+If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository. This extension does not work on Linux portable builds!
 
 ## Download Links
 ### Official Downloads
