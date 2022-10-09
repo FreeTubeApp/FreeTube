@@ -6,6 +6,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 import ytcm from '@freetube/yt-comment-scraper'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -141,9 +142,7 @@ export default Vue.extend({
 
     getMoreComments: function () {
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
-        this.showToast({
-          message: this.$t('Comments.There are no more comments for this video')
-        })
+        showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
         this.getCommentData()
       }
@@ -180,17 +179,11 @@ export default Vue.extend({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err })
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          this.copyToClipboard({ content: err })
         })
         if (this.backendFallback && this.backendPreference === 'local') {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
+          showToast(this.$t('Falling back to Invidious API'))
           this.getCommentDataInvidious({
             resource: 'comments',
             id: this.id,
@@ -206,26 +199,18 @@ export default Vue.extend({
     },
 
     getCommentRepliesLocal: function (payload) {
-      this.showToast({
-        message: this.$t('Comments.Getting comment replies, please wait')
-      })
+      showToast(this.$t('Comments.Getting comment replies, please wait'))
 
       ytcm.getCommentReplies(payload).then((response) => {
         this.parseLocalCommentData(response, payload.index)
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err })
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          this.copyToClipboard({ content: err })
         })
         if (this.backendFallback && this.backendPreference === 'local') {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
+          showToast(this.$t('Falling back to Invidious API'))
           this.getCommentDataInvidious({
             resource: 'comments',
             id: this.id,
@@ -326,17 +311,11 @@ export default Vue.extend({
       }).catch((xhr) => {
         console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${xhr.responseText}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: xhr.responseText })
-          }
+        showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
+          this.copyToClipboard({ content: xhr.responseText })
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
-          this.showToast({
-            message: this.$t('Falling back to local API')
-          })
+          showToast(this.$t('Falling back to local API'))
           this.getCommentDataLocal()
         } else {
           this.isLoading = false
@@ -345,9 +324,7 @@ export default Vue.extend({
     },
 
     getCommentRepliesInvidious: function (index) {
-      this.showToast({
-        message: this.$t('Comments.Getting comment replies, please wait')
-      })
+      showToast(this.$t('Comments.Getting comment replies, please wait'))
       const payload = {
         resource: 'comments',
         id: this.id,
@@ -382,12 +359,8 @@ export default Vue.extend({
       }).catch((xhr) => {
         console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${xhr.responseText}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: xhr.responseText })
-          }
+        showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
+          this.copyToClipboard({ content: xhr.responseText })
         })
         this.isLoading = false
       })
@@ -398,7 +371,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'toLocalePublicationString',
       'invidiousAPICall',
       'copyToClipboard'

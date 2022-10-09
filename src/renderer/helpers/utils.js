@@ -1,3 +1,5 @@
+import FtToastEvents from '../components/ft-toast/ft-toast-events'
+
 export const colors = [
   { name: 'Red', value: '#d50000' },
   { name: 'Pink', value: '#C51162' },
@@ -150,4 +152,8 @@ export function buildVTTFileLocally(storyboard) {
     currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
   }
   return vttString
+}
+
+export function showToast(message, time = null, action = null) {
+  FtToastEvents.$emit('toast-open', message, time, action)
 }

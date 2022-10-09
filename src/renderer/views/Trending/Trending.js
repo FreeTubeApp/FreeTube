@@ -7,6 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Trending',
@@ -99,17 +100,11 @@ export default Vue.extend({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err })
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          this.copyToClipboard({ content: err })
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
+          showToast(this.$t('Falling back to Invidious API'))
           this.getTrendingInfoInvidious()
         } else {
           this.isLoading = false
@@ -161,18 +156,12 @@ export default Vue.extend({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err.responseText}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err.responseText })
-          }
+        showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
+          this.copyToClipboard({ content: err.responseText })
         })
 
         if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
-          this.showToast({
-            message: this.$t('Falling back to Local API')
-          })
+          showToast(this.$t('Falling back to Local API'))
           this.getTrendingInfoLocal()
         } else {
           this.isLoading = false
@@ -196,7 +185,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'invidiousAPICall',
       'copyToClipboard'
     ])

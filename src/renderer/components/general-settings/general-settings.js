@@ -9,6 +9,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'GeneralSettings',
@@ -193,16 +194,13 @@ export default Vue.extend({
       const instance = this.currentInvidiousInstance
       this.updateDefaultInvidiousInstance(instance)
 
-      this.showToast({
-        message: this.$t('Default Invidious instance has been set to {instance}', { instance })
-      })
+      const message = this.$t('Default Invidious instance has been set to {instance}', { instance })
+      showToast(message)
     },
 
     handleClearDefaultInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
-      this.showToast({
-        message: this.$t('Default Invidious instance has been cleared')
-      })
+      showToast(this.$t('Default Invidious instance has been cleared'))
     },
 
     handlePreferredApiBackend: function (backend) {
@@ -218,7 +216,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'showToast',
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',
