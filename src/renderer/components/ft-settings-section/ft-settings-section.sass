@@ -60,7 +60,9 @@
     justify-content: flex-start
 
 @media only screen and (max-width: 680px)
-  .settingsSection .switchGrid :deep(.text.bottom)
-    left: -85px
-  .settingsSection .settingsFlexStart460px :deep(.text.bottom)
-    left: -50px
+  .settingsSection 
+    > div 
+      :deep(.text.bottom)
+        left: -85px
+      > .settingsFlexStart460px :deep(.text.bottom)
+          left: -50px
