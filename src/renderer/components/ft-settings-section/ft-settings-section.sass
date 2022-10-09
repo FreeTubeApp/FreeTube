@@ -64,12 +64,14 @@
     > div 
       :deep(.text.bottom)
         left: -85px
-      > .settingsFlexStart460px :deep(.text.bottom)
-        left: -50px
-
-    @media only screen and (max-width: 560px)
-      :deep(.text.bottom-left)
-        bottom: 70px
-        left: 50vw
-        position: fixed
-        top: auto
+      .switch-ctn 
+        max-width: 90%
+    :not(.select)
+      > :deep(.tooltip)
+        display: inline-block
+        position: absolute
+        right: -25px
+        top: 12px
+    .settingsFlexStart460px :deep(.tooltip)
+      right: 0px
+      top: -2px
