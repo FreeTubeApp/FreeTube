@@ -10,7 +10,7 @@
         role="button"
         tabindex="0"
         @click="toggleSideNav"
-        @keypress="toggleSideNav"
+        @keydown.enter.prevent="toggleSideNav"
       />
       <font-awesome-icon
         ref="historyArrowBack"
@@ -20,7 +20,7 @@
         tabindex="0"
         :title="backwardText"
         @click="historyBack"
-        @keypress="historyBack"
+        @keydown.enter.prevent="historyBack"
       />
       <font-awesome-icon
         ref="historyArrowForward"
@@ -30,7 +30,7 @@
         tabindex="0"
         :title="forwardText"
         @click="historyForward"
-        @keypress="historyForward"
+        @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
         v-if="!hideSearchBar"
@@ -39,13 +39,14 @@
         role="button"
         tabindex="0"
         @click="toggleSearchContainer"
-        @keypress="toggleSearchContainer"
+        @keydown.enter.prevent="toggleSearchContainer"
       />
       <font-awesome-icon
         class="navNewWindowIcon navIcon"
         :icon="['fas', 'clone']"
         :title="newWindowText"
         @click="createNewWindow"
+        @keydown.enter.prevent="createNewWindow"
       />
       <div
         class="logo"
@@ -90,7 +91,7 @@
           role="button"
           tabindex="0"
           @click="showFilters = !showFilters"
-          @keypress="showFilters = !showFilters"
+          @keydown.enter.prevent="showFilters = !showFilters"
         />
       </div>
       <ft-search-filters
