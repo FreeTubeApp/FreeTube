@@ -144,7 +144,6 @@
   opacity: 0.5;
 }
 
-
 @media only screen and (max-width: 1000px) {
   .select .select-text {
     max-width: 240px;
