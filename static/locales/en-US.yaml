@@ -328,9 +328,9 @@ Settings:
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
-    Import FreeTube: Import FreeTube
-    Import YouTube: Import YouTube
-    Import NewPipe: Import NewPipe
+    Subscription File: Subscription File
+    History File: History File
+    Playlist File: Playlist File
     Check for Legacy Subscriptions: Check for Legacy Subscriptions
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
