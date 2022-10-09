@@ -15,6 +15,7 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
+import { buildVTTFileLocally } from '../../helpers/utils'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -1347,8 +1348,8 @@ export default Vue.extend({
         })
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STORYBOARD ARRAY ELEMENTS
-      this.buildVTTFileLocally(storyboardArray[1]).then(async (results) => {
-        const userData = await this.getUserDataPath()
+      const results = buildVTTFileLocally(storyboardArray[1])
+      this.getUserDataPath().then((userData) => {
         let fileLocation
         let uriSchema
 
@@ -1536,7 +1537,6 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'buildVTTFileLocally',
       'updateHistory',
       'updateWatchProgress',
       'getUserDataPath',
