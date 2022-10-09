@@ -188,6 +188,7 @@ export default Vue.extend({
       switch (event.key) {
         case 'r':
         case 'R':
+          event.preventDefault()
           if (!this.isLoading) {
             this.getTrendingInfo()
           }
