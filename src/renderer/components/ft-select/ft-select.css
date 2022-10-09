@@ -144,9 +144,20 @@
   opacity: 0.5;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .select .select-text {
+    max-width: 240px;
+  }
+}
+
 @media only screen and (max-width: 800px) {
+  .select {
+    width: 100%;
+  }
   .select .select-text {
     display:block;
+    max-width: 100%;
   }
 }
 
