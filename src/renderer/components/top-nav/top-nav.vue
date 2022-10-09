@@ -45,6 +45,8 @@
         class="navNewWindowIcon navIcon"
         :icon="['fas', 'clone']"
         :title="newWindowText"
+        role="button"
+        tabindex="0"
         @click="createNewWindow"
         @keydown.enter.prevent="createNewWindow"
       />
