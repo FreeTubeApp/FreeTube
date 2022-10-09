@@ -1893,6 +1893,14 @@ export default Vue.extend({
             // Advance to next frame
             this.framebyframe(1)
             break
+          case 'Home':
+            event.preventDefault()
+            this.player.currentTime(0)
+            break
+          case 'End':
+            event.preventDefault()
+            this.player.currentTime(this.player.duration())
+            break
           case 'D':
           case 'd':
             event.preventDefault()
