@@ -42,11 +42,16 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+
     if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
       this.getTrendingInfoCache()
     } else {
       this.getTrendingInfo()
     }
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     changeTab: function (tab) {
@@ -125,7 +130,6 @@ export default Vue.extend({
         })
       })
     },
-
     getTrendingInfoInvidious: function () {
       this.isLoading = true
 
@@ -174,6 +178,21 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
+    },
+
+    // This function should always be at the bottom of this file
+    keyboardShortcutHandler: function (event) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+      switch (event.key) {
+        case 'r':
+        case 'R':
+          if (!this.isLoading) {
+            this.getTrendingInfo()
+          }
+          break
+      }
     },
 
     ...mapActions([

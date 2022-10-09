@@ -98,6 +98,8 @@ export default Vue.extend({
     }
   },
   mounted: async function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+
     this.isLoading = true
     const dataLimit = sessionStorage.getItem('subscriptionLimit')
     if (dataLimit !== null) {
@@ -131,6 +133,9 @@ export default Vue.extend({
     } else {
       this.isLoading = false
     }
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     goToChannel: function (id) {
@@ -469,6 +474,21 @@ export default Vue.extend({
     increaseLimit: function () {
       this.dataLimit += 100
       sessionStorage.setItem('subscriptionLimit', this.dataLimit)
+    },
+
+    // This function should always be at the bottom of this file
+    keyboardShortcutHandler: function (event) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+      switch (event.key) {
+        case 'r':
+        case 'R':
+          if (!this.isLoading) {
+            this.getSubscriptions()
+          }
+          break
+      }
     },
 
     ...mapActions([
