@@ -35,17 +35,7 @@ const config = {
       },
       {
         test: /\.vue$/,
-        use: {
-          loader: 'vue-loader',
-          options: {
-            extractCSS: true,
-            loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader',
-              less: 'vue-style-loader!css-loader!less-loader',
-            },
-          },
-        },
+        loader: 'vue-loader'
       },
       {
         test: /\.s(c|a)ss$/,

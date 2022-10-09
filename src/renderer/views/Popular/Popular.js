@@ -25,10 +25,15 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+
     this.shownResults = this.popularCache
     if (!this.shownResults || this.shownResults.length < 1) {
       this.fetchPopularInfo()
     }
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     fetchPopularInfo: async function () {
@@ -54,6 +59,21 @@ export default Vue.extend({
       })
       this.isLoading = false
       this.$store.commit('setPopularCache', this.shownResults)
+    },
+
+    // This function should always be at the bottom of this file
+    keyboardShortcutHandler: function (event) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+      switch (event.key) {
+        case 'r':
+        case 'R':
+          if (!this.isLoading) {
+            this.fetchPopularInfo()
+          }
+          break
+      }
     },
 
     ...mapActions([
