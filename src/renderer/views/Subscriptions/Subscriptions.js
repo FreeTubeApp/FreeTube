@@ -11,6 +11,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import ytch from 'yt-channel-info'
 import Parser from 'rss-parser'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculatePublishedDate } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Subscriptions',
@@ -254,20 +255,20 @@ export default Vue.extend({
 
     getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then(async (response) => {
+        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then((response) => {
           if (response.alertMessage) {
             this.errorChannels.push(channel)
             resolve([])
             return
           }
-          const videos = await Promise.all(response.items.map(async (video) => {
+          const videos = response.items.map((video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()
             } else {
-              video.publishedDate = await this.calculatePublishedDate(video.publishedText)
+              video.publishedDate = calculatePublishedDate(video.publishedText)
             }
             return video
-          }))
+          })
 
           resolve(videos)
         }).catch((err) => {
@@ -497,7 +498,6 @@ export default Vue.extend({
       'updateShowProgressBar',
       'updateProfileSubscriptions',
       'updateAllSubscriptionsList',
-      'calculatePublishedDate',
       'copyToClipboard'
     ]),
 

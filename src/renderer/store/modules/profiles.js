@@ -1,5 +1,6 @@
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { DBProfileHandlers } from '../../../datastores/handlers/index'
+import { calculateColorLuminance } from '../../helpers/utils'
 
 const state = {
   profileList: [{
@@ -53,7 +54,7 @@ const actions = {
     if (profiles.length === 0) {
       // Create a default profile and persist it
       const randomColor = await dispatch('getRandomColor')
-      const textColor = await dispatch('calculateColorLuminance', randomColor)
+      const textColor = calculateColorLuminance(randomColor)
       const defaultProfile = {
         _id: MAIN_PROFILE_ID,
         name: defaultName,

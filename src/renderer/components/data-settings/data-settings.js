@@ -11,6 +11,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
+import { calculateColorLuminance } from '../../helpers/utils'
 
 // FIXME: Missing web logic branching
 
@@ -1092,7 +1093,7 @@ export default Vue.extend({
           let index = convertedData.findIndex(p => p.name === profile.value)
           if (index === -1) { // profile doesn't exist yet
             const randomBgColor = await this.getRandomColor()
-            const contrastyTextColor = await this.calculateColorLuminance(randomBgColor)
+            const contrastyTextColor = calculateColorLuminance(randomBgColor)
             convertedData.push({
               name: profile.value,
               bgColor: randomBgColor,
@@ -1241,7 +1242,6 @@ export default Vue.extend({
       'compactHistory',
       'showToast',
       'getRandomColor',
-      'calculateColorLuminance',
       'showOpenDialog',
       'readFileFromDialog',
       'showSaveDialog',

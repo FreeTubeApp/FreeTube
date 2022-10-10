@@ -6,6 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculateColorLuminance } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtProfileEdit',
@@ -70,8 +71,8 @@ export default Vue.extend({
     }
   },
   watch: {
-    profileBgColor: async function (val) {
-      this.profileTextColor = await this.calculateColorLuminance(val)
+    profileBgColor: function (val) {
+      this.profileTextColor = calculateColorLuminance(val)
     }
   },
   created: function () {
@@ -163,8 +164,7 @@ export default Vue.extend({
       'updateProfile',
       'removeProfile',
       'updateDefaultProfile',
-      'updateActiveProfile',
-      'calculateColorLuminance'
+      'updateActiveProfile'
     ])
   }
 })
