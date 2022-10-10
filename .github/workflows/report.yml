@@ -4,7 +4,7 @@ name: Project Board Automation
 
 on:
   issues:
-    types: [labeled, unlabeled, closed, deleted]
+    types: [closed, deleted, reopened, opened]
 
 jobs:
   assign-issues-to-projects:
@@ -14,37 +14,57 @@ jobs:
     # For bug reports
       - name: New bug issue
         uses: alex-page/github-project-automation-plus@v0.8.1
-        if: github.event.action == 'labeled' && contains(github.event.issue.labels.*.name, 'bug')
+        if: contains(github.event.issue.labels.*.name, 'bug') && github.event.action == 'opened'
         with:
           project: Bug Reports
           column: To assign
           repo-token: ${{ secrets.PUSH_TOKEN }}
           action: update
-
-      - name: Bug label removed
+          
+      - name: Bug issue closed
         uses: alex-page/github-project-automation-plus@v0.8.1
-        if: github.event.action == 'unlabeled' || github.event.action == 'closed' || github.event.action == 'deleted'
+        if: github.event.action == 'closed' || github.event.action == 'deleted'
         with:
           action: delete
           project: Bug Reports
           column: To assign
           repo-token: ${{ secrets.PUSH_TOKEN }}
+          
+      - name: Bug issue reopened
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        if: contains(github.event.issue.labels.*.name, 'bug') && github.event.action == 'reopened'
+        with:
+          project: Bug Reports
+          column: To assign
+          repo-token: ${{ secrets.PUSH_TOKEN }}
+          action: update
 
       # For feature requests
       - name: New feature issue
         uses: alex-page/github-project-automation-plus@v0.8.1
-        if: github.event.action == 'labeled' && contains(github.event.issue.labels.*.name, 'enhancement')
+        if: contains(github.event.issue.labels.*.name, 'enhancement') && github.event.action == 'opened'
         with:
           project: Feature Requests
           column: To assign
           repo-token: ${{ secrets.PUSH_TOKEN }}
           action: update
 
-      - name: Feature request label removed
+      - name: Feature request issue closed
         uses: alex-page/github-project-automation-plus@v0.8.1
-        if: github.event.action == 'unlabeled' || github.event.action == 'closed' || github.event.action == 'deleted'
+        if: github.event.action == 'closed' || github.event.action == 'deleted'
         with:
           action: delete
           project: Feature Requests
           column: To assign
           repo-token: ${{ secrets.PUSH_TOKEN }}
+          
+      - name: Feature request issue reopened
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        if: contains(github.event.issue.labels.*.name, 'enhancement') && github.event.action == 'reopened'
+        with:
+          project: Feature Requests
+          column: To assign
+          repo-token: ${{ secrets.PUSH_TOKEN }}
+          action: update
+
+
