@@ -63,8 +63,7 @@ Search Filters:
   Fetching results. Please wait: 'Đang lấy kết quả. Xin hãy chờ'
   Fetch more results: 'Lấy thêm kết quả'
 # Sidebar
-  There are no more results for this search: Không còn kết quả gì thêm cho tìm kiếm
-    này
+  There are no more results for this search: Không còn kết quả nào cho tìm kiếm này
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Đăng ký'
@@ -144,8 +143,8 @@ Settings:
     Set Current Instance as Default: Đặt Phiên bản hiện tại làm Mặc định
     Clear Default Instance: Xóa phiên bản mặc định
     External Link Handling:
-      Open Link: Mở link
-      Ask Before Opening Link: Hỏi trước khi mở link
+      Open Link: Mở liên kết
+      Ask Before Opening Link: Hỏi trước khi mở liên kết
       No Action: Không hành động
       External Link Handling: Xử lý liên kết bên ngoài
     View all Invidious instance information: Xem tất cả thông tin phiên bản Invidious
@@ -516,11 +515,12 @@ Channel:
     của bạn
 Video:
   Open in YouTube: 'Mở trong Youtube'
-  Copy YouTube Link: 'Sao chép link Youtube'
+  Copy YouTube Link: 'Sao chép liên kết Youtube'
   Open YouTube Embedded Player: 'Mở trình phát Youtube Embedded'
-  Copy YouTube Embedded Player Link: 'Sao chép link trình phát Youtube Embedded'
+  Copy YouTube Embedded Player Link: 'Sao chép liên kết trình phát YouTube đã được
+    nhúng vào'
   Open in Invidious: 'Mở trong Invidious'
-  Copy Invidious Link: 'Sao chép link Invidious'
+  Copy Invidious Link: 'Sao chép liên kết Invidious'
   View: 'Lượt xem'
   Views: 'Lượt xem'
   # Context is "X People Watching"
@@ -594,7 +594,7 @@ Video:
   Shuffle Playlist: Trộn Playlist
   Loop Playlist: Lặp lại Playlist
   Open Channel in YouTube: Mở kênh này trên YouTube
-  Copy YouTube Channel Link: Sao chép Nối kết Kênh YouTube
+  Copy YouTube Channel Link: Sao chép liên kết của kênh
   Skipped segment: Phân đoạn đã bỏ qua
   Sponsor Block category:
     sponsor: Nhà tài trợ
@@ -637,7 +637,7 @@ Video:
     OpenInTemplate: Mở trong $
     video: video
   Open Channel in Invidious: Mở kênh ưu tiên
-  Copy Invidious Channel Link: Sao chép đường dẫn kênh ưu tiên
+  Copy Invidious Channel Link: Sao chép liên kết kênh Invidious
   Video has been removed from your saved list: Video đã bị xoá khỏi danh sách lưu
     trữ của bạn
   Video has been saved: Video đã được lưu
@@ -658,9 +658,9 @@ Playlist:
   Last Updated On: 'Update lần cuối vào'
   Share Playlist:
     Share Playlist: 'Chia sẻ danh sách phát'
-    Copy YouTube Link: 'Sao chép link Youtube'
+    Copy YouTube Link: 'Sao chép liên kết Youtube'
     Open in YouTube: 'Mở trong Youtube'
-    Copy Invidious Link: 'Sao chép link Invidious'
+    Copy Invidious Link: 'Sao chép liên kết Invidious'
     Open in Invidious: 'Mở trong Invidious'
 
 # On Video Watch Page
@@ -679,8 +679,8 @@ Change Format:
     này
 Share:
   Share Video: 'Chia sẻ video'
-  Copy Link: 'Sao chép link'
-  Open Link: 'Mở link'
+  Copy Link: 'Sao chép liên kết'
+  Open Link: 'Mở liên kết'
   Copy Embed: 'Sao chép Embed'
   Open Embed: 'Mở Embed'
   # On Click
@@ -689,7 +689,7 @@ Share:
   YouTube URL copied to clipboard: 'Youtube URL sao chép đến clipboard'
   YouTube Embed URL copied to clipboard: 'Youtube Embed URL sao chép đến clipboard'
   Include Timestamp: Có kèm dấu thời gian
-  YouTube Channel URL copied to clipboard: Đã copy link kênh Youtube
+  YouTube Channel URL copied to clipboard: Đã sao chép liên kết kênh Youtube
   Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
 Mini Player: 'Trình phát Mini'
 Comments:
@@ -793,7 +793,8 @@ Open New Window: Mở cửa sổ mới
 Search Bar:
   Clear Input: Xóa đầu vào
 More: Thêm
-Are you sure you want to open this link?: Anh có chắc là muốn mở đường không?
+Are you sure you want to open this link?: Bạn có chắc là bạn muốn mở liên kết này
+  không?
 New Window: Cửa Sổ Mới
 Channels:
   Channels: Kênh
