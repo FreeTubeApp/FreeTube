@@ -5,7 +5,7 @@ import FtProfileEdit from '../../components/ft-profile-edit/ft-profile-edit.vue'
 import FtProfileChannelList from '../../components/ft-profile-channel-list/ft-profile-channel-list.vue'
 import FtProfileFilterChannelsList from '../../components/ft-profile-filter-channels-list/ft-profile-filter-channels-list.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ProfileEdit',
@@ -53,14 +53,14 @@ export default Vue.extend({
       deep: true
     }
   },
-  mounted: async function () {
+  mounted: function () {
     const profileType = this.$route.name
 
     this.deletePromptLabel = `${this.$t('Profile.Are you sure you want to delete this profile?')} ${this.$t('Profile["All subscriptions will also be deleted."]')}`
 
     if (profileType === 'newProfile') {
       this.isNew = true
-      const bgColor = await this.getRandomColor()
+      const bgColor = getRandomColor()
       const textColor = calculateColorLuminance(bgColor)
       this.profile = {
         name: '',
@@ -88,8 +88,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions([
-      'showToast',
-      'getRandomColor'
+      'showToast'
     ])
   }
 })

@@ -1,3 +1,93 @@
+export const colorNames = [
+  'Red',
+  'Pink',
+  'Purple',
+  'DeepPurple',
+  'Indigo',
+  'Blue',
+  'LightBlue',
+  'Cyan',
+  'Teal',
+  'Green',
+  'LightGreen',
+  'Lime',
+  'Yellow',
+  'Amber',
+  'Orange',
+  'DeepOrange',
+  'DraculaCyan',
+  'DraculaGreen',
+  'DraculaOrange',
+  'DraculaPink',
+  'DraculaPurple',
+  'DraculaRed',
+  'DraculaYellow',
+  'CatppuccinMochaRosewater',
+  'CatppuccinMochaFlamingo',
+  'CatppuccinMochaPink',
+  'CatppuccinMochaMauve',
+  'CatppuccinMochaRed',
+  'CatppuccinMochaMaroon',
+  'CatppuccinMochaPeach',
+  'CatppuccinMochaYellow',
+  'CatppuccinMochaGreen',
+  'CatppuccinMochaTeal',
+  'CatppuccinMochaSky',
+  'CatppuccinMochaSapphire',
+  'CatppuccinMochaBlue',
+  'CatppuccinMochaLavender'
+]
+
+export const colorValues = [
+  '#d50000',
+  '#C51162',
+  '#AA00FF',
+  '#6200EA',
+  '#304FFE',
+  '#2962FF',
+  '#0091EA',
+  '#00B8D4',
+  '#00BFA5',
+  '#00C853',
+  '#64DD17',
+  '#AEEA00',
+  '#FFD600',
+  '#FFAB00',
+  '#FF6D00',
+  '#DD2C00',
+  '#8BE9FD',
+  '#50FA7B',
+  '#FFB86C',
+  '#FF79C6',
+  '#BD93F9',
+  '#FF5555',
+  '#F1FA8C',
+  '#F5E0DC',
+  '#F2CDCD',
+  '#F5C2E7',
+  '#CBA6F7',
+  '#F38BA8',
+  '#EBA0AC',
+  '#FAB387',
+  '#F9E2AF',
+  '#A6E3A1',
+  '#94E2D5',
+  '#89DCEB',
+  '#74C7EC',
+  '#89B4FA',
+  '#B4BEFE'
+]
+
+export function getRandomColorClass() {
+  const randomInt = Math.floor(Math.random() * colorNames.length)
+  return 'main' + colorNames[randomInt]
+}
+
+export function getRandomColor() {
+  const randomInt = Math.floor(Math.random() * colorValues.length)
+  return colorValues[randomInt]
+}
+
 export function calculateColorLuminance(colorValue) {
   const cutHex = colorValue.substring(1, 7)
   const colorValueR = parseInt(cutHex.substring(0, 2), 16)

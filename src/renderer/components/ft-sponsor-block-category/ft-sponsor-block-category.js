@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import { colorNames } from '../../helpers/utils'
 import FtSelect from '../ft-select/ft-select.vue'
 
 export default Vue.extend({
@@ -27,11 +28,11 @@ export default Vue.extend({
   },
   computed: {
     colorValues: function () {
-      return this.$store.getters.getColorNames
+      return colorNames
     },
 
     colorNames: function () {
-      return this.colorValues.map(colorVal => {
+      return colorNames.map(colorVal => {
         // add spaces before capital letters
         const colorName = colorVal.replace(/([A-Z])/g, ' $1').trim()
         return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)

@@ -27,85 +27,6 @@ const state = {
     type: 'all',
     duration: ''
   },
-  colorNames: [
-    'Red',
-    'Pink',
-    'Purple',
-    'DeepPurple',
-    'Indigo',
-    'Blue',
-    'LightBlue',
-    'Cyan',
-    'Teal',
-    'Green',
-    'LightGreen',
-    'Lime',
-    'Yellow',
-    'Amber',
-    'Orange',
-    'DeepOrange',
-    'DraculaCyan',
-    'DraculaGreen',
-    'DraculaOrange',
-    'DraculaPink',
-    'DraculaPurple',
-    'DraculaRed',
-    'DraculaYellow',
-    'CatppuccinMochaRosewater',
-    'CatppuccinMochaFlamingo',
-    'CatppuccinMochaPink',
-    'CatppuccinMochaMauve',
-    'CatppuccinMochaRed',
-    'CatppuccinMochaMaroon',
-    'CatppuccinMochaPeach',
-    'CatppuccinMochaYellow',
-    'CatppuccinMochaGreen',
-    'CatppuccinMochaTeal',
-    'CatppuccinMochaSky',
-    'CatppuccinMochaSapphire',
-    'CatppuccinMochaBlue',
-    'CatppuccinMochaLavender'
-
-  ],
-  colorValues: [
-    '#d50000',
-    '#C51162',
-    '#AA00FF',
-    '#6200EA',
-    '#304FFE',
-    '#2962FF',
-    '#0091EA',
-    '#00B8D4',
-    '#00BFA5',
-    '#00C853',
-    '#64DD17',
-    '#AEEA00',
-    '#FFD600',
-    '#FFAB00',
-    '#FF6D00',
-    '#DD2C00',
-    '#8BE9FD',
-    '#50FA7B',
-    '#FFB86C',
-    '#FF79C6',
-    '#BD93F9',
-    '#FF5555',
-    '#F1FA8C',
-    '#F5E0DC',
-    '#F2CDCD',
-    '#F5C2E7',
-    '#CBA6F7',
-    '#F38BA8',
-    '#EBA0AC',
-    '#FAB387',
-    '#F9E2AF',
-    '#A6E3A1',
-    '#94E2D5',
-    '#89DCEB',
-    '#74C7EC',
-    '#89B4FA',
-    '#B4BEFE'
-  ],
   externalPlayerNames: [],
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
@@ -135,14 +56,6 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
-  },
-
-  getColorNames () {
-    return state.colorNames
-  },
-
-  getColorValues () {
-    return state.colorValues
   },
 
   getShowProgressBar () {
@@ -532,16 +445,6 @@ const actions = {
 
   updateShowProgressBar ({ commit }, value) {
     commit('setShowProgressBar', value)
-  },
-
-  getRandomColorClass () {
-    const randomInt = Math.floor(Math.random() * state.colorNames.length)
-    return 'main' + state.colorNames[randomInt]
-  },
-
-  getRandomColor () {
-    const randomInt = Math.floor(Math.random() * state.colorValues.length)
-    return state.colorValues[randomInt]
   },
 
   getRegionData ({ commit }, payload) {

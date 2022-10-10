@@ -14,7 +14,7 @@ import 'videojs-http-source-selector'
 
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, colorNames, colorValues } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -1181,8 +1181,6 @@ export default Vue.extend({
 
       if (!this.player.loop()) {
         const currentTheme = this.$store.state.settings.mainColor
-        const colorNames = this.$store.state.utils.colorNames
-        const colorValues = this.$store.state.utils.colorValues
 
         const nameIndex = colorNames.findIndex((color) => {
           return color === currentTheme
