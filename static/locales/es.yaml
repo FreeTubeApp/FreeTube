@@ -336,6 +336,9 @@ Settings:
       se han importado con éxito
     All playlists has been successfully exported: Todas las listas de reproducción
       se han exportado con éxito
+    Subscription File: Archivo de suscripción
+    Playlist File: Archivo de la lista de reproducción
+    History File: Archivo del historial
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
