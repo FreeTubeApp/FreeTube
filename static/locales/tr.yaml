@@ -336,6 +336,9 @@ Settings:
     Import Playlists: Oynatma Listelerini İçe Aktar
     All playlists has been successfully exported: Tüm oynatma listeleri başarıyla
       dışa aktarıldı
+    Playlist File: Oynatma Listesi Dosyası
+    Subscription File: Abonelik Dosyası
+    History File: Geçmiş Dosyası
   Advanced Settings:
     Advanced Settings: 'Gelişmiş Ayarlar'
     Enable Debug Mode (Prints data to the console): 'Hata Ayıklama Modunu Etkinleştir
