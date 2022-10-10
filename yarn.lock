@@ -8802,10 +8802,10 @@ youtube-suggest@^1.2.0:
     node-fetch "^2.6.0"
     smol-jsonp "^1.0.0"
 
-yt-channel-info@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/yt-channel-info/-/yt-channel-info-3.1.0.tgz#a37c98838d78a9643e7d1efc3a7fdb3b51a6b3bd"
-  integrity sha512-XofGVuocgXxzIDVgEFQw4ZOs4e1hIobmBKnv51YMARg+/RBjSO3sU5AQHgcG43n5apuzAb0k0XnEN+/DyYWC2A==
+yt-channel-info@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/yt-channel-info/-/yt-channel-info-3.1.1.tgz#6ffc9c2fbbaa677600828cb511bff88eee6391f1"
+  integrity sha512-Of2ED2DM7eJOMY0wVDKwxvSo4xFDcvuuVSCf5jKgQON0XwdREVofxPjzCGC1Fh5ubK1pxZbnjhamMvbxvxyWIA==
   dependencies:
     axios "^0.27.2"
 
