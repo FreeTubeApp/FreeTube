@@ -86,6 +86,9 @@ Subscriptions:
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
     vitezei
   Error Channels: Canale cu erori
+  Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
+  Disabled Automatic Fetching: Ai dezactivat obținerea automată de abonamente. Reîmprospătează
+    abonamentele pentru a le vedea aici.
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
