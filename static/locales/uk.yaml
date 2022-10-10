@@ -354,6 +354,9 @@ Settings:
     Import Playlists: Імпорт добірок
     Export Playlists: Експорт добірок
     All playlists has been successfully imported: Усі добірки успішно імпортовано
+    Playlist File: Файл добірки
+    Subscription File: Файл підписки
+    History File: Файл історії
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
