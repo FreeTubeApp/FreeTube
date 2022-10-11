@@ -296,9 +296,9 @@ Settings:
     Distraction Free Settings: 'Nastavení Režimu nerozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
     Hide Video Likes And Dislikes: 'Skrýt hodnocení videa'
-    Hide Channel Subscribers: 'Skrýt odebíratele kanálu'
+    Hide Channel Subscribers: 'Skrýt odběratele kanálu'
     Hide Comment Likes: 'Skrýt hodnocení komentářů'
-    Hide Recommended Videos: 'Skrýt doporučené videa'
+    Hide Recommended Videos: 'Skrýt doporučená videa'
     Hide Trending Videos: 'Skrýt trendy'
     Hide Popular Videos: 'Skrýt populární videa'
     Hide Live Chat: 'Skrýt chat'
@@ -353,6 +353,9 @@ Settings:
     Playlist insufficient data: Nedostačující data pro playlist "$", přeskakuji
     All playlists has been successfully imported: Všechny playlisty byly úspěšně importovány
     All playlists has been successfully exported: Všechny playlisty byly úspěšně exportovány
+    History File: Soubor historie
+    Subscription File: Soubor odběrů
+    Playlist File: Soubor playlistů
   Advanced Settings:
     Advanced Settings: 'Rozšířené nastavení'
     Enable Debug Mode (Prints data to the console): 'Povolit režim ladění (výstup
@@ -528,7 +531,7 @@ Profile:
   Profile Settings: Nastavení profilu
 Channel:
   Subscriber: 'Odběratel'
-  Subscribers: 'Odběratelé'
+  Subscribers: 'odběratelů'
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
   Channel has been removed from your subscriptions: 'Kanál byl odebrán z vašich odběrů'
