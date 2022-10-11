@@ -234,6 +234,10 @@ export default Vue.extend({
     }
 
     window.addEventListener('beforeunload', this.handleWatchProgress)
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     changeTimestamp: function (timestamp) {
@@ -1532,6 +1536,25 @@ export default Vue.extend({
       }
 
       return timestamp
+    },
+
+    keyboardShortcutHandler: function (event) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+      switch (event.key) {
+        case 'N':
+          if (!this.watchingPlaylist) {
+            const nextVideoId = this.recommendedVideos[0].videoId
+            this.$router.push({
+              path: `/watch/${nextVideoId}`
+            })
+            this.showToast({
+              message: this.$t('Playing Next Video')
+            })
+          }
+          break
+      }
     },
 
     ...mapActions([
