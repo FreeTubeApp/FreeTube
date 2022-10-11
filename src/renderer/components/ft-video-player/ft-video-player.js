@@ -1810,8 +1810,8 @@ export default Vue.extend({
             event.preventDefault()
             this.changePlayBackRate(-this.videoPlaybackRateInterval)
             break
+          // Shift+P plays previous video in playlist
           case '>':
-          case 'P':
           case 'p':
             // Increase playback rate by 0.25x
             event.preventDefault()
