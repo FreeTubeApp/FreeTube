@@ -333,6 +333,9 @@ Settings:
     Export Playlists: 匯出播放清單
     Playlist insufficient data: 「$」播放清單的資料不足，正在略過項目
     All playlists has been successfully exported: 所有播放清單都已成功匯出
+    Subscription File: 訂閱檔案
+    History File: 歷史紀錄檔案
+    Playlist File: 播放清單檔案
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾設定
