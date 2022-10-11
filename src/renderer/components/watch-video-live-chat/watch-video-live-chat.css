@@ -19,6 +19,11 @@
   margin: 0;
 }
 
+:deep(.liveChatEmoji) {
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
 .errorIcon {
   width: 100%;
   color: var(--tertiary-text-color);
@@ -47,6 +52,7 @@
   margin-right: 2px;
   height: 30px;
   cursor: pointer;
+  background-color: var(--primary-color);
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
 }
@@ -54,6 +60,7 @@
 .superChatContent {
   margin-left: 32px;
   margin-top: 6px;
+  color: var(--text-with-main-color);
 }
 
 .superChat .channelThumbnail {
@@ -142,17 +149,18 @@
   width: 100%;
   padding-top: 5px;
   padding-bottom: 7px;
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 5px;
 }
 
 .channelThumbnail {
   width: 25px;
-  float: left;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
 }
 
 .chatContent {
-  margin-left: 30px;
   margin-top: 5px;
   margin-bottom: 2px;
   font-size: 12px;
@@ -162,7 +170,6 @@
 .channelName {
   color: var(--tertiary-text-color);
   font-weight: bold;
-  padding-left: 5px;
   padding-right: 5px;
 }
 

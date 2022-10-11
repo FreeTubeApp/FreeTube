@@ -8,10 +8,10 @@
   text-align: center;
 }
 
-::v-deep .select-label {
+:deep(.select-label) {
   width: 95%;
 }
 
-::v-deep .select {
+:deep(.select) {
   text-align-last: center;
 }

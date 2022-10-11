@@ -1,9 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'español'
+Locale Name: 'Español (España)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección de la app no está lista. Regresa más tarde cuando hayamos progresado.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
+  hecho progresos.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -77,6 +78,10 @@ Subscriptions:
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
   Load More Videos: Cargar más vídeos
   Error Channels: Canales con errores
+  Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
+    Actualice las suscripciones para verlas aquí.
+  Empty Channels: Los canales a los que está suscrito no tienen actualmente ningún
+    vídeo.
 Trending:
   Trending: 'Tendencias'
   Default: Por defecto
@@ -85,7 +90,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Tus favoritos'
+Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -160,6 +165,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Valor predeterminado del sistema
+      Catppuccin Mocha: Catppuccin Moca
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -185,6 +191,20 @@ Settings:
       Dracula Purple: 'Drácula púrpura'
       Dracula Red: 'Drácula rojo'
       Dracula Yellow: 'Drácula amarillo'
+      Catppuccin Mocha Pink: Catppuccin Moca Rosa
+      Catppuccin Mocha Mauve: Catppuccin Mocha Malva
+      Catppuccin Mocha Peach: Catppuccin Moka Melocotón
+      Catppuccin Mocha Green: Catpuccin Moca Verde
+      Catppuccin Mocha Yellow: Catpuccin Moca Amarillo
+      Catppuccin Mocha Red: Catppuccin Moka Rojo
+      Catppuccin Mocha Flamingo: Catppuccin Moka Flamenco
+      Catppuccin Mocha Maroon: Catppuccin Moka Granate
+      Catppuccin Mocha Teal: Catppuccin Moka Turquesa
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Agua de Rosas
+      Catppuccin Mocha Sky: Catppuccin Moka Cielo
+      Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
+      Catppuccin Mocha Blue: Catpuccin Moka Azul
+      Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
@@ -240,6 +260,12 @@ Settings:
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
+      Ask Path: Pedir la Carpeta para Guardar
+      File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
+        %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
+        %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
+        Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
+        crear subcarpetas.
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -262,6 +288,7 @@ Settings:
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
+    Fetch Automatically: Obtener los feed automáticamente
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -309,6 +336,9 @@ Settings:
       se han importado con éxito
     All playlists has been successfully exported: Todas las listas de reproducción
       se han exportado con éxito
+    Subscription File: Archivo de suscripción
+    Playlist File: Archivo de la lista de reproducción
+    History File: Archivo del historial
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
@@ -348,6 +378,11 @@ Settings:
     Distraction Free Settings: Modo sin distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
+    Hide Video Description: Ocultar la descripción del vídeo
+    Hide Comments: Ocultar comentarios
+    Hide Live Streams: Ocultar retransmisiones en directo
+    Hide Sharing Actions: Ocultar acciones de uso compartido
+    Hide Chapters: Ocultar los capítulos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -377,18 +412,30 @@ Settings:
     Skip Options:
       Show In Seek Bar: Mostrar en la barra de búsqueda
       Do Nothing: No hacer nada
+      Skip Option: Omitir opción
+      Auto Skip: Salto automático
+      Prompt To Skip: Solicitar que se omita
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
     External Player Settings: Reproductor externo
+    Players:
+      None:
+        Name: Ninguno
   Download Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
     Choose Path: Elegir ruta
     Download in app: Descargar en la aplicación
     Open in web browser: Abrir en el navegador web
+    Download Behavior: Comportamiento de la descarga
+  Parental Control Settings:
+    Hide Unsubscribe Button: Ocultar botón de anular suscripción
+    Hide Search Bar: Ocultar barra de búsqueda
+    Parental Control Settings: Ajustes del Control Parental
+    Show Family Friendly Only: Mostrar solo lo apto para las familias
 About:
   #On About page
   About: 'Acerca de'
@@ -428,7 +475,7 @@ About:
   room rules: reglas de la sala
   Please read the: Por favor, lee las
   Chat on Matrix: Chat en Matrix
-  Mastodon: Mastodon
+  Mastodon: Mastodon (Red Social)
   Email: Correo electrónico
   Blog: Blog
   Website: Sitio web
@@ -506,7 +553,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Playlists'
+    Playlists: 'Listas de reproducción'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -582,6 +629,8 @@ Video:
     Years: 'años'
     Ago: 'Hace'
     Upcoming: 'Se estrenará el'
+    Less than a minute: Menos de un minuto
+    In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Hace $ %'
@@ -613,13 +662,14 @@ Video:
   Save Video: Guardar el vídeo
   translated from English: traducido del inglés
   Sponsor Block category:
-    music offtopic: música fuera de tema
-    interaction: interacción
-    self-promotion: autopromoción
-    outro: epílogo
-    intro: introducción
-    sponsor: patrocinador
+    music offtopic: No relacionado con la música
+    interaction: Interacción
+    self-promotion: Auto promoción
+    outro: Otro
+    intro: Introducción
+    sponsor: Patrocinador
     recap: Recapitulación
+    filler: Relleno
   Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
@@ -657,6 +707,8 @@ Video:
     Video ID: ID de vídeo
     Buffered: En búfer
     Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
+  Premieres in: Estrenos en
+  Premieres: Estrenos
 Videos:
   #& Sort By
   Sort By:
@@ -684,7 +736,7 @@ Playlist:
   Playlist: Lista de reproducción
 Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
-  Change Video Formats: 'Cambiar formato de vídeo'
+  Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
   Use Legacy Formats: 'Usar formatos «Legacy»'
   Use Audio Formats: 'Utilizar formatos de audio'
@@ -772,18 +824,20 @@ Tooltips:
       predeterminado para recuperar el feed de suscripciones. RSS es más rápido y
       previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
+    Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente
+      su feed de suscripción cuando se abra una nueva ventana y al cambiar de perfil.
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato
       Dash puede reproducir resoluciones más altas. El formato Legacy está limitado
-      a 720p, pero requiere menos ancho de banda. El formato audio se limita a reproducir
-      solo audio.
+      a 720p, pero requiere menos ancho de banda. El formato del audio se limita al
+      reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
     Force Local Backend for Legacy Formats: Solo funcionará si la API de Invidious
-      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
-      de Invidious. Ayudará cuando Invidious no pueda reproducir un vídeo por restricciones
-      regionales.
+      es la preferente. Si la activas, la API local usará el formato Legacy en lugar
+      de Invidious. Esto ayudará cuando Invidious no pueda reproducir un vídeo por
+      culpa de las restricciones regionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -802,9 +856,9 @@ Tooltips:
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
-    External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
-      \ que no pueda ser abierto en FreeTube.\nPor defecto FreeTube abrirá el enlace\
-      \ en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
+      \ en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube\
+      \ abrirá el enlace que a pulsado en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
@@ -817,8 +871,10 @@ Tooltips:
       (;) cada argumento será enviado al reproductor externo.
     Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
       (ej. invertir listas de reproducción, etc.).
-    External Player: Al elegir un reproductor externo, aparecerá un botón en las miniaturas
-      de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
+    External Player: La elección de un reproductor externo mostrará un icono, para
+      abrir el vídeo (lista de reproducción si es compatible) en el reproductor externo,
+      en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
+      externos.
     DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
@@ -845,3 +901,28 @@ Downloading has completed: '«$» ha terminado de descargarse'
 Downloading failed: Hubo un problema al descargar «$»
 Screenshot Success: Captura de pantalla guardada como «$»
 Screenshot Error: Captura de pantalla fallida. $
+New Window: Nueva ventana
+Channels:
+  Channels: Canales
+  Title: Lista de canales
+  Search bar placeholder: Buscar canales
+  Count: $ canal(es) encontrado(s).
+  Empty: Tu lista de canales está actualmente vacía.
+  Unsubscribe: Cancelar la suscripción
+  Unsubscribed: $ ha sido eliminado de tus suscripciones
+  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "$"?
+Age Restricted:
+  Type:
+    Channel: Canal
+    Video: Vídeo
+  This $contentType is age restricted: Este $ tiene restricción de edad
+Clipboard:
+  Copy failed: Error al copiar al portapapeles
+  Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
+    sin una conexión segura
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
+    visibles, capítulo actual: {nombredelcapítulo}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
+    ocultos, capítulo actual: {nombredelcapítulo}'
+  Chapters: Capítulos

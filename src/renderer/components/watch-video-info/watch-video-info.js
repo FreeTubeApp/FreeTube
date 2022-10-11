@@ -2,18 +2,17 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
   components: {
     'ft-card': FtCard,
     'ft-button': FtButton,
-    'ft-list-dropdown': FtListDropdown,
     'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
     'ft-share-button': FtShareButton
@@ -135,7 +134,7 @@ export default Vue.extend({
     },
 
     currentLocale: function () {
-      return this.$store.getters.getCurrentLocale
+      return i18n.locale.replace('_', '-')
     },
 
     profileList: function () {
@@ -238,7 +237,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         return null
       }
-      return this.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ` ${this.$t('Video.Views').toLowerCase()}`
+      return Intl.NumberFormat(this.currentLocale).format(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
     isSubscribed: function () {
@@ -299,6 +298,18 @@ export default Vue.extend({
             type: 'image/png'
           }
         ]
+      })
+
+      this.$watch('$refs.downloadButton.dropdownShown', (dropdownShown) => {
+        this.$parent.infoAreaSticky = !dropdownShown
+
+        if (dropdownShown && window.innerWidth >= 901) {
+          // adds a slight delay so we know that the dropdown has shown up
+          // and won't mess up our scrolling
+          Promise.resolve().then(() => {
+            this.$parent.$refs.infoArea.scrollIntoView()
+          })
+        }
       })
     }
   },

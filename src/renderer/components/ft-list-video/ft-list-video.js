@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -249,6 +250,10 @@ export default Vue.extend({
 
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
@@ -286,9 +291,6 @@ export default Vue.extend({
     },
 
     handleOptionsClick: function (option) {
-      console.log('Handling share')
-      console.log(option)
-
       switch (option) {
         case 'history':
           if (this.watched) {
@@ -298,46 +300,31 @@ export default Vue.extend({
           }
           break
         case 'copyYoutube':
-          navigator.clipboard.writeText(this.youtubeShareUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: this.youtubeShareUrl, messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
           this.openExternalLink(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
-          navigator.clipboard.writeText(this.youtubeEmbedUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube Embed URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: this.youtubeEmbedUrl, messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
           break
         case 'openYoutubeEmbed':
           this.openExternalLink(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
-          navigator.clipboard.writeText(this.invidiousUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: this.invidiousUrl, messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
           this.openExternalLink(this.invidiousUrl)
           break
         case 'copyYoutubeChannel':
-          navigator.clipboard.writeText(this.youtubeChannelUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube Channel URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: this.youtubeChannelUrl, messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
           break
         case 'openYoutubeChannel':
           this.openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
-          navigator.clipboard.writeText(this.invidiousChannelUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious Channel URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: this.invidiousChannelUrl, messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
           break
         case 'openInvidiousChannel':
           this.openExternalLink(this.invidiousChannelUrl)
@@ -424,7 +411,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         this.hideViews = true
       } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.parsedViewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.parsedViewCount = Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
@@ -535,7 +522,8 @@ export default Vue.extend({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
-      'openExternalLink'
+      'openExternalLink',
+      'copyToClipboard'
     ])
   }
 })

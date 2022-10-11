@@ -7,6 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  height: 100%;
 }
 
 .routerView {
@@ -15,14 +16,16 @@
 }
 
 .banner {
-  margin: 16px auto 0 auto;
-  width: 90%;
+  width: 85%;
+  margin: 20px auto 0;
+}
+
+.banner-wrapper {
+  margin: 0 10px;
 }
 
 .flexBox {
-  margin: 0;
-  flex: 1 1 0%;
-  flex-direction: column;
+  display: block;
 }
 
 #changeLogText {
@@ -44,7 +47,8 @@
   }
 
   .banner {
-    width: 90%;
+    width: 80%;
+    margin-top: 20px;
   }
 
   .flexBox {

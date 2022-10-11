@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <video
-      :id="id"
+      ref="video"
       class="ftVideoPlayer video-js vjs-default-skin dark"
       :poster="thumbnail"
       controls

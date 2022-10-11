@@ -2192,3 +2192,13 @@ video::-webkit-media-text-track-display {
     height: 100%;
   }
 }
+
+@media screen and (max-width: 680px) {
+  .vjs-control.vjs-disabled.vjs-picture-in-picture-control,
+  .vjs-control.vjs-button.vjs-button-fullwindow {
+    display: none;
+  }
+  .vjs-full-window .video-js.vjs-full-screen .vjs-control.vjs-button.vjs-button-fullwindow {
+    display: initial;
+  }
+}

@@ -34,7 +34,7 @@ export default Vue.extend({
   },
   computed: {
     usingElectron: function () {
-      return this.$store.getters.getUsingElectron
+      return process.env.IS_ELECTRON
     }
   }
 })

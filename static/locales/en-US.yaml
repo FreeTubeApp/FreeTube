@@ -84,8 +84,9 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
-    Subscription list is currently empty. Start adding subscriptions to see them here.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
+  Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
+  Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
@@ -182,6 +183,7 @@ Settings:
       System Default: System Default
       Light: Light
       Dracula: Dracula
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -207,6 +209,20 @@ Settings:
       Dracula Purple: Dracula Purple
       Dracula Red: Dracula Red
       Dracula Yellow: Dracula Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -264,6 +280,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -286,6 +305,7 @@ Settings:
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
+    Fetch Automatically: Fetch Feed Automatically
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Hide Video Views: Hide Video Views
@@ -302,14 +322,15 @@ Settings:
     Hide Comments: Hide Comments
     Hide Live Streams: Hide Live Streams
     Hide Sharing Actions: Hide Sharing Actions
+    Hide Chapters: Hide Chapters
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
-    Import FreeTube: Import FreeTube
-    Import YouTube: Import YouTube
-    Import NewPipe: Import NewPipe
+    Subscription File: Subscription File
+    History File: History File
+    Playlist File: Playlist File
     Check for Legacy Subscriptions: Check for Legacy Subscriptions
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
@@ -527,6 +548,7 @@ Video:
     the page to check again
   # As in a Live Video
   Premieres on: Premieres on
+  Premieres: Premieres
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -577,6 +599,7 @@ Video:
     Years: Years
     Ago: Ago
     Upcoming: Premieres on
+    In less than a minute: In less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
@@ -649,7 +672,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
-  Change Video Formats: Change Video Formats
+  Change Media Formats: Change Media Formats
   Use Dash Formats: Use DASH Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
@@ -671,6 +694,14 @@ Share:
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
   YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+Clipboard:
+  Copy failed: Copy to clipboard failed
+  Cannot access clipboard without a secure connection: Cannot access clipboard without a secure connection
+
+Chapters:
+  Chapters: Chapters
+  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
 Mini Player: Mini Player
 Comments:
@@ -748,6 +779,8 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration or live status
+    Fetch Automatically: When enabled, FreeTube will automatically fetch
+      your subscription feed when a new window is opened and when switching profile.
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
       when the watch page is closed.

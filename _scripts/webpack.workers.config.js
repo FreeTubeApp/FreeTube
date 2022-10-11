@@ -26,13 +26,9 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
       },
     ],
   },
@@ -63,11 +59,7 @@ const config = {
 if (isDevMode) {
   // any dev only config
 } else {
-  config.plugins.push(
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    })
-  )
+  // any producation only config
 }
 
 module.exports = config

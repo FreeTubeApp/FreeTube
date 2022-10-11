@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { mapActions, mapMutations } from 'vuex'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -12,6 +13,7 @@ import debounce from 'lodash.debounce'
 export default Vue.extend({
   name: 'GeneralSettings',
   components: {
+    'ft-settings-section': FtSettingsSection,
     'ft-card': FtCard,
     'ft-select': FtSelect,
     'ft-input': FtInput,
@@ -59,14 +61,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
-
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -114,7 +108,7 @@ export default Vue.extend({
     },
 
     localeOptions: function () {
-      return ['system'].concat(Object.keys(this.$i18n.messages))
+      return ['system'].concat(this.$i18n.allLocales)
     },
 
     localeNames: function () {
@@ -122,14 +116,18 @@ export default Vue.extend({
         this.$t('Settings.General Settings.System Default')
       ]
 
-      Object.keys(this.$i18n.messages).forEach((locale) => {
-        const localeName = this.$i18n.messages[locale]['Locale Name']
-        if (typeof localeName !== 'undefined') {
-          names.push(localeName)
-        } else {
-          names.push(locale)
-        }
-      })
+      if (process.env.NODE_ENV === 'development') {
+        Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
+          const localeName = localeData['Locale Name']
+          if (typeof localeName !== 'undefined') {
+            names.push(localeName)
+          } else {
+            names.push(locale)
+          }
+        })
+      } else {
+        names.push(...process.env.LOCALE_NAMES)
+      }
 
       return names
     },
@@ -210,7 +208,6 @@ export default Vue.extend({
 
     handlePreferredApiBackend: function (backend) {
       this.updateBackendPreference(backend)
-      console.log(backend)
 
       if (backend === 'local') {
         this.updateForceLocalBackendForLegacy(false)

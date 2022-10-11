@@ -8,20 +8,23 @@ const args = process.argv
 
 let targets
 const platform = os.platform()
-const cpus = os.cpus()
 
 if (platform === 'darwin') {
   let arch = Arch.x64
 
-// Macbook Air 2020 with M1 = 'Apple M1'
-  // Macbook Pro 2021 with M1 Pro = 'Apple M1 Pro'
-  if (cpus[0].model.startsWith('Apple')) {
+  if (args[2] === 'arm64') {
     arch = Arch.arm64
   }
 
-  targets = Platform.MAC.createTarget(['dmg'], arch)
+  targets = Platform.MAC.createTarget(['DMG','zip', '7z'], arch)
 } else if (platform === 'win32') {
-  targets = Platform.WINDOWS.createTarget()
+  let arch = Arch.x64
+
+  if (args[2] === 'arm64') {
+    arch = Arch.arm64
+  }
+
+  targets = Platform.WINDOWS.createTarget(['nsis', 'zip', '7z', 'portable'], arch)
 } else if (platform === 'linux') {
   let arch = Arch.x64
 
@@ -33,7 +36,7 @@ if (platform === 'darwin') {
     arch = Arch.armv7l
   }
 
-  targets = Platform.LINUX.createTarget(['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'], arch)
+  targets = Platform.LINUX.createTarget(['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'], arch)
 }
 
 const config = {
@@ -53,7 +56,20 @@ const config = {
       ]
     }
   ],
-  files: ['_icons/iconColor.*', 'icon.svg', './dist/**/*', '!./dist/web/**/*'],
+  files: [
+    '_icons/iconColor.*',
+    'icon.svg',
+    './dist/**/*',
+    '!dist/web/*',
+    '!node_modules/**/*',
+
+    // renderer
+    'node_modules/{miniget,ytpl,ytsr}/**/*',
+
+    '!**/README.md',
+    '!**/*.js.map',
+    '!**/*.d.ts',
+  ],
   dmg: {
     contents: [
       {
@@ -76,7 +92,7 @@ const config = {
   linux: {
     category: 'Network',
     icon: '_icons/icon.svg',
-    target: ['deb', 'zip', 'apk', 'rpm', 'AppImage', 'pacman'],
+    target: ['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'],
   },
   // See the following issues for more information
   // https://github.com/jordansissel/fpm/issues/1503
@@ -100,7 +116,7 @@ const config = {
   mac: {
     category: 'public.app-category.utilities',
     icon: '_icons/iconMac.icns',
-    target: ['dmg', 'zip'],
+    target: ['dmg', 'zip', '7z'],
     type: 'distribution',
     extendInfo: {
       CFBundleURLTypes: [
@@ -113,7 +129,7 @@ const config = {
   },
   win: {
     icon: '_icons/icon.ico',
-    target: ['nsis', 'zip', 'portable', 'squirrel'],
+    target: ['nsis', 'zip', '7z', 'portable'],
   },
   nsis: {
     allowToChangeInstallationDirectory: true,
@@ -125,6 +141,7 @@ builder
   .build({
     targets,
     config,
+    publish: 'never'
   })
   .then(m => {
     console.log(m)

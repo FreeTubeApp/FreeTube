@@ -1,17 +1,11 @@
-import $ from 'jquery'
 import fs from 'fs'
 
 const state = {
   currentInvidiousInstance: '',
-  invidiousInstancesList: null,
-  isGetChannelInfoRunning: false
+  invidiousInstancesList: null
 }
 
 const getters = {
-  getIsGetChannelInfoRunning(state) {
-    return state.isGetChannelInfoRunning
-  },
-
   getCurrentInvidiousInstance(state) {
     return state.currentInvidiousInstance
   },
@@ -22,14 +16,14 @@ const getters = {
 }
 
 const actions = {
-  async fetchInvidiousInstances({ commit }, payload) {
+  async fetchInvidiousInstances({ commit }) {
     const requestUrl = 'https://api.invidious.io/instances.json'
 
-    let response
     let instances = []
     try {
-      response = await $.getJSON(requestUrl)
-      instances = response.filter((instance) => {
+      const response = await fetch(requestUrl)
+      const json = await response.json()
+      instances = json.filter((instance) => {
         if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
           return false
         } else {
@@ -39,27 +33,29 @@ const actions = {
         return instance[1].uri.replace(/\/$/, '')
       })
     } catch (err) {
-      console.log(err)
+      console.error(err)
+    }
+    // If the invidious instance fetch isn't returning anything interpretable
+    if (instances.length === 0) {
       // Starts fallback strategy: read from static file
       // And fallback to hardcoded entry(s) if static file absent
       const fileName = 'invidious-instances.json'
       /* eslint-disable-next-line */
-      const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+      const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
       if (fs.existsSync(`${fileLocation}${fileName}`)) {
-        console.log('reading static file for invidious instances')
+        console.warn('reading static file for invidious instances')
         const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
         instances = JSON.parse(fileData).map((entry) => {
           return entry.url
         })
       } else {
-        console.log('unable to read static file for invidious instances')
+        console.error('unable to read static file for invidious instances')
         instances = [
           'https://invidious.snopyta.org',
           'https://invidious.kavin.rocks/'
         ]
       }
     }
-
     commit('setInvidiousInstancesList', instances)
   },
 
@@ -71,24 +67,22 @@ const actions = {
 
   invidiousAPICall({ state }, payload) {
     return new Promise((resolve, reject) => {
-      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + $.param(payload.params)
+      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + new URLSearchParams(payload.params).toString()
 
-      $.getJSON(requestUrl, (response) => {
-        resolve(response)
-      }).fail((xhr, textStatus, error) => {
-        console.log(xhr)
-        console.log(textStatus)
-        console.log(requestUrl)
-        console.log(error)
-        reject(xhr)
-      })
+      fetch(requestUrl)
+        .then((response) => response.json())
+        .then((json) => {
+          resolve(json)
+        })
+        .catch((error) => {
+          console.error('Invidious API error', requestUrl, error)
+          reject(error)
+        })
     })
   },
 
   invidiousGetChannelInfo({ commit, dispatch }, channelId) {
     return new Promise((resolve, reject) => {
-      commit('toggleIsGetChannelInfoRunning')
-
       const payload = {
         resource: 'channels',
         id: channelId,
@@ -98,9 +92,7 @@ const actions = {
       dispatch('invidiousAPICall', payload).then((response) => {
         resolve(response)
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
-        commit('toggleIsGetChannelInfoRunning')
+        console.error(xhr)
         reject(xhr)
       })
     })
@@ -111,9 +103,7 @@ const actions = {
       dispatch('invidiousAPICall', payload).then((response) => {
         resolve(response)
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
-        commit('toggleIsGetChannelInfoRunning')
+        console.error(xhr)
         reject(xhr)
       })
     })
@@ -130,8 +120,7 @@ const actions = {
       dispatch('invidiousAPICall', payload).then((response) => {
         resolve(response)
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         reject(xhr)
       })
     })
@@ -139,10 +128,6 @@ const actions = {
 }
 
 const mutations = {
-  toggleIsGetChannelInfoRunning(state) {
-    state.isGetChannelInfoRunning = !state.isGetChannelInfoRunning
-  },
-
   setCurrentInvidiousInstance(state, value) {
     state.currentInvidiousInstance = value
   },

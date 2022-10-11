@@ -83,6 +83,9 @@ Subscriptions:
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
   Error Channels: ערוצים עם שגיאות
+  Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים
+    כדי לצפות בהם כאן.
+  Empty Channels: בערוצים אליהם נרשמת אין כלל סרטונים.
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -161,6 +164,7 @@ Settings:
       Light: 'בהיר'
       Dracula: 'דרקולה'
       System Default: ברירת המחדל של המערכת
+      Catppuccin Mocha: מוקה קפוצ׳ינו
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -186,6 +190,20 @@ Settings:
       Dracula Purple: 'דרקולה סגול'
       Dracula Red: 'דרקולה אדום'
       Dracula Yellow: 'דרקולה צהוב'
+      Catppuccin Mocha Rosewater: מוקה קפוצ׳ינו מי ורדים
+      Catppuccin Mocha Red: מוקה קפוצ׳ינו אדום
+      Catppuccin Mocha Maroon: מוקה קפוצ׳ינו ערמון
+      Catppuccin Mocha Peach: מוקה קפוצ׳ינו אפרסק
+      Catppuccin Mocha Yellow: מוקה קפוצ׳ינו צהוב
+      Catppuccin Mocha Sky: מוקה קפוצ׳ינו שמיים
+      Catppuccin Mocha Flamingo: מוקה קפוצ׳ינו פלמינגו
+      Catppuccin Mocha Mauve: מוקה קפוצ׳ינו ארגמן
+      Catppuccin Mocha Pink: מוקה קפוצ׳ינו ורוד
+      Catppuccin Mocha Green: מוקה קפוצ׳ינו ירוק
+      Catppuccin Mocha Sapphire: מוקה קפוצ׳ינו ספיר
+      Catppuccin Mocha Lavender: מוקה קפוצ׳ינו לבנדר
+      Catppuccin Mocha Teal: מוקה קפוצ׳ינו ירקרק-כחלחל
+      Catppuccin Mocha Blue: מוקה קפוצ׳ינו כחול
     Secondary Color Theme: 'צבע משני'
         #* Main Color Theme
     UI Scale: גודל הממשק
@@ -264,6 +282,7 @@ Settings:
     Hide Videos on Watch: 'הסתר סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'יבוא עדכונים בעזרת RSS'
     Manage Subscriptions: 'ניהול מנויים'
+    Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
   Data Settings:
     Data Settings: 'הגדרות נתונים'
     Select Import Type: 'בחר את פורמט הייבוא'
@@ -349,6 +368,7 @@ Settings:
     Hide Sharing Actions: הסתרת פעולות שיתוף
     Hide Comments: הסתרת הערות
     Hide Video Description: הסתרת תיאור וידאו
+    Hide Chapters: הסתרת פרקים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -373,6 +393,9 @@ Settings:
     Custom External Player Executable: קובץ בר־הרצה מותאם אישית לַנַּגָּן
     Ignore Unsupported Action Warnings: התעלמות מאזהרות על פעולות שאינן נתמכות
     Custom External Player Arguments: משתנים לנגן חיצוני בהתאמה אישית
+    Players:
+      None:
+        Name: ללא
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
     SponsorBlock Settings: הגדרות חוסם מממנים
@@ -450,7 +473,7 @@ About:
   room rules: כללי החדר
   Please read the: נא לקרוא את
   Chat on Matrix: צ׳אט ב־Matrix
-  Mastodon: Mastodon
+  Mastodon: ‎Mastodon
   Please check for duplicates before posting: נא לבדוק כפילויות בטרם פרסום תקלה
   GitHub issues: תקלות ב־GitHub
   Report a problem: דיווח על תקלה
@@ -596,6 +619,8 @@ Video:
     Years: 'שנים'
     Ago: 'לפני'
     Upcoming: 'שידור הבכורה ישודר ב־'
+    Less than a minute: פחות מדקה
+    In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'לפני $ %'
@@ -663,6 +688,8 @@ Video:
     Buffered: שמור בזיכרון
     Dropped / Total Frames: תמוניות שהושמטו / סה״כ
     Mimetype: סוג MIME
+  Premieres in: בכורה בעוד
+  Premieres: בכורות
 Videos:
   #& Sort By
   Sort By:
@@ -690,7 +717,7 @@ Playlist:
   Playlist: פלייליסט
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
-  Change Video Formats: 'שינוי תצורות הסרטונים'
+  Change Media Formats: 'שינוי תצורות הסרטונים'
   Use Dash Formats: 'שימוש בתצורות DASH'
   Use Legacy Formats: 'שימוש בתצורות המיושנות'
   Use Audio Formats: 'שימוש בתצורות שמע'
@@ -793,12 +820,15 @@ Tooltips:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
       לא מספקת חלק מהמידע כמו אורך הסרטון או מצב שידור חי
+    Fetch Automatically: כאשר האפשרות פעילה, FreeTube ימשוך את הזנת המינויים שלך אוטומטית
+      עם פתיחת חלון חדש ובעת החלפת פרופיל.
   External Player Settings:
-    DefaultCustomArgumentsTemplate: '(ברירת מחדל: "$")'
+    DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚$’)'
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
       (למשל: היפוך רשימת נגינה וכו׳).'
     External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
-      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת.
+      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת. אזהרה, הגדרות Invidious לא משפיעות
+      על נגנים חיצוניים.
     Custom External Player Executable: כברירת מחדל FreeTube יניח שהנגן החיצוני הנבחר
       נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
     Custom External Player Arguments: הארגומנטים משלך לשורת הפקודה שיועברו לנגן החיצוני,
@@ -834,3 +864,22 @@ Age Restricted:
     Channel: ערוץ
     Video: סרטון
   This $contentType is age restricted: ה$ הזה מוגבל בגיל
+Channels:
+  Search bar placeholder: חיפוש ערוצים
+  Empty: רשימת הערוצים שלך ריקה כרגע.
+  Unsubscribe: ביטול מינוי
+  Unsubscribed: $ הוסר מרשימת המינויים שלך
+  Count: נמצאו $ ערוצים.
+  Channels: ערוצים
+  Title: רשימת ערוצים
+  Unsubscribe Prompt: לבטל את המינוי על „$”?
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'רשימת הפרקים מוסתרת, הפרק
+    הנוכחי: {chapterName}'
+  Chapters: פרקים
+  'Chapters list visible, current chapter: {chapterName}': 'רשימת הפרקים גלויה, הפרק
+    הנוכחי: {chapterName}'
+Clipboard:
+  Copy failed: ההעתקה ללוח הגזירים נכשלה
+  Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא
+    חיבור מאובטח

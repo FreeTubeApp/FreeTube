@@ -75,6 +75,8 @@ Subscriptions:
     强制RSS已防止速率限制
   Load More Videos: 加载更多视频
   Error Channels: 有错误的频道
+  Disabled Automatic Fetching: 你仅用了自动订阅获取。刷新订阅在此处看到它们。
+  Empty Channels: 你订阅的频道当前没有任何视频。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -148,6 +150,7 @@ Settings:
       Light: '浅'
       Dracula: '德古拉'
       System Default: 系统默认
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -166,13 +169,27 @@ Settings:
       Amber: '黄褐'
       Orange: '橙'
       Deep Orange: '深橙'
-      Dracula Cyan: '德古拉 青'
-      Dracula Green: '德古拉 绿'
-      Dracula Orange: '德古拉 橙'
-      Dracula Pink: '德古拉 粉'
-      Dracula Purple: '德古拉 紫'
-      Dracula Red: '德古拉 红'
-      Dracula Yellow: '德古拉 黄'
+      Dracula Cyan: 'Dracula Cyan'
+      Dracula Green: 'Dracula Green'
+      Dracula Orange: 'Dracula Orange'
+      Dracula Pink: 'Dracula Pink'
+      Dracula Purple: 'Dracula Purple'
+      Dracula Red: 'Dracula Red'
+      Dracula Yellow: 'Dracula Yellow'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -242,6 +259,7 @@ Settings:
     Export Subscriptions: '导出订阅'
     How do I import my subscriptions?: '如何导入我的订阅？'
     Fetch Feeds from RSS: 从RSS摘取推送
+    Fetch Automatically: 自动抓取订阅源
   Advanced Settings:
     Advanced Settings: '高级设置'
     Enable Debug Mode (Prints data to the console): '允许调试模式（打印数据在控制板）'
@@ -313,6 +331,9 @@ Settings:
     Playlist insufficient data: '"$" 播放列表数据不足，正在跳过'
     All playlists has been successfully imported: 已成功导入所有播放列表
     All playlists has been successfully exported: 所有播放列表已成功导出
+    Playlist File: 播放列表文件
+    Subscription File: 订阅文件
+    History File: 历史文件
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -329,6 +350,7 @@ Settings:
     Hide Sharing Actions: 隐藏分享操作
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
+    Hide Chapters: 隐藏章节
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -363,6 +385,9 @@ Settings:
     Ignore Unsupported Action Warnings: 忽略不支持的行为的警告
     External Player: 外部播放器
     External Player Settings: 外部播放器设置
+    Players:
+      None:
+        Name: 无
   Download Settings:
     Download Settings: 下载设置
     Ask Download Path: 询问下载路径
@@ -504,6 +529,8 @@ Video:
     Upcoming: '首映于'
     Minutes: 分钟
     Minute: 分钟
+    Less than a minute: 不到一分钟
+    In less than a minute: 不到一分钟
   Published on: '发布于'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % 之前'
@@ -582,6 +609,8 @@ Video:
     filler: 过滤器
   translated from English: 从英语翻译而来
   Skipped segment: 跳过片段
+  Premieres in: 首映于
+  Premieres: 首映
 Videos:
   #& Sort By
   Sort By:
@@ -609,7 +638,7 @@ Playlist:
   Playlist: 播放列表
 Toggle Theatre Mode: '切换剧场模式'
 Change Format:
-  Change Video Formats: '更换视频格式'
+  Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
   Use Legacy Formats: '使用传统格式'
   Use Audio Formats: '使用音频格式'
@@ -720,6 +749,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 启用后，FreeTube将使用RSS而非默认方式来取得您的订阅推送。RSS更快而且可避免IP封锁，但不提供某些信息，如影片长度与即时状态
+    Fetch Automatically: 开启后，打开新窗口和切换配置文件时，FreeTube 会自动抓取你的订阅源。
   Player Settings:
     Default Video Format: 设置播放视频时使用的格式。DASH 格式可以播放更高质量的视频。 传统格式限制为最大 720p，但使用较少的带宽。
       音频格式是纯音频流。
@@ -737,7 +767,7 @@ Tooltips:
     Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
     External Link Handling: "选择单击一个无法在 FreeTube 中打开的链接时触发的默认操作。\n默认情况下，FreeTube 将在您的默认浏览器中打开所点击链接。\n"
   External Player Settings:
-    External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。
+    External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。警告，Invidious 设置不影响外部播放器。
     Custom External Player Executable: 默认情况下，FreeTube 假设选择的外部播放器可以通过 PATH 环境变量找到。如果需要，可以在这里设置自定义路径。
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
     DefaultCustomArgumentsTemplate: "(默认: '$')"
@@ -778,3 +808,10 @@ Channels:
   Empty: 你的频道列表当前为空。
   Unsubscribed: 从你的订阅里删除了 $
   Unsubscribe Prompt: 你确定你要取消订阅 "$" 吗？
+Clipboard:
+  Copy failed: 未能复制到剪贴板
+  Cannot access clipboard without a secure connection: 没有安全连接无法访问剪贴板
+Chapters:
+  Chapters: 章节
+  'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
+  'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}

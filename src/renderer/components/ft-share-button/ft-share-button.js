@@ -76,60 +76,45 @@ export default Vue.extend({
     }
   },
   methods: {
-    copy(text) {
-      navigator.clipboard.writeText(text)
-    },
 
     openInvidious() {
       this.openExternalLink(this.getFinalUrl(this.invidiousURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hideDropdown()
     },
 
     copyInvidious() {
-      this.showToast({
-        message: this.$t('Share.Invidious URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.invidiousURL))
-      this.$refs.iconButton.focusOut()
+      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousURL), messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+      this.$refs.iconButton.hideDropdown()
     },
 
     openYoutube() {
       this.openExternalLink(this.getFinalUrl(this.youtubeURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hideDropdown()
     },
 
     copyYoutube() {
-      this.showToast({
-        message: this.$t('Share.YouTube URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.youtubeShareURL))
-      this.$refs.iconButton.focusOut()
+      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeShareURL), messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+      this.$refs.iconButton.hideDropdown()
     },
 
     openYoutubeEmbed() {
       this.openExternalLink(this.getFinalUrl(this.youtubeEmbedURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hideDropdown()
     },
 
     copyYoutubeEmbed() {
-      this.showToast({
-        message: this.$t('Share.YouTube Embed URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.youtubeEmbedURL))
-      this.$refs.iconButton.focusOut()
+      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeEmbedURL), messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
+      this.$refs.iconButton.hideDropdown()
     },
 
     openInvidiousEmbed() {
       this.openExternalLink(this.getFinalUrl(this.invidiousEmbedURL))
-      this.$refs.iconButton.focusOut()
+      this.$refs.iconButton.hideDropdown()
     },
 
     copyInvidiousEmbed() {
-      this.showToast({
-        message: this.$t('Share.Invidious Embed URL copied to clipboard')
-      })
-      this.copy(this.getFinalUrl(this.invidiousEmbedURL))
-      this.$refs.iconButton.focusOut()
+      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousEmbedURL), messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
+      this.$refs.iconButton.hideDropdown()
     },
 
     updateIncludeTimestamp() {
@@ -145,7 +130,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'openExternalLink'
+      'openExternalLink',
+      'copyToClipboard'
     ])
   }
 })

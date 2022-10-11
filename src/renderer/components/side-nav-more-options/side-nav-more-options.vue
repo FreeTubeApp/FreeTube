@@ -6,7 +6,7 @@
       @click="openMoreOptions = !openMoreOptions"
     >
       <font-awesome-icon
-        icon="ellipsis-h"
+        :icon="['fas', 'ellipsis-h']"
         class="navIcon"
         :class="applyNavIconExpand"
       />
@@ -22,6 +22,29 @@
       class="moreOptionContainer"
     >
       <div
+        class="navOption mobileHidden"
+        role="button"
+        tabindex="0"
+        :title="$t('Channels.Channels')"
+        @click="navigate('subscribedchannels')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'list']"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          class="navLabel"
+        >
+          {{ $t("Channels.Channels") }}
+        </p>
+      </div>
+      <div
         v-if="!hideTrendingVideos"
         class="navOption"
         :title="$t('Trending.Trending')"
@@ -29,7 +52,7 @@
         @click="navigate('trending')"
       >
         <font-awesome-icon
-          icon="fire"
+          :icon="['fas', 'fire']"
           class="navIcon"
           :class="applyNavIconExpand"
         />
@@ -47,7 +70,7 @@
         @click="navigate('popular')"
       >
         <font-awesome-icon
-          icon="users"
+          :icon="['fas', 'users']"
           class="navIcon"
           :class="applyNavIconExpand"
         />
@@ -64,7 +87,7 @@
         @click="navigate('about')"
       >
         <font-awesome-icon
-          icon="info-circle"
+          :icon="['fas', 'info-circle']"
           class="navIcon"
           :class="applyNavIconExpand"
         />
@@ -81,7 +104,7 @@
       @click="navigate('history')"
     >
       <font-awesome-icon
-        icon="history"
+        :icon="['fas', 'history']"
         class="navIcon"
         :class="applyNavIconExpand"
       />
@@ -95,7 +118,7 @@
       @click="navigate('settings')"
     >
       <font-awesome-icon
-        icon="sliders-h"
+        :icon="['fas', 'sliders-h']"
         class="navIcon"
         :class="applyNavIconExpand"
       />
@@ -108,7 +131,7 @@
       @click="navigate('about')"
     >
       <font-awesome-icon
-        icon="info-circle"
+        :icon="['fas', 'info-circle']"
         class="navIcon"
         :class="applyNavIconExpand"
       />

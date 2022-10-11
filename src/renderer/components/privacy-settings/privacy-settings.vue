@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Privacy Settings.Privacy Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Privacy Settings.Privacy Settings')"
+  >
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -76,8 +72,7 @@
       :option-values="promptValues"
       @click="handleRemoveSubscriptions"
     />
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./privacy-settings.js" />
-<style scoped lang="sass" src="./privacy-settings.sass" />

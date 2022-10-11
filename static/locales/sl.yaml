@@ -85,7 +85,7 @@ Subscriptions:
     profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo
     uporabljen RSS
   Load More Videos: Naloži več videoposnetkov
-Trending: 
+Trending:
   Trending: 'Priljubljeno'
 Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
@@ -571,7 +571,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: 'Preklopi gledališki način'
 Change Format:
-  Change Video Formats: 'Spremeni vrsto videoposnetka'
+  Change Media Formats: 'Spremeni vrsto videoposnetka'
   Use Dash Formats: 'Uporabi DASH oblike'
   Use Legacy Formats: 'Uporabi zapuščinske oblike'
   Use Audio Formats: 'Uporabi avdio oblike'

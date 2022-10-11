@@ -3,7 +3,6 @@ import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
-import $ from 'jquery'
 import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
@@ -19,7 +18,7 @@ export default Vue.extend({
   data: () => {
     return {
       component: this,
-      windowWidth: 0,
+      showSearchContainer: true,
       showFilters: false,
       searchFilterValueChanged: false,
       historyIndex: 1,
@@ -28,10 +27,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
@@ -81,11 +76,9 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    const appWidth = $(window).width()
-
-    if (appWidth <= 680) {
-      const searchContainer = $('.searchContainer').get(0)
-      searchContainer.style.display = 'none'
+    let previousWidth = window.innerWidth
+    if (window.innerWidth <= 680) {
+      this.showSearchContainer = false
     }
 
     // Store is not up-to-date when the component mounts, so we use timeout.
@@ -95,30 +88,26 @@ export default Vue.extend({
       }
     }, 0)
 
-    window.addEventListener('resize', function (event) {
-      const width = event.srcElement.innerWidth
-      const searchContainer = $('.searchContainer').get(0)
-
-      if (width > 680) {
-        searchContainer.style.display = ''
-      } else {
-        searchContainer.style.display = 'none'
+    window.addEventListener('resize', () => {
+      // Don't change the status of showSearchContainer if only the height of the window changes
+      // Opening the virtual keyboard can trigger this resize event, but it won't change the width
+      if (previousWidth !== window.innerWidth) {
+        this.showSearchContainer = window.innerWidth > 680
+        previousWidth = window.innerWidth
       }
     })
 
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
-    goToSearch: async function (query) {
-      const appWidth = $(window).width()
+    goToSearch: async function (query, { event }) {
+      const doCreateNewWindow = event && event.shiftKey
 
-      if (appWidth <= 680) {
-        const searchContainer = $('.searchContainer').get(0)
-        searchContainer.blur()
-        searchContainer.style.display = 'none'
+      if (window.innerWidth <= 680) {
+        this.$refs.searchContainer.blur()
+        this.showSearchContainer = false
       } else {
-        const searchInput = $('.searchInput input').get(0)
-        searchInput.blur()
+        this.searchInput.blur()
       }
 
       this.getYoutubeUrlInfo(query).then((result) => {
@@ -133,9 +122,10 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            this.$router.push({
+            this.openInternalPath({
               path: `/watch/${videoId}`,
-              query: query
+              query,
+              doCreateNewWindow
             })
             break
           }
@@ -153,9 +143,11 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            this.$router.push({
+            this.openInternalPath({
               path: `/search/${encodeURIComponent(searchQuery)}`,
-              query
+              query,
+              doCreateNewWindow,
+              searchQueryText: searchQuery
             })
             break
           }
@@ -174,24 +166,28 @@ export default Vue.extend({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, idType, subPath } = result
 
-            this.$router.push({
-              path: `/channel/${channelId}/${subPath}`
+            this.openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
+              query: { idType },
+              doCreateNewWindow
             })
             break
           }
 
           case 'invalid_url':
           default: {
-            this.$router.push({
+            this.openInternalPath({
               path: `/search/${encodeURIComponent(query)}`,
               query: {
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
                 duration: this.searchSettings.duration
-              }
+              },
+              doCreateNewWindow,
+              searchQueryText: query
             })
           }
         }
@@ -202,7 +198,9 @@ export default Vue.extend({
     },
 
     focusSearch: function () {
-      this.searchInput.focus()
+      if (!this.hideSearchBar) {
+        this.searchInput.focus()
+      }
     },
 
     getSearchSuggestionsDebounce: function (query) {
@@ -250,9 +248,9 @@ export default Vue.extend({
       this.invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         if (this.backendFallback) {
-          console.log(
+          console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )
           this.getSearchSuggestionsLocal(query)
@@ -261,14 +259,7 @@ export default Vue.extend({
     },
 
     toggleSearchContainer: function () {
-      const searchContainer = $('.searchContainer').get(0)
-
-      if (searchContainer.style.display === 'none') {
-        searchContainer.style.display = ''
-      } else {
-        searchContainer.style.display = 'none'
-      }
-
+      this.showSearchContainer = !this.showSearchContainer
       this.showFilters = false
     },
 
@@ -279,8 +270,8 @@ export default Vue.extend({
     navigateHistory: function() {
       if (!this.isForwardOrBack) {
         this.historyIndex = window.history.length
-        $('#historyArrowBack').removeClass('fa-arrow-left')
-        $('#historyArrowForward').addClass('fa-arrow-right')
+        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
+        this.$refs.historyArrowForward.classList.add('fa-arrow-right')
       } else {
         this.isForwardOrBack = false
       }
@@ -292,9 +283,9 @@ export default Vue.extend({
 
       if (this.historyIndex > 1) {
         this.historyIndex--
-        $('#historyArrowForward').removeClass('fa-arrow-right')
+        this.$refs.historyArrowForward.classList.remove('fa-arrow-right')
         if (this.historyIndex === 1) {
-          $('#historyArrowBack').addClass('fa-arrow-left')
+          this.$refs.historyArrowBack.classList.add('fa-arrow-left')
         }
       }
     },
@@ -305,10 +296,10 @@ export default Vue.extend({
 
       if (this.historyIndex < window.history.length) {
         this.historyIndex++
-        $('#historyArrowBack').removeClass('fa-arrow-left')
+        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
 
         if (this.historyIndex === window.history.length) {
-          $('#historyArrowForward').addClass('fa-arrow-right')
+          this.$refs.historyArrowForward.classList.add('fa-arrow-right')
         }
       }
     },
@@ -317,8 +308,30 @@ export default Vue.extend({
       this.$store.commit('toggleSideNav')
     },
 
+    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
+      if (process.env.IS_ELECTRON && doCreateNewWindow) {
+        const { ipcRenderer } = require('electron')
+
+        // Combine current document path and new "hash" as new window startup URL
+        const newWindowStartupURL = [
+          window.location.href.split('#')[0],
+          `#${path}?${(new URLSearchParams(query)).toString()}`
+        ].join('')
+        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+          windowStartupUrl: newWindowStartupURL,
+          searchQueryText
+        })
+      } else {
+        // Web
+        this.$router.push({
+          path,
+          query
+        })
+      }
+    },
+
     createNewWindow: function () {
-      if (this.usingElectron) {
+      if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
         ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
       } else {
@@ -330,6 +343,9 @@ export default Vue.extend({
     },
     hideFilters: function () {
       this.showFilters = false
+    },
+    updateSearchInputText: function(text) {
+      this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
       'showToast',

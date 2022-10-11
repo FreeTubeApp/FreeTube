@@ -1,13 +1,13 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-FreeTube: 'فريتيوب'
+FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'إغلاق'
+Quit: 'خروج'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -56,7 +56,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: 'المدة'
-    All Durations: 'كل المدد'
+    All Durations: 'كل الآوقات'
     Short (< 4 minutes): 'قصير (< 4 دقائق)'
     Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
@@ -64,7 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
-  There are no more results for this search: لم يتبقى المزيد من النتائج لهذا البحث
+  There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -77,6 +77,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
   Error Channels: القنوات التي بها أخطاء
+  Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات
+    لرؤيتها هنا.
+  Empty Channels: لا تحتوي قنواتك التي اشتركت فيها حاليا على أي مقاطع فيديو.
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -156,6 +159,7 @@ Settings:
       Light: 'فاتح'
       Dracula: 'دراكولا'
       System Default: افتراضيات النظام
+      Catppuccin Mocha: كاتبوتشين موكا
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -181,6 +185,20 @@ Settings:
       Dracula Purple: 'دراكولا إرجواني'
       Dracula Red: 'دراكولا أحمر'
       Dracula Yellow: 'دراكولا أصفر'
+      Catppuccin Mocha Rosewater: كاتبوتشين موكا ماء الورد
+      Catppuccin Mocha Flamingo: كاتبوتشين موكا فلامنغو
+      Catppuccin Mocha Peach: كاتبوتشين موكا الخوخ
+      Catppuccin Mocha Green: كاتبوتشين موكا اخضر
+      Catppuccin Mocha Teal: كاتبوتشين موكا تيل
+      Catppuccin Mocha Sky: كاتبوتشين موكا سماوي
+      Catppuccin Mocha Sapphire: كاتبوتشين موكا سافير
+      Catppuccin Mocha Blue: كاتبوتشين موكا ازرق
+      Catppuccin Mocha Lavender: كاتبوتشين موكا لافندر
+      Catppuccin Mocha Mauve: كاتبوتشين موكا موف
+      Catppuccin Mocha Pink: كاتبوتشين موكا الوردية
+      Catppuccin Mocha Red: كاتبوتشين موكا أحمر
+      Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
+      Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -269,6 +287,7 @@ Settings:
     Import Subscriptions: 'استيراد الاشتراكات'
     Export Subscriptions: 'تصدير الاشتراكات'
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
+    Fetch Automatically: جلب الخلاصة تلقائيا
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -337,6 +356,9 @@ Settings:
     All playlists has been successfully exported: تم تصدير جميع قوائم التشغيل بنجاح
     Import Playlists: استيراد قوائم التشغيل
     Export Playlists: تصدير قوائم التشغيل
+    Subscription File: Subscription ملف
+    History File: ملف التاريخ
+    Playlist File: Playlist ملف
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -353,6 +375,7 @@ Settings:
     Hide Comments: إخفاء التعليقات
     Hide Sharing Actions: إخفاء إجراءات المشاركة
     Hide Live Streams: إخفاء البث المباشر
+    Hide Chapters: إخفاء الفصول
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -390,6 +413,9 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+    Players:
+      None:
+        Name: لاشيء
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
@@ -590,6 +616,8 @@ Video:
     Years: 'سنوات'
     Ago: 'منذ'
     Upcoming: 'يبدأ العرض'
+    Less than a minute: أقل من دقيقة
+    In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'قبل $ %'
@@ -666,6 +694,8 @@ Video:
     Buffered: مخزنة
     Dropped / Total Frames: إسقاط / إجمالي الإطارات
     Mimetype: نمط ميمي
+  Premieres in: العرض الأول في
+  Premieres: العرض الأولي
 Videos:
   #& Sort By
   Sort By:
@@ -693,7 +723,7 @@ Playlist:
   Playlist: قائمة التشغيل
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
-  Change Video Formats: 'تغيير تنسيقات الفيديو'
+  Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
   Use Legacy Formats: 'استخدم التنسيقات التراثية'
   Use Audio Formats: 'استخدم تنسيقات الصوت'
@@ -805,6 +835,8 @@ Tooltips:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
       تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر
+    Fetch Automatically: عند التمكين ، سيقوم FreeTube تلقائيا بجلب خلاصة الاشتراك
+      الخاصة بك عند فتح نافذة جديدة وعند تبديل ملف التعريف.
   External Player Settings:
     Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة مفصولة بفواصل منقوطة
       (';')، تريد تمريرها إلى المشغل الخارجي.
@@ -814,7 +846,8 @@ Tooltips:
       على المشغل الخارجي المختار عبر متغير بيئة PATH. إذا لزم الأمر ، يمكن تعيين مسار
       مخصص هنا.
     External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
-      إذا كان مدعوما) في المشغل الخارجي، على الصورة المصغرة.
+      إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
+      Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '$')"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
@@ -857,3 +890,13 @@ Channels:
   Empty: قائمة قنواتك فارغة حاليا.
   Unsubscribe: إلغاء الاشتراك
   Unsubscribe Prompt: هل أنت متأكد من أنك تريد إلغاء الاشتراك من "$"؟
+Clipboard:
+  Cannot access clipboard without a secure connection: لا يمكن الوصول إلى الحافظة
+    دون اتصال آمن
+  Copy failed: فشل النسخ إلى الحافظة
+Chapters:
+  Chapters: الفصول
+  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية، الفصل
+    الحالي: {اسم الفصل}'
+  'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
+    الفصل الحالي: {sectionName}'

@@ -87,6 +87,9 @@ Subscriptions:
   Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum
+  Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt.
+    Endurlestu áskriftirnar og þær munu birtast hér.
+  Empty Channels: Rásirnar sem þú ert með í áskrift eru er ekki með nein myndskeið.
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -177,6 +180,7 @@ Settings:
       Light: 'Ljóst'
       Dracula: 'Drakúla'
       System Default: Sjálfgefið í kerfinu
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -202,6 +206,20 @@ Settings:
       Dracula Purple: 'Drakúla Purpurablátt'
       Dracula Red: 'Drakúla Rautt'
       Dracula Yellow: 'Drakúla Gult'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha rósavatn
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamingó
+      Catppuccin Mocha Mauve: Catppuccin Mocha lillablátt
+      Catppuccin Mocha Red: Catppuccin Mocha rautt
+      Catppuccin Mocha Maroon: Catppuccin Mocha kastaníubrúnt
+      Catppuccin Mocha Green: Catppuccin Mocha grænt
+      Catppuccin Mocha Teal: Catppuccin Mocha sægrænt
+      Catppuccin Mocha Sky: Catppuccin Mocha himinblátt
+      Catppuccin Mocha Blue: Catppuccin Mocha blátt
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Pink: Catppuccin Mocha bleikt
+      Catppuccin Mocha Peach: Catppuccin Mocha ferskju
+      Catppuccin Mocha Yellow: Catppuccin Mocha gult
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safír
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -280,6 +298,7 @@ Settings:
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Manage Subscriptions: 'Sýsla með áskriftir'
+    Fetch Automatically: Sækja streymi sjálfvirkt
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi stillingar'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -296,6 +315,7 @@ Settings:
     Hide Sharing Actions: Fela deiliaðgerðir
     Hide Video Description: Fela lýsingu á myndskeiði
     Hide Comments: Fela athugasemdir
+    Hide Chapters: Fela kafla
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -376,6 +396,9 @@ Settings:
     Ignore Unsupported Action Warnings: Hunsa aðvarinir vegna óstuddra aðgerða
     External Player: Utanaðkomandi spilari
     External Player Settings: Stillingar utanaðkomandi spilara
+    Players:
+      None:
+        Name: Ekkert
   Download Settings:
     Download Settings: Stillingar niðurhals
     Ask Download Path: Spyrja hvar eigi að vista skrár
@@ -577,6 +600,8 @@ Video:
     Years: 'árum'
     Ago: 'síðan'
     Upcoming: 'Frumsýnt'
+    Less than a minute: Minna en mínútu
+    In less than a minute: eftir minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
@@ -630,6 +655,8 @@ Video:
       í boði fyrir eldri gerðir myndskeiða
     Bitrate: Bitahraði
     Volume: Hljóðstyrkur
+  Premieres in: Frumsýnt eftir
+  Premieres: Frumsýnt
 Videos:
   #& Sort By
   Sort By:
@@ -657,7 +684,7 @@ Playlist:
   Playlist: Spilunarlisti
 Toggle Theatre Mode: 'Víxla bíóham af/á'
 Change Format:
-  Change Video Formats: 'Skipta um myndskeiðasnið'
+  Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
   Use Legacy Formats: 'Nota eldri skráasnið'
   Use Audio Formats: 'Nota hljóðskráasnið'
@@ -752,6 +779,8 @@ Tooltips:
       á borð við tímalengd myndskeiða eða stöðu í beinni útsendingu'
 
 # Toast Messages
+    Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
+      þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
   Privacy Settings:
     Remove Video Meta Files: Þegar þetta er virkt, eyðir FreeTube sjálfkrafa lýsigagnaskrám
       sem útbúnar eru við afspilun, þegar skoðunarsíðunni er lokað.
@@ -765,7 +794,8 @@ Tooltips:
       má setja sérsniðna slóð hér.
     External Player: Sé valinn utanaðkomandi spilari, birtist táknmynd á smámyndinni
       til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
-      utanaðkomandi spilara.
+      utanaðkomandi spilara. Aðvörun, stillingar Invidious hafa ekki áhrif á utanaðkomandi
+      spilara.
     DefaultCustomArgumentsTemplate: "(Sjálfgefið: '$')"
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
@@ -828,3 +858,13 @@ Channels:
   Channels: Rásir
   Title: Rásalisti
   Unsubscribe: Segja upp áskrift
+Clipboard:
+  Copy failed: Afritun á klippispjald mistókst
+  Cannot access clipboard without a secure connection: Get ekki tengst klippispjaldi
+    án öruggrar tengingar
+Chapters:
+  Chapters: Kaflar
+  'Chapters list visible, current chapter: {chapterName}': 'Listi yfir kafla sýnilegur,
+    núverandi kafli: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
+    núverandi kafli: {chapterName}'
