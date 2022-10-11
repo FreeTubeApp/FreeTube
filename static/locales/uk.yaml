@@ -29,10 +29,10 @@ Close: 'Закрити'
 Back: 'Назад'
 Forward: 'Вперед'
 
-Version $ is now available!  Click for more details: 'Доступна нова версія $ ! Натисніть
+Version {versionNumber} is now available!  Click for more details: 'Доступна нова версія {versionNumber} ! Натисніть
   щоб побачити деталі'
 Download From Site: 'Завантажити з сайту'
-A new blog is now available, $. Click to view more: 'Доступний новий блог, $. Натисніть
+A new blog is now available, {blogTitle}. Click to view more: 'Доступний новий блог, {blogTitle}. Натисніть
   щоб побачити більше'
 
 # Search Bar
@@ -155,8 +155,8 @@ Settings:
     Current instance will be randomized on startup: Поточний випадковий екземпляр
       буде обрано під час запуску
     No default instance has been set: Типовий екземпляр не встановлено
-    The currently set default instance is $: Поточний встановлений типовим екземпляр
-      — $
+    The currently set default instance is {instance}: Поточний встановлений типовим екземпляр
+      — {instance}
     Current Invidious Instance: Поточний екземпляр Invidious
     External Link Handling:
       No Action: Без дій
@@ -349,7 +349,7 @@ Settings:
     Unknown data key: 'Невідомий ключ даних'
     How do I import my subscriptions?: 'Як імпортувати свої підписки?'
     Manage Subscriptions: Керування підписками
-    Playlist insufficient data: Недостатньо даних для добірки "$", пропуск елемента
+    Playlist insufficient data: Недостатньо даних для добірки "{playlist}", пропуск елемента
     All playlists has been successfully exported: Усі добірки успішно експортовано
     Import Playlists: Імпорт добірок
     Export Playlists: Експорт добірок
@@ -496,14 +496,14 @@ Profile:
   Your profile name cannot be empty: 'Ім''я профілю не може бути порожнім'
   Profile has been created: 'Профіль створено'
   Profile has been updated: 'Профіль оновлено'
-  Your default profile has been set to $: 'Типовим профілем встановлено $'
-  Removed $ from your profiles: '$ вилучено з профілів'
+  Your default profile has been set to {profile}: 'Типовим профілем встановлено {profile}'
+  Removed {profile} from your profiles: '{profile} вилучено з профілів'
   Your default profile has been changed to your primary profile: 'Ваш типовий профіль
     змінено на основний'
-  $ is now the active profile: '$ активний профіль зараз'
+  '{profile} is now the active profile': '{profile} активний профіль зараз'
   Subscription List: 'Підписки'
   Other Channels: 'Інші канали'
-  $ selected: '$ вибрано'
+  '{number} selected': '{number} вибрано'
   Select All: 'Вибрати все'
   Select None: 'Нічого не вибрано'
   Delete Selected: 'Видалити вибране'
@@ -524,7 +524,7 @@ Channel:
   Subscribe: 'Підписатися'
   Unsubscribe: 'Відписатися'
   Channel has been removed from your subscriptions: 'Канал прибрано з ваших підписок'
-  Removed subscription from $ other channel(s): 'Вилучено підписку з $ інших каналів'
+  Removed subscription from {count} other channel(s): 'Вилучено підписку з {count} інших каналів'
   Added channel to your subscriptions: 'Додано канал до підписок'
   Search Channel: 'Шукати на каналі'
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
@@ -630,8 +630,7 @@ Video:
     Less than a minute: Менш як за хвилину
     In less than a minute: Менше ніж за хвилину
   Published on: 'Опубліковано'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % тому'
+  Publicationtemplate: '{number} {unit} тому'
 #& Videos
   Started streaming on: Почато трансляцію
   Streamed on: Потокове передавання
@@ -659,11 +658,11 @@ Video:
       opening playlists: відкриття добірок
       setting a playback rate: встановлення швидкості відтворення
       starting video at offset: запуск відео зі зміщенням
-    UnsupportedActionTemplate: '$ не підтримує: %'
-    OpeningTemplate: Відкриття $ у %...
+    UnsupportedActionTemplate: '{externalPlayer} не підтримує: {action}'
+    OpeningTemplate: Відкриття {videoOrPlaylist} у {externalPlayer}...
     playlist: добірка
     video: відео
-    OpenInTemplate: Відкрити у $
+    OpenInTemplate: Відкрити у {externalPlayer}
   Premieres on: Прем'єри
   Stats:
     player resolution: Вікно перегляду
@@ -761,7 +760,7 @@ Comments:
   Load More Comments: 'Завантажити більше коментарів'
   No more comments available: 'Більше немає коментарів'
   Show More Replies: Показати інші відповіді
-  From $channelName: від $channelName
+  From {channelName}: від {channelName}
   And others: та інших
   Pinned by: Закріплено
   Member: Учасник
@@ -827,7 +826,7 @@ Tooltips:
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття
       відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
       Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
-    DefaultCustomArgumentsTemplate: "(Типово: '$')"
+    DefaultCustomArgumentsTemplate: "(Типово: '{defaultCustomArguments}')"
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
@@ -862,36 +861,36 @@ Unknown YouTube url type, cannot be opened in app: Невідомий тип URL
   його не можна відкрити в застосункові
 Open New Window: Відкрити нове вікно
 Default Invidious instance has been cleared: Типовий екземпляр Invidious очищено
-Default Invidious instance has been set to $: Типовим екземпляром Invidious встановлено
-  $
+Default Invidious instance has been set to {instance}: 'Типовим екземпляром Invidious встановлено
+  {instance}'
 Search Bar:
   Clear Input: Очистити поле
 External link opening has been disabled in the general settings: Відкриття зовнішнього
   посилання вимкнено в загальних налаштуваннях
 Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?
-Downloading failed: Сталася проблема із завантаженням "$"
+Downloading failed: Сталася проблема із завантаженням "{videoTitle}"
 Downloading canceled: Завантаження скасовано користувачем
-Starting download: Починається завантаження "$"
-Downloading has completed: '"$" завершив завантаження'
+Starting download: Починається завантаження "{videoTitle}"
+Downloading has completed: '"{videoTitle}" завершив завантаження'
 Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму
   «запитати теку».
-Screenshot Success: Знімок екрана збережено як «$»
-Screenshot Error: Не вдалося зробити знімок екрана. $
+Screenshot Success: Знімок екрана збережено як «{filePath}»
+Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
 Age Restricted:
-  This $contentType is age restricted: Цей $ має обмеження за віком
+  The currently set default instance is {instance}: Цей {instance} має обмеження за віком
   Type:
     Video: Відео
     Channel: Канал
 Channels:
-  Count: 'Знайдено каналів: $.'
+  Count: 'Знайдено каналів: {number}.'
   Empty: Ваш список каналів наразі порожній.
-  Unsubscribe Prompt: Ви впевнені, що хочете відписатися від «$»?
+  Unsubscribe Prompt: Ви впевнені, що хочете відписатися від «{channelName}»?
   Channels: Канали
   Title: Список каналів
   Unsubscribe: Відписатися
   Search bar placeholder: Пошук каналів
-  Unsubscribed: $ вилучено з ваших підписок
+  Unsubscribed: '{channelName} вилучено з ваших підписок'
 Clipboard:
   Copy failed: Не вдалося скопіювати до буфера обміну
   Cannot access clipboard without a secure connection: Неможливо отримати доступ до

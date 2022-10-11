@@ -145,8 +145,8 @@ Settings:
     Current instance will be randomized on startup: Текущий экземпляр при запуске
       будет выбран случайно
     No default instance has been set: Не установлен экземпляр по умолчанию
-    The currently set default instance is $: 'Текущий установленный экземпляр по умолчанию:
-      $'
+    The currently set default instance is {instance}: 'Текущий установленный экземпляр по умолчанию:
+      {instance}'
     Current Invidious Instance: Текущий экземпляр Invidious
     External Link Handling:
       No Action: Ничего
@@ -362,7 +362,7 @@ Settings:
     All playlists has been successfully exported: Все плейлисты успешно экспортированы
     Export Playlists: Экспортировать плейлисты
     All playlists has been successfully imported: Все плейлисты успешно импортированы
-    Playlist insufficient data: Недостаточно данных для плейлиста "$", пропуск элемента
+    Playlist insufficient data: Недостаточно данных для плейлиста "{playlist}", пропуск элемента
     Playlist File: Файл плейлиста
     Subscription File: Файл подписок
     History File: Файл истории
@@ -523,7 +523,7 @@ Channel:
     Channel Description: 'Описание канала'
     Featured Channels: 'Избранные каналы'
   Added channel to your subscriptions: Канал добавлен в ваши подписки
-  Removed subscription from $ other channel(s): Подписка удалена с $ другого(их) канала(ов)
+  Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их) канала(ов)
   Channel has been removed from your subscriptions: Канал был удалён из подписок
 Video:
   Mark As Watched: 'Отметить как просмотренное'
@@ -588,8 +588,7 @@ Video:
     Less than a minute: Менее минуты
     In less than a minute: Меньше чем через минуту
   Published on: 'Опубликовано'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % назад'
+  Publicationtemplate: '{number} {unit} назад'
 #& Videos
   Autoplay: Автовоспроизведение
   Play Previous Video: Воспроизвести предыдущее видео
@@ -637,11 +636,11 @@ Video:
       opening playlists: открытие плейлистов
       setting a playback rate: настройка скорости воспроизведения
       starting video at offset: начинать видео со смещением
-    UnsupportedActionTemplate: '$ не поддерживает: %'
-    OpeningTemplate: Открытие $ в %...
+    UnsupportedActionTemplate: '{externalPlayer} не поддерживает: {action}'
+    OpeningTemplate: Открытие {videoOrPlaylist} в {externalPlayer}...
     playlist: плейлист
     video: видео
-    OpenInTemplate: Открыть в $
+    OpenInTemplate: Открыть в {externalPlayer}
   Stats:
     frame drop: Пропущенные кадры
     video id: ID видео (YouTube)
@@ -739,7 +738,7 @@ Comments:
   Top comments: Лучшим комментариям
   Sort by: Упорядочивать по
   Show More Replies: Показать больше ответов
-  From $channelName: от $channelName
+  From {channelName}: от {channelName}
   And others: и других
   Pinned by: Закреплено
   Member: Участник
@@ -769,12 +768,12 @@ Yes: 'Да'
 No: 'Нет'
 Locale Name: Русский
 Profile:
-  $ is now the active profile: Теперь $ активный профиль
+  '{profile} is now the active profile': Теперь {profile} активный профиль
   Your default profile has been changed to your primary profile: Профиль по умолчанию
     был изменен на ваш основной
   Profile has been updated: Профиль был обновлён
-  Removed $ from your profiles: Теперь $ удалён из профилей
-  Your default profile has been set to $: Теперь $ установлен профилем по умолчанию
+  Removed {profile} from your profiles: Теперь {profile} удалён из профилей
+  Your default profile has been set to {profile}: Теперь {profile} установлен профилем по умолчанию
   Profile has been created: Профиль был создан
   Your profile name cannot be empty: Имя профиля не может быть пустым
   Profile could not be found: Не удалось найти профиль
@@ -804,16 +803,16 @@ Profile:
   Delete Selected: Удалить выбранное
   Select None: Ничего не выбрано
   Select All: Выбрать все
-  $ selected: Выбрано $
+  '{number} selected': Выбрано {number}
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
   Profile Settings: Настройки профиля
 The playlist has been reversed: Плейлист был перевернут
-A new blog is now available, $. Click to view more: Доступен новый блог $. Нажмите
+A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог {blogTitle}. Нажмите
   здесь, чтобы посмотреть подробности
 Download From Site: Скачать с сайта
-Version $ is now available!  Click for more details: Доступна версия $! Чтобы узнать
+Version {versionNumber} is now available!  Click for more details: Доступна версия {versionNumber}! Чтобы узнать
   подробности, нажмите здесь
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
   видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных
@@ -875,7 +874,7 @@ Tooltips:
     External Player: При выборе внешнего проигрывателя на миниатюре появится значок,
       позволяющий открыть видео (плейлист, если поддерживается) во внешнем проигрывателе.
       Внимание, настройки Invidious не применяются к внешним проигрывателям.
-    DefaultCustomArgumentsTemplate: "(По умолчанию: '$')"
+    DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
@@ -887,33 +886,33 @@ Unknown YouTube url type, cannot be opened in app: Неизвестный тип
   невозможно открыть в приложении
 Open New Window: Открыть новое окно
 Default Invidious instance has been cleared: Образец Invidious по умолчанию очищен
-Default Invidious instance has been set to $: Образец Invidious по умолчанию установлен
-  на $
+Default Invidious instance has been set to {instance}: Образец Invidious по умолчанию установлен
+  на {instance}
 External link opening has been disabled in the general settings: Открытие внешних
   ссылок отключено в настройках
 Search Bar:
   Clear Input: Очистить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
-Starting download: Запуск загрузки "$"
-Downloading has completed: '"$" закончил загрузку'
-Downloading failed: Возникла проблема с загрузкой "$"
-Screenshot Success: Снимок экрана сохранён как "$"
-Screenshot Error: Снимок экрана не удался. $
+Starting download: Запуск загрузки "{videoTitle}"
+Downloading has completed: '"{videoTitle}" закончил загрузку'
+Downloading failed: Возникла проблема с загрузкой "{videoTitle}"
+Screenshot Success: Снимок экрана сохранён как "{filePath}"
+Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
 Age Restricted:
-  This $contentType is age restricted: У $ ограничение по возрасту
+  The currently set default instance is {instance}: У {instance} ограничение по возрасту
   Type:
     Channel: Канал
     Video: Видео
 Channels:
   Title: Список каналов
-  Count: $ канал(ов) найдено.
+  Count: '{number} канал(ов) найдено.'
   Empty: Список каналов пуст.
   Channels: Каналы
   Search bar placeholder: Поиск каналов
   Unsubscribe: Отписаться
-  Unsubscribed: $ был удален из ваших подписок
-  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "$"?
+  Unsubscribed: '{channelName} был удален из ваших подписок'
+  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "{channelName}"?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена
   Cannot access clipboard without a secure connection: Невозможно получить доступ

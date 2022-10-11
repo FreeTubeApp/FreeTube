@@ -30,11 +30,11 @@ Close: 'Tancar'
 Back: 'Enrere'
 Forward: 'Endavant'
 
-Version $ is now available!  Click for more details: 'La versió $ està disponible!
+Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber} està disponible!
   Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
-A new blog is now available, $. Click to view more: 'Nova publicació al blog disponible,
-  $. Fes clic per saber-ne més'
+A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al blog disponible,
+  {blogTitle}. Fes clic per saber-ne més'
 
 # Search Bar
 Search / Go to URL: 'Cercar / Vés a l''enllaç'
@@ -148,8 +148,8 @@ Settings:
     System Default: Per defecte del sistema
     Clear Default Instance: Esborra la instància per defecte
     Current Invidious Instance: Instància actual d'Invidious
-    The currently set default instance is $: La instància per defecte establerta actualment
-      és $
+    The currently set default instance is {instance}: La instància per defecte establerta actualment
+      és {instance}
     No default instance has been set: No s'ha definit cap instància per defecte
     External Link Handling:
       Open Link: Obre l'enllaç
@@ -299,7 +299,7 @@ Settings:
     Unknown data key: 'Clau de dades desconegut'
     How do I import my subscriptions?: 'Com puc importar les meves subscripcions?'
     Playlist insufficient data: Dades insuficients per a la llista de reproducció
-      "$", saltant l'objecte
+      "{playlist}", saltant l'objecte
     Manage Subscriptions: Gestiona les subscripcions
     Import Playlists: Importa llistes de reproducció
     All playlists has been successfully exported: Totes les llistes de reproducció
@@ -444,15 +444,15 @@ Profile:
   Your profile name cannot be empty: 'El nom del perfil no pot estar buit'
   Profile has been created: 'S''ha creat el perfil'
   Profile has been updated: 'S''ha actualitzat el perfil'
-  Your default profile has been set to $: 'El vostre perfil predeterminat s''ha establert
-    a $'
-  Removed $ from your profiles: 'S''ha eliminat $ dels teus perfils'
+  Your default profile has been set to {profile}: 'El vostre perfil predeterminat s''ha establert
+    a {profile}'
+  Removed {profile} from your profiles: 'S''ha eliminat {profile} dels teus perfils'
   Your default profile has been changed to your primary profile: 'El perfil per defecte
     s''ha canviat al perfil principal'
-  $ is now the active profile: '$ és ara el perfil actiu'
+  '{profile} is now the active profile': '{profile} és ara el perfil actiu'
   Subscription List: 'Lista de Subcripcions'
   Other Channels: 'Altres Canals'
-  $ selected: '$ seleccionat'
+  '{number} selected': '{number} seleccionat'
   Select All: 'Selecciona Tot'
   Select None: 'Selecciona Ningú'
   Delete Selected: 'Esborra Seleccionats'
@@ -475,7 +475,7 @@ Channel:
   Unsubscribe: 'Des-subscriu-te'
   Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les
     teves subscripcions'
-  Removed subscription from $ other channel(s): 'Elimina subscripció de altres $ canals(s)'
+  Removed subscription from {count} other channel(s): 'Elimina subscripció de altres {count} canals(s)'
   Added channel to your subscriptions: 'Afegeix canal a les teves subscripcions'
   Search Channel: 'Cerca Canal'
   Your search results have returned 0 results: 'Els resultats de la teva cerca han
@@ -567,8 +567,7 @@ Video:
     Ago: 'Fa'
     Upcoming: 'S''estrena el'
   Published on: 'Publicat el'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % fa'
+  Publicationtemplate: '{number} {unit} fa'
 #& Videos
   Audio:
     High: Alta
@@ -588,11 +587,11 @@ Video:
     Unsupported Actions:
       starting video at offset: començant el vídeo al òfset
       setting a playback rate: establint una velocitat de reproducció
-    OpenInTemplate: Obri a $
-    OpeningTemplate: Obrint $ a %…
+    OpenInTemplate: Obri a {externalPlayer}
+    OpeningTemplate: Obrint {videoOrPlaylist} a {externalPlayer}…
     video: vídeo
     playlist: llista de reproducció
-    UnsupportedActionTemplate: '$ no soporta: %'
+    UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
   Save Video: Desa el Vídeo
   Premieres on: S'estrena el
   audio only: només àudio

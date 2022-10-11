@@ -30,10 +30,10 @@ Close: 'Bezárás'
 Back: 'Vissza'
 Forward: 'Előre'
 
-Version $ is now available!  Click for more details: 'A(z) $ verzió már elérhető!
+Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető!
   Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
-A new blog is now available, $. Click to view more: 'Új blog már elérhető: $. Kattintson
+A new blog is now available, {blogTitle}. Click to view more: 'Új blog már elérhető: {blogTitle}. Kattintson
   további információk megtekintéséhez'
 
 # Search Bar
@@ -157,8 +157,8 @@ Settings:
     Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
     Current instance will be randomized on startup: Jelenlegi példány indításkor véletlenszerűsített
     No default instance has been set: Az alapértelmezett példány nincs beállítva
-    The currently set default instance is $: A jelenleg beállított alapértelmezett
-      példány $
+    The currently set default instance is {instance}: A jelenleg beállított alapértelmezett
+      példány {instance}
     External Link Handling:
       No Action: Nincs művelet
       Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
@@ -336,7 +336,7 @@ Settings:
     How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
     Check for Legacy Subscriptions: Örökölt feliratkozások keresése
     Manage Subscriptions: Feliratkozások kezelése
-    Playlist insufficient data: Nincs elegendő adat a(z) „$” lejátszási listához,
+    Playlist insufficient data: Nincs elegendő adat a(z) „{playlist}” lejátszási listához,
       elem kihagyása
     Export Playlists: Lejátszási listák exportálása
     Import Playlists: Lejátszási listák importálása
@@ -523,15 +523,15 @@ Profile:
   Your profile name cannot be empty: 'A profil neve nem lehet üres'
   Profile has been created: 'Profil létrehozva'
   Profile has been updated: 'A profil frissült'
-  Your default profile has been set to $: 'Alapértelmezett profilja a következőre
-    lett beállítva: $'
-  Removed $ from your profiles: 'A(z) $ eltávolítva a profiljaidból'
+  Your default profile has been set to {profile}: 'Alapértelmezett profilja a következőre
+    lett beállítva: {profile}'
+  Removed {profile} from your profiles: 'A(z) {profile} eltávolítva a profiljaidból'
   Your default profile has been changed to your primary profile: 'Az alapértelmezett
     profil az elsődleges profilra változott'
-  $ is now the active profile: 'A(z) $ most az aktív profil'
+  '{profile} is now the active profile': 'A(z) {profile} most az aktív profil'
   Subscription List: 'Feliratkozási lista'
   Other Channels: 'Egyéb csatornák'
-  $ selected: '$ kiválasztva'
+  '{number} selected': '{number} kiválasztva'
   Select All: 'Összes kijelölése'
   Select None: 'Kijelölések megszüntetése'
   Delete Selected: 'Kijelöltek törlése'
@@ -553,7 +553,7 @@ Channel:
   Unsubscribe: 'Leiratkozás'
   Channel has been removed from your subscriptions: 'A csatornát eltávolítottuk a
     feliratkozásokból'
-  Removed subscription from $ other channel(s): '$ másik csatornából eltávolította
+  Removed subscription from {count} other channel(s): '{count} másik csatornából eltávolította
     a feliratkozást'
   Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
   Search Channel: 'Csatornakeresés'
@@ -648,8 +648,7 @@ Video:
     Upcoming: 'Az első előadás hamarosan lesz'
     In less than a minute: Kevesebb, mint egy perce ezelőtt
   Published on: 'Megjelent'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % ezelőtt'
+  Publicationtemplate: '{number} {unit} ezelőtt'
 #& Videos
   Audio:
     Best: Legjobb
@@ -689,11 +688,11 @@ Video:
       opening playlists: lejátszási listák megnyitása
       setting a playback rate: lejátszási sebesség beállítása
       starting video at offset: Videó kezdése eltolás
-    UnsupportedActionTemplate: 'A(z) $ külső lejátszó nem támogatja: %'
-    OpeningTemplate: A(z) $ videó megnyitása a(z) % külső lejátszóban…
+    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja: {action}'
+    OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer} külső lejátszóban…
     playlist: lejátszási lista
     video: videó
-    OpenInTemplate: $ megnyításaban
+    OpenInTemplate: '{externalPlayer} megnyításaban'
   Premieres on: 'Bemutatkozás dátuma:'
   Stats:
     Player Dimensions: Lejátszó méretei
@@ -783,7 +782,7 @@ Comments:
   Top comments: Legnépszerűbb megjegyzések
   Sort by: Rendezés alapja
   Show More Replies: További válaszok megjelenítése
-  From $channelName: 'forrás: $channelName'
+  From {channelName}: 'forrás: {channelName}'
   And others: és mások
   Pinned by: 'Kitűzte:'
   Member: Tag
@@ -872,7 +871,7 @@ Tooltips:
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
       Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
-    DefaultCustomArgumentsTemplate: '(Alapértelmezett: „$”)'
+    DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
@@ -885,8 +884,8 @@ Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube URL-típus
 Open New Window: Új ablak megnyitása
 Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt
   eltávolítva
-Default Invidious instance has been set to $: Az alapértelmezett Invidious-példány
-  $ beállítva
+Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invidious-példány
+  {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
 External link opening has been disabled in the general settings: A külső hivatkozás
@@ -897,20 +896,20 @@ Channels:
   Channels: Csatornák
   Title: Csatornalista
   Search bar placeholder: Csatornák keresése
-  Count: $ csatorna találat.
+  Count: '{number} csatorna találat.'
   Empty: Csatornalista jelenleg üres.
   Unsubscribe: Leiratkozás
-  Unsubscribed: $ eltávolítva az feliratkozásáiból
-  Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „$” csatornáról?
+  Unsubscribed: '{channelName} eltávolítva az feliratkozásáiból'
+  Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
 Age Restricted:
   Type:
     Video: Videó
     Channel: Csatorna
-  This $contentType is age restricted: A(z) $ korhatáros
-Downloading failed: Hiba történt a(z) „$” letöltése során
-Starting download: „$” letöltésének indítása
-Downloading has completed: A(z) „$” letöltése befejeződött
-Screenshot Success: Képernyőkép „$” néven mentve
+  This {videoOrPlaylist} is age restricted: A(z) {videoOrPlaylist} korhatáros
+Downloading failed: Hiba történt a(z) „{videoTitle}” letöltése során
+Starting download: „{videoTitle}” letöltésének indítása
+Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
+Screenshot Success: Képernyőkép „{filePath}” néven mentve
 Chapters:
   Chapters: Fejezetek
   'Chapters list visible, current chapter: {chapterName}': 'Fejezeteklista látható,
@@ -921,4 +920,4 @@ Clipboard:
   Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
     nem lehet hozzáférni a vágólaphoz
   Copy failed: A vágólapra másolás nem sikerült
-Screenshot Error: A képernyőkép nem sikerült. $
+Screenshot Error: A képernyőkép nem sikerült. {error}

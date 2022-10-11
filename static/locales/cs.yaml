@@ -29,11 +29,11 @@ Close: 'Zavřít'
 Back: 'Zpět'
 Forward: 'Dopředu'
 
-Version $ is now available!  Click for more details: 'Verze $ je k dispozici! Klikněte
+Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber} je k dispozici! Klikněte
   pro více informací'
 Download From Site: 'Stáhnout ze stránky'
-A new blog is now available, $. Click to view more: 'Je dostupný nový článek na blogu:
-  $. Kliknutím zobrazíte více'
+A new blog is now available, {blogTitle}. Click to view more: 'Je dostupný nový článek na blogu:
+  {blogTitle}. Kliknutím zobrazíte více'
 
 # Search Bar
 Search / Go to URL: 'Hledat / Přejít na URL'
@@ -156,7 +156,7 @@ Settings:
       instance
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádná výchozí instance
-    The currently set default instance is $: Současné výchozí instance je $
+    The currently set default instance is {instance}: Současné výchozí instance je {instance}
     External Link Handling:
       No Action: Žádná akce
       Ask Before Opening Link: Před otevřením odkazu se zeptat
@@ -350,7 +350,7 @@ Settings:
     Manage Subscriptions: Spravovat odběry
     Import Playlists: Importovat playlisty
     Export Playlists: Exportovat playlisty
-    Playlist insufficient data: Nedostačující data pro playlist "$", přeskakuji
+    Playlist insufficient data: Nedostačující data pro playlist "{playlist}", přeskakuji
     All playlists has been successfully imported: Všechny playlisty byly úspěšně importovány
     All playlists has been successfully exported: Všechny playlisty byly úspěšně exportovány
     History File: Soubor historie
@@ -506,14 +506,14 @@ Profile:
   Your profile name cannot be empty: 'Jméno profilu nemůže být prázdné'
   Profile has been created: 'Profil byl vytvořen'
   Profile has been updated: 'Profil byl upraven'
-  Your default profile has been set to $: 'Váš výchozí profil byl nastaven na $'
-  Removed $ from your profiles: 'Odstranit $ z vašeho profilu'
+  Your default profile has been set to {profile}: 'Váš výchozí profil byl nastaven na {profile}'
+  Removed {profile} from your profiles: 'Odstranit {profile} z vašeho profilu'
   Your default profile has been changed to your primary profile: 'Váš výchozí profil
     byl změněn na primární profil'
-  $ is now the active profile: '$ je nyní aktivním profilem'
+  '{profile} is now the active profile': '{profile} je nyní aktivním profilem'
   Subscription List: 'List odebíraných kanálů'
   Other Channels: 'Ostatní kanály'
-  $ selected: '$ vybrán'
+  '{number} selected': '{number} vybrán'
   Select All: 'Vybrat vše'
   Select None: 'Zrušit výběr'
   Delete Selected: 'Smazat vybrané'
@@ -535,7 +535,7 @@ Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
   Channel has been removed from your subscriptions: 'Kanál byl odebrán z vašich odběrů'
-  Removed subscription from $ other channel(s): 'Odběr odebrán z $ jiných kanálů'
+  Removed subscription from {count} other channel(s): 'Odběr odebrán z {count} jiných kanálů'
   Added channel to your subscriptions: 'K vašim odběrům byl přidán kanál'
   Search Channel: 'Hledat v kanálu'
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
@@ -641,8 +641,7 @@ Video:
     Less than a minute: Méně než minuta
     In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ %'
+  Publicationtemplate: '{number} {unit}'
 #& Videos
   Started streaming on: Začátek vysílání
   Streamed on: Vysíláno
@@ -672,10 +671,10 @@ Video:
       reversing playlists: obrácení seznamů skladeb
       setting a playback rate: nastavení rychlosti přehrávání
     playlist: playlist
-    UnsupportedActionTemplate: '$ nepodporuje: %'
-    OpeningTemplate: Otevřít $ v %...
+    UnsupportedActionTemplate: '{externalPlayer} nepodporuje: {action}'
+    OpeningTemplate: Otevřít {videoOrPlaylist} v {externalPlayer}...
     video: video
-    OpenInTemplate: Otevřít v $
+    OpenInTemplate: Otevřít v {externalPlayer}
   Premieres on: Premiéra
   Stats:
     Mimetype: Typ int. média
@@ -768,7 +767,7 @@ Comments:
   No more comments available: 'Žádné další komentáře nejsou k dispozici'
   Show More Replies: Načíst více výsledků
   Pinned by: připnuto uživatelem
-  From $channelName: z $channelName
+  From {channelName}: z {channelName}
   And others: a ostatní
   Member: Člen
 Up Next: 'Další'
@@ -830,7 +829,7 @@ Tooltips:
     Custom External Player Executable: Ve výchozím nastavení Freetube předpokládá,
       že vybraný externí přehrávač lze nalézt přes proměnnou prostředí cesty PATH.
       V případě potřeby zde lze nastavit vlastní cestu.
-    DefaultCustomArgumentsTemplate: "(Výchozí: '$')"
+    DefaultCustomArgumentsTemplate: "(Výchozí: '{defaultCustomArguments}')"
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
@@ -864,33 +863,33 @@ Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouT
   nelze v aplikaci otevřít
 Open New Window: Otevřít nové okno
 Default Invidious instance has been cleared: Výchozí Invidious instance byla vymazána
-Default Invidious instance has been set to $: Výchozí Invidious instance byla nastavena
-  na $
+Default Invidious instance has been set to {instance}: Výchozí Invidious instance byla nastavena
+  na {instance}
 Search Bar:
   Clear Input: Vymazat
 External link opening has been disabled in the general settings: Otevírání externích
   odkazů bylo v obecném nastavení zakázáno
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
-Downloading has completed: Bylo dokončeno stahování "$"
-Downloading failed: Došlo k problému při stahování "$"
-Starting download: Zahájení stahování "$"
+Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
+Downloading failed: Došlo k problému při stahování "{videoTitle}"
+Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
 Age Restricted:
-  This $contentType is age restricted: Toto $ je omezeno věkem
+  This {videoOrPlaylist} is age restricted: Toto {videoOrPlaylist} je omezeno věkem
   Type:
     Channel: kanál
     Video: video
 Channels:
   Channels: Kanály
   Title: Seznam kanálů
-  Unsubscribed: Kanál $ byl odebrán z vašich odběrů
-  Unsubscribe Prompt: Opavdu chcete zrušit odběr kanálu "$"?
+  Unsubscribed: Kanál {channelName} byl odebrán z vašich odběrů
+  Unsubscribe Prompt: Opavdu chcete zrušit odběr kanálu "{channelName}"?
   Empty: Seznam vašich kanálů je momentálně prázdný.
   Search bar placeholder: Hledat kanály
-  Count: Nalezeno $ kanálů.
+  Count: Nalezeno {number} kanálů.
   Unsubscribe: Zrušit odběr
-Screenshot Success: Snímek uložen jako „$“
-Screenshot Error: Snímek selhal. $
+Screenshot Success: Snímek uložen jako „{filePath}“
+Screenshot Error: Snímek selhal. {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Nelze přistupovat ke schránce
     bez zabezpečeného připojení

@@ -29,11 +29,11 @@ Close: 'Luk'
 Back: 'Tilbage'
 Forward: 'Fremad'
 
-Version $ is now available!  Click for more details: 'Version $ er nu tilgængelig!  Klik
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} er nu tilgængelig!  Klik
   for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
-A new blog is now available, $. Click to view more: 'En ny blog er nu tilgængelig,
-  $. Klik for at vise mere'
+A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
+  {blogTitle}. Klik for at vise mere'
 
 # Search Bar
 Search / Go to URL: 'Søg / Gå til URL'
@@ -152,7 +152,7 @@ Settings:
     Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
       ved opstart
     System Default: Systemstandard
-    The currently set default instance is $: Den nuværende standardinstans er $
+    The currently set default instance is {instance}: Den nuværende standardinstans er {instance}
     Current Invidious Instance: Nuværende Invidious-instans
     No default instance has been set: Ingen standardinstans er angivet
     Set Current Instance as Default: Angiv Nuværende Instans som Standard
@@ -323,7 +323,7 @@ Settings:
     Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
     Export Playlists: Eksportér Playlister
-    Playlist insufficient data: Utilstrækkeligt data for "$" playlist, springer objektet
+    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer objektet
       over
     Import Playlists: Importér Playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
@@ -501,15 +501,15 @@ Profile:
   Your profile name cannot be empty: 'Dit profilnavn må ikke være tomt'
   Profile has been created: 'Profil er blevet oprettet'
   Profile has been updated: 'Profil er blevet opdateret'
-  Your default profile has been set to $: 'Din standardprofil er blevet indstillet
-    til $'
-  Removed $ from your profiles: 'Fjernede $ fra dine profiler'
+  Your default profile has been set to {profile}: 'Din standardprofil er blevet indstillet
+    til {profile}'
+  Removed {profile} from your profiles: 'Fjernede {profile} fra dine profiler'
   Your default profile has been changed to your primary profile: 'Din standardprofil
     er blevet ændret til din primære profil'
-  $ is now the active profile: '$ er nu den aktive profil'
+  '{profile} is now the active profile': '{profile} er nu den aktive profil'
   Subscription List: 'Abonnementsliste'
   Other Channels: 'Andre Kanaler'
-  $ selected: '$ valgt'
+  '{number} selected': '{number} valgt'
   Select All: 'Vælg Alt'
   Select None: 'Vælg Intet'
   Delete Selected: 'Slet Valgte'
@@ -532,7 +532,7 @@ Channel:
   Unsubscribe: 'Afmeld'
   Channel has been removed from your subscriptions: 'Kanal er blevet fjernet fra dine
     abonnementer'
-  Removed subscription from $ other channel(s): 'Fjernede abonnement fra $ andre kanaler'
+  Removed subscription from {count} other channel(s): 'Fjernede abonnement fra {count} andre kanaler'
   Added channel to your subscriptions: 'Føjede kanal til dine abonnementer'
   Search Channel: 'Kanalsøgning'
   Your search results have returned 0 results: 'Dine søgeresultater har givet 0 resultater'
@@ -625,8 +625,7 @@ Video:
     Ago: 'Siden'
     Upcoming: 'Har premiere'
   Published on: 'Udgivet'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % siden'
+  Publicationtemplate: '{number} {unit} siden'
 #& Videos
   Copy Invidious Channel Link: Kopiér Invidious Kanal-Link
   Open Channel in Invidious: Åbn Kanal i Invidious
@@ -679,11 +678,11 @@ Video:
       setting a playback rate: indstiller en afspilningshastighed
       shuffling playlists: blander playlister
       looping playlists: gentager playlister
-    OpeningTemplate: Åbner $ i %...
-    OpenInTemplate: Åbn i $
+    OpeningTemplate: Åbner {videoOrPlaylist} i {externalPlayer}...
+    OpenInTemplate: Åbn i {externalPlayer}
     video: video
     playlist: playliste
-    UnsupportedActionTemplate: '$ understøtter ikke: %'
+    UnsupportedActionTemplate: '{externalPlayer} understøtter ikke: {action}'
   Skipped segment: Sprunget over segment
 Videos:
   #& Sort By
@@ -756,7 +755,7 @@ Comments:
   Newest first: Nyeste Først
   Top comments: Topkommentarer
   Sort by: Sortér efter
-  From $channelName: fra $channelName
+  From {channelName}: fra {channelName}
   Pinned by: Fastgjort af
   And others: og andre
   Show More Replies: Vis Flere Svar
@@ -829,7 +828,7 @@ Tooltips:
     Custom External Player Executable: Som standard antager FreeTube at den valgte
       eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
       kan blive angivet her hvis det er nødvendigt.
-    DefaultCustomArgumentsTemplate: "(Standard: '$')"
+    DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
     Custom External Player Arguments: Alle brugerdefinerede kommandolinjeargumenter,
       opdelt med semikoloner (';'), du ønsker viderebragt til den eksterne afspiller.
     External Player: 'Valg af ekstern afspiller vil fremvise et ikon, for åbning af
@@ -846,14 +845,14 @@ Open New Window: Åbn Nyt Vindue
 Channels:
   Channels: Kanaler
   Title: Kanalliste
-  Count: $ kanal(er) fundet.
-  Unsubscribe Prompt: Er du sikker på at du vil afmelde dit abonnement på "$"?
+  Count: '{number} kanal(er) fundet.'
+  Unsubscribe Prompt: Er du sikker på at du vil afmelde dit abonnement på "{channelName}"?
   Search bar placeholder: Søg Kanaler
   Empty: Din kanalliste er i øjeblikket tom.
   Unsubscribe: Afmeld
-  Unsubscribed: $ er fjernet fra dine abonnementer
-Default Invidious instance has been set to $: Standard Invidious-instans er blevet
-  sat til $
+  Unsubscribed: '{channelName} er fjernet fra dine abonnementer'
+Default Invidious instance has been set to {instance}: Standard Invidious-instans er blevet
+  sat til {instance}
 Default Invidious instance has been cleared: Standard Invidious-instans er blevet
   ryddet
 Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
@@ -863,18 +862,18 @@ Age Restricted:
   Type:
     Video: Video
     Channel: Kanal
-  This $contentType is age restricted: Denne $ er aldersbegrænset
-Downloading failed: Der var et problem med at downloade "$"
+  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er aldersbegrænset
+Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
   åbnes i appen
-Screenshot Error: Skærmbillede mislykkedes. $
+Screenshot Error: Skærmbillede mislykkedes. {error}
 Hashtags have not yet been implemented, try again later: Hashtags er ikke implementeret
   endnu, prøv igen senere
 External link opening has been disabled in the general settings: Åbning af eksterne
   links er slået fra i generelle indstillinger
-Starting download: Starter download af "$"
-Downloading has completed: '"$" er færdig med at downloade'
-Screenshot Success: Gemte skærmbillede som "$"
+Starting download: Starter download af "{videoTitle}"
+Downloading has completed: '"{videoTitle}" er færdig med at downloade'
+Screenshot Success: Gemte skærmbillede som "{filePath}"
 Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. |
   Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.

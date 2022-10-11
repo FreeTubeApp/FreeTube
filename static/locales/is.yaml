@@ -30,11 +30,11 @@ Close: 'Loka'
 Back: 'Til baka'
 Forward: 'Áfram'
 
-Version $ is now available!  Click for more details: 'Útgáfa $ er tiltæk!  Smelltu
+Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber} er tiltæk!  Smelltu
   til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
-A new blog is now available, $. Click to view more: 'Ný bloggfærsla er núna er tiltæk,
-  $. Smelltu til að skoða nánar'
+A new blog is now available, {blogTitle}. Click to view more: 'Ný bloggfærsla er núna er tiltæk,
+  {blogTitle}. Smelltu til að skoða nánar'
 
 # Search Bar
 Search / Go to URL: 'Leita / Fara á slóð'
@@ -159,8 +159,8 @@ Settings:
     Current instance will be randomized on startup: Fyrirliggjandi tilvik verður tilgreint
       af handahófi í ræsingu
     No default instance has been set: Ekkert sjálfgefið tilvik hefur verið stillt
-    The currently set default instance is $: Fyrirliggjandi sjálfgefna tilvikið er
-      $
+    The currently set default instance is {instance}: 'Fyrirliggjandi sjálfgefna tilvikið er
+      {instance}'
     Current Invidious Instance: Fyrirliggjandi Invidious-tilvik
     External Link Handling:
       No Action: Ekkert gert
@@ -357,7 +357,7 @@ Settings:
     Manage Subscriptions: 'Sýsla með áskriftir'
     Import Playlists: Flytja inn spilunarlista
     Export Playlists: Flytja út spilunarlista
-    Playlist insufficient data: Ónóg gögn fyrir "$" spilunarlista, sleppi atriðinu
+    Playlist insufficient data: Ónóg gögn fyrir "{playlist}" spilunarlista, sleppi atriðinu
     All playlists has been successfully imported: Tekist hefur að flytja inn alla
       spilunarlista
     All playlists has been successfully exported: Tekist hefur að flytja út alla spilunarlista
@@ -464,15 +464,15 @@ Profile:
   Your profile name cannot be empty: 'Nafn notkunarsniðsins má ekki vera tómt'
   Profile has been created: 'Notkunarsnið hefur verið útbúið'
   Profile has been updated: 'Notkunarsnið hefur verið uppfært'
-  Your default profile has been set to $: 'Sjálfgefið notandasnið þitt hefur stillt
-    sem $'
-  Removed $ from your profiles: 'Fjarlægði $ úr notkunarsniðunum þínum'
+  Your default profile has been set to {profile}: 'Sjálfgefið notandasnið þitt hefur stillt
+    sem {profile}'
+  Removed {profile} from your profiles: 'Fjarlægði {profile} úr notkunarsniðunum þínum'
   Your default profile has been changed to your primary profile: 'Sjálfgefið notandasnið
     þitt hefur stillt á aðalnotkunarsniðið þitt'
-  $ is now the active profile: '$ er núna virka notkunarsniðið'
+  '{profile} is now the active profile': '{profile} er núna virka notkunarsniðið'
   Subscription List: 'Áskriftalisti'
   Other Channels: 'Aðrar rásir'
-  $ selected: '$ valið'
+  '{number} selected': '{number} valið'
   Select All: 'Velja allt'
   Select None: 'Velja ekkert'
   Delete Selected: 'Eyða völdu'
@@ -494,7 +494,7 @@ Channel:
   Unsubscribe: 'Segja upp áskrift'
   Channel has been removed from your subscriptions: 'Rás var fjarlægð úr áskriftunum
     þínum'
-  Removed subscription from $ other channel(s): 'Fjarlægði áskrift úr $ rás(um) til
+  Removed subscription from {count} other channel(s): 'Fjarlægði áskrift úr {count} rás(um) til
     viðbótar'
   Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
   Search Channel: 'Leita á rás'
@@ -608,8 +608,7 @@ Video:
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Fyrir $ % síðan'
+  Publicationtemplate: 'Fyrir {number} {unit} síðan'
 #& Videos
   translated from English: þýtt úr ensku
   Sponsor Block category:
@@ -632,11 +631,11 @@ Video:
       starting video at offset: byrja myndskeið á hliðrun
       opening specific video in a playlist (falling back to opening the video): opna
         tiltekið myndskeið í spilunarlista (til vara að opna myndskeiðið)
-    UnsupportedActionTemplate: '$ styður ekki: %'
-    OpeningTemplate: Opna $ eftir %...
+    UnsupportedActionTemplate: '{externalPlayer} styður ekki: {action}'
+    OpeningTemplate: Opna {videoOrPlaylist} eftir {externalPlayer}...
     playlist: spilunarlisti
     video: myndskeið
-    OpenInTemplate: Opna í $
+    OpenInTemplate: Opna í {externalPlayer}
   Premieres on: Frumsýnt
   Stats:
     player resolution: Myndgluggi
@@ -732,7 +731,7 @@ Comments:
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
   Show More Replies: Birta fleiri svör
-  From $channelName: frá $channelName
+  From {channelName}: frá {channelName}
   And others: og fleirum
   Pinned by: Fest af
   Member: Meðlimur
@@ -799,7 +798,7 @@ Tooltips:
       til að opna myndskeiðið (í spilunarlista ef stuðningur er við slíkt) í þessum
       utanaðkomandi spilara. Aðvörun, stillingar Invidious hafa ekki áhrif á utanaðkomandi
       spilara.
-    DefaultCustomArgumentsTemplate: "(Sjálfgefið: '$')"
+    DefaultCustomArgumentsTemplate: "(Sjálfgefið: '{defaultCustomArguments}')"
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
@@ -834,30 +833,30 @@ Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóð
 Open New Window: Opna í nýjum glugga
 Default Invidious instance has been cleared: Sjálfgefið Invidious-tilvik hefur verið
   hreinsað út
-Default Invidious instance has been set to $: Sjálfgefið Invidious-tilvik hefur verið
-  stillt sem $
+Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-tilvik hefur verið
+  stillt sem {instance}
 Search Bar:
   Clear Input: Hreinsa reit
 External link opening has been disabled in the general settings: Opnun ytri tengla
   hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
-Downloading has completed: Búið er að sækja "$"
-Starting download: Byrja að sækja "$"
-Downloading failed: Vandamál kom upp við að sækja "$"
-Screenshot Error: Skjámyndataka mistókst. $
-Screenshot Success: Vistaði skjámynd sem "$"
+Downloading has completed: Búið er að sækja "{videoTitle}"
+Starting download: Byrja að sækja "{videoTitle}"
+Downloading failed: Vandamál kom upp við að sækja "{videoTitle}"
+Screenshot Error: Skjámyndataka mistókst. {error}
+Screenshot Success: Vistaði skjámynd sem "{filePath}"
 Age Restricted:
   Type:
     Channel: Rás
     Video: Myndskeið
-  This $contentType is age restricted: Þetta $ er með aldurstakmörkunum
+  This {videoOrPlaylist} is age restricted: Þetta {videoOrPlaylist} er með aldurstakmörkunum
 New Window: Nýr gluggi
 Channels:
   Search bar placeholder: Leita í rásum
-  Count: $ rás/rásir fundust.
+  Count: '{number} rás/rásir fundust.'
   Empty: Rásalistinn þinn er tómur.
-  Unsubscribed: $ hefur verið fjarlægð úr áskriftunum þínum
-  Unsubscribe Prompt: Ertu viss um að þú viljir hætta áskrift að "$"?
+  Unsubscribed: '{channelName} hefur verið fjarlægð úr áskriftunum þínum'
+  Unsubscribe Prompt: Ertu viss um að þú viljir hætta áskrift að "{channelName}"?
   Channels: Rásir
   Title: Rásalisti
   Unsubscribe: Segja upp áskrift
