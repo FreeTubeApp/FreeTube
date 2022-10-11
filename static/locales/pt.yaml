@@ -83,6 +83,9 @@ Subscriptions:
     perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
     evitar que a sua rede seja bloqueada
   Error Channels: Canais com erros
+  Empty Channels: Os seus canais subscritos não têm atualmente quaisquer vídeos.
+  Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
+    Atualize as subscrições para as ver aqui.
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Guias de tendências
@@ -286,6 +289,7 @@ Settings:
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Manage Subscriptions: 'Gerir subscrições'
+    Fetch Automatically: Obter o feed automaticamente
   Data Settings:
     Data Settings: 'Definições de dados'
     Select Import Type: 'Escolher tipo de importação'
@@ -333,6 +337,9 @@ Settings:
       importadas com êxito
     All playlists has been successfully exported: Todas as listas de reprodução foram
       exportadas com êxito
+    Subscription File: Ficheiro de subscrição
+    History File: Ficheiro de histórico
+    Playlist File: Ficheiro da lista de reprodução
   Advanced Settings:
     Advanced Settings: 'Definições Avançadas'
     Enable Debug Mode (Prints data to the console): 'Ligar Modo de Depuração (Escreve
@@ -405,6 +412,7 @@ Settings:
     Hide Sharing Actions: Ocultar ações de partilhar
     Hide Live Streams: Ocultar transmissões em direto
     Hide Comments: Ocultar comentários
+    Hide Chapters: Ocultar capítulos
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -626,6 +634,7 @@ Video:
     Ago: 'Há'
     Upcoming: 'Estreia em'
     Less than a minute: Menos de um minuto
+    In less than a minute: Em menos de um minuto
   Published on: 'Publicado a'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Há $ %'
@@ -697,6 +706,7 @@ Video:
     Buffered: Em buffer
     Dropped / Total Frames: Fotogramas perdidos / total de fotogramas
   Premieres in: Estreia em
+  Premieres: Estreias
 Videos:
   #& Sort By
   Sort By:
@@ -824,6 +834,8 @@ Tooltips:
       através de RSS em vez do método normal. O RSS é mais rápido e impede que seja
       bloqueado pelo YouTube, mas não disponibiliza informações como a duração dos
       vídeos ou se são transmissões em direto
+    Fetch Automatically: Quando ativado, o FreeTube irá buscar automaticamente o seu
+      feed de subscrição quando uma nova janela for aberta e quando mudar de perfil.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
       por ponto e vírgula (';'), que quiser dar ao leitor externo.
@@ -895,3 +907,13 @@ Channels:
   Channels: Canais
   Title: Lista de canais
   Unsubscribe Prompt: Quer mesmo deixar a subscrição de "$"?
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos ocultos,
+    capítulo atual: {capítuloNoto}'
+  Chapters: Capítulos
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
+    capítulo atual: {chapterName}'
+Clipboard:
+  Copy failed: A cópia para a área de transferência falhou
+  Cannot access clipboard without a secure connection: Não é possível aceder à área
+    de transferência sem uma ligação segura
