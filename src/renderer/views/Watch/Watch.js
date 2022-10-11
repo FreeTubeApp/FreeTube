@@ -1141,7 +1141,7 @@ export default Vue.extend({
       }, 100)
     },
 
-    GoToNextVideo: function () {
+    goToNextVideo: function () {
       if (this.watchingPlaylist) {
         this.$refs.watchVideoPlaylist.playNextVideo()
       } else {
@@ -1164,7 +1164,7 @@ export default Vue.extend({
       this.playNextTimeout = setTimeout(() => {
         const player = this.$refs.videoPlayer.player
         if (player !== null && player.paused()) {
-          this.GoToNextVideo()
+          this.goToNextVideo()
         }
       }, nextVideoInterval * 1000)
 
@@ -1548,7 +1548,7 @@ export default Vue.extend({
       }
       switch (event.key) {
         case 'N':
-          this.GoToNextVideo()
+          this.goToNextVideo()
           break
         // only for playlist
         case 'P':
