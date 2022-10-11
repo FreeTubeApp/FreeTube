@@ -82,7 +82,6 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    document.addEventListener('keydown', this.keyboardShortcutHandler)
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
@@ -95,7 +94,6 @@ export default Vue.extend({
     }
   },
   beforeDestroy: function () {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('previoustrack', null)
       navigator.mediaSession.setActionHandler('nexttrack', null)
@@ -383,21 +381,6 @@ export default Vue.extend({
       })
 
       this.randomizedPlaylistItems = items
-    },
-
-    // This function should always be at the bottom of this file
-    keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
-        return
-      }
-      switch (event.key) {
-        case 'N':
-          this.playNextVideo()
-          break
-        case 'P':
-          this.playPreviousVideo()
-          break
-      }
     },
 
     ...mapActions([

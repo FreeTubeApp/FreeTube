@@ -1141,6 +1141,20 @@ export default Vue.extend({
       }, 100)
     },
 
+    GoToNextVideo: function () {
+      if (this.watchingPlaylist) {
+        this.$refs.watchVideoPlaylist.playNextVideo()
+      } else {
+        const nextVideoId = this.recommendedVideos[0].videoId
+        this.$router.push({
+          path: `/watch/${nextVideoId}`
+        })
+        this.showToast({
+          message: this.$t('Playing Next Video')
+        })
+      }
+    },
+
     handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
         return
@@ -1150,17 +1164,7 @@ export default Vue.extend({
       this.playNextTimeout = setTimeout(() => {
         const player = this.$refs.videoPlayer.player
         if (player !== null && player.paused()) {
-          if (this.watchingPlaylist) {
-            this.$refs.watchVideoPlaylist.playNextVideo()
-          } else {
-            const nextVideoId = this.recommendedVideos[0].videoId
-            this.$router.push({
-              path: `/watch/${nextVideoId}`
-            })
-            this.showToast({
-              message: this.$t('Playing Next Video')
-            })
-          }
+          this.GoToNextVideo()
         }
       }, nextVideoInterval * 1000)
 
@@ -1544,15 +1548,11 @@ export default Vue.extend({
       }
       switch (event.key) {
         case 'N':
-          if (!this.watchingPlaylist) {
-            const nextVideoId = this.recommendedVideos[0].videoId
-            this.$router.push({
-              path: `/watch/${nextVideoId}`
-            })
-            this.showToast({
-              message: this.$t('Playing Next Video')
-            })
-          }
+          this.GoToNextVideo()
+          break
+        // only for playlist
+        case 'P':
+          this.$refs.watchVideoPlaylist.playPreviousVideo()
           break
       }
     },
