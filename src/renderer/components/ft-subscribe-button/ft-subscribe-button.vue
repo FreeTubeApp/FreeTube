@@ -17,7 +17,7 @@
         @click="showProfileList('subscribed')"
       >
         <font-awesome-icon
-          icon="plus"
+          :icon="['fas', 'plus']"
         />
       </ft-button>
       <ft-button
@@ -29,7 +29,7 @@
         @click="showProfileList('unsubscribed')"
       >
         <font-awesome-icon
-          icon="minus"
+          :icon="['fas', 'minus']"
         />
       </ft-button>
     </div>
@@ -89,4 +89,4 @@
 </template>
 
 <script src="./ft-subscribe-button.js" />
-<style scoped src="./ft-subscribe-button.sass" lang="sass"/>
+<style scoped src="./ft-subscribe-button.sass" lang="sass" />
