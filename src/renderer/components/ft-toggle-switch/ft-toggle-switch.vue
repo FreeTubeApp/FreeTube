@@ -3,7 +3,8 @@
     class="switch-ctn"
     :class="{
       compact,
-      disabled: disabled
+      disabled: disabled,
+      containsTooltip: tooltip.length > 0
     }"
   >
     <input

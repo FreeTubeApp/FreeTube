@@ -38,7 +38,7 @@
   font-family: inherit;
   background-color: transparent;
   color: var(--primary-text-color);
-  width: 200px;
+  width: 240px;
   padding: 10px 10px 10px 0;
   font-size: 18px;
   border-radius: 0;
@@ -142,4 +142,27 @@
   left: 0;
   pointer-events: none;
   opacity: 0.5;
+}
+
+@media only screen and (max-width: 1000px) {
+  .select .select-text {
+    max-width: 240px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .select {
+    width: 100%;
+  }
+  .select .select-text {
+    display:block;
+    max-width: 95%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .select {
+    padding: 0px;
+    margin-right: -15px;
+  }  
 }
