@@ -1803,12 +1803,14 @@ export default Vue.extend({
             event.preventDefault()
             this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
+          case '<':
           case 'O':
           case 'o':
             // Decrease playback rate by 0.25x
             event.preventDefault()
             this.changePlayBackRate(-this.videoPlaybackRateInterval)
             break
+          case '>':
           case 'P':
           case 'p':
             // Increase playback rate by 0.25x
