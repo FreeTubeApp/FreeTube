@@ -5,7 +5,7 @@
       class="buttonTitle"
       tabindex="0"
       role="listbox"
-      @keypress="handleIconKeyPress($event)"
+      @keydown="handleIconKeyPress($event)"
     >
       {{ title }}
       <font-awesome-icon

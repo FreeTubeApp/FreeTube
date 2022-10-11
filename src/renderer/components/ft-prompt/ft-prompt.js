@@ -27,15 +27,10 @@ export default Vue.extend({
     optionValues: {
       type: Array,
       default: () => { return [] }
-
     }
   },
   mounted: function () {
-    setTimeout(() => {
-      document.querySelector('.prompt')
-        .querySelectorAll('button')[0]
-        .focus()
-    })
+    document.querySelector('.prompt button').focus({ focusVisible: true })
   },
   methods: {
     removeWhitespace,
