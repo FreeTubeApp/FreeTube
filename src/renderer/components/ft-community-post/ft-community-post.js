@@ -165,9 +165,6 @@ export default Vue.extend({
     },
 
     handleOptionsClick: function (option) {
-      console.log('Handling share')
-      console.log(option)
-
       switch (option) {
         case 'history':
           if (this.watched) {
@@ -208,7 +205,6 @@ export default Vue.extend({
           break
         case 'openInvidious':
           if (this.usingElectron) {
-            console.log('using electron')
             const shell = require('electron').shell
             shell.openExternal(this.invidiousUrl)
           }

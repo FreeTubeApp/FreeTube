@@ -615,6 +615,16 @@ export default Vue.extend({
         this.communityContinuationString = response.continuation
         this.communityContinuationAPIString = response.innerTubeApi
         this.latestCommunityPosts = this.latestCommunityPosts.concat(response.items)
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        this.showToast({
+          message: `${errorMessage}: ${err}`,
+          time: 10000,
+          action: () => {
+            this.copyToClipboard({ content: err })
+          }
+        })
       })
     },
 

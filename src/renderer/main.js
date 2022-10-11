@@ -53,7 +53,9 @@ import {
   faThumbtack,
   faTimes,
   faTimesCircle,
-  faUsers
+  faUsers,
+  faComment,
+  faThumbsDown
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
@@ -117,6 +119,8 @@ library.add(
   faTimes,
   faTimesCircle,
   faUsers,
+  faComment,
+  faThumbsDown,
 
   // brand icons
   faGithub,

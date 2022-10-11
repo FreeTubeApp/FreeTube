@@ -151,12 +151,13 @@
       <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ voteCount }}</span>
       <span class="dislikeCount"><font-awesome-icon
         class="thumbs-down-icon"
-        icon="thumbs-down"
+        :icon="['fas', 'thumbs-down']"
       /></span>
-      <span class="commentCount"><font-awesome-icon
-        class="comment-count-icon"
-        icon="comment"
-      /> {{ commentCount }}</span>
+      <span class="commentCount">
+        <font-awesome-icon
+          class="comment-count-icon"
+          :icon="['fas', 'comment']"
+        /> {{ commentCount }}</span>
     </div>
   </div>
 </template>
