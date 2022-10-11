@@ -85,6 +85,9 @@ Subscriptions:
     на ограниченията
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
+  Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано.
+    Обновете абонаментите, за да ги видите тук.
+  Empty Channels: Каналите, за които сте абонирани, в момента нямат никакви видеа.
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
@@ -167,8 +170,9 @@ Settings:
       Black: 'Черна'
       Dark: 'Тъмна'
       Light: 'Светла'
-      Dracula: Дракула
+      Dracula: Dracula
       System Default: Стандартна за системата
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -187,13 +191,27 @@ Settings:
       Amber: 'Кехлибарено'
       Orange: 'Оранжево'
       Deep Orange: 'Наситено оранжево'
-      Dracula Cyan: 'Дракула Синьозелено'
-      Dracula Green: 'Дракула Зелено'
-      Dracula Orange: 'Дракула Оранжево'
-      Dracula Pink: 'Дракула Розово'
-      Dracula Purple: 'Дракула Пурпурно'
-      Dracula Red: 'Дракула Червено'
-      Dracula Yellow: 'Дракула Жълто'
+      Dracula Cyan: 'Dracula Синьозелено'
+      Dracula Green: 'Dracula Зелено'
+      Dracula Orange: 'Dracula Оранжево'
+      Dracula Pink: 'Dracula Розово'
+      Dracula Purple: 'Dracula Пурпурно'
+      Dracula Red: 'Dracula Червено'
+      Dracula Yellow: 'Dracula Жълто'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Розова вода
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Фламинго
+      Catppuccin Mocha Pink: Catppuccin Mocha Розово
+      Catppuccin Mocha Mauve: Catppuccin Mocha Мораво
+      Catppuccin Mocha Red: Catppuccin Mocha Червено
+      Catppuccin Mocha Maroon: Catppuccin Mocha Кестеняво
+      Catppuccin Mocha Peach: Catppuccin Mocha Праскова
+      Catppuccin Mocha Yellow: Catppuccin Mocha Жълто
+      Catppuccin Mocha Sky: Catppuccin Mocha Небесносиньо
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Сапфир
+      Catppuccin Mocha Teal: Catppuccin Mocha Синьозелено
+      Catppuccin Mocha Lavender: Catppuccin Mocha Лавандула
+      Catppuccin Mocha Blue: Catppuccin Mocha Синьо
+      Catppuccin Mocha Green: Catppuccin Mocha Зелено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -275,8 +293,9 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
-    Fetch Feeds from RSS: 'Изтегляне на съдържания през RSS'
+    Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Manage Subscriptions: 'Управление на абонаменти'
+    Fetch Automatically: Автоматично извличане на съдържание
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -365,6 +384,7 @@ Settings:
     Hide Comments: Скриване на коментари
     Hide Sharing Actions: Скриване на действията за споделяне
     Hide Live Streams: Скриване на предавания на живо
+    Hide Chapters: Скриване на главите
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -405,6 +425,9 @@ Settings:
       действия
     External Player: Външен плейър
     External Player Settings: Настройки за външен плейър
+    Players:
+      None:
+        Name: Няма
   Download Settings:
     Download Settings: Настройки за изтегляне
     Choose Path: Избор на път
@@ -616,6 +639,8 @@ Video:
     Years: 'години'
     Ago: 'преди'
     Upcoming: 'Премиера на'
+    Less than a minute: По-малко от минута
+    In less than a minute: След по-малко от минута
   Published on: 'Публикуван на'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'Преди $ %'
@@ -685,6 +710,8 @@ Video:
     Video statistics are not available for legacy videos: Статистиката не е налична
       за наследени видеоклипове
   Premieres on: Премиера на
+  Premieres in: Премиери в
+  Premieres: Премиери
 Videos:
   #& Sort By
   Sort By:
@@ -712,7 +739,7 @@ Playlist:
   Playlist: Плейлист
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
-  Change Video Formats: 'Смяна видео формати'
+  Change Media Formats: 'Смяна видео формати'
   Use Dash Formats: 'Използване на DASH формати'
   Use Legacy Formats: 'Използване на стари формати'
   Use Audio Formats: 'Използване на аудио формати'
@@ -791,6 +818,8 @@ Tooltips:
       получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
       IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
       или дали е на живо
+    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при отваряне
+      на нов прозорец и при смяна на профила.
   Player Settings:
     Default Video Format: Настройка на използваните формати. DASH форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
@@ -838,7 +867,8 @@ Tooltips:
       външен плейър може да бъде намерен чрез променливата на средата 'PATH'. Ако
       е необходимо, тук може да се зададе потребителски път.
     External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона
-      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър.
+      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание,
+      настройките на Invidious не влияят на външните плейъри.
     DefaultCustomArgumentsTemplate: "(По подразбиране: '$')"
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
@@ -879,3 +909,13 @@ Channels:
   Channels: Канали
   Title: Списък с канали
   Empty: Списъкът с канали в момента е празен.
+Clipboard:
+  Cannot access clipboard without a secure connection: Не може да се получи достъп
+    до клипборда без защитена връзка
+  Copy failed: Неуспешно копиране в клипборда
+Chapters:
+  Chapters: Глави
+  'Chapters list visible, current chapter: {chapterName}': 'Списъкът с глави се вижда,
+    текуща глава: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
+    текуща глава: {chapterName}'

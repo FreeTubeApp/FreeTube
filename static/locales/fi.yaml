@@ -76,6 +76,7 @@ Subscriptions:
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
+  Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -115,7 +116,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Ensisijainen API-taustaohjelma'
       Local API: 'Paikallinen API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Invidious-käyttöliittymä'
     Video View Type:
       Video View Type: 'Videonäkymän asettelu'
       Grid: 'Ruudukko'
@@ -154,8 +155,9 @@ Settings:
       Black: 'Musta'
       Dark: 'Tumma'
       Light: 'Vaalea'
-      Dracula: 'Dracula'
+      Dracula: 'Dracula-teema'
       System Default: Järjestelmän oletusarvo
+      Catppuccin Mocha: Catppuccin Mocha -teema
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -181,6 +183,20 @@ Settings:
       Dracula Purple: 'Dracula Purppura'
       Dracula Red: 'Dracula Punainen'
       Dracula Yellow: 'Dracula Keltainen'
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky -teema
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal -teema
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink -teema
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve -teema
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire -teema
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater -teema
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo -teema
+      Catppuccin Mocha Red: Catppuccin Mocha Red -teema
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon -teema
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach -teema
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow -teema
+      Catppuccin Mocha Green: Catppuccin Mocha Green -teema
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue -teema
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender -teema
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
     UI Scale: Käyttöliittymän koko
@@ -236,6 +252,11 @@ Settings:
       Quality Label: Kuvakaappauksen laatu
       File Name Label: Tiedostonimimalli
       Ask Path: Kysy tallennuskansiota
+      File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M
+        Kuukausi 2 numeroa. %D Päivä 2 numeroa. %H Tunnit 2 numeroa. %N Minuutit 2
+        numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit.
+        %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID. Voit myös käyttää
+        "\" tai "/" luodaksesi alikansioita.
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -249,6 +270,7 @@ Settings:
     Export Subscriptions: 'Vie tilauksia'
     How do I import my subscriptions?: 'Miten voin tuoda tilaukseni?'
     Fetch Feeds from RSS: Nouda RSS-syöte
+    Fetch Automatically: Nouda syöte automaattisesti
   Advanced Settings:
     Advanced Settings: 'Lisäasetukset'
     Enable Debug Mode (Prints data to the console): 'Ota virheenkorjaustila käyttöön
@@ -351,6 +373,7 @@ Settings:
     Hide Video Description: Piilota videon kuvaus
     Hide Live Streams: Piilota suorat lähetykset
     Hide Sharing Actions: Piilota jakamistoiminnot
+    Hide Chapters: Piilota kappaleet
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -390,6 +413,9 @@ Settings:
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
+    Players:
+      None:
+        Name: Ei mitään
   Download Settings:
     Download Settings: Latausasetukset
     Choose Path: Valitse polku
@@ -444,7 +470,7 @@ About:
   View License: Katso lisenssi
   Please check for duplicates before posting: Tarkista kopioiden varalta ennen julkaisua
   Website: Verkkosivu
-  Mastodon: Mastodon
+  Mastodon: Mastodon:ista
   Translate: Käännös
   Credits: Kiitokset
   Help: Apua
@@ -540,6 +566,8 @@ Video:
     Upcoming: 'Ensiesitys'
     Minutes: Minuuttia
     Minute: Minuutti
+    Less than a minute: Vähemmän kuin minuutti
+    In less than a minute: Alle minuutin kuluessa
   Published on: 'Julkaistu'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % sitten'
@@ -592,6 +620,8 @@ Video:
     outro: Loppu
     intro: Alku
     sponsor: Sponsori
+    recap: Kertaus
+    filler: Täyte
   Skipped segment: Ylihypätty osio
   translated from English: käännetty englanninkielestä
   Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
@@ -645,7 +675,7 @@ Playlist:
   Playlist: Soittolista
 Toggle Theatre Mode: 'Teatteritila'
 Change Format:
-  Change Video Formats: 'Vaihda videoformaattia'
+  Change Media Formats: 'Vaihda videoformaattia'
   Use Dash Formats: 'Käytä DASH-formaatteja'
   Use Legacy Formats: 'Käytä Legacy-formaatteja'
   Use Audio Formats: 'Käytä ääniformaatteja'
@@ -808,8 +838,9 @@ Tooltips:
     Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu
       ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta.
       Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
-    External Player: Ulkoisen toisto-ohjelman valinta tuottaa kuvakkeen videon avaamiseksi
-      (soittoluettelon mikäli sellainen on tuettu) ulkoisessa toisto-ohjelmassa, pikkukuvana.
+    External Player: Ulkoisen soittimen valitsemisen johdosta näkyy kuvake videon
+      avaamiseen (soittoluettelonkin avaamiseen jos tuettu) ulkoisessa toistimessa.
+      Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin toistimiin.
     DefaultCustomArgumentsTemplate: "(Oletus: '$')"
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
@@ -840,3 +871,14 @@ Age Restricted:
     Video: Video
     Channel: Kanava
 Screenshot Error: Ruutukaappaus epäonnistui. $
+Channels:
+  Channels: Kanavat
+  Title: Kanavaluettelo
+  Search bar placeholder: Etsi kanavia
+  Count: $ kanava(a) löydetty.
+  Empty: Kanavaluettelosi on tällä hetkellä tyhjä.
+  Unsubscribe: Peruuta tilaus
+  Unsubscribe Prompt: Oletko varma että haluat peruuttaa tilauksen kanavalle ”$”?
+  Unsubscribed: $ on poistettu tilauksistasi
+Clipboard:
+  Copy failed: Kopiointi leikepöydälle epäonnistui

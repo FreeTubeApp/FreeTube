@@ -79,6 +79,7 @@ Subscriptions:
     će se RSS
   Load More Videos: Učitaj još videa
   Error Channels: Kanali s greškama
+  Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -161,6 +162,7 @@ Settings:
       Light: 'Svijetla'
       Dracula: 'Drakula'
       System Default: Standard sustava
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -186,6 +188,20 @@ Settings:
       Dracula Purple: 'Drakula Ljubičasta'
       Dracula Red: 'Drakula Crvena'
       Dracula Yellow: 'Drakula Žuta'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Ružičasta
+      Catppuccin Mocha Mauve: Catppuccin Mocha Ljubičasta
+      Catppuccin Mocha Red: Catppuccin Mocha Crvena
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kestenjasta
+      Catppuccin Mocha Peach: Catppuccin Mocha Breskva
+      Catppuccin Mocha Yellow: Catppuccin Mocha Žuta
+      Catppuccin Mocha Teal: Catppuccin Mocha Plavozelena
+      Catppuccin Mocha Sky: Catppuccin Mocha Nebo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Plava
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Catppuccin Mocha Green: Catppuccin Mocha Zelena
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -359,6 +375,7 @@ Settings:
     Hide Sharing Actions: Sakrij radnje dijeljenja
     Hide Video Description: Sakrij opis videa
     Hide Live Streams: Sakrij prijenose uživo
+    Hide Chapters: Sakrij poglavlja
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -396,6 +413,9 @@ Settings:
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+    Players:
+      None:
+        Name: Bez
   Download Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
@@ -577,18 +597,18 @@ Video:
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
-    Jan: 'sij'
-    Feb: 'velj'
-    Mar: 'ožu'
-    Apr: 'tra'
-    May: 'svi'
-    Jun: 'lip'
-    Jul: 'srp'
-    Aug: 'kol'
-    Sep: 'ruj'
-    Oct: 'lis'
-    Nov: 'stu'
-    Dec: 'pro'
+    Jan: 'sij.'
+    Feb: 'velj.'
+    Mar: 'ožu.'
+    Apr: 'tra.'
+    May: 'svi.'
+    Jun: 'lip.'
+    Jul: 'srp.'
+    Aug: 'kol.'
+    Sep: 'ruj.'
+    Oct: 'lis.'
+    Nov: 'stu.'
+    Dec: 'pro.'
     Second: 's'
     Seconds: 's'
     Minute: 'min'
@@ -597,14 +617,16 @@ Video:
     Hours: 'h'
     Day: 'dan'
     Days: 'dana'
-    Week: 'tj'
-    Weeks: 'tj'
-    Month: 'mj'
-    Months: 'mj'
-    Year: 'g'
-    Years: 'g'
+    Week: 'tj.'
+    Weeks: 'tj.'
+    Month: 'mj.'
+    Months: 'mj.'
+    Year: 'god.'
+    Years: 'god.'
     Ago: 'Prije'
     Upcoming: 'Premijera'
+    Less than a minute: Manje od jedne minute
+    In less than a minute: Manje od minute
   Published on: 'Objavljeno'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: 'prije $ %'
@@ -682,6 +704,8 @@ Video:
     Buffered: Učitano u memoriju
     Mimetype: Mimetype
     Dropped / Total Frames: Ispušteni/ukupni kadrovi
+  Premieres in: Premijera u
+  Premieres: Premijere
 Videos:
   #& Sort By
   Sort By:
@@ -709,7 +733,7 @@ Playlist:
   Playlist: Zbirka
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
-  Change Video Formats: 'Promijeni videoformate'
+  Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
   Use Legacy Formats: 'Koristi stare formate'
   Use Audio Formats: 'Koristi audioformate'
@@ -831,7 +855,8 @@ Tooltips:
       gledanja.
   External Player Settings:
     External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje
-      videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi.
+      videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje,
+      Invidious postavke ne utječu na vanjske playere.
     Custom External Player Arguments: Svi prilagođeni argumenti naredbenog retka,
       odvojene točka-zarezom (;), koje želiš da se proslijede vanjskom playeru.
     Ignore Warnings: Nemoj prikazati upozorenja kad trenutačni vanjski player ne podržava
@@ -868,3 +893,18 @@ Age Restricted:
   Type:
     Channel: Kanal
     Video: Video
+Channels:
+  Channels: Kanali
+  Title: Popis kanala
+  Search bar placeholder: Pretraži kanale
+  Count: $ kanala pronađena.
+  Empty: Tvoj popis kanala je trenutačno prazan.
+  Unsubscribe: Prekini pretplatu
+  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „$”?
+  Unsubscribed: $ je uklonjen iz tvojih pretplata
+Clipboard:
+  Copy failed: Neuspjelo kopiranje u međuspremnik
+  Cannot access clipboard without a secure connection: Pristup međuspremniku nije
+    moguć bez sigurne veze
+Chapters:
+  Chapters: Poglavlja

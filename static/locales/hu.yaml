@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'magyar'
+Locale Name: 'Magyar'
 FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -86,6 +86,10 @@ Subscriptions:
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
   Load More Videos: További videók betöltése
+  Error Channels: Hibás csatornák
+  Disabled Automatic Fetching: Az önműködő feliratkozási kérés letiltva. Frissítse
+    a feliratkozást a megtekintéséhez.
+  Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
@@ -104,11 +108,17 @@ User Playlists:
     Csak azokat a videókat sorolja fel, amelyeket Ön elmentett vagy a kedvencek közé
     helyezett. A munka befejezése után az összes itt található videó átkerül a „Kedvencek”
     lejátszási listára.
+  Search bar placeholder: Keresés a lejátszási listában
+  Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
+    megfelelnek a keresésnek
 History:
   # On History Page
   History: 'Előzmények'
   Watch History: 'Korábbi megtekintések'
   Your history list is currently empty.: 'Az előzmények listája jelenleg üres.'
+  Search bar placeholder: Keresés az előzmények között
+  Empty Search Message: Nincsenek olyan videók az előzmények között, amelyek megfelelnek
+    a keresésnek
 Settings:
   # On Settings Page
   Settings: 'Beállítások'
@@ -151,7 +161,7 @@ Settings:
       példány $
     External Link Handling:
       No Action: Nincs művelet
-      Ask Before Opening Link: Hivatkozás megnyitása előtt mindig legyen kérdés
+      Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
       Open Link: Hivatkozás megnyitása
       External Link Handling: Külső hivatkozás kezelése
   Theme Settings:
@@ -163,9 +173,11 @@ Settings:
       Dark: 'Sötét'
       Light: 'Világos'
       Dracula: 'Drakula'
+      System Default: Rendszer alapértelmezett
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
-      Red: 'Piros'
+      Red: 'Vörös'
       Pink: 'Rózsaszín'
       Purple: 'Lila'
       Deep Purple: 'Mélybíbor'
@@ -186,8 +198,22 @@ Settings:
       Dracula Orange: 'Drakula Narancssárga'
       Dracula Pink: 'Drakula Rózsaszín'
       Dracula Purple: 'Drakula Lila'
-      Dracula Red: 'Drakula Piros'
+      Dracula Red: 'Drakula Vörös'
       Dracula Yellow: 'Drakula Sárga'
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingó
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mályvaszínű
+      Catppuccin Mocha Red: Catppuccin Mocha Vörös
+      Catppuccin Mocha Green: Catppuccin Mocha Zöld
+      Catppuccin Mocha Teal: Catppuccin Mocha Pávakék
+      Catppuccin Mocha Sky: Catppuccin Mocha Égszínkék
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Zafír
+      Catppuccin Mocha Pink: Catppuccin Mocha Rózsaszín
+      Catppuccin Mocha Blue: Catppuccin Mocha Kék
+      Catppuccin Mocha Lavender: Catppuccin Mocha Levendula
+      Catppuccin Mocha Maroon: Catppuccin Mocha Gesztenyebarna
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
+      Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
+      Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -226,10 +252,30 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
     Next Video Interval: Következő videó időköze
-    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó fölötti kerékkel
+    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
     Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
+    Screenshot:
+      Ask Path: Mentési mappa kérése
+      File Name Label: Fájlnévminta
+      Folder Label: Képernyőképek mappa
+      Folder Button: Mappa kijelölése
+      Enable: Képernyőkép engedélyezése
+      Format Label: Képernyőkép formátuma
+      Error:
+        Forbidden Characters: Tiltott karakterek
+        Empty File Name: Üres fájlnév
+      File Name Tooltip: Az alábbi változókat használhatja. %Y 4-számjegyű év. %M
+        2-számjegyű hónap. %D 2-számjegyű nap. %H 2-számjegyű óra. %N 2-számjegyű
+        perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc.
+        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító. Almappák létrehozásához
+        használhatja a "\" vagy a "/" jelet is.
+      Quality Label: Képernyőkép minősége
+    Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó
+      feletti kerékkel szabályozhatja
+    Max Video Playback Rate: Legfeljebb videó lejátszási sebesség
+    Video Playback Rate Interval: Videó lejátszási sebesség időköze
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -251,6 +297,7 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Manage Subscriptions: 'Feliratkozások kezelése'
+    Fetch Automatically: Hírcsatorna önműködő lekérése
   Data Settings:
     Data Settings: 'Adatbeállítások'
     Select Import Type: 'Importálás típusa kiválasztása'
@@ -289,6 +336,14 @@ Settings:
     How do I import my subscriptions?: 'Hogyan lehet importálni feliratkozásaimmal?'
     Check for Legacy Subscriptions: Örökölt feliratkozások keresése
     Manage Subscriptions: Feliratkozások kezelése
+    Playlist insufficient data: Nincs elegendő adat a(z) „$” lejátszási listához,
+      elem kihagyása
+    Export Playlists: Lejátszási listák exportálása
+    Import Playlists: Lejátszási listák importálása
+    All playlists has been successfully exported: Az összes lejátszási lista exportálása
+      sikeresen megtörtént
+    All playlists has been successfully imported: Az összes lejátszási lista importálása
+      sikeresen megtörtént
   Advanced Settings:
     Advanced Settings: 'További beállítások'
     Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
@@ -329,6 +384,11 @@ Settings:
     Distraction Free Settings: Zavartalan beállítások
     Hide Active Subscriptions: Elérhető feliratkozások elrejtése
     Hide Playlists: Lejátszási listák elrejtése
+    Hide Video Description: Videó leírásának elrejtése
+    Hide Comments: Megjegyzések elrejtése
+    Hide Live Streams: Élő adatfolyamok elrejtése
+    Hide Sharing Actions: Megosztási műveletek elrejtése
+    Hide Chapters: Fejezetek elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -354,6 +414,13 @@ Settings:
       URL címe (Alapértelmezés: https://sponsor.ajay.app)'
     Enable SponsorBlock: SponsorBlock engedélyezése
     SponsorBlock Settings: SponsorBlock beállításai
+    Skip Options:
+      Skip Option: Beállítás kihagyása
+      Auto Skip: Önműködő kihagyás
+      Show In Seek Bar: Megjelenítés a keresősávban
+      Do Nothing: Nincs művelet
+      Prompt To Skip: Kihagyás kérése
+    Category Color: Kategória színe
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveleti figyelmeztetések figyelmen
       kívül hagyva
@@ -361,6 +428,21 @@ Settings:
     Custom External Player Executable: Egyedi külső lejátszó végrehajthatója
     External Player: Külső lejátszó
     External Player Settings: Külső lejátszó beállításai
+    Players:
+      None:
+        Name: Nincs
+  Download Settings:
+    Ask Download Path: Letöltés elérési útja kérése
+    Choose Path: Letöltés elérési útja kijelölése
+    Download Settings: Letöltési beállítások
+    Download Behavior: Letöltés viselkedése
+    Open in web browser: Megnyitás böngészőben
+    Download in app: Letöltés az alkalmazásban
+  Parental Control Settings:
+    Parental Control Settings: Szülői felügyeleti beállítások
+    Show Family Friendly Only: Kizárólag családbarát megjelenítése
+    Hide Search Bar: Keresősáv elrejtése
+    Hide Unsubscribe Button: Leiratkozás gomb elrejtése
 About:
   #On About page
   About: 'Névjegy'
@@ -561,6 +643,7 @@ Video:
     Years: 'évvel'
     Ago: 'ezelőtt'
     Upcoming: 'Az első előadás hamarosan lesz'
+    In less than a minute: Kevesebb, mint egy perce ezelőtt
   Published on: 'Megjelent'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % ezelőtt'
@@ -578,18 +661,20 @@ Video:
   Open Channel in YouTube: Csatorna megnyitása a YouTube oldalon
   Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
   Started streaming on: Folyamatos átvitel indult
-  Streamed on: Folyamatos átvitele
+  Streamed on: 'Adatfolyam dátuma:'
   Video has been removed from your saved list: A videót eltávolítottuk a mentett listáról
   Video has been saved: A videó mentve
   Save Video: Videó mentése
   translated from English: angolról fordítva
   Sponsor Block category:
-    music offtopic: témán kívüli zene
-    interaction: kölcsönhatás
-    self-promotion: önreklám
-    outro: kivezetés
-    intro: bevezetés
-    sponsor: szponzor
+    music offtopic: Témán kívüli zene
+    interaction: Kölcsönhatás
+    self-promotion: Önreklám
+    outro: Kivezetés
+    intro: Bevezetés
+    sponsor: Szponzor
+    filler: Kitöltő
+    recap: Összegzés
   Skipped segment: Szegmens kihagyva
   External Player:
     Unsupported Actions:
@@ -607,6 +692,19 @@ Video:
     video: videó
     OpenInTemplate: $ megnyításaban
   Premieres on: 'Bemutatkozás dátuma:'
+  Stats:
+    Player Dimensions: Lejátszó méretei
+    Video ID: Videóazonosító
+    Video statistics are not available for legacy videos: Az örökölt videókhoz videóstatisztika
+      nem érhető el
+    Resolution: Felbontás
+    Mimetype: MIME-típus
+    Volume: Hangerő
+    Bandwidth: Sávszélesség
+    Buffered: Pufferelt
+    Dropped / Total Frames: Elvetve/Összes képkocka
+    Bitrate: Átviteli sebesség
+  Premieres: Premierek
 Videos:
   #& Sort By
   Sort By:
@@ -634,7 +732,7 @@ Playlist:
   Playlist: Lejátszási lista
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
-  Change Video Formats: 'Videoformátumok módosítása'
+  Change Media Formats: 'Videoformátumok módosítása'
   Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
     keresztül) formátumok használata'
   Use Legacy Formats: 'Örökölt formátumok használata'
@@ -685,6 +783,7 @@ Comments:
   From $channelName: 'forrás: $channelName'
   And others: és mások
   Pinned by: 'Kitűzte:'
+  Member: Tag
 Up Next: 'Következő'
 
 # Toast Messages
@@ -734,6 +833,8 @@ Tooltips:
       helyett RSS-t fog használni a feliratkozás hírcsatornájának megragadásához.
       Az RSS gyorsabb és megakadályozza az IP-zárolást, de nem nyújt bizonyos tájékoztatást,
       például a videó időtartamát vagy az élő állapotot
+    Fetch Automatically: Ha engedélyezve van, a SzabadCső új ablak megnyitásakor és
+      profilváltáskor önműködően lekéri az előfizetési hírfolyamot.
   Player Settings:
     Default Video Format: Állítsa be a videó lejátszásakor használt formátumokat.
       A DASH (dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül)
@@ -748,10 +849,15 @@ Tooltips:
       visszaadott örökölt formátumokat fogja használni az Invidious által visszaadottak
       helyett. Segít, ha az Invidious által visszaküldött videókat nem lehet lejátszani
       az ország korlátozása miatt.
+    Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja
+      meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű),
+      és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához.
+      Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson
+      az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez
+      (1x, hacsak nem módosították a beállításokban).
   Privacy Settings:
-    Remove Video Meta Files: Ha engedélyezve van, a SzabadCső automatikusan törli
-      a videolejátszás során létrehozott metafájlokat, amikor a videómegtekintő oldal
-      bezárul.
+    Remove Video Meta Files: Ha engedélyezve van, a SzabadCső önműködően törli a videolejátszás
+      során létrehozott metafájlokat, amikor a videómegtekintő oldal bezárul.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a SzabadCső feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
@@ -762,6 +868,7 @@ Tooltips:
       elválasztott argumentumot át kell adni a külső lejátszónak.
     External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
+      Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „$”)'
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
@@ -782,3 +889,33 @@ Search Bar:
 External link opening has been disabled in the general settings: A külső hivatkozás
   megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
+New Window: Új ablak
+Channels:
+  Channels: Csatornák
+  Title: Csatornalista
+  Search bar placeholder: Csatornák keresése
+  Count: $ csatorna találat.
+  Empty: Csatornalista jelenleg üres.
+  Unsubscribe: Leiratkozás
+  Unsubscribed: $ eltávolítva az feliratkozásáiból
+  Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „$” csatornáról?
+Age Restricted:
+  Type:
+    Video: Videó
+    Channel: Csatorna
+  This $contentType is age restricted: A(z) $ korhatáros
+Downloading failed: Hiba történt a(z) „$” letöltése során
+Starting download: „$” letöltésének indítása
+Downloading has completed: A(z) „$” letöltése befejeződött
+Screenshot Success: Képernyőkép „$” néven mentve
+Chapters:
+  Chapters: Fejezetek
+  'Chapters list visible, current chapter: {chapterName}': 'Fejezeteklista látható,
+    jelenlegi fejezet: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Fejezeteklista elrejtve,
+    jelenlegi fejezet: {chapterName}'
+Clipboard:
+  Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
+    nem lehet hozzáférni a vágólaphoz
+  Copy failed: A vágólapra másolás nem sikerült
+Screenshot Error: A képernyőkép nem sikerült. $

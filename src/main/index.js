@@ -9,7 +9,6 @@ import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 
 if (process.argv.includes('--version')) {
-  console.log(`v${app.getVersion()}`)
   app.exit()
 } else {
   runApp()
@@ -22,10 +21,17 @@ function runApp() {
     showCopyImageAddress: true,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
-        label: 'Show Video Statistics',
+        label: 'Show / Hide Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
           browserWindow.webContents.send('showVideoStatistics')
+        }
+      },
+      {
+        label: 'Open in a New Window',
+        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        click: () => {
+          createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
       }
     ]
@@ -38,11 +44,6 @@ function runApp() {
 
   let mainWindow
   let startupUrl
-
-  // CORS somehow gets re-enabled in Electron v9.0.4
-  // This line disables it.
-  // This line can possible be removed if the issue is fixed upstream
-  app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
 
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
@@ -79,10 +80,6 @@ function runApp() {
           mainWindow.webContents.send('openUrl', url)
         }
       }
-    })
-  } else {
-    require('electron-debug')({
-      showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
     })
   }
 
@@ -169,11 +166,17 @@ function runApp() {
       require('vue-devtools').install()
       /* eslint-enable */
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+  async function createWindow(
+    {
+      replaceMainWindow = true,
+      windowStartupUrl = null,
+      showWindowNow = false,
+      searchQueryText = null
+    } = { }) {
     // Syncing new window background to theme choice.
     const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
       switch (value) {
@@ -185,12 +188,14 @@ function runApp() {
           return '#000000'
         case 'dracula':
           return '#282a36'
+        case 'catppuccin-mocha':
+          return '#1e1e2e'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
     }).catch((error) => {
-      console.log(error)
+      console.error(error)
       // Default to nativeTheme settings if nothing is found.
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
@@ -253,7 +258,7 @@ function runApp() {
 
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
-      const { maximized, ...bounds } = boundsDoc.value
+      const { maximized, fullScreen, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
         .getAllDisplays()
         .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
@@ -269,6 +274,10 @@ function runApp() {
 
       if (maximized) {
         newWindow.maximize()
+      }
+
+      if (fullScreen) {
+        newWindow.setFullScreen(true)
       }
     }
 
@@ -299,12 +308,28 @@ function runApp() {
         .replace(/\\/g, '\\\\')
     }
 
+    if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
+      ipcMain.once('searchInputHandlingReady', () => {
+        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      })
+    }
+
     // Show when loaded
     newWindow.once('ready-to-show', () => {
-      if (newWindow.isVisible()) { return }
+      if (newWindow.isVisible()) {
+        // only open the dev tools if they aren't already open
+        if (isDev && !newWindow.webContents.isDevToolsOpened()) {
+          newWindow.webContents.openDevTools({ activate: false })
+        }
+        return
+      }
 
       newWindow.show()
       newWindow.focus()
+
+      if (isDev) {
+        newWindow.webContents.openDevTools({ activate: false })
+      }
     })
 
     newWindow.once('close', async () => {
@@ -314,7 +339,8 @@ function runApp() {
 
       const value = {
         ...newWindow.getNormalBounds(),
-        maximized: newWindow.isMaximized()
+        maximized: newWindow.isMaximized(),
+        fullScreen: newWindow.isFullScreen()
       }
 
       await baseHandlers.settings._updateBounds(value)
@@ -327,8 +353,6 @@ function runApp() {
         // Which raises "Object has been destroyed" error
         mainWindow = allWindows[0]
       }
-
-      console.log('closed')
     })
   }
 
@@ -380,7 +404,6 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
-    console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
     })
@@ -434,11 +457,12 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null } = { }) => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null, searchQueryText = null } = { }) => {
     createWindow({
       replaceMainWindow: false,
       showWindowNow: true,
-      windowStartupUrl: windowStartupUrl
+      windowStartupUrl: windowStartupUrl,
+      searchQueryText: searchQueryText
     })
   })
 
@@ -814,6 +838,21 @@ function runApp() {
             accelerator: 'CmdOrCtrl+Shift+R'
           },
           { role: 'toggledevtools' },
+          { role: 'toggledevtools', accelerator: 'f12', visible: false },
+          {
+            label: 'Enter Inspect Element Mode',
+            accelerator: 'CmdOrCtrl+Shift+C',
+            click: (_, window) => {
+              if (window.webContents.isDevToolsOpened()) {
+                window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+              } else {
+                window.webContents.once('devtools-opened', () => {
+                  window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+                })
+                window.webContents.openDevTools()
+              }
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
           { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },

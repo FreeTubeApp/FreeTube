@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -9,6 +10,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 export default Vue.extend({
   name: 'PlayerSettings',
   components: {
+    'ft-settings-section': FtSettingsSection,
     'ft-card': FtCard,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-button': FtButton,
@@ -55,8 +57,14 @@ export default Vue.extend({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },
-    hideSharingActions: function() {
+    hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
+    },
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    hideChapters: function () {
+      return this.$store.getters.getHideChapters
     }
   },
   methods: {
@@ -84,7 +92,8 @@ export default Vue.extend({
       'updateHideVideoDescription',
       'updateHideComments',
       'updateHideLiveStreams',
-      'updateHideSharingActions'
+      'updateHideSharingActions',
+      'updateHideChapters'
     ])
   }
 })

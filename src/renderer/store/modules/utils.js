@@ -50,7 +50,22 @@ const state = {
     'DraculaPink',
     'DraculaPurple',
     'DraculaRed',
-    'DraculaYellow'
+    'DraculaYellow',
+    'CatppuccinMochaRosewater',
+    'CatppuccinMochaFlamingo',
+    'CatppuccinMochaPink',
+    'CatppuccinMochaMauve',
+    'CatppuccinMochaRed',
+    'CatppuccinMochaMaroon',
+    'CatppuccinMochaPeach',
+    'CatppuccinMochaYellow',
+    'CatppuccinMochaGreen',
+    'CatppuccinMochaTeal',
+    'CatppuccinMochaSky',
+    'CatppuccinMochaSapphire',
+    'CatppuccinMochaBlue',
+    'CatppuccinMochaLavender'
+
   ],
   colorValues: [
     '#d50000',
@@ -75,9 +90,24 @@ const state = {
     '#FF79C6',
     '#BD93F9',
     '#FF5555',
-    '#F1FA8C'
+    '#F1FA8C',
+    '#F5E0DC',
+    '#F2CDCD',
+    '#F5C2E7',
+    '#CBA6F7',
+    '#F38BA8',
+    '#EBA0AC',
+    '#FAB387',
+    '#F9E2AF',
+    '#A6E3A1',
+    '#94E2D5',
+    '#89DCEB',
+    '#74C7EC',
+    '#89B4FA',
+    '#B4BEFE'
   ],
   externalPlayerNames: [],
+  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -139,6 +169,10 @@ const getters = {
     return state.externalPlayerNames
   },
 
+  getExternalPlayerNameTranslationKeys () {
+    return state.externalPlayerNameTranslationKeys
+  },
+
   getExternalPlayerValues () {
     return state.externalPlayerValues
   },
@@ -159,8 +193,7 @@ const getters = {
 
 async function invokeIRC(context, IRCtype, webCbk, payload = null) {
   let response = null
-  const usingElectron = context.rootState.settings.usingElectron
-  if (usingElectron) {
+  if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
     response = await ipcRenderer.invoke(IRCtype, payload)
   } else if (webCbk) {
@@ -171,13 +204,12 @@ async function invokeIRC(context, IRCtype, webCbk, payload = null) {
 }
 
 const actions = {
-  openExternalLink ({ rootState }, url) {
-    const usingElectron = rootState.settings.usingElectron
-    if (usingElectron) {
+  openExternalLink (_, url) {
+    if (process.env.IS_ELECTRON) {
       const ipcRenderer = require('electron').ipcRenderer
       ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
     } else {
-      // Web placeholder
+      window.open(url, '_blank')
     }
   },
 
@@ -214,9 +246,47 @@ const actions = {
     return filenameNew
   },
 
+  /**
+   * This writes to the clipboard. If an error occurs during the copy,
+   * a toast with the error is shown. If the copy is successful and
+   * there is a success message, a toast with that message is shown.
+   * @param {string} content the content to be copied to the clipboard
+   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   */
+  async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
+    if (navigator.clipboard !== undefined && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(content)
+        if (messageOnSuccess !== undefined) {
+          dispatch('showToast', {
+            message: messageOnSuccess
+          })
+        }
+      } catch (error) {
+        console.error(`Failed to copy ${content} to clipboard`, error)
+        if (messageOnError !== undefined) {
+          dispatch('showToast', {
+            message: `${messageOnError}: ${error}`,
+            time: 5000
+          })
+        } else {
+          dispatch('showToast', {
+            message: `${i18n.t('Clipboard.Copy failed')}: ${error}`,
+            time: 5000
+          })
+        }
+      }
+    } else {
+      dispatch('showToast', {
+        message: i18n.t('Clipboard.Cannot access clipboard without a secure connection'),
+        time: 5000
+      })
+    }
+  },
+
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
     const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
-    const usingElectron = rootState.settings.usingElectron
     const locale = i18n._vm.locale
     const translations = i18n._vm.messages[locale]
     const startMessage = translations['Starting download'].replace('$', title)
@@ -224,8 +294,8 @@ const actions = {
     const errorMessage = translations['Downloading failed'].replace('$', title)
     let folderPath = rootState.settings.downloadFolderPath
 
-    if (!usingElectron) {
-      // Add logic here in the future
+    if (!process.env.IS_ELECTRON) {
+      dispatch('openExternalLink', url)
       return
     }
 
@@ -253,7 +323,7 @@ const actions = {
           fs.mkdirSync(folderPath, { recursive: true })
         } catch (err) {
           console.error(err)
-          this.showToast({
+          dispatch('showToast', {
             message: err
           })
           return
@@ -267,7 +337,7 @@ const actions = {
     })
 
     const response = await fetch(url).catch((error) => {
-      console.log(error)
+      console.error(error)
       dispatch('showToast', {
         message: errorMessage
       })
@@ -277,7 +347,7 @@ const actions = {
     const chunks = []
 
     const handleError = (err) => {
-      console.log(err)
+      console.error(err)
       dispatch('showToast', {
         message: errorMessage
       })
@@ -325,9 +395,66 @@ const actions = {
     return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
+  /**
+   * @param {Object} response the response from `showOpenDialog`
+   * @param {Number} index which file to read (defaults to the first in the response)
+   * @returns the text contents of the selected file
+   */
+  async readFileFromDialog(context, { response, index = 0 }) {
+    return await new Promise((resolve, reject) => {
+      if (process.env.IS_ELECTRON) {
+        // if this is Electron, use fs
+        fs.readFile(response.filePaths[index], (err, data) => {
+          if (err) {
+            reject(err)
+            return
+          }
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+      } else {
+        // if this is web, use FileReader
+        try {
+          const reader = new FileReader()
+          reader.onload = function (file) {
+            resolve(file.currentTarget.result)
+          }
+          reader.readAsText(response.files[index])
+        } catch (exception) {
+          reject(exception)
+        }
+      }
+    })
+  },
+
   async showOpenDialog (context, options) {
-    // TODO: implement showOpenDialog web compatible callback
-    const webCbk = () => null
+    const webCbk = () => {
+      return new Promise((resolve) => {
+        const fileInput = document.createElement('input')
+        fileInput.setAttribute('type', 'file')
+        if (options?.filters[0]?.extensions !== undefined) {
+          // this will map the given extensions from the options to the accept attribute of the input
+          fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
+        }
+        fileInput.onchange = () => {
+          const files = Array.from(fileInput.files)
+          resolve({ canceled: false, files })
+          delete fileInput.onchange
+        }
+        const listenForEnd = () => {
+          window.removeEventListener('focus', listenForEnd)
+          // 1 second timeout on the response from the file picker to prevent awaiting forever
+          setTimeout(() => {
+            if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
+              // if there are no files and the onchange has not been triggered, the file-picker was canceled
+              resolve({ canceled: true })
+              delete fileInput.onchange
+            }
+          }, 1000)
+        }
+        window.addEventListener('focus', listenForEnd)
+        fileInput.click()
+      })
+    }
     return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
@@ -420,7 +547,7 @@ const actions = {
   getRegionData ({ commit }, payload) {
     let fileData
     /* eslint-disable-next-line */
-    const fileLocation = payload.isDev ? './static/geolocations/' : `${__dirname}/static/geolocations/`
+    const fileLocation = process.env.NODE_ENV === 'development' ? './static/geolocations/' : `${__dirname}/static/geolocations/`
     if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
       fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)
     } else {
@@ -434,57 +561,6 @@ const actions = {
 
     commit('setRegionNames', regionNames)
     commit('setRegionValues', regionValues)
-  },
-
-  calculateColorLuminance (_, colorValue) {
-    const cutHex = colorValue.substring(1, 7)
-    const colorValueR = parseInt(cutHex.substring(0, 2), 16)
-    const colorValueG = parseInt(cutHex.substring(2, 4), 16)
-    const colorValueB = parseInt(cutHex.substring(4, 6), 16)
-
-    const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
-
-    if (luminance > 0.5) {
-      return '#000000'
-    } else {
-      return '#FFFFFF'
-    }
-  },
-
-  calculatePublishedDate(_, publishedText) {
-    const date = new Date()
-
-    if (publishedText === 'Live') {
-      return publishedText
-    }
-
-    const textSplit = publishedText.split(' ')
-
-    if (textSplit[0].toLowerCase() === 'streamed') {
-      textSplit.shift()
-    }
-
-    const timeFrame = textSplit[1]
-    const timeAmount = parseInt(textSplit[0])
-    let timeSpan = null
-
-    if (timeFrame.indexOf('second') > -1) {
-      timeSpan = timeAmount * 1000
-    } else if (timeFrame.indexOf('minute') > -1) {
-      timeSpan = timeAmount * 60000
-    } else if (timeFrame.indexOf('hour') > -1) {
-      timeSpan = timeAmount * 3600000
-    } else if (timeFrame.indexOf('day') > -1) {
-      timeSpan = timeAmount * 86400000
-    } else if (timeFrame.indexOf('week') > -1) {
-      timeSpan = timeAmount * 604800000
-    } else if (timeFrame.indexOf('month') > -1) {
-      timeSpan = timeAmount * 2592000000
-    } else if (timeFrame.indexOf('year') > -1) {
-      timeSpan = timeAmount * 31556952000
-    }
-
-    return date.getTime() - timeSpan
   },
 
   getVideoParamsFromUrl (_, url) {
@@ -592,7 +668,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(c|channel|user)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -690,7 +766,9 @@ const actions = {
 
       */
       case 'channel': {
-        const channelId = url.pathname.match(channelPattern).groups.channelId
+        const match = url.pathname.match(channelPattern)
+        const channelId = match.groups.channelId
+        const idType = ['channel', 'user', 'c'].indexOf(match.groups.type) + 1
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
@@ -712,6 +790,7 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
+          idType,
           subPath
         }
       }
@@ -723,86 +802,6 @@ const actions = {
         }
       }
     }
-  },
-
-  padNumberWithLeadingZeros(_, payload) {
-    let numberString = payload.number.toString()
-    while (numberString.length < payload.length) {
-      numberString = '0' + numberString
-    }
-    return numberString
-  },
-
-  async buildVTTFileLocally ({ dispatch }, Storyboard) {
-    let vttString = 'WEBVTT\n\n'
-    // how many images are in one image
-    const numberOfSubImagesPerImage = Storyboard.sWidth * Storyboard.sHeight
-    // the number of storyboard images
-    const numberOfImages = Math.ceil(Storyboard.count / numberOfSubImagesPerImage)
-    const intervalInSeconds = Storyboard.interval / 1000
-    let currentUrl = Storyboard.url
-    let startHours = 0
-    let startMinutes = 0
-    let startSeconds = 0
-    let endHours = 0
-    let endMinutes = 0
-    let endSeconds = intervalInSeconds
-    for (let i = 0; i < numberOfImages; i++) {
-      let xCoord = 0
-      let yCoord = 0
-      for (let j = 0; j < numberOfSubImagesPerImage; j++) {
-        // add the timestamp information
-        const paddedStartHours = await dispatch('padNumberWithLeadingZeros', {
-          number: startHours,
-          length: 2
-        })
-        const paddedStartMinutes = await dispatch('padNumberWithLeadingZeros', {
-          number: startMinutes,
-          length: 2
-        })
-        const paddedStartSeconds = await dispatch('padNumberWithLeadingZeros', {
-          number: startSeconds,
-          length: 2
-        })
-        const paddedEndHours = await dispatch('padNumberWithLeadingZeros', {
-          number: endHours,
-          length: 2
-        })
-        const paddedEndMinutes = await dispatch('padNumberWithLeadingZeros', {
-          number: endMinutes,
-          length: 2
-        })
-        const paddedEndSeconds = await dispatch('padNumberWithLeadingZeros', {
-          number: endSeconds,
-          length: 2
-        })
-        vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
-        // add the current image url as well as the x, y, width, height information
-        vttString += currentUrl + `#xywh=${xCoord},${yCoord},${Storyboard.width},${Storyboard.height}\n\n`
-        // update the variables
-        startHours = endHours
-        startMinutes = endMinutes
-        startSeconds = endSeconds
-        endSeconds += intervalInSeconds
-        if (endSeconds >= 60) {
-          endSeconds -= 60
-          endMinutes += 1
-        }
-        if (endMinutes >= 60) {
-          endMinutes -= 60
-          endHours += 1
-        }
-        // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
-        xCoord = (xCoord + Storyboard.width) % (Storyboard.width * Storyboard.sWidth)
-        // only if the x coordinate is , so in a new row, we have to update the y coordinate
-        if (xCoord === 0) {
-          yCoord += Storyboard.height
-        }
-      }
-      // make sure that there is no value like M0 or M1 in the parameters that gets replaced
-      currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
-    }
-    return vttString
   },
 
   toLocalePublicationString ({ dispatch }, payload) {
@@ -898,7 +897,7 @@ const actions = {
     const fileName = 'external-player-map.json'
     let fileData
     /* eslint-disable-next-line */
-    const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+    const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
 
     if (fs.existsSync(`${fileLocation}${fileName}`)) {
       fileData = fs.readFileSync(`${fileLocation}${fileName}`)
@@ -907,10 +906,11 @@ const actions = {
     }
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -918,6 +918,7 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -1053,8 +1054,6 @@ const actions = {
       message: openingToast
     })
 
-    console.log(executable, args)
-
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
   }
@@ -1128,6 +1127,10 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
+  },
+
+  setExternalPlayerNameTranslationKeys (state, value) {
+    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

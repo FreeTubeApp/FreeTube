@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'PlaylistInfo',
@@ -75,10 +76,12 @@ export default Vue.extend({
         default:
           return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
       }
+    },
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
-    console.log(this.data)
     this.id = this.data.id
     this.firstVideoId = this.data.firstVideoId
     this.title = this.data.title
@@ -91,11 +94,11 @@ export default Vue.extend({
 
     // Causes errors if not put inside of a check
     if (typeof (this.data.viewCount) !== 'undefined') {
-      this.viewCount = this.hideViews ? null : this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.viewCount = this.hideViews ? null : Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
     }
 
     if (typeof (this.data.videoCount) !== 'undefined') {
-      this.videoCount = this.data.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
     }
 
     this.lastUpdated = this.data.lastUpdated
@@ -107,19 +110,13 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
-          navigator.clipboard.writeText(youtubeUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: youtubeUrl, messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
           this.openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
-          navigator.clipboard.writeText(invidiousUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious URL copied to clipboard')
-          })
+          this.copyToClipboard({ content: invidiousUrl, messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
           this.openExternalLink(invidiousUrl)
@@ -146,7 +143,8 @@ export default Vue.extend({
 
     ...mapActions([
       'showToast',
-      'openExternalLink'
+      'openExternalLink',
+      'copyToClipboard'
     ])
   }
 })

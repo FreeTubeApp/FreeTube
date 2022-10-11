@@ -192,7 +192,7 @@
           class="getNextPage"
           @click="handleFetchMore"
         >
-          <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
     </ft-card>

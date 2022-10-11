@@ -207,6 +207,7 @@ const state = {
   hideVideoViews: false,
   hideWatchedSubs: false,
   hideLabelsSideBar: false,
+  hideChapters: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
@@ -268,7 +269,8 @@ const state = {
   screenshotQuality: 95,
   screenshotAskPath: false,
   screenshotFolderPath: '',
-  screenshotFilenamePattern: '%Y%M%D-%H%N%S'
+  screenshotFilenamePattern: '%Y%M%D-%H%N%S',
+  fetchSubscriptionsAutomatically: true
 }
 
 const stateWithSideEffects = {
@@ -281,7 +283,7 @@ const stateWithSideEffects = {
       if (value === 'system') {
         const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
         const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
-        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => { // filter out other languages
+        const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
           return localeLang.includes(systemLocaleLang)
         }).sort((a, b) => {
@@ -317,9 +319,12 @@ const stateWithSideEffects = {
         }
       }
 
+      if (process.env.NODE_ENV !== 'development') {
+        await i18n.loadLocale(targetLocale)
+      }
+
       i18n.locale = targetLocale
       dispatch('getRegionData', {
-        isDev: process.env.NODE_ENV === 'development',
         locale: targetLocale
       })
     }
@@ -343,8 +348,8 @@ const stateWithSideEffects = {
 
   uiScale: {
     defaultValue: 100,
-    sideEffectsHandler: ({ state: { usingElectron } }, value) => {
-      if (usingElectron) {
+    sideEffectsHandler: (_, value) => {
+      if (process.env.IS_ELECTRON) {
         const { webFrame } = require('electron')
         webFrame.setZoomFactor(value / 100)
       }
@@ -353,11 +358,9 @@ const stateWithSideEffects = {
 }
 
 const customState = {
-  usingElectron: (window?.process?.type === 'renderer')
 }
 
 const customGetters = {
-  getUsingElectron: (state) => state.usingElectron
 }
 
 const customMutations = {}

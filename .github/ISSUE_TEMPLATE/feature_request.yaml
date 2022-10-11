@@ -13,7 +13,7 @@ body:
       label: Guidelines
       description: Please ensure you've completed all of the following.
       options:
-          - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for a feature request that matches the one I want to file, without success.
+          - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for open and closed issues that are similar to the feature request I want to file, without success.
             required: true
           - label: I have searched the [documentation](https://docs.freetubeapp.io/) for information that matches the description of the feature request I want to file, without success.
             required: true

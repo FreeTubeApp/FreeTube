@@ -84,6 +84,9 @@ Subscriptions:
   Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
   Error Channels: Канали з помилками
+  Disabled Automatic Fetching: Ви вимкнули автоматичне отримання підписок. Оновіть
+    підписки, щоб вони з'явились тут.
+  Empty Channels: Канали, на які ви підписалися, наразі не містять відео.
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -173,6 +176,7 @@ Settings:
       Light: 'Світла'
       Dracula: 'Дракула'
       System Default: Тема системи
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -198,6 +202,20 @@ Settings:
       Dracula Purple: 'Дракула Фіолетова'
       Dracula Red: 'Дракула Червона'
       Dracula Yellow: 'Дракула Жовта'
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -276,6 +294,7 @@ Settings:
     Hide Videos on Watch: 'Ховати відео при перегляді'
     Fetch Feeds from RSS: 'Отримати канали з RSS'
     Manage Subscriptions: 'Керування підписками'
+    Fetch Automatically: Автоматично отримувати стрічку
   Distraction Free Settings:
     Distraction Free Settings: 'Налаштування зосередження'
     Hide Video Views: 'Сховати перегляди відео'
@@ -292,6 +311,7 @@ Settings:
     Hide Comments: Сховати коментарі
     Hide Sharing Actions: Сховати дії поширення
     Hide Live Streams: Сховати прямі трансляції
+    Hide Chapters: Сховати розділи
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -334,6 +354,9 @@ Settings:
     Import Playlists: Імпорт добірок
     Export Playlists: Експорт добірок
     All playlists has been successfully imported: Усі добірки успішно імпортовано
+    Playlist File: Файл добірки
+    Subscription File: Файл підписки
+    History File: Файл історії
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -392,6 +415,9 @@ Settings:
       дії
     External Player: Зовнішній програвач
     External Player Settings: Параметри зовнішнього програвача
+    Players:
+      None:
+        Name: Немає
   Download Settings:
     Download Settings: Налаштування завантаження
     Choose Path: Вибрати шлях
@@ -601,6 +627,8 @@ Video:
     Years: 'Років'
     Ago: 'Тому'
     Upcoming: 'Прем''єри'
+    Less than a minute: Менш як за хвилину
+    In less than a minute: Менше ніж за хвилину
   Published on: 'Опубліковано'
   # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: '$ % тому'
@@ -657,6 +685,8 @@ Video:
     Buffered: Буферизовано
     Video statistics are not available for legacy videos: Статистика відео недоступна
       для застарілих відео
+  Premieres in: Прем'єри в
+  Premieres: Прем'єри
 Videos:
   #& Sort By
   Sort By:
@@ -684,7 +714,7 @@ Playlist:
   Playlist: Добірка
 Toggle Theatre Mode: 'Перемкнути режим театру'
 Change Format:
-  Change Video Formats: 'Зміна форматів відео'
+  Change Media Formats: 'Зміна форматів відео'
   Use Dash Formats: 'Використовувати формати DASH'
   Use Legacy Formats: 'Використовувати застарілі формати'
   Use Audio Formats: 'Використовувати аудіоформати'
@@ -779,6 +809,8 @@ Tooltips:
       ІР, але не надає дані, як-от тривалість відео або стан трансляції'
 
 # Toast Messages
+    Fetch Automatically: Якщо увімкнено, FreeTube автоматично отримуватиме вашу стрічку
+      підписок під час відкриття нового вікна та за перемикання профілю.
   Privacy Settings:
     Remove Video Meta Files: Якщо увімкнено, FreeTube автоматично видаляє метафайли,
       створені під час відтворення відео, коли сторінку перегляду закрито.
@@ -860,3 +892,13 @@ Channels:
   Unsubscribe: Відписатися
   Search bar placeholder: Пошук каналів
   Unsubscribed: $ вилучено з ваших підписок
+Clipboard:
+  Copy failed: Не вдалося скопіювати до буфера обміну
+  Cannot access clipboard without a secure connection: Неможливо отримати доступ до
+    буфера обміну без захищеного з'єднання
+Chapters:
+  Chapters: Розділи
+  'Chapters list visible, current chapter: {chapterName}': 'Список розділів видимий,
+    поточний розділ: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований,
+    поточний розділ: {chapterName}'

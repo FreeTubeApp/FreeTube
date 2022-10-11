@@ -52,7 +52,7 @@
           class="commentPinned"
         >
           <font-awesome-icon
-            icon="thumbtack"
+            :icon="['fas', 'thumbtack']"
           />
           {{ $t("Comments.Pinned by") }} {{ channelName }}
         </p>
@@ -88,7 +88,7 @@
         <p class="commentLikeCount">
           <font-awesome-icon
             v-if="!hideCommentLikes"
-            icon="thumbs-up"
+            :icon="['fas', 'thumbs-up']"
           />
           {{ comment.likes }}
           <span
@@ -100,11 +100,11 @@
               class="commentHeartBadgeImg"
             >
             <font-awesome-icon
-              icon="heart"
+              :icon="['fas', 'heart']"
               class="commentHeartBadgeWhite"
             />
             <font-awesome-icon
-              icon="heart"
+              :icon="['fas', 'heart']"
               class="commentHeartBadgeRed"
             />
           </span>
@@ -163,7 +163,7 @@
             <p class="commentLikeCount">
               <font-awesome-icon
                 v-if="!hideCommentLikes"
-                icon="thumbs-up"
+                :icon="['fas', 'thumbs-up']"
               />
               {{ reply.likes }}
             </p>
@@ -175,7 +175,7 @@
             </p>
           </div>
           <div
-            v-if="comment.replies.length < comment.numReplies"
+            v-if="comment.replyToken !== null"
             class="showMoreReplies"
             @click="getCommentReplies(index)"
           >

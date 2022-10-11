@@ -19,8 +19,8 @@
   text-align: center;
 }
 
-#profileList {
-  display: none;
+.profileList {
+  display: inline;
   position: absolute;
   top: 60px;
   right: 10px;
@@ -30,11 +30,6 @@
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
   z-index: 4;
-}
-
-#profileList:focus {
-  display: inline;
-  outline: none;
 }
 
 .profileWrapper {
@@ -72,7 +67,7 @@
 
 .profileListTitle {
   position: absolute;
-  top: -15px;
+  margin: 0;
   left: 10px;
 }
 

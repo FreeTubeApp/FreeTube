@@ -60,8 +60,8 @@ Search Filters:
     Long (> 20 minutes): Lang (> 20 Minuten)
   # On Search Page
   Search Results: Suchergebnisse
-  Fetching results. Please wait: Lade Ergebnisse. Bitte warten
-  Fetch more results: Lade mehr Ergebnisse
+  Fetching results. Please wait: Ergebnisse werden geladen. Bitte warten
+  Fetch more results: Mehr Ergebnisse laden
 # Sidebar
   There are no more results for this search: Keine weiteren Ergebnisse für diese Suche
     vorhanden
@@ -74,12 +74,15 @@ Subscriptions:
     zu sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abonnements aktualisieren
-  Getting Subscriptions. Please wait.: Lade Abonnements. Bitte warten.
+  Getting Subscriptions. Please wait.: Abonnements werden geladen. Bitte warten.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abonnements.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
   Load More Videos: Mehr Videos laden
   Error Channels: Kanäle mit Fehlern
+  Disabled Automatic Fetching: Du hast den automatischen Abruf von Abonnements deaktiviert.
+    Aktualisiere die Abonnements, um sie hier zu sehen.
+  Empty Channels: Deine abonnierten Kanäle haben derzeit keine Videos.
 Trending:
   Trending: Trends
   Trending Tabs: Trendtabs
@@ -115,7 +118,7 @@ Settings:
     General Settings: Allgemeine Einstellungen
     Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
       bei Fehlschlag zurück
-    Enable Search Suggestions: Aktiviere Suchvorschläge
+    Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standardseite
 
     Locale Preference: Spracheinstellung
@@ -155,17 +158,18 @@ Settings:
       Open Link: Link öffnen
       External Link Handling: Handhabung externer Links
   Theme Settings:
-    Theme Settings: Thema-Einstellungen
+    Theme Settings: Farbschema-Einstellungen
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
     Base Theme:
-      Base Theme: Grundlegendes Thema
+      Base Theme: Grundlegendes Farbschema
       Black: Schwarz
       Dark: Dunkel
       Light: Hell
       Dracula: Dracula
       System Default: Systemvoreinstellung
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
-      Main Color Theme: Hauptfarbe des Themas
+      Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
       Pink: Rosa
       Purple: Lila
@@ -189,7 +193,21 @@ Settings:
       Dracula Purple: Dracula Lila
       Dracula Red: Dracula Rot
       Dracula Yellow: Dracula Gelb
-    Secondary Color Theme: Sekundäres Farbenthema
+      Catppuccin Mocha Green: Catppuccin Mocha Grün
+      Catppuccin Mocha Blue: Catppuccin Mocha Blau
+      Catppuccin Mocha Peach: Catppuccin Mocha Pfirsich
+      Catppuccin Mocha Yellow: Catppuccin Mocha Gelb
+      Catppuccin Mocha Sky: Catppuccin Mocha Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Saphir
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenwasser
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Rot
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
+      Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
+    Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
@@ -261,6 +279,7 @@ Settings:
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Fetch Feeds from RSS: Abrufen von RSS-Feeds
+    Fetch Automatically: Feed automatisch abrufen
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
     Enable Debug Mode (Prints data to the console): Aktiviere Debug-Modus (Konsolenausgabe
@@ -353,17 +372,22 @@ Settings:
     All playlists has been successfully exported: Alle Wiedergabelisten wurden erfolgreich
       exportiert
   Distraction Free Settings:
-    Hide Live Chat: Live-Chat verbergen
-    Hide Popular Videos: Beliebte Videos verbergen
-    Hide Trending Videos: Trends verbergen
-    Hide Recommended Videos: Vorgeschlagene Videos verbergen
-    Hide Channel Subscribers: Kanal-Abonnenten verbergen
-    Hide Comment Likes: Kommentarbewertungen verbergen
-    Hide Video Likes And Dislikes: Videobewertungen verbergen
+    Hide Live Chat: Live-Chat ausblenden
+    Hide Popular Videos: Beliebte Videos ausblenden
+    Hide Trending Videos: Trends ausblenden
+    Hide Recommended Videos: Vorgeschlagene Videos ausblenden
+    Hide Channel Subscribers: Kanal-Abonnenten ausblenden
+    Hide Comment Likes: Kommentarbewertungen ausblenden
+    Hide Video Likes And Dislikes: Videobewertungen ausblenden
     Hide Video Views: Video-Aufrufe verbergen
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
     Hide Active Subscriptions: Aktive Abonnements ausblenden
     Hide Playlists: Wiedergabelisten ausblenden
+    Hide Comments: Kommentare ausblenden
+    Hide Video Description: Videobeschreibung verstecken
+    Hide Live Streams: Livestreams ausblenden
+    Hide Sharing Actions: Freigabe-Aktionen ausblenden
+    Hide Chapters: Kapitel ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -403,6 +427,9 @@ Settings:
     External Player Settings: Externe Player-Einstellungen
     Custom External Player Executable: Ausführbares, externes Player-Programm
     Custom External Player Arguments: Gewählte Einstellungen für externen Player
+    Players:
+      None:
+        Name: Keine
   Download Settings:
     Download Settings: Herunterladen-Einstellungen
     Ask Download Path: Nach dem Herunterladen-Pfad fragen
@@ -410,6 +437,11 @@ Settings:
     Download Behavior: Download-Verhalten
     Download in app: In der Anwendung herunterladen
     Open in web browser: Im Webbrowser öffnen
+  Parental Control Settings:
+    Parental Control Settings: Einstellungen der Kindersicherung
+    Hide Unsubscribe Button: „Abo entfernen“-Schaltfläche ausblenden
+    Show Family Friendly Only: Nur familienfreundlich anzeigen
+    Hide Search Bar: Suchleiste ausblenden
 About:
   #On About page
   About: Über
@@ -566,6 +598,8 @@ Video:
     Upcoming: Premiere am
     Minutes: Minuten
     Minute: Minute
+    Less than a minute: Weniger als einer Minute
+    In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
   Publicationtemplate: vor $ %
 
@@ -609,6 +643,7 @@ Video:
     intro: Intro
     sponsor: Sponsor
     recap: Rekapitulation
+    filler: Füller
   Skipped segment: Segment übersprungen
   External Player:
     OpenInTemplate: In $ öffnen
@@ -647,6 +682,8 @@ Video:
     Mimetype: Medientyp
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
+  Premieres in: Premieren in
+  Premieres: Premieren
 Videos:
   #& Sort By
   Sort By:
@@ -681,7 +718,7 @@ Share Playlist:
 #& Views
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
-  Change Video Formats: Ändere Videoformat
+  Change Media Formats: Ändere Videoformat
   Use Dash Formats: DASH-Format benutzen
   Use Legacy Formats: Nutze Altformat
   Use Audio Formats: Nutze Audioformat
@@ -710,7 +747,7 @@ Share:
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
-  Click to View Comments: Klicke um Kommentare anzuzeigen
+  Click to View Comments: Klicke, um Kommentare anzuzeigen
   Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
@@ -720,7 +757,7 @@ Comments:
   Replies: Antworten
   Reply: Antworten
   There are no comments available for this video: Für dieses Video gibt es keine Kommentare
-  Load More Comments: Lade mehr Kommentare
+  Load More Comments: Mehr Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
   No more comments available: Keine Kommentare mehr verfügbar
@@ -827,6 +864,9 @@ Tooltips:
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
       Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
       des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
+    Fetch Automatically: Wenn diese Option aktiviert ist, holt FreeTube automatisch
+      dein Abonnement-Feed, wenn ein neues Fenster geöffnet wird und wenn du das Profil
+      wechselst.
   Player Settings:
     Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
       bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
@@ -855,9 +895,10 @@ Tooltips:
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
       der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
       kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
-    External Player: Wenn ein externer Player gewählt wird, wird ein Symbol auf dem
-      Vorschaubild gezeigt, um das Video (Wiedergabeliste falls unterstützt) darin
-      zu öffnen.
+    External Player: Wenn Sie einen externen Player auswählen, wird auf der Miniaturansicht
+      ein Symbol angezeigt, mit dem Sie das Video (und die Wiedergabeliste, falls
+      unterstützt) im externen Player öffnen können. Achtung, die Einstellungen von
+      Invidious wirken sich nicht auf externe Player aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „$“)'
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -883,3 +924,28 @@ Starting download: Das Herunterladen von $ hat begonnen
 Downloading failed: Es gab ein Problem beim Herunterladen von $
 Screenshot Success: Bildschirmfoto gespeichert als „$“
 Screenshot Error: Bildschirmfoto fehlgeschlagen. $
+New Window: Neues Fenster
+Age Restricted:
+  Type:
+    Video: Video
+    Channel: Kanal
+  This $contentType is age restricted: Dieses $ ist altersbeschränkt
+Channels:
+  Channels: Kanäle
+  Title: Kanalliste
+  Search bar placeholder: Kanäle durchsuchen
+  Count: $ Kanal/Kanäle gefunden.
+  Empty: Ihre Kanalliste ist derzeit leer.
+  Unsubscribe: Abo entfernen
+  Unsubscribed: $ wurde aus deinen Abonnements entfernt
+  Unsubscribe Prompt: Bist du sicher, dass du „$“ aus dem Abos entfernen willst?
+Clipboard:
+  Copy failed: Kopieren in die Zwischenablage fehlgeschlagen
+  Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage
+    ist ohne sichere Verbindung nicht möglich
+Chapters:
+  Chapters: Kapitel
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste sichtbar,
+    aktuelles Kapitel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
+    aktuelles Kapitel: {chapterName}'

@@ -1,16 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
-const {
-  dependencies,
-  devDependencies,
-  productName,
-} = require('../package.json')
+const { productName } = require('../package.json')
 
-const externals = Object.keys(dependencies).concat(Object.keys(devDependencies))
 const isDevMode = process.env.NODE_ENV === 'development'
-const whiteListedModules = []
 
 const config = {
   name: 'main',
@@ -19,7 +14,6 @@ const config = {
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
-  externals: externals.filter(d => !whiteListedModules.includes(d)),
   module: {
     rules: [
       {
@@ -27,11 +21,16 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
-      },
     ],
+  },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new JsonMinimizerPlugin({
+        exclude: /\/locales\/.*\.json/
+      })
+    ]
   },
   node: {
     __dirname: isDevMode,
@@ -69,38 +68,14 @@ if (isDevMode) {
     new CopyWebpackPlugin({
         patterns: [
           {
-            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-          },
-          {
             from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/web/static'),
+            to: path.join(__dirname, '../dist/static'),
             globOptions: {
               dot: true,
-              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
+              ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
             },
           },
-          {
-            from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/_icons'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../src/renderer/assets/img'),
-            to: path.join(__dirname, '../dist/images'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-        ]
-      }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      ]
     })
   )
 }

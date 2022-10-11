@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import $ from 'jquery'
 import { mapActions } from 'vuex'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -19,6 +19,7 @@ import { IpcChannels } from '../../../constants'
 export default Vue.extend({
   name: 'ProxySettings',
   components: {
+    'ft-settings-section': FtSettingsSection,
     'ft-card': FtCard,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-button': FtButton,
@@ -31,8 +32,7 @@ export default Vue.extend({
     return {
       isLoading: false,
       dataAvailable: false,
-      proxyTestUrl: 'https://api.ipify.org?format=json',
-      proxyTestUrl1: 'https://freegeoip.app/json/',
+      proxyTestUrl: 'https://ipwho.is/',
       proxyId: '',
       proxyCountry: '',
       proxyRegion: '',
@@ -125,27 +125,28 @@ export default Vue.extend({
       if (!this.useProxy) {
         this.enableProxy()
       }
-      $.getJSON(this.proxyTestUrl1, (response) => {
-        console.log(response)
-        this.proxyIp = response.ip
-        this.proxyCountry = response.country_name
-        this.proxyRegion = response.region_name
-        this.proxyCity = response.city
-        this.dataAvailable = true
-      }).fail((xhr, textStatus, error) => {
-        console.log(xhr)
-        console.log(textStatus)
-        console.log(error)
-        this.showToast({
-          message: this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]')
+      fetch(this.proxyTestUrl)
+        .then((response) => response.json())
+        .then((json) => {
+          this.proxyIp = json.ip
+          this.proxyCountry = json.country
+          this.proxyRegion = json.region
+          this.proxyCity = json.city
+          this.dataAvailable = true
         })
-        this.dataAvailable = false
-      }).always(() => {
-        if (!this.useProxy) {
-          this.disableProxy()
-        }
-        this.isLoading = false
-      })
+        .catch((error) => {
+          console.error('errored while testing proxy:', error)
+          this.showToast({
+            message: this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]')
+          })
+          this.dataAvailable = false
+        })
+        .finally(() => {
+          if (!this.useProxy) {
+            this.disableProxy()
+          }
+          this.isLoading = false
+        })
     },
 
     ...mapActions([

@@ -1,5 +1,8 @@
 <template>
-  <ft-card class="videoDescription">
+  <ft-card
+    v-if="shownDescription.length > 0"
+    class="videoDescription"
+  >
     <ft-timestamp-catcher
       class="description"
       :input-html="shownDescription"

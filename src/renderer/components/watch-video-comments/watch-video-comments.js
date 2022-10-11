@@ -42,10 +42,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -182,13 +178,13 @@ export default Vue.extend({
       ytcm.getComments(payload).then((response) => {
         this.parseLocalCommentData(response, null)
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendFallback && this.backendPreference === 'local') {
@@ -217,13 +213,13 @@ export default Vue.extend({
       ytcm.getCommentReplies(payload).then((response) => {
         this.parseLocalCommentData(response, payload.index)
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${err}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(err)
+            this.copyToClipboard({ content: err })
           }
         })
         if (this.backendFallback && this.backendPreference === 'local') {
@@ -268,7 +264,8 @@ export default Vue.extend({
         if (this.hideCommentLikes) {
           comment.likes = null
         }
-        comment.text = autolinker.link(comment.text.replace(/(<(?!br>)([^>]+)>)/ig, ''))
+        // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
+        comment.text = autolinker.link(comment.text.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, ''))
         if (comment.customEmojis.length > 0) {
           comment.customEmojis.forEach(emoji => {
             comment.text = comment.text.replace(emoji.text, `<img width="14" height="14" class="commentCustomEmoji" alt="${emoji.text.substring(2, emoji.text.length - 1)}" src="${emoji.emojiThumbnails[0].url}">`)
@@ -331,14 +328,13 @@ export default Vue.extend({
         this.isLoading = false
         this.showComments = true
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${xhr.responseText}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
+            this.copyToClipboard({ content: xhr.responseText })
           }
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
@@ -388,14 +384,13 @@ export default Vue.extend({
         this.commentData[index].showReplies = true
         this.isLoading = false
       }).catch((xhr) => {
-        console.log('found an error')
-        console.log(xhr)
+        console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         this.showToast({
           message: `${errorMessage}: ${xhr.responseText}`,
           time: 10000,
           action: () => {
-            navigator.clipboard.writeText(xhr.responseText)
+            this.copyToClipboard({ content: xhr.responseText })
           }
         })
         this.isLoading = false
@@ -409,7 +404,8 @@ export default Vue.extend({
     ...mapActions([
       'showToast',
       'toLocalePublicationString',
-      'invidiousAPICall'
+      'invidiousAPICall',
+      'copyToClipboard'
     ])
   }
 })

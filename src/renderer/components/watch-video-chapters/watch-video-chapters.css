@@ -1,0 +1,83 @@
+.videoChapters {
+  overflow-y: hidden;
+}
+
+.chaptersTitle {
+  margin-top: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.currentChapter {
+  font-size: 15px;
+}
+
+.chaptersWrapper {
+  margin-top: 15px;
+  max-height: 250px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chaptersWrapper.compact {
+  max-height: 200px;
+}
+
+.chaptersChevron {
+  vertical-align: middle;
+}
+
+.chaptersChevron.open {
+  margin-left: 4px;
+}
+
+.chapter {
+  display: grid;
+  grid-template-areas:
+    'thumbnail title'
+    'thumbnail timestamp';
+  grid-template-columns: auto 1fr;
+  grid-template-rows: min(auto, 2fr) 1fr;
+  column-gap: 10px;
+  justify-items: start;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.chaptersWrapper.compact .chapter {
+  display: flex;
+  flex-direction: row;
+}
+
+.chapterThumbnail {
+  grid-area: thumbnail;
+  width: 130px;
+  height: auto;
+  margin: 3px;
+}
+
+.chapter.current .chapterThumbnail {
+  border: solid 3px var(--accent-color);
+  margin: 0;
+}
+
+.chapterTitle {
+  grid-area: title;
+  align-self: center;
+  margin: 0;
+}
+
+.chapter.current .chapterTitle {
+  font-weight: bold;
+}
+
+.chapterTimestamp {
+  grid-area: timestamp;
+  align-self: flex-start;
+  padding: 3px 4px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--text-with-accent-color);
+}

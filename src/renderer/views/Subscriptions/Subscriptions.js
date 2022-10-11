@@ -11,6 +11,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import ytch from 'yt-channel-info'
 import Parser from 'rss-parser'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculatePublishedDate } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Subscriptions',
@@ -28,14 +29,11 @@ export default Vue.extend({
       isLoading: false,
       dataLimit: 100,
       videoList: [],
-      errorChannels: []
+      errorChannels: [],
+      attemptedFetch: false
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -90,6 +88,9 @@ export default Vue.extend({
 
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
+    },
+    fetchSubscriptionsAutomatically: function() {
+      return this.$store.getters.getFetchSubscriptionsAutomatically
     }
   },
   watch: {
@@ -98,6 +99,8 @@ export default Vue.extend({
     }
   },
   mounted: async function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+
     this.isLoading = true
     const dataLimit = sessionStorage.getItem('subscriptionLimit')
     if (dataLimit !== null) {
@@ -124,11 +127,16 @@ export default Vue.extend({
       }
 
       this.isLoading = false
-    } else {
+    } else if (this.fetchSubscriptionsAutomatically) {
       setTimeout(async () => {
         this.getSubscriptions()
       }, 300)
+    } else {
+      this.isLoading = false
     }
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     goToChannel: function (id) {
@@ -153,13 +161,14 @@ export default Vue.extend({
       this.isLoading = true
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
+      this.attemptedFetch = true
 
       let videoList = []
       let channelCount = 0
       this.errorChannels = []
       this.activeSubscriptionList.forEach(async (channel) => {
         let videos = []
-        if (!this.usingElectron || this.backendPreference === 'invidious') {
+        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           if (useRss) {
             videos = await this.getChannelVideosInvidiousRSS(channel)
           } else {
@@ -234,37 +243,42 @@ export default Vue.extend({
           }
         }))
         this.isLoading = false
-      } else {
+      } else if (this.fetchSubscriptionsAutomatically) {
         this.getSubscriptions()
+      } else if (this.activeProfile._id === this.profileSubscriptions.activeProfile) {
+        this.videoList = this.profileSubscriptions.videoList
+      } else {
+        this.videoList = []
+        this.attemptedFetch = false
       }
     },
 
     getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then(async (response) => {
+        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then((response) => {
           if (response.alertMessage) {
             this.errorChannels.push(channel)
             resolve([])
             return
           }
-          const videos = await Promise.all(response.items.map(async (video) => {
+          const videos = response.items.map((video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()
             } else {
-              video.publishedDate = await this.calculatePublishedDate(video.publishedText)
+              video.publishedDate = calculatePublishedDate(video.publishedText)
             }
             return video
-          }))
+          })
 
           resolve(videos)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           switch (failedAttempts) {
@@ -317,7 +331,7 @@ export default Vue.extend({
 
           resolve(items)
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           if (err.toString().match(/404/)) {
             this.errorChannels.push(channel)
             resolve([])
@@ -327,7 +341,7 @@ export default Vue.extend({
               message: `${errorMessage}: ${err}`,
               time: 10000,
               action: () => {
-                navigator.clipboard.writeText(err)
+                this.copyToClipboard({ content: err })
               }
             })
             switch (failedAttempts) {
@@ -369,13 +383,13 @@ export default Vue.extend({
             return video
           })))
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err.responseText })
             }
           })
           switch (failedAttempts) {
@@ -420,13 +434,13 @@ export default Vue.extend({
             return video
           })))
         }).catch((err) => {
-          console.log(err)
+          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           this.showToast({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
-              navigator.clipboard.writeText(err)
+              this.copyToClipboard({ content: err })
             }
           })
           if (err.toString().match(/500/)) {
@@ -463,13 +477,28 @@ export default Vue.extend({
       sessionStorage.setItem('subscriptionLimit', this.dataLimit)
     },
 
+    // This function should always be at the bottom of this file
+    keyboardShortcutHandler: function (event) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+      switch (event.key) {
+        case 'r':
+        case 'R':
+          if (!this.isLoading) {
+            this.getSubscriptions()
+          }
+          break
+      }
+    },
+
     ...mapActions([
       'showToast',
       'invidiousAPICall',
       'updateShowProgressBar',
       'updateProfileSubscriptions',
       'updateAllSubscriptionsList',
-      'calculatePublishedDate'
+      'copyToClipboard'
     ]),
 
     ...mapMutations([
