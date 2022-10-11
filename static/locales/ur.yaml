@@ -31,8 +31,7 @@ Back: 'پیچھے'
 Forward: 'آگے'
 Open New Window: 'نئی ونڈو کھولیں۔'
 
-Version {versionNumber} is now available!  Click for more details: 'ورژن $ اب دستیاب ہے! کلک کریں۔
-   مزید تفصیلات کے لیے'
+Version {versionNumber} is now available!  Click for more details: ''
 Download From Site: 'سائٹ سے ڈاؤن لوڈ کریں۔'
 A new blog is now available, {blogTitle}. Click to view more: 'ایک نیا بلاگ اب دستیاب ہے، {blogTitle}.
    مزید دیکھنے کے لیے کلک کریں۔'
@@ -98,7 +97,7 @@ Channels:
   Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
   Unsubscribe: 'ان سبسکرائب کریں۔'
   Unsubscribed: '{channelName} کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
-  Unsubscribe Prompt: 'کیا آپ واقعی "$" سے ان سبسکرائب کرنا چاہتے ہیں؟'
+  Unsubscribe Prompt: ''
 Trending:
   Trending: ''
   Default: ''
@@ -448,7 +447,7 @@ Profile:
   Your profile name cannot be empty: 'آپ کا پروفائل نام خالی نہیں ہو سکتا'
   Profile has been created: 'پروفائل بن گیا ہے۔'
   Profile has been updated: 'پروفائل کو اپ ڈیٹ کر دیا گیا ہے۔'
-  Your default profile has been set to {profile}: 'آپ کا ڈیفالٹ پروفائل $ پر سیٹ کر دیا گیا ہے۔'
+  Your default profile has been set to {profile}: ''
   Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
   '{profile} is now the active profile': ''
@@ -761,12 +760,12 @@ Playing Next Video: 'اگلا ویڈیو چل رہا ہے۔'
 Playing Previous Video: 'پچھلا ویڈیو چل رہا ہے۔'
 Playing Next Video Interval: 'اگلی ویڈیو بغیر کسی وقت چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔'
 Canceled next video autoplay: 'اگلی ویڈیو آٹو پلے منسوخ کر دی گئی۔'
-Default Invidious instance has been set to {instance}: 'ڈیفالٹ Invidious مثال کو $ پر سیٹ کر دیا گیا ہے۔'
+Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال کو صاف کر دیا گیا ہے۔'
 'The playlist has ended.  Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔ فعال
    کھیل جاری رکھنے کے لیے لوپ'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: 'یہ $ عمر کی پابندی ہے۔'
+  This {videoOrPlaylist} is age restricted: ''
   Type:
     Channel: 'چینل'
     Video: 'ویڈیو'
@@ -774,7 +773,7 @@ External link opening has been disabled in the general settings: 'عام ترت�
 Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'
 Starting download: '"{videoTitle}" کا ڈاؤن لوڈ شروع ہو رہا ہے'
 Downloading failed: '"{videoTitle}" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
-Screenshot Success: 'اسکرین شاٹ کو بطور "$" محفوظ کیا گیا'
+Screenshot Success: ''
 Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ {error}'
 
 Yes: ''

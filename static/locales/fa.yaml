@@ -30,11 +30,9 @@ Back: 'بازگشت'
 Forward: 'پیشروی'
 Open New Window: 'بازکردن پنجره جدید'
 
-Version {versionNumber} is now available!  Click for more details: 'نسخه $ هم اکنون در دسترس است!  برای
-  اطلاعات بیشتر کلیک کنید'
+Version {versionNumber} is now available!  Click for more details: ''
 Download From Site: 'دانلود از وبگاه'
-A new blog is now available, {blogTitle}. Click to view more: 'بلاگ جدیدی در دسترس است، $. کلیک
-  کنید تا بیشتر ببینید.'
+A new blog is now available, {blogTitle}. Click to view more: ''
 
 # Search Bar
 Search / Go to URL: 'جست و جو / برو به لینک'
@@ -317,7 +315,7 @@ Settings:
     Manage Subscriptions: ''
     Import Playlists: وارد کردن فهرست های پخش
     Export Playlists: استخراج فهرست های پخش
-    Playlist insufficient data: داده ناکافی برای لیست پخش "$" ، در حال چشم پوشی
+    Playlist insufficient data: ''
     All playlists has been successfully imported: همه لیست های پخش با موفقیت وارد
       شدند
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
