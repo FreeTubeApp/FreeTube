@@ -331,6 +331,9 @@ Settings:
     Playlist insufficient data: '"$" 播放列表数据不足，正在跳过'
     All playlists has been successfully imported: 已成功导入所有播放列表
     All playlists has been successfully exported: 所有播放列表已成功导出
+    Playlist File: 播放列表文件
+    Subscription File: 订阅文件
+    History File: 历史文件
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
