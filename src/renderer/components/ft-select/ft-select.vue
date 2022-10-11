@@ -1,9 +1,11 @@
 <template>
   <div class="select">
     <select
+      :id="removeWhitespace(placeholder)"
       class="select-text"
       :class="{disabled: disabled}"
       :value="value"
+      :name="removeWhitespace(placeholder)"
       :disabled="disabled"
       @change="$emit('change', $event.target.value)"
     >
@@ -23,6 +25,7 @@
     <span class="select-bar" />
     <label
       class="select-label"
+      :for="removeWhitespace(placeholder)"
       :hidden="disabled"
     >
       {{ placeholder }}

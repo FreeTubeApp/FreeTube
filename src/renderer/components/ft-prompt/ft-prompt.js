@@ -2,6 +2,7 @@ import Vue from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import { removeWhitespace } from '../../helpers/accessibility'
 
 export default Vue.extend({
   name: 'FtPrompt',
@@ -26,11 +27,20 @@ export default Vue.extend({
     optionValues: {
       type: Array,
       default: () => { return [] }
+
     }
   },
+  mounted: function () {
+    setTimeout(() => {
+      document.querySelector('.prompt')
+        .querySelectorAll('button')[0]
+        .focus()
+    })
+  },
   methods: {
+    removeWhitespace,
     handleHide: function (event) {
-      if (event.target.className === 'prompt') {
+      if (event.target.getAttribute('role') === 'button' || event.target.className === 'prompt') {
         this.$emit('click', null)
       }
     }

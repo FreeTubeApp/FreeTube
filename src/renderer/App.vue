@@ -20,12 +20,14 @@
           v-if="showUpdatesBanner"
           class="banner"
           :message="updateBannerMessage"
+          role="link"
           @click="handleUpdateBannerClick"
         />
         <ft-notification-banner
           v-if="showBlogBanner"
           class="banner"
           :message="blogBannerMessage"
+          role="link"
           @click="handleNewBlogBannerClick"
         />
       </div>
@@ -46,11 +48,9 @@
 
     <ft-prompt
       v-if="showReleaseNotes"
+      :label="changeLogTitle"
       @click="showReleaseNotes = !showReleaseNotes"
     >
-      <h2>
-        {{ changeLogTitle }}
-      </h2>
       <span
         id="changeLogText"
         v-html="updateChangelog"
@@ -59,6 +59,10 @@
         <ft-button
           :label="$t('Download From Site')"
           @click="openDownloadsPage"
+        />
+        <ft-button
+          :label="$t('Close')"
+          @click="showReleaseNotes = !showReleaseNotes"
         />
       </ft-flex-box>
     </ft-prompt>

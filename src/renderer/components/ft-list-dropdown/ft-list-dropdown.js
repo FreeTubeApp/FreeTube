@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import { removeWhitespace, handleDropdownKeyboardEvent } from '../../helpers/accessibility'
 export default Vue.extend({
   name: 'FtListDropdown',
   props: {
@@ -30,6 +30,37 @@ export default Vue.extend({
   computed: {
     listType: function () {
       return this.$store.getters.getListType
+    }
+  },
+  methods: {
+    removeWhitespace,
+    handleIconKeyPress(event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.key === 'Tab') {
+          return
+        }
+
+        event.preventDefault()
+
+        if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'ArrowDown') {
+          return
+        }
+      }
+
+      const firstOption = document.getElementById('buttonOption0')
+      firstOption.setAttribute('tabIndex', 1)
+      firstOption.focus()
+    },
+    handleDropdownClick: function(index, event) {
+      if (!handleDropdownKeyboardEvent(event, event?.target)) {
+        return
+      }
+
+      const unspacedTitle = removeWhitespace(this.title)
+      const allOptions = document.querySelector(`#${unspacedTitle} + ul`)
+      allOptions.setAttribute('tabindex', '-1')
+      event.target.setAttribute('tabindex', '0')
+      this.$emit('click', this.labelValues[index])
     }
   }
 })

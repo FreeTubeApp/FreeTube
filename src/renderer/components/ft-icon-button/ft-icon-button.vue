@@ -12,8 +12,12 @@
         padding: padding + 'px',
         fontSize: size + 'px'
       }"
+      tabindex="0"
+      role="button"
       @click="handleIconClick"
       @mousedown="handleIconMouseDown"
+      @keydown.enter.prevent="handleIconClick"
+      @keydown.space.prevent="handleIconClick"
     />
     <div
       v-show="dropdownShown"
@@ -33,12 +37,19 @@
         <ul
           v-if="dropdownOptions.length > 0"
           class="list"
+          role="listbox"
+          aria-expanded="false"
         >
           <li
             v-for="(option, index) in dropdownOptions"
+            :id="removeWhitespace(title + '-' + index)"
             :key="index"
+            role="option"
+            aria-selected="false"
+            tabindex="-1"
             :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
-            @click="handleDropdownClick({url: option.value, index: index})"
+            @click="handleDropdownClick({url: option.value, index: index}, $event)"
+            @keydown="handleDropdownClick({url: option.value, index: index}, $event)"
           >
             {{ option.type === 'divider' ? '' : option.label }}
           </li>

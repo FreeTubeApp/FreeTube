@@ -1,6 +1,12 @@
 <template>
-  <div class="dropDown">
-    <div class="buttonTitle">
+  <div class="dropdown">
+    <div
+      :id="removeWhitespace(title)"
+      class="buttonTitle"
+      tabindex="0"
+      role="listbox"
+      @keypress="handleIconKeyPress($event)"
+    >
       {{ title }}
       <font-awesome-icon
         class="angleDownIcon"
@@ -10,9 +16,14 @@
     <ul>
       <li
         v-for="(label, index) in labelNames"
+        :id="'buttonOption' + index"
         :key="index"
         class="buttonOption"
-        @click="$emit('click', labelValues[index])"
+        role="option"
+        tabindex="-1"
+        aria-selected="false"
+        @click="handleDropdownClick(index, $event)"
+        @keydown="handleDropdownClick(index, $event)"
       >
         {{ label }}
       </li>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-
+import { removeWhitespace } from '../../helpers/accessibility'
 export default Vue.extend({
   name: 'FtSelect',
   components: {
@@ -31,5 +31,8 @@ export default Vue.extend({
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    removeWhitespace
   }
 })

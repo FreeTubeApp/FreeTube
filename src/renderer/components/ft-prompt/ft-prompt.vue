@@ -1,11 +1,19 @@
 <template>
   <div
     class="prompt"
+    tabindex="-1"
     @click="handleHide"
+    @keydown.enter="handleHide"
   >
-    <ft-card class="promptCard">
+    <ft-card
+      class="promptCard"
+      :aria-labelledby="'dialog-' + removeWhitespace(label)"
+    >
       <slot>
-        <h2 class="center">
+        <h2
+          :id="'dialog-' + removeWhitespace(label)"
+          class="center"
+        >
           {{ label }}
         </h2>
         <p
