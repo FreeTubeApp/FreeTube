@@ -7,7 +7,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
-import { colorNames } from '../../helpers/utils'
+import { colors } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ThemeSettings',
@@ -101,11 +101,11 @@ export default Vue.extend({
     },
 
     colorValues: function () {
-      return colorNames
+      return colors.map(color => color.name)
     },
 
     colorNames: function () {
-      return colorNames.map(colorVal => {
+      return this.colorValues.map(colorVal => {
         // add spaces before capital letters
         const colorName = colorVal.replace(/([A-Z])/g, ' $1').trim()
         return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)

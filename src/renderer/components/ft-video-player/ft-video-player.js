@@ -14,7 +14,7 @@ import 'videojs-http-source-selector'
 
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance, colorNames, colorValues } from '../../helpers/utils'
+import { calculateColorLuminance, colors } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -1182,11 +1182,9 @@ export default Vue.extend({
       if (!this.player.loop()) {
         const currentTheme = this.$store.state.settings.mainColor
 
-        const nameIndex = colorNames.findIndex((color) => {
-          return color === currentTheme
-        })
+        const colorValue = colors.find(color => color.name === currentTheme).value
 
-        const themeTextColor = calculateColorLuminance(colorValues[nameIndex])
+        const themeTextColor = calculateColorLuminance(colorValue)
 
         loopButton.classList.add('vjs-icon-loop-active')
 

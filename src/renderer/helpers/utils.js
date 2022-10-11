@@ -1,91 +1,51 @@
-export const colorNames = [
-  'Red',
-  'Pink',
-  'Purple',
-  'DeepPurple',
-  'Indigo',
-  'Blue',
-  'LightBlue',
-  'Cyan',
-  'Teal',
-  'Green',
-  'LightGreen',
-  'Lime',
-  'Yellow',
-  'Amber',
-  'Orange',
-  'DeepOrange',
-  'DraculaCyan',
-  'DraculaGreen',
-  'DraculaOrange',
-  'DraculaPink',
-  'DraculaPurple',
-  'DraculaRed',
-  'DraculaYellow',
-  'CatppuccinMochaRosewater',
-  'CatppuccinMochaFlamingo',
-  'CatppuccinMochaPink',
-  'CatppuccinMochaMauve',
-  'CatppuccinMochaRed',
-  'CatppuccinMochaMaroon',
-  'CatppuccinMochaPeach',
-  'CatppuccinMochaYellow',
-  'CatppuccinMochaGreen',
-  'CatppuccinMochaTeal',
-  'CatppuccinMochaSky',
-  'CatppuccinMochaSapphire',
-  'CatppuccinMochaBlue',
-  'CatppuccinMochaLavender'
-]
-
-export const colorValues = [
-  '#d50000',
-  '#C51162',
-  '#AA00FF',
-  '#6200EA',
-  '#304FFE',
-  '#2962FF',
-  '#0091EA',
-  '#00B8D4',
-  '#00BFA5',
-  '#00C853',
-  '#64DD17',
-  '#AEEA00',
-  '#FFD600',
-  '#FFAB00',
-  '#FF6D00',
-  '#DD2C00',
-  '#8BE9FD',
-  '#50FA7B',
-  '#FFB86C',
-  '#FF79C6',
-  '#BD93F9',
-  '#FF5555',
-  '#F1FA8C',
-  '#F5E0DC',
-  '#F2CDCD',
-  '#F5C2E7',
-  '#CBA6F7',
-  '#F38BA8',
-  '#EBA0AC',
-  '#FAB387',
-  '#F9E2AF',
-  '#A6E3A1',
-  '#94E2D5',
-  '#89DCEB',
-  '#74C7EC',
-  '#89B4FA',
-  '#B4BEFE'
+export const colors = [
+  { name: 'Red', value: '#d50000' },
+  { name: 'Pink', value: '#C51162' },
+  { name: 'Purple', value: '#AA00FF' },
+  { name: 'DeepPurple', value: '#6200EA' },
+  { name: 'Indigo', value: '#304FFE' },
+  { name: 'Blue', value: '#2962FF' },
+  { name: 'LightBlue', value: '#0091EA' },
+  { name: 'Cyan', value: '#00B8D4' },
+  { name: 'Teal', value: '#00BFA5' },
+  { name: 'Green', value: '#00C853' },
+  { name: 'LightGreen', value: '#64DD17' },
+  { name: 'Lime', value: '#AEEA00' },
+  { name: 'Yellow', value: '#FFD600' },
+  { name: 'Amber', value: '#FFAB00' },
+  { name: 'Orange', value: '#FF6D00' },
+  { name: 'DeepOrange', value: '#DD2C00' },
+  { name: 'DraculaCyan', value: '#8BE9FD' },
+  { name: 'DraculaGreen', value: '#50FA7B' },
+  { name: 'DraculaOrange', value: '#FFB86C' },
+  { name: 'DraculaPink', value: '#FF79C6' },
+  { name: 'DraculaPurple', value: '#BD93F9' },
+  { name: 'DraculaRed', value: '#FF5555' },
+  { name: 'DraculaYellow', value: '#F1FA8C' },
+  { name: 'CatppuccinMochaRosewater', value: '#F5E0DC' },
+  { name: 'CatppuccinMochaFlamingo', value: '#F2CDCD' },
+  { name: 'CatppuccinMochaPink', value: '#F5C2E7' },
+  { name: 'CatppuccinMochaMauve', value: '#CBA6F7' },
+  { name: 'CatppuccinMochaRed', value: '#F38BA8' },
+  { name: 'CatppuccinMochaMaroon', value: '#EBA0AC' },
+  { name: 'CatppuccinMochaPeach', value: '#FAB387' },
+  { name: 'CatppuccinMochaYellow', value: '#F9E2AF' },
+  { name: 'CatppuccinMochaGreen', value: '#A6E3A1' },
+  { name: 'CatppuccinMochaTeal', value: '#94E2D5' },
+  { name: 'CatppuccinMochaSky', value: '#89DCEB' },
+  { name: 'CatppuccinMochaSapphire', value: '#74C7EC' },
+  { name: 'CatppuccinMochaBlue', value: '#89B4FA' },
+  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' }
 ]
 
 export function getRandomColorClass() {
-  const randomInt = Math.floor(Math.random() * colorNames.length)
-  return 'main' + colorNames[randomInt]
+  const randomInt = Math.floor(Math.random() * colors.length)
+  return 'main' + colors[randomInt].name
 }
 
 export function getRandomColor() {
-  const randomInt = Math.floor(Math.random() * colorValues.length)
-  return colorValues[randomInt]
+  const randomInt = Math.floor(Math.random() * colors.length)
+  return colors[randomInt].value
 }
 
 export function calculateColorLuminance(colorValue) {
