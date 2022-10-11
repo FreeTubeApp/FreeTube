@@ -363,6 +363,9 @@ Settings:
     Export Playlists: Экспортировать плейлисты
     All playlists has been successfully imported: Все плейлисты успешно импортированы
     Playlist insufficient data: Недостаточно данных для плейлиста "$", пропуск элемента
+    Playlist File: Файл плейлиста
+    Subscription File: Файл подписок
+    History File: Файл истории
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
