@@ -325,6 +325,9 @@ Settings:
     Export Playlists: ייצוא פלייליסטים
     Import Playlists: ייבוא פלייליסטים
     Playlist insufficient data: אין מספיק נתונים לרשימת הנגינה „$”, הפריט ידולג
+    Playlist File: קובץ רשימת נגינה
+    Subscription File: קובץ מינוי
+    History File: קובץ היסטוריה
   Advanced Settings:
     Advanced Settings: 'הגדרות מתקדמות'
     Enable Debug Mode (Prints data to the console): 'הפעל מצב Debug ( מציג נתונים
