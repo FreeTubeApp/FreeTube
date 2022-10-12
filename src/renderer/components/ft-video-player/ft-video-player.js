@@ -370,7 +370,7 @@ export default Vue.extend({
             enterOnRotate: true,
             exitOnRotate: true,
             lockOnRotate: true,
-            forceForTesting: this.hasUserTouched
+            forceForTesting: true
           },
           touchControls: {
             seekSeconds: this.defaultSkipInterval,
