@@ -378,7 +378,7 @@ export default Vue.extend({
           // Without this flag, the mobile UI will only activate
           // if videojs detects it is in Android or iOS
           // With this flag, the mobile UI could theoretically
-          // work on any device that has a touch input.
+          // work on any device that has a touch input
           forceForTesting: true,
           touchControls: {
             seekSeconds: this.defaultSkipInterval,
