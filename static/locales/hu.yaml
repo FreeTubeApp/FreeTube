@@ -344,6 +344,9 @@ Settings:
       sikeresen megtörtént
     All playlists has been successfully imported: Az összes lejátszási lista importálása
       sikeresen megtörtént
+    Subscription File: Feliratkozás-fájl
+    History File: Előzmények-fájl
+    Playlist File: lejátszási lista fájl
   Advanced Settings:
     Advanced Settings: 'További beállítások'
     Enable Debug Mode (Prints data to the console): 'Hibakeresési mód engedélyezése
