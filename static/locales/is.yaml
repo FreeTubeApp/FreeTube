@@ -361,6 +361,9 @@ Settings:
     All playlists has been successfully imported: Tekist hefur að flytja inn alla
       spilunarlista
     All playlists has been successfully exported: Tekist hefur að flytja út alla spilunarlista
+    Subscription File: Skrá með áskriftum
+    History File: Skrá með atvikaferli
+    Playlist File: Spilunarlistaskrá
   Proxy Settings:
     Proxy Settings: 'Stillingar milliþjóns (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
