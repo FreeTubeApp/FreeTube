@@ -1848,7 +1848,7 @@ video::-webkit-media-text-track-display {
     display: block
 }
 
-.video-js .vjs-load-progress div,.vjs-seeking .vjs-big-play-button,.vjs-waiting .vjs-big-play-button,.touch .vjs-big-play-button {
+.video-js .vjs-load-progress div,.vjs-seeking .vjs-big-play-button,.vjs-waiting .vjs-big-play-button,.vjs-using-touch .vjs-big-play-button {
     display: none!important
 }
 

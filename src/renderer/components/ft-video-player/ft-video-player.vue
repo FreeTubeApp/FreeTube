@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`relative ${usingTouch ? 'touch': ''}`"
+    :class="`relative ${usingTouch ? 'vjs-using-touch': ''}`"
   >
     <video
       ref="video"
