@@ -38,7 +38,7 @@
           v-if="dropdownOptions.length > 0"
           class="list"
           role="listbox"
-          aria-expanded="false"
+          :aria-expanded="dropdownShown"
         >
           <li
             v-for="(option, index) in dropdownOptions"
