@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import { colors } from '../../helpers/utils'
 import FtSelect from '../ft-select/ft-select.vue'
 
 export default Vue.extend({
@@ -27,7 +28,7 @@ export default Vue.extend({
   },
   computed: {
     colorValues: function () {
-      return this.$store.getters.getColorNames
+      return colors.map(color => color.name)
     },
 
     colorNames: function () {

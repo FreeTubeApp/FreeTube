@@ -11,7 +11,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/utils'
 
 // FIXME: Missing web logic branching
 
@@ -129,7 +129,7 @@ export default Vue.extend({
       })
     },
 
-    importFreeTubeSubscriptions: async function (textDecode) {
+    importFreeTubeSubscriptions: function (textDecode) {
       textDecode = textDecode.split('\n')
       textDecode.pop()
       textDecode = textDecode.map(data => JSON.parse(data))
@@ -137,7 +137,7 @@ export default Vue.extend({
       const firstEntry = textDecode[0]
       if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
         // Old FreeTube subscriptions format detected, so convert it to the new one:
-        textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
+        textDecode = this.convertOldFreeTubeFormatToNew(textDecode)
       }
 
       textDecode.forEach((profileData) => {
@@ -1085,14 +1085,14 @@ export default Vue.extend({
       })
     },
 
-    async convertOldFreeTubeFormatToNew(oldData) {
+    convertOldFreeTubeFormatToNew(oldData) {
       const convertedData = []
       for (const channel of oldData) {
         const listOfProfilesAlreadyAdded = []
         for (const profile of channel.profile) {
           let index = convertedData.findIndex(p => p.name === profile.value)
           if (index === -1) { // profile doesn't exist yet
-            const randomBgColor = await this.getRandomColor()
+            const randomBgColor = getRandomColor()
             const contrastyTextColor = calculateColorLuminance(randomBgColor)
             convertedData.push({
               name: profile.value,
@@ -1241,7 +1241,6 @@ export default Vue.extend({
       'updateHistory',
       'compactHistory',
       'showToast',
-      'getRandomColor',
       'showOpenDialog',
       'readFileFromDialog',
       'showSaveDialog',

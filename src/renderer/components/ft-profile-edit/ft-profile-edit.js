@@ -6,7 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, colors } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtProfileEdit',
@@ -46,7 +46,7 @@ export default Vue.extend({
       return this.profileId === MAIN_PROFILE_ID
     },
     colorValues: function () {
-      return this.$store.getters.getColorValues
+      return colors.map(color => color.value)
     },
     profileInitial: function () {
       return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
