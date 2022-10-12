@@ -365,19 +365,15 @@ export default Vue.extend({
             }
           }
         })
-        // TODO : map actual settings to this object
         this.player.mobileUi({
           fullscreen: {
             enterOnRotate: true,
             exitOnRotate: true,
-            lockOnRotate: true,
-            iOS: false
+            lockOnRotate: true
           },
           touchControls: {
-            seekSeconds: 10,
-            tapTimeout: 300,
-            disableOnEnd: false,
-            disabled: false
+            seekSeconds: this.defaultSkipInterval,
+            tapTimeout: 300
           }
         })
 
