@@ -1,5 +1,7 @@
 <template>
-  <div class="relative">
+  <div
+    :class="`relative ${usingTouch ? 'touch': ''}`"
+  >
     <video
       ref="video"
       class="ftVideoPlayer video-js vjs-default-skin dark"

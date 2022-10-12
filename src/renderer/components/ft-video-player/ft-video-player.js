@@ -111,6 +111,7 @@ export default Vue.extend({
       statsModal: null,
       showStatsModal: false,
       statsModalEventName: 'updateStats',
+      usingTouch: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -484,6 +485,7 @@ export default Vue.extend({
             this.transformAndInsertCaptions()
           }
           this.toggleScreenshotButton()
+          this.usingTouch = this.$refs.video.parentNode.querySelector('.vjs-touch-overlay') !== null
         })
 
         this.player.on('ended', () => {
