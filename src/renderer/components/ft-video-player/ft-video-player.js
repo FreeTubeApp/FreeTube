@@ -106,13 +106,11 @@ export default Vue.extend({
       activeAdaptiveFormats: [],
       mouseTimeout: null,
       touchTimeout: null,
-      lastTouchTime: null,
       playerStats: null,
       statsModal: null,
       showStatsModal: false,
       statsModalEventName: 'updateStats',
       usingTouch: false,
-      hasUserTouched: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -487,8 +485,7 @@ export default Vue.extend({
             this.transformAndInsertCaptions()
           }
           this.toggleScreenshotButton()
-          const touchOverlay = this.$refs.video.parentNode.querySelector('.vjs-touch-overlay')
-          this.usingTouch = touchOverlay !== null
+          this.usingTouch = this.$refs.video.parentNode.querySelector('.vjs-touch-overlay') !== null
         })
 
         this.player.on('ended', () => {

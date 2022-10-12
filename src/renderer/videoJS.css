@@ -2225,5 +2225,4 @@ video::-webkit-media-text-track-display {
 
 .video-js .vjs-touch-overlay .vjs-play-control.vjs-paused .vjs-icon-placeholder:before {
   content: "\f101" !important;
-  background-image: none;
 }
