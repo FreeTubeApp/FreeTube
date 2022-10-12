@@ -543,7 +543,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -626,7 +626,7 @@ export default Vue.extend({
         return object
       })
 
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -678,7 +678,7 @@ export default Vue.extend({
         }
       })
 
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -724,7 +724,7 @@ export default Vue.extend({
         exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -777,7 +777,7 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -893,7 +893,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -1062,7 +1062,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog({ options })
+      const response = await this.showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
