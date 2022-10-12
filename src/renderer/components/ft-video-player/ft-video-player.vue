@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`relative ${usingTouch ? 'vjs-using-touch': ''}`"
+    :class="wrapperClass"
     @mouseover="handleMouseOver"
   >
     <video

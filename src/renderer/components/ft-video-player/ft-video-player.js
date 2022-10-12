@@ -292,6 +292,10 @@ export default Vue.extend({
 
     screenshotFolder: function() {
       return this.$store.getters.getScreenshotFolderPath
+    },
+
+    wrapperClass: function () {
+      return `relative ${this.usingTouch ? 'vjs-using-touch' : ''}`
     }
   },
   watch: {
@@ -369,13 +373,13 @@ export default Vue.extend({
           fullscreen: {
             enterOnRotate: true,
             exitOnRotate: true,
-            lockOnRotate: false,
-            // Without this flag, the mobile UI will only activate
-            // if videojs detects it is in Android or iOS
-            // With this flag, the mobile ui could theoretically
-            // work on any device that has a touch input.
-            forceForTesting: true
+            lockOnRotate: false
           },
+          // Without this flag, the mobile UI will only activate
+          // if videojs detects it is in Android or iOS
+          // With this flag, the mobile ui could theoretically
+          // work on any device that has a touch input.
+          forceForTesting: true,
           touchControls: {
             seekSeconds: this.defaultSkipInterval,
             tapTimeout: 300
