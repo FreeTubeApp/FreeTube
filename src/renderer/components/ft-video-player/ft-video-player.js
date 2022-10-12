@@ -11,7 +11,8 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
-
+import 'videojs-mobile-ui'
+import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance } from '../../helpers/utils'
@@ -362,6 +363,21 @@ export default Vue.extend({
               allowSeeksWithinUnsafeLiveWindow: true,
               handlePartialData: true
             }
+          }
+        })
+        // TODO : map actual settings to this object
+        this.player.mobileUi({
+          fullscreen: {
+            enterOnRotate: true,
+            exitOnRotate: true,
+            lockOnRotate: true,
+            iOS: false
+          },
+          touchControls: {
+            seekSeconds: 10,
+            tapTimeout: 300,
+            disableOnEnd: false,
+            disabled: false
           }
         })
 
