@@ -2203,7 +2203,7 @@ video::-webkit-media-text-track-display {
   }
 }
 
-.video-js.vjs-touch-enabled .vjs-touch-overlay {
+.videoPlayer .video-js .vjs-touch-overlay {
   display: none;
 }
 
