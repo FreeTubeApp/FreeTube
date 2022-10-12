@@ -112,6 +112,7 @@ export default Vue.extend({
       showStatsModal: false,
       statsModalEventName: 'updateStats',
       usingTouch: false,
+      hasUserTouched: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -370,7 +371,8 @@ export default Vue.extend({
           fullscreen: {
             enterOnRotate: true,
             exitOnRotate: true,
-            lockOnRotate: true
+            lockOnRotate: true,
+            forceForTesting: this.hasUserTouched
           },
           touchControls: {
             seekSeconds: this.defaultSkipInterval,
@@ -485,7 +487,8 @@ export default Vue.extend({
             this.transformAndInsertCaptions()
           }
           this.toggleScreenshotButton()
-          this.usingTouch = this.$refs.video.parentNode.querySelector('.vjs-touch-overlay') !== null
+          const touchOverlay = this.$refs.video.parentNode.querySelector('.vjs-touch-overlay')
+          this.usingTouch = touchOverlay !== null
         })
 
         this.player.on('ended', () => {
@@ -1706,23 +1709,14 @@ export default Vue.extend({
       }
     },
 
-    handleTouchStart: function (event) {
-      this.touchPauseTimeout = setTimeout(() => {
-        this.togglePlayPause()
-      }, 1000)
-
-      const touchTime = new Date()
-
-      if (this.lastTouchTime !== null && (touchTime.getTime() - this.lastTouchTime.getTime()) < 250) {
-        this.toggleFullscreen()
-      }
-
-      this.lastTouchTime = touchTime
+    handleTouchStart: function () {
+      this.usingTouch = true
     },
 
-    handleTouchEnd: function (event) {
-      clearTimeout(this.touchPauseTimeout)
+    handleMouseOver: function () {
+      this.usingTouch = false
     },
+
     toggleShowStatsModal: function() {
       if (this.format !== 'dash') {
         this.showToast({
