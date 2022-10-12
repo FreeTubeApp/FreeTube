@@ -9,6 +9,8 @@ pre-commit:
       # matching the glob is being committed
       glob: "*.{js,vue}"
       run: yarn run eslint --no-color {staged_files}
+      skip:
+        - rebase
 
 
 
