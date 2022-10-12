@@ -2216,8 +2216,8 @@ video::-webkit-media-text-track-display {
   text-shadow: 0 0 25px rgb(0 0 0 / 50%), 0 0 10px rgb(0 0 0 / 50%), 2px 2px 8px rgb(206 89 55 / 0%);
   color: white;
   font-size: 18vw;
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-image: none !important;
