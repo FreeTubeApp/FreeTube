@@ -797,8 +797,8 @@ Channels:
   Empty: 채널 목록이 비어 있습니다.
   Unsubscribe: 구독 취소
   Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
-  Count: {number} 채널이 발견되었습니다.
-  Unsubscribed: {channelName} 구독에서 제거되었습니다
+  Count: '{number} 채널이 발견되었습니다.'
+  Unsubscribed: '{channelName} 구독에서 제거되었습니다'
 Age Restricted:
   Type:
     Video: 비디오

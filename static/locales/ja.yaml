@@ -705,7 +705,7 @@ Yes: 'はい'
 No: 'いいえ'
 Locale Name: '日本語'
 Profile:
-  '{profile} is now the active profile': {profile} プロファイルに変更しました
+  '{profile} is now the active profile': '{profile} プロファイルに変更しました'
   Your default profile has been changed to your primary profile: 起動時のプロファイルを、上位のプロファイルに変更しました
   Removed {profile} from your profiles: プロファイルから {profile} を削除しました
   Your default profile has been set to {profile}: 起動時のプロファイルを {profile} に設定しました
@@ -734,7 +734,7 @@ Profile:
   Select All: すべて選択
   Other Channels: ほかのチャンネル
   Subscription List: 登録チャンネル一覧
-  '{number} selected': {number} 項目選択
+  '{number} selected': '{number} 項目選択'
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -802,11 +802,11 @@ Age Restricted:
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除
-  Unsubscribed: {channelName} のチャンネル登録を解除しました
+  Unsubscribed: '{channelName} のチャンネル登録を解除しました'
   Title: チャンネル一覧
   Search bar placeholder: チャンネル検索
   Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
-  Count: {number} 件のチャンネルが見つかりました。
+  Count: '{number} 件のチャンネルが見つかりました。'
   Empty: 現在、チャンネル一覧は空です。
 Screenshot Success: スクリーンショットを「{filePath}」として保存しました
 Screenshot Error: スクリーンショットに失敗しました。{error}

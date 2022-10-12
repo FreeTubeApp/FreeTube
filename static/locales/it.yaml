@@ -920,11 +920,11 @@ Age Restricted:
     Video: Video
 New Window: Nuova finestra
 Channels:
-  Unsubscribed: {channelName} è stato rimosso dalle tue iscrizioni
+  Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'
   Title: Elenco canali
   Channels: Canali
   Search bar placeholder: Cerca canali
-  Count: {number} canale/i trovato/i.
+  Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «{channelName}»?
   Unsubscribe: Annulla l'iscrizione

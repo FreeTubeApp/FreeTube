@@ -667,7 +667,7 @@ Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
 Yes: 'Ja'
 No: 'Nei'
 Profile:
-  '{profile} is now the active profile': {profile} er nå den aktive profilen
+  '{profile} is now the active profile': '{profile} er nå den aktive profilen'
   Your default profile has been changed to your primary profile: Din forvalgte profil
     har blitt endret til din hovedprofil
   Removed {profile} from your profiles: Fjernet {profile} fra dine profiler
@@ -688,7 +688,7 @@ Profile:
     noen andre profiler.
   No channel(s) have been selected: Ingen kanal(er) har blitt valgt
   Select All: Velg alle
-  '{number} selected': {number} valgt
+  '{number} selected': '{number} valgt'
   Other Channels: Andre kanaler
   Color Picker: Fargevelger
   Profile Select: Velg profil
@@ -787,7 +787,7 @@ Channels:
   Count: Fant {number} kanal(er).
   Empty: Kanallisten din er tom.
   Unsubscribe: Opphev abonnement
-  Unsubscribed: {channelName} ble fjernet fra dine abonnementer
+  Unsubscribed: '{channelName} ble fjernet fra dine abonnementer'
   Unsubscribe Prompt: Opphev abonnement på «{channelName}»?
 Age Restricted:
   Type:
