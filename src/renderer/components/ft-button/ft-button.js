@@ -24,6 +24,10 @@ export default Vue.extend({
     backgroundColor: {
       type: String,
       default: 'var(--accent-color)'
+    },
+    id: {
+      type: String,
+      default: ''
     }
   }
 })

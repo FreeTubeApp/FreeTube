@@ -30,14 +30,21 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    document.querySelector('.prompt button').focus({ focusVisible: true })
+    this.focusItem(0)
   },
   methods: {
     removeWhitespace,
+    hide: function() {
+      this.$emit('click', null)
+    },
     handleHide: function (event) {
       if (event.target.getAttribute('role') === 'button' || event.target.className === 'prompt') {
-        this.$emit('click', null)
+        this.hide()
       }
+    },
+    focusItem: function (index) {
+      document.querySelector(`#prompt-${removeWhitespace(this.label)}-${index}`)
+        .focus({ focusVisible: true })
     }
   }
 })
