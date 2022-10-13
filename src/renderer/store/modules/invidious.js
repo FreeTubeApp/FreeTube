@@ -51,8 +51,8 @@ const actions = {
       } else {
         console.error('unable to read static file for invidious instances')
         instances = [
-          'https://invidious.snopyta.org',
-          'https://invidious.kavin.rocks/'
+          'https://invidious.sethforprivacy.com',
+          'https://invidious.namazso.eu'
         ]
       }
     }
