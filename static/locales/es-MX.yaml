@@ -137,8 +137,8 @@ Settings:
       al iniciar la app
     System Default: Por defecto
     Current Invidious Instance: 'Dirección de Invidious actual:'
-    The currently set default instance is $: La dirección por defecto actualmente
-      establecida es $
+    The currently set default instance is {instance}: La dirección por defecto actualmente
+      establecida es {instance}
     No default instance has been set: No se ha establecido ninguna dirección por defecto
     Set Current Instance as Default: Establecer la dirección actual por defecto
     Clear Default Instance: Borrar dirección por defecto
@@ -328,7 +328,7 @@ Settings:
       han sido exportadas con éxito
     All playlists has been successfully imported: Todas sus listas han sido importadas
       con éxito
-    Playlist insufficient data: Datos insuficientes de la lista "$", omitiendo
+    Playlist insufficient data: Datos insuficientes de la lista "{playlist}", omitiendo
     Manage Subscriptions: Administrar suscripciones
   The app needs to restart for changes to take effect. Restart and apply change?: El
     programa requiere reiniciarse para que los cambios hagan efecto. ¿Desea reiniciar
@@ -464,7 +464,7 @@ Channel:
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
   Added channel to your subscriptions: Canal añadido a sus suscripciones
-  Removed subscription from $ other channel(s): Suscripción eliminada de $ otros canales
+  Removed subscription from {count} other channel(s): Suscripción eliminada de {count} otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     sus suscripciones
 Video:
@@ -528,8 +528,7 @@ Video:
     Minutes: minutos
     Minute: minuto
   Published on: 'Publicado en'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Hace $ %'
+  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Autoplay: Reproducción Automática
   Play Previous Video: Reproducir el video anterior
@@ -570,9 +569,9 @@ Video:
         el video específico en una lista (reponiéndolo para abrir el video)
       looping playlists: listas de reproducción en bucle
       shuffling playlists: listas de reproducción mezcladas
-    OpeningTemplate: Abriendo $ en %...
-    UnsupportedActionTemplate: '$ no soporta: %'
-    OpenInTemplate: Abrir en $
+    OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
+    UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
+    OpenInTemplate: Abrir en {externalPlayer}
     video: video
     playlist: lista de reproducción
   Sponsor Block category:
@@ -664,7 +663,7 @@ Comments:
   Top comments: Más populares
   Member: Miembro
   Pinned by: Fijado por
-  From $channelName: de $channelName
+  From {channelName}: de {channelName}
   And others: y otros
   There are no more comments for this video: No hay más comentarios en este video
   Newest first: Más recientes
@@ -696,12 +695,12 @@ Yes: 'Sí'
 No: 'No'
 Locale Name: español (MX)
 Profile:
-  $ is now the active profile: $ ahora es el perfil activo
+  '{profile} is now the active profile': '{profile} ahora es el perfil activo'
   Your default profile has been changed to your primary profile: Su perfil predeterminado
     se ha cambiado a su perfil principal
-  Removed $ from your profiles: Se eliminó $ de sus perfiles
-  Your default profile has been set to $: Su perfil predeterminado ha sido establecido
-    a $
+  Removed {profile} from your profiles: Se eliminó {profile} de sus perfiles
+  Your default profile has been set to {profile}: Su perfil predeterminado ha sido establecido
+    a {profile}
   Profile has been updated: El perfil ha sido actualizado
   Profile has been created: El profil ha sido creado
   Your profile name cannot be empty: Su nombre de perfil no puede estar vacío
@@ -734,16 +733,16 @@ Profile:
   Add Selected To Profile: Añadir Seleccionado al Perfil
   Delete Selected: Borrar Seleccionado
   Select All: Seleccionar Todo
-  $ selected: $ seleccionado
+  '{number} selected': '{number} seleccionado'
   Other Channels: Otros Canales
   Subscription List: Lista de Suscripciones
   Profile Filter: Filtro de Perfil
   Profile Settings: Configuración de perfil
 The playlist has been reversed: La lista de reproducción ha sido invertida
-A new blog is now available, $. Click to view more: Un nuevo blog ya está disponible,
-  $. Presione para ver más
+A new blog is now available, {blogTitle}. Click to view more: Un nuevo blog ya está disponible,
+  {blogTitle}. Presione para ver más
 Download From Site: Descargar desde el sitio
-Version $ is now available!  Click for more details: Versión $ ya está disponible!
+Version {versionNumber} is now available!  Click for more details: Versión {versionNumber} ya está disponible!
   Presione para más detalles
 Open New Window: Abrir nueva ventana
 More: Más
@@ -771,7 +770,7 @@ Tooltips:
   External Player Settings:
     Custom External Player Arguments: Cualquier argumento, con separaciones de punto
       y coma (';'), que deseé anticipar al reproductor externo.
-    DefaultCustomArgumentsTemplate: "(Por defecto: '$')"
+    DefaultCustomArgumentsTemplate: "(Por defecto: '{defaultCustomArguments}')"
     External Player: Elegir un reproductor externo mostrará un ícono, para abrir el
       video (o lista, si es compatible) en el reproductor externo, sobre la miniatura
       del video.
@@ -807,18 +806,18 @@ Tooltips:
       para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen
       su IP, pero no es capaz de proveer ciertos datos del video, como su duración,
       o si está en directo
-Downloading has completed: '"$" ha acabado de descargarse'
+Downloading has completed: '"{videoTitle}" ha acabado de descargarse'
 Default Invidious instance has been cleared: La dirección de Invidious predeterminada
   se ha borrado
 External link opening has been disabled in the general settings: La apertura de links
   externos está deshabilitada en la configuración general
-Starting download: Comenzando descarga de "$"
-Downloading failed: Ha habido un error al descargar "$"
+Starting download: Comenzando descarga de "{videoTitle}"
+Downloading failed: Ha habido un error al descargar "{videoTitle}"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   video no está disponible debido a que no se encontraron formatos. Esto puede suceder
   a causa de indisponibilidad en su región.
-Default Invidious instance has been set to $: La dirección de Invidious predeterminada
-  se ha establecido en $
+Default Invidious instance has been set to {instance}: La dirección de Invidious predeterminada
+  se ha establecido en {instance}
 Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocida,
   imposible de abrir en la app
 Hashtags have not yet been implemented, try again later: Las etiquetas aún no han

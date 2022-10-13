@@ -144,8 +144,8 @@ Settings:
     Current instance will be randomized on startup: Trenutačna instanca će se slučajno
       odrediti nakon pokretanja računala
     No default instance has been set: Nema standardno postavljene instance
-    The currently set default instance is $: Trenutačno postavljena standardna instanca
-      je $
+    The currently set default instance is {instance}: Trenutačno postavljena standardna instanca
+      je {instance}
     Current Invidious Instance: Trenutačna Invidious instanca
     External Link Handling:
       No Action: Bez radnje
@@ -356,7 +356,7 @@ Settings:
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
     Export Playlists: Izvezi zbirke
-    Playlist insufficient data: Nedovoljno podataka za „$” zbirku, element se preskače
+    Playlist insufficient data: Nedovoljno podataka za „{playlist}” zbirku, element se preskače
     All playlists has been successfully imported: Sve zbirke su uspješno uvezene
     All playlists has been successfully exported: Sve zbirke su uspješno izvezene
   Distraction Free Settings:
@@ -511,12 +511,12 @@ Profile:
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
   Profile has been updated: 'Profil je aktualiziran'
-  Your default profile has been set to $: 'Tvoj standardni profil je postavljen na
-    $'
-  Removed $ from your profiles: '$ je uklonjen iz tvojih profila'
+  Your default profile has been set to {profile}: 'Tvoj standardni profil je postavljen na
+    {profile}'
+  Removed {profile} from your profiles: '{profile} je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
-  $ is now the active profile: '$ je sada aktivni profil'
+  '{profile} is now the active profile': '{profile} je sada aktivni profil'
 #On Channel Page
   Profile Select: Biranje profila
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Stvarno
@@ -530,7 +530,7 @@ Profile:
   Delete Selected: Izbriši odabrane
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: 'Broj odabranih: $'
+  '{number} selected': 'Broj odabranih: {number}'
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
@@ -564,7 +564,7 @@ Channel:
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
   Added channel to your subscriptions: Kanal je dodan tvojim pretplatama
-  Removed subscription from $ other channel(s): Uklonjena pretplata iz $ drugih kanala
+  Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count} drugih kanala
   Channel has been removed from your subscriptions: Kanal je uklonjen iz tvojih pretplata
 Video:
   Mark As Watched: 'Označi kao pogledano'
@@ -628,8 +628,7 @@ Video:
     Less than a minute: Manje od jedne minute
     In less than a minute: Manje od minute
   Published on: 'Objavljeno'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'prije $ %'
+  Publicationtemplate: 'prije {number} {unit}'
 #& Videos
   Autoplay: Automatska reprodukcija
   Play Previous Video: Reproduciraj prethodni video
@@ -678,11 +677,11 @@ Video:
       opening specific video in a playlist (falling back to opening the video): otvaranje
         određenog videa u zbirki (vraćanje na otvaranje videa)
       setting a playback rate: postavljanje brzine reprodukcije
-    UnsupportedActionTemplate: '$ ne podržava: %'
-    OpeningTemplate: Otvara se $ u % …
+    UnsupportedActionTemplate: '{externalPlayer} ne podržava: {action}'
+    OpeningTemplate: Otvara se {videoOrPlaylist} u {externalPlayer} …
     playlist: zbirka
     video: video
-    OpenInTemplate: Otvori u $
+    OpenInTemplate: Otvori u {externalPlayer}
   Premieres on: Premijera
   Stats:
     fps: Kadrova u sekundi
@@ -777,7 +776,7 @@ Comments:
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
   Show More Replies: Pokaži više odgovora
-  From $channelName: od $channelName
+  From {channelName}: od {channelName}
   And others: i drugi
   Pinned by: Prikvačio/la
   Member: Član
@@ -804,10 +803,10 @@ Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je preki
 Yes: 'Da'
 No: 'Ne'
 The playlist has been reversed: Redoslijed zbirke je obrnut
-A new blog is now available, $. Click to view more: Dostupan je novi blog, $. Pritisni
+A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog, {blogTitle}. Pritisni
   za prikaz detalja
 Download From Site: Preuzmi s web-stranice
-Version $ is now available!  Click for more details: Dostupna je verzija $! Pritisni
+Version {versionNumber} is now available!  Click for more details: Dostupna je verzija {versionNumber}! Pritisni
   za prikaz detalja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
   video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
@@ -864,7 +863,7 @@ Tooltips:
     Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
-    DefaultCustomArgumentsTemplate: '(Standardno: „$”)'
+    DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -875,21 +874,21 @@ Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na
   ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
-Default Invidious instance has been set to $: Standardna Invidious instanca je postavljena
-  na $
+Default Invidious instance has been set to {instance}: Standardna Invidious instanca je postavljena
+  na {instance}
 External link opening has been disabled in the general settings: Vanjsko otvaranje
   poveznica je deaktivirano u općim postavkama
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
-Downloading failed: Došlo je do problema prilikom preuzimanja „$”
-Downloading has completed: „$” je preuzeto
-Starting download: Početak preuzimanja „$”
-Screenshot Success: Snimka ekrana je spremljena pod „$”
-Screenshot Error: Neuspjela snimka ekrana. $
+Downloading failed: Došlo je do problema prilikom preuzimanja „{videoTitle}”
+Downloading has completed: „{videoTitle}” je preuzeto
+Starting download: Početak preuzimanja „{videoTitle}”
+Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
+Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
 Age Restricted:
-  This $contentType is age restricted: Ovaj $ je dobno ograničen
+  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
   Type:
     Channel: Kanal
     Video: Video
@@ -897,11 +896,11 @@ Channels:
   Channels: Kanali
   Title: Popis kanala
   Search bar placeholder: Pretraži kanale
-  Count: $ kanala pronađena.
+  Count: '{number} kanala pronađena.'
   Empty: Tvoj popis kanala je trenutačno prazan.
   Unsubscribe: Prekini pretplatu
-  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „$”?
-  Unsubscribed: $ je uklonjen iz tvojih pretplata
+  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „{channelName}”?
+  Unsubscribed: '{channelName} je uklonjen iz tvojih pretplata'
 Clipboard:
   Copy failed: Neuspjelo kopiranje u međuspremnik
   Cannot access clipboard without a secure connection: Pristup međuspremniku nije

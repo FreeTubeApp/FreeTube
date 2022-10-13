@@ -130,7 +130,7 @@ export default Vue.extend({
 
     setDefaultProfile: function () {
       this.updateDefaultProfile(this.profileId)
-      const message = this.$t('Profile.Your default profile has been set to $').replace('$', this.profileName)
+      const message = this.$t('Profile.Your default profile has been set to {profile}', { profile: this.profileName })
       this.showToast({
         message: message
       })
@@ -143,7 +143,7 @@ export default Vue.extend({
 
       this.removeProfile(this.profileId)
 
-      const message = this.$t('Profile.Removed $ from your profiles').replace('$', this.profileName)
+      const message = this.$t('Profile.Removed {profile} from your profiles', { profile: this.profileName })
       this.showToast({ message })
 
       if (this.defaultProfile === this.profileId) {

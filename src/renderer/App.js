@@ -207,8 +207,7 @@ export default Vue.extend({
             this.updateChangelog = marked.parse(json[0].body)
             this.changeLogTitle = json[0].name
 
-            const message = this.$t('Version $ is now available!  Click for more details')
-            this.updateBannerMessage = message.replace('$', versionNumber)
+            this.updateBannerMessage = this.$t('Version {versionNumber} is now available!  Click for more details', { versionNumber })
 
             const appVersion = packageDetails.version.split('.')
             const latestVersion = versionNumber.split('.')
@@ -242,8 +241,7 @@ export default Vue.extend({
           const latestPubDate = new Date(latestBlog.pubDate)
 
           if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
-            const message = this.$t('A new blog is now available, $. Click to view more')
-            this.blogBannerMessage = message.replace('$', latestBlog.title)
+            this.blogBannerMessage = this.$t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: latestBlog.title })
             this.latestBlogUrl = latestBlog.link
             this.showBlogBanner = true
           }

@@ -150,7 +150,7 @@ Settings:
     Current instance will be randomized on startup: L'istanza attuale sarà sostituita
       all'avvio da una generata casualmente
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
-    The currently set default instance is $: L'attuale istanza predefinita è $
+    The currently set default instance is {instance}: L'attuale istanza predefinita è {instance}
     Current Invidious Instance: Istanza attuale di Invidious
     System Default: Predefinito del sistema
     External Link Handling:
@@ -369,7 +369,7 @@ Settings:
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
-    Playlist insufficient data: Dati insufficienti per la playlist «$», elemento saltato
+    Playlist insufficient data: Dati insufficienti per la playlist «{playlist}», elemento saltato
     All playlists has been successfully imported: Tutte le playlist sono state importate
       con successo
     All playlists has been successfully exported: Tutte le playlist sono state esportate
@@ -536,8 +536,8 @@ Channel:
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali suggeriti'
   Added channel to your subscriptions: Il canale è stato aggiunto alle tue iscrizioni
-  Removed subscription from $ other channel(s): È stata rimossa l'iscrizione dagli
-    altri canali di $
+  Removed subscription from {count} other channel(s): È stata rimossa l'iscrizione dagli
+    altri canali di {count}
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
     tue iscrizioni
 Video:
@@ -602,8 +602,7 @@ Video:
     Less than a minute: Meno di un minuto
     In less than a minute: In meno di un minuto
   Published on: 'Pubblicato il'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % fa'
+  Publicationtemplate: '{number} {unit} fa'
 #& Videos
   Play Previous Video: Riproduci il video precedente
   Play Next Video: Riproduci il prossimo video
@@ -641,11 +640,11 @@ Video:
       setting a playback rate: impostando la velocità di riproduzione
       opening playlists: aprendo la playlist
       starting video at offset: avviando il video con uno sfasamento
-    UnsupportedActionTemplate: '$ non supporta: %'
-    OpeningTemplate: Apertura del $ con %…
+    UnsupportedActionTemplate: '{externalPlayer} non supporta: {action}'
+    OpeningTemplate: Apertura del {videoOrPlaylist} con {externalPlayer}…
     playlist: playlist
     video: video
-    OpenInTemplate: Apri con $
+    OpenInTemplate: Apri con {externalPlayer}
   Sponsor Block category:
     music offtopic: Musica fuori tema
     interaction: Interazione
@@ -755,7 +754,7 @@ Comments:
   Newest first: I più nuovi
   Sort by: Ordina per
   Show More Replies: Mostra altre risposte
-  From $channelName: di $channelName
+  From {channelName}: di {channelName}
   And others: e altri
   Pinned by: Messo in primo piano da
   Member: Membro
@@ -782,9 +781,9 @@ Canceled next video autoplay: 'Riproduzione automatica del prossimo video annull
 
 Yes: 'Sì'
 No: 'No'
-A new blog is now available, $. Click to view more: Un nuovo blog è ora disponibile,
-  $. Clicca per saperne di più
-Version $ is now available!  Click for more details: La versione $ è ora disponibile!
+A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora disponibile,
+  {blogTitle}. Clicca per saperne di più'
+Version {versionNumber} is now available!  Click for more details: La versione {versionNumber} è ora disponibile!
   Clicca per maggiori dettagli
 Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
@@ -801,14 +800,14 @@ Profile:
   Delete Selected: Elimina i selezionati
   Select None: Deseleziona tutto
   Select All: Seleziona tutto
-  $ selected: '$ selezionato'
+  '{number} selected': '{number} selezionato'
   Other Channels: Altri canali
   Subscription List: Lista iscrizioni
-  $ is now the active profile: '$ è diventato il tuo profilo attivo'
+  '{profile} is now the active profile': '{profile} è diventato il tuo profilo attivo'
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
     è stato cambiato in profilo primario
-  Removed $ from your profiles: Hai rimosso $ dai tuoi profili
-  Your default profile has been set to $: '$ è stato impostato come profilo predefinito'
+  Removed {profile} from your profiles: Hai rimosso {profile} dai tuoi profili
+  Your default profile has been set to {profile}: '{profile} è stato impostato come profilo predefinito'
   Profile has been updated: Il profilo è stato aggiornato
   Profile has been created: Il profilo è stato creato
   Your profile name cannot be empty: Il nome del profilo non può essere vuoto
@@ -885,7 +884,7 @@ Tooltips:
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
       un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
       Attenzione, le impostazioni Invidious non influiscono sui lettori esterni.
-    DefaultCustomArgumentsTemplate: '(Predefinito: $)'
+    DefaultCustomArgumentsTemplate: '(Predefinito: {defaultCustomArguments})'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
       , FreeTube eliminerà automaticamente i metafile creati durante la visione del
@@ -898,8 +897,8 @@ More: Altro
 Open New Window: Apri una nuova finestra
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è
   stata cancellata
-Default Invidious instance has been set to $: L'istanza predefinita di Invidious è
-  stata impostata a $
+Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious è
+  stata impostata a {instance}
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
 Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
@@ -909,25 +908,25 @@ Search Bar:
 External link opening has been disabled in the general settings: L'apertura dei collegamenti
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
-Downloading has completed: 'Il download di "$" è terminato'
-Starting download: Avvio del download di "$"
-Downloading failed: Si è verificato un problema durante il download di "$"
-Screenshot Success: Cattura schermata salvato come «$»
-Screenshot Error: Cattura schermata fallito. $
+Downloading has completed: 'Il download di "{videoTitle}" è terminato'
+Starting download: Avvio del download di "{videoTitle}"
+Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
+Screenshot Success: Cattura schermata salvato come «{filePath}»
+Screenshot Error: Cattura schermata fallito. {error}
 Age Restricted:
-  This $contentType is age restricted: Questo $ è limitato dall'età
+  The currently set default instance is {instance}: Questo {instance} è limitato dall'età
   Type:
     Channel: Canale
     Video: Video
 New Window: Nuova finestra
 Channels:
-  Unsubscribed: $ è stato rimosso dalle tue iscrizioni
+  Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'
   Title: Elenco canali
   Channels: Canali
   Search bar placeholder: Cerca canali
-  Count: $ canale/i trovato/i.
+  Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
-  Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «$»?
+  Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «{channelName}»?
   Unsubscribe: Annulla l'iscrizione
 Clipboard:
   Cannot access clipboard without a secure connection: Impossibile accedere agli appunti

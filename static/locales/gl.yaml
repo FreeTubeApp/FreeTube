@@ -30,11 +30,11 @@ Close: 'Pechar'
 Back: 'Atrás'
 Forward: 'Adiante'
 
-Version $ is now available!  Click for more details: 'A versión $ está dispoñible!  Fai
+Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber} está dispoñible!  Fai
   clic para veres máis detalles'
 Download From Site: 'Descargar do sitio web'
-A new blog is now available, $. Click to view more: 'Hai unha nova entrada no blog
-  dispoñible, $. Fai clic para veres máis'
+A new blog is now available, {blogTitle}. Click to view more: 'Hai unha nova entrada no blog
+  dispoñible, {blogTitle}. Fai clic para veres máis'
 
 # Search Bar
 Search / Go to URL: 'Buscar / Ir á URL'
@@ -144,8 +144,8 @@ Settings:
     Current instance will be randomized on startup: A instancia actual será aleatoria
       no arranque
     No default instance has been set: Ningunha instancia foi habilitada por defecto
-    The currently set default instance is $: A Instancia Actualmente Habilitada Por
-      Defecto é $
+    The currently set default instance is {instance}: A Instancia Actualmente Habilitada Por
+      Defecto é {instance}
     Current Invidious Instance: Instancia Actual de Invidious
   Theme Settings:
     Theme Settings: 'Axustes de tema'
@@ -424,14 +424,14 @@ Profile:
   Your profile name cannot be empty: 'O nome do perfil non pode estar en branco'
   Profile has been created: 'Creouse o perfil'
   Profile has been updated: 'Actualizouse o perfil'
-  Your default profile has been set to $: '$ é agora o teu perfil predeterminado'
-  Removed $ from your profiles: 'Eliminouse $ dos teus perfís'
+  Your default profile has been set to {profile}: '{profile} é agora o teu perfil predeterminado'
+  Removed {profile} from your profiles: 'Eliminouse {profile} dos teus perfís'
   Your default profile has been changed to your primary profile: 'O teu perfil predeterminado
     cambiouse ao teu perfil primario'
-  $ is now the active profile: '$ é agora o perfil activo'
+  '{profile} is now the active profile': '{profile} é agora o perfil activo'
   Subscription List: 'Listaxe de subcricións'
   Other Channels: 'Outras canles'
-  $ selected: '$ seleccionado'
+  '{number} selected': '{number} seleccionado'
   Select All: 'Seleccionar todos'
   Select None: 'Non seleccionar ningún'
   Delete Selected: 'Eliminar seleccionados'
@@ -453,7 +453,7 @@ Channel:
   Unsubscribe: 'Desubscribirse'
   Channel has been removed from your subscriptions: 'Esta canle foi eliminada das
     túas subscricións'
-  Removed subscription from $ other channel(s): 'Eliminouse a subscrición de $ a outra(s)
+  Removed subscription from {count} other channel(s): 'Eliminouse a subscrición de {count} a outra(s)
     canle(s)'
   Added channel to your subscriptions: 'Canle engadida ás túas subscricións'
   Search Channel: 'Buscar na canle'
@@ -561,8 +561,7 @@ Video:
   Published on: 'Publicado'
   Streamed on: 'Transmitido'
   Started streaming on: 'A transmisión comezou'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Fai $ %'
+  Publicationtemplate: 'Fai {number} {unit}'
 #& Videos
   External Player:
     Unsupported Actions:
@@ -574,11 +573,11 @@ Video:
       opening playlists: abrindo as listas de reprodución
       setting a playback rate: axustar unha taxa de reprodución
       starting video at offset: vídeo de inicio en compensado
-    UnsupportedActionTemplate: '$ non admite: %'
-    OpeningTemplate: Abrindo $ en %...
+    UnsupportedActionTemplate: '{externalPlayer} non admite: {action}'
+    OpeningTemplate: Abrindo {videoOrPlaylist} en {externalPlayer}...
     playlist: lista de reprodución
     video: vídeo
-    OpenInTemplate: Aberto en $
+    OpenInTemplate: Aberto en {externalPlayer}
   Sponsor Block category:
     music offtopic: Música Offtopic
     interaction: Interacción

@@ -140,7 +140,7 @@ export default Vue.extend({
 
       this.updateProfile(currentProfile)
       this.showToast({
-        message: this.$t('Channels.Unsubscribed').replace('$', this.channelToUnsubscribe.name)
+        message: this.$t('Channels.Unsubscribed', { channelName: this.channelToUnsubscribe.name })
       })
 
       index = this.subscribedChannels.findIndex(channel => {
@@ -160,7 +160,7 @@ export default Vue.extend({
 
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
-      if (originalURL.indexOf('ggpht.com') > -1) {
+      if (new URL(originalURL).hostname === 'yt3.ggpht.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
           newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht/$1`)
         }

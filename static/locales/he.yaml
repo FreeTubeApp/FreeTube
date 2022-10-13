@@ -29,11 +29,9 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
-Version $ is now available!  Click for more details: 'גרסה $ זמינה כעת! יש ללחוץ לפרטים
-  נוספים'
+Version {versionNumber} is now available!  Click for more details: ''
 Download From Site: 'הורדה מהאתר'
-A new blog is now available, $. Click to view more: 'פוסט חדש יצא לבלוג, $. יש ללחוץ
-  כדי לראות עוד'
+A new blog is now available, {blogTitle}. Click to view more: ''
 
 # Search Bar
 Search / Go to URL: 'חיפוש / מעבר לכתובת'
@@ -143,7 +141,7 @@ Settings:
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
     Current Invidious Instance: עותק נוכחי של Invidious
     System Default: בררת המחדל של המערכת
-    The currently set default instance is $: עותק ברירת המחדל שהוגדר הוא $
+    The currently set default instance is {instance}: עותק ברירת המחדל שהוגדר הוא {instance}
     Set Current Instance as Default: הגדרת העותק הנוכחי כברירת מחדל
     External Link Handling:
       Open Link: פתיחת הקישור
@@ -324,7 +322,7 @@ Settings:
     All playlists has been successfully imported: כל הפלייליסטים יובאו בהצלחה
     Export Playlists: ייצוא פלייליסטים
     Import Playlists: ייבוא פלייליסטים
-    Playlist insufficient data: אין מספיק נתונים לרשימת הנגינה „$”, הפריט ידולג
+    Playlist insufficient data: ''
     Playlist File: קובץ רשימת נגינה
     Subscription File: קובץ מינוי
     History File: קובץ היסטוריה
@@ -506,14 +504,14 @@ Profile:
   Your profile name cannot be empty: 'לא ניתן לרוקן את הפרופיל שלך'
   Profile has been created: 'הפרופיל נוצר'
   Profile has been updated: 'הפרופיל עודכן'
-  Your default profile has been set to $: 'הגדרת את $ כפרופיל ברירת המחדל'
-  Removed $ from your profiles: '$ נמחק מהפרופילים שלך'
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: '{profile} נמחק מהפרופילים שלך'
   Your default profile has been changed to your primary profile: 'פרופיל ברירת המחדל
     שלך השתנה לפרופיל הראשי שלך'
-  $ is now the active profile: 'פרופיל $ פעיל עכשיו'
+  '{profile} is now the active profile': ''
   Subscription List: 'רשימת מינויים'
   Other Channels: 'ערוצים אחרים'
-  $ selected: '$ נבחר'
+  '{number} selected': '{number} נבחר'
   Select All: 'לבחור הכול'
   Select None: 'לבטל בחירה'
   Delete Selected: 'למחוק את הנבחרים'
@@ -534,7 +532,7 @@ Channel:
   Subscribe: 'הרשמה למינוי'
   Unsubscribe: 'ביטול המינוי'
   Channel has been removed from your subscriptions: 'הערוץ נמחק מרשימת המנויים שלך'
-  Removed subscription from $ other channel(s): 'המנוי הוסר מ-$ ערוצ/ים אחר/ים'
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
   Search Channel: 'חיפוש בערוץ'
   Your search results have returned 0 results: 'לא נמצאו תוצאות'
@@ -625,8 +623,7 @@ Video:
     Less than a minute: פחות מדקה
     In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'לפני $ %'
+  Publicationtemplate: 'לפני {number} {unit}'
 #& Videos
   Audio:
     Best: איכות הכי טובה
@@ -659,9 +656,9 @@ Video:
   External Player:
     video: סרטון
     playlist: פלייליסט
-    OpenInTemplate: פתיחה בתוך $
-    OpeningTemplate: מתבצעת פתיחת $ בתוך %...
-    UnsupportedActionTemplate: 'ל־$ אין תמיכה ב־: %'
+    OpenInTemplate: פתיחה בתוך {externalPlayer}
+    OpeningTemplate: ''
+    UnsupportedActionTemplate: ''
     Unsupported Actions:
       opening playlists: פתיחת רשימות נגינה
       setting a playback rate: הגדרת מהירות נגינה
@@ -760,7 +757,7 @@ Comments:
   Top comments: תגובות מובילות
   No more comments available: אין עוד תגובות זמינות
   Show More Replies: הצגת תגובות נוספות
-  From $channelName: מערוץ $channelName
+  From {channelName}: מערוץ {channelName}
   And others: ואחרים
   Pinned by: ננעץ על ידי
   Member: חבר
@@ -826,7 +823,7 @@ Tooltips:
     Fetch Automatically: כאשר האפשרות פעילה, FreeTube ימשוך את הזנת המינויים שלך אוטומטית
       עם פתיחת חלון חדש ובעת החלפת פרופיל.
   External Player Settings:
-    DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚$’)'
+    DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚{defaultCustomArguments}’)'
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
       (למשל: היפוך רשימת נגינה וכו׳).'
     External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
@@ -846,36 +843,36 @@ Search Bar:
 Are you sure you want to open this link?: לפתוח את הקישור הזה?
 Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידוע ל־YouTube, לא
   ניתן לפתיחה ביישום
-Default Invidious instance has been set to $: עותק Invidious שהוגדר כברירת מחדל הוא
-  $
+Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת מחדל הוא
+  {instance}
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
 External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים
   מושבתת בהגדרות הכלליות
 Hashtags have not yet been implemented, try again later: עדיין לא הוטמעו תגיות הקבץ,
   נא לנסות בהמשך
-Downloading failed: אירעה שגיאה בהורדת "$"
-Starting download: הורדת "$" מתחילה
-Downloading has completed: הורדת "$" הסתיימה
+Downloading failed: אירעה שגיאה בהורדת "{videoTitle}"
+Starting download: ''
+Downloading has completed: ''
 Playing Next Video Interval: הסרטון הבא יתחיל מיד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
-Screenshot Success: צילום המסך נשמר בתור „$”
-Screenshot Error: צילום המסך נכשל. $
+Screenshot Success: צילום המסך נשמר בתור „{filePath}”
+Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
 Age Restricted:
   Type:
     Channel: ערוץ
     Video: סרטון
-  This $contentType is age restricted: ה$ הזה מוגבל בגיל
+  This {videoOrPlaylist} is age restricted: ''
 Channels:
   Search bar placeholder: חיפוש ערוצים
   Empty: רשימת הערוצים שלך ריקה כרגע.
   Unsubscribe: ביטול מינוי
-  Unsubscribed: $ הוסר מרשימת המינויים שלך
-  Count: נמצאו $ ערוצים.
+  Unsubscribed: ''
+  Count: ''
   Channels: ערוצים
   Title: רשימת ערוצים
-  Unsubscribe Prompt: לבטל את המינוי על „$”?
+  Unsubscribe Prompt: לבטל את המינוי על „{channelName}”?
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'רשימת הפרקים מוסתרת, הפרק
     הנוכחי: {chapterName}'

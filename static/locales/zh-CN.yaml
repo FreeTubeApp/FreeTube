@@ -129,7 +129,7 @@ Settings:
     Check for Latest Blog Posts: 检查最新的博客贴
     View all Invidious instance information: 浏览所有Invidious实例
     System Default: 系统默认
-    The currently set default instance is $: 当前设置的默认实例是 $
+    The currently set default instance is {instance}: 当前设置的默认实例是 {instance}
     No default instance has been set: 没有默认实例
     Current instance will be randomized on startup: 当前实例在启动时将会随机化
     Set Current Instance as Default: 将当前实例设为默认
@@ -328,7 +328,7 @@ Settings:
     Manage Subscriptions: 管理订阅
     Import Playlists: 导入播放列表
     Export Playlists: 导出播放列表
-    Playlist insufficient data: '"$" 播放列表数据不足，正在跳过'
+    Playlist insufficient data: '"{playlist}" 播放列表数据不足，正在跳过'
     All playlists has been successfully imported: 已成功导入所有播放列表
     All playlists has been successfully exported: 所有播放列表已成功导出
     Playlist File: 播放列表文件
@@ -475,7 +475,7 @@ Channel:
     About: '关于'
     Channel Description: '频道描述'
     Featured Channels: '列出频道'
-  Removed subscription from $ other channel(s): 从$个其他频道移除订阅
+  Removed subscription from {count} other channel(s): 从{count}个其他频道移除订阅
   Added channel to your subscriptions: 已新增频道至您的订阅
   Channel has been removed from your subscriptions: 频道已从您的订阅中移除
 Video:
@@ -532,8 +532,7 @@ Video:
     Less than a minute: 不到一分钟
     In less than a minute: 不到一分钟
   Published on: '发布于'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 之前'
+  Publicationtemplate: '{number} {unit} 之前'
 #& Videos
   Video has been removed from your history: 视频已从您的历史记录中移除
   Mark As Watched: 标记为已观看
@@ -583,11 +582,11 @@ Video:
     Bandwidth: 带宽
     Video statistics are not available for legacy videos: 视频统计数据对于 legacy 视频不可用
   External Player:
-    OpenInTemplate: 在 $ 中打开
+    OpenInTemplate: 在 {externalPlayer} 中打开
     video: 视频
     playlist: 播放列表
-    UnsupportedActionTemplate: $ 不支持：%
-    OpeningTemplate: 在 % 中打开 $ …
+    UnsupportedActionTemplate: '{externalPlayer} 不支持：{action}'
+    OpeningTemplate: 在 {externalPlayer} 中打开 {videoOrPlaylist} …
     Unsupported Actions:
       setting a playback rate: 设置播放速率
       opening specific video in a playlist (falling back to opening the video): 打开播放列表中的特定视频
@@ -679,7 +678,7 @@ Comments:
   No more comments available: 没有更多评论
   Show More Replies: 显示更多回复
   Pinned by: 置顶人
-  From $channelName: 来自 $channelName
+  From {channelName}: 来自 {channelName}
   And others: 及其他
   Member: 成员
 Up Next: 'Up Next'
@@ -704,9 +703,9 @@ Yes: '是'
 No: '否'
 Locale Name: 简体中文
 Profile:
-  $ is now the active profile: $现在是使用中的配置文件
-  Removed $ from your profiles: 已从您的配置文件移除$
-  Your default profile has been set to $: 您的默认配置文件已设定为$
+  '{profile} is now the active profile': '{profile}现在是使用中的配置文件'
+  Removed {profile} from your profiles: 已从您的配置文件移除{profile}
+  Your default profile has been set to {profile}: 您的默认配置文件已设定为{profile}
   Your default profile has been changed to your primary profile: 您的默认配置文件已变为您的主配置文件
   Profile has been updated: 配置文件已更新
   Profile has been created: 配置文件已建立
@@ -730,7 +729,7 @@ Profile:
     这不会从其他配置文件中删除频道。
   Add Selected To Profile: 添加选择的到配置文件
   Delete Selected: 删除选择的
-  $ selected: $选择的
+  '{number} selected': '{number}选择的'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 这是您的主配置文件。 您确定您想删除选择的频道？ 相同的频道中任何找到的配置文件会被删除。
@@ -742,9 +741,9 @@ Profile:
   Profile Settings: 个人资料设置
   Profile Filter: 个人资料筛选器
 The playlist has been reversed: 播放列表已反转
-A new blog is now available, $. Click to view more: 已有新的博客，$。点击以查看更多
+A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
-Version $ is now available!  Click for more details: 版本$已可使用！ 点击以取得更多信息
+Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！ 点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
@@ -770,7 +769,7 @@ Tooltips:
     External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。警告，Invidious 设置不影响外部播放器。
     Custom External Player Executable: 默认情况下，FreeTube 假设选择的外部播放器可以通过 PATH 环境变量找到。如果需要，可以在这里设置自定义路径。
     Ignore Warnings: 当前外部播放器不支持当前操作时(例如，颠倒播放列表文件顺序)，抑制警告。
-    DefaultCustomArgumentsTemplate: "(默认: '$')"
+    DefaultCustomArgumentsTemplate: "(默认: '{defaultCustomArguments}')"
     Custom External Player Arguments: 任何你希望传递给外部播放器的用分号(';')分隔的自定义命令行参数。
   Privacy Settings:
     Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
@@ -782,32 +781,32 @@ Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
 Hashtags have not yet been implemented, try again later: 哈希标签功能尚未实现，请稍后再试
-Default Invidious instance has been set to $: 默认的 Invidious 实例已被设置为 $
+Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
 Default Invidious instance has been cleared: 已清除默认的 Invidious 实例
-Downloading failed: 下载“$”出现一个问题
-Downloading has completed: 已完成下载 “$”
-Starting download: 开始下载“$”
+Downloading failed: 下载“{videoTitle}”出现一个问题
+Downloading has completed: 已完成下载 “{videoTitle}”
+Starting download: 开始下载“{videoTitle}”
 Downloading canceled: 用户取消了下载
 Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
-Screenshot Error: 截屏失败。$
-Screenshot Success: 另存截屏为 “$”
+Screenshot Error: 截屏失败。{error}
+Screenshot Success: 另存截屏为 “{filePath}”
 New Window: 新窗口
 Age Restricted:
   Type:
     Channel: 频道
     Video: 视频
-  This $contentType is age restricted: 此 $ 有年龄限制
+  The currently set default instance is {instance}: 此 {instance} 有年龄限制
 Channels:
   Search bar placeholder: 搜索频道
-  Count: 找到了 $ 个频道。
+  Count: 找到了 {number} 个频道。
   Unsubscribe: 取消订阅
   Channels: 频道
   Title: 频道列表
   Empty: 你的频道列表当前为空。
-  Unsubscribed: 从你的订阅里删除了 $
-  Unsubscribe Prompt: 你确定你要取消订阅 "$" 吗？
+  Unsubscribed: 从你的订阅里删除了 {channelName}
+  Unsubscribe Prompt: 你确定你要取消订阅 "{channelName}" 吗？
 Clipboard:
   Copy failed: 未能复制到剪贴板
   Cannot access clipboard without a secure connection: 没有安全连接无法访问剪贴板

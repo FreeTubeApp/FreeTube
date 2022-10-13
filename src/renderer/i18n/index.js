@@ -18,7 +18,7 @@ if (isDev) {
       const doc = load(fs.readFileSync(`static/locales/${locale}.yaml`))
       messages[locale] = doc
     } catch (e) {
-      console.error(e)
+      console.error(locale, e)
     }
   })
 }
@@ -50,7 +50,7 @@ class CustomVueI18n extends VueI18n {
           const data = JSON.parse(brotliDecompressSync(compressed).toString())
           this.setLocaleMessage(locale, data)
         } catch (err) {
-          console.error(err)
+          console.error(locale, err)
         }
       } else {
         const url = new URL(window.location.href)

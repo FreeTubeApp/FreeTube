@@ -136,8 +136,8 @@ Settings:
       No Action: Žiadna akcia
       Ask Before Opening Link: Spýtať sa pred otvorením odkazu
       Open Link: Otvoriť odkaz
-    The currently set default instance is $: Aktuálne nastavená predvolená inštancia
-      je $
+    The currently set default instance is {instance}: Aktuálne nastavená predvolená inštancia
+      je {instance}
     No default instance has been set: Žiadna predvolená inštancia nebola nastavená
     Current instance will be randomized on startup: Aktuálne nastavená inštancia bude
       vybraná náhodne pri spustení
@@ -444,7 +444,7 @@ Channel:
   Added channel to your subscriptions: Kanál bol pridaný k vašim odberom
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich
     odberov
-  Removed subscription from $ other channel(s): Odstránené predplatné z $ iných kanálov
+  Removed subscription from {count} other channel(s): Odstránené predplatné z {count} iných kanálov
 Video:
   Mark As Watched: 'Označiť ako zhliadnuté'
   Remove From History: 'Vymazať z histórie'
@@ -505,8 +505,7 @@ Video:
     Minute: Minúta
     Minutes: Minút
   Published on: 'Publikované dňa'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'pred $ %'
+  Publicationtemplate: 'pred {number} {unit}'
 #& Videos
   Autoplay: Automatické prehrávanie
   Starting soon, please refresh the page to check again: Čoskoro začína, obnovte stránku
@@ -552,7 +551,7 @@ Video:
     video id: ID videa (YouTube)
     buffered: Prednačítané
   External Player:
-    OpenInTemplate: Otvoriť v $
+    OpenInTemplate: Otvoriť v {externalPlayer}
     Unsupported Actions:
       setting a playback rate: nastavenie rýchlosti prehrávania
       reversing playlists: zoznamy videí odzadu
@@ -563,9 +562,9 @@ Video:
         konkrétneho videa v zozname videí (keďtak otvorí video samotné)
       shuffling playlists: premiešavanie zoznamov videí
     playlist: zoznam videí
-    UnsupportedActionTemplate: '$ nepodporuje: %'
+    UnsupportedActionTemplate: '{externalPlayer} nepodporuje: {action}'
     video: video
-    OpeningTemplate: Otvára sa $ v %...
+    OpeningTemplate: Otvára sa {videoOrPlaylist} v {externalPlayer}...
   Premieres on: Premiéruje o
 Videos:
   #& Sort By
@@ -643,7 +642,7 @@ Comments:
   Sort by: Zoradiť podľa
   Pinned by: Pripnuté používateľom
   Show More Replies: Zobraziť viac odpovedí
-  From $channelName: z $channelName
+  From {channelName}: z {channelName}
   And others: a ďalšie
 Up Next: 'Nasledujúci'
 
@@ -713,7 +712,7 @@ Tooltips:
     Remove Video Meta Files: Ak je povolené, FreeTube po zatvorení stránky prezerania
       automaticky odstráni metasúbory vytvorené počas prehrávania videa.
   External Player Settings:
-    DefaultCustomArgumentsTemplate: "(Predvolené: '$')"
+    DefaultCustomArgumentsTemplate: "(Predvolené: '{defaultCustomArguments}')"
     External Player: Po výbere externého prehrávača sa na miniatúre zobrazí ikona
       na otvorenie videa (zoznam videí, ak je podporovaný) v externom prehrávači.
     Custom External Player Executable: V predvolenom nastavení bude FreeTube predpokladať,
@@ -735,14 +734,14 @@ Profile:
   Delete Selected: Zmazať vybrané
   Select None: Zrušiť výber
   Select All: Vybrať všetko
-  $ selected: $ vybraný
+  '{number} selected': '{number} vybraný'
   Other Channels: Ostatné kanály
   Subscription List: Zoznam odberov
-  $ is now the active profile: $ je teraz aktívny profil
+  '{profile} is now the active profile': '{profile} je teraz aktívny profil'
   Your default profile has been changed to your primary profile: Váš predvolený profil
     bol zmenený na hlavný profil
-  Removed $ from your profiles: Odstránený $ spomedzi vašich profilov
-  Your default profile has been set to $: Váš predvolený profil bol nastavený na $
+  Removed {profile} from your profiles: Odstránený {profile} spomedzi vašich profilov
+  Your default profile has been set to {profile}: Váš predvolený profil bol nastavený na {profile}
   Profile has been updated: Profil aktualizovaný
   Profile has been created: Profil vytvorený
   Your profile name cannot be empty: Meno nesmie byť prázdne
@@ -763,10 +762,10 @@ Profile:
   Profile Select: Vyberte profil
   Profile Filter: Filter Profilov
   Profile Settings: Nastavenia profilu
-A new blog is now available, $. Click to view more: Nový príspevok na blogu je k dispozícií,
-  $. Klikni pre viac informácií
+A new blog is now available, {blogTitle}. Click to view more: 'Nový príspevok na blogu je k dispozícií,
+  {blogTitle}. Klikni pre viac informácií'
 Download From Site: Stiahnuť zo stránky
-Version $ is now available!  Click for more details: Je k dispozícií verzia $ ! Klikni
+Version {versionNumber} is now available!  Click for more details: Je k dispozícií verzia {versionNumber} ! Klikni
   pre viac informácií
 Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa za chvíľu. Kliknutím zrušíte.
@@ -778,8 +777,8 @@ Hashtags have not yet been implemented, try again later: Neznámy typ adresy URL
 Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube,
   v aplikácii sa nedá otvoriť
 Open New Window: Otvoriť Nové Okno
-Default Invidious instance has been set to $: Predvolená Invidious inštancia bola
-  nastavená na $
+Default Invidious instance has been set to {instance}: Predvolená Invidious inštancia bola
+  nastavená na {instance}
 Search Bar:
   Clear Input: Čistý vstup
 Default Invidious instance has been cleared: Predvolená Invidious inštancia bola vymazaná

@@ -153,8 +153,8 @@ Settings:
     Current instance will be randomized on startup: L'instance actuelle sera choisie
       au hasard au démarrage
     No default instance has been set: Aucune instance par défaut n'a été définie
-    The currently set default instance is $: L'instance par défaut actuellement définie
-      est $
+    The currently set default instance is {instance}: L'instance par défaut actuellement définie
+      est {instance}
     Current Invidious Instance: Instance Invidious actuelle
     External Link Handling:
       No Action: Aucune action
@@ -377,7 +377,7 @@ Settings:
     Manage Subscriptions: Gérer les abonnements
     Import Playlists: Importer des listes de lecture
     Export Playlists: Exporter des listes de lecture
-    Playlist insufficient data: Données insuffisantes pour la liste de lecture « $ »,
+    Playlist insufficient data: Données insuffisantes pour la liste de lecture « {playlist} »,
       saut de l'élément
     All playlists has been successfully imported: Toutes les listes de lecture ont
       été importées avec succès
@@ -554,7 +554,7 @@ Channel:
     Channel Description: 'Description de la chaîne'
     Featured Channels: 'Chaînes en vedette'
   Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
-  Removed subscription from $ other channel(s): Abonnement supprimé de $ autre(s)
+  Removed subscription from {count} other channel(s): Abonnement supprimé de {count} autre(s)
     chaîne(s)
   Channel has been removed from your subscriptions: La chaîne a été retirée de vos
     abonnements
@@ -620,8 +620,7 @@ Video:
     Less than a minute: Moins d'une minute
     In less than a minute: En moins d'une minute
   Published on: 'Mise en ligne le'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Il y a $ %'
+  Publicationtemplate: 'Il y a {number} {unit}'
 #& Videos
   Play Previous Video: Lire la vidéo précédente
   Play Next Video: Lire la vidéo suivante
@@ -673,9 +672,9 @@ Video:
       opening playlists: ouvrir des listes de lecture
       setting a playback rate: régler la vitesse de lecture
       starting video at offset: démarrer la vidéo avec un décalage
-    UnsupportedActionTemplate: '$ non pris en charge : %'
-    OpeningTemplate: Ouverture de $ en %…
-    OpenInTemplate: Ouvrir avec $
+    UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
+    OpeningTemplate: Ouverture de {videoOrPlaylist} en {externalPlayer}…
+    OpenInTemplate: Ouvrir avec {externalPlayer}
   Stats:
     video id: "Identifiant de la vidéo (YouTube)"
     player resolution: "Résolution du lecteur"
@@ -774,7 +773,7 @@ Comments:
   Sort by: Trier par
   No more comments available: Pas d'autres commentaires disponibles
   Show More Replies: Afficher plus de réponses
-  From $channelName: de $channelName
+  From {channelName}: de {channelName}
   Pinned by: Épinglé par
   And others: et d'autres
   Member: Membre
@@ -803,11 +802,11 @@ Yes: 'Oui'
 No: 'Non'
 Locale Name: français
 Profile:
-  $ is now the active profile: $ est maintenant le profil actif
+  '{profile} is now the active profile': '{profile} est maintenant le profil actif'
   Your default profile has been changed to your primary profile: Votre profil par
     défaut a été modifié en votre profil principal
-  Removed $ from your profiles: Supprimer $ de vos profils
-  Your default profile has been set to $: Votre profil par défaut a été fixé à $
+  Removed {profile} from your profiles: Supprimer {profile} de vos profils
+  Your default profile has been set to {profile}: Votre profil par défaut a été fixé à {profile}
   Profile has been updated: Le profil a été mis à jour
   Profile has been created: Le profil a été créé
   Your profile name cannot be empty: Le nom de votre profil ne peut pas être vide
@@ -841,15 +840,15 @@ Profile:
   Delete Selected: Supprimer la sélection
   Select None: Ne rien sélectionner
   Select All: Tout sélectionner
-  $ selected: $ sélectionné(s)
+  '{number} selected': '{number} sélectionné(s)'
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
   Profile Settings: Paramètres du profil
 The playlist has been reversed: La liste de lecture a été inversée
-A new blog is now available, $. Click to view more: Un nouveau billet est maintenant
-  disponible, $. Cliquez pour en savoir plus
+A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet est maintenant
+  disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
-Version $ is now available!  Click for more details: La version $ est maintenant disponible
+Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible
   !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
@@ -916,7 +915,7 @@ Tooltips:
     External Player: La sélection du lecteur externe affichera une icône sur la miniature
       qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
       externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
-    DefaultCustomArgumentsTemplate: '(Par défaut : « $ »)'
+    DefaultCustomArgumentsTemplate: '(Par défaut : « {defaultCustomArguments} »)'
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
@@ -929,36 +928,36 @@ Unknown YouTube url type, cannot be opened in app: Type d'URL YouTube inconnu, n
 Open New Window: Ouvrir une nouvelle fenêtre
 Default Invidious instance has been cleared: L'instance Invidious par défaut a été
   effacée
-Default Invidious instance has been set to $: L'instance Invidious par défaut a été
-  définie sur $
+Default Invidious instance has been set to {instance}: L'instance Invidious par défaut a été
+  définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
-Downloading has completed: '$ a fini de se télécharger'
-Starting download: 'Début du téléchargement de $'
-Downloading failed: 'Il y a eu un problème lors du téléchargement de $'
+Downloading has completed: '{videoTitle} a fini de se télécharger'
+Starting download: 'Début du téléchargement de {videoTitle}'
+Downloading failed: 'Il y a eu un problème lors du téléchargement de {videoTitle}'
 Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
 Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas.
   Mode sans répertoire activé.'
-Screenshot Success: Capture d'écran enregistrée sous « $ »
-Screenshot Error: La capture d'écran a échoué. $
+Screenshot Success: Capture d'écran enregistrée sous « {filePath} »
+Screenshot Error: La capture d'écran a échoué. {error}
 New Window: Nouvelle fenêtre
 Age Restricted:
   Type:
     Video: Vidéo
     Channel: Chaîne
-  This $contentType is age restricted: Ce $ est soumis à une limite d'âge
+  This {videoOrPlaylist} is age restricted: Ce {videoOrPlaylist} est soumis à une limite d'âge
 Channels:
   Channels: Chaînes
   Title: Liste des chaînes
   Empty: Votre liste de chaînes est actuellement vide.
   Unsubscribe: Se désabonner
   Search bar placeholder: Rechercher des chaînes
-  Count: $ chaîne(s) trouvée(s).
-  Unsubscribed: $ a été supprimé de vos abonnements
-  Unsubscribe Prompt: Êtes-vous sûr·e de vouloir vous désabonner de « $ » ?
+  Count: '{number} chaîne(s) trouvée(s).'
+  Unsubscribed: '{channelName} a été supprimé de vos abonnements'
+  Unsubscribe Prompt: Êtes-vous sûr·e de vouloir vous désabonner de « {channelName} » ?
 Clipboard:
   Copy failed: La copie dans le presse-papiers a échoué
   Cannot access clipboard without a secure connection: Impossible d'accéder au presse-papiers

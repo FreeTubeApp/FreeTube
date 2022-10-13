@@ -29,11 +29,11 @@ Close: Fechar
 Back: Voltar
 Forward: Avançar
 
-Version $ is now available!  Click for more details: A versão $ já está disponível!
+Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível!
   Clique aqui para mais informações
 Download From Site: Descarregar do site
-A new blog is now available, $. Click to view more: Está disponível um novo blogue,
-  $. Clique para ver mais
+A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um novo blogue,
+  {blogTitle}. Clique para ver mais'
 
 # Search Bar
 Search / Go to URL: Pesquisar / ir para o URL
@@ -150,7 +150,7 @@ Settings:
     Current instance will be randomized on startup: A instância irá ser escolhida
       aleatoriamente ao iniciar
     No default instance has been set: Não foi definida nenhuma instância
-    The currently set default instance is $: A instância definida como padrão é $
+    The currently set default instance is {instance}: A instância definida como padrão é {instance}
     Current Invidious Instance: Instância do Invidious atual
     Clear Default Instance: Apagar instância predefinida
     Set Current Instance as Default: Escolher a instância atual como a predefinida
@@ -338,7 +338,7 @@ Settings:
     Manage Subscriptions: Gerir subscrições
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
-    Playlist insufficient data: Dados insuficientes para a lista de reprodução "$",
+    Playlist insufficient data: Dados insuficientes para a lista de reprodução "{playlist}",
       a ignorar o item
     All playlists has been successfully imported: Todas as listas de reprodução foram
       importadas com êxito
@@ -439,14 +439,14 @@ Profile:
   Your profile name cannot be empty: O nome do perfil não pode ficar em branco
   Profile has been created: Perfil criado
   Profile has been updated: Perfil atualizado
-  Your default profile has been set to $: $ é agora o seu perfil padrão
-  Removed $ from your profiles: O perfil $ foi eliminado
+  Your default profile has been set to {profile}: '{profile} é agora o seu perfil padrão'
+  Removed {profile} from your profiles: O perfil {profile} foi eliminado
   Your default profile has been changed to your primary profile: O seu perfil padrão
     é agora o seu perfil principal
-  $ is now the active profile: Está agora a ver as subscrições do perfil $
+  '{profile} is now the active profile': Está agora a ver as subscrições do perfil {profile}
   Subscription List: Lista de subscrições
   Other Channels: Outros canais
-  $ selected: $ selecionado
+  '{number} selected': '{number} selecionado'
   Select All: Selecionar tudo
   Select None: Não selecionar nada
   Delete Selected: Eliminar selecionados
@@ -470,7 +470,7 @@ Channel:
   Unsubscribe: Anular subscrição
   Channel has been removed from your subscriptions: O canal foi removido das suas
     subscrições
-  Removed subscription from $ other channel(s): Subscrição removida de mais $ canais
+  Removed subscription from {count} other channel(s): Subscrição removida de mais {count} canais
   Added channel to your subscriptions: Canal adicionado às suas subscrições
   Search Channel: Procurar canal
   Your search results have returned 0 results: Pesquisa devolveu 0 resultados
@@ -575,8 +575,7 @@ Video:
   Published on: Publicado a
   Streamed on: Transmitido em
   Started streaming on: Transmissão iniciada em
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: Há $ %
+  Publicationtemplate: Há {number} {unit}
 #& Videos
   Play Previous Video: Reproduzir vídeo anterior
   Play Next Video: Reproduzir vídeo seguinte
@@ -594,11 +593,11 @@ Video:
       opening playlists: abrir listas de reprodução
       setting a playback rate: mudar velocidade de reprodução
       starting video at offset: iniciar vídeo num tempo específico
-    UnsupportedActionTemplate: '$ não suporta: %'
-    OpeningTemplate: A abrir $ em %...
+    UnsupportedActionTemplate: '{externalPlayer} não suporta: {action}'
+    OpeningTemplate: A abrir {videoOrPlaylist} em {externalPlayer}...
     playlist: lista de reprodução
     video: vídeo
-    OpenInTemplate: Abrir com $
+    OpenInTemplate: Abrir com {externalPlayer}
   Sponsor Block category:
     music offtopic: Música fora de tópico
     interaction: Interação
@@ -698,7 +697,7 @@ Comments:
   No more comments available: Não existem mais comentários
   Show More Replies: Mostrar mais respostas
   And others: e outros
-  From $channelName: de $channelName
+  From {channelName}: de {channelName}
   Pinned by: Fixado por
   Member: Membro
 Up Next: Próximo
@@ -759,7 +758,7 @@ Tooltips:
       um caminho personalizado pode ser escolhido aqui.
     External Player: Escolher um leitor externo irá mostrar um ícone na miniatura
       do vídeo, para abrir o vídeo (lista de reprodução se possível) nesse leitor.
-    DefaultCustomArgumentsTemplate: "(padrão: '$')"
+    DefaultCustomArgumentsTemplate: "(padrão: '{defaultCustomArguments}')"
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)
@@ -795,7 +794,7 @@ Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube descon
   não pode ser aberto numa aplicação
 Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: Predefinição apagada
-Default Invidious instance has been set to $: Servidor Invidious $ foi estabelecido
+Default Invidious instance has been set to {instance}: Servidor Invidious {instance} foi estabelecido
   como predefenição
 External link opening has been disabled in the general settings: A abertura da ligação
   externa foi desativada nas configurações gerais
@@ -807,18 +806,18 @@ Channels:
   Channels: Canais
   Title: Lista de canais
   Search bar placeholder: Procurar canais
-  Count: $ canais encontrados.
+  Count: '{number} canais encontrados.'
   Empty: A sua lista de canais está neste momento vazia.
   Unsubscribe: Anular subscrição
-  Unsubscribed: $ foi removido das suas subscrições
-  Unsubscribe Prompt: Quer mesmo deixar a subscrição de "$"?
+  Unsubscribed: '{channelName} foi removido das suas subscrições'
+  Unsubscribe Prompt: Quer mesmo deixar a subscrição de "{channelName}"?
 Age Restricted:
-  This $contentType is age restricted: Este $ tem restrição de idade
+  The currently set default instance is {instance}: Este {instance} tem restrição de idade
   Type:
     Channel: Canal
     Video: Vídeo
-Downloading has completed: '"$" foi descarregado'
-Starting download: A descarregar "$"
-Downloading failed: Ouve um problema ao descarregar "$"
-Screenshot Success: Captura de ecrã guardada como "$"
-Screenshot Error: A captura de ecrã falhou. $
+Downloading has completed: '"{videoTitle}" foi descarregado'
+Starting download: A descarregar "{videoTitle}"
+Downloading failed: Ouve um problema ao descarregar "{videoTitle}"
+Screenshot Success: Captura de ecrã guardada como "{filePath}"
+Screenshot Error: A captura de ecrã falhou. {error}

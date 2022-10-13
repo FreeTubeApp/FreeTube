@@ -138,7 +138,7 @@ Settings:
     Set Current Instance as Default: Definir Instancia Actual como Por Defecto
     Clear Default Instance: Limpiar Instancia Por Defecto
     Current Invidious Instance: Instancia Actual de Individuous
-    The currently set default instance is $: La instancia actual es $
+    The currently set default instance is {instance}: La instancia actual es {instance}
     No default instance has been set: No se ha elegido ninguna instancia
     Current instance will be randomized on startup: La instancia actual será aleatorizada
       en el inicio
@@ -350,10 +350,10 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
 #On Channel Page
 Channel:
   Subscriber: ''
@@ -437,7 +437,6 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
   translated from English: traducido del inglés
@@ -518,10 +517,10 @@ Canceled next video autoplay: ''
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, $. Click to view more: Un nuevo blog está disponible,
-  $. Hacé clic para ver más
+A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está disponible,
+  {blogTitle}. Hacé clic para ver más'
 Download From Site: Descargar desde el sitio
-Version $ is now available!  Click for more details: La versión $ ya está disponible.  Hacé
+Version {versionNumber} is now available!  Click for more details: La versión {versionNumber} ya está disponible.  Hacé
   clic acá para más detalles.
 More: Más
 Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?

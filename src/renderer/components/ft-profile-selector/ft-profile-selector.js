@@ -78,7 +78,7 @@ export default Vue.extend({
         if (targetProfile) {
           this.updateActiveProfile(targetProfile._id)
 
-          const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
+          const message = this.$t('Profile.{profile} is now the active profile', { profile: profile.name })
           this.showToast({ message })
         }
       }
