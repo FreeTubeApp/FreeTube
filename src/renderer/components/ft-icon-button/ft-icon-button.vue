@@ -42,14 +42,15 @@
         >
           <li
             v-for="(option, index) in dropdownOptions"
-            :id="removeWhitespace(title + '-' + index)"
+            :id="sanitizeForHtmlId(title + '-' + index)"
             :key="index"
             role="option"
             aria-selected="false"
             tabindex="-1"
             :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
             @click="handleDropdownClick({url: option.value, index: index}, $event)"
-            @keydown="handleDropdownClick({url: option.value, index: index}, $event)"
+            @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"
+            @keydown.space="handleDropdownClick({url: option.value, index: index}, $event)"
           >
             {{ option.type === 'divider' ? '' : option.label }}
           </li>

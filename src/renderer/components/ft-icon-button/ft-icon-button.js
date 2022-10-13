@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { removeWhitespace } from '../../helpers/accessibility'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default Vue.extend({
   name: 'FtIconButton',
@@ -60,7 +60,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    removeWhitespace,
+    sanitizeForHtmlId,
     // used by the share menu
     hideDropdown: function () {
       this.dropdownShown = false

@@ -7,11 +7,11 @@
   >
     <ft-card
       class="promptCard"
-      :aria-labelledby="'dialog-' + removeWhitespace(label)"
+      :aria-labelledby="'dialog-' + sanitizeForHtmlId(label)"
     >
       <slot>
         <h2
-          :id="'dialog-' + removeWhitespace(label)"
+          :id="'dialog-' + sanitizeForHtmlId(label)"
           class="center"
         >
           {{ label }}
@@ -28,15 +28,14 @@
         <ft-flex-box>
           <ft-button
             v-for="(option, index) in optionNames"
-            :id="'prompt-' + removeWhitespace(label) + '-' + index"
+            :id="'prompt-' + sanitizeForHtmlId(label) + '-' + index"
             :key="index"
             :label="option"
             @click="$emit('click', optionValues[index])"
-            @keydown.left.prevent="focusItem(index-1)"
-            @keydown.right.prevent="focusItem(index+1)"
           />
           <ft-button
-            :label="'Close'"
+            :id="'prompt-' + sanitizeForHtmlId(label) + '-close'"
+            :label="$t('Close')"
             tabindex="0"
             text-color="'var(--accent-color)'"
             background-color="'var(--text-with-accent-color)'"

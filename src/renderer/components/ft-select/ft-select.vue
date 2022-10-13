@@ -1,11 +1,11 @@
 <template>
   <div class="select">
     <select
-      :id="removeWhitespace(placeholder)"
+      :id="sanitizeForHtmlId(placeholder)"
       class="select-text"
       :class="{disabled: disabled}"
       :value="value"
-      :name="removeWhitespace(placeholder)"
+      :name="sanitizeForHtmlId(placeholder)"
       :disabled="disabled"
       @change="$emit('change', $event.target.value)"
     >
@@ -25,7 +25,7 @@
     <span class="select-bar" />
     <label
       class="select-label"
-      :for="removeWhitespace(placeholder)"
+      :for="sanitizeForHtmlId(placeholder)"
       :hidden="disabled"
     >
       {{ placeholder }}

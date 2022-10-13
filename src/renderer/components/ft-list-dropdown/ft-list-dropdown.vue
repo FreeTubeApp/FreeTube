@@ -1,11 +1,13 @@
 <template>
   <div class="dropdown">
     <div
-      :id="removeWhitespace(title)"
+      :id="sanitizeForHtmlId(title)"
       class="buttonTitle"
       tabindex="0"
       role="listbox"
-      @keydown="handleIconKeyPress($event)"
+      @keydown.space.prevent="handleIconKeyPress($event)"
+      @keydown.enter.prevent="handleIconKeyPress($event)"
+      @keydown.down.prevent="handleIconKeyPress($event)"
     >
       {{ title }}
       <font-awesome-icon

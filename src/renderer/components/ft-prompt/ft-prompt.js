@@ -2,7 +2,7 @@ import Vue from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import { removeWhitespace } from '../../helpers/accessibility'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default Vue.extend({
   name: 'FtPrompt',
@@ -29,11 +29,28 @@ export default Vue.extend({
       default: () => { return [] }
     }
   },
+  data: function () {
+    return {
+      promptButtons: []
+    }
+  },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.closeEventFunction, true)
+    document.removeEventListener('focus', this.closeEventFunction, true)
+  },
   mounted: function () {
+    document.addEventListener('keydown', this.closeEventFunction, true)
+    document.addEventListener('focus', this.closeEventFunction, true)
+    document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
+    this.promptButtons = Array.from(
+      document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
+    ).filter((e) => {
+      return e.id && e.id.startsWith('prompt')
+    })
     this.focusItem(0)
   },
   methods: {
-    removeWhitespace,
+    sanitizeForHtmlId,
     hide: function() {
       this.$emit('click', null)
     },
@@ -43,8 +60,33 @@ export default Vue.extend({
       }
     },
     focusItem: function (index) {
-      document.querySelector(`#prompt-${removeWhitespace(this.label)}-${index}`)
-        .focus({ focusVisible: true })
+      if (index >= 0 && index < this.promptButtons.length) {
+        this.promptButtons[index].focus({ focusVisible: true })
+      }
+    },
+    // close on escape key and unfocus
+    closeEventFunction: function(event) {
+      const targ = event.target
+      if (event.type === 'keydown') {
+        if (event.key === 'Escape') {
+          event.preventDefault()
+          this.hide()
+        }
+      } else if (targ) { // unfocused
+        if (!targ.id.startsWith('prompt') && targ.className !== 'prompt') {
+          this.hide()
+        }
+      }
+    },
+    arrowKeys: function(e) {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        e.preventDefault()
+        const currentIndex = this.promptButtons.findIndex((cur) => {
+          return cur === e.target
+        })
+        const direction = (e.key === 'ArrowLeft') ? -1 : 1
+        this.focusItem(parseInt(currentIndex) + direction)
+      }
     }
   }
 })

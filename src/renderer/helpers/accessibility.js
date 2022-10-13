@@ -39,6 +39,7 @@ export function handleDropdownKeyboardEvent(event, target, afterElement) {
   return event.key === 'Enter' || event.key === ' '
 }
 
-export function removeWhitespace(attribute) {
-  return attribute.replace(/\s/g, '')
+export function sanitizeForHtmlId(attribute) {
+  // html doesn't like spaces in ids, queryselector/css wants symbols encoded
+  return attribute.replace(/[^A-Za-z0-9]*/g, '')
 }
