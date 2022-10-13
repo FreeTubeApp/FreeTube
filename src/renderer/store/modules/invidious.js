@@ -24,7 +24,7 @@ const actions = {
       const response = await fetch(requestUrl)
       const json = await response.json()
       instances = json.filter((instance) => {
-        if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
+        if (instance[0].includes('.onion') || instance[0].includes('.i2p') || !instance[1].api || (!process.env.IS_ELECTRON && !instance[1].cors)) {
           return false
         } else {
           return true
@@ -51,8 +51,8 @@ const actions = {
       } else {
         console.error('unable to read static file for invidious instances')
         instances = [
-          'https://invidious.snopyta.org',
-          'https://invidious.kavin.rocks/'
+          'https://invidious.sethforprivacy.com',
+          'https://invidious.namazso.eu'
         ]
       }
     }
