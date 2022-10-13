@@ -1718,6 +1718,8 @@ export default Vue.extend({
     },
 
     handleMouseOver: function () {
+      // This addresses a discrepancy that only seems to occur in the mobile version of firefox
+      if (navigator.userAgent.search('Firefox') !== -1 && (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS)) { return }
       this.usingTouch = false
     },
 
