@@ -11,7 +11,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
-import { calculateColorLuminance, getRandomColor, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, copyToClipboard, getRandomColor, showToast } from '../../helpers/utils'
 
 // FIXME: Missing web logic branching
 
@@ -1042,7 +1042,7 @@ export default Vue.extend({
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-            this.copyToClipboard({ content: err.responseJSON.error })
+            copyToClipboard(err.responseJSON.error)
           })
 
           if (this.backendFallback && this.backendPreference === 'invidious') {
@@ -1063,7 +1063,7 @@ export default Vue.extend({
           console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
-            this.copyToClipboard({ content: err })
+            copyToClipboard(err)
           })
 
           if (this.backendFallback && this.backendPreference === 'local') {
@@ -1145,8 +1145,7 @@ export default Vue.extend({
       'showSaveDialog',
       'getUserDataPath',
       'addPlaylist',
-      'addVideo',
-      'copyToClipboard'
+      'addVideo'
     ]),
 
     ...mapMutations([

@@ -4,7 +4,7 @@ import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
-import { showToast } from '../../helpers/utils'
+import { openExternalLink, showToast } from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -117,15 +117,6 @@ async function invokeIRC(context, IRCtype, webCbk, payload = null) {
 }
 
 const actions = {
-  openExternalLink (_, url) {
-    if (process.env.IS_ELECTRON) {
-      const ipcRenderer = require('electron').ipcRenderer
-      ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
-    } else {
-      window.open(url, '_blank')
-    }
-  },
-
   replaceFilenameForbiddenChars(_, filenameOriginal) {
     let filenameNew = filenameOriginal
     let forbiddenChars = {}
@@ -159,43 +150,15 @@ const actions = {
     return filenameNew
   },
 
-  /**
-   * This writes to the clipboard. If an error occurs during the copy,
-   * a toast with the error is shown. If the copy is successful and
-   * there is a success message, a toast with that message is shown.
-   * @param {string} content the content to be copied to the clipboard
-   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
-   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
-   */
-  async copyToClipboard ({ dispatch }, { content, messageOnSuccess, messageOnError }) {
-    if (navigator.clipboard !== undefined && window.isSecureContext) {
-      try {
-        await navigator.clipboard.writeText(content)
-        if (messageOnSuccess !== undefined) {
-          showToast(messageOnSuccess)
-        }
-      } catch (error) {
-        console.error(`Failed to copy ${content} to clipboard`, error)
-        if (messageOnError !== undefined) {
-          showToast(`${messageOnError}: ${error}`, 5000)
-        } else {
-          showToast(`${i18n.t('Clipboard.Copy failed')}: ${error}`, 5000)
-        }
-      }
-    } else {
-      showToast(i18n.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
-    }
-  },
-
   async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+    if (!process.env.IS_ELECTRON) {
+      openExternalLink(url)
+      return
+    }
+
     const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
     const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
     let folderPath = rootState.settings.downloadFolderPath
-
-    if (!process.env.IS_ELECTRON) {
-      dispatch('openExternalLink', url)
-      return
-    }
 
     if (folderPath === '') {
       const options = {
