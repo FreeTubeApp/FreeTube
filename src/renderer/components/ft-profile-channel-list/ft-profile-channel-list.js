@@ -6,6 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtProfileChannelList',
@@ -110,9 +111,7 @@ export default Vue.extend({
   methods: {
     displayDeletePrompt: function () {
       if (this.selectedLength === 0) {
-        this.showToast({
-          message: this.$t('Profile.No channel(s) have been selected')
-        })
+        showToast(this.$t('Profile.No channel(s) have been selected'))
       } else {
         this.showDeletePrompt = true
       }
@@ -141,9 +140,7 @@ export default Vue.extend({
             this.updateProfile(profile)
           })
 
-          this.showToast({
-            message: this.$t('Profile.Profile has been updated')
-          })
+          showToast(this.$t('Profile.Profile has been updated'))
           this.selectNone()
         } else {
           const profile = JSON.parse(JSON.stringify(this.profile))
@@ -157,9 +154,7 @@ export default Vue.extend({
 
           this.updateProfile(profile)
 
-          this.showToast({
-            message: this.$t('Profile.Profile has been updated')
-          })
+          showToast(this.$t('Profile.Profile has been updated'))
           this.selectNone()
         }
       }
@@ -208,7 +203,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateProfile'
     ])
   }

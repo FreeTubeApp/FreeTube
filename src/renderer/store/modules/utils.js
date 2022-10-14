@@ -1,10 +1,10 @@
 import IsEqual from 'lodash.isequal'
-import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
 import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -172,29 +172,18 @@ const actions = {
       try {
         await navigator.clipboard.writeText(content)
         if (messageOnSuccess !== undefined) {
-          dispatch('showToast', {
-            message: messageOnSuccess
-          })
+          showToast(messageOnSuccess)
         }
       } catch (error) {
         console.error(`Failed to copy ${content} to clipboard`, error)
         if (messageOnError !== undefined) {
-          dispatch('showToast', {
-            message: `${messageOnError}: ${error}`,
-            time: 5000
-          })
+          showToast(`${messageOnError}: ${error}`, 5000)
         } else {
-          dispatch('showToast', {
-            message: `${i18n.t('Clipboard.Copy failed')}: ${error}`,
-            time: 5000
-          })
+          showToast(`${i18n.t('Clipboard.Copy failed')}: ${error}`, 5000)
         }
       }
     } else {
-      dispatch('showToast', {
-        message: i18n.t('Clipboard.Cannot access clipboard without a secure connection'),
-        time: 5000
-      })
+      showToast(i18n.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
     }
   },
 
@@ -232,24 +221,18 @@ const actions = {
           fs.mkdirSync(folderPath, { recursive: true })
         } catch (err) {
           console.error(err)
-          dispatch('showToast', {
-            message: err
-          })
+          showToast(err)
           return
         }
       }
       folderPath = path.join(folderPath, fileName)
     }
 
-    dispatch('showToast', {
-      message: i18n.t('Starting download', { videoTitle: title })
-    })
+    showToast(i18n.t('Starting download', { videoTitle: title }))
 
     const response = await fetch(url).catch((error) => {
       console.error(error)
-      dispatch('showToast', {
-        message: errorMessage
-      })
+      showToast(errorMessage)
     })
 
     const reader = response.body.getReader()
@@ -257,9 +240,7 @@ const actions = {
 
     const handleError = (err) => {
       console.error(err)
-      dispatch('showToast', {
-        message: errorMessage
-      })
+      showToast(errorMessage)
     }
 
     const processText = async ({ done, value }) => {
@@ -283,13 +264,9 @@ const actions = {
     fs.writeFile(folderPath, new DataView(buffer), (err) => {
       if (err) {
         console.error(err)
-        dispatch('showToast', {
-          message: errorMessage
-        })
+        showToast(errorMessage)
       } else {
-        dispatch('showToast', {
-          message: i18n.t('Downloading has completed', { videoTitle: title })
-        })
+        showToast(i18n.t('Downloading has completed', { videoTitle: title }))
       }
     })
   },
@@ -777,14 +754,8 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
-  showToast (_, payload) {
-    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
-  },
-
-  showExternalPlayerUnsupportedActionToast: function ({ dispatch }, { externalPlayer, action }) {
-    dispatch('showToast', {
-      message: i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
-    })
+  showExternalPlayerUnsupportedActionToast: function (_, { externalPlayer, action }) {
+    showToast(i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action }))
   },
 
   getExternalPlayerCmdArgumentsData ({ commit }, payload) {
@@ -929,9 +900,7 @@ const actions = {
       ? i18n.t('Video.External Player.video')
       : i18n.t('Video.External Player.playlist')
 
-    dispatch('showToast', {
-      message: i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer })
-    })
+    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })

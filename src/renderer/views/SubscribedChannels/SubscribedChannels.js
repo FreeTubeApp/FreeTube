@@ -6,6 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import ytch from 'yt-channel-info'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'SubscribedChannels',
@@ -139,9 +140,7 @@ export default Vue.extend({
       currentProfile.subscriptions.splice(index, 1)
 
       this.updateProfile(currentProfile)
-      this.showToast({
-        message: this.$t('Channels.Unsubscribed', { channelName: this.channelToUnsubscribe.name })
-      })
+      showToast(this.$t('Channels.Unsubscribed', { channelName: this.channelToUnsubscribe.name }))
 
       index = this.subscribedChannels.findIndex(channel => {
         return channel.id === this.channelToUnsubscribe.id
@@ -206,7 +205,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateProfile',
       'updateSubscriptionDetails',
       'invidiousGetChannelInfo'

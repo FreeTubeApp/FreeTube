@@ -1,6 +1,7 @@
 import i18n from '../../i18n/index'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
+import { showToast } from '../../helpers/utils'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -313,9 +314,7 @@ const stateWithSideEffects = {
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
           // (in this case, English (US))
-          dispatch('showToast',
-            { message: `Locale not found, defaulting to ${defaultLocale}` }
-          )
+          showToast(`Locale not found, defaulting to ${defaultLocale}`)
         }
       }
 
