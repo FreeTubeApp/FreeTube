@@ -1,6 +1,10 @@
 <template>
   <div
-    :class="wrapperClass"
+    class="relative"
+    :class="{
+      'vjs-using-touch': usingTouch,
+      'vjs-hide-play-button': !displayVideoPlayButton
+    }"
     @mouseover="handleMouseOver"
   >
     <video

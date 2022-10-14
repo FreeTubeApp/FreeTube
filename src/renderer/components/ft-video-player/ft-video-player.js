@@ -292,10 +292,6 @@ export default Vue.extend({
 
     screenshotFolder: function() {
       return this.$store.getters.getScreenshotFolderPath
-    },
-
-    wrapperClass: function () {
-      return `relative ${this.usingTouch ? 'vjs-using-touch' : ''} ${!this.displayVideoPlayButton ? 'vjs-hide-play-button' : ''}`
     }
   },
   watch: {
