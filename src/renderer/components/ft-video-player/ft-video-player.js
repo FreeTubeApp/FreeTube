@@ -295,7 +295,7 @@ export default Vue.extend({
     },
 
     wrapperClass: function () {
-      return `relative ${this.usingTouch ? 'vjs-using-touch' : ''}`
+      return `relative ${this.usingTouch ? 'vjs-using-touch' : ''} ${!this.displayVideoPlayButton ? 'vjs-hide-play-button' : ''}`
     }
   },
   watch: {

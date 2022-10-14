@@ -2227,6 +2227,10 @@ video::-webkit-media-text-track-display {
   content: "\f101" !important;
 }
 
+.vjs-hide-play-button .video-js .vjs-touch-overlay .vjs-play-control .vjs-icon-placeholder:before {
+  content: " " !important;
+}
+
 .video-js .vjs-touch-overlay.skip {
   -webkit-filter: drop-shadow(0px 0px 4px black);
   filter: drop-shadow(0px 0px 4px black);
