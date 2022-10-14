@@ -1379,7 +1379,7 @@ export default Vue.extend({
           ]
         }
 
-        const response = await this.showSaveDialog({ options, useModal: true })
+        const response = await this.showSaveDialog(options)
         if (wasPlaying) {
           this.player.play()
         }

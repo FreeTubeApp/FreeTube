@@ -344,10 +344,10 @@ const actions = {
     return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
   },
 
-  async showSaveDialog (context, { options, useModal = false }) {
+  async showSaveDialog (context, options) {
     // TODO: implement showSaveDialog web compatible callback
     const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, { options, useModal })
+    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
   },
 
   async getUserDataPath (context) {
