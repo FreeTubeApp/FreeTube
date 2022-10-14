@@ -29,10 +29,10 @@ Close: 'Затвори'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Верзија $ је сада достуна!  Кликните
+Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber} је сада достуна!  Кликните
   за више детаља'
 Download From Site: 'Преузми са сајта'
-A new blog is now available, $. Click to view more: 'Нови блог је сада доступан, $.
+A new blog is now available, {blogTitle}. Click to view more: 'Нови блог је сада доступан, {blogTitle}.
   Кликни за приказ више'
 
 # Search Bar
@@ -339,15 +339,15 @@ Profile:
   Your profile name cannot be empty: 'Име профила не може да буде празно'
   Profile has been created: 'Профил је креиран'
   Profile has been updated: 'Профил је ажуриран'
-  Your default profile has been set to $: 'Ваш подразумеван профил је постављен на
-    $'
-  Removed $ from your profiles: 'Уклоњено $ од ваших профила'
+  Your default profile has been set to {profile}: 'Ваш подразумеван профил је постављен на
+    {profile}'
+  Removed {profile} from your profiles: 'Уклоњено {profile} од ваших профила'
   Your default profile has been changed to your primary profile: 'Ваш подразумевани
     профил је промењен на ваш примарни профил'
-  $ is now the active profile: '$ је сада активан профил'
+  '{profile} is now the active profile': '{profile} је сада активан профил'
   Subscription List: 'Листа праћања'
   Other Channels: 'Остали канали'
-  $ selected: '$ одабрано'
+  '{number} selected': '{number} одабрано'
   Select All: 'Све одабрати'
   Select None: 'Скини одабирање'
   Delete Selected: 'Избриши одабрано'
@@ -367,7 +367,7 @@ Channel:
   Subscribe: 'Прати'
   Unsubscribe: 'Не прати више'
   Channel has been removed from your subscriptions: 'Канал је уклоњен из праћања'
-  Removed subscription from $ other channel(s): 'Праћење уклоњен из $ остала канала'
+  Removed subscription from {count} other channel(s): 'Праћење уклоњен из {count} остала канала'
   Added channel to your subscriptions: 'Канал додат у прећења'
   Search Channel: 'Тражи канал'
   Your search results have returned 0 results: 'Резултати претраге вратили су 0 резултата'
@@ -473,7 +473,6 @@ Video:
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
 Videos:

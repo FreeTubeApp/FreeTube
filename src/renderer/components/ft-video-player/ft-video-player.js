@@ -14,7 +14,7 @@ import 'videojs-http-source-selector'
 
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, colors, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -598,9 +598,7 @@ export default Vue.extend({
 
     showSkippedSponsorSegmentInformation(category) {
       const translatedCategory = this.sponsorBlockTranslatedCategory(category)
-      this.showToast({
-        message: `${this.$t('Video.Skipped segment')} ${translatedCategory}`
-      })
+      showToast(`${this.$t('Video.Skipped segment')} ${translatedCategory}`)
     },
 
     sponsorBlockTranslatedCategory(category) {
@@ -1181,14 +1179,10 @@ export default Vue.extend({
 
       if (!this.player.loop()) {
         const currentTheme = this.$store.state.settings.mainColor
-        const colorNames = this.$store.state.utils.colorNames
-        const colorValues = this.$store.state.utils.colorValues
 
-        const nameIndex = colorNames.findIndex((color) => {
-          return color === currentTheme
-        })
+        const colorValue = colors.find(color => color.name === currentTheme).value
 
-        const themeTextColor = calculateColorLuminance(colorValues[nameIndex])
+        const themeTextColor = calculateColorLuminance(colorValue)
 
         loopButton.classList.add('vjs-icon-loop-active')
 
@@ -1347,9 +1341,7 @@ export default Vue.extend({
         })
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
-        this.showToast({
-          message: this.$t('Screenshot Error').replace('$', err.message)
-        })
+        showToast(this.$t('Screenshot Error', { error: err.message }))
         canvas.remove()
         return
       }
@@ -1387,7 +1379,7 @@ export default Vue.extend({
           ]
         }
 
-        const response = await this.showSaveDialog({ options, useModal: true })
+        const response = await this.showSaveDialog(options)
         if (wasPlaying) {
           this.player.play()
         }
@@ -1415,9 +1407,7 @@ export default Vue.extend({
             fs.mkdirSync(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
-            this.showToast({
-              message: this.$t('Screenshot Error').replace('$', err)
-            })
+            showToast(this.$t('Screenshot Error', { error: err }))
             canvas.remove()
             return
           }
@@ -1432,13 +1422,9 @@ export default Vue.extend({
           fs.writeFile(filePath, arr, (err) => {
             if (err) {
               console.error(err)
-              this.showToast({
-                message: this.$t('Screenshot Error').replace('$', err)
-              })
+              showToast(this.$t('Screenshot Error', { error: err }))
             } else {
-              this.showToast({
-                message: this.$t('Screenshot Success').replace('$', filePath)
-              })
+              showToast(this.$t('Screenshot Success', { filePath }))
             }
           })
         })
@@ -1711,9 +1697,7 @@ export default Vue.extend({
     },
     toggleShowStatsModal: function() {
       if (this.format !== 'dash') {
-        this.showToast({
-          message: this.$t('Video.Stats.Video statistics are not available for legacy videos')
-        })
+        showToast(this.$t('Video.Stats.Video statistics are not available for legacy videos'))
       } else {
         this.showStatsModal = !this.showStatsModal
       }
@@ -1925,7 +1909,6 @@ export default Vue.extend({
 
     ...mapActions([
       'updateDefaultCaptionSettings',
-      'showToast',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
       'getPicturesPath',

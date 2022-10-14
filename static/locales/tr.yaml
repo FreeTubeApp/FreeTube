@@ -29,10 +29,10 @@ Close: 'Kapat'
 Back: 'Geri'
 Forward: 'İleri'
 
-Version $ is now available!  Click for more details: '$ sürümü çıktı!  Daha fazla
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla
   ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
-A new blog is now available, $. Click to view more: 'Yeni blog gönderisi var, $. Daha
+A new blog is now available, {blogTitle}. Click to view more: 'Yeni blog gönderisi var, {blogTitle}. Daha
   fazlasını görüntülemek için tıklayın'
 
 # Search Bar
@@ -150,7 +150,7 @@ Settings:
     Current instance will be randomized on startup: Geçerli örnek başlangıçta rastgele
       olacak
     No default instance has been set: Öntanımlı örnek ayarlanmadı
-    The currently set default instance is $: Şu anda ayarlanan öntanımlı örnek $
+    The currently set default instance is {instance}: Şu anda ayarlanan öntanımlı örnek {instance}
     Current Invidious Instance: Geçerli Invidious Örneği
     External Link Handling:
       No Action: Eylem Yok
@@ -332,7 +332,7 @@ Settings:
     Export Playlists: Oynatma Listelerini Dışa Aktar
     All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
       içe aktarıldı
-    Playlist insufficient data: '"$" oynatma listesi için yetersiz veri, öge atlanıyor'
+    Playlist insufficient data: '"{playlist}" oynatma listesi için yetersiz veri, öge atlanıyor'
     Import Playlists: Oynatma Listelerini İçe Aktar
     All playlists has been successfully exported: Tüm oynatma listeleri başarıyla
       dışa aktarıldı
@@ -521,14 +521,14 @@ Profile:
   Your profile name cannot be empty: 'Profil adı boş bırakılamaz'
   Profile has been created: 'Profil oluşturuldu'
   Profile has been updated: 'Profil güncellendi'
-  Your default profile has been set to $: 'Öntanımlı profiliniz $ olarak ayarlandı'
-  Removed $ from your profiles: '$ Profillerinizden kaldırıldı'
+  Your default profile has been set to {profile}: 'Öntanımlı profiliniz {profile} olarak ayarlandı'
+  Removed {profile} from your profiles: '{profile} Profillerinizden kaldırıldı'
   Your default profile has been changed to your primary profile: 'Öntanımlı profiliniz
     birincil profiliniz olarak değiştirildi'
-  $ is now the active profile: '$ artık etkin profil'
+  '{profile} is now the active profile': '{profile} artık etkin profil'
   Subscription List: 'Abonelik Listesi'
   Other Channels: 'Diğer Kanallar'
-  $ selected: '$ seçildi'
+  '{number} selected': '{number} seçildi'
   Select All: 'Tümünü Seç'
   Select None: 'Hiçbirini Seçme'
   Delete Selected: 'Seçilenleri Sil'
@@ -550,7 +550,7 @@ Channel:
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
   Channel has been removed from your subscriptions: 'Kanal aboneliklerinizden kaldırıldı'
-  Removed subscription from $ other channel(s): 'Diğer $ kanallarından abonelik kaldırıldı'
+  Removed subscription from {count} other channel(s): 'Diğer {count} kanallarından abonelik kaldırıldı'
   Added channel to your subscriptions: 'Kanal aboneliklerinize eklendi'
   Search Channel: 'Kanalda ara'
   Your search results have returned 0 results: 'Arama sonuçlarınız 0 sonuç verdi'
@@ -644,8 +644,7 @@ Video:
     Less than a minute: Bir dakikadan az
     In less than a minute: Bir dakikadan kısa sürede
   Published on: 'Yayımlanma tarihi'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % önce'
+  Publicationtemplate: '{number} {unit} önce'
 #& Videos
   Audio:
     Best: En iyi
@@ -685,11 +684,11 @@ Video:
       opening playlists: çalma listelerini açma
       setting a playback rate: oynatma hızı ayarlama
       starting video at offset: belirli bir konumda video başlatma
-    UnsupportedActionTemplate: '$ desteklemiyor: %'
-    OpeningTemplate: $, % içinde açılıyor...
+    UnsupportedActionTemplate: '{externalPlayer} desteklemiyor: {action}'
+    OpeningTemplate: '{videoOrPlaylist}, {externalPlayer} içinde açılıyor...'
     playlist: oynatma listesi
     video: video
-    OpenInTemplate: $ içinde aç
+    OpenInTemplate: '{externalPlayer} içinde aç'
   Premieres on: İlk gösterim tarihi
   Stats:
     volume: Ses Seviyesi
@@ -784,7 +783,7 @@ Comments:
   Sort by: Sıralama ölçütü
   No more comments available: Başka yorum yok
   Show More Replies: Daha Fazla Yanıt Göster
-  From $channelName: $channelName'den
+  From {channelName}: "{channelName}'den"
   And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
@@ -869,7 +868,7 @@ Tooltips:
     External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
       Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
-    DefaultCustomArgumentsTemplate: "(Öntanımlı: '$')"
+    DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
@@ -881,7 +880,7 @@ Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü
   açılamıyor
 Open New Window: Yeni Pencere Aç
 Default Invidious instance has been cleared: Öntanımlı Invidious örneği temizlendi
-Default Invidious instance has been set to $: Öntanımlı Invidious örneği $ olarak
+Default Invidious instance has been set to {instance}: Öntanımlı Invidious örneği {instance} olarak
   ayarlandı
 Search Bar:
   Clear Input: Girişi Temizle
@@ -890,16 +889,16 @@ External link opening has been disabled in the general settings: Harici bağlant
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
   misiniz?
 Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
-Starting download: '"$" indirme işlemi başlatılıyor'
-Downloading has completed: '"$" indirme işlemi tamamlandı'
-Downloading failed: '"$" indirilirken bir sorun oluştu'
+Starting download: '"{videoTitle}" indirme işlemi başlatılıyor'
+Downloading has completed: '"{videoTitle}" indirme işlemi tamamlandı'
+Downloading failed: '"{videoTitle}" indirilirken bir sorun oluştu'
 Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
   geri dönülüyor.
-Screenshot Success: Ekran görüntüsü "$" olarak kaydedildi
-Screenshot Error: Ekran görüntüsü başarısız oldu. $
+Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
+Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
 Age Restricted:
-  This $contentType is age restricted: Bu $ yaş kısıtlamalıdır
+  The currently set default instance is {instance}: Bu {instance} yaş kısıtlamalıdır
   Type:
     Channel: Kanal
     Video: Video
@@ -908,10 +907,10 @@ Channels:
   Channels: Kanallar
   Title: Kanal Listesi
   Search bar placeholder: Kanalları Ara
-  Count: $ kanal bulundu.
+  Count: '{number} kanal bulundu.'
   Unsubscribe: Abonelikten çık
-  Unsubscribed: $ aboneliklerinizden kaldırıldı
-  Unsubscribe Prompt: '"$" aboneliğinden çıkmak istediğinizden emin misiniz?'
+  Unsubscribed: '{channelName} aboneliklerinizden kaldırıldı'
+  Unsubscribe Prompt: '"{channelName}" aboneliğinden çıkmak istediğinizden emin misiniz?'
 Clipboard:
   Copy failed: Panoya kopyalanamadı
   Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya

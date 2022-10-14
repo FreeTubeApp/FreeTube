@@ -7,6 +7,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'PrivacySettings',
@@ -59,9 +60,7 @@ export default Vue.extend({
 
       if (option === 'yes') {
         this.clearSessionSearchHistory()
-        this.showToast({
-          message: this.$t('Settings.Privacy Settings.Search cache has been cleared')
-        })
+        showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
       }
     },
 
@@ -85,9 +84,7 @@ export default Vue.extend({
 
       if (option === 'yes') {
         this.removeAllHistory()
-        this.showToast({
-          message: this.$t('Settings.Privacy Settings.Watch history has been cleared')
-        })
+        showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
       }
     },
 
@@ -122,8 +119,7 @@ export default Vue.extend({
       'clearSessionSearchHistory',
       'updateProfile',
       'removeProfile',
-      'updateActiveProfile',
-      'showToast'
+      'updateActiveProfile'
     ])
   }
 })

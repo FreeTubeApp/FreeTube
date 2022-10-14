@@ -2,12 +2,19 @@
   background-color: var(--card-bg-color)
   width: 85%
   margin: 0 auto
+  @media only screen and (max-width: 800px)
+    width: 100%
 
   &[open]
     padding-bottom: 15px
 
-  @media only screen and (max-width: 680px)
-    width: 90%
+  > div
+    width: 100%
+    padding: 0px 20px
+    box-sizing: border-box
+  > div:not(:last-child):not(.ft-flex-box)
+    @media only screen and (max-width: 800px)
+      margin-bottom: 20px
 
 .sectionLine
   width: 100%
@@ -52,3 +59,24 @@
 @media only screen and (max-width: 500px)
   :deep(.settingsFlexStart500px)
     justify-content: flex-start
+
+@media only screen and (max-width: 680px)
+  .settingsSection 
+    > div 
+      :deep(.text.bottom)
+        left: -85px
+    :deep(.switch-ctn.containsTooltip)
+      left: -10px
+      margin-right: 5px
+      padding: 0px 10px 0px 10px
+    :not(.select)
+      > :deep(.tooltip)
+        display: inline-block
+        position: absolute
+        right: -25px
+        top: 12px
+    .settingsFlexStart460px :deep(.tooltip)
+      right: 0px
+      top: -2px
+    :deep(.switch-ctn)
+      margin: 10px 7px

@@ -148,7 +148,7 @@ Settings:
     Current instance will be randomized on startup: Beim Start wird eine zufällige
       Instanz festgelegt
     No default instance has been set: Es wurde keine Standardinstanz gesetzt
-    The currently set default instance is $: Die aktuelle Standardinstanz ist $
+    The currently set default instance is {instance}: Die aktuelle Standardinstanz ist {instance}
     Current Invidious Instance: Aktuelle Invidious-Instanz
     Clear Default Instance: Standardinstanz zurücksetzen
     Set Current Instance as Default: Derzeitige Instanz als Standard festlegen
@@ -365,7 +365,7 @@ Settings:
     Manage Subscriptions: Abonnements verwalten
     Export Playlists: Wiedergabelisten exportieren
     Import Playlists: Wiedergabelisten importieren
-    Playlist insufficient data: Unzureichende Daten für „$“-Wiedergabeliste, Element
+    Playlist insufficient data: Unzureichende Daten für „{playlist}“-Wiedergabeliste, Element
       übersprungen
     All playlists has been successfully imported: Alle Wiedergabelisten wurden erfolgreich
       importiert
@@ -540,7 +540,7 @@ Channel:
     Channel Description: Kanalbeschreibung
     Featured Channels: Empfohlene Kanäle
   Added channel to your subscriptions: Der Kanal wurde deinen Abonnements hinzugefügt
-  Removed subscription from $ other channel(s): Es wurden $ anderen Kanälen deabonniert
+  Removed subscription from {count} other channel(s): Es wurden {count} anderen Kanälen deabonniert
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
     entfernt
 Video:
@@ -601,7 +601,7 @@ Video:
     Less than a minute: Weniger als einer Minute
     In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
-  Publicationtemplate: vor $ %
+  Publicationtemplate: vor {number} {unit}
 
 #& Videos
   Video has been removed from your history: Das Video wurde aus deinem Verlauf entfernt
@@ -646,7 +646,7 @@ Video:
     filler: Füller
   Skipped segment: Segment übersprungen
   External Player:
-    OpenInTemplate: In $ öffnen
+    OpenInTemplate: In {externalPlayer} öffnen
     Unsupported Actions:
       setting a playback rate: Wiedergabegeschwindigkeit festlegen
       starting video at offset: Starte Video an Stelle
@@ -657,8 +657,8 @@ Video:
         gewähltes Video aus einer Wiedergabeliste (Falle zurück auf normales Öffnen
         des Videos)
       opening playlists: Wiedergabelisten öffnen
-    UnsupportedActionTemplate: '$ unterstützt das nicht: %'
-    OpeningTemplate: $ wird in % geöffnet …
+    UnsupportedActionTemplate: '{externalPlayer} unterstützt das nicht: {action}'
+    OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet …'
     playlist: Wiedergabeliste
     video: Video
   Premieres on: Premiere am
@@ -765,7 +765,7 @@ Comments:
   Top comments: Top-Kommentare
   Sort by: Sortiert nach
   Show More Replies: Mehr Antworten zeigen
-  From $channelName: von $channelName
+  From {channelName}: von {channelName}
   And others: und andere
   Pinned by: Angeheftet von
   Member: Mitglied
@@ -796,11 +796,11 @@ Yes: Ja
 No: Nein
 Locale Name: Deutsch
 Profile:
-  $ is now the active profile: $ ist jetzt dein aktives Profil
+  '{profile} is now the active profile': '{profile} ist jetzt dein aktives Profil'
   Your default profile has been changed to your primary profile: Dein Hauptprofil
     wurde als Standardprofil festgelegt
-  Removed $ from your profiles: $ wurde aus deinen Profilen entfernt
-  Your default profile has been set to $: $ wurde als Standardprofil festgelegt
+  Removed {profile} from your profiles: '{profile} wurde aus deinen Profilen entfernt'
+  Your default profile has been set to {profile}: '{profile} wurde als Standardprofil festgelegt'
   Profile has been created: Das Profil wurde erstellt
   Profile has been updated: Das Profil wurde aktualisiert
   Your profile name cannot be empty: Der Profilname darf nicht leer sein
@@ -831,17 +831,17 @@ Profile:
   Delete Selected: Ausgewählte löschen
   Select None: Alles abwählen
   Select All: Alles auswählen
-  $ selected: $ ausgewählt
+  '{number} selected': '{number} ausgewählt'
   Other Channels: Andere Kanäle
   Subscription List: Abonnement-Liste
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
   Profile Settings: Profileinstellungen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
-A new blog is now available, $. Click to view more: Ein neuer Blogeintrag ist verfügbar,
-  $. Um ihn zu öffnen klicken
+A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag ist verfügbar,
+  {blogTitle}. Um ihn zu öffnen klicken
 Download From Site: Von der Website herunterladen
-Version $ is now available!  Click for more details: Version $ ist jetzt verfügbar!  Für
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für
   mehr Details klicken
 Tooltips:
   General Settings:
@@ -899,7 +899,7 @@ Tooltips:
       ein Symbol angezeigt, mit dem Sie das Video (und die Wiedergabeliste, falls
       unterstützt) im externen Player öffnen können. Achtung, die Einstellungen von
       Invidious wirken sich nicht auf externe Player aus.
-    DefaultCustomArgumentsTemplate: '(Standardwert: „$“)'
+    DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -911,34 +911,34 @@ Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, k
   in FreeTube nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
 Default Invidious instance has been cleared: Standard-Invidious-Instanz wurde zurückgesetzt
-Default Invidious instance has been set to $: Standard-Invidious-Instanz wurde auf
-  $ gesetzt
+Default Invidious instance has been set to {instance}: Standard-Invidious-Instanz wurde auf
+  {instance} gesetzt
 Search Bar:
   Clear Input: Eingabe löschen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
   Links wurde in den allgemeinen Einstellungen deaktiviert
-Downloading has completed: Das Herunterladen von $ ist abgeschlossen
-Starting download: Das Herunterladen von $ hat begonnen
-Downloading failed: Es gab ein Problem beim Herunterladen von $
-Screenshot Success: Bildschirmfoto gespeichert als „$“
-Screenshot Error: Bildschirmfoto fehlgeschlagen. $
+Downloading has completed: Das Herunterladen von {videoTitle} ist abgeschlossen
+Starting download: Das Herunterladen von {videoTitle} hat begonnen
+Downloading failed: Es gab ein Problem beim Herunterladen von {videoTitle}
+Screenshot Success: Bildschirmfoto gespeichert als „{filePath}“
+Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Age Restricted:
   Type:
     Video: Video
     Channel: Kanal
-  This $contentType is age restricted: Dieses $ ist altersbeschränkt
+  This {videoOrPlaylist} is age restricted: Dieses {videoOrPlaylist} ist altersbeschränkt
 Channels:
   Channels: Kanäle
   Title: Kanalliste
   Search bar placeholder: Kanäle durchsuchen
-  Count: $ Kanal/Kanäle gefunden.
+  Count: '{number} Kanal/Kanäle gefunden.'
   Empty: Ihre Kanalliste ist derzeit leer.
   Unsubscribe: Abo entfernen
-  Unsubscribed: $ wurde aus deinen Abonnements entfernt
-  Unsubscribe Prompt: Bist du sicher, dass du „$“ aus dem Abos entfernen willst?
+  Unsubscribed: '{channelName} wurde aus deinen Abonnements entfernt'
+  Unsubscribe Prompt: Bist du sicher, dass du „{channelName}“ aus dem Abos entfernen willst?
 Clipboard:
   Copy failed: Kopieren in die Zwischenablage fehlgeschlagen
   Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage

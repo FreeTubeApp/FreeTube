@@ -5,6 +5,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import { calculateLengthInSeconds } from '@freetube/yt-trending-scraper/src/HtmlParser'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Search',
@@ -199,17 +200,11 @@ export default Vue.extend({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err })
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          this.copyToClipboard({ content: err })
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
+          showToast(this.$t('Falling back to Invidious API'))
           this.performSearchInvidious(payload)
         } else {
           this.isLoading = false
@@ -266,17 +261,11 @@ export default Vue.extend({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err })
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          this.copyToClipboard({ content: err })
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Local API')
-          })
+          showToast(this.$t('Falling back to Local API'))
           this.performSearchLocal(payload)
         } else {
           this.isLoading = false
@@ -297,19 +286,13 @@ export default Vue.extend({
 
       if (this.apiUsed === 'local') {
         if (this.amountOfResults <= this.shownResults.length) {
-          this.showToast({
-            message: this.$t('Search Filters.There are no more results for this search')
-          })
+          showToast(this.$t('Search Filters.There are no more results for this search'))
         } else {
-          this.showToast({
-            message: this.$t('Search Filters["Fetching results. Please wait"]')
-          })
+          showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
           this.performSearchLocal(payload)
         }
       } else {
-        this.showToast({
-          message: this.$t('Search Filters["Fetching results. Please wait"]')
-        })
+        showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
         this.performSearchInvidious(payload)
       }
     },
@@ -332,7 +315,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'ytSearch',
       'invidiousAPICall',
       'copyToClipboard'

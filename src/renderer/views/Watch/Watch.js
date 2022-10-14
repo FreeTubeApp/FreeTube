@@ -15,7 +15,7 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
-import { buildVTTFileLocally } from '../../helpers/utils'
+import { buildVTTFileLocally, showToast } from '../../helpers/utils'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -560,10 +560,10 @@ export default Vue.extend({
               }
             } else {
               // video might be region locked or something else. This leads to no formats being available
-              this.showToast({
-                message: this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
-                time: 7000
-              })
+              showToast(
+                this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
+                7000
+              )
               this.handleVideoEnded()
               return
             }
@@ -627,7 +627,7 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
+          showToast({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
@@ -636,9 +636,7 @@ export default Vue.extend({
           })
           console.error(err)
           if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
-            this.showToast({
-              message: this.$t('Falling back to Invidious API')
-            })
+            showToast(this.$t('Falling back to Invidious API'))
             this.getVideoInformationInvidious()
           } else {
             this.isLoading = false
@@ -853,7 +851,7 @@ export default Vue.extend({
         .catch(err => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
+          showToast({
             message: `${errorMessage}: ${err.responseText}`,
             time: 10000,
             action: () => {
@@ -862,9 +860,7 @@ export default Vue.extend({
           })
           console.error(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
-            this.showToast({
-              message: this.$t('Falling back to Local API')
-            })
+            showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {
             this.isLoading = false
@@ -1046,7 +1042,7 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
+          showToast({
             message: `${errorMessage}: ${err}`,
             time: 10000,
             action: () => {
@@ -1055,9 +1051,7 @@ export default Vue.extend({
           })
           console.error(err)
           if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
-            this.showToast({
-              message: this.$t('Falling back to Invidious API')
-            })
+            showToast(this.$t('Falling back to Invidious API'))
             this.getVideoInformationInvidious()
           }
         })
@@ -1069,9 +1063,7 @@ export default Vue.extend({
       }
 
       if (this.dashSrc === null) {
-        this.showToast({
-          message: this.$t('Change Format.Dash formats are not available for this video')
-        })
+        showToast(this.$t('Change Format.Dash formats are not available for this video'))
         return
       }
       const watchedProgress = this.getWatchedProgress()
@@ -1116,9 +1108,7 @@ export default Vue.extend({
       }
 
       if (this.audioSourceList === null) {
-        this.showToast({
-          message: this.$t('Change Format.Audio formats are not available for this video')
-        })
+        showToast(this.$t('Change Format.Audio formats are not available for this video'))
         return
       }
 
@@ -1154,9 +1144,7 @@ export default Vue.extend({
             this.$router.push({
               path: `/watch/${nextVideoId}`
             })
-            this.showToast({
-              message: this.$t('Playing Next Video')
-            })
+            showToast(this.$t('Playing Next Video'))
           }
         }
       }, nextVideoInterval * 1000)
@@ -1170,18 +1158,13 @@ export default Vue.extend({
           return
         }
 
-        this.showToast({
-          message: this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond }),
-          // To avoid message flashing
-          // `time` is manually tested to be 700
-          time: 700,
-          action: () => {
-            clearTimeout(this.playNextTimeout)
-            clearInterval(this.playNextCountDownIntervalId)
-            this.showToast({
-              message: this.$t('Canceled next video autoplay')
-            })
-          }
+        // To avoid message flashing
+        // `time` is manually tested to be 700
+        const message = this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
+        showToast(message, 700, () => {
+          clearTimeout(this.playNextTimeout)
+          clearInterval(this.playNextCountDownIntervalId)
+          showToast(this.$t('Canceled next video autoplay'))
         })
 
         // At least this var should be updated AFTER showing the message
@@ -1536,7 +1519,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateHistory',
       'updateWatchProgress',
       'getUserDataPath',

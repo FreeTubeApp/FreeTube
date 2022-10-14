@@ -144,8 +144,8 @@ Settings:
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
     No default instance has been set: No se ha especificado una instancia predeterminada
-    The currently set default instance is $: La instancia predeterminada actual es
-      $
+    The currently set default instance is {instance}: La instancia predeterminada actual es
+      {instance}
     Current Invidious Instance: Instancia actual de Invidious
     Clear Default Instance: Quitar la instancia por defecto
     Set Current Instance as Default: Establecer la instancia actual como la instancia
@@ -331,7 +331,7 @@ Settings:
     Import Playlists: Importar listas de reproducción
     Export Playlists: Exportar listas de reproducción
     Playlist insufficient data: Datos insuficientes para la lista de reproducción
-      «$», omitiendo el elemento
+      «{playlist}», omitiendo el elemento
     All playlists has been successfully imported: Todas las listas de reproducción
       se han importado con éxito
     All playlists has been successfully exported: Todas las listas de reproducción
@@ -511,12 +511,12 @@ Profile:
   Your profile name cannot be empty: 'Tu nombre de perfil no puede estar vacío'
   Profile has been created: 'Se ha creado el perfil'
   Profile has been updated: 'El perfil se ha actualizado'
-  Your default profile has been set to $: 'Tu perfil predeterminado se ha establecido
-    como $'
-  Removed $ from your profiles: 'Eliminado $ de tus perfiles'
+  Your default profile has been set to {profile}: 'Tu perfil predeterminado se ha establecido
+    como {profile}'
+  Removed {profile} from your profiles: 'Eliminado {profile} de tus perfiles'
   Your default profile has been changed to your primary profile: 'Tu perfil predeterminado
     ha sido cambiado a tu perfil principal'
-  $ is now the active profile: '$ es ahora el perfil activo'
+  '{profile} is now the active profile': '{profile} es ahora el perfil activo'
 #On Channel Page
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ¿Está
     seguro de que desea eliminar los canales seleccionados? Esto no eliminará el canal
@@ -530,7 +530,7 @@ Profile:
   Delete Selected: Eliminar seleccionados
   Select None: No seleccionar nada
   Select All: Seleccionar todo
-  $ selected: $ seleccionados
+  '{number} selected': '{number} seleccionados'
   Other Channels: Otros canales
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
@@ -565,7 +565,7 @@ Channel:
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
   Added channel to your subscriptions: Canal añadido a tus suscripciones
-  Removed subscription from $ other channel(s): Suscripción eliminada de $ otros canales
+  Removed subscription from {count} other channel(s): Suscripción eliminada de {count} otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     tus suscripciones
 Video:
@@ -632,8 +632,7 @@ Video:
     Less than a minute: Menos de un minuto
     In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Hace $ %'
+  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Play Previous Video: Reproducir el vídeo anterior
   Play Next Video: Reproducir vídeo siguiente
@@ -674,7 +673,7 @@ Video:
   External Player:
     playlist: lista de reproducción
     video: vídeo
-    OpenInTemplate: Abrir en $
+    OpenInTemplate: Abrir en {externalPlayer}
     Unsupported Actions:
       looping playlists: reproducir en bucle las listas de reproducción
       shuffling playlists: aleatorizar las listas de reproducción
@@ -684,8 +683,8 @@ Video:
       opening playlists: abrir listas de reproducción
       setting a playback rate: establecer una velocidad de reproducción
       starting video at offset: iniciar el vídeo en un punto dado
-    UnsupportedActionTemplate: '$ no soporta: %'
-    OpeningTemplate: Abriendo $ en %...
+    UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
+    OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
   Premieres on: Se estrena el
   Stats:
     bandwidth: Velocidad de conexión
@@ -782,7 +781,7 @@ Comments:
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
   Show More Replies: Mostrar más respuestas
-  From $channelName: de $channelName
+  From {channelName}: de {channelName}
   And others: y otros
   Pinned by: Fijado por
   Member: Miembro
@@ -809,10 +808,10 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
-  $. Haga clic para saber más
+A new blog is now available, {blogTitle}. Click to view more: 'Nueva publicación del blog disponible,
+  {blogTitle}. Haga clic para saber más'
 Download From Site: Descargar desde el sitio web
-Version $ is now available!  Click for more details: ¡La versión $ está disponible!
+Version {versionNumber} is now available!  Click for more details: ¡La versión {versionNumber} está disponible!
   Haz clic para saber más
 The playlist has been reversed: Orden de lista de reproducción invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
@@ -875,7 +874,7 @@ Tooltips:
       abrir el vídeo (lista de reproducción si es compatible) en el reproductor externo,
       en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
       externos.
-    DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
+    DefaultCustomArgumentsTemplate: '(Predeterminado: «{defaultCustomArguments}»)'
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
   puede abrir en la aplicación
@@ -888,34 +887,34 @@ Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic p
   Haz clic para cancelar.
 Default Invidious instance has been cleared: La instancia de Invidious predeterminada
   ha sido borrada
-Default Invidious instance has been set to $: La instancia de Invidious predeterminada
-  ha sido establecida como $
+Default Invidious instance has been set to {instance}: La instancia de Invidious predeterminada
+  ha sido establecida como {instance}
 Search Bar:
   Clear Input: Borrar entrada
 External link opening has been disabled in the general settings: Se ha desactivado
   la apertura de enlaces externos en la configuración general
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
   enlace?
-Starting download: Inicio de la descarga de «$»
-Downloading has completed: '«$» ha terminado de descargarse'
-Downloading failed: Hubo un problema al descargar «$»
-Screenshot Success: Captura de pantalla guardada como «$»
-Screenshot Error: Captura de pantalla fallida. $
+Starting download: Inicio de la descarga de «{videoTitle}»
+Downloading has completed: '«{videoTitle}» ha terminado de descargarse'
+Downloading failed: Hubo un problema al descargar «{videoTitle}»
+Screenshot Success: Captura de pantalla guardada como «{filePath}»
+Screenshot Error: Captura de pantalla fallida. {error}
 New Window: Nueva ventana
 Channels:
   Channels: Canales
   Title: Lista de canales
   Search bar placeholder: Buscar canales
-  Count: $ canal(es) encontrado(s).
+  Count: '{number} canal(es) encontrado(s).'
   Empty: Tu lista de canales está actualmente vacía.
   Unsubscribe: Cancelar la suscripción
-  Unsubscribed: $ ha sido eliminado de tus suscripciones
-  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "$"?
+  Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
+  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "{channelName}"?
 Age Restricted:
   Type:
     Channel: Canal
     Video: Vídeo
-  This $contentType is age restricted: Este $ tiene restricción de edad
+  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción de edad
 Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles

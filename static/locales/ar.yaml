@@ -141,7 +141,7 @@ Settings:
     Current instance will be randomized on startup: سيتم عشوائية المثيل الحالي عند
       بدء التشغيل
     No default instance has been set: لم يتم تعيين مثيل افتراضي
-    The currently set default instance is $: المثيل الافتراضي المحدد حاليا هو $
+    The currently set default instance is {instance}: المثيل الافتراضي المحدد حاليا هو {instance}
     Current Invidious Instance: المثيل الحالي Invidious
     Clear Default Instance: مسح المثيل الافتراضي
     External Link Handling:
@@ -352,7 +352,7 @@ Settings:
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
-    Playlist insufficient data: بيانات غير كافية لقائمة التشغيل "$"، تخطي العنصر
+    Playlist insufficient data: ''
     All playlists has been successfully exported: تم تصدير جميع قوائم التشغيل بنجاح
     Import Playlists: استيراد قوائم التشغيل
     Export Playlists: تصدير قوائم التشغيل
@@ -502,11 +502,11 @@ Profile:
   Your profile name cannot be empty: 'لا يمكن أن يكون اسم ملفك الشخصي فارغاً'
   Profile has been created: 'تم إنشاء الملف الشخصي'
   Profile has been updated: 'تم تحديث الملف الشخصي'
-  Your default profile has been set to $: 'تم تعيين $ كملف شخصي افتراضي'
-  Removed $ from your profiles: 'تم إزالة $ من ملفاتك الشخصية'
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: 'تم تغيير ملفك الشخصي
     الافتراضي إلى ملفك الشخصي الأساسي'
-  $ is now the active profile: '$ هو الآن الملف الشخصي النشط'
+  '{profile} is now the active profile': '{profile} هو الآن الملف الشخصي النشط'
 #On Channel Page
   Profile Select: اختيار الملف الشخصي
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: هل
@@ -521,7 +521,7 @@ Profile:
   Delete Selected: حذف المُحدد
   Select None: إلغاء التحديد
   Select All: تحديد الكل
-  $ selected: $ تم اختياره
+  '{number} selected': ''
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
@@ -555,8 +555,7 @@ Channel:
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
   Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
-  Removed subscription from $ other channel(s): تم إزالة الاشتراك من $ قناة/قنوات
-    أخرى
+  Removed subscription from {count} other channel(s): ''
   Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
@@ -619,8 +618,7 @@ Video:
     Less than a minute: أقل من دقيقة
     In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'قبل $ %'
+  Publicationtemplate: 'قبل {number} {unit}'
 #& Videos
   Autoplay: تشغيل تلقائي
   Play Previous Video: شغل الفيديو السابق
@@ -668,11 +666,11 @@ Video:
       opening playlists: فتح قوائم التشغيل
       setting a playback rate: ضبط معدل التشغيل
       starting video at offset: بدء تشغيل الفيديو عند الإزاحة
-    UnsupportedActionTemplate: '$ لا يدعم: ٪'
-    OpeningTemplate: فتح $ في ٪...
+    UnsupportedActionTemplate: '{externalPlayer} لا يدعم: {action}'
+    OpeningTemplate: ''
     playlist: قائمة التشغيل
     video: فيديو
-    OpenInTemplate: فتح في $
+    OpenInTemplate: فتح في {externalPlayer}
   Premieres on: العرض الأول بتاريخ
   Stats:
     video id: معرف الفيديو (يوتيوب)
@@ -765,7 +763,7 @@ Comments:
   Show More Replies: إظهار المزيد من الردود
   Pinned by: تم التثبيت بواسطة
   And others: و اخرين
-  From $channelName: من $ channelName
+  From {channelName}: من {channelName}
   Member: عضو
 Up Next: 'التالي'
 
@@ -790,11 +788,9 @@ Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي �
 Yes: 'نعم'
 No: 'لا'
 The playlist has been reversed: تم عكس قائمة التشغيل
-A new blog is now available, $. Click to view more: مدوّنة جديدة متاحة الآن، $. انقر
-  لعرض المزيد
+A new blog is now available, {blogTitle}. Click to view more: ''
 Download From Site: تنزيل من الموقع
-Version $ is now available!  Click for more details: الإصدار $ متاح الآن! انقر للحصول
-  على المزيد من التفاصيل
+Version {versionNumber} is now available!  Click for more details: ''
 Tooltips:
   General Settings:
     Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإطار من
@@ -848,7 +844,7 @@ Tooltips:
     External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
-    DefaultCustomArgumentsTemplate: "(الافتراضي: '$')"
+    DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -861,42 +857,41 @@ Unknown YouTube url type, cannot be opened in app: نوع URL غير معروف 
   لا يمكن فتحه في التطبيق
 Open New Window: افتح نافذة جديدة
 Default Invidious instance has been cleared: تم مسح مثيل Invidious الافتراضي
-Default Invidious instance has been set to $: تم تعيين المثيل الافتراضي Invidious
-  إلى $
+Default Invidious instance has been set to {instance}: تم تعيين المثيل الافتراضي Invidious
+  إلى {instance}
 Search Bar:
   Clear Input: مسح المدخلات
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
-Downloading has completed: انتهى "$" من التنزيل
-Downloading failed: حدثت مشكلة أثناء تنزيل "$"
-Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
+Downloading has completed: ''
+Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
+Download folder does not exist: ''
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
-Starting download: بدء تنزيل "$"
-Screenshot Success: تم حفظ لقطة الشاشة كا"$"
-Screenshot Error: فشل أخذ لقطة للشاشة. $
+Starting download: بدء تنزيل "{videoTitle}"
+Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
+Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
 Age Restricted:
   Type:
     Channel: القناة
     Video: فيديو
-  This $contentType is age restricted: هذا $ مقيد بالفئة العمرية
+  This {videoOrPlaylist} is age restricted: ''
 Channels:
-  Count: تم العثور على قناة (قنوات) $.
-  Unsubscribed: تمت إزالة $ من اشتراكاتك
+  Count: تم العثور على قناة (قنوات) {number}.
+  Unsubscribed: ''
   Channels: القنوات
   Title: قائمة القنوات
   Search bar placeholder: البحث في القنوات
   Empty: قائمة قنواتك فارغة حاليا.
   Unsubscribe: إلغاء الاشتراك
-  Unsubscribe Prompt: هل أنت متأكد من أنك تريد إلغاء الاشتراك من "$"؟
+  Unsubscribe Prompt: ''
 Clipboard:
   Cannot access clipboard without a secure connection: لا يمكن الوصول إلى الحافظة
     دون اتصال آمن
   Copy failed: فشل النسخ إلى الحافظة
 Chapters:
   Chapters: الفصول
-  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية، الفصل
-    الحالي: {اسم الفصل}'
+  'Chapters list hidden, current chapter: {chapterName}': ''
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {sectionName}'

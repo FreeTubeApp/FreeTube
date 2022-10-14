@@ -138,8 +138,8 @@ Settings:
       Invidious
     System Default: Padrão do Sistema
     No default instance has been set: Nenhuma instância padrão foi definida
-    The currently set default instance is $: A instância padrão atualmente definida
-      é $
+    The currently set default instance is {instance}: A instância padrão atualmente definida
+      é {instance}
     Current instance will be randomized on startup: A instância atual será randomizada
       na inicialização
     Set Current Instance as Default: Definir instância atual como padrão
@@ -360,7 +360,7 @@ Settings:
     Manage Subscriptions: Administrar Inscrições
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
-    Playlist insufficient data: Dados insuficientes para "$" playlist, pulando item
+    Playlist insufficient data: Dados insuficientes para "{playlist}" playlist, pulando item
     All playlists has been successfully exported: Todas as listas de reprodução foram
       exportadas com sucesso
     All playlists has been successfully imported: Todas as listas de reprodução foram
@@ -520,7 +520,7 @@ Channel:
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais destacados'
   Added channel to your subscriptions: Canal adicionado às suas inscrições
-  Removed subscription from $ other channel(s): Inscrição removida de outros $ canais
+  Removed subscription from {count} other channel(s): Inscrição removida de outros {count} canais
   Channel has been removed from your subscriptions: O canal foi removido da suas inscrições
 Video:
   Mark As Watched: 'Marcar como assistido'
@@ -583,8 +583,7 @@ Video:
     Minute: Minuto
     Less than a minute: Menos de um minuto
   Published on: 'Publicado em'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Há $ %'
+  Publicationtemplate: 'Há {number} {unit}'
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
@@ -633,10 +632,10 @@ Video:
       starting video at offset: começando vídeo em deslocamento
       setting a playback rate: definindo uma taxa de reprodução
       looping playlists: Listas de reprodução em loop
-    UnsupportedActionTemplate: '$ não suporta: %'
+    UnsupportedActionTemplate: '{externalPlayer} não suporta: {action}'
     playlist: playlist
-    OpeningTemplate: Abrindo $ em %...
-    OpenInTemplate: Aberto em $
+    OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
+    OpenInTemplate: Aberto em {externalPlayer}
     video: vídeo
   Premieres on: Estreia em
   Stats:
@@ -736,7 +735,7 @@ Comments:
   Show More Replies: Mostrar Mais Respostas
   Pinned by: Fixado por
   And others: e outros
-  From $channelName: de $channelName
+  From {channelName}: de {channelName}
   Member: Membro
 Up Next: 'Próximo'
 
@@ -790,23 +789,23 @@ Profile:
   Delete Selected: Apagar Selecionados
   Select None: Selecionar Nenhum
   Select All: Selecionar Todos
-  $ selected: $ selecionado
+  '{number} selected': '{number} selecionado'
   Other Channels: Outros Canais
   Subscription List: Lista de Inscrições
-  $ is now the active profile: $ é agora o perfil ativo
+  '{profile} is now the active profile': '{profile} é agora o perfil ativo'
   Your default profile has been changed to your primary profile: Seu perfil padrão
     foi mudado para o seu perfil principal
-  Removed $ from your profiles: $ foi removido dos seus perfis
-  Your default profile has been set to $: Seu perfil padrão foi definido como $
+  Removed {profile} from your profiles: '{profile} foi removido dos seus perfis'
+  Your default profile has been set to {profile}: Seu perfil padrão foi definido como {profile}
   Profile has been updated: Perfil atualizado
   Profile has been created: Perfil criado
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
   Profile Filter: Filtro de Perfil
   Profile Settings: Configurações de Perfil
-Version $ is now available!  Click for more details: A versão $ já está disponível!
+Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível!
   Clique para mais detalhes
-A new blog is now available, $. Click to view more: Um novo blog está disponível,
-  $. Clique para ver mais
+A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
+  {blogTitle}. Clique para ver mais'
 Download From Site: Baixar do site
 The playlist has been reversed: A lista de reprodução foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
@@ -869,7 +868,7 @@ Tooltips:
     External Player: A escolha de um player externo exibirá um ícone, para abrir o
       vídeo (lista de reprodução, se compatível) no player externo, na miniatura.
       Aviso, as configurações do Invidious não afetam os players externos.
-    DefaultCustomArgumentsTemplate: "(Padrão: '$')"
+    DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
@@ -881,16 +880,16 @@ Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube descon
   não pode ser aberta no aplicativo
 Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: A instância padrão Invidious foi limpa
-Default Invidious instance has been set to $: A instância padrão Invidious foi definida
-  para $
+Default Invidious instance has been set to {instance}: A instância padrão Invidious foi definida
+  para {instance}
 Search Bar:
   Clear Input: Limpar entrada
 External link opening has been disabled in the general settings: A abertura de link
   externo foi desativada nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
-Downloading has completed: '"$" terminou de baixar'
-Starting download: Iniciando o download de "$"
-Downloading failed: Ocorreu um problema ao fazer o download de "$"
+Downloading has completed: '"{videoTitle}" terminou de baixar'
+Starting download: Iniciando o download de "{videoTitle}"
+Downloading failed: Ocorreu um problema ao fazer o download de "{videoTitle}"
 New Window: Nova janela
 Channels:
   Channels: Canais
@@ -898,13 +897,13 @@ Channels:
   Search bar placeholder: Buscar canais
   Empty: Sua lista de canais está vazia no momento.
   Unsubscribe: Cancelar inscrição
-  Unsubscribed: $ foi removido de suas assinaturas
-  Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "$"?
-  Count: $ canal(is) encontrado(s).
+  Unsubscribed: '{channelName} foi removido de suas assinaturas'
+  Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
+  Count: '{number} canal(is) encontrado(s).'
 Age Restricted:
-  This $contentType is age restricted: Este $ tem restrição de idade
+  The currently set default instance is {instance}: Este {instance} tem restrição de idade
   Type:
     Channel: Canal
     Video: Vídeo
-Screenshot Success: Captura de tela salva como "$"
-Screenshot Error: Falha na captura de tela. $
+Screenshot Success: Captura de tela salva como "{filePath}"
+Screenshot Error: Falha na captura de tela. {error}

@@ -141,7 +141,7 @@ Settings:
     Current instance will be randomized on startup: Valgt instans vil bli plukket
       tilfeldig ved oppstart
     No default instance has been set: Ingen forvalgt instans satt
-    The currently set default instance is $: Valgt instans er $
+    The currently set default instance is {instance}: Valgt instans er {instance}
     Current Invidious Instance: Nåværende Invidious-instans
     External Link Handling:
       No Action: Ingen handling
@@ -448,7 +448,7 @@ Channel:
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
   Added channel to your subscriptions: Lagt til kanal til dine abonnenter
-  Removed subscription from $ other channel(s): Fjernet abonnement fra $ andre kanal(er)
+  Removed subscription from {count} other channel(s): Fjernet abonnement fra {count} andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
     dine abonnement
 Video:
@@ -511,8 +511,7 @@ Video:
     Minutes: Minutter
     Minute: Minutt
   Published on: 'Publisert'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % siden'
+  Publicationtemplate: '{number} {unit} siden'
 #& Videos
   Audio:
     High: Høy
@@ -559,11 +558,11 @@ Video:
       starting video at offset: starting av video med forskyvning
       looping playlists: gjentakelse av spillelister
       reversing playlists: reversering av spillelister
-    UnsupportedActionTemplate: '$ støtter ikke: %'
-    OpeningTemplate: Åpner $ om % …
+    UnsupportedActionTemplate: '{externalPlayer} støtter ikke: {action}'
+    OpeningTemplate: Åpner {videoOrPlaylist} om {externalPlayer} …
     playlist: spilleliste
     video: video
-    OpenInTemplate: Åpne i $
+    OpenInTemplate: Åpne i {externalPlayer}
   Stats:
     Bitrate: Bitrate
     Volume: Lydstyrke
@@ -641,7 +640,7 @@ Comments:
   Sort by: Sorter etter
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
-  From $channelName: Fra $channelName
+  From {channelName}: Fra {channelName}
   Pinned by: Festet av
   Member: Medlem
 Up Next: 'Neste'
@@ -668,12 +667,12 @@ Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
 Yes: 'Ja'
 No: 'Nei'
 Profile:
-  $ is now the active profile: $ er nå den aktive profilen
+  '{profile} is now the active profile': '{profile} er nå den aktive profilen'
   Your default profile has been changed to your primary profile: Din forvalgte profil
     har blitt endret til din hovedprofil
-  Removed $ from your profiles: Fjernet $ fra dine profiler
-  Your default profile has been set to $: Din forvalgte profil har blitt satt til
-    $
+  Removed {profile} from your profiles: Fjernet {profile} fra dine profiler
+  Your default profile has been set to {profile}: 'Din forvalgte profil har blitt satt til
+    {profile}'
   Profile has been updated: Profil oppdatert
   Profile has been created: Profil opprettet
   Your profile name cannot be empty: Profilnavnet ditt kan ikke stå tomt
@@ -689,7 +688,7 @@ Profile:
     noen andre profiler.
   No channel(s) have been selected: Ingen kanal(er) har blitt valgt
   Select All: Velg alle
-  $ selected: $ valgt
+  '{number} selected': '{number} valgt'
   Other Channels: Andre kanaler
   Color Picker: Fargevelger
   Profile Select: Velg profil
@@ -756,12 +755,12 @@ Tooltips:
       sti settes her.
     External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
       hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
-    DefaultCustomArgumentsTemplate: "(Forvalg: '$')"
-A new blog is now available, $. Click to view more: Et nytt blogginnlegg er tilgjengelig,
-  $. Klikk her for å se mer
+    DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
+A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg er tilgjengelig,
+  {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
 Download From Site: Last ned fra nettside
-Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig!
+Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber} er nå tilgjengelig!
   Klikk her for detaljer
 Playing Next Video Interval: Spiller av neste video nå. Klikk her for å avbryte. |
   Spiller av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
@@ -773,8 +772,8 @@ Hashtags have not yet been implemented, try again later: Emneknagger er ikke imp
   enda, prøv igjen senere
 Open New Window: Åpne et nytt vindu
 Default Invidious instance has been cleared: Fjernet forvalgt Invidious-instans
-Default Invidious instance has been set to $: Forvalgt Invidious-instans satt til
-  $
+Default Invidious instance has been set to {instance}: Forvalgt Invidious-instans satt til
+  {instance}
 External link opening has been disabled in the general settings: Åpning av eksterne
   lenker er avskrudd i de generelle innstillingene
 Search Bar:
@@ -785,11 +784,11 @@ Channels:
   Channels: Kanaler
   Title: Kanalliste
   Search bar placeholder: Søk i kanaler
-  Count: Fant $ kanal(er).
+  Count: Fant {number} kanal(er).
   Empty: Kanallisten din er tom.
   Unsubscribe: Opphev abonnement
-  Unsubscribed: $ ble fjernet fra dine abonnementer
-  Unsubscribe Prompt: Opphev abonnement på «$»?
+  Unsubscribed: '{channelName} ble fjernet fra dine abonnementer'
+  Unsubscribe Prompt: Opphev abonnement på «{channelName}»?
 Age Restricted:
   Type:
     Channel: Kanal

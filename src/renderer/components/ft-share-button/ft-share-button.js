@@ -129,7 +129,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'openExternalLink',
       'copyToClipboard'
     ])

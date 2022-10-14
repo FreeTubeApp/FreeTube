@@ -21,7 +21,7 @@
       </ft-flex-box>
       <template v-else>
         <ft-flex-box class="count">
-          {{ $t('Channels.Count').replace('$', channelList.length) }}
+          {{ $t('Channels.Count', { number: channelList.length }) }}
         </ft-flex-box>
         <ft-flex-box class="channels">
           <div
@@ -58,7 +58,7 @@
     </ft-card>
     <ft-prompt
       v-if="showUnsubscribePrompt"
-      :label="$t('Channels.Unsubscribe Prompt').replace('$', channelToUnsubscribe.name)"
+      :label="$t('Channels.Unsubscribe Prompt', { channelName: channelToUnsubscribe.name })"
       :option-names="unsubscribePromptNames"
       :option-values="unsubscribePromptValues"
       @click="handleUnsubscribePromptClick"

@@ -30,10 +30,10 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Версия $ е вече налична! Щракнете
+Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber} е вече налична! Щракнете
   за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Щракнете
+A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога, {blogTitle}. Щракнете
   за преглед'
 
 # Search Bar
@@ -153,8 +153,8 @@ Settings:
     Current instance will be randomized on startup: Текущият сървър при стартиране
       ще бъде случаен
     No default instance has been set: Няма зададен сървър по подразбиране
-    The currently set default instance is $: Текущо зададеният сървър по подразбиране
-      е $
+    The currently set default instance is {instance}: Текущо зададеният сървър по подразбиране
+      е {instance}
     Current Invidious Instance: Текущ Invidious сървър
     External Link Handling:
       No Action: Без действие
@@ -338,7 +338,7 @@ Settings:
     Export Playlists: Изнасяне на плейлисти
     All playlists has been successfully imported: Всички плейлисти са внесени успешно
     Import Playlists: Внасяне на плейлисти
-    Playlist insufficient data: Недостатъчно данни за плейлист "$", прескачане на
+    Playlist insufficient data: Недостатъчно данни за плейлист "{playlist}", прескачане на
       елемент
     All playlists has been successfully exported: Всички плейлисти са изнесени успешно
   Advanced Settings:
@@ -515,15 +515,15 @@ Profile:
   Your profile name cannot be empty: 'Името на профила не може да е празно'
   Profile has been created: 'Профилът беше създаден'
   Profile has been updated: 'Профилът беше актуализиран'
-  Your default profile has been set to $: 'Вашият профил по подразбиране беше указан
-    да е $'
-  Removed $ from your profiles: '$ е премахнат от вашите профили'
+  Your default profile has been set to {profile}: 'Вашият профил по подразбиране беше указан
+    да е {profile}'
+  Removed {profile} from your profiles: '{profile} е премахнат от вашите профили'
   Your default profile has been changed to your primary profile: 'Профилът по подразбиране
     е променен на вашия първоначален профил'
-  $ is now the active profile: 'Активният профил сега е $'
+  '{profile} is now the active profile': 'Активният профил сега е {profile}'
   Subscription List: 'Списък с абонаменти'
   Other Channels: 'Други канали'
-  $ selected: '$ избран(и)'
+  '{number} selected': '{number} избран(и)'
   Select All: 'Избиране на всички'
   Select None: 'Без избиране'
   Delete Selected: 'Изтриване на избраните'
@@ -546,7 +546,7 @@ Channel:
   Unsubscribe: 'Отписване'
   Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
     абонаменти'
-  Removed subscription from $ other channel(s): 'Премахнат абонамент от $ друг(и)
+  Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count} друг(и)
     канал(и)'
   Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
   Search Channel: 'Търсене в канала'
@@ -642,8 +642,7 @@ Video:
     Less than a minute: По-малко от минута
     In less than a minute: След по-малко от минута
   Published on: 'Публикуван на'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Преди $ %'
+  Publicationtemplate: 'Преди {number} {unit}'
 #& Videos
   Audio:
     Best: Най-добро
@@ -684,11 +683,11 @@ Video:
       opening playlists: отваряне на плейлист
       setting a playback rate: задаване на скорост за възпроизвеждане
       starting video at offset: стартиране на видео при отместване
-    UnsupportedActionTemplate: '$ не поддържа: %'
-    OpeningTemplate: Отваряне на $ във %...
+    UnsupportedActionTemplate: '{externalPlayer} не поддържа: {action}'
+    OpeningTemplate: Отваряне на {videoOrPlaylist} във {externalPlayer}...
     playlist: плейлист
     video: видео
-    OpenInTemplate: Отваряне във $
+    OpenInTemplate: Отваряне във {externalPlayer}
   Stats:
     fps: Кадри в секунда
     video id: Идентификатор на видеоклип (YouTube)
@@ -783,7 +782,7 @@ Comments:
   Sort by: Сортиране по
   Show More Replies: Показване на още отговори
   Pinned by: Прихванато от
-  From $channelName: от $channelName
+  From {channelName}: от {channelName}
   And others: и други
   Member: Член
 Up Next: 'Следващ'
@@ -869,7 +868,7 @@ Tooltips:
     External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона
       за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание,
       настройките на Invidious не влияят на външните плейъри.
-    DefaultCustomArgumentsTemplate: "(По подразбиране: '$')"
+    DefaultCustomArgumentsTemplate: "(По подразбиране: '{defaultCustomArguments}')"
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
@@ -881,30 +880,30 @@ Unknown YouTube url type, cannot be opened in app: Неизвестен тип U
 Open New Window: Отваряне на нов прозорец
 Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
   е изчистен
-Default Invidious instance has been set to $: Сървъра по подразбиране за Invidious
-  е зададен на $
+Default Invidious instance has been set to {instance}: Сървъра по подразбиране за Invidious
+  е зададен на {instance}
 External link opening has been disabled in the general settings: Отварянето на външни
   връзки е изключено в общите настройки
 Search Bar:
   Clear Input: Изчистване на въведеното
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази
   връзка?
-Downloading has completed: '"$" приключи изтеглянето'
-Starting download: Започва изтегляне на "$"
-Downloading failed: Имаше проблем при изтеглянето на "$"
-Screenshot Error: Снимката на екрана е неуспешна. $
-Screenshot Success: Запазена снимка на екрана като "$"
+Downloading has completed: '"{videoTitle}" приключи изтеглянето'
+Starting download: Започва изтегляне на "{videoTitle}"
+Downloading failed: Имаше проблем при изтеглянето на "{videoTitle}"
+Screenshot Error: Снимката на екрана е неуспешна. {error}
+Screenshot Success: Запазена снимка на екрана като "{filePath}"
 New Window: Нов прозорец
 Age Restricted:
-  This $contentType is age restricted: Този $ е с възрастово ограничение
+  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово ограничение
   Type:
     Channel: Канал
     Video: Видео
 Channels:
-  Count: Намерени са $ канала.
+  Count: Намерени са {number} канала.
   Unsubscribe: Отписване
-  Unsubscribed: $ е премахнат от абонаментите
-  Unsubscribe Prompt: Сигурни ли сте, че искате да се отпишете от "$"?
+  Unsubscribed: '{channelName} е премахнат от абонаментите'
+  Unsubscribe Prompt: Сигурни ли сте, че искате да се отпишете от "{channelName}"?
   Search bar placeholder: Търсене на канали
   Channels: Канали
   Title: Списък с канали

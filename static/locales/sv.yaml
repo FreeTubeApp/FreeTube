@@ -29,11 +29,11 @@ Close: 'Stäng'
 Back: 'Tillbaka'
 Forward: 'Framåt'
 
-Version $ is now available!  Click for more details: 'Versionen $ är nu tillgänglig!
+Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber} är nu tillgänglig!
   Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
-A new blog is now available, $. Click to view more: 'En ny bloggpost är nu tillgänglig,
-  $. Klicka för att se mer'
+A new blog is now available, {blogTitle}. Click to view more: 'En ny bloggpost är nu tillgänglig,
+  {blogTitle}. Klicka för att se mer'
 
 # Search Bar
 Search / Go to URL: 'Sök / Gå till URL'
@@ -148,7 +148,7 @@ Settings:
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
       vid start
     No default instance has been set: Ingen standard instans är vald
-    The currently set default instance is $: Den nuvarande aktiva instansen är $
+    The currently set default instance is {instance}: Den nuvarande aktiva instansen är {instance}
     Current Invidious Instance: Aktiva Invidious Instansen
     External Link Handling:
       No Action: Ingen åtgärd
@@ -440,14 +440,14 @@ Profile:
   Your profile name cannot be empty: 'Ditt profilnamn får inte vara tomt'
   Profile has been created: 'Profil har skapats'
   Profile has been updated: 'Profilen har uppdaterats'
-  Your default profile has been set to $: 'Din standardprofil har ställts in på $'
-  Removed $ from your profiles: 'Borttagen $ från dina profiler'
+  Your default profile has been set to {profile}: 'Din standardprofil har ställts in på {profile}'
+  Removed {profile} from your profiles: 'Borttagen {profile} från dina profiler'
   Your default profile has been changed to your primary profile: 'Din standardprofil
     har ändrats till din primära profil'
-  $ is now the active profile: '$ är nu den aktiva profilen'
+  '{profile} is now the active profile': '{profile} är nu den aktiva profilen'
   Subscription List: 'Prenumerationslista'
   Other Channels: 'Andra kanaler'
-  $ selected: '$ markerad'
+  '{number} selected': '{number} markerad'
   Select All: 'Markera alla'
   Select None: 'Markera inget'
   Delete Selected: 'Ta bort markerad'
@@ -470,7 +470,7 @@ Channel:
   Unsubscribe: 'Avsluta prenumeration'
   Channel has been removed from your subscriptions: 'Kanalen har tagits bort från
     dina prenumerationer'
-  Removed subscription from $ other channel(s): 'Borttagen prenumeration från $ annan
+  Removed subscription from {count} other channel(s): 'Borttagen prenumeration från {count} annan
     kanal(er)'
   Added channel to your subscriptions: 'Kanal tillagd i dina prenumerationer'
   Search Channel: 'Sök i kanal'
@@ -564,8 +564,7 @@ Video:
     Ago: 'Sedan'
     Upcoming: 'Premiärer på'
   Published on: 'Publicerad den'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'för $ % sedan'
+  Publicationtemplate: 'för {number} {unit} sedan'
 #& Videos
   Audio:
     Best: Högsta
@@ -603,11 +602,11 @@ Video:
       opening playlists: öppnar spellistor
       setting a playback rate: ställer in en uppspelningshastighet
       starting video at offset: startar video vid offset
-    UnsupportedActionTemplate: $ stöder inte :%
-    OpeningTemplate: Öppnar $ i %...
+    UnsupportedActionTemplate: '{externalPlayer} stöder inte :{action}'
+    OpeningTemplate: Öppnar {videoOrPlaylist} i {externalPlayer}...
     playlist: spellista
     video: video
-    OpenInTemplate: Öppna i $
+    OpenInTemplate: Öppna i {externalPlayer}
 Videos:
   #& Sort By
   Sort By:
@@ -679,7 +678,7 @@ Comments:
   Sort by: Sortera efter
   No more comments available: Det finns inga fler kommentarer
   Show More Replies: Visa fler svar
-  From $channelName: från $channelName
+  From {channelName}: från {channelName}
   And others: och andra
 Up Next: 'Kommer härnäst'
 
@@ -761,8 +760,8 @@ Hashtags have not yet been implemented, try again later: Hashtaggar har inte imp
 Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas
   i programmet
 Default Invidious instance has been cleared: Standard Invidious-instans har rensats
-Default Invidious instance has been set to $: Standard Invidious-instans har ställts
-  in på $
+Default Invidious instance has been set to {instance}: Standard Invidious-instans har ställts
+  in på {instance}
 External link opening has been disabled in the general settings: Öppning av externa
   länkar har inaktiverats i de allmänna inställningarna
 Search Bar:
@@ -775,7 +774,7 @@ Channels:
   Title: Kanallista
   Search bar placeholder: Sök Kanaler
   Unsubscribe: Avprenumerera
-  Unsubscribed: $ blev bortagen från dina prenumerationer
-  Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "$"?
-  Count: $ kanal(er) hittade.
+  Unsubscribed: '{channelName} blev bortagen från dina prenumerationer'
+  Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
+  Count: '{number} kanal(er) hittade.'
   Empty: Din kanallista är tom.

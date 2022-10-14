@@ -30,11 +30,11 @@ Back: 'Atgal'
 Forward: 'Pirmyn'
 Open New Window: 'Atidaryti naują langą'
 
-Version $ is now available!  Click for more details: 'Versija $ jau prieinama!  Spustelėkite,
+Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber} jau prieinama!  Spustelėkite,
   jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
-A new blog is now available, $. Click to view more: 'Naujas įrašas tinklaraštyje,
-  $. Spustelėkite norėdami pamatyti daugiau'
+A new blog is now available, {blogTitle}. Click to view more: 'Naujas įrašas tinklaraštyje,
+  {blogTitle}. Spustelėkite norėdami pamatyti daugiau'
 
 # Search Bar
 Search / Go to URL: 'Paieška / Eiti į URL'
@@ -149,8 +149,8 @@ Settings:
     Current instance will be randomized on startup: Esama instancija bus atsitiktinai
       parinkta paleidimo metu
     No default instance has been set: Nenustatytas jokia numatytoji instancija
-    The currently set default instance is $: Šiuo metu nustatyta numatytoji instancija
-      yra $
+    The currently set default instance is {instance}: Šiuo metu nustatyta numatytoji instancija
+      yra {instance}
     External Link Handling:
       No Action: Jokio veiksmo
       Ask Before Opening Link: Klausti prieš atidarant nuorodą
@@ -382,14 +382,14 @@ Profile:
   Your profile name cannot be empty: 'Jūsų profilio vardas negali būti tuščias'
   Profile has been created: 'Profilis sukurtas'
   Profile has been updated: 'Profilis atnaujintas'
-  Your default profile has been set to $: '$ buvo nustatytas kaip numatytasis profilis'
-  Removed $ from your profiles: '$ buvo pašalintas iš tavo profilių'
+  Your default profile has been set to {profile}: '{profile} buvo nustatytas kaip numatytasis profilis'
+  Removed {profile} from your profiles: '{profile} buvo pašalintas iš tavo profilių'
   Your default profile has been changed to your primary profile: 'Numatytasis profilis
     buvo nustatytas kaip pagrindinis'
-  $ is now the active profile: '$ yra dabar aktyvus profilis'
+  '{profile} is now the active profile': '{profile} yra dabar aktyvus profilis'
   Subscription List: 'Prenumeratų sąrašas'
   Other Channels: 'Kiti kanalai'
-  $ selected: '$ pasirinktas'
+  '{number} selected': '{number} pasirinktas'
   Select All: 'Pasirinkti visus'
   Select None: 'Nesirinkti nieko'
   Delete Selected: 'Pašalinti pasirinktus'
@@ -409,7 +409,7 @@ Channel:
   Subscribe: 'Prenumeruoti'
   Unsubscribe: 'Atšaukti prenumeratą'
   Channel has been removed from your subscriptions: 'Kanalas pašalintas iš jūsų prenumeratų'
-  Removed subscription from $ other channel(s): 'Prenumerata pašalinta iš $ kito(-ų)
+  Removed subscription from {count} other channel(s): 'Prenumerata pašalinta iš {count} kito(-ų)
     kanalo(-ų)'
   Added channel to your subscriptions: 'Prie jūsų prenumeratų pridėtas kanalas'
   Search Channel: 'Ieškoti kanalų'
@@ -523,8 +523,7 @@ Video:
   Streamed on: 'Transliuota'
   Started streaming on: 'Transliaciją pradėjo'
   translated from English: 'išversta iš anglų kalbos'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % prieš'
+  Publicationtemplate: '{number} {unit} prieš'
   Skipped segment: 'Praleistas segmentas'
   Sponsor Block category:
     sponsor: 'rėmėjas'
@@ -534,14 +533,11 @@ Video:
     interaction: 'interakcija'
     music offtopic: 'nesusijusi muzika'
   External Player:
-    # $ is replaced with the external player
-    OpenInTemplate: 'Atidaryti $'
+    OpenInTemplate: 'Atidaryti {externalPlayer}'
     video: 'vaizdo įrašas'
     playlist: 'grojaraštis'
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
-    OpeningTemplate: 'Atidaroma $ per %...'
-    # $ is replaced with the external player and % with the unsupported action
-    UnsupportedActionTemplate: '$ nepalaiko: %'
+    OpeningTemplate: 'Atidaroma {videoOrPlaylist} per {externalPlayer}...'
+    UnsupportedActionTemplate: '{externalPlayer} nepalaiko: {action}'
     Unsupported Actions:
       starting video at offset: 'Pradedant vaizdo įrašą kompensuojant'
       setting a playback rate: 'nustatomas atkūrimo dažnis'
@@ -635,7 +631,7 @@ Comments:
   Load More Comments: 'Pakrauti daugiau komentarų'
   No more comments available: 'Daugiau komentarų nėra'
   Show More Replies: Rodyti daugiau atsakymų
-  From $channelName: nuo $channelName
+  From {channelName}: nuo {channelName}
   And others: ir kt.
   Pinned by: Prisegė
 Up Next: 'Sekantis'
@@ -688,7 +684,7 @@ Tooltips:
     Custom External Player Arguments: 'Bet kokius pasirinktinius komandinės eilutės
       argumentus, atskirtus kabliataškiais ('';''), kuriuos norite perduoti išoriniam
       grotuvui.'
-    DefaultCustomArgumentsTemplate: '(Numatytasis: „$“)'
+    DefaultCustomArgumentsTemplate: '(Numatytasis: „{defaultCustomArguments}“)'
   Subscription Settings:
     Fetch Feeds from RSS: 'Kai bus įgalinta, „FreeTube“ naudos RSS, o ne numatytąjį
       metodą, kad užpildytų jūsų prenumeratos kanalą. RSS yra greitesnė ir išvengia
@@ -730,8 +726,8 @@ Canceled next video autoplay: 'Atšauktas sekančio vaizdo įrašo automatinis p
 Yes: 'Taip'
 No: 'Ne'
 Default Invidious instance has been cleared: Numatytoji Invidious instancija išvalyta
-Default Invidious instance has been set to $: Numatytoji Invidious instancija buvo
-  nustatyta į $
+Default Invidious instance has been set to {instance}: Numatytoji Invidious instancija buvo
+  nustatyta į {instance}
 Search Bar:
   Clear Input: Išvalyti įvestį
 External link opening has been disabled in the general settings: Išorinės nuorodos
