@@ -34,7 +34,6 @@ class ProcessLocalesPlugin {
       },
         async (_assets) => {
           const promises = []
-
           for (const { locale, data } of this.locales) {
             promises.push(new Promise((resolve) => {
               if (Object.prototype.hasOwnProperty.call(data, 'Locale Name')) {
@@ -60,8 +59,6 @@ class ProcessLocalesPlugin {
           }
 
           await Promise.all(promises)
-
-          this.locales = null
         })
     })
   }
