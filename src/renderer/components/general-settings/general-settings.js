@@ -117,7 +117,7 @@ export default Vue.extend({
         this.$t('Settings.General Settings.System Default')
       ]
 
-      if (process.env.NODE_ENV === 'development') {
+      if (process.env.NODE_ENV === 'development' && process.env.IS_ELECTRON) {
         Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
           const localeName = localeData['Locale Name']
           if (typeof localeName !== 'undefined') {
