@@ -1536,7 +1536,9 @@ export default Vue.extend({
           break
         // only for playlist
         case 'P':
-          this.$refs.watchVideoPlaylist.playPreviousVideo()
+          if (this.watchingPlaylist) {
+            this.$refs.watchVideoPlaylist.playPreviousVideo()
+          }
           break
       }
     },
