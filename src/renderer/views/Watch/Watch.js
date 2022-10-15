@@ -1532,7 +1532,9 @@ export default Vue.extend({
       }
       switch (event.key) {
         case 'N':
-          this.goToNextVideo()
+          if (!this.hideRecommendedVideos) {
+            this.goToNextVideo()
+          }
           break
         // only for playlist
         case 'P':
