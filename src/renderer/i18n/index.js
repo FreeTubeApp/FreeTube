@@ -81,7 +81,7 @@ const i18n = new CustomVueI18n({
   messages
 })
 
-if (!isDev) {
+if (!isDev || !process.env.IS_ELECTRON) {
   i18n.loadLocale('en-US')
 }
 
