@@ -24,7 +24,9 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    electron: '{}'
+    electron: '{}',
+    ytpl: '{}',
+    ytsr: '{}'
   },
   module: {
     rules: [
