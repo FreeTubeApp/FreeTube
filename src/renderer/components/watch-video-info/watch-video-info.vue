@@ -19,21 +19,15 @@
               <img
                 :src="channelThumbnail"
                 class="channelThumbnail"
-                @click="goToChannel"
               >
             </router-link>
           </div>
           <div>
             <router-link
               :to="`/channel/${channelId}`"
-              class="channelLink"
+              class="channelName"
             >
-              <div
-                class="channelName"
-                @click="goToChannel"
-              >
-                {{ channelName }}
-              </div>
+              {{ channelName }}
             </router-link>
             <ft-button
               v-if="!hideUnsubscribeButton"
@@ -97,7 +91,7 @@
         />
         <ft-icon-button
           v-if="externalPlayer !== ''"
-          :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
+          :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
           :icon="['fas', 'external-link-alt']"
           class="option"
           theme="secondary"

@@ -148,8 +148,8 @@ Settings:
     Current instance will be randomized on startup: Momenteel gebruikte instantie
       zal willekeurig worden gekozen wanneer de applicatie start
     No default instance has been set: Er is geen standaard instantie ingesteld
-    The currently set default instance is $: De momenteel als standaard ingestelde
-      instantie is $
+    The currently set default instance is {instance}: De momenteel als standaard ingestelde
+      instantie is {instance}
     External Link Handling:
       Ask Before Opening Link: Vraag bij het openen van koppelingen
       No Action: Geen actie
@@ -245,7 +245,7 @@ Settings:
       File Name Label: Bestandsnaam indeling
       File Name Tooltip: 'U kunt de volgende variabelen gebruiken: %Y viercijferig
         jaartal; %M tweecijferige maand; %D tweecijferige dagstelling; %H tweecijferig
-        uur; $N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
+        uur; %N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
         video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
         te maken.'
@@ -349,7 +349,7 @@ Settings:
     All playlists has been successfully imported: Alle speellijsten zijn met succes
       geïmporteerd
     Import Playlists: Afspeellijsten importeren
-    Playlist insufficient data: Onvoldoende gegevens voor speellijst "$", item word
+    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}", item word
       overgeslagen
     All playlists has been successfully exported: Alle speellijsten zijn met succes
       geëxporteerd
@@ -508,7 +508,7 @@ Channel:
     Channel Description: 'Kanaalbeschrijving'
     Featured Channels: 'Uitgelichte kanalen'
   Added channel to your subscriptions: Kanaal is toegevoegd aan uw abonnementen
-  Removed subscription from $ other channel(s): Abonnementen van $ andere kanalen
+  Removed subscription from {count} other channel(s): Abonnementen van {count} andere kanalen
     zijn verwijderd
   Channel has been removed from your subscriptions: Kanaal is verwijderd uit uw abonnementen
 Video:
@@ -571,8 +571,7 @@ Video:
     Minutes: minuten
     Minute: minuut
   Published on: 'Gepubliceerd op'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % geleden'
+  Publicationtemplate: '{number} {unit} geleden'
 #& Videos
   Autoplay: Automatisch afspelen
   Play Previous Video: Vorige video afspelen
@@ -621,11 +620,11 @@ Video:
       setting a playback rate: afspeelsnelheid instellen
       looping playlists: afspeellijsten herhalen
       starting video at offset: begin afspelen video bij offset
-    UnsupportedActionTemplate: '$ ondersteund niet: %'
-    OpeningTemplate: $ Openen in %...
+    UnsupportedActionTemplate: '{externalPlayer} ondersteund niet: {action}'
+    OpeningTemplate: '{videoOrPlaylist} Openen in {externalPlayer}...'
     playlist: afspeellijst
     video: video
-    OpenInTemplate: Open in $
+    OpenInTemplate: Open in {externalPlayer}
   Stats:
     player resolution: Venster
     volume: Volume
@@ -721,7 +720,7 @@ Comments:
   Top comments: Beste reacties
   Sort by: Sorteer op
   Show More Replies: Toon meer reacties
-  From $channelName: van $channelName
+  From {channelName}: van {channelName}
   And others: en anderen
   Pinned by: Vastgemaakt door
   Member: lid
@@ -749,11 +748,11 @@ Yes: 'Ja'
 No: 'Nee'
 The playlist has been reversed: De afspeellijst is omgedraaid
 Profile:
-  $ is now the active profile: $ is nu het actieve profiel
+  '{profile} is now the active profile': '{profile} is nu het actieve profiel'
   Your default profile has been changed to your primary profile: Uw standaardprofiel
     is veranderd naar uw hoofdprofiel
-  Removed $ from your profiles: $ is verwijderd uit uw profielen
-  Your default profile has been set to $: Uw standaard profiel is ingesteld op $
+  Removed {profile} from your profiles: '{profile} is verwijderd uit uw profielen'
+  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld op {profile}
   Profile has been updated: Profiel is bijgewerkt
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
@@ -785,15 +784,15 @@ Profile:
   Delete Selected: Selectie verwijderen
   Select None: Niks selecteren
   Select All: Alles selecteren
-  $ selected: $ is geselecteerd
+  '{number} selected': '{number} is geselecteerd'
   Other Channels: Andere kanalen
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
   Profile Settings: Profielinstellingen
-A new blog is now available, $. Click to view more: Een nieuwe blogpost is beschikbaar,
-  $. Klik voor meer informatie
+A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost is beschikbaar,
+  {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
-Version $ is now available!  Click for more details: Versie $ is nu beschikbaar! Klik
+Version {versionNumber} is now available!  Click for more details: Versie {versionNumber} is nu beschikbaar! Klik
   voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
   video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als
@@ -855,7 +854,7 @@ Tooltips:
       verschijnen op het thumbnail waarmee de video (of afspeellijst indien ondersteund)
       in de gekozen externe videospeler kan worden geopend. Let op: Invidious instellingen
       beïnvloeden externe videospelers niet.'
-    DefaultCustomArgumentsTemplate: "(Standaard: '$')"
+    DefaultCustomArgumentsTemplate: "(Standaard: '{defaultCustomArguments}')"
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
@@ -866,32 +865,32 @@ Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-URL; de URL
   niet worden geopend in de app
 Open New Window: Nieuw venster openen
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
-Default Invidious instance has been set to $: Standaard Invidious-instantie is ingesteld
-  op $
+Default Invidious instance has been set to {instance}: Standaard Invidious-instantie is ingesteld
+  op {instance}
 Are you sure you want to open this link?: Weet je zeker dat je deze link wilt openen?
 Search Bar:
   Clear Input: Invoer wissen
 External link opening has been disabled in the general settings: Het openen van externe
   links is uitgeschakeld in de algemene instellingen
 Downloading canceled: De gebruiker heeft de download geannuleerd
-Downloading has completed: '"$" is gedownload'
-Starting download: Begin download van "$"
-Downloading failed: Probleem bij download van "$"
+Downloading has completed: '"{videoTitle}" is gedownload'
+Starting download: Begin download van "{videoTitle}"
+Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
 New Window: Nieuw Venster
 Age Restricted:
-  This $contentType is age restricted: Deze $ is leeftijdsbeperkt
+  The currently set default instance is {instance}: Deze {instance} is leeftijdsbeperkt
   Type:
     Channel: Kanaal
     Video: Video
-Screenshot Success: Schermafbeelding opgeslagen als "$"
+Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
 Channels:
   Title: Lijst van kanalen
   Search bar placeholder: Zoek naar kanalen
-  Count: $ kanalen gevonden.
+  Count: '{number} kanalen gevonden.'
   Channels: Kanalen
   Empty: Uw lijst van kanalen is thans leeg.
   Unsubscribe: Afmelden
-  Unsubscribed: $ is verwijderd uit uw lijst van abonnees
-Screenshot Error: Schermafbeelding kon niet worden opgeslagen. $
+  Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
+Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}

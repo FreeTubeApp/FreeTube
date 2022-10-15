@@ -30,10 +30,10 @@ Back: 'Geri'
 Forward: 'İrəli'
 Open New Window: 'Yeni Pəncərə Açın'
 
-Version $ is now available!  Click for more details: '$ versiyası artıq mövcuddur!
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} versiyası artıq mövcuddur!
   Ətraflı məlumat üçün klikləyin'
 Download From Site: 'Saytdan Endirin'
-A new blog is now available, $. Click to view more: 'İndi yeni blog mövcuddur, $.
+A new blog is now available, {blogTitle}. Click to view more: 'İndi yeni blog mövcuddur, {blogTitle}.
   Daha çoxuna baxmaq üçün klikləyin'
 Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
 
@@ -147,9 +147,8 @@ Settings:
       Middle: 'Orta'
       End: 'Son'
     Current Invidious Instance: 'Cari Invidious Nümunəsi'
-    # $ is replaced with the default Invidious instance
-    The currently set default instance is $: 'Hazırda təyin edilmiş standart nümunə
-      $-dır'
+    The currently set default instance is {instance}: 'Hazırda təyin edilmiş standart nümunə
+      {instance}-dır'
     No default instance has been set: 'Defolt nümunə təyin edilməyib'
     Current instance will be randomized on startup: 'Cari nümunə başlanğıcda təsadüfi
       olacaq'
@@ -403,13 +402,13 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -426,7 +425,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -530,7 +529,6 @@ Video:
   Streamed on: ''
   Started streaming on: ''
   translated from English: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
   Skipped segment: ''
   Sponsor Block category:
@@ -543,13 +541,10 @@ Video:
     recap: ''
     filler: ''
   External Player:
-    # $ is replaced with the external player
     OpenInTemplate: ''
     video: ''
     playlist: ''
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
     OpeningTemplate: ''
-    # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: ''
     Unsupported Actions:
       starting video at offset: ''
@@ -636,7 +631,7 @@ Comments:
   Replies: ''
   Show More Replies: ''
   Reply: ''
-  From $channelName: ''
+  From {channelName}: ''
   And others: ''
   There are no comments available for this video: ''
   Load More Comments: ''
@@ -653,7 +648,7 @@ Tooltips:
     Thumbnail Preference: ''
     Invidious Instance: ''
     Region for Trending: ''
-    External Link Handling: |
+    External Link Handling: ''
   Player Settings:
     Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
@@ -664,7 +659,6 @@ Tooltips:
     Custom External Player Executable: ''
     Ignore Warnings: ''
     Custom External Player Arguments: ''
-    # $ is replaced with the default custom arguments for the current player, if defined.
     DefaultCustomArgumentsTemplate: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
@@ -689,8 +683,7 @@ Playing Next Video: ''
 Playing Previous Video: ''
 Playing Next Video Interval: ''
 Canceled next video autoplay: ''
-# $ is replaced with the default Invidious instance
-Default Invidious instance has been set to $: ''
+Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 External link opening has been disabled in the general settings: ''

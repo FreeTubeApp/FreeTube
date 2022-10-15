@@ -2,6 +2,7 @@ import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import i18n from '../../i18n/index'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -265,7 +266,6 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -394,10 +394,6 @@ export default Vue.extend({
         // produces a string according to the template in the locales string
         this.toLocalePublicationString({
           publishText: this.publishedText,
-          templateString: this.$t('Video.Publicationtemplate'),
-          timeStrings: this.$t('Video.Published'),
-          liveStreamString: this.$t('Video.Watching'),
-          upcomingString: this.$t('Video.Published.Upcoming'),
           isLive: this.isLive,
           isUpcoming: this.isUpcoming,
           isRSS: this.data.isRSS
@@ -455,9 +451,7 @@ export default Vue.extend({
         type: 'video'
       }
       this.updateHistory(videoData)
-      this.showToast({
-        message: this.$t('Video.Video has been marked as watched')
-      })
+      showToast(this.$t('Video.Video has been marked as watched'))
 
       this.watched = true
     },
@@ -465,9 +459,7 @@ export default Vue.extend({
     removeFromWatched: function () {
       this.removeFromHistory(this.id)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your history')
-      })
+      showToast(this.$t('Video.Video has been removed from your history'))
 
       this.watched = false
       this.watchProgress = 0
@@ -496,9 +488,7 @@ export default Vue.extend({
 
       this.addVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been saved')
-      })
+      showToast(this.$t('Video.Video has been saved'))
     },
 
     removeFromPlaylist: function () {
@@ -509,13 +499,10 @@ export default Vue.extend({
 
       this.removeVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your saved list')
-      })
+      showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
-      'showToast',
       'toLocalePublicationString',
       'openInExternalPlayer',
       'updateHistory',

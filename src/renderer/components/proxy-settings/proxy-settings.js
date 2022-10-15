@@ -15,6 +15,7 @@ import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ProxySettings',
@@ -136,9 +137,7 @@ export default Vue.extend({
         })
         .catch((error) => {
           console.error('errored while testing proxy:', error)
-          this.showToast({
-            message: this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]')
-          })
+          showToast(this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]'))
           this.dataAvailable = false
         })
         .finally(() => {
@@ -150,7 +149,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateUseProxy',
       'updateProxyProtocol',
       'updateProxyHostname',

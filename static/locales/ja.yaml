@@ -134,7 +134,7 @@ Settings:
     Set Current Instance as Default: 現在のインスタンスを既定として設定する
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
     No default instance has been set: 既定のインスタンスが設定されていません
-    The currently set default instance is $: 現在設定されている既定のインスタンスは $です
+    The currently set default instance is {instance}: 現在設定されている既定のインスタンスは {instance}です
     Current Invidious Instance: 現在の invidious インスタンス
     External Link Handling:
       No Action: 何もしない
@@ -328,7 +328,7 @@ Settings:
     One or more subscriptions were unable to be imported: いくつかの登録チャンネルはインポートできませんでした
     Check for Legacy Subscriptions: 旧型式の登録チャンネルの確認
     Manage Subscriptions: 登録チャンネルの管理
-    Playlist insufficient data: 再生リスト"$"のデータが不完全なため、このアイテムは飛ばされます
+    Playlist insufficient data: 再生リスト"{playlist}"のデータが不完全なため、このアイテムは飛ばされます
     All playlists has been successfully imported: 全ての再生リストは成功にインポートされました
     All playlists has been successfully exported: 全ての再生リストは成功にエキスポートされました
     Import Playlists: 再生リストのインポート
@@ -479,7 +479,7 @@ Channel:
     Featured Channels: '注目のチャンネル'
   Added channel to your subscriptions: 登録にチャンネルを追加しました
   Channel has been removed from your subscriptions: 登録からチャンネルを削除しました
-  Removed subscription from $ other channel(s): ほかの $ チャンネルから登録を削除しました
+  Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -534,8 +534,7 @@ Video:
     Less than a minute: 1分以内
     In less than a minute: 1 分以内に
   Published on: '公開日'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 前'
+  Publicationtemplate: '{number} {unit} 前'
 #& Videos
   Video has been removed from your history: 動画を履歴から削除しました
   Remove From History: 履歴から削除
@@ -577,7 +576,7 @@ Video:
     filler: フィラー（穴埋め）
   Skipped segment: スキップされたセグメント
   External Player:
-    OpeningTemplate: '% で $ を開く...'
+    OpeningTemplate: '{externalPlayer} で {videoOrPlaylist} を開く...'
     Unsupported Actions:
       looping playlists: 再生リストのループ
       shuffling playlists: シャッフル動画リスト
@@ -587,10 +586,10 @@ Video:
       opening playlists: 動画リストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセットで動画の再生
-    UnsupportedActionTemplate: '$ はサポートしていません: %'
+    UnsupportedActionTemplate: '{externalPlayer} はサポートしていません: {action}'
     playlist: 再生リスト
     video: 動画
-    OpenInTemplate: $ で開く
+    OpenInTemplate: '{externalPlayer} で開く'
   Premieres on: プレミア公開
   Stats:
     player resolution: 表示領域
@@ -682,7 +681,7 @@ Comments:
   Show More Replies: その他の返信を表示する
   And others: その他
   Pinned by: によって固定されています
-  From $channelName: $channelName から
+  From {channelName}: '{channelName} から'
   Member: メンバー
 Up Next: '次の動画'
 
@@ -706,10 +705,10 @@ Yes: 'はい'
 No: 'いいえ'
 Locale Name: '日本語'
 Profile:
-  $ is now the active profile: $ プロファイルに変更しました
+  '{profile} is now the active profile': '{profile} プロファイルに変更しました'
   Your default profile has been changed to your primary profile: 起動時のプロファイルを、上位のプロファイルに変更しました
-  Removed $ from your profiles: プロファイルから $ を削除しました
-  Your default profile has been set to $: 起動時のプロファイルを $ に設定しました
+  Removed {profile} from your profiles: プロファイルから {profile} を削除しました
+  Your default profile has been set to {profile}: 起動時のプロファイルを {profile} に設定しました
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
@@ -735,7 +734,7 @@ Profile:
   Select All: すべて選択
   Other Channels: ほかのチャンネル
   Subscription List: 登録チャンネル一覧
-  $ selected: $ 項目選択
+  '{number} selected': '{number} 項目選択'
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -743,9 +742,9 @@ Profile:
   Profile Filter: プロファイルのフィルター
   Profile Settings: プロファイル設定
 The playlist has been reversed: 再生リストを逆順にしました
-A new blog is now available, $. Click to view more: '新着ブログ公開、$。クリックしてブログを読む'
+A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
-Version $ is now available!  Click for more details: 最新バージョン $ 配信中！　詳細はクリックして確認してください
+Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} 配信中！　詳細はクリックして確認してください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
@@ -779,7 +778,7 @@ Tooltips:
       パスをここで設定できます。
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
-    DefaultCustomArgumentsTemplate: "（デフォルト: '$'）"
+    DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
@@ -787,30 +786,30 @@ Hashtags have not yet been implemented, try again later: ハッシュタグは�
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL の種類、アプリで実行できません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
-Default Invidious instance has been set to $: デフォルトの Invidious インスタンスは$に設定されています
+Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されています
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
 Search Bar:
   Clear Input: 入力の消去
 Are you sure you want to open this link?: このリンクを開きますか？
-Starting download: '"$" のダウンロードを開始します'
-Downloading has completed: '"$" のダウンロードが終了しました'
-Downloading failed: '"$" のダウンロード中に問題が発生しました'
+Starting download: '"{videoTitle}" のダウンロードを開始します'
+Downloading has completed: '"{videoTitle}" のダウンロードが終了しました'
+Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
 Age Restricted:
-  This $contentType is age restricted: $ は 18 歳以上の視聴者向け動画です
+  The currently set default instance is {instance}: '{instance} は 18 歳以上の視聴者向け動画です'
   Type:
     Channel: チャンネル
     Video: 動画
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除
-  Unsubscribed: $ のチャンネル登録を解除しました
+  Unsubscribed: '{channelName} のチャンネル登録を解除しました'
   Title: チャンネル一覧
   Search bar placeholder: チャンネル検索
-  Unsubscribe Prompt: 「$」のチャンネル登録を解除しますか？
-  Count: $ 件のチャンネルが見つかりました。
+  Unsubscribe Prompt: 「{channelName}」のチャンネル登録を解除しますか？
+  Count: '{number} 件のチャンネルが見つかりました。'
   Empty: 現在、チャンネル一覧は空です。
-Screenshot Success: スクリーンショットを「$」として保存しました
-Screenshot Error: スクリーンショットに失敗しました。$
+Screenshot Success: スクリーンショットを「{filePath}」として保存しました
+Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:
   Copy failed: クリップボードにコピーできませんでした

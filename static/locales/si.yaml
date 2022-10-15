@@ -29,10 +29,10 @@ Close: 'වසන්න'
 Back: 'ආපසු'
 Forward: ''
 
-Version $ is now available!  Click for more details: '$ අනුවාදය දැන් ලබා ගත හැකිය!  වැඩි
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} අනුවාදය දැන් ලබා ගත හැකිය!  වැඩි
   විස්තර සඳහා ඔබන්න'
 Download From Site: 'අඩවියෙන් බාගන්න'
-A new blog is now available, $. Click to view more: ''
+A new blog is now available, {blogTitle}. Click to view more: ''
 
 # Search Bar
 Search / Go to URL: 'සොයන්න / ඒ.ස.නි.(URL) වෙත යන්න'
@@ -297,13 +297,13 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -320,7 +320,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -410,7 +410,6 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
 Videos:

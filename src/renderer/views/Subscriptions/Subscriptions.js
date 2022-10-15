@@ -11,6 +11,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import ytch from 'yt-channel-info'
 import Parser from 'rss-parser'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculatePublishedDate, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Subscriptions',
@@ -151,10 +152,10 @@ export default Vue.extend({
 
       let useRss = this.useRssFeeds
       if (this.activeSubscriptionList.length >= 125 && !useRss) {
-        this.showToast({
-          message: this.$t('Subscriptions["This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting"]'),
-          time: 10000
-        })
+        showToast(
+          this.$t('Subscriptions["This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting"]'),
+          10000
+        )
         useRss = true
       }
       this.isLoading = true
@@ -254,31 +255,27 @@ export default Vue.extend({
 
     getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
       return new Promise((resolve, reject) => {
-        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then(async (response) => {
+        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then((response) => {
           if (response.alertMessage) {
             this.errorChannels.push(channel)
             resolve([])
             return
           }
-          const videos = await Promise.all(response.items.map(async (video) => {
+          const videos = response.items.map((video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()
             } else {
-              video.publishedDate = await this.calculatePublishedDate(video.publishedText)
+              video.publishedDate = calculatePublishedDate(video.publishedText)
             }
             return video
-          }))
+          })
 
           resolve(videos)
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            this.copyToClipboard({ content: err })
           })
           switch (failedAttempts) {
             case 0:
@@ -286,9 +283,7 @@ export default Vue.extend({
               break
             case 1:
               if (this.backendFallback) {
-                this.showToast({
-                  message: this.$t('Falling back to Invidious API')
-                })
+                showToast(this.$t('Falling back to Invidious API'))
                 resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
               } else {
                 resolve([])
@@ -336,12 +331,8 @@ export default Vue.extend({
             resolve([])
           } else {
             const errorMessage = this.$t('Local API Error (Click to copy)')
-            this.showToast({
-              message: `${errorMessage}: ${err}`,
-              time: 10000,
-              action: () => {
-                this.copyToClipboard({ content: err })
-              }
+            showToast(`${errorMessage}: ${err}`, 10000, () => {
+              this.copyToClipboard({ content: err })
             })
             switch (failedAttempts) {
               case 0:
@@ -349,9 +340,7 @@ export default Vue.extend({
                 break
               case 1:
                 if (this.backendFallback) {
-                  this.showToast({
-                    message: this.$t('Falling back to Invidious API')
-                  })
+                  showToast(this.$t('Falling back to Invidious API'))
                   resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
                 } else {
                   resolve([])
@@ -384,12 +373,8 @@ export default Vue.extend({
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err.responseText}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err.responseText })
-            }
+          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
+            this.copyToClipboard({ content: err.responseText })
           })
           switch (failedAttempts) {
             case 0:
@@ -397,9 +382,7 @@ export default Vue.extend({
               break
             case 1:
               if (this.backendFallback) {
-                this.showToast({
-                  message: this.$t('Falling back to the local API')
-                })
+                showToast(this.$t('Falling back to the local API'))
                 resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               } else {
                 resolve([])
@@ -435,12 +418,8 @@ export default Vue.extend({
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            this.copyToClipboard({ content: err })
           })
           if (err.toString().match(/500/)) {
             this.errorChannels.push(channel)
@@ -452,9 +431,7 @@ export default Vue.extend({
                 break
               case 1:
                 if (this.backendFallback) {
-                  this.showToast({
-                    message: this.$t('Falling back to the local API')
-                  })
+                  showToast(this.$t('Falling back to the local API'))
                   resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
                 } else {
                   resolve([])
@@ -492,12 +469,10 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'invidiousAPICall',
       'updateShowProgressBar',
       'updateProfileSubscriptions',
       'updateAllSubscriptionsList',
-      'calculatePublishedDate',
       'copyToClipboard'
     ]),
 

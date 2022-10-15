@@ -47,8 +47,8 @@ export default Vue.extend({
 
       const cmdArgs = this.$store.getters.getExternalPlayerCmdArguments[this.externalPlayer]
       if (cmdArgs && typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-        const defaultArgs = this.$t('Tooltips.External Player Settings.DefaultCustomArgumentsTemplate')
-          .replace('$', cmdArgs.defaultCustomArguments)
+        const defaultArgs = this.$t('Tooltips.External Player Settings.DefaultCustomArgumentsTemplate',
+          { defaultCustomArguments: cmdArgs.defaultCustomArguments })
         return `${tooltip} ${defaultArgs}`
       }
 

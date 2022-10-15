@@ -30,11 +30,9 @@ Back: 'بازگشت'
 Forward: 'پیشروی'
 Open New Window: 'بازکردن پنجره جدید'
 
-Version $ is now available!  Click for more details: 'نسخه $ هم اکنون در دسترس است!  برای
-  اطلاعات بیشتر کلیک کنید'
+Version {versionNumber} is now available!  Click for more details: ''
 Download From Site: 'دانلود از وبگاه'
-A new blog is now available, $. Click to view more: 'بلاگ جدیدی در دسترس است، $. کلیک
-  کنید تا بیشتر ببینید.'
+A new blog is now available, {blogTitle}. Click to view more: ''
 
 # Search Bar
 Search / Go to URL: 'جست و جو / برو به لینک'
@@ -143,8 +141,7 @@ Settings:
       Middle: 'وسط'
       End: 'انتها'
     Current Invidious Instance: 'نمونه فعلی Invidious'
-    # $ is replaced with the default Invidious instance
-    The currently set default instance is $: 'در حال حاضر نمونه Invidious پیشفرض $
+    The currently set default instance is {instance}: 'در حال حاضر نمونه Invidious پیشفرض {instance}
       است'
     No default instance has been set: 'هیچ نمونه پیشفرضی تنظیم نشده'
     Current instance will be randomized on startup: 'نمونه فعلی هنگام شروع برنامه
@@ -318,7 +315,7 @@ Settings:
     Manage Subscriptions: ''
     Import Playlists: وارد کردن فهرست های پخش
     Export Playlists: استخراج فهرست های پخش
-    Playlist insufficient data: داده ناکافی برای لیست پخش "$" ، در حال چشم پوشی
+    Playlist insufficient data: ''
     All playlists has been successfully imported: همه لیست های پخش با موفقیت وارد
       شدند
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
@@ -391,13 +388,13 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -414,7 +411,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -517,7 +514,6 @@ Video:
   Streamed on: ''
   Started streaming on: ''
   translated from English: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
   Skipped segment: ''
   Sponsor Block category:
@@ -528,13 +524,10 @@ Video:
     interaction: ''
     music offtopic: ''
   External Player:
-    # $ is replaced with the external player
     OpenInTemplate: ''
     video: ''
     playlist: ''
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
     OpeningTemplate: ''
-    # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: ''
     Unsupported Actions:
       starting video at offset: ''
@@ -655,8 +648,7 @@ Playing Next Video: ''
 Playing Previous Video: ''
 Playing Next Video Interval: ''
 Canceled next video autoplay: ''
-# $ is replaced with the default Invidious instance
-Default Invidious instance has been set to $: ''
+Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 

@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
 import { IpcChannels } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -159,9 +160,7 @@ export default Vue.extend({
               message = this.$t(message)
             }
 
-            this.showToast({
-              message: message
-            })
+            showToast(message)
             break
           }
 
@@ -348,7 +347,6 @@ export default Vue.extend({
       this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
-      'showToast',
       'getYoutubeUrlInfo',
       'invidiousAPICall'
     ])

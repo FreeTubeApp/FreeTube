@@ -148,7 +148,7 @@ Settings:
     Current instance will be randomized on startup: Obecna instancja będzie losowana
       przy uruchamianiu
     No default instance has been set: Nie ustawiono domyślnej instancji
-    The currently set default instance is $: Obecnie domyślną instancją jest $
+    The currently set default instance is {instance}: Obecnie domyślną instancją jest {instance}
     Current Invidious Instance: Obecna instancja Invidious
     External Link Handling:
       No Action: Brak akcji
@@ -365,7 +365,7 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „$”, pomijam
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”, pomijam
       element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
@@ -535,7 +535,7 @@ Channel:
     Channel Description: 'Opis kanału'
     Featured Channels: 'Polecane kanały'
   Added channel to your subscriptions: Dodano kanał do twoich subskrypcji
-  Removed subscription from $ other channel(s): Usunięto subskrypcje z $ pozostałych
+  Removed subscription from {count} other channel(s): Usunięto subskrypcje z {count} pozostałych
     kanałów
   Channel has been removed from your subscriptions: Kanał został usunięty z twoich
     subskrypcji
@@ -601,8 +601,7 @@ Video:
     Less than a minute: mniej niż minutę
     In less than a minute: Za mniej niż minutę
   Published on: 'Opublikowano'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % temu'
+  Publicationtemplate: '{number} {unit} temu'
 #& Videos
   Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
@@ -651,11 +650,11 @@ Video:
       opening playlists: otwierania playlist
       setting a playback rate: ustawienia prędkości odtwarzania
       starting video at offset: rozpoczynania filmu z przesunięciem
-    UnsupportedActionTemplate: '$ nie obsługuje: %'
-    OpeningTemplate: Otwieranie $ w %...
+    UnsupportedActionTemplate: '{externalPlayer} nie obsługuje: {action}'
+    OpeningTemplate: Otwieranie {videoOrPlaylist} w {externalPlayer}...
     playlist: playlisty
     video: filmu
-    OpenInTemplate: Otwórz w $
+    OpenInTemplate: Otwórz w {externalPlayer}
   Premieres on: Premiera
   Stats:
     buffered: Zbuforowano
@@ -754,7 +753,7 @@ Comments:
   Show More Replies: Pokaż więcej odpowiedzi
   And others: i innych
   Pinned by: Przypięty przez
-  From $channelName: od $channelName
+  From {channelName}: od {channelName}
   Member: Wspierający
 Up Next: 'Następne'
 
@@ -780,11 +779,11 @@ Yes: 'Tak'
 No: 'Nie'
 Locale Name: Polski
 Profile:
-  $ is now the active profile: $ jest teraz aktywnym profilem
+  '{profile} is now the active profile': '{profile} jest teraz aktywnym profilem'
   Your default profile has been changed to your primary profile: Twój domyślny profil
     został zmieniony na profil główny
-  Removed $ from your profiles: Usunięto $ z twoich profili
-  Your default profile has been set to $: $ został ustawiony jako Twój domyślny profil
+  Removed {profile} from your profiles: Usunięto {profile} z twoich profili
+  Your default profile has been set to {profile}: '{profile} został ustawiony jako Twój domyślny profil'
   Profile has been updated: Zaktualizowano profil
   Profile has been created: Utworzono profil
   Your profile name cannot be empty: Nazwa profilu nie może być pusta
@@ -816,16 +815,16 @@ Profile:
   Delete Selected: Usuń wybrane
   Select None: Nic nie wybieraj
   Select All: Wybierz wszystkie
-  $ selected: Wybrano $
+  '{number} selected': Wybrano {number}
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
 The playlist has been reversed: Playlista została odwrócona
-A new blog is now available, $. Click to view more: Nowy wpis na blogu jest dostępny,
-  $. Kliknij, aby zobaczyć więcej
+A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu jest dostępny,
+  {blogTitle}. Kliknij, aby zobaczyć więcej'
 Download From Site: Pobierz ze strony
-Version $ is now available!  Click for more details: Wersja $ jest już dostępna! Kliknij
+Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber} jest już dostępna! Kliknij
   po więcej szczegółów
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
@@ -884,7 +883,7 @@ Tooltips:
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
-    DefaultCustomArgumentsTemplate: "(Domyślnie: '$')"
+    DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
@@ -897,34 +896,34 @@ Hashtags have not yet been implemented, try again later: Hashtagi nie zostały j
 Open New Window: Otwórz nowe okno
 Default Invidious instance has been cleared: Domyślna instancja Invidious została
   wyczyszczona
-Default Invidious instance has been set to $: Domyślna instancja Invidious została
-  ustawiona na $
+Default Invidious instance has been set to {instance}: Domyślna instancja Invidious została
+  ustawiona na {instance}
 Search Bar:
   Clear Input: Wyczyść pole
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '„$” został pobrany'
-Starting download: Rozpoczęto pobieranie „$”
-Downloading failed: Wystąpił problem z pobieraniem „$”
+Downloading has completed: '„{videoTitle}” został pobrany'
+Starting download: Rozpoczęto pobieranie „{videoTitle}”
+Downloading failed: Wystąpił problem z pobieraniem „{videoTitle}”
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
-Screenshot Error: Wykonanie zrzutu nie powiodło się. $
-Screenshot Success: Zapisano zrzut ekranu jako „$”
+Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
+Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
 Age Restricted:
   Type:
     Channel: kanał
     Video: film
-  This $contentType is age restricted: Ten $ ma ograniczenie wiekowe
+  The currently set default instance is {instance}: Ten {instance} ma ograniczenie wiekowe
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów
-  Count: Znaleziono $ kanał(y/ów).
+  Count: Znaleziono {number} kanał(y/ów).
   Empty: Twoja lista kanałów jest na razie pusta.
   Unsubscribe: Odsubskrybuj
-  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „$”?
-  Unsubscribed: $ został usunięty z Twoich subskrypcji
+  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „{channelName}”?
+  Unsubscribed: '{channelName} został usunięty z Twoich subskrypcji'
   Channels: Kanały
   Search bar placeholder: Przeszukaj kanały
 Clipboard:

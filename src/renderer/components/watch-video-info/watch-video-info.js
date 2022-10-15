@@ -7,6 +7,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import i18n from '../../i18n/index'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -318,7 +319,6 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -329,10 +329,6 @@ export default Vue.extend({
         playlistShuffle: this.getPlaylistShuffle(),
         playlistLoop: this.getPlaylistLoop()
       })
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
     toggleSave: function () {
@@ -357,9 +353,7 @@ export default Vue.extend({
         })
 
         this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Channel has been removed from your subscriptions')
-        })
+        showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
 
         if (this.activeProfile._id === MAIN_PROFILE_ID) {
           // Check if a subscription exists in a different profile.
@@ -387,10 +381,8 @@ export default Vue.extend({
           })
 
           if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
-            this.showToast({
-              message: message.replace('$', duplicateSubscriptions)
-            })
+            const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
+            showToast(message)
           }
         }
       } else {
@@ -402,9 +394,7 @@ export default Vue.extend({
         currentProfile.subscriptions.push(subscription)
 
         this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Added channel to your subscriptions')
-        })
+        showToast(this.$t('Channel.Added channel to your subscriptions'))
 
         if (this.activeProfile._id !== MAIN_PROFILE_ID) {
           const index = primaryProfile.subscriptions.findIndex((channel) => {
@@ -482,9 +472,7 @@ export default Vue.extend({
 
       this.addVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been saved')
-      })
+      showToast(this.$t('Video.Video has been saved'))
     },
 
     removeFromPlaylist: function () {
@@ -495,13 +483,10 @@ export default Vue.extend({
 
       this.removeVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your saved list')
-      })
+      showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
-      'showToast',
       'openInExternalPlayer',
       'updateProfile',
       'addVideo',

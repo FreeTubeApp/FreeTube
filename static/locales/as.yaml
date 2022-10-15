@@ -297,7 +297,6 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
 Videos:

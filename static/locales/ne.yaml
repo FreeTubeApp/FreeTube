@@ -30,10 +30,10 @@ Back: 'पछाडि'
 Forward: 'अगाडि'
 Open New Window: 'नयाँ विन्डो खोल्नुहोस्'
 
-Version $ is now available!  Click for more details: 'भर्जन $ उपलब्ध छ! थप बुझ्न यहाँ
+Version {versionNumber} is now available!  Click for more details: 'भर्जन {versionNumber} उपलब्ध छ! थप बुझ्न यहाँ
   थिच्नुहोस्'
 Download From Site: 'साइटबाट डाउनलोड गर्नुहोस्'
-A new blog is now available, $. Click to view more: 'एउटा नयाँ ब्लग उपलब्ध छ, $। थप
+A new blog is now available, {blogTitle}. Click to view more: 'एउटा नयाँ ब्लग उपलब्ध छ, {blogTitle}। थप
   बुझ्न यहाँ थिच्नुहोस्'
 
 # Search Bar
@@ -134,8 +134,7 @@ Settings:
       Middle: ''
       End: ''
     Current Invidious Instance: ''
-    # $ is replaced with the default Invidious instance
-    The currently set default instance is $: ''
+    The currently set default instance is {instance}: ''
     No default instance has been set: ''
     Current instance will be randomized on startup: ''
     Set Current Instance as Default: ''
@@ -341,13 +340,13 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -364,7 +363,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -467,7 +466,6 @@ Video:
   Streamed on: ''
   Started streaming on: ''
   translated from English: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
   Skipped segment: ''
   Sponsor Block category:
@@ -478,13 +476,10 @@ Video:
     interaction: ''
     music offtopic: ''
   External Player:
-    # $ is replaced with the external player
     OpenInTemplate: ''
     video: ''
     playlist: ''
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
     OpeningTemplate: ''
-    # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: ''
     Unsupported Actions:
       starting video at offset: ''
@@ -605,8 +600,7 @@ Playing Next Video: ''
 Playing Previous Video: ''
 Playing Next Video Interval: ''
 Canceled next video autoplay: ''
-# $ is replaced with the default Invidious instance
-Default Invidious instance has been set to $: ''
+Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 

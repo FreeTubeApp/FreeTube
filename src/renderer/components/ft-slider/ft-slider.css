@@ -242,3 +242,9 @@
     box-shadow: 0 0 0 1px rgb(var(--pure-material-surface-rgb, 255, 255, 255)) !important;
     transform: scale(4, 4);
 }
+
+@media only screen and (max-width: 680px) {
+    .pure-material-slider {
+        width: 100%;
+    }
+}
