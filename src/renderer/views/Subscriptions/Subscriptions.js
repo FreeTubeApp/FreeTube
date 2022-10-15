@@ -9,7 +9,6 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
 import ytch from 'yt-channel-info'
-import Parser from 'rss-parser'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculatePublishedDate, showToast } from '../../helpers/utils'
 
@@ -299,62 +298,40 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosLocalRSS: function (channel, failedAttempts = 0) {
-      return new Promise((resolve, reject) => {
-        const parser = new Parser()
-        const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`
+    getChannelVideosLocalRSS: async function (channel, failedAttempts = 0) {
+      const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`
 
-        parser.parseURL(feedUrl).then(async (feed) => {
-          const items = await Promise.all(feed.items.map((video) => {
-            video.authorId = channel.id
-            video.videoId = video.id.replace('yt:video:', '')
-            video.type = 'video'
-            video.lengthSeconds = '0:00'
-            video.isRSS = true
+      try {
+        const response = await fetch(feedUrl)
 
-            video.publishedDate = new Date(video.pubDate)
+        if (response.status === 404) {
+          this.errorChannels.push(channel)
+          return []
+        }
 
-            if (video.publishedDate.toString() === 'Invalid Date') {
-              video.publishedDate = new Date(video.isoDate)
-            }
-
-            video.publishedText = video.publishedDate.toLocaleString()
-
-            return video
-          }))
-
-          resolve(items)
-        }).catch((err) => {
-          console.error(err)
-          if (err.toString().match(/404/)) {
-            this.errorChannels.push(channel)
-            resolve([])
-          } else {
-            const errorMessage = this.$t('Local API Error (Click to copy)')
-            showToast(`${errorMessage}: ${err}`, 10000, () => {
-              this.copyToClipboard({ content: err })
-            })
-            switch (failedAttempts) {
-              case 0:
-                resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
-                break
-              case 1:
-                if (this.backendFallback) {
-                  showToast(this.$t('Falling back to Invidious API'))
-                  resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
-                } else {
-                  resolve([])
-                }
-                break
-              case 2:
-                resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
-                break
-              default:
-                resolve([])
-            }
-          }
+        return await this.parseYouTubeRSSFeed(await response.text(), channel.id)
+      } catch (error) {
+        console.error(error)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${error}`, 10000, () => {
+          this.copyToClipboard({ content: error })
         })
-      })
+        switch (failedAttempts) {
+          case 0:
+            return this.getChannelVideosLocalScraper(channel, failedAttempts + 1)
+          case 1:
+            if (this.backendFallback) {
+              this.showToast(this.$t('Falling back to Invidious API'))
+              return this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1)
+            } else {
+              return []
+            }
+          case 2:
+            return this.getChannelVideosLocalScraper(channel, failedAttempts + 1)
+          default:
+            return []
+        }
+      }
     },
 
     getChannelVideosInvidiousScraper: function (channel, failedAttempts = 0) {
@@ -398,54 +375,72 @@ export default Vue.extend({
       })
     },
 
-    getChannelVideosInvidiousRSS: function (channel, failedAttempts = 0) {
-      return new Promise((resolve, reject) => {
-        const parser = new Parser()
-        const feedUrl = `${this.currentInvidiousInstance}/feed/channel/${channel.id}`
+    getChannelVideosInvidiousRSS: async function (channel, failedAttempts = 0) {
+      const feedUrl = `${this.currentInvidiousInstance}/feed/channel/${channel.id}`
 
-        parser.parseURL(feedUrl).then(async (feed) => {
-          resolve(await Promise.all(feed.items.map((video) => {
-            video.authorId = channel.id
-            video.videoId = video.id.replace('yt:video:', '')
-            video.type = 'video'
-            video.publishedDate = new Date(video.pubDate)
-            video.publishedText = video.publishedDate.toLocaleString()
-            video.lengthSeconds = '0:00'
-            video.isRSS = true
+      try {
+        const response = await fetch(feedUrl)
 
-            return video
-          })))
-        }).catch((err) => {
-          console.error(err)
-          const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err}`, 10000, () => {
-            this.copyToClipboard({ content: err })
-          })
-          if (err.toString().match(/500/)) {
-            this.errorChannels.push(channel)
-            resolve([])
-          } else {
-            switch (failedAttempts) {
-              case 0:
-                resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
-                break
-              case 1:
-                if (this.backendFallback) {
-                  showToast(this.$t('Falling back to the local API'))
-                  resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
-                } else {
-                  resolve([])
-                }
-                break
-              case 2:
-                resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
-                break
-              default:
-                resolve([])
-            }
-          }
+        if (response.status === 500) {
+          this.errorChannels.push(channel)
+          return []
+        }
+
+        return await this.parseYouTubeRSSFeed(await response.text(), channel.id)
+      } catch (error) {
+        console.error(error)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${error}`, 10000, () => {
+          this.copyToClipboard({ content: error })
         })
-      })
+        switch (failedAttempts) {
+          case 0:
+            return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
+          case 1:
+            if (this.backendFallback) {
+              this.showToast(this.$t('Falling back to the local API'))
+              return this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
+            } else {
+              return []
+            }
+          case 2:
+            return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
+          default:
+            return []
+        }
+      }
+    },
+
+    async parseYouTubeRSSFeed(rssString, channelId) {
+      const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
+
+      const channelName = xmlDom.querySelector('author > name').textContent
+      const entries = xmlDom.querySelectorAll('entry')
+
+      const promises = []
+
+      for (const entry of entries) {
+        promises.push(this.parseRSSEntry(entry, channelId, channelName))
+      }
+
+      return await Promise.all(promises)
+    },
+
+    async parseRSSEntry(entry, channelId, channelName) {
+      const published = new Date(entry.querySelector('published').textContent)
+      return {
+        authorId: channelId,
+        author: channelName,
+        // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
+        videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
+        title: entry.querySelector('title').textContent,
+        publishedDate: published,
+        publishedText: published.toLocaleString(),
+        viewCount: entry.getElementsByTagName('media:statistics')[0]?.getAttribute('views') || null,
+        type: 'video',
+        lengthSeconds: '0:00',
+        isRSS: true
+      }
     },
 
     increaseLimit: function () {
