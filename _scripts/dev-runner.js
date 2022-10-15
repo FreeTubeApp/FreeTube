@@ -89,7 +89,6 @@ function startMain() {
 
           manualRestart = true
           await restartElectron()
-          
           setTimeout(() => {
             manualRestart = false
           }, 2500)
