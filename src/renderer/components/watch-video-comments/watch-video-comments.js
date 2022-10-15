@@ -104,14 +104,7 @@ export default Vue.extend({
         case 'invidious':
           this.isLoading = true
           this.commentData = []
-          this.getCommentDataInvidious({
-            resource: 'comments',
-            id: this.id,
-            params: {
-              continuation: this.nextPageToken,
-              sort_by: this.sortNewest ? 'new' : 'top'
-            }
-          })
+          this.getCommentDataInvidious()
           break
       }
     },
@@ -128,14 +121,7 @@ export default Vue.extend({
           })
           break
         case 'invidious':
-          this.getCommentDataInvidious({
-            resource: 'comments',
-            id: this.id,
-            params: {
-              continuation: this.nextPageToken,
-              sort_by: this.sortNewest ? 'new' : 'top'
-            }
-          })
+          this.getCommentDataInvidious()
           break
       }
     },
@@ -184,14 +170,7 @@ export default Vue.extend({
         })
         if (this.backendFallback && this.backendPreference === 'local') {
           showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious({
-            resource: 'comments',
-            id: this.id,
-            params: {
-              continuation: this.nextPageToken,
-              sort_by: this.sortNewest ? 'new' : 'top'
-            }
-          })
+          this.getCommentDataInvidious()
         } else {
           this.isLoading = false
         }
@@ -211,14 +190,7 @@ export default Vue.extend({
         })
         if (this.backendFallback && this.backendPreference === 'local') {
           showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious({
-            resource: 'comments',
-            id: this.id,
-            params: {
-              continuation: this.nextPageToken,
-              sort_by: this.sortNewest ? 'new' : 'top'
-            }
-          })
+          this.getCommentDataInvidious()
         } else {
           this.isLoading = false
         }
@@ -274,7 +246,16 @@ export default Vue.extend({
       }
     },
 
-    getCommentDataInvidious: function (payload) {
+    getCommentDataInvidious: function () {
+      const payload = {
+        resource: 'comments',
+        id: this.id,
+        params: {
+          continuation: this.nextPageToken ?? '',
+          sort_by: this.sortNewest ? 'new' : 'top'
+        }
+      }
+
       this.invidiousAPICall(payload).then((response) => {
         const commentData = response.comments.map((comment) => {
           comment.showReplies = false
