@@ -29,8 +29,8 @@ Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
 
-Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} is now available!  Click
-  for more details'
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
+  is now available!  Click for more details'
 Download From Site: 'Download From Site'
 A new blog is now available, {blogTitle}. Click to view more: 'A new blog is now available,
   {blogTitle}. Click to view more'
@@ -83,6 +83,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   Error Channels: Channels with errors
+  Disabled Automatic Fetching: You have disabled automatic subscription fetching.
+    Refresh subscriptions to see them here.
+  Empty Channels: Your subscribed channels currently does not have any videos.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -148,7 +151,8 @@ Settings:
     Current instance will be randomized on startup: Current instance will be randomised
       on startup
     No default instance has been set: No default instance has been set
-    The currently set default instance is {instance}: The currently set default instance is {instance}
+    The currently set default instance is {instance}: The currently set default instance
+      is {instance}
     Current Invidious Instance: Current Invidious Instance
     External Link Handling:
       No Action: No Action
@@ -293,6 +297,7 @@ Settings:
     Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch Feeds from RSS'
     Manage Subscriptions: 'Manage Subscriptions'
+    Fetch Automatically: Fetch feed automatically
   Data Settings:
     Data Settings: 'Data Settings'
     Select Import Type: 'Select Import Type'
@@ -334,11 +339,15 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
     Import Playlists: Import playlists
     Export Playlists: Export playlists
-    Playlist insufficient data: Insufficient data for ‘{playlist}’ playlist, skipping item
+    Playlist insufficient data: Insufficient data for ‘{playlist}’ playlist, skipping
+      item
     All playlists has been successfully imported: All playlists has been successfully
       imported
     All playlists has been successfully exported: All playlists has been successfully
       exported
+    Playlist File: Playlist file
+    Subscription File: Subscription file
+    History File: History file
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
@@ -382,6 +391,7 @@ Settings:
     Hide Video Description: Hide video description
     Hide Live Streams: Hide live streams
     Hide Sharing Actions: Hide sharing actions
+    Hide Chapters: Hide chapters
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -484,7 +494,8 @@ Profile:
   Your profile name cannot be empty: 'Your profile name cannot be empty'
   Profile has been created: 'Profile has been created'
   Profile has been updated: 'Profile has been updated'
-  Your default profile has been set to {profile}: 'Your default profile has been set to {profile}'
+  Your default profile has been set to {profile}: 'Your default profile has been set
+    to {profile}'
   Removed {profile} from your profiles: 'Removed {profile} from your profiles'
   Your default profile has been changed to your primary profile: 'Your default profile
     has been changed to your primary profile'
@@ -506,6 +517,7 @@ Profile:
     from any other profile.'
 #On Channel Page
   Profile Filter: Profile Filter
+  '{number} selected': '{number} selected'
 Channel:
   Subscriber: 'Subscriber'
   Subscribers: 'Subscribers'
@@ -513,7 +525,8 @@ Channel:
   Unsubscribe: 'Unsubscribe'
   Channel has been removed from your subscriptions: 'Channel has been removed from
     your subscriptions'
-  Removed subscription from {count} other channel(s): 'Removed subscription from {count} other channel(s)'
+  Removed subscription from {count} other channel(s): 'Removed subscription from {count}
+    other channel(s)'
   Added channel to your subscriptions: 'Added channel to your subscriptions'
   Search Channel: 'Search Channel'
   Your search results have returned 0 results: 'Your search results have returned
@@ -607,6 +620,7 @@ Video:
     Ago: 'Ago'
     Upcoming: 'Premieres on'
     Less than a minute: Less than a minute
+    In less than a minute: In less than a minute
   Published on: 'Published on'
   Publicationtemplate: '{number} {unit} ago'
 #& Videos
@@ -676,6 +690,7 @@ Video:
       available for legacy videos
     Video ID: Video ID
   Premieres in: Premieres in
+  Premieres: Premieres
 Videos:
   #& Sort By
   Sort By:
@@ -782,6 +797,8 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
       but it doesn’t provide certain information like video duration, or live status
+    Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription
+      feed when a new window is opened and when switching profile.
   Player Settings:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
@@ -839,7 +856,8 @@ Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, can
   be opened in app
 Open New Window: Open New Window
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
-Default Invidious instance has been set to {instance}: Default Invidious instance has been set to {instance}
+Default Invidious instance has been set to {instance}: Default Invidious instance
+  has been set to {instance}
 Search Bar:
   Clear Input: Clear input
 External link opening has been disabled in the general settings: External link opening
@@ -865,3 +883,13 @@ Age Restricted:
   Type:
     Video: Video
     Channel: Channel
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible,
+    current chapter: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current
+    chapter: {chapterName}'
+  Chapters: Chapters
+Clipboard:
+  Copy failed: Copy to clipboard failed
+  Cannot access clipboard without a secure connection: Cannot access clipboard without
+    a secure connection
