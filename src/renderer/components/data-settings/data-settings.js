@@ -8,12 +8,9 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
 import { calculateColorLuminance, getRandomColor, showToast } from '../../helpers/utils'
-
-// FIXME: Missing web logic branching
 
 export default Vue.extend({
   name: 'DataSettings',
