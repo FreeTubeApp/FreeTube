@@ -29,11 +29,11 @@ Close: 'Закрити'
 Back: 'Назад'
 Forward: 'Вперед'
 
-Version {versionNumber} is now available!  Click for more details: 'Доступна нова версія {versionNumber} ! Натисніть
-  щоб побачити деталі'
+Version {versionNumber} is now available!  Click for more details: 'Доступна нова
+  версія {versionNumber} ! Натисніть щоб побачити деталі'
 Download From Site: 'Завантажити з сайту'
-A new blog is now available, {blogTitle}. Click to view more: 'Доступний новий блог, {blogTitle}. Натисніть
-  щоб побачити більше'
+A new blog is now available, {blogTitle}. Click to view more: 'Доступний новий блог,
+  {blogTitle}. Натисніть щоб побачити більше'
 
 # Search Bar
 Search / Go to URL: 'Пошук / Перейти по URL'
@@ -155,8 +155,8 @@ Settings:
     Current instance will be randomized on startup: Поточний випадковий екземпляр
       буде обрано під час запуску
     No default instance has been set: Типовий екземпляр не встановлено
-    The currently set default instance is {instance}: Поточний встановлений типовим екземпляр
-      — {instance}
+    The currently set default instance is {instance}: Поточний встановлений типовим
+      екземпляр — {instance}
     Current Invidious Instance: Поточний екземпляр Invidious
     External Link Handling:
       No Action: Без дій
@@ -349,7 +349,8 @@ Settings:
     Unknown data key: 'Невідомий ключ даних'
     How do I import my subscriptions?: 'Як імпортувати свої підписки?'
     Manage Subscriptions: Керування підписками
-    Playlist insufficient data: Недостатньо даних для добірки "{playlist}", пропуск елемента
+    Playlist insufficient data: Недостатньо даних для добірки "{playlist}", пропуск
+      елемента
     All playlists has been successfully exported: Усі добірки успішно експортовано
     Import Playlists: Імпорт добірок
     Export Playlists: Експорт добірок
@@ -524,7 +525,8 @@ Channel:
   Subscribe: 'Підписатися'
   Unsubscribe: 'Відписатися'
   Channel has been removed from your subscriptions: 'Канал прибрано з ваших підписок'
-  Removed subscription from {count} other channel(s): 'Вилучено підписку з {count} інших каналів'
+  Removed subscription from {count} other channel(s): 'Вилучено підписку з {count}
+    інших каналів'
   Added channel to your subscriptions: 'Додано канал до підписок'
   Search Channel: 'Шукати на каналі'
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
@@ -861,8 +863,8 @@ Unknown YouTube url type, cannot be opened in app: Невідомий тип URL
   його не можна відкрити в застосункові
 Open New Window: Відкрити нове вікно
 Default Invidious instance has been cleared: Типовий екземпляр Invidious очищено
-Default Invidious instance has been set to {instance}: 'Типовим екземпляром Invidious встановлено
-  {instance}'
+Default Invidious instance has been set to {instance}: 'Типовим екземпляром Invidious
+  встановлено {instance}'
 Search Bar:
   Clear Input: Очистити поле
 External link opening has been disabled in the general settings: Відкриття зовнішнього
@@ -878,10 +880,12 @@ Screenshot Success: Знімок екрана збережено як «{filePat
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно
 Age Restricted:
-  The currently set default instance is {instance}: Цей {instance} має обмеження за віком
+  The currently set default instance is {instance}: Цей {instance} має обмеження за
+    віком
   Type:
     Video: Відео
     Channel: Канал
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} має вікове обмеження'
 Channels:
   Count: 'Знайдено каналів: {number}.'
   Empty: Ваш список каналів наразі порожній.
