@@ -333,6 +333,9 @@ Settings:
     All playlists has been successfully exported: 全ての再生リストは成功にエキスポートされました
     Import Playlists: 再生リストのインポート
     Export Playlists: 再生リストのエキスポート
+    Subscription File: サブスクリプション ファイル
+    History File: 履歴ファイル
+    Playlist File: 再生リスト
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -744,7 +747,8 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
-Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} 配信中！　詳細はクリックして確認してください
+Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber}
+  配信中！　詳細はクリックして確認してください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
@@ -799,6 +803,7 @@ Age Restricted:
   Type:
     Channel: チャンネル
     Video: 動画
+  This {videoOrPlaylist} is age restricted: この {videoOrPlaylist} は年齢制限があります
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除
