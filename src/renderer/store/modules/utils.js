@@ -345,8 +345,14 @@ const actions = {
   },
 
   async showSaveDialog (context, options) {
-    // TODO: implement showSaveDialog web compatible callback
-    const webCbk = () => null
+    const webCbk = async () => {
+      // If the native filesystem api is available
+      if ('showSaveFilePicker' in window) {
+        return { canceled: false, handle: await window.showSaveFilePicker({ suggestedName: options.defaultPath, types: options.filters?.extensions?.map((extension) => { return { accept: extension } }) }) }
+      } else {
+        return { canceled: false, filePath: options.defaultPath }
+      }
+    }
     return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
   },
 
