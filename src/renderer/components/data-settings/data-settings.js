@@ -487,9 +487,9 @@ export default Vue.extend({
     },
 
     exportFreeTubeSubscriptions: async function () {
-      await this.compactProfiles()
-      const userData = await this.getUserDataPath()
-      const subscriptionsDb = `${userData}/profiles.db`
+      const subscriptionsDb = this.profileList.map((profile) => {
+        return JSON.stringify(profile)
+      }).join('\n') + '\n'// a trailing line is expected
       const date = new Date().toISOString().split('T')[0]
       const exportFileName = 'freetube-subscriptions-' + date + '.db'
 
@@ -508,26 +508,14 @@ export default Vue.extend({
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.readFile(subscriptionsDb, (readErr, data) => {
-        if (readErr) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          showToast(`${message}: ${readErr}`)
-          return
-        }
-
-        fs.writeFile(filePath, data, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            showToast(`${message}: ${writeErr}`)
-            return
-          }
-
-          showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-        })
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: subscriptionsDb })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -1143,6 +1131,7 @@ export default Vue.extend({
       'showOpenDialog',
       'readFileFromDialog',
       'showSaveDialog',
+      'writeFileFromDialog',
       'getUserDataPath',
       'addPlaylist',
       'addVideo',
