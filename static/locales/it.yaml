@@ -150,7 +150,8 @@ Settings:
     Current instance will be randomized on startup: L'istanza attuale sarà sostituita
       all'avvio da una generata casualmente
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
-    The currently set default instance is {instance}: L'attuale istanza predefinita è {instance}
+    The currently set default instance is {instance}: L'attuale istanza predefinita
+      è {instance}
     Current Invidious Instance: Istanza attuale di Invidious
     System Default: Predefinito del sistema
     External Link Handling:
@@ -369,7 +370,8 @@ Settings:
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
-    Playlist insufficient data: Dati insufficienti per la playlist «{playlist}», elemento saltato
+    Playlist insufficient data: Dati insufficienti per la playlist «{playlist}», elemento
+      saltato
     All playlists has been successfully imported: Tutte le playlist sono state importate
       con successo
     All playlists has been successfully exported: Tutte le playlist sono state esportate
@@ -536,8 +538,8 @@ Channel:
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali suggeriti'
   Added channel to your subscriptions: Il canale è stato aggiunto alle tue iscrizioni
-  Removed subscription from {count} other channel(s): È stata rimossa l'iscrizione dagli
-    altri canali di {count}
+  Removed subscription from {count} other channel(s): È stata rimossa l'iscrizione
+    dagli altri canali di {count}
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
     tue iscrizioni
 Video:
@@ -781,10 +783,10 @@ Canceled next video autoplay: 'Riproduzione automatica del prossimo video annull
 
 Yes: 'Sì'
 No: 'No'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora disponibile,
-  {blogTitle}. Clicca per saperne di più'
-Version {versionNumber} is now available!  Click for more details: La versione {versionNumber} è ora disponibile!
-  Clicca per maggiori dettagli
+A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora
+  disponibile, {blogTitle}. Clicca per saperne di più'
+Version {versionNumber} is now available!  Click for more details: La versione {versionNumber}
+  è ora disponibile! Clicca per maggiori dettagli
 Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
@@ -807,7 +809,8 @@ Profile:
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
     è stato cambiato in profilo primario
   Removed {profile} from your profiles: Hai rimosso {profile} dai tuoi profili
-  Your default profile has been set to {profile}: '{profile} è stato impostato come profilo predefinito'
+  Your default profile has been set to {profile}: '{profile} è stato impostato come
+    profilo predefinito'
   Profile has been updated: Il profilo è stato aggiornato
   Profile has been created: Il profilo è stato creato
   Your profile name cannot be empty: Il nome del profilo non può essere vuoto
@@ -897,8 +900,8 @@ More: Altro
 Open New Window: Apri una nuova finestra
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è
   stata cancellata
-Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious è
-  stata impostata a {instance}
+Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious
+  è stata impostata a {instance}
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
 Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
@@ -918,6 +921,8 @@ Age Restricted:
   Type:
     Channel: Canale
     Video: Video
+  This {videoOrPlaylist} is age restricted: Questo {videoOrPlaylist} ha limiti di
+    età
 New Window: Nuova finestra
 Channels:
   Unsubscribed: '{channelName} è stato rimosso dalle tue iscrizioni'
