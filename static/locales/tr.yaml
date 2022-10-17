@@ -29,11 +29,11 @@ Close: 'Kapat'
 Back: 'Geri'
 Forward: 'İleri'
 
-Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla
-  ayrıntı için tıklayın'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber}
+  sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
-A new blog is now available, {blogTitle}. Click to view more: 'Yeni blog gönderisi var, {blogTitle}. Daha
-  fazlasını görüntülemek için tıklayın'
+A new blog is now available, {blogTitle}. Click to view more: 'Yeni blog gönderisi
+  var, {blogTitle}. Daha fazlasını görüntülemek için tıklayın'
 
 # Search Bar
 Search / Go to URL: 'Ara / URL''ye git'
@@ -150,7 +150,8 @@ Settings:
     Current instance will be randomized on startup: Geçerli örnek başlangıçta rastgele
       olacak
     No default instance has been set: Öntanımlı örnek ayarlanmadı
-    The currently set default instance is {instance}: Şu anda ayarlanan öntanımlı örnek {instance}
+    The currently set default instance is {instance}: Şu anda ayarlanan öntanımlı
+      örnek {instance}
     Current Invidious Instance: Geçerli Invidious Örneği
     External Link Handling:
       No Action: Eylem Yok
@@ -332,7 +333,8 @@ Settings:
     Export Playlists: Oynatma Listelerini Dışa Aktar
     All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
       içe aktarıldı
-    Playlist insufficient data: '"{playlist}" oynatma listesi için yetersiz veri, öge atlanıyor'
+    Playlist insufficient data: '"{playlist}" oynatma listesi için yetersiz veri,
+      öge atlanıyor'
     Import Playlists: Oynatma Listelerini İçe Aktar
     All playlists has been successfully exported: Tüm oynatma listeleri başarıyla
       dışa aktarıldı
@@ -521,7 +523,8 @@ Profile:
   Your profile name cannot be empty: 'Profil adı boş bırakılamaz'
   Profile has been created: 'Profil oluşturuldu'
   Profile has been updated: 'Profil güncellendi'
-  Your default profile has been set to {profile}: 'Öntanımlı profiliniz {profile} olarak ayarlandı'
+  Your default profile has been set to {profile}: 'Öntanımlı profiliniz {profile}
+    olarak ayarlandı'
   Removed {profile} from your profiles: '{profile} Profillerinizden kaldırıldı'
   Your default profile has been changed to your primary profile: 'Öntanımlı profiliniz
     birincil profiliniz olarak değiştirildi'
@@ -550,7 +553,8 @@ Channel:
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
   Channel has been removed from your subscriptions: 'Kanal aboneliklerinizden kaldırıldı'
-  Removed subscription from {count} other channel(s): 'Diğer {count} kanallarından abonelik kaldırıldı'
+  Removed subscription from {count} other channel(s): 'Diğer {count} kanallarından
+    abonelik kaldırıldı'
   Added channel to your subscriptions: 'Kanal aboneliklerinize eklendi'
   Search Channel: 'Kanalda ara'
   Your search results have returned 0 results: 'Arama sonuçlarınız 0 sonuç verdi'
@@ -880,8 +884,8 @@ Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü
   açılamıyor
 Open New Window: Yeni Pencere Aç
 Default Invidious instance has been cleared: Öntanımlı Invidious örneği temizlendi
-Default Invidious instance has been set to {instance}: Öntanımlı Invidious örneği {instance} olarak
-  ayarlandı
+Default Invidious instance has been set to {instance}: Öntanımlı Invidious örneği
+  {instance} olarak ayarlandı
 Search Bar:
   Clear Input: Girişi Temizle
 External link opening has been disabled in the general settings: Harici bağlantı açma
@@ -902,6 +906,7 @@ Age Restricted:
   Type:
     Channel: Kanal
     Video: Video
+  This {videoOrPlaylist} is age restricted: Bu {videoOrPlaylist} yaş kısıtlamalıdır
 Channels:
   Empty: Kanal listeniz şu anda boş.
   Channels: Kanallar
