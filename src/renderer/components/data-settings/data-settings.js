@@ -953,7 +953,7 @@ export default Vue.extend({
         showToast(`${message}: ${writeErr}`)
         return
       }
-      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')} also ${JSON.stringify(response)}`)
+      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')}`)
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
