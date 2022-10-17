@@ -574,17 +574,14 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(subscriptionsObject), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: JSON.stringify(subscriptionsObject) })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
