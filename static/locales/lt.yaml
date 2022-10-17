@@ -30,8 +30,8 @@ Back: 'Atgal'
 Forward: 'Pirmyn'
 Open New Window: 'Atidaryti naują langą'
 
-Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber} jau prieinama!  Spustelėkite,
-  jei norite gauti daugiau informacijos'
+Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
+  jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
 A new blog is now available, {blogTitle}. Click to view more: 'Naujas įrašas tinklaraštyje,
   {blogTitle}. Spustelėkite norėdami pamatyti daugiau'
@@ -107,7 +107,8 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Jūsų
     išsaugotų vaizdo įrašų skiltis tuščia. Spustelėkite vaizdo įrašo kampe esantį
     išsaugojimo mygtuką, kad jis būtų pateikiamas čia'
-  Empty Search Message: Šiame grojaraštyje nėra vaizdo įrašų, atitinkančių jūsų paiešką
+  Empty Search Message: Šiame grojaraštyje nėra vaizdo įrašų, kurie atitiktų jūsų
+    paiešką
   Search bar placeholder: Ieškoti grojaraštyje
 History:
   # On History Page
@@ -157,8 +158,8 @@ Settings:
     Current instance will be randomized on startup: Esama instancija bus atsitiktinai
       parinkta paleidimo metu
     No default instance has been set: Nenustatytas jokia numatytoji instancija
-    The currently set default instance is {instance}: Šiuo metu nustatyta numatytoji instancija
-      yra {instance}
+    The currently set default instance is {instance}: Šiuo metu nustatyta numatytoji
+      instancija yra {instance}
     External Link Handling:
       No Action: Jokio veiksmo
       Ask Before Opening Link: Klausti prieš atidarant nuorodą
@@ -247,12 +248,31 @@ Settings:
     Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
     Scroll Playback Rate Over Video Player: Slinkties atkūrimo dažnis vaizdo įrašų
       leistuve
+    Screenshot:
+      Enable: Įgalinti ekrano kopijas
+      Format Label: Ekrano kopijos formatas
+      Ask Path: Prašyti aplanko kuriame išsaugoti
+      Folder Label: Ekrano kopijų aplankas
+      Folder Button: Pasirinkite aplanką
+      File Name Label: Failo pavadinimo šablonas
+      Quality Label: Ekrano kopijos kokybė
+      File Name Tooltip: Galite naudoti toliau nurodytus kintamuosius. %Y Metai 4
+        skaitmenys. %M Mėnuo 2 skaitmenys. %D Diena 2 skaitmenys. %H Valanda 2 skaitmenys.
+        %N Minutė 2 skaitmenys. %S Sekundė 2 skaitmenys. %T Milisekundė 3 skaitmenys.
+        %s Vaizdo sekundė. %t Vaizdo milisekundė 3 skaitmenys. %i Vaizdo įrašo ID.
+        Taip pat galite naudoti „\“ arba „/“, kad sukurtumėte pakatalogius.
+      Error:
+        Forbidden Characters: Draudžiami simboliai
+        Empty File Name: Tuščias failo pavadinimas
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
     Ignore Unsupported Action Warnings: 'Nepaisykite ''nepalaikomas veiksmas'' įspėjimų'
     Custom External Player Executable: 'Pasirinktinis išorinio grotuvo vykdymas'
     Custom External Player Arguments: 'Pasirinktiniai išorinio grotuvo argumentai'
+    Players:
+      None:
+        Name: Nėra
   Privacy Settings:
     Privacy Settings: 'Privatumo nustatymai'
     Remember History: 'Įsiminti istoriją'
@@ -287,6 +307,11 @@ Settings:
     Hide Playlists: 'Slėpti grojaraščius'
     Hide Live Chat: 'Slėpti tiesioginę diskusiją'
     Hide Active Subscriptions: 'Slėpti aktyvias prenumeratas'
+    Hide Video Description: Slėpti vaizdo įrašo aprašymą
+    Hide Comments: Slėpti komentarus
+    Hide Live Streams: Slėpti tiesiogines transliacijas
+    Hide Sharing Actions: Slėpti bendrinimo veiksmus
+    Hide Chapters: Slėpti skyrius
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkite importavimo tipą'
@@ -325,6 +350,13 @@ Settings:
     Unknown data key: 'Nežinomas duomenų raktas'
     How do I import my subscriptions?: 'Kaip aš galiu importuoti savo prenumeratas?'
     Manage Subscriptions: 'Valdyti prenumeratas'
+    Playlist File: Grojaraščių failas
+    History File: Istorijos failas
+    All playlists has been successfully imported: Visi grojaraščiai sėkmingai importuoti
+    All playlists has been successfully exported: Visi grojaraščiai sėkmingai eksportuoti
+    Import Playlists: Importuoti grojaraščius
+    Export Playlists: Eksportuoti grojaraščius
+    Subscription File: Prenumeratų failas
   Proxy Settings:
     Proxy Settings: 'Proxy nustatymai'
     Enable Tor / Proxy: 'Įgalinti Tor / Proxy'
@@ -348,6 +380,23 @@ Settings:
       URL (numatytasis yra https://sponsor.ajay.app)'
     Notify when sponsor segment is skipped: 'Pranešti, kuomet praleidžiamas rėmėjų
       segmentas'
+    Skip Options:
+      Prompt To Skip: Pasiūlyti praleisti
+      Skip Option: Praleidimo parinktis
+      Auto Skip: Automatinis praleidimas
+      Do Nothing: Nieko nedaryti
+    Category Color: Kategorija spalva
+  Download Settings:
+    Download Settings: Atsisiuntimo nustatymai
+    Ask Download Path: Klausti atsisiuntimo kelio
+    Choose Path: Pasirinkite kelią
+    Download Behavior: Atsisiuntimo elgsena
+    Download in app: Atsisiųsti programėlėje
+    Open in web browser: Atidaryti žiniatinklio naršyklėje
+  Parental Control Settings:
+    Parental Control Settings: Tėvų kontrolės nustatymai
+    Hide Unsubscribe Button: Slėpti prenumeratos atsisakymo mygtuką
+    Hide Search Bar: Slėpti paieškos juostą
 About:
   #On About page
   About: 'Apie'
@@ -397,7 +446,8 @@ Profile:
   Your profile name cannot be empty: 'Jūsų profilio vardas negali būti tuščias'
   Profile has been created: 'Profilis sukurtas'
   Profile has been updated: 'Profilis atnaujintas'
-  Your default profile has been set to {profile}: '{profile} buvo nustatytas kaip numatytasis profilis'
+  Your default profile has been set to {profile}: '{profile} buvo nustatytas kaip
+    numatytasis profilis'
   Removed {profile} from your profiles: '{profile} buvo pašalintas iš tavo profilių'
   Your default profile has been changed to your primary profile: 'Numatytasis profilis
     buvo nustatytas kaip pagrindinis'
@@ -424,8 +474,8 @@ Channel:
   Subscribe: 'Prenumeruoti'
   Unsubscribe: 'Atšaukti prenumeratą'
   Channel has been removed from your subscriptions: 'Kanalas pašalintas iš jūsų prenumeratų'
-  Removed subscription from {count} other channel(s): 'Prenumerata pašalinta iš {count} kito(-ų)
-    kanalo(-ų)'
+  Removed subscription from {count} other channel(s): 'Prenumerata pašalinta iš {count}
+    kito(-ų) kanalo(-ų)'
   Added channel to your subscriptions: 'Prie jūsų prenumeratų pridėtas kanalas'
   Search Channel: 'Ieškoti kanalų'
   Your search results have returned 0 results: 'Paieškos rezultatai gražino 0 rezultatų'
@@ -534,6 +584,7 @@ Video:
     Years: 'Metai'
     Ago: 'Atgal'
     Upcoming: 'Premjera'
+    In less than a minute: Prieš mažiau nei minutę
   Published on: 'Publikuota'
   Streamed on: 'Transliuota'
   Started streaming on: 'Transliaciją pradėjo'
@@ -541,12 +592,14 @@ Video:
   Publicationtemplate: '{number} {unit} prieš'
   Skipped segment: 'Praleistas segmentas'
   Sponsor Block category:
-    sponsor: 'rėmėjas'
-    intro: 'įžanga'
+    sponsor: 'Rėmėjas'
+    intro: 'Įžanga'
     outro: 'autro'
-    self-promotion: 'savi-reklama'
-    interaction: 'interakcija'
-    music offtopic: 'nesusijusi muzika'
+    self-promotion: 'Savireklama'
+    interaction: 'Interakcija'
+    music offtopic: 'Nesusijusi muzika'
+    recap: Apibendrinimas
+    filler: Užpildas
   External Player:
     OpenInTemplate: 'Atidaryti {externalPlayer}'
     video: 'vaizdo įrašas'
@@ -573,6 +626,13 @@ Video:
     buffered: Užkrauta atmintyje
     volume: Garsas
     out of: iš
+    Video ID: Vaizdo įrašo ID
+    Resolution: Rezoliucija
+    Bitrate: Bitų sparta
+    Bandwidth: Pralaidumas
+    Volume: Apimtis
+    Player Dimensions: Grotuvo matmenys
+  Premieres: Premjera
 Videos:
   #& Sort By
   Sort By:
@@ -649,6 +709,7 @@ Comments:
   From {channelName}: nuo {channelName}
   And others: ir kt.
   Pinned by: Prisegė
+  Member: Narys
 Up Next: 'Sekantis'
 
 #Tooltips
@@ -741,8 +802,8 @@ Canceled next video autoplay: 'Atšauktas sekančio vaizdo įrašo automatinis p
 Yes: 'Taip'
 No: 'Ne'
 Default Invidious instance has been cleared: Numatytoji Invidious instancija išvalyta
-Default Invidious instance has been set to {instance}: Numatytoji Invidious instancija buvo
-  nustatyta į {instance}
+Default Invidious instance has been set to {instance}: Numatytoji Invidious instancija
+  buvo nustatyta į {instance}
 Search Bar:
   Clear Input: Išvalyti įvestį
 External link opening has been disabled in the general settings: Išorinės nuorodos
@@ -753,8 +814,21 @@ Channels:
   Channels: Kanalai
   Title: Kanalų sąrašas
   Search bar placeholder: Ieškoti kanalų
-  Count: rastas (-i) $ kanalas (-ai).
+  Count: rastas (-i) {number} kanalas (-ai).
   Empty: Jūsų kanalų sąrašas šiuo metu tuščias.
   Unsubscribe: Atsisakyti prenumeratos
-  Unsubscribed: $ buvo pašalintas iš jūsų prenumeratų
-  Unsubscribe Prompt: Ar tikrai norite atsisakyti „$“ prenumeratos?
+  Unsubscribed: '{channelName} buvo pašalintas iš jūsų prenumeratų'
+  Unsubscribe Prompt: Ar tikrai norite atsisakyti {channelName} prenumeratos?
+Age Restricted:
+  Type:
+    Channel: Kanalas
+    Video: Vaizdo įrašas
+Downloading has completed: „{videoTitle}“ atsisiuntimas baigtas
+Starting download: Pradedamas „{videoTitle}“ atsisiuntimas
+Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
+Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
+Screenshot Error: Ekrano kopija nepavyko. {error}
+Chapters:
+  Chapters: Skyriai
+Clipboard:
+  Copy failed: Nepavyko nukopijuoti į iškarpinę
