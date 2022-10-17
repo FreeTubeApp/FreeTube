@@ -949,18 +949,14 @@ export default Vue.extend({
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(this.allPlaylists), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.All playlists has been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: JSON.stringify(this.allPlaylists) })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')} also ${JSON.stringify(response)}`)
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
