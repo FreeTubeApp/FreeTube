@@ -743,7 +743,8 @@ Profile:
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
-Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！ 点击以取得更多信息
+Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！
+  点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
@@ -798,6 +799,7 @@ Age Restricted:
     Channel: 频道
     Video: 视频
   The currently set default instance is {instance}: 此 {instance} 有年龄限制
+  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年龄限制
 Channels:
   Search bar placeholder: 搜索频道
   Count: 找到了 {number} 个频道。
