@@ -77,6 +77,8 @@ Subscriptions:
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
   Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
+  Disabled Automatic Fetching: Olet poistanut automaattisen tilauksen noutamisen käytöstä.
+    Päivitä tilaukset nähdäksesi ne täällä.
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -140,7 +142,8 @@ Settings:
     Current instance will be randomized on startup: Nykyinen palveluntarjoaja valitaan
       satunnaisesti käynnistyksen yhteydessä
     No default instance has been set: Oletuspalveluntarjoajaa ei ole määritelty
-    The currently set default instance is {instance}: Nykyinen oletuspalveluntarjoaja on {instance}
+    The currently set default instance is {instance}: Nykyinen oletuspalveluntarjoaja
+      on {instance}
     Current Invidious Instance: Nykyinen Invidious-palveluntarjoaja
     External Link Handling:
       No Action: Ei toimintoa
@@ -355,8 +358,11 @@ Settings:
     All playlists has been successfully exported: Kaikki soittolistat on viety onnistuneesti
     Import Playlists: Tuo soittolistoja
     Export Playlists: Vie soittolistoja
-    Playlist insufficient data: Riittämätön määrä tietoja ”{playlist}” -soittolistalle, ohitetaan
-      kohde
+    Playlist insufficient data: Riittämätön määrä tietoja ”{playlist}” -soittolistalle,
+      ohitetaan kohde
+    Playlist File: Soittolistatiedosto
+    History File: Historia-tiedosto
+    Subscription File: Tilaustiedosto
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -510,7 +516,8 @@ Channel:
     Channel Description: 'Kanavan kuvaus'
     Featured Channels: 'Suositellut kanavat'
   Added channel to your subscriptions: Kanava on lisätty tilauksiisi
-  Removed subscription from {count} other channel(s): Poistettu tilaus {count} muulta kanavalta
+  Removed subscription from {count} other channel(s): Poistettu tilaus {count} muulta
+    kanavalta
   Channel has been removed from your subscriptions: Kanava on poistettu tilauksistasi
 Video:
   Open in YouTube: 'Avaa Youtubessa'
@@ -749,7 +756,8 @@ Profile:
   Your default profile has been changed to your primary profile: Oletusprofiilisi
     on vaihdettu ensisijaiseksi profiiliksesi
   Removed {profile} from your profiles: '{profile} on poistettu profiileistasi'
-  Your default profile has been set to {profile}: Oletusprofiiliksesi on määritetty {profile}
+  Your default profile has been set to {profile}: Oletusprofiiliksesi on määritetty
+    {profile}
   Profile has been updated: Profiili on päivitetty
   Profile has been created: Profiili on luotu
   Your profile name cannot be empty: Profiililla täytyy olla nimi
@@ -784,13 +792,13 @@ Profile:
   Subscription List: Tilauslista
   Profile Filter: Profiilisuodatin
   Profile Settings: Profiiliasetukset
-Version {versionNumber} is now available!  Click for more details: Versio {versionNumber} on nyt saatavilla! Napsauta
-  saadaksesi lisätietoja
+Version {versionNumber} is now available!  Click for more details: Versio {versionNumber}
+  on nyt saatavilla! Napsauta saadaksesi lisätietoja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
   video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
   ei ole saatavilla maassasi.
-A new blog is now available, {blogTitle}. Click to view more: Uusi blogi on saatavilla, {blogTitle}. Klikkaa
-  nähdäksesi lisää
+A new blog is now available, {blogTitle}. Click to view more: Uusi blogi on saatavilla,
+  {blogTitle}. Klikkaa nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
@@ -810,6 +818,8 @@ Tooltips:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
       sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
       ei anna tietoja, kuten videon kesto tai livetila
+    Fetch Automatically: Kun tämä on käytössä, FreeTube hakee automaattisesti tilauksesi
+      syötteen, kun uusi ikkuna avataan ja kun vaihdat profiilia.
   Player Settings:
     Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit
       toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon,
@@ -881,3 +891,11 @@ Channels:
   Unsubscribed: '{channelName} on poistettu tilauksistasi'
 Clipboard:
   Copy failed: Kopiointi leikepöydälle epäonnistui
+  Cannot access clipboard without a secure connection: Leikepöytää ei voi käyttää
+    ilman suojattua yhteyttä
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Lukujen luettelo piilotettu,
+    nykyinen luku: {chapterName}'
+  Chapters: Luvut
+  'Chapters list visible, current chapter: {chapterName}': 'Lukujen luettelo näkyvissä,
+    nykyinen luku: {chapterName}'
