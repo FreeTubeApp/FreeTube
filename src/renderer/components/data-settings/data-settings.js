@@ -60,6 +60,9 @@ export default Vue.extend({
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
+    },
     exportSubscriptionsPromptNames: function () {
       const exportFreeTube = this.$t('Settings.Data Settings.Export FreeTube')
       const exportYouTube = this.$t('Settings.Data Settings.Export YouTube')
@@ -783,9 +786,9 @@ export default Vue.extend({
     },
 
     exportHistory: async function () {
-      await this.compactHistory()
-      const userData = await this.getUserDataPath()
-      const historyDb = `${userData}/history.db`
+      const historyDb = this.historyCache.map((historyEntry) => {
+        return JSON.stringify(historyEntry)
+      }).join('\n') + '\n'
       const date = new Date().toISOString().split('T')[0]
       const exportFileName = 'freetube-history-' + date + '.db'
 
@@ -805,25 +808,12 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-
-      fs.readFile(historyDb, (readErr, data) => {
-        if (readErr) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          showToast(`${message}: ${readErr}`)
-          return
-        }
-
-        fs.writeFile(filePath, data, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            showToast(`${message}: ${writeErr}`)
-            return
-          }
-
-          showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
-        })
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: historyDb })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+      }
     },
 
     importPlaylists: async function () {
