@@ -619,17 +619,14 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, opmlData, (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: opmlData })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -661,16 +658,14 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-      fs.writeFile(filePath, exportText, (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: exportText })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -709,18 +704,14 @@ export default Vue.extend({
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(newPipeObject), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: JSON.stringify(newPipeObject) })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     importHistory: async function () {
