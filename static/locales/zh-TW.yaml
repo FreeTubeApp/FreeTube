@@ -753,7 +753,8 @@ Profile:
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
-Version {versionNumber} is now available!  Click for more details: 版本更新囉! 最新版本 {versionNumber} ! 點擊以取得更多資訊
+Version {versionNumber} is now available!  Click for more details: 版本更新囉! 最新版本 {versionNumber}
+  ! 點擊以取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
@@ -808,6 +809,7 @@ Age Restricted:
   Type:
     Channel: 頻道
     Video: 影片
+  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年齡限制
 Channels:
   Channels: 頻道
   Title: 頻道清單
