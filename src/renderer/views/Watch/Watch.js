@@ -627,12 +627,8 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            this.copyToClipboard({ content: err })
           })
           console.error(err)
           if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
@@ -851,12 +847,8 @@ export default Vue.extend({
         .catch(err => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast({
-            message: `${errorMessage}: ${err.responseText}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err.responseText })
-            }
+          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
+            this.copyToClipboard({ content: err.responseText })
           })
           console.error(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -1042,12 +1034,8 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            this.copyToClipboard({ content: err })
           })
           console.error(err)
           if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
