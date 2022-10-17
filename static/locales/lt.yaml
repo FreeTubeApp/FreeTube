@@ -84,6 +84,10 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Gaunamos prenumeratos. Prašome luktelėti.'
   Refresh Subscriptions: 'Atnaujinti prenumeratas'
   Load More Videos: 'Pakrauti daugiau vaizdo įrašų'
+  Error Channels: Kanalai su klaidomis
+  Disabled Automatic Fetching: Išjungėte automatinį prenumeratų gavimą. Atnaujinkite
+    prenumeratas, kad jas matytumėte čia.
+  Empty Channels: Šiuo metu jūsų prenumeruojamuose kanaluose nėra jokių vaizdo įrašų.
 More: 'Daugiau'
 Trending:
   Trending: 'Dabar populiaru'
@@ -103,11 +107,15 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Jūsų
     išsaugotų vaizdo įrašų skiltis tuščia. Spustelėkite vaizdo įrašo kampe esantį
     išsaugojimo mygtuką, kad jis būtų pateikiamas čia'
+  Empty Search Message: Šiame grojaraštyje nėra vaizdo įrašų, atitinkančių jūsų paiešką
+  Search bar placeholder: Ieškoti grojaraštyje
 History:
   # On History Page
   History: 'Istorija'
   Watch History: 'Žiūrėjimo istorija'
   Your history list is currently empty.: 'Tavo žiūrėjimo istorija kol kas tuščia.'
+  Empty Search Message: Istorijoje nėra vaizdo įrašų, atitinkančių jūsų paiešką
+  Search bar placeholder: Ieškoti istorijoje
 Settings:
   # On Settings Page
   Settings: 'Nustatymai'
@@ -168,6 +176,8 @@ Settings:
       Dark: 'Tamsi'
       Light: 'Šviesi'
       Dracula: 'Drakula'
+      Catppuccin Mocha: Catppuccino Mocha
+      System Default: Sistemos numatytoji
     Main Color Theme:
       Main Color Theme: 'Pagrindinė temos spalva'
       Red: 'Raudona'
@@ -193,6 +203,11 @@ Settings:
       Dracula Purple: 'Drakula Violetinė'
       Dracula Red: 'Drakula Raudona'
       Dracula Yellow: 'Drakula Geltona'
+      Catppuccin Mocha Rosewater: Catppuccino Mocha Rožių vanduo
+      Catppuccin Mocha Flamingo: Catppuccino Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccino Mocha rožinė
+      Catppuccin Mocha Mauve: Catppuccino Mocha Mauve
+      Catppuccin Mocha Red: Catppuccino Mocha raudona
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
     Hide Side Bar Labels: Slėpti šoninės juostos etiketes
@@ -733,3 +748,13 @@ Search Bar:
 External link opening has been disabled in the general settings: Išorinės nuorodos
   atidarymas buvo išjungtas bendruosiuose nustatymuose
 Are you sure you want to open this link?: Ar tikrai norite atidaryti šią nuorodą?
+New Window: Naujas langas
+Channels:
+  Channels: Kanalai
+  Title: Kanalų sąrašas
+  Search bar placeholder: Ieškoti kanalų
+  Count: rastas (-i) $ kanalas (-ai).
+  Empty: Jūsų kanalų sąrašas šiuo metu tuščias.
+  Unsubscribe: Atsisakyti prenumeratos
+  Unsubscribed: $ buvo pašalintas iš jūsų prenumeratų
+  Unsubscribe Prompt: Ar tikrai norite atsisakyti „$“ prenumeratos?
