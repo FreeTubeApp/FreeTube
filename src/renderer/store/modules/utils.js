@@ -370,8 +370,7 @@ const actions = {
       } else {
         // If the native filesystem api is not available,
         const { filePath } = response
-        const fileNameArray = filePath.split('/')
-        const filename = fileNameArray[fileNameArray.length - 1]
+        const filename = filePath.split('/').at(-1)
         const a = document.createElement('a')
         const url = URL.createObjectURL(new Blob([content], { type: 'application/octet-stream' }))
         a.setAttribute('href', url)
@@ -385,7 +384,19 @@ const actions = {
     const webCbk = async () => {
       // If the native filesystem api is available
       if ('showSaveFilePicker' in window) {
-        return { canceled: false, handle: await window.showSaveFilePicker({ suggestedName: options.defaultPath, types: options.filters?.extensions?.map((extension) => { return { accept: extension } }) }) }
+        return {
+          canceled: false,
+          handle: await window.showSaveFilePicker({
+            suggestedName: options.defaultPath.split('/').at(-1),
+            types: options?.filters[0]?.extensions?.map((extension) => {
+              return {
+                accept: {
+                  'application/octet-stream': '.' + extension
+                }
+              }
+            })
+          })
+        }
       } else {
         return { canceled: false, filePath: options.defaultPath }
       }
