@@ -1840,6 +1840,11 @@ export default Vue.extend({
             event.preventDefault()
             this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
             break
+          case 'Home': {
+            event.preventDefault()
+            this.player.currentTime(0)
+            break
+          }
           case 'I':
           case 'i':
             event.preventDefault()
