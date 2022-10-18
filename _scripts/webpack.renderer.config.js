@@ -145,14 +145,7 @@ const config = {
 /**
  * Adjust rendererConfig for production settings
  */
-if (isDevMode) {
-  // any dev only config
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
-    })
-  )
-} else {
+if (!isDevMode) {
   const processLocalesPlugin = new ProcessLocalesPlugin({
     compress: true,
     inputDir: path.join(__dirname, '../static/locales'),
