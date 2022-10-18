@@ -148,7 +148,8 @@ Settings:
     Current instance will be randomized on startup: Obecna instancja będzie losowana
       przy uruchamianiu
     No default instance has been set: Nie ustawiono domyślnej instancji
-    The currently set default instance is {instance}: Obecnie domyślną instancją jest {instance}
+    The currently set default instance is {instance}: Obecnie domyślną instancją jest
+      {instance}
     Current Invidious Instance: Obecna instancja Invidious
     External Link Handling:
       No Action: Brak akcji
@@ -365,8 +366,8 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”, pomijam
-      element
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”,
+      pomijam element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
     History File: Plik historii
@@ -538,8 +539,8 @@ Channel:
     Channel Description: 'Opis kanału'
     Featured Channels: 'Polecane kanały'
   Added channel to your subscriptions: Dodano kanał do twoich subskrypcji
-  Removed subscription from {count} other channel(s): Usunięto subskrypcje z {count} pozostałych
-    kanałów
+  Removed subscription from {count} other channel(s): Usunięto subskrypcje z {count}
+    pozostałych kanałów
   Channel has been removed from your subscriptions: Kanał został usunięty z twoich
     subskrypcji
 Video:
@@ -786,7 +787,8 @@ Profile:
   Your default profile has been changed to your primary profile: Twój domyślny profil
     został zmieniony na profil główny
   Removed {profile} from your profiles: Usunięto {profile} z twoich profili
-  Your default profile has been set to {profile}: '{profile} został ustawiony jako Twój domyślny profil'
+  Your default profile has been set to {profile}: '{profile} został ustawiony jako
+    Twój domyślny profil'
   Profile has been updated: Zaktualizowano profil
   Profile has been created: Utworzono profil
   Your profile name cannot be empty: Nazwa profilu nie może być pusta
@@ -824,11 +826,11 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
 The playlist has been reversed: Playlista została odwrócona
-A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu jest dostępny,
-  {blogTitle}. Kliknij, aby zobaczyć więcej'
+A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
+  jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
 Download From Site: Pobierz ze strony
-Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber} jest już dostępna! Kliknij
-  po więcej szczegółów
+Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber}
+  jest już dostępna! Kliknij po więcej szczegółów
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
   regionalna.
@@ -899,8 +901,8 @@ Hashtags have not yet been implemented, try again later: Hashtagi nie zostały j
 Open New Window: Otwórz nowe okno
 Default Invidious instance has been cleared: Domyślna instancja Invidious została
   wyczyszczona
-Default Invidious instance has been set to {instance}: Domyślna instancja Invidious została
-  ustawiona na {instance}
+Default Invidious instance has been set to {instance}: Domyślna instancja Invidious
+  została ustawiona na {instance}
 Search Bar:
   Clear Input: Wyczyść pole
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
@@ -918,7 +920,9 @@ Age Restricted:
   Type:
     Channel: kanał
     Video: film
-  The currently set default instance is {instance}: Ten {instance} ma ograniczenie wiekowe
+  The currently set default instance is {instance}: Ten {instance} ma ograniczenie
+    wiekowe
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} ma ograniczenie wiekowe'
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów
