@@ -387,9 +387,14 @@ Object.assign(customGetters, {
 const customActions = {
   grabUserSettings: async ({ commit, dispatch, getters }) => {
     try {
-      const userSettings = await DBSettingHandlers.find()
+      // Assigning default settings for settings that have side effects
+      const userSettings = Object.entries(Object.assign({},
+        Object.fromEntries(Object.entries(stateWithSideEffects).map(([_id, { defaultValue }]) => { return [_id, defaultValue] })),
+        Object.fromEntries((await DBSettingHandlers.find()).map(({ _id, value }) => { return [_id, value] })))
+      )
+
       for (const setting of userSettings) {
-        const { _id, value } = setting
+        const [_id, value] = setting
         if (getters.settingHasSideEffects(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
