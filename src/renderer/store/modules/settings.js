@@ -318,7 +318,7 @@ const stateWithSideEffects = {
         }
       }
 
-      if (process.env.NODE_ENV !== 'development') {
+      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
         await i18n.loadLocale(targetLocale)
       }
 

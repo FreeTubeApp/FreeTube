@@ -9,8 +9,9 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const messages = {}
 
-if (isDev) {
+if (isDev && process.env.IS_ELECTRON) {
   const { load } = require('js-yaml')
+
   // Take active locales and load respective YAML file
   activeLocales.forEach((locale) => {
     try {
@@ -30,45 +31,44 @@ class CustomVueI18n extends VueI18n {
   }
 
   async loadLocale(locale) {
-    // we only lazy load locales for producation builds
-    if (!isDev) {
-      // don't need to load it if it's already loaded
-      if (this.availableLocales.includes(locale)) {
-        return
-      }
-      if (!this.allLocales.includes(locale)) {
-        console.error(`Unable to load unknown locale: "${locale}"`)
-      }
+    // we don't lazy load locales in development in electron
+    if (isDev && process.env.IS_ELECTRON) { return }
+    // don't need to load it if it's already loaded
+    if (this.availableLocales.includes(locale)) {
+      return
+    }
+    if (!this.allLocales.includes(locale)) {
+      console.error(`Unable to load unknown locale: "${locale}"`)
+    }
 
-      if (process.env.IS_ELECTRON) {
-        const { brotliDecompressSync } = require('zlib')
-        // locales are only compressed in our production Electron builds
-        try {
-          // decompress brotli compressed json file and then load it
-          // eslint-disable-next-line node/no-path-concat
-          const compressed = fs.readFileSync(`${__dirname}/static/locales/${locale}.json.br`)
-          const data = JSON.parse(brotliDecompressSync(compressed).toString())
-          this.setLocaleMessage(locale, data)
-        } catch (err) {
-          console.error(locale, err)
-        }
-      } else {
-        const url = new URL(window.location.href)
-        url.hash = ''
-        if (url.pathname.endsWith('index.html')) {
-          url.pathname = url.pathname.replace(/index\.html$/, '')
-        }
-
-        if (url.pathname) {
-          url.pathname += `${!url.pathname.endsWith('/') ? '/' : ''}static/locales/${locale}.json`
-        } else {
-          url.pathname = `/static/locales/${locale}.json`
-        }
-
-        const response = await fetch(url)
-        const data = await response.json()
+    if (process.env.IS_ELECTRON) {
+      const { brotliDecompressSync } = require('zlib')
+      // locales are only compressed in our production Electron builds
+      try {
+        // decompress brotli compressed json file and then load it
+        // eslint-disable-next-line node/no-path-concat
+        const compressed = fs.readFileSync(`${__dirname}/static/locales/${locale}.json.br`)
+        const data = JSON.parse(brotliDecompressSync(compressed).toString())
         this.setLocaleMessage(locale, data)
+      } catch (err) {
+        console.error(locale, err)
       }
+    } else {
+      const url = new URL(window.location.href)
+      url.hash = ''
+      if (url.pathname.endsWith('index.html')) {
+        url.pathname = url.pathname.replace(/index\.html$/, '')
+      }
+
+      if (url.pathname) {
+        url.pathname += `${!url.pathname.endsWith('/') ? '/' : ''}static/locales/${locale}.json`
+      } else {
+        url.pathname = `/static/locales/${locale}.json`
+      }
+
+      const response = await fetch(url)
+      const data = await response.json()
+      this.setLocaleMessage(locale, data)
     }
   }
 }
@@ -81,7 +81,7 @@ const i18n = new CustomVueI18n({
   messages
 })
 
-if (!isDev) {
+if (!isDev || !process.env.IS_ELECTRON) {
   i18n.loadLocale('en-US')
 }
 

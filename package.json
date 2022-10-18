@@ -29,6 +29,7 @@
     "debug": "run-s rebuild:electron debug-runner",
     "debug-runner": "node _scripts/dev-runner.js --remote-debug",
     "dev": "run-s rebuild:electron dev-runner",
+    "dev:web": "node _scripts/dev-runner.js --web",
     "dev-runner": "node _scripts/dev-runner.js",
     "lint-fix": "eslint --fix --ext .js,.vue ./",
     "lint": "eslint --ext .js,.vue ./",
