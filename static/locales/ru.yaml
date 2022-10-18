@@ -145,8 +145,8 @@ Settings:
     Current instance will be randomized on startup: Текущий экземпляр при запуске
       будет выбран случайно
     No default instance has been set: Не установлен экземпляр по умолчанию
-    The currently set default instance is {instance}: 'Текущий установленный экземпляр по умолчанию:
-      {instance}'
+    The currently set default instance is {instance}: 'Текущий установленный экземпляр
+      по умолчанию: {instance}'
     Current Invidious Instance: Текущий экземпляр Invidious
     External Link Handling:
       No Action: Ничего
@@ -362,7 +362,8 @@ Settings:
     All playlists has been successfully exported: Все плейлисты успешно экспортированы
     Export Playlists: Экспортировать плейлисты
     All playlists has been successfully imported: Все плейлисты успешно импортированы
-    Playlist insufficient data: Недостаточно данных для плейлиста "{playlist}", пропуск элемента
+    Playlist insufficient data: Недостаточно данных для плейлиста "{playlist}", пропуск
+      элемента
     Playlist File: Файл плейлиста
     Subscription File: Файл подписок
     History File: Файл истории
@@ -523,7 +524,8 @@ Channel:
     Channel Description: 'Описание канала'
     Featured Channels: 'Избранные каналы'
   Added channel to your subscriptions: Канал добавлен в ваши подписки
-  Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их) канала(ов)
+  Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их)
+    канала(ов)
   Channel has been removed from your subscriptions: Канал был удалён из подписок
 Video:
   Mark As Watched: 'Отметить как просмотренное'
@@ -773,7 +775,8 @@ Profile:
     был изменен на ваш основной
   Profile has been updated: Профиль был обновлён
   Removed {profile} from your profiles: Теперь {profile} удалён из профилей
-  Your default profile has been set to {profile}: Теперь {profile} установлен профилем по умолчанию
+  Your default profile has been set to {profile}: Теперь {profile} установлен профилем
+    по умолчанию
   Profile has been created: Профиль был создан
   Your profile name cannot be empty: Имя профиля не может быть пустым
   Profile could not be found: Не удалось найти профиль
@@ -809,11 +812,11 @@ Profile:
   Profile Filter: Фильтр профилей
   Profile Settings: Настройки профиля
 The playlist has been reversed: Плейлист был перевернут
-A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог {blogTitle}. Нажмите
-  здесь, чтобы посмотреть подробности
+A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
+  {blogTitle}. Нажмите здесь, чтобы посмотреть подробности
 Download From Site: Скачать с сайта
-Version {versionNumber} is now available!  Click for more details: Доступна версия {versionNumber}! Чтобы узнать
-  подробности, нажмите здесь
+Version {versionNumber} is now available!  Click for more details: Доступна версия
+  {versionNumber}! Чтобы узнать подробности, нажмите здесь
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
   видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных
   ограничений.
@@ -886,8 +889,8 @@ Unknown YouTube url type, cannot be opened in app: Неизвестный тип
   невозможно открыть в приложении
 Open New Window: Открыть новое окно
 Default Invidious instance has been cleared: Образец Invidious по умолчанию очищен
-Default Invidious instance has been set to {instance}: Образец Invidious по умолчанию установлен
-  на {instance}
+Default Invidious instance has been set to {instance}: Образец Invidious по умолчанию
+  установлен на {instance}
 External link opening has been disabled in the general settings: Открытие внешних
   ссылок отключено в настройках
 Search Bar:
@@ -904,6 +907,8 @@ Age Restricted:
   Type:
     Channel: Канал
     Video: Видео
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} имеет ограничение по
+    возрасту'
 Channels:
   Title: Список каналов
   Count: '{number} канал(ов) найдено.'
