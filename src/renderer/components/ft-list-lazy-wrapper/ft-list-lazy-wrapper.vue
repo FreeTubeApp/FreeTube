@@ -16,20 +16,25 @@
       :data="data"
     />
     <ft-list-video
-      v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
+      v-else-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
       :appearance="appearance"
       :data="data"
     />
     <ft-list-playlist
-      v-if="data.type === 'playlist' && visible"
+      v-else-if="data.type === 'playlist' && visible"
       :appearance="appearance"
       :data="data"
     />
     <ft-community-post
-      v-if="data.type === 'community' && visible"
+      v-else-if="data.type === 'community' && visible"
       :appearance="appearance"
       :data="data"
     />
+    <div
+      v-else
+    >
+      Unknown Type {{ data.type }}
+    </div>
   </div>
 </template>
 

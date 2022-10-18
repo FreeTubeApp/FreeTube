@@ -3,7 +3,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { mapActions } from 'vuex'
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
-
+import { showToast } from '../../helpers/utils'
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
@@ -175,9 +175,7 @@ export default Vue.extend({
           break
         case 'copyYoutube':
           navigator.clipboard.writeText(this.youtubeShareUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube URL copied to clipboard')
-          })
+          showToast(this.$t('Share.YouTube URL copied to clipboard'))
           break
         case 'openYoutube':
           if (this.usingElectron) {
@@ -187,9 +185,7 @@ export default Vue.extend({
           break
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube Embed URL copied to clipboard')
-          })
+          showToast(this.$t('Share.YouTube Embed URL copied to clipboard'))
           break
         case 'openYoutubeEmbed':
           if (this.usingElectron) {
@@ -199,9 +195,7 @@ export default Vue.extend({
           break
         case 'copyInvidious':
           navigator.clipboard.writeText(this.invidiousUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious URL copied to clipboard')
-          })
+          showToast(this.$t('Share.Invidious URL copied to clipboard'))
           break
         case 'openInvidious':
           if (this.usingElectron) {
@@ -211,9 +205,7 @@ export default Vue.extend({
           break
         case 'copyYoutubeChannel':
           navigator.clipboard.writeText(this.youtubeChannelUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube Channel URL copied to clipboard')
-          })
+          showToast(this.$t('Share.YouTube Channel URL copied to clipboard'))
           break
         case 'openYoutubeChannel':
           if (this.usingElectron) {
@@ -223,9 +215,7 @@ export default Vue.extend({
           break
         case 'copyInvidiousChannel':
           navigator.clipboard.writeText(this.invidiousChannelUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious Channel URL copied to clipboard')
-          })
+          showToast(this.$t('Share.Invidious Channel URL copied to clipboard'))
           break
         case 'openInvidiousChannel':
           if (this.usingElectron) {
@@ -342,9 +332,7 @@ export default Vue.extend({
         type: 'video'
       }
       this.updateHistory(videoData)
-      this.showToast({
-        message: this.$t('Video.Video has been marked as watched')
-      })
+      showToast(this.$t('Video.Video has been marked as watched'))
 
       this.watched = true
     },
@@ -352,9 +340,7 @@ export default Vue.extend({
     removeFromWatched: function () {
       this.removeFromHistory(this.id)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your history')
-      })
+      showToast(this.$t('Video.Video has been removed from your history'))
 
       this.watched = false
     },
@@ -382,9 +368,7 @@ export default Vue.extend({
 
       this.addVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been saved')
-      })
+      showToast(this.$t('Video.Video has been saved'))
     },
 
     removeFromPlaylist: function () {
@@ -395,9 +379,7 @@ export default Vue.extend({
 
       this.removeVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your saved list')
-      })
+      showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
