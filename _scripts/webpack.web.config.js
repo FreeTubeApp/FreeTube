@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -108,13 +109,14 @@ const config = {
     ]
   },
   node: {
-    __dirname: true,
+    __dirname: false,
     __filename: isDevMode,
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.PRODUCT_NAME': JSON.stringify(productName),
-      'process.env.IS_ELECTRON': false
+      'process.env.IS_ELECTRON': false,
+      '__dirname': 'window.location.pathname.endsWith("/")?window.location.pathname.substring(0, window.location.pathname.length - 1):window.location.pathname'
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser',
@@ -181,7 +183,8 @@ const processLocalesPlugin = new ProcessLocalesPlugin({
 config.plugins.push(
   processLocalesPlugin,
   new webpack.DefinePlugin({
-    'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
+    'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
+    'process.env.GEOLOCATION_NAMES': JSON.stringify(fs.readdirSync(path.join(__dirname, '..', 'static', 'geolocations')))
   }),
   new CopyWebpackPlugin({
       patterns: [
