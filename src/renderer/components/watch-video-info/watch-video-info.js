@@ -7,7 +7,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import i18n from '../../i18n/index'
-import { showToast } from '../../helpers/utils'
+import { openExternalLink, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
@@ -430,7 +430,7 @@ export default Vue.extend({
       const extension = this.grabExtensionFromUrl(linkName)
 
       if (this.downloadBehavior === 'open') {
-        this.openExternalLink(url)
+        openExternalLink(url)
       } else {
         this.downloadMedia({
           url: url,
@@ -491,7 +491,6 @@ export default Vue.extend({
       'updateProfile',
       'addVideo',
       'removeVideo',
-      'openExternalLink',
       'downloadMedia'
     ])
   }

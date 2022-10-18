@@ -6,7 +6,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 import ytcm from '@freetube/yt-comment-scraper'
-import { showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -166,7 +166,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendFallback && this.backendPreference === 'local') {
           showToast(this.$t('Falling back to Invidious API'))
@@ -186,7 +186,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendFallback && this.backendPreference === 'local') {
           showToast(this.$t('Falling back to Invidious API'))
@@ -293,7 +293,7 @@ export default Vue.extend({
         console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-          this.copyToClipboard({ content: xhr.responseText })
+          copyToClipboard(xhr.responseText)
         })
         if (this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to local API'))
@@ -341,7 +341,7 @@ export default Vue.extend({
         console.error(xhr)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-          this.copyToClipboard({ content: xhr.responseText })
+          copyToClipboard(xhr.responseText)
         })
         this.isLoading = false
       })
@@ -353,8 +353,7 @@ export default Vue.extend({
 
     ...mapActions([
       'toLocalePublicationString',
-      'invidiousAPICall',
-      'copyToClipboard'
+      'invidiousAPICall'
     ])
   }
 })

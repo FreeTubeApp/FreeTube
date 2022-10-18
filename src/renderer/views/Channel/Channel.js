@@ -14,7 +14,7 @@ import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import i18n from '../../i18n/index'
-import { showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Search',
@@ -308,7 +308,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
@@ -334,7 +334,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
@@ -353,7 +353,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
       })
     },
@@ -403,7 +403,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          this.copyToClipboard({ content: err.responseJSON.error })
+          copyToClipboard(err.responseJSON.error)
         })
         this.isLoading = false
       })
@@ -427,7 +427,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
       })
     },
@@ -449,7 +449,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
@@ -468,7 +468,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
       })
     },
@@ -490,7 +490,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          this.copyToClipboard({ content: err.responseJSON.error })
+          copyToClipboard(err.responseJSON.error)
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -527,7 +527,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          this.copyToClipboard({ content: err.responseJSON.error })
+          copyToClipboard(err.responseJSON.error)
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -680,7 +680,7 @@ export default Vue.extend({
           console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
-            this.copyToClipboard({ content: err })
+            copyToClipboard(err)
           })
           if (this.backendPreference === 'local' && this.backendFallback) {
             showToast(this.$t('Falling back to Invidious API'))
@@ -698,7 +698,7 @@ export default Vue.extend({
           console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
-            this.copyToClipboard({ content: err })
+            copyToClipboard(err)
           })
         })
       }
@@ -722,7 +722,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -737,8 +737,7 @@ export default Vue.extend({
       'updateProfile',
       'invidiousGetChannelInfo',
       'invidiousAPICall',
-      'updateSubscriptionDetails',
-      'copyToClipboard'
+      'updateSubscriptionDetails'
     ])
   }
 })

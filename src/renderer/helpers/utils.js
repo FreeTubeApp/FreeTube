@@ -1,4 +1,6 @@
+import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
+import i18n from '../i18n/index'
 
 export const colors = [
   { name: 'Red', value: '#d50000' },
@@ -156,4 +158,41 @@ export function buildVTTFileLocally(storyboard) {
 
 export function showToast(message, time = null, action = null) {
   FtToastEvents.$emit('toast-open', message, time, action)
+}
+
+/**
+   * This writes to the clipboard. If an error occurs during the copy,
+   * a toast with the error is shown. If the copy is successful and
+   * there is a success message, a toast with that message is shown.
+   * @param {string} content the content to be copied to the clipboard
+   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   */
+export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null }) {
+  if (navigator.clipboard !== undefined && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(content)
+      if (messageOnSuccess !== null) {
+        showToast(messageOnSuccess)
+      }
+    } catch (error) {
+      console.error(`Failed to copy ${content} to clipboard`, error)
+      if (messageOnError !== null) {
+        showToast(`${messageOnError}: ${error}`, 5000)
+      } else {
+        showToast(`${i18n.t('Clipboard.Copy failed')}: ${error}`, 5000)
+      }
+    }
+  } else {
+    showToast(i18n.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
+  }
+}
+
+export function openExternalLink(url) {
+  if (process.env.IS_ELECTRON) {
+    const ipcRenderer = require('electron').ipcRenderer
+    ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
+  } else {
+    window.open(url, '_blank')
+  }
 }

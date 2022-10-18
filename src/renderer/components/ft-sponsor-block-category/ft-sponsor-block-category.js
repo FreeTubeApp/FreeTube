@@ -128,7 +128,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'openExternalLink',
       'updateSponsorBlockSponsor',
       'updateSponsorBlockSelfPromo',
       'updateSponsorBlockInteraction',

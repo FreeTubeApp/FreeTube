@@ -12,7 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
-import { showToast } from './helpers/utils'
+import { openExternalLink, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
@@ -272,7 +272,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        this.openExternalLink(this.latestBlogUrl)
+        openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -280,7 +280,7 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      this.openExternalLink(url)
+      openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
@@ -364,7 +364,7 @@ export default Vue.extend({
         this.showExternalLinkOpeningPrompt = true
       } else {
         // Open links externally
-        this.openExternalLink(el.href)
+        openExternalLink(el.href)
       }
     },
 
@@ -515,7 +515,7 @@ export default Vue.extend({
         // if `lastExternalLinkToBeOpened` is empty
 
         // Open links externally
-        this.openExternalLink(this.lastExternalLinkToBeOpened)
+        openExternalLink(this.lastExternalLinkToBeOpened)
       }
     },
 
@@ -530,7 +530,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'openExternalLink',
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',

@@ -10,7 +10,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 
 import ytch from 'yt-channel-info'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { calculatePublishedDate, showToast } from '../../helpers/utils'
+import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Subscriptions',
@@ -274,7 +274,7 @@ export default Vue.extend({
           console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
           showToast(`${errorMessage}: ${err}`, 10000, () => {
-            this.copyToClipboard({ content: err })
+            copyToClipboard(err)
           })
           switch (failedAttempts) {
             case 0:
@@ -314,7 +314,7 @@ export default Vue.extend({
         console.error(error)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${error}`, 10000, () => {
-          this.copyToClipboard({ content: error })
+          copyToClipboard(error)
         })
         switch (failedAttempts) {
           case 0:
@@ -351,7 +351,7 @@ export default Vue.extend({
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
           showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
-            this.copyToClipboard({ content: err.responseText })
+            copyToClipboard(err.responseText)
           })
           switch (failedAttempts) {
             case 0:
@@ -391,7 +391,7 @@ export default Vue.extend({
         console.error(error)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${error}`, 10000, () => {
-          this.copyToClipboard({ content: error })
+          copyToClipboard(error)
         })
         switch (failedAttempts) {
           case 0:
@@ -467,8 +467,7 @@ export default Vue.extend({
       'invidiousAPICall',
       'updateShowProgressBar',
       'updateProfileSubscriptions',
-      'updateAllSubscriptionsList',
-      'copyToClipboard'
+      'updateAllSubscriptionsList'
     ]),
 
     ...mapMutations([
