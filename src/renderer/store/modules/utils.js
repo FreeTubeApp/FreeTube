@@ -286,7 +286,7 @@ const actions = {
         }
         fileInput.onchange = () => {
           const files = Array.from(fileInput.files)
-          resolve({ canceled: false, files })
+          resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
           delete fileInput.onchange
         }
         const listenForEnd = () => {
