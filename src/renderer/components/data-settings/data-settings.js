@@ -811,6 +811,7 @@ export default Vue.extend({
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
       }
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
     },
 
     importPlaylists: async function () {
