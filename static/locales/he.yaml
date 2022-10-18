@@ -29,9 +29,11 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
-Version {versionNumber} is now available!  Click for more details: ''
+Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
+  זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
-A new blog is now available, {blogTitle}. Click to view more: ''
+A new blog is now available, {blogTitle}. Click to view more: 'בלוג חדש זמין, {blogTitle}.
+  לחיצה תציג עוד פרטים'
 
 # Search Bar
 Search / Go to URL: 'חיפוש / מעבר לכתובת'
@@ -141,7 +143,8 @@ Settings:
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
     Current Invidious Instance: עותק נוכחי של Invidious
     System Default: בררת המחדל של המערכת
-    The currently set default instance is {instance}: עותק ברירת המחדל שהוגדר הוא {instance}
+    The currently set default instance is {instance}: עותק ברירת המחדל שהוגדר הוא
+      {instance}
     Set Current Instance as Default: הגדרת העותק הנוכחי כברירת מחדל
     External Link Handling:
       Open Link: פתיחת הקישור
@@ -322,7 +325,8 @@ Settings:
     All playlists has been successfully imported: כל הפלייליסטים יובאו בהצלחה
     Export Playlists: ייצוא פלייליסטים
     Import Playlists: ייבוא פלייליסטים
-    Playlist insufficient data: ''
+    Playlist insufficient data: 'אין מספיק נתונים לרשימת הנגינה „{playlist}”, הפריט
+      ידולג'
     Playlist File: קובץ רשימת נגינה
     Subscription File: קובץ מינוי
     History File: קובץ היסטוריה
@@ -504,11 +508,12 @@ Profile:
   Your profile name cannot be empty: 'לא ניתן לרוקן את הפרופיל שלך'
   Profile has been created: 'הפרופיל נוצר'
   Profile has been updated: 'הפרופיל עודכן'
-  Your default profile has been set to {profile}: ''
+  Your default profile has been set to {profile}: 'פרופיל ברירת המחדל שלך הוגדר לפרופיל
+    {profile}'
   Removed {profile} from your profiles: '{profile} נמחק מהפרופילים שלך'
   Your default profile has been changed to your primary profile: 'פרופיל ברירת המחדל
     שלך השתנה לפרופיל הראשי שלך'
-  '{profile} is now the active profile': ''
+  '{profile} is now the active profile': '{profile} הוא הפרופיל הפעיל מעתה'
   Subscription List: 'רשימת מינויים'
   Other Channels: 'ערוצים אחרים'
   '{number} selected': '{number} נבחר'
@@ -532,7 +537,8 @@ Channel:
   Subscribe: 'הרשמה למינוי'
   Unsubscribe: 'ביטול המינוי'
   Channel has been removed from your subscriptions: 'הערוץ נמחק מרשימת המנויים שלך'
-  Removed subscription from {count} other channel(s): ''
+  Removed subscription from {count} other channel(s): 'הוסר מינוי מ־{count} ערוצים
+    נוספים'
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
   Search Channel: 'חיפוש בערוץ'
   Your search results have returned 0 results: 'לא נמצאו תוצאות'
@@ -657,8 +663,8 @@ Video:
     video: סרטון
     playlist: פלייליסט
     OpenInTemplate: פתיחה בתוך {externalPlayer}
-    OpeningTemplate: ''
-    UnsupportedActionTemplate: ''
+    OpeningTemplate: '{videoOrPlaylist} נפתח ב־{externalPlayer}…'
+    UnsupportedActionTemplate: 'ב־{externalPlayer} אין תמיכה בפעולה: {action}'
     Unsupported Actions:
       opening playlists: פתיחת רשימות נגינה
       setting a playback rate: הגדרת מהירות נגינה
@@ -843,16 +849,16 @@ Search Bar:
 Are you sure you want to open this link?: לפתוח את הקישור הזה?
 Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידוע ל־YouTube, לא
   ניתן לפתיחה ביישום
-Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת מחדל הוא
-  {instance}
+Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת
+  מחדל הוא {instance}
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
 External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים
   מושבתת בהגדרות הכלליות
 Hashtags have not yet been implemented, try again later: עדיין לא הוטמעו תגיות הקבץ,
   נא לנסות בהמשך
 Downloading failed: אירעה שגיאה בהורדת "{videoTitle}"
-Starting download: ''
-Downloading has completed: ''
+Starting download: 'ההורדה של „{videoTitle}” החלה'
+Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
 Playing Next Video Interval: הסרטון הבא יתחיל מיד. לחיצה לביטול. | הסרטון הבא יתנגן
   בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
   לביטול.
@@ -863,13 +869,13 @@ Age Restricted:
   Type:
     Channel: ערוץ
     Video: סרטון
-  This {videoOrPlaylist} is age restricted: ''
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} זה מוגבל בגיל'
 Channels:
   Search bar placeholder: חיפוש ערוצים
   Empty: רשימת הערוצים שלך ריקה כרגע.
   Unsubscribe: ביטול מינוי
-  Unsubscribed: ''
-  Count: ''
+  Unsubscribed: '{channelName} הוסר מרשימת המינויים שלך'
+  Count: '{number} ערוצים נמצאו.'
   Channels: ערוצים
   Title: רשימת ערוצים
   Unsubscribe Prompt: לבטל את המינוי על „{channelName}”?
