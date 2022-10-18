@@ -9,6 +9,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'GeneralSettings',
@@ -116,7 +117,7 @@ export default Vue.extend({
         this.$t('Settings.General Settings.System Default')
       ]
 
-      if (process.env.NODE_ENV === 'development') {
+      if (process.env.NODE_ENV === 'development' && process.env.IS_ELECTRON) {
         Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
           const localeName = localeData['Locale Name']
           if (typeof localeName !== 'undefined') {
@@ -193,17 +194,13 @@ export default Vue.extend({
       const instance = this.currentInvidiousInstance
       this.updateDefaultInvidiousInstance(instance)
 
-      const message = this.$t('Default Invidious instance has been set to $')
-      this.showToast({
-        message: message.replace('$', instance)
-      })
+      const message = this.$t('Default Invidious instance has been set to {instance}', { instance })
+      showToast(message)
     },
 
     handleClearDefaultInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
-      this.showToast({
-        message: this.$t('Default Invidious instance has been cleared')
-      })
+      showToast(this.$t('Default Invidious instance has been cleared'))
     },
 
     handlePreferredApiBackend: function (backend) {
@@ -219,7 +216,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'showToast',
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',

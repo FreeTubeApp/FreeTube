@@ -29,11 +29,11 @@ Close: 'Claude'
 Back: 'Redeo'
 Forward: 'Promoveo'
 
-Version $ is now available!  Click for more details: 'Editio $ nunc praesto! Tactus
+Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber} nunc praesto! Tactus
   pro magis singula res'
 Download From Site: 'Adepto ex situ'
-A new blog is now available, $. Click to view more: 'Novum scripturam creata est,
-  $. Tangere hic pro magis notitia'
+A new blog is now available, {blogTitle}. Click to view more: 'Novum scripturam creata est,
+  {blogTitle}. Tangere hic pro magis notitia'
 
 # Search Bar
 Search / Go to URL: 'Requiro / Adeo URL'
@@ -299,13 +299,13 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -322,7 +322,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -406,7 +406,6 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
 Videos:

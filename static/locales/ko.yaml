@@ -29,10 +29,10 @@ Close: '닫기'
 Back: '뒤로가기'
 Forward: '앞으로가기'
 
-Version $ is now available!  Click for more details: '$ 버전이 사용가능합니다! 클릭하여 자세한 정보를
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} 버전이 사용가능합니다! 클릭하여 자세한 정보를
   확인하세요'
 Download From Site: '사이트로부터 다운로드'
-A new blog is now available, $. Click to view more: '새로운 블로그가 업로드되었습니다, $. 클릭하여 확인하세요'
+A new blog is now available, {blogTitle}. Click to view more: '새로운 블로그가 업로드되었습니다, {blogTitle}. 클릭하여 확인하세요'
 
 # Search Bar
 Search / Go to URL: '검색 / URL로 이동'
@@ -141,7 +141,7 @@ Settings:
     Current Invidious Instance: 현재 Invidious 인스턴스
     System Default: 시스템 기본설정
     No default instance has been set: 기본 인스턴스가 설정되지 않았습니다
-    The currently set default instance is $: 현재 설정된 기본 인스턴스는 $입니다
+    The currently set default instance is {instance}: 현재 설정된 기본 인스턴스는 {instance}입니다
     Current instance will be randomized on startup: 현재 인스턴스는 시작 시 무작위로 지정됩니다
     Set Current Instance as Default: 현재 인스턴스를 기본값으로 설정
     Clear Default Instance: 기본 인스턴스 지우기
@@ -323,7 +323,7 @@ Settings:
     Unknown data key: '알 수 없는 데이터 키입니다'
     How do I import my subscriptions?: '구독을 가져오려면 어떻게 해야 합니까?'
     Manage Subscriptions: 구독 관리
-    Playlist insufficient data: '"$" 재생 목록에 대한 데이터가 부족하여 항목을 건너뜁니다'
+    Playlist insufficient data: '"{playlist}" 재생 목록에 대한 데이터가 부족하여 항목을 건너뜁니다'
     All playlists has been successfully imported: 모든 재생 목록을 성공적으로 가져왔습니다
     All playlists has been successfully exported: 모든 재생 목록을 내보냈습니다
     Import Playlists: 재생 목록 가져오기
@@ -464,14 +464,14 @@ Profile:
   Your profile name cannot be empty: '프로필 이름은 비워 둘 수 없습니다'
   Profile has been created: '프로필이 생성되었습니다'
   Profile has been updated: '프로필이 업데이트되었습니다'
-  Your default profile has been set to $: '기본 프로필이 $로 설정되었습니다'
-  Removed $ from your profiles: '프로필에서 $가 제거되었습니다'
+  Your default profile has been set to {profile}: '기본 프로필이 {profile}로 설정되었습니다'
+  Removed {profile} from your profiles: '프로필에서 {profile}가 제거되었습니다'
   Your default profile has been changed to your primary profile: '기본값 프로필이 기본 프로필로
     변경되었습니다'
-  $ is now the active profile: '$가 현재 활성 프로필입니다'
+  '{profile} is now the active profile': '{profile}가 현재 활성 프로필입니다'
   Subscription List: '구독 목록'
   Other Channels: '기타 채널'
-  $ selected: '$선택되었습니다'
+  '{number} selected': '{number}선택되었습니다'
   Select All: '모두 선택'
   Select None: '선택 안 함'
   Delete Selected: '선택한 항목 삭제'
@@ -491,7 +491,7 @@ Channel:
   Subscribe: '구독'
   Unsubscribe: '구독 취소'
   Channel has been removed from your subscriptions: '채널이 구독에서 제거되었습니다'
-  Removed subscription from $ other channel(s): '$ 다른 채널에서 구독을 제거했습니다'
+  Removed subscription from {count} other channel(s): '{count} 다른 채널에서 구독을 제거했습니다'
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'
@@ -593,8 +593,7 @@ Video:
   Published on: '게시일'
   Streamed on: '스트리밍됨'
   Started streaming on: '스트리밍 시작'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 전'
+  Publicationtemplate: '{number} {unit} 전'
 #& Videos
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
@@ -622,9 +621,9 @@ Video:
       starting video at offset: 오프셋에서 비디오 시작
       setting a playback rate: 재생 속도 설정
       opening playlists: 재생 목록 열기
-    UnsupportedActionTemplate: '$ 지원하지 않음: %'
-    OpenInTemplate: $로 열기
-    OpeningTemplate: '%에서 $를 여는 중...'
+    UnsupportedActionTemplate: '{externalPlayer} 지원하지 않음: {action}'
+    OpenInTemplate: '{externalPlayer}로 열기'
+    OpeningTemplate: '{externalPlayer}에서 {videoOrPlaylist}를 여는 중...'
     video: 비디오
     playlist: 재생목록
   Sponsor Block category:
@@ -707,7 +706,7 @@ Comments:
   Load More Comments: '더 많은 댓글 불러오기'
   No more comments available: '더 이상 사용할 수 있는 댓글이 없습니다'
   Show More Replies: 더 많은 답글 보기
-  From $channelName: $channelName에서
+  From {channelName}: '{channelName}에서'
   Pinned by: 에 의해 고정
   And others: 및 기타
   Member: 구성원
@@ -743,7 +742,7 @@ Tooltips:
 
 # Toast Messages
   External Player Settings:
-    DefaultCustomArgumentsTemplate: "(기본: '$')"
+    DefaultCustomArgumentsTemplate: "(기본: '{defaultCustomArguments}')"
     External Player: 외부 플레이어를 선택하면 썸네일에서 비디오 (지원되는 경우 재생 목록)를 열 수 있는 아이콘이 표시됩니다. 경고,
       위반 설정은 외부 플레이어에 영향을 주지 않습니다.
     Custom External Player Executable: 기본적으로 FreeTube는 PATH 환경 변수를 통해 선택한 외부 플레이어를
@@ -782,7 +781,7 @@ Hashtags have not yet been implemented, try again later: 해시태그가 아직 
   다시 시도하세요
 Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초
   후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
-Default Invidious instance has been set to $: 기본 Invidious 인스턴스가 $로 설정되었습니다
+Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로 설정되었습니다
 External link opening has been disabled in the general settings: 일반 설정에서 외부 링크 열기가
   비활성화되었습니다
 Open New Window: 새 창 열기
@@ -797,19 +796,19 @@ Channels:
   Search bar placeholder: 채널 검색
   Empty: 채널 목록이 비어 있습니다.
   Unsubscribe: 구독 취소
-  Unsubscribe Prompt: '"$"에서 구독을 취소하시겠습니까?'
-  Count: $ 채널이 발견되었습니다.
-  Unsubscribed: $ 구독에서 제거되었습니다
+  Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
+  Count: '{number} 채널이 발견되었습니다.'
+  Unsubscribed: '{channelName} 구독에서 제거되었습니다'
 Age Restricted:
   Type:
     Video: 비디오
     Channel: 채널
-  This $contentType is age restricted: 이 $는 연령 제한입니다
-Downloading has completed: '"$" 다운로드가 완료되었습니다'
-Starting download: '"$" 다운로드를 시작하는 중'
-Downloading failed: '"$"를 다운로드하는 동안 문제가 발생했습니다'
-Screenshot Error: 스크린샷이 실패했습니다. $
-Screenshot Success: 스크린샷을 "$"로 저장
+  The currently set default instance is {instance}: 이 {instance}는 연령 제한입니다
+Downloading has completed: '"{videoTitle}" 다운로드가 완료되었습니다'
+Starting download: '"{videoTitle}" 다운로드를 시작하는 중'
+Downloading failed: '"{videoTitle}"를 다운로드하는 동안 문제가 발생했습니다'
+Screenshot Error: 스크린샷이 실패했습니다. {error}
+Screenshot Success: 스크린샷을 "{filePath}"로 저장
 Clipboard:
   Copy failed: 클립보드에 복사 실패
   Cannot access clipboard without a secure connection: 안전한 연결 없이 클립보드에 접근할 수 없습니다

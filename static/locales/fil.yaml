@@ -276,10 +276,10 @@ Profile:
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
-  Your default profile has been set to $: ''
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
 #On Channel Page
 Channel:
   Subscriber: ''
@@ -368,7 +368,6 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
 Videos:

@@ -135,8 +135,8 @@ Settings:
     Check for Latest Blog Posts: Check Blog post mới nhất
     Check for Updates: Kiểm tra cập nhật
     Current Invidious Instance: Phiên bản invidious hiện tại
-    The currently set default instance is $: Phiên bản Invidious mặc định hiện được
-      đặt thành $
+    The currently set default instance is {instance}: Phiên bản Invidious mặc định hiện được
+      đặt thành {instance}
     No default instance has been set: Không có phiên bản mặc định nào được đặt
     Current instance will be randomized on startup: Phiên bản hiện tại sẽ được chọn
       ngẫu nhiên khi khởi động
@@ -340,7 +340,7 @@ Settings:
       thêm vào thành công
     All playlists has been successfully exported: Tất cả các danh sách phát đã được
       xuất thành công
-    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "$", bỏ qua mục
+    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "{playlist}", bỏ qua mục
       này
     Export Playlists: Xuất danh sách phát
   Distraction Free Settings:
@@ -510,7 +510,7 @@ Channel:
     Channel Description: 'Miêu tả kênh'
     Featured Channels: 'Kênh đặc sắc'
   Added channel to your subscriptions: Đã thêm kênh vào đăng ký của bạn
-  Removed subscription from $ other channel(s): Đã xóa đăng ký từ $ các kênh khác
+  Removed subscription from {count} other channel(s): Đã xóa đăng ký từ {count} các kênh khác
   Channel has been removed from your subscriptions: Kênh đã được xóa khỏi đăng ký
     của bạn
 Video:
@@ -570,8 +570,7 @@ Video:
     Minutes: Phút
     Minute: Phút
   Published on: 'Phát hành vào'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % trước'
+  Publicationtemplate: '{number} {unit} trước'
 #& Videos
   Video has been removed from your history: Video đã được xóa khỏi lịch sử của bạn
   Video has been marked as watched: Video đánh dấu đã xem
@@ -632,9 +631,9 @@ Video:
       shuffling playlists: xáo trộn danh sách phát
       reversing playlists: đảo ngược danh sách phát
       looping playlists: lập lại danh sách phát
-    OpeningTemplate: Mở $ trong %....
-    UnsupportedActionTemplate: '$ không hổ trợ: %'
-    OpenInTemplate: Mở trong $
+    OpeningTemplate: Mở {videoOrPlaylist} trong {externalPlayer}....
+    UnsupportedActionTemplate: '{externalPlayer} không hổ trợ: {action}'
+    OpenInTemplate: Mở trong {externalPlayer}
     video: video
   Open Channel in Invidious: Mở kênh ưu tiên
   Copy Invidious Channel Link: Sao chép liên kết kênh Invidious
@@ -712,7 +711,7 @@ Comments:
   Sort by: Sắp xếp theo
   There are no more comments for this video: Không có bình luận cho video này
   Member: Thành viên
-  From $channelName: từ $tên kênh
+  From {channelName}: từ {channelName}
   And others: Và những thứ khác
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
@@ -755,15 +754,15 @@ Profile:
   Delete Selected: Xóa đã chọn
   Select None: Chọn không
   Select All: Chọn hết
-  $ selected: $ đã chọn
+  '{number} selected': '{number} đã chọn'
   Other Channels: Các kênh khác
   Subscription List: Danh sách đăng ký
-  $ is now the active profile: $ bây giờ là hoạt động profile
+  '{profile} is now the active profile': '{profile} bây giờ là hoạt động profile'
   Your default profile has been changed to your primary profile: Profile mặc định
     của bạn đã thay đổi thành profile chính
-  Removed $ from your profiles: Đã xóa $ khỏi Profile của bạn
-  Your default profile has been set to $: Profile mặc định của bạn đã được chỉnh về
-    $
+  Removed {profile} from your profiles: Đã xóa {profile} khỏi Profile của bạn
+  Your default profile has been set to {profile}: 'Profile mặc định của bạn đã được chỉnh về
+    {profile}'
   Profile has been updated: Profile đã được cập nhật
   Profile has been created: Profile đã được tạo
   Your profile name cannot be empty: Tên Profile của bạn không được để trống
@@ -784,10 +783,10 @@ Profile:
   Profile Select: Chọn Profile
   Profile Filter: Bộ lọc hồ sơ
   Profile Settings: Cài đặt hồ sơ cá nhân
-A new blog is now available, $. Click to view more: Một blog mới đã có, $. Nhấn để
+A new blog is now available, {blogTitle}. Click to view more: Một blog mới đã có, {blogTitle}. Nhấn để
   xem chi tiết
 Download From Site: Tải từ website
-Version $ is now available!  Click for more details: Phiên bản $ đã có! Click để xem
+Version {versionNumber} is now available!  Click for more details: Phiên bản {versionNumber} đã có! Click để xem
   chi tiết
 Open New Window: Mở cửa sổ mới
 Search Bar:
@@ -801,10 +800,10 @@ Channels:
   Title: Danh sách kênh
   Search bar placeholder: Tìm Kênh
   Empty: Danh sách kênh của bạn hiện đang trống.
-  Unsubscribed: $ đã bị xoá khỏi danh sách kênh đã đăng ký của bạn
-  Unsubscribe Prompt: Bạn có chắc răng bạn muốn huỷ đăng ký kênh "$"?
+  Unsubscribed: '{channelName} đã bị xoá khỏi danh sách kênh đã đăng ký của bạn'
+  Unsubscribe Prompt: Bạn có chắc răng bạn muốn huỷ đăng ký kênh "{channelName}"?
   Unsubscribe: Huỷ đăng ký kênh
-  Count: $kênh đã tìm được.
+  Count: '{number} kênh đã tìm được.'
 Tooltips:
   General Settings:
     Thumbnail Preference: Tất cả các hình thu nhỏ trên FreeTube sẽ được thay thế bằng
@@ -848,7 +847,7 @@ Tooltips:
       Nếu cần, bạn có thể đặt một đường dẫn tuỳ chọn ở đây.
     Ignore Warnings: 'Loại bỏ cảnh báo khi trình phát bên ngoài hiện tại không hỗ
       trợ cho thao tác hiện tại (ví dụ: đảo ngược danh sách phát, v.v.).'
-    DefaultCustomArgumentsTemplate: "(Mặc định: '$')"
+    DefaultCustomArgumentsTemplate: "(Mặc định: '{defaultCustomArguments}')"
     External Player: Chọn một trình phát bên ngoài sẽ hiển thị một biểu tượng để mở
       video (danh sách phát nếu được hỗ trợ) trong trình phát bên ngoài, trên hình
       thu nhỏ của video. Cảnh báo, cài đặt Invidious không ảnh hưởng đến trình phát
@@ -862,7 +861,7 @@ Tooltips:
     Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
       được tạo trong quá trình phát lại video, khi trang xem bị đóng.
 Age Restricted:
-  This $contentType is age restricted: $ này bị giới hạn độ tuổi
+  The currently set default instance is {instance}: '{instance} này bị giới hạn độ tuổi'
   Type:
     Channel: Kênh
     Video: Video
@@ -871,15 +870,15 @@ Hashtags have not yet been implemented, try again later: Thẻ hashtag chưa th�
 Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. |
   Phát video tiếp theo sau {nextVideoInterval} giây nữa. Nhấn vào để hủy. | Phát video
   tiếp theo sau {nextVideoInterval} giây. Nhấn vào để hủy.
-Downloading has completed: '"$" đã hoàn tất quá trình tải xuống'
+Downloading has completed: '"{videoTitle}" đã hoàn tất quá trình tải xuống'
 External link opening has been disabled in the general settings: Tính năng mở liên
   kết bên ngoài đã bị tắt trong cài đặt chung
-Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "$"
+Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "{videoTitle}"
 Default Invidious instance has been cleared: Phiên bản Invidious mặc định đã bị xóa
-Screenshot Success: Ảnh chụp màn hình đã lưu thành "$"
-Screenshot Error: Chụp màn hình không thành công. $
-Default Invidious instance has been set to $: Phiên bản Invidious mặc định đã được
-  đặt thành $
+Screenshot Success: Ảnh chụp màn hình đã lưu thành "{filePath}"
+Screenshot Error: Chụp màn hình không thành công. {error}
+Default Invidious instance has been set to {instance}: Phiên bản Invidious mặc định đã được
+  đặt thành {instance}
 Unknown YouTube url type, cannot be opened in app: Dạng YouTube URL không xác định,
   không thể mở trong ứng dụng này
-Starting download: Bắt đầu tải xuống "$"
+Starting download: Bắt đầu tải xuống "{videoTitle}"

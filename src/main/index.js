@@ -433,21 +433,27 @@ function runApp() {
     return app.getPath('pictures')
   })
 
-  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async (_, options) => {
+  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {
+    const senderWindow = findSenderWindow(sender)
+    if (senderWindow) {
+      return await dialog.showOpenDialog(senderWindow, options)
+    }
     return await dialog.showOpenDialog(options)
   })
 
-  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (event, { options, useModal }) => {
-    if (useModal) {
-      const senderWindow = BrowserWindow.getAllWindows().find((window) => {
-        return window.webContents.id === event.sender.id
-      })
-      if (senderWindow) {
-        return await dialog.showSaveDialog(senderWindow, options)
-      }
+  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async ({ sender }, options) => {
+    const senderWindow = findSenderWindow(sender)
+    if (senderWindow) {
+      return await dialog.showSaveDialog(senderWindow, options)
     }
     return await dialog.showSaveDialog(options)
   })
+
+  function findSenderWindow(sender) {
+    return BrowserWindow.getAllWindows().find((window) => {
+      return window.webContents.id === sender.id
+    })
+  }
 
   ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
     powerSaveBlocker.stop(id)

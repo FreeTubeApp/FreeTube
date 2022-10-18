@@ -31,10 +31,9 @@ Back: 'پیچھے'
 Forward: 'آگے'
 Open New Window: 'نئی ونڈو کھولیں۔'
 
-Version $ is now available!  Click for more details: 'ورژن $ اب دستیاب ہے! کلک کریں۔
-   مزید تفصیلات کے لیے'
+Version {versionNumber} is now available!  Click for more details: ''
 Download From Site: 'سائٹ سے ڈاؤن لوڈ کریں۔'
-A new blog is now available, $. Click to view more: 'ایک نیا بلاگ اب دستیاب ہے، $.
+A new blog is now available, {blogTitle}. Click to view more: 'ایک نیا بلاگ اب دستیاب ہے، {blogTitle}.
    مزید دیکھنے کے لیے کلک کریں۔'
 Are you sure you want to open this link?: 'کیا آپ واقعی اس لنک کو کھولنا چاہتے ہیں؟'
 
@@ -94,11 +93,11 @@ Channels:
   Channels: 'چینلز'
   Title: 'چینل کی فہرست'
   Search bar placeholder: 'چینلز تلاش کریں۔'
-  Count: '$چینل ملا۔'
+  Count: '{number}چینل ملا۔'
   Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
   Unsubscribe: 'ان سبسکرائب کریں۔'
-  Unsubscribed: '$ کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
-  Unsubscribe Prompt: 'کیا آپ واقعی "$" سے ان سبسکرائب کرنا چاہتے ہیں؟'
+  Unsubscribed: '{channelName} کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
+  Unsubscribe Prompt: ''
 Trending:
   Trending: ''
   Default: ''
@@ -153,8 +152,7 @@ Settings:
       Middle: ''
       End: ''
     Current Invidious Instance: ''
-    # $ is replaced with the default Invidious instance
-    The currently set default instance is $: ''
+    The currently set default instance is {instance}: ''
     No default instance has been set: ''
     Current instance will be randomized on startup: ''
     Set Current Instance as Default: ''
@@ -351,7 +349,7 @@ Settings:
        کامیابی سے درآمد کیا گیا۔'
     All watched history has been successfully exported: 'تمام دیکھی گئی تاریخ رہی ہے۔
        کامیابی سے برآمد'
-    Playlist insufficient data: '"$" پلے لسٹ کے لیے ناکافی ڈیٹا، آئٹم کو چھوڑنا'
+    Playlist insufficient data: '"{playlist}" پلے لسٹ کے لیے ناکافی ڈیٹا، آئٹم کو چھوڑنا'
     All playlists has been successfully imported: 'تمام پلے لسٹ ہو چکی ہیں۔
        کامیابی سے درآمد کیا گیا۔'
     All playlists has been successfully exported: 'تمام پلے لسٹ ہو چکی ہیں۔
@@ -449,13 +447,13 @@ Profile:
   Your profile name cannot be empty: 'آپ کا پروفائل نام خالی نہیں ہو سکتا'
   Profile has been created: 'پروفائل بن گیا ہے۔'
   Profile has been updated: 'پروفائل کو اپ ڈیٹ کر دیا گیا ہے۔'
-  Your default profile has been set to $: 'آپ کا ڈیفالٹ پروفائل $ پر سیٹ کر دیا گیا ہے۔'
-  Removed $ from your profiles: ''
+  Your default profile has been set to {profile}: ''
+  Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -475,7 +473,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -579,7 +577,6 @@ Video:
   Streamed on: ''
   Started streaming on: ''
   translated from English: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
   Skipped segment: ''
   Sponsor Block category:
@@ -592,13 +589,10 @@ Video:
     recap: ''
     filler: ''
   External Player:
-    # $ is replaced with the external player
     OpenInTemplate: ''
     video: ''
     playlist: ''
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
     OpeningTemplate: ''
-    # $ is replaced with the external player and % with the unsupported action
     UnsupportedActionTemplate: ''
     Unsupported Actions:
       starting video at offset: ''
@@ -685,7 +679,7 @@ Comments:
   Replies: ''
   Show More Replies: ''
   Reply: ''
-  From $channelName: ''
+  From {channelName}: ''
   And others: ''
   There are no comments available for this video: ''
   Load More Comments: ''
@@ -737,8 +731,7 @@ Tooltips:
        موجودہ کارروائی (مثلاً پلے لسٹ کو تبدیل کرنا، وغیرہ)۔'
     Custom External Player Arguments: کوئی بھی حسب ضرورت کمانڈ لائن آرگومنٹس، جو سیمیکولنز (';') سے الگ کیے گئے ہیں،
        آپ بیرونی کھلاڑی کو منتقل کرنا چاہتے ہیں۔
-    # $ is replaced with the default custom arguments for the current player, if defined.
-    DefaultCustomArgumentsTemplate: '(پہلے سے طے شدہ: ''$'')'
+    DefaultCustomArgumentsTemplate: '(پہلے سے طے شدہ: ''{defaultCustomArguments}'')'
   Subscription Settings:
     Fetch Feeds from RSS: 'فعال ہونے پر، FreeTube اپنے ڈیفالٹ کے بجائے RSS کا استعمال کرے گا۔
        آپ کی سبسکرپشن فیڈ حاصل کرنے کا طریقہ۔ آر ایس ایس تیز ہے اور آئی پی کو بلاک کرنے سے روکتا ہے،
@@ -767,23 +760,21 @@ Playing Next Video: 'اگلا ویڈیو چل رہا ہے۔'
 Playing Previous Video: 'پچھلا ویڈیو چل رہا ہے۔'
 Playing Next Video Interval: 'اگلی ویڈیو بغیر کسی وقت چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔ | اگلی ویڈیو {nextVideoInterval} سیکنڈ میں چلائی جا رہی ہے۔ منسوخ کرنے کے لیے کلک کریں۔'
 Canceled next video autoplay: 'اگلی ویڈیو آٹو پلے منسوخ کر دی گئی۔'
-# $ is replaced with the default Invidious instance
-Default Invidious instance has been set to $: 'ڈیفالٹ Invidious مثال کو $ پر سیٹ کر دیا گیا ہے۔'
+Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال کو صاف کر دیا گیا ہے۔'
 'The playlist has ended.  Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔ فعال
    کھیل جاری رکھنے کے لیے لوپ'
 Age Restricted:
-  # $contentType is replaced with video or channel
-  This $contentType is age restricted: 'یہ $ عمر کی پابندی ہے۔'
+  This {videoOrPlaylist} is age restricted: ''
   Type:
     Channel: 'چینل'
     Video: 'ویڈیو'
 External link opening has been disabled in the general settings: 'عام ترتیبات میں بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے۔'
-Downloading has completed: '"$" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'
-Starting download: '"$" کا ڈاؤن لوڈ شروع ہو رہا ہے'
-Downloading failed: '"$" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
-Screenshot Success: 'اسکرین شاٹ کو بطور "$" محفوظ کیا گیا'
-Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ $'
+Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے۔'
+Starting download: '"{videoTitle}" کا ڈاؤن لوڈ شروع ہو رہا ہے'
+Downloading failed: '"{videoTitle}" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
+Screenshot Success: ''
+Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ {error}'
 
 Yes: ''
 No: ''

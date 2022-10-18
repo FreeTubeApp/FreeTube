@@ -24,7 +24,9 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    electron: '{}'
+    electron: '{}',
+    ytpl: '{}',
+    ytsr: '{}'
   },
   module: {
     rules: [
@@ -168,41 +170,42 @@ if (isDevMode) {
       __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
     })
   )
-} else {
-  const processLocalesPlugin = new ProcessLocalesPlugin({
-    compress: false,
-    inputDir: path.join(__dirname, '../static/locales'),
-    outputDir: 'static/locales',
-  })
-
-  config.plugins.push(
-    processLocalesPlugin,
-    new webpack.DefinePlugin({
-      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
-    }),
-    new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-          },
-          {
-            from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/web/static'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-            },
-          },
-      ]
-    }),
-    // webpack doesn't get rid of js-yaml even though it isn't used in the production builds
-    // so we need to manually tell it to ignore any imports for `js-yaml`
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^js-yaml$/,
-      contextRegExp: /i18n$/
-    })
-  )
 }
+
+const processLocalesPlugin = new ProcessLocalesPlugin({
+  compress: false,
+  inputDir: path.join(__dirname, '../static/locales'),
+  outputDir: 'static/locales',
+})
+
+config.plugins.push(
+  processLocalesPlugin,
+  new webpack.DefinePlugin({
+    'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
+  }),
+  new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../static/pwabuilder-sw.js'),
+          to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
+        },
+        {
+          from: path.join(__dirname, '../static'),
+          to: path.join(__dirname, '../dist/web/static'),
+          globOptions: {
+            dot: true,
+            ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
+          },
+        },
+    ]
+  }),
+  // webpack doesn't get rid of js-yaml even though it isn't used in the production builds
+  // so we need to manually tell it to ignore any imports for `js-yaml`
+  new webpack.IgnorePlugin({
+    resourceRegExp: /^js-yaml$/,
+    contextRegExp: /i18n$/
+  })
+)
+
 
 module.exports = config

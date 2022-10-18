@@ -29,11 +29,11 @@ Close: 'Sulge'
 Back: 'Tagasi'
 Forward: 'Edasi'
 
-Version $ is now available!  Click for more details: 'Versioon $ in nüüd saadaval!
+Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber} in nüüd saadaval!
   Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
-A new blog is now available, $. Click to view more: 'Uus blogiartikkel on saadaval.
-  Loe siit $'
+A new blog is now available, {blogTitle}. Click to view more: 'Uus blogiartikkel on saadaval.
+  Loe siit {blogTitle}'
 
 # Search Bar
 Search / Go to URL: 'Otsi aadressi või ava see'
@@ -149,7 +149,7 @@ Settings:
     Current instance will be randomized on startup: Hetkel kasutatav vaikimisi teenus
       valitakse rakenduse käivitamisel juhuslikult
     No default instance has been set: Vaikimisi kasutatav teenus on seadistamata
-    The currently set default instance is $: Hetkel kehtiv vaikimisi teenus on $
+    The currently set default instance is {instance}: Hetkel kehtiv vaikimisi teenus on {instance}
     Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
     External Link Handling:
       No Action: Tegevus puudub
@@ -328,7 +328,7 @@ Settings:
     All playlists has been successfully imported: Kõikide esitusloendite import õnnestus
     All playlists has been successfully exported: Kõikide esitusloendite eksport õnnestus
     Import Playlists: Impordi esitusloendeid
-    Playlist insufficient data: „$“ esitusloendi kohta pole piisavalt andmeid, jätame
+    Playlist insufficient data: „{playlist}“ esitusloendi kohta pole piisavalt andmeid, jätame
       vahele
   Advanced Settings:
     Advanced Settings: ''
@@ -484,14 +484,14 @@ Profile:
   Your profile name cannot be empty: 'Profiilil peab olema nimi'
   Profile has been created: 'Profiili loomine õnnestus'
   Profile has been updated: 'Profiili uuendamine õnnestus'
-  Your default profile has been set to $: 'Määrasin $ sinu vaikimisi profiiliks'
-  Removed $ from your profiles: 'Kustutasin $ sinu profiilide loendist'
+  Your default profile has been set to {profile}: 'Määrasin {profile} sinu vaikimisi profiiliks'
+  Removed {profile} from your profiles: 'Kustutasin {profile} sinu profiilide loendist'
   Your default profile has been changed to your primary profile: 'Muutsin sinu esmase
     profiili vaikimisi kasutatavaks profiiliks'
-  $ is now the active profile: '$ on nüüd kasutusel olev profiil'
+  '{profile} is now the active profile': '{profile} on nüüd kasutusel olev profiil'
   Subscription List: 'Tellimuste loend'
   Other Channels: 'Muud kanalid'
-  $ selected: '$ on valitud'
+  '{number} selected': '{number} on valitud'
   Select All: 'Vali kõik'
   Select None: 'Ära vali mitte midagi'
   Delete Selected: 'Kustuta valik'
@@ -513,7 +513,7 @@ Channel:
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
   Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
-  Removed subscription from $ other channel(s): 'Kustutasin tellimuse ka $''st muust
+  Removed subscription from {count} other channel(s): 'Kustutasin tellimuse ka {count}''st muust
     kanalist'
   Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
   Search Channel: 'Otsi kanalit'
@@ -607,8 +607,7 @@ Video:
     Ago: 'tagasi'
     Upcoming: 'Esilinastus'
   Published on: 'Avaldatud'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % tagasi'
+  Publicationtemplate: '{number} {unit} tagasi'
 #& Videos
   Copy Invidious Channel Link: Kopeeri kanali link Invidious'e veebirakenduses
   Open Channel in Invidious: Ava kanal Invidious'e veebirakenduses
@@ -640,11 +639,11 @@ Video:
     recap: Kokkuvõte
   Skipped segment: Vahelejäetud lõik
   External Player:
-    UnsupportedActionTemplate: 'Rakenduses $ puudub tugi: %'
-    OpeningTemplate: Avan $ % rakendusega...
+    UnsupportedActionTemplate: 'Rakenduses {externalPlayer} puudub tugi: {action}'
+    OpeningTemplate: Avan {videoOrPlaylist} {externalPlayer} rakendusega...
     playlist: esitusloend
     video: video
-    OpenInTemplate: Ava rakendusega $
+    OpenInTemplate: Ava rakendusega {externalPlayer}
     Unsupported Actions:
       looping playlists: esitusloendi kordamine
       shuffling playlists: esitusloendi segamine
@@ -748,7 +747,7 @@ Comments:
   Show More Replies: Näita järgmisi vastuseid
   And others: ja teised
   Pinned by: Esiplaanile tõstja
-  From $channelName: kanalist $channelName
+  From {channelName}: kanalist {channelName}
   Member: Liige
 Up Next: 'Järgmisena'
 
@@ -794,7 +793,7 @@ Tooltips:
     External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video\
       \ (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e\
       \ seadistused ei mõjuta välise meediamängija kasutamist."
-    DefaultCustomArgumentsTemplate: "(Vaikimisi: '$')"
+    DefaultCustomArgumentsTemplate: "(Vaikimisi: '{defaultCustomArguments}')"
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
@@ -836,30 +835,30 @@ Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõps
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
 Default Invidious instance has been cleared: Vaikimisi kasutatav Invidious'e teenus
   on kustutatud
-Default Invidious instance has been set to $: Vaikimisi kasutatav Invidious'e teenus
-  on $
+Default Invidious instance has been set to {instance}: Vaikimisi kasutatav Invidious'e teenus
+  on {instance}
 Search Bar:
   Clear Input: Kustuta sisend
 External link opening has been disabled in the general settings: Väliste linkide avamine
   on üldistes seadistustes keelatud
 Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?
-Downloading has completed: „$“ allalaadimine on lõppenud
-Starting download: „$“ allalaadimine algas
-Downloading failed: „$“ allalaadimisel tekkis viga
+Downloading has completed: „{videoTitle}“ allalaadimine on lõppenud
+Starting download: „{videoTitle}“ allalaadimine algas
+Downloading failed: „{videoTitle}“ allalaadimisel tekkis viga
 New Window: Uus aken
-Screenshot Error: Kuvatõmmise tegemine ei õnnestunud. $
+Screenshot Error: Kuvatõmmise tegemine ei õnnestunud. {error}
 Channels:
   Channels: Kanalid
   Title: Kanalite loend
   Search bar placeholder: Otsi kanaleid
-  Count: Leidsime $ kanali(t).
+  Count: Leidsime {number} kanali(t).
   Empty: Sinu kanalite loend on praegu tühi.
   Unsubscribe: Loobu tellimusest
-  Unsubscribed: $ on sinu tellimustest eemaldatud
-  Unsubscribe Prompt: Kas oled kindel, et soovid „$“ tellimusest loobuda?
+  Unsubscribed: '{channelName} on sinu tellimustest eemaldatud'
+  Unsubscribe Prompt: Kas oled kindel, et soovid „{channelName}“ tellimusest loobuda?
 Age Restricted:
-  This $contentType is age restricted: See $ on vanusepiiranguga
+  This {videoOrPlaylist} is age restricted: See {videoOrPlaylist} on vanusepiiranguga
   Type:
     Channel: Kanal
     Video: Video
-Screenshot Success: Kuvatõmmis on salvestatud faili „$“
+Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“

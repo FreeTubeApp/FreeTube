@@ -30,10 +30,10 @@ Close: 'Zapri'
 Back: 'Nazaj'
 Forward: 'Naprej'
 
-Version $ is now available!  Click for more details: 'Na voljo je različica $!·  Za
+Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica {versionNumber}!·  Za
   več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'
-A new blog is now available, $. Click to view more: 'Na voljo je nov članek, $. Kliknite
+A new blog is now available, {blogTitle}. Click to view more: 'Na voljo je nov članek, {blogTitle}. Kliknite
   tukaj, če ga želite prebrati'
 
 # Search Bar
@@ -398,15 +398,15 @@ Profile:
   Your profile name cannot be empty: 'Ime profila ne sme biti prazno'
   Profile has been created: 'Profil je bil ustvarjen'
   Profile has been updated: 'Profil je bil posodobljen'
-  Your default profile has been set to $: 'Vaš prevzeti profil je bil nastavljen na
-    $'
-  Removed $ from your profiles: 'Profil $ je bil izbrisan'
+  Your default profile has been set to {profile}: 'Vaš prevzeti profil je bil nastavljen na
+    {profile}'
+  Removed {profile} from your profiles: 'Profil {profile} je bil izbrisan'
   Your default profile has been changed to your primary profile: 'Vaš prevzeti profil
     je bil nastavljen na vaš primarni profil'
-  $ is now the active profile: 'Aktivni profil je zdaj $'
+  '{profile} is now the active profile': 'Aktivni profil je zdaj {profile}'
   Subscription List: 'Seznam naročnin'
   Other Channels: 'Drugi kanali'
-  $ selected: '$ je označen'
+  '{number} selected': '{number} je označen'
   Select All: 'Označi vse'
   Select None: 'Ne označi ničesar'
   Delete Selected: 'Izbriši označeno'
@@ -429,7 +429,7 @@ Channel:
   Unsubscribe: 'Prekini naročnino'
   Channel has been removed from your subscriptions: 'Kanal je bil odstranjen iz vaših
     naročnin'
-  Removed subscription from $ other channel(s): 'Naročnina je bila prekinjena v $
+  Removed subscription from {count} other channel(s): 'Naročnina je bila prekinjena v {count}
     kanalih'
   Added channel to your subscriptions: 'Kanal je bil dodan v vaše naročnine'
   Search Channel: 'Preišči kanal'
@@ -524,8 +524,7 @@ Video:
     Ago: 'Nazaj'
     Upcoming: 'Kmalu bo objavljeno'
   Published on: 'Objavljeno dne'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % nazaj'
+  Publicationtemplate: '{number} {unit} nazaj'
 #& Videos
   Audio:
     Best: Najvišja

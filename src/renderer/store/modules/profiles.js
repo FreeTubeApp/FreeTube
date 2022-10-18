@@ -1,6 +1,6 @@
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { DBProfileHandlers } from '../../../datastores/handlers/index'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/utils'
 
 const state = {
   profileList: [{
@@ -40,7 +40,7 @@ function profileSort(a, b) {
 }
 
 const actions = {
-  async grabAllProfiles({ rootState, dispatch, commit }, defaultName = null) {
+  async grabAllProfiles({ rootState, commit }, defaultName = null) {
     let profiles
     try {
       profiles = await DBProfileHandlers.find()
@@ -53,7 +53,7 @@ const actions = {
 
     if (profiles.length === 0) {
       // Create a default profile and persist it
-      const randomColor = await dispatch('getRandomColor')
+      const randomColor = getRandomColor()
       const textColor = calculateColorLuminance(randomColor)
       const defaultProfile = {
         _id: MAIN_PROFILE_ID,

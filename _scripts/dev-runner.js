@@ -1,5 +1,6 @@
 process.env.NODE_ENV = 'development'
 
+const open = require('open')
 const electron = require('electron')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
@@ -10,13 +11,14 @@ const { spawn } = require('child_process')
 
 const mainConfig = require('./webpack.main.config')
 const rendererConfig = require('./webpack.renderer.config')
+const webConfig = require('./webpack.web.config')
 const workersConfig = require('./webpack.workers.config')
 
 let electronProcess = null
 let manualRestart = null
-const remoteDebugging = !!(
-  process.argv[2] && process.argv[2] === '--remote-debug'
-)
+
+const remoteDebugging = process.argv.indexOf('--remote-debug') !== -1
+const web = process.argv.indexOf('--web') !== -1
 
 if (remoteDebugging) {
   // disable dvtools open in electron
@@ -87,7 +89,6 @@ function startMain() {
 
           manualRestart = true
           await restartElectron()
-
           setTimeout(() => {
             manualRestart = false
           }, 2500)
@@ -135,4 +136,38 @@ function startRenderer(callback) {
   })
 }
 
-startRenderer(startMain)
+function startWeb (callback) {
+  const compiler = webpack(webConfig)
+  const { name } = compiler
+
+  compiler.hooks.afterEmit.tap('afterEmit', () => {
+    console.log(`\nCompiled ${name} script!`)
+    console.log(`\nWatching file changes for ${name} script...`)
+  })
+
+  const server = new WebpackDevServer({
+    static: {
+      directory: path.join(process.cwd(), 'dist/web/static'),
+      watch: {
+        ignored: [
+          /(dashFiles|storyboards)\/*/,
+          '/**/.DS_Store',
+        ]
+      }
+    },
+    port
+  }, compiler)
+
+  server.startCallback(err => {
+    if (err) console.error(err)
+
+    callback({ port: server.options.port })
+  })
+}
+if (!web) {
+  startRenderer(startMain)
+} else {
+  startWeb(({ port }) => {
+    open(`http://localhost:${port}`)
+  })
+}

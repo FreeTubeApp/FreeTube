@@ -29,6 +29,7 @@
     "debug": "run-s rebuild:electron debug-runner",
     "debug-runner": "node _scripts/dev-runner.js --remote-debug",
     "dev": "run-s rebuild:electron dev-runner",
+    "dev:web": "node _scripts/dev-runner.js --web",
     "dev-runner": "node _scripts/dev-runner.js",
     "lint-fix": "eslint --fix --ext .js,.vue ./",
     "lint": "eslint --ext .js,.vue ./",
@@ -45,10 +46,10 @@
     "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/vue-fontawesome": "^2.0.8",
     "@freetube/youtube-chat": "^1.1.2",
     "@freetube/yt-comment-scraper": "^6.2.0",
     "@freetube/yt-trending-scraper": "^3.1.1",
@@ -56,7 +57,7 @@
     "autolinker": "^4.0.0",
     "browserify": "^17.0.0",
     "electron-context-menu": "^3.5.0",
-    "http-proxy-agent": "^4.0.1",
+    "http-proxy-agent": "^5.0.0",
     "https-proxy-agent": "^5.0.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
@@ -64,7 +65,6 @@
     "nedb-promises": "^6.2.1",
     "opml-to-json": "^1.0.1",
     "process": "^0.11.10",
-    "rss-parser": "^3.12.0",
     "socks-proxy-agent": "^6.0.0",
     "video.js": "7.18.1",
     "videojs-contrib-quality-levels": "^2.1.0",
@@ -93,7 +93,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.1.0",
-    "electron": "^20.3.1",
+    "electron": "^21.1.1",
     "electron-builder": "^23.6.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -120,6 +120,6 @@
     "vue-loader": "^15.10.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.10.1"
+    "webpack-dev-server": "^4.11.1"
   }
 }
