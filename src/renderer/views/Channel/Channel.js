@@ -557,8 +557,11 @@ export default Vue.extend({
         this.latestCommunityPosts = response.items.map((element) => {
           element.type = 'community'
           return element
-        }
-        )
+        })
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 1000, () => copyToClipboard(err))
       })
     },
 
@@ -570,13 +573,7 @@ export default Vue.extend({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            this.copyToClipboard({ content: err })
-          }
-        })
+        showToast(`${errorMessage}: ${err}`, 1000, () => copyToClipboard(err))
       })
     },
 
