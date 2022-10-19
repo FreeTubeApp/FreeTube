@@ -160,18 +160,6 @@ const config = {
   target: 'web',
 }
 
-/**
- * Adjust web for production settings
- */
-if (isDevMode) {
-  // any dev only config
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
-    })
-  )
-}
-
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: false,
   inputDir: path.join(__dirname, '../static/locales'),

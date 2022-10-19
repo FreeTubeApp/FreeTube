@@ -302,10 +302,6 @@ function runApp() {
         /* eslint-disable-next-line */
         newWindow.loadFile(`${__dirname}/index.html`)
       }
-
-      global.__static = path
-        .join(__dirname, '/static')
-        .replace(/\\/g, '\\\\')
     }
 
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
