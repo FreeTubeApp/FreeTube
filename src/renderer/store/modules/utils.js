@@ -389,7 +389,7 @@ const actions = {
     if (process.env.IS_ELECTRON) {
       localePathExists = fs.existsSync(`${fileLocation}${locale}`)
     } else {
-      localePathExists = process.env.GEOLOCATION_NAMES.indexOf(locale) !== -1
+      localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     }
     const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}/countries.json`
     const fileData = process.env.IS_ELECTRON ? JSON.parse(fs.readFileSync(pathName)) : await (await fetch(pathName)).json()
