@@ -109,14 +109,13 @@ const config = {
     ]
   },
   node: {
-    __dirname: false,
+    __dirname: true,
     __filename: isDevMode,
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.PRODUCT_NAME': JSON.stringify(productName),
-      'process.env.IS_ELECTRON': false,
-      '__dirname': 'window.location.pathname.endsWith("/")?window.location.pathname.substring(0, window.location.pathname.length - 1):window.location.pathname'
+      'process.env.IS_ELECTRON': false
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser',
