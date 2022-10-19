@@ -218,36 +218,29 @@
       <div
         v-if="!hideActiveSubscriptions"
       >
-        <div
+        <router-link
           v-for="(channel, index) in activeSubscriptions"
           :key="index"
-          class="navChannel mobileHidden"
+          :to="`/channel/${channel.id}`"
+          class="navChannel channelLink mobileHidden"
           :title="channel.name"
           role="button"
-          tabindex="0"
-          @keydown.enter.prevent="goToChannel(channel.id)"
-          @click="goToChannel(channel.id)"
         >
-          <router-link
-            :to="`/channel/${channel.id}`"
-            class="channelLink"
+          <div
+            class="thumbnailContainer"
           >
-            <div
-              class="thumbnailContainer"
+            <img
+              class="channelThumbnail"
+              :src="channel.thumbnail"
             >
-              <img
-                class="channelThumbnail"
-                :src="channel.thumbnail"
-              >
-            </div>
-            <p
-              v-if="isOpen"
-              class="navLabel"
-            >
-              {{ channel.name }}
-            </p>
-          </router-link>
-        </div>
+          </div>
+          <p
+            v-if="isOpen"
+            class="navLabel"
+          >
+            {{ channel.name }}
+          </p>
+        </router-link>
       </div>
     </div>
   </ft-flex-box>
