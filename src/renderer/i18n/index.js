@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import fs from 'fs'
-
+import { createWebURL } from '../helpers/utils'
 // List of locales approved for use
 import activeLocales from '../../../static/locales/activeLocales.json'
 
@@ -54,17 +54,7 @@ class CustomVueI18n extends VueI18n {
         console.error(locale, err)
       }
     } else {
-      const url = new URL(window.location.href)
-      url.hash = ''
-      if (url.pathname.endsWith('index.html')) {
-        url.pathname = url.pathname.replace(/index\.html$/, '')
-      }
-
-      if (url.pathname) {
-        url.pathname += `${!url.pathname.endsWith('/') ? '/' : ''}static/locales/${locale}.json`
-      } else {
-        url.pathname = `/static/locales/${locale}.json`
-      }
+      const url = createWebURL(`/static/locales/${locale}.json`)
 
       const response = await fetch(url)
       const data = await response.json()
