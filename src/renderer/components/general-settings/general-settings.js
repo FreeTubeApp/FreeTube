@@ -109,26 +109,27 @@ export default Vue.extend({
     },
 
     localeOptions: function () {
-      return ['system'].concat(this.$i18n.allLocales)
+      return [
+        'system',
+        ...this.$i18n.allLocales
+      ]
     },
 
     localeNames: function () {
+      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
+        return [
+          this.$t('Settings.General Settings.System Default'),
+          ...process.env.LOCALE_NAMES
+        ]
+      }
+
       const names = [
         this.$t('Settings.General Settings.System Default')
       ]
 
-      if (process.env.NODE_ENV === 'development' && process.env.IS_ELECTRON) {
-        Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
-          const localeName = localeData['Locale Name']
-          if (typeof localeName !== 'undefined') {
-            names.push(localeName)
-          } else {
-            names.push(locale)
-          }
-        })
-      } else {
-        names.push(...process.env.LOCALE_NAMES)
-      }
+      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
+        names.push(localeData['Locale Name'] ?? locale)
+      })
 
       return names
     },
