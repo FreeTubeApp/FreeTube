@@ -205,10 +205,7 @@ export default Vue.extend({
         comment.replies = []
         comment.dataType = 'local'
         comment.time = toLocalePublicationString({
-          publishText: (comment.time + ' ago'),
-          isLive: false,
-          isUpcoming: false,
-          isRSS: false
+          publishText: (comment.time + ' ago')
         })
 
         if (this.hideCommentLikes) {
