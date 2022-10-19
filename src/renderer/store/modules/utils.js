@@ -4,7 +4,7 @@ import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
-import { openExternalLink, showToast } from '../../helpers/utils'
+import { createWebURL, openExternalLink, showToast } from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -385,14 +385,16 @@ const actions = {
 
   async getRegionData ({ commit }, { locale }) {
     let localePathExists
-    const fileLocation = `${process.env.NODE_ENV === 'development' ? '.' : __dirname}/static/geolocations/`
+    // Exclude __dirname from path if not in electron
+    const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
     if (process.env.IS_ELECTRON) {
       localePathExists = fs.existsSync(`${fileLocation}${locale}`)
     } else {
       localePathExists = process.env.GEOLOCATION_NAMES.indexOf(locale) !== -1
     }
     const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}/countries.json`
-    const fileData = process.env.IS_ELECTRON ? JSON.parse(fs.readFileSync(pathName)) : await (await fetch(pathName)).json()
+    const fileData = process.env.IS_ELECTRON ? JSON.parse(fs.readFileSync(pathName)) : await (await fetch(createWebURL(pathName))).json()
+
     const countries = fileData.map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
     countries.sort((a, b) => { return a.id - b.id })
 
