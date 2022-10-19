@@ -8,12 +8,9 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
 import { calculateColorLuminance, copyToClipboard, getRandomColor, showToast } from '../../helpers/utils'
-
-// FIXME: Missing web logic branching
 
 export default Vue.extend({
   name: 'DataSettings',
@@ -59,6 +56,9 @@ export default Vue.extend({
     },
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
+    },
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
     },
     exportSubscriptionsPromptNames: function () {
       const exportFreeTube = this.$t('Settings.Data Settings.Export FreeTube')
@@ -487,9 +487,9 @@ export default Vue.extend({
     },
 
     exportFreeTubeSubscriptions: async function () {
-      await this.compactProfiles()
-      const userData = await this.getUserDataPath()
-      const subscriptionsDb = `${userData}/profiles.db`
+      const subscriptionsDb = this.profileList.map((profile) => {
+        return JSON.stringify(profile)
+      }).join('\n') + '\n'// a trailing line is expected
       const date = new Date().toISOString().split('T')[0]
       const exportFileName = 'freetube-subscriptions-' + date + '.db'
 
@@ -508,26 +508,14 @@ export default Vue.extend({
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.readFile(subscriptionsDb, (readErr, data) => {
-        if (readErr) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          showToast(`${message}: ${readErr}`)
-          return
-        }
-
-        fs.writeFile(filePath, data, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            showToast(`${message}: ${writeErr}`)
-            return
-          }
-
-          showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-        })
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: subscriptionsDb })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -586,17 +574,14 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(subscriptionsObject), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: JSON.stringify(subscriptionsObject) })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
@@ -634,17 +619,14 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, opmlData, (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: opmlData })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -676,16 +658,14 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-      fs.writeFile(filePath, exportText, (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: exportText })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -724,18 +704,14 @@ export default Vue.extend({
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(newPipeObject), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: JSON.stringify(newPipeObject) })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     importHistory: async function () {
@@ -807,9 +783,9 @@ export default Vue.extend({
     },
 
     exportHistory: async function () {
-      await this.compactHistory()
-      const userData = await this.getUserDataPath()
-      const historyDb = `${userData}/history.db`
+      const historyDb = this.historyCache.map((historyEntry) => {
+        return JSON.stringify(historyEntry)
+      }).join('\n') + '\n'
       const date = new Date().toISOString().split('T')[0]
       const exportFileName = 'freetube-history-' + date + '.db'
 
@@ -829,25 +805,13 @@ export default Vue.extend({
         return
       }
 
-      const filePath = response.filePath
-
-      fs.readFile(historyDb, (readErr, data) => {
-        if (readErr) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          showToast(`${message}: ${readErr}`)
-          return
-        }
-
-        fs.writeFile(filePath, data, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            showToast(`${message}: ${writeErr}`)
-            return
-          }
-
-          showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
-        })
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: historyDb })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+      }
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
     },
 
     importPlaylists: async function () {
@@ -983,18 +947,14 @@ export default Vue.extend({
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(this.allPlaylists), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          showToast(`${message}: ${writeErr}`)
-          return
-        }
-
-        showToast(this.$t('Settings.Data Settings.All playlists has been successfully exported'))
-      })
+      try {
+        await this.writeFileFromDialog({ response, content: JSON.stringify(this.allPlaylists) })
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')}`)
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
@@ -1143,6 +1103,7 @@ export default Vue.extend({
       'showOpenDialog',
       'readFileFromDialog',
       'showSaveDialog',
+      'writeFileFromDialog',
       'getUserDataPath',
       'addPlaylist',
       'addVideo'
