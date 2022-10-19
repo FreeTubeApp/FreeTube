@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        runtime: 
+        runtime:
           - linux-x64
           - linux-armv7l
           - linux-arm64
@@ -29,19 +29,19 @@ jobs:
 
         - runtime: linux-armv7l
           os: ubuntu-latest
-        
+
         - runtime: linux-arm64
           os: ubuntu-latest
 
         - runtime: osx-x64
           os: macOS-latest
-          
+
 #        - runtime: osx-arm64
 #          os: macOS-latest
-          
+
         - runtime: win-x64
           os: windows-latest
-          
+
         - runtime: win-arm64
           os: windows-latest
 
@@ -54,8 +54,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: "yarn"
-    - run: npm run ci
-    - run: npm run lint
+    - run: yarn run ci
+    - run: yarn run lint
 
     - name: Get Version Number
       uses: nyaayaya/package-version@v1
@@ -65,15 +65,15 @@ jobs:
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
-      run: npm run build --if-present
+      run: yarn run build --if-present
 
     - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      run: npm run build:arm32 --if-present
-      
+      run: yarn run build:arm32 --if-present
+
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
-      run: npm run build:arm64 --if-present
+      run: yarn run build:arm64 --if-present
 
     - name: Upload AppImage x64 Release
       uses: actions/upload-release-asset@v1
@@ -173,7 +173,7 @@ jobs:
         asset_name: freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
         asset_path: build/freetube_${{ env.PACKAGE_VERSION }}_armv7l.deb
         asset_content_type: application/vnd.debian.binary-package
-        
+
     - name: Upload Linux .deb ARM64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -195,7 +195,7 @@ jobs:
         asset_name: freetube_${{ env.PACKAGE_VERSION }}_amd64.rpm
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}.x86_64.rpm
         asset_content_type: application/x-rpm
-        
+
      # rpm are not built for armv7l
 
     - name: Upload Linux .rpm ARM64 Release
@@ -274,7 +274,7 @@ jobs:
         asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.7z
         asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-win.7z
         asset_content_type: application/x-7z-compressed
-        
+
     - name: Upload Windows x64 portable Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
@@ -296,7 +296,7 @@ jobs:
         asset_name: freetube-${{ env.PACKAGE_VERSION }}-win-arm64-portable.exe
         asset_path: build/FreeTube ${{ env.PACKAGE_VERSION }}.exe
         asset_content_type: application/x-ms-dos-executable
-        
+
     - name: Upload Mac x64 .dmg Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
@@ -318,7 +318,7 @@ jobs:
 #        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.dmg
 #        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64.dmg
 #        asset_content_type: application/x-apple-diskimage
-        
+
     - name: Upload Mac x64 .zip Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
@@ -351,4 +351,4 @@ jobs:
 #        asset_name: freetube-${{ env.PACKAGE_VERSION }}-mac-arm64.zip
 #        asset_path: build/freetube-${{ env.PACKAGE_VERSION }}-arm64-mac.zip
 #        asset_content_type: application/x-apple-diskimage
-    
+

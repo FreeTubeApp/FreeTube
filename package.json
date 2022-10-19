@@ -38,12 +38,11 @@
     "pack:renderer": "webpack --mode=production --node-env=production --config _scripts/webpack.renderer.config.js",
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:workers": "webpack --mode=production --node-env=production --config _scripts/webpack.workers.config.js",
-    "postinstall": "npm run rebuild:electron",
+    "postinstall": "yarn run --silent rebuild:electron",
     "prettier": "prettier --write \"{src,_scripts}/**/*.{js,vue}\"",
     "rebuild:electron": "electron-builder install-app-deps",
-    "rebuild:node": "npm rebuild",
     "release": "run-s test build",
-    "ci": "yarn install --frozen-lockfile"
+    "ci": "yarn install --silent --frozen-lockfile"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
