@@ -244,37 +244,6 @@ const actions = {
     return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
-  /**
-   * @param {Object} response the response from `showOpenDialog`
-   * @param {Number} index which file to read (defaults to the first in the response)
-   * @returns the text contents of the selected file
-   */
-  async readFileFromDialog(context, { response, index = 0 }) {
-    return await new Promise((resolve, reject) => {
-      if (process.env.IS_ELECTRON) {
-        // if this is Electron, use fs
-        fs.readFile(response.filePaths[index], (err, data) => {
-          if (err) {
-            reject(err)
-            return
-          }
-          resolve(new TextDecoder('utf-8').decode(data))
-        })
-      } else {
-        // if this is web, use FileReader
-        try {
-          const reader = new FileReader()
-          reader.onload = function (file) {
-            resolve(file.currentTarget.result)
-          }
-          reader.readAsText(response.files[index])
-        } catch (exception) {
-          reject(exception)
-        }
-      }
-    })
-  },
-
   async showOpenDialog (context, options) {
     const webCbk = () => {
       return new Promise((resolve) => {
@@ -305,42 +274,6 @@ const actions = {
       })
     }
     return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
-  },
-
-  /**
-   * Write to a file picked out from the `showSaveDialog` picker
-   * @param {Object} response the response from `showSaveDialog`
-   * @param {String} content the content to be written to the file selected by the dialog
-   */
-  async writeFileFromDialog (context, { response, content }) {
-    if (process.env.IS_ELECTRON) {
-      return await new Promise((resolve, reject) => {
-        const { filePath } = response
-        fs.writeFile(filePath, content, (error) => {
-          if (error) {
-            reject(error)
-          } else {
-            resolve()
-          }
-        })
-      })
-    } else {
-      if ('showOpenFilePicker' in window) {
-        const { handle } = response
-        const writableStream = await handle.createWritable()
-        await writableStream.write(content)
-        await writableStream.close()
-      } else {
-        // If the native filesystem api is not available,
-        const { filePath } = response
-        const filename = filePath.split('/').at(-1)
-        const a = document.createElement('a')
-        const url = URL.createObjectURL(new Blob([content], { type: 'application/octet-stream' }))
-        a.setAttribute('href', url)
-        a.setAttribute('download', encodeURI(filename))
-        a.click()
-      }
-    }
   },
 
   async showSaveDialog (context, options) {

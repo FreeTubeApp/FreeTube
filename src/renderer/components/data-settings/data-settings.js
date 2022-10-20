@@ -10,7 +10,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
-import { calculateColorLuminance, copyToClipboard, getRandomColor, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, copyToClipboard, getRandomColor, readFileFromDialog, showToast, writeFileFromDialog } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'DataSettings',
@@ -103,7 +103,7 @@ export default Vue.extend({
       }
       let textDecode
       try {
-        textDecode = await this.readFileFromDialog({ response })
+        textDecode = await readFileFromDialog(response)
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${err}`)
@@ -509,7 +509,7 @@ export default Vue.extend({
         return
       }
       try {
-        await this.writeFileFromDialog({ response, content: subscriptionsDb })
+        await writeFileFromDialog(response, subscriptionsDb)
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${writeErr}`)
@@ -575,7 +575,7 @@ export default Vue.extend({
       }
 
       try {
-        await this.writeFileFromDialog({ response, content: JSON.stringify(subscriptionsObject) })
+        await writeFileFromDialog(response, JSON.stringify(subscriptionsObject))
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
@@ -620,7 +620,7 @@ export default Vue.extend({
       }
 
       try {
-        await this.writeFileFromDialog({ response, content: opmlData })
+        await writeFileFromDialog(response, opmlData)
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
@@ -659,7 +659,7 @@ export default Vue.extend({
       }
 
       try {
-        await this.writeFileFromDialog({ response, content: exportText })
+        await writeFileFromDialog(response, exportText)
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
@@ -705,7 +705,7 @@ export default Vue.extend({
         return
       }
       try {
-        await this.writeFileFromDialog({ response, content: JSON.stringify(newPipeObject) })
+        await writeFileFromDialog(response, JSON.stringify(newPipeObject))
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
@@ -731,7 +731,7 @@ export default Vue.extend({
       }
       let textDecode
       try {
-        textDecode = await this.readFileFromDialog({ response })
+        textDecode = await readFileFromDialog(response)
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${err}`)
@@ -806,7 +806,7 @@ export default Vue.extend({
       }
 
       try {
-        await this.writeFileFromDialog({ response, content: historyDb })
+        await writeFileFromDialog(response, historyDb)
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
@@ -831,7 +831,7 @@ export default Vue.extend({
       }
       let data
       try {
-        data = await this.readFileFromDialog({ response })
+        data = await readFileFromDialog(response)
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
         showToast(`${message}: ${err}`)
@@ -948,7 +948,7 @@ export default Vue.extend({
         return
       }
       try {
-        await this.writeFileFromDialog({ response, content: JSON.stringify(this.allPlaylists) })
+        await writeFileFromDialog(response, JSON.stringify(this.allPlaylists))
       } catch (writeErr) {
         const message = this.$t('Settings.Data Settings.Unable to write file')
         showToast(`${message}: ${writeErr}`)
@@ -1101,9 +1101,7 @@ export default Vue.extend({
       'updateHistory',
       'compactHistory',
       'showOpenDialog',
-      'readFileFromDialog',
       'showSaveDialog',
-      'writeFileFromDialog',
       'getUserDataPath',
       'addPlaylist',
       'addVideo'

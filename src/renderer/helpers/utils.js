@@ -1,6 +1,7 @@
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
+import fs from 'fs'
 
 export const colors = [
   { name: 'Red', value: '#d50000' },
@@ -195,4 +196,71 @@ export function openExternalLink(url) {
   } else {
     window.open(url, '_blank')
   }
+}
+
+/**
+* Write to a file picked out from the `showSaveDialog` picker
+* @param {object} response the response from `showSaveDialog`
+* @param {string} content the content to be written to the file selected by the dialog
+*/
+export async function writeFileFromDialog (response, content) {
+  if (process.env.IS_ELECTRON) {
+    return await new Promise((resolve, reject) => {
+      const { filePath } = response
+      fs.writeFile(filePath, content, (error) => {
+        if (error) {
+          reject(error)
+        } else {
+          resolve()
+        }
+      })
+    })
+  } else {
+    if ('showOpenFilePicker' in window) {
+      const { handle } = response
+      const writableStream = await handle.createWritable()
+      await writableStream.write(content)
+      await writableStream.close()
+    } else {
+      // If the native filesystem api is not available,
+      const { filePath } = response
+      const filename = filePath.split('/').at(-1)
+      const a = document.createElement('a')
+      const url = URL.createObjectURL(new Blob([content], { type: 'application/octet-stream' }))
+      a.setAttribute('href', url)
+      a.setAttribute('download', encodeURI(filename))
+      a.click()
+    }
+  }
+}
+
+/**
+ * @param {object} response the response from `showOpenDialog`
+ * @param {number} index which file to read (defaults to the first in the response)
+ * @returns the text contents of the selected file
+ */
+export function readFileFromDialog(response, index = 0) {
+  return new Promise((resolve, reject) => {
+    if (process.env.IS_ELECTRON) {
+      // if this is Electron, use fs
+      fs.readFile(response.filePaths[index], (err, data) => {
+        if (err) {
+          reject(err)
+          return
+        }
+        resolve(new TextDecoder('utf-8').decode(data))
+      })
+    } else {
+      // if this is web, use FileReader
+      try {
+        const reader = new FileReader()
+        reader.onload = function (file) {
+          resolve(file.currentTarget.result)
+        }
+        reader.readAsText(response.files[index])
+      } catch (exception) {
+        reject(exception)
+      }
+    }
+  })
 }
