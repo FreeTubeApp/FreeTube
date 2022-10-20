@@ -69,7 +69,7 @@ Search Filters:
   # On Search Page
   Search Results: 'Paieškos rezultatai'
   Fetching results. Please wait: 'Rezultatai kraunami. Prašome luktelėti'
-  Fetch more results: 'Pakrauti daugiau rezultatų'
+  Fetch more results: 'Įkelti daugiau rezultatų'
   There are no more results for this search: 'Daugiau nėra rezultatų pagal šią paiešką'
 # Sidebar
 Subscriptions:
@@ -83,7 +83,7 @@ Subscriptions:
     čia.'
   'Getting Subscriptions. Please wait.': 'Gaunamos prenumeratos. Prašome luktelėti.'
   Refresh Subscriptions: 'Atnaujinti prenumeratas'
-  Load More Videos: 'Pakrauti daugiau vaizdo įrašų'
+  Load More Videos: 'Įkelti daugiau vaizdo įrašų'
   Error Channels: Kanalai su klaidomis
   Disabled Automatic Fetching: Išjungėte automatinį prenumeratų gavimą. Atnaujinkite
     prenumeratas, kad jas matytumėte čia.
@@ -357,6 +357,8 @@ Settings:
     Import Playlists: Importuoti grojaraščius
     Export Playlists: Eksportuoti grojaraščius
     Subscription File: Prenumeratų failas
+    Playlist insufficient data: Nepakankamai duomenų "{playlist}" grojaraščiui, praleidžiamas
+      elementas
   Proxy Settings:
     Proxy Settings: 'Proxy nustatymai'
     Enable Tor / Proxy: 'Įgalinti Tor / Proxy'
@@ -397,6 +399,7 @@ Settings:
     Parental Control Settings: Tėvų kontrolės nustatymai
     Hide Unsubscribe Button: Slėpti prenumeratos atsisakymo mygtuką
     Hide Search Bar: Slėpti paieškos juostą
+    Show Family Friendly Only: Rodyti tik turinį tinkamą šeimai
 About:
   #On About page
   About: 'Apie'
@@ -589,12 +592,12 @@ Video:
   Streamed on: 'Transliuota'
   Started streaming on: 'Transliaciją pradėjo'
   translated from English: 'išversta iš anglų kalbos'
-  Publicationtemplate: '{number} {unit} prieš'
+  Publicationtemplate: 'prieš {number} {unit}'
   Skipped segment: 'Praleistas segmentas'
   Sponsor Block category:
     sponsor: 'Rėmėjas'
     intro: 'Įžanga'
-    outro: 'autro'
+    outro: 'Autro'
     self-promotion: 'Savireklama'
     interaction: 'Interakcija'
     music offtopic: 'Nesusijusi muzika'
@@ -632,6 +635,11 @@ Video:
     Bandwidth: Pralaidumas
     Volume: Apimtis
     Player Dimensions: Grotuvo matmenys
+    Video statistics are not available for legacy videos: Vaizdo įrašų statistika
+      nepateikiama seniems vaizdo įrašams
+    Dropped / Total Frames: Pamesti / Iš viso kadrų
+    Mimetype: Mimetipas
+    Buffered: Buferizuota
   Premieres: Premjera
 Videos:
   #& Sort By
@@ -703,7 +711,7 @@ Comments:
   Reply: 'Atsakyti'
   There are no comments available for this video: 'Šiam vaizdo įrašui nėra parašytų
     komentarų'
-  Load More Comments: 'Pakrauti daugiau komentarų'
+  Load More Comments: 'Įkelti daugiau komentarų'
   No more comments available: 'Daugiau komentarų nėra'
   Show More Replies: Rodyti daugiau atsakymų
   From {channelName}: nuo {channelName}
@@ -751,7 +759,8 @@ Tooltips:
       jis buvo pakeistas nustatymuose).
   External Player Settings:
     External Player: 'Pasirinkus išorinį grotuvą, miniatiūroje bus rodoma piktograma,
-      leidžianti atidaryti vaizdo įrašą (grojaraštį, jei palaikoma) išoriniame grotuve.'
+      leidžianti atidaryti vaizdo įrašą (grojaraštį, jei palaikoma) išoriniame grotuve.
+      Įspėjimas, Invidious nustatymai neturi įtakos išoriniams grotuvams.'
     Custom External Player Executable: 'Pagal numatytuosius nustatymus „FreeTube“
       manys, kad pasirinktą išorinį grotuvą galima rasti per PATH aplinkos kintamąjį.
       Jei reikia, čia galite nustatyti pasirinktinį kelią.'
@@ -766,6 +775,8 @@ Tooltips:
       metodą, kad užpildytų jūsų prenumeratos kanalą. RSS yra greitesnė ir išvengia
       IP blokavimo, tačiau nepateikia tam tikros informacijos, pvz., vaizdo įrašo
       trukmės ar tiesioginės transliacijos būsenos'
+    Fetch Automatically: Kai ši funkcija įjungta, FreeTube automatiškai įkels naują
+      turinį iš prenumeratų, kai atidaromas naujas langas ir perjungiamas profilis.
   Privacy Settings:
     Remove Video Meta Files: 'Įjungus FreeTube, uždarius žiūrėjimo puslapį, automatiškai
       ištrinami meta failai, sukurti vaizdo atkūrimo metu.'
@@ -823,6 +834,8 @@ Age Restricted:
   Type:
     Channel: Kanalas
     Video: Vaizdo įrašas
+  This {videoOrPlaylist} is age restricted: Šis {videoOrPlaylist} ribojamas pagal
+    amžių
 Downloading has completed: „{videoTitle}“ atsisiuntimas baigtas
 Starting download: Pradedamas „{videoTitle}“ atsisiuntimas
 Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
@@ -830,5 +843,11 @@ Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:
   Chapters: Skyriai
+  'Chapters list visible, current chapter: {chapterName}': 'Skyrių sąrašas matomas,
+    dabartinis skyrius: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Skyrių sąrašas paslėptas,
+    dabartinis skyrius: {chapterName}'
 Clipboard:
   Copy failed: Nepavyko nukopijuoti į iškarpinę
+  Cannot access clipboard without a secure connection: Negalima pasiekti iškarpinės
+    be saugaus ryšio
