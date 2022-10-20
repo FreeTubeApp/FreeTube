@@ -2,7 +2,12 @@ import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import i18n from '../../i18n/index'
-import { copyToClipboard, openExternalLink, showToast, toLocalePublicationString } from '../../helpers/utils'
+import { 
+  copyToClipboard, 
+  openExternalLink, 
+  showToast, 
+  toLocalePublicationString
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtListVideo',
