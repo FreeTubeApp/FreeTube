@@ -97,15 +97,15 @@ jobs:
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
-      run: yarn run build --if-present
+      run: yarn run build
 
     - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      run: yarn run build:arm32 --if-present
+      run: yarn run build:arm32
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
-      run: yarn run build:arm64 --if-present
+      run: yarn run build:arm64
 
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@v3
