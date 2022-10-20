@@ -69,7 +69,6 @@
 .navOption .navLabel {
   margin-left: 40px;
   overflow: hidden;
-  margin-left: 40px;
   word-break: break-word;
 }
 
@@ -90,6 +89,7 @@
 }
 
 .channelLink {
+  display: block;
   color: inherit;
   text-decoration: inherit;
 }
@@ -97,6 +97,7 @@
 .channelThumbnail {
   border-radius: 50%;
   width: 35px;
+  vertical-align: middle;
 }
 
 .closed {
