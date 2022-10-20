@@ -237,7 +237,7 @@ export async function showOpenDialog (options) {
  * @param {number} index which file to read (defaults to the first in the response)
  * @returns the text contents of the selected file
  */
- export function readFileFromDialog(response, index = 0) {
+export function readFileFromDialog(response, index = 0) {
   return new Promise((resolve, reject) => {
     if (process.env.IS_ELECTRON) {
       // if this is Electron, use fs
@@ -324,4 +324,3 @@ export async function writeFileFromDialog (response, content) {
     }
   }
 }
-
