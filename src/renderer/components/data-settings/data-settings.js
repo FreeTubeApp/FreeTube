@@ -10,7 +10,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
-import { calculateColorLuminance, copyToClipboard, getRandomColor, readFileFromDialog, showToast, writeFileFromDialog } from '../../helpers/utils'
+import { calculateColorLuminance, copyToClipboard, getRandomColor, readFileFromDialog, showOpenDialog, showSaveDialog, showToast, writeFileFromDialog } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'DataSettings',
@@ -97,7 +97,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showOpenDialog(options)
+      const response = await showOpenDialog(options)
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
@@ -503,7 +503,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -568,7 +568,7 @@ export default Vue.extend({
         return object
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -613,7 +613,7 @@ export default Vue.extend({
         }
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -652,7 +652,7 @@ export default Vue.extend({
         exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -699,7 +699,7 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -725,7 +725,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showOpenDialog(options)
+      const response = await showOpenDialog(options)
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
@@ -799,7 +799,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -825,7 +825,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showOpenDialog(options)
+      const response = await showOpenDialog(options)
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
@@ -942,7 +942,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog(options)
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
@@ -1100,8 +1100,6 @@ export default Vue.extend({
       'updateShowProgressBar',
       'updateHistory',
       'compactHistory',
-      'showOpenDialog',
-      'showSaveDialog',
       'getUserDataPath',
       'addPlaylist',
       'addVideo'

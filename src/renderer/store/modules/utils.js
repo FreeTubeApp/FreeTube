@@ -4,7 +4,7 @@ import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
-import { openExternalLink, showToast } from '../../helpers/utils'
+import { openExternalLink, showSaveDialog, showToast } from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -170,7 +170,7 @@ const actions = {
           }
         ]
       }
-      const response = await dispatch('showSaveDialog', { options })
+      const response = await showSaveDialog(options)
 
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -242,62 +242,6 @@ const actions = {
     }
 
     return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
-  },
-
-  async showOpenDialog (context, options) {
-    const webCbk = () => {
-      return new Promise((resolve) => {
-        const fileInput = document.createElement('input')
-        fileInput.setAttribute('type', 'file')
-        if (options?.filters[0]?.extensions !== undefined) {
-          // this will map the given extensions from the options to the accept attribute of the input
-          fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
-        }
-        fileInput.onchange = () => {
-          const files = Array.from(fileInput.files)
-          resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
-          delete fileInput.onchange
-        }
-        const listenForEnd = () => {
-          window.removeEventListener('focus', listenForEnd)
-          // 1 second timeout on the response from the file picker to prevent awaiting forever
-          setTimeout(() => {
-            if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
-              // if there are no files and the onchange has not been triggered, the file-picker was canceled
-              resolve({ canceled: true })
-              delete fileInput.onchange
-            }
-          }, 1000)
-        }
-        window.addEventListener('focus', listenForEnd)
-        fileInput.click()
-      })
-    }
-    return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
-  },
-
-  async showSaveDialog (context, options) {
-    const webCbk = async () => {
-      // If the native filesystem api is available
-      if ('showSaveFilePicker' in window) {
-        return {
-          canceled: false,
-          handle: await window.showSaveFilePicker({
-            suggestedName: options.defaultPath.split('/').at(-1),
-            types: options?.filters[0]?.extensions?.map((extension) => {
-              return {
-                accept: {
-                  'application/octet-stream': '.' + extension
-                }
-              }
-            })
-          })
-        }
-      } else {
-        return { canceled: false, filePath: options.defaultPath }
-      }
-    }
-    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
   },
 
   async getUserDataPath (context) {

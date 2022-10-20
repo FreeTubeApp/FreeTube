@@ -198,6 +198,97 @@ export function openExternalLink(url) {
   }
 }
 
+export async function showOpenDialog (options) {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.SHOW_OPEN_DIALOG, options)
+  } else {
+    return await new Promise((resolve) => {
+      const fileInput = document.createElement('input')
+      fileInput.setAttribute('type', 'file')
+      if (options?.filters[0]?.extensions !== undefined) {
+        // this will map the given extensions from the options to the accept attribute of the input
+        fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
+      }
+      fileInput.onchange = () => {
+        const files = Array.from(fileInput.files)
+        resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
+        delete fileInput.onchange
+      }
+      const listenForEnd = () => {
+        window.removeEventListener('focus', listenForEnd)
+        // 1 second timeout on the response from the file picker to prevent awaiting forever
+        setTimeout(() => {
+          if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
+            // if there are no files and the onchange has not been triggered, the file-picker was canceled
+            resolve({ canceled: true })
+            delete fileInput.onchange
+          }
+        }, 1000)
+      }
+      window.addEventListener('focus', listenForEnd)
+      fileInput.click()
+    })
+  }
+}
+
+/**
+ * @param {object} response the response from `showOpenDialog`
+ * @param {number} index which file to read (defaults to the first in the response)
+ * @returns the text contents of the selected file
+ */
+ export function readFileFromDialog(response, index = 0) {
+  return new Promise((resolve, reject) => {
+    if (process.env.IS_ELECTRON) {
+      // if this is Electron, use fs
+      fs.readFile(response.filePaths[index], (err, data) => {
+        if (err) {
+          reject(err)
+          return
+        }
+        resolve(new TextDecoder('utf-8').decode(data))
+      })
+    } else {
+      // if this is web, use FileReader
+      try {
+        const reader = new FileReader()
+        reader.onload = function (file) {
+          resolve(file.currentTarget.result)
+        }
+        reader.readAsText(response.files[index])
+      } catch (exception) {
+        reject(exception)
+      }
+    }
+  })
+}
+
+export async function showSaveDialog (options) {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
+  } else {
+    // If the native filesystem api is available
+    if ('showSaveFilePicker' in window) {
+      return {
+        canceled: false,
+        handle: await window.showSaveFilePicker({
+          suggestedName: options.defaultPath.split('/').at(-1),
+          types: options?.filters[0]?.extensions?.map((extension) => {
+            return {
+              accept: {
+                'application/octet-stream': '.' + extension
+              }
+            }
+          })
+        })
+      }
+    } else {
+      return { canceled: false, filePath: options.defaultPath }
+    }
+  }
+}
+
 /**
 * Write to a file picked out from the `showSaveDialog` picker
 * @param {object} response the response from `showSaveDialog`
@@ -234,33 +325,3 @@ export async function writeFileFromDialog (response, content) {
   }
 }
 
-/**
- * @param {object} response the response from `showOpenDialog`
- * @param {number} index which file to read (defaults to the first in the response)
- * @returns the text contents of the selected file
- */
-export function readFileFromDialog(response, index = 0) {
-  return new Promise((resolve, reject) => {
-    if (process.env.IS_ELECTRON) {
-      // if this is Electron, use fs
-      fs.readFile(response.filePaths[index], (err, data) => {
-        if (err) {
-          reject(err)
-          return
-        }
-        resolve(new TextDecoder('utf-8').decode(data))
-      })
-    } else {
-      // if this is web, use FileReader
-      try {
-        const reader = new FileReader()
-        reader.onload = function (file) {
-          resolve(file.currentTarget.result)
-        }
-        reader.readAsText(response.files[index])
-      } catch (exception) {
-        reject(exception)
-      }
-    }
-  })
-}
