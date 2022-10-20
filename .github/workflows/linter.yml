@@ -23,5 +23,5 @@ jobs:
       with:
         node-version: 16.x
         cache: "yarn"
-    - run: npm run ci
-    - run: npm run lint
+    - run: yarn run ci
+    - run: yarn run lint
