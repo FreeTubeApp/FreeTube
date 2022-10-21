@@ -209,6 +209,9 @@ Settings:
       Catppuccin Mocha Pink: Catppuccino Mocha rožinė
       Catppuccin Mocha Mauve: Catppuccino Mocha Mauve
       Catppuccin Mocha Red: Catppuccino Mocha raudona
+      Catppuccin Mocha Green: Catppuccino Mocha Žalia
+      Catppuccin Mocha Yellow: Catppuccino Mocha Geltona
+      Catppuccin Mocha Peach: Catppuccino Mocha Persiko
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
     Hide Side Bar Labels: Slėpti šoninės juostos etiketes
@@ -295,6 +298,7 @@ Settings:
     Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
     Fetch Feeds from RSS: 'Gaukite kanalus iš RSS'
     Manage Subscriptions: 'Valdyti prenumeratas'
+    Fetch Automatically: Gauti sklaidos kanalą automatiškai
   Distraction Free Settings:
     Distraction Free Settings: 'Blaškančių elementų nustatymai'
     Hide Video Views: 'Slėpti vaizdo įrašų peržiūrų skaičių'
