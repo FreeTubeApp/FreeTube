@@ -54,7 +54,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: '動画時間'
-    All Durations: '時間指定なし'
+    All Durations: 'すべての長さ'
     Short (< 4 minutes): '短編（4 分未満）'
     Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
