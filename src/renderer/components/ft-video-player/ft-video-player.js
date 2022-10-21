@@ -14,7 +14,7 @@ import 'videojs-http-source-selector'
 
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance, colors, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, colors, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -1379,7 +1379,7 @@ export default Vue.extend({
           ]
         }
 
-        const response = await this.showSaveDialog(options)
+        const response = await showSaveDialog(options)
         if (wasPlaying) {
           this.player.play()
         }
@@ -1911,8 +1911,7 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
-      'getPicturesPath',
-      'showSaveDialog'
+      'getPicturesPath'
     ])
   }
 })
