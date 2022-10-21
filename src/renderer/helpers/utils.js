@@ -274,7 +274,7 @@ export async function showSaveDialog (options) {
         canceled: false,
         handle: await window.showSaveFilePicker({
           suggestedName: options.defaultPath.split('/').at(-1),
-          types: options?.filters[0]?.extensions?.map((extension) => {
+          types: options.filters[0]?.extensions?.map((extension) => {
             return {
               accept: {
                 'application/octet-stream': '.' + extension
