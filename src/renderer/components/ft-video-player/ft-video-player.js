@@ -1758,7 +1758,7 @@ export default Vue.extend({
 
     // This function should always be at the bottom of this file
     keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input') || event.shiftKey) {
         return
       }
 
@@ -1797,6 +1797,7 @@ export default Vue.extend({
             break
           // Shift+P plays previous video in playlist
           case '>':
+          case 'P':
           case 'p':
             // Increase playback rate by 0.25x
             event.preventDefault()
