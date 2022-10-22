@@ -1527,10 +1527,10 @@ export default Vue.extend({
     },
 
     keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input') || !event.shiftKey) {
         return
       }
-      switch (event.key) {
+      switch (event.key.toUpperCase()) {
         case 'N':
           if (!this.hideRecommendedVideos) {
             this.goToNextVideo()
