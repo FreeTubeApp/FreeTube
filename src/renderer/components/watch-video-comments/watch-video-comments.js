@@ -273,8 +273,9 @@ export default Vue.extend({
           }
 
           comment.replies = []
-
-          comment.time = comment.publishedText
+          comment.time = toLocalePublicationString({
+            publishText: comment.publishedText
+          })
 
           return comment
         })
