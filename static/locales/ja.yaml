@@ -404,7 +404,7 @@ Settings:
     Hide Unsubscribe Button: 登録解除ボタンの非表示
 About:
   #On About page
-  About: '概要'
+  About: '詳細'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
@@ -818,7 +818,7 @@ Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:
   Copy failed: クリップボードにコピーできませんでした
-  Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
+  Cannot access clipboard without a secure connection: クリップボードへのアクセスは安全な接続がないと出来ません
 Chapters:
   Chapters: チャプター
   'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター:
