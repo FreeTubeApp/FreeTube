@@ -524,10 +524,10 @@ Video:
     Hours: '時間'
     Day: '日'
     Days: '日'
-    Week: '週'
-    Weeks: '週'
-    Month: '月'
-    Months: '月'
+    Week: '週間'
+    Weeks: '週間'
+    Month: 'か月'
+    Months: 'か月'
     Year: '年'
     Years: '年'
     Ago: '前'
@@ -817,8 +817,8 @@ Screenshot Success: スクリーンショットを「{filePath}」として保�
 Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:
-  Copy failed: クリップボードにコピーできませんでした
-  Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
+  Copy failed: クリップボードへのコピーは失敗しました
+  Cannot access clipboard without a secure connection: クリップボードへのアクセスは安全な接続がないと出来ません
 Chapters:
   Chapters: チャプター
   'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター:
