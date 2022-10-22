@@ -103,6 +103,55 @@ export function calculatePublishedDate(publishedText) {
   return date.getTime() - timeSpan
 }
 
+export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
+  if (isLive) {
+    return '0' + i18n.t('Video.Watching')
+  } else if (isUpcoming || publishText === null) {
+    // the check for null is currently just an inferring of knowledge, because there is no other possibility left
+    return `${i18n.t('Video.Published.Upcoming')}: ${publishText}`
+  } else if (isRSS) {
+    return publishText
+  }
+  const strings = publishText.split(' ')
+  // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
+  if (strings[0].toLowerCase() === 'streamed') {
+    strings.shift()
+  }
+  const singular = (strings[0] === '1')
+  let translationKey = ''
+  switch (strings[1].substring(0, 2)) {
+    case 'se':
+      translationKey = 'Video.Published.Second'
+      break
+    case 'mi':
+      translationKey = 'Video.Published.Minute'
+      break
+    case 'ho':
+      translationKey = 'Video.Published.Hour'
+      break
+    case 'da':
+      translationKey = 'Video.Published.Day'
+      break
+    case 'we':
+      translationKey = 'Video.Published.Week'
+      break
+    case 'mo':
+      translationKey = 'Video.Published.Month'
+      break
+    case 'ye':
+      translationKey = 'Video.Published.Year'
+      break
+    default:
+      return publishText
+  }
+  if (!singular) {
+    translationKey += 's'
+  }
+
+  const unit = i18n.t(translationKey)
+  return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
+}
+
 export function buildVTTFileLocally(storyboard) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
@@ -323,4 +372,29 @@ export async function writeFileFromDialog (response, content) {
       a.click()
     }
   }
+}
+
+/**
+ * This creates an absolute web url from a given path.
+ * It will assume all given paths are relative to the current window location.
+ * @param {string} path relative path to resource
+ * @returns {string} absolute web path
+ */
+export function createWebURL(path) {
+  const url = new URL(window.location.href)
+  const { origin } = url
+  let windowPath = url.pathname
+  // Remove the html file name from the path
+  if (windowPath.endsWith('.html')) {
+    windowPath = windowPath.replace(/[^./]*\.html$/, '')
+  }
+  // Remove proceeding slash in given path if there is one
+  if (path.startsWith('/')) {
+    path = path.substring(1, path.length)
+  }
+  // Remove trailing slash if there is one
+  if (windowPath.endsWith('/')) {
+    windowPath = windowPath.substring(0, windowPath.length - 1)
+  }
+  return `${origin}${windowPath}/${path}`
 }

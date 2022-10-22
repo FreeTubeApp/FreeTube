@@ -6,7 +6,7 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 import ytcm from '@freetube/yt-comment-scraper'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast, toLocalePublicationString } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -204,16 +204,10 @@ export default Vue.extend({
         comment.authorThumb = comment.authorThumb[0].url
         comment.replies = []
         comment.dataType = 'local'
-        this.toLocalePublicationString({
-          publishText: (comment.time + ' ago'),
-          isLive: false,
-          isUpcoming: false,
-          isRSS: false
-        }).then((data) => {
-          comment.time = data
-        }).catch((error) => {
-          console.error(error)
+        comment.time = toLocalePublicationString({
+          publishText: (comment.time + ' ago')
         })
+
         if (this.hideCommentLikes) {
           comment.likes = null
         }
@@ -352,7 +346,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'toLocalePublicationString',
       'invidiousAPICall'
     ])
   }
