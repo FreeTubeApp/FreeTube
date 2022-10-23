@@ -30,11 +30,11 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber} е вече налична! Щракнете
-  за повече детайли'
+Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
+  е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога, {blogTitle}. Щракнете
-  за преглед'
+A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога,
+  {blogTitle}. Щракнете за преглед'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -153,8 +153,8 @@ Settings:
     Current instance will be randomized on startup: Текущият сървър при стартиране
       ще бъде случаен
     No default instance has been set: Няма зададен сървър по подразбиране
-    The currently set default instance is {instance}: Текущо зададеният сървър по подразбиране
-      е {instance}
+    The currently set default instance is {instance}: Текущо зададеният сървър по
+      подразбиране е {instance}
     Current Invidious Instance: Текущ Invidious сървър
     External Link Handling:
       No Action: Без действие
@@ -259,20 +259,20 @@ Settings:
     Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане на видео
     Screenshot:
       Enable: Включване на снимки на екрана
-      Quality Label: Качество на снимка на екрана
+      Quality Label: Качество
       Ask Path: Питане за папка за запазване
-      Folder Label: Папка за снимка на екрана
+      Folder Label: Папка
       File Name Label: Модел за име на файл
       Error:
         Forbidden Characters: Забранени символи
         Empty File Name: Празно име на файл
-      File Name Tooltip: Можете да използвате променливите по-долу. %Y Година 4 цифри.
-        %M Месец 2 цифри. %D Ден 2 цифри. %H Час 2 цифри. %N Минута 2 цифри. %S Секунда
-        2 цифри. %T Милисекунда 3 цифри. %s Видеосекунда. %t Видео милисекунда 3 цифри.
-        %i ID на видеото. Можете също така да използвате "\" или "/", за да създадете
-        подпапки.
-      Format Label: Формат за снимка на екрана
-      Folder Button: Избиране на папка
+      File Name Tooltip: Можете да използвате променливите по-долу. %Y - година -
+        4 цифри. %M - месец - 2 цифри. %D - ден - 2 цифри. %H - час - 2 цифри. %N
+        - минути - 2 цифри. %S - секунди - 2 цифри. %T - милисекунди - 3 цифри. %s
+        - видеосекунди. %t - видео милисекунди - 3 цифри. %i ID на видеото. Можете
+        също така да използвате "\" или "/", за създаване на подпапки.
+      Format Label: Формат
+      Folder Button: Избор на папка
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -338,9 +338,12 @@ Settings:
     Export Playlists: Изнасяне на плейлисти
     All playlists has been successfully imported: Всички плейлисти са внесени успешно
     Import Playlists: Внасяне на плейлисти
-    Playlist insufficient data: Недостатъчно данни за плейлист "{playlist}", прескачане на
-      елемент
+    Playlist insufficient data: Недостатъчно данни за плейлист "{playlist}", прескачане
+      на елемент
     All playlists has been successfully exported: Всички плейлисти са изнесени успешно
+    History File: Файл с история
+    Playlist File: Файл с плейлисти
+    Subscription File: Файл с абонаменти
   Advanced Settings:
     Advanced Settings: 'Разширени настройки'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
@@ -515,8 +518,8 @@ Profile:
   Your profile name cannot be empty: 'Името на профила не може да е празно'
   Profile has been created: 'Профилът беше създаден'
   Profile has been updated: 'Профилът беше актуализиран'
-  Your default profile has been set to {profile}: 'Вашият профил по подразбиране беше указан
-    да е {profile}'
+  Your default profile has been set to {profile}: 'Вашият профил по подразбиране беше
+    указан да е {profile}'
   Removed {profile} from your profiles: '{profile} е премахнат от вашите профили'
   Your default profile has been changed to your primary profile: 'Профилът по подразбиране
     е променен на вашия първоначален профил'
@@ -546,8 +549,8 @@ Channel:
   Unsubscribe: 'Отписване'
   Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
     абонаменти'
-  Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count} друг(и)
-    канал(и)'
+  Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count}
+    друг(и) канал(и)'
   Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
@@ -880,8 +883,8 @@ Unknown YouTube url type, cannot be opened in app: Неизвестен тип U
 Open New Window: Отваряне на нов прозорец
 Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
   е изчистен
-Default Invidious instance has been set to {instance}: Сървъра по подразбиране за Invidious
-  е зададен на {instance}
+Default Invidious instance has been set to {instance}: Сървъра по подразбиране за
+  Invidious е зададен на {instance}
 External link opening has been disabled in the general settings: Отварянето на външни
   връзки е изключено в общите настройки
 Search Bar:
@@ -895,7 +898,8 @@ Screenshot Error: Снимката на екрана е неуспешна. {err
 Screenshot Success: Запазена снимка на екрана като "{filePath}"
 New Window: Нов прозорец
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово ограничение
+  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово
+    ограничение
   Type:
     Channel: Канал
     Video: Видео
