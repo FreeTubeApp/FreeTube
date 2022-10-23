@@ -1758,58 +1758,44 @@ export default Vue.extend({
 
     // This function should always be at the bottom of this file
     keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input') || event.shiftKey) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input') || this.player == null) {
         return
       }
 
-      if (this.player !== null) {
-        switch (event.key) {
-          case ' ':
-          case 'Spacebar': // older browsers might return spacebar instead of a space character
-            // Toggle Play/Pause
-            event.preventDefault()
-            this.togglePlayPause()
-            break
-          case 'J':
+      if (!event.shiftKey) {
+        // Alphanumerical shortcuts without mods (shift key)
+        // These work with CapsLock enabled
+        switch (event.key.toLowerCase()) {
           case 'j':
             // Rewind by 2x the time-skip interval (in seconds)
             event.preventDefault()
             this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
-          case 'K':
           case 'k':
             // Toggle Play/Pause
             event.preventDefault()
             this.togglePlayPause()
             break
-          case 'L':
           case 'l':
             // Fast-Forward by 2x the time-skip interval (in seconds)
             event.preventDefault()
             this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate() * 2)
             break
-          case '<':
-          case 'O':
           case 'o':
             // Decrease playback rate by 0.25x
             event.preventDefault()
             this.changePlayBackRate(-this.videoPlaybackRateInterval)
             break
-          // Shift+P plays previous video in playlist
-          case '>':
-          case 'P':
           case 'p':
             // Increase playback rate by 0.25x
             event.preventDefault()
             this.changePlayBackRate(this.videoPlaybackRateInterval)
             break
-          case 'F':
           case 'f':
             // Toggle Fullscreen Playback
             event.preventDefault()
             this.toggleFullscreen()
             break
-          case 'M':
           case 'm':
             // Toggle Mute
             if (!event.metaKey) {
@@ -1817,33 +1803,11 @@ export default Vue.extend({
               this.toggleMute()
             }
             break
-          case 'C':
           case 'c':
             // Toggle Captions
             event.preventDefault()
             this.toggleCaptions()
             break
-          case 'ArrowUp':
-            // Increase volume
-            event.preventDefault()
-            this.changeVolume(0.05)
-            break
-          case 'ArrowDown':
-            // Decrease Volume
-            event.preventDefault()
-            this.changeVolume(-0.05)
-            break
-          case 'ArrowLeft':
-            // Rewind by the time-skip interval (in seconds)
-            event.preventDefault()
-            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
-            break
-          case 'ArrowRight':
-            // Fast-Forward by the time-skip interval (in seconds)
-            event.preventDefault()
-            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
-            break
-          case 'I':
           case 'i':
             event.preventDefault()
             // Toggle Picture in Picture Mode
@@ -1873,48 +1837,98 @@ export default Vue.extend({
             this.player.currentTime(newTime)
             break
           }
+          case 'd':
+            event.preventDefault()
+            this.toggleShowStatsModal()
+            break
+          case 's':
+            // Toggle Full Window Mode
+            event.preventDefault()
+            this.toggleFullWindow()
+            break
+          case 't':
+            // Toggle Theatre Mode
+            event.preventDefault()
+            this.toggleTheatreMode()
+            break
+          case 'u':
+            // Take screenshot
+            event.preventDefault()
+            this.takeScreenshot()
+            break
+        }
+
+        // Non Alphanumeric keys without mods
+        switch (event.key) {
+          case ' ':
+          case 'Spacebar': // older browsers might return spacebar instead of a space character
+            // Toggle Play/Pause
+            event.preventDefault()
+            this.togglePlayPause()
+            break
+          case 'ArrowUp':
+            // Increase volume
+            event.preventDefault()
+            this.changeVolume(0.05)
+            break
+          case 'ArrowDown':
+            // Decrease Volume
+            event.preventDefault()
+            this.changeVolume(-0.05)
+            break
+          case 'ArrowLeft':
+            // Rewind by the time-skip interval (in seconds)
+            event.preventDefault()
+            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
+            break
+          case 'ArrowRight':
+            // Fast-Forward by the time-skip interval (in seconds)
+            event.preventDefault()
+            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+            break
           case ',':
             // Return to previous frame
+            event.preventDefault()
             this.framebyframe(-1)
             break
           case '.':
             // Advance to next frame
+            event.preventDefault()
             this.framebyframe(1)
             break
           case 'Home':
+            // Jump to beginning of video
             event.preventDefault()
             this.player.currentTime(0)
             break
           case 'End':
+            // Jump to end of video
             event.preventDefault()
             this.player.currentTime(this.player.duration())
-            break
-          case 'D':
-          case 'd':
-            event.preventDefault()
-            this.toggleShowStatsModal()
             break
           case 'Escape':
             // Exit full window
             event.preventDefault()
             this.exitFullWindow()
             break
-          case 'S':
-          case 's':
-            // Toggle Full Window Mode
-            this.toggleFullWindow()
-            break
-          case 'T':
-          case 't':
-            // Toggle Theatre Mode
-            this.toggleTheatreMode()
-            break
-          case 'U':
-          case 'u':
-            // Take screenshot
-            this.takeScreenshot()
-            break
         }
+      } // else case can be added here if shift+key shortcuts are wanted
+
+      // Keys that are usually shifted.
+      // They should not be added to any switch statement above
+      switch (event.key) {
+        case '<':
+          // Alternate shortcut
+          // Decrease playback rate by 0.25x
+          event.preventDefault()
+          this.changePlayBackRate(-this.videoPlaybackRateInterval)
+          break
+        case '>':
+          // Alternate shortcut
+          // Increase playback rate by 0.25x
+          event.preventDefault()
+          this.changePlayBackRate(this.videoPlaybackRateInterval)
+          break
       }
     },
 
