@@ -818,7 +818,7 @@ Screenshot Error: スクリーンショットに失敗しました。{error}
 New Window: 新しいウィンドウ
 Clipboard:
   Copy failed: クリップボードにコピーできませんでした
-  Cannot access clipboard without a secure connection: クリップボードへのアクセスは安全な接続がないと出来ません
+  Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
 Chapters:
   Chapters: チャプター
   'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター:
