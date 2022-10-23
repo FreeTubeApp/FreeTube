@@ -404,7 +404,7 @@ Settings:
     Hide Unsubscribe Button: 登録解除ボタンの非表示
 About:
   #On About page
-  About: '詳細'
+  About: '概要'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'このコピーレフトのソフトウェアは、AGPL-3.0
     の自由なライセンスです。'
