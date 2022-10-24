@@ -408,7 +408,7 @@ Settings:
     Open in web browser: Open in web browser
   Experimental Settings:
     Experimental Settings: Experimental Settings
-    Warning: These settings are experimental, enabling them may result in a worse FreeTube experience. Use at your own risk!
+    Warning: These settings are experimental, they make cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
 About:
   #On About page
