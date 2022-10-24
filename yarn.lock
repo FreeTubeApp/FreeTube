@@ -8125,6 +8125,13 @@ videojs-http-source-selector@^1.1.6:
     video.js "^7.0.0"
     videojs-contrib-quality-levels "^2.0.4"
 
+videojs-mobile-ui@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/videojs-mobile-ui/-/videojs-mobile-ui-0.8.0.tgz#40a1c6f9302071b9bbe95937c934114600916ac5"
+  integrity sha512-Jd+u/ctjUkbZlT1cAA0umTu0LQwSZSFG+02cJxShuwq27B6rfrRALETK/gsuTc7U27lB9fbwcF7HBMaNxW62nA==
+  dependencies:
+    global "^4.4.0"
+
 videojs-overlay@^2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/videojs-overlay/-/videojs-overlay-2.1.5.tgz#763b9d89dff87c32d94e9a873451a5fb25f02c8e"

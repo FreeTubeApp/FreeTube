@@ -68,6 +68,7 @@
     "video.js": "7.18.1",
     "videojs-contrib-quality-levels": "^2.1.0",
     "videojs-http-source-selector": "^1.1.6",
+    "videojs-mobile-ui": "^0.8.0",
     "videojs-overlay": "^2.1.4",
     "videojs-vtt-thumbnails-freetube": "0.0.15",
     "vue": "^2.7.13",
