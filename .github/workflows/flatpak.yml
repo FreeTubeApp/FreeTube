@@ -77,22 +77,22 @@ jobs:
         date +"%Y-%m-%d" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Update x64 File Location in yml File
-      uses: mikefarah/yq@v4.28.1
+      uses: mikefarah/yq@v4.28.2
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip'
     - name: Update x64 Hash in yml File
-      uses: mikefarah/yq@v4.28.1
+      uses: mikefarah/yq@v4.28.2
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].sha256 ${{ env.HASH_X64 }}
     - name: Update ARM File Location in yml File
-      uses: mikefarah/yq@v4.28.1
+      uses: mikefarah/yq@v4.28.2
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip'
     - name: Update ARM Hash in yml File
-      uses: mikefarah/yq@v4.28.1
+      uses: mikefarah/yq@v4.28.2
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].sha256 ${{ env.HASH_ARM64 }}
