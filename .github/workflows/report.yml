@@ -13,7 +13,7 @@ jobs:
 
     # For bug reports
       - name: New bug issue
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.2
         if: contains(github.event.issue.labels.*.name, 'bug') && github.event.action == 'opened'
         with:
           project: Bug Reports
@@ -22,7 +22,7 @@ jobs:
           action: update
           
       - name: Bug issue closed
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.2
         if: github.event.action == 'closed' || github.event.action == 'deleted'
         with:
           action: delete
@@ -31,7 +31,7 @@ jobs:
           repo-token: ${{ secrets.PUSH_TOKEN }}
           
       - name: Bug issue reopened
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.2
         if: contains(github.event.issue.labels.*.name, 'bug') && github.event.action == 'reopened'
         with:
           project: Bug Reports
@@ -41,7 +41,7 @@ jobs:
 
       # For feature requests
       - name: New feature issue
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.2
         if: contains(github.event.issue.labels.*.name, 'enhancement') && github.event.action == 'opened'
         with:
           project: Feature Requests
@@ -50,7 +50,7 @@ jobs:
           action: update
 
       - name: Feature request issue closed
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.2
         if: github.event.action == 'closed' || github.event.action == 'deleted'
         with:
           action: delete
@@ -59,7 +59,7 @@ jobs:
           repo-token: ${{ secrets.PUSH_TOKEN }}
           
       - name: Feature request issue reopened
-        uses: alex-page/github-project-automation-plus@v0.8.1
+        uses: alex-page/github-project-automation-plus@v0.8.2
         if: contains(github.event.issue.labels.*.name, 'enhancement') && github.event.action == 'reopened'
         with:
           project: Feature Requests
