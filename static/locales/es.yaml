@@ -144,8 +144,8 @@ Settings:
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
     No default instance has been set: No se ha especificado una instancia predeterminada
-    The currently set default instance is {instance}: La instancia predeterminada actual es
-      {instance}
+    The currently set default instance is {instance}: La instancia predeterminada
+      actual es {instance}
     Current Invidious Instance: Instancia actual de Invidious
     Clear Default Instance: Quitar la instancia por defecto
     Set Current Instance as Default: Establecer la instancia actual como la instancia
@@ -436,6 +436,8 @@ Settings:
     Hide Search Bar: Ocultar barra de búsqueda
     Parental Control Settings: Ajustes del Control Parental
     Show Family Friendly Only: Mostrar solo lo apto para las familias
+  Experimental Settings:
+    Experimental Settings: Ajustes experimentales
 About:
   #On About page
   About: 'Acerca de'
@@ -475,7 +477,7 @@ About:
   room rules: reglas de la sala
   Please read the: Por favor, lee las
   Chat on Matrix: Chat en Matrix
-  Mastodon: Mastodon (Red Social)
+  Mastodon: Mastodon (red social)
   Email: Correo electrónico
   Blog: Blog
   Website: Sitio web
@@ -511,8 +513,8 @@ Profile:
   Your profile name cannot be empty: 'Tu nombre de perfil no puede estar vacío'
   Profile has been created: 'Se ha creado el perfil'
   Profile has been updated: 'El perfil se ha actualizado'
-  Your default profile has been set to {profile}: 'Tu perfil predeterminado se ha establecido
-    como {profile}'
+  Your default profile has been set to {profile}: 'Tu perfil predeterminado se ha
+    establecido como {profile}'
   Removed {profile} from your profiles: 'Eliminado {profile} de tus perfiles'
   Your default profile has been changed to your primary profile: 'Tu perfil predeterminado
     ha sido cambiado a tu perfil principal'
@@ -565,7 +567,8 @@ Channel:
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
   Added channel to your subscriptions: Canal añadido a tus suscripciones
-  Removed subscription from {count} other channel(s): Suscripción eliminada de {count} otros canales
+  Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
+    otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     tus suscripciones
 Video:
@@ -808,11 +811,11 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, {blogTitle}. Click to view more: 'Nueva publicación del blog disponible,
-  {blogTitle}. Haga clic para saber más'
+A new blog is now available, {blogTitle}. Click to view more: 'Nueva publicación del
+  blog disponible, {blogTitle}. Haga clic para saber más'
 Download From Site: Descargar desde el sitio web
-Version {versionNumber} is now available!  Click for more details: ¡La versión {versionNumber} está disponible!
-  Haz clic para saber más
+Version {versionNumber} is now available!  Click for more details: ¡La versión {versionNumber}
+  está disponible! Haz clic para saber más
 The playlist has been reversed: Orden de lista de reproducción invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
@@ -914,7 +917,8 @@ Age Restricted:
   Type:
     Channel: Canal
     Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción de edad
+  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción
+    de edad
 Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
