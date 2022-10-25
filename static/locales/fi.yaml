@@ -434,6 +434,12 @@ Settings:
     Hide Unsubscribe Button: Piilota Peruuta tilaus -paninike
     Show Family Friendly Only: Näytä vain koko perheelle sopiva sisältö
     Hide Search Bar: Piilota hakupalkki
+  Experimental Settings:
+    Experimental Settings: Kokeelliset asetukset
+    Warning: Nämä asetukset ovat kokeellisia ja ne aiheuttavat kaatumisia, kun ne
+      ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa. Käytä omalla
+      vastuullasi!
+    Replace HTTP Cache: Korvaa HTTP-välimuisti
 About:
   #On About page
   About: 'Tietoja'
@@ -852,6 +858,10 @@ Tooltips:
       avaamiseen (soittoluettelonkin avaamiseen jos tuettu) ulkoisessa toistimessa.
       Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin toistimiin.
     DefaultCustomArgumentsTemplate: "(Oletus: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Poistaa Electronin levypohjaisen HTTP-välimuistin käytöstä
+      ja ottaa käyttöön mukautetun muistissa olevan kuvavälimuistin. Lisää välimuistin
+      käyttöä.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
