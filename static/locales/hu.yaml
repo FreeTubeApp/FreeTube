@@ -30,11 +30,11 @@ Close: 'Bezárás'
 Back: 'Vissza'
 Forward: 'Előre'
 
-Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető!
-  Kattintson a további részletekért'
+Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
+  verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
-A new blog is now available, {blogTitle}. Click to view more: 'Új blog már elérhető: {blogTitle}. Kattintson
-  további információk megtekintéséhez'
+A new blog is now available, {blogTitle}. Click to view more: 'Új blog már elérhető:
+  {blogTitle}. Kattintson további információk megtekintéséhez'
 
 # Search Bar
 Search / Go to URL: 'Keresés / Ugrás az URL-címre'
@@ -446,6 +446,12 @@ Settings:
     Show Family Friendly Only: Kizárólag családbarát megjelenítése
     Hide Search Bar: Keresősáv elrejtése
     Hide Unsubscribe Button: Leiratkozás gomb elrejtése
+  Experimental Settings:
+    Replace HTTP Cache: HTTP-gyorsítótár cseréje
+    Experimental Settings: Kísérleti beállítások
+    Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okoznak, ha engedélyezve
+      vannak. Erősen ajánlott biztonsági mentéseket készíteni. Használat csak saját
+      felelősségre!
 About:
   #On About page
   About: 'Névjegy'
@@ -688,8 +694,10 @@ Video:
       opening playlists: lejátszási listák megnyitása
       setting a playback rate: lejátszási sebesség beállítása
       starting video at offset: Videó kezdése eltolás
-    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja: {action}'
-    OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer} külső lejátszóban…
+    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja:
+      {action}'
+    OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer}
+      külső lejátszóban…
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: '{externalPlayer} megnyításaban'
@@ -872,6 +880,9 @@ Tooltips:
       (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
       Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
+  Experimental Settings:
+    Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
+      az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
