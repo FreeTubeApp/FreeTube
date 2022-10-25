@@ -436,6 +436,11 @@ Settings:
     Parental Control Settings: Parental control settings
     Show Family Friendly Only: Show family-friendly only
     Hide Search Bar: Hide search bar
+  Experimental Settings:
+    Replace HTTP Cache: Replace HTTP cache
+    Experimental Settings: Experimental settings
+    Warning: These settings are experimental; they may cause crashes while enabled.
+      Making back-ups is highly recommended. Use at your own risk!
 About:
   #On About page
   About: About
@@ -846,6 +851,9 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
       created during video playback, when the watch page is closed.
+  Experimental Settings:
+    Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
+      in-memory image cache. Will lead to increased RAM usage.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
