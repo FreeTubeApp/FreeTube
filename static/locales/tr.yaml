@@ -439,6 +439,12 @@ Settings:
     Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
     Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
     Hide Search Bar: Arama Çubuğunu Gizle
+  Experimental Settings:
+    Replace HTTP Cache: HTTP Önbelleğini Değiştir
+    Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler.
+      Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
+      aittir!
+    Experimental Settings: Deneysel Ayarlar
 About:
   #On About page
   About: 'Hakkında'
@@ -873,6 +879,10 @@ Tooltips:
       listesini) harici oynatıcıda açmak için küçük resimde bir simge görüntüleyecektir.
       Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
+      ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
+      neden olacaktır.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
