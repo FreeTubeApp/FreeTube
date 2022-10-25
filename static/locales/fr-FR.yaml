@@ -153,8 +153,8 @@ Settings:
     Current instance will be randomized on startup: L'instance actuelle sera choisie
       au hasard au démarrage
     No default instance has been set: Aucune instance par défaut n'a été définie
-    The currently set default instance is {instance}: L'instance par défaut actuellement définie
-      est {instance}
+    The currently set default instance is {instance}: L'instance par défaut actuellement
+      définie est {instance}
     Current Invidious Instance: Instance Invidious actuelle
     External Link Handling:
       No Action: Aucune action
@@ -459,6 +459,12 @@ Settings:
     Hide Search Bar: Masquer la barre de recherche
     Parental Control Settings: Paramètres du contrôle parental
     Show Family Friendly Only: Afficher uniquement le contenu familial
+  Experimental Settings:
+    Replace HTTP Cache: Remplacer le cache HTTP
+    Experimental Settings: Paramètres expérimentaux
+    Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages
+      lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes.
+      Utilisez-les à vos risques et périls !
 About:
   #On About page
   About: 'À propos'
@@ -557,8 +563,8 @@ Channel:
     Channel Description: 'Description de la chaîne'
     Featured Channels: 'Chaînes en vedette'
   Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
-  Removed subscription from {count} other channel(s): Abonnement supprimé de {count} autre(s)
-    chaîne(s)
+  Removed subscription from {count} other channel(s): Abonnement supprimé de {count}
+    autre(s) chaîne(s)
   Channel has been removed from your subscriptions: La chaîne a été retirée de vos
     abonnements
 Video:
@@ -809,7 +815,8 @@ Profile:
   Your default profile has been changed to your primary profile: Votre profil par
     défaut a été modifié en votre profil principal
   Removed {profile} from your profiles: Supprimer {profile} de vos profils
-  Your default profile has been set to {profile}: Votre profil par défaut a été fixé à {profile}
+  Your default profile has been set to {profile}: Votre profil par défaut a été fixé
+    à {profile}
   Profile has been updated: Le profil a été mis à jour
   Profile has been created: Le profil a été créé
   Your profile name cannot be empty: Le nom de votre profil ne peut pas être vide
@@ -848,11 +855,11 @@ Profile:
   Profile Filter: Filtre de profil
   Profile Settings: Paramètres du profil
 The playlist has been reversed: La liste de lecture a été inversée
-A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet est maintenant
-  disponible, {blogTitle}. Cliquez pour en savoir plus
+A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet est
+  maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
-Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible
-  !  Cliquez pour plus de détails
+Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
+  est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette
   vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver
   en raison de restrictions d'accès dans certains pays.
@@ -919,6 +926,10 @@ Tooltips:
       qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur
       externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
     DefaultCustomArgumentsTemplate: '(Par défaut : « {defaultCustomArguments} »)'
+  Experimental Settings:
+    Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active
+      un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de
+      l'utilisation de la mémoire vive.
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
@@ -931,8 +942,8 @@ Unknown YouTube url type, cannot be opened in app: Type d'URL YouTube inconnu, n
 Open New Window: Ouvrir une nouvelle fenêtre
 Default Invidious instance has been cleared: L'instance Invidious par défaut a été
   effacée
-Default Invidious instance has been set to {instance}: L'instance Invidious par défaut a été
-  définie sur {instance}
+Default Invidious instance has been set to {instance}: L'instance Invidious par défaut
+  a été définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
@@ -951,7 +962,8 @@ Age Restricted:
   Type:
     Video: Vidéo
     Channel: Chaîne
-  This {videoOrPlaylist} is age restricted: Ce {videoOrPlaylist} est soumis à une limite d'âge
+  This {videoOrPlaylist} is age restricted: Ce {videoOrPlaylist} est soumis à une
+    limite d'âge
 Channels:
   Channels: Chaînes
   Title: Liste des chaînes
