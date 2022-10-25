@@ -10,7 +10,16 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
-import { calculateColorLuminance, copyToClipboard, getRandomColor, readFileFromDialog, showOpenDialog, showSaveDialog, showToast, writeFileFromDialog } from '../../helpers/utils'
+import {
+  calculateColorLuminance,
+  copyToClipboard,
+  getRandomColor,
+  readFileFromDialog,
+  showOpenDialog,
+  showSaveDialog,
+  showToast,
+  writeFileFromDialog
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'DataSettings',
