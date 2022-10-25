@@ -431,6 +431,11 @@ Settings:
     Hide Unsubscribe Button: Сховати кнопку скасування підписки
     Show Family Friendly Only: Показати лише для сімейного перегляду
     Hide Search Bar: Сховати панель пошуку
+  Experimental Settings:
+    Replace HTTP Cache: Заміна кешу HTTP
+    Experimental Settings: Експериментальні налаштування
+    Warning: Ці налаштування експериментальні, їхнє ввімкнення може призводити до
+      збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
 About:
   #On About page
   About: 'Про'
@@ -829,6 +834,9 @@ Tooltips:
       відео (добірка, якщо підтримується) у зовнішньому програвачі, на мініатюрі.
       Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
     DefaultCustomArgumentsTemplate: "(Типово: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
+      у пам'яті. Призведе до збільшення використання оперативної пам'яті.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
