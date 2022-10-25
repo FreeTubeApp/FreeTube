@@ -426,6 +426,11 @@ Settings:
     Hide Search Bar: הסתרת סרגל החיפוש
     Hide Unsubscribe Button: הסתרת כפתור ביטול מינוי
     Show Family Friendly Only: הצגת דברים ידידותיים למשפחה בלבד
+  Experimental Settings:
+    Experimental Settings: הגדרות ניסיוניות
+    Replace HTTP Cache: החלפת מטמון HTTP
+    Warning: אלו הגדרות ניסיוניות, הן עלולות לגרום לקריסת המערכת שהן פעילות. מומלץ
+      מאוד לגבות. השימוש הוא על אחריותך בלבד!
 About:
   #On About page
   About: 'על אודות'
@@ -842,6 +847,9 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: כאשר אפשרות זו מופעלת, FreeTube מוחק באופן אוטומטי קובצי
       על שנוצרים במהלך ניגון סרטון, לאחר סגירת עמוד הצפייה.
+  Experimental Settings:
+    Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
+      אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
 More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
