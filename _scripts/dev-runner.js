@@ -53,10 +53,12 @@ async function restartElectron() {
 
   electronProcess = spawn(electron, [
     path.join(__dirname, '../dist/main.js'),
-    // '--enable-logging', Enable to show logs from all electron processes
+    // '--enable-logging', // Enable to show logs from all electron processes
     remoteDebugging ? '--inspect=9222' : '',
-    remoteDebugging ? '--remote-debugging-port=9223' : '',
-  ])
+    remoteDebugging ? '--remote-debugging-port=9223' : ''
+  ],
+    // { stdio: 'inherit' } // required for logs to actually appear in the stdout
+  )
 
   electronProcess.on('exit', (code, _) => {
     if (code === relaunchExitCode) {

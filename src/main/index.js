@@ -1,12 +1,14 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell, nativeTheme
+  powerSaveBlocker, screen, session, shell, nativeTheme, net, protocol
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
 
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
+import { extractExpiryTimestamp, ImageCache } from './ImageCache'
+import { existsSync } from 'fs'
 
 if (process.argv.includes('--version')) {
   app.exit()
@@ -48,6 +50,17 @@ function runApp() {
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
+
+  // command line switches need to be added before the app ready event first
+  // that means we can't use the normal settings system as that is asynchonous,
+  // doing it synchronously ensures that we add it before the event fires
+  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  if (replaceHttpCache) {
+    // the http cache causes excessive disk usage during video playback
+    // we've got a custom image cache to make up for disabling the http cache
+    // experimental as it increases RAM use in favour of reduced disk use
+    app.commandLine.appendSwitch('disable-http-cache')
+  }
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -148,6 +161,113 @@ function runApp() {
         sameSite: 'no_restriction'
       })
     })
+
+    if (replaceHttpCache) {
+      // in-memory image cache
+
+      const imageCache = new ImageCache()
+
+      protocol.registerBufferProtocol('imagecache', (request, callback) => {
+        // Remove `imagecache://` prefix
+        const url = decodeURIComponent(request.url.substring(13))
+        if (imageCache.has(url)) {
+          const cached = imageCache.get(url)
+
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            mimeType: cached.mimeType,
+            data: cached.data
+          })
+          return
+        }
+
+        const newRequest = net.request({
+          method: request.method,
+          url
+        })
+
+        // Electron doesn't allow certain headers to be set:
+        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
+
+        for (const header of Object.keys(request.headers)) {
+          if (!blacklistedHeaders.includes(header.toLowerCase())) {
+            newRequest.setHeader(header, request.headers[header])
+          }
+        }
+
+        newRequest.on('response', (response) => {
+          const chunks = []
+          response.on('data', (chunk) => {
+            chunks.push(chunk)
+          })
+
+          response.on('end', () => {
+            const data = Buffer.concat(chunks)
+
+            const expiryTimestamp = extractExpiryTimestamp(response.headers)
+            const mimeType = response.headers['content-type']
+
+            imageCache.add(url, mimeType, data, expiryTimestamp)
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              mimeType,
+              data: data
+            })
+          })
+
+          response.on('error', (error) => {
+            console.error('image cache error', error)
+
+            // error objects don't get serialised properly
+            // https://stackoverflow.com/a/53624454
+
+            const errorJson = JSON.stringify(error, (key, value) => {
+              if (value instanceof Error) {
+                return {
+                  // Pull all enumerable properties, supporting properties on custom Errors
+                  ...value,
+                  // Explicitly pull Error's non-enumerable properties
+                  name: value.name,
+                  message: value.message,
+                  stack: value.stack
+                }
+              }
+
+              return value
+            })
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              statusCode: response.statusCode ?? 400,
+              mimeType: 'application/json',
+              data: Buffer.from(errorJson)
+            })
+          })
+        })
+
+        newRequest.end()
+      })
+
+      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
+      session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
+        // the requests made by the imagecache:// handler to fetch the image,
+        // are allowed through, as their resourceType is 'other'
+        if (details.resourceType === 'image') {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            redirectURL: `imagecache://${encodeURIComponent(details.url)}`
+          })
+        } else {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({})
+        }
+      })
+
+      // --- end of `if experimentsDisableDiskCache` ---
+    }
 
     await createWindow()
 

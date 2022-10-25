@@ -406,6 +406,10 @@ Settings:
     Download Behavior: Download Behavior
     Download in app: Download in app
     Open in web browser: Open in web browser
+  Experimental Settings:
+    Experimental Settings: Experimental Settings
+    Warning: These settings are experimental, they make cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
+    Replace HTTP Cache: Replace HTTP Cache
 About:
   #On About page
   About: About
@@ -774,6 +778,8 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
       when the watch page is closed.
+  Experimental Settings:
+    Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
