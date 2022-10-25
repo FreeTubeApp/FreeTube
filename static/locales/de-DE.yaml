@@ -148,7 +148,8 @@ Settings:
     Current instance will be randomized on startup: Beim Start wird eine zufällige
       Instanz festgelegt
     No default instance has been set: Es wurde keine Standardinstanz gesetzt
-    The currently set default instance is {instance}: Die aktuelle Standardinstanz ist {instance}
+    The currently set default instance is {instance}: Die aktuelle Standardinstanz
+      ist {instance}
     Current Invidious Instance: Aktuelle Invidious-Instanz
     Clear Default Instance: Standardinstanz zurücksetzen
     Set Current Instance as Default: Derzeitige Instanz als Standard festlegen
@@ -365,8 +366,8 @@ Settings:
     Manage Subscriptions: Abonnements verwalten
     Export Playlists: Wiedergabelisten exportieren
     Import Playlists: Wiedergabelisten importieren
-    Playlist insufficient data: Unzureichende Daten für „{playlist}“-Wiedergabeliste, Element
-      übersprungen
+    Playlist insufficient data: Unzureichende Daten für „{playlist}“-Wiedergabeliste,
+      Element übersprungen
     All playlists has been successfully imported: Alle Wiedergabelisten wurden erfolgreich
       importiert
     All playlists has been successfully exported: Alle Wiedergabelisten wurden erfolgreich
@@ -445,6 +446,12 @@ Settings:
     Hide Unsubscribe Button: „Abo entfernen“-Schaltfläche ausblenden
     Show Family Friendly Only: Nur familienfreundlich anzeigen
     Hide Search Bar: Suchleiste ausblenden
+  Experimental Settings:
+    Experimental Settings: Experimentelle Einstellungen
+    Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen,
+      wenn sie aktiviert sind. Es wird dringend empfohlen, Sicherungskopien zu erstellen.
+      Verwendung auf eigene Gefahr!
+    Replace HTTP Cache: HTTP-Cache ersetzen
 About:
   #On About page
   About: Über
@@ -543,7 +550,8 @@ Channel:
     Channel Description: Kanalbeschreibung
     Featured Channels: Empfohlene Kanäle
   Added channel to your subscriptions: Der Kanal wurde deinen Abonnements hinzugefügt
-  Removed subscription from {count} other channel(s): Es wurden {count} anderen Kanälen deabonniert
+  Removed subscription from {count} other channel(s): Es wurden {count} anderen Kanälen
+    deabonniert
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
     entfernt
 Video:
@@ -686,7 +694,7 @@ Video:
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
   Premieres in: Premieren in
-  Premieres: Premieren
+  Premieres: Premiere
 Videos:
   #& Sort By
   Sort By:
@@ -803,7 +811,8 @@ Profile:
   Your default profile has been changed to your primary profile: Dein Hauptprofil
     wurde als Standardprofil festgelegt
   Removed {profile} from your profiles: '{profile} wurde aus deinen Profilen entfernt'
-  Your default profile has been set to {profile}: '{profile} wurde als Standardprofil festgelegt'
+  Your default profile has been set to {profile}: '{profile} wurde als Standardprofil
+    festgelegt'
   Profile has been created: Das Profil wurde erstellt
   Profile has been updated: Das Profil wurde aktualisiert
   Your profile name cannot be empty: Der Profilname darf nicht leer sein
@@ -841,11 +850,11 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profileinstellungen
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
-A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag ist verfügbar,
-  {blogTitle}. Um ihn zu öffnen klicken
+A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
+  ist verfügbar, {blogTitle}. Um ihn zu öffnen klicken
 Download From Site: Von der Website herunterladen
-Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für
-  mehr Details klicken
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber}
+  ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
   General Settings:
     Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
@@ -903,6 +912,10 @@ Tooltips:
       unterstützt) im externen Player öffnen können. Achtung, die Einstellungen von
       Invidious wirken sich nicht auf externe Player aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
+  Experimental Settings:
+    Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
+      und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
+      einer erhöhten Nutzung des Direktzugriffsspeichers.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -914,8 +927,8 @@ Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, k
   in FreeTube nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
 Default Invidious instance has been cleared: Standard-Invidious-Instanz wurde zurückgesetzt
-Default Invidious instance has been set to {instance}: Standard-Invidious-Instanz wurde auf
-  {instance} gesetzt
+Default Invidious instance has been set to {instance}: Standard-Invidious-Instanz
+  wurde auf {instance} gesetzt
 Search Bar:
   Clear Input: Eingabe löschen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
@@ -941,7 +954,8 @@ Channels:
   Empty: Ihre Kanalliste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abonnements entfernt'
-  Unsubscribe Prompt: Bist du sicher, dass du „{channelName}“ aus dem Abos entfernen willst?
+  Unsubscribe Prompt: Bist du sicher, dass du „{channelName}“ aus dem Abos entfernen
+    willst?
 Clipboard:
   Copy failed: Kopieren in die Zwischenablage fehlgeschlagen
   Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage
