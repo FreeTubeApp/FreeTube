@@ -400,6 +400,8 @@ Settings:
     Show Family Friendly Only: 仅显示“家庭友好”视频
     Hide Search Bar: 隐藏搜索栏
     Hide Unsubscribe Button: 隐藏“取消订阅”按钮
+  Experimental Settings:
+    Experimental Settings: 实验性设置
 About:
   #On About page
   About: '关于'
