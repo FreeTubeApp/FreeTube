@@ -413,6 +413,12 @@ Settings:
     Hide Unsubscribe Button: Slėpti prenumeratos atsisakymo mygtuką
     Hide Search Bar: Slėpti paieškos juostą
     Show Family Friendly Only: Rodyti tik turinį tinkamą šeimai
+  Experimental Settings:
+    Replace HTTP Cache: Pakeisti HTTP talpyklą
+    Experimental Settings: Eksperimentiniai nustatymai
+    Warning: Šie nustatymai yra eksperimentiniai, juos įjungus gali būti sutrikimų.
+      Labai rekomenduojama iš anksto pasidaryti atsargines kopijas. Naudokite savo
+      rizika!
 About:
   #On About page
   About: 'Apie'
@@ -795,6 +801,10 @@ Tooltips:
       ištrinami meta failai, sukurti vaizdo atkūrimo metu.'
 
 # Toast Messages
+  Experimental Settings:
+    Replace HTTP Cache: Išjungiama Electron disko pagrindu veikianti HTTP talpykla
+      ir įjungiama pasirinktinė atmintyje esanti vaizdų talpykla. Dėl to padidės operatyviosios
+      atminties naudojimas.
 Local API Error (Click to copy): 'Vietinė API klaida (spustelėkite, jei norite kopijuoti)'
 Invidious API Error (Click to copy): 'Invidious API Vietinė API klaida (spustelėkite,
   jei norite kopijuoti)'
