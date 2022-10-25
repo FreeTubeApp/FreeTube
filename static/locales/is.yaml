@@ -30,11 +30,11 @@ Close: 'Loka'
 Back: 'Til baka'
 Forward: 'Áfram'
 
-Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber} er tiltæk!  Smelltu
-  til að skoða nánar'
+Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
+  er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
-A new blog is now available, {blogTitle}. Click to view more: 'Ný bloggfærsla er núna er tiltæk,
-  {blogTitle}. Smelltu til að skoða nánar'
+A new blog is now available, {blogTitle}. Click to view more: 'Ný bloggfærsla er núna
+  er tiltæk, {blogTitle}. Smelltu til að skoða nánar'
 
 # Search Bar
 Search / Go to URL: 'Leita / Fara á slóð'
@@ -159,8 +159,8 @@ Settings:
     Current instance will be randomized on startup: Fyrirliggjandi tilvik verður tilgreint
       af handahófi í ræsingu
     No default instance has been set: Ekkert sjálfgefið tilvik hefur verið stillt
-    The currently set default instance is {instance}: 'Fyrirliggjandi sjálfgefna tilvikið er
-      {instance}'
+    The currently set default instance is {instance}: 'Fyrirliggjandi sjálfgefna tilvikið
+      er {instance}'
     Current Invidious Instance: Fyrirliggjandi Invidious-tilvik
     External Link Handling:
       No Action: Ekkert gert
@@ -357,7 +357,8 @@ Settings:
     Manage Subscriptions: 'Sýsla með áskriftir'
     Import Playlists: Flytja inn spilunarlista
     Export Playlists: Flytja út spilunarlista
-    Playlist insufficient data: Ónóg gögn fyrir "{playlist}" spilunarlista, sleppi atriðinu
+    Playlist insufficient data: Ónóg gögn fyrir "{playlist}" spilunarlista, sleppi
+      atriðinu
     All playlists has been successfully imported: Tekist hefur að flytja inn alla
       spilunarlista
     All playlists has been successfully exported: Tekist hefur að flytja út alla spilunarlista
@@ -414,6 +415,11 @@ Settings:
     Show Family Friendly Only: Aðeins sýna fjölskylduvænt efni
     Hide Search Bar: Fela leitarstiku
     Parental Control Settings: Stillingar foreldrastýringar
+  Experimental Settings:
+    Experimental Settings: Stillingar á tilraunastigi
+    Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær
+      eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
+    Replace HTTP Cache: Skipta út HTTP-skyndiminni
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -464,8 +470,8 @@ Profile:
   Your profile name cannot be empty: 'Nafn notkunarsniðsins má ekki vera tómt'
   Profile has been created: 'Notkunarsnið hefur verið útbúið'
   Profile has been updated: 'Notkunarsnið hefur verið uppfært'
-  Your default profile has been set to {profile}: 'Sjálfgefið notandasnið þitt hefur stillt
-    sem {profile}'
+  Your default profile has been set to {profile}: 'Sjálfgefið notandasnið þitt hefur
+    stillt sem {profile}'
   Removed {profile} from your profiles: 'Fjarlægði {profile} úr notkunarsniðunum þínum'
   Your default profile has been changed to your primary profile: 'Sjálfgefið notandasnið
     þitt hefur stillt á aðalnotkunarsniðið þitt'
@@ -494,8 +500,8 @@ Channel:
   Unsubscribe: 'Segja upp áskrift'
   Channel has been removed from your subscriptions: 'Rás var fjarlægð úr áskriftunum
     þínum'
-  Removed subscription from {count} other channel(s): 'Fjarlægði áskrift úr {count} rás(um) til
-    viðbótar'
+  Removed subscription from {count} other channel(s): 'Fjarlægði áskrift úr {count}
+    rás(um) til viðbótar'
   Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
   Search Channel: 'Leita á rás'
   Your search results have returned 0 results: 'Leitin skilaði 0 niðurstöðum'
@@ -799,6 +805,9 @@ Tooltips:
       utanaðkomandi spilara. Aðvörun, stillingar Invidious hafa ekki áhrif á utanaðkomandi
       spilara.
     DefaultCustomArgumentsTemplate: "(Sjálfgefið: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna
+      minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
@@ -833,8 +842,8 @@ Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóð
 Open New Window: Opna í nýjum glugga
 Default Invidious instance has been cleared: Sjálfgefið Invidious-tilvik hefur verið
   hreinsað út
-Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-tilvik hefur verið
-  stillt sem {instance}
+Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-tilvik
+  hefur verið stillt sem {instance}
 Search Bar:
   Clear Input: Hreinsa reit
 External link opening has been disabled in the general settings: Opnun ytri tengla
