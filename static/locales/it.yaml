@@ -452,6 +452,11 @@ Settings:
     Parental Control Settings: Impostazioni di controllo parentale
     Show Family Friendly Only: Mostra Solo per famiglie
     Hide Search Bar: Nascondi la barra di ricerca
+  Experimental Settings:
+    Replace HTTP Cache: Sostituisci la cache HTTP
+    Experimental Settings: Impostazioni sperimentali
+    Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
+      Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
 About:
   #On About page
   About: 'Informazioni'
@@ -892,6 +897,10 @@ Tooltips:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
       , FreeTube eliminerà automaticamente i metafile creati durante la visione del
       video .
+  Experimental Settings:
+    Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita
+      una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
+      della RAM.
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
