@@ -313,10 +313,10 @@ Settings:
     Are you sure you want to remove your entire watch history?: Jesteś pewny/a, że
       chcesz usunąć całą historię oglądania?
     Remove Watch History: Usuń historię oglądania
-    Search cache has been cleared: Plik cache wyszukiwań został wyczyszczony
+    Search cache has been cleared: Plik pamięci podręcznej wyszukiwań został wyczyszczony
     Are you sure you want to clear out your search cache?: Jesteś pewny/a, że chcesz
-      wyczyścić plik cache wyszukiwań?
-    Clear Search Cache: Wyczyść plik cache wyszukiwań
+      wyczyścić plik pamięci podręcznej wyszukiwań?
+    Clear Search Cache: Wyczyść plik pamięci podręcznej wyszukiwań
     Save Watched Progress: Zapisuj postęp odtwarzania
     Remember History: Pamiętaj historię
     Privacy Settings: Ustawienia prywatności
@@ -445,6 +445,11 @@ Settings:
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
+  Experimental Settings:
+    Replace HTTP Cache: Zastąp pamięć podręczną HTTP
+    Experimental Settings: Ustawienia eksperymentalne
+    Warning: Te ustawienia są w fazie testów i po włączeniu mogą spowodować wywalenie
+      się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
 About:
   #On About page
   About: 'O projekcie'
@@ -889,6 +894,10 @@ Tooltips:
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
     DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
+      Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
+      to większe użycie pamięci RAM.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
