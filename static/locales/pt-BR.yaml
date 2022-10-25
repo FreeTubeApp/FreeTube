@@ -78,6 +78,9 @@ Subscriptions:
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
     de rede
   Error Channels: Canais com erros
+  Disabled Automatic Fetching: Você desativou a busca automática de assinaturas. Atualize-as
+    para vê-las aqui.
+  Empty Channels: No momento, seus canais inscritos não têm vídeos.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -138,8 +141,8 @@ Settings:
       Invidious
     System Default: Padrão do Sistema
     No default instance has been set: Nenhuma instância padrão foi definida
-    The currently set default instance is {instance}: A instância padrão atualmente definida
-      é {instance}
+    The currently set default instance is {instance}: A instância padrão atualmente
+      definida é {instance}
     Current instance will be randomized on startup: A instância atual será randomizada
       na inicialização
     Set Current Instance as Default: Definir instância atual como padrão
@@ -274,6 +277,7 @@ Settings:
     Export Subscriptions: 'Exportar inscrições'
     How do I import my subscriptions?: 'Como posso importar minhas inscrições?'
     Fetch Feeds from RSS: Buscar Informações através de RSS
+    Fetch Automatically: Obter o feed automaticamente
   Advanced Settings:
     Advanced Settings: 'Configurações avançadas'
     Enable Debug Mode (Prints data to the console): 'Habilitar modo de depuração (Mostra
@@ -360,11 +364,14 @@ Settings:
     Manage Subscriptions: Administrar Inscrições
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
-    Playlist insufficient data: Dados insuficientes para "{playlist}" playlist, pulando item
+    Playlist insufficient data: Dados insuficientes para "{playlist}" playlist, pulando
+      item
     All playlists has been successfully exported: Todas as listas de reprodução foram
       exportadas com sucesso
     All playlists has been successfully imported: Todas as listas de reprodução foram
       importadas com sucesso
+    Subscription File: Arquivo de assinaturas
+    History File: Arquivo de histórico
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -381,6 +388,7 @@ Settings:
     Hide Sharing Actions: Ocultar ações de compartilhamento
     Hide Comments: Ocultar comentários
     Hide Live Streams: Ocultar transmissões ao vivo
+    Hide Chapters: Ocultar capítulos
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -520,7 +528,8 @@ Channel:
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais destacados'
   Added channel to your subscriptions: Canal adicionado às suas inscrições
-  Removed subscription from {count} other channel(s): Inscrição removida de outros {count} canais
+  Removed subscription from {count} other channel(s): Inscrição removida de outros
+    {count} canais
   Channel has been removed from your subscriptions: O canal foi removido da suas inscrições
 Video:
   Mark As Watched: 'Marcar como assistido'
@@ -796,14 +805,15 @@ Profile:
   Your default profile has been changed to your primary profile: Seu perfil padrão
     foi mudado para o seu perfil principal
   Removed {profile} from your profiles: '{profile} foi removido dos seus perfis'
-  Your default profile has been set to {profile}: Seu perfil padrão foi definido como {profile}
+  Your default profile has been set to {profile}: Seu perfil padrão foi definido como
+    {profile}
   Profile has been updated: Perfil atualizado
   Profile has been created: Perfil criado
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
   Profile Filter: Filtro de Perfil
   Profile Settings: Configurações de Perfil
-Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível!
-  Clique para mais detalhes
+Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
+  já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
   {blogTitle}. Clique para ver mais'
 Download From Site: Baixar do site
@@ -880,8 +890,8 @@ Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube descon
   não pode ser aberta no aplicativo
 Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: A instância padrão Invidious foi limpa
-Default Invidious instance has been set to {instance}: A instância padrão Invidious foi definida
-  para {instance}
+Default Invidious instance has been set to {instance}: A instância padrão Invidious
+  foi definida para {instance}
 Search Bar:
   Clear Input: Limpar entrada
 External link opening has been disabled in the general settings: A abertura de link
@@ -901,7 +911,8 @@ Channels:
   Unsubscribe Prompt: Tem certeza de que quer cancelar a sua inscrição de "{channelName}"?
   Count: '{number} canal(is) encontrado(s).'
 Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição de idade
+  The currently set default instance is {instance}: Este {instance} tem restrição
+    de idade
   Type:
     Channel: Canal
     Video: Vídeo
