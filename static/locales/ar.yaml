@@ -430,6 +430,11 @@ Settings:
     Parental Control Settings: إعدادات الرقابة الأبوية
     Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
     Show Family Friendly Only: عرض مناسب للعائلة فقط
+  Experimental Settings:
+    Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
+    Experimental Settings: الإعدادات التجريبية
+    Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
+      نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
 About:
   #On About page
   About: 'حول'
@@ -851,6 +856,10 @@ Tooltips:
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
+      وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
+      العشوائي.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
