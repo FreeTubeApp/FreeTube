@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tämä osa sovelluksesta ei ole vielä valmis. Tule takaisin myöhemmin.
+  Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin.
 
 # Webkit Menu Bar
 File: 'Tiedosto'
@@ -77,8 +77,8 @@ Subscriptions:
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
   Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
-  Disabled Automatic Fetching: Olet poistanut automaattisen tilauksen noutamisen käytöstä.
-    Päivitä tilaukset nähdäksesi ne täällä.
+  Disabled Automatic Fetching: Olet poistanut käytöstä automaattisen tilaustennoutamisen.
+    Virkistä tilaukset nähdäksesi ne täällä.
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -654,6 +654,7 @@ Video:
     Resolution: Resoluutio
     Dropped / Total Frames: Pudotettu / Yhteensä
   Premieres on: Julkaistaan
+  Premieres: Ensilähetykset
 Videos:
   #& Sort By
   Sort By:
