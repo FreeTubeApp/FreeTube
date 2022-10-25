@@ -225,6 +225,9 @@ Settings:
     Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
     Screenshot:
       File Name Label: Filnavnsmønster
+      Error:
+        Forbidden Characters: Forbudte tegn
+        Empty File Name: Tomt filnavn
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -318,6 +321,11 @@ Settings:
     Select Import Type: Velg importtype
     Data Settings: Datainnstillinger
     All playlists has been successfully imported: Importerte alle spillelister
+    Subscription File: Abonnementsfil
+    History File: Historikkfil
+    Playlist File: Spillelistefil
+    Export Playlists: Eksporter spillelister
+    Import Playlists: Importer spillelister
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
@@ -364,6 +372,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorer advarsler om ustøttede handlinger
     External Player Settings: Innstillinger for ekstern avspiller
     External Player: Ekstern avspiller
+    Players:
+      None:
+        Name: Ingen
   Download Settings:
     Choose Path: Velg sti
     Download Settings: Nedlastingsinnstillinger
@@ -372,6 +383,8 @@ Settings:
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
     Hide Search Bar: Skjul søkefelt
+  Experimental Settings:
+    Experimental Settings: Eksperimentelle innstillinger
 About:
   #On About page
   About: 'Om'
@@ -448,7 +461,8 @@ Channel:
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
   Added channel to your subscriptions: Lagt til kanal til dine abonnenter
-  Removed subscription from {count} other channel(s): Fjernet abonnement fra {count} andre kanal(er)
+  Removed subscription from {count} other channel(s): Fjernet abonnement fra {count}
+    andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
     dine abonnement
 Video:
@@ -510,6 +524,7 @@ Video:
     Upcoming: 'Har premiere'
     Minutes: Minutter
     Minute: Minutt
+    In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
   Publicationtemplate: '{number} {unit} siden'
 #& Videos
@@ -547,6 +562,8 @@ Video:
     sponsor: sponsor
     music offtopic: musikk (utenfor tema)
     self-promotion: egenpromotering
+    recap: Oppsummering
+    filler: Fyllstoff
   Skipped segment: Overhoppet del
   External Player:
     Unsupported Actions:
@@ -567,6 +584,9 @@ Video:
     Bitrate: Bitrate
     Volume: Lydstyrke
     Bandwidth: Båndbredde
+    Resolution: Oppløsning
+    Player Dimensions: Avspillerdimensjoner
+    Mimetype: Media-type
 Videos:
   #& Sort By
   Sort By:
@@ -671,8 +691,8 @@ Profile:
   Your default profile has been changed to your primary profile: Din forvalgte profil
     har blitt endret til din hovedprofil
   Removed {profile} from your profiles: Fjernet {profile} fra dine profiler
-  Your default profile has been set to {profile}: 'Din forvalgte profil har blitt satt til
-    {profile}'
+  Your default profile has been set to {profile}: 'Din forvalgte profil har blitt
+    satt til {profile}'
   Profile has been updated: Profil oppdatert
   Profile has been created: Profil opprettet
   Your profile name cannot be empty: Profilnavnet ditt kan ikke stå tomt
@@ -756,12 +776,12 @@ Tooltips:
     External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
       hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
     DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
-A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg er tilgjengelig,
-  {blogTitle}. Klikk her for å se mer
+A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
+  er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
 Download From Site: Last ned fra nettside
-Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber} er nå tilgjengelig!
-  Klikk her for detaljer
+Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber}
+  er nå tilgjengelig! Klikk her for detaljer
 Playing Next Video Interval: Spiller av neste video nå. Klikk her for å avbryte. |
   Spiller av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
   Spiller av neste video om {nextVideoInterval} sekunder. Klikk her for å avbryte.
@@ -772,8 +792,8 @@ Hashtags have not yet been implemented, try again later: Emneknagger er ikke imp
   enda, prøv igjen senere
 Open New Window: Åpne et nytt vindu
 Default Invidious instance has been cleared: Fjernet forvalgt Invidious-instans
-Default Invidious instance has been set to {instance}: Forvalgt Invidious-instans satt til
-  {instance}
+Default Invidious instance has been set to {instance}: Forvalgt Invidious-instans
+  satt til {instance}
 External link opening has been disabled in the general settings: Åpning av eksterne
   lenker er avskrudd i de generelle innstillingene
 Search Bar:
@@ -795,3 +815,5 @@ Age Restricted:
     Video: Video
 Chapters:
   Chapters: Kapitler
+Screenshot Success: Lagre skjermavbildning som «{filePath}»
+Screenshot Error: Skjermavbildning mislyktes. {error}
