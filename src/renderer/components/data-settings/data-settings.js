@@ -363,7 +363,16 @@ export default Vue.extend({
       let count = 0
 
       feedData.forEach(async (channel) => {
-        const channelId = channel.getAttribute('xmlUrl').replace('https://www.youtube.com/feeds/videos.xml?channel_id=', '')
+        const xmlUrl = channel.getAttribute('xmlUrl')
+        let channelId
+        if (xmlUrl.includes('https://www.youtube.com/feeds/videos.xml?channel_id=')) {
+          channelId = new URL(xmlUrl).searchParams.get('channel_id')
+        } else if (xmlUrl.includes('/feed/channel/')) {
+          // handle invidious exports https://yewtu.be/feed/channel/{CHANNELID}
+          channelId = new URL(xmlUrl).pathname.split('/').filter(part => part).at(-1)
+        } else {
+          console.error(`Unknown xmlUrl format: ${xmlUrl}`)
+        }
         const subExists = this.primaryProfile.subscriptions.findIndex((sub) => {
           return sub.id === channelId
         })
