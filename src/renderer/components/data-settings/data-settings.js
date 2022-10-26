@@ -330,8 +330,9 @@ export default Vue.extend({
 
     importOpmlYouTubeSubscriptions: async function (data) {
       let xmlDom
+      const domParser = new DOMParser()
       try {
-        xmlDom = new DOMParser().parseFromString(data, 'application/xml')
+        xmlDom = domParser.parseFromString(data, 'application/xml')
 
         // https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString#error_handling
         const errorNode = xmlDom.querySelector('parsererror')
@@ -339,11 +340,19 @@ export default Vue.extend({
           throw errorNode.textContent
         }
       } catch (err) {
-        console.error('error reading OPML subscriptions file')
-        console.error(err)
-        const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-        showToast(`${message}: ${err}`)
-        return
+        // try parsing with the html parser instead which is more lenient
+        try {
+          const htmlDom = domParser.parseFromString(data, 'text/html')
+
+          xmlDom = htmlDom
+        } catch {
+          // show xml parser error if html one failed as well
+          console.error('error reading OPML subscriptions file')
+          console.error(err)
+          const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
+          showToast(`${message}: ${err}`)
+          return
+        }
       }
 
       const feedData = xmlDom.querySelectorAll('body outline[xmlUrl]')
