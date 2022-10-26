@@ -12,6 +12,9 @@ export default Vue.extend({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },

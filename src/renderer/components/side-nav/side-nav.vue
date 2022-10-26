@@ -84,7 +84,7 @@
         </p>
       </div>
       <div
-        v-if="!hidePopularVideos"
+        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
