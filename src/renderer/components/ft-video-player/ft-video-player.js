@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
 
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
@@ -19,9 +18,6 @@ import { calculateColorLuminance, colors, showSaveDialog, showToast } from '../.
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
-  components: {
-    'ft-card': FtCard
-  },
   beforeRouteLeave: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {

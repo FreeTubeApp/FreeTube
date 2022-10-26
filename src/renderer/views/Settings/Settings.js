@@ -1,6 +1,4 @@
 import Vue from 'vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
 import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
 import PlayerSettings from '../../components/player-settings/player-settings.vue'
@@ -18,8 +16,6 @@ import ExperimentalSettings from '../../components/experimental-settings/experim
 export default Vue.extend({
   name: 'Settings',
   components: {
-    'ft-card': FtCard,
-    'ft-element-list': FtElementList,
     'general-settings': GeneralSettings,
     'theme-settings': ThemeSettings,
     'player-settings': PlayerSettings,
