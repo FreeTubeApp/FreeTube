@@ -929,6 +929,20 @@ function runApp() {
             type: 'normal'
           },
           { type: 'separator' },
+          {
+            label: 'Preferences',
+            accelerator: 'CmdOrCtrl+,',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/settings' }
+              )
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
           { role: 'quit' }
         ]
       },
