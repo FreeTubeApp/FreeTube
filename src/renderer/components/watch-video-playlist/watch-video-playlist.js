@@ -2,7 +2,6 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 
@@ -11,7 +10,6 @@ export default Vue.extend({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-flex-box': FtFlexBox,
     'ft-list-video': FtListVideo
   },
   props: {

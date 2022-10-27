@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import { mapActions, mapMutations } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
@@ -25,9 +23,7 @@ export default Vue.extend({
   name: 'DataSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-card': FtCard,
     'ft-button': FtButton,
-    'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox,
     'ft-prompt': FtPrompt
   },

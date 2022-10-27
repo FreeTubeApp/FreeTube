@@ -2,7 +2,6 @@ import Vue from 'vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
@@ -13,8 +12,7 @@ export default Vue.extend({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-button': FtButton,
-    'ft-list-video': FtListVideo
+    'ft-button': FtButton
   },
   beforeRouteLeave: function () {
     this.liveChat.stop()
