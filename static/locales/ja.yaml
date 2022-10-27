@@ -402,6 +402,10 @@ Settings:
     Parental Control Settings: 制限付きモードの設定
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
+  Experimental Settings:
+    Replace HTTP Cache: HTTP キャッシュの置換
+    Experimental Settings: 実験中の設定
+    Warning: この設定項目は実験中であるため、有効にするとクラッシュするかもしれません。バックアップを必ず作成してください。使用は自己責任でお願いします！
 About:
   #On About page
   About: '概要'
@@ -783,6 +787,9 @@ Tooltips:
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
+  Experimental Settings:
+    Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
+      RAM の使用率は増加します。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
