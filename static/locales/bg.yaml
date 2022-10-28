@@ -443,6 +443,9 @@ Settings:
     Hide Unsubscribe Button: Скриване на бутона за отписване
     Show Family Friendly Only: Показване само за семейства
     Hide Search Bar: Скриване на лентата за търсене
+  Experimental Settings:
+    Experimental Settings: Експериментални настройки
+    Replace HTTP Cache: Замени HTTP кеша
 About:
   #On About page
   About: 'Относно'
