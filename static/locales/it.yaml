@@ -169,7 +169,7 @@ Settings:
       Light: 'Chiaro'
       Dracula: 'Dracula'
       System Default: Predefinito del sistema
-      Catppuccin Mocha: Catppuccin moka
+      Catppuccin Mocha: Cappuccino moka
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -195,20 +195,20 @@ Settings:
       Dracula Purple: 'Dracula viola'
       Dracula Red: 'Dracula rosso'
       Dracula Yellow: 'Dracula giallo'
-      Catppuccin Mocha Pink: Catppuccin moka rosa
-      Catppuccin Mocha Mauve: Catppuccin moka malva
-      Catppuccin Mocha Red: Catppuccin moka rosso
-      Catppuccin Mocha Maroon: Catppuccin moka marrone
-      Catppuccin Mocha Blue: Catppuccin moka blu
-      Catppuccin Mocha Green: Catppuccin moka verde
-      Catppuccin Mocha Sapphire: Catppuccin moka zaffiro
-      Catppuccin Mocha Yellow: Catppuccin moka giallo
-      Catppuccin Mocha Rosewater: Catppuccin moka acqua di rose
-      Catppuccin Mocha Flamingo: Catppuccin moka fenicottero
-      Catppuccin Mocha Lavender: Catppuccin moka lavanda
-      Catppuccin Mocha Peach: Catppuccin moka pesca
-      Catppuccin Mocha Teal: Catppuccin moka alzavola
-      Catppuccin Mocha Sky: Catppuccin moka cielo
+      Catppuccin Mocha Pink: Cappuccino moka rosa
+      Catppuccin Mocha Mauve: Cappuccino moka malva
+      Catppuccin Mocha Red: Cappuccino moka rosso
+      Catppuccin Mocha Maroon: Cappuccino moka marrone
+      Catppuccin Mocha Blue: Cappuccino moka blu
+      Catppuccin Mocha Green: Cappuccino moka verde
+      Catppuccin Mocha Sapphire: Cappuccino moka zaffiro
+      Catppuccin Mocha Yellow: Cappuccino moka giallo
+      Catppuccin Mocha Rosewater: Cappuccino moka acqua di rose
+      Catppuccin Mocha Flamingo: Cappuccino moka fenicottero
+      Catppuccin Mocha Lavender: Cappuccino moka lavanda
+      Catppuccin Mocha Peach: Cappuccino moka pesca
+      Catppuccin Mocha Teal: Cappuccino moka alzavola
+      Catppuccin Mocha Sky: Cappuccino moka cielo
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni interfaccia utente
