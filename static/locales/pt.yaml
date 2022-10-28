@@ -28,11 +28,11 @@ Close: 'Fechar'
 Back: 'Voltar'
 Forward: 'Avançar'
 
-Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber} já está disponível!
-  Clique aqui para mais informações'
+Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
+  já está disponível! Clique aqui para mais informações'
 Download From Site: 'Descarregar do site'
-A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um novo blogue,
-  {blogTitle}. Clique para ver mais'
+A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um
+  novo blogue, {blogTitle}. Clique para ver mais'
 
 # Search Bar
 Search / Go to URL: 'Pesquisar / ir para o URL'
@@ -150,7 +150,8 @@ Settings:
     Current instance will be randomized on startup: A instância irá ser escolhida
       aleatoriamente ao iniciar
     No default instance has been set: Não foi definida nenhuma instância
-    The currently set default instance is {instance}: A instância definida como padrão é {instance}
+    The currently set default instance is {instance}: A instância definida como padrão
+      é {instance}
     Current Invidious Instance: Instância do Invidious atual
     System Default: Definições do sistema
     External Link Handling:
@@ -437,6 +438,12 @@ Settings:
     Show Family Friendly Only: Mostrar apenas "para famílias"
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de controlo parental
+  Experimental Settings:
+    Replace HTTP Cache: Substituir o cache HTTP
+    Experimental Settings: Configurações experimentais
+    Warning: Estas configurações são experimentais, elas causam falhas se estiverem
+      ativadas. É altamente recomendado fazer cópias de segurança. Use por sua conta
+      e risco!
 About:
   #On About page
   About: 'Sobre'
@@ -513,11 +520,13 @@ Profile:
   Your profile name cannot be empty: 'O nome do perfil não pode ficar em branco'
   Profile has been created: 'Perfil criado'
   Profile has been updated: 'Perfil atualizado'
-  Your default profile has been set to {profile}: '{profile} é agora o seu perfil padrão'
+  Your default profile has been set to {profile}: '{profile} é agora o seu perfil
+    padrão'
   Removed {profile} from your profiles: 'O perfil {profile} foi eliminado'
   Your default profile has been changed to your primary profile: 'O seu perfil padrão
     é agora o seu perfil principal'
-  '{profile} is now the active profile': 'Está agora a ver as subscrições do perfil {profile}'
+  '{profile} is now the active profile': 'Está agora a ver as subscrições do perfil
+    {profile}'
   Subscription List: 'Lista de subscrições'
   Other Channels: 'Outros canais'
   '{number} selected': '{number} selecionado'
@@ -543,7 +552,8 @@ Channel:
   Unsubscribe: 'Anular subscrição'
   Channel has been removed from your subscriptions: 'O canal foi removido das suas
     subscrições'
-  Removed subscription from {count} other channel(s): 'Subscrição removida de mais {count} canais'
+  Removed subscription from {count} other channel(s): 'Subscrição removida de mais
+    {count} canais'
   Added channel to your subscriptions: 'Canal adicionado às suas subscrições'
   Search Channel: 'Procurar canal'
   Your search results have returned 0 results: 'Pesquisa devolveu 0 resultados'
@@ -811,8 +821,8 @@ No: 'Não'
 More: Mais
 Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: Predefinição apagada
-Default Invidious instance has been set to {instance}: Servidor Invidious {instance} foi estabelecido
-  como predefenição
+Default Invidious instance has been set to {instance}: Servidor Invidious {instance}
+  foi estabelecido como predefenição
 Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para
   cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique
   para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos.
@@ -881,6 +891,10 @@ Tooltips:
     External Link Handling: "Escolha o comportamento padrão quando uma ligação, que\
       \ não pode ser aberta no FreeTube, é aberta.\nPor padrão, o FreeTube abrirá\
       \ a ligação clicado no seu navegador de Internet padrão.\n"
+  Experimental Settings:
+    Replace HTTP Cache: Desativa a cache HTTP baseada em disco do Electron e ativa
+      uma cache de imagem na memória personalizada. Levará ao aumento da utilização
+      de RAM.
 Search Bar:
   Clear Input: Limpar entrada
 Are you sure you want to open this link?: Quer mesmo abrir esta ligação?
@@ -892,10 +906,13 @@ Downloading has completed: '"{videoTitle}" foi descarregado'
 Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: A captura de ecrã falhou. {error}
 Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição de idade
+  The currently set default instance is {instance}: Este {instance} tem restrição
+    de idade
   Type:
     Channel: Canal
     Video: Vídeo
+  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tem restrição de
+    idade
 New Window: Nova janela
 Channels:
   Count: '{number} canais encontrados.'
