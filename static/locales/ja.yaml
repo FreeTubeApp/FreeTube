@@ -529,7 +529,7 @@ Video:
     Day: '日'
     Days: '日'
     Week: '週間'
-    Weeks: '週間'
+    Weeks: '週'
     Month: 'か月'
     Months: 'か月'
     Year: '年'
@@ -687,7 +687,7 @@ Comments:
   Sort by: 並べ替え
   Show More Replies: その他の返信を表示する
   And others: その他
-  Pinned by: によって固定されています
+  Pinned by: ピン留め
   From {channelName}: '{channelName} から'
   Member: メンバー
 Up Next: '次の動画'
