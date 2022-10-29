@@ -1856,9 +1856,19 @@ export default Vue.extend({
             event.preventDefault()
             this.takeScreenshot()
             break
+          case ',':
+            // Return to previous frame
+            event.preventDefault()
+            this.framebyframe(-1)
+            break
+          case '.':
+            // Advance to next frame
+            event.preventDefault()
+            this.framebyframe(1)
+            break
         }
 
-        // Non Alphanumeric keys without mods
+        // Keys with names longer than a single character
         switch (event.key) {
           case ' ':
           case 'Spacebar': // older browsers might return spacebar instead of a space character
@@ -1885,16 +1895,6 @@ export default Vue.extend({
             // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
             this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
-            break
-          case ',':
-            // Return to previous frame
-            event.preventDefault()
-            this.framebyframe(-1)
-            break
-          case '.':
-            // Advance to next frame
-            event.preventDefault()
-            this.framebyframe(1)
             break
           case 'Home':
             // Jump to beginning of video
