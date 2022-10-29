@@ -1912,23 +1912,23 @@ export default Vue.extend({
             this.exitFullWindow()
             break
         }
-      } // else case can be added here if shift+key shortcuts are wanted
-
-      // Keys that are usually shifted.
-      // They should not be added to any switch statement above
-      switch (event.key) {
-        case '<':
-          // Alternate shortcut
-          // Decrease playback rate by 0.25x
-          event.preventDefault()
-          this.changePlayBackRate(-this.videoPlaybackRateInterval)
-          break
-        case '>':
-          // Alternate shortcut
-          // Increase playback rate by 0.25x
-          event.preventDefault()
-          this.changePlayBackRate(this.videoPlaybackRateInterval)
-          break
+      } else {
+        // shift+key shortcuts should be put here
+        // This should include keys that usually require shift to type such as most symbols
+        switch (event.key) {
+          case '<':
+            // Alternate shortcut
+            // Decrease playback rate by 0.25x
+            event.preventDefault()
+            this.changePlayBackRate(-this.videoPlaybackRateInterval)
+            break
+          case '>':
+            // Alternate shortcut
+            // Increase playback rate by 0.25x
+            event.preventDefault()
+            this.changePlayBackRate(this.videoPlaybackRateInterval)
+            break
+        }
       }
     },
 
