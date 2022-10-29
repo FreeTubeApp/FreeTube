@@ -438,6 +438,9 @@ Settings:
     Show Family Friendly Only: Mostrar solo lo apto para las familias
   Experimental Settings:
     Experimental Settings: Ajustes experimentales
+    Warning: Estas configuraciones son experimentales, pueden provocar fallos mientras
+      están activadas. Se recomienda hacer copias de seguridad. ¡Utilícelas bajo su
+      propio riesgo!
 About:
   #On About page
   About: 'Acerca de'
