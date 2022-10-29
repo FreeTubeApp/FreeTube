@@ -441,6 +441,7 @@ Settings:
     Warning: Estas configuraciones son experimentales, pueden provocar fallos mientras
       están activadas. Se recomienda hacer copias de seguridad. ¡Utilícelas bajo su
       propio riesgo!
+    Replace HTTP Cache: Reemplazar la caché HTTP
 About:
   #On About page
   About: 'Acerca de'
