@@ -240,6 +240,37 @@ export default Vue.extend({
       }
     },
 
+    parseInvidiousCommentData: function (response) {
+      return response.comments.map((comment) => {
+        comment.showReplies = false
+        comment.authorLink = comment.authorId
+        comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        if (this.hideCommentLikes) {
+          comment.likes = null
+        } else {
+          comment.likes = comment.likeCount
+        }
+        comment.text = autolinker.link(comment.content.replace(/(<(?!br>)([^>]+)>)/ig, ''))
+        comment.dataType = 'invidious'
+        comment.isOwner = comment.authorIsChannelOwner
+
+        if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
+          comment.numReplies = comment.replies.replyCount
+          comment.replyContinuation = comment.replies.continuation
+        } else {
+          comment.numReplies = 0
+          comment.replyContinuation = ''
+        }
+
+        comment.replies = []
+        comment.time = toLocalePublicationString({
+          publishText: comment.publishedText
+        })
+
+        return comment
+      })
+    },
+
     getCommentDataInvidious: function () {
       const payload = {
         resource: 'comments',
@@ -251,34 +282,7 @@ export default Vue.extend({
       }
 
       this.invidiousAPICall(payload).then((response) => {
-        const commentData = response.comments.map((comment) => {
-          comment.showReplies = false
-          comment.authorLink = comment.authorId
-          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-          if (this.hideCommentLikes) {
-            comment.likes = null
-          } else {
-            comment.likes = comment.likeCount
-          }
-          comment.text = autolinker.link(comment.content.replace(/(<(?!br>)([^>]+)>)/ig, ''))
-          comment.dataType = 'invidious'
-          comment.isOwner = comment.authorIsChannelOwner
-
-          if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
-            comment.numReplies = comment.replies.replyCount
-            comment.replyContinuation = comment.replies.continuation
-          } else {
-            comment.numReplies = 0
-            comment.replyContinuation = ''
-          }
-
-          comment.replies = []
-          comment.time = toLocalePublicationString({
-            publishText: comment.publishedText
-          })
-
-          return comment
-        })
+        const commentData = this.parseInvidiousCommentData(response)
 
         this.commentData = this.commentData.concat(commentData)
         this.nextPageToken = response.continuation
@@ -310,24 +314,7 @@ export default Vue.extend({
       }
 
       this.invidiousAPICall(payload).then((response) => {
-        const commentData = response.comments.map((comment) => {
-          comment.showReplies = false
-          comment.authorLink = comment.authorId
-          comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-          if (this.hideCommentLikes) {
-            comment.likes = null
-          } else {
-            comment.likes = comment.likeCount
-          }
-          comment.text = autolinker.link(comment.content.replace(/(<(?!br>)([^>]+)>)/ig, ''))
-          comment.time = comment.publishedText
-          comment.dataType = 'invidious'
-          comment.numReplies = 0
-          comment.replyContinuation = ''
-          comment.replies = []
-
-          return comment
-        })
+        const commentData = this.parseInvidiousCommentData(response)
 
         this.commentData[index].replies = commentData
         this.commentData[index].showReplies = true
