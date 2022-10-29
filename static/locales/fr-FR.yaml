@@ -83,7 +83,7 @@ Subscriptions:
   Error Channels: Chaînes avec des erreurs
   Disabled Automatic Fetching: Vous avez désactivé la récupération automatique des
     abonnements. Actualisez les abonnements pour les voir ici.
-  Empty Channels: Les chaînes auxquelles vous êtes abonné·e ne contiennent actuellement
+  Empty Channels: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement
     aucune vidéo.
 Trending:
   Trending: 'Tendance'
@@ -972,7 +972,7 @@ Channels:
   Search bar placeholder: Rechercher des chaînes
   Count: '{number} chaîne(s) trouvée(s).'
   Unsubscribed: '{channelName} a été supprimé de vos abonnements'
-  Unsubscribe Prompt: Êtes-vous sûr·e de vouloir vous désabonner de « {channelName} » ?
+  Unsubscribe Prompt: Êtes-vous sûr(e) de vouloir vous désabonner de « {channelName} » ?
 Clipboard:
   Copy failed: La copie dans le presse-papiers a échoué
   Cannot access clipboard without a secure connection: Impossible d'accéder au presse-papiers
