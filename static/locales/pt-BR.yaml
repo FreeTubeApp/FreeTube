@@ -136,7 +136,7 @@ Settings:
     Region for Trending: 'Região para o “Em alta”'
         #! List countries
     Check for Updates: Checar por atualizações
-    Check for Latest Blog Posts: Verificar se há Novas Postagens no Blog
+    Check for Latest Blog Posts: Verificar se há novas postagens no blog
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
     System Default: Padrão do Sistema
@@ -331,8 +331,8 @@ Settings:
       foram possíveis serem importadas
     All subscriptions have been successfully imported: Todas as inscrições foram importadas
       com sucesso
-    Select Import Type: Selecione o Tipo de Importação
-    Data Settings: Configurações de Dados
+    Select Import Type: Selecione o tipo de importação
+    Data Settings: Configurações de dados
     Export History: Exportar Histórico
     Import History: Importar Histórico
     Export NewPipe: Exportar NewPipe
@@ -344,7 +344,7 @@ Settings:
     Import YouTube: Importar YouTube
     Import FreeTube: Importar FreeTube
     Import Subscriptions: Importar Inscrições
-    Select Export Type: Escolher Tipo de Exportação
+    Select Export Type: Escolher tipo de exportação
     How do I import my subscriptions?: Como importo minhas inscrições?
     Unknown data key: Chave de dados desconhecida
     Unable to write file: O arquivo não pôde ser escrito
@@ -918,3 +918,4 @@ Age Restricted:
     Video: Vídeo
 Screenshot Success: Captura de tela salva como "{filePath}"
 Screenshot Error: Falha na captura de tela. {error}
+Preferences: Preferências
