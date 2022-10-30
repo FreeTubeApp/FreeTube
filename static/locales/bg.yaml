@@ -445,7 +445,9 @@ Settings:
     Hide Search Bar: Скриване на лентата за търсене
   Experimental Settings:
     Experimental Settings: Експериментални настройки
-    Replace HTTP Cache: Замени HTTP кеша
+    Replace HTTP Cache: Замяна на HTTP кеша
+    Warning: Тези настройки са експериментални и причиняват сривове, докато са разрешени.
+      Силно се препоръчва създаването на резервни копия. Използвайте на свой риск!
 About:
   #On About page
   About: 'Относно'
@@ -716,7 +718,7 @@ Video:
       за наследени видеоклипове
   Premieres on: Премиера на
   Premieres in: Премиери в
-  Premieres: Премиери
+  Premieres: Премиерa
 Videos:
   #& Sort By
   Sort By:
@@ -875,6 +877,10 @@ Tooltips:
       за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание,
       настройките на Invidious не влияят на външните плейъри.
     DefaultCustomArgumentsTemplate: "(По подразбиране: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира
+      персонализиран кеш за изображения в паметта. Ще доведе до увеличаване на използването
+      на RAM паметта.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
@@ -925,3 +931,4 @@ Chapters:
     текуща глава: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
     текуща глава: {chapterName}'
+Preferences: Предпочитания
