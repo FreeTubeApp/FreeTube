@@ -150,7 +150,7 @@ export default Vue.extend({
             const publishDate = video.uploadedAt
             let videoDuration = video.duration
             const videoId = video.id
-            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
+            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE' && videoDuration !== 'UPCOMING') {
               videoDuration = calculateLengthInSeconds(video.duration)
             }
             dataToShow.push(
@@ -170,7 +170,7 @@ export default Vue.extend({
                 liveNow: video.isLive || videoDuration === 'LIVE',
                 paid: false,
                 premium: false,
-                isUpcoming: false,
+                isUpcoming: videoDuration === 'UPCOMING',
                 timeText: videoDuration
               }
             )

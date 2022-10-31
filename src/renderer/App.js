@@ -12,7 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
-import { openExternalLink, showToast } from './helpers/utils'
+import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
@@ -382,11 +382,7 @@ export default Vue.extend({
               query.playlistId = playlistId
             }
             const path = `/watch/${videoId}`
-            this.openInternalPath({
-              path,
-              query,
-              doCreateNewWindow
-            })
+            openInternalPath(path, doCreateNewWindow, query)
             break
           }
 
@@ -394,11 +390,7 @@ export default Vue.extend({
             const { playlistId, query } = result
 
             const path = `/playlist/${playlistId}`
-            this.openInternalPath({
-              path,
-              query,
-              doCreateNewWindow
-            })
+            openInternalPath(path, doCreateNewWindow, query)
             break
           }
 
@@ -406,12 +398,7 @@ export default Vue.extend({
             const { searchQuery, query } = result
 
             const path = `/search/${encodeURIComponent(searchQuery)}`
-            this.openInternalPath({
-              path,
-              query,
-              doCreateNewWindow,
-              searchQueryText: searchQuery
-            })
+            openInternalPath(path, doCreateNewWindow, query, searchQuery)
             break
           }
 
@@ -430,10 +417,7 @@ export default Vue.extend({
             const { channelId, subPath } = result
 
             const path = `/channel/${channelId}/${subPath}`
-            this.openInternalPath({
-              path,
-              doCreateNewWindow
-            })
+            openInternalPath(path, doCreateNewWindow)
             break
           }
 
@@ -463,28 +447,6 @@ export default Vue.extend({
       ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
         document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
-    },
-
-    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
-      if (process.env.IS_ELECTRON && doCreateNewWindow) {
-        const { ipcRenderer } = require('electron')
-
-        // Combine current document path and new "hash" as new window startup URL
-        const newWindowStartupURL = [
-          window.location.href.split('#')[0],
-          `#${path}?${(new URLSearchParams(query)).toString()}`
-        ].join('')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL,
-          searchQueryText
-        })
-      } else {
-        // Web
-        this.$router.push({
-          path,
-          query
-        })
-      }
     },
 
     enableSetSearchQueryText: function () {

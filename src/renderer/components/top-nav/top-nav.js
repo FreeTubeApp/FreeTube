@@ -7,7 +7,7 @@ import debounce from 'lodash.debounce'
 import ytSuggest from 'youtube-suggest'
 
 import { IpcChannels } from '../../../constants'
-import { showToast } from '../../helpers/utils'
+import { openInternalPath, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -102,7 +102,7 @@ export default Vue.extend({
   },
   methods: {
     goToSearch: async function (query, { event }) {
-      const doCreateNewWindow = event && event.shiftKey
+      const createNewWindow = event && event.shiftKey
 
       if (window.innerWidth <= 680) {
         this.$refs.searchContainer.blur()
@@ -123,33 +123,21 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            this.openInternalPath({
-              path: `/watch/${videoId}`,
-              query,
-              doCreateNewWindow
-            })
+            openInternalPath(`/watch/${videoId}`, createNewWindow, query)
             break
           }
 
           case 'playlist': {
             const { playlistId, query } = result
 
-            this.$router.push({
-              path: `/playlist/${playlistId}`,
-              query
-            })
+            openInternalPath(`/playlist/${playlistId}`, createNewWindow, query)
             break
           }
 
           case 'search': {
             const { searchQuery, query } = result
 
-            this.openInternalPath({
-              path: `/search/${encodeURIComponent(searchQuery)}`,
-              query,
-              doCreateNewWindow,
-              searchQueryText: searchQuery
-            })
+            openInternalPath(`/search/${encodeURIComponent(searchQuery)}`, createNewWindow, query, searchQuery)
             break
           }
 
@@ -167,27 +155,23 @@ export default Vue.extend({
           case 'channel': {
             const { channelId, idType, subPath } = result
 
-            this.openInternalPath({
-              path: `/channel/${channelId}/${subPath}`,
-              query: { idType },
-              doCreateNewWindow
-            })
+            openInternalPath(`/channel/${channelId}/${subPath}`, createNewWindow, { idType })
             break
           }
 
           case 'invalid_url':
           default: {
-            this.openInternalPath({
-              path: `/search/${encodeURIComponent(query)}`,
-              query: {
+            openInternalPath(
+              `/search/${encodeURIComponent(query)}`,
+              createNewWindow,
+              {
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
                 duration: this.searchSettings.duration
               },
-              doCreateNewWindow,
-              searchQueryText: query
-            })
+              query
+            )
           }
         }
       })
@@ -305,28 +289,6 @@ export default Vue.extend({
 
     toggleSideNav: function () {
       this.$store.commit('toggleSideNav')
-    },
-
-    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
-      if (process.env.IS_ELECTRON && doCreateNewWindow) {
-        const { ipcRenderer } = require('electron')
-
-        // Combine current document path and new "hash" as new window startup URL
-        const newWindowStartupURL = [
-          window.location.href.split('#')[0],
-          `#${path}?${(new URLSearchParams(query)).toString()}`
-        ].join('')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL,
-          searchQueryText
-        })
-      } else {
-        // Web
-        this.$router.push({
-          path,
-          query
-        })
-      }
     },
 
     createNewWindow: function () {
