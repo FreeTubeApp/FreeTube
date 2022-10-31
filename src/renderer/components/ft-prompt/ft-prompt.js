@@ -36,11 +36,9 @@ export default Vue.extend({
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
-    document.removeEventListener('focus', this.closeEventFunction, true)
   },
   mounted: function () {
     document.addEventListener('keydown', this.closeEventFunction, true)
-    document.addEventListener('focus', this.closeEventFunction, true)
     document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
     this.promptButtons = Array.from(
       document.querySelector('.prompt .promptCard .ft-flex-box').childNodes
@@ -59,7 +57,13 @@ export default Vue.extend({
         this.hide()
       }
     },
-    focusItem: function (index) {
+    focusItem: function (value) {
+      let index = value
+      if (index < 0) {
+        index = promptButtons.length
+      } else if (index >= this.promptButtons.length) {
+        index = 0
+      }
       if (index >= 0 && index < this.promptButtons.length) {
         this.promptButtons[index].focus({ focusVisible: true })
       }
@@ -67,15 +71,9 @@ export default Vue.extend({
     // close on escape key and unfocus
     closeEventFunction: function(event) {
       const targ = event.target
-      if (event.type === 'keydown') {
-        if (event.key === 'Escape') {
-          event.preventDefault()
-          this.hide()
-        }
-      } else if (targ) { // unfocused
-        if (!targ.id.startsWith('prompt') && targ.className !== 'prompt') {
-          this.hide()
-        }
+      if (event.type === 'keydown' && event.key === 'Escape') {
+        event.preventDefault()
+        this.hide()
       }
     },
     arrowKeys: function(e) {
