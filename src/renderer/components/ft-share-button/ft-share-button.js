@@ -4,7 +4,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import { mapActions } from 'vuex'
+import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtShareButton',
@@ -78,42 +78,42 @@ export default Vue.extend({
   methods: {
 
     openInvidious() {
-      this.openExternalLink(this.getFinalUrl(this.invidiousURL))
+      openExternalLink(this.getFinalUrl(this.invidiousURL))
       this.$refs.iconButton.hideDropdown()
     },
 
     copyInvidious() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousURL), messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.invidiousURL), { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
     openYoutube() {
-      this.openExternalLink(this.getFinalUrl(this.youtubeURL))
+      openExternalLink(this.getFinalUrl(this.youtubeURL))
       this.$refs.iconButton.hideDropdown()
     },
 
     copyYoutube() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeShareURL), messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.youtubeShareURL), { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
     openYoutubeEmbed() {
-      this.openExternalLink(this.getFinalUrl(this.youtubeEmbedURL))
+      openExternalLink(this.getFinalUrl(this.youtubeEmbedURL))
       this.$refs.iconButton.hideDropdown()
     },
 
     copyYoutubeEmbed() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.youtubeEmbedURL), messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.youtubeEmbedURL), { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
     openInvidiousEmbed() {
-      this.openExternalLink(this.getFinalUrl(this.invidiousEmbedURL))
+      openExternalLink(this.getFinalUrl(this.invidiousEmbedURL))
       this.$refs.iconButton.hideDropdown()
     },
 
     copyInvidiousEmbed() {
-      this.copyToClipboard({ content: this.getFinalUrl(this.invidiousEmbedURL), messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
+      copyToClipboard(this.getFinalUrl(this.invidiousEmbedURL), { messageOnSuccess: this.$t('Share.Invidious Embed URL copied to clipboard') })
       this.$refs.iconButton.hideDropdown()
     },
 
@@ -126,11 +126,6 @@ export default Vue.extend({
         return this.includeTimestamp ? `${url}?t=${this.getTimestamp()}` : url
       }
       return this.includeTimestamp ? `${url}&t=${this.getTimestamp()}` : url
-    },
-
-    ...mapActions([
-      'openExternalLink',
-      'copyToClipboard'
-    ])
+    }
   }
 })

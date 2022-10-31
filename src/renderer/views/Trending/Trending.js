@@ -7,7 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
-import { showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Trending',
@@ -101,7 +101,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
@@ -157,7 +157,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
-          this.copyToClipboard({ content: err.responseText })
+          copyToClipboard(err.responseText)
         })
 
         if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
@@ -185,8 +185,7 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'invidiousAPICall',
-      'copyToClipboard'
+      'invidiousAPICall'
     ])
   }
 })

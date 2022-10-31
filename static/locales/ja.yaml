@@ -54,7 +54,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: '動画時間'
-    All Durations: '時間指定なし'
+    All Durations: 'すべての長さ'
     Short (< 4 minutes): '短編（4 分未満）'
     Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
@@ -333,6 +333,9 @@ Settings:
     All playlists has been successfully exported: 全ての再生リストは成功にエキスポートされました
     Import Playlists: 再生リストのインポート
     Export Playlists: 再生リストのエキスポート
+    Subscription File: サブスクリプション ファイル
+    History File: 履歴ファイル
+    Playlist File: 再生リスト
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -399,6 +402,10 @@ Settings:
     Parental Control Settings: 制限付きモードの設定
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
+  Experimental Settings:
+    Replace HTTP Cache: HTTP キャッシュの置換
+    Experimental Settings: 実験中の設定
+    Warning: この設定項目は実験中であるため、有効にするとクラッシュするかもしれません。バックアップを必ず作成してください。使用は自己責任でお願いします！
 About:
   #On About page
   About: '概要'
@@ -435,7 +442,7 @@ About:
   room rules: ルームの規則
   Please read the: 確認してください
   Chat on Matrix: Matrix でチャット
-  Mastodon: Mastodon
+  Mastodon: マストドン
   Email: メールアドレス
   Blog: ブログ
   Website: WEB サイト
@@ -521,10 +528,10 @@ Video:
     Hours: '時間'
     Day: '日'
     Days: '日'
-    Week: '週'
+    Week: '週間'
     Weeks: '週'
-    Month: '月'
-    Months: '月'
+    Month: 'か月'
+    Months: 'か月'
     Year: '年'
     Years: '年'
     Ago: '前'
@@ -680,7 +687,7 @@ Comments:
   Sort by: 並べ替え
   Show More Replies: その他の返信を表示する
   And others: その他
-  Pinned by: によって固定されています
+  Pinned by: ピン留め
   From {channelName}: '{channelName} から'
   Member: メンバー
 Up Next: '次の動画'
@@ -744,7 +751,8 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
-Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} 配信中！　詳細はクリックして確認してください
+Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber}
+  配信中！　詳細はクリックして確認してください
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
@@ -779,6 +787,9 @@ Tooltips:
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
+  Experimental Settings:
+    Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
+      RAM の使用率は増加します。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
@@ -799,6 +810,7 @@ Age Restricted:
   Type:
     Channel: チャンネル
     Video: 動画
+  This {videoOrPlaylist} is age restricted: この {videoOrPlaylist} は年齢制限があります
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除
@@ -820,3 +832,4 @@ Chapters:
     {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター:
     {chapterName}'
+Preferences: 環境設定

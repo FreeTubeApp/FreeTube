@@ -141,7 +141,8 @@ Settings:
     Current instance will be randomized on startup: سيتم عشوائية المثيل الحالي عند
       بدء التشغيل
     No default instance has been set: لم يتم تعيين مثيل افتراضي
-    The currently set default instance is {instance}: المثيل الافتراضي المحدد حاليا هو {instance}
+    The currently set default instance is {instance}: المثيل الافتراضي المحدد حاليا
+      هو {instance}
     Current Invidious Instance: المثيل الحالي Invidious
     Clear Default Instance: مسح المثيل الافتراضي
     External Link Handling:
@@ -352,7 +353,8 @@ Settings:
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
-    Playlist insufficient data: ''
+    Playlist insufficient data: 'بيانات غير كافية لقائمة التشغيل "{playlist}" ، تخطي
+      العنصر'
     All playlists has been successfully exported: تم تصدير جميع قوائم التشغيل بنجاح
     Import Playlists: استيراد قوائم التشغيل
     Export Playlists: تصدير قوائم التشغيل
@@ -428,6 +430,11 @@ Settings:
     Parental Control Settings: إعدادات الرقابة الأبوية
     Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
     Show Family Friendly Only: عرض مناسب للعائلة فقط
+  Experimental Settings:
+    Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
+    Experimental Settings: الإعدادات التجريبية
+    Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
+      نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
 About:
   #On About page
   About: 'حول'
@@ -502,8 +509,9 @@ Profile:
   Your profile name cannot be empty: 'لا يمكن أن يكون اسم ملفك الشخصي فارغاً'
   Profile has been created: 'تم إنشاء الملف الشخصي'
   Profile has been updated: 'تم تحديث الملف الشخصي'
-  Your default profile has been set to {profile}: ''
-  Removed {profile} from your profiles: ''
+  Your default profile has been set to {profile}: 'تم تعيين ملف التعريف الافتراضي
+    الخاص بك إلى {profile}'
+  Removed {profile} from your profiles: 'تمت إزالة {profile} من ملفاتك الشخصية'
   Your default profile has been changed to your primary profile: 'تم تغيير ملفك الشخصي
     الافتراضي إلى ملفك الشخصي الأساسي'
   '{profile} is now the active profile': '{profile} هو الآن الملف الشخصي النشط'
@@ -521,7 +529,7 @@ Profile:
   Delete Selected: حذف المُحدد
   Select None: إلغاء التحديد
   Select All: تحديد الكل
-  '{number} selected': ''
+  '{number} selected': '{number} محدد'
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
@@ -555,7 +563,8 @@ Channel:
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
   Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
-  Removed subscription from {count} other channel(s): ''
+  Removed subscription from {count} other channel(s): 'تمت إزالة الاشتراك من {count}
+    قناة (قنوات) أخرى'
   Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
@@ -667,7 +676,7 @@ Video:
       setting a playback rate: ضبط معدل التشغيل
       starting video at offset: بدء تشغيل الفيديو عند الإزاحة
     UnsupportedActionTemplate: '{externalPlayer} لا يدعم: {action}'
-    OpeningTemplate: ''
+    OpeningTemplate: 'جارٍ فتح {videoOrPlaylist} في {externalPlayer} ...'
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في {externalPlayer}
@@ -788,9 +797,11 @@ Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي �
 Yes: 'نعم'
 No: 'لا'
 The playlist has been reversed: تم عكس قائمة التشغيل
-A new blog is now available, {blogTitle}. Click to view more: ''
+A new blog is now available, {blogTitle}. Click to view more: 'هناك مدونة جديدة متاحة
+  الآن ، {blogTitle}. انقر لعرض المزيد'
 Download From Site: تنزيل من الموقع
-Version {versionNumber} is now available!  Click for more details: ''
+Version {versionNumber} is now available!  Click for more details: 'الإصدار {versionNumber}
+  متاح الآن!  انقر لمزيد من التفاصيل'
 Tooltips:
   General Settings:
     Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإطار من
@@ -845,6 +856,10 @@ Tooltips:
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
+      وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
+      العشوائي.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -864,7 +879,7 @@ Search Bar:
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
-Downloading has completed: ''
+Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
 Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
 Download folder does not exist: ''
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
@@ -876,22 +891,24 @@ Age Restricted:
   Type:
     Channel: القناة
     Video: فيديو
-  This {videoOrPlaylist} is age restricted: ''
+  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
 Channels:
   Count: تم العثور على قناة (قنوات) {number}.
-  Unsubscribed: ''
+  Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
   Channels: القنوات
   Title: قائمة القنوات
   Search bar placeholder: البحث في القنوات
   Empty: قائمة قنواتك فارغة حاليا.
   Unsubscribe: إلغاء الاشتراك
-  Unsubscribe Prompt: ''
+  Unsubscribe Prompt: 'هل أنت متأكد من أنك تريد إلغاء الاشتراك من "{channelName}"؟'
 Clipboard:
   Cannot access clipboard without a secure connection: لا يمكن الوصول إلى الحافظة
     دون اتصال آمن
   Copy failed: فشل النسخ إلى الحافظة
 Chapters:
   Chapters: الفصول
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية ، الفصل
+    الحالي: {sectionName}'
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {sectionName}'
+Preferences: التفضيلات

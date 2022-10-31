@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import i18n from '../../i18n/index'
+import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'PlaylistInfo',
@@ -110,16 +110,16 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
-          this.copyToClipboard({ content: youtubeUrl, messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+          copyToClipboard(youtubeUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
-          this.openExternalLink(youtubeUrl)
+          openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
-          this.copyToClipboard({ content: invidiousUrl, messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+          copyToClipboard(invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
-          this.openExternalLink(invidiousUrl)
+          openExternalLink(invidiousUrl)
           break
       }
     },
@@ -139,11 +139,6 @@ export default Vue.extend({
 
     goToChannel: function () {
       this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
-    ...mapActions([
-      'openExternalLink',
-      'copyToClipboard'
-    ])
+    }
   }
 })

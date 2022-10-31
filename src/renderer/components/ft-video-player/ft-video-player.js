@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
 
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
@@ -11,16 +10,14 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
-
+import 'videojs-mobile-ui'
+import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance, colors, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, colors, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
-  components: {
-    'ft-card': FtCard
-  },
   beforeRouteLeave: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {
@@ -105,11 +102,11 @@ export default Vue.extend({
       activeAdaptiveFormats: [],
       mouseTimeout: null,
       touchTimeout: null,
-      lastTouchTime: null,
       playerStats: null,
       statsModal: null,
       showStatsModal: false,
       statsModalEventName: 'updateStats',
+      usingTouch: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -362,6 +359,22 @@ export default Vue.extend({
               allowSeeksWithinUnsafeLiveWindow: true,
               handlePartialData: true
             }
+          }
+        })
+        this.player.mobileUi({
+          fullscreen: {
+            enterOnRotate: true,
+            exitOnRotate: true,
+            lockOnRotate: false
+          },
+          // Without this flag, the mobile UI will only activate
+          // if videojs detects it is in Android or iOS
+          // With this flag, the mobile UI could theoretically
+          // work on any device that has a touch input
+          forceForTesting: true,
+          touchControls: {
+            seekSeconds: this.defaultSkipInterval,
+            tapTimeout: 300
           }
         })
 
@@ -1379,7 +1392,7 @@ export default Vue.extend({
           ]
         }
 
-        const response = await this.showSaveDialog(options)
+        const response = await showSaveDialog(options)
         if (wasPlaying) {
           this.player.play()
         }
@@ -1678,23 +1691,16 @@ export default Vue.extend({
       }
     },
 
-    handleTouchStart: function (event) {
-      this.touchPauseTimeout = setTimeout(() => {
-        this.togglePlayPause()
-      }, 1000)
-
-      const touchTime = new Date()
-
-      if (this.lastTouchTime !== null && (touchTime.getTime() - this.lastTouchTime.getTime()) < 250) {
-        this.toggleFullscreen()
-      }
-
-      this.lastTouchTime = touchTime
+    handleTouchStart: function () {
+      this.usingTouch = true
     },
 
-    handleTouchEnd: function (event) {
-      clearTimeout(this.touchPauseTimeout)
+    handleMouseOver: function () {
+      // This addresses a discrepancy that only seems to occur in the mobile version of firefox
+      if (navigator.userAgent.search('Firefox') !== -1 && (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS)) { return }
+      this.usingTouch = false
     },
+
     toggleShowStatsModal: function() {
       if (this.format !== 'dash') {
         showToast(this.$t('Video.Stats.Video statistics are not available for legacy videos'))
@@ -1911,8 +1917,7 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
-      'getPicturesPath',
-      'showSaveDialog'
+      'getPicturesPath'
     ])
   }
 })

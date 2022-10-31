@@ -3,8 +3,6 @@ import { mapActions } from 'vuex'
 import fs from 'fs'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoChapters from '../../components/watch-video-chapters/watch-video-chapters.vue'
@@ -15,7 +13,7 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
-import { buildVTTFileLocally, showToast } from '../../helpers/utils'
+import { buildVTTFileLocally, copyToClipboard, showToast } from '../../helpers/utils'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -23,8 +21,6 @@ export default Vue.extend({
   name: 'Watch',
   components: {
     'ft-loader': FtLoader,
-    'ft-card': FtCard,
-    'ft-element-list': FtElementList,
     'ft-video-player': FtVideoPlayer,
     'watch-video-info': WatchVideoInfo,
     'watch-video-chapters': WatchVideoChapters,
@@ -379,7 +375,7 @@ export default Vue.extend({
 
           const chapters = []
           if (!this.hideChapters) {
-            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
+            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap?.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
             if (rawChapters) {
               for (const { chapterRenderer } of rawChapters) {
                 const start = chapterRenderer.timeRangeStartMillis / 1000
@@ -627,12 +623,8 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
           console.error(err)
           if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
@@ -851,12 +843,8 @@ export default Vue.extend({
         .catch(err => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast({
-            message: `${errorMessage}: ${err.responseText}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err.responseText })
-            }
+          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
+            copyToClipboard(err.responseText)
           })
           console.error(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
@@ -1042,12 +1030,8 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
           console.error(err)
           if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
@@ -1524,8 +1508,7 @@ export default Vue.extend({
       'getUserDataPath',
       'ytGetVideoInformation',
       'invidiousGetVideoInformation',
-      'updateSubscriptionDetails',
-      'copyToClipboard'
+      'updateSubscriptionDetails'
     ])
   }
 })

@@ -2,16 +2,14 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
-import { showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoPlaylist',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-flex-box': FtFlexBox,
     'ft-list-video': FtListVideo
   },
   props: {
@@ -284,7 +282,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
@@ -316,7 +314,7 @@ export default Vue.extend({
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
-          this.copyToClipboard({ content: err })
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -350,8 +348,7 @@ export default Vue.extend({
 
     ...mapActions([
       'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo',
-      'copyToClipboard'
+      'invidiousGetPlaylistInfo'
     ])
   }
 })

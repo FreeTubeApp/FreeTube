@@ -57,13 +57,7 @@ const config = {
   target: 'electron-main',
 }
 
-if (isDevMode) {
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
-    })
-  )
-} else {
+if (!isDevMode) {
   config.plugins.push(
     new CopyWebpackPlugin({
         patterns: [

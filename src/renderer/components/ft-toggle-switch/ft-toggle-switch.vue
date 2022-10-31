@@ -27,7 +27,7 @@
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"
-        position="bottom-left"
+        :position="tooltipPosition"
         :tooltip="tooltip"
       />
     </label>

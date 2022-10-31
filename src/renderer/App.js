@@ -10,10 +10,9 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
-import Parser from 'rss-parser'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
-import { showToast } from './helpers/utils'
+import { openExternalLink, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
@@ -229,26 +228,30 @@ export default Vue.extend({
 
     checkForNewBlogPosts: function () {
       if (this.checkForBlogPosts) {
-        const parser = new Parser()
-        const feedUrl = 'https://write.as/freetube/feed/'
         let lastAppWasRunning = localStorage.getItem('lastAppWasRunning')
 
         if (lastAppWasRunning !== null) {
           lastAppWasRunning = new Date(lastAppWasRunning)
         }
 
-        parser.parseURL(feedUrl).then((response) => {
-          const latestBlog = response.items[0]
-          const latestPubDate = new Date(latestBlog.pubDate)
+        fetch('https://write.as/freetube/feed/')
+          .then(response => response.text())
+          .then(response => {
+            const xmlDom = new DOMParser().parseFromString(response, 'application/xml')
 
-          if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
-            this.blogBannerMessage = this.$t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: latestBlog.title })
-            this.latestBlogUrl = latestBlog.link
-            this.showBlogBanner = true
-          }
+            const latestBlog = xmlDom.querySelector('item')
+            const latestPubDate = new Date(latestBlog.querySelector('pubDate').textContent)
 
-          localStorage.setItem('lastAppWasRunning', new Date())
-        })
+            if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
+              const title = latestBlog.querySelector('title').textContent
+
+              this.blogBannerMessage = this.$t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: title })
+              this.latestBlogUrl = latestBlog.querySelector('link').textContent
+              this.showBlogBanner = true
+            }
+
+            localStorage.setItem('lastAppWasRunning', new Date())
+          })
       }
     },
 
@@ -269,7 +272,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        this.openExternalLink(this.latestBlogUrl)
+        openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -277,7 +280,7 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      this.openExternalLink(url)
+      openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
@@ -361,7 +364,7 @@ export default Vue.extend({
         this.showExternalLinkOpeningPrompt = true
       } else {
         // Open links externally
-        this.openExternalLink(el.href)
+        openExternalLink(el.href)
       }
     },
 
@@ -512,7 +515,7 @@ export default Vue.extend({
         // if `lastExternalLinkToBeOpened` is empty
 
         // Open links externally
-        this.openExternalLink(this.lastExternalLinkToBeOpened)
+        openExternalLink(this.lastExternalLinkToBeOpened)
       }
     },
 
@@ -527,7 +530,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'openExternalLink',
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',
