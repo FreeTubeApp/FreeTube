@@ -8611,10 +8611,10 @@ yt-channel-info@^3.1.1:
   dependencies:
     axios "^0.27.2"
 
-yt-dash-manifest-generator@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/yt-dash-manifest-generator/-/yt-dash-manifest-generator-1.1.0.tgz#3cbcb086cbb4f6d9cb44f718d3d08b7d5467be1a"
-  integrity sha512-kLYeroH5LmdlvoRf4PrYyzgR5+tFaB1COSsLOjKHPnDvHQ+0Vp+c258TYR0WQp2RNpW57DYci9WG3O8+b1FQzQ==
+yt-dash-manifest-generator@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/yt-dash-manifest-generator/-/yt-dash-manifest-generator-2.0.0.tgz#1513dd1a8aa3e854f175f227e929943674cef478"
+  integrity sha512-U0f+kxJS3ZJj3n50g6n98+Rrbj/Ypl1uY39QEIpcj3wCp2w4Gs/pGEOYYMbipvKtTH2+wRwx44CksvxXrwX7SQ==
   dependencies:
     xml-js "^1.6.11"
     ytdl-core "^3.2.2"
