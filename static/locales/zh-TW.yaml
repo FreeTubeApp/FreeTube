@@ -402,6 +402,10 @@ Settings:
     Show Family Friendly Only: 僅顯示適合家庭觀看
     Hide Search Bar: 隱藏搜尋列
     Parental Control Settings: 家長控制設定
+  Experimental Settings:
+    Replace HTTP Cache: 取代 HTTP 快取
+    Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
+    Experimental Settings: 實驗設定
 About:
   #On About page
   About: '關於'
@@ -786,6 +790,8 @@ Tooltips:
     External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
       設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'{defaultCustomArguments}'）
+  Experimental Settings:
+    Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
@@ -826,3 +832,4 @@ Chapters:
   Chapters: 章節
   'Chapters list visible, current chapter: {chapterName}': 章節清單可見，目前章節：{chapterName}
   'Chapters list hidden, current chapter: {chapterName}': 章節清單已隱藏，目前章節：{chapterName}
+Preferences: 偏好設定
