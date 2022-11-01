@@ -398,3 +398,8 @@ export function createWebURL(path) {
   }
   return `${origin}${windowPath}/${path}`
 }
+
+// strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
+export function stripHTML(value) {
+  return value.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, '')
+}

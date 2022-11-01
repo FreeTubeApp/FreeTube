@@ -5,7 +5,7 @@ import FtButton from '../ft-button/ft-button.vue'
 
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
-import { getRandomColorClass } from '../../helpers/utils'
+import { getRandomColorClass, stripHTML } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
@@ -153,15 +153,15 @@ export default Vue.extend({
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
-            comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlRef
+            comment.messageHtml = stripHTML(comment.messageHtml) + htmlRef
           } else {
-            comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
+            comment.messageHtml = stripHTML(comment.messageHtml + text.text)
           }
         } else if (typeof (text.alt) !== 'undefined') {
           const htmlImg = `<img src="${text.url}" alt="${text.alt}" class="liveChatEmoji" height="24" width="24" />`
-          comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlImg
+          comment.messageHtml = stripHTML(comment.messageHtml) + htmlImg
         } else {
-          comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
+          comment.messageHtml = stripHTML(comment.messageHtml + text.text)
         }
       })
 
