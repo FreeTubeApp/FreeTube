@@ -3,7 +3,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { mapActions } from 'vuex'
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
-import { showToast } from '../../helpers/utils'
+import { copyToClipboard, openExternalLink, showToast, toLocalePublicationString } from '../../helpers/utils'
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
@@ -51,9 +51,6 @@ export default Vue.extend({
         slideBy: 'page',
         navPosition: 'bottom'
       }
-    },
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
     },
 
     historyCache: function () {
@@ -178,50 +175,39 @@ export default Vue.extend({
           showToast(this.$t('Share.YouTube URL copied to clipboard'))
           break
         case 'openYoutube':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeUrl)
-          }
+          openExternalLink(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
-          navigator.clipboard.writeText(this.youtubeEmbedUrl)
-          showToast(this.$t('Share.YouTube Embed URL copied to clipboard'))
+          copyToClipboard(this.youtubeEmbedUrl, {
+            messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard')
+          })
           break
         case 'openYoutubeEmbed':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeEmbedUrl)
-          }
+          openExternalLink(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
-          navigator.clipboard.writeText(this.invidiousUrl)
-          showToast(this.$t('Share.Invidious URL copied to clipboard'))
+          copyToClipboard(this.invidiousUrl, {
+            messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard')
+          })
           break
         case 'openInvidious':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousUrl)
-          }
+          openExternalLink(this.invidiousUrl)
           break
         case 'copyYoutubeChannel':
-          navigator.clipboard.writeText(this.youtubeChannelUrl)
-          showToast(this.$t('Share.YouTube Channel URL copied to clipboard'))
+          copyToClipboard(this.youtubeChannelUrl, {
+            messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard')
+          })
           break
         case 'openYoutubeChannel':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.youtubeChannelUrl)
-          }
+          openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
-          navigator.clipboard.writeText(this.invidiousChannelUrl)
-          showToast(this.$t('Share.Invidious Channel URL copied to clipboard'))
+          copyToClipboard(this.invidiousChannelUrl, {
+            messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard')
+          })
           break
         case 'openInvidiousChannel':
-          if (this.usingElectron) {
-            const shell = require('electron').shell
-            shell.openExternal(this.invidiousChannelUrl)
-          }
+          openExternalLink(this.invidiousChannelUrl)
           break
       }
     },
@@ -275,12 +261,8 @@ export default Vue.extend({
       this.authorThumbnails = this.data.authorThumbnails
       this.postContent = this.data.postContent
       this.postId = this.data.postId
-      this.toLocalePublicationString({
+      toLocalePublicationString({
         publishText: this.data.publishedText,
-        templateString: this.$t('Video.Publicationtemplate'),
-        timeStrings: this.$t('Video.Published'),
-        liveStreamString: this.$t('Video.Watching'),
-        upcomingString: this.$t('Video.Published.Upcoming'),
         isLive: this.isLive,
         isUpcoming: this.isUpcoming,
         isRSS: this.data.isRSS
@@ -383,8 +365,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
-      'toLocalePublicationString',
       'updateHistory',
       'removeFromHistory',
       'addVideo',
