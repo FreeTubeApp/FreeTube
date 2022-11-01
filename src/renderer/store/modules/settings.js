@@ -323,7 +323,7 @@ const stateWithSideEffects = {
       }
 
       i18n.locale = targetLocale
-      dispatch('getRegionData', {
+      await dispatch('getRegionData', {
         locale: targetLocale
       })
     }

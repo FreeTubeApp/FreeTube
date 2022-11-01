@@ -1,6 +1,7 @@
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
+import fs from 'fs'
 
 export const colors = [
   { name: 'Red', value: '#d50000' },
@@ -102,6 +103,55 @@ export function calculatePublishedDate(publishedText) {
   return date.getTime() - timeSpan
 }
 
+export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
+  if (isLive) {
+    return '0' + i18n.t('Video.Watching')
+  } else if (isUpcoming || publishText === null) {
+    // the check for null is currently just an inferring of knowledge, because there is no other possibility left
+    return `${i18n.t('Video.Published.Upcoming')}: ${publishText}`
+  } else if (isRSS) {
+    return publishText
+  }
+  const strings = publishText.split(' ')
+  // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
+  if (strings[0].toLowerCase() === 'streamed') {
+    strings.shift()
+  }
+  const singular = (strings[0] === '1')
+  let translationKey = ''
+  switch (strings[1].substring(0, 2)) {
+    case 'se':
+      translationKey = 'Video.Published.Second'
+      break
+    case 'mi':
+      translationKey = 'Video.Published.Minute'
+      break
+    case 'ho':
+      translationKey = 'Video.Published.Hour'
+      break
+    case 'da':
+      translationKey = 'Video.Published.Day'
+      break
+    case 'we':
+      translationKey = 'Video.Published.Week'
+      break
+    case 'mo':
+      translationKey = 'Video.Published.Month'
+      break
+    case 'ye':
+      translationKey = 'Video.Published.Year'
+      break
+    default:
+      return publishText
+  }
+  if (!singular) {
+    translationKey += 's'
+  }
+
+  const unit = i18n.t(translationKey)
+  return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
+}
+
 export function buildVTTFileLocally(storyboard) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
@@ -195,4 +245,156 @@ export function openExternalLink(url) {
   } else {
     window.open(url, '_blank')
   }
+}
+
+export async function showOpenDialog (options) {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.SHOW_OPEN_DIALOG, options)
+  } else {
+    return await new Promise((resolve) => {
+      const fileInput = document.createElement('input')
+      fileInput.setAttribute('type', 'file')
+      if (options?.filters[0]?.extensions !== undefined) {
+        // this will map the given extensions from the options to the accept attribute of the input
+        fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
+      }
+      fileInput.onchange = () => {
+        const files = Array.from(fileInput.files)
+        resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
+        delete fileInput.onchange
+      }
+      const listenForEnd = () => {
+        window.removeEventListener('focus', listenForEnd)
+        // 1 second timeout on the response from the file picker to prevent awaiting forever
+        setTimeout(() => {
+          if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
+            // if there are no files and the onchange has not been triggered, the file-picker was canceled
+            resolve({ canceled: true })
+            delete fileInput.onchange
+          }
+        }, 1000)
+      }
+      window.addEventListener('focus', listenForEnd)
+      fileInput.click()
+    })
+  }
+}
+
+/**
+ * @param {object} response the response from `showOpenDialog`
+ * @param {number} index which file to read (defaults to the first in the response)
+ * @returns the text contents of the selected file
+ */
+export function readFileFromDialog(response, index = 0) {
+  return new Promise((resolve, reject) => {
+    if (process.env.IS_ELECTRON) {
+      // if this is Electron, use fs
+      fs.readFile(response.filePaths[index], (err, data) => {
+        if (err) {
+          reject(err)
+          return
+        }
+        resolve(new TextDecoder('utf-8').decode(data))
+      })
+    } else {
+      // if this is web, use FileReader
+      try {
+        const reader = new FileReader()
+        reader.onload = function (file) {
+          resolve(file.currentTarget.result)
+        }
+        reader.readAsText(response.files[index])
+      } catch (exception) {
+        reject(exception)
+      }
+    }
+  })
+}
+
+export async function showSaveDialog (options) {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
+  } else {
+    // If the native filesystem api is available
+    if ('showSaveFilePicker' in window) {
+      return {
+        canceled: false,
+        handle: await window.showSaveFilePicker({
+          suggestedName: options.defaultPath.split('/').at(-1),
+          types: options.filters[0]?.extensions?.map((extension) => {
+            return {
+              accept: {
+                'application/octet-stream': '.' + extension
+              }
+            }
+          })
+        })
+      }
+    } else {
+      return { canceled: false, filePath: options.defaultPath }
+    }
+  }
+}
+
+/**
+* Write to a file picked out from the `showSaveDialog` picker
+* @param {object} response the response from `showSaveDialog`
+* @param {string} content the content to be written to the file selected by the dialog
+*/
+export async function writeFileFromDialog (response, content) {
+  if (process.env.IS_ELECTRON) {
+    return await new Promise((resolve, reject) => {
+      const { filePath } = response
+      fs.writeFile(filePath, content, (error) => {
+        if (error) {
+          reject(error)
+        } else {
+          resolve()
+        }
+      })
+    })
+  } else {
+    if ('showOpenFilePicker' in window) {
+      const { handle } = response
+      const writableStream = await handle.createWritable()
+      await writableStream.write(content)
+      await writableStream.close()
+    } else {
+      // If the native filesystem api is not available,
+      const { filePath } = response
+      const filename = filePath.split('/').at(-1)
+      const a = document.createElement('a')
+      const url = URL.createObjectURL(new Blob([content], { type: 'application/octet-stream' }))
+      a.setAttribute('href', url)
+      a.setAttribute('download', encodeURI(filename))
+      a.click()
+    }
+  }
+}
+
+/**
+ * This creates an absolute web url from a given path.
+ * It will assume all given paths are relative to the current window location.
+ * @param {string} path relative path to resource
+ * @returns {string} absolute web path
+ */
+export function createWebURL(path) {
+  const url = new URL(window.location.href)
+  const { origin } = url
+  let windowPath = url.pathname
+  // Remove the html file name from the path
+  if (windowPath.endsWith('.html')) {
+    windowPath = windowPath.replace(/[^./]*\.html$/, '')
+  }
+  // Remove proceeding slash in given path if there is one
+  if (path.startsWith('/')) {
+    path = path.substring(1, path.length)
+  }
+  // Remove trailing slash if there is one
+  if (windowPath.endsWith('/')) {
+    windowPath = windowPath.substring(0, windowPath.length - 1)
+  }
+  return `${origin}${windowPath}/${path}`
 }

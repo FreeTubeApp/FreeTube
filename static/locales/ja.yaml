@@ -54,7 +54,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: '動画時間'
-    All Durations: '時間指定なし'
+    All Durations: 'すべての長さ'
     Short (< 4 minutes): '短編（4 分未満）'
     Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
@@ -402,6 +402,10 @@ Settings:
     Parental Control Settings: 制限付きモードの設定
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
+  Experimental Settings:
+    Replace HTTP Cache: HTTP キャッシュの置換
+    Experimental Settings: 実験中の設定
+    Warning: この設定項目は実験中であるため、有効にするとクラッシュするかもしれません。バックアップを必ず作成してください。使用は自己責任でお願いします！
 About:
   #On About page
   About: '概要'
@@ -438,7 +442,7 @@ About:
   room rules: ルームの規則
   Please read the: 確認してください
   Chat on Matrix: Matrix でチャット
-  Mastodon: Mastodon
+  Mastodon: マストドン
   Email: メールアドレス
   Blog: ブログ
   Website: WEB サイト
@@ -524,10 +528,10 @@ Video:
     Hours: '時間'
     Day: '日'
     Days: '日'
-    Week: '週'
+    Week: '週間'
     Weeks: '週'
-    Month: '月'
-    Months: '月'
+    Month: 'か月'
+    Months: 'か月'
     Year: '年'
     Years: '年'
     Ago: '前'
@@ -683,7 +687,7 @@ Comments:
   Sort by: 並べ替え
   Show More Replies: その他の返信を表示する
   And others: その他
-  Pinned by: によって固定されています
+  Pinned by: ピン留め
   From {channelName}: '{channelName} から'
   Member: メンバー
 Up Next: '次の動画'
@@ -783,6 +787,9 @@ Tooltips:
     External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
       の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト: '{defaultCustomArguments}'）"
+  Experimental Settings:
+    Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
+      RAM の使用率は増加します。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
@@ -825,3 +832,4 @@ Chapters:
     {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター:
     {chapterName}'
+Preferences: 環境設定

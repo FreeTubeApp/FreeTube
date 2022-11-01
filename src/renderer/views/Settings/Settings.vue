@@ -23,6 +23,8 @@
     <parental-control-settings />
     <hr>
     <sponsor-block-settings />
+    <hr v-if="usingElectron">
+    <experimental-settings v-if="usingElectron" />
   </div>
 </template>
 

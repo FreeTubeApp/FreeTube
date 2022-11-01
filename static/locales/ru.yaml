@@ -438,6 +438,11 @@ Settings:
     Parental Control Settings: Настройки родительского контроля
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
+  Experimental Settings:
+    Experimental Settings: Пробные настройки
+    Replace HTTP Cache: Заменить HTTP-кэш
+    Warning: Эти настройки являются пробными, они вызывают сбои при включении. Желательно
+      сделать резервные копии. Используйте на своё усмотрение!
 About:
   #On About page
   About: 'О приложении'

@@ -4,7 +4,7 @@ import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
-import { openExternalLink, showToast } from '../../helpers/utils'
+import { createWebURL, openExternalLink, showSaveDialog, showToast } from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -170,7 +170,7 @@ const actions = {
           }
         ]
       }
-      const response = await dispatch('showSaveDialog', { options })
+      const response = await showSaveDialog(options)
 
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -244,75 +244,6 @@ const actions = {
     return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
   },
 
-  /**
-   * @param {Object} response the response from `showOpenDialog`
-   * @param {Number} index which file to read (defaults to the first in the response)
-   * @returns the text contents of the selected file
-   */
-  async readFileFromDialog(context, { response, index = 0 }) {
-    return await new Promise((resolve, reject) => {
-      if (process.env.IS_ELECTRON) {
-        // if this is Electron, use fs
-        fs.readFile(response.filePaths[index], (err, data) => {
-          if (err) {
-            reject(err)
-            return
-          }
-          resolve(new TextDecoder('utf-8').decode(data))
-        })
-      } else {
-        // if this is web, use FileReader
-        try {
-          const reader = new FileReader()
-          reader.onload = function (file) {
-            resolve(file.currentTarget.result)
-          }
-          reader.readAsText(response.files[index])
-        } catch (exception) {
-          reject(exception)
-        }
-      }
-    })
-  },
-
-  async showOpenDialog (context, options) {
-    const webCbk = () => {
-      return new Promise((resolve) => {
-        const fileInput = document.createElement('input')
-        fileInput.setAttribute('type', 'file')
-        if (options?.filters[0]?.extensions !== undefined) {
-          // this will map the given extensions from the options to the accept attribute of the input
-          fileInput.setAttribute('accept', options.filters[0].extensions.map((extension) => { return `.${extension}` }).join(', '))
-        }
-        fileInput.onchange = () => {
-          const files = Array.from(fileInput.files)
-          resolve({ canceled: false, files, filePaths: files.map(({ name }) => { return name }) })
-          delete fileInput.onchange
-        }
-        const listenForEnd = () => {
-          window.removeEventListener('focus', listenForEnd)
-          // 1 second timeout on the response from the file picker to prevent awaiting forever
-          setTimeout(() => {
-            if (fileInput.files.length === 0 && typeof fileInput.onchange === 'function') {
-              // if there are no files and the onchange has not been triggered, the file-picker was canceled
-              resolve({ canceled: true })
-              delete fileInput.onchange
-            }
-          }, 1000)
-        }
-        window.addEventListener('focus', listenForEnd)
-        fileInput.click()
-      })
-    }
-    return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
-  },
-
-  async showSaveDialog (context, options) {
-    // TODO: implement showSaveDialog web compatible callback
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, options)
-  },
-
   async getUserDataPath (context) {
     // TODO: implement getUserDataPath web compatible callback
     const webCbk = () => null
@@ -383,16 +314,19 @@ const actions = {
     commit('setShowProgressBar', value)
   },
 
-  getRegionData ({ commit }, payload) {
-    let fileData
-    /* eslint-disable-next-line */
-    const fileLocation = process.env.NODE_ENV === 'development' ? './static/geolocations/' : `${__dirname}/static/geolocations/`
-    if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
-      fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)
+  async getRegionData ({ commit }, { locale }) {
+    let localePathExists
+    // Exclude __dirname from path if not in electron
+    const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
+    if (process.env.IS_ELECTRON) {
+      localePathExists = fs.existsSync(`${fileLocation}${locale}`)
     } else {
-      fileData = fs.readFileSync(`${fileLocation}en-US/countries.json`)
+      localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     }
-    const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
+    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}/countries.json`
+    const fileData = process.env.IS_ELECTRON ? JSON.parse(fs.readFileSync(pathName)) : await (await fetch(createWebURL(pathName))).json()
+
+    const countries = fileData.map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
     countries.sort((a, b) => { return a.id - b.id })
 
     const regionNames = countries.map((entry) => { return entry.name })
@@ -643,76 +577,6 @@ const actions = {
         }
       }
     }
-  },
-
-  toLocalePublicationString ({ dispatch }, payload) {
-    if (payload.isLive) {
-      return '0' + i18n.t('Video.Watching')
-    } else if (payload.isUpcoming || payload.publishText === null) {
-      // the check for null is currently just an inferring of knowledge, because there is no other possibility left
-      return `${i18n.t('Video.Published.Upcoming')}: ${payload.publishText}`
-    } else if (payload.isRSS) {
-      return payload.publishText
-    }
-    const strings = payload.publishText.split(' ')
-    // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
-    if (strings[0].toLowerCase() === 'streamed') {
-      strings.shift()
-    }
-    const singular = (strings[0] === '1')
-    let unit
-    switch (strings[1].substring(0, 2)) {
-      case 'se':
-        if (singular) {
-          unit = i18n.t('Video.Published.Second')
-        } else {
-          unit = i18n.t('Video.Published.Seconds')
-        }
-        break
-      case 'mi':
-        if (singular) {
-          unit = i18n.t('Video.Published.Minute')
-        } else {
-          unit = i18n.t('Video.Published.Minutes')
-        }
-        break
-      case 'ho':
-        if (singular) {
-          unit = i18n.t('Video.Published.Hour')
-        } else {
-          unit = i18n.t('Video.Published.Hours')
-        }
-        break
-      case 'da':
-        if (singular) {
-          unit = i18n.t('Video.Published.Day')
-        } else {
-          unit = i18n.t('Video.Published.Days')
-        }
-        break
-      case 'we':
-        if (singular) {
-          unit = i18n.t('Video.Published.Week')
-        } else {
-          unit = i18n.t('Video.Published.Weeks')
-        }
-        break
-      case 'mo':
-        if (singular) {
-          unit = i18n.t('Video.Published.Month')
-        } else {
-          unit = i18n.t('Video.Published.Months')
-        }
-        break
-      case 'ye':
-        if (singular) {
-          unit = i18n.t('Video.Published.Year')
-        } else {
-          unit = i18n.t('Video.Published.Years')
-        }
-        break
-    }
-    return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
   },
 
   clearSessionSearchHistory ({ commit }) {

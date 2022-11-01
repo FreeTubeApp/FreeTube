@@ -3,8 +3,6 @@ import { mapActions } from 'vuex'
 import fs from 'fs'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoChapters from '../../components/watch-video-chapters/watch-video-chapters.vue'
@@ -23,8 +21,6 @@ export default Vue.extend({
   name: 'Watch',
   components: {
     'ft-loader': FtLoader,
-    'ft-card': FtCard,
-    'ft-element-list': FtElementList,
     'ft-video-player': FtVideoPlayer,
     'watch-video-info': WatchVideoInfo,
     'watch-video-chapters': WatchVideoChapters,
@@ -379,7 +375,7 @@ export default Vue.extend({
 
           const chapters = []
           if (!this.hideChapters) {
-            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
+            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap?.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
             if (rawChapters) {
               for (const { chapterRenderer } of rawChapters) {
                 const start = chapterRenderer.timeRangeStartMillis / 1000

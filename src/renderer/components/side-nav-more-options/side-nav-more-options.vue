@@ -64,7 +64,7 @@
         </p>
       </div>
       <div
-        v-if="!hidePopularVideos"
+        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption"
         :title="$t('Most Popular')"
         @click="navigate('popular')"

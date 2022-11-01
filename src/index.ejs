@@ -18,17 +18,6 @@
 
   <body>
     <div id="app"></div>
-    <% if (process.env.NODE_ENV !== 'development') { %>
-    <!-- Set `__static` path to static files in production -->
-    <script>
-    try {
-        window.__static = require('path')
-          .join(__dirname, '/static')
-          .replace(/\\/g, '\\\\')
-      } catch {}
-    </script>
-    <% } %>
-
     <script>
     // This is the service worker with the Advanced caching
 

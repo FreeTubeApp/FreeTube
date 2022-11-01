@@ -2,7 +2,12 @@ import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import i18n from '../../i18n/index'
-import { copyToClipboard, openExternalLink, showToast } from '../../helpers/utils'
+import {
+  copyToClipboard,
+  openExternalLink,
+  showToast,
+  toLocalePublicationString
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -392,15 +397,11 @@ export default Vue.extend({
 
       if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
         // produces a string according to the template in the locales string
-        this.toLocalePublicationString({
+        this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,
           isLive: this.isLive,
           isUpcoming: this.isUpcoming,
           isRSS: this.data.isRSS
-        }).then((data) => {
-          this.uploadedTime = data
-        }).catch((error) => {
-          console.error(error)
         })
       }
 
@@ -503,7 +504,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'toLocalePublicationString',
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',

@@ -76,6 +76,7 @@ Subscriptions:
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
+  Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -464,7 +465,8 @@ Channel:
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
   Added channel to your subscriptions: Canal añadido a sus suscripciones
-  Removed subscription from {count} other channel(s): Suscripción eliminada de {count} otros canales
+  Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
+    otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     sus suscripciones
 Video:
@@ -699,8 +701,8 @@ Profile:
   Your default profile has been changed to your primary profile: Su perfil predeterminado
     se ha cambiado a su perfil principal
   Removed {profile} from your profiles: Se eliminó {profile} de sus perfiles
-  Your default profile has been set to {profile}: Su perfil predeterminado ha sido establecido
-    a {profile}
+  Your default profile has been set to {profile}: Su perfil predeterminado ha sido
+    establecido a {profile}
   Profile has been updated: El perfil ha sido actualizado
   Profile has been created: El profil ha sido creado
   Your profile name cannot be empty: Su nombre de perfil no puede estar vacío
@@ -739,11 +741,11 @@ Profile:
   Profile Filter: Filtro de Perfil
   Profile Settings: Configuración de perfil
 The playlist has been reversed: La lista de reproducción ha sido invertida
-A new blog is now available, {blogTitle}. Click to view more: Un nuevo blog ya está disponible,
-  {blogTitle}. Presione para ver más
+A new blog is now available, {blogTitle}. Click to view more: Un nuevo blog ya está
+  disponible, {blogTitle}. Presione para ver más
 Download From Site: Descargar desde el sitio
-Version {versionNumber} is now available!  Click for more details: Versión {versionNumber} ya está disponible!
-  Presione para más detalles
+Version {versionNumber} is now available!  Click for more details: Versión {versionNumber}
+  ya está disponible! Presione para más detalles
 Open New Window: Abrir nueva ventana
 More: Más
 Are you sure you want to open this link?: ¿Estás seguro de abrir este link?
@@ -826,3 +828,5 @@ Playing Next Video Interval: El próximo video se abrirá inmediatamente. Haga c
   aquí para cancelar. | Se abrirá el siguiente video en {nextVideoInterval} segundo.
   Haga clic aquí para cancelar. | Se abrirá el siguiente video en {nextVideoInterval}
   segundos. Haga clic aquí para cancelar.
+New Window: Nueva ventana
+Preferences: Preferencias

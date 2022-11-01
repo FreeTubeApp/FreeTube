@@ -430,6 +430,11 @@ Settings:
     Parental Control Settings: إعدادات الرقابة الأبوية
     Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
     Show Family Friendly Only: عرض مناسب للعائلة فقط
+  Experimental Settings:
+    Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
+    Experimental Settings: الإعدادات التجريبية
+    Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
+      نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
 About:
   #On About page
   About: 'حول'
@@ -558,7 +563,8 @@ Channel:
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
   Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
-  Removed subscription from {count} other channel(s): ''
+  Removed subscription from {count} other channel(s): 'تمت إزالة الاشتراك من {count}
+    قناة (قنوات) أخرى'
   Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
@@ -670,7 +676,7 @@ Video:
       setting a playback rate: ضبط معدل التشغيل
       starting video at offset: بدء تشغيل الفيديو عند الإزاحة
     UnsupportedActionTemplate: '{externalPlayer} لا يدعم: {action}'
-    OpeningTemplate: ''
+    OpeningTemplate: 'جارٍ فتح {videoOrPlaylist} في {externalPlayer} ...'
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في {externalPlayer}
@@ -850,6 +856,10 @@ Tooltips:
       إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
       Invidious على المشغلات الخارجية.
     DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
+      وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
+      العشوائي.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -869,7 +879,7 @@ Search Bar:
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
-Downloading has completed: ''
+Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
 Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
 Download folder does not exist: ''
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
@@ -881,7 +891,7 @@ Age Restricted:
   Type:
     Channel: القناة
     Video: فيديو
-  This {videoOrPlaylist} is age restricted: ''
+  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
 Channels:
   Count: تم العثور على قناة (قنوات) {number}.
   Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
@@ -897,6 +907,8 @@ Clipboard:
   Copy failed: فشل النسخ إلى الحافظة
 Chapters:
   Chapters: الفصول
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية ، الفصل
+    الحالي: {sectionName}'
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {sectionName}'
+Preferences: التفضيلات
