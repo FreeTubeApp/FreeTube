@@ -1,0 +1,19 @@
+'PR: waiting for review':
+  - '*'  
+  - '.babelrc'        
+  - '.editorconfig'
+  - '.eslintignore'
+  - '.eslintrc.js'
+  - '.gitignore'
+  - '.prettierrc'       
+  - '.whitesource'       
+  - '.github/**/*'         
+  - '.vscode/**/*'          
+  - '_icons/**/*'          
+  - '_scripts/**/*'         
+  - 'src/**/*'          
+  - 'static/**/*'       
+
+'PR: dependencies':
+  - 'yarn.lock'
+  - 'package.json'

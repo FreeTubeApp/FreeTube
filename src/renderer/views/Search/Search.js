@@ -4,7 +4,8 @@ import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import ytTrendScraper from 'yt-trending-scraper'
+import { calculateLengthInSeconds } from '@freetube/yt-trending-scraper/src/HtmlParser'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Search',
@@ -72,7 +73,6 @@ export default Vue.extend({
   },
   mounted: function () {
     this.query = this.$route.params.query
-    console.log(this.$route)
 
     this.searchSettings = {
       sortBy: this.$route.query.sortBy,
@@ -100,8 +100,6 @@ export default Vue.extend({
       this.isLoading = true
 
       if (sameSearch.length > 0) {
-        console.log(sameSearch)
-
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.
@@ -129,7 +127,6 @@ export default Vue.extend({
       payload.options.safeSearch = this.showFamilyFriendlyOnly
 
       this.ytSearch(payload).then((result) => {
-        console.log(result)
         if (!result) {
           return
         }
@@ -154,7 +151,7 @@ export default Vue.extend({
             let videoDuration = video.duration
             const videoId = video.id
             if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
-              videoDuration = ytTrendScraper.calculate_length_in_seconds(video.duration)
+              videoDuration = calculateLengthInSeconds(video.duration)
             }
             dataToShow.push(
               {
@@ -201,19 +198,13 @@ export default Vue.extend({
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
+          showToast(this.$t('Falling back to Invidious API'))
           this.performSearchInvidious(payload)
         } else {
           this.isLoading = false
@@ -225,7 +216,6 @@ export default Vue.extend({
       if (this.searchPage === 1) {
         this.isLoading = true
       }
-      console.log(payload)
 
       const searchPayload = {
         resource: 'search',
@@ -247,13 +237,9 @@ export default Vue.extend({
 
         this.apiUsed = 'invidious'
 
-        console.log(result)
-
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
-
-        console.log(returnData)
 
         if (this.searchPage !== 1) {
           this.shownResults = this.shownResults.concat(returnData)
@@ -273,19 +259,13 @@ export default Vue.extend({
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          this.showToast({
-            message: this.$t('Falling back to Local API')
-          })
+          showToast(this.$t('Falling back to Local API'))
           this.performSearchLocal(payload)
         } else {
           this.isLoading = false
@@ -304,23 +284,15 @@ export default Vue.extend({
         }
       }
 
-      console.log(payload)
-
       if (this.apiUsed === 'local') {
         if (this.amountOfResults <= this.shownResults.length) {
-          this.showToast({
-            message: this.$t('Search Filters.There are no more results for this search')
-          })
+          showToast(this.$t('Search Filters.There are no more results for this search'))
         } else {
-          this.showToast({
-            message: this.$t('Search Filters["Fetching results. Please wait"]')
-          })
+          showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
           this.performSearchLocal(payload)
         }
       } else {
-        this.showToast({
-          message: this.$t('Search Filters["Fetching results. Please wait"]')
-        })
+        showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
         this.performSearchInvidious(payload)
       }
     },
@@ -343,7 +315,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'ytSearch',
       'invidiousAPICall'
     ])

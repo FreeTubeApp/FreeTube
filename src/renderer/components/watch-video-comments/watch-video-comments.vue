@@ -52,7 +52,7 @@
           class="commentPinned"
         >
           <font-awesome-icon
-            icon="thumbtack"
+            :icon="['fas', 'thumbtack']"
           />
           {{ $t("Comments.Pinned by") }} {{ channelName }}
         </p>
@@ -88,7 +88,7 @@
         <p class="commentLikeCount">
           <font-awesome-icon
             v-if="!hideCommentLikes"
-            icon="thumbs-up"
+            :icon="['fas', 'thumbs-up']"
           />
           {{ comment.likes }}
           <span
@@ -100,11 +100,11 @@
               class="commentHeartBadgeImg"
             >
             <font-awesome-icon
-              icon="heart"
+              :icon="['fas', 'heart']"
               class="commentHeartBadgeWhite"
             />
             <font-awesome-icon
-              icon="heart"
+              :icon="['fas', 'heart']"
               class="commentHeartBadgeRed"
             />
           </span>
@@ -118,7 +118,7 @@
             {{ comment.numReplies }}
             <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
             <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
-            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From $channelName").replace("$channelName", channelName) }}</span>
+            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From {channelName}", { channelName }) }}</span>
             <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies">{{ $t("Comments.And others") }}</span>
           </span>
         </p>
@@ -163,7 +163,7 @@
             <p class="commentLikeCount">
               <font-awesome-icon
                 v-if="!hideCommentLikes"
-                icon="thumbs-up"
+                :icon="['fas', 'thumbs-up']"
               />
               {{ reply.likes }}
             </p>

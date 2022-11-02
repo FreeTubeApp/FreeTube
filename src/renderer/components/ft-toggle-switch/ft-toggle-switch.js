@@ -26,6 +26,10 @@ export default Vue.extend({
     tooltip: {
       type: String,
       default: ''
+    },
+    tooltipPosition: {
+      type: String,
+      default: 'bottom-left'
     }
   },
   data: function () {

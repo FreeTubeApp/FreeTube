@@ -25,10 +25,10 @@ export default Vue.extend({
 
       toast.isOpen = false
     },
-    open: function (message, action, time) {
+    open: function (message, time, action) {
       const toast = { message: message, action: action || (() => { }), isOpen: false, timeout: null }
       toast.timeout = setTimeout(this.close, time || 3000, toast)
-      setImmediate(() => { toast.isOpen = true })
+      setTimeout(() => { toast.isOpen = true })
       if (this.toasts.length > 4) {
         this.remove(0)
       }

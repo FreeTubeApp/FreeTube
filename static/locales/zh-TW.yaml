@@ -75,6 +75,8 @@ Subscriptions:
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
+  Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
+  Empty Channels: 您訂閱的頻道目前沒有任何影片。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -132,7 +134,7 @@ Settings:
     Set Current Instance as Default: 設定目前站台為預設值
     Current instance will be randomized on startup: 目前站台將在啟動時隨機選擇
     No default instance has been set: 未設定預設的站台
-    The currently set default instance is $: 目前設定的預設站台為 $
+    The currently set default instance is {instance}: 目前設定的預設站台為 {instance}
     Current Invidious Instance: 目前的 Invidious 站台
     External Link Handling:
       No Action: 無動作
@@ -259,6 +261,7 @@ Settings:
     Export Subscriptions: '導出訂閱'
     How do I import my subscriptions?: '如何導入我的訂閱？'
     Fetch Feeds from RSS: 從RSS擷取推送
+    Fetch Automatically: 自動擷取 Feed
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -328,8 +331,11 @@ Settings:
     Import Playlists: 匯入播放清單
     All playlists has been successfully imported: 所有播放清單都已成功匯入
     Export Playlists: 匯出播放清單
-    Playlist insufficient data: 「$」播放清單的資料不足，正在略過項目
+    Playlist insufficient data: 「{playlist}」播放清單的資料不足，正在略過項目
     All playlists has been successfully exported: 所有播放清單都已成功匯出
+    Subscription File: 訂閱檔案
+    History File: 歷史紀錄檔案
+    Playlist File: 播放清單檔案
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾設定
@@ -346,6 +352,7 @@ Settings:
     Hide Comments: 隱藏留言
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
+    Hide Chapters: 隱藏章節
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -395,6 +402,10 @@ Settings:
     Show Family Friendly Only: 僅顯示適合家庭觀看
     Hide Search Bar: 隱藏搜尋列
     Parental Control Settings: 家長控制設定
+  Experimental Settings:
+    Replace HTTP Cache: 取代 HTTP 快取
+    Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
+    Experimental Settings: 實驗設定
 About:
   #On About page
   About: '關於'
@@ -480,7 +491,7 @@ Channel:
     Channel Description: '頻道說明'
     Featured Channels: '推薦頻道'
   Added channel to your subscriptions: 已新增頻道至您的訂閱
-  Removed subscription from $ other channel(s): 從$個其他頻道移除訂閱
+  Removed subscription from {count} other channel(s): 從{count}個其他頻道移除訂閱
   Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
 Video:
   Open in YouTube: '在YouTube中開啟'
@@ -533,9 +544,10 @@ Video:
     Upcoming: '首播於'
     Minutes: 分鐘
     Minute: 分鐘
+    Less than a minute: 少於一分鐘
+    In less than a minute: 不到一分鐘內
   Published on: '發布於'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % 前'
+  Publicationtemplate: '{number} {unit} 前'
 #& Videos
   Video has been removed from your history: 影片已從您的觀看紀錄中移除
   Video has been marked as watched: 影片標記為已觀看
@@ -585,11 +597,11 @@ Video:
       opening playlists: 正在開啟播放清單
       setting a playback rate: 正在設定播放速度
       starting video at offset: 在偏移處開始影片
-    UnsupportedActionTemplate: $ 不支援：%
-    OpeningTemplate: 正於 % 中開啟 $……
+    UnsupportedActionTemplate: '{externalPlayer} 不支援：{action}'
+    OpeningTemplate: 正於 {externalPlayer} 中開啟 {videoOrPlaylist}……
     playlist: 播放清單
     video: 視訊
-    OpenInTemplate: 在 $ 中開啟
+    OpenInTemplate: 在 {externalPlayer} 中開啟
   Premieres on: 首映日期
   Stats:
     buffered: 已緩衝
@@ -610,6 +622,8 @@ Video:
     Video statistics are not available for legacy videos: 影片統計資料不適用於舊版影片
     Video ID: 影片 ID
     Mimetype: 多媒體類型
+  Premieres in: 首映於
+  Premieres: 首映
 Videos:
   #& Sort By
   Sort By:
@@ -637,7 +651,7 @@ Playlist:
   Playlist: 播放清單
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
-  Change Video Formats: '變更影片格式'
+  Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
   Use Legacy Formats: '使用傳統格式'
   Use Audio Formats: '使用音訊格式'
@@ -678,7 +692,7 @@ Comments:
   No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
   And others: 與其他人
-  From $channelName: 來自 $channelName
+  From {channelName}: 來自 {channelName}
   Pinned by: 釘選由
   Member: 成員
 Up Next: '觀看其他類似影片'
@@ -703,10 +717,10 @@ Yes: '是'
 No: '否'
 Locale Name: 繁體中文
 Profile:
-  $ is now the active profile: $現在是作用中的設定檔
+  '{profile} is now the active profile': '{profile}現在是作用中的設定檔'
   Your default profile has been changed to your primary profile: 您的預設設定檔已變更為您的主要設定檔
-  Removed $ from your profiles: 已從您的設定檔移除$
-  Your default profile has been set to $: 您的預設設定檔已設定為$
+  Removed {profile} from your profiles: 已從您的設定檔移除{profile}
+  Your default profile has been set to {profile}: 您的預設設定檔已設定為{profile}
   Profile has been updated: 設定檔已更新
   Profile has been created: 設定檔已建立
   Your profile name cannot be empty: 您的設定檔名稱不能為空
@@ -735,20 +749,22 @@ Profile:
   Delete Selected: 移除選取的
   Select None: 全不選
   Select All: 全選
-  $ selected: $個選取的
+  '{number} selected': '{number}個選取的'
   Other Channels: 其他頻道
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
   Profile Settings: 設定檔設定
 The playlist has been reversed: 播放清單已反轉
-A new blog is now available, $. Click to view more: 已有新的部落格文章，$。點擊以檢視更多
+A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
-Version $ is now available!  Click for more details: 版本更新囉! 最新版本 $ ! 點擊以取得更多資訊
+Version {versionNumber} is now available!  Click for more details: 版本更新囉! 最新版本 {versionNumber}
+  ! 點擊以取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
       IP 封鎖，但它可能不會提供某些資訊，例如影片長度或是直播狀態
+    Fetch Automatically: 啟用後，FreeTube 在開啟新視窗與切換設定檔時，將會自動擷取您的訂閱 feed。
   Player Settings:
     Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。覆寫 API 偏好。
@@ -773,7 +789,9 @@ Tooltips:
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
     External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
       設定不會影響外部播放程式。
-    DefaultCustomArgumentsTemplate: （預設：'$'）
+    DefaultCustomArgumentsTemplate: （預設：'{defaultCustomArguments}'）
+  Experimental Settings:
+    Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
@@ -781,28 +799,37 @@ Hashtags have not yet been implemented, try again later: 尚未實作主題標�
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
 Open New Window: 開啟新視窗
 Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
-Default Invidious instance has been set to $: 預設 Invidious 站台已被設定為 $
+Default Invidious instance has been set to {instance}: 預設 Invidious 站台已被設定為 {instance}
 Search Bar:
   Clear Input: 清除輸入
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
-Downloading failed: 下載「$」時發生問題
-Downloading has completed: 「$」已下載結束
-Starting download: 正在開始下載「$」
-Screenshot Success: 已儲存螢幕截圖為 "$"
-Screenshot Error: 螢幕截圖失敗。 $
+Downloading failed: 下載「{videoTitle}」時發生問題
+Downloading has completed: 「{videoTitle}」已下載結束
+Starting download: 正在開始下載「{videoTitle}」
+Screenshot Success: 已儲存螢幕截圖為 "{filePath}"
+Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗
 Age Restricted:
-  This $contentType is age restricted: 此 $ 有年齡限制
+  The currently set default instance is {instance}: 此 {instance} 有年齡限制
   Type:
     Channel: 頻道
     Video: 影片
+  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年齡限制
 Channels:
   Channels: 頻道
   Title: 頻道清單
   Search bar placeholder: 搜尋頻道
   Unsubscribe: 取消訂閱
-  Count: 找到 $ 個頻道。
+  Count: 找到 {number} 個頻道。
   Empty: 您的頻道清單目前為空。
-  Unsubscribe Prompt: 您確定您想要從「$」取消訂閱嗎？
-  Unsubscribed: $ 已從您的訂閱移除
+  Unsubscribe Prompt: 您確定您想要從「{channelName}」取消訂閱嗎？
+  Unsubscribed: '{channelName} 已從您的訂閱移除'
+Clipboard:
+  Copy failed: 複製到剪貼簿失敗
+  Cannot access clipboard without a secure connection: 無法在沒有安全連線的情況下存取剪貼簿
+Chapters:
+  Chapters: 章節
+  'Chapters list visible, current chapter: {chapterName}': 章節清單可見，目前章節：{chapterName}
+  'Chapters list hidden, current chapter: {chapterName}': 章節清單已隱藏，目前章節：{chapterName}
+Preferences: 偏好設定

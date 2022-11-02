@@ -5,17 +5,18 @@
 .playlistInfo {
   background-color: var(--card-bg-color);
   box-sizing: border-box;
-  height: calc(100vh - 96px);
+  height: calc(100vh - 132px);
   margin-right: 1em;
   overflow-y: auto;
   padding: 10px;
   position: sticky;
-  top: 78px;
+  top: 96px;
   width: 30%;
 }
 
 .playlistItems {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-gap: 10px;
   margin: 0;
   padding: 10px;

@@ -79,6 +79,9 @@ Subscriptions:
     dostępu
   Load More Videos: Załaduj więcej filmów
   Error Channels: Kanały z błędami
+  Disabled Automatic Fetching: Wyłączyłeś automatyczne pobieranie subskrypcji. Odśwież
+    subskrypcje, by je zobaczyć.
+  Empty Channels: Twoje subskrypcje nie mają obecnie żadnych filmów.
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -145,7 +148,8 @@ Settings:
     Current instance will be randomized on startup: Obecna instancja będzie losowana
       przy uruchamianiu
     No default instance has been set: Nie ustawiono domyślnej instancji
-    The currently set default instance is $: Obecnie domyślną instancją jest $
+    The currently set default instance is {instance}: Obecnie domyślną instancją jest
+      {instance}
     Current Invidious Instance: Obecna instancja Invidious
     External Link Handling:
       No Action: Brak akcji
@@ -276,6 +280,7 @@ Settings:
     Export Subscriptions: 'Eksportuj subskrypcje'
     How do I import my subscriptions?: 'Jak zaimportować swoje subskrypcje?'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
+    Fetch Automatically: Automatycznie odświeżaj subskrypcje
   Advanced Settings:
     Advanced Settings: 'Ustawienia zaawansowane'
     Enable Debug Mode (Prints data to the console): 'Włącz tryb dubugowania (pokazuje
@@ -308,10 +313,10 @@ Settings:
     Are you sure you want to remove your entire watch history?: Jesteś pewny/a, że
       chcesz usunąć całą historię oglądania?
     Remove Watch History: Usuń historię oglądania
-    Search cache has been cleared: Plik cache wyszukiwań został wyczyszczony
+    Search cache has been cleared: Plik pamięci podręcznej wyszukiwań został wyczyszczony
     Are you sure you want to clear out your search cache?: Jesteś pewny/a, że chcesz
-      wyczyścić plik cache wyszukiwań?
-    Clear Search Cache: Wyczyść plik cache wyszukiwań
+      wyczyścić plik pamięci podręcznej wyszukiwań?
+    Clear Search Cache: Wyczyść plik pamięci podręcznej wyszukiwań
     Save Watched Progress: Zapisuj postęp odtwarzania
     Remember History: Pamiętaj historię
     Privacy Settings: Ustawienia prywatności
@@ -361,10 +366,13 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „$”, pomijam
-      element
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”,
+      pomijam element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
+    History File: Plik historii
+    Playlist File: Plik playlist
+    Subscription File: Plik subskrypcji
   Distraction Free Settings:
     Distraction Free Settings: Ustawienia skupienia uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -381,6 +389,7 @@ Settings:
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj linki do dzielenia się filmem
     Hide Live Streams: Schowaj transmisje na żywo
+    Hide Chapters: Schowaj rozdziały
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -436,6 +445,11 @@ Settings:
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
+  Experimental Settings:
+    Replace HTTP Cache: Zastąp pamięć podręczną HTTP
+    Experimental Settings: Ustawienia eksperymentalne
+    Warning: Te ustawienia są w fazie testów i po włączeniu mogą spowodować wywalenie
+      się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
 About:
   #On About page
   About: 'O projekcie'
@@ -530,8 +544,8 @@ Channel:
     Channel Description: 'Opis kanału'
     Featured Channels: 'Polecane kanały'
   Added channel to your subscriptions: Dodano kanał do twoich subskrypcji
-  Removed subscription from $ other channel(s): Usunięto subskrypcje z $ pozostałych
-    kanałów
+  Removed subscription from {count} other channel(s): Usunięto subskrypcje z {count}
+    pozostałych kanałów
   Channel has been removed from your subscriptions: Kanał został usunięty z twoich
     subskrypcji
 Video:
@@ -593,9 +607,10 @@ Video:
     Upcoming: 'Premiera'
     Minutes: minut/y
     Minute: minutę
+    Less than a minute: mniej niż minutę
+    In less than a minute: Za mniej niż minutę
   Published on: 'Opublikowano'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % temu'
+  Publicationtemplate: '{number} {unit} temu'
 #& Videos
   Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
@@ -617,7 +632,7 @@ Video:
   Open Channel in Invidious: Otwórz kanał na stronie Invidious
   Copy YouTube Channel Link: Skopiuj link do kanału na stronie YouTube
   Open Channel in YouTube: Otwórz kanał na stronie YouTube
-  Started streaming on: Rozpoczęto transmitowanie dnia
+  Started streaming on: Transmisję rozpoczęto
   Streamed on: Transmitowane dnia
   Video has been removed from your saved list: Film został usunięty z Twojej listy
     zapisanych
@@ -644,11 +659,11 @@ Video:
       opening playlists: otwierania playlist
       setting a playback rate: ustawienia prędkości odtwarzania
       starting video at offset: rozpoczynania filmu z przesunięciem
-    UnsupportedActionTemplate: '$ nie obsługuje: %'
-    OpeningTemplate: Otwieranie $ w %...
+    UnsupportedActionTemplate: '{externalPlayer} nie obsługuje: {action}'
+    OpeningTemplate: Otwieranie {videoOrPlaylist} w {externalPlayer}...
     playlist: playlisty
     video: filmu
-    OpenInTemplate: Otwórz w $
+    OpenInTemplate: Otwórz w {externalPlayer}
   Premieres on: Premiera
   Stats:
     buffered: Zbuforowano
@@ -670,6 +685,8 @@ Video:
     Video statistics are not available for legacy videos: Statystyki filmu nie są
       dostępne dla starych formatów
     Dropped / Total Frames: Opuszczone klatki / klatki ogółem
+  Premieres in: Premiera za
+  Premieres: Premiery
 Videos:
   #& Sort By
   Sort By:
@@ -697,7 +714,7 @@ Playlist:
   Playlist: Playlista
 Toggle Theatre Mode: 'Aktywuj tryb kinowy'
 Change Format:
-  Change Video Formats: 'Zmień formaty wideo'
+  Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
   Use Legacy Formats: 'Użyj starych formatów'
   Use Audio Formats: 'Użyj formatów audio'
@@ -745,7 +762,7 @@ Comments:
   Show More Replies: Pokaż więcej odpowiedzi
   And others: i innych
   Pinned by: Przypięty przez
-  From $channelName: od $channelName
+  From {channelName}: od {channelName}
   Member: Wspierający
 Up Next: 'Następne'
 
@@ -771,11 +788,12 @@ Yes: 'Tak'
 No: 'Nie'
 Locale Name: Polski
 Profile:
-  $ is now the active profile: $ jest teraz aktywnym profilem
+  '{profile} is now the active profile': '{profile} jest teraz aktywnym profilem'
   Your default profile has been changed to your primary profile: Twój domyślny profil
     został zmieniony na profil główny
-  Removed $ from your profiles: Usunięto $ z twoich profili
-  Your default profile has been set to $: $ został ustawiony jako Twój domyślny profil
+  Removed {profile} from your profiles: Usunięto {profile} z twoich profili
+  Your default profile has been set to {profile}: '{profile} został ustawiony jako
+    Twój domyślny profil'
   Profile has been updated: Zaktualizowano profil
   Profile has been created: Utworzono profil
   Your profile name cannot be empty: Nazwa profilu nie może być pusta
@@ -807,17 +825,17 @@ Profile:
   Delete Selected: Usuń wybrane
   Select None: Nic nie wybieraj
   Select All: Wybierz wszystkie
-  $ selected: Wybrano $
+  '{number} selected': Wybrano {number}
   Other Channels: Inne kanały
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
 The playlist has been reversed: Playlista została odwrócona
-A new blog is now available, $. Click to view more: Nowy wpis na blogu jest dostępny,
-  $. Kliknij, aby zobaczyć więcej
+A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
+  jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
 Download From Site: Pobierz ze strony
-Version $ is now available!  Click for more details: Wersja $ jest już dostępna! Kliknij
-  po więcej szczegółów
+Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber}
+  jest już dostępna! Kliknij po więcej szczegółów
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten
   film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada
   regionalna.
@@ -827,6 +845,8 @@ Tooltips:
       metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale
       nie dostarcza informacji, takich jak czas trwania filmu czy status transmisji
       na żywo
+    Fetch Automatically: Po włączeniu FreeTube będzie automatycznie pobierał Twoje
+      subskrypcje po otwarciu nowego okna lub po zmianie profilu.
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany
       API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API
@@ -873,7 +893,11 @@ Tooltips:
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
-    DefaultCustomArgumentsTemplate: "(Domyślnie: '$')"
+    DefaultCustomArgumentsTemplate: "(Domyślnie: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
+      Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
+      to większe użycie pamięci RAM.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
@@ -886,33 +910,46 @@ Hashtags have not yet been implemented, try again later: Hashtagi nie zostały j
 Open New Window: Otwórz nowe okno
 Default Invidious instance has been cleared: Domyślna instancja Invidious została
   wyczyszczona
-Default Invidious instance has been set to $: Domyślna instancja Invidious została
-  ustawiona na $
+Default Invidious instance has been set to {instance}: Domyślna instancja Invidious
+  została ustawiona na {instance}
 Search Bar:
   Clear Input: Wyczyść pole
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   linków zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '„$” został pobrany'
-Starting download: Rozpoczęto pobieranie „$”
-Downloading failed: Wystąpił problem z pobieraniem „$”
+Downloading has completed: '„{videoTitle}” został pobrany'
+Starting download: Rozpoczęto pobieranie „{videoTitle}”
+Downloading failed: Wystąpił problem z pobieraniem „{videoTitle}”
 Downloading canceled: Pobieranie zostało przerwane przez użytkownika
 Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na
   tryb "pytaj o folder".
-Screenshot Error: Wykonanie zrzutu nie powiodło się. $
-Screenshot Success: Zapisano zrzut ekranu jako „$”
+Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
+Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
 Age Restricted:
   Type:
     Channel: kanał
     Video: film
-  This $contentType is age restricted: Ten $ ma ograniczenie wiekowe
+  The currently set default instance is {instance}: Ten {instance} ma ograniczenie
+    wiekowe
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} ma ograniczenie wiekowe'
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów
-  Count: Znaleziono $ kanał(y/ów).
+  Count: Znaleziono {number} kanał(y/ów).
   Empty: Twoja lista kanałów jest na razie pusta.
   Unsubscribe: Odsubskrybuj
-  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „$”?
-  Unsubscribed: $ został usunięty z Twoich subskrypcji
+  Unsubscribe Prompt: Czy na pewno chcesz zrezygnować z subskrypcji „{channelName}”?
+  Unsubscribed: '{channelName} został usunięty z Twoich subskrypcji'
   Channels: Kanały
   Search bar placeholder: Przeszukaj kanały
+Clipboard:
+  Copy failed: Skopiowanie do zasobnika nie powiodło się
+  Cannot access clipboard without a secure connection: Bez bezpiecznego połączenia
+    nie można uzyskać dostępu do schowka
+Chapters:
+  Chapters: Rozdziały
+  'Chapters list visible, current chapter: {chapterName}': 'Spis treści widoczny,
+    obecny rozdział: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
+    rozdział: {chapterName}'
+Preferences: Preferencje

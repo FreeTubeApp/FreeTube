@@ -5,7 +5,7 @@
       class="button"
       type="button"
     >
-      <font-awesome-icon icon="question-circle" />
+      <font-awesome-icon :icon="['fas', 'question-circle']" />
     </button>
     <p
       :id="id"

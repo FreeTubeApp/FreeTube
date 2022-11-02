@@ -1,9 +1,13 @@
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
 const { productName } = require('../package.json')
 
@@ -12,13 +16,18 @@ const isDevMode = process.env.NODE_ENV === 'development'
 const config = {
   name: 'web',
   mode: process.env.NODE_ENV,
-  devtool: isDevMode ? '#cheap-module-eval-source-map' : false,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     web: path.join(__dirname, '../src/renderer/main.js'),
   },
   output: {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
+  },
+  externals: {
+    electron: '{}',
+    ytpl: '{}',
+    ytsr: '{}'
   },
   module: {
     rules: [
@@ -29,27 +38,19 @@ const config = {
       },
       {
         test: /\.vue$/,
-        use: {
-          loader: 'vue-loader',
-          options: {
-            extractCSS: true,
-            loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader',
-              less: 'vue-style-loader!css-loader!less-loader',
-            },
-          },
-        },
+        loader: 'vue-loader'
       },
       {
         test: /\.s(c|a)ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {},
           },
           {
             loader: 'css-loader',
+            options: {
+              esModule: false
+            }
           },
           {
             loader: 'sass-loader',
@@ -67,10 +68,14 @@ const config = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
+            loader: MiniCssExtractPlugin.loader
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          }
         ],
       },
       {
@@ -79,39 +84,43 @@ const config = {
       },
       {
         test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            esModule: false,
-            limit: 10000,
-            name: 'imgs/[name]--[folder].[ext]',
-          },
-        },
+        type: 'asset/resource',
+        generator: {
+          filename: 'imgs/[name][ext]'
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            esModule: false,
-            limit: 10000,
-            name: 'fonts/[name]--[folder].[ext]',
-          },
-        },
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
       },
     ],
   },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new JsonMinimizerPlugin({
+        exclude: /\/locales\/.*\.json/
+      }),
+      new CssMinimizerPlugin()
+    ]
+  },
   node: {
-    __dirname: isDevMode,
+    __dirname: true,
     __filename: isDevMode,
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-    dns: 'empty'
   },
   plugins: [
-    // new WriteFilePlugin(),
+    new webpack.DefinePlugin({
+      'process.env.PRODUCT_NAME': JSON.stringify(productName),
+      'process.env.IS_ELECTRON': false
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+      Buffer: ['buffer', 'Buffer'],
+    }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
@@ -119,9 +128,6 @@ const config = {
       nodeModules: false,
     }),
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-    }),
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
@@ -136,60 +142,61 @@ const config = {
       images: path.join(__dirname, '../src/renderer/assets/img/'),
       static: path.join(__dirname, '../static/'),
     },
+    fallback: {
+      buffer: require.resolve('buffer/'),
+      dns: require.resolve('browserify/lib/_empty.js'),
+      fs: require.resolve('browserify/lib/_empty.js'),
+      http: require.resolve('stream-http'),
+      https: require.resolve('https-browserify'),
+      net: require.resolve('browserify/lib/_empty.js'),
+      os: require.resolve('os-browserify/browser.js'),
+      path: require.resolve('path-browserify'),
+      stream: require.resolve('stream-browserify'),
+      timers: require.resolve('timers-browserify'),
+      tls: require.resolve('browserify/lib/_empty.js'),
+      vm: require.resolve('vm-browserify'),
+      zlib: require.resolve('browserify-zlib')
+    },
     extensions: ['.js', '.vue', '.json', '.css'],
   },
   target: 'web',
 }
 
-/**
- * Adjust web for production settings
- */
-if (isDevMode) {
-  // any dev only config
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
-    })
-  )
-} else {
-  config.plugins.push(
-    new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
+const processLocalesPlugin = new ProcessLocalesPlugin({
+  compress: false,
+  inputDir: path.join(__dirname, '../static/locales'),
+  outputDir: 'static/locales',
+})
+
+config.plugins.push(
+  processLocalesPlugin,
+  new webpack.DefinePlugin({
+    'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
+    'process.env.GEOLOCATION_NAMES': JSON.stringify(fs.readdirSync(path.join(__dirname, '..', 'static', 'geolocations')))
+  }),
+  new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../static/pwabuilder-sw.js'),
+          to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
+        },
+        {
+          from: path.join(__dirname, '../static'),
+          to: path.join(__dirname, '../dist/web/static'),
+          globOptions: {
+            dot: true,
+            ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
           },
-          {
-            from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/web/static'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/web/_icons'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../src/renderer/assets/img'),
-            to: path.join(__dirname, '../dist/web/images'),
-            globOptions: {
-              dot: true,
-              ignore: ['**/.*'],
-            },
-          },
-        ]
-      }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    })
-  )
-}
+        },
+    ]
+  }),
+  // webpack doesn't get rid of js-yaml even though it isn't used in the production builds
+  // so we need to manually tell it to ignore any imports for `js-yaml`
+  new webpack.IgnorePlugin({
+    resourceRegExp: /^js-yaml$/,
+    contextRegExp: /i18n$/
+  })
+)
+
 
 module.exports = config

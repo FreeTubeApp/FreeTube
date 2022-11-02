@@ -19,7 +19,7 @@
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="rss"
+            :icon="['fas', 'rss']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -38,12 +38,13 @@
         tabindex="0"
         :title="$t('Channels.Channels')"
         @click="navigate('subscribedchannels')"
+        @keydown.enter.prevent="navigate('subscribedchannels')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="list"
+            :icon="['fas', 'list']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -63,13 +64,13 @@
         tabindex="0"
         :title="$t('Trending.Trending')"
         @click="navigate('trending')"
-        @keypress="navigate('trending')"
+        @keydown.enter.prevent="navigate('trending')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="fire"
+            :icon="['fas', 'fire']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -83,19 +84,19 @@
         </p>
       </div>
       <div
-        v-if="!hidePopularVideos"
+        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
         :title="$t('Most Popular')"
         @click="navigate('popular')"
-        @keypress="navigate('popular')"
+        @keydown.enter.prevent="navigate('popular')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="users"
+            :icon="['fas', 'users']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -115,13 +116,13 @@
         tabindex="0"
         :title="$t('Playlists')"
         @click="navigate('userplaylists')"
-        @keypress="navigate('userplaylists')"
+        @keydown.enter.prevent="navigate('userplaylists')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="bookmark"
+            :icon="['fas', 'bookmark']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -143,13 +144,13 @@
         tabindex="0"
         :title="$t('History.History')"
         @click="navigate('history')"
-        @keypress="navigate('history')"
+        @keydown.enter.prevent="navigate('history')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="history"
+            :icon="['fas', 'history']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -169,13 +170,13 @@
         tabindex="0"
         :title="$t('Settings.Settings')"
         @click="navigate('settings')"
-        @keypress="navigate('settings')"
+        @keydown.enter.prevent="navigate('settings')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="sliders-h"
+            :icon="['fas', 'sliders-h']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -194,13 +195,13 @@
         tabindex="0"
         :title="$t('About.About')"
         @click="navigate('about')"
-        @keypress="navigate('about')"
+        @keydown.enter.prevent="navigate('about')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="info-circle"
+            :icon="['fas', 'info-circle']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -217,15 +218,13 @@
       <div
         v-if="!hideActiveSubscriptions"
       >
-        <div
+        <router-link
           v-for="(channel, index) in activeSubscriptions"
           :key="index"
-          class="navChannel mobileHidden"
+          :to="`/channel/${channel.id}`"
+          class="navChannel channelLink mobileHidden"
           :title="channel.name"
           role="button"
-          tabindex="0"
-          @click="goToChannel(channel.id)"
-          @keypress="goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"
@@ -241,7 +240,7 @@
           >
             {{ channel.name }}
           </p>
-        </div>
+        </router-link>
       </div>
     </div>
   </ft-flex-box>

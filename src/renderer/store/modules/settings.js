@@ -1,6 +1,7 @@
 import i18n from '../../i18n/index'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
+import { showToast } from '../../helpers/utils'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -207,6 +208,7 @@ const state = {
   hideVideoViews: false,
   hideWatchedSubs: false,
   hideLabelsSideBar: false,
+  hideChapters: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
@@ -268,7 +270,8 @@ const state = {
   screenshotQuality: 95,
   screenshotAskPath: false,
   screenshotFolderPath: '',
-  screenshotFilenamePattern: '%Y%M%D-%H%N%S'
+  screenshotFilenamePattern: '%Y%M%D-%H%N%S',
+  fetchSubscriptionsAutomatically: true
 }
 
 const stateWithSideEffects = {
@@ -281,7 +284,7 @@ const stateWithSideEffects = {
       if (value === 'system') {
         const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
         const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
-        const targetLocaleOptions = Object.keys(i18n.messages).filter((locale) => { // filter out other languages
+        const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
           return localeLang.includes(systemLocaleLang)
         }).sort((a, b) => {
@@ -311,15 +314,16 @@ const stateWithSideEffects = {
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
           // (in this case, English (US))
-          dispatch('showToast',
-            { message: `Locale not found, defaulting to ${defaultLocale}` }
-          )
+          showToast(`Locale not found, defaulting to ${defaultLocale}`)
         }
       }
 
+      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
+        await i18n.loadLocale(targetLocale)
+      }
+
       i18n.locale = targetLocale
-      dispatch('getRegionData', {
-        isDev: process.env.NODE_ENV === 'development',
+      await dispatch('getRegionData', {
         locale: targetLocale
       })
     }
@@ -343,8 +347,8 @@ const stateWithSideEffects = {
 
   uiScale: {
     defaultValue: 100,
-    sideEffectsHandler: ({ state: { usingElectron } }, value) => {
-      if (usingElectron) {
+    sideEffectsHandler: (_, value) => {
+      if (process.env.IS_ELECTRON) {
         const { webFrame } = require('electron')
         webFrame.setZoomFactor(value / 100)
       }
@@ -353,11 +357,9 @@ const stateWithSideEffects = {
 }
 
 const customState = {
-  usingElectron: (window?.process?.type === 'renderer')
 }
 
 const customGetters = {
-  getUsingElectron: (state) => state.usingElectron
 }
 
 const customMutations = {}
@@ -385,9 +387,14 @@ Object.assign(customGetters, {
 const customActions = {
   grabUserSettings: async ({ commit, dispatch, getters }) => {
     try {
-      const userSettings = await DBSettingHandlers.find()
+      // Assigning default settings for settings that have side effects
+      const userSettings = Object.entries(Object.assign({},
+        Object.fromEntries(Object.entries(stateWithSideEffects).map(([_id, { defaultValue }]) => { return [_id, defaultValue] })),
+        Object.fromEntries((await DBSettingHandlers.find()).map(({ _id, value }) => { return [_id, value] })))
+      )
+
       for (const setting of userSettings) {
-        const { _id, value } = setting
+        const [_id, value] = setting
         if (getters.settingHasSideEffects(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }

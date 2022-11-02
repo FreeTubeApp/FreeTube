@@ -1,7 +1,7 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tämä osa sovelluksesta ei ole vielä valmis. Tule takaisin myöhemmin.
+  Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin.
 
 # Webkit Menu Bar
 File: 'Tiedosto'
@@ -76,6 +76,9 @@ Subscriptions:
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
+  Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
+  Disabled Automatic Fetching: Olet poistanut käytöstä automaattisen tilaustennoutamisen.
+    Virkistä tilaukset nähdäksesi ne täällä.
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -139,7 +142,8 @@ Settings:
     Current instance will be randomized on startup: Nykyinen palveluntarjoaja valitaan
       satunnaisesti käynnistyksen yhteydessä
     No default instance has been set: Oletuspalveluntarjoajaa ei ole määritelty
-    The currently set default instance is $: Nykyinen oletuspalveluntarjoaja on $
+    The currently set default instance is {instance}: Nykyinen oletuspalveluntarjoaja
+      on {instance}
     Current Invidious Instance: Nykyinen Invidious-palveluntarjoaja
     External Link Handling:
       No Action: Ei toimintoa
@@ -269,6 +273,7 @@ Settings:
     Export Subscriptions: 'Vie tilauksia'
     How do I import my subscriptions?: 'Miten voin tuoda tilaukseni?'
     Fetch Feeds from RSS: Nouda RSS-syöte
+    Fetch Automatically: Nouda syöte automaattisesti
   Advanced Settings:
     Advanced Settings: 'Lisäasetukset'
     Enable Debug Mode (Prints data to the console): 'Ota virheenkorjaustila käyttöön
@@ -353,8 +358,11 @@ Settings:
     All playlists has been successfully exported: Kaikki soittolistat on viety onnistuneesti
     Import Playlists: Tuo soittolistoja
     Export Playlists: Vie soittolistoja
-    Playlist insufficient data: Riittämätön määrä tietoja ”$” -soittolistalle, ohitetaan
-      kohde
+    Playlist insufficient data: Riittämätön määrä tietoja ”{playlist}” -soittolistalle,
+      ohitetaan kohde
+    Playlist File: Soittolistatiedosto
+    History File: Historia-tiedosto
+    Subscription File: Tilaustiedosto
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -371,6 +379,7 @@ Settings:
     Hide Video Description: Piilota videon kuvaus
     Hide Live Streams: Piilota suorat lähetykset
     Hide Sharing Actions: Piilota jakamistoiminnot
+    Hide Chapters: Piilota kappaleet
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -410,6 +419,9 @@ Settings:
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
+    Players:
+      None:
+        Name: Ei mitään
   Download Settings:
     Download Settings: Latausasetukset
     Choose Path: Valitse polku
@@ -422,6 +434,12 @@ Settings:
     Hide Unsubscribe Button: Piilota Peruuta tilaus -paninike
     Show Family Friendly Only: Näytä vain koko perheelle sopiva sisältö
     Hide Search Bar: Piilota hakupalkki
+  Experimental Settings:
+    Experimental Settings: Kokeelliset asetukset
+    Warning: Nämä asetukset ovat kokeellisia ja ne aiheuttavat kaatumisia, kun ne
+      ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa. Käytä omalla
+      vastuullasi!
+    Replace HTTP Cache: Korvaa HTTP-välimuisti
 About:
   #On About page
   About: 'Tietoja'
@@ -504,7 +522,8 @@ Channel:
     Channel Description: 'Kanavan kuvaus'
     Featured Channels: 'Suositellut kanavat'
   Added channel to your subscriptions: Kanava on lisätty tilauksiisi
-  Removed subscription from $ other channel(s): Poistettu tilaus $ muulta kanavalta
+  Removed subscription from {count} other channel(s): Poistettu tilaus {count} muulta
+    kanavalta
   Channel has been removed from your subscriptions: Kanava on poistettu tilauksistasi
 Video:
   Open in YouTube: 'Avaa Youtubessa'
@@ -560,9 +579,10 @@ Video:
     Upcoming: 'Ensiesitys'
     Minutes: Minuuttia
     Minute: Minuutti
+    Less than a minute: Vähemmän kuin minuutti
+    In less than a minute: Alle minuutin kuluessa
   Published on: 'Julkaistu'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % sitten'
+  Publicationtemplate: '{number} {unit} sitten'
 #& Videos
   Video has been removed from your history: Video on poistettu historiastasi
   Video has been marked as watched: Video on merkitty katsotuksi
@@ -600,11 +620,11 @@ Video:
       opening playlists: avataan soittoluettelot
       setting a playback rate: asetetaan toiston suhde
       starting video at offset: aloitetaan video poikkeamassa
-    UnsupportedActionTemplate: '$ ei tue: %'
-    OpeningTemplate: Avataan $ täten %...
+    UnsupportedActionTemplate: '{externalPlayer} ei tue: {action}'
+    OpeningTemplate: Avataan {videoOrPlaylist} täten {externalPlayer}...
     playlist: soittoluettelo
     video: video
-    OpenInTemplate: Avaa täten $
+    OpenInTemplate: Avaa täten {externalPlayer}
   Sponsor Block category:
     music offtopic: Musiikki aihepiirin ulkopuolelta
     interaction: Kanssakäyminen
@@ -640,6 +660,7 @@ Video:
     Resolution: Resoluutio
     Dropped / Total Frames: Pudotettu / Yhteensä
   Premieres on: Julkaistaan
+  Premieres: Ensilähetykset
 Videos:
   #& Sort By
   Sort By:
@@ -667,7 +688,7 @@ Playlist:
   Playlist: Soittolista
 Toggle Theatre Mode: 'Teatteritila'
 Change Format:
-  Change Video Formats: 'Vaihda videoformaattia'
+  Change Media Formats: 'Vaihda videoformaattia'
   Use Dash Formats: 'Käytä DASH-formaatteja'
   Use Legacy Formats: 'Käytä Legacy-formaatteja'
   Use Audio Formats: 'Käytä ääniformaatteja'
@@ -710,7 +731,7 @@ Comments:
   Sort by: Lajitteluperuste
   Show More Replies: Näytä enemmän vastauksia
   Pinned by: Kiinnittänyt
-  From $channelName: kanavalta $channelName
+  From {channelName}: kanavalta {channelName}
   And others: ja muut
   Member: Jäsen
 Up Next: 'Seuraavaksi'
@@ -738,11 +759,12 @@ No: 'Ei'
 Locale Name: suomi
 The playlist has been reversed: Soittolista on muutettu käänteiseksi
 Profile:
-  $ is now the active profile: $ on nyt aktiivinen profiili
+  '{profile} is now the active profile': '{profile} on nyt aktiivinen profiili'
   Your default profile has been changed to your primary profile: Oletusprofiilisi
     on vaihdettu ensisijaiseksi profiiliksesi
-  Removed $ from your profiles: $ on poistettu profiileistasi
-  Your default profile has been set to $: Oletusprofiiliksesi on määritetty $
+  Removed {profile} from your profiles: '{profile} on poistettu profiileistasi'
+  Your default profile has been set to {profile}: Oletusprofiiliksesi on määritetty
+    {profile}
   Profile has been updated: Profiili on päivitetty
   Profile has been created: Profiili on luotu
   Your profile name cannot be empty: Profiililla täytyy olla nimi
@@ -772,18 +794,18 @@ Profile:
   Delete Selected: Poista valitut
   Select None: Älä valitse mitään
   Select All: Valitse kaikki
-  $ selected: $ valittu
+  '{number} selected': '{number} valittu'
   Other Channels: Muut kanavat
   Subscription List: Tilauslista
   Profile Filter: Profiilisuodatin
   Profile Settings: Profiiliasetukset
-Version $ is now available!  Click for more details: Versio $ on nyt saatavilla! Napsauta
-  saadaksesi lisätietoja
+Version {versionNumber} is now available!  Click for more details: Versio {versionNumber}
+  on nyt saatavilla! Napsauta saadaksesi lisätietoja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
   video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
   ei ole saatavilla maassasi.
-A new blog is now available, $. Click to view more: Uusi blogi on saatavilla, $. Klikkaa
-  nähdäksesi lisää
+A new blog is now available, {blogTitle}. Click to view more: Uusi blogi on saatavilla,
+  {blogTitle}. Klikkaa nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
@@ -803,6 +825,8 @@ Tooltips:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
       sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
       ei anna tietoja, kuten videon kesto tai livetila
+    Fetch Automatically: Kun tämä on käytössä, FreeTube hakee automaattisesti tilauksesi
+      syötteen, kun uusi ikkuna avataan ja kun vaihdat profiilia.
   Player Settings:
     Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit
       toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon,
@@ -833,7 +857,11 @@ Tooltips:
     External Player: Ulkoisen soittimen valitsemisen johdosta näkyy kuvake videon
       avaamiseen (soittoluettelonkin avaamiseen jos tuettu) ulkoisessa toistimessa.
       Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin toistimiin.
-    DefaultCustomArgumentsTemplate: "(Oletus: '$')"
+    DefaultCustomArgumentsTemplate: "(Oletus: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Poistaa Electronin levypohjaisen HTTP-välimuistin käytöstä
+      ja ottaa käyttöön mukautetun muistissa olevan kuvavälimuistin. Lisää välimuistin
+      käyttöä.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -845,30 +873,41 @@ Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon oso
   ei voida avata sovelluksessa
 Default Invidious instance has been cleared: Oletusarvoinen Invidious-palveluntarjoaja
   on tyhjennetty
-Default Invidious instance has been set to $: Oletusarvoinen Invidious-palveluntarjoaja
-  on jatkossa $
+Default Invidious instance has been set to {instance}: Oletusarvoinen Invidious-palveluntarjoaja
+  on jatkossa {instance}
 Search Bar:
   Clear Input: Tyhjennä syöte
 External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
   on poistettu käytöstä yleisissä asetuksissa
 Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?
-Downloading failed: Videon "$" lataamisessa havaittiin ongelma
-Downloading has completed: Videon "$" lataus on valmis
-Starting download: Aloitetaan lataamaan "$"
-Screenshot Success: Kuvakaappaus tallennettu nimellä ”$”
+Downloading failed: Videon "{videoTitle}" lataamisessa havaittiin ongelma
+Downloading has completed: Videon "{videoTitle}" lataus on valmis
+Starting download: Aloitetaan lataamaan "{videoTitle}"
+Screenshot Success: Kuvakaappaus tallennettu nimellä ”{filePath}”
 New Window: Uusi ikkuna
 Age Restricted:
-  This $contentType is age restricted: Tämä $ on ikärajoitettu
+  This {videoOrPlaylist} is age restricted: Tämä {videoOrPlaylist} on ikärajoitettu
   Type:
     Video: Video
     Channel: Kanava
-Screenshot Error: Ruutukaappaus epäonnistui. $
+Screenshot Error: Ruutukaappaus epäonnistui. {error}
 Channels:
   Channels: Kanavat
   Title: Kanavaluettelo
   Search bar placeholder: Etsi kanavia
-  Count: $ kanava(a) löydetty.
+  Count: '{number} kanava(a) löydetty.'
   Empty: Kanavaluettelosi on tällä hetkellä tyhjä.
   Unsubscribe: Peruuta tilaus
-  Unsubscribe Prompt: Oletko varma että haluat peruuttaa tilauksen kanavalle ”$”?
-  Unsubscribed: $ on poistettu tilauksistasi
+  Unsubscribe Prompt: Oletko varma että haluat peruuttaa tilauksen kanavalle ”{channelName}”?
+  Unsubscribed: '{channelName} on poistettu tilauksistasi'
+Clipboard:
+  Copy failed: Kopiointi leikepöydälle epäonnistui
+  Cannot access clipboard without a secure connection: Leikepöytää ei voi käyttää
+    ilman suojattua yhteyttä
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Lukujen luettelo piilotettu,
+    nykyinen luku: {chapterName}'
+  Chapters: Luvut
+  'Chapters list visible, current chapter: {chapterName}': 'Lukujen luettelo näkyvissä,
+    nykyinen luku: {chapterName}'
+Preferences: Asetukset

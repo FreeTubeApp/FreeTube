@@ -14,7 +14,7 @@
     </div>
     <font-awesome-icon
       class="bannerIcon"
-      icon="times"
+      :icon="['fas', 'times']"
       @click="handleClose"
     />
   </div>

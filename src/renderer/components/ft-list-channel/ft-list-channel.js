@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import i18n from '../../i18n/index'
 
 export default Vue.extend({
   name: 'FtListChannel',
@@ -32,6 +33,9 @@ export default Vue.extend({
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
+    },
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
@@ -59,7 +63,7 @@ export default Vue.extend({
       if (this.data.videos === null) {
         this.videoCount = 0
       } else {
-        this.videoCount = this.data.videos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videos)
       }
 
       this.description = this.data.descriptionShort
@@ -81,9 +85,9 @@ export default Vue.extend({
       if (this.hideChannelSubscriptions) {
         this.subscriberCount = null
       } else {
-        this.subscriberCount = this.data.subCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.subscriberCount = Intl.NumberFormat(this.currentLocale).format(this.data.subCount)
       }
-      this.videoCount = this.data.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
       this.description = this.data.description
     }
   }

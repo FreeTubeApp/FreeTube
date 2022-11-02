@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Parental Control Settings.Parental Control Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Parental Control Settings.Parental Control Settings')"
+  >
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -30,8 +26,7 @@
         />
       </div>
     </div>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./parental-control-settings.js" />
-<style scoped lang="sass" src="./parental-control-settings.sass" />

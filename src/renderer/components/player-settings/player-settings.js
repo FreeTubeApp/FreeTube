@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
@@ -15,7 +15,7 @@ import path from 'path'
 export default Vue.extend({
   name: 'PlayerSettings',
   components: {
-    'ft-card': FtCard,
+    'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-slider': FtSlider,

@@ -1,15 +1,16 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell, nativeTheme
+  powerSaveBlocker, screen, session, shell, nativeTheme, net, protocol
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
 
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
+import { extractExpiryTimestamp, ImageCache } from './ImageCache'
+import { existsSync } from 'fs'
 
 if (process.argv.includes('--version')) {
-  console.log(`v${app.getVersion()}`)
   app.exit()
 } else {
   runApp()
@@ -22,10 +23,17 @@ function runApp() {
     showCopyImageAddress: true,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
-        label: 'Show Video Statistics',
+        label: 'Show / Hide Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
           browserWindow.webContents.send('showVideoStatistics')
+        }
+      },
+      {
+        label: 'Open in a New Window',
+        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        click: () => {
+          createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
       }
     ]
@@ -39,14 +47,20 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  // CORS somehow gets re-enabled in Electron v9.0.4
-  // This line disables it.
-  // This line can possible be removed if the issue is fixed upstream
-  app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
-
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
+
+  // command line switches need to be added before the app ready event first
+  // that means we can't use the normal settings system as that is asynchonous,
+  // doing it synchronously ensures that we add it before the event fires
+  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  if (replaceHttpCache) {
+    // the http cache causes excessive disk usage during video playback
+    // we've got a custom image cache to make up for disabling the http cache
+    // experimental as it increases RAM use in favour of reduced disk use
+    app.commandLine.appendSwitch('disable-http-cache')
+  }
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -79,10 +93,6 @@ function runApp() {
           mainWindow.webContents.send('openUrl', url)
         }
       }
-    })
-  } else {
-    require('electron-debug')({
-      showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
     })
   }
 
@@ -152,6 +162,113 @@ function runApp() {
       })
     })
 
+    if (replaceHttpCache) {
+      // in-memory image cache
+
+      const imageCache = new ImageCache()
+
+      protocol.registerBufferProtocol('imagecache', (request, callback) => {
+        // Remove `imagecache://` prefix
+        const url = decodeURIComponent(request.url.substring(13))
+        if (imageCache.has(url)) {
+          const cached = imageCache.get(url)
+
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            mimeType: cached.mimeType,
+            data: cached.data
+          })
+          return
+        }
+
+        const newRequest = net.request({
+          method: request.method,
+          url
+        })
+
+        // Electron doesn't allow certain headers to be set:
+        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
+
+        for (const header of Object.keys(request.headers)) {
+          if (!blacklistedHeaders.includes(header.toLowerCase())) {
+            newRequest.setHeader(header, request.headers[header])
+          }
+        }
+
+        newRequest.on('response', (response) => {
+          const chunks = []
+          response.on('data', (chunk) => {
+            chunks.push(chunk)
+          })
+
+          response.on('end', () => {
+            const data = Buffer.concat(chunks)
+
+            const expiryTimestamp = extractExpiryTimestamp(response.headers)
+            const mimeType = response.headers['content-type']
+
+            imageCache.add(url, mimeType, data, expiryTimestamp)
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              mimeType,
+              data: data
+            })
+          })
+
+          response.on('error', (error) => {
+            console.error('image cache error', error)
+
+            // error objects don't get serialised properly
+            // https://stackoverflow.com/a/53624454
+
+            const errorJson = JSON.stringify(error, (key, value) => {
+              if (value instanceof Error) {
+                return {
+                  // Pull all enumerable properties, supporting properties on custom Errors
+                  ...value,
+                  // Explicitly pull Error's non-enumerable properties
+                  name: value.name,
+                  message: value.message,
+                  stack: value.stack
+                }
+              }
+
+              return value
+            })
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              statusCode: response.statusCode ?? 400,
+              mimeType: 'application/json',
+              data: Buffer.from(errorJson)
+            })
+          })
+        })
+
+        newRequest.end()
+      })
+
+      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
+      session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
+        // the requests made by the imagecache:// handler to fetch the image,
+        // are allowed through, as their resourceType is 'other'
+        if (details.resourceType === 'image') {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            redirectURL: `imagecache://${encodeURIComponent(details.url)}`
+          })
+        } else {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({})
+        }
+      })
+
+      // --- end of `if experimentsDisableDiskCache` ---
+    }
+
     await createWindow()
 
     if (isDev) {
@@ -169,11 +286,17 @@ function runApp() {
       require('vue-devtools').install()
       /* eslint-enable */
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+  async function createWindow(
+    {
+      replaceMainWindow = true,
+      windowStartupUrl = null,
+      showWindowNow = false,
+      searchQueryText = null
+    } = { }) {
     // Syncing new window background to theme choice.
     const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
       switch (value) {
@@ -192,7 +315,7 @@ function runApp() {
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
     }).catch((error) => {
-      console.log(error)
+      console.error(error)
       // Default to nativeTheme settings if nothing is found.
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
@@ -255,7 +378,7 @@ function runApp() {
 
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
-      const { maximized, ...bounds } = boundsDoc.value
+      const { maximized, fullScreen, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
         .getAllDisplays()
         .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
@@ -271,6 +394,10 @@ function runApp() {
 
       if (maximized) {
         newWindow.maximize()
+      }
+
+      if (fullScreen) {
+        newWindow.setFullScreen(true)
       }
     }
 
@@ -295,18 +422,30 @@ function runApp() {
         /* eslint-disable-next-line */
         newWindow.loadFile(`${__dirname}/index.html`)
       }
+    }
 
-      global.__static = path
-        .join(__dirname, '/static')
-        .replace(/\\/g, '\\\\')
+    if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
+      ipcMain.once('searchInputHandlingReady', () => {
+        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      })
     }
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
-      if (newWindow.isVisible()) { return }
+      if (newWindow.isVisible()) {
+        // only open the dev tools if they aren't already open
+        if (isDev && !newWindow.webContents.isDevToolsOpened()) {
+          newWindow.webContents.openDevTools({ activate: false })
+        }
+        return
+      }
 
       newWindow.show()
       newWindow.focus()
+
+      if (isDev) {
+        newWindow.webContents.openDevTools({ activate: false })
+      }
     })
 
     newWindow.once('close', async () => {
@@ -316,7 +455,8 @@ function runApp() {
 
       const value = {
         ...newWindow.getNormalBounds(),
-        maximized: newWindow.isMaximized()
+        maximized: newWindow.isMaximized(),
+        fullScreen: newWindow.isFullScreen()
       }
 
       await baseHandlers.settings._updateBounds(value)
@@ -329,8 +469,6 @@ function runApp() {
         // Which raises "Object has been destroyed" error
         mainWindow = allWindows[0]
       }
-
-      console.log('closed')
     })
   }
 
@@ -382,7 +520,6 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
-    console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
     })
@@ -412,21 +549,27 @@ function runApp() {
     return app.getPath('pictures')
   })
 
-  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async (_, options) => {
+  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {
+    const senderWindow = findSenderWindow(sender)
+    if (senderWindow) {
+      return await dialog.showOpenDialog(senderWindow, options)
+    }
     return await dialog.showOpenDialog(options)
   })
 
-  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (event, { options, useModal }) => {
-    if (useModal) {
-      const senderWindow = BrowserWindow.getAllWindows().find((window) => {
-        return window.webContents.id === event.sender.id
-      })
-      if (senderWindow) {
-        return await dialog.showSaveDialog(senderWindow, options)
-      }
+  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async ({ sender }, options) => {
+    const senderWindow = findSenderWindow(sender)
+    if (senderWindow) {
+      return await dialog.showSaveDialog(senderWindow, options)
     }
     return await dialog.showSaveDialog(options)
   })
+
+  function findSenderWindow(sender) {
+    return BrowserWindow.getAllWindows().find((window) => {
+      return window.webContents.id === sender.id
+    })
+  }
 
   ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
     powerSaveBlocker.stop(id)
@@ -436,11 +579,12 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null } = { }) => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null, searchQueryText = null } = { }) => {
     createWindow({
       replaceMainWindow: false,
       showWindowNow: true,
-      windowStartupUrl: windowStartupUrl
+      windowStartupUrl: windowStartupUrl,
+      searchQueryText: searchQueryText
     })
   })
 
@@ -785,6 +929,20 @@ function runApp() {
             type: 'normal'
           },
           { type: 'separator' },
+          {
+            label: 'Preferences',
+            accelerator: 'CmdOrCtrl+,',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/settings' }
+              )
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
           { role: 'quit' }
         ]
       },
@@ -816,6 +974,21 @@ function runApp() {
             accelerator: 'CmdOrCtrl+Shift+R'
           },
           { role: 'toggledevtools' },
+          { role: 'toggledevtools', accelerator: 'f12', visible: false },
+          {
+            label: 'Enter Inspect Element Mode',
+            accelerator: 'CmdOrCtrl+Shift+C',
+            click: (_, window) => {
+              if (window.webContents.isDevToolsOpened()) {
+                window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+              } else {
+                window.webContents.once('devtools-opened', () => {
+                  window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+                })
+                window.webContents.openDevTools()
+              }
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
           { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },

@@ -24,7 +24,7 @@
     </label>
     <font-awesome-icon
       v-if="showClearTextButton"
-      icon="times-circle"
+      :icon="['fas', 'times-circle']"
       class="clearInputTextButton"
       :class="{
         visible: inputDataPresent
