@@ -17,10 +17,9 @@
 }
 
 :deep(.chapterMarker) {
-  height: 120%;
-  top: -10%;
-  width: 1%;
-  border-radius: 999px; /* make sure they are rounded properly*/
+  height: 100%;
+  top: 0;
+  width: 2px;
   z-index: 2;
-  background-color: var(--accent-color);
+  background-color: #000;
 }
