@@ -2132,6 +2132,15 @@ axios@^0.27.2:
     follow-redirects "^1.14.9"
     form-data "^4.0.0"
 
+axios@^1.1.2:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.1.3.tgz#8274250dada2edf53814ed7db644b9c2866c1e35"
+  integrity sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==
+  dependencies:
+    follow-redirects "^1.15.0"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
 babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
@@ -4213,6 +4222,11 @@ follow-redirects@^1.14.9:
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
   integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
+
+follow-redirects@^1.15.0:
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
+  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -6689,6 +6703,11 @@ proxy-addr@~2.0.7:
     forwarded "0.2.0"
     ipaddr.js "1.9.1"
 
+proxy-from-env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+  integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
+
 pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
@@ -8604,12 +8623,12 @@ youtube-suggest@^1.2.0:
     node-fetch "^2.6.0"
     smol-jsonp "^1.0.0"
 
-yt-channel-info@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/yt-channel-info/-/yt-channel-info-3.1.1.tgz#6ffc9c2fbbaa677600828cb511bff88eee6391f1"
-  integrity sha512-Of2ED2DM7eJOMY0wVDKwxvSo4xFDcvuuVSCf5jKgQON0XwdREVofxPjzCGC1Fh5ubK1pxZbnjhamMvbxvxyWIA==
+yt-channel-info@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/yt-channel-info/-/yt-channel-info-3.2.1.tgz#7b8d5c335a54edd7f41f2db561ff23dd37f854a5"
+  integrity sha512-drGySe+MqoYMhZzkJpapG5pCfAEBSsCaOZXDzZz4nfQfYhXQGUU11IJ9HpDZmnari1vEWrUasjeu2hwZujZYmw==
   dependencies:
-    axios "^0.27.2"
+    axios "^1.1.2"
 
 yt-dash-manifest-generator@1.1.0:
   version "1.1.0"

@@ -77,7 +77,7 @@
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
     "youtube-suggest": "^1.2.0",
-    "yt-channel-info": "^3.1.1",
+    "yt-channel-info": "^3.2.1",
     "yt-dash-manifest-generator": "1.1.0",
     "ytdl-core": "^4.11.2",
     "ytpl": "^2.3.0",
