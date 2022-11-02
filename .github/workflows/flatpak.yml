@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         repository: flathub/io.freetubeapp.FreeTube
-        token: ${{ secrets.PUSH_TOKEN }}
+        token: ${{ secrets.FLATHUB_TOKEN }}
     - name: GitHub API exec action
       uses: moustacheful/github-api-exec-action@v0
       id: api_results
@@ -108,7 +108,7 @@ jobs:
         # Optional but recommended
         # Defaults to "Apply automatic changes"
         commit_message: Update files for v${{ steps.sub.outputs.result }}
-        token: ${{ secrets.PUSH_TOKEN }}
+        token: ${{ secrets.FLATHUB_TOKEN }}
 
         # Optional options appended to `git-commit`
         # See https://git-scm.com/docs/git-commit for a list of available options
@@ -118,7 +118,7 @@ jobs:
         skip_dirty_check: true
     - name: Create PR
       run: |
-        echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
+        echo ${{ secrets.FLATHUB_TOKEN }} >> auth.txt
         gh auth login --with-token < auth.txt
         rm auth.txt
         gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merged once testing is complete."
