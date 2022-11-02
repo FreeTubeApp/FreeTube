@@ -256,13 +256,14 @@ export function openExternalLink(url) {
 /**
  * Opens an internal path in the same or a new window.
  * Optionally with query params and setting the contents of the search bar in the new window.
- * @param {string} path the internal path to open
- * @param {boolean} createNewWindow set to true to open a new window
- * @param {object} query the query params to use (optional)
- * @param {string} searchQueryText the text to show in the search bar in the new window (optional)
+ * @param {object} params
+ * @param {string} params.path the internal path to open
+ * @param {boolean} params.doCreateNewWindow set to true to open a new window
+ * @param {object} params.query the query params to use (optional)
+ * @param {string} params.searchQueryText the text to show in the search bar in the new window (optional)
  */
-export function openInternalPath(path, createNewWindow, query = {}, searchQueryText = null) {
-  if (process.env.IS_ELECTRON && createNewWindow) {
+export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQueryText = null }) {
+  if (process.env.IS_ELECTRON && doCreateNewWindow) {
     const { ipcRenderer } = require('electron')
 
     // Combine current document path and new "hash" as new window startup URL

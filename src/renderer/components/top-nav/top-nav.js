@@ -102,7 +102,7 @@ export default Vue.extend({
   },
   methods: {
     goToSearch: async function (query, { event }) {
-      const createNewWindow = event && event.shiftKey
+      const doCreateNewWindow = event && event.shiftKey
 
       if (window.innerWidth <= 680) {
         this.$refs.searchContainer.blur()
@@ -123,21 +123,35 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            openInternalPath(`/watch/${videoId}`, createNewWindow, query)
+
+            openInternalPath({
+              path: `/watch/${videoId}`,
+              query,
+              doCreateNewWindow
+            })
             break
           }
 
           case 'playlist': {
             const { playlistId, query } = result
 
-            openInternalPath(`/playlist/${playlistId}`, createNewWindow, query)
+            openInternalPath({
+              path: `/playlist/${playlistId}`,
+              query,
+              doCreateNewWindow
+            })
             break
           }
 
           case 'search': {
             const { searchQuery, query } = result
 
-            openInternalPath(`/search/${encodeURIComponent(searchQuery)}`, createNewWindow, query, searchQuery)
+            openInternalPath({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
+              query,
+              doCreateNewWindow,
+              searchQuery
+            })
             break
           }
 
@@ -155,23 +169,27 @@ export default Vue.extend({
           case 'channel': {
             const { channelId, idType, subPath } = result
 
-            openInternalPath(`/channel/${channelId}/${subPath}`, createNewWindow, { idType })
+            openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
+              query: { idType },
+              doCreateNewWindow
+            })
             break
           }
 
           case 'invalid_url':
           default: {
-            openInternalPath(
-              `/search/${encodeURIComponent(query)}`,
-              createNewWindow,
-              {
+            openInternalPath({
+              path: `/search/${encodeURIComponent(query)}`,
+              query: {
                 sortBy: this.searchSettings.sortBy,
                 time: this.searchSettings.time,
                 type: this.searchSettings.type,
                 duration: this.searchSettings.duration
               },
-              query
-            )
+              doCreateNewWindow,
+              searchQueryText: query
+            })
           }
         }
       })
@@ -246,11 +264,11 @@ export default Vue.extend({
       this.showFilters = false
     },
 
-    handleSearchFilterValueChanged: function(filterValueChanged) {
+    handleSearchFilterValueChanged: function (filterValueChanged) {
       this.searchFilterValueChanged = filterValueChanged
     },
 
-    navigateHistory: function() {
+    navigateHistory: function () {
       if (!this.isForwardOrBack) {
         this.historyIndex = window.history.length
         this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
@@ -305,7 +323,7 @@ export default Vue.extend({
     hideFilters: function () {
       this.showFilters = false
     },
-    updateSearchInputText: function(text) {
+    updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([

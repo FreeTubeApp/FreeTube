@@ -381,24 +381,35 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            const path = `/watch/${videoId}`
-            openInternalPath(path, doCreateNewWindow, query)
+
+            openInternalPath({
+              path: `/watch/${videoId}`,
+              query,
+              doCreateNewWindow
+            })
             break
           }
 
           case 'playlist': {
             const { playlistId, query } = result
 
-            const path = `/playlist/${playlistId}`
-            openInternalPath(path, doCreateNewWindow, query)
+            openInternalPath({
+              path: `/playlist/${playlistId}`,
+              query,
+              doCreateNewWindow
+            })
             break
           }
 
           case 'search': {
             const { searchQuery, query } = result
 
-            const path = `/search/${encodeURIComponent(searchQuery)}`
-            openInternalPath(path, doCreateNewWindow, query, searchQuery)
+            openInternalPath({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
+              query,
+              doCreateNewWindow,
+              searchQuery
+            })
             break
           }
 
@@ -416,8 +427,10 @@ export default Vue.extend({
           case 'channel': {
             const { channelId, subPath } = result
 
-            const path = `/channel/${channelId}/${subPath}`
-            openInternalPath(path, doCreateNewWindow)
+            openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
+              doCreateNewWindow
+            })
             break
           }
 
