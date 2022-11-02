@@ -113,10 +113,10 @@
           v-for="(comment, index) in comments"
           :key="index"
           class="comment"
+          :class="{ superChatMessage: typeof (comment.superchat) !== 'undefined' }"
         >
           <div
             v-if="typeof (comment.superchat) !== 'undefined'"
-            class="superChatMessage"
             :class="comment.superchat.colorClass"
           >
             <div
