@@ -150,7 +150,7 @@ export default Vue.extend({
               path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
               doCreateNewWindow,
-              searchQuery
+              searchQueryText: searchQuery
             })
             break
           }
