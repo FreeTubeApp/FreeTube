@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         repository: flathub/io.freetubeapp.FreeTube
-        token: ${{ secrets.FLATHUB_TOKEN }}
+        token: ${{ secrets.PUSH_TOKEN }}
     - name: GitHub API exec action
       uses: moustacheful/github-api-exec-action@v0
       id: api_results
@@ -77,22 +77,22 @@ jobs:
         date +"%Y-%m-%d" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Update x64 File Location in yml File
-      uses: mikefarah/yq@v4.29.2
+      uses: mikefarah/yq@4.0.0-beta1
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-x64.zip'
     - name: Update x64 Hash in yml File
-      uses: mikefarah/yq@v4.29.2
+      uses: mikefarah/yq@4.0.0-beta1
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[0].sha256 ${{ env.HASH_X64 }}
     - name: Update ARM File Location in yml File
-      uses: mikefarah/yq@v4.29.2
+      uses: mikefarah/yq@4.0.0-beta1
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].url 'https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-portable-arm64.zip'
     - name: Update ARM Hash in yml File
-      uses: mikefarah/yq@v4.29.2
+      uses: mikefarah/yq@4.0.0-beta1
       with:
         # The Command which should be run
         cmd: yq w -i io.freetubeapp.FreeTube.yml modules[0].sources[1].sha256 ${{ env.HASH_ARM64 }}
@@ -108,7 +108,7 @@ jobs:
         # Optional but recommended
         # Defaults to "Apply automatic changes"
         commit_message: Update files for v${{ steps.sub.outputs.result }}
-        token: ${{ secrets.FLATHUB_TOKEN }}
+        token: ${{ secrets.PUSH_TOKEN }}
 
         # Optional options appended to `git-commit`
         # See https://git-scm.com/docs/git-commit for a list of available options
@@ -118,7 +118,7 @@ jobs:
         skip_dirty_check: true
     - name: Create PR
       run: |
-        echo ${{ secrets.FLATHUB_TOKEN }} >> auth.txt
+        echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
         gh auth login --with-token < auth.txt
         rm auth.txt
         gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merged once testing is complete."
