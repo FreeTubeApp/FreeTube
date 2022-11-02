@@ -55,6 +55,7 @@
     "@silvermine/videojs-quality-selector": "^1.2.5",
     "autolinker": "^4.0.0",
     "browserify": "^17.0.0",
+    "browserify-zlib": "^0.2.0",
     "electron-context-menu": "^3.5.0",
     "http-proxy-agent": "^5.0.0",
     "https-proxy-agent": "^5.0.0",
