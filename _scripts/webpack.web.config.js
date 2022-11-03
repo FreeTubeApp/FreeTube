@@ -154,7 +154,8 @@ const config = {
       stream: require.resolve('stream-browserify'),
       timers: require.resolve('timers-browserify'),
       tls: require.resolve('browserify/lib/_empty.js'),
-      vm: require.resolve('vm-browserify')
+      vm: require.resolve('vm-browserify'),
+      zlib: require.resolve('browserify-zlib')
     },
     extensions: ['.js', '.vue', '.json', '.css'],
   },
