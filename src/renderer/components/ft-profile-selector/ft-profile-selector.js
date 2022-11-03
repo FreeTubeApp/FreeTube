@@ -28,11 +28,12 @@ export default Vue.extend({
       return this.$store.getters.getDefaultProfile
     },
     activeProfileInitial: function () {
-      return this.activeProfile?.name?.length > 0 ? this.activeProfile.name[0].toUpperCase() : ''
+      // use Array.from, so that emojis don't get split up into individual character codes
+      return this.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        return profile?.name?.length > 0 ? profile.name[0].toUpperCase() : ''
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     }
   },
