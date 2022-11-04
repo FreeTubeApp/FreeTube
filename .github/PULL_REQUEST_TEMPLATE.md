@@ -1,10 +1,11 @@
 # Title
 
-<!-- Thanks for sending a pull request! Make sure to follow the contributing guidelines. -->
+<!-- Thanks for sending a pull request! Make sure to follow the contributing guidelines: https://github.com/FreeTubeApp/FreeTube/blob/development/CONTRIBUTING.md -->
 <!-- Important note, we may remove your pull request if you do not use this provided PR template correctly. -->
 
 ## Pull Request Type
 <!-- Please select what type of pull request this is: [x] -->
+<!-- Please remove what is not applicable! -->
 - [ ] Bugfix
 - [ ] Feature Implementation
 - [ ] Documentation
