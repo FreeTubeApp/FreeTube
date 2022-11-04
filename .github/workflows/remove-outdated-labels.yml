@@ -33,4 +33,5 @@ jobs:
             PR: WIP
             PR: changes requested
             PR: merge conflicts / rebase needed
-            PR/Issue: dependent      
+            PR/Issue: dependent
+            PR: stale
