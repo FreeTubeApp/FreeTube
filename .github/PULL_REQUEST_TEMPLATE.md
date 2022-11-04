@@ -8,6 +8,8 @@
 <!-- Please remove what is not applicable! -->
 - [ ] Bugfix
 - [ ] Feature Implementation
+- [ ] New Build
+- [ ] I am a New Contributor
 - [ ] Documentation
 - [ ] Other
 

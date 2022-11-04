@@ -26,9 +26,18 @@ template: |
   $CHANGES
 prerelease: true
 autolabeler:
-  - label: 'PR: bug'
-    body:
-      - 'Bugfix'
   - label: 'PR: enhancement'
     body:
       - 'Feature Implementation'
+  - label: 'PR: bug'
+    body:
+      - 'Bugfix'
+  - label: 'PR: change'
+    body:
+      - ''
+  - label: 'PR: new build'
+    body:
+      - 'New Build'
+  - label: 'PR: new contributor'
+    body:
+      - 'I am a New Contributor'  
