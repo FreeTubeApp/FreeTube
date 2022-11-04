@@ -480,3 +480,10 @@ export function formatDurationAsTimestamp(lengthSeconds) {
 
   return timestamp
 }
+
+export function searchFiltersMatch(filtersA, filtersB) {
+  return filtersA?.sortBy === filtersB?.sortBy &&
+    filtersA?.time === filtersB?.time &&
+    filtersA?.type === filtersB?.type &&
+    filtersA?.duration === filtersB?.duration
+}
