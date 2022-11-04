@@ -1,0 +1,34 @@
+name-template: 'Release v0.x.x Beta'
+tag-template: 'v0.x.x-beta'
+categories:
+  - title: 'Features'
+    labels:
+      - 'PR: enhancement'
+  - title: 'Fixes'
+    labels:
+      - 'PR: bug'
+  - title: 'Changes'
+    labels:
+      - 'PR: change'
+  - title: 'Dependencies'
+    labels:
+      - 'PR: dependencies'
+  - title: 'New Builds'
+    labels:
+      - 'PR: new build'
+  - title: 'New Contributors'
+    labels:
+      - 'PR: new contributor'    
+change-template: '- $TITLE by @$AUTHOR in #$NUMBER'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+template: |
+  ## PR MERGED WITHOUT LABEL
+  $CHANGES
+prerelease: true
+autolabeler:
+  - label: 'PR: bug'
+    body:
+      - 'Bugfix'
+  - label: 'PR: enhancement'
+    body:
+      - 'Feature Implementation'
