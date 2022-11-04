@@ -1,7 +1,9 @@
+import fs from 'fs'
+
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
-import fs from 'fs'
+import router from '../router/index'
 
 export const colors = [
   { name: 'Red', value: '#d50000' },
@@ -238,12 +240,45 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
   }
 }
 
+/**
+ * Opens a link in the default web browser or a new tab in the web builds
+ * @param {string} url the URL to open
+ */
 export function openExternalLink(url) {
   if (process.env.IS_ELECTRON) {
     const ipcRenderer = require('electron').ipcRenderer
     ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
   } else {
     window.open(url, '_blank')
+  }
+}
+
+/**
+ * Opens an internal path in the same or a new window.
+ * Optionally with query params and setting the contents of the search bar in the new window.
+ * @param {object} params
+ * @param {string} params.path the internal path to open
+ * @param {boolean} params.doCreateNewWindow set to true to open a new window
+ * @param {object} params.query the query params to use (optional)
+ * @param {string} params.searchQueryText the text to show in the search bar in the new window (optional)
+ */
+export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQueryText = null }) {
+  if (process.env.IS_ELECTRON && doCreateNewWindow) {
+    const { ipcRenderer } = require('electron')
+
+    // Combine current document path and new "hash" as new window startup URL
+    const newWindowStartupURL = new URL(window.location.href)
+    newWindowStartupURL.hash = `${path}?${(new URLSearchParams(query)).toString()}`
+
+    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+      windowStartupUrl: newWindowStartupURL.toString(),
+      searchQueryText
+    })
+  } else {
+    router.push({
+      path,
+      query
+    })
   }
 }
 
@@ -402,4 +437,46 @@ export function createWebURL(path) {
 // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
   return value.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, '')
+}
+
+/**
+ * This formats the duration of a video in seconds into a user friendly timestamp.
+ * It will return strings like LIVE or UPCOMING, without making any changes
+ * @param {string|number} lengthSeconds the video duration in seconds or the strings LIVE or UPCOMING
+ * @returns {string} timestamp or LIVE or UPCOMING
+ */
+export function formatDurationAsTimestamp(lengthSeconds) {
+  if (typeof lengthSeconds === 'string') {
+    return lengthSeconds
+  }
+
+  if (lengthSeconds === 0) {
+    return '0:00'
+  }
+
+  let hours = 0
+
+  if (lengthSeconds >= 3600) {
+    hours = Math.floor(lengthSeconds / 3600)
+    lengthSeconds = lengthSeconds - hours * 3600
+  }
+
+  let minutes = Math.floor(lengthSeconds / 60)
+  if (minutes < 10 && hours > 0) {
+    minutes = '0' + minutes
+  }
+
+  let seconds = lengthSeconds - minutes * 60
+  if (seconds < 10) {
+    seconds = '0' + seconds
+  }
+
+  let timestamp = ''
+  if (hours > 0) {
+    timestamp = hours + ':' + minutes + ':' + seconds
+  } else {
+    timestamp = minutes + ':' + seconds
+  }
+
+  return timestamp
 }

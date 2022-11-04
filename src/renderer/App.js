@@ -12,7 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
-import { openExternalLink, showToast } from './helpers/utils'
+import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
@@ -381,9 +381,9 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            const path = `/watch/${videoId}`
-            this.openInternalPath({
-              path,
+
+            openInternalPath({
+              path: `/watch/${videoId}`,
               query,
               doCreateNewWindow
             })
@@ -393,9 +393,8 @@ export default Vue.extend({
           case 'playlist': {
             const { playlistId, query } = result
 
-            const path = `/playlist/${playlistId}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/playlist/${playlistId}`,
               query,
               doCreateNewWindow
             })
@@ -405,9 +404,8 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            const path = `/search/${encodeURIComponent(searchQuery)}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
               doCreateNewWindow,
               searchQueryText: searchQuery
@@ -429,9 +427,8 @@ export default Vue.extend({
           case 'channel': {
             const { channelId, subPath } = result
 
-            const path = `/channel/${channelId}/${subPath}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
               doCreateNewWindow
             })
             break
@@ -463,28 +460,6 @@ export default Vue.extend({
       ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
         document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
-    },
-
-    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
-      if (process.env.IS_ELECTRON && doCreateNewWindow) {
-        const { ipcRenderer } = require('electron')
-
-        // Combine current document path and new "hash" as new window startup URL
-        const newWindowStartupURL = [
-          window.location.href.split('#')[0],
-          `#${path}?${(new URLSearchParams(query)).toString()}`
-        ].join('')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL,
-          searchQueryText
-        })
-      } else {
-        // Web
-        this.$router.push({
-          path,
-          query
-        })
-      }
     },
 
     enableSetSearchQueryText: function () {
