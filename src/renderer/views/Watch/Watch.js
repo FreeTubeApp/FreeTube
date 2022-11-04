@@ -20,8 +20,6 @@ import {
   showToast
 } from '../../helpers/utils'
 
-const isDev = process.env.NODE_ENV === 'development'
-
 export default Vue.extend({
   name: 'Watch',
   components: {
@@ -1199,7 +1197,7 @@ export default Vue.extend({
 
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
-        if (isDev) {
+        if (process.env.NODE_ENV === 'development') {
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
@@ -1246,7 +1244,7 @@ export default Vue.extend({
       const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
-      if (isDev) {
+      if (process.env.NODE_ENV === 'development') {
         fileLocation = `static/dashFiles/${this.videoId}.xml`
         uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
@@ -1327,7 +1325,7 @@ export default Vue.extend({
 
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
-        if (isDev) {
+        if (process.env.NODE_ENV === 'development') {
           fileLocation = `static/storyboards/${this.videoId}.vtt`
           uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually

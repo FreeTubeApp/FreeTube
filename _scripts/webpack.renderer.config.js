@@ -156,12 +156,6 @@ if (!isDevMode) {
     processLocalesPlugin,
     new webpack.DefinePlugin({
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
-    }),
-    // webpack doesn't get rid of js-yaml even though it isn't used in the production builds
-    // so we need to manually tell it to ignore any imports for `js-yaml`
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^js-yaml$/,
-      contextRegExp: /i18n$/
     })
   )
 }

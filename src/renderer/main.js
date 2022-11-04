@@ -61,11 +61,9 @@ import { faMonero } from '@fortawesome/free-brands-svg-icons/faMonero'
 import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const isDev = process.env.NODE_ENV === 'development'
-
-Vue.config.devtools = isDev
-Vue.config.performance = isDev
-Vue.config.productionTip = isDev
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+Vue.config.performance = process.env.NODE_ENV === 'development'
+Vue.config.productionTip = process.env.NODE_ENV === 'development'
 
 library.add(
   // solid icons
