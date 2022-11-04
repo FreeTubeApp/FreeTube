@@ -183,6 +183,7 @@ const state = {
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
   enableSubtitles: true,
+  enterFullscreenOnDisplayRotate: false,
   externalLinkHandling: '',
   externalPlayer: '',
   externalPlayerExecutable: '',
