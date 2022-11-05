@@ -19,6 +19,7 @@ jobs:
             PR: changes requested
             PR: merge conflicts / rebase needed
             PR/Issue: dependent
+            PR: stale
 
   remove-closed-pr-labels:
     name: Remove closed pull request labels
@@ -33,4 +34,5 @@ jobs:
             PR: WIP
             PR: changes requested
             PR: merge conflicts / rebase needed
-            PR/Issue: dependent      
+            PR/Issue: dependent
+            PR: stale
