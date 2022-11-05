@@ -5,11 +5,9 @@ import { createWebURL } from '../helpers/utils'
 // List of locales approved for use
 import activeLocales from '../../../static/locales/activeLocales.json'
 
-const isDev = process.env.NODE_ENV === 'development'
-
 const messages = {}
 
-if (isDev && process.env.IS_ELECTRON) {
+if (process.env.NODE_ENV === 'development' && process.env.IS_ELECTRON) {
   const { load } = require('js-yaml')
 
   // Take active locales and load respective YAML file
@@ -32,7 +30,7 @@ class CustomVueI18n extends VueI18n {
 
   async loadLocale(locale) {
     // we don't lazy load locales in development in electron
-    if (isDev && process.env.IS_ELECTRON) { return }
+    if (process.env.NODE_ENV === 'development' && process.env.IS_ELECTRON) { return }
     // don't need to load it if it's already loaded
     if (this.availableLocales.includes(locale)) {
       return
@@ -71,7 +69,7 @@ const i18n = new CustomVueI18n({
   messages
 })
 
-if (!isDev || !process.env.IS_ELECTRON) {
+if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
   i18n.loadLocale('en-US')
 }
 
