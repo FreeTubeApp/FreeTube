@@ -15,9 +15,11 @@ body:
       options:
         - label: I have encountered this bug in the [latest release of FreeTube](https://github.com/FreeTubeApp/FreeTube/releases).
           required: true  
-        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for open and closed issues that are similar to the bug report I want to file, without success.
+        - label: I have searched the issue tracker for [open](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aopen+is%3Aissue) and [closed](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+is%3Aclosed) issues that are similar to the bug report I want to file, without success.
           required: true
         - label: I have searched the [documentation](https://docs.freetubeapp.io/) for information that matches the description of the bug I want to file, without success.
+          required: true
+        - label: This issue contains only one bug.
           required: true
   - type: textarea
     attributes:
