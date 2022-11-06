@@ -21,6 +21,7 @@ function runApp() {
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
+    showSelectAll: false,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
         label: 'Show / Hide Video Statistics',
@@ -34,6 +35,15 @@ function runApp() {
         visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
         click: () => {
           createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
+        }
+      },
+      // Only show select all in text fields
+      {
+        label: 'Select All',
+        enabled: parameters.editFlags.canSelectAll,
+        visible: parameters.isEditable,
+        click: () => {
+          browserWindow.webContents.selectAll()
         }
       }
     ]
