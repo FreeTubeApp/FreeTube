@@ -5,7 +5,6 @@
 
 ## Pull Request Type
 <!-- Please select what type of pull request this is: [x] -->
-<!-- Please remove what is not applicable! -->
 - [ ] Bugfix
 - [ ] Feature Implementation
 - [ ] New Build
