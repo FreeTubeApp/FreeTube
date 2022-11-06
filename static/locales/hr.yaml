@@ -80,6 +80,8 @@ Subscriptions:
   Load More Videos: Učitaj još videa
   Error Channels: Kanali s greškama
   Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.
+  Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
+    pretplate da bi se ovdje prikazale.
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -144,8 +146,8 @@ Settings:
     Current instance will be randomized on startup: Trenutačna instanca će se slučajno
       odrediti nakon pokretanja računala
     No default instance has been set: Nema standardno postavljene instance
-    The currently set default instance is {instance}: Trenutačno postavljena standardna instanca
-      je {instance}
+    The currently set default instance is {instance}: Trenutačno postavljena standardna
+      instanca je {instance}
     Current Invidious Instance: Trenutačna Invidious instanca
     External Link Handling:
       No Action: Bez radnje
@@ -261,6 +263,8 @@ Settings:
         %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
         videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
         podmapa.
+    Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
+      ekrana
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -281,7 +285,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
-    Fetch Feeds from RSS: 'Dohvati podatke putem RSS-a'
+    Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format izvoza pretplata'
       #& Freetube
@@ -291,6 +295,7 @@ Settings:
     Import Subscriptions: 'Uvoz pretplata'
     Export Subscriptions: 'Izvoz pretplata'
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
+    Fetch Automatically: Automatski dohvati feed
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -356,9 +361,13 @@ Settings:
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
     Export Playlists: Izvezi zbirke
-    Playlist insufficient data: Nedovoljno podataka za „{playlist}” zbirku, element se preskače
+    Playlist insufficient data: Nedovoljno podataka za „{playlist}” zbirku, element
+      se preskače
     All playlists has been successfully imported: Sve zbirke su uspješno uvezene
     All playlists has been successfully exported: Sve zbirke su uspješno izvezene
+    Subscription File: Datoteka pretplate
+    History File: Datoteka povijesti
+    Playlist File: Datoteka playliste
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -428,6 +437,11 @@ Settings:
     Hide Unsubscribe Button: Sakrij gumb za odjavu
     Hide Search Bar: Sakrij traku pretrage
     Show Family Friendly Only: Prikaži samo prikladne za obitelji
+  Experimental Settings:
+    Warning: Ovo su eksperimentalne postavke. Kad su aktivirane mogu prouzročiti prekid
+      programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
+    Experimental Settings: Eksperimentalne postavke
+    Replace HTTP Cache: Zamijeni HTTP predmemoriju
 About:
   #On About page
   About: 'Informacije'
@@ -511,8 +525,8 @@ Profile:
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
   Profile has been updated: 'Profil je aktualiziran'
-  Your default profile has been set to {profile}: 'Tvoj standardni profil je postavljen na
-    {profile}'
+  Your default profile has been set to {profile}: 'Tvoj standardni profil je postavljen
+    na {profile}'
   Removed {profile} from your profiles: '{profile} je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
@@ -564,7 +578,8 @@ Channel:
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
   Added channel to your subscriptions: Kanal je dodan tvojim pretplatama
-  Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count} drugih kanala
+  Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count}
+    drugih kanala
   Channel has been removed from your subscriptions: Kanal je uklonjen iz tvojih pretplata
 Video:
   Mark As Watched: 'Označi kao pogledano'
@@ -803,11 +818,11 @@ Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je preki
 Yes: 'Da'
 No: 'Ne'
 The playlist has been reversed: Redoslijed zbirke je obrnut
-A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog, {blogTitle}. Pritisni
-  za prikaz detalja
+A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog,
+  {blogTitle}. Pritisni za prikaz detalja
 Download From Site: Preuzmi s web-stranice
-Version {versionNumber} is now available!  Click for more details: Dostupna je verzija {versionNumber}! Pritisni
-  za prikaz detalja
+Version {versionNumber} is now available!  Click for more details: Dostupna je verzija
+  {versionNumber}! Pritisni za prikaz detalja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
   video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
   u zemlji.
@@ -848,6 +863,8 @@ Tooltips:
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
+    Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
+      tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
   Privacy Settings:
     Remove Video Meta Files: Kad je aktivirano, FreeTube automatski uklanja datoteke
       metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
@@ -864,6 +881,9 @@ Tooltips:
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
     DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
+  Experimental Settings:
+    Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
+      i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -874,8 +894,8 @@ Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na
   ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
-Default Invidious instance has been set to {instance}: Standardna Invidious instanca je postavljena
-  na {instance}
+Default Invidious instance has been set to {instance}: Standardna Invidious instanca
+  je postavljena na {instance}
 External link opening has been disabled in the general settings: Vanjsko otvaranje
   poveznica je deaktivirano u općim postavkama
 Search Bar:
@@ -907,3 +927,8 @@ Clipboard:
     moguć bez sigurne veze
 Chapters:
   Chapters: Poglavlja
+  'Chapters list visible, current chapter: {chapterName}': 'Popis poglavlja vidljiv,
+    aktualno poglavlje: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Popis poglavlja skriven,
+    aktualno poglavlje: {chapterName}'
+Preferences: Korisničke postavke
