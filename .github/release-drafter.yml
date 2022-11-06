@@ -28,16 +28,16 @@ prerelease: true
 autolabeler:
   - label: 'PR: enhancement'
     body:
-      - 'Feature Implementation'
+      - '- [x] Feature Implementation'
   - label: 'PR: bug'
     body:
-      - 'Bugfix'
+      - '- [x] Bugfix'
   - label: 'PR: change'
     body:
       - ''
   - label: 'PR: new build'
     body:
-      - 'New Build'
+      - '- [x] New Build'
   - label: 'PR: new contributor'
     body:
-      - 'I am a New Contributor'  
+      - '- [x] I am a New Contributor'  
