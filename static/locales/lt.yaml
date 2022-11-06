@@ -276,6 +276,7 @@ Settings:
         Empty File Name: Tuščias failo pavadinimas
     Video Playback Rate Interval: Vaizdo įrašų atkūrimo dažnio intervalas
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
+    Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -412,7 +413,7 @@ Settings:
     Open in web browser: Atidaryti žiniatinklio naršyklėje
   Parental Control Settings:
     Parental Control Settings: Tėvų kontrolės nustatymai
-    Hide Unsubscribe Button: Slėpti prenumeratos atsisakymo mygtuką
+    Hide Unsubscribe Button: Slėpti prenumeratos atšaukimo mygtuką
     Hide Search Bar: Slėpti paieškos juostą
     Show Family Friendly Only: Rodyti tik turinį tinkamą šeimai
   Experimental Settings:
