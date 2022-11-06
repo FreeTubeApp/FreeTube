@@ -13,9 +13,6 @@ categories:
   - title: 'Dependencies'
     labels:
       - 'PR: dependencies'
-  - title: 'New Builds'
-    labels:
-      - 'PR: new build'
   - title: 'New Contributors'
     labels:
       - 'PR: new contributor'    
@@ -35,9 +32,6 @@ autolabeler:
   - label: 'PR: change'
     body:
       - ''
-  - label: 'PR: new build'
-    body:
-      - '- [x] New Build'
   - label: 'PR: new contributor'
     body:
       - '- [x] I am a New Contributor'  
