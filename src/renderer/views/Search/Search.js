@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import IsEqual from 'lodash.isequal'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import { calculateLengthInSeconds } from '@freetube/yt-trending-scraper/src/HtmlParser'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Search',
@@ -93,7 +92,7 @@ export default Vue.extend({
   methods: {
     checkSearchCache: function (payload) {
       const sameSearch = this.sessionSearchHistory.filter((search) => {
-        return search.query === payload.query && IsEqual(payload.searchSettings, search.searchSettings)
+        return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
       })
 
       this.shownResults = []
@@ -150,7 +149,7 @@ export default Vue.extend({
             const publishDate = video.uploadedAt
             let videoDuration = video.duration
             const videoId = video.id
-            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE') {
+            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE' && videoDuration !== 'UPCOMING') {
               videoDuration = calculateLengthInSeconds(video.duration)
             }
             dataToShow.push(
@@ -170,7 +169,7 @@ export default Vue.extend({
                 liveNow: video.isLive || videoDuration === 'LIVE',
                 paid: false,
                 premium: false,
-                isUpcoming: false,
+                isUpcoming: videoDuration === 'UPCOMING',
                 timeText: videoDuration
               }
             )

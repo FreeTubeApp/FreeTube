@@ -246,6 +246,7 @@ Settings:
         %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。 你也可以使用“\”或“/”创建子文件夹。
       Enable: 允许截屏
       Folder Label: 截屏文件夹
+    Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'

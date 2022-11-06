@@ -13,9 +13,12 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
-import { buildVTTFileLocally, copyToClipboard, showToast } from '../../helpers/utils'
-
-const isDev = process.env.NODE_ENV === 'development'
+import {
+  buildVTTFileLocally,
+  copyToClipboard,
+  formatDurationAsTimestamp,
+  showToast
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Watch',
@@ -382,7 +385,7 @@ export default Vue.extend({
 
                 chapters.push({
                   title: chapterRenderer.title.simpleText,
-                  timestamp: this.formatSecondsAsTimestamp(start),
+                  timestamp: formatDurationAsTimestamp(start),
                   startSeconds: start,
                   endSeconds: 0,
                   thumbnail: chapterRenderer.thumbnail.thumbnails[0].url
@@ -1194,7 +1197,7 @@ export default Vue.extend({
 
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
-        if (isDev) {
+        if (process.env.NODE_ENV === 'development') {
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
@@ -1241,7 +1244,7 @@ export default Vue.extend({
       const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
-      if (isDev) {
+      if (process.env.NODE_ENV === 'development') {
         fileLocation = `static/dashFiles/${this.videoId}.xml`
         uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
@@ -1322,7 +1325,7 @@ export default Vue.extend({
 
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
-        if (isDev) {
+        if (process.env.NODE_ENV === 'development') {
           fileLocation = `static/storyboards/${this.videoId}.vtt`
           uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
@@ -1468,38 +1471,6 @@ export default Vue.extend({
 
     updateTitle: function () {
       document.title = `${this.videoTitle} - FreeTube`
-    },
-
-    formatSecondsAsTimestamp(time) {
-      if (time === 0) {
-        return '0:00'
-      }
-
-      let hours = 0
-
-      if (time >= 3600) {
-        hours = Math.floor(time / 3600)
-        time = time - hours * 3600
-      }
-
-      let minutes = Math.floor(time / 60)
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes
-      }
-
-      let seconds = time - minutes * 60
-      if (seconds < 10) {
-        seconds = '0' + seconds
-      }
-
-      let timestamp = ''
-      if (hours > 0) {
-        timestamp = hours + ':' + minutes + ':' + seconds
-      } else {
-        timestamp = minutes + ':' + seconds
-      }
-
-      return timestamp
     },
 
     ...mapActions([

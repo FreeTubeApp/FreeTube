@@ -41,7 +41,6 @@ function runApp() {
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-  const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
 
   let mainWindow
@@ -67,7 +66,7 @@ function runApp() {
   app.removeAsDefaultProtocolClient('freetube')
 
   // If we are running a non-packaged version of the app && on windows
-  if (isDev && process.platform === 'win32') {
+  if (process.env.NODE_ENV === 'development' && process.platform === 'win32') {
     // Set the path of electron.exe and your app.
     // These two additional parameters are only available on windows.
     app.setAsDefaultProtocolClient('freetube', process.execPath, [path.resolve(process.argv[1])])
@@ -75,7 +74,7 @@ function runApp() {
     app.setAsDefaultProtocolClient('freetube')
   }
 
-  if (!isDev) {
+  if (process.env.NODE_ENV !== 'development') {
     // Only allow single instance of the application
     const gotTheLock = app.requestSingleInstanceLock()
     if (!gotTheLock) {
@@ -271,7 +270,7 @@ function runApp() {
 
     await createWindow()
 
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       installDevTools()
     }
 
@@ -326,7 +325,7 @@ function runApp() {
     const commonBrowserWindowOptions = {
       backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
-      icon: isDev
+      icon: process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '../../_icons/iconColor.png')
         /* eslint-disable-next-line */
         : `${__dirname}/_icons/iconColor.png`,
@@ -409,7 +408,7 @@ function runApp() {
     }
 
     // load root file/url
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       let devStartupURL = 'http://localhost:9080'
       if (windowStartupUrl != null) {
         devStartupURL = windowStartupUrl
@@ -434,7 +433,7 @@ function runApp() {
     newWindow.once('ready-to-show', () => {
       if (newWindow.isVisible()) {
         // only open the dev tools if they aren't already open
-        if (isDev && !newWindow.webContents.isDevToolsOpened()) {
+        if (process.env.NODE_ENV === 'development' && !newWindow.webContents.isDevToolsOpened()) {
           newWindow.webContents.openDevTools({ activate: false })
         }
         return
@@ -443,7 +442,7 @@ function runApp() {
       newWindow.show()
       newWindow.focus()
 
-      if (isDev) {
+      if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
       }
     })
@@ -479,7 +478,7 @@ function runApp() {
   })
 
   ipcMain.once('relaunchRequest', () => {
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
     }

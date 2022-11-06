@@ -269,6 +269,7 @@ Settings:
         2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuto 2 cifre. %S Secondo
         2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
+    Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'

@@ -2,12 +2,12 @@ import ytdl from 'ytdl-core'
 import ytsr from 'ytsr'
 import ytpl from 'ytpl'
 
-import IsEqual from 'lodash.isequal'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { HttpProxyAgent } from 'http-proxy-agent'
 
 import i18n from '../../i18n/index'
+import { searchFiltersMatch } from '../../helpers/utils'
 
 const state = {
   isYtSearchRunning: false
@@ -79,7 +79,7 @@ const actions = {
 
       commit('toggleIsYtSearchRunning')
 
-      if (!IsEqual(defaultFilters, rootState.utils.searchSettings)) {
+      if (!searchFiltersMatch(defaultFilters, rootState.utils.searchSettings)) {
         dispatch('ytSearchGetFilters', payload).then((filter) => {
           if (typeof (payload.options.nextpageRef) === 'undefined' && filter !== payload.query) {
             payload.options.nextpageRef = filter

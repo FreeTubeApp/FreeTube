@@ -4,6 +4,7 @@ import { mapActions } from 'vuex'
 import i18n from '../../i18n/index'
 import {
   copyToClipboard,
+  formatDurationAsTimestamp,
   openExternalLink,
   showToast,
   toLocalePublicationString
@@ -337,44 +338,6 @@ export default Vue.extend({
       }
     },
 
-    // For Invidious data, as duration is sent in seconds
-    calculateVideoDuration: function (lengthSeconds) {
-      if (typeof lengthSeconds === 'string') {
-        return lengthSeconds
-      }
-
-      if (typeof lengthSeconds === 'undefined') {
-        return '0:00'
-      }
-      let durationText = ''
-      let time = lengthSeconds
-      let hours = 0
-
-      if (time >= 3600) {
-        hours = Math.floor(time / 3600)
-        time = time - hours * 3600
-      }
-
-      let minutes = Math.floor(time / 60)
-      let seconds = time - minutes * 60
-
-      if (seconds < 10) {
-        seconds = '0' + seconds
-      }
-
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes
-      }
-
-      if (hours > 0) {
-        durationText = hours + ':' + minutes + ':' + seconds
-      } else {
-        durationText = minutes + ':' + seconds
-      }
-
-      return durationText
-    },
-
     parseVideoData: function () {
       this.id = this.data.videoId
       this.title = this.data.title
@@ -382,7 +345,7 @@ export default Vue.extend({
 
       this.channelName = this.data.author
       this.channelId = this.data.authorId
-      this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
+      this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere

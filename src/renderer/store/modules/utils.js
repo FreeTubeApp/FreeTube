@@ -1,10 +1,15 @@
-import IsEqual from 'lodash.isequal'
 import fs from 'fs'
 import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
-import { createWebURL, openExternalLink, showSaveDialog, showToast } from '../../helpers/utils'
+import {
+  createWebURL,
+  openExternalLink,
+  searchFiltersMatch,
+  showSaveDialog,
+  showToast
+} from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -753,7 +758,7 @@ const mutations = {
 
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
-      return search.query === payload.query && IsEqual(payload.searchSettings, search.searchSettings)
+      return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
     })
 
     if (sameSearch !== -1) {

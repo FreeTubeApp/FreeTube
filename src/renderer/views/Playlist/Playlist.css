@@ -23,7 +23,18 @@
   width: 60%;
 }
 
-@media only screen and (max-width: 800px) {
+.playlistItem {
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.videoIndex {
+  color: var(--tertiary-text-color);
+}
+
+@media only screen and (max-width: 850px) {
   .routerView {
     flex-direction: column;
   }
