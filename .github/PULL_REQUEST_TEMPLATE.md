@@ -7,7 +7,6 @@
 <!-- Please select what type of pull request this is: [x] -->
 - [ ] Bugfix
 - [ ] Feature Implementation
-- [ ] New Build
 - [ ] I am a New Contributor
 - [ ] Documentation
 - [ ] Other
