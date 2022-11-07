@@ -63,7 +63,7 @@
     "nedb-promises": "^6.2.1",
     "opml-to-json": "^1.0.1",
     "process": "^0.11.10",
-    "socks-proxy-agent": "^6.0.0",
+    "socks-proxy-agent": "^7.0.0",
     "video.js": "7.18.1",
     "videojs-contrib-quality-levels": "^2.1.0",
     "videojs-http-source-selector": "^1.1.6",
