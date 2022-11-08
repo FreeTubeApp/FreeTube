@@ -6,7 +6,8 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { calculateColorLuminance, colors, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtProfileEdit',

@@ -1,6 +1,6 @@
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { DBProfileHandlers } from '../../../datastores/handlers/index'
-import { calculateColorLuminance, getRandomColor } from '../../helpers/utils'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 
 const state = {
   profileList: [{

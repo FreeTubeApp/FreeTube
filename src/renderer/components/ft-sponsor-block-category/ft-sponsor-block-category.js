@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import { colors } from '../../helpers/utils'
+import { colors } from '../../helpers/colors'
 import FtSelect from '../ft-select/ft-select.vue'
 
 export default Vue.extend({

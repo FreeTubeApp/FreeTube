@@ -14,7 +14,8 @@ import 'videojs-mobile-ui'
 import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance, colors, showSaveDialog, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
