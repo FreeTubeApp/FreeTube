@@ -367,12 +367,10 @@ export default Vue.extend({
           const subCount = result.videoDetails.author.subscriber_count
 
           if (typeof (subCount) !== 'undefined' && !this.hideChannelSubscriptions) {
-            if (subCount >= 1000000) {
-              this.channelSubscriptionCountText = `${subCount / 1000000}M`
-            } else if (subCount >= 10000) {
-              this.channelSubscriptionCountText = `${subCount / 1000}K`
+            if (subCount >= 10000) {
+              this.channelSubscriptionCountText = Intl.NumberFormat([this.currentLocale, 'en'], { notation: 'compact' }).format(subCount)
             } else {
-              this.channelSubscriptionCountText = Intl.NumberFormat(this.currentLocale).format(subCount)
+              this.channelSubscriptionCountText = Intl.NumberFormat([this.currentLocale, 'en']).format(subCount)
             }
           }
 
