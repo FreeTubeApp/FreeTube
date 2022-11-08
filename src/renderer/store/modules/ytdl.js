@@ -60,14 +60,14 @@ const actions = {
             break
           case 'socks4':
             agent = new SocksProxyAgent({
-              host: proxyHostname,
+              hostname: proxyHostname,
               port: proxyPort,
               type: 4
             })
             break
           case 'socks5':
             agent = new SocksProxyAgent({
-              host: proxyHostname,
+              hostname: proxyHostname,
               port: proxyPort,
               type: 5
             })
@@ -139,14 +139,14 @@ const actions = {
           break
         case 'socks4':
           agent = new SocksProxyAgent({
-            host: proxyHostname,
+            hostname: proxyHostname,
             port: proxyPort,
             type: 4
           })
           break
         case 'socks5':
           agent = new SocksProxyAgent({
-            host: proxyHostname,
+            hostname: proxyHostname,
             port: proxyPort,
             type: 5
           })
@@ -257,14 +257,14 @@ const actions = {
             break
           case 'socks4':
             agent = new SocksProxyAgent({
-              host: proxyHostname,
+              hostname: proxyHostname,
               port: proxyPort,
               type: 4
             })
             break
           case 'socks5':
             agent = new SocksProxyAgent({
-              host: proxyHostname,
+              hostname: proxyHostname,
               port: proxyPort,
               type: 5
             })
@@ -315,14 +315,14 @@ const actions = {
             break
           case 'socks4':
             agent = new SocksProxyAgent({
-              host: proxyHostname,
+              hostname: proxyHostname,
               port: proxyPort,
               type: 4
             })
             break
           case 'socks5':
             agent = new SocksProxyAgent({
-              host: proxyHostname,
+              hostname: proxyHostname,
               port: proxyPort,
               type: 5
             })
