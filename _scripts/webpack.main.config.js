@@ -34,8 +34,7 @@ const config = {
   },
   node: {
     __dirname: isDevMode,
-    __filename: isDevMode,
-    global: isDevMode,
+    __filename: isDevMode
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -46,13 +45,6 @@ const config = {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, '../dist'),
-  },
-  resolve: {
-    extensions: ['.js', '.json'],
-    alias: {
-      '@': path.join(__dirname, '../src/'),
-      src: path.join(__dirname, '../src/'),
-    },
   },
   target: 'electron-main',
 }
