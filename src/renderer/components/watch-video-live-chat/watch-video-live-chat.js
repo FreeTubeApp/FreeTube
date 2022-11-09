@@ -5,7 +5,8 @@ import FtButton from '../ft-button/ft-button.vue'
 
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
-import { getRandomColorClass, stripHTML } from '../../helpers/utils'
+import { getRandomColorClass } from '../../helpers/colors'
+import { stripHTML } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
