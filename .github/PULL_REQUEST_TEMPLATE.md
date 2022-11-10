@@ -6,7 +6,7 @@
 - [ ] I am a New Contributor
 
 ## Pull Request Type
-<!-- Please select what type of pull request this is: [x] -->
+<!-- Please select what type of pull request this is (select one only): [x] -->
 - [ ] Bugfix
 - [ ] Feature Implementation
 - [ ] Documentation
