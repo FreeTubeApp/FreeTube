@@ -42,6 +42,11 @@ export default Vue.extend({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },
+
+    hideUpcomingPremieres: function () {
+      return this.$store.getters.getHideUpcomingPremieres
+    },
+
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
     }
@@ -149,7 +154,7 @@ export default Vue.extend({
             const publishDate = video.uploadedAt
             let videoDuration = video.duration
             const videoId = video.id
-            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE' && videoDuration !== 'UPCOMING') {
+            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE' && videoDuration !== 'UPCOMING' && videoDuration !== 'PREMIERE') {
               videoDuration = calculateLengthInSeconds(video.duration)
             }
             dataToShow.push(
@@ -169,7 +174,7 @@ export default Vue.extend({
                 liveNow: video.isLive || videoDuration === 'LIVE',
                 paid: false,
                 premium: false,
-                isUpcoming: videoDuration === 'UPCOMING',
+                isUpcoming: videoDuration === 'UPCOMING' || videoDuration === 'PREMIERE',
                 timeText: videoDuration
               }
             )
