@@ -325,7 +325,7 @@ Settings:
     Hide Comments: Slėpti komentarus
     Hide Live Streams: Slėpti tiesiogines transliacijas
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
-    Hide Chapters: Slėpti skyrius
+    Hide Chapters: Slėpti skirsnius
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkti importavimo tipą'
@@ -869,11 +869,11 @@ Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
 Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:
-  Chapters: Skyriai
-  'Chapters list visible, current chapter: {chapterName}': 'Skyrių sąrašas matomas,
-    dabartinis skyrius: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Skyrių sąrašas paslėptas,
-    dabartinis skyrius: {chapterName}'
+  Chapters: Skirsniai
+  'Chapters list visible, current chapter: {chapterName}': 'Skirsnių sąrašas matomas,
+    dabartinis skirsnis: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Skirsnių sąrašas paslėptas,
+    dabartinis skirsnis: {chapterName}'
 Clipboard:
   Copy failed: Nepavyko nukopijuoti į iškarpinę
   Cannot access clipboard without a secure connection: Negalima pasiekti iškarpinės
