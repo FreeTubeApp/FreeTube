@@ -1,19 +1,19 @@
 import { Innertube } from 'youtubei.js'
 
-let searchSuggestionsInnerTube = null
+let searchSuggestionsSession = null
 
-export async function getYTSearchSuggestions(query) {
+export async function getLocalSearchSuggestions(query) {
   // reuse innertube instance to keep the search suggestions snappy
-  if (searchSuggestionsInnerTube === null) {
-    searchSuggestionsInnerTube = await Innertube.create({
+  if (searchSuggestionsSession === null) {
+    searchSuggestionsSession = await Innertube.create({
       // use browser fetch
       fetch: (input, init) => fetch(input, init)
     })
   }
 
-  return await searchSuggestionsInnerTube.getSearchSuggestions(query)
+  return await searchSuggestionsSession.getSearchSuggestions(query)
 }
 
-export function clearYTSearchSuggestionsSession() {
-  searchSuggestionsInnerTube = null
+export function clearLocalSearchSuggestionsSession() {
+  searchSuggestionsSession = null
 }

@@ -7,7 +7,7 @@ import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath, showToast } from '../../helpers/utils'
-import { clearYTSearchSuggestionsSession, getYTSearchSuggestions } from '../../helpers/api/local'
+import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -111,7 +111,7 @@ export default Vue.extend({
         this.searchInput.blur()
       }
 
-      clearYTSearchSuggestionsSession()
+      clearLocalSearchSuggestionsSession()
 
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
@@ -229,7 +229,7 @@ export default Vue.extend({
         return
       }
 
-      getYTSearchSuggestions(query).then((results) => {
+      getLocalSearchSuggestions(query).then((results) => {
         this.searchSuggestionsDataList = results
       })
     },
