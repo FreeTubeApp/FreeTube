@@ -4,10 +4,10 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
-import ytSuggest from 'youtube-suggest'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath, showToast } from '../../helpers/utils'
+import { clearYTSearchSuggestionsSession, getYTSearchSuggestions } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -110,6 +110,8 @@ export default Vue.extend({
       } else {
         this.searchInput.blur()
       }
+
+      clearYTSearchSuggestionsSession()
 
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
@@ -227,7 +229,7 @@ export default Vue.extend({
         return
       }
 
-      ytSuggest(query).then((results) => {
+      getYTSearchSuggestions(query).then((results) => {
         this.searchSuggestionsDataList = results
       })
     },
