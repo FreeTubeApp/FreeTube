@@ -72,9 +72,13 @@ export default Vue.extend({
       return `${this.currentInvidiousInstance}/embed/${this.id}`
     },
 
+    youtubeChannelUrl() {
+      return `https://www.youtube.com/channel/${this.id}`
+    },
+
     youtubeURL() {
       if (this.isChannel) {
-        return `https://www.youtube.com/channel/${this.id}`
+        return this.youtubeChannelUrl
       }
       let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
       // `playlistId` can be undefined
@@ -86,6 +90,9 @@ export default Vue.extend({
     },
 
     youtubeShareURL() {
+      if (this.isChannel) {
+        return this.youtubeChannelUrl
+      }
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
         // `index` seems can be ignored
