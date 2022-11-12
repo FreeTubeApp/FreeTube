@@ -45,18 +45,6 @@
           :tooltip="$t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
           @change="updateVideoPlaybackRateMouseScroll"
         />
-        <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
-          :compact="true"
-          :default-value="displayVideoPlayButton"
-          @change="updateDisplayVideoPlayButton"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
-          :compact="true"
-          :default-value="enterFullscreenOnDisplayRotate"
-          @change="updateEnterFullscreenOnDisplayRotate"
-        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -77,6 +65,18 @@
           :disabled="hideRecommendedVideos"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
+          :compact="true"
+          :default-value="displayVideoPlayButton"
+          @change="updateDisplayVideoPlayButton"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
+          :compact="true"
+          :default-value="enterFullscreenOnDisplayRotate"
+          @change="updateEnterFullscreenOnDisplayRotate"
         />
       </div>
     </div>
