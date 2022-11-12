@@ -15,6 +15,15 @@ export default Vue.extend({
     'ft-toggle-switch': FtToggleSwitch
   },
   props: {
+    mediaType: {
+      /**
+       * Allows to render the dropdown conditionally
+       * 'Channel' will exclude embed links
+       * 'Video' (default) keeps the original behaviour
+       **/
+      type: String,
+      default: 'Video'
+    },
     id: {
       type: String,
       required: true
@@ -25,7 +34,7 @@ export default Vue.extend({
     },
     getTimestamp: {
       type: Function,
-      required: true
+      default: null
     }
   },
   data: function () {
@@ -34,11 +43,22 @@ export default Vue.extend({
     }
   },
   computed: {
+    isChannel: function() {
+      return this.mediaType === 'Channel'
+    },
+
+    isVideo: function() {
+      return this.mediaType === 'Video'
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
     invidiousURL() {
+      if (this.isChannel) {
+        return `${this.currentInvidiousInstance}/channel/${this.id}`
+      }
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
@@ -53,6 +73,9 @@ export default Vue.extend({
     },
 
     youtubeURL() {
+      if (this.isChannel) {
+        return `https://www.youtube.com/channel/${this.id}`
+      }
       let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
@@ -73,6 +96,12 @@ export default Vue.extend({
 
     youtubeEmbedURL() {
       return `https://www.youtube-nocookie.com/embed/${this.id}`
+    }
+  },
+  mounted() {
+    // Prevents to instantiate a ft-share-button for a video without a get-timestamp function
+    if (this.isVideo && !this.getTimestamp) {
+      console.error('Error in props validation: A Video ft-share-button requires a valid get-timestamp function.')
     }
   },
   methods: {
@@ -122,6 +151,9 @@ export default Vue.extend({
     },
 
     getFinalUrl(url) {
+      if (this.isChannel) {
+        return url
+      }
       if (url.indexOf('?') === -1) {
         return this.includeTimestamp ? `${url}?t=${this.getTimestamp()}` : url
       }
