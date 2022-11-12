@@ -89,14 +89,14 @@ Trending:
   Music: Música
   Default: Padrão
 Most Popular: 'Mais populares'
-Playlists: 'Listas'
+Playlists: 'Listas de reprodução'
 User Playlists:
-  Your Playlists: 'Suas listas'
+  Your Playlists: 'Suas Listas de Reprodução'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
-    seus vídeos guardados estão vazios. Clique no botão salvar no canto de um vídeo
-    para que ele seja listado aqui
+    seus vídeos salvos estão vazios. Clique no botão salvar no canto de um vídeo para
+    que ele seja listado aqui
   Playlist Message: Esta página não reflete listas de reprodução totalmente funcionais.
-    Ele só lista vídeos que você salvou ou favoritos. Quando o trabalho estiver concluído,
+    Ele só lista vídeos que você salvou ou favoritou. Quando o trabalho estiver concluído,
     todos os vídeos atualmente aqui serão migrados para uma playlist 'Favoritos'.
   Search bar placeholder: Pesquisar na Lista de Reprodução
   Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
@@ -264,6 +264,7 @@ Settings:
         Segundo 2 dígitos. %T Milissegundo 3 dígitos. %s Segundo do vídeo. %t Milissegundo
         do vídeo 3 dígitos. %i ID do vídeo. Você também pode usar "\" ou "/" para
         criar subpastas.
+    Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -364,14 +365,15 @@ Settings:
     Manage Subscriptions: Administrar Inscrições
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
-    Playlist insufficient data: Dados insuficientes para "{playlist}" playlist, pulando
-      item
+    Playlist insufficient data: Dados insuficientes para a playlist "{playlist}",
+      pulando item
     All playlists has been successfully exported: Todas as listas de reprodução foram
       exportadas com sucesso
     All playlists has been successfully imported: Todas as listas de reprodução foram
       importadas com sucesso
     Subscription File: Arquivo de assinaturas
     History File: Arquivo de histórico
+    Playlist File: Arquivo de Lista
   Distraction Free Settings:
     Hide Live Chat: Esconder chat ao vivo
     Hide Popular Videos: Esconder vídeos populares
@@ -443,6 +445,12 @@ Settings:
     Hide Search Bar: Ocultar barra de pesquisa
     Parental Control Settings: Configurações de Controle Parental
     Hide Unsubscribe Button: Ocultar botão de cancelamento de inscrição
+  Experimental Settings:
+    Experimental Settings: Configurações Experimentais
+    Warning: Essas configurações são experimentais, elas podem causar travamentos
+      enquanto ativadas. Fazer backups é altamente recomendado. Use por sua conta
+      e risco!
+    Replace HTTP Cache: Repor Cache HTTP
 About:
   #On About page
   About: 'Sobre'
@@ -591,6 +599,7 @@ Video:
     Minutes: Minutos
     Minute: Minuto
     Less than a minute: Menos de um minuto
+    In less than a minute: Em menos de um minuto
   Published on: 'Publicado em'
   Publicationtemplate: 'Há {number} {unit}'
 #& Videos
@@ -668,6 +677,7 @@ Video:
     Buffered: Em buffer
     Dropped / Total Frames: Quadros perdidos / Total de quadros
   Premieres in: Estréias em
+  Premieres: Estreias
 Videos:
   #& Sort By
   Sort By:
@@ -827,6 +837,8 @@ Tooltips:
       padrão para obter o feed de sua assinatura. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo ou status ao
       vivo
+    Fetch Automatically: Quando habilitado, o FreeTube buscará automaticamente seu
+      feed de inscrições ao abrir uma nova janela e ao trocar o perfil.
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
@@ -879,6 +891,9 @@ Tooltips:
       vídeo (lista de reprodução, se compatível) no player externo, na miniatura.
       Aviso, as configurações do Invidious não afetam os players externos.
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
+      um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
@@ -916,6 +931,18 @@ Age Restricted:
   Type:
     Channel: Canal
     Video: Vídeo
+  This {videoOrPlaylist} is age restricted: Esse(a) {videoOrPlaylist} tem restrição
+    de idade
 Screenshot Success: Captura de tela salva como "{filePath}"
 Screenshot Error: Falha na captura de tela. {error}
 Preferences: Preferências
+Clipboard:
+  Copy failed: Copiar para a área de transferência falhou
+  Cannot access clipboard without a secure connection: Não pode acessar a área de
+    transferência sem uma conexão segura
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Lista visível de capítulos,
+    capítulo atual: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos,
+    capítulo atual: {chapterName}'
+  Chapters: Capítulos
