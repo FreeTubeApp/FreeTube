@@ -20,7 +20,7 @@ Select all: 'Seleccionar todo'
 Reload: 'Recargar'
 Force Reload: 'Forzar recarga'
 Toggle Developer Tools: 'Activar Ferramentas de Desenvolvedor'
-Actual size: 'Tamaño real'
+Actual size: 'Tamaño actual'
 Zoom in: 'Agrandar'
 Zoom out: 'Reducir'
 Toggle fullscreen: 'Activar pantalla completa'
@@ -30,11 +30,11 @@ Close: 'Pechar'
 Back: 'Atrás'
 Forward: 'Adiante'
 
-Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber} está dispoñible!  Fai
-  clic para veres máis detalles'
-Download From Site: 'Descargar do sitio web'
-A new blog is now available, {blogTitle}. Click to view more: 'Hai unha nova entrada no blog
-  dispoñible, {blogTitle}. Fai clic para veres máis'
+Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
+  está dispoñible!  Fai clic para veres máis detalles'
+Download From Site: 'Descargar dende a páxina web'
+A new blog is now available, {blogTitle}. Click to view more: 'Hai unha nova entrada
+  no blog dispoñible, {blogTitle}. Fai clic para veres máis'
 
 # Search Bar
 Search / Go to URL: 'Buscar / Ir á URL'
@@ -49,7 +49,7 @@ Search Filters:
     View Count: 'Visualizacións'
   Time:
     Time: 'Tempo'
-    Any Time: 'Calquera momento'
+    Any Time: 'Cando queiras'
     Last Hour: 'Última hora'
     Today: 'Hoxe'
     This Week: 'Esta semana'
@@ -77,7 +77,8 @@ Subscriptions:
   Subscriptions: 'Subscricións'
   Latest Subscriptions: 'Últimas subscricións'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Este
-    perfil ten unha gran cantidade de subscricións.  Forzarase RSS para evitar o límite'
+    perfil ten unha gran cantidade de subscricións.  Forzanse as RSS para evitalo
+    límite'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     túa listaxe de subscricións está baleira. Engade algunhas para as ver aquí.'
   'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
@@ -89,22 +90,32 @@ Subscriptions:
   Empty Channels: As túas canles subscritas actualmente non teñen ningún vídeo.
 Trending:
   Trending: 'Tendencias'
+  Gaming: Xogos
+  Default: Por defecto
+  Music: Música
+  Movies: Películas
+  Trending Tabs: Pestanas das tendencias
 Most Popular: 'Máis populares'
 Playlists: 'Listaxes de reprodución'
 User Playlists:
   Your Playlists: 'As túas listaxes de reprodución'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Os
-    teus vídeos gardados están baleiros. Prema no botón Gardar na esquina dun vídeo
+    teus vídeos gardados están baleiros. Fai clic no botón Gardar na esquina dun vídeo
     para que apareza aquí
   Playlist Message: Esta páxina non reflicte as listas de reprodución que funcionan
     completamente. Só lista os vídeos que gardaches ou marcaches como favoritos. Cando
     remate o traballo, todos os vídeos que hai aquí migraranse a unha lista de reprodución
     "Favoritos".
+  Empty Search Message: Non hai vídeos nesta lista de reprodución que coincidan coa
+    túa busca
+  Search bar placeholder: Atopar na lista de reprodución
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizacións'
   Your history list is currently empty.: 'A túa listaxe histórica está baleira.'
+  Empty Search Message: Non hai vídeos no teu historial que coincidan coa túa busca
+  Search bar placeholder: Atopar na historia
 Settings:
   # On Settings Page
   Settings: 'Axustes'
@@ -137,16 +148,22 @@ Settings:
       Invidious (por defecto é https://invidious.snopyta.org)'
     Region for Trending: 'Rexión para as tendencias'
         #! List countries
-    View all Invidious instance information: Ver toda a información da instancia Invidious
+    View all Invidious instance information: Ver todala información da instancia de
+      Invidious
     System Default: Sistema predeterminado
     Clear Default Instance: Borrar a instancia por defecto
     Set Current Instance as Default: Definir a instancia actual como predeterminada
     Current instance will be randomized on startup: A instancia actual será aleatoria
       no arranque
     No default instance has been set: Ningunha instancia foi habilitada por defecto
-    The currently set default instance is {instance}: A Instancia Actualmente Habilitada Por
-      Defecto é {instance}
+    The currently set default instance is {instance}: A Instancia Actualmente Habilitada
+      Por Defecto é {instance}
     Current Invidious Instance: Instancia Actual de Invidious
+    External Link Handling:
+      No Action: Ningunha acción
+      Ask Before Opening Link: Pregunta antes de abrila ligazón
+      External Link Handling: Manexo das ligazóns externas
+      Open Link: Abrir ligazón
   Theme Settings:
     Theme Settings: 'Axustes de tema'
     Match Top Bar with Main Color: 'Combinar cor principal coa barra superior'
@@ -159,6 +176,8 @@ Settings:
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
+      System Default: Predeterminado polo sistema
+      Catppuccin Mocha: Moca Catppuccin
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermello'
@@ -184,8 +203,20 @@ Settings:
       Dracula Purple: 'Drácula Morado'
       Dracula Red: 'Drácula Vermello'
       Dracula Yellow: 'Drácula Amarelo'
+      Catppuccin Mocha Green: Catppuccin Mocha Verde
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Auga de Rosas
+      Catppuccin Mocha Pink: Catppuccin Mocha Rosa
+      Catppuccin Mocha Red: Catppuccin Mocha Vermello
+      Catppuccin Mocha Peach: Catppuccin Mocha Pexego
+      Catppuccin Mocha Yellow: Catppuccin Mocha Amarelo
+      Catppuccin Mocha Teal: Catppuccin Mocha verde azulado
+      Catppuccin Mocha Sky: Catppuccin Mocha Ceo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Zafiro
+      Catppuccin Mocha Blue: Catppuccin Mocha Azul
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
     Secondary Color Theme: 'Cor secundaria'
         #* Main Color Theme
+    Hide Side Bar Labels: Ocultalas etiquetas da barra lateral
   Player Settings:
     Player Settings: 'Axustes do reprodutor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formatos antigos
@@ -219,6 +250,28 @@ Settings:
     Display Play Button In Video Player: Amosar o botón de Reprodución no reprodutor
       de vídeo
     Scroll Volume Over Video Player: Desprazar o volume do reprodutor de vídeo
+    Screenshot:
+      Folder Label: Cartafol das capturas da pantalla
+      Error:
+        Forbidden Characters: Personaxes prohibidos
+        Empty File Name: Nome do ficheiro baleiro
+      Quality Label: Calidade da captura da pantalla
+      Format Label: Formato da captura da pantalla
+      Ask Path: Pregunta onde se garda o cartafol
+      File Name Tooltip: Podes usalas variables a continuación. %Y 4 díxitos do ano.
+        %M Mes 2 díxitos. %D Día 2 díxitos. %H Hora 2 díxitos. %N minutos 2 díxitos.
+        %S Segundo 2 díxitos. %T Milisegundos 3 díxitos. %s segundo de vídeo. %t Video
+        Milisegundos 3 díxitos. ID de vídeo %i. Tamén podes usar "\" ou "/" para crear
+        subcartafoles.
+      Folder Button: Seleccione un cartafol
+      File Name Label: Patrón do nome do fixeiro
+      Enable: Activalas capturas da pantalla
+    Video Playback Rate Interval: Intervalo da taxa da reprodución do vídeo
+    Fast-Forward / Rewind Interval: Intervalo do avance/retroceso rápido
+    Scroll Playback Rate Over Video Player: Desprácese a taxa da reprodución sobre
+      a reproducción do vídeo
+    Max Video Playback Rate: Velocidade máxima da reprodución do vídeo
+    Enter Fullscreen on Display Rotate: Poñase a pantalla enteira o xirala pantalla
   Privacy Settings:
     Privacy Settings: 'Axustes de privacidade'
     Remember History: 'Lembrar histórico'
@@ -241,6 +294,7 @@ Settings:
     Hide Videos on Watch: 'Agochar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscricións a través de RSS'
     Manage Subscriptions: 'Xestionar subscricións'
+    Fetch Automatically: Obter feed automaticamente
   Distraction Free Settings:
     Distraction Free Settings: 'Sen distraccións'
     Hide Video Views: 'Agochar as visualizacións nos vídeos'
@@ -253,6 +307,11 @@ Settings:
     Hide Live Chat: 'Agochar conversa en vivo'
     Hide Active Subscriptions: Agochar subscricións activas
     Hide Playlists: Agochar listas de reprodución
+    Hide Live Streams: Ocultalas emisións en directo
+    Hide Sharing Actions: Ocultalas accións do uso compartido
+    Hide Video Description: Ocultala descrición do vídeo
+    Hide Comments: Ocultar comentarios
+    Hide Chapters: Agochalos capítulos
   Data Settings:
     Data Settings: 'Axustes dos datos'
     Select Import Type: 'Escoller tipo de importación'
@@ -292,6 +351,17 @@ Settings:
     Unknown data key: 'Chave de datos descoñecida'
     How do I import my subscriptions?: 'Como podo importar as subscricións?'
     Manage Subscriptions: Xestionar subscricións
+    Playlist insufficient data: Datos insuficientes para a lista de reprodución "{playlist}",
+      saltándose o elemento
+    Import Playlists: Importalas listas de reprodución
+    Playlist File: Ficheiro da lista da reprodución
+    Subscription File: Ficheiro da subscrición
+    History File: Ficheiro do historial
+    All playlists has been successfully imported: Importáronse con éxito todalas listas
+      de reprodución
+    All playlists has been successfully exported: Todalas listas de reprodución exportáronse
+      correctamente
+    Export Playlists: Exportalas listas de reprodución
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (escribe
@@ -326,6 +396,13 @@ Settings:
       (O predeterminado é https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
     SponsorBlock Settings: Configuración do SponsorBlock
+    Skip Options:
+      Prompt To Skip: Solicitar saltar
+      Skip Option: Omitila opción
+      Auto Skip: Salto automático
+      Show In Seek Bar: Mostrala na barra da busca
+      Do Nothing: Non fagas nada
+    Category Color: Cor da categoría
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter información de rede. O teu proxy está configurado correctamente?
@@ -339,15 +416,21 @@ Settings:
       unha solicitude a
     Proxy Port Number: Número do porto de Proxy
     Proxy Host: Anfitrión de Proxy
-    Proxy Protocol: Protocolo de Proxy
+    Proxy Protocol: Protocolo do Proxy
     Enable Tor / Proxy: Activar Tor / Proxy
-    Proxy Settings: Configuración do Proxy
+    Proxy Settings: Axustes do Proxy
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Reprodutor externo personalizado executable
     Ignore Unsupported Action Warnings: Ignorar as advertencias de accións non soportadas
     External Player: Reprodutor externo
     External Player Settings: Configuración do reprodutor externo
+    Players:
+      None:
+        Name: Ningún
+  Parental Control Settings:
+    Parental Control Settings: Configuración do control parental
+    Hide Unsubscribe Button: Ocultalo botón para cancelala subscrición
 About:
   #On About page
   About: 'Sobre'
@@ -424,7 +507,8 @@ Profile:
   Your profile name cannot be empty: 'O nome do perfil non pode estar en branco'
   Profile has been created: 'Creouse o perfil'
   Profile has been updated: 'Actualizouse o perfil'
-  Your default profile has been set to {profile}: '{profile} é agora o teu perfil predeterminado'
+  Your default profile has been set to {profile}: '{profile} é agora o teu perfil
+    predeterminado'
   Removed {profile} from your profiles: 'Eliminouse {profile} dos teus perfís'
   Your default profile has been changed to your primary profile: 'O teu perfil predeterminado
     cambiouse ao teu perfil primario'
@@ -453,8 +537,8 @@ Channel:
   Unsubscribe: 'Desubscribirse'
   Channel has been removed from your subscriptions: 'Esta canle foi eliminada das
     túas subscricións'
-  Removed subscription from {count} other channel(s): 'Eliminouse a subscrición de {count} a outra(s)
-    canle(s)'
+  Removed subscription from {count} other channel(s): 'Eliminouse a subscrición de
+    {count} a outra(s) canle(s)'
   Added channel to your subscriptions: 'Canle engadida ás túas subscricións'
   Search Channel: 'Buscar na canle'
   Your search results have returned 0 results: 'A busca non atopou resultados'
@@ -730,7 +814,7 @@ Playing Next Video: 'A reproducir próximo vídeo'
 Playing Previous Video: 'A reproducir vídeo anterior'
 Playing next video in 5 seconds.  Click to cancel: 'O próximo vídeo reproducirase
   en 5 segundos. Preme para cancelar.'
-Canceled next video autoplay: 'Reprodución cancelada'
+Canceled next video autoplay: 'Cancelouse a reprodución automática do seguinte vídeo'
 'The playlist has ended.  Enable loop to continue playing': 'A listaxe de reprodución
   rematou.  Activa a reprodución en bucle para continuar reproducindo'
 
@@ -751,9 +835,12 @@ Channels:
   Channels: Canles
   Title: Lista de canles
   Search bar placeholder: Busca canles
-  Count: $ canles atopadas.
+  Count: Atopouse {number} canle(s).
   Empty: A túa lista de canles atopase baleira.
   Unsubscribe: Cancelar a subscrición
+  Unsubscribed: Eliminouse {channelName} das túas subscricións
+  Unsubscribe Prompt: Estás seguro de que queres cancelar a subscrición a "{channelName}"?
 Search Bar:
   Clear Input: Borrar entrada
 Are you sure you want to open this link?: Estás seguro de que queres abrir esta ligazón?
+Preferences: Preferencias
