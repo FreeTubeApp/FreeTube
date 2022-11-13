@@ -214,6 +214,9 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Zafiro
       Catppuccin Mocha Blue: Catppuccin Mocha Azul
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamenco
+      Catppuccin Mocha Mauve: Catppuccin Mocha Malva
+      Catppuccin Mocha Maroon: Catppuccin Mocha Granate
     Secondary Color Theme: 'Cor secundaria'
         #* Main Color Theme
     Hide Side Bar Labels: Ocultalas etiquetas da barra lateral
@@ -431,6 +434,21 @@ Settings:
   Parental Control Settings:
     Parental Control Settings: Configuración do control parental
     Hide Unsubscribe Button: Ocultalo botón para cancelala subscrición
+    Show Family Friendly Only: Mostrar só para as familias
+    Hide Search Bar: Ocultala barra de busca
+  Download Settings:
+    Download in app: Descarga na aplicación
+    Download Settings: Configuración das descargas
+    Open in web browser: Abrir no navegador
+    Ask Download Path: Solicitala ruta da descarga
+    Choose Path: Ecollela ruta
+    Download Behavior: Comportamento da descarga
+  Experimental Settings:
+    Experimental Settings: Configuracións experimentais
+    Warning: Estas opcións da configuración son experimentais e provocan fallos mentres
+      están activadas. É moi recomendable facer copias de seguridade. Useas baixo
+      o seu propio risco!
+    Replace HTTP Cache: Substitúe a caché HTTP
 About:
   #On About page
   About: 'Sobre'
@@ -530,6 +548,7 @@ Profile:
     de ningún outro perfil.'
 #On Channel Page
   Profile Filter: Filtro por perfís
+  Profile Settings: Configuración do perfil
 Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'
@@ -642,6 +661,7 @@ Video:
     Years: 'Anos'
     Ago: 'Hai'
     Upcoming: 'Estrea'
+    In less than a minute: En menos dun minuto
   Published on: 'Publicado'
   Streamed on: 'Transmitido'
   Started streaming on: 'A transmisión comezou'
@@ -669,11 +689,27 @@ Video:
     outro: Outro
     intro: Intro
     sponsor: Patrocinador
+    recap: Recapitulación
+    filler: Recheo
   Skipped segment: Segmento omitido
   translated from English: traducido do inglés
   Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
   Video has been saved: Gardouse o vídeo
   Save Video: Gardar vídeo
+  Stats:
+    Player Dimensions: Dimensións do reproductor
+    Video ID: Identificador do video
+    Buffered: No bufer
+    Mimetype: Tipo de medio
+    Video statistics are not available for legacy videos: As estadísticas dos vídeo
+      non se atopan dispoñibles para os vídeos antigos
+    Bitrate: Taxa dos bits
+    Volume: Volume
+    Resolution: Resolución
+    Bandwidth: Ancho da banda
+    Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
+  Premieres on: Estrease o
+  Premieres: Estreos
 Videos:
   #& Sort By
   Sort By:
@@ -698,6 +734,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Lista de reprodución
 Toggle Theatre Mode: 'Activar modo cinema'
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
@@ -747,6 +784,11 @@ Comments:
   There are no comments available for this video: 'Este vídeo non contén ningún comentario'
   Load More Comments: 'Cargar máis comentarios'
   No more comments available: 'Non hai máis comentarios'
+  Pinned by: Fixado por
+  And others: e outros
+  Member: Membro
+  From {channelName}: de {channelName}
+  Show More Replies: Amosar máis respostas
 Up Next: 'Seguintes'
 
 #Tooltips
@@ -755,15 +797,19 @@ Tooltips:
     Preferred API Backend: 'Escolle o back-end que FreeTube utiliza para obter os
       datos. A API local é un extractor incluído. A API de Invidious require un servidor
       Invidious ao que se conectar.'
-    Fallback to Non-Preferred Backend on Failure: 'Cando a túa API primaria falla,
-      FreeTube tentará utilizar a API secundaria automaticamente se é habilitado'
-    Thumbnail Preference: 'Tódalas miniaturas en FreeTube serán remplazadas cunha
-      imaxe do vídeo no canto da miniatura predeterminada'
+    Fallback to Non-Preferred Backend on Failure: 'Cando a túa API preferida teña
+      un problema, FreeTube tentará usar automaticamente a túa API non preferida como
+      método alternativo cando estea activo.'
+    Thumbnail Preference: 'Todalas miniaturas de FreeTube substituiranse por un fotograma
+      do vídeo no lugar da miniatura predeterminada.'
     Invidious Instance: 'A instancia de Invidious á que se conectará FreeTube para
       as chamadas da aplicacion.'
     Region for Trending: 'A rexión das tendencias permíteche escoller os vídeos máis
       populares nun Estado. Non tódolos Estados que se amosan están soportados por
       YouTube.'
+    External Link Handling: "Escolla o comportamento predeterminado cando se fai clic\
+      \ nunha ligazón, que non se pode abrir en FreeTube.\nDe forma predeterminada,\
+      \ FreeTube abrirá a ligazón na que premeches no teu navegador predeterminado.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Só funcionará se a API de Invidious está
       escollida por defecto. Cando estea activa, a API local usará formatos antigos
@@ -771,10 +817,16 @@ Tooltips:
       un vídeo por causa das restricións rexionais.'
     Proxy Videos Through Invidious: 'Conectarase a Invidious para obter vídeos no
       canto de recorrer directamente a YouTube. Sobrescribirá a preferencia de API.'
-    Default Video Format: 'Selecciona os formatos usados cando se reproduce un vídeo.
-      Os formatos Dash teñen resolucións máis altas. Os formatos antigos (Legacy)
-      están limitados a 720p pero utilizan menos largura de banda. Os formatos de
-      audio reproducen unicamente audio'
+    Default Video Format: 'Establecelos formatos utilizados cando se reproduce un
+      vídeo. Os formatos DASH poden reproducir calidades superiores. Os formatos legados
+      están limitados a un máximo de 720p pero usan menos ancho de banda. Os formatos
+      de audio son fluxos de audio só.'
+    Scroll Playback Rate Over Video Player: Mentres o cursor está sobre o vídeo, manteña
+      premida a tecla Control (tecla Comando no Mac) e desprácese coa roda do rato
+      cara adiante ou cara atrás para controlala velocidade da reprodución. Manteña
+      premida a tecla Control (tecla Comando no Mac) e prema co botón esquerdo do
+      rato para voltar rapidamente á taxa de reprodución predeterminada (1x a menos
+      que o modificase na configuración).
   Subscription Settings:
     Fetch Feeds from RSS: 'Cando está activado, FreeTube usará RSS no canto do método
       predeterminao para obter as subscricións. RSS é máis rápido e impide o bloqueo
@@ -782,6 +834,8 @@ Tooltips:
       é en vivo'
 
 # Toast Messages
+    Fetch Automatically: Cando estea activado, FreeTube buscará automaticamente o
+      teu feed da subscrición, cando se abra unha nova ventá e cando cambies de perfil.
   Privacy Settings:
     Remove Video Meta Files: Cando está activado, FreeTube elimina automaticamente
       os ficheiros meta creados durante a reprodución de vídeo cando a páxina de visualización
@@ -797,13 +851,18 @@ Tooltips:
     External Player: Ao escoller un reprodutor externo, aparecerá unha icona para
       abrilo vídeo (lista de reprodución se é compatible) no reprodutor externo, na
       miniatura. Aviso, a configuración de Invidious non afecta aos reprodutores externos.
+    DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Desactivouse a caché HTTP baseada no disco de Electrons e
+      habilita unha caché das imaxes persoalizadas na memoria. Levará a un aumento
+      no uso da RAM.
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
 Falling back to the local API: 'Recorrendo á API local'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Este
-  vídeo non está dispoñible por ter un formato inválido. Isto pode pasar pola non
-  dispoñibilidade rexional'
+  vídeo non está dispoñible porque faltan formatos. Isto pode ocorrer debido á non
+  dispoñibilidade do país.'
 Subscriptions have not yet been implemented: 'As subscricións aínda non foron implementadas'
 Loop is now disabled: 'Reprodución en bucle desactivada'
 Loop is now enabled: 'Reprodución en bucle activada'
@@ -844,3 +903,30 @@ Search Bar:
   Clear Input: Borrar entrada
 Are you sure you want to open this link?: Estás seguro de que queres abrir esta ligazón?
 Preferences: Preferencias
+Downloading failed: Produciuse un problema ao descargar "{videoTitle}"
+Downloading has completed: '"{videoTitle}" rematou de descargarse'
+External link opening has been disabled in the general settings: A apertura das ligazóns
+  externas desactivouse na configuración xeral
+Starting download: Comenzando a descarga de "{videoTitle}"
+Age Restricted:
+  Type:
+    Channel: Canle
+    Video: Vídeo
+  This {videoOrPlaylist} is age restricted: Esta {videoOrPlaylist} ten restricións
+    de idade
+Default Invidious instance has been cleared: Borrouse a instancia predeterminada de
+  Invidious
+Screenshot Error: Produciuse un erro na captura de pantalla. {error}
+Default Invidious instance has been set to {instance}: A instancia predeterminada
+  de Invidious estableceuse en {instance}
+Clipboard:
+  Copy failed: Produciuse un erro ao copialo no portapapeis
+  Cannot access clipboard without a secure connection: Non se pode acceder ao portapapeis
+    sen unha conexión segura
+Chapters:
+  Chapters: Capítulos
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visible,
+    capítulo actual: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
+    capítulo actual: {chapterName}'
+Screenshot Success: Captura da pantalla gardada como "{filePath}"
