@@ -1,7 +1,7 @@
 <template>
   <ft-icon-button
     ref="iconButton"
-    :title="$t(`Share.Share ${mediaType}`)"
+    :title="$t(`Share.Share ${shareTargetType}`)"
     :theme="isVideo?'secondary':'base-no-default'"
     :icon="['fas', 'share-alt']"
     dropdown-position-x="left"

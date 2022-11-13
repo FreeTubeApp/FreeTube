@@ -54,7 +54,7 @@
           <div class="channelInfoActionsContainer">
             <ft-share-button
               :id="id"
-              media-type="Channel"
+              share-target-type="Channel"
               class="shareIcon"
             />
 
