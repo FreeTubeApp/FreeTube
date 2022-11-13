@@ -9,7 +9,7 @@
   >
     <ft-flex-box>
       <ft-toggle-switch
-        v-if="!isChannel"
+        v-if="isVideo"
         :label="$t('Share.Include Timestamp')"
         :compact="true"
         :default-value="includeTimestamp"
@@ -43,7 +43,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
-          v-if="!isChannel"
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="copyYoutubeEmbed()"
@@ -52,7 +52,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
-          v-if="!isChannel"
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="openYoutubeEmbed()"
@@ -84,7 +84,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
-          v-if="!isChannel"
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="copyInvidiousEmbed()"
@@ -93,7 +93,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
-          v-if="!isChannel"
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="openInvidiousEmbed()"

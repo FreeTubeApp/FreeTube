@@ -15,7 +15,7 @@ export default Vue.extend({
     'ft-toggle-switch': FtToggleSwitch
   },
   props: {
-    mediaType: {
+    shareTargetType: {
       /**
        * Allows to render the dropdown conditionally
        * 'Channel' will exclude embed links
@@ -44,11 +44,11 @@ export default Vue.extend({
   },
   computed: {
     isChannel: function() {
-      return this.mediaType === 'Channel'
+      return this.shareTargetType === 'Channel'
     },
 
     isVideo: function() {
-      return this.mediaType === 'Video'
+      return this.shareTargetType === 'Video'
     },
 
     currentInvidiousInstance: function () {
