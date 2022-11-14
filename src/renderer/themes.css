@@ -137,148 +137,126 @@
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
 }
 
+.mainRed
+.mainPink
+.mainPurple
+.mainDeepPurple
+.mainIndigo
+.mainBlue
+.mainLightBlue
+.mainCyan
+.mainTeal
+.mainGreen {
+  --text-with-main-color: #FFFFFF;
+  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
+  --logo-text-bar-color: url("../../_icons/textWhite.png");
+}
+
+.mainLightGreen
+.mainLime
+.mainYellow
+.mainAmber
+.mainOrange
+.mainDeepOrange {
+  --text-with-main-color: #000000;
+  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
+  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
+}
+
 .mainRed {
   --primary-color: #f44336;
   --primary-color-hover: #e53935;
   --primary-color-active: #c62828;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainPink {
   --primary-color: #E91E63;
   --primary-color-hover: #D81B60;
   --primary-color-active: #AD1457;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainPurple {
   --primary-color: #9C27B0;
   --primary-color-hover: #8E24AA;
   --primary-color-active: #6A1B9A;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainDeepPurple {
   --primary-color: #673AB7;
   --primary-color-hover: #5E35B1;
   --primary-color-active: #4527A0;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainIndigo {
   --primary-color: #3F51B5;
   --primary-color-hover: #3949AB;
   --primary-color-active: #283593;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainBlue {
   --primary-color: #2196F3;
   --primary-color-hover: #1E88E5;
   --primary-color-active: #1565C0;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainLightBlue {
   --primary-color: #03A9F4;
   --primary-color-hover: #039BE5;
   --primary-color-active: #0277BD;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainCyan {
   --primary-color: #00BCD4;
   --primary-color-hover: #00ACC1;
   --primary-color-active: #00838F;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainTeal {
   --primary-color: #009688;
   --primary-color-hover: #00897B;
   --primary-color-active: #00695C;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainGreen {
   --primary-color: #4CAF50;
   --primary-color-hover: #43A047;
   --primary-color-active: #2E7D32;
-  --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
 .mainLightGreen {
   --primary-color: #8BC34A;
   --primary-color-hover: #7CB342;
   --primary-color-active: #558B2F;
-  --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainLime {
   --primary-color: #CDDC39;
   --primary-color-hover: #C0CA33;
   --primary-color-active: #9E9D24;
-  --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainYellow {
   --primary-color: #FFEB3B;
   --primary-color-hover: #FDD835;
   --primary-color-active: #F9A825;
-  --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainAmber {
   --primary-color: #FFC107;
   --primary-color-hover: #FFB300;
   --primary-color-active: #FF8F00;
-  --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainOrange {
   --primary-color: #FF9800;
   --primary-color-hover: #FB8C00;
   --primary-color-active: #EF6C00;
-  --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainDeepOrange {
   --primary-color: #FF5722;
   --primary-color-hover: #F4511E;
   --primary-color-active: #D84315;
-  --text-with-main-color: #000000;
-  --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
-  --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
 .mainDraculaCyan,
@@ -443,13 +421,34 @@
   --primary-color-active: #8d98e4;
 }
 
+.secRed
+.secPink
+.secPurple
+.secDeepPurple
+.secIndigo
+.secBlue
+.secLightBlue
+.secCyan
+.secTeal
+.secGreen {
+  --text-with-accent-color: #FFFFFF;
+}
+
+.secLightGreen
+.secLime
+.secYellow
+.secAmber
+.secOrange
+.secDeepOrange {
+  --text-with-accent-color: #000000;
+}
+
 .secRed {
   --accent-color: #f44336;
   --accent-color-hover: #e53935;
   --accent-color-active: #c62828;
   --accent-color-light: #ef9a9a;
   --accent-color-visited: #b71c1c;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(244,67,54,0.04);
   --accent-color-opacity2: rgba(244,67,54,0.12);
   --accent-color-opacity3: rgba(244,67,54,0.16);
@@ -462,7 +461,6 @@
   --accent-color-active: #AD1457;
   --accent-color-light: #F48FB1;
   --accent-color-visited: #880E4F;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(233,30,99,0.04);
   --accent-color-opacity2: rgba(233,30,99,0.12);
   --accent-color-opacity3: rgba(233,30,99,0.16);
@@ -475,7 +473,6 @@
   --accent-color-active: #6A1B9A;
   --accent-color-light: #CE93D8;
   --accent-color-visited: #4A148C;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(156,39,176,0.04);
   --accent-color-opacity2: rgba(156,39,176,0.12);
   --accent-color-opacity3: rgba(156,39,176,0.16);
@@ -488,7 +485,6 @@
   --accent-color-active: #4527A0;
   --accent-color-light: #B39DDB;
   --accent-color-visited: #311B92;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(103,58,183,0.04);
   --accent-color-opacity2: rgba(103,58,183,0.12);
   --accent-color-opacity3: rgba(103,58,183,0.16);
@@ -501,7 +497,6 @@
   --accent-color-active: #283593;
   --accent-color-light: #9FA8DA;
   --accent-color-visited: #1A237E;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(63,81,181,0.04);
   --accent-color-opacity2: rgba(63,81,181,0.12);
   --accent-color-opacity3: rgba(63,81,181,0.16);
@@ -514,7 +509,6 @@
   --accent-color-active: #1565C0;
   --accent-color-light: #90CAF9;
   --accent-color-visited: #0D47A1;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(33,150,243,0.04);
   --accent-color-opacity2: rgba(33,150,243,0.12);
   --accent-color-opacity3: rgba(33,150,243,0.16);
@@ -527,7 +521,6 @@
   --accent-color-active: #0277BD;
   --accent-color-light: #81D4FA;
   --accent-color-visited: #01579B;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(3,169,244,0.04);
   --accent-color-opacity2: rgba(3,169,244,0.12);
   --accent-color-opacity3: rgba(3,169,244,0.16);
@@ -540,7 +533,6 @@
   --accent-color-active: #00838F;
   --accent-color-light: #80DEEA;
   --accent-color-visited: #006064;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(0,188,212,0.04);
   --accent-color-opacity2: rgba(0,188,212,0.12);
   --accent-color-opacity3: rgba(0,188,212,0.16);
@@ -553,7 +545,6 @@
   --accent-color-active: #00695C;
   --accent-color-light: #80CBC4;
   --accent-color-visited: #004D40;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(0,150,136,0.04);
   --accent-color-opacity2: rgba(0,150,136,0.12);
   --accent-color-opacity3: rgba(0,150,136,0.16);
@@ -566,7 +557,6 @@
   --accent-color-active: #2E7D32;
   --accent-color-light: #A5D6A7;
   --accent-color-visited: #1B5E20;
-  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(76,175,80,0.04);
   --accent-color-opacity2: rgba(76,175,80,0.12);
   --accent-color-opacity3: rgba(76,175,80,0.16);
@@ -579,7 +569,6 @@
   --accent-color-active: #558B2F;
   --accent-color-light: #C5E1A5;
   --accent-color-visited: #33691E;
-  --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(139,195,74,0.04);
   --accent-color-opacity2: rgba(139,195,74,0.12);
   --accent-color-opacity3: rgba(139,195,74,0.16);
@@ -592,7 +581,6 @@
   --accent-color-active: #9E9D24;
   --accent-color-light: #E6EE9C;
   --accent-color-visited: #827717;
-  --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(205,220,57,0.04);
   --accent-color-opacity2: rgba(205,220,57,0.12);
   --accent-color-opacity3: rgba(205,220,57,0.16);
@@ -605,7 +593,6 @@
   --accent-color-active: #F9A825;
   --accent-color-light: #FFF59D;
   --accent-color-visited: #F57F17;
-  --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,235,59,0.04);
   --accent-color-opacity2: rgba(255,235,59,0.12);
   --accent-color-opacity3: rgba(255,235,59,0.16);
@@ -618,7 +605,6 @@
   --accent-color-active: #FF8F00;
   --accent-color-light: #FFE082;
   --accent-color-visited: #FF6F00;
-  --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,193,7,0.04);
   --accent-color-opacity2: rgba(255,193,7,0.12);
   --accent-color-opacity3: rgba(255,193,7,0.16);
@@ -631,7 +617,6 @@
   --accent-color-active: #EF6C00;
   --accent-color-light: #FFCC80;
   --accent-color-visited: #E65100;
-  --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,152,0,0.04);
   --accent-color-opacity2: rgba(255,152,0,0.12);
   --accent-color-opacity3: rgba(255,152,0,0.16);
@@ -644,7 +629,6 @@
   --accent-color-active: #D84315;
   --accent-color-light: #FFAB91;
   --accent-color-visited: #BF360C;
-  --text-with-accent-color: #000000;
   --accent-color-opacity1: rgba(255,87,34,0.04);
   --accent-color-opacity2: rgba(255,87,34,0.12);
   --accent-color-opacity3: rgba(255,87,34,0.16);
