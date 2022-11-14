@@ -10,6 +10,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtCommunityPost from '../../components/ft-community-post/ft-community-post.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -29,7 +30,8 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-community-post': FtCommunityPost,
-    'ft-age-restricted': FtAgeRestricted
+    'ft-age-restricted': FtAgeRestricted,
+    'ft-share-button': FtShareButton
   },
   data: function () {
     return {
