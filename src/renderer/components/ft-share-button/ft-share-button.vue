@@ -1,14 +1,15 @@
 <template>
   <ft-icon-button
     ref="iconButton"
-    :title="$t('Share.Share Video')"
-    theme="secondary"
+    :title="$t(`Share.Share ${shareTargetType}`)"
+    :theme="isVideo?'secondary':'base-no-default'"
     :icon="['fas', 'share-alt']"
     dropdown-position-x="left"
     :force-dropdown="true"
   >
     <ft-flex-box>
       <ft-toggle-switch
+        v-if="isVideo"
         :label="$t('Share.Include Timestamp')"
         :compact="true"
         :default-value="includeTimestamp"
@@ -42,6 +43,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="copyYoutubeEmbed()"
@@ -50,6 +52,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="openYoutubeEmbed()"
@@ -81,6 +84,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="copyInvidiousEmbed()"
@@ -89,6 +93,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
+          v-if="isVideo"
           class="action"
           background-color="var(--accent-color-active)"
           @click="openInvidiousEmbed()"

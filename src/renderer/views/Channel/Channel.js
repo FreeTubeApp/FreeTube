@@ -9,6 +9,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
+import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
@@ -27,7 +28,8 @@ export default Vue.extend({
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
-    'ft-age-restricted': FtAgeRestricted
+    'ft-age-restricted': FtAgeRestricted,
+    'ft-share-button': FtShareButton
   },
   data: function () {
     return {
