@@ -1,13 +1,45 @@
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha {
+  --primary-input-color: rgba(0, 0, 0, 0.50);
+}
+
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.gray {
+  --logo-icon: url("../../_icons/iconColorSmall.png");
+  --logo-text: url("../../_icons/textColorSmall.png");
+}
+
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.dracula,
+.catppuccinMocha {
+  --link-color: var(--accent-color);
+  --link-visited-color: var(--accent-color-visited);
+  --instance-menu-color: var(--search-bar-color);
+}
+
+.system[data-system-theme*='dark'], .dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha {
+  --primary-shadow-color: rgba(0, 0, 0, 0.75);
+}
+
 .system[data-system-theme*='light'], .light {
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
   --tertiary-text-color: #757575;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
   --primary-shadow-color: rgba(232, 232, 232, 1);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
   --favorite-icon-color: #FFD600;
   --card-bg-color: #FFFFFF;
   --secondary-card-bg-color: #eeeeee;
@@ -17,21 +49,14 @@
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
   --search-bar-color: #f5f5f5;
-  --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .system[data-system-theme*='dark'], .dark {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #ddd;
   --tertiary-text-color: #999;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #EEEEEE;
   --bg-color: #212121;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
   --favorite-icon-color: #FFEA00;
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
@@ -41,21 +66,14 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
-  --instance-menu-color: var(--search-bar-color);
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .black {
     --primary-text-color: #EEEEEE;
     --secondary-text-color: #ddd;
     --tertiary-text-color: #EEEEEE;
-    --primary-input-color: rgba(0, 0, 0, 0.50);
-    --primary-shadow-color: rgba(0, 0, 0, 0.75);
     --title-color: #EEEEEEE;
     --bg-color: #000000;
-    --link-color: var(--accent-color);
-    --link-visited-color: var(--accent-color-visited);
     --favorite-icon-color: #FFEA00;
     --card-bg-color: #000000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
@@ -65,17 +83,12 @@
     --side-nav-hover-color: #212121;
     --side-nav-active-color: #303030;
     --search-bar-color: #262626;
-    --instance-menu-color: var(--search-bar-color);
-    --logo-icon: url("../../_icons/iconColorSmall.png");
-    --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .gray {
   --primary-text-color: #EEEEEE;
   --secondary-text-color: #E0E0E0;
   --tertiary-text-color: #F5F5F5;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #EEEEEE;
   --bg-color: #212121;
   --card-bg-color: #303030;
@@ -84,20 +97,14 @@
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #212121;
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
 }
 
 .dracula {
   --primary-text-color: #F8F8F2;
   --secondary-text-color: #c6cee6;
   --tertiary-text-color: #e5e8f3;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: #BD93F9;
   --bg-color: #282A36;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
   --favorite-icon-color: #F1FA8C;
   --card-bg-color: #33353F;
   --secondary-card-bg-color: #282A36;
@@ -107,7 +114,6 @@
   --side-nav-hover-color: #57596B;
   --side-nav-active-color: #3D4051;
   --search-bar-color: #3E3F4A;
-  --instance-menu-color: var(--search-bar-color);
   --logo-icon: url("../../_icons/iconDraculaLightSmall.png");
   --logo-text: url("../../_icons/textDraculaLightSmall.png");
 }
@@ -116,12 +122,8 @@
   --primary-text-color: #cdd6f4;
   --secondary-text-color: #bac2de;
   --tertiary-text-color: #a6adc8;
-  --primary-input-color: rgba(0, 0, 0, 0.50);
-  --primary-shadow-color: rgba(0, 0, 0, 0.75);
   --title-color: var(--accent-color);
   --bg-color: #1e1e2e;
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
   --favorite-icon-color: #f9e2af;
   --card-bg-color: #181825;
   --secondary-card-bg-color: #1e1e2e;
@@ -131,7 +133,6 @@
   --side-nav-hover-color: #11111b;
   --side-nav-active-color: #11111b;
   --search-bar-color: #313244;
-  --instance-menu-color: var(--search-bar-color);
   --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.png");
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
 }
