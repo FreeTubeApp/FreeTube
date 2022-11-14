@@ -3,7 +3,14 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { mapActions } from 'vuex'
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
-import { copyToClipboard, openExternalLink, showToast, toLocalePublicationString } from '../../helpers/utils'
+
+import {
+  copyToClipboard,
+  formatDurationAsTimestamp,
+  openExternalLink,
+  showToast,
+  toLocalePublicationString
+} from '../../helpers/utils'
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
@@ -171,8 +178,9 @@ export default Vue.extend({
           }
           break
         case 'copyYoutube':
-          navigator.clipboard.writeText(this.youtubeShareUrl)
-          showToast(this.$t('Share.YouTube URL copied to clipboard'))
+          copyToClipboard(this.youtubeShareUrl, {
+            messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard')
+          })
           break
         case 'openYoutube':
           openExternalLink(this.youtubeUrl)
@@ -214,40 +222,7 @@ export default Vue.extend({
 
     // For Invidious data, as duration is sent in seconds
     calculateVideoDuration: function (lengthSeconds) {
-      if (typeof lengthSeconds === 'string') {
-        return lengthSeconds
-      }
-
-      if (typeof lengthSeconds === 'undefined') {
-        return '0:00'
-      }
-      let durationText = ''
-      let time = lengthSeconds
-      let hours = 0
-
-      if (time >= 3600) {
-        hours = Math.floor(time / 3600)
-        time = time - hours * 3600
-      }
-
-      let minutes = Math.floor(time / 60)
-      let seconds = time - minutes * 60
-
-      if (seconds < 10) {
-        seconds = '0' + seconds
-      }
-
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes
-      }
-
-      if (hours > 0) {
-        durationText = hours + ':' + minutes + ':' + seconds
-      } else {
-        durationText = minutes + ':' + seconds
-      }
-
-      return durationText
+      return formatDurationAsTimestamp(lengthSeconds)
     },
 
     parseVideoData: function () {
