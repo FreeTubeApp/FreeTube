@@ -10,9 +10,9 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
-import Parser from 'rss-parser'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
+import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
@@ -207,8 +207,7 @@ export default Vue.extend({
             this.updateChangelog = marked.parse(json[0].body)
             this.changeLogTitle = json[0].name
 
-            const message = this.$t('Version $ is now available!  Click for more details')
-            this.updateBannerMessage = message.replace('$', versionNumber)
+            this.updateBannerMessage = this.$t('Version {versionNumber} is now available!  Click for more details', { versionNumber })
 
             const appVersion = packageDetails.version.split('.')
             const latestVersion = versionNumber.split('.')
@@ -229,27 +228,30 @@ export default Vue.extend({
 
     checkForNewBlogPosts: function () {
       if (this.checkForBlogPosts) {
-        const parser = new Parser()
-        const feedUrl = 'https://write.as/freetube/feed/'
         let lastAppWasRunning = localStorage.getItem('lastAppWasRunning')
 
         if (lastAppWasRunning !== null) {
           lastAppWasRunning = new Date(lastAppWasRunning)
         }
 
-        parser.parseURL(feedUrl).then((response) => {
-          const latestBlog = response.items[0]
-          const latestPubDate = new Date(latestBlog.pubDate)
+        fetch('https://write.as/freetube/feed/')
+          .then(response => response.text())
+          .then(response => {
+            const xmlDom = new DOMParser().parseFromString(response, 'application/xml')
 
-          if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
-            const message = this.$t('A new blog is now available, $. Click to view more')
-            this.blogBannerMessage = message.replace('$', latestBlog.title)
-            this.latestBlogUrl = latestBlog.link
-            this.showBlogBanner = true
-          }
+            const latestBlog = xmlDom.querySelector('item')
+            const latestPubDate = new Date(latestBlog.querySelector('pubDate').textContent)
 
-          localStorage.setItem('lastAppWasRunning', new Date())
-        })
+            if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
+              const title = latestBlog.querySelector('title').textContent
+
+              this.blogBannerMessage = this.$t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: title })
+              this.latestBlogUrl = latestBlog.querySelector('link').textContent
+              this.showBlogBanner = true
+            }
+
+            localStorage.setItem('lastAppWasRunning', new Date())
+          })
       }
     },
 
@@ -270,7 +272,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        this.openExternalLink(this.latestBlogUrl)
+        openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -278,7 +280,7 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      this.openExternalLink(url)
+      openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
@@ -354,9 +356,7 @@ export default Vue.extend({
         })
       } else if (this.externalLinkHandling === 'doNothing') {
         // Let user know opening external link is disabled via setting
-        this.showToast({
-          message: this.$t('External link opening has been disabled in the general settings')
-        })
+        showToast(this.$t('External link opening has been disabled in the general settings'))
       } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
         // Storing the URL is necessary as
         // there is no other way to pass the URL to click callback
@@ -364,7 +364,7 @@ export default Vue.extend({
         this.showExternalLinkOpeningPrompt = true
       } else {
         // Open links externally
-        this.openExternalLink(el.href)
+        openExternalLink(el.href)
       }
     },
 
@@ -381,9 +381,9 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            const path = `/watch/${videoId}`
-            this.openInternalPath({
-              path,
+
+            openInternalPath({
+              path: `/watch/${videoId}`,
               query,
               doCreateNewWindow
             })
@@ -393,9 +393,8 @@ export default Vue.extend({
           case 'playlist': {
             const { playlistId, query } = result
 
-            const path = `/playlist/${playlistId}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/playlist/${playlistId}`,
               query,
               doCreateNewWindow
             })
@@ -405,9 +404,8 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            const path = `/search/${encodeURIComponent(searchQuery)}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
               doCreateNewWindow,
               searchQueryText: searchQuery
@@ -422,18 +420,15 @@ export default Vue.extend({
               message = this.$t(message)
             }
 
-            this.showToast({
-              message: message
-            })
+            showToast(message)
             break
           }
 
           case 'channel': {
             const { channelId, subPath } = result
 
-            const path = `/channel/${channelId}/${subPath}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
               doCreateNewWindow
             })
             break
@@ -451,9 +446,7 @@ export default Vue.extend({
               message = this.$t(message)
             }
 
-            this.showToast({
-              message: message
-            })
+            showToast(message)
           }
         }
       })
@@ -467,28 +460,6 @@ export default Vue.extend({
       ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
         document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
-    },
-
-    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
-      if (process.env.IS_ELECTRON && doCreateNewWindow) {
-        const { ipcRenderer } = require('electron')
-
-        // Combine current document path and new "hash" as new window startup URL
-        const newWindowStartupURL = [
-          window.location.href.split('#')[0],
-          `#${path}?${(new URLSearchParams(query)).toString()}`
-        ].join('')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL,
-          searchQueryText
-        })
-      } else {
-        // Web
-        this.$router.push({
-          path,
-          query
-        })
-      }
     },
 
     enableSetSearchQueryText: function () {
@@ -519,7 +490,7 @@ export default Vue.extend({
         // if `lastExternalLinkToBeOpened` is empty
 
         // Open links externally
-        this.openExternalLink(this.lastExternalLinkToBeOpened)
+        openExternalLink(this.lastExternalLinkToBeOpened)
       }
     },
 
@@ -534,8 +505,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'showToast',
-      'openExternalLink',
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',

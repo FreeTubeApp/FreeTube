@@ -20,7 +20,7 @@ Toggle Developer Tools: 'Отобразить инструменты для ра
 Actual size: 'Настоящий размер'
 Zoom in: 'Увеличить'
 Zoom out: 'Уменьшить'
-Toggle fullscreen: 'Включить полноэкранный режим'
+Toggle fullscreen: 'Во весь экран'
 Window: 'Окно'
 Minimize: 'Свернуть'
 Close: 'Закрыть'
@@ -145,8 +145,8 @@ Settings:
     Current instance will be randomized on startup: Текущий экземпляр при запуске
       будет выбран случайно
     No default instance has been set: Не установлен экземпляр по умолчанию
-    The currently set default instance is $: 'Текущий установленный экземпляр по умолчанию:
-      $'
+    The currently set default instance is {instance}: 'Текущий установленный экземпляр
+      по умолчанию: {instance}'
     Current Invidious Instance: Текущий экземпляр Invidious
     External Link Handling:
       No Action: Ничего
@@ -264,6 +264,8 @@ Settings:
         2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео
         3 цифры. %i Идентификатор видео. Вы также можете использовать "\" или "/"
         для создания подпапок.
+    Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
+      дисплея
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -362,7 +364,11 @@ Settings:
     All playlists has been successfully exported: Все плейлисты успешно экспортированы
     Export Playlists: Экспортировать плейлисты
     All playlists has been successfully imported: Все плейлисты успешно импортированы
-    Playlist insufficient data: Недостаточно данных для плейлиста "$", пропуск элемента
+    Playlist insufficient data: Недостаточно данных для плейлиста "{playlist}", пропуск
+      элемента
+    Playlist File: Файл плейлиста
+    Subscription File: Файл подписок
+    History File: Файл истории
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
@@ -434,6 +440,11 @@ Settings:
     Parental Control Settings: Настройки родительского контроля
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
+  Experimental Settings:
+    Experimental Settings: Пробные настройки
+    Replace HTTP Cache: Заменить HTTP-кэш
+    Warning: Эти настройки являются пробными, они вызывают сбои при включении. Желательно
+      сделать резервные копии. Используйте на своё усмотрение!
 About:
   #On About page
   About: 'О приложении'
@@ -483,7 +494,7 @@ About:
   FreeTube Wiki: Вики FreeTube
   Help: Помощь
   GitHub releases: Релизы на GitHub
-  Downloads / Changelog: Скачать/Список изменений
+  Downloads / Changelog: Скачать / Список изменений
   View License: Посмотреть лицензию
   Licensed under the AGPLv3: Лицензия AGPLv3
   Source code: Исходный код
@@ -520,7 +531,8 @@ Channel:
     Channel Description: 'Описание канала'
     Featured Channels: 'Избранные каналы'
   Added channel to your subscriptions: Канал добавлен в ваши подписки
-  Removed subscription from $ other channel(s): Подписка удалена с $ другого(их) канала(ов)
+  Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их)
+    канала(ов)
   Channel has been removed from your subscriptions: Канал был удалён из подписок
 Video:
   Mark As Watched: 'Отметить как просмотренное'
@@ -585,8 +597,7 @@ Video:
     Less than a minute: Менее минуты
     In less than a minute: Меньше чем через минуту
   Published on: 'Опубликовано'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % назад'
+  Publicationtemplate: '{number} {unit} назад'
 #& Videos
   Autoplay: Автовоспроизведение
   Play Previous Video: Воспроизвести предыдущее видео
@@ -620,9 +631,9 @@ Video:
     self-promotion: Самореклама
     outro: Концовка
     intro: Вступление
-    sponsor: Спонсор
+    sponsor: Покровитель
     recap: Краткое содержание
-    filler: Филлер
+    filler: Наполнитель
   Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
@@ -634,11 +645,11 @@ Video:
       opening playlists: открытие плейлистов
       setting a playback rate: настройка скорости воспроизведения
       starting video at offset: начинать видео со смещением
-    UnsupportedActionTemplate: '$ не поддерживает: %'
-    OpeningTemplate: Открытие $ в %...
+    UnsupportedActionTemplate: '{externalPlayer} не поддерживает: {action}'
+    OpeningTemplate: Открытие {videoOrPlaylist} в {externalPlayer}...
     playlist: плейлист
     video: видео
-    OpenInTemplate: Открыть в $
+    OpenInTemplate: Открыть в {externalPlayer}
   Stats:
     frame drop: Пропущенные кадры
     video id: ID видео (YouTube)
@@ -650,13 +661,13 @@ Video:
     fps: Кадровая частота
     Video statistics are not available for legacy videos: Статистика видео недоступна
       для устаревших видео
-    Video ID: ID видео
+    Video ID: Идентификатор видео
     Resolution: Разрешение
     Player Dimensions: Размеры проигрывателя
     Bitrate: Битрейт
     Volume: Громкость
     Bandwidth: Пропускная способность
-    Dropped / Total Frames: Пропущено/Всего кадров
+    Dropped / Total Frames: Пропущено / Всего кадров
     Mimetype: MIME-типы
     Buffered: Буферизовано
   Premieres on: Премьеры
@@ -736,7 +747,7 @@ Comments:
   Top comments: Лучшим комментариям
   Sort by: Упорядочивать по
   Show More Replies: Показать больше ответов
-  From $channelName: от $channelName
+  From {channelName}: от {channelName}
   And others: и других
   Pinned by: Закреплено
   Member: Участник
@@ -766,12 +777,13 @@ Yes: 'Да'
 No: 'Нет'
 Locale Name: Русский
 Profile:
-  $ is now the active profile: Теперь $ активный профиль
+  '{profile} is now the active profile': Теперь {profile} активный профиль
   Your default profile has been changed to your primary profile: Профиль по умолчанию
     был изменен на ваш основной
   Profile has been updated: Профиль был обновлён
-  Removed $ from your profiles: Теперь $ удалён из профилей
-  Your default profile has been set to $: Теперь $ установлен профилем по умолчанию
+  Removed {profile} from your profiles: Теперь {profile} удалён из профилей
+  Your default profile has been set to {profile}: Теперь {profile} установлен профилем
+    по умолчанию
   Profile has been created: Профиль был создан
   Your profile name cannot be empty: Имя профиля не может быть пустым
   Profile could not be found: Не удалось найти профиль
@@ -801,17 +813,17 @@ Profile:
   Delete Selected: Удалить выбранное
   Select None: Ничего не выбрано
   Select All: Выбрать все
-  $ selected: Выбрано $
+  '{number} selected': Выбрано {number}
   Other Channels: Другие каналы
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
   Profile Settings: Настройки профиля
 The playlist has been reversed: Плейлист был перевернут
-A new blog is now available, $. Click to view more: Доступен новый блог $. Нажмите
-  здесь, чтобы посмотреть подробности
+A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
+  {blogTitle}. Нажмите здесь, чтобы посмотреть подробности
 Download From Site: Скачать с сайта
-Version $ is now available!  Click for more details: Доступна версия $! Чтобы узнать
-  подробности, нажмите здесь
+Version {versionNumber} is now available!  Click for more details: Доступна версия
+  {versionNumber}! Чтобы узнать подробности, нажмите здесь
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
   видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных
   ограничений.
@@ -822,21 +834,21 @@ Tooltips:
     Invidious Instance: Образец Invidious, к которому FreeTube будет подключаться
       для вызовов набора функций.
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора
-      функций есть проблема, FreeTube автоматически попытается использовать ваш непредпочтительный
-      API в качестве запасного метода, если он включен.
+      функций есть проблема, FreeTube автоматически попытается использовать ваш нежелательный
+      набор функций в качестве запасного метода, если он включен.
     Preferred API Backend: Выберите движок, который FreeTube будет использовать для
-      получения данных. Локальный API — это встроенный экстрактор. Набор функций Invidious
-      требует подключения к серверу Invidious.
+      получения данных. Локальный набор функций — это встроенный экстрактор. Набор
+      функций Invidious требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
       трендовые видео. Не все отображаемые страны поддерживаются YouTube.
     External Link Handling: "Выберите действие при нажатии на ссылку, которая не может\
       \ быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере\
       \ по умолчанию.\n"
   Subscription Settings:
-    Fetch Feeds from RSS: Если этот параметр включен, FreeTube будет получать вашу
+    Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
       блокировку IP, но не предоставляет определенную информацию, такую как продолжительность
-      видео или сведения о том, транслируется ли видео в реальном времени
+      видео или сведения о том, транслируется ли видео в настоящем времени
     Fetch Automatically: Если эта функция включена, FreeTube автоматически будет получать
       ленту ваших подписок как при открытии нового окна, так при переключении профиля.
   Player Settings:
@@ -872,7 +884,10 @@ Tooltips:
     External Player: При выборе внешнего проигрывателя на миниатюре появится значок,
       позволяющий открыть видео (плейлист, если поддерживается) во внешнем проигрывателе.
       Внимание, настройки Invidious не применяются к внешним проигрывателям.
-    DefaultCustomArgumentsTemplate: "(По умолчанию: '$')"
+    DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский
+      кэш изображений в памяти. Приведет к увеличению использования оперативной памяти.
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
@@ -884,33 +899,35 @@ Unknown YouTube url type, cannot be opened in app: Неизвестный тип
   невозможно открыть в приложении
 Open New Window: Открыть новое окно
 Default Invidious instance has been cleared: Образец Invidious по умолчанию очищен
-Default Invidious instance has been set to $: Образец Invidious по умолчанию установлен
-  на $
+Default Invidious instance has been set to {instance}: Образец Invidious по умолчанию
+  установлен на {instance}
 External link opening has been disabled in the general settings: Открытие внешних
   ссылок отключено в настройках
 Search Bar:
   Clear Input: Очистить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
-Starting download: Запуск загрузки "$"
-Downloading has completed: '"$" закончил загрузку'
-Downloading failed: Возникла проблема с загрузкой "$"
-Screenshot Success: Снимок экрана сохранён как "$"
-Screenshot Error: Снимок экрана не удался. $
+Starting download: Запуск загрузки "{videoTitle}"
+Downloading has completed: '"{videoTitle}" закончил загрузку'
+Downloading failed: Возникла проблема с загрузкой "{videoTitle}"
+Screenshot Success: Снимок экрана сохранён как "{filePath}"
+Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
 Age Restricted:
-  This $contentType is age restricted: У $ ограничение по возрасту
+  The currently set default instance is {instance}: У {instance} ограничение по возрасту
   Type:
     Channel: Канал
     Video: Видео
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} имеет ограничение по
+    возрасту'
 Channels:
   Title: Список каналов
-  Count: $ канал(ов) найдено.
+  Count: '{number} канал(ов) найдено.'
   Empty: Список каналов пуст.
   Channels: Каналы
   Search bar placeholder: Поиск каналов
   Unsubscribe: Отписаться
-  Unsubscribed: $ был удален из ваших подписок
-  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "$"?
+  Unsubscribed: '{channelName} был удалён из ваших подписок'
+  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "{channelName}"?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена
   Cannot access clipboard without a secure connection: Невозможно получить доступ
@@ -921,3 +938,4 @@ Chapters:
     текущий раздел: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Список разделов скрыт,
     текущий раздел: {chapterName}'
+Preferences: Предпочтения

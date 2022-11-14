@@ -38,6 +38,7 @@
         tabindex="0"
         :title="$t('Channels.Channels')"
         @click="navigate('subscribedchannels')"
+        @keydown.enter.prevent="navigate('subscribedchannels')"
       >
         <div
           class="thumbnailContainer"
@@ -63,7 +64,7 @@
         tabindex="0"
         :title="$t('Trending.Trending')"
         @click="navigate('trending')"
-        @keypress="navigate('trending')"
+        @keydown.enter.prevent="navigate('trending')"
       >
         <div
           class="thumbnailContainer"
@@ -83,13 +84,13 @@
         </p>
       </div>
       <div
-        v-if="!hidePopularVideos"
+        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption mobileHidden"
         role="button"
         tabindex="0"
         :title="$t('Most Popular')"
         @click="navigate('popular')"
-        @keypress="navigate('popular')"
+        @keydown.enter.prevent="navigate('popular')"
       >
         <div
           class="thumbnailContainer"
@@ -115,7 +116,7 @@
         tabindex="0"
         :title="$t('Playlists')"
         @click="navigate('userplaylists')"
-        @keypress="navigate('userplaylists')"
+        @keydown.enter.prevent="navigate('userplaylists')"
       >
         <div
           class="thumbnailContainer"
@@ -143,7 +144,7 @@
         tabindex="0"
         :title="$t('History.History')"
         @click="navigate('history')"
-        @keypress="navigate('history')"
+        @keydown.enter.prevent="navigate('history')"
       >
         <div
           class="thumbnailContainer"
@@ -169,7 +170,7 @@
         tabindex="0"
         :title="$t('Settings.Settings')"
         @click="navigate('settings')"
-        @keypress="navigate('settings')"
+        @keydown.enter.prevent="navigate('settings')"
       >
         <div
           class="thumbnailContainer"
@@ -194,7 +195,7 @@
         tabindex="0"
         :title="$t('About.About')"
         @click="navigate('about')"
-        @keypress="navigate('about')"
+        @keydown.enter.prevent="navigate('about')"
       >
         <div
           class="thumbnailContainer"
@@ -217,36 +218,29 @@
       <div
         v-if="!hideActiveSubscriptions"
       >
-        <div
+        <router-link
           v-for="(channel, index) in activeSubscriptions"
           :key="index"
-          class="navChannel mobileHidden"
+          :to="`/channel/${channel.id}`"
+          class="navChannel channelLink mobileHidden"
           :title="channel.name"
           role="button"
-          tabindex="0"
-          @keypress="goToChannel(channel.id)"
-          @click="goToChannel(channel.id)"
         >
-          <router-link
-            :to="`/channel/${channel.id}`"
-            class="channelLink"
+          <div
+            class="thumbnailContainer"
           >
-            <div
-              class="thumbnailContainer"
+            <img
+              class="channelThumbnail"
+              :src="channel.thumbnail"
             >
-              <img
-                class="channelThumbnail"
-                :src="channel.thumbnail"
-              >
-            </div>
-            <p
-              v-if="isOpen"
-              class="navLabel"
-            >
-              {{ channel.name }}
-            </p>
-          </router-link>
-        </div>
+          </div>
+          <p
+            v-if="isOpen"
+            class="navLabel"
+          >
+            {{ channel.name }}
+          </p>
+        </router-link>
       </div>
     </div>
   </ft-flex-box>

@@ -3,8 +3,6 @@ import { mapActions } from 'vuex'
 import fs from 'fs'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoChapters from '../../components/watch-video-chapters/watch-video-chapters.vue'
@@ -15,16 +13,17 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
-import { buildVTTFileLocally } from '../../helpers/utils'
-
-const isDev = process.env.NODE_ENV === 'development'
+import {
+  buildVTTFileLocally,
+  copyToClipboard,
+  formatDurationAsTimestamp,
+  showToast
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Watch',
   components: {
     'ft-loader': FtLoader,
-    'ft-card': FtCard,
-    'ft-element-list': FtElementList,
     'ft-video-player': FtVideoPlayer,
     'watch-video-info': WatchVideoInfo,
     'watch-video-chapters': WatchVideoChapters,
@@ -368,25 +367,23 @@ export default Vue.extend({
           const subCount = result.videoDetails.author.subscriber_count
 
           if (typeof (subCount) !== 'undefined' && !this.hideChannelSubscriptions) {
-            if (subCount >= 1000000) {
-              this.channelSubscriptionCountText = `${subCount / 1000000}M`
-            } else if (subCount >= 10000) {
-              this.channelSubscriptionCountText = `${subCount / 1000}K`
+            if (subCount >= 10000) {
+              this.channelSubscriptionCountText = Intl.NumberFormat([this.currentLocale, 'en'], { notation: 'compact' }).format(subCount)
             } else {
-              this.channelSubscriptionCountText = Intl.NumberFormat(this.currentLocale).format(subCount)
+              this.channelSubscriptionCountText = Intl.NumberFormat([this.currentLocale, 'en']).format(subCount)
             }
           }
 
           const chapters = []
           if (!this.hideChapters) {
-            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
+            const rawChapters = result.response.playerOverlays.playerOverlayRenderer.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer.playerBar?.multiMarkersPlayerBarRenderer.markersMap?.find(m => m.key === 'DESCRIPTION_CHAPTERS')?.value.chapters
             if (rawChapters) {
               for (const { chapterRenderer } of rawChapters) {
                 const start = chapterRenderer.timeRangeStartMillis / 1000
 
                 chapters.push({
                   title: chapterRenderer.title.simpleText,
-                  timestamp: this.formatSecondsAsTimestamp(start),
+                  timestamp: formatDurationAsTimestamp(start),
                   startSeconds: start,
                   endSeconds: 0,
                   thumbnail: chapterRenderer.thumbnail.thumbnails[0].url
@@ -560,10 +557,10 @@ export default Vue.extend({
               }
             } else {
               // video might be region locked or something else. This leads to no formats being available
-              this.showToast({
-                message: this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
-                time: 7000
-              })
+              showToast(
+                this.$t('This video is unavailable because of missing formats. This can happen due to country unavailability.'),
+                7000
+              )
               this.handleVideoEnded()
               return
             }
@@ -627,18 +624,12 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
           console.error(err)
           if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
-            this.showToast({
-              message: this.$t('Falling back to Invidious API')
-            })
+            showToast(this.$t('Falling back to Invidious API'))
             this.getVideoInformationInvidious()
           } else {
             this.isLoading = false
@@ -853,18 +844,12 @@ export default Vue.extend({
         .catch(err => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err.responseText}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err.responseText })
-            }
+          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
+            copyToClipboard(err.responseText)
           })
           console.error(err)
           if (this.backendPreference === 'invidious' && this.backendFallback) {
-            this.showToast({
-              message: this.$t('Falling back to Local API')
-            })
+            showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {
             this.isLoading = false
@@ -1046,18 +1031,12 @@ export default Vue.extend({
         })
         .catch(err => {
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
           console.error(err)
           if (!process.env.IS_ELECTRON || (this.backendPreference === 'local' && this.backendFallback)) {
-            this.showToast({
-              message: this.$t('Falling back to Invidious API')
-            })
+            showToast(this.$t('Falling back to Invidious API'))
             this.getVideoInformationInvidious()
           }
         })
@@ -1069,9 +1048,7 @@ export default Vue.extend({
       }
 
       if (this.dashSrc === null) {
-        this.showToast({
-          message: this.$t('Change Format.Dash formats are not available for this video')
-        })
+        showToast(this.$t('Change Format.Dash formats are not available for this video'))
         return
       }
       const watchedProgress = this.getWatchedProgress()
@@ -1116,9 +1093,7 @@ export default Vue.extend({
       }
 
       if (this.audioSourceList === null) {
-        this.showToast({
-          message: this.$t('Change Format.Audio formats are not available for this video')
-        })
+        showToast(this.$t('Change Format.Audio formats are not available for this video'))
         return
       }
 
@@ -1154,9 +1129,7 @@ export default Vue.extend({
             this.$router.push({
               path: `/watch/${nextVideoId}`
             })
-            this.showToast({
-              message: this.$t('Playing Next Video')
-            })
+            showToast(this.$t('Playing Next Video'))
           }
         }
       }, nextVideoInterval * 1000)
@@ -1170,18 +1143,13 @@ export default Vue.extend({
           return
         }
 
-        this.showToast({
-          message: this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond }),
-          // To avoid message flashing
-          // `time` is manually tested to be 700
-          time: 700,
-          action: () => {
-            clearTimeout(this.playNextTimeout)
-            clearInterval(this.playNextCountDownIntervalId)
-            this.showToast({
-              message: this.$t('Canceled next video autoplay')
-            })
-          }
+        // To avoid message flashing
+        // `time` is manually tested to be 700
+        const message = this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
+        showToast(message, 700, () => {
+          clearTimeout(this.playNextTimeout)
+          clearInterval(this.playNextCountDownIntervalId)
+          showToast(this.$t('Canceled next video autoplay'))
         })
 
         // At least this var should be updated AFTER showing the message
@@ -1227,7 +1195,7 @@ export default Vue.extend({
 
       if (this.removeVideoMetaFiles) {
         const userData = await this.getUserDataPath()
-        if (isDev) {
+        if (process.env.NODE_ENV === 'development') {
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
@@ -1274,7 +1242,7 @@ export default Vue.extend({
       const userData = await this.getUserDataPath()
       let fileLocation
       let uriSchema
-      if (isDev) {
+      if (process.env.NODE_ENV === 'development') {
         fileLocation = `static/dashFiles/${this.videoId}.xml`
         uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
@@ -1355,7 +1323,7 @@ export default Vue.extend({
 
         // Dev mode doesn't have access to the file:// schema, so we access
         // storyboards differently when run in dev
-        if (isDev) {
+        if (process.env.NODE_ENV === 'development') {
           fileLocation = `static/storyboards/${this.videoId}.vtt`
           uriSchema = `storyboards/${this.videoId}.vtt`
           // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
@@ -1503,47 +1471,13 @@ export default Vue.extend({
       document.title = `${this.videoTitle} - FreeTube`
     },
 
-    formatSecondsAsTimestamp(time) {
-      if (time === 0) {
-        return '0:00'
-      }
-
-      let hours = 0
-
-      if (time >= 3600) {
-        hours = Math.floor(time / 3600)
-        time = time - hours * 3600
-      }
-
-      let minutes = Math.floor(time / 60)
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes
-      }
-
-      let seconds = time - minutes * 60
-      if (seconds < 10) {
-        seconds = '0' + seconds
-      }
-
-      let timestamp = ''
-      if (hours > 0) {
-        timestamp = hours + ':' + minutes + ':' + seconds
-      } else {
-        timestamp = minutes + ':' + seconds
-      }
-
-      return timestamp
-    },
-
     ...mapActions([
-      'showToast',
       'updateHistory',
       'updateWatchProgress',
       'getUserDataPath',
       'ytGetVideoInformation',
       'invidiousGetVideoInformation',
-      'updateSubscriptionDetails',
-      'copyToClipboard'
+      'updateSubscriptionDetails'
     ])
   }
 })

@@ -29,11 +29,11 @@ Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
 
-Version $ is now available!  Click for more details: 'Version $ is now available!  Click
-  for more details'
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
+  is now available!  Click for more details'
 Download From Site: 'Download From Site'
-A new blog is now available, $. Click to view more: 'A new blog is now available,
-  $. Click to view more'
+A new blog is now available, {blogTitle}. Click to view more: 'A new blog is now available,
+  {blogTitle}. Click to view more'
 
 # Search Bar
 Search / Go to URL: 'Search / Go to URL'
@@ -83,6 +83,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   Error Channels: Channels with errors
+  Disabled Automatic Fetching: You have disabled automatic subscription fetching.
+    Refresh subscriptions to see them here.
+  Empty Channels: Your subscribed channels currently does not have any videos.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -148,8 +151,8 @@ Settings:
     Current instance will be randomized on startup: Current instance will be randomised
       on startup
     No default instance has been set: No default instance has been set
-    The currently set default instance is $: The currently set default instance is
-      $
+    The currently set default instance is {instance}: The currently set default instance
+      is {instance}
     Current Invidious Instance: Current Invidious Instance
     External Link Handling:
       No Action: No Action
@@ -244,6 +247,7 @@ Settings:
     Playlist Next Video Interval: Playlist Next Video Interval
     Next Video Interval: Next video interval
     Display Play Button In Video Player: Display play button in video player
+    Enter Fullscreen on Display Rotate: Enter fullscreen on display rotate
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
     Scroll Playback Rate Over Video Player: Scroll playback rate over video player
     Video Playback Rate Interval: Video playback rate interval
@@ -294,6 +298,7 @@ Settings:
     Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch Feeds from RSS'
     Manage Subscriptions: 'Manage Subscriptions'
+    Fetch Automatically: Fetch feed automatically
   Data Settings:
     Data Settings: 'Data Settings'
     Select Import Type: 'Select Import Type'
@@ -335,11 +340,15 @@ Settings:
     Manage Subscriptions: Manage Subscriptions
     Import Playlists: Import playlists
     Export Playlists: Export playlists
-    Playlist insufficient data: Insufficient data for ‘$’ playlist, skipping item
+    Playlist insufficient data: Insufficient data for ‘{playlist}’ playlist, skipping
+      item
     All playlists has been successfully imported: All playlists has been successfully
       imported
     All playlists has been successfully exported: All playlists has been successfully
       exported
+    Playlist File: Playlist file
+    Subscription File: Subscription file
+    History File: History file
   Advanced Settings:
     Advanced Settings: 'Advanced Settings'
     Enable Debug Mode (Prints data to the console): 'Enable Debug Mode (Prints data
@@ -383,6 +392,7 @@ Settings:
     Hide Video Description: Hide video description
     Hide Live Streams: Hide live streams
     Hide Sharing Actions: Hide sharing actions
+    Hide Chapters: Hide chapters
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -427,6 +437,11 @@ Settings:
     Parental Control Settings: Parental control settings
     Show Family Friendly Only: Show family-friendly only
     Hide Search Bar: Hide search bar
+  Experimental Settings:
+    Replace HTTP Cache: Replace HTTP cache
+    Experimental Settings: Experimental settings
+    Warning: These settings are experimental; they may cause crashes while enabled.
+      Making back-ups is highly recommended. Use at your own risk!
 About:
   #On About page
   About: About
@@ -485,14 +500,15 @@ Profile:
   Your profile name cannot be empty: 'Your profile name cannot be empty'
   Profile has been created: 'Profile has been created'
   Profile has been updated: 'Profile has been updated'
-  Your default profile has been set to $: 'Your default profile has been set to $'
-  Removed $ from your profiles: 'Removed $ from your profiles'
+  Your default profile has been set to {profile}: 'Your default profile has been set
+    to {profile}'
+  Removed {profile} from your profiles: 'Removed {profile} from your profiles'
   Your default profile has been changed to your primary profile: 'Your default profile
     has been changed to your primary profile'
-  $ is now the active profile: '$ is now the active profile'
+  '{profile} is now the active profile': '{profile} is now the active profile'
   Subscription List: 'Subscription List'
   Other Channels: 'Other Channels'
-  $ selected: '$ selected'
+  '{count} selected': '{count} selected'
   Select All: 'Select All'
   Select None: 'Select None'
   Delete Selected: 'Delete Selected'
@@ -507,6 +523,7 @@ Profile:
     from any other profile.'
 #On Channel Page
   Profile Filter: Profile Filter
+  '{number} selected': '{number} selected'
 Channel:
   Subscriber: 'Subscriber'
   Subscribers: 'Subscribers'
@@ -514,8 +531,8 @@ Channel:
   Unsubscribe: 'Unsubscribe'
   Channel has been removed from your subscriptions: 'Channel has been removed from
     your subscriptions'
-  Removed subscription from $ other channel(s): 'Removed subscription from $ other
-    channel(s)'
+  Removed subscription from {count} other channel(s): 'Removed subscription from {count}
+    other channel(s)'
   Added channel to your subscriptions: 'Added channel to your subscriptions'
   Search Channel: 'Search Channel'
   Your search results have returned 0 results: 'Your search results have returned
@@ -609,9 +626,9 @@ Video:
     Ago: 'Ago'
     Upcoming: 'Premieres on'
     Less than a minute: Less than a minute
+    In less than a minute: In less than a minute
   Published on: 'Published on'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % ago'
+  Publicationtemplate: '{number} {unit} ago'
 #& Videos
   Started streaming on: Started streaming on
   Streamed on: Streamed on
@@ -643,14 +660,11 @@ Video:
     filler: Filler
   Skipped segment: Skipped segment
   External Player:
-    # $ is replaced with the external player
-    OpenInTemplate: Open in $
+    OpenInTemplate: Open in {externalPlayer}
     video: video
     playlist: playlist
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
-    OpeningTemplate: Opening $ in %...
-    # $ is replaced with the external player and % with the unsupported action
-    UnsupportedActionTemplate: '$ does not support: %'
+    OpeningTemplate: Opening {videoOrPlaylist} in {externalPlayer}...
+    UnsupportedActionTemplate: '{externalPlayer} does not support: {action}'
     Unsupported Actions:
       starting video at offset: starting video at offset
       setting a playback rate: setting a playback rate
@@ -682,6 +696,7 @@ Video:
       available for legacy videos
     Video ID: Video ID
   Premieres in: Premieres in
+  Premieres: Premieres
 Videos:
   #& Sort By
   Sort By:
@@ -754,7 +769,7 @@ Comments:
   Sort by: Sort by
   Show More Replies: Show more replies
   Pinned by: Pinned by
-  From $channelName: from $channelName
+  From {channelName}: from {channelName}
   And others: and others
   Member: Member
 Up Next: 'Up Next'
@@ -788,6 +803,8 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
       but it doesn’t provide certain information like video duration, or live status
+    Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription
+      feed when a new window is opened and when switching profile.
   Player Settings:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
@@ -831,11 +848,13 @@ Tooltips:
       support the current action (e.g. reversing playlists, etc.).
     Custom External Player Arguments: Any custom command line arguments, separated
       by semicolons (';'), you want to be passed to the external player.
-    # $ is replaced with the default custom arguments for the current player, if defined.
-    DefaultCustomArgumentsTemplate: '(Default: ‘$’)'
+    DefaultCustomArgumentsTemplate: '(Default: ‘{defaultCustomArguments}’)'
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files
       created during video playback, when the watch page is closed.
+  Experimental Settings:
+    Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
+      in-memory image cache. Will lead to increased RAM usage.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
@@ -846,30 +865,41 @@ Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, can
   be opened in app
 Open New Window: Open New Window
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
-Default Invidious instance has been set to $: Default Invidious instance has been
-  set to $
+Default Invidious instance has been set to {instance}: Default Invidious instance
+  has been set to {instance}
 Search Bar:
   Clear Input: Clear input
 External link opening has been disabled in the general settings: External link opening
   has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
-Downloading has completed: '‘$’ has finished downloading'
-Starting download: Starting download of ‘$’
-Downloading failed: There was an issue downloading ‘$’
-Screenshot Error: Screenshot failed. $
-Screenshot Success: Saved screenshot as ‘$’
+Downloading has completed: '‘{videoTitle}’ has finished downloading'
+Starting download: Starting download of ‘{videoTitle}’
+Downloading failed: There was an issue downloading ‘{videoTitle}’
+Screenshot Error: Screenshot failed. {error}
+Screenshot Success: Saved screenshot as ‘{filePath}’
 New Window: New window
 Channels:
   Empty: Your channel list is currently empty.
   Unsubscribe: Unsubscribe
-  Unsubscribed: $ has been removed from your subscriptions
-  Unsubscribe Prompt: Are you sure you want to unsubscribe from ‘$’?
+  Unsubscribed: '{channelName} has been removed from your subscriptions'
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from ‘{channelName}’?
   Title: Channel list
   Search bar placeholder: Search channels
   Channels: Channels
-  Count: $ channel(s) found.
+  Count: '{number} channel(s) found.'
 Age Restricted:
-  This $contentType is age restricted: This $ is age restricted
+  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
   Type:
     Video: Video
     Channel: Channel
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible,
+    current chapter: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current
+    chapter: {chapterName}'
+  Chapters: Chapters
+Clipboard:
+  Copy failed: Copy to clipboard failed
+  Cannot access clipboard without a secure connection: Cannot access clipboard without
+    a secure connection
+Preferences: Preferences

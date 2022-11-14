@@ -1,6 +1,7 @@
 import i18n from '../../i18n/index'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
+import { showToast } from '../../helpers/utils'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -182,6 +183,7 @@ const state = {
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
   enableSubtitles: true,
+  enterFullscreenOnDisplayRotate: false,
   externalLinkHandling: '',
   externalPlayer: '',
   externalPlayerExecutable: '',
@@ -313,18 +315,16 @@ const stateWithSideEffects = {
           // Translating this string isn't necessary
           // because the user will always see it in the default locale
           // (in this case, English (US))
-          dispatch('showToast',
-            { message: `Locale not found, defaulting to ${defaultLocale}` }
-          )
+          showToast(`Locale not found, defaulting to ${defaultLocale}`)
         }
       }
 
-      if (process.env.NODE_ENV !== 'development') {
+      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
         await i18n.loadLocale(targetLocale)
       }
 
       i18n.locale = targetLocale
-      dispatch('getRegionData', {
+      await dispatch('getRegionData', {
         locale: targetLocale
       })
     }
@@ -388,9 +388,14 @@ Object.assign(customGetters, {
 const customActions = {
   grabUserSettings: async ({ commit, dispatch, getters }) => {
     try {
-      const userSettings = await DBSettingHandlers.find()
+      // Assigning default settings for settings that have side effects
+      const userSettings = Object.entries(Object.assign({},
+        Object.fromEntries(Object.entries(stateWithSideEffects).map(([_id, { defaultValue }]) => { return [_id, defaultValue] })),
+        Object.fromEntries((await DBSettingHandlers.find()).map(({ _id, value }) => { return [_id, value] })))
+      )
+
       for (const setting of userSettings) {
-        const { _id, value } = setting
+        const [_id, value] = setting
         if (getters.settingHasSideEffects(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
-import FtCard from '../ft-card/ft-card.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -15,12 +14,12 @@ import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ProxySettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-card': FtCard,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-button': FtButton,
     'ft-select': FtSelect,
@@ -136,9 +135,7 @@ export default Vue.extend({
         })
         .catch((error) => {
           console.error('errored while testing proxy:', error)
-          this.showToast({
-            message: this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]')
-          })
+          showToast(this.$t('Settings.Proxy Settings["Error getting network information. Is your proxy configured properly?"]'))
           this.dataAvailable = false
         })
         .finally(() => {
@@ -150,7 +147,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateUseProxy',
       'updateProxyProtocol',
       'updateProxyHostname',

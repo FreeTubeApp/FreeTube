@@ -144,8 +144,8 @@ Settings:
       περιπτώσεων
     System Default: Προεπιλογή συστήματος
     Current Invidious Instance: Τρέχων στιγμιότυπο Invidious
-    The currently set default instance is $: Το τρέχων προεπιλεγμένο στιγμιότυπο είναι
-      $
+    The currently set default instance is {instance}: 'Το τρέχων προεπιλεγμένο στιγμιότυπο είναι
+      {instance}'
     No default instance has been set: Δεν έχει οριστεί κανένα προεπιλεγμένο στιγμιότυπο
     External Link Handling:
       External Link Handling: Χειρισμός εξωτερικών συνδέσμων
@@ -301,7 +301,7 @@ Settings:
     Manage Subscriptions: Διαχείριση συνδρομών
     Import Playlists: Εισαγωγή λιστών αναπαραγωγής
     Export Playlists: Εξαγωγή Λιστών Αναπαραγωγής
-    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "$", γίνεται
+    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}", γίνεται
       παράκαμψη του αντικειμένου
     All playlists has been successfully imported: Όλες οι λίστες αναπαραγωγής έχουν
       εισαχθεί με επιτυχία
@@ -465,15 +465,15 @@ Profile:
     άδειο'
   Profile has been created: 'Το προφίλ σας έχει δημιουργηθεί'
   Profile has been updated: 'Το προφίλ σας έχει ενημερωθεί'
-  Your default profile has been set to $: 'Το $ έχει οριστεί ως το προεπιλεγμένο σας
+  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το προεπιλεγμένο σας
     προφίλ'
-  Removed $ from your profiles: 'Το $ έχει αφαιρεθεί από τα προφίλ σας'
+  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ σας'
   Your default profile has been changed to your primary profile: 'Το κύριο προφίλ
     σας έχει οριστεί ως το προεπιλεγμένο'
-  $ is now the active profile: 'Το $ είναι τώρα το ενεργό προφίλ'
+  '{profile} is now the active profile': 'Το {profile} είναι τώρα το ενεργό προφίλ'
   Subscription List: 'Λίστα Συνδρομών/Εγγραφών'
   Other Channels: 'Άλλα κανάλια'
-  $ selected: '$ επιλεγμένο'
+  '{number} selected': '{number} επιλεγμένο'
   Select All: 'Επιλογή όλων'
   Select None: 'Επιλογή κανενός'
   Delete Selected: 'Διαγραφή επιλεγμένου στοιχείου'
@@ -496,7 +496,7 @@ Channel:
   Unsubscribe: 'Απεγγραφή'
   Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
     τις Συνδρομές/Εγγραφές σας'
-  Removed subscription from $ other channel(s): 'Αφαιρέθηκε η συνδρομή από $ άλλα
+  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count} άλλα
     κανάλια'
   Added channel to your subscriptions: 'Προστέθηκε κανάλι στις συνδρομές/εγγραφές
     σας'
@@ -592,8 +592,7 @@ Video:
     Ago: 'Πριν'
     Upcoming: 'Κάνει πρεμιέρα στις'
   Published on: 'Δημοσιεύθηκε στις'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'δημοσιεύθηκε πριν από $ %'
+  Publicationtemplate: 'δημοσιεύθηκε πριν από {number} {unit}'
 #& Videos
   Audio:
     Best: Καλύτερο
@@ -625,7 +624,7 @@ Video:
     music offtopic: μουσική εκτός θέματος
   External Player:
     video: βίντεο
-    OpenInTemplate: Άνοιγμα σε $
+    OpenInTemplate: Άνοιγμα σε {externalPlayer}
     Unsupported Actions:
       looping playlists: επανάληψη των λιστών αναπαραγωγής
       starting video at offset: εκκίνηση βίντεο στη μετατόπιση
@@ -637,8 +636,8 @@ Video:
         βίντεο)
       reversing playlists: αντιστροφή λιστών αναπαραγωγής
     playlist: λίστα αναπαραγωγής
-    OpeningTemplate: Άνοιγμα $ σε %...
-    UnsupportedActionTemplate: 'Το $ δεν υποστηρίζει: %'
+    OpeningTemplate: Άνοιγμα {videoOrPlaylist} σε {externalPlayer}...
+    UnsupportedActionTemplate: 'Το {externalPlayer} δεν υποστηρίζει: {action}'
   Premieres on: Πρεμιέρες στις
   Stats:
     video id: Αναγνωριστικό του βίντεο (YouTube)
@@ -735,7 +734,7 @@ Comments:
   There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το
     βίντεο
   And others: και άλλοι
-  From $channelName: από $channelName
+  From {channelName}: από {channelName}
   Show More Replies: Εμφάνιση περισσότερων απαντήσεων
   Pinned by: Καρφώθηκε από
 Up Next: 'Επόμενο'
@@ -764,10 +763,10 @@ Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου
 
 Yes: 'Ναι'
 No: 'Όχι'
-A new blog is now available, $. Click to view more: Ένα καινούριο ιστολόγιο είναι
-  πλέον διαθέσιμο, $. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
+A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο είναι
+  πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
 Download From Site: Κάντε λήψη απο την Ιστοσελίδα
-Version $ is now available!  Click for more details: Η έκδοση $ είναι πλέον διαθέσιμη.
+Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber} είναι πλέον διαθέσιμη.
   Κάντε κλικ για περισσότερες λεπτομέρειες
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό
   το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω
@@ -830,7 +829,7 @@ Tooltips:
     External Player: Η επιλογή ενός εξωτερικού προγράμματος αναπαραγωγής θα εμφανίσει
       ένα εικονίδιο, για το άνοιγμα του βίντεο (λίστα αναπαραγωγής, εάν υποστηρίζεται)
       στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία.
-    DefaultCustomArgumentsTemplate: "(Προεπιλογή: '$')"
+    DefaultCustomArgumentsTemplate: "(Προεπιλογή: '{defaultCustomArguments}')"
     Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών,
       διαχωρισμένα με ερωτηματικά (';'), που θέλετε να μεταβιβαστούν στο εξωτερικό
       πρόγραμμα αναπαραγωγής.
@@ -846,14 +845,14 @@ Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος �
 Search Bar:
   Clear Input: Εκκαθάριση εισαγωγής
 Open New Window: Άνοιγμα Νέου παραθύρου
-Default Invidious instance has been set to $: Το προεπιλεγμένο στιγμιότυπο Invidious
-  έχει οριστεί σε $
-Downloading has completed: Η λήψη του "$" ολοκληρώθηκε
-Starting download: Έναρξη λήψης του "$"
+Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο Invidious
+  έχει οριστεί σε {instance}
+Downloading has completed: Η λήψη του "{videoTitle}" ολοκληρώθηκε
+Starting download: Έναρξη λήψης του "{videoTitle}"
 Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious
   έχει διαγραφεί
 External link opening has been disabled in the general settings: Το άνοιγμα εξωτερικών
   συνδέσμων έχει απενεργοποιηθεί στις γενικές ρυθμίσεις
 Are you sure you want to open this link?: Είστε σίγουροι ότι θέλετε να ανοίξετε αυτόν
   τον σύνδεσμο;
-Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "$"
+Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "{videoTitle}"

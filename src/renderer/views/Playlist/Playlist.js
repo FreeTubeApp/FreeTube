@@ -4,7 +4,6 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
-import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import i18n from '../../i18n/index'
 
 export default Vue.extend({
@@ -13,8 +12,7 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video': FtListVideo,
-    'ft-flex-box': FtFlexBox
+    'ft-list-video': FtListVideo
   },
   data: function () {
     return {

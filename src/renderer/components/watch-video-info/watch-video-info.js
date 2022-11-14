@@ -2,18 +2,17 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
 import i18n from '../../i18n/index'
+import { openExternalLink, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoInfo',
   components: {
     'ft-card': FtCard,
     'ft-button': FtButton,
-    'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton
@@ -271,7 +270,8 @@ export default Vue.extend({
       const date = new Date(this.published)
       const locale = this.currentLocale.replace('_', '-')
       const localeDateString = new Intl.DateTimeFormat([locale, 'en'], { dateStyle: 'medium' }).format(date)
-      return `${localeDateString}`
+      // replace spaces with no break spaces to make the date act as a single entity while wrapping
+      return `${localeDateString}`.replace(/ /g, '\u00A0')
     },
 
     publishedString() {
@@ -325,7 +325,6 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -336,10 +335,6 @@ export default Vue.extend({
         playlistShuffle: this.getPlaylistShuffle(),
         playlistLoop: this.getPlaylistLoop()
       })
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
     },
 
     toggleSave: function () {
@@ -371,7 +366,7 @@ export default Vue.extend({
       const extension = this.grabExtensionFromUrl(linkName)
 
       if (this.downloadBehavior === 'open') {
-        this.openExternalLink(url)
+        openExternalLink(url)
       } else {
         this.downloadMedia({
           url: url,
@@ -413,9 +408,7 @@ export default Vue.extend({
 
       this.addVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been saved')
-      })
+      showToast(this.$t('Video.Video has been saved'))
     },
 
     removeFromPlaylist: function () {
@@ -426,18 +419,14 @@ export default Vue.extend({
 
       this.removeVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your saved list')
-      })
+      showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
-      'showToast',
       'openInExternalPlayer',
       'updateProfile',
       'addVideo',
       'removeVideo',
-      'openExternalLink',
       'downloadMedia'
     ])
   }

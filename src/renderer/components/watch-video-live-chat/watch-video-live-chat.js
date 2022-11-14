@@ -1,20 +1,19 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
+import { getRandomColorClass } from '../../helpers/colors'
+import { stripHTML } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-button': FtButton,
-    'ft-list-video': FtListVideo
+    'ft-button': FtButton
   },
   beforeRouteLeave: function () {
     this.liveChat.stop()
@@ -155,15 +154,15 @@ export default Vue.extend({
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
-            comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlRef
+            comment.messageHtml = stripHTML(comment.messageHtml) + htmlRef
           } else {
-            comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
+            comment.messageHtml = stripHTML(comment.messageHtml + text.text)
           }
         } else if (typeof (text.alt) !== 'undefined') {
           const htmlImg = `<img src="${text.url}" alt="${text.alt}" class="liveChatEmoji" height="24" width="24" />`
-          comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlImg
+          comment.messageHtml = stripHTML(comment.messageHtml) + htmlImg
         } else {
-          comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
+          comment.messageHtml = stripHTML(comment.messageHtml + text.text)
         }
       })
 
@@ -178,30 +177,26 @@ export default Vue.extend({
       this.comments.push(comment)
 
       if (typeof (comment.superchat) !== 'undefined') {
-        this.getRandomColorClass().then((data) => {
-          comment.superchat.colorClass = data
+        comment.superchat.colorClass = getRandomColorClass()
 
-          this.superChatComments.unshift(comment)
+        this.superChatComments.unshift(comment)
 
-          setTimeout(() => {
-            this.removeFromSuperChat(comment.id)
-          }, 120000)
-        })
+        setTimeout(() => {
+          this.removeFromSuperChat(comment.id)
+        }, 120000)
       }
 
       if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
-        this.getRandomColorClass().then((data) => {
-          comment.superChat = {
-            amount: '$5.00',
-            colorClass: data
-          }
+        comment.superChat = {
+          amount: '$5.00',
+          colorClass: getRandomColorClass()
+        }
 
-          this.superChatComments.unshift(comment)
+        this.superChatComments.unshift(comment)
 
-          setTimeout(() => {
-            this.removeFromSuperChat(comment.id)
-          }, 120000)
-        })
+        setTimeout(() => {
+          this.removeFromSuperChat(comment.id)
+        }, 120000)
       }
 
       if (this.stayAtBottom) {
@@ -260,10 +255,6 @@ export default Vue.extend({
     preventDefault: function (event) {
       event.stopPropagation()
       event.preventDefault()
-    },
-
-    ...mapActions([
-      'getRandomColorClass'
-    ])
+    }
   }
 })

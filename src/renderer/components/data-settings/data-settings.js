@@ -1,27 +1,28 @@
 import Vue from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import { mapActions, mapMutations } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-import fs from 'fs'
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
-import { calculateColorLuminance } from '../../helpers/utils'
-
-// FIXME: Missing web logic branching
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
+import {
+  copyToClipboard,
+  readFileFromDialog,
+  showOpenDialog,
+  showSaveDialog,
+  showToast,
+  writeFileFromDialog
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'DataSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-card': FtCard,
     'ft-button': FtButton,
-    'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox,
     'ft-prompt': FtPrompt
   },
@@ -60,6 +61,9 @@ export default Vue.extend({
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
+    },
     exportSubscriptionsPromptNames: function () {
       const exportFreeTube = this.$t('Settings.Data Settings.Export FreeTube')
       const exportYouTube = this.$t('Settings.Data Settings.Export YouTube')
@@ -97,18 +101,16 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showOpenDialog(options)
+      const response = await showOpenDialog(options)
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
       let textDecode
       try {
-        textDecode = await this.readFileFromDialog({ response })
+        textDecode = await readFileFromDialog(response)
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
+        showToast(`${message}: ${err}`)
         return
       }
       response.filePaths.forEach(filePath => {
@@ -129,7 +131,7 @@ export default Vue.extend({
       })
     },
 
-    importFreeTubeSubscriptions: async function (textDecode) {
+    importFreeTubeSubscriptions: function (textDecode) {
       textDecode = textDecode.split('\n')
       textDecode.pop()
       textDecode = textDecode.map(data => JSON.parse(data))
@@ -137,7 +139,7 @@ export default Vue.extend({
       const firstEntry = textDecode[0]
       if (firstEntry.channelId && firstEntry.channelName && firstEntry.channelThumbnail && firstEntry._id && firstEntry.profile) {
         // Old FreeTube subscriptions format detected, so convert it to the new one:
-        textDecode = await this.convertOldFreeTubeFormatToNew(textDecode)
+        textDecode = this.convertOldFreeTubeFormatToNew(textDecode)
       }
 
       textDecode.forEach((profileData) => {
@@ -157,9 +159,7 @@ export default Vue.extend({
         Object.keys(profileData).forEach((key) => {
           if (!requiredKeys.includes(key)) {
             const message = this.$t('Settings.Data Settings.Unknown data key')
-            this.showToast({
-              message: `${message}: ${key}`
-            })
+            showToast(`${message}: ${key}`)
           } else {
             profileObject[key] = profileData[key]
           }
@@ -167,9 +167,7 @@ export default Vue.extend({
 
         if (Object.keys(profileObject).length < requiredKeys.length) {
           const message = this.$t('Settings.Data Settings.Profile object has insufficient data, skipping item')
-          this.showToast({
-            message: message
-          })
+          showToast(message)
         } else {
           if (profileObject.name === 'All Channels' || profileObject._id === MAIN_PROFILE_ID) {
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(profileObject.subscriptions)
@@ -214,9 +212,7 @@ export default Vue.extend({
         }
       })
 
-      this.showToast({
-        message: this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported')
-      })
+      showToast(this.$t('Settings.Data Settings.All subscriptions and profiles have been successfully imported'))
     },
 
     importCsvYouTubeSubscriptions: async function(textDecode) { // first row = header, last row = empty
@@ -226,9 +222,7 @@ export default Vue.extend({
       const subscriptions = []
       const errorList = []
 
-      this.showToast({
-        message: this.$t('Settings.Data Settings.This might take a while, please wait')
-      })
+      showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
@@ -273,13 +267,9 @@ export default Vue.extend({
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
           })
-          this.showToast({
-            message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-          })
+          showToast(this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported'))
         } else {
-          this.showToast({
-            message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-          })
+          showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
         }
       }).finally(_ => {
         this.updateShowProgressBar(false)
@@ -290,9 +280,7 @@ export default Vue.extend({
       const subscriptions = []
       const errorList = []
 
-      this.showToast({
-        message: this.$t('Settings.Data Settings.This might take a while, please wait')
-      })
+      showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
@@ -304,9 +292,7 @@ export default Vue.extend({
           const snippet = channel.snippet
           if (typeof snippet === 'undefined') {
             const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-            this.showToast({
-              message: message
-            })
+            showToast(message)
             throw new Error('Unable to find channel data')
           }
           const { subscription, result } = await this.subscribeToChannel({
@@ -334,13 +320,9 @@ export default Vue.extend({
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
           })
-          this.showToast({
-            message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-          })
+          showToast(this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported'))
         } else {
-          this.showToast({
-            message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-          })
+          showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
         }
       }).finally(_ => {
         this.updateShowProgressBar(false)
@@ -355,9 +337,7 @@ export default Vue.extend({
         console.error(err)
         console.error('error reading')
         const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
+        showToast(`${message}: ${err}`)
       }
 
       if (json !== undefined) {
@@ -367,18 +347,14 @@ export default Vue.extend({
             feedData = json.children
           } else {
             const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
-            this.showToast({
-              message: message
-            })
+            showToast(message)
             return
           }
         }
 
         const subscriptions = []
 
-        this.showToast({
-          message: this.$t('Settings.Data Settings.This might take a while, please wait')
-        })
+        showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
         this.updateShowProgressBar(true)
         this.setProgressBarPercentage(0)
@@ -418,13 +394,9 @@ export default Vue.extend({
             this.updateProfile(this.primaryProfile)
 
             if (subscriptions.length < count) {
-              this.showToast({
-                message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-              })
+              showToast(this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported'))
             } else {
-              this.showToast({
-                message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-              })
+              showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
             }
 
             this.updateShowProgressBar(false)
@@ -435,9 +407,7 @@ export default Vue.extend({
 
     importNewPipeSubscriptions: async function (newPipeData) {
       if (typeof newPipeData.subscriptions === 'undefined') {
-        this.showToast({
-          message: this.$t('Settings.Data Settings.Invalid subscriptions file')
-        })
+        showToast(this.$t('Settings.Data Settings.Invalid subscriptions file'))
 
         return
       }
@@ -449,9 +419,7 @@ export default Vue.extend({
       const subscriptions = []
       const errorList = []
 
-      this.showToast({
-        message: this.$t('Settings.Data Settings.This might take a while, please wait')
-      })
+      showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
@@ -487,13 +455,9 @@ export default Vue.extend({
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
           })
-          this.showToast({
-            message: this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported')
-          })
+          showToast(this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported'))
         } else {
-          this.showToast({
-            message: this.$t('Settings.Data Settings.All subscriptions have been successfully imported')
-          })
+          showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
         }
       }).finally(_ => {
         this.updateShowProgressBar(false)
@@ -527,9 +491,9 @@ export default Vue.extend({
     },
 
     exportFreeTubeSubscriptions: async function () {
-      await this.compactProfiles()
-      const userData = await this.getUserDataPath()
-      const subscriptionsDb = `${userData}/profiles.db`
+      const subscriptionsDb = this.profileList.map((profile) => {
+        return JSON.stringify(profile)
+      }).join('\n') + '\n'// a trailing line is expected
       const date = new Date().toISOString().split('T')[0]
       const exportFileName = 'freetube-subscriptions-' + date + '.db'
 
@@ -543,37 +507,19 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.readFile(subscriptionsDb, (readErr, data) => {
-        if (readErr) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${readErr}`
-          })
-          return
-        }
-
-        fs.writeFile(filePath, data, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            this.showToast({
-              message: `${message}: ${writeErr}`
-            })
-            return
-          }
-
-          this.showToast({
-            message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-          })
-        })
-      })
+      try {
+        await writeFileFromDialog(response, subscriptionsDb)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -626,27 +572,20 @@ export default Vue.extend({
         return object
       })
 
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
 
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(subscriptionsObject), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          this.showToast({
-            message: `${message}: ${writeErr}`
-          })
-          return
-        }
-
-        this.showToast({
-          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-        })
-      })
+      try {
+        await writeFileFromDialog(response, JSON.stringify(subscriptionsObject))
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
@@ -678,27 +617,20 @@ export default Vue.extend({
         }
       })
 
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
 
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, opmlData, (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          this.showToast({
-            message: `${message}: ${writeErr}`
-          })
-          return
-        }
-
-        this.showToast({
-          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-        })
-      })
+      try {
+        await writeFileFromDialog(response, opmlData)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -724,26 +656,20 @@ export default Vue.extend({
         exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
 
-      const filePath = response.filePath
-      fs.writeFile(filePath, exportText, (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          this.showToast({
-            message: `${message}: ${writeErr}`
-          })
-          return
-        }
-
-        this.showToast({
-          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-        })
-      })
+      try {
+        await writeFileFromDialog(response, exportText)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -777,27 +703,19 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(newPipeObject), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          this.showToast({
-            message: `${message}: ${writeErr}`
-          })
-          return
-        }
-
-        this.showToast({
-          message: this.$t('Settings.Data Settings.Subscriptions have been successfully exported')
-        })
-      })
+      try {
+        await writeFileFromDialog(response, JSON.stringify(newPipeObject))
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     importHistory: async function () {
@@ -811,18 +729,16 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showOpenDialog(options)
+      const response = await showOpenDialog(options)
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
       let textDecode
       try {
-        textDecode = await this.readFileFromDialog({ response })
+        textDecode = await readFileFromDialog(response)
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
+        showToast(`${message}: ${err}`)
         return
       }
       textDecode = textDecode.split('\n')
@@ -854,32 +770,26 @@ export default Vue.extend({
 
         Object.keys(historyData).forEach((key) => {
           if (!requiredKeys.includes(key)) {
-            this.showToast({
-              message: `Unknown data key: ${key}`
-            })
+            showToast(`Unknown data key: ${key}`)
           } else {
             historyObject[key] = historyData[key]
           }
         })
 
         if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
-          this.showToast({
-            message: this.$t('Settings.Data Settings.History object has insufficient data, skipping item')
-          })
+          showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
         } else {
           this.updateHistory(historyObject)
         }
       })
 
-      this.showToast({
-        message: this.$t('Settings.Data Settings.All watched history has been successfully imported')
-      })
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
     },
 
     exportHistory: async function () {
-      await this.compactHistory()
-      const userData = await this.getUserDataPath()
-      const historyDb = `${userData}/history.db`
+      const historyDb = this.historyCache.map((historyEntry) => {
+        return JSON.stringify(historyEntry)
+      }).join('\n') + '\n'
       const date = new Date().toISOString().split('T')[0]
       const exportFileName = 'freetube-history-' + date + '.db'
 
@@ -893,37 +803,19 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
 
-      const filePath = response.filePath
-
-      fs.readFile(historyDb, (readErr, data) => {
-        if (readErr) {
-          const message = this.$t('Settings.Data Settings.Unable to read file')
-          this.showToast({
-            message: `${message}: ${readErr}`
-          })
-          return
-        }
-
-        fs.writeFile(filePath, data, (writeErr) => {
-          if (writeErr) {
-            const message = this.$t('Settings.Data Settings.Unable to write file')
-            this.showToast({
-              message: `${message}: ${writeErr}`
-            })
-            return
-          }
-
-          this.showToast({
-            message: this.$t('Settings.Data Settings.All watched history has been successfully exported')
-          })
-        })
-      })
+      try {
+        await writeFileFromDialog(response, historyDb)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+      }
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
     },
 
     importPlaylists: async function () {
@@ -937,18 +829,16 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showOpenDialog(options)
+      const response = await showOpenDialog(options)
       if (response.canceled || response.filePaths?.length === 0) {
         return
       }
       let data
       try {
-        data = await this.readFileFromDialog({ response })
+        data = await readFileFromDialog(response)
       } catch (err) {
         const message = this.$t('Settings.Data Settings.Unable to read file')
-        this.showToast({
-          message: `${message}: ${err}`
-        })
+        showToast(`${message}: ${err}`)
         return
       }
       const playlists = JSON.parse(data)
@@ -986,9 +876,7 @@ export default Vue.extend({
         Object.keys(playlistData).forEach((key) => {
           if (!requiredKeys.includes(key) && !optionalKeys.includes(key)) {
             const message = `${this.$t('Settings.Data Settings.Unknown data key')}: ${key}`
-            this.showToast({
-              message: message
-            })
+            showToast(message)
           } else if (key === 'videos') {
             const videoArray = []
             playlistData.videos.forEach((video) => {
@@ -1013,10 +901,8 @@ export default Vue.extend({
         const objectKeys = Object.keys(playlistObject)
 
         if ((objectKeys.length < requiredKeys.length) || playlistObject.videos.length === 0) {
-          const message = this.$t('Settings.Data Settings.Playlist insufficient data').replace('$', playlistData.playlistName)
-          this.showToast({
-            message: message
-          })
+          const message = this.$t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
+          showToast(message)
         } else {
           const existingPlaylist = this.allPlaylists.find((playlist) => {
             return playlist.playlistName === playlistObject.playlistName
@@ -1043,9 +929,7 @@ export default Vue.extend({
         }
       })
 
-      this.showToast({
-        message: this.$t('Settings.Data Settings.All playlists has been successfully imported')
-      })
+      showToast(this.$t('Settings.Data Settings.All playlists has been successfully imported'))
     },
 
     exportPlaylists: async function () {
@@ -1062,37 +946,29 @@ export default Vue.extend({
         ]
       }
 
-      const response = await this.showSaveDialog({ options })
+      const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
         return
       }
-
-      const filePath = response.filePath
-
-      fs.writeFile(filePath, JSON.stringify(this.allPlaylists), (writeErr) => {
-        if (writeErr) {
-          const message = this.$t('Settings.Data Settings.Unable to write file')
-          this.showToast({
-            message: `${message}: ${writeErr}`
-          })
-          return
-        }
-
-        this.showToast({
-          message: this.$t('Settings.Data Settings.All playlists has been successfully exported')
-        })
-      })
+      try {
+        await writeFileFromDialog(response, JSON.stringify(this.allPlaylists))
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')}`)
     },
 
-    async convertOldFreeTubeFormatToNew(oldData) {
+    convertOldFreeTubeFormatToNew(oldData) {
       const convertedData = []
       for (const channel of oldData) {
         const listOfProfilesAlreadyAdded = []
         for (const profile of channel.profile) {
           let index = convertedData.findIndex(p => p.name === profile.value)
           if (index === -1) { // profile doesn't exist yet
-            const randomBgColor = await this.getRandomColor()
+            const randomBgColor = getRandomColor()
             const contrastyTextColor = calculateColorLuminance(randomBgColor)
             convertedData.push({
               name: profile.value,
@@ -1129,18 +1005,12 @@ export default Vue.extend({
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err.responseJSON.error}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err.responseJSON.error })
-            }
+          showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
+            copyToClipboard(err.responseJSON.error)
           })
 
           if (this.backendFallback && this.backendPreference === 'invidious') {
-            this.showToast({
-              message: this.$t('Falling back to the local API')
-            })
+            showToast(this.$t('Falling back to the local API'))
             resolve(this.getChannelInfoLocal(channelId))
           } else {
             resolve([])
@@ -1156,18 +1026,12 @@ export default Vue.extend({
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Local API Error (Click to copy)')
-          this.showToast({
-            message: `${errorMessage}: ${err}`,
-            time: 10000,
-            action: () => {
-              this.copyToClipboard({ content: err })
-            }
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
 
           if (this.backendFallback && this.backendPreference === 'local') {
-            this.showToast({
-              message: this.$t('Falling back to the Invidious API')
-            })
+            showToast(this.$t('Falling back to the Invidious API'))
             resolve(this.getChannelInfoInvidious(channelId))
           } else {
             resolve([])
@@ -1240,15 +1104,9 @@ export default Vue.extend({
       'updateShowProgressBar',
       'updateHistory',
       'compactHistory',
-      'showToast',
-      'getRandomColor',
-      'showOpenDialog',
-      'readFileFromDialog',
-      'showSaveDialog',
       'getUserDataPath',
       'addPlaylist',
-      'addVideo',
-      'copyToClipboard'
+      'addVideo'
     ]),
 
     ...mapMutations([

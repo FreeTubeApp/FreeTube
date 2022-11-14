@@ -30,11 +30,11 @@ Close: 'Tutup'
 Back: 'Kembali'
 Forward: 'Maju'
 
-Version $ is now available!  Click for more details: 'Versi $ sekarang tersedia!  Klik
+Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber} sekarang tersedia!  Klik
   untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
-A new blog is now available, $. Click to view more: 'Blog baru sekarang tersedia,
-  $. Klik untuk lihat lebih lanjut'
+A new blog is now available, {blogTitle}. Click to view more: 'Blog baru sekarang tersedia,
+  {blogTitle}. Klik untuk lihat lebih lanjut'
 
 # Search Bar
 Search / Go to URL: 'Cari / Pergi ke URL'
@@ -152,8 +152,8 @@ Settings:
       Open Link: Buka link
       Ask Before Opening Link: Tanya sebelum membuka link
       No Action: Tidak ada
-    The currently set default instance is $: Instans default yang saat ini disetel
-      adalah $
+    The currently set default instance is {instance}: Instans default yang saat ini disetel
+      adalah {instance}
     No default instance has been set: Tidak ada instans default yang disetel
     Set Current Instance as Default: Tetapkan Instans Saat Ini sebagai Default
     Clear Default Instance: Hapus Instans Default
@@ -298,7 +298,7 @@ Settings:
     Manage Subscriptions: Kelola Langganan
     Import Playlists: Impor Playlist
     Export Playlists: Ekspor Playlist
-    Playlist insufficient data: Data tidak mencukupi untuk "$" playlist, melewatkan
+    Playlist insufficient data: Data tidak mencukupi untuk "{playlist}" playlist, melewatkan
       item
     All playlists has been successfully imported: Semua playlist berhasil diimpor
     All playlists has been successfully exported: Semua playlist berhasil diekspor
@@ -449,14 +449,14 @@ Profile:
   Your profile name cannot be empty: 'Nama profil Anda tidak boleh kosong'
   Profile has been created: 'Profil telah dibuat'
   Profile has been updated: 'Profil telah diperbarui'
-  Your default profile has been set to $: 'Profil bawaan Anda telah diatur ke $'
-  Removed $ from your profiles: '$ dihapus dari profil Anda'
+  Your default profile has been set to {profile}: 'Profil bawaan Anda telah diatur ke {profile}'
+  Removed {profile} from your profiles: '{profile} dihapus dari profil Anda'
   Your default profile has been changed to your primary profile: 'Profil bawaan Anda
     telah diubah ke profil utama Anda'
-  $ is now the active profile: '$ sekarang adalah profil aktif'
+  '{profile} is now the active profile': '{profile} sekarang adalah profil aktif'
   Subscription List: 'Daftar Langganan'
   Other Channels: 'Kanal Lain'
-  $ selected: '$ terpilih'
+  '{number} selected': '{number} terpilih'
   Select All: 'Pilih Semua'
   Select None: 'Tidak Pilih'
   Delete Selected: 'Hapus Terpilih'
@@ -479,7 +479,7 @@ Channel:
   Unsubscribe: 'Berhenti Langganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
     Anda'
-  Removed subscription from $ other channel(s): 'Langganan terhapus dari $ kanal lainnya'
+  Removed subscription from {count} other channel(s): 'Langganan terhapus dari {count} kanal lainnya'
   Added channel to your subscriptions: 'Kanal ditambahkan ke langganan Anda'
   Search Channel: 'Cari Kanal'
   Your search results have returned 0 results: 'Hasil pencarian Anda memberikan 0
@@ -571,8 +571,7 @@ Video:
     Ago: 'Lalu'
     Upcoming: 'Segera tayang di'
   Published on: 'Dipublikasi pada'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % yang lalu'
+  Publicationtemplate: '{number} {unit} yang lalu'
 #& Videos
   Audio:
     Best: Terbaik
@@ -614,11 +613,11 @@ Video:
         video)
       opening playlists: membuka daftar putar
       setting a playback rate: menetapkan laju pemutaran
-    UnsupportedActionTemplate: '$ tidak mendukung: %'
-    OpeningTemplate: Membuka $ dalam %...
+    UnsupportedActionTemplate: '{externalPlayer} tidak mendukung: {action}'
+    OpeningTemplate: Membuka {videoOrPlaylist} dalam {externalPlayer}...
     playlist: daftar putar
     video: video
-    OpenInTemplate: Buka di $
+    OpenInTemplate: Buka di {externalPlayer}
   Premieres on: Pemutaran Perdana pada
   Stats:
     bandwidth: Kecepatan Koneksi
@@ -710,7 +709,7 @@ Comments:
   Sort by: Urut berdasarkan
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
   Show More Replies: Tampilkan Lebih Banyak Balasan
-  From $channelName: dari $channelName
+  From {channelName}: dari {channelName}
   And others: dan lain-lain
   Pinned by: Dipin oleh
 Up Next: 'Akan Datang'
@@ -792,7 +791,7 @@ Tooltips:
     External Player: Memilih pemutar eksternal akan menampilkan ikon khusus, untuk
       membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
       thumbnail.
-    DefaultCustomArgumentsTemplate: "(Default: '$')"
+    DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk batal. |
   Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal. | Putar
   video berikutnya dalam {nextVideoInterval} detik. Klik untuk batal.
@@ -807,9 +806,9 @@ Search Bar:
 External link opening has been disabled in the general settings: Pembukaan link eksternal
   telah dimatikan pada pengaturan umum
 Are you sure you want to open this link?: Yakin ingin membuka link ini?
-Default Invidious instance has been set to $: Situs Invidious baku telah di atur ke
-  $
+Default Invidious instance has been set to {instance}: 'Situs Invidious baku telah di atur ke
+  {instance}'
 Default Invidious instance has been cleared: Situs Invidious baku telah dikosongkan
-Downloading has completed: '"$" telah selesai diunduh'
-Starting download: Mulai mengunduh "$"
-Downloading failed: Ada masalah mengunduh "$"
+Downloading has completed: '"{videoTitle}" telah selesai diunduh'
+Starting download: Mulai mengunduh "{videoTitle}"
+Downloading failed: Ada masalah mengunduh "{videoTitle}"

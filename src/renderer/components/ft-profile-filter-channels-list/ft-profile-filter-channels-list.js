@@ -5,8 +5,8 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import FtSelect from '../ft-select/ft-select.vue'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtProfileFilterChannelsList',
@@ -15,7 +15,6 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-channel-bubble': FtChannelBubble,
     'ft-button': FtButton,
-    'ft-prompt': FtPrompt,
     'ft-select': FtSelect
   },
   props: {
@@ -45,8 +44,7 @@ export default Vue.extend({
       return this.profileList.flatMap((profile) => profile.name !== this.profile.name ? [profile.name] : [])
     },
     selectedText: function () {
-      const localeText = this.$t('Profile.$ selected')
-      return localeText.replace('$', this.selectedLength)
+      return this.$t('Profile.{number} selected', { number: this.selectedLength })
     }
   },
   watch: {
@@ -120,9 +118,7 @@ export default Vue.extend({
 
     addChannelToProfile: function () {
       if (this.selectedLength === 0) {
-        this.showToast({
-          message: this.$t('Profile.No channel(s) have been selected')
-        })
+        showToast(this.$t('Profile.No channel(s) have been selected'))
       } else {
         const subscriptions = this.channels.filter((channel) => {
           return channel.selected
@@ -131,9 +127,7 @@ export default Vue.extend({
         const profile = JSON.parse(JSON.stringify(this.profile))
         profile.subscriptions = profile.subscriptions.concat(subscriptions)
         this.updateProfile(profile)
-        this.showToast({
-          message: this.$t('Profile.Profile has been updated')
-        })
+        showToast(this.$t('Profile.Profile has been updated'))
         this.selectNone()
       }
     },
@@ -173,7 +167,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateProfile'
     ])
   }

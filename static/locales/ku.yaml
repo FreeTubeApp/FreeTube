@@ -30,10 +30,10 @@ Close: 'داخستن'
 Back: 'گەڕانەوە'
 Forward: 'چونەپێشەوە'
 
-Version $ is now available!  Click for more details: 'ڤێرژنی $ ئێستا بەردەستە! کلیک
+Version {versionNumber} is now available!  Click for more details: 'ڤێرژنی {versionNumber} ئێستا بەردەستە! کلیک
   بکە بۆ زانیاری زیاتر'
 Download From Site: 'دایبەزێنە لە سایتەکەوە'
-A new blog is now available, $. Click to view more: 'بڵۆگێکی نوێ بەردەستە، $. کلیک
+A new blog is now available, {blogTitle}. Click to view more: 'بڵۆگێکی نوێ بەردەستە، {blogTitle}. کلیک
   بکە بۆ بینینی زیاتر'
 
 # Search Bar
@@ -338,13 +338,13 @@ Profile:
   Your profile name cannot be empty: 'ناوی پڕۆفایلەکەت نابێت بەتاڵبێت'
   Profile has been created: 'پڕۆفایلەکە دروستکرا'
   Profile has been updated: 'پرۆفایلەکە تازەکرایەوە'
-  Your default profile has been set to $: 'پرۆفایلە ئاساییەکەت دانراوە بۆ $'
-  Removed $ from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت $'
+  Your default profile has been set to {profile}: 'پرۆفایلە ئاساییەکەت دانراوە بۆ {profile}'
+  Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
   Your default profile has been changed to your primary profile: ''
-  $ is now the active profile: ''
+  '{profile} is now the active profile': ''
   Subscription List: ''
   Other Channels: ''
-  $ selected: ''
+  '{number} selected': ''
   Select All: ''
   Select None: ''
   Delete Selected: ''
@@ -361,7 +361,7 @@ Channel:
   Subscribe: ''
   Unsubscribe: ''
   Channel has been removed from your subscriptions: ''
-  Removed subscription from $ other channel(s): ''
+  Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
@@ -446,7 +446,6 @@ Video:
     Ago: ''
     Upcoming: ''
   Published on: ''
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
   Publicationtemplate: ''
 #& Videos
 Videos:

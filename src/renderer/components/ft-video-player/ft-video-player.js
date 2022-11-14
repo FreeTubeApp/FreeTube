@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
 
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
@@ -11,16 +10,15 @@ import 'videojs-overlay/dist/videojs-overlay.css'
 import 'videojs-vtt-thumbnails-freetube'
 import 'videojs-contrib-quality-levels'
 import 'videojs-http-source-selector'
-
+import 'videojs-mobile-ui'
+import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance } from '../../helpers/utils'
+import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
-  components: {
-    'ft-card': FtCard
-  },
   beforeRouteLeave: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {
@@ -105,11 +103,11 @@ export default Vue.extend({
       activeAdaptiveFormats: [],
       mouseTimeout: null,
       touchTimeout: null,
-      lastTouchTime: null,
       playerStats: null,
       statsModal: null,
       showStatsModal: false,
       statsModalEventName: 'updateStats',
+      usingTouch: false,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -194,6 +192,10 @@ export default Vue.extend({
 
     displayVideoPlayButton: function() {
       return this.$store.getters.getDisplayVideoPlayButton
+    },
+
+    enterFullscreenOnDisplayRotate: function() {
+      return this.$store.getters.getEnterFullscreenOnDisplayRotate
     },
 
     sponsorSkips: function () {
@@ -362,6 +364,22 @@ export default Vue.extend({
               allowSeeksWithinUnsafeLiveWindow: true,
               handlePartialData: true
             }
+          }
+        })
+        this.player.mobileUi({
+          fullscreen: {
+            enterOnRotate: this.enterFullscreenOnDisplayRotate,
+            exitOnRotate: this.enterFullscreenOnDisplayRotate,
+            lockOnRotate: false
+          },
+          // Without this flag, the mobile UI will only activate
+          // if videojs detects it is in Android or iOS
+          // With this flag, the mobile UI could theoretically
+          // work on any device that has a touch input
+          forceForTesting: true,
+          touchControls: {
+            seekSeconds: this.defaultSkipInterval,
+            tapTimeout: 300
           }
         })
 
@@ -598,9 +616,7 @@ export default Vue.extend({
 
     showSkippedSponsorSegmentInformation(category) {
       const translatedCategory = this.sponsorBlockTranslatedCategory(category)
-      this.showToast({
-        message: `${this.$t('Video.Skipped segment')} ${translatedCategory}`
-      })
+      showToast(`${this.$t('Video.Skipped segment')} ${translatedCategory}`)
     },
 
     sponsorBlockTranslatedCategory(category) {
@@ -1181,14 +1197,10 @@ export default Vue.extend({
 
       if (!this.player.loop()) {
         const currentTheme = this.$store.state.settings.mainColor
-        const colorNames = this.$store.state.utils.colorNames
-        const colorValues = this.$store.state.utils.colorValues
 
-        const nameIndex = colorNames.findIndex((color) => {
-          return color === currentTheme
-        })
+        const colorValue = colors.find(color => color.name === currentTheme).value
 
-        const themeTextColor = calculateColorLuminance(colorValues[nameIndex])
+        const themeTextColor = calculateColorLuminance(colorValue)
 
         loopButton.classList.add('vjs-icon-loop-active')
 
@@ -1347,9 +1359,7 @@ export default Vue.extend({
         })
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
-        this.showToast({
-          message: this.$t('Screenshot Error').replace('$', err.message)
-        })
+        showToast(this.$t('Screenshot Error', { error: err.message }))
         canvas.remove()
         return
       }
@@ -1387,7 +1397,7 @@ export default Vue.extend({
           ]
         }
 
-        const response = await this.showSaveDialog({ options, useModal: true })
+        const response = await showSaveDialog(options)
         if (wasPlaying) {
           this.player.play()
         }
@@ -1415,9 +1425,7 @@ export default Vue.extend({
             fs.mkdirSync(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
-            this.showToast({
-              message: this.$t('Screenshot Error').replace('$', err)
-            })
+            showToast(this.$t('Screenshot Error', { error: err }))
             canvas.remove()
             return
           }
@@ -1432,13 +1440,9 @@ export default Vue.extend({
           fs.writeFile(filePath, arr, (err) => {
             if (err) {
               console.error(err)
-              this.showToast({
-                message: this.$t('Screenshot Error').replace('$', err)
-              })
+              showToast(this.$t('Screenshot Error', { error: err }))
             } else {
-              this.showToast({
-                message: this.$t('Screenshot Success').replace('$', filePath)
-              })
+              showToast(this.$t('Screenshot Success', { filePath }))
             }
           })
         })
@@ -1692,28 +1696,19 @@ export default Vue.extend({
       }
     },
 
-    handleTouchStart: function (event) {
-      this.touchPauseTimeout = setTimeout(() => {
-        this.togglePlayPause()
-      }, 1000)
-
-      const touchTime = new Date()
-
-      if (this.lastTouchTime !== null && (touchTime.getTime() - this.lastTouchTime.getTime()) < 250) {
-        this.toggleFullscreen()
-      }
-
-      this.lastTouchTime = touchTime
+    handleTouchStart: function () {
+      this.usingTouch = true
     },
 
-    handleTouchEnd: function (event) {
-      clearTimeout(this.touchPauseTimeout)
+    handleMouseOver: function () {
+      // This addresses a discrepancy that only seems to occur in the mobile version of firefox
+      if (navigator.userAgent.search('Firefox') !== -1 && (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS)) { return }
+      this.usingTouch = false
     },
+
     toggleShowStatsModal: function() {
       if (this.format !== 'dash') {
-        this.showToast({
-          message: this.$t('Video.Stats.Video statistics are not available for legacy videos')
-        })
+        showToast(this.$t('Video.Stats.Video statistics are not available for legacy videos'))
       } else {
         this.showStatsModal = !this.showStatsModal
       }
@@ -1925,11 +1920,9 @@ export default Vue.extend({
 
     ...mapActions([
       'updateDefaultCaptionSettings',
-      'showToast',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
-      'getPicturesPath',
-      'showSaveDialog'
+      'getPicturesPath'
     ])
   }
 })

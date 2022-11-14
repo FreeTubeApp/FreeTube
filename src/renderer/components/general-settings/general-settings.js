@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
-import FtCard from '../ft-card/ft-card.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -9,12 +8,12 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'GeneralSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-card': FtCard,
     'ft-select': FtSelect,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
@@ -108,26 +107,27 @@ export default Vue.extend({
     },
 
     localeOptions: function () {
-      return ['system'].concat(this.$i18n.allLocales)
+      return [
+        'system',
+        ...this.$i18n.allLocales
+      ]
     },
 
     localeNames: function () {
+      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
+        return [
+          this.$t('Settings.General Settings.System Default'),
+          ...process.env.LOCALE_NAMES
+        ]
+      }
+
       const names = [
         this.$t('Settings.General Settings.System Default')
       ]
 
-      if (process.env.NODE_ENV === 'development') {
-        Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
-          const localeName = localeData['Locale Name']
-          if (typeof localeName !== 'undefined') {
-            names.push(localeName)
-          } else {
-            names.push(locale)
-          }
-        })
-      } else {
-        names.push(...process.env.LOCALE_NAMES)
-      }
+      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
+        names.push(localeData['Locale Name'] ?? locale)
+      })
 
       return names
     },
@@ -193,17 +193,13 @@ export default Vue.extend({
       const instance = this.currentInvidiousInstance
       this.updateDefaultInvidiousInstance(instance)
 
-      const message = this.$t('Default Invidious instance has been set to $')
-      this.showToast({
-        message: message.replace('$', instance)
-      })
+      const message = this.$t('Default Invidious instance has been set to {instance}', { instance })
+      showToast(message)
     },
 
     handleClearDefaultInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
-      this.showToast({
-        message: this.$t('Default Invidious instance has been cleared')
-      })
+      showToast(this.$t('Default Invidious instance has been cleared'))
     },
 
     handlePreferredApiBackend: function (backend) {
@@ -219,7 +215,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'showToast',
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',

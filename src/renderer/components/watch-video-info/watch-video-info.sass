@@ -1,6 +1,7 @@
 .watchVideoInfo
   display: grid
-  grid-template-columns: 2fr 1fr
+  grid-template-columns: auto minmax(min-content, 1fr)
+  column-gap: 15px
   padding: 16px
 
   @media screen and (max-width: 680px)
@@ -26,6 +27,9 @@
     cursor: pointer
     position: relative
     top: -2px
+    display: block
+    color: inherit
+    text-decoration: inherit
 
 .viewCount, .datePublished
   color: var(--secondary-text-color)
@@ -80,7 +84,3 @@
     :deep(.iconDropdown)
       left: calc(50% - 20px)
       right: auto
-
-.channelLink
-  color: inherit
-  text-decoration: inherit

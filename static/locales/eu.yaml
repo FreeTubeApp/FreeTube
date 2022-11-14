@@ -29,11 +29,11 @@ Close: 'Itxi'
 Back: 'Atzera'
 Forward: 'Aurrera'
 
-Version $ is now available!  Click for more details: '$ bertsioa erabilgarri! Klikatu
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} bertsioa erabilgarri! Klikatu
   azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
-A new blog is now available, $. Click to view more: 'Blog berri bat erabilgarri dago,
-  $. Klikatu gehiagorako'
+A new blog is now available, {blogTitle}. Click to view more: 'Blog berri bat erabilgarri dago,
+  {blogTitle}. Klikatu gehiagorako'
 
 # Search Bar
 Search / Go to URL: 'Bilatu / Helbidera joan'
@@ -145,8 +145,8 @@ Settings:
       ikusi'
     Region for Trending: 'Joeren eskualdea'
         #! List countries
-    The currently set default instance is $: Une honetan ezarritako instantzia lehenetsia
-      $ da
+    The currently set default instance is {instance}: 'Une honetan ezarritako instantzia lehenetsia
+      {instance} da'
     Current Invidious Instance: Oraingo Invidious instantzia
     External Link Handling:
       External Link Handling: Kanpo esteken kudeaketa
@@ -350,7 +350,7 @@ Settings:
       inportatu dira
     All playlists has been successfully exported: Erreprodukzio zerrenda guztiak ongi
       esportatu dira
-    Playlist insufficient data: Ez da datu nahikorik "$" erreprodukzio zerrendarentzat,
+    Playlist insufficient data: Ez da datu nahikorik "{playlist}" erreprodukzio zerrendarentzat,
       elementutik ateratzen
   Proxy Settings:
     Proxy Settings: 'Proxy-aren ezarpenak'
@@ -452,15 +452,15 @@ Profile:
   Your profile name cannot be empty: 'Zure profilaren izena ezin da hutsik egon'
   Profile has been created: 'Profila ongi eratu da'
   Profile has been updated: 'Profila ongi eguneratu da'
-  Your default profile has been set to $: 'Zure lehenetsitako profila $ gisa ezarri
+  Your default profile has been set to {profile}: 'Zure lehenetsitako profila {profile} gisa ezarri
     da'
-  Removed $ from your profiles: '$ ezabatu berri da zure profiletatik'
+  Removed {profile} from your profiles: '{profile} ezabatu berri da zure profiletatik'
   Your default profile has been changed to your primary profile: 'Profil lehenetsia
     zure profil nagusi gisa ezarri da'
-  $ is now the active profile: '$ da profil aktibo berria'
+  '{profile} is now the active profile': '{profile} da profil aktibo berria'
   Subscription List: 'Harpidetzen zerrenda'
   Other Channels: 'Beste kanalak'
-  $ selected: '$ ezarria'
+  '{number} selected': '{number} ezarria'
   Select All: 'Denak hautatu'
   Select None: 'Bat ere ez hautatu'
   Delete Selected: 'hautatutakoa ezabatu'
@@ -482,7 +482,7 @@ Channel:
   Unsubscribe: 'Harpidetza kendu'
   Channel has been removed from your subscriptions: 'kanala zure harpidetzetatik kendu
     da'
-  Removed subscription from $ other channel(s): 'Harpidetza beste $ kanaletatik ezabatu
+  Removed subscription from {count} other channel(s): 'Harpidetza beste {count} kanaletatik ezabatu
     da'
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
   Search Channel: 'Kanala bilatu'
@@ -596,8 +596,7 @@ Video:
   Streamed on: 'Noiz zuzenean emana'
   Started streaming on: 'Noiz hasi zen zuzenekoa'
   translated from English: 'Ingelesetik itzulia'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Duela $ %'
+  Publicationtemplate: 'Duela {number} {unit}'
 #& Videos
   External Player:
     Unsupported Actions:
@@ -609,10 +608,10 @@ Video:
       opening specific video in a playlist (falling back to opening the video): erreprodukzio
         zerrenda batean bideoa irekitzen (bideoa berriz ere irekitzen)
       looping playlists: erreprodukzio zerrendak etengabe erreproduzitzen
-    OpenInTemplate: $-an irekia
+    OpenInTemplate: '{externalPlayer}-an irekia'
     video: bideoa
-    OpeningTemplate: $ irekitzen %-an...
-    UnsupportedActionTemplate: '$-k ez du onartzen: %'
+    OpeningTemplate: '{videoOrPlaylist} irekitzen {externalPlayer}-an...'
+    UnsupportedActionTemplate: '{externalPlayer}-k ez du onartzen: {action}'
     playlist: erreprodukzio zerrenda
   Stats:
     Video ID: Bideoaren identifikatzailea
@@ -714,7 +713,7 @@ Comments:
   No more comments available: 'Iruzkin eskuragarri gehiagorik ez'
   Member: Kide
   Show More Replies: Erantzun gehiago erakutsi
-  From $channelName: $kanalIzenetik
+  From {channelName}: ''
   And others: eta bestelakoak
   Pinned by: Honengatik ainguratuta
 Up Next: 'Hurrengoa'
@@ -772,7 +771,7 @@ Tooltips:
     Custom External Player Executable: Lehentasunez, Freetube-k uste izango du hautatutako
       kanpo erreproduzitzailea aurkitu dezakeela PATH ingurune aldagaiari esker. Beharrezkoa
       balitz, ohiko PATH-a ezarri ahalko litzateke.
-    DefaultCustomArgumentsTemplate: "(Lehenetsia: '$')"
+    DefaultCustomArgumentsTemplate: "(Lehenetsia: '{defaultCustomArguments}')"
     Ignore Warnings: Jakinarazpenak kendu, uneko kanpo erreproduzitzaileak uneko ekintza
       onartzen ez duenean (esaterako, alderantzizko erreprodukzio zerrendak, etab.).
     External Player: Kanpo erreproduzitzaile bat hautatuz gero, bideoa edo erreproduzkio
@@ -810,33 +809,33 @@ Search Bar:
   Clear Input: Sarrera garbitu
 Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
 Open New Window: Leiho berria ireki
-Default Invidious instance has been set to $: Lehenetsitako Individious-eko instantzia
-  $ gisa ezarri da
+Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko instantzia
+  {instance} gisa ezarri da'
 Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia
   ezabatu egin da
 External link opening has been disabled in the general settings: Kanpo estekak irekitzea
   desaktibatu egin da ezarpen orokorretan
-Downloading has completed: '"$" deskargatu egin da'
+Downloading has completed: '"{videoTitle}" deskargatu egin da'
 Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
   ezin da aplikazioan ireki
 Hashtags have not yet been implemented, try again later: Etiketak ez dira oraindik
   aktibatu, berriz ere saiatu zaitez beranduago
-Downloading failed: Akats bat gertatu da "$" deskargatzerakoan
-Screenshot Success: Pantaila-argazkia gode da "$" gisa
-Screenshot Error: Pantaila-argazkiak huts egin du. $
-Starting download: '"$"-ren deskarga abiatzen'
+Downloading failed: Akats bat gertatu da "{videoTitle}" deskargatzerakoan
+Screenshot Success: Pantaila-argazkia gode da "{filePath}" gisa
+Screenshot Error: Pantaila-argazkiak huts egin du. {error}
+Starting download: '"{videoTitle}"-ren deskarga abiatzen'
 New Window: Leiho berria
 Channels:
   Channels: Kanalak
   Title: Kanalen zerrenda
   Search bar placeholder: Kanalak bilatu
   Unsubscribe: Harpidetza kendu
-  Unsubscribed: $ zure harpidetzen zerrendatik ezabatu da
-  Unsubscribe Prompt: Ziur al zaude "$"-ren harpidetza kendu nahi duzula?
-  Count: $ kanal aurkitu dira.
+  Unsubscribed: '{channelName} zure harpidetzen zerrendatik ezabatu da'
+  Unsubscribe Prompt: Ziur al zaude "{channelName}"-ren harpidetza kendu nahi duzula?
+  Count: '{number} kanal aurkitu dira.'
   Empty: Zure kanalen zerrenda hutsik da.
 Age Restricted:
-  This $contentType is age restricted: Honako $ adin muga du
+  This {videoOrPlaylist} is age restricted: Honako {videoOrPlaylist} adin muga du
   Type:
     Channel: Kanala
     Video: Bideoa
