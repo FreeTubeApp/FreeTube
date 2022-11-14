@@ -340,15 +340,14 @@ export default Vue.extend({
           throw errorNode.textContent
         }
       } catch (err) {
+        console.error('error reading OPML subscriptions file, falling back to HTML parser...')
+        console.error(err)
         // try parsing with the html parser instead which is more lenient
         try {
           const htmlDom = domParser.parseFromString(data, 'text/html')
 
           xmlDom = htmlDom
         } catch {
-          // show xml parser error if html one failed as well
-          console.error('error reading OPML subscriptions file')
-          console.error(err)
           const message = this.$t('Settings.Data Settings.Invalid subscriptions file')
           showToast(`${message}: ${err}`)
           return
