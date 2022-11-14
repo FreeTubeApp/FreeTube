@@ -4,6 +4,7 @@ import { mapActions } from 'vuex'
 import FtButton from '../../components/ft-button/ft-button.vue'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtSubscribeButton',
@@ -118,10 +119,8 @@ export default Vue.extend({
             duplicateSubscriptions += this.unsubscribe(profile, this.channelId)
           })
           if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
-            this.showToast({
-              message: message.replace('$', duplicateSubscriptions)
-            })
+            const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
+            showToast(message)
           }
         }
       } else {
@@ -134,9 +133,7 @@ export default Vue.extend({
 
         targetProfile.subscriptions.push(subscription)
         this.updateProfile(targetProfile)
-        this.showToast({
-          message: this.$t('Channel.Added channel to your subscriptions')
-        })
+        showToast(this.$t('Channel.Added channel to your subscriptions'))
 
         const primaryProfileIndex = primaryProfile.subscriptions.findIndex((channel) => {
           return channel.id === this.channelId
@@ -163,9 +160,7 @@ export default Vue.extend({
         })
 
         this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Channel has been removed from your subscriptions')
-        })
+        showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
 
         if (this.activeProfile._id === MAIN_PROFILE_ID) {
           // Check if a subscription exists in a different profile.
@@ -180,10 +175,8 @@ export default Vue.extend({
           })
 
           if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from $ other channel(s)')
-            this.showToast({
-              message: message.replace('$', duplicateSubscriptions)
-            })
+            const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
+            showToast(message)
           }
         }
       } else {
@@ -195,9 +188,7 @@ export default Vue.extend({
         currentProfile.subscriptions.push(subscription)
 
         this.updateProfile(currentProfile)
-        this.showToast({
-          message: this.$t('Channel.Added channel to your subscriptions')
-        })
+        showToast(this.$t('Channel.Added channel to your subscriptions'))
 
         if (this.activeProfile._id !== MAIN_PROFILE_ID) {
           const index = primaryProfile.subscriptions.findIndex((channel) => {
@@ -238,7 +229,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'updateProfile'
     ])
   }
