@@ -266,6 +266,7 @@ Settings:
         %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
         Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
         crear subcarpetas.
+    Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'

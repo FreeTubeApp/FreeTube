@@ -41,7 +41,7 @@ if (platform === 'darwin') {
 
 const config = {
   appId: `io.freetubeapp.${name}`,
-  copyright: 'Copyleft © 2020-2021 freetubeapp@protonmail.com',
+  copyright: 'Copyleft © 2020-2022 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
   productName,

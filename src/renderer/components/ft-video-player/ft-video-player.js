@@ -14,7 +14,8 @@ import 'videojs-mobile-ui'
 import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
-import { calculateColorLuminance, colors, showSaveDialog, showToast } from '../../helpers/utils'
+import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -193,6 +194,10 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    enterFullscreenOnDisplayRotate: function() {
+      return this.$store.getters.getEnterFullscreenOnDisplayRotate
+    },
+
     sponsorSkips: function () {
       const sponsorCats = ['sponsor',
         'selfpromo',
@@ -363,8 +368,8 @@ export default Vue.extend({
         })
         this.player.mobileUi({
           fullscreen: {
-            enterOnRotate: true,
-            exitOnRotate: true,
+            enterOnRotate: this.enterFullscreenOnDisplayRotate,
+            exitOnRotate: this.enterFullscreenOnDisplayRotate,
             lockOnRotate: false
           },
           // Without this flag, the mobile UI will only activate

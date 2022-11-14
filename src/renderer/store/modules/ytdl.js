@@ -2,18 +2,45 @@ import ytdl from 'ytdl-core'
 import ytsr from 'ytsr'
 import ytpl from 'ytpl'
 
-import IsEqual from 'lodash.isequal'
 import { SocksProxyAgent } from 'socks-proxy-agent'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { HttpProxyAgent } from 'http-proxy-agent'
 
 import i18n from '../../i18n/index'
+import { searchFiltersMatch } from '../../helpers/utils'
 
 const state = {
   isYtSearchRunning: false
 }
 
 const getters = {}
+
+function createProxyAgent(protocol, hostname, port) {
+  switch (protocol) {
+    case 'http':
+      return new HttpProxyAgent({
+        host: hostname,
+        port: port
+      })
+    case 'https':
+      return new HttpsProxyAgent({
+        host: hostname,
+        port: port
+      })
+    case 'socks4':
+      return new SocksProxyAgent({
+        hostname: hostname,
+        port: port,
+        type: 4
+      })
+    case 'socks5':
+      return new SocksProxyAgent({
+        hostname: hostname,
+        port: port,
+        type: 5
+      })
+  }
+}
 
 const actions = {
   ytSearch ({ commit, dispatch, rootState }, payload) {
@@ -36,50 +63,17 @@ const actions = {
         duration: ''
       }
 
-      let agent = {}
       const settings = rootState.settings
-      const useProxy = settings.useProxy
 
-      if (useProxy) {
-        const proxyProtocol = settings.proxyProtocol
-        const proxyHostname = settings.proxyHostname
-        const proxyPort = settings.proxyPort
-
-        switch (proxyProtocol) {
-          case 'http':
-            agent = new HttpProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'https':
-            agent = new HttpsProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'socks4':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 4
-            })
-            break
-          case 'socks5':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 5
-            })
-            break
-        }
+      if (settings.useProxy) {
+        const agent = createProxyAgent(settings.proxyProtocol, settings.proxyHostname, settings.proxyPort)
 
         payload.options.requestOptions = { agent }
       }
 
       commit('toggleIsYtSearchRunning')
 
-      if (!IsEqual(defaultFilters, rootState.utils.searchSettings)) {
+      if (!searchFiltersMatch(defaultFilters, rootState.utils.searchSettings)) {
         dispatch('ytSearchGetFilters', payload).then((filter) => {
           if (typeof (payload.options.nextpageRef) === 'undefined' && filter !== payload.query) {
             payload.options.nextpageRef = filter
@@ -117,41 +111,9 @@ const actions = {
     let options = null
     let agent = null
     const settings = rootState.settings
-    const useProxy = settings.useProxy
 
-    if (useProxy) {
-      const proxyProtocol = settings.proxyProtocol
-      const proxyHostname = settings.proxyHostname
-      const proxyPort = settings.proxyPort
-
-      switch (proxyProtocol) {
-        case 'http':
-          agent = new HttpProxyAgent({
-            host: proxyHostname,
-            port: proxyPort
-          })
-          break
-        case 'https':
-          agent = new HttpsProxyAgent({
-            host: proxyHostname,
-            port: proxyPort
-          })
-          break
-        case 'socks4':
-          agent = new SocksProxyAgent({
-            host: proxyHostname,
-            port: proxyPort,
-            type: 4
-          })
-          break
-        case 'socks5':
-          agent = new SocksProxyAgent({
-            host: proxyHostname,
-            port: proxyPort,
-            type: 5
-          })
-          break
-      }
+    if (settings.useProxy) {
+      agent = createProxyAgent(settings.proxyProtocol, settings.proxyHostname, settings.proxyPort)
     }
 
     options = {
@@ -235,41 +197,9 @@ const actions = {
     return new Promise((resolve, reject) => {
       let agent = null
       const settings = rootState.settings
-      const useProxy = settings.useProxy
 
-      if (useProxy) {
-        const proxyProtocol = settings.proxyProtocol
-        const proxyHostname = settings.proxyHostname
-        const proxyPort = settings.proxyPort
-
-        switch (proxyProtocol) {
-          case 'http':
-            agent = new HttpProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'https':
-            agent = new HttpsProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'socks4':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 4
-            })
-            break
-          case 'socks5':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 5
-            })
-            break
-        }
+      if (settings.useProxy) {
+        agent = createProxyAgent(settings.proxyProtocol, settings.proxyHostname, settings.proxyPort)
       }
       let locale = i18n.locale.replace('_', '-')
 
@@ -293,41 +223,9 @@ const actions = {
     return new Promise((resolve, reject) => {
       let agent = null
       const settings = rootState.settings
-      const useProxy = settings.useProxy
 
-      if (useProxy) {
-        const proxyProtocol = settings.proxyProtocol
-        const proxyHostname = settings.proxyHostname
-        const proxyPort = settings.proxyPort
-
-        switch (proxyProtocol) {
-          case 'http':
-            agent = new HttpProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'https':
-            agent = new HttpsProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'socks4':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 4
-            })
-            break
-          case 'socks5':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 5
-            })
-            break
-        }
+      if (settings.useProxy) {
+        agent = createProxyAgent(settings.proxyProtocol, settings.proxyHostname, settings.proxyPort)
       }
 
       ytdl.getInfo(videoId, {

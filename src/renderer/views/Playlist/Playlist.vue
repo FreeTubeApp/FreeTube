@@ -15,15 +15,24 @@
       v-if="!isLoading"
       class="playlistItems"
     >
-      <ft-list-video
+      <div
         v-for="(item, index) in playlistItems"
         :key="index"
-        :data="item"
-        :playlist-id="playlistId"
-        :playlist-index="index"
-        appearance="result"
-        force-list-type="list"
-      />
+        class="playlistItem"
+      >
+        <p
+          class="videoIndex"
+        >
+          {{ index + 1 }}
+        </p>
+        <ft-list-video
+          :data="item"
+          :playlist-id="playlistId"
+          :playlist-index="index"
+          appearance="result"
+          force-list-type="list"
+        />
+      </div>
     </ft-card>
   </div>
 </template>

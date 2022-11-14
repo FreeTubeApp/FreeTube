@@ -132,6 +132,10 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    enterFullscreenOnDisplayRotate: function () {
+      return this.$store.getters.getEnterFullscreenOnDisplayRotate
+    },
+
     maxVideoPlaybackRate: function () {
       return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
     },
@@ -270,6 +274,7 @@ export default Vue.extend({
       'updateVideoVolumeMouseScroll',
       'updateVideoPlaybackRateMouseScroll',
       'updateDisplayVideoPlayButton',
+      'updateEnterFullscreenOnDisplayRotate',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
       'updateEnableScreenshot',

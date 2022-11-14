@@ -18,7 +18,7 @@
 }
 
 .channelBannerContainer.default {
-  background-image: url("images/defaultBanner.png");
+  background-image: url("../../assets/img/defaultBanner.png");
   background-repeat: repeat;
   background-size: contain;
 }

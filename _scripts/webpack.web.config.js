@@ -135,12 +135,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      '@': path.join(__dirname, '../src/renderer'),
-      vue$: 'vue/dist/vue.esm.js',
-      src: path.join(__dirname, '../src/'),
-      icons: path.join(__dirname, '../_icons/'),
-      images: path.join(__dirname, '../src/renderer/assets/img/'),
-      static: path.join(__dirname, '../static/'),
+      vue$: 'vue/dist/vue.esm.js'
     },
     fallback: {
       buffer: require.resolve('buffer/'),
@@ -154,9 +149,10 @@ const config = {
       stream: require.resolve('stream-browserify'),
       timers: require.resolve('timers-browserify'),
       tls: require.resolve('browserify/lib/_empty.js'),
-      vm: require.resolve('vm-browserify')
+      vm: require.resolve('vm-browserify'),
+      zlib: require.resolve('browserify-zlib')
     },
-    extensions: ['.js', '.vue', '.json', '.css'],
+    extensions: ['.js', '.vue']
   },
   target: 'web',
 }
@@ -188,12 +184,6 @@ config.plugins.push(
           },
         },
     ]
-  }),
-  // webpack doesn't get rid of js-yaml even though it isn't used in the production builds
-  // so we need to manually tell it to ignore any imports for `js-yaml`
-  new webpack.IgnorePlugin({
-    resourceRegExp: /^js-yaml$/,
-    contextRegExp: /i18n$/
   })
 )
 

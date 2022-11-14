@@ -29,11 +29,11 @@ Close: Fechar
 Back: Voltar
 Forward: Avançar
 
-Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível!
-  Clique aqui para mais informações
+Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
+  já está disponível! Clique aqui para mais informações
 Download From Site: Descarregar do site
-A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um novo blogue,
-  {blogTitle}. Clique para ver mais'
+A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um
+  novo blogue, {blogTitle}. Clique para ver mais'
 
 # Search Bar
 Search / Go to URL: Pesquisar / ir para o URL
@@ -84,6 +84,9 @@ Subscriptions:
   Refresh Subscriptions: Atualizar subscrições
   Load More Videos: Carregar mais vídeos
   Error Channels: Canais com erros
+  Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
+    Atualize as subscrições para as ver aqui.
+  Empty Channels: Os seus canais subscritos não têm atualmente quaisquer vídeos.
 Trending:
   Trending: Tendências
   Trending Tabs: Guias de tendências
@@ -150,7 +153,8 @@ Settings:
     Current instance will be randomized on startup: A instância irá ser escolhida
       aleatoriamente ao iniciar
     No default instance has been set: Não foi definida nenhuma instância
-    The currently set default instance is {instance}: A instância definida como padrão é {instance}
+    The currently set default instance is {instance}: A instância definida como padrão
+      é {instance}
     Current Invidious Instance: Instância do Invidious atual
     Clear Default Instance: Apagar instância predefinida
     Set Current Instance as Default: Escolher a instância atual como a predefinida
@@ -172,6 +176,7 @@ Settings:
       Light: Claro
       Dracula: 'Drácula'
       System Default: Predefinição do sistema
+      Catppuccin Mocha: Capuchino mocha
     Main Color Theme:
       Main Color Theme: Cor principal
       Red: Vermelho
@@ -197,6 +202,20 @@ Settings:
       Dracula Purple: 'Drácula roxo'
       Dracula Red: 'Drácula vermelho'
       Dracula Yellow: 'Drácula amarelo'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: Cor secundária
         #* Main Color Theme
     Hide Side Bar Labels: Ocultar texto dos ícones da barra lateral
@@ -281,6 +300,7 @@ Settings:
       Newpipe: Newpipe
       OPML: OPML
     Manage Subscriptions: Gerir subscrições
+    Fetch Automatically: Obter o feed automaticamente
   Distraction Free Settings:
     Distraction Free Settings: Definições de distrações
     Hide Video Views: Ocultar visualizações
@@ -297,6 +317,7 @@ Settings:
     Hide Comments: Ocultar comentários
     Hide Live Streams: Ocultar transmissões em direto
     Hide Sharing Actions: Ocultar ações de partilhar
+    Hide Chapters: Ocultar capítulos
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -344,6 +365,9 @@ Settings:
       importadas com êxito
     All playlists has been successfully exported: Todas as listas de reprodução foram
       exportadas com êxito
+    Subscription File: Ficheiro de subscrição
+    History File: Ficheiro de histórico
+    Playlist File: Ficheiro da lista de reprodução
   Proxy Settings:
     Proxy Settings: Definições de proxy
     Enable Tor / Proxy: Ativar Tor / proxy
@@ -379,6 +403,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
     External Player: Leitor externo
     External Player Settings: Definições para leitores de vídeo externos
+    Players:
+      None:
+        Name: Nenhum
   Parental Control Settings:
     Parental Control Settings: Configurações de controlo parental
     Hide Search Bar: Ocultar barra de pesquisa
@@ -391,6 +418,12 @@ Settings:
     Download Behavior: Comportamento de descarregar
     Download in app: Descarregar na aplicação
     Download Settings: Configurações de descarregamento
+  Experimental Settings:
+    Experimental Settings: Configurações experimentais
+    Warning: Estas configurações são experimentais, elas causam falhas se estiverem
+      ativadas. É altamente recomendado fazer cópias de segurança. Use por sua conta
+      e risco!
+    Replace HTTP Cache: Substituir o cache HTTP
 About:
   #On About page
   About: Sobre
@@ -439,11 +472,13 @@ Profile:
   Your profile name cannot be empty: O nome do perfil não pode ficar em branco
   Profile has been created: Perfil criado
   Profile has been updated: Perfil atualizado
-  Your default profile has been set to {profile}: '{profile} é agora o seu perfil padrão'
+  Your default profile has been set to {profile}: '{profile} é agora o seu perfil
+    padrão'
   Removed {profile} from your profiles: O perfil {profile} foi eliminado
   Your default profile has been changed to your primary profile: O seu perfil padrão
     é agora o seu perfil principal
-  '{profile} is now the active profile': Está agora a ver as subscrições do perfil {profile}
+  '{profile} is now the active profile': Está agora a ver as subscrições do perfil
+    {profile}
   Subscription List: Lista de subscrições
   Other Channels: Outros canais
   '{number} selected': '{number} selecionado'
@@ -470,7 +505,8 @@ Channel:
   Unsubscribe: Anular subscrição
   Channel has been removed from your subscriptions: O canal foi removido das suas
     subscrições
-  Removed subscription from {count} other channel(s): Subscrição removida de mais {count} canais
+  Removed subscription from {count} other channel(s): Subscrição removida de mais
+    {count} canais
   Added channel to your subscriptions: Canal adicionado às suas subscrições
   Search Channel: Procurar canal
   Your search results have returned 0 results: Pesquisa devolveu 0 resultados
@@ -500,7 +536,7 @@ Video:
   Remove From History: Apagar do histórico
   Video has been marked as watched: O vídeo foi marcado como visto
   Video has been removed from your history: O vídeo foi removido do seu histórico
-  Save Video: Guardar vídeo
+  Save Video: Guardar vídeo nos favoritos
   Video has been saved: Vídeo guardado na lista de favoritos
   Video has been removed from your saved list: Vídeo removido da lista de favoritos
   Open in YouTube: Abrir no YouTube
@@ -572,6 +608,7 @@ Video:
     Years: Anos
     Ago: Há
     Upcoming: Estreia em
+    In less than a minute: Em menos de um minuto
   Published on: Publicado a
   Streamed on: Transmitido em
   Started streaming on: Transmissão iniciada em
@@ -621,6 +658,7 @@ Video:
     Dropped / Total Frames: Fotogramas perdidos / total de fotogramas
     Player Dimensions: Dimensões do reprodutor
   Premieres on: Estreia a
+  Premieres: Estreias
 Videos:
   #& Sort By
   Sort By:
@@ -745,6 +783,8 @@ Tooltips:
       vídeos ou se são transmissões em direto
 
 # Toast Messages
+    Fetch Automatically: Quando ativado, o FreeTube irá buscar automaticamente o seu
+      feed de subscrição quando uma nova janela for aberta e quando mudar de perfil.
   Privacy Settings:
     Remove Video Meta Files: Quando ativado, ao fechar uma página o FreeTube apagará
       automaticamente os metaficheiros criados durante a reprodução de um vídeo.
@@ -756,9 +796,14 @@ Tooltips:
     Custom External Player Executable: Por omissão, o FreeTube assume que o leitor
       externo escolhido pode ser encontrado através da variável PATH. Se for preciso,
       um caminho personalizado pode ser escolhido aqui.
-    External Player: Escolher um leitor externo irá mostrar um ícone na miniatura
-      do vídeo, para abrir o vídeo (lista de reprodução se possível) nesse leitor.
+    External Player: Escolher um leitor externo irá mostrar um ícone, para abrir o
+      vídeo (lista de reprodução, se suportado) no leitor externo, na miniatura do
+      vídeo. Aviso, as configurações do Invidious não afetam os reprodutores externos.
     DefaultCustomArgumentsTemplate: "(padrão: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Desativa a cache HTTP baseada em disco do Electron e ativa
+      uma cache de imagem na memória personalizada. Levará ao aumento da utilização
+      de RAM.
 Local API Error (Click to copy): API local encontrou um erro (Clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (Clique para
   copiar)
@@ -794,8 +839,8 @@ Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube descon
   não pode ser aberto numa aplicação
 Open New Window: Abrir uma nova janela
 Default Invidious instance has been cleared: Predefinição apagada
-Default Invidious instance has been set to {instance}: Servidor Invidious {instance} foi estabelecido
-  como predefenição
+Default Invidious instance has been set to {instance}: Servidor Invidious {instance}
+  foi estabelecido como predefenição
 External link opening has been disabled in the general settings: A abertura da ligação
   externa foi desativada nas configurações gerais
 Search Bar:
@@ -812,12 +857,26 @@ Channels:
   Unsubscribed: '{channelName} foi removido das suas subscrições'
   Unsubscribe Prompt: Quer mesmo deixar a subscrição de "{channelName}"?
 Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição de idade
+  The currently set default instance is {instance}: Este {instance} tem restrição
+    de idade
   Type:
     Channel: Canal
     Video: Vídeo
+  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tem restrição de
+    idade
 Downloading has completed: '"{videoTitle}" foi descarregado'
 Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ouve um problema ao descarregar "{videoTitle}"
 Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: A captura de ecrã falhou. {error}
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos ocultos,
+    capítulo atual: {capítuloNoto}'
+  Chapters: Capítulos
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
+    capítulo atual: {chapterName}'
+Preferences: Preferências
+Clipboard:
+  Copy failed: A cópia para a área de transferência falhou
+  Cannot access clipboard without a secure connection: Não é possível aceder à área
+    de transferência sem uma ligação segura

@@ -6,7 +6,12 @@ import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 import ytcm from '@freetube/yt-comment-scraper'
-import { copyToClipboard, showToast, toLocalePublicationString } from '../../helpers/utils'
+import {
+  copyToClipboard,
+  showToast,
+  stripHTML,
+  toLocalePublicationString
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -211,8 +216,8 @@ export default Vue.extend({
         if (this.hideCommentLikes) {
           comment.likes = null
         }
-        // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
-        comment.text = autolinker.link(comment.text.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, ''))
+
+        comment.text = autolinker.link(stripHTML(comment.text))
         if (comment.customEmojis.length > 0) {
           comment.customEmojis.forEach(emoji => {
             comment.text = comment.text.replace(emoji.text, `<img width="14" height="14" class="commentCustomEmoji" alt="${emoji.text.substring(2, emoji.text.length - 1)}" src="${emoji.emojiThumbnails[0].url}">`)
@@ -250,7 +255,7 @@ export default Vue.extend({
         } else {
           comment.likes = comment.likeCount
         }
-        comment.text = autolinker.link(comment.content.replace(/(<(?!br>)([^>]+)>)/ig, ''))
+        comment.text = autolinker.link(stripHTML(comment.content))
         comment.dataType = 'invidious'
         comment.isOwner = comment.authorIsChannelOwner
 

@@ -1,72 +1,9 @@
+import fs from 'fs'
+
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
-import fs from 'fs'
-
-export const colors = [
-  { name: 'Red', value: '#d50000' },
-  { name: 'Pink', value: '#C51162' },
-  { name: 'Purple', value: '#AA00FF' },
-  { name: 'DeepPurple', value: '#6200EA' },
-  { name: 'Indigo', value: '#304FFE' },
-  { name: 'Blue', value: '#2962FF' },
-  { name: 'LightBlue', value: '#0091EA' },
-  { name: 'Cyan', value: '#00B8D4' },
-  { name: 'Teal', value: '#00BFA5' },
-  { name: 'Green', value: '#00C853' },
-  { name: 'LightGreen', value: '#64DD17' },
-  { name: 'Lime', value: '#AEEA00' },
-  { name: 'Yellow', value: '#FFD600' },
-  { name: 'Amber', value: '#FFAB00' },
-  { name: 'Orange', value: '#FF6D00' },
-  { name: 'DeepOrange', value: '#DD2C00' },
-  { name: 'DraculaCyan', value: '#8BE9FD' },
-  { name: 'DraculaGreen', value: '#50FA7B' },
-  { name: 'DraculaOrange', value: '#FFB86C' },
-  { name: 'DraculaPink', value: '#FF79C6' },
-  { name: 'DraculaPurple', value: '#BD93F9' },
-  { name: 'DraculaRed', value: '#FF5555' },
-  { name: 'DraculaYellow', value: '#F1FA8C' },
-  { name: 'CatppuccinMochaRosewater', value: '#F5E0DC' },
-  { name: 'CatppuccinMochaFlamingo', value: '#F2CDCD' },
-  { name: 'CatppuccinMochaPink', value: '#F5C2E7' },
-  { name: 'CatppuccinMochaMauve', value: '#CBA6F7' },
-  { name: 'CatppuccinMochaRed', value: '#F38BA8' },
-  { name: 'CatppuccinMochaMaroon', value: '#EBA0AC' },
-  { name: 'CatppuccinMochaPeach', value: '#FAB387' },
-  { name: 'CatppuccinMochaYellow', value: '#F9E2AF' },
-  { name: 'CatppuccinMochaGreen', value: '#A6E3A1' },
-  { name: 'CatppuccinMochaTeal', value: '#94E2D5' },
-  { name: 'CatppuccinMochaSky', value: '#89DCEB' },
-  { name: 'CatppuccinMochaSapphire', value: '#74C7EC' },
-  { name: 'CatppuccinMochaBlue', value: '#89B4FA' },
-  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' }
-]
-
-export function getRandomColorClass() {
-  const randomInt = Math.floor(Math.random() * colors.length)
-  return 'main' + colors[randomInt].name
-}
-
-export function getRandomColor() {
-  const randomInt = Math.floor(Math.random() * colors.length)
-  return colors[randomInt].value
-}
-
-export function calculateColorLuminance(colorValue) {
-  const cutHex = colorValue.substring(1, 7)
-  const colorValueR = parseInt(cutHex.substring(0, 2), 16)
-  const colorValueG = parseInt(cutHex.substring(2, 4), 16)
-  const colorValueB = parseInt(cutHex.substring(4, 6), 16)
-
-  const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
-
-  if (luminance > 0.5) {
-    return '#000000'
-  } else {
-    return '#FFFFFF'
-  }
-}
+import router from '../router/index'
 
 export function calculatePublishedDate(publishedText) {
   const date = new Date()
@@ -238,12 +175,45 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
   }
 }
 
+/**
+ * Opens a link in the default web browser or a new tab in the web builds
+ * @param {string} url the URL to open
+ */
 export function openExternalLink(url) {
   if (process.env.IS_ELECTRON) {
     const ipcRenderer = require('electron').ipcRenderer
     ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
   } else {
     window.open(url, '_blank')
+  }
+}
+
+/**
+ * Opens an internal path in the same or a new window.
+ * Optionally with query params and setting the contents of the search bar in the new window.
+ * @param {object} params
+ * @param {string} params.path the internal path to open
+ * @param {boolean} params.doCreateNewWindow set to true to open a new window
+ * @param {object} params.query the query params to use (optional)
+ * @param {string} params.searchQueryText the text to show in the search bar in the new window (optional)
+ */
+export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQueryText = null }) {
+  if (process.env.IS_ELECTRON && doCreateNewWindow) {
+    const { ipcRenderer } = require('electron')
+
+    // Combine current document path and new "hash" as new window startup URL
+    const newWindowStartupURL = new URL(window.location.href)
+    newWindowStartupURL.hash = `${path}?${(new URLSearchParams(query)).toString()}`
+
+    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+      windowStartupUrl: newWindowStartupURL.toString(),
+      searchQueryText
+    })
+  } else {
+    router.push({
+      path,
+      query
+    })
   }
 }
 
@@ -397,4 +367,58 @@ export function createWebURL(path) {
     windowPath = windowPath.substring(0, windowPath.length - 1)
   }
   return `${origin}${windowPath}/${path}`
+}
+
+// strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
+export function stripHTML(value) {
+  return value.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, '')
+}
+
+/**
+ * This formats the duration of a video in seconds into a user friendly timestamp.
+ * It will return strings like LIVE or UPCOMING, without making any changes
+ * @param {string|number} lengthSeconds the video duration in seconds or the strings LIVE or UPCOMING
+ * @returns {string} timestamp or LIVE or UPCOMING
+ */
+export function formatDurationAsTimestamp(lengthSeconds) {
+  if (typeof lengthSeconds === 'string') {
+    return lengthSeconds
+  }
+
+  if (lengthSeconds === 0) {
+    return '0:00'
+  }
+
+  let hours = 0
+
+  if (lengthSeconds >= 3600) {
+    hours = Math.floor(lengthSeconds / 3600)
+    lengthSeconds = lengthSeconds - hours * 3600
+  }
+
+  let minutes = Math.floor(lengthSeconds / 60)
+  if (minutes < 10 && hours > 0) {
+    minutes = '0' + minutes
+  }
+
+  let seconds = lengthSeconds - minutes * 60
+  if (seconds < 10) {
+    seconds = '0' + seconds
+  }
+
+  let timestamp = ''
+  if (hours > 0) {
+    timestamp = hours + ':' + minutes + ':' + seconds
+  } else {
+    timestamp = minutes + ':' + seconds
+  }
+
+  return timestamp
+}
+
+export function searchFiltersMatch(filtersA, filtersB) {
+  return filtersA?.sortBy === filtersB?.sortBy &&
+    filtersA?.time === filtersB?.time &&
+    filtersA?.type === filtersB?.type &&
+    filtersA?.duration === filtersB?.duration
 }
