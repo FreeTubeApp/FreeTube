@@ -106,8 +106,7 @@ const config = {
   },
   node: {
     __dirname: isDevMode,
-    __filename: isDevMode,
-    global: isDevMode,
+    __filename: isDevMode
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -130,14 +129,9 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.common.js',
-      '@': path.join(__dirname, '../src/'),
-      src: path.join(__dirname, '../src/'),
-      icons: path.join(__dirname, '../_icons/'),
-      images: path.join(__dirname, '../src/renderer/assets/img/'),
-      static: path.join(__dirname, '../static/'),
+      vue$: 'vue/dist/vue.common.js'
     },
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
 }

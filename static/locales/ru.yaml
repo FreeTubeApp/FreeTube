@@ -20,7 +20,7 @@ Toggle Developer Tools: 'Отобразить инструменты для ра
 Actual size: 'Настоящий размер'
 Zoom in: 'Увеличить'
 Zoom out: 'Уменьшить'
-Toggle fullscreen: 'Включить полноэкранный режим'
+Toggle fullscreen: 'Во весь экран'
 Window: 'Окно'
 Minimize: 'Свернуть'
 Close: 'Закрыть'
@@ -926,7 +926,7 @@ Channels:
   Channels: Каналы
   Search bar placeholder: Поиск каналов
   Unsubscribe: Отписаться
-  Unsubscribed: '{channelName} был удален из ваших подписок'
+  Unsubscribed: '{channelName} был удалён из ваших подписок'
   Unsubscribe Prompt: Вы уверены, что хотите отписаться от "{channelName}"?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена

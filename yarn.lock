@@ -3540,10 +3540,10 @@ electron-to-chromium@^1.4.202:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.247.tgz#cc93859bc5fc521f611656e65ce17eae26a0fd3d"
   integrity sha512-FLs6R4FQE+1JHM0hh3sfdxnYjKvJpHZyhQDjc2qFq/xFvmmRt/TATNToZhrcGUFzpF2XjeiuozrA8lI0PZmYYw==
 
-electron@^21.2.0:
-  version "21.2.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-21.2.0.tgz#8eb65d69b36aa8dac0ee7330eab70181df211c8b"
-  integrity sha512-oKV4fo8l6jlOZ1cYZ4RpZz02ZxLuBo3SO7DH+FrJ8uDyCirP+eVJ/qlzu23odtNe0P7S/mYAZbC6abZHWoqtLg==
+electron@^21.2.2:
+  version "21.2.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-21.2.2.tgz#e2f3dd014981df555d2cd1655590168b404edae4"
+  integrity sha512-Q0j1tzLTM5JRjSJVAfDSONZgdtuyruHR1pc1y2IbMYQz62pVJWVWAvcJXzpty5iRh2HKzW9+B9WVlmfWNFA8ag==
   dependencies:
     "@electron/get" "^1.14.1"
     "@types/node" "^16.11.26"
@@ -5423,47 +5423,47 @@ lazy-val@^1.0.4, lazy-val@^1.0.5:
   resolved "https://registry.yarnpkg.com/lazy-val/-/lazy-val-1.0.5.tgz#6cf3b9f5bc31cee7ee3e369c0832b7583dcd923d"
   integrity sha512-0/BnGCCfyUMkBpeDgWihanIAF9JmZhHBgUhEqzvf+adhNGLoP6TaiI5oF8oyb3I45P+PcnrqihSf01M0l0G5+Q==
 
-lefthook-darwin-arm64@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook-darwin-arm64/-/lefthook-darwin-arm64-1.1.3.tgz#e66f34c8debe02e0f178b0cd5a793613fe8b4724"
-  integrity sha512-I0mijxHDcBwD/QIP4JJ0LzTNtpCNmQ+7F0zm6z8bJhQ5HTVOvppB1X7hThB0GRwQKXmjEBdJ7wPARaRzsYssug==
+lefthook-darwin-arm64@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook-darwin-arm64/-/lefthook-darwin-arm64-1.1.4.tgz#587f7db4bc92e6edc030a2c7ea60245467e12155"
+  integrity sha512-xB0RUzZyR+qT+C02wKVNxtxDxcYM6H9wb4aQsHZbaFWz4JHUoEgph12b4raXW5Hkx6Di9xOc2sThqeh9Pznzhw==
 
-lefthook-darwin-x64@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook-darwin-x64/-/lefthook-darwin-x64-1.1.3.tgz#9e9dc7177827d3b5766c14a5aefdca1a8ce8dbea"
-  integrity sha512-cAVMG+O/d73k2t0mVDFZqKn1dICjxwwDGyvDdrd/CJi6Zt3m6ZXsdjmrAUWHEJVA3+FXqCzfVEzSPdDk3G6qRQ==
+lefthook-darwin-x64@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook-darwin-x64/-/lefthook-darwin-x64-1.1.4.tgz#1adf4f9fa6626599a99ff1fbdd5cb144eaae9b4f"
+  integrity sha512-GG2QJmpY9SFmvmbu7DOD0NkG6eD0ZmOcQmInrH3aTM0zownUadpOYw4s47TZL4H4wzYaBwejtpqzjjBk+J8iTg==
 
-lefthook-linux-arm64@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook-linux-arm64/-/lefthook-linux-arm64-1.1.3.tgz#27956ce0508317aea5665c09f38d9c64251c57d9"
-  integrity sha512-guFaRfOH44mw/k+Ki7EhGH+YDmpMV+vv5mKvk99UuCciWFqhCrBV3Dkqxs4iiq922SNkvnEXpN3aYPUpgrO5aw==
+lefthook-linux-arm64@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook-linux-arm64/-/lefthook-linux-arm64-1.1.4.tgz#dd7bed4e77e5c84f970ef9362745146016a9fc6c"
+  integrity sha512-mBH42x62/q2JfOD5VQ0fMeu9aVNhFKLpPk8Mrm/NwTD1hY42P9ss3860y3CXPo2Hpebr/klWEy5Ml9dm0mA/oQ==
 
-lefthook-linux-x64@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook-linux-x64/-/lefthook-linux-x64-1.1.3.tgz#2d304c2293440c253f9c6c69e37bae59df1ae3be"
-  integrity sha512-6QJAL1fi0cFJie3BYLNBP/+MjMwvjwph42OY4youx8gWFYrU/+fJKsoC04zvNbDoxGjOBPGXyku9LQ53QM7VkQ==
+lefthook-linux-x64@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook-linux-x64/-/lefthook-linux-x64-1.1.4.tgz#26c243bb199091a0f0253861de06294764888b59"
+  integrity sha512-4kGfA9oBrVn5YoyToYS4dyM28nIkMMUTFj/Pjg5J9pVZ21awlJz8tA3MG1jyElPtVMuqRd0L3HXBpkU7j/ruEw==
 
-lefthook-windows-arm64@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook-windows-arm64/-/lefthook-windows-arm64-1.1.3.tgz#f0689de11a357e7254bd592747d8c50e326197c3"
-  integrity sha512-9So7O9cbzmeUVH6alfi8pOtM7wE+u4w0MgSwaxIJ3mVAhwwLb99tZYxlqm6NjdMmJKvYo2+2BLvAA0Vg9HS5vA==
+lefthook-windows-arm64@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook-windows-arm64/-/lefthook-windows-arm64-1.1.4.tgz#0dcf6bd1465a930236396d368d6290d4163e6ba0"
+  integrity sha512-qH31NMbmvzn8euuqILTNQrFsRfpxmxyJhKXmHbRqH0RP4RW0lBe422AAxflA6wVb2nNvknzAw7zeZa/jNviLSg==
 
-lefthook-windows-x64@1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook-windows-x64/-/lefthook-windows-x64-1.1.3.tgz#60a3580f01b2e8131db6b9b8c2f50f800d46cd3a"
-  integrity sha512-UqysddqPVCNNicgsBEzpn/Bpuw1B6XUi2BjdsC5euCrjT2YeM9+VpiZB0p19SyTOkqSOr3bOdA/sbtDIC9TTZQ==
+lefthook-windows-x64@1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook-windows-x64/-/lefthook-windows-x64-1.1.4.tgz#d3917110a7b0e81a68e64bede0c78d3f1b3c64a0"
+  integrity sha512-6PqBP2wFRmNTz3Aqx4nonWKfmYkH8LaMP++9Cy9JUfwNoFoRQ9EEzLWmHzSZxUBG41ogQlPHmIg4sRMFSeWBBw==
 
-lefthook@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/lefthook/-/lefthook-1.1.3.tgz#1ad7ee462ee71a8846ac7b1cb3458fcbf3325b99"
-  integrity sha512-RP/2GYAFx+TbAXjyDaqc5CZJfGUGbTZOC5mltkrH7ERBu7g7Ruy5qQm35R9ZGsRJd5od7YMrzIb4WeqmfmxQrQ==
+lefthook@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/lefthook/-/lefthook-1.1.4.tgz#65d472be3d3d5b503db362975d0d1a1f2e41354f"
+  integrity sha512-ztmoAun8BQEgHA/VaFF/481GGWFQmf30/SXjwTgX39fJWV8fmmcD6+uois9xbvcLY9ABCvZqgsAwLywc9jAFow==
   optionalDependencies:
-    lefthook-darwin-arm64 "1.1.3"
-    lefthook-darwin-x64 "1.1.3"
-    lefthook-linux-arm64 "1.1.3"
-    lefthook-linux-x64 "1.1.3"
-    lefthook-windows-arm64 "1.1.3"
-    lefthook-windows-x64 "1.1.3"
+    lefthook-darwin-arm64 "1.1.4"
+    lefthook-darwin-x64 "1.1.4"
+    lefthook-linux-arm64 "1.1.4"
+    lefthook-linux-x64 "1.1.4"
+    lefthook-windows-arm64 "1.1.4"
+    lefthook-windows-x64 "1.1.4"
 
 levn@^0.4.1:
   version "0.4.1"
@@ -5501,9 +5501,9 @@ loader-runner@^4.2.0:
   integrity sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==
 
 loader-utils@^1.0.2, loader-utils@^1.1.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
-  integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.1.tgz#278ad7006660bccc4d2c0c1578e17c5c78d5c0e0"
+  integrity sha512-1Qo97Y2oKaU+Ro2xnDMR26g1BwMT29jNbem1EvcujW2jqt+j5COXyscjM7bLQkM9HaxI7pkWeW7gnI072yMI9Q==
   dependencies:
     big.js "^5.2.2"
     emojis-list "^3.0.0"
@@ -5817,10 +5817,15 @@ minimatch@^5.0.1:
   dependencies:
     brace-expansion "^2.0.1"
 
-minimist@^1.1.0, minimist@^1.2.0, minimist@^1.2.6:
+minimist@^1.1.0, minimist@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
+
+minimist@^1.2.0:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
+  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 minipass@^3.0.0:
   version "3.3.4"
@@ -7174,10 +7179,10 @@ sass-loader@^13.0.2:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass@^1.54.9:
-  version "1.54.9"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.54.9.tgz#b05f14ed572869218d1a76961de60cd647221762"
-  integrity sha512-xb1hjASzEH+0L0WI9oFjqhRi51t/gagWnxLiwUNMltA0Ab6jIDkAacgKiGYKM9Jhy109osM7woEEai6SXeJo5Q==
+sass@^1.56.0:
+  version "1.56.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.56.0.tgz#134032075a3223c8d49cb5c35e091e5ba1de8e0a"
+  integrity sha512-WFJ9XrpkcnqZcYuLRJh5qiV6ibQOR4AezleeEjTjMsCocYW59dEG19U3fwTTXxzi2Ed3yjPBp727hbbj53pHFw==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -7445,10 +7450,10 @@ sockjs@^0.3.24:
     uuid "^8.3.2"
     websocket-driver "^0.7.4"
 
-socks-proxy-agent@^6.0.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/socks-proxy-agent/-/socks-proxy-agent-6.2.0.tgz#f6b5229cc0cbd6f2f202d9695f09d871e951c85e"
-  integrity sha512-wWqJhjb32Q6GsrUqzuFkukxb/zzide5quXYcMVpIjxalDBBYy2nqKCFQ/9+Ie4dvOYSQdOk3hUlZSdzZOd3zMQ==
+socks-proxy-agent@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/socks-proxy-agent/-/socks-proxy-agent-7.0.0.tgz#dc069ecf34436621acb41e3efa66ca1b5fed15b6"
+  integrity sha512-Fgl0YPZ902wEsAyiQ+idGd1A7rSFx/ayC1CQVMw5P+EQx2V0SgpGtf6OKFhVjPflPUl9YMmEOnmfjCdMUsygww==
   dependencies:
     agent-base "^6.0.2"
     debug "^4.3.3"
@@ -8662,10 +8667,9 @@ ytdl-core@^3.2.2:
     miniget "^2.0.1"
     sax "^1.1.3"
 
-ytdl-core@^4.11.2:
-  version "4.11.2"
-  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-4.11.2.tgz#c2341916b9757171741a2fa118b6ffbb4ffd92f7"
-  integrity sha512-D939t9b4ZzP3v0zDvehR2q+KgG97UTgrTKju3pOPGQcXtl4W6W5z0EpznzcJFu+OOpl7S7Ge8hv8zU65QnxYug==
+"ytdl-core@https://github.com/absidue/node-ytdl-core#fix-likes-extraction":
+  version "0.0.0-development"
+  resolved "https://github.com/absidue/node-ytdl-core#937d589cbe5f69f3153a7db12bf529c92a620800"
   dependencies:
     m3u8stream "^0.8.6"
     miniget "^4.2.2"

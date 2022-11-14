@@ -8,10 +8,9 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { opmlToJSON } from 'opml-to-json'
 import ytch from 'yt-channel-info'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
-  calculateColorLuminance,
   copyToClipboard,
-  getRandomColor,
   readFileFromDialog,
   showOpenDialog,
   showSaveDialog,

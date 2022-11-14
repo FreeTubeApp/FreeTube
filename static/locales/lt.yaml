@@ -276,6 +276,7 @@ Settings:
         Empty File Name: Tuščias failo pavadinimas
     Video Playback Rate Interval: Vaizdo įrašų atkūrimo dažnio intervalas
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
+    Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -324,7 +325,7 @@ Settings:
     Hide Comments: Slėpti komentarus
     Hide Live Streams: Slėpti tiesiogines transliacijas
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
-    Hide Chapters: Slėpti skyrius
+    Hide Chapters: Slėpti skirsnius
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkti importavimo tipą'
@@ -412,7 +413,7 @@ Settings:
     Open in web browser: Atidaryti žiniatinklio naršyklėje
   Parental Control Settings:
     Parental Control Settings: Tėvų kontrolės nustatymai
-    Hide Unsubscribe Button: Slėpti prenumeratos atsisakymo mygtuką
+    Hide Unsubscribe Button: Slėpti prenumeratos atšaukimo mygtuką
     Hide Search Bar: Slėpti paieškos juostą
     Show Family Friendly Only: Rodyti tik turinį tinkamą šeimai
   Experimental Settings:
@@ -868,11 +869,11 @@ Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
 Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:
-  Chapters: Skyriai
-  'Chapters list visible, current chapter: {chapterName}': 'Skyrių sąrašas matomas,
-    dabartinis skyrius: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Skyrių sąrašas paslėptas,
-    dabartinis skyrius: {chapterName}'
+  Chapters: Skirsniai
+  'Chapters list visible, current chapter: {chapterName}': 'Skirsnių sąrašas matomas,
+    dabartinis skirsnis: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Skirsnių sąrašas paslėptas,
+    dabartinis skirsnis: {chapterName}'
 Clipboard:
   Copy failed: Nepavyko nukopijuoti į iškarpinę
   Cannot access clipboard without a secure connection: Negalima pasiekti iškarpinės

@@ -247,6 +247,7 @@ Settings:
       Format Label: スクリーンショットのファイル形式
       Ask Path: 保存フォルダを尋ねる
       Folder Button: フォルダーの選択
+    Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'

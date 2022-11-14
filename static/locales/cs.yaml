@@ -45,7 +45,7 @@ Search Filters:
     Most Relevant: 'Nejrelevantnější'
     Rating: 'Hodnocení'
     Upload Date: 'Datum nahrání'
-    View Count: 'Počet shlédnutí'
+    View Count: 'Počet zhlédnutí'
   Time:
     Time: 'Čas'
     Any Time: 'Kdykoliv'
@@ -271,6 +271,7 @@ Settings:
       Format Label: Formát snímku obrazovky
       Quality Label: Kvalita snímku obrazovky
       Folder Button: Vybrat složku
+    Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -582,15 +583,15 @@ Video:
   Copy YouTube Channel Link: 'Kopírovat odkaz kanálu YouTube'
   Open Channel in Invidious: 'Otevřít kanál v Invidious'
   Copy Invidious Channel Link: 'Kopírovat odkaz Invidious kanálu'
-  View: 'Shlédnutí'
-  Views: 'Shlédnutí'
+  View: 'Zhlédnutí'
+  Views: 'Zhlédnutí'
   Loop Playlist: 'Smyčka playlistu'
   Shuffle Playlist: 'Zamíchat playlist'
   Reverse Playlist: 'Obrátit playlist'
   Play Next Video: 'Přehrát další video'
   Play Previous Video: 'Přehrát předchozí video'
   # Context is "X People Watching"
-  Watching: 'Sledování'
+  Watching: 'Sledujících'
   Watched: 'Zhlédnuto'
   Autoplay: 'Automatické přehrávání'
   Starting soon, please refresh the page to check again: 'Prosím za chvilku obnovte
@@ -634,7 +635,7 @@ Video:
     Seconds: 'sekund'
     Minute: 'minutou'
     Minutes: 'minut'
-    Hour: 'hodinou'
+    Hour: 'hodina'
     Hours: 'hodin'
     Day: 'den'
     Days: 'dnů'
