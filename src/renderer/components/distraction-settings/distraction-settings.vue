@@ -96,13 +96,12 @@
           :default-value="hideComments"
           @change="updateHideComments"
         />
-        <ft-input
-          :placeholder="$t('Settings.Distraction Free Settings.Hide Specific Channels')"
-          :show-action-button="false"
-          :value="hideSpecificChannels"
-          :select-on-focus="true"
-          class="channelSearch"
-          @input="updateHideSpecificChannels"
+        <ft-input-tags
+          :title="$t('Settings.Distraction Free Settings.Hide Channels Title')"
+          :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+          :show-action-button="true"
+          :tag-list="hideSpecificChannels"
+          @change="handleHideSpecificChannels"
         />
       </div>
     </div>

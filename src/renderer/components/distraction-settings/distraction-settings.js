@@ -2,14 +2,14 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
+import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 
 export default Vue.extend({
   name: 'PlayerSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-input': FtInput
+    'ft-input-tags': FtInputTags
   },
   computed: {
     hideVideoViews: function () {
@@ -61,7 +61,11 @@ export default Vue.extend({
       return this.$store.getters.getHideChapters
     },
     hideSpecificChannels: function () {
-      return this.$store.getters.getHideSpecificChannels
+      if (this.$store.getters.getHideSpecificChannels === '') {
+        return []
+      } else {
+        return this.$store.getters.getHideSpecificChannels.split(';')
+      }
     }
   },
   methods: {
@@ -72,6 +76,13 @@ export default Vue.extend({
 
       this.updateHideRecommendedVideos(value)
     },
+    handleHideSpecificChannels: function(value) {
+      value = value.map(element => {
+        return element.replace(/;/g, '')
+      })
+      this.updateHideSpecificChannels(value.join(';'))
+    },
+
     ...mapActions([
       'updateHideVideoViews',
       'updateHideVideoLikesAndDislikes',
