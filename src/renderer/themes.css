@@ -280,67 +280,63 @@
   --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
+.mainDraculaCyan,
+.mainDraculaGreen,
+.mainDraculaOrange,
+.mainDraculaYellow {
+  --text-with-main-color: #282A36;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
+}
+
+.mainDraculaPink,
+.mainDraculaPurple,
+.mainDraculaRed {
+  --text-with-main-color: #F8F8F2;
+  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
+}
+
 .mainDraculaCyan {
   --primary-color: #8BE9FD;
   --primary-color-hover: #97EBFD;
   --primary-color-active: #7DD2E4;
-  --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainDraculaGreen {
   --primary-color: #50FA7B;
   --primary-color-hover: #62FB88;
   --primary-color-active: #48E16F;
-  --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainDraculaOrange {
   --primary-color: #FFB86C;
   --primary-color-hover: #FFBF7B;
   --primary-color-active: #E6A661;
-  --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainDraculaPink {
   --primary-color: #FF79C6;
   --primary-color-hover: #FF86CC;
   --primary-color-active: #E66DB2;
-  --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .mainDraculaPurple {
   --primary-color: #BD93F9;
   --primary-color-hover: #C49EFA;
   --primary-color-active: #AA84E0;
-  --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .mainDraculaRed {
   --primary-color: #FF5555;
   --primary-color-hover: #FF6666;
   --primary-color-active: #E64D4D;
-  --text-with-main-color: #F8F8F2;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaLightSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .mainDraculaYellow {
   --primary-color: #F1FA8C;
   --primary-color-hover: #F2FB98;
   --primary-color-active: #D9E17E;
-  --text-with-main-color: #282A36;
-  --logo-icon-bar-color: url("../../_icons/iconDraculaDarkSmall.png");
-  --logo-text-bar-color: url("../../_icons/textDraculaDarkSmall.png");
 }
 
 .mainCatppuccinMochaRosewater,
@@ -654,17 +650,39 @@
   --accent-color-opacity4: rgba(255,87,34,0.24);
 }
 
+.secDraculaCyan,
+.secDraculaGreen,
+.secDraculaOrange,
+.secDraculaYellow {
+  --text-with-accent-color: #212121;
+}
+
+.secDraculaPink,
+.secDraculaPurple,
+.secDraculaRed {
+  --text-with-accent-color: #F8F8F2;
+}
+
+.secDraculaCyan,
+.secDraculaGreen,
+.secDraculaOrange,
+.secDraculaPink,
+.secDraculaPurple,
+.secDraculaRed,
+.secDraculaYellow {
+  --accent-color-opacity1: rgba(98, 114, 164, 0.04);
+  --accent-color-opacity2: rgba(98, 114, 164, 0.12);
+  --accent-color-opacity3: rgba(98, 114, 164, 0.16);
+  --accent-color-opacity4: rgba(98, 114, 164, 0.24);
+}
+
 .secDraculaCyan {
   --accent-color: #8BE9FD;
   --accent-color-hover: #97EBFD;
   --accent-color-active: #7DD2E4;
   --accent-color-light: #A2EDFD;
   --accent-color-visited: #6FBACA;
-  --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
+
 }
 
 .secDraculaGreen {
@@ -673,11 +691,6 @@
   --accent-color-active: #48E16F;
   --accent-color-light: #73FB95;
   --accent-color-visited: #40C862;
-  --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaOrange {
@@ -686,11 +699,6 @@
   --accent-color-active: #E6A661;
   --accent-color-light: #FFC689;
   --accent-color-visited: #CC9356;
-  --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaPink {
@@ -699,11 +707,6 @@
   --accent-color-active: #E66DB2;
   --accent-color-light: #FF94D1;
   --accent-color-visited: #CC619E;
-  --text-with-accent-color: #F8F8F2;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaPurple {
@@ -712,11 +715,6 @@
   --accent-color-active: #AA84E0;
   --accent-color-light: #CAA9FA;
   --accent-color-visited: #9776C7;
-  --text-with-accent-color: #F8F8F2;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaRed {
@@ -725,11 +723,6 @@
   --accent-color-active: #E64D4D;
   --accent-color-light: #FF7777;
   --accent-color-visited: #CC4444;
-  --text-with-accent-color: #F8F8F2;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secDraculaYellow {
@@ -738,11 +731,6 @@
   --accent-color-active: #D9E17E;
   --accent-color-light: #F4FBA3;
   --accent-color-visited: #C1C870;
-  --text-with-accent-color: #212121;
-  --accent-color-opacity1: rgba(98,114,164,0.04);
-  --accent-color-opacity2: rgba(98,114,164,0.12);
-  --accent-color-opacity3: rgba(98,114,164,0.16);
-  --accent-color-opacity4: rgba(98,114,164,0.24);
 }
 
 .secCatppuccinMochaRosewater,
