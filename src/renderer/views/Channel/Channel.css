@@ -56,6 +56,16 @@
   left: 120px;
 }
 
+.channelInfoActionsContainer {
+  display: flex;
+  min-width: 230px;
+  justify-content: space-between;
+}
+
+.shareIcon {
+  align-items: center;
+}
+
 .channelSearch {
   width: 200px;
   align-self: flex-end;

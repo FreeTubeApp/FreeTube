@@ -50,15 +50,24 @@
               </p>
             </div>
           </div>
-          <ft-subscribe-button
-            v-if="!hideUnsubscribeButton"
-            class="subscribeButtons"
-            :channel-id="id"
-            :channel-name="channelName"
-            :channel-thumbnail="thumbnailUrl"
-            :is-subscribed="isSubscribed"
-            :subscribed-text="subscribedText"
-          />
+
+          <div class="channelInfoActionsContainer">
+            <ft-share-button
+              :id="id"
+              share-target-type="Channel"
+              class="shareIcon"
+            />
+
+            <ft-subscribe-button
+              v-if="!hideUnsubscribeButton"
+              class="subscribeButtons"
+              :channel-id="id"
+              :channel-name="channelName"
+              :channel-thumbnail="thumbnailUrl"
+              :is-subscribed="isSubscribed"
+              :subscribed-text="subscribedText"
+            />
+          </div>
         </div>
 
         <ft-flex-box
