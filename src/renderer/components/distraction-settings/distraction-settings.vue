@@ -98,6 +98,7 @@
         />
       </div>
     </div>
+    <br>
     <ft-flex-box>
       <ft-input-tags
         :title="$t('Settings.Distraction Free Settings.Hide Channels Title')"
