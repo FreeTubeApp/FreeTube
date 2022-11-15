@@ -4,12 +4,19 @@
   padding: 20px;
   border-radius: 5px;
   display: block;
+  width: 60%;
 }
 
 
 .ft-input-tags-title {
   padding-bottom: 10px;
+  padding-right: 5px;
   display: block;
+}
+
+
+.input-tag-title-area {
+  display: flex;
 }
 
 
@@ -18,7 +25,6 @@
   display: block;
   padding: 0;
   margin: 0;
-  max-width: 260px;
 }
 
 

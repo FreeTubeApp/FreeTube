@@ -96,15 +96,18 @@
           :default-value="hideComments"
           @change="updateHideComments"
         />
-        <ft-input-tags
-          :title="$t('Settings.Distraction Free Settings.Hide Channels Title')"
-          :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
-          :show-action-button="true"
-          :tag-list="hideSpecificChannels"
-          @change="handleHideSpecificChannels"
-        />
       </div>
     </div>
+    <ft-flex-box>
+      <ft-input-tags
+        :title="$t('Settings.Distraction Free Settings.Hide Channels Title')"
+        :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+        :show-action-button="true"
+        :tag-list="hideSpecificChannels"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
+        @change="handleHideSpecificChannels"
+      />
+    </ft-flex-box>
   </ft-settings-section>
 </template>
 

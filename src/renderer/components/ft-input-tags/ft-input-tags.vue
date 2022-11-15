@@ -2,9 +2,18 @@
   <div
     class="ft-input-tags-component"
   >
-    <label
-      class="ft-input-tags-title"
-    >{{ title }}</label>
+    <div
+      class="input-tag-title-area"
+    >
+      <label
+        class="ft-input-tags-title"
+      >{{ title }}</label>
+      <ft-tooltip
+        v-if="tooltip !== ''"
+        class="inputTagsTooltip"
+        :tooltip="tooltip"
+      />
+    </div>
 
     <ft-input
       ref="childinput"
