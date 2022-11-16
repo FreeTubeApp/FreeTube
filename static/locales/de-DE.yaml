@@ -267,6 +267,7 @@ Settings:
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
         Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
         Unterordner zu erstellen.
+    Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -755,6 +756,7 @@ Share:
     kopiert
   Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
     kopiert
+  Share Channel: Kanal teilen
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
