@@ -101,7 +101,7 @@
     <br>
     <ft-flex-box>
       <ft-input-tags
-        :title="$t('Settings.Distraction Free Settings.Hide Channels Title')"
+        :label="$t('Settings.Distraction Free Settings.Hide Channels')"
         :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"
         :tag-list="hideSpecificChannels"

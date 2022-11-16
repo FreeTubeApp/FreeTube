@@ -53,7 +53,7 @@ export default Vue.extend({
      */
     showResult: function (data) {
       if (data.type !== undefined) {
-        const splitChannels = this.hideSpecificChannels.split(';')
+        const splitChannels = JSON.parse(this.hideSpecificChannels)
         if (data.type === 'video') {
           if ((data.liveNow || data.lengthSeconds == null) && this.hideLiveStreams) {
             // hide livestreams

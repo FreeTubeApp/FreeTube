@@ -66,7 +66,7 @@ export default Vue.extend({
       if (this.$store.getters.getHideSpecificChannels === '') {
         return []
       } else {
-        return this.$store.getters.getHideSpecificChannels.split(';')
+        return JSON.parse(this.$store.getters.getHideSpecificChannels)
       }
     }
   },
@@ -79,10 +79,7 @@ export default Vue.extend({
       this.updateHideRecommendedVideos(value)
     },
     handleHideSpecificChannels: function(value) {
-      value = value.map(element => {
-        return element.replace(/;/g, '')
-      })
-      this.updateHideSpecificChannels(value.join(';'))
+      this.updateHideSpecificChannels(JSON.stringify(value))
     },
 
     ...mapActions([

@@ -3,11 +3,12 @@
     class="ft-input-tags-component"
   >
     <div
-      class="input-tag-title-area"
+      class="input-tag-label-area"
     >
       <label
-        class="ft-input-tags-title"
-      >{{ title }}</label>
+        class="ft-input-tags-label"
+        @click="focusInput"
+      >{{ label }}</label>
       <ft-tooltip
         v-if="tooltip !== ''"
         class="inputTagsTooltip"
