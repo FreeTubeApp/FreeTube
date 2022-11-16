@@ -60,7 +60,7 @@ export default Vue.extend({
     focusItem: function (value) {
       let index = value
       if (index < 0) {
-        index = promptButtons.length
+        index = this.promptButtons.length
       } else if (index >= this.promptButtons.length) {
         index = 0
       }
@@ -70,7 +70,6 @@ export default Vue.extend({
     },
     // close on escape key and unfocus
     closeEventFunction: function(event) {
-      const targ = event.target
       if (event.type === 'keydown' && event.key === 'Escape') {
         event.preventDefault()
         this.hide()
