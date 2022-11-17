@@ -68,7 +68,7 @@ export default Vue.extend({
             return false
           }
         } else if (data.type === 'playlist') {
-          if (this.channelsHidden.includes(data.author)) {
+          if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
             // hide playlists by author
             return false
           }
