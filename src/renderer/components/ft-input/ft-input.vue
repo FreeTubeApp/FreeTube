@@ -13,6 +13,7 @@
     <label
       v-if="showLabel"
       :for="id"
+      class="selectLabel"
     >
       {{ label || placeholder }}
       <ft-tooltip
@@ -56,7 +57,8 @@
       :icon="actionButtonIconName"
       class="inputAction"
       :class="{
-        enabled: inputDataPresent
+        enabled: inputDataPresent,
+        withLabel: showLabel
       }"
       @click="handleClick"
     />
