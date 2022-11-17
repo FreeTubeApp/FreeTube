@@ -37,8 +37,8 @@ export default Vue.extend({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },
-    hideSpecificChannels: function() {
-      return this.$store.getters.getHideSpecificChannels
+    channelsHidden: function() {
+      return JSON.parse(this.$store.getters.getChannelsHidden)
     }
   },
   methods: {
@@ -53,23 +53,22 @@ export default Vue.extend({
      */
     showResult: function (data) {
       if (data.type !== undefined) {
-        const splitChannels = JSON.parse(this.hideSpecificChannels)
         if (data.type === 'video') {
           if ((data.liveNow || data.lengthSeconds == null) && this.hideLiveStreams) {
             // hide livestreams
             return false
           }
-          if (splitChannels.includes(data.authorId) || splitChannels.includes(data.author)) {
+          if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
             // hide videos by author
             return false
           }
         } else if (data.type === 'channel') {
-          if (splitChannels.includes(data.channelID) || splitChannels.includes(data.name)) {
+          if (this.channelsHidden.includes(data.channelID) || this.channelsHidden.includes(data.name)) {
             // hide channels by author
             return false
           }
         } else if (data.type === 'playlist') {
-          if (splitChannels.includes(data.author)) {
+          if (this.channelsHidden.includes(data.author)) {
             // hide playlists by author
             return false
           }

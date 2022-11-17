@@ -14,7 +14,7 @@
       v-if="showLabel"
       :for="id"
     >
-      {{ placeholder }}
+      {{ label || placeholder }}
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"

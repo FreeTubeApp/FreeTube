@@ -7,26 +7,12 @@
   width: 60%;
 }
 
-
-.ft-input-tags-label {
-  padding-bottom: 10px;
-  padding-right: 5px;
-  display: block;
-}
-
-
-.input-tag-label-area {
-  display: flex;
-}
-
-
 .ft-tag-box ul {
   overflow: auto;
   display: block;
   padding: 0;
   margin: 0;
 }
-
 
 .ft-tag-box li {
   list-style: none;
@@ -44,7 +30,6 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  word-break: break-word;
   hyphens: auto;
 }
 
@@ -59,4 +44,7 @@
   cursor: pointer;
 }
 
+:deep(.ft-input-component .ft-input) {
+  margin-top: 10px;
+}
 

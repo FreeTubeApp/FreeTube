@@ -2,23 +2,12 @@
   <div
     class="ft-input-tags-component"
   >
-    <div
-      class="input-tag-label-area"
-    >
-      <label
-        class="ft-input-tags-label"
-        @click="focusInput"
-      >{{ label }}</label>
-      <ft-tooltip
-        v-if="tooltip !== ''"
-        class="inputTagsTooltip"
-        :tooltip="tooltip"
-      />
-    </div>
-
     <ft-input
       ref="childinput"
       :placeholder="placeholder"
+      :label="label"
+      :show-label="true"
+      :tooltip="tooltip"
       :show-action-button="showActionButton"
       :select-on-focus="true"
       :force-action-button-icon-name="['fas', 'arrow-right']"

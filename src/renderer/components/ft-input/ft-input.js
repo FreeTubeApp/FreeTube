@@ -12,6 +12,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    label: {
+      type: String,
+      required: null
+    },
     value: {
       type: String,
       default: ''

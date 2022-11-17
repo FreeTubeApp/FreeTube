@@ -55,9 +55,6 @@ export default Vue.extend({
         newList.splice(index, 1)
         this.$emit('change', newList)
       }
-    },
-    focusInput: function(e) {
-      document.getElementById(this.$refs.childinput.id).focus()
     }
   }
 })

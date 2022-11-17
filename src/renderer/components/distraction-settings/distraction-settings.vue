@@ -104,9 +104,9 @@
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
         :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"
-        :tag-list="hideSpecificChannels"
+        :tag-list="channelsHidden"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
-        @change="handleHideSpecificChannels"
+        @change="handleChannelsHidden"
       />
     </ft-flex-box>
   </ft-settings-section>

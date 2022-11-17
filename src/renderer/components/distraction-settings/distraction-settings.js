@@ -62,12 +62,8 @@ export default Vue.extend({
     hideChapters: function () {
       return this.$store.getters.getHideChapters
     },
-    hideSpecificChannels: function () {
-      if (this.$store.getters.getHideSpecificChannels === '') {
-        return []
-      } else {
-        return JSON.parse(this.$store.getters.getHideSpecificChannels)
-      }
+    channelsHidden: function () {
+      return JSON.parse(this.$store.getters.getChannelsHidden)
     }
   },
   methods: {
@@ -78,8 +74,8 @@ export default Vue.extend({
 
       this.updateHideRecommendedVideos(value)
     },
-    handleHideSpecificChannels: function(value) {
-      this.updateHideSpecificChannels(JSON.stringify(value))
+    handleChannelsHidden: function(value) {
+      this.updateChannelsHidden(JSON.stringify(value))
     },
 
     ...mapActions([
@@ -100,7 +96,7 @@ export default Vue.extend({
       'updateHideLiveStreams',
       'updateHideSharingActions',
       'updateHideChapters',
-      'updateHideSpecificChannels'
+      'updateChannelsHidden'
     ])
   }
 })

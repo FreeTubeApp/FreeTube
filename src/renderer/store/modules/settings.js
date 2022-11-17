@@ -195,7 +195,7 @@ const state = {
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,
-  hideSpecificChannels: '',
+  channelsHidden: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
