@@ -370,11 +370,11 @@ Settings:
     Enable Tor / Proxy: Tor / プロキシーの有効化
     Proxy Settings: プロキシーの設定
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: 広告セグメントがスキップされたときに通知する
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 広告ブロック API URL（デフォルト
+    Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
       https://sponsor.ajay.app）
-    Enable SponsorBlock: 広告ブロックの有効化
-    SponsorBlock Settings: 広告ブロック設定
+    Enable SponsorBlock: スポンサーブロックの有効化
+    SponsorBlock Settings: スポンサーブロックの設定
     Skip Options:
       Skip Option: オプションのスキップ
       Auto Skip: 自動スキップ
@@ -574,7 +574,7 @@ Video:
   Save Video: 動画の保存
   translated from English: 英語から翻訳
   Sponsor Block category:
-    sponsor: 広告
+    sponsor: スポンサー
     music offtopic: 音楽以外
     interaction: インタラクション
     self-promotion: 自己紹介
