@@ -125,7 +125,7 @@ export default Vue.extend({
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
         // `index` seems can be ignored
-        return `https://www.youtube.com/watch?v=${this.id}&list=${this.playlistId}`
+        return `https://youtu.be/${this.id}?list=${this.playlistId}`
       }
       return `https://youtu.be/${this.id}`
     },
