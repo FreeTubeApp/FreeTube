@@ -653,7 +653,7 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} não suporta: {action}'
     playlist: playlist
     OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
-    OpenInTemplate: Aberto em {externalPlayer}
+    OpenInTemplate: Abrir em {externalPlayer}
     video: vídeo
   Premieres on: Estreia em
   Stats:
