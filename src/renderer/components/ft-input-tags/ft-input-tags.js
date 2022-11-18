@@ -41,14 +41,9 @@ export default Vue.extend({
       // clear input box
       this.$refs.childinput.handleClearTextClick()
     },
-    removeTag: function (e) {
+    removeTag: function (tag) {
       // Remove tag from list
-      let parent = e.srcElement.parentElement
-      if (parent.nodeName === 'svg') {
-        // for when user clicked the "path" rather than "svg"
-        parent = parent.parentElement
-      }
-      const tagName = parent.firstChild.outerText.trim()
+      const tagName = tag.trim()
       if (this.tagList.includes(tagName)) {
         const newList = this.tagList.slice(0)
         const index = newList.indexOf(tagName)
