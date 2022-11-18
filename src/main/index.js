@@ -31,7 +31,7 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        visible: parameters.linkURL.startsWith(browserWindow.webContents.getURL()),
         click: () => {
           createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
