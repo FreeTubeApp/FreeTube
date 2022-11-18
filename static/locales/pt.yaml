@@ -1,9 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'português'
+Locale Name: 'Português'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte ainda não está pronta. Volte mais tarde quando já houver progresso.
+  Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
+  progresso.
 # Webkit Menu Bar
 File: 'Ficheiro'
 Quit: 'Sair'
@@ -18,14 +19,14 @@ Select all: 'Selecionar tudo'
 Reload: 'Recarregar'
 Force Reload: 'Forçar recarregamento'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvimento'
-Actual size: 'Tamanho normal'
+Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
 Zoom out: 'Reduzir'
 Toggle fullscreen: 'Alternar ecrã inteiro'
-Window: 'Restaurar'
+Window: 'Janela'
 Minimize: 'Minimizar'
 Close: 'Fechar'
-Back: 'Voltar'
+Back: 'Recuar'
 Forward: 'Avançar'
 
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
@@ -35,7 +36,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Está disponível
   novo blogue, {blogTitle}. Clique para ver mais'
 
 # Search Bar
-Search / Go to URL: 'Pesquisar / ir para o URL'
+Search / Go to URL: 'Pesquisar/ir para o URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros'
@@ -46,7 +47,7 @@ Search Filters:
     Upload Date: 'Data de publicação'
     View Count: 'Visualizações'
   Time:
-    Time: 'Tempo'
+    Time: 'Intervalo'
     Any Time: 'Qualquer altura'
     Last Hour: 'Última hora'
     Today: 'Hoje'
@@ -66,8 +67,8 @@ Search Filters:
     Long (> 20 minutes): 'Longos (> 20 minutos)'
   # On Search Page
   Search Results: 'Resultados'
-  Fetching results. Please wait: 'A procurar. Por favor aguarde'
-  Fetch more results: 'Procurar mais resultados'
+  Fetching results. Please wait: 'A procurar. Por favor aguarde.'
+  Fetch more results: 'Obter mais resultados'
 # Sidebar
   There are no more results for this search: Não existem mais resultados
 Subscriptions:
@@ -77,18 +78,18 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.'
   'Getting Subscriptions. Please wait.': 'A carregar subscrições. Por favor aguarde.'
-  Refresh Subscriptions: 'Atualizar subscrições'
+  Refresh Subscriptions: 'Recarregar subscrições'
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
     evitar que a sua rede seja bloqueada
   Error Channels: Canais com erros
-  Empty Channels: Os seus canais subscritos não têm atualmente quaisquer vídeos.
+  Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
     Atualize as subscrições para as ver aqui.
 Trending:
   Trending: 'Tendências'
-  Trending Tabs: Guias de tendências
+  Trending Tabs: Separador de tendências
   Movies: Filmes
   Gaming: Jogos
   Music: Música
@@ -98,7 +99,7 @@ Playlists: 'Listas de reprodução'
 User Playlists:
   Your Playlists: 'As suas listas de reprodução'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
-    sua lista está vazia. Carregue no botão guardar no canto de um vídeo para o mostrar
+    lista está vazia. Carregue no botão guardar no canto de um vídeo para o mostrar
     aqui
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
@@ -136,23 +137,23 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'Tipos de miniatura'
       Default: 'Padrão'
-      Beginning: 'Princípio'
-      Middle: 'Meio'
-      End: 'Fim'
+      Beginning: 'Início'
+      Middle: 'Centro'
+      End: 'Final'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância Invidious
       (Por omissão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para as tendências'
         #! List countries
     View all Invidious instance information: Mostrar toda a informação sobre esta
       instância Invidious
-    Clear Default Instance: Apagar instância predefinida
-    Set Current Instance as Default: Escolher a instância atual como a predefinida
+    Clear Default Instance: Remover instância padrão
+    Set Current Instance as Default: Escolher a instância atual como padrão
     Current instance will be randomized on startup: A instância irá ser escolhida
       aleatoriamente ao iniciar
-    No default instance has been set: Não foi definida nenhuma instância
+    No default instance has been set: Não foi definida uma instância
     The currently set default instance is {instance}: A instância definida como padrão
       é {instance}
-    Current Invidious Instance: Instância do Invidious atual
+    Current Invidious Instance: Instância Invidious atual
     System Default: Definições do sistema
     External Link Handling:
       External Link Handling: Gestão de ligações externas
@@ -168,12 +169,12 @@ Settings:
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
-      System Default: Predefinição do sistema
-      Catppuccin Mocha: Capuchino mocha
+      System Default: Definição do sistema
+      Catppuccin Mocha: Capuccino mocha
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
-      Pink: 'Cor-de-rosa'
+      Pink: 'Rosa'
       Purple: 'Roxo'
       Deep Purple: 'Roxo escuro'
       Indigo: 'Indigo'
@@ -191,32 +192,32 @@ Settings:
       Dracula Cyan: 'Drácula ciano'
       Dracula Green: 'Drácula verde'
       Dracula Orange: 'Drácula laranja'
-      Dracula Pink: 'Drácula cor-de-rosa'
+      Dracula Pink: 'Drácula rosa'
       Dracula Purple: 'Drácula roxo'
       Dracula Red: 'Drácula vermelho'
       Dracula Yellow: 'Drácula amarelo'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-      Catppuccin Mocha Red: Catppuccin Mocha Red
-      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
-      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Rosewater: Capuccino Mocha Rosewater
+      Catppuccin Mocha Flamingo: Cappuccino Mocha Flamingo
+      Catppuccin Mocha Pink: Cappuccino Mocha rosa
+      Catppuccin Mocha Mauve: Cappuccino Mocha Mauve
+      Catppuccin Mocha Red: Cappuccino Mocha vermelho
+      Catppuccin Mocha Maroon: Cappuccino Mocha Castanho
+      Catppuccin Mocha Peach: Cappuccino Mocha Pêssego
+      Catppuccin Mocha Yellow: Cappuccino Mocha Amarelo
+      Catppuccin Mocha Green: Cappuccino Mocha Verde
       Catppuccin Mocha Teal: Catppuccin Mocha Teal
-      Catppuccin Mocha Sky: Catppuccin Mocha Sky
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
-      Catppuccin Mocha Blue: Catppuccin Mocha Blue
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Sky: Catpputccin Mocha Céu
+      Catppuccin Mocha Sapphire: Cappuccino Mocha Safira
+      Catppuccin Mocha Blue: Cappuccino Mocha Azul
+      Catppuccin Mocha Lavender: Cappuccino Mocha Lavanda
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da interface gráfica
     Disable Smooth Scrolling: Desativar deslocação suave
-    Expand Side Bar by Default: Expandir barra lateral por predefinição
-    Hide Side Bar Labels: Ocultar texto dos ícones da barra lateral
+    Expand Side Bar by Default: Expandir barra lateral por definição
+    Hide Side Bar Labels: Ocultar texto dos ícones na barra lateral
   Player Settings:
-    Player Settings: 'Definições do leitor de vídeo'
+    Player Settings: 'Definições do reprodutor'
     Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
       formatos antigos'
     Play Next Video: 'Reproduzir vídeo seguinte'
@@ -424,9 +425,8 @@ Settings:
     Players:
       None:
         Name: Nenhum
-  The app needs to restart for changes to take effect. Restart and apply change?: A
-    aplicação precisa de reiniciar para que as alterações façam efeito. Reiniciar
-    e aplicar as alterações?
+  The app needs to restart for changes to take effect. Restart and apply change?: Tem
+    que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar as alterações?
   Download Settings:
     Download Settings: Configurações de descarregamento
     Ask Download Path: Perguntar pelo local onde descarregar
@@ -820,7 +820,7 @@ Canceled next video autoplay: 'Reprodução automática cancelada'
 Yes: 'Sim'
 No: 'Não'
 More: Mais
-Open New Window: Abrir uma nova janela
+Open New Window: Abrir nova janela
 Default Invidious instance has been cleared: Predefinição apagada
 Default Invidious instance has been set to {instance}: Servidor Invidious {instance}
   foi estabelecido como predefenição
@@ -898,7 +898,7 @@ Tooltips:
       de RAM.
 Search Bar:
   Clear Input: Limpar entrada
-Are you sure you want to open this link?: Quer mesmo abrir esta ligação?
+Are you sure you want to open this link?: Tem a certeza de que deseja abrir a ligação?
 External link opening has been disabled in the general settings: A abertura da ligação
   externa foi desativada nas configurações gerais
 Starting download: A descarregar "{videoTitle}"
@@ -917,13 +917,13 @@ Age Restricted:
 New Window: Nova janela
 Channels:
   Count: '{number} canais encontrados.'
-  Empty: A sua lista de canais está neste momento vazia.
+  Empty: A lista de canais está vazia.
   Unsubscribe: Anular subscrição
   Unsubscribed: '{channelName} foi removido das suas subscrições'
   Search bar placeholder: Procurar canais
   Channels: Canais
   Title: Lista de canais
-  Unsubscribe Prompt: Quer mesmo deixar a subscrição de "{channelName}"?
+  Unsubscribe Prompt: Tem a certeza de que pretende anular a subscrição de "{channelName}"?
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos ocultos,
     capítulo atual: {capítuloNoto}'
