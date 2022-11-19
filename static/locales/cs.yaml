@@ -727,10 +727,10 @@ Playlist:
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
-  Use Dash Formats: 'Použít DASH formáty'
+  Use Dash Formats: 'Použít formáty DASH'
   Use Legacy Formats: 'Použít starší formáty'
   Use Audio Formats: 'Použít zvukové formáty'
-  Dash formats are not available for this video: 'DASH formáty nejsou pro toto video
+  Dash formats are not available for this video: 'Formáty DASH nejsou pro toto video
     dostupné'
   Audio formats are not available for this video: 'Zvukové formáty nejsou pro toto
     video dostupné'
