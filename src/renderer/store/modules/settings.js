@@ -198,6 +198,7 @@ const state = {
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
+  hideHeaderLogo: false,
   hidePlaylists: false,
   hidePopularVideos: false,
   hideRecommendedVideos: false,

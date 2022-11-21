@@ -32,6 +32,10 @@ export default Vue.extend({
       return this.$store.getters.getHideSearchBar
     },
 
+    hideHeaderLogo: function () {
+      return this.$store.getters.getHideHeaderLogo
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
