@@ -31,7 +31,8 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        // Only show the option for in-app URLs and not external ones
+        visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
         click: () => {
           createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
