@@ -110,7 +110,7 @@
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "sass": "^1.56.0",
-    "sass-loader": "^13.0.2",
+    "sass-loader": "^13.2.0",
     "tree-kill": "1.2.2",
     "vue-devtools": "^5.1.4",
     "vue-eslint-parser": "^9.1.0",
