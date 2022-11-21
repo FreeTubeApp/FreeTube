@@ -115,7 +115,7 @@
     "vue-devtools": "^5.1.4",
     "vue-eslint-parser": "^9.1.0",
     "vue-loader": "^15.10.0",
-    "webpack": "^5.74.0",
+    "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
   }
