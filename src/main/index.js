@@ -258,6 +258,10 @@ function runApp() {
           })
         })
 
+        newRequest.on('error', (err) => {
+          console.error(err)
+        })
+
         newRequest.end()
       })
 
