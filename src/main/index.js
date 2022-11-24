@@ -998,7 +998,23 @@ function runApp() {
           { role: 'zoomout' },
           { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
-          { role: 'togglefullscreen' }
+          { role: 'togglefullscreen' },
+          { type: 'separator' },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/history' }
+              )
+            },
+            type: 'normal'
+          },
         ]
       },
       {
