@@ -5,22 +5,26 @@
     <ft-flex-box>
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
+        :compact="true"
         :default-value="barColor"
         @change="updateBarColor"
       />
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Expand Side Bar by Default')"
+        :compact="true"
         :default-value="expandSideBar"
         @change="handleExpandSideBar"
       />
       <ft-toggle-switch
         v-if="usingElectron"
         :label="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
+        :compact="true"
         :default-value="disableSmoothScrollingToggleValue"
         @change="handleRestartPrompt"
       />
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Hide Side Bar Labels')"
+        :compact="true"
         :default-value="hideLabelsSideBar"
         @change="updateHideLabelsSideBar"
       />

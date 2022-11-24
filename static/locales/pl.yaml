@@ -267,6 +267,8 @@ Settings:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
       Enable: Włącz zrzuty ekranu
+    Enter Fullscreen on Display Rotate: Przyłącz na tryb pełnoekranowy przy zmianie
+      orientacji wyświetlacza
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -738,6 +740,7 @@ Share:
   YouTube Channel URL copied to clipboard: Skopiowano URL kanału na YouTube do schowka
   Invidious Channel URL copied to clipboard: Skopiowano URL kanału na Invidious do
     schowka
+  Share Channel: Podziel się kanałem
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'

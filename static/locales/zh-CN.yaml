@@ -352,6 +352,7 @@ Settings:
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节
+    Hide Upcoming Premieres: 隐藏即将到来的首映
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -662,6 +663,7 @@ Share:
   Include Timestamp: 包含时间戳
   YouTube Channel URL copied to clipboard: YouTube频道URL已复制到剪贴板
   Invidious Channel URL copied to clipboard: Invidious频道URL已复制到剪贴板
+  Share Channel: 分享频道
 Mini Player: '迷你播放器'
 Comments:
   Comments: '评论'

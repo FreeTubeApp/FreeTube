@@ -262,6 +262,7 @@ Settings:
         ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
         ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
+    Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -748,6 +749,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'קישור הטמעה של YouTube הועתק'
   YouTube Channel URL copied to clipboard: כתובת ערוץ ה־YouTube הועתקה ללוח הגזירים
   Invidious Channel URL copied to clipboard: כתובת ערוץ ה־Invidious הועתק ללוח הגזירים
+  Share Channel: שיתוף ערוץ
 Mini Player: 'נגן מיני'
 Comments:
   Comments: 'תגובות'

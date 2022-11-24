@@ -45,7 +45,7 @@ Search Filters:
     Most Relevant: 'Nejrelevantnější'
     Rating: 'Hodnocení'
     Upload Date: 'Datum nahrání'
-    View Count: 'Počet shlédnutí'
+    View Count: 'Počet zhlédnutí'
   Time:
     Time: 'Čas'
     Any Time: 'Kdykoliv'
@@ -583,19 +583,19 @@ Video:
   Copy YouTube Channel Link: 'Kopírovat odkaz kanálu YouTube'
   Open Channel in Invidious: 'Otevřít kanál v Invidious'
   Copy Invidious Channel Link: 'Kopírovat odkaz Invidious kanálu'
-  View: 'Shlédnutí'
-  Views: 'Shlédnutí'
+  View: 'Zhlédnutí'
+  Views: 'Zhlédnutí'
   Loop Playlist: 'Smyčka playlistu'
   Shuffle Playlist: 'Zamíchat playlist'
   Reverse Playlist: 'Obrátit playlist'
   Play Next Video: 'Přehrát další video'
   Play Previous Video: 'Přehrát předchozí video'
   # Context is "X People Watching"
-  Watching: 'Sledování'
+  Watching: 'Sledujících'
   Watched: 'Zhlédnuto'
   Autoplay: 'Automatické přehrávání'
-  Starting soon, please refresh the page to check again: 'Prosím za chvilku obnovte
-    stránku a zkontrolujte stránku znovu'
+  Starting soon, please refresh the page to check again: 'Začínáme brzy, obnovte prosím
+    stránku pro opětovnou kontrolu'
   # As in a Live Video
   Live: 'Živě'
   Live Now: 'Živě nyní'
@@ -635,7 +635,7 @@ Video:
     Seconds: 'sekund'
     Minute: 'minutou'
     Minutes: 'minut'
-    Hour: 'hodinou'
+    Hour: 'hodina'
     Hours: 'hodin'
     Day: 'den'
     Days: 'dnů'
@@ -727,10 +727,10 @@ Playlist:
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
-  Use Dash Formats: 'Použít DASH formáty'
+  Use Dash Formats: 'Použít formáty DASH'
   Use Legacy Formats: 'Použít starší formáty'
   Use Audio Formats: 'Použít zvukové formáty'
-  Dash formats are not available for this video: 'DASH formáty nejsou pro toto video
+  Dash formats are not available for this video: 'Formáty DASH nejsou pro toto video
     dostupné'
   Audio formats are not available for this video: 'Zvukové formáty nejsou pro toto
     video dostupné'
@@ -753,6 +753,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL kanálu YouTube bylo zkopírováno do
     schránky'
 
+  Share Channel: Sdílet kanál
 Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'

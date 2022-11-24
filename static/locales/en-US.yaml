@@ -322,6 +322,7 @@ Settings:
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
     Hide Live Streams: Hide Live Streams
+    Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
     Hide Chapters: Hide Chapters
     Hide Channels: Hide Videos From Channels
@@ -681,6 +682,7 @@ Change Format:
     for this video
 Share:
   Share Video: Share Video
+  Share Channel: Share Channel
   Include Timestamp: Include Timestamp
   Copy Link: Copy Link
   Open Link: Open Link

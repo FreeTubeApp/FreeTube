@@ -51,6 +51,7 @@
       @focus="handleFocus"
       @blur="handleInputBlur"
       @keydown="handleKeyDown"
+      @keydown.enter="handleClick"
     >
     <font-awesome-icon
       v-if="showActionButton"

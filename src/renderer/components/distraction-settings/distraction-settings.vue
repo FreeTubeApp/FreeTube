@@ -91,6 +91,12 @@
           @change="updateHideLiveStreams"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
+          :compact="true"
+          :default-value="hideUpcomingPremieres"
+          @change="updateHideUpcomingPremieres"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Comments')"
           :compact="true"
           :default-value="hideComments"
