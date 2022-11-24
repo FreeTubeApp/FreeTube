@@ -223,6 +223,10 @@ export default Vue.extend({
       return this.$store.getters.getHideLiveStreams
     },
 
+    hideUpcomingPremieres: function () {
+      return this.$store.getters.getHideUpcomingPremieres
+    },
+
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },
