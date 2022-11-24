@@ -33,7 +33,7 @@ module.exports = {
 
   rules: {
     'space-before-function-paren': 'off',
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': ['error', 'only-multiline'],
     'vue/no-v-html': 'off',
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-unused-vars': 'warn',
