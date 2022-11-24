@@ -77,8 +77,8 @@ Subscriptions:
   Subscriptions: 'Subscricións'
   Latest Subscriptions: 'Últimas subscricións'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Este
-    perfil ten unha gran cantidade de subscricións.  Forzanse as RSS para evitalo
-    límite'
+    perfil ten un gran número de subscricións. Forzar ás RSS para evitar a limitación
+    da taxa'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     túa listaxe de subscricións está baleira. Engade algunhas para as ver aquí.'
   'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
@@ -315,6 +315,7 @@ Settings:
     Hide Video Description: Ocultala descrición do vídeo
     Hide Comments: Ocultar comentarios
     Hide Chapters: Agochalos capítulos
+    Hide Upcoming Premieres: Ocultalas próximas estreas
   Data Settings:
     Data Settings: 'Axustes dos datos'
     Select Import Type: 'Escoller tipo de importación'
