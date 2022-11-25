@@ -354,6 +354,7 @@ Settings:
     Hide Live Streams: ライブ配信の非表示
     Hide Sharing Actions: 共有の非表示
     Hide Chapters: チャプターの非表示
+    Hide Upcoming Premieres: 今後のプレミア公開を非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?

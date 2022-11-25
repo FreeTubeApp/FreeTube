@@ -49,6 +49,9 @@ export default Vue.extend({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },
+    hideUpcomingPremieres: function () {
+      return this.$store.getters.getHideUpcomingPremieres
+    },
     hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
@@ -84,6 +87,7 @@ export default Vue.extend({
       'updateHideVideoDescription',
       'updateHideComments',
       'updateHideLiveStreams',
+      'updateHideUpcomingPremieres',
       'updateHideSharingActions',
       'updateHideChapters'
     ])

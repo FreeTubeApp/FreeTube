@@ -354,6 +354,7 @@ Settings:
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
     Hide Chapters: 隱藏章節
+    Hide Upcoming Premieres: 隱藏即將到來的首映
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
