@@ -162,7 +162,7 @@ function runApp() {
       })
     })
 
-    // make InnerTube request work with the fetch function
+    // make InnerTube requests work with the fetch function
     // InnerTube rejects requests if the referer isn't YouTube or empty
     const innertubeRequestFilter = { urls: ['https://www.youtube.com/youtubei/*'] }
 
