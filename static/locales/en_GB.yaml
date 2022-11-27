@@ -215,6 +215,7 @@ Settings:
     Disable Smooth Scrolling: Disable smooth scrolling
     Expand Side Bar by Default: Expand side bar by default
     Hide Side Bar Labels: Hide side bar labels
+    Hide FreeTube Header Logo: Hide FreeTube Header Logo
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
