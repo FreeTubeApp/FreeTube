@@ -404,6 +404,7 @@ Settings:
     Hide Live Streams: Masquer les flux en direct
     Hide Sharing Actions: Masquer les actions de partage
     Hide Chapters: Masquer les chapitres
+    Hide Upcoming Premieres: Cacher les avant-premières à venir
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -705,9 +706,9 @@ Video:
     Video ID: Identifiant vidéo
     Buffered: En mémoire tampon
     Dropped / Total Frames: Images perdues / Nombre total d’images
-  Premieres on: Première le
+  Premieres on: Avant-première le
   Premieres in: Première dans
-  Premieres: Première
+  Premieres: Avant-première
 Videos:
   #& Sort By
   Sort By:
