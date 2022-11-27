@@ -211,6 +211,7 @@ Settings:
     Expand Side Bar by Default: תפריט צד מורחב כברירת מחדל
     Disable Smooth Scrolling: השבתת גלילה חלקה
     Hide Side Bar Labels: הסתרת התוויות בסרגל הצד
+    Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'הגדרת נגן'
     Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
