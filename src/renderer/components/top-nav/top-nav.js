@@ -24,7 +24,8 @@ export default Vue.extend({
       searchFilterValueChanged: false,
       historyIndex: 1,
       isForwardOrBack: false,
-      searchSuggestionsDataList: []
+      searchSuggestionsDataList: [],
+      lastSuggestionQuery: ''
     }
   },
   computed: {
@@ -208,7 +209,11 @@ export default Vue.extend({
 
     getSearchSuggestionsDebounce: function (query) {
       if (this.enableSearchSuggestions) {
-        this.debounceSearchResults(query)
+        const trimmedQuery = query.trim()
+        if (trimmedQuery !== this.lastSuggestionQuery) {
+          this.lastSuggestionQuery = trimmedQuery
+          this.debounceSearchResults(trimmedQuery)
+        }
       }
     },
 
