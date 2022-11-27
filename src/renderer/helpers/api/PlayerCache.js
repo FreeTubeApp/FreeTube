@@ -2,7 +2,7 @@ import { access, mkdir, readFile, unlink, writeFile } from 'fs/promises'
 import { resolve } from 'path'
 
 // based off https://github.com/LuanRT/YouTube.js/blob/6caa679df6ddc77d25be02dcb7355b722ab268aa/src/utils/Cache.ts
-// avoids errors caused by the fully dynamic `fs` and `pathh` module imports that youtubei.js's UniversalCache does
+// avoids errors caused by the fully dynamic `fs` and `path` module imports that youtubei.js's UniversalCache does
 export class PlayerCache {
   constructor(cacheDirectory) {
     this.cacheDirectory = cacheDirectory
