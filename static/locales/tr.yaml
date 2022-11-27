@@ -214,6 +214,7 @@ Settings:
     Expand Side Bar by Default: Kenar Çubuğunu Öntanımlı Olarak Genişlet
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
     Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
+    Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
     Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
