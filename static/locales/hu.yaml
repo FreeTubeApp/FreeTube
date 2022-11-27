@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Magyar'
+Locale Name: 'magyar'
 FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -220,6 +220,7 @@ Settings:
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
     Hide Side Bar Labels: Oldalsáv címkéi elrejtése
+    Hide FreeTube Header Logo: FreeTube fejléc emblémájának elrejtése
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
