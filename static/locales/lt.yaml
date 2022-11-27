@@ -222,6 +222,7 @@ Settings:
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
     Hide Side Bar Labels: Slėpti šoninės juostos etiketes
+    Hide FreeTube Header Logo: Slėpti FreeTube logotipą antraštėje
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
     Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinę posistemę
