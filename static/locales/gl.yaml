@@ -220,6 +220,7 @@ Settings:
     Secondary Color Theme: 'Cor secundaria'
         #* Main Color Theme
     Hide Side Bar Labels: Ocultalas etiquetas da barra lateral
+    Hide FreeTube Header Logo: Ocultalo logotipo de Freetube na cabeceira
   Player Settings:
     Player Settings: 'Axustes do reprodutor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formatos antigos
