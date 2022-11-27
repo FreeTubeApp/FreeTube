@@ -211,6 +211,7 @@ Settings:
     Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
+    Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Reproductor FreeTube'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
