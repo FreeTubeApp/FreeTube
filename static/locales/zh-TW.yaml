@@ -197,6 +197,7 @@ Settings:
     Expand Side Bar by Default: 預設展開側邊欄
     Disable Smooth Scrolling: 停用平滑捲動
     Hide Side Bar Labels: 隱藏側邊欄標籤
+    Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
