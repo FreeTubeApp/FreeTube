@@ -8,7 +8,7 @@ FreeTube: FreeTube
 File: Datei
 Quit: Beenden
 Edit: Bearbeiten
-Undo: Rückgängig
+Undo: Rückgängig machen
 Redo: Wiederherstellen
 Cut: Ausschneiden
 Copy: Kopieren
@@ -214,6 +214,7 @@ Settings:
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
     Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
     Hide Side Bar Labels: Seitenleisten-Beschriftungen ausblenden
+    Hide FreeTube Header Logo: FreeTube Titel Logo ausblenden
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
     Force Local Backend for Legacy Formats: Lokales System für Legacy Formate erzwingen
@@ -691,7 +692,7 @@ Video:
     Volume: Lautstärke
     Bandwidth: Bandbreite
     Buffered: Gepuffert
-    Dropped / Total Frames: Ausgelassene Bilder / Bilder insgesamt
+    Dropped / Total Frames: Entfallene Einzelbilder / Gesamtzahl der Einzelbilder
     Mimetype: Medientyp
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
