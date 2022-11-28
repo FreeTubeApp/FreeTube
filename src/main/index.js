@@ -162,6 +162,16 @@ function runApp() {
       })
     })
 
+    // make InnerTube requests work with the fetch function
+    // InnerTube rejects requests if the referer isn't YouTube or empty
+    const innertubeRequestFilter = { urls: ['https://www.youtube.com/youtubei/*'] }
+
+    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
+      requestHeaders.referer = 'https://www.youtube.com'
+      // eslint-disable-next-line node/no-callback-literal
+      callback({ requestHeaders })
+    })
+
     if (replaceHttpCache) {
       // in-memory image cache
 
