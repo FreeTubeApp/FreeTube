@@ -3,8 +3,8 @@ Locale Name: 'Italiano'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Questa parte dell'app è ancora in fase di sviluppo. Ritorna quando i lavori saranno
-  ultimati.
+  Questa parte dell'app non è ancora pronta. Torna più tardi quando saranno stati
+  fatti ulteriori progressi.
 
 # Webkit Menu Bar
 File: 'File'
@@ -19,7 +19,7 @@ Delete: 'Elimina'
 Select all: 'Seleziona tutto'
 Reload: 'Ricarica'
 Force Reload: 'Forza ricarica'
-Toggle Developer Tools: 'Abilita o disabilita strumenti sviluppatore'
+Toggle Developer Tools: 'Abilita o disabilita strumenti di sviluppo'
 Actual size: 'Dimensione reale'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
@@ -795,7 +795,7 @@ No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora
   disponibile, {blogTitle}. Clicca per saperne di più'
 Version {versionNumber} is now available!  Click for more details: La versione {versionNumber}
-  è ora disponibile! Clicca per maggiori dettagli
+  è ora disponibile!  Clicca per maggiori dettagli
 Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
