@@ -19,7 +19,7 @@ Delete: 'Elimina'
 Select all: 'Seleziona tutto'
 Reload: 'Ricarica'
 Force Reload: 'Forza ricarica'
-Toggle Developer Tools: 'Abilita o disabilita strumenti di sviluppo'
+Toggle Developer Tools: 'Attiva/disattiva strumenti per sviluppatori'
 Actual size: 'Dimensione reale'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
@@ -795,7 +795,7 @@ No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora
   disponibile, {blogTitle}. Clicca per saperne di più'
 Version {versionNumber} is now available!  Click for more details: La versione {versionNumber}
-  è ora disponibile!  Clicca per maggiori dettagli
+  è ora disponibile! Clicca per maggiori dettagli
 Download From Site: Scarica dal sito
 The playlist has been reversed: La playlist è stata invertita
 Profile:
