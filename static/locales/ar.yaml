@@ -206,6 +206,7 @@ Settings:
     Disable Smooth Scrolling: عطّل التمرير المتجانس
     Expand Side Bar by Default: كبّر الشريط الجانبي بشكل افتراضي
     Hide Side Bar Labels: إخفاء تسميات الشريط الجانبي
+    Hide FreeTube Header Logo: إخفاء شعار رأس FreeTube
   Player Settings:
     Player Settings: 'إعدادات المشغل'
     Force Local Backend for Legacy Formats: 'فرض الواجهة الخلفية المحلية للتنسيقات
