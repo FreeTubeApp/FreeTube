@@ -215,6 +215,7 @@ Settings:
     Disable Smooth Scrolling: Desativar deslocação suave
     Expand Side Bar by Default: Expandir barra lateral por definição
     Hide Side Bar Labels: Ocultar texto na barra lateral
+    Hide FreeTube Header Logo: Ocultar o logotipo do FreeTube no cabeçalho
   Player Settings:
     Player Settings: 'Definições do reprodutor'
     Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
@@ -415,6 +416,7 @@ Settings:
     Hide Live Streams: Ocultar transmissões em direto
     Hide Comments: Ocultar comentários
     Hide Chapters: Ocultar capítulos
+    Hide Upcoming Premieres: Ocultar próximas estreias
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
