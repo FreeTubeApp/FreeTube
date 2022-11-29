@@ -209,6 +209,7 @@ Settings:
     Disable Smooth Scrolling: Desativar Rolagem Suave
     Expand Side Bar by Default: Expandir Barra Lateral por Padrão
     Hide Side Bar Labels: Ocultar etiquetas da barra lateral
+    Hide FreeTube Header Logo: Esconder o logotipo do cabeçalho do FreeTube
   Player Settings:
     Player Settings: 'Configurações do vídeo'
     Force Local Backend for Legacy Formats: 'Forçar motor local para formatos legados'
