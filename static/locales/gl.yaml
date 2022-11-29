@@ -32,7 +32,7 @@ Forward: 'Adiante'
 
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
-Download From Site: 'Descargar dende a páxina web'
+Download From Site: 'Descargar do sitio'
 A new blog is now available, {blogTitle}. Click to view more: 'Hai unha nova entrada
   no blog dispoñible, {blogTitle}. Fai clic para veres máis'
 
@@ -77,7 +77,7 @@ Subscriptions:
   Subscriptions: 'Subscricións'
   Latest Subscriptions: 'Últimas subscricións'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Este
-    perfil ten un gran número de subscricións. Forzar ás RSS para evitar a limitación
+    perfil ten un gran número de subscricións.  Forzar ás RSS para evitar a limitación
     da taxa'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     túa listaxe de subscricións está baleira. Engade algunhas para as ver aquí.'
@@ -688,7 +688,7 @@ Video:
     music offtopic: Música Offtopic
     interaction: Interacción
     self-promotion: Autopromoción
-    outro: Outro
+    outro: outro
     intro: Intro
     sponsor: Patrocinador
     recap: Recapitulación
