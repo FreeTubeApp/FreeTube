@@ -219,6 +219,7 @@ Settings:
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
+    Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
   Player Settings:
     Player Settings: 'Налаштування програвача'
     Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
@@ -314,6 +315,7 @@ Settings:
     Hide Sharing Actions: Сховати дії поширення
     Hide Live Streams: Сховати прямі трансляції
     Hide Chapters: Сховати розділи
+    Hide Upcoming Premieres: Сховати майбутні прем'єри
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'

@@ -3,8 +3,8 @@ Locale Name: 'Italiano'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Questa parte dell'app è ancora in fase di sviluppo. Ritorna quando i lavori saranno
-  ultimati.
+  Questa parte dell'app non è ancora pronta. Torna più tardi quando saranno stati
+  fatti ulteriori progressi.
 
 # Webkit Menu Bar
 File: 'File'
@@ -19,7 +19,7 @@ Delete: 'Elimina'
 Select all: 'Seleziona tutto'
 Reload: 'Ricarica'
 Force Reload: 'Forza ricarica'
-Toggle Developer Tools: 'Abilita o disabilita strumenti sviluppatore'
+Toggle Developer Tools: 'Attiva/disattiva strumenti per sviluppatori'
 Actual size: 'Dimensione reale'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
@@ -215,6 +215,7 @@ Settings:
     Disable Smooth Scrolling: Disabilita scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
+    Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
@@ -397,6 +398,7 @@ Settings:
     Hide Sharing Actions: Nascondi le azioni di condivisione
     Hide Video Description: Nascondi la descrizione del video
     Hide Chapters: Nascondi i capitoli
+    Hide Upcoming Premieres: Nascondi le prossime Première
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?

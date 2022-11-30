@@ -51,6 +51,7 @@
         @keydown.enter.prevent="createNewWindow"
       />
       <div
+        v-if="!hideHeaderLogo"
         class="logo"
         role="link"
         tabindex="0"

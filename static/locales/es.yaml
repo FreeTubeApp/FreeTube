@@ -211,6 +211,7 @@ Settings:
     Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
+    Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Reproductor FreeTube'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
@@ -384,6 +385,7 @@ Settings:
     Hide Live Streams: Ocultar retransmisiones en directo
     Hide Sharing Actions: Ocultar acciones de uso compartido
     Hide Chapters: Ocultar los capítulos
+    Hide Upcoming Premieres: Ocultar los próximos estrenos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:

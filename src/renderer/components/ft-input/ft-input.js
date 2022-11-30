@@ -103,8 +103,6 @@ export default Vue.extend({
     this.id = this._uid
     this.inputData = this.value
     this.updateVisibleDataList()
-
-    setTimeout(this.addListener, 200)
   },
   methods: {
     handleClick: function (e) {
@@ -132,11 +130,10 @@ export default Vue.extend({
       this.handleActionIconChange()
       this.updateVisibleDataList()
 
-      const inputElement = document.getElementById(this.id)
-      inputElement.value = ''
+      this.$refs.input.value = ''
 
       // Focus on input element after text is clear for better UX
-      inputElement.focus()
+      this.$refs.input.focus()
 
       this.$emit('clear')
     },
@@ -187,18 +184,6 @@ export default Vue.extend({
         this.actionButtonIconName = ['fas', 'search']
         // Rethrow exception
         throw ex
-      }
-    },
-
-    addListener: function () {
-      const inputElement = document.getElementById(this.id)
-
-      if (inputElement !== null) {
-        inputElement.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
-            this.handleClick(event)
-          }
-        })
       }
     },
 

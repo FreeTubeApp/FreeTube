@@ -76,6 +76,10 @@ export default Vue.extend({
       return this.$store.getters.getHideLabelsSideBar
     },
 
+    hideHeaderLogo: function () {
+      return this.$store.getters.getHideHeaderLogo
+    },
+
     restartPromptMessage: function () {
       return this.$t('Settings["The app needs to restart for changes to take effect. Restart and apply change?"]')
     },
@@ -154,7 +158,8 @@ export default Vue.extend({
       'updateExpandSideBar',
       'updateUiScale',
       'updateDisableSmoothScrolling',
-      'updateHideLabelsSideBar'
+      'updateHideLabelsSideBar',
+      'updateHideHeaderLogo'
     ])
   }
 })

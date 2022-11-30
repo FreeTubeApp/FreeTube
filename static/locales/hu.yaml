@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Magyar'
+Locale Name: 'magyar'
 FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -220,6 +220,7 @@ Settings:
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
     Hide Side Bar Labels: Oldalsáv címkéi elrejtése
+    Hide FreeTube Header Logo: FreeTube fejléc emblémájának elrejtése
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
@@ -393,6 +394,7 @@ Settings:
     Hide Live Streams: Élő adatfolyamok elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
     Hide Chapters: Fejezetek elrejtése
+    Hide Upcoming Premieres: Közelgő első előadások elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -652,7 +654,7 @@ Video:
     Year: 'évvel'
     Years: 'évvel'
     Ago: 'ezelőtt'
-    Upcoming: 'Az első előadás hamarosan lesz'
+    Upcoming: 'Első előadás dátuma'
     In less than a minute: Kevesebb, mint egy perce ezelőtt
   Published on: 'Megjelent'
   Publicationtemplate: '{number} {unit} ezelőtt'
@@ -702,7 +704,7 @@ Video:
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: '{externalPlayer} megnyításaban'
-  Premieres on: 'Bemutatkozás dátuma:'
+  Premieres on: 'Első előadás dátuma'
   Stats:
     Player Dimensions: Lejátszó méretei
     Video ID: Videóazonosító
@@ -715,7 +717,7 @@ Video:
     Buffered: Pufferelt
     Dropped / Total Frames: Elvetve/Összes képkocka
     Bitrate: Átviteli sebesség
-  Premieres: Premierek
+  Premieres: Első előadások
 Videos:
   #& Sort By
   Sort By:

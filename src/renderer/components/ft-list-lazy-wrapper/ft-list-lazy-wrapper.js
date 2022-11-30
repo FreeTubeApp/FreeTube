@@ -36,11 +36,38 @@ export default Vue.extend({
   computed: {
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
+    },
+    hideUpcomingPremieres: function () {
+      return this.$store.getters.getHideUpcomingPremieres
     }
   },
   methods: {
     onVisibilityChanged: function (visible) {
       this.visible = visible
+    },
+
+    showResult: function (data) {
+      if (!data.type) {
+        return false
+      }
+      if (data.type === 'video') {
+        if (this.hideLiveStreams && (data.liveNow || data.lengthSeconds == null)) {
+          // hide livestreams
+          return false
+        }
+
+        if (this.hideUpcomingPremieres &&
+            // Observed for premieres in Local API Channels.
+            (data.durationText === 'PREMIERE' ||
+             // viewCount is our only method of detecting premieres in RSS
+             // data without sending an additional request.
+             // If we ever get a better flag, use it here instead.
+             (data.isRSS && data.viewCount === '0'))) {
+          // hide upcoming
+          return false
+        }
+      }
+      return true
     }
   }
 })

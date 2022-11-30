@@ -4,10 +4,10 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
-import ytSuggest from 'youtube-suggest'
 
 import { IpcChannels } from '../../../constants'
 import { openInternalPath, showToast } from '../../helpers/utils'
+import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -24,12 +24,17 @@ export default Vue.extend({
       searchFilterValueChanged: false,
       historyIndex: 1,
       isForwardOrBack: false,
-      searchSuggestionsDataList: []
+      searchSuggestionsDataList: [],
+      lastSuggestionQuery: ''
     }
   },
   computed: {
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
+    },
+
+    hideHeaderLogo: function () {
+      return this.$store.getters.getHideHeaderLogo
     },
 
     enableSearchSuggestions: function () {
@@ -110,6 +115,8 @@ export default Vue.extend({
       } else {
         this.searchInput.blur()
       }
+
+      clearLocalSearchSuggestionsSession()
 
       this.getYoutubeUrlInfo(query).then((result) => {
         switch (result.urlType) {
@@ -206,7 +213,11 @@ export default Vue.extend({
 
     getSearchSuggestionsDebounce: function (query) {
       if (this.enableSearchSuggestions) {
-        this.debounceSearchResults(query)
+        const trimmedQuery = query.trim()
+        if (trimmedQuery !== this.lastSuggestionQuery) {
+          this.lastSuggestionQuery = trimmedQuery
+          this.debounceSearchResults(trimmedQuery)
+        }
       }
     },
 
@@ -227,7 +238,7 @@ export default Vue.extend({
         return
       }
 
-      ytSuggest(query).then((results) => {
+      getLocalSearchSuggestions(query).then((results) => {
         this.searchSuggestionsDataList = results
       })
     },

@@ -26,6 +26,7 @@ const config = {
   },
   externals: {
     electron: '{}',
+    'youtubei.js': '{}',
     ytpl: '{}',
     ytsr: '{}'
   },

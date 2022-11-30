@@ -31,7 +31,8 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        // Only show the option for in-app URLs and not external ones
+        visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
         click: () => {
           createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
@@ -161,6 +162,16 @@ function runApp() {
       })
     })
 
+    // make InnerTube requests work with the fetch function
+    // InnerTube rejects requests if the referer isn't YouTube or empty
+    const innertubeRequestFilter = { urls: ['https://www.youtube.com/youtubei/*'] }
+
+    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
+      requestHeaders.referer = 'https://www.youtube.com'
+      // eslint-disable-next-line node/no-callback-literal
+      callback({ requestHeaders })
+    })
+
     if (replaceHttpCache) {
       // in-memory image cache
 
@@ -245,6 +256,10 @@ function runApp() {
               data: Buffer.from(errorJson)
             })
           })
+        })
+
+        newRequest.on('error', (err) => {
+          console.error(err)
         })
 
         newRequest.end()
@@ -997,7 +1012,23 @@ function runApp() {
           { role: 'zoomout' },
           { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
-          { role: 'togglefullscreen' }
+          { role: 'togglefullscreen' },
+          { type: 'separator' },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/history' }
+              )
+            },
+            type: 'normal'
+          },
         ]
       },
       {

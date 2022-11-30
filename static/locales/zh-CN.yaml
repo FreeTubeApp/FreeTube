@@ -196,6 +196,7 @@ Settings:
     Expand Side Bar by Default: 默认展开侧边栏
     Disable Smooth Scrolling: 禁用平滑滚动
     Hide Side Bar Labels: 隐藏侧边栏标签
+    Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
     Player Settings: '播放器选项'
     Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
@@ -352,6 +353,7 @@ Settings:
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节
+    Hide Upcoming Premieres: 隐藏即将到来的首映
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
