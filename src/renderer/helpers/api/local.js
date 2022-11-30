@@ -56,3 +56,8 @@ export async function getLocalSearchSuggestions(query) {
 export function clearLocalSearchSuggestionsSession() {
   searchSuggestionsSession = null
 }
+
+export async function getLocalPlaylist(id) {
+  const innertube = await createInnertube()
+  return await innertube.getPlaylist(id)
+}

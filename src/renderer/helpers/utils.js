@@ -488,3 +488,11 @@ export async function getPicturesPath() {
     return null
   }
 }
+
+export function extractNumberFromString(str) {
+  if (typeof str === 'string') {
+    return parseInt(str.replace(/\D+/, ''))
+  } else {
+    return NaN
+  }
+}
