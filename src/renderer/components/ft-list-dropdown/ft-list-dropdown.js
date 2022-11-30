@@ -46,7 +46,7 @@ export default Vue.extend({
         return
       }
 
-      const unspacedTitle = sanitizeForHtmlId(this.title)
+      const unspacedTitle = CSS.escape(sanitizeForHtmlId(this.title))
       const allOptions = document.querySelector(`#${unspacedTitle} + ul`)
       allOptions.setAttribute('tabindex', '-1')
       event.target.setAttribute('tabindex', '0')

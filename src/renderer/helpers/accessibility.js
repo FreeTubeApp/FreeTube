@@ -40,6 +40,5 @@ export function handleDropdownKeyboardEvent(event, target, afterElement) {
 }
 
 export function sanitizeForHtmlId(attribute) {
-  // html doesn't like spaces in ids, queryselector/css wants symbols encoded
-  return attribute.replace(/[^A-Za-z0-9]*/g, '')
+  return attribute.replace(/\s+/g, '')
 }
