@@ -6,6 +6,7 @@ import { IpcChannels } from '../../../constants'
 import {
   createWebURL,
   openExternalLink,
+  replaceFilenameForbiddenChars,
   searchFiltersMatch,
   showSaveDialog,
   showToast
@@ -122,46 +123,13 @@ async function invokeIRC(context, IRCtype, webCbk, payload = null) {
 }
 
 const actions = {
-  replaceFilenameForbiddenChars(_, filenameOriginal) {
-    let filenameNew = filenameOriginal
-    let forbiddenChars = {}
-    switch (process.platform) {
-      case 'win32':
-        forbiddenChars = {
-          '<': '＜', // U+FF1C
-          '>': '＞', // U+FF1E
-          ':': '：', // U+FF1A
-          '"': '＂', // U+FF02
-          '/': '／', // U+FF0F
-          '\\': '＼', // U+FF3C
-          '|': '｜', // U+FF5C
-          '?': '？', // U+FF1F
-          '*': '＊' // U+FF0A
-        }
-        break
-      case 'darwin':
-        forbiddenChars = { '/': '／', ':': '：' }
-        break
-      case 'linux':
-        forbiddenChars = { '/': '／' }
-        break
-      default:
-        break
-    }
-
-    for (const forbiddenChar in forbiddenChars) {
-      filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
-    }
-    return filenameNew
-  },
-
-  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+  async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
       return
     }
 
-    const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
+    const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
     const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
     let folderPath = rootState.settings.downloadFolderPath
 

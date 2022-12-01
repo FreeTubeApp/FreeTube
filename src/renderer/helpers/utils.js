@@ -422,3 +422,36 @@ export function searchFiltersMatch(filtersA, filtersB) {
     filtersA?.type === filtersB?.type &&
     filtersA?.duration === filtersB?.duration
 }
+
+export function replaceFilenameForbiddenChars(filenameOriginal) {
+  let filenameNew = filenameOriginal
+  let forbiddenChars = {}
+  switch (process.platform) {
+    case 'win32':
+      forbiddenChars = {
+        '<': '＜', // U+FF1C
+        '>': '＞', // U+FF1E
+        ':': '：', // U+FF1A
+        '"': '＂', // U+FF02
+        '/': '／', // U+FF0F
+        '\\': '＼', // U+FF3C
+        '|': '｜', // U+FF5C
+        '?': '？', // U+FF1F
+        '*': '＊' // U+FF0A
+      }
+      break
+    case 'darwin':
+      forbiddenChars = { '/': '／', ':': '：' }
+      break
+    case 'linux':
+      forbiddenChars = { '/': '／' }
+      break
+    default:
+      break
+  }
+
+  for (const forbiddenChar in forbiddenChars) {
+    filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
+  }
+  return filenameNew
+}
