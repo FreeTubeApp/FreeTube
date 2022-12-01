@@ -75,9 +75,9 @@ export default Vue.extend({
           viewCount: extractNumberFromString(result.info.views),
           videoCount: extractNumberFromString(result.info.total_items),
           lastUpdated: result.info.last_updated ?? '',
-          channelName: result.info.author.name ?? '',
-          channelThumbnail: result.info.author.best_thumbnail?.url ?? '',
-          channelId: result.info.author.id,
+          channelName: result.info.author?.name ?? '',
+          channelThumbnail: result.info.author?.best_thumbnail?.url ?? '',
+          channelId: result.info.author?.id,
           infoSource: 'local'
         }
 
