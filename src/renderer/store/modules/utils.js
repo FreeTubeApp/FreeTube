@@ -249,27 +249,13 @@ const actions = {
         parsedString = parsedString.replaceAll(key, value)
       }
 
-      const platform = process.platform
-      if (platform === 'win32') {
-        // https://www.boost.org/doc/libs/1_78_0/libs/filesystem/doc/portability_guide.htm
-        // https://stackoverflow.com/questions/1976007/
-        const noForbiddenChars = ['<', '>', ':', '"', '/', '|', '?', '*'].every(char => {
-          return parsedString.indexOf(char) === -1
-        })
-        if (!noForbiddenChars) {
-          reject(new Error('Forbidden Characters')) // use message as translation key
-        }
-      } else if (platform === 'darwin') {
-        // https://superuser.com/questions/204287/
-        if (parsedString.indexOf(':') !== -1) {
-          reject(new Error('Forbidden Characters'))
-        }
+      if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
+        reject(new Error('Forbidden Characters')) // use message as translation key
       }
 
-      const dirChar = platform === 'win32' ? '\\' : '/'
       let filename
-      if (parsedString.indexOf(dirChar) !== -1) {
-        const lastIndex = parsedString.lastIndexOf(dirChar)
+      if (parsedString.indexOf(path.sep) !== -1) {
+        const lastIndex = parsedString.lastIndexOf(path.sep)
         filename = parsedString.substring(lastIndex + 1)
       } else {
         filename = parsedString
