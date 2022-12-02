@@ -44,7 +44,7 @@
             >
               {{ channel.name }}
             </div>
-            <div 
+            <div
               v-if="!hideUnsubscribeButton"
               class="unsubscribeContainer"
             >
