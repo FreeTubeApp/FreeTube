@@ -209,6 +209,7 @@ Settings:
     Expand Side Bar by Default: Расширить боковую панель
     Disable Smooth Scrolling: Отключить плавную прокрутку
     Hide Side Bar Labels: Скрыть надписи боковой панели
+    Hide FreeTube Header Logo: Скрыть логотип заголовка FreeTube
   Player Settings:
     Player Settings: 'Настройки проигрывателя'
     Force Local Backend for Legacy Formats: 'Принудительно использовать локальный
