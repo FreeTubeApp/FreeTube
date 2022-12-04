@@ -60,6 +60,10 @@ export default Vue.extend({
       }
     },
 
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
     locale: function () {
       return this.$i18n.locale.replace('_', '-')
     },

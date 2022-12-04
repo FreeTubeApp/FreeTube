@@ -44,7 +44,10 @@
             >
               {{ channel.name }}
             </div>
-            <div class="unsubscribeContainer">
+            <div
+              v-if="!hideUnsubscribeButton"
+              class="unsubscribeContainer"
+            >
               <ft-button
                 :label="$t('Channels.Unsubscribe')"
                 background-color="var(--search-bar-color)"
