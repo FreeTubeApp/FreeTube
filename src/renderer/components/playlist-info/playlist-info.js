@@ -135,10 +135,6 @@ export default Vue.extend({
           query: playlistInfo
         }
       )
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
     }
   }
 })
