@@ -296,6 +296,7 @@ export default Vue.extend({
             channelName: this.channelName,
             channelId: this.channelId
           })
+
           this.genre = result.videoDetails.category
           this.videoPublished = new Date(result.videoDetails.publishDate.replace('-', '/')).getTime()
           this.videoDescription = result.player_response.videoDetails.shortDescription
@@ -762,19 +763,10 @@ export default Vue.extend({
         const player = this.$refs.videoPlayer.player
 
         if (player !== null && this.saveWatchedProgress) {
-          if (this.saveWatchedProgressForMusic || (!this.saveWatchedProgressForMusic && this.genre !== 'Music')) {
-            const currentTime = this.getWatchedProgress()
-            const payload = {
-              videoId: this.videoId,
-              watchProgress: currentTime
-            }
-            this.updateWatchProgress(payload)
-          }
-        }
-        if (this.genre === 'Music' && !this.saveWatchedProgressForMusic) {
+          const watchProgress = this.getWatchedProgress()
           const payload = {
             videoId: this.videoId,
-            watchProgress: 0
+            watchProgress: watchProgress
           }
           this.updateWatchProgress(payload)
         }
