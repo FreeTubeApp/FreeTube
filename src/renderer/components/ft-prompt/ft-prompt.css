@@ -7,15 +7,18 @@
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 10;
   padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .promptCard {
   width: 95%;
   margin: 0;
   position: absolute;
-  top: 40%;
-  -ms-transform: translateY(-40%);
-  transform: translateY(-40%);
+  left: 2.5%;
+  box-sizing: border-box;
 }
 
 .center {

@@ -18,7 +18,7 @@
 }
 
 .channelBannerContainer.default {
-  background-image: url("images/defaultBanner.png");
+  background-image: url("../../assets/img/defaultBanner.png");
   background-repeat: repeat;
   background-size: contain;
 }
@@ -56,11 +56,21 @@
   left: 120px;
 }
 
+.channelInfoActionsContainer {
+  display: flex;
+  min-width: 230px;
+  justify-content: space-between;
+}
+
 .subscribeButton {
   height: 50px;
   min-width: 150px;
   align-self: center;
   margin-bottom: 10px;
+}
+
+.shareIcon {
+  align-items: center;
 }
 
 .channelSearch {

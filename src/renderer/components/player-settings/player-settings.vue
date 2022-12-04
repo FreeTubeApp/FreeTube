@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Player Settings.Player Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Player Settings.Player Settings')"
+  >
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -49,12 +45,6 @@
           :tooltip="$t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
           @change="updateVideoPlaybackRateMouseScroll"
         />
-        <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
-          :compact="true"
-          :default-value="displayVideoPlayButton"
-          @change="updateDisplayVideoPlayButton"
-        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -75,6 +65,18 @@
           :disabled="hideRecommendedVideos"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
+          :compact="true"
+          :default-value="displayVideoPlayButton"
+          @change="updateDisplayVideoPlayButton"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
+          :compact="true"
+          :default-value="enterFullscreenOnDisplayRotate"
+          @change="updateEnterFullscreenOnDisplayRotate"
         />
       </div>
     </div>
@@ -231,7 +233,7 @@
         />
       </ft-flex-box>
     </div>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./player-settings.js" />

@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.External Player Settings.External Player Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.External Player Settings.External Player Settings')"
+  >
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-select
@@ -30,7 +26,7 @@
     </div>
     <ft-flex-box
       v-if="externalPlayer !== ''"
-      class="externalPlayerSettingsFlexBox"
+      class="settingsFlexStart460px"
     >
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
@@ -49,8 +45,7 @@
         @input="updateExternalPlayerCustomArgs"
       />
     </ft-flex-box>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./external-player-settings.js" />
-<style scoped lang="sass" src="./external-player-settings.sass" />

@@ -4,7 +4,6 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
-import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import i18n from '../../i18n/index'
 
 export default Vue.extend({
@@ -13,8 +12,7 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video': FtListVideo,
-    'ft-flex-box': FtFlexBox
+    'ft-list-video': FtListVideo
   },
   data: function () {
     return {
@@ -67,9 +65,6 @@ export default Vue.extend({
       this.isLoading = true
 
       this.ytGetPlaylistInfo(this.playlistId).then((result) => {
-        console.log('done')
-        console.log(result)
-
         this.infoData = {
           id: result.id,
           title: result.title,
@@ -107,9 +102,9 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.log('Falling back to Invidious API')
+          console.warn('Falling back to Invidious API')
           this.getPlaylistInvidious()
         } else {
           this.isLoading = false
@@ -126,9 +121,6 @@ export default Vue.extend({
       }
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
-        console.log('done')
-        console.log(result)
-
         this.infoData = {
           id: result.playlistId,
           title: result.title,
@@ -155,9 +147,9 @@ export default Vue.extend({
 
         this.isLoading = false
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         if (this.backendPreference === 'invidious' && this.backendFallback) {
-          console.log('Error getting data with Invidious, falling back to local backend')
+          console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {
           this.isLoading = false

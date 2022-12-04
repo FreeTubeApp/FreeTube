@@ -30,11 +30,11 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version $ is now available!  Click for more details: 'Версия $ е вече налична! Щракнете
-  за повече детайли'
+Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
+  е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, $. Click to view more: 'Нова публикация в блога, $. Щракнете
-  за преглед'
+A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога,
+  {blogTitle}. Щракнете за преглед'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -85,6 +85,9 @@ Subscriptions:
     на ограниченията
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
+  Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано.
+    Обновете абонаментите, за да ги видите тук.
+  Empty Channels: Каналите, за които сте абонирани, в момента нямат никакви видеа.
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
@@ -150,8 +153,8 @@ Settings:
     Current instance will be randomized on startup: Текущият сървър при стартиране
       ще бъде случаен
     No default instance has been set: Няма зададен сървър по подразбиране
-    The currently set default instance is $: Текущо зададеният сървър по подразбиране
-      е $
+    The currently set default instance is {instance}: Текущо зададеният сървър по
+      подразбиране е {instance}
     Current Invidious Instance: Текущ Invidious сървър
     External Link Handling:
       No Action: Без действие
@@ -167,8 +170,9 @@ Settings:
       Black: 'Черна'
       Dark: 'Тъмна'
       Light: 'Светла'
-      Dracula: Дракула
+      Dracula: Dracula
       System Default: Стандартна за системата
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -187,19 +191,34 @@ Settings:
       Amber: 'Кехлибарено'
       Orange: 'Оранжево'
       Deep Orange: 'Наситено оранжево'
-      Dracula Cyan: 'Дракула Синьозелено'
-      Dracula Green: 'Дракула Зелено'
-      Dracula Orange: 'Дракула Оранжево'
-      Dracula Pink: 'Дракула Розово'
-      Dracula Purple: 'Дракула Пурпурно'
-      Dracula Red: 'Дракула Червено'
-      Dracula Yellow: 'Дракула Жълто'
+      Dracula Cyan: 'Dracula Синьозелено'
+      Dracula Green: 'Dracula Зелено'
+      Dracula Orange: 'Dracula Оранжево'
+      Dracula Pink: 'Dracula Розово'
+      Dracula Purple: 'Dracula Пурпурно'
+      Dracula Red: 'Dracula Червено'
+      Dracula Yellow: 'Dracula Жълто'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Розова вода
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Фламинго
+      Catppuccin Mocha Pink: Catppuccin Mocha Розово
+      Catppuccin Mocha Mauve: Catppuccin Mocha Мораво
+      Catppuccin Mocha Red: Catppuccin Mocha Червено
+      Catppuccin Mocha Maroon: Catppuccin Mocha Кестеняво
+      Catppuccin Mocha Peach: Catppuccin Mocha Праскова
+      Catppuccin Mocha Yellow: Catppuccin Mocha Жълто
+      Catppuccin Mocha Sky: Catppuccin Mocha Небесносиньо
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Сапфир
+      Catppuccin Mocha Teal: Catppuccin Mocha Синьозелено
+      Catppuccin Mocha Lavender: Catppuccin Mocha Лавандула
+      Catppuccin Mocha Blue: Catppuccin Mocha Синьо
+      Catppuccin Mocha Green: Catppuccin Mocha Зелено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
     Disable Smooth Scrolling: Изключване на плавното превъртане
     Expand Side Bar by Default: Разширяване на страничната лента по подразбиране
     Hide Side Bar Labels: Скриване етикетите на страничната лента
+    Hide FreeTube Header Logo: Скриване логото на FreeTube
   Player Settings:
     Player Settings: 'Настройки на плейъра'
     Force Local Backend for Legacy Formats: 'Принудително връщане към локалния интерфейс
@@ -241,20 +260,21 @@ Settings:
     Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане на видео
     Screenshot:
       Enable: Включване на снимки на екрана
-      Quality Label: Качество на снимка на екрана
+      Quality Label: Качество
       Ask Path: Питане за папка за запазване
-      Folder Label: Папка за снимка на екрана
+      Folder Label: Папка
       File Name Label: Модел за име на файл
       Error:
         Forbidden Characters: Забранени символи
         Empty File Name: Празно име на файл
-      File Name Tooltip: Можете да използвате променливите по-долу. %Y Година 4 цифри.
-        %M Месец 2 цифри. %D Ден 2 цифри. %H Час 2 цифри. %N Минута 2 цифри. %S Секунда
-        2 цифри. %T Милисекунда 3 цифри. %s Видеосекунда. %t Видео милисекунда 3 цифри.
-        %i ID на видеото. Можете също така да използвате "\" или "/", за да създадете
-        подпапки.
-      Format Label: Формат за снимка на екрана
-      Folder Button: Избиране на папка
+      File Name Tooltip: Можете да използвате променливите по-долу. %Y - година -
+        4 цифри. %M - месец - 2 цифри. %D - ден - 2 цифри. %H - час - 2 цифри. %N
+        - минути - 2 цифри. %S - секунди - 2 цифри. %T - милисекунди - 3 цифри. %s
+        - видеосекунди. %t - видео милисекунди - 3 цифри. %i ID на видеото. Можете
+        също така да използвате "\" или "/", за създаване на подпапки.
+      Format Label: Формат
+      Folder Button: Избор на папка
+    Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -275,8 +295,9 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
-    Fetch Feeds from RSS: 'Изтегляне на съдържания през RSS'
+    Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Manage Subscriptions: 'Управление на абонаменти'
+    Fetch Automatically: Автоматично извличане на съдържание
   Data Settings:
     Data Settings: 'Настройки на данни'
     Select Import Type: 'Избор на тип за внасяне'
@@ -319,9 +340,12 @@ Settings:
     Export Playlists: Изнасяне на плейлисти
     All playlists has been successfully imported: Всички плейлисти са внесени успешно
     Import Playlists: Внасяне на плейлисти
-    Playlist insufficient data: Недостатъчно данни за плейлист "$", прескачане на
-      елемент
+    Playlist insufficient data: Недостатъчно данни за плейлист "{playlist}", прескачане
+      на елемент
     All playlists has been successfully exported: Всички плейлисти са изнесени успешно
+    History File: Файл с история
+    Playlist File: Файл с плейлисти
+    Subscription File: Файл с абонаменти
   Advanced Settings:
     Advanced Settings: 'Разширени настройки'
     Enable Debug Mode (Prints data to the console): 'Активиране на режим за дебъгване
@@ -365,6 +389,8 @@ Settings:
     Hide Comments: Скриване на коментари
     Hide Sharing Actions: Скриване на действията за споделяне
     Hide Live Streams: Скриване на предавания на живо
+    Hide Chapters: Скриване на главите
+    Hide Upcoming Premieres: Скриване на предстоящите премиери
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -405,6 +431,9 @@ Settings:
       действия
     External Player: Външен плейър
     External Player Settings: Настройки за външен плейър
+    Players:
+      None:
+        Name: Няма
   Download Settings:
     Download Settings: Настройки за изтегляне
     Choose Path: Избор на път
@@ -417,6 +446,11 @@ Settings:
     Hide Unsubscribe Button: Скриване на бутона за отписване
     Show Family Friendly Only: Показване само за семейства
     Hide Search Bar: Скриване на лентата за търсене
+  Experimental Settings:
+    Experimental Settings: Експериментални настройки
+    Replace HTTP Cache: Замяна на HTTP кеша
+    Warning: Тези настройки са експериментални и причиняват сривове, докато са разрешени.
+      Силно се препоръчва създаването на резервни копия. Използвайте на свой риск!
 About:
   #On About page
   About: 'Относно'
@@ -492,15 +526,15 @@ Profile:
   Your profile name cannot be empty: 'Името на профила не може да е празно'
   Profile has been created: 'Профилът беше създаден'
   Profile has been updated: 'Профилът беше актуализиран'
-  Your default profile has been set to $: 'Вашият профил по подразбиране беше указан
-    да е $'
-  Removed $ from your profiles: '$ е премахнат от вашите профили'
+  Your default profile has been set to {profile}: 'Вашият профил по подразбиране беше
+    указан да е {profile}'
+  Removed {profile} from your profiles: '{profile} е премахнат от вашите профили'
   Your default profile has been changed to your primary profile: 'Профилът по подразбиране
     е променен на вашия първоначален профил'
-  $ is now the active profile: 'Активният профил сега е $'
+  '{profile} is now the active profile': 'Активният профил сега е {profile}'
   Subscription List: 'Списък с абонаменти'
   Other Channels: 'Други канали'
-  $ selected: '$ избран(и)'
+  '{number} selected': '{number} избран(и)'
   Select All: 'Избиране на всички'
   Select None: 'Без избиране'
   Delete Selected: 'Изтриване на избраните'
@@ -523,8 +557,8 @@ Channel:
   Unsubscribe: 'Отписване'
   Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
     абонаменти'
-  Removed subscription from $ other channel(s): 'Премахнат абонамент от $ друг(и)
-    канал(и)'
+  Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count}
+    друг(и) канал(и)'
   Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
@@ -616,9 +650,10 @@ Video:
     Years: 'години'
     Ago: 'преди'
     Upcoming: 'Премиера на'
+    Less than a minute: По-малко от минута
+    In less than a minute: След по-малко от минута
   Published on: 'Публикуван на'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Преди $ %'
+  Publicationtemplate: 'Преди {number} {unit}'
 #& Videos
   Audio:
     Best: Най-добро
@@ -659,11 +694,11 @@ Video:
       opening playlists: отваряне на плейлист
       setting a playback rate: задаване на скорост за възпроизвеждане
       starting video at offset: стартиране на видео при отместване
-    UnsupportedActionTemplate: '$ не поддържа: %'
-    OpeningTemplate: Отваряне на $ във %...
+    UnsupportedActionTemplate: '{externalPlayer} не поддържа: {action}'
+    OpeningTemplate: Отваряне на {videoOrPlaylist} във {externalPlayer}...
     playlist: плейлист
     video: видео
-    OpenInTemplate: Отваряне във $
+    OpenInTemplate: Отваряне във {externalPlayer}
   Stats:
     fps: Кадри в секунда
     video id: Идентификатор на видеоклип (YouTube)
@@ -685,6 +720,8 @@ Video:
     Video statistics are not available for legacy videos: Статистиката не е налична
       за наследени видеоклипове
   Premieres on: Премиера на
+  Premieres in: Премиери в
+  Premieres: Премиерa
 Videos:
   #& Sort By
   Sort By:
@@ -712,7 +749,7 @@ Playlist:
   Playlist: Плейлист
 Toggle Theatre Mode: 'Режим "Широк екран"'
 Change Format:
-  Change Video Formats: 'Смяна видео формати'
+  Change Media Formats: 'Смяна видео формати'
   Use Dash Formats: 'Използване на DASH формати'
   Use Legacy Formats: 'Използване на стари формати'
   Use Audio Formats: 'Използване на аудио формати'
@@ -734,6 +771,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube адресът за вграждане е копиран'
   YouTube Channel URL copied to clipboard: YouTube адресът на канала е копиран
   Invidious Channel URL copied to clipboard: Invidious адресът на канала е копиран
+  Share Channel: Споделяне на канал
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
@@ -756,7 +794,7 @@ Comments:
   Sort by: Сортиране по
   Show More Replies: Показване на още отговори
   Pinned by: Прихванато от
-  From $channelName: от $channelName
+  From {channelName}: от {channelName}
   And others: и други
   Member: Член
 Up Next: 'Следващ'
@@ -791,6 +829,8 @@ Tooltips:
       получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
       IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото
       или дали е на живо
+    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при отваряне
+      на нов прозорец и при смяна на профила.
   Player Settings:
     Default Video Format: Настройка на използваните формати. DASH форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
@@ -838,8 +878,13 @@ Tooltips:
       външен плейър може да бъде намерен чрез променливата на средата 'PATH'. Ако
       е необходимо, тук може да се зададе потребителски път.
     External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона
-      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър.
-    DefaultCustomArgumentsTemplate: "(По подразбиране: '$')"
+      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание,
+      настройките на Invidious не влияят на външните плейъри.
+    DefaultCustomArgumentsTemplate: "(По подразбиране: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира
+      персонализиран кеш за изображения в паметта. Ще доведе до увеличаване на използването
+      на RAM паметта.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
@@ -851,31 +896,43 @@ Unknown YouTube url type, cannot be opened in app: Неизвестен тип U
 Open New Window: Отваряне на нов прозорец
 Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
   е изчистен
-Default Invidious instance has been set to $: Сървъра по подразбиране за Invidious
-  е зададен на $
+Default Invidious instance has been set to {instance}: Сървъра по подразбиране за
+  Invidious е зададен на {instance}
 External link opening has been disabled in the general settings: Отварянето на външни
   връзки е изключено в общите настройки
 Search Bar:
   Clear Input: Изчистване на въведеното
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази
   връзка?
-Downloading has completed: '"$" приключи изтеглянето'
-Starting download: Започва изтегляне на "$"
-Downloading failed: Имаше проблем при изтеглянето на "$"
-Screenshot Error: Снимката на екрана е неуспешна. $
-Screenshot Success: Запазена снимка на екрана като "$"
+Downloading has completed: '"{videoTitle}" приключи изтеглянето'
+Starting download: Започва изтегляне на "{videoTitle}"
+Downloading failed: Имаше проблем при изтеглянето на "{videoTitle}"
+Screenshot Error: Снимката на екрана е неуспешна. {error}
+Screenshot Success: Запазена снимка на екрана като "{filePath}"
 New Window: Нов прозорец
 Age Restricted:
-  This $contentType is age restricted: Този $ е с възрастово ограничение
+  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово
+    ограничение
   Type:
     Channel: Канал
     Video: Видео
 Channels:
-  Count: Намерени са $ канала.
+  Count: Намерени са {number} канала.
   Unsubscribe: Отписване
-  Unsubscribed: $ е премахнат от абонаментите
-  Unsubscribe Prompt: Сигурни ли сте, че искате да се отпишете от "$"?
+  Unsubscribed: '{channelName} е премахнат от абонаментите'
+  Unsubscribe Prompt: Сигурни ли сте, че искате да се отпишете от "{channelName}"?
   Search bar placeholder: Търсене на канали
   Channels: Канали
   Title: Списък с канали
   Empty: Списъкът с канали в момента е празен.
+Clipboard:
+  Cannot access clipboard without a secure connection: Не може да се получи достъп
+    до клипборда без защитена връзка
+  Copy failed: Неуспешно копиране в клипборда
+Chapters:
+  Chapters: Глави
+  'Chapters list visible, current chapter: {chapterName}': 'Списъкът с глави се вижда,
+    текуща глава: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
+    текуща глава: {chapterName}'
+Preferences: Предпочитания

@@ -17,9 +17,6 @@ export default Vue.extend({
       return this.$store.getters.getProfileList
     }
   },
-  mounted: function () {
-    console.log(this.profileList)
-  },
   methods: {
     newProfile: function () {
       this.$router.push({

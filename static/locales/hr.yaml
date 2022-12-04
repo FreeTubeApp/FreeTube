@@ -79,6 +79,9 @@ Subscriptions:
     će se RSS
   Load More Videos: Učitaj još videa
   Error Channels: Kanali s greškama
+  Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.
+  Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
+    pretplate da bi se ovdje prikazale.
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -143,8 +146,8 @@ Settings:
     Current instance will be randomized on startup: Trenutačna instanca će se slučajno
       odrediti nakon pokretanja računala
     No default instance has been set: Nema standardno postavljene instance
-    The currently set default instance is $: Trenutačno postavljena standardna instanca
-      je $
+    The currently set default instance is {instance}: Trenutačno postavljena standardna
+      instanca je {instance}
     Current Invidious Instance: Trenutačna Invidious instanca
     External Link Handling:
       No Action: Bez radnje
@@ -161,6 +164,7 @@ Settings:
       Light: 'Svijetla'
       Dracula: 'Drakula'
       System Default: Standard sustava
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -186,6 +190,20 @@ Settings:
       Dracula Purple: 'Drakula Ljubičasta'
       Dracula Red: 'Drakula Crvena'
       Dracula Yellow: 'Drakula Žuta'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Ružičasta
+      Catppuccin Mocha Mauve: Catppuccin Mocha Ljubičasta
+      Catppuccin Mocha Red: Catppuccin Mocha Crvena
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kestenjasta
+      Catppuccin Mocha Peach: Catppuccin Mocha Breskva
+      Catppuccin Mocha Yellow: Catppuccin Mocha Žuta
+      Catppuccin Mocha Teal: Catppuccin Mocha Plavozelena
+      Catppuccin Mocha Sky: Catppuccin Mocha Nebo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Plava
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Catppuccin Mocha Green: Catppuccin Mocha Zelena
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -245,6 +263,8 @@ Settings:
         %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
         videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
         podmapa.
+    Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
+      ekrana
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -265,7 +285,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
-    Fetch Feeds from RSS: 'Dohvati podatke putem RSS-a'
+    Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format izvoza pretplata'
       #& Freetube
@@ -275,6 +295,7 @@ Settings:
     Import Subscriptions: 'Uvoz pretplata'
     Export Subscriptions: 'Izvoz pretplata'
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
+    Fetch Automatically: Automatski dohvati feed
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -340,9 +361,13 @@ Settings:
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
     Export Playlists: Izvezi zbirke
-    Playlist insufficient data: Nedovoljno podataka za „$” zbirku, element se preskače
+    Playlist insufficient data: Nedovoljno podataka za „{playlist}” zbirku, element
+      se preskače
     All playlists has been successfully imported: Sve zbirke su uspješno uvezene
     All playlists has been successfully exported: Sve zbirke su uspješno izvezene
+    Subscription File: Datoteka pretplate
+    History File: Datoteka povijesti
+    Playlist File: Datoteka playliste
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -359,6 +384,8 @@ Settings:
     Hide Sharing Actions: Sakrij radnje dijeljenja
     Hide Video Description: Sakrij opis videa
     Hide Live Streams: Sakrij prijenose uživo
+    Hide Chapters: Sakrij poglavlja
+    Hide Upcoming Premieres: Sakrij nadolazeće premijere
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -396,6 +423,9 @@ Settings:
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
     External Player: Vanjski player
     External Player Settings: Postavke vanjskog playera
+    Players:
+      None:
+        Name: Bez
   Download Settings:
     Choose Path: Odaberi stazu
     Download Settings: Postavke preuzimanja
@@ -408,6 +438,11 @@ Settings:
     Hide Unsubscribe Button: Sakrij gumb za odjavu
     Hide Search Bar: Sakrij traku pretrage
     Show Family Friendly Only: Prikaži samo prikladne za obitelji
+  Experimental Settings:
+    Warning: Ovo su eksperimentalne postavke. Kad su aktivirane mogu prouzročiti prekid
+      programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
+    Experimental Settings: Eksperimentalne postavke
+    Replace HTTP Cache: Zamijeni HTTP predmemoriju
 About:
   #On About page
   About: 'Informacije'
@@ -491,12 +526,12 @@ Profile:
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
   Profile has been updated: 'Profil je aktualiziran'
-  Your default profile has been set to $: 'Tvoj standardni profil je postavljen na
-    $'
-  Removed $ from your profiles: '$ je uklonjen iz tvojih profila'
+  Your default profile has been set to {profile}: 'Tvoj standardni profil je postavljen
+    na {profile}'
+  Removed {profile} from your profiles: '{profile} je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
-  $ is now the active profile: '$ je sada aktivni profil'
+  '{profile} is now the active profile': '{profile} je sada aktivni profil'
 #On Channel Page
   Profile Select: Biranje profila
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Stvarno
@@ -510,7 +545,7 @@ Profile:
   Delete Selected: Izbriši odabrane
   Select None: Odaberi ništa
   Select All: Odaberi sve
-  $ selected: 'Broj odabranih: $'
+  '{number} selected': 'Broj odabranih: {number}'
   Other Channels: Ostali kanali
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
@@ -544,7 +579,8 @@ Channel:
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
   Added channel to your subscriptions: Kanal je dodan tvojim pretplatama
-  Removed subscription from $ other channel(s): Uklonjena pretplata iz $ drugih kanala
+  Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count}
+    drugih kanala
   Channel has been removed from your subscriptions: Kanal je uklonjen iz tvojih pretplata
 Video:
   Mark As Watched: 'Označi kao pogledano'
@@ -577,18 +613,18 @@ Video:
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
-    Jan: 'sij'
-    Feb: 'velj'
-    Mar: 'ožu'
-    Apr: 'tra'
-    May: 'svi'
-    Jun: 'lip'
-    Jul: 'srp'
-    Aug: 'kol'
-    Sep: 'ruj'
-    Oct: 'lis'
-    Nov: 'stu'
-    Dec: 'pro'
+    Jan: 'sij.'
+    Feb: 'velj.'
+    Mar: 'ožu.'
+    Apr: 'tra.'
+    May: 'svi.'
+    Jun: 'lip.'
+    Jul: 'srp.'
+    Aug: 'kol.'
+    Sep: 'ruj.'
+    Oct: 'lis.'
+    Nov: 'stu.'
+    Dec: 'pro.'
     Second: 's'
     Seconds: 's'
     Minute: 'min'
@@ -597,17 +633,18 @@ Video:
     Hours: 'h'
     Day: 'dan'
     Days: 'dana'
-    Week: 'tj'
-    Weeks: 'tj'
-    Month: 'mj'
-    Months: 'mj'
-    Year: 'g'
-    Years: 'g'
+    Week: 'tj.'
+    Weeks: 'tj.'
+    Month: 'mj.'
+    Months: 'mj.'
+    Year: 'god.'
+    Years: 'god.'
     Ago: 'Prije'
     Upcoming: 'Premijera'
+    Less than a minute: Manje od jedne minute
+    In less than a minute: Manje od minute
   Published on: 'Objavljeno'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'prije $ %'
+  Publicationtemplate: 'prije {number} {unit}'
 #& Videos
   Autoplay: Automatska reprodukcija
   Play Previous Video: Reproduciraj prethodni video
@@ -656,11 +693,11 @@ Video:
       opening specific video in a playlist (falling back to opening the video): otvaranje
         određenog videa u zbirki (vraćanje na otvaranje videa)
       setting a playback rate: postavljanje brzine reprodukcije
-    UnsupportedActionTemplate: '$ ne podržava: %'
-    OpeningTemplate: Otvara se $ u % …
+    UnsupportedActionTemplate: '{externalPlayer} ne podržava: {action}'
+    OpeningTemplate: Otvara se {videoOrPlaylist} u {externalPlayer} …
     playlist: zbirka
     video: video
-    OpenInTemplate: Otvori u $
+    OpenInTemplate: Otvori u {externalPlayer}
   Premieres on: Premijera
   Stats:
     fps: Kadrova u sekundi
@@ -682,6 +719,8 @@ Video:
     Buffered: Učitano u memoriju
     Mimetype: Mimetype
     Dropped / Total Frames: Ispušteni/ukupni kadrovi
+  Premieres in: Premijera u
+  Premieres: Premijere
 Videos:
   #& Sort By
   Sort By:
@@ -709,7 +748,7 @@ Playlist:
   Playlist: Zbirka
 Toggle Theatre Mode: 'Uključi/isključi kazališni modus'
 Change Format:
-  Change Video Formats: 'Promijeni videoformate'
+  Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
   Use Legacy Formats: 'Koristi stare formate'
   Use Audio Formats: 'Koristi audioformate'
@@ -733,6 +772,7 @@ Share:
   Include Timestamp: Uključi vremensku oznaku
   YouTube Channel URL copied to clipboard: 'URL YouTube kanala kopiran je u međuspremnik'
   Invidious Channel URL copied to clipboard: 'URL Invidious kanala kopiran je u međuspremnik'
+  Share Channel: Dijeli kanal
 Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
@@ -753,7 +793,7 @@ Comments:
   Top comments: Najpopularniji komentari
   Sort by: Redoslijed
   Show More Replies: Pokaži više odgovora
-  From $channelName: od $channelName
+  From {channelName}: od {channelName}
   And others: i drugi
   Pinned by: Prikvačio/la
   Member: Član
@@ -780,11 +820,11 @@ Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je preki
 Yes: 'Da'
 No: 'Ne'
 The playlist has been reversed: Redoslijed zbirke je obrnut
-A new blog is now available, $. Click to view more: Dostupan je novi blog, $. Pritisni
-  za prikaz detalja
+A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog,
+  {blogTitle}. Pritisni za prikaz detalja
 Download From Site: Preuzmi s web-stranice
-Version $ is now available!  Click for more details: Dostupna je verzija $! Pritisni
-  za prikaz detalja
+Version {versionNumber} is now available!  Click for more details: Dostupna je verzija
+  {versionNumber}! Pritisni za prikaz detalja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
   video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
   u zemlji.
@@ -825,6 +865,8 @@ Tooltips:
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
+    Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
+      tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
   Privacy Settings:
     Remove Video Meta Files: Kad je aktivirano, FreeTube automatski uklanja datoteke
       metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
@@ -840,7 +882,10 @@ Tooltips:
     Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
-    DefaultCustomArgumentsTemplate: '(Standardno: „$”)'
+    DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
+  Experimental Settings:
+    Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
+      i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -851,21 +896,21 @@ Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na
   ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
-Default Invidious instance has been set to $: Standardna Invidious instanca je postavljena
-  na $
+Default Invidious instance has been set to {instance}: Standardna Invidious instanca
+  je postavljena na {instance}
 External link opening has been disabled in the general settings: Vanjsko otvaranje
   poveznica je deaktivirano u općim postavkama
 Search Bar:
   Clear Input: Izbriši unos
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
-Downloading failed: Došlo je do problema prilikom preuzimanja „$”
-Downloading has completed: „$” je preuzeto
-Starting download: Početak preuzimanja „$”
-Screenshot Success: Snimka ekrana je spremljena pod „$”
-Screenshot Error: Neuspjela snimka ekrana. $
+Downloading failed: Došlo je do problema prilikom preuzimanja „{videoTitle}”
+Downloading has completed: „{videoTitle}” je preuzeto
+Starting download: Početak preuzimanja „{videoTitle}”
+Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
+Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
 Age Restricted:
-  This $contentType is age restricted: Ovaj $ je dobno ograničen
+  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
   Type:
     Channel: Kanal
     Video: Video
@@ -873,8 +918,19 @@ Channels:
   Channels: Kanali
   Title: Popis kanala
   Search bar placeholder: Pretraži kanale
-  Count: $ kanala pronađena.
+  Count: '{number} kanala pronađena.'
   Empty: Tvoj popis kanala je trenutačno prazan.
   Unsubscribe: Prekini pretplatu
-  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „$”?
-  Unsubscribed: $ je uklonjen iz tvojih pretplata
+  Unsubscribe Prompt: Stvarno želiš prekinuti pretplatu na „{channelName}”?
+  Unsubscribed: '{channelName} je uklonjen iz tvojih pretplata'
+Clipboard:
+  Copy failed: Neuspjelo kopiranje u međuspremnik
+  Cannot access clipboard without a secure connection: Pristup međuspremniku nije
+    moguć bez sigurne veze
+Chapters:
+  Chapters: Poglavlja
+  'Chapters list visible, current chapter: {chapterName}': 'Popis poglavlja vidljiv,
+    aktualno poglavlje: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Popis poglavlja skriven,
+    aktualno poglavlje: {chapterName}'
+Preferences: Korisničke postavke

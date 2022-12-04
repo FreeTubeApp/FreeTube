@@ -9,10 +9,10 @@ import FtPrompt from './components/ft-prompt/ft-prompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
-import $ from 'jquery'
 import { marked } from 'marked'
-import Parser from 'rss-parser'
 import { IpcChannels } from '../constants'
+import packageDetails from '../../package.json'
+import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
@@ -51,14 +51,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
-    },
-    usingElectron: function() {
-      return this.$store.getters.getUsingElectron
     },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
@@ -152,7 +146,7 @@ export default Vue.extend({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances({ isDev: this.isDev })
+      await this.fetchInvidiousInstances()
       if (this.defaultInvidiousInstance === '') {
         await this.setRandomCurrentInvidiousInstance()
       }
@@ -161,12 +155,12 @@ export default Vue.extend({
         this.grabHistory()
         this.grabAllPlaylists()
 
-        if (this.usingElectron) {
-          console.log('User is using Electron')
+        if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
+          this.enableSetSearchQueryText()
           this.enableOpenUrl()
           this.watchSystemTheme()
           await this.checkExternalPlayer()
@@ -197,75 +191,72 @@ export default Vue.extend({
     },
 
     updateTheme: function (theme) {
-      console.group('updateTheme')
-      console.log('Theme: ', theme)
       document.body.className = `${theme.baseTheme} main${theme.mainColor} sec${theme.secColor}`
       document.body.dataset.systemTheme = this.systemTheme
-      console.groupEnd()
     },
 
     checkForNewUpdates: function () {
       if (this.checkForUpdates) {
-        const { version } = require('../../package.json')
         const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
 
-        $.getJSON(requestUrl, (response) => {
-          const tagName = response[0].tag_name
-          const versionNumber = tagName.replace('v', '').replace('-beta', '')
-          this.updateChangelog = marked.parse(response[0].body)
-          this.changeLogTitle = response[0].name
+        fetch(requestUrl)
+          .then((response) => response.json())
+          .then((json) => {
+            const tagName = json[0].tag_name
+            const versionNumber = tagName.replace('v', '').replace('-beta', '')
+            this.updateChangelog = marked.parse(json[0].body)
+            this.changeLogTitle = json[0].name
 
-          const message = this.$t('Version $ is now available!  Click for more details')
-          this.updateBannerMessage = message.replace('$', versionNumber)
+            this.updateBannerMessage = this.$t('Version {versionNumber} is now available!  Click for more details', { versionNumber })
 
-          const appVersion = version.split('.')
-          const latestVersion = versionNumber.split('.')
+            const appVersion = packageDetails.version.split('.')
+            const latestVersion = versionNumber.split('.')
 
-          if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
-            this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
-            this.showUpdatesBanner = true
-          } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
-            this.showUpdatesBanner = true
-          }
-        }).fail((xhr, textStatus, error) => {
-          console.log(xhr)
-          console.log(textStatus)
-          console.log(requestUrl)
-          console.log(error)
-        })
+            if (parseInt(appVersion[0]) < parseInt(latestVersion[0])) {
+              this.showUpdatesBanner = true
+            } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
+              this.showUpdatesBanner = true
+            } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
+              this.showUpdatesBanner = true
+            }
+          })
+          .catch((error) => {
+            console.error('errored while checking for updates', requestUrl, error)
+          })
       }
     },
 
     checkForNewBlogPosts: function () {
       if (this.checkForBlogPosts) {
-        const parser = new Parser()
-        const feedUrl = 'https://write.as/freetube/feed/'
         let lastAppWasRunning = localStorage.getItem('lastAppWasRunning')
 
         if (lastAppWasRunning !== null) {
           lastAppWasRunning = new Date(lastAppWasRunning)
         }
 
-        parser.parseURL(feedUrl).then((response) => {
-          const latestBlog = response.items[0]
-          const latestPubDate = new Date(latestBlog.pubDate)
+        fetch('https://write.as/freetube/feed/')
+          .then(response => response.text())
+          .then(response => {
+            const xmlDom = new DOMParser().parseFromString(response, 'application/xml')
 
-          if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
-            const message = this.$t('A new blog is now available, $. Click to view more')
-            this.blogBannerMessage = message.replace('$', latestBlog.title)
-            this.latestBlogUrl = latestBlog.link
-            this.showBlogBanner = true
-          }
+            const latestBlog = xmlDom.querySelector('item')
+            const latestPubDate = new Date(latestBlog.querySelector('pubDate').textContent)
 
-          localStorage.setItem('lastAppWasRunning', new Date())
-        })
+            if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
+              const title = latestBlog.querySelector('title').textContent
+
+              this.blogBannerMessage = this.$t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: title })
+              this.latestBlogUrl = latestBlog.querySelector('link').textContent
+              this.showBlogBanner = true
+            }
+
+            localStorage.setItem('lastAppWasRunning', new Date())
+          })
       }
     },
 
     checkExternalPlayer: async function () {
       const payload = {
-        isDev: this.isDev,
         externalPlayer: this.externalPlayer
       }
       this.getExternalPlayerCmdArgumentsData(payload)
@@ -281,7 +272,7 @@ export default Vue.extend({
 
     handleNewBlogBannerClick: function (response) {
       if (response) {
-        this.openExternalLink(this.latestBlogUrl)
+        openExternalLink(this.latestBlogUrl)
       }
 
       this.showBlogBanner = false
@@ -289,37 +280,39 @@ export default Vue.extend({
 
     openDownloadsPage: function () {
       const url = 'https://freetubeapp.io#download'
-      this.openExternalLink(url)
+      openExternalLink(url)
       this.showReleaseNotes = false
       this.showUpdatesBanner = false
     },
 
     activateKeyboardShortcuts: function () {
-      $(document).on('keydown', this.handleKeyboardShortcuts)
-      $(document).on('mousedown', () => {
+      document.addEventListener('keydown', this.handleKeyboardShortcuts)
+      document.addEventListener('mousedown', () => {
         this.hideOutlines = true
       })
     },
 
     handleKeyboardShortcuts: function (event) {
       if (event.altKey) {
-        switch (event.code) {
+        switch (event.key) {
           case 'ArrowRight':
             this.$refs.topNav.historyForward()
             break
           case 'ArrowLeft':
             this.$refs.topNav.historyBack()
             break
-          case 'KeyD':
+          case 'D':
+          case 'd':
             this.$refs.topNav.focusSearch()
             break
         }
       }
-      switch (event.code) {
+      switch (event.key) {
         case 'Tab':
           this.hideOutlines = false
           break
-        case 'KeyL':
+        case 'L':
+        case 'l':
           if ((process.platform !== 'darwin' && event.ctrlKey) ||
             (process.platform === 'darwin' && event.metaKey)) {
             this.$refs.topNav.focusSearch()
@@ -329,22 +322,26 @@ export default Vue.extend({
     },
 
     openAllLinksExternally: function () {
-      $(document).on('click', 'a[href^="http"]', (event) => {
-        this.handleLinkClick(event)
+      const isExternalLink = (event) => event.target.tagName === 'A' && !event.target.href.startsWith(window.location.origin)
+
+      document.addEventListener('click', (event) => {
+        if (isExternalLink(event)) {
+          this.handleLinkClick(event)
+        }
       })
 
-      $(document).on('auxclick', 'a[href^="http"]', (event) => {
+      document.addEventListener('auxclick', (event) => {
         // auxclick fires for all clicks not performed with the primary button
         // only handle the link click if it was the middle button,
         // otherwise the context menu breaks
-        if (event.button === 1) {
+        if (isExternalLink(event) && event.button === 1) {
           this.handleLinkClick(event)
         }
       })
     },
 
     handleLinkClick: function (event) {
-      const el = event.currentTarget
+      const el = event.target
       event.preventDefault()
 
       // Check if it's a YouTube link
@@ -359,9 +356,7 @@ export default Vue.extend({
         })
       } else if (this.externalLinkHandling === 'doNothing') {
         // Let user know opening external link is disabled via setting
-        this.showToast({
-          message: this.$t('External link opening has been disabled in the general settings')
-        })
+        showToast(this.$t('External link opening has been disabled in the general settings'))
       } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
         // Storing the URL is necessary as
         // there is no other way to pass the URL to click callback
@@ -369,7 +364,7 @@ export default Vue.extend({
         this.showExternalLinkOpeningPrompt = true
       } else {
         // Open links externally
-        this.openExternalLink(el.href)
+        openExternalLink(el.href)
       }
     },
 
@@ -386,9 +381,9 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            const path = `/watch/${videoId}`
-            this.openInternalPath({
-              path,
+
+            openInternalPath({
+              path: `/watch/${videoId}`,
               query,
               doCreateNewWindow
             })
@@ -398,9 +393,8 @@ export default Vue.extend({
           case 'playlist': {
             const { playlistId, query } = result
 
-            const path = `/playlist/${playlistId}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/playlist/${playlistId}`,
               query,
               doCreateNewWindow
             })
@@ -410,11 +404,11 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            const path = `/search/${encodeURIComponent(searchQuery)}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
+              searchQueryText: searchQuery
             })
             break
           }
@@ -426,18 +420,15 @@ export default Vue.extend({
               message = this.$t(message)
             }
 
-            this.showToast({
-              message: message
-            })
+            showToast(message)
             break
           }
 
           case 'channel': {
             const { channelId, subPath } = result
 
-            const path = `/channel/${channelId}/${subPath}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
               doCreateNewWindow
             })
             break
@@ -455,9 +446,7 @@ export default Vue.extend({
               message = this.$t(message)
             }
 
-            this.showToast({
-              message: message
-            })
+            showToast(message)
           }
         }
       })
@@ -473,25 +462,14 @@ export default Vue.extend({
       })
     },
 
-    openInternalPath: function({ path, doCreateNewWindow, query = {} }) {
-      if (this.usingElectron && doCreateNewWindow) {
-        const { ipcRenderer } = require('electron')
+    enableSetSearchQueryText: function () {
+      ipcRenderer.on('updateSearchInputText', (event, searchQueryText) => {
+        if (searchQueryText) {
+          this.$refs.topNav.updateSearchInputText(searchQueryText)
+        }
+      })
 
-        // Combine current document path and new "hash" as new window startup URL
-        const newWindowStartupURL = [
-          window.location.href.split('#')[0],
-          `#${path}?${(new URLSearchParams(query)).toString()}`
-        ].join('')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL
-        })
-      } else {
-        // Web
-        this.$router.push({
-          path,
-          query
-        })
-      }
+      ipcRenderer.send('searchInputHandlingReady')
     },
 
     enableOpenUrl: function () {
@@ -512,7 +490,7 @@ export default Vue.extend({
         // if `lastExternalLinkToBeOpened` is empty
 
         // Open links externally
-        this.openExternalLink(this.lastExternalLinkToBeOpened)
+        openExternalLink(this.lastExternalLinkToBeOpened)
       }
     },
 
@@ -527,8 +505,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'showToast',
-      'openExternalLink',
       'grabUserSettings',
       'grabAllProfiles',
       'grabHistory',

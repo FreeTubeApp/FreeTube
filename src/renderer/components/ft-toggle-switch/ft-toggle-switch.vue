@@ -3,7 +3,8 @@
     class="switch-ctn"
     :class="{
       compact,
-      disabled: disabled
+      disabled: disabled,
+      containsTooltip: tooltip.length > 0
     }"
   >
     <input
@@ -26,7 +27,7 @@
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"
-        position="bottom-left"
+        :position="tooltipPosition"
         :tooltip="tooltip"
       />
     </label>

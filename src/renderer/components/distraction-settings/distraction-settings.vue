@@ -1,11 +1,7 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Distraction Free Settings.Distraction Free Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Distraction Free Settings.Distraction Free Settings')"
+  >
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
@@ -50,6 +46,12 @@
           :default-value="hideSharingActions"
           @change="updateHideSharingActions"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Chapters')"
+          :compact="true"
+          :default-value="hideChapters"
+          @change="updateHideChapters"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -89,6 +91,12 @@
           @change="updateHideLiveStreams"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
+          :compact="true"
+          :default-value="hideUpcomingPremieres"
+          @change="updateHideUpcomingPremieres"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Comments')"
           :compact="true"
           :default-value="hideComments"
@@ -96,25 +104,7 @@
         />
       </div>
     </div>
-    <br>
-    <ft-flex-box>
-      <ft-select
-        v-if="false"
-        placeholder="Distraction View Type"
-        :value="viewValues[0]"
-        :select-names="viewNames"
-        :select-values="viewValues"
-      />
-    </ft-flex-box>
-    <br>
-    <ft-flex-box>
-      <ft-button
-        v-if="false"
-        label="Manage My Distractions"
-      />
-    </ft-flex-box>
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./distraction-settings.js" />
-<style scoped lang="sass" src="./distraction-settings.sass" />

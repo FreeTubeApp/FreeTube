@@ -18,15 +18,15 @@
         <div class="background" />
         <div class="inner">
           <div>{{ videoCount }}</div>
-          <div><font-awesome-icon icon="list" /></div>
+          <div><font-awesome-icon :icon="['fas','list']" /></div>
         </div>
       </div>
     </router-link>
     <div class="info">
       <ft-icon-button
         v-if="externalPlayer !== ''"
-        :title="$t('Video.External Player.OpenInTemplate').replace('$', externalPlayer)"
-        icon="external-link-alt"
+        :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
+        :icon="['fas', 'external-link-alt']"
         class="externalPlayerButton"
         theme="base-no-default"
         :size="16"

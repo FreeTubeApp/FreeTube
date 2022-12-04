@@ -7,7 +7,7 @@
     <player-settings />
     <hr>
     <external-player-settings v-if="usingElectron" />
-    <hr>
+    <hr v-if="usingElectron">
     <subscription-settings />
     <hr>
     <distraction-settings />
@@ -19,10 +19,12 @@
     <proxy-settings />
     <hr>
     <download-settings v-if="usingElectron" />
-    <hr>
+    <hr v-if="usingElectron">
     <parental-control-settings />
     <hr>
     <sponsor-block-settings />
+    <hr v-if="usingElectron">
+    <experimental-settings v-if="usingElectron" />
   </div>
 </template>
 
