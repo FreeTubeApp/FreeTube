@@ -40,7 +40,6 @@
 .navOption, .navChannel {
   position: relative;
   padding: 5px;
-  cursor: pointer;
   min-height: 35px;
 }
 
@@ -88,7 +87,7 @@
   transform: translateY(-50%);
 }
 
-.channelLink {
+.navOption, .channelLink {
   display: block;
   color: inherit;
   text-decoration: inherit;

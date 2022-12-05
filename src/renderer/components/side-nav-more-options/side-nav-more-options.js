@@ -32,7 +32,7 @@ export default Vue.extend({
   methods: {
     navigate: function (route) {
       this.openMoreOptions = false
-      this.$emit('navigate', route)
+      this.$router.push('/' + route)
     }
   }
 })

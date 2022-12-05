@@ -8,12 +8,11 @@
       class="inner"
       :class="applyHiddenLabels"
     >
-      <div
+      <router-link
         class="navOption topNavOption mobileShow "
         role="button"
-        tabindex="0"
+        to="/subscriptions"
         :title="$t('Subscriptions.Subscriptions')"
-        @click="navigate('subscriptions')"
       >
         <div
           class="thumbnailContainer"
@@ -31,14 +30,12 @@
         >
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
+        to="/subscribedchannels"
         :title="$t('Channels.Channels')"
-        @click="navigate('subscribedchannels')"
-        @keydown.enter.prevent="navigate('subscribedchannels')"
       >
         <div
           class="thumbnailContainer"
@@ -56,15 +53,13 @@
         >
           {{ $t("Channels.Channels") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hideTrendingVideos"
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
+        to="/trending"
         :title="$t('Trending.Trending')"
-        @click="navigate('trending')"
-        @keydown.enter.prevent="navigate('trending')"
       >
         <div
           class="thumbnailContainer"
@@ -82,15 +77,13 @@
         >
           {{ $t("Trending.Trending") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
+        to="/popular"
         :title="$t('Most Popular')"
-        @click="navigate('popular')"
-        @keydown.enter.prevent="navigate('popular')"
       >
         <div
           class="thumbnailContainer"
@@ -108,15 +101,13 @@
         >
           {{ $t("Most Popular") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hidePlaylists"
         class="navOption mobileShow"
         role="button"
-        tabindex="0"
+        to="/userplaylists"
         :title="$t('Playlists')"
-        @click="navigate('userplaylists')"
-        @keydown.enter.prevent="navigate('userplaylists')"
       >
         <div
           class="thumbnailContainer"
@@ -134,17 +125,13 @@
         >
           {{ $t("Playlists") }}
         </p>
-      </div>
-      <side-nav-more-options
-        @navigate="navigate"
-      />
-      <div
+      </router-link>
+      <side-nav-more-options />
+      <router-link
         class="navOption mobileShow"
         role="button"
-        tabindex="0"
+        to="/history"
         :title="$t('History.History')"
-        @click="navigate('history')"
-        @keydown.enter.prevent="navigate('history')"
       >
         <div
           class="thumbnailContainer"
@@ -162,15 +149,13 @@
         >
           {{ $t("History.History") }}
         </p>
-      </div>
+      </router-link>
       <hr>
-      <div
+      <router-link
         class="navOption mobileShow"
         role="button"
-        tabindex="0"
+        to="/settings"
         :title="$t('Settings.Settings')"
-        @click="navigate('settings')"
-        @keydown.enter.prevent="navigate('settings')"
       >
         <div
           class="thumbnailContainer"
@@ -188,14 +173,12 @@
         >
           {{ $t('Settings.Settings') }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
+        to="/about"
         :title="$t('About.About')"
-        @click="navigate('about')"
-        @keydown.enter.prevent="navigate('about')"
       >
         <div
           class="thumbnailContainer"
@@ -213,7 +196,7 @@
         >
           {{ $t("About.About") }}
         </p>
-      </div>
+      </router-link>
       <hr>
       <div
         v-if="!hideActiveSubscriptions"

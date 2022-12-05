@@ -75,10 +75,5 @@ export default Vue.extend({
         hiddenLabels: this.hideText
       }
     }
-  },
-  methods: {
-    navigate: function (route) {
-      this.$router.push('/' + route)
-    }
   }
 })
