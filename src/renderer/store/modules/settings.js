@@ -1,7 +1,7 @@
 import i18n from '../../i18n/index'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
-import { showToast } from '../../helpers/utils'
+import { getSystemLocale, showToast } from '../../helpers/utils'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -285,7 +285,7 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
+        const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
         const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
         const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
