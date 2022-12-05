@@ -55,7 +55,7 @@
     "autolinker": "^4.0.0",
     "browserify": "^17.0.0",
     "browserify-zlib": "^0.2.0",
-    "electron-context-menu": "^3.6.0",
+    "electron-context-menu": "^3.6.1",
     "http-proxy-agent": "^5.0.0",
     "https-proxy-agent": "^5.0.0",
     "lodash.debounce": "^4.0.8",
