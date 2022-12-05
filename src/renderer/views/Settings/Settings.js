@@ -12,6 +12,7 @@ import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
 import ParentControlSettings from '../../components/parental-control-settings/parental-control-settings.vue'
 import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
+import PasswordSettings from '../../components/password-settings/password-settings.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -28,11 +29,30 @@ export default Vue.extend({
     'sponsor-block-settings': SponsorBlockSettings,
     'download-settings': DownloadSettings,
     'parental-control-settings': ParentControlSettings,
-    'experimental-settings': ExperimentalSettings
+    'experimental-settings': ExperimentalSettings,
+    'password-settings': PasswordSettings,
   },
+  data: function () {
+    return {
+      settingsPassword: ''
+    }
+  },
+
   computed: {
     usingElectron: function () {
       return process.env.IS_ELECTRON
+    },
+    showSettings: function () {
+      return this.settingsPassword === this.storedSettingsPassword
+    },
+    storedSettingsPassword: function() {
+      return this.$store.getters.getSettingsPassword
+    },
+    hasStoredPassword: function() {
+      return this.storedSettingsPassword !== ''
     }
+  },
+  beforeDestroy: function () {
+    this.settingsPassword = ''
   }
 })

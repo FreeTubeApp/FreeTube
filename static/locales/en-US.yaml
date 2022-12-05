@@ -414,6 +414,15 @@ Settings:
     Experimental Settings: Experimental Settings
     Warning: These settings are experimental, they make cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
+  Password Settings:
+    Password Settings: Password Protect Settings
+    Set Password To Prevent Access: Set a password to prevent access to settings
+    Set Password: Set Password
+    Remove Password: Remove Password
+    Enter Password To Unlock: Enter password to unlock settings
+    Settings Unlocked: Settings unlocked 
+    Lock: Lock
+    Unlock: Unlock
 About:
   #On About page
   About: About
