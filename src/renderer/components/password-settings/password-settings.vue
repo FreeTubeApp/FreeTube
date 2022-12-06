@@ -18,7 +18,7 @@
         <ft-button
           v-if="!unlocked"
           :label="$t('Settings.Password Settings.Unlock')"
-          @click="unlockSettings"
+          @click="handleUnlock"
         />
       </ft-flex-box>
       <ft-prompt
@@ -26,7 +26,7 @@
         :label="$t('Settings.Password Settings.Password Incorrect')"
         :option-names="[$t('Ok')]"
         :option-values="['ok']"
-        @click="lockSettings"
+        @click="handleLock"
       />
       <ft-flex-box
         v-if="(hasStoredPassword && unlocked)"
@@ -42,11 +42,11 @@
         />
         <ft-button
           :label="$t('Settings.Password Settings.Lock')"
-          @click="lockSettings"
+          @click="handleLock"
         />
         <ft-button
           :label="$t('Settings.Password Settings.Remove Password')"
-          @click="removePassword"
+          @click="handleRemovePassword"
         />
       </ft-flex-box>
       <ft-flex-box
@@ -63,7 +63,7 @@
         />
         <ft-button
           :label="$t('Settings.Password Settings.Set Password')"
-          @click="setPassword"
+          @click="handleSetPassword"
         />
       </ft-flex-box>
     </div>

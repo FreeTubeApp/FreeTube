@@ -23,7 +23,6 @@ export default Vue.extend({
   data: function() {
     return {
       password: '',
-      unlocked: false,
       showIncorrectPassword: false
     }
   },
@@ -36,34 +35,39 @@ export default Vue.extend({
     },
     incorrectPassword: function() {
       return this.password !== '' && !this.unlocked
+    },
+    unlocked: function() {
+      return this.getStoredPassword === '' || this.password === this.getStoredPassword
     }
   },
+  watch: {
+    unlocked(val, oldVal) {
+      if (val !== oldVal) {
+        this.propagateUnlockStatus()
+      }
+    },
+  },
   mounted: function () {
-    this.updateUnlockStatus()
+    this.propagateUnlockStatus()
   },
   methods: {
-    updateUnlockStatus: function() {
-      this.unlocked = this.password === this.getStoredPassword
-      this.$emit('settingsUnlocked', this.unlocked)
-    },
-    unlockSettings: function () {
-      this.updateUnlockStatus()
+    handleUnlock: function () {
       this.showIncorrectPassword = !this.unlocked
     },
-    lockSettings: function () {
+    handleLock: function () {
       this.password = ''
-      this.updateUnlockStatus()
       this.showIncorrectPassword = false
     },
-    setPassword: function () {
+    handleSetPassword: function () {
       this.setSettingsPassword(this.password)
       this.password = ''
-      this.updateUnlockStatus()
     },
-    removePassword: function () {
+    handleRemovePassword: function () {
       this.setSettingsPassword('')
       this.password = ''
-      this.updateUnlockStatus()
+    },
+    propagateUnlockStatus: function() {
+      this.$emit('settingsUnlocked', this.unlocked)
     },
 
     ...mapMutations([
