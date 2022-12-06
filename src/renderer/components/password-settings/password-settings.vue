@@ -21,6 +21,13 @@
           @click="unlockSettings"
         />
       </ft-flex-box>
+      <ft-prompt
+        v-if="showIncorrectPassword"
+        :label="$t('Settings.Password Settings.Password Incorrect')"
+        :option-names="[$t('Ok')]"
+        :option-values="['ok']"
+        @click="lockSettings"
+      />
       <ft-flex-box
         v-if="(hasStoredPassword && unlocked)"
         class="settingsFlexStart460px"

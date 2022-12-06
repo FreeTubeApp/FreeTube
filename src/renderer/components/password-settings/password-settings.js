@@ -6,6 +6,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
+import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
 export default Vue.extend({
   name: 'PasswordSettings',
@@ -15,13 +16,15 @@ export default Vue.extend({
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox,
-    'ft-button': FtButton
+    'ft-button': FtButton,
+    'ft-prompt': FtPrompt,
   },
   emits: ['settingsUnlocked'],
   data: function() {
     return {
       password: '',
-      unlocked: false
+      unlocked: false,
+      showIncorrectPassword: false
     }
   },
   computed: {
@@ -30,6 +33,9 @@ export default Vue.extend({
     },
     hasStoredPassword: function() {
       return this.getStoredPassword !== ''
+    },
+    incorrectPassword: function() {
+      return this.password !== '' && !this.unlocked
     }
   },
   mounted: function () {
@@ -42,10 +48,12 @@ export default Vue.extend({
     },
     unlockSettings: function () {
       this.updateUnlockStatus()
+      this.showIncorrectPassword = !this.unlocked
     },
     lockSettings: function () {
       this.password = ''
       this.updateUnlockStatus()
+      this.showIncorrectPassword = false
     },
     setPassword: function () {
       this.setSettingsPassword(this.password)
