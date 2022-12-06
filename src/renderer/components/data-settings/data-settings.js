@@ -1121,7 +1121,6 @@ export default Vue.extend({
       'updateShowProgressBar',
       'updateHistory',
       'compactHistory',
-      'getUserDataPath',
       'addPlaylist',
       'addVideo'
     ]),
