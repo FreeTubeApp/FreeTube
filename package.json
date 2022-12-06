@@ -69,7 +69,7 @@
     "videojs-mobile-ui": "^0.8.0",
     "videojs-overlay": "^2.1.4",
     "videojs-vtt-thumbnails-freetube": "0.0.15",
-    "vue": "^2.7.13",
+    "vue": "^2.7.14",
     "vue-i18n": "^8.28.2",
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
