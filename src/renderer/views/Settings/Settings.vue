@@ -1,13 +1,10 @@
 <template>
   <div>
     <password-settings
-      :current-password="settingsPassword"
-      :has-stored-password="hasStoredPassword"
-      :unlocked="showSettings"
-      @passwordChanged="(n) => settingsPassword = n"
+      @settingsUnlocked="(n) => settingsUnlocked = n"
     />
     <hr>
-    <div v-if="showSettings">
+    <div v-if="settingsUnlocked">
       <general-settings />
       <hr>
       <theme-settings />

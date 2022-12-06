@@ -17,43 +17,45 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
   },
-  props: {
-    currentPassword: {
-      type: String,
-      required: true,
-    },
-    hasStoredPassword: {
-      type: Boolean,
-      required: true
-    },
-    unlocked: {
-      type: Boolean,
-      required: true
-    }
-  },
-  emits: ['passwordChanged'],
+  emits: ['settingsUnlocked'],
   data: function() {
     return {
-      password: ''
+      password: '',
+      unlocked: false
     }
   },
+  computed: {
+    getStoredPassword: function() {
+      return this.$store.getters.getSettingsPassword
+    },
+    hasStoredPassword: function() {
+      return this.getStoredPassword !== ''
+    }
+  },
+  mounted: function () {
+    this.updateUnlockStatus()
+  },
   methods: {
+    updateUnlockStatus: function() {
+      this.unlocked = this.password === this.getStoredPassword
+      this.$emit('settingsUnlocked', this.unlocked)
+    },
     unlockSettings: function () {
-      this.$emit('passwordChanged', this.password)
+      this.updateUnlockStatus()
     },
     lockSettings: function () {
       this.password = ''
-      this.$emit('passwordChanged', this.password)
+      this.updateUnlockStatus()
     },
     setPassword: function () {
       this.setSettingsPassword(this.password)
       this.password = ''
-      this.$emit('passwordChanged', this.password)
+      this.updateUnlockStatus()
     },
     removePassword: function () {
-      this.password = ''
       this.setSettingsPassword('')
-      this.$emit('passwordChanged', '')
+      this.password = ''
+      this.updateUnlockStatus()
     },
 
     ...mapMutations([

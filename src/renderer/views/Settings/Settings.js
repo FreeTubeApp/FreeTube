@@ -34,7 +34,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      settingsPassword: ''
+      settingsUnlocked: false
     }
   },
 
@@ -42,17 +42,5 @@ export default Vue.extend({
     usingElectron: function () {
       return process.env.IS_ELECTRON
     },
-    showSettings: function () {
-      return this.settingsPassword === this.storedSettingsPassword
-    },
-    storedSettingsPassword: function() {
-      return this.$store.getters.getSettingsPassword
-    },
-    hasStoredPassword: function() {
-      return this.storedSettingsPassword !== ''
-    }
-  },
-  beforeDestroy: function () {
-    this.settingsPassword = ''
   }
 })
