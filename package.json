@@ -82,7 +82,7 @@
     "ytsr": "^3.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.2",
+    "@babel/core": "^7.20.5",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/preset-env": "^7.20.2",
     "babel-eslint": "^10.1.0",
