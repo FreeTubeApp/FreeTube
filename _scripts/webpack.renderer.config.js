@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
 const { productName } = require('../package.json')
@@ -100,7 +101,15 @@ const config = {
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
     minimizer: [
-      '...', // extend webpack's list instead of overwriting it
+      new TerserPlugin({
+        // swc is significantly faster than terser, with only a few kb larger output
+        minify: TerserPlugin.swcMinify,
+        terserOptions: {
+          compress: {
+            hoist_funs: true
+          }
+        }
+      }),
       new CssMinimizerPlugin()
     ]
   },
