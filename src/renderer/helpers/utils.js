@@ -455,3 +455,36 @@ export function replaceFilenameForbiddenChars(filenameOriginal) {
   }
   return filenameNew
 }
+
+export async function getSystemLocale() {
+  let locale
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    locale = await ipcRenderer.invoke(IpcChannels.GET_SYSTEM_LOCALE)
+  } else {
+    if (navigator && navigator.language) {
+      locale = navigator.language
+    }
+  }
+
+  return locale || 'en-US'
+}
+
+export async function getUserDataPath() {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
+  } else {
+    // TODO: implement getUserDataPath web compatible callback
+    return null
+  }
+}
+
+export async function getPicturesPath() {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.GET_PICTURES_PATH)
+  } else {
+    return null
+  }
+}

@@ -15,7 +15,7 @@ import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
-import { showSaveDialog, showToast } from '../../helpers/utils'
+import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -1382,7 +1382,7 @@ export default Vue.extend({
         }
 
         if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
-          dirPath = await this.getPicturesPath()
+          dirPath = await getPicturesPath()
         } else {
           dirPath = this.screenshotFolder
         }
@@ -1415,7 +1415,7 @@ export default Vue.extend({
         this.updateScreenshotFolderPath(dirPath)
       } else {
         if (this.screenshotFolder === '') {
-          dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
+          dirPath = path.join(await getPicturesPath(), 'Freetube', subDir)
         } else {
           dirPath = path.join(this.screenshotFolder, subDir)
         }
@@ -1922,7 +1922,6 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
-      'getPicturesPath'
     ])
   }
 })

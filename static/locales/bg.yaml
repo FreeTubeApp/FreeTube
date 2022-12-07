@@ -218,6 +218,7 @@ Settings:
     Disable Smooth Scrolling: Изключване на плавното превъртане
     Expand Side Bar by Default: Разширяване на страничната лента по подразбиране
     Hide Side Bar Labels: Скриване етикетите на страничната лента
+    Hide FreeTube Header Logo: Скриване логото на FreeTube
   Player Settings:
     Player Settings: 'Настройки на плейъра'
     Force Local Backend for Legacy Formats: 'Принудително връщане към локалния интерфейс
@@ -273,6 +274,7 @@ Settings:
         също така да използвате "\" или "/", за създаване на подпапки.
       Format Label: Формат
       Folder Button: Избор на папка
+    Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -388,6 +390,7 @@ Settings:
     Hide Sharing Actions: Скриване на действията за споделяне
     Hide Live Streams: Скриване на предавания на живо
     Hide Chapters: Скриване на главите
+    Hide Upcoming Premieres: Скриване на предстоящите премиери
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -768,6 +771,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube адресът за вграждане е копиран'
   YouTube Channel URL copied to clipboard: YouTube адресът на канала е копиран
   Invidious Channel URL copied to clipboard: Invidious адресът на канала е копиран
+  Share Channel: Споделяне на канал
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'

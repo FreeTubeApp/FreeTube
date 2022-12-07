@@ -192,7 +192,7 @@
       </h3>
     </div>
     <h4
-      v-if="commentData.length > 0 && !isLoading && showComments"
+      v-if="commentData.length > 0 && !isLoading && showComments && nextPageToken"
       class="getMoreComments"
       @click="getMoreComments"
     >
