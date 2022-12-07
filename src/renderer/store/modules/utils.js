@@ -101,27 +101,6 @@ const getters = {
   }
 }
 
-/**
- * Wrapper function that calls `ipcRenderer.invoke(IRCtype, payload)` if the user is
- * using Electron or a provided custom callback otherwise.
- * @param {Object} context Object
- * @param {String} IRCtype String
- * @param {Function} webCbk Function
- * @param {Object} payload any (default: null)
-*/
-
-async function invokeIRC(context, IRCtype, webCbk, payload = null) {
-  let response = null
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    response = await ipcRenderer.invoke(IRCtype, payload)
-  } else if (webCbk) {
-    response = await webCbk()
-  }
-
-  return response
-}
-
 const actions = {
   async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
     if (!process.env.IS_ELECTRON) {
@@ -205,27 +184,6 @@ const actions = {
         showToast(i18n.t('Downloading has completed', { videoTitle: title }))
       }
     })
-  },
-
-  async getSystemLocale (context) {
-    const webCbk = () => {
-      if (navigator && navigator.language) {
-        return navigator.language
-      }
-    }
-
-    return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
-  },
-
-  async getUserDataPath (context) {
-    // TODO: implement getUserDataPath web compatible callback
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
-  },
-
-  async getPicturesPath (context) {
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.GET_PICTURES_PATH, webCbk)
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {

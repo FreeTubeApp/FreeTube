@@ -197,6 +197,7 @@ Settings:
     Expand Side Bar by Default: 幅広のサイド バーで起動
     Disable Smooth Scrolling: スムーズ スクロールの無効化
     Hide Side Bar Labels: サイドバー ラベルの非表示
+    Hide FreeTube Header Logo: FreeTube ヘッダー ロゴの非表示
   Player Settings:
     Player Settings: 'プレイヤーの設定'
     Force Local Backend for Legacy Formats: '旧形式であれば内部 API の適用'
