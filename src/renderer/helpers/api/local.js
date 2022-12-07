@@ -1,8 +1,8 @@
 import { Innertube, Session } from 'youtubei.js'
-import { PlayerCache } from './PlayerCache'
 import { join } from 'path'
 
-import store from '../../store/index'
+import { PlayerCache } from './PlayerCache'
+import { getUserDataPath } from '../utils'
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -17,7 +17,7 @@ import store from '../../store/index'
  */
 async function createInnertube(withPlayer = false) {
   if (withPlayer) {
-    const userData = await store.dispatch('getUserDataPath')
+    const userData = await getUserDataPath()
 
     return await Innertube.create({
       // use browser fetch

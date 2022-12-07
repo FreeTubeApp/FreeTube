@@ -6,6 +6,7 @@ import { IpcChannels } from '../../../constants'
 import {
   createWebURL,
   openExternalLink,
+  replaceFilenameForbiddenChars,
   searchFiltersMatch,
   showSaveDialog,
   showToast
@@ -100,68 +101,14 @@ const getters = {
   }
 }
 
-/**
- * Wrapper function that calls `ipcRenderer.invoke(IRCtype, payload)` if the user is
- * using Electron or a provided custom callback otherwise.
- * @param {Object} context Object
- * @param {String} IRCtype String
- * @param {Function} webCbk Function
- * @param {Object} payload any (default: null)
-*/
-
-async function invokeIRC(context, IRCtype, webCbk, payload = null) {
-  let response = null
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    response = await ipcRenderer.invoke(IRCtype, payload)
-  } else if (webCbk) {
-    response = await webCbk()
-  }
-
-  return response
-}
-
 const actions = {
-  replaceFilenameForbiddenChars(_, filenameOriginal) {
-    let filenameNew = filenameOriginal
-    let forbiddenChars = {}
-    switch (process.platform) {
-      case 'win32':
-        forbiddenChars = {
-          '<': '＜', // U+FF1C
-          '>': '＞', // U+FF1E
-          ':': '：', // U+FF1A
-          '"': '＂', // U+FF02
-          '/': '／', // U+FF0F
-          '\\': '＼', // U+FF3C
-          '|': '｜', // U+FF5C
-          '?': '？', // U+FF1F
-          '*': '＊' // U+FF0A
-        }
-        break
-      case 'darwin':
-        forbiddenChars = { '/': '／', ':': '：' }
-        break
-      case 'linux':
-        forbiddenChars = { '/': '／' }
-        break
-      default:
-        break
-    }
-
-    for (const forbiddenChar in forbiddenChars) {
-      filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
-    }
-    return filenameNew
-  },
-
-  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
+  async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
     if (!process.env.IS_ELECTRON) {
       openExternalLink(url)
       return
     }
 
-    const fileName = `${await dispatch('replaceFilenameForbiddenChars', title)}.${extension}`
+    const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
     const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
     let folderPath = rootState.settings.downloadFolderPath
 
@@ -239,27 +186,6 @@ const actions = {
     })
   },
 
-  async getSystemLocale (context) {
-    const webCbk = () => {
-      if (navigator && navigator.language) {
-        return navigator.language
-      }
-    }
-
-    return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
-  },
-
-  async getUserDataPath (context) {
-    // TODO: implement getUserDataPath web compatible callback
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
-  },
-
-  async getPicturesPath (context) {
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.GET_PICTURES_PATH, webCbk)
-  },
-
   parseScreenshotCustomFileName: function({ rootState }, payload) {
     return new Promise((resolve, reject) => {
       const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
@@ -281,27 +207,13 @@ const actions = {
         parsedString = parsedString.replaceAll(key, value)
       }
 
-      const platform = process.platform
-      if (platform === 'win32') {
-        // https://www.boost.org/doc/libs/1_78_0/libs/filesystem/doc/portability_guide.htm
-        // https://stackoverflow.com/questions/1976007/
-        const noForbiddenChars = ['<', '>', ':', '"', '/', '|', '?', '*'].every(char => {
-          return parsedString.indexOf(char) === -1
-        })
-        if (!noForbiddenChars) {
-          reject(new Error('Forbidden Characters')) // use message as translation key
-        }
-      } else if (platform === 'darwin') {
-        // https://superuser.com/questions/204287/
-        if (parsedString.indexOf(':') !== -1) {
-          reject(new Error('Forbidden Characters'))
-        }
+      if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
+        reject(new Error('Forbidden Characters')) // use message as translation key
       }
 
-      const dirChar = platform === 'win32' ? '\\' : '/'
       let filename
-      if (parsedString.indexOf(dirChar) !== -1) {
-        const lastIndex = parsedString.lastIndexOf(dirChar)
+      if (parsedString.indexOf(path.sep) !== -1) {
+        const lastIndex = parsedString.lastIndexOf(path.sep)
         filename = parsedString.substring(lastIndex + 1)
       } else {
         filename = parsedString

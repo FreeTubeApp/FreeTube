@@ -98,7 +98,13 @@ export default Vue.extend({
     },
 
     invidiousUrl: function () {
-      return `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     invidiousChannelUrl: function () {
@@ -106,10 +112,21 @@ export default Vue.extend({
     },
 
     youtubeUrl: function () {
-      return `https://www.youtube.com/watch?v=${this.id}`
+      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     youtubeShareUrl: function () {
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        return `https://youtu.be/${this.id}?list=${this.playlistId}`
+      }
       return `https://youtu.be/${this.id}`
     },
 
