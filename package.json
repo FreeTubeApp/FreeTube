@@ -64,7 +64,7 @@
     "process": "^0.11.10",
     "socks-proxy-agent": "^7.0.0",
     "video.js": "7.20.3",
-    "videojs-contrib-quality-levels": "^2.1.0",
+    "videojs-contrib-quality-levels": "^2.2.1",
     "videojs-http-source-selector": "^1.1.6",
     "videojs-mobile-ui": "^0.8.0",
     "videojs-overlay": "^2.1.4",
