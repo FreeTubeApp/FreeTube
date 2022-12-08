@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
@@ -59,19 +59,19 @@ export default Vue.extend({
       this.showIncorrectPassword = false
     },
     handleSetPassword: function () {
-      this.setSettingsPassword(this.password)
+      this.updateSettingsPassword(this.password)
       this.password = ''
     },
     handleRemovePassword: function () {
-      this.setSettingsPassword('')
+      this.updateSettingsPassword('')
       this.password = ''
     },
     propagateUnlockStatus: function() {
       this.$emit('settingsUnlocked', this.unlocked)
     },
 
-    ...mapMutations([
-      'setSettingsPassword'
+    ...mapActions([
+      'updateSettingsPassword'
     ]),
 
   }
