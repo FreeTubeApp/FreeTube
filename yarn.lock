@@ -8112,7 +8112,7 @@ verror@^1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-video.js@7.20.3, "video.js@^6 || ^7", video.js@^7.0.0, "video.js@^7.2.0 || ^6.6.0":
+video.js@7.20.3, "video.js@^6 || ^7", "video.js@^6 || ^7 || ^8", video.js@^7.0.0, "video.js@^7.2.0 || ^6.6.0":
   version "7.20.3"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.20.3.tgz#5694741346dc683255993e5069daa15d4bacb646"
   integrity sha512-JMspxaK74LdfWcv69XWhX4rILywz/eInOVPdKefpQiZJSMD5O8xXYueqACP2Q5yqKstycgmmEKlJzZ+kVmDciw==
@@ -8131,13 +8131,13 @@ video.js@7.20.3, "video.js@^6 || ^7", video.js@^7.0.0, "video.js@^7.2.0 || ^6.6.
     videojs-font "3.2.0"
     videojs-vtt.js "^0.15.4"
 
-videojs-contrib-quality-levels@^2.0.4, videojs-contrib-quality-levels@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/videojs-contrib-quality-levels/-/videojs-contrib-quality-levels-2.1.0.tgz#046e9e21ed01043f512b83a1916001d552457083"
-  integrity sha512-dqGQGbL9AFhucxki7Zh0c3kIhH0PAPcHEh6jUdRyaFCVeOuqnJrOYs/3wNtsokDdBdRf2Du2annpu4Z2XaSZRg==
+videojs-contrib-quality-levels@^2.0.4, videojs-contrib-quality-levels@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/videojs-contrib-quality-levels/-/videojs-contrib-quality-levels-2.2.1.tgz#46bd7e1db25e6e45824dadf933b08f0c6ec724a1"
+  integrity sha512-cnF6OGGgoC/2nUrbdz54nzPm3BpEZQzMTpyekiX6AXs8imATX2sHbrUz97xXVSHITldk/+d7ZAUrdQYJJTyuug==
   dependencies:
     global "^4.3.2"
-    video.js "^6 || ^7"
+    video.js "^6 || ^7 || ^8"
 
 videojs-font@3.2.0:
   version "3.2.0"
