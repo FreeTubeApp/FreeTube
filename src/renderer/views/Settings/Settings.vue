@@ -1,9 +1,5 @@
 <template>
   <div>
-    <password-settings
-      @settingsUnlocked="(n) => settingsUnlocked = n"
-    />
-    <hr>
     <div v-if="settingsUnlocked">
       <general-settings />
       <hr>
@@ -30,7 +26,11 @@
       <sponsor-block-settings />
       <hr v-if="usingElectron">
       <experimental-settings v-if="usingElectron" />
+      <hr>
     </div>
+    <password-settings
+      @settingsUnlocked="(n) => settingsUnlocked = n"
+    />
   </div>
 </template>
 
