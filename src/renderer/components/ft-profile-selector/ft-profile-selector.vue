@@ -26,7 +26,7 @@
       </h3>
       <ft-icon-button
         class="profileSettings"
-        :icon="['fas', 'sliders-h']"
+        :icon="['fas', 'user-cog']"
         @click="openProfileSettings"
       />
       <div

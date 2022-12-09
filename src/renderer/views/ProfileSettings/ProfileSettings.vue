@@ -2,6 +2,7 @@
   <div>
     <ft-card class="card">
       <h3>{{ $t("Profile.Profile Manager") }}</h3>
+      <h5>{{ $t("Profile.Profile Manager Tooltip") }}</h5>
       <ft-flex-box
         class="profileList"
       >
