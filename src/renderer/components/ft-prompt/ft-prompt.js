@@ -34,6 +34,11 @@ export default Vue.extend({
       promptButtons: []
     }
   },
+  computed: {
+    sanitizedLabel: function() {
+      return sanitizeForHtmlId(this.label)
+    }
+  },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
   },
@@ -48,7 +53,6 @@ export default Vue.extend({
     this.focusItem(0)
   },
   methods: {
-    sanitizeForHtmlId,
     hide: function() {
       this.$emit('click', null)
     },

@@ -33,7 +33,9 @@ export default Vue.extend({
       default: false
     }
   },
-  methods: {
-    sanitizeForHtmlId
+  computed: {
+    sanitizedPlaceholder: function() {
+      return sanitizeForHtmlId(this.placeholder)
+    }
   }
 })

@@ -7,11 +7,11 @@
   >
     <ft-card
       class="promptCard"
-      :aria-labelledby="'dialog-' + sanitizeForHtmlId(label)"
+      :aria-labelledby="('dialog-' + sanitizedLabel)"
     >
       <slot>
         <h2
-          :id="'dialog-' + sanitizeForHtmlId(label)"
+          :id="'dialog-' + sanitizedLabel"
           class="center"
         >
           {{ label }}
@@ -28,13 +28,13 @@
         <ft-flex-box>
           <ft-button
             v-for="(option, index) in optionNames"
-            :id="'prompt-' + sanitizeForHtmlId(label) + '-' + index"
+            :id="'prompt-' + sanitizedLabel + '-' + index"
             :key="index"
             :label="option"
             @click="$emit('click', optionValues[index])"
           />
           <ft-button
-            :id="'prompt-' + sanitizeForHtmlId(label) + '-close'"
+            :id="'prompt-' + sanitizedLabel + '-close'"
             :label="$t('Close')"
             tabindex="0"
             text-color="'var(--accent-color)'"
