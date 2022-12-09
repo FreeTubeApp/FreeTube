@@ -7,6 +7,7 @@ import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { colors } from '../../helpers/colors'
+import FtButton from '../ft-button/ft-button.vue'
 
 export default Vue.extend({
   name: 'ThemeSettings',
@@ -16,7 +17,8 @@ export default Vue.extend({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-slider': FtSlider,
     'ft-flex-box': FtFlexBox,
-    'ft-prompt': FtPrompt
+    'ft-prompt': FtPrompt,
+    'ft-button': FtButton
   },
   data: function () {
     return {
@@ -121,6 +123,11 @@ export default Vue.extend({
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
   },
   methods: {
+    openProfileSettings: function () {
+      this.$router.push({
+        path: '/settings/profile/'
+      })
+    },
     handleExpandSideBar: function (value) {
       if (this.isSideNavOpen !== value) {
         this.$store.commit('toggleSideNav')

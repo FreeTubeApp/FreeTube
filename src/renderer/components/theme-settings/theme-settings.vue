@@ -70,6 +70,13 @@
         @change="updateSecColor"
       />
     </ft-flex-box>
+    <br>
+    <ft-flex-box>
+      <ft-button
+        :label="$t('Settings.Theme Settings.Manage User Profile')"
+        @click="openProfileSettings"
+      />
+    </ft-flex-box>
     <ft-prompt
       v-if="showRestartPrompt"
       :label="restartPromptMessage"
