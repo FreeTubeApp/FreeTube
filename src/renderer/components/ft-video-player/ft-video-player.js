@@ -1781,7 +1781,7 @@ export default Vue.extend({
       return this.chapters.length > 0 &&
         (direction === 'previous' ? currentChapter > 0 : this.chapters.length - 1 !== currentChapter) &&
         ((process.platform !== 'darwin' && event.ctrlKey) ||
-          (process.platform === 'darwin' && event.altKey))
+          (process.platform === 'darwin' && event.metaKey))
     },
 
     // This function should always be at the bottom of this file
