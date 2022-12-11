@@ -1039,6 +1039,31 @@ function runApp() {
             },
             type: 'normal'
           },
+          { type: 'separator' },
+          {
+            label: 'Back',
+            accelerator: 'Alt+Left',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-back',
+              )
+            },
+            type: 'normal',
+          },
+          {
+            label: 'Forward',
+            accelerator: 'Alt+Right',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-forward',
+              )
+            },
+            type: 'normal',
+          },
         ]
       },
       {
