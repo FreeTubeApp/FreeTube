@@ -19,6 +19,7 @@
     <div class="shareLinks">
       <div class="header">
         <img
+          id="youtubeShareImage"
           class="youtubeLogo"
           src="~../../assets/img/yt_logo_mono_dark.png"
           alt="YouTube"
@@ -30,6 +31,7 @@
       <div class="buttons">
         <ft-button
           class="action"
+          aria-describedby="youtubeShareImage"
           @click="copyYoutube()"
         >
           <font-awesome-icon :icon="['fas', 'copy']" />
@@ -37,6 +39,7 @@
         </ft-button>
         <ft-button
           class="action"
+          aria-describedby="youtubeShareImage"
           @click="openYoutube()"
         >
           <font-awesome-icon :icon="['fas', 'globe']" />
@@ -45,6 +48,7 @@
         <ft-button
           v-if="isVideo"
           class="action"
+          aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
           @click="copyYoutubeEmbed()"
         >
@@ -54,6 +58,7 @@
         <ft-button
           v-if="isVideo"
           class="action"
+          aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
           @click="openYoutubeEmbed()"
         >
@@ -64,12 +69,16 @@
 
       <div class="divider" />
 
-      <div class="header invidious">
+      <div
+        id="invidiousShare"
+        class="header invidious"
+      >
         <span class="invidiousLogo" />Invidious
       </div>
 
       <div class="buttons">
         <ft-button
+          aria-describedby="invidiousShare"
           class="action"
           @click="copyInvidious()"
         >
@@ -77,6 +86,7 @@
           {{ $t("Share.Copy Link") }}
         </ft-button>
         <ft-button
+          aria-describedby="invidiousShare"
           class="action"
           @click="openInvidious()"
         >
@@ -85,6 +95,7 @@
         </ft-button>
         <ft-button
           v-if="isVideo"
+          aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"
           @click="copyInvidiousEmbed()"
@@ -94,6 +105,7 @@
         </ft-button>
         <ft-button
           v-if="isVideo"
+          aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"
           @click="openInvidiousEmbed()"

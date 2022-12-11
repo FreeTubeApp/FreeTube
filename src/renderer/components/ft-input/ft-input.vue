@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
 <template>
   <div
     class="ft-input-component"
@@ -70,6 +71,7 @@
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"
       >
+        <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
           v-for="(list, index) in visibleDataList"
           :key="index"
@@ -79,6 +81,7 @@
         >
           {{ list }}
         </li>
+        <!-- skipped -->
       </ul>
     </div>
   </div>
