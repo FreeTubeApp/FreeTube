@@ -110,7 +110,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
-    "sass": "^1.56.1",
+    "sass": "^1.56.2",
     "sass-loader": "^13.2.0",
     "tree-kill": "1.2.2",
     "vue-devtools": "^5.1.4",
