@@ -729,6 +729,7 @@ export default Vue.extend({
     },
 
     mouseScrollSkip: function (event) {
+      // ensure that the mouse is over the player
       if (event.target && (event.target.matches('.vjs-tech') || event.target.matches('.ftVideoPlayer'))) {
         event.preventDefault()
 
