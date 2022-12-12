@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'PrivacySettings',
   components: {
-    'ft-card': FtCard,
+    'ft-settings-section': FtSettingsSection,
     'ft-button': FtButton,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox,
@@ -57,9 +58,7 @@ export default Vue.extend({
 
       if (option === 'yes') {
         this.clearSessionSearchHistory()
-        this.showToast({
-          message: this.$t('Settings.Privacy Settings.Search cache has been cleared')
-        })
+        showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
       }
     },
 
@@ -83,9 +82,7 @@ export default Vue.extend({
 
       if (option === 'yes') {
         this.removeAllHistory()
-        this.showToast({
-          message: this.$t('Settings.Privacy Settings.Watch history has been cleared')
-        })
+        showToast(this.$t('Settings.Privacy Settings.Watch history has been cleared'))
       }
     },
 
@@ -109,6 +106,13 @@ export default Vue.extend({
             this.removeProfile(profile._id)
           }
         })
+
+        this.updateAllSubscriptionsList([])
+        this.updateProfileSubscriptions({
+          activeProfile: MAIN_PROFILE_ID,
+          videoList: [],
+          errorChannels: []
+        })
       }
     },
 
@@ -121,7 +125,8 @@ export default Vue.extend({
       'updateProfile',
       'removeProfile',
       'updateActiveProfile',
-      'showToast'
+      'updateAllSubscriptionsList',
+      'updateProfileSubscriptions'
     ])
   }
 })

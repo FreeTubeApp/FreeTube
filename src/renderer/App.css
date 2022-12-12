@@ -16,12 +16,15 @@
 }
 
 .banner {
-  width: 80%;
-  margin: 0 auto;
+  width: 85%;
+  margin: 20px auto 0;
+}
+
+.banner-wrapper {
+  margin: 0 10px;
 }
 
 .flexBox {
-  margin-top: 60px;
   display: block;
 }
 
@@ -45,7 +48,7 @@
 
   .banner {
     width: 80%;
-    margin-top: 60px;
+    margin-top: 20px;
   }
 
   .flexBox {

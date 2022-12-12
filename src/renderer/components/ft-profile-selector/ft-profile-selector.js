@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import $ from 'jquery'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtProfileSelector',
@@ -13,7 +13,8 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      profileListShown: false
+      profileListShown: false,
+      mouseDownOnIcon: false
     }
   },
   computed: {
@@ -27,7 +28,8 @@ export default Vue.extend({
       return this.$store.getters.getDefaultProfile
     },
     activeProfileInitial: function () {
-      return this?.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
+      // use Array.from, so that emojis don't get split up into individual character codes
+      return this.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
@@ -35,27 +37,16 @@ export default Vue.extend({
       })
     }
   },
-  mounted: function () {
-    $('#profileList').focusout(() => {
-      $('#profileList')[0].style.display = 'none'
-      // When pressing the profile button
-      // It will make the menu reappear if we set `profileListShown` immediately
-      setTimeout(() => {
-        this.profileListShown = false
-      }, 100)
-    })
-  },
   methods: {
     toggleProfileList: function () {
-      const profileList = $('#profileList')
+      this.profileListShown = !this.profileListShown
 
       if (this.profileListShown) {
-        profileList.get(0).style.display = 'none'
-        this.profileListShown = false
-      } else {
-        profileList.get(0).style.display = 'inline'
-        profileList.get(0).focus()
-        this.profileListShown = true
+        // wait until the profile list is visible
+        // then focus it so we can hide it automatically when it loses focus
+        setTimeout(() => {
+          this.$refs.profileList.$el.focus()
+        })
       }
     },
 
@@ -63,7 +54,21 @@ export default Vue.extend({
       this.$router.push({
         path: '/settings/profile/'
       })
-      $('#profileList').focusout()
+      this.profileListShown = false
+    },
+
+    handleIconMouseDown: function () {
+      if (this.profileListShown) {
+        this.mouseDownOnIcon = true
+      }
+    },
+
+    handleProfileListFocusOut: function () {
+      if (this.mouseDownOnIcon) {
+        this.mouseDownOnIcon = false
+      } else if (!this.$refs.profileList.$el.matches(':focus-within')) {
+        this.profileListShown = false
+      }
     },
 
     setActiveProfile: function (profile) {
@@ -75,16 +80,14 @@ export default Vue.extend({
         if (targetProfile) {
           this.updateActiveProfile(targetProfile._id)
 
-          const message = this.$t('Profile.$ is now the active profile').replace('$', profile.name)
-          this.showToast({ message })
+          showToast(this.$t('Profile.{profile} is now the active profile', { profile: profile.name }))
         }
       }
 
-      $('#profileList').trigger('focusout')
+      this.profileListShown = false
     },
 
     ...mapActions([
-      'showToast',
       'updateActiveProfile'
     ])
   }

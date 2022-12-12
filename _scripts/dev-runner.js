@@ -1,5 +1,6 @@
 process.env.NODE_ENV = 'development'
 
+const open = require('open')
 const electron = require('electron')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
@@ -10,13 +11,13 @@ const { spawn } = require('child_process')
 
 const mainConfig = require('./webpack.main.config')
 const rendererConfig = require('./webpack.renderer.config')
-const workersConfig = require('./webpack.workers.config')
+const webConfig = require('./webpack.web.config')
 
 let electronProcess = null
 let manualRestart = null
-const remoteDebugging = !!(
-  process.argv[2] && process.argv[2] === '--remote-debug'
-)
+
+const remoteDebugging = process.argv.indexOf('--remote-debug') !== -1
+const web = process.argv.indexOf('--web') !== -1
 
 if (remoteDebugging) {
   // disable dvtools open in electron
@@ -51,10 +52,12 @@ async function restartElectron() {
 
   electronProcess = spawn(electron, [
     path.join(__dirname, '../dist/main.js'),
-    // '--enable-logging', Enable to show logs from all electron processes
+    // '--enable-logging', // Enable to show logs from all electron processes
     remoteDebugging ? '--inspect=9222' : '',
-    remoteDebugging ? '--remote-debugging-port=9223' : '',
-  ])
+    remoteDebugging ? '--remote-debugging-port=9223' : ''
+  ],
+    // { stdio: 'inherit' } // required for logs to actually appear in the stdout
+  )
 
   electronProcess.on('exit', (code, _) => {
     if (code === relaunchExitCode) {
@@ -68,42 +71,27 @@ async function restartElectron() {
 }
 
 function startMain() {
-  const webpackSetup = webpack([mainConfig, workersConfig])
+  const compiler = webpack(mainConfig)
+  const { name } = compiler
 
-  webpackSetup.compilers.forEach(compiler => {
-    const { name } = compiler
+  compiler.hooks.afterEmit.tap('afterEmit', async () => {
+    console.log(`\nCompiled ${name} script!`)
 
-    switch (name) {
-      case 'workers':
-        compiler.hooks.afterEmit.tap('afterEmit', async () => {
-          console.log(`\nCompiled ${name} script!`)
-          console.log(`\nWatching file changes for ${name} script...`)
-        })
-        break
-      case 'main':
-      default:
-        compiler.hooks.afterEmit.tap('afterEmit', async () => {
-          console.log(`\nCompiled ${name} script!`)
+    manualRestart = true
+    await restartElectron()
+    setTimeout(() => {
+      manualRestart = false
+    }, 2500)
 
-          manualRestart = true
-          await restartElectron()
-
-          setTimeout(() => {
-            manualRestart = false
-          }, 2500)
-
-          console.log(`\nWatching file changes for ${name} script...`)
-        })
-        break
-    }
+    console.log(`\nWatching file changes for ${name} script...`)
   })
 
-  webpackSetup.watch({
+  compiler.watch({
     aggregateTimeout: 500,
   },
-    err => {
-      if (err) console.error(err)
-    })
+  err => {
+    if (err) console.error(err)
+  })
 }
 
 function startRenderer(callback) {
@@ -135,4 +123,38 @@ function startRenderer(callback) {
   })
 }
 
-startRenderer(startMain)
+function startWeb (callback) {
+  const compiler = webpack(webConfig)
+  const { name } = compiler
+
+  compiler.hooks.afterEmit.tap('afterEmit', () => {
+    console.log(`\nCompiled ${name} script!`)
+    console.log(`\nWatching file changes for ${name} script...`)
+  })
+
+  const server = new WebpackDevServer({
+    static: {
+      directory: path.join(process.cwd(), 'dist/web/static'),
+      watch: {
+        ignored: [
+          /(dashFiles|storyboards)\/*/,
+          '/**/.DS_Store',
+        ]
+      }
+    },
+    port
+  }, compiler)
+
+  server.startCallback(err => {
+    if (err) console.error(err)
+
+    callback({ port: server.options.port })
+  })
+}
+if (!web) {
+  startRenderer(startMain)
+} else {
+  startWeb(({ port }) => {
+    open(`http://localhost:${port}`)
+  })
+}

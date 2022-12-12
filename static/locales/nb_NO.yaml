@@ -77,6 +77,7 @@ Subscriptions:
   Load More Videos: Last flere videoer
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
+  Error Channels: Kanaler med feil
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -94,11 +95,15 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Du
     har ikke lagret noen videoer enda. Klikk på «Lagre»-knappen i hjørnet av en video
     for å sende den hit
+  Empty Search Message: Ingen videoer i denne spillelisten samsvarer med søket ditt
+  Search bar placeholder: Søk i spilleliste
 History:
   # On History Page
   History: 'Historikk'
   Watch History: 'Visningshistorikk'
   Your history list is currently empty.: 'Din historikk er for tiden tom.'
+  Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
+  Search bar placeholder: Søk i historikk
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -136,7 +141,7 @@ Settings:
     Current instance will be randomized on startup: Valgt instans vil bli plukket
       tilfeldig ved oppstart
     No default instance has been set: Ingen forvalgt instans satt
-    The currently set default instance is $: Valgt instans er $
+    The currently set default instance is {instance}: Valgt instans er {instance}
     Current Invidious Instance: Nåværende Invidious-instans
     External Link Handling:
       No Action: Ingen handling
@@ -153,6 +158,7 @@ Settings:
       Dark: 'Mørk'
       Light: 'Lys'
       Dracula: 'Dracula'
+      System Default: Systemforvalg
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -217,6 +223,11 @@ Settings:
     Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
     Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
+    Screenshot:
+      File Name Label: Filnavnsmønster
+      Error:
+        Forbidden Characters: Forbudte tegn
+        Empty File Name: Tomt filnavn
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -309,6 +320,12 @@ Settings:
     Select Export Type: Velg eksporttype
     Select Import Type: Velg importtype
     Data Settings: Datainnstillinger
+    All playlists has been successfully imported: Importerte alle spillelister
+    Subscription File: Abonnementsfil
+    History File: Historikkfil
+    Playlist File: Spillelistefil
+    Export Playlists: Eksporter spillelister
+    Import Playlists: Importer spillelister
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
@@ -346,12 +363,28 @@ Settings:
       (forvalget er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillinger
+    Skip Options:
+      Do Nothing: Ikke gjør noe
+    Category Color: Kategorifarge
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
     Ignore Unsupported Action Warnings: Ignorer advarsler om ustøttede handlinger
     External Player Settings: Innstillinger for ekstern avspiller
     External Player: Ekstern avspiller
+    Players:
+      None:
+        Name: Ingen
+  Download Settings:
+    Choose Path: Velg sti
+    Download Settings: Nedlastingsinnstillinger
+    Download in app: Last ned i programmet
+    Open in web browser: Åpne i nettleser
+  Parental Control Settings:
+    Parental Control Settings: Foreldrekontroll
+    Hide Search Bar: Skjul søkefelt
+  Experimental Settings:
+    Experimental Settings: Eksperimentelle innstillinger
 About:
   #On About page
   About: 'Om'
@@ -428,7 +461,8 @@ Channel:
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
   Added channel to your subscriptions: Lagt til kanal til dine abonnenter
-  Removed subscription from $ other channel(s): Fjernet abonnement fra $ andre kanal(er)
+  Removed subscription from {count} other channel(s): Fjernet abonnement fra {count}
+    andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
     dine abonnement
 Video:
@@ -490,9 +524,9 @@ Video:
     Upcoming: 'Har premiere'
     Minutes: Minutter
     Minute: Minutt
+    In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % siden'
+  Publicationtemplate: '{number} {unit} siden'
 #& Videos
   Audio:
     High: Høy
@@ -528,6 +562,8 @@ Video:
     sponsor: sponsor
     music offtopic: musikk (utenfor tema)
     self-promotion: egenpromotering
+    recap: Oppsummering
+    filler: Fyllstoff
   Skipped segment: Overhoppet del
   External Player:
     Unsupported Actions:
@@ -539,11 +575,18 @@ Video:
       starting video at offset: starting av video med forskyvning
       looping playlists: gjentakelse av spillelister
       reversing playlists: reversering av spillelister
-    UnsupportedActionTemplate: '$ støtter ikke: %'
-    OpeningTemplate: Åpner $ om % …
+    UnsupportedActionTemplate: '{externalPlayer} støtter ikke: {action}'
+    OpeningTemplate: Åpner {videoOrPlaylist} om {externalPlayer} …
     playlist: spilleliste
     video: video
-    OpenInTemplate: Åpne i $
+    OpenInTemplate: Åpne i {externalPlayer}
+  Stats:
+    Bitrate: Bitrate
+    Volume: Lydstyrke
+    Bandwidth: Båndbredde
+    Resolution: Oppløsning
+    Player Dimensions: Avspillerdimensjoner
+    Mimetype: Media-type
 Videos:
   #& Sort By
   Sort By:
@@ -571,7 +614,7 @@ Playlist:
   Playlist: Spilleliste
 Toggle Theatre Mode: 'Teatermodus'
 Change Format:
-  Change Video Formats: 'Endre videoformater'
+  Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
   Use Legacy Formats: 'Bruk foreldede formater'
   Use Audio Formats: 'Bruk lydformater'
@@ -617,6 +660,9 @@ Comments:
   Sort by: Sorter etter
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
+  From {channelName}: Fra {channelName}
+  Pinned by: Festet av
+  Member: Medlem
 Up Next: 'Neste'
 
 # Toast Messages
@@ -641,12 +687,12 @@ Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
 Yes: 'Ja'
 No: 'Nei'
 Profile:
-  $ is now the active profile: $ er nå den aktive profilen
+  '{profile} is now the active profile': '{profile} er nå den aktive profilen'
   Your default profile has been changed to your primary profile: Din forvalgte profil
     har blitt endret til din hovedprofil
-  Removed $ from your profiles: Fjernet $ fra dine profiler
-  Your default profile has been set to $: Din forvalgte profil har blitt satt til
-    $
+  Removed {profile} from your profiles: Fjernet {profile} fra dine profiler
+  Your default profile has been set to {profile}: 'Din forvalgte profil har blitt
+    satt til {profile}'
   Profile has been updated: Profil oppdatert
   Profile has been created: Profil opprettet
   Your profile name cannot be empty: Profilnavnet ditt kan ikke stå tomt
@@ -662,7 +708,7 @@ Profile:
     noen andre profiler.
   No channel(s) have been selected: Ingen kanal(er) har blitt valgt
   Select All: Velg alle
-  $ selected: $ valgt
+  '{number} selected': '{number} valgt'
   Other Channels: Andre kanaler
   Color Picker: Fargevelger
   Profile Select: Velg profil
@@ -729,13 +775,13 @@ Tooltips:
       sti settes her.
     External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
       hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
-    DefaultCustomArgumentsTemplate: "(Forvalg: '$')"
-A new blog is now available, $. Click to view more: Et nytt blogginnlegg er tilgjengelig,
-  $. Klikk her for å se mer
+    DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
+A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
+  er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
 Download From Site: Last ned fra nettside
-Version $ is now available!  Click for more details: Versjon $ er nå tilgjengelig!
-  Klikk her for detaljer
+Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber}
+  er nå tilgjengelig! Klikk her for detaljer
 Playing Next Video Interval: Spiller av neste video nå. Klikk her for å avbryte. |
   Spiller av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
   Spiller av neste video om {nextVideoInterval} sekunder. Klikk her for å avbryte.
@@ -746,10 +792,28 @@ Hashtags have not yet been implemented, try again later: Emneknagger er ikke imp
   enda, prøv igjen senere
 Open New Window: Åpne et nytt vindu
 Default Invidious instance has been cleared: Fjernet forvalgt Invidious-instans
-Default Invidious instance has been set to $: Forvalgt Invidious-instans satt til
-  $
+Default Invidious instance has been set to {instance}: Forvalgt Invidious-instans
+  satt til {instance}
 External link opening has been disabled in the general settings: Åpning av eksterne
   lenker er avskrudd i de generelle innstillingene
 Search Bar:
   Clear Input: Tøm inndata
 Are you sure you want to open this link?: Åpne denne lenken?
+New Window: Nytt vindu
+Channels:
+  Channels: Kanaler
+  Title: Kanalliste
+  Search bar placeholder: Søk i kanaler
+  Count: Fant {number} kanal(er).
+  Empty: Kanallisten din er tom.
+  Unsubscribe: Opphev abonnement
+  Unsubscribed: '{channelName} ble fjernet fra dine abonnementer'
+  Unsubscribe Prompt: Opphev abonnement på «{channelName}»?
+Age Restricted:
+  Type:
+    Channel: Kanal
+    Video: Video
+Chapters:
+  Chapters: Kapitler
+Screenshot Success: Lagre skjermavbildning som «{filePath}»
+Screenshot Error: Skjermavbildning mislyktes. {error}

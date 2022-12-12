@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
@@ -11,11 +11,12 @@ import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 import path from 'path'
+import { getPicturesPath } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'PlayerSettings',
   components: {
-    'ft-card': FtCard,
+    'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-slider': FtSlider,
@@ -136,6 +137,10 @@ export default Vue.extend({
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
+    enterFullscreenOnDisplayRotate: function () {
+      return this.$store.getters.getEnterFullscreenOnDisplayRotate
+    },
+
     maxVideoPlaybackRate: function () {
       return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
     },
@@ -204,7 +209,7 @@ export default Vue.extend({
     },
 
     getScreenshotEmptyFolderPlaceholder: async function() {
-      return path.join(await this.getPicturesPath(), 'Freetube')
+      return path.join(await getPicturesPath(), 'Freetube')
     },
 
     getScreenshotFolderPlaceholder: function() {
@@ -275,6 +280,7 @@ export default Vue.extend({
       'updateVideoPlaybackRateMouseScroll',
       'updateVideoSkipMouseScroll',
       'updateDisplayVideoPlayButton',
+      'updateEnterFullscreenOnDisplayRotate',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
       'updateEnableScreenshot',
@@ -284,7 +290,6 @@ export default Vue.extend({
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
-      'getPicturesPath'
     ])
   }
 })

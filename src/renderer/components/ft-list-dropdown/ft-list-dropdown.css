@@ -1,11 +1,11 @@
-.dropDown {
+.dropdown {
   position: relative;
   text-align: center;
   text-transform: uppercase;
   margin: 0 5px;
 }
 
-.dropDown ul {
+.dropdown ul {
     display: none;
     position: absolute;
     list-style: none;
@@ -15,19 +15,19 @@
     z-index: 100;
 }
 
-.dropDown ul li {
+.dropdown ul li.buttonOption {
     width: 100%;
     float: none;
     box-sizing: border-box;
 }
 
-.dropDown:hover ul {
-    display: block;
+.dropdown:hover ul, .dropdown:focus-within ul {
+  display: block;
 }
 
-.dropDown ul li a {
-    text-decoration: none;
-    color: inherit;
+.dropdown ul li a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .buttonTitle {
@@ -60,7 +60,7 @@
   transition: background 0.2s ease-out;
 }
 
-.buttonOption:hover {
+.buttonOption:hover, .buttonOption:focus {
   background-color: var(--side-nav-hover-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;

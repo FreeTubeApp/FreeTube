@@ -1,5 +1,6 @@
 <template>
   <button
+    :id="id.length > 0 ? id : null"
     class="btn ripple"
     :style="{
       color: textColor,

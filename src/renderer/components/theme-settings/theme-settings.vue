@@ -1,31 +1,38 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Theme Settings.Theme Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Theme Settings.Theme Settings')"
+  >
     <ft-flex-box>
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
+        :compact="true"
         :default-value="barColor"
         @change="updateBarColor"
       />
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Expand Side Bar by Default')"
+        :compact="true"
         :default-value="expandSideBar"
         @change="handleExpandSideBar"
       />
       <ft-toggle-switch
+        v-if="usingElectron"
         :label="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
+        :compact="true"
         :default-value="disableSmoothScrollingToggleValue"
         @change="handleRestartPrompt"
       />
       <ft-toggle-switch
         :label="$t('Settings.Theme Settings.Hide Side Bar Labels')"
+        :compact="true"
         :default-value="hideLabelsSideBar"
         @change="updateHideLabelsSideBar"
+      />
+      <ft-toggle-switch
+        :label="$t('Settings.Theme Settings.Hide FreeTube Header Logo')"
+        :compact="true"
+        :default-value="hideHeaderLogo"
+        @change="updateHideHeaderLogo"
       />
     </ft-flex-box>
     <ft-flex-box>
@@ -70,8 +77,7 @@
       :option-values="restartPromptValues"
       @click="handleSmoothScrolling"
     />
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./theme-settings.js" />
-<style scoped lang="sass" src="./theme-settings.sass" />

@@ -63,8 +63,7 @@ Search Filters:
   Fetching results. Please wait: 'Đang lấy kết quả. Xin hãy chờ'
   Fetch more results: 'Lấy thêm kết quả'
 # Sidebar
-  There are no more results for this search: Không còn kết quả gì thêm cho tìm kiếm
-    này
+  There are no more results for this search: Không còn kết quả nào cho tìm kiếm này
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Đăng ký'
@@ -96,7 +95,7 @@ User Playlists:
     bạn đang tìm
   Playlist Message: Trang này không liệt kê tất cả danh sách video bạn đã theo giỏi.
     Nó chỉ hiển thị các video mà bạn đã lưu hoặc thêm vào mục yêu thích. Khi xong
-    việc, tất cả các video trên trang này sẽ được chuyển vào danh sách 'yêu thích'
+    việc, tất cả các video trên trang này sẽ được chuyển vào danh sách 'yêu thích'.
 History:
   # On History Page
   History: 'Lịch sử'
@@ -136,16 +135,16 @@ Settings:
     Check for Latest Blog Posts: Check Blog post mới nhất
     Check for Updates: Kiểm tra cập nhật
     Current Invidious Instance: Phiên bản invidious hiện tại
-    The currently set default instance is $: Phiên bản Invidious mặc định hiện được
-      đặt thành $
+    The currently set default instance is {instance}: Phiên bản Invidious mặc định hiện được
+      đặt thành {instance}
     No default instance has been set: Không có phiên bản mặc định nào được đặt
     Current instance will be randomized on startup: Phiên bản hiện tại sẽ được chọn
       ngẫu nhiên khi khởi động
     Set Current Instance as Default: Đặt Phiên bản hiện tại làm Mặc định
     Clear Default Instance: Xóa phiên bản mặc định
     External Link Handling:
-      Open Link: Mở link
-      Ask Before Opening Link: Hỏi trước khi mở link
+      Open Link: Mở liên kết
+      Ask Before Opening Link: Hỏi trước khi mở liên kết
       No Action: Không hành động
       External Link Handling: Xử lý liên kết bên ngoài
     View all Invidious instance information: Xem tất cả thông tin phiên bản Invidious
@@ -160,6 +159,7 @@ Settings:
       Light: 'Sáng'
       Dracula: 'Ma cà rồng'
       System Default: Mặc định hệ thống
+      Catppuccin Mocha: Catppuccin Mocha - Màu cà phê
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -185,6 +185,20 @@ Settings:
       Dracula Purple: 'Ma cà rồng Tím'
       Dracula Red: 'Ma cà rồng Đỏ'
       Dracula Yellow: 'Ma cà rồng Vàng'
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater Màu hoa hồng
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo Màu hồng hạc
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink Màu hồng hạc
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve - Màu tím
+      Catppuccin Mocha Red: Catppuccin Mocha Red Màu đỏ
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon Màu nâu tim
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach Màu đào
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow Màu vàng
+      Catppuccin Mocha Green: Catppuccin Mocha Green Màu xanh lục
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal Màu mòng két
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky Màu xanh da trời
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire màu xanh
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender Màu tím nhạt
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue Màu xanh
     Secondary Color Theme: 'Màu chủ đề thứ hai'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -326,7 +340,7 @@ Settings:
       thêm vào thành công
     All playlists has been successfully exported: Tất cả các danh sách phát đã được
       xuất thành công
-    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "$", bỏ qua mục
+    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "{playlist}", bỏ qua mục
       này
     Export Playlists: Xuất danh sách phát
   Distraction Free Settings:
@@ -496,16 +510,17 @@ Channel:
     Channel Description: 'Miêu tả kênh'
     Featured Channels: 'Kênh đặc sắc'
   Added channel to your subscriptions: Đã thêm kênh vào đăng ký của bạn
-  Removed subscription from $ other channel(s): Đã xóa đăng ký từ $ các kênh khác
+  Removed subscription from {count} other channel(s): Đã xóa đăng ký từ {count} các kênh khác
   Channel has been removed from your subscriptions: Kênh đã được xóa khỏi đăng ký
     của bạn
 Video:
   Open in YouTube: 'Mở trong Youtube'
-  Copy YouTube Link: 'Sao chép link Youtube'
+  Copy YouTube Link: 'Sao chép liên kết Youtube'
   Open YouTube Embedded Player: 'Mở trình phát Youtube Embedded'
-  Copy YouTube Embedded Player Link: 'Sao chép link trình phát Youtube Embedded'
+  Copy YouTube Embedded Player Link: 'Sao chép liên kết trình phát YouTube đã được
+    nhúng vào'
   Open in Invidious: 'Mở trong Invidious'
-  Copy Invidious Link: 'Sao chép link Invidious'
+  Copy Invidious Link: 'Sao chép liên kết Invidious'
   View: 'Lượt xem'
   Views: 'Lượt xem'
   # Context is "X People Watching"
@@ -555,8 +570,7 @@ Video:
     Minutes: Phút
     Minute: Phút
   Published on: 'Phát hành vào'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: '$ % trước'
+  Publicationtemplate: '{number} {unit} trước'
 #& Videos
   Video has been removed from your history: Video đã được xóa khỏi lịch sử của bạn
   Video has been marked as watched: Video đánh dấu đã xem
@@ -579,7 +593,7 @@ Video:
   Shuffle Playlist: Trộn Playlist
   Loop Playlist: Lặp lại Playlist
   Open Channel in YouTube: Mở kênh này trên YouTube
-  Copy YouTube Channel Link: Sao chép Nối kết Kênh YouTube
+  Copy YouTube Channel Link: Sao chép liên kết của kênh
   Skipped segment: Phân đoạn đã bỏ qua
   Sponsor Block category:
     sponsor: Nhà tài trợ
@@ -617,12 +631,12 @@ Video:
       shuffling playlists: xáo trộn danh sách phát
       reversing playlists: đảo ngược danh sách phát
       looping playlists: lập lại danh sách phát
-    OpeningTemplate: Mở $ trong %....
-    UnsupportedActionTemplate: '$ không hổ trợ: %'
-    OpenInTemplate: Mở trong $
+    OpeningTemplate: Mở {videoOrPlaylist} trong {externalPlayer}....
+    UnsupportedActionTemplate: '{externalPlayer} không hổ trợ: {action}'
+    OpenInTemplate: Mở trong {externalPlayer}
     video: video
   Open Channel in Invidious: Mở kênh ưu tiên
-  Copy Invidious Channel Link: Sao chép đường dẫn kênh ưu tiên
+  Copy Invidious Channel Link: Sao chép liên kết kênh Invidious
   Video has been removed from your saved list: Video đã bị xoá khỏi danh sách lưu
     trữ của bạn
   Video has been saved: Video đã được lưu
@@ -643,9 +657,9 @@ Playlist:
   Last Updated On: 'Update lần cuối vào'
   Share Playlist:
     Share Playlist: 'Chia sẻ danh sách phát'
-    Copy YouTube Link: 'Sao chép link Youtube'
+    Copy YouTube Link: 'Sao chép liên kết Youtube'
     Open in YouTube: 'Mở trong Youtube'
-    Copy Invidious Link: 'Sao chép link Invidious'
+    Copy Invidious Link: 'Sao chép liên kết Invidious'
     Open in Invidious: 'Mở trong Invidious'
 
 # On Video Watch Page
@@ -654,7 +668,7 @@ Playlist:
   Playlist: Danh sách phát
 Toggle Theatre Mode: 'Chuyển đổi chế độ rạp hát'
 Change Format:
-  Change Video Formats: 'Chuyển đổi định dạng video'
+  Change Media Formats: 'Chuyển đổi định dạng video'
   Use Dash Formats: 'Sử dụng định dạng DASH'
   Use Legacy Formats: 'Sử dụng định dạng Legacy'
   Use Audio Formats: 'Sử dụng dịnh đạng Âm Thanh'
@@ -664,8 +678,8 @@ Change Format:
     này
 Share:
   Share Video: 'Chia sẻ video'
-  Copy Link: 'Sao chép link'
-  Open Link: 'Mở link'
+  Copy Link: 'Sao chép liên kết'
+  Open Link: 'Mở liên kết'
   Copy Embed: 'Sao chép Embed'
   Open Embed: 'Mở Embed'
   # On Click
@@ -674,7 +688,7 @@ Share:
   YouTube URL copied to clipboard: 'Youtube URL sao chép đến clipboard'
   YouTube Embed URL copied to clipboard: 'Youtube Embed URL sao chép đến clipboard'
   Include Timestamp: Có kèm dấu thời gian
-  YouTube Channel URL copied to clipboard: Đã copy link kênh Youtube
+  YouTube Channel URL copied to clipboard: Đã sao chép liên kết kênh Youtube
   Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
 Mini Player: 'Trình phát Mini'
 Comments:
@@ -697,7 +711,7 @@ Comments:
   Sort by: Sắp xếp theo
   There are no more comments for this video: Không có bình luận cho video này
   Member: Thành viên
-  From $channelName: từ $tên kênh
+  From {channelName}: từ {channelName}
   And others: Và những thứ khác
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
@@ -740,15 +754,15 @@ Profile:
   Delete Selected: Xóa đã chọn
   Select None: Chọn không
   Select All: Chọn hết
-  $ selected: $ đã chọn
+  '{number} selected': '{number} đã chọn'
   Other Channels: Các kênh khác
   Subscription List: Danh sách đăng ký
-  $ is now the active profile: $ bây giờ là hoạt động profile
+  '{profile} is now the active profile': '{profile} bây giờ là hoạt động profile'
   Your default profile has been changed to your primary profile: Profile mặc định
     của bạn đã thay đổi thành profile chính
-  Removed $ from your profiles: Đã xóa $ khỏi Profile của bạn
-  Your default profile has been set to $: Profile mặc định của bạn đã được chỉnh về
-    $
+  Removed {profile} from your profiles: Đã xóa {profile} khỏi Profile của bạn
+  Your default profile has been set to {profile}: 'Profile mặc định của bạn đã được chỉnh về
+    {profile}'
   Profile has been updated: Profile đã được cập nhật
   Profile has been created: Profile đã được tạo
   Your profile name cannot be empty: Tên Profile của bạn không được để trống
@@ -769,26 +783,27 @@ Profile:
   Profile Select: Chọn Profile
   Profile Filter: Bộ lọc hồ sơ
   Profile Settings: Cài đặt hồ sơ cá nhân
-A new blog is now available, $. Click to view more: Một blog mới đã có, $. Nhấn để
+A new blog is now available, {blogTitle}. Click to view more: Một blog mới đã có, {blogTitle}. Nhấn để
   xem chi tiết
 Download From Site: Tải từ website
-Version $ is now available!  Click for more details: Phiên bản $ đã có! Click để xem
+Version {versionNumber} is now available!  Click for more details: Phiên bản {versionNumber} đã có! Click để xem
   chi tiết
 Open New Window: Mở cửa sổ mới
 Search Bar:
   Clear Input: Xóa đầu vào
 More: Thêm
-Are you sure you want to open this link?: Anh có chắc là muốn mở đường không?
+Are you sure you want to open this link?: Bạn có chắc là bạn muốn mở liên kết này
+  không?
 New Window: Cửa Sổ Mới
 Channels:
   Channels: Kênh
   Title: Danh sách kênh
   Search bar placeholder: Tìm Kênh
   Empty: Danh sách kênh của bạn hiện đang trống.
-  Unsubscribed: $ đã bị xoá khỏi danh sách kênh đã đăng ký của bạn
-  Unsubscribe Prompt: Bạn có chắc răng bạn muốn huỷ đăng ký kênh "$"?
+  Unsubscribed: '{channelName} đã bị xoá khỏi danh sách kênh đã đăng ký của bạn'
+  Unsubscribe Prompt: Bạn có chắc răng bạn muốn huỷ đăng ký kênh "{channelName}"?
   Unsubscribe: Huỷ đăng ký kênh
-  Count: $kênh đã tìm được.
+  Count: '{number} kênh đã tìm được.'
 Tooltips:
   General Settings:
     Thumbnail Preference: Tất cả các hình thu nhỏ trên FreeTube sẽ được thay thế bằng
@@ -814,3 +829,56 @@ Tooltips:
       có ích khi các video do Invidious trả về không phát được do giới hạn quốc gia.
     Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay
       vì kết nối trực tiếp với YouTube. Ghi đè tùy chọn API.
+    Default Video Format: Cài đặt các định dạng được dùng khi phát video. Định dạng
+      DASH có thể phát với chất lượng cao hơn. Các định dạng cũ được giới hạn ở mức
+      tối đa là 720p nhưng chúng tiêu tốn ít băng thông hơn. Định dạng âm thanh là
+      những luồng chỉ phát âm thanh.
+    Scroll Playback Rate Over Video Player: Khi con trỏ chuột ở trên video, hãy nhấn
+      và giữ phím Control (Phím Command trên máy Mac) và cuộn con lăn chuột tới hoặc
+      lui để kiểm soát tốc độ phát. Nhấn và giữ phím Control (Phím Command trên Mac)
+      và nhấp chuột trái để lập tức trở về tốc độ phát mặc định (1x trừ khi nó đã
+      được thay đổi trong cài đặt).
+  External Player Settings:
+    Custom External Player Arguments: Bất kỳ tham số dòng lệnh tùy chỉnh nào, được
+      phân tách bằng dấu chấm phẩy (';'), bạn muốn được chuyển đến trình phát bên
+      ngoài.
+    Custom External Player Executable: Theo mặc định, FreeTube sẽ giả định rằng trình
+      phát bên ngoài đã chọn có thể được tìm thấy thông qua biến môi trường PATH.
+      Nếu cần, bạn có thể đặt một đường dẫn tuỳ chọn ở đây.
+    Ignore Warnings: 'Loại bỏ cảnh báo khi trình phát bên ngoài hiện tại không hỗ
+      trợ cho thao tác hiện tại (ví dụ: đảo ngược danh sách phát, v.v.).'
+    DefaultCustomArgumentsTemplate: "(Mặc định: '{defaultCustomArguments}')"
+    External Player: Chọn một trình phát bên ngoài sẽ hiển thị một biểu tượng để mở
+      video (danh sách phát nếu được hỗ trợ) trong trình phát bên ngoài, trên hình
+      thu nhỏ của video. Cảnh báo, cài đặt Invidious không ảnh hưởng đến trình phát
+      bên ngoài.
+  Subscription Settings:
+    Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương
+      thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh
+      việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video
+      hoặc trạng thái phát trực tiếp
+  Privacy Settings:
+    Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
+      được tạo trong quá trình phát lại video, khi trang xem bị đóng.
+Age Restricted:
+  The currently set default instance is {instance}: '{instance} này bị giới hạn độ tuổi'
+  Type:
+    Channel: Kênh
+    Video: Video
+Hashtags have not yet been implemented, try again later: Thẻ hashtag chưa thể dùng
+  được, hãy thử lại sau
+Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. |
+  Phát video tiếp theo sau {nextVideoInterval} giây nữa. Nhấn vào để hủy. | Phát video
+  tiếp theo sau {nextVideoInterval} giây. Nhấn vào để hủy.
+Downloading has completed: '"{videoTitle}" đã hoàn tất quá trình tải xuống'
+External link opening has been disabled in the general settings: Tính năng mở liên
+  kết bên ngoài đã bị tắt trong cài đặt chung
+Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "{videoTitle}"
+Default Invidious instance has been cleared: Phiên bản Invidious mặc định đã bị xóa
+Screenshot Success: Ảnh chụp màn hình đã lưu thành "{filePath}"
+Screenshot Error: Chụp màn hình không thành công. {error}
+Default Invidious instance has been set to {instance}: Phiên bản Invidious mặc định đã được
+  đặt thành {instance}
+Unknown YouTube url type, cannot be opened in app: Dạng YouTube URL không xác định,
+  không thể mở trong ứng dụng này
+Starting download: Bắt đầu tải xuống "{videoTitle}"

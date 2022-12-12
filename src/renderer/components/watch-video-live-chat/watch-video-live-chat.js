@@ -1,21 +1,19 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
-import $ from 'jquery'
 import autolinker from 'autolinker'
 import { LiveChat } from '@freetube/youtube-chat'
+import { getRandomColorClass } from '../../helpers/colors'
+import { stripHTML } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-button': FtButton,
-    'ft-list-video': FtListVideo
+    'ft-button': FtButton
   },
   beforeRouteLeave: function () {
     this.liveChat.stop()
@@ -59,10 +57,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -78,18 +72,22 @@ export default Vue.extend({
         return '445px'
       }
     },
+
     hideLiveChat: function () {
       return this.$store.getters.getHideLiveChat
+    },
+
+    scrollingBehaviour: function () {
+      return this.$store.getters.getDisableSmoothScrolling ? 'auto' : 'smooth'
     }
   },
   created: function () {
-    if (!this.usingElectron) {
+    if (!process.env.IS_ELECTRON) {
       this.hasError = true
       this.errorMessage = this.$t('Video["Live Chat is currently not supported in this build."]')
     } else {
       switch (this.backendPreference) {
         case 'local':
-          console.log('Getting Chat')
           this.getLiveChatLocal()
           break
         case 'invidious':
@@ -119,13 +117,12 @@ export default Vue.extend({
       this.isLoading = false
 
       this.liveChat.on('start', (liveId) => {
-        console.log('Live chat is enabled')
         this.isLoading = false
       })
 
       this.liveChat.on('end', (reason) => {
-        console.log('Live chat has ended')
-        console.log(reason)
+        console.error('Live chat has ended')
+        console.error(reason)
         this.hasError = true
         this.showEnableChat = false
         this.errorMessage = this.$t('Video["Chat is disabled or the Live Stream has ended."]')
@@ -145,8 +142,6 @@ export default Vue.extend({
     },
 
     parseLiveChatComment: function (comment) {
-      console.log(comment)
-
       if (this.hasEnded) {
         return
       }
@@ -154,68 +149,66 @@ export default Vue.extend({
       comment.messageHtml = ''
 
       comment.message.forEach((text) => {
+        if (typeof text === 'undefined') return
+
         if (typeof (text.navigationEndpoint) !== 'undefined') {
           if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
             const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
-            comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlRef
+            comment.messageHtml = stripHTML(comment.messageHtml) + htmlRef
           } else {
-            comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
+            comment.messageHtml = stripHTML(comment.messageHtml + text.text)
           }
         } else if (typeof (text.alt) !== 'undefined') {
-          const htmlImg = `<img src="${text.url}" alt="${text.alt}" height="24" width="24" />`
-          comment.messageHtml = comment.messageHtml.replace(/(<([^>]+)>)/ig, '') + htmlImg
+          const htmlImg = `<img src="${text.url}" alt="${text.alt}" class="liveChatEmoji" height="24" width="24" />`
+          comment.messageHtml = stripHTML(comment.messageHtml) + htmlImg
         } else {
-          comment.messageHtml = (comment.messageHtml + text.text).replace(/(<([^>]+)>)/ig, '')
+          comment.messageHtml = stripHTML(comment.messageHtml + text.text)
         }
       })
 
       comment.messageHtml = autolinker.link(comment.messageHtml)
 
-      const liveChatComments = $('.liveChatComments')
-      const liveChatMessage = $('.liveChatMessage')
-
-      if (typeof (liveChatComments.get(0)) === 'undefined' && typeof (liveChatMessage.get(0)) === 'undefined') {
-        console.log("Can't find chat object.  Stopping chat connection")
+      if (typeof this.$refs.liveChatComments === 'undefined' && typeof this.$refs.liveChatMessage === 'undefined') {
+        console.error("Can't find chat object.  Stopping chat connection")
         this.liveChat.stop()
         return
       }
 
       this.comments.push(comment)
-      console.log(this.comments.length)
 
       if (typeof (comment.superchat) !== 'undefined') {
-        this.getRandomColorClass().then((data) => {
-          comment.superchat.colorClass = data
+        comment.superchat.colorClass = getRandomColorClass()
 
-          this.superChatComments.unshift(comment)
+        this.superChatComments.unshift(comment)
 
-          setTimeout(() => {
-            this.removeFromSuperChat(comment.id)
-          }, 120000)
-        })
+        setTimeout(() => {
+          this.removeFromSuperChat(comment.id)
+        }, 120000)
       }
 
       if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
-        this.getRandomColorClass().then((data) => {
-          comment.superChat = {
-            amount: '$5.00',
-            colorClass: data
-          }
+        comment.superChat = {
+          amount: '$5.00',
+          colorClass: getRandomColorClass()
+        }
 
-          this.superChatComments.unshift(comment)
+        this.superChatComments.unshift(comment)
 
-          setTimeout(() => {
-            this.removeFromSuperChat(comment.id)
-          }, 120000)
-        })
+        setTimeout(() => {
+          this.removeFromSuperChat(comment.id)
+        }, 120000)
       }
 
       if (this.stayAtBottom) {
-        liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+        setTimeout(() => {
+          this.$refs.liveChatComments?.scrollTo({
+            top: this.$refs.liveChatComments.scrollHeight,
+            behavior: this.scrollingBehaviour
+          })
+        })
       }
 
       if (this.comments.length > 150 && this.stayAtBottom) {
-        console.log('user is not at bottom')
         this.comments = this.comments.splice(this.comments.length - 150, this.comments.length)
       }
     },
@@ -236,9 +229,8 @@ export default Vue.extend({
     },
 
     onScroll: function (event) {
-      const liveChatComments = $('.liveChatComments').get(0)
+      const liveChatComments = this.$refs.liveChatComments
       if (event.wheelDelta >= 0 && this.stayAtBottom) {
-        $('.liveChatComments').data('animating', 0)
         this.stayAtBottom = false
 
         if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
@@ -252,8 +244,10 @@ export default Vue.extend({
     },
 
     scrollToBottom: function () {
-      const liveChatComments = $('.liveChatComments')
-      liveChatComments.animate({ scrollTop: liveChatComments.prop('scrollHeight') })
+      this.$refs.liveChatComments.scrollTo({
+        top: this.$refs.liveChatComments.scrollHeight,
+        behavior: this.scrollingBehaviour
+      })
       this.stayAtBottom = true
       this.showScrollToBottom = false
     },
@@ -261,10 +255,6 @@ export default Vue.extend({
     preventDefault: function (event) {
       event.stopPropagation()
       event.preventDefault()
-    },
-
-    ...mapActions([
-      'getRandomColorClass'
-    ])
+    }
   }
 })

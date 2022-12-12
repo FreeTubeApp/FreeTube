@@ -1,7 +1,14 @@
 <template>
-  <div class="relative">
+  <div
+    class="relative"
+    :class="{
+      'vjs-using-touch': usingTouch,
+      'vjs-hide-play-button': !displayVideoPlayButton
+    }"
+    @mouseover="handleMouseOver"
+  >
     <video
-      :id="id"
+      ref="video"
       class="ftVideoPlayer video-js vjs-default-skin dark"
       :poster="thumbnail"
       controls
@@ -9,7 +16,6 @@
       :data-setup="JSON.stringify(dataSetup)"
       crossorigin="anonymous"
       @touchstart="handleTouchStart"
-      @touchend="handleTouchEnd"
     >
       <source
         v-for="(source, index) in activeSourceList"

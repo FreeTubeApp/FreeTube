@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -8,11 +8,12 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'GeneralSettings',
   components: {
-    'ft-card': FtCard,
+    'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
@@ -59,14 +60,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
-
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
-
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -114,21 +107,26 @@ export default Vue.extend({
     },
 
     localeOptions: function () {
-      return ['system'].concat(Object.keys(this.$i18n.messages))
+      return [
+        'system',
+        ...this.$i18n.allLocales
+      ]
     },
 
     localeNames: function () {
+      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
+        return [
+          this.$t('Settings.General Settings.System Default'),
+          ...process.env.LOCALE_NAMES
+        ]
+      }
+
       const names = [
         this.$t('Settings.General Settings.System Default')
       ]
 
-      Object.keys(this.$i18n.messages).forEach((locale) => {
-        const localeName = this.$i18n.messages[locale]['Locale Name']
-        if (typeof localeName !== 'undefined') {
-          names.push(localeName)
-        } else {
-          names.push(locale)
-        }
+      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
+        names.push(localeData['Locale Name'] ?? locale)
       })
 
       return names
@@ -195,22 +193,17 @@ export default Vue.extend({
       const instance = this.currentInvidiousInstance
       this.updateDefaultInvidiousInstance(instance)
 
-      const message = this.$t('Default Invidious instance has been set to $')
-      this.showToast({
-        message: message.replace('$', instance)
-      })
+      const message = this.$t('Default Invidious instance has been set to {instance}', { instance })
+      showToast(message)
     },
 
     handleClearDefaultInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
-      this.showToast({
-        message: this.$t('Default Invidious instance has been cleared')
-      })
+      showToast(this.$t('Default Invidious instance has been cleared'))
     },
 
     handlePreferredApiBackend: function (backend) {
       this.updateBackendPreference(backend)
-      console.log(backend)
 
       if (backend === 'local') {
         this.updateForceLocalBackendForLegacy(false)
@@ -222,7 +215,6 @@ export default Vue.extend({
     ]),
 
     ...mapActions([
-      'showToast',
       'updateEnableSearchSuggestions',
       'updateBackendFallback',
       'updateCheckForUpdates',

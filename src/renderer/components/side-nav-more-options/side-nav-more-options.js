@@ -8,6 +8,12 @@ export default Vue.extend({
     }
   },
   computed: {
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
+    },
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
     hidePopularVideos: function () {
       return this.$store.getters.getHidePopularVideos
     },
@@ -26,7 +32,7 @@ export default Vue.extend({
   methods: {
     navigate: function (route) {
       this.openMoreOptions = false
-      this.$emit('navigate', route)
+      this.$router.push('/' + route)
     }
   }
 })

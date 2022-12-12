@@ -8,6 +8,7 @@ FreeTube: FreeTube
 # Webkit Menu Bar
 File: File
 New Window: New Window
+Preferences: Preferences
 Quit: Quit
 Edit: Edit
 Undo: Undo
@@ -31,10 +32,10 @@ Back: Back
 Forward: Forward
 Open New Window: Open New Window
 
-Version $ is now available!  Click for more details: Version $ is now available!  Click
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
 Download From Site: Download From Site
-A new blog is now available, $. Click to view more: A new blog is now available, $.
+A new blog is now available, {blogTitle}. Click to view more: A new blog is now available, {blogTitle}.
   Click to view more
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
@@ -84,8 +85,9 @@ Subscriptions:
   Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your
-    Subscription list is currently empty. Start adding subscriptions to see them here.
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
+  Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
+  Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
@@ -94,11 +96,11 @@ Channels:
   Channels: Channels
   Title: Channel List
   Search bar placeholder: Search Channels
-  Count: $ channel(s) found.
+  Count: '{number} channel(s) found.'
   Empty: Your channel list is currently empty.
   Unsubscribe: Unsubscribe
-  Unsubscribed: $ has been removed from your subscriptions
-  Unsubscribe Prompt: Are you sure you want to unsubscribe from "$"?
+  Unsubscribed: '{channelName} has been removed from your subscriptions'
+  Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
 Trending:
   Trending: Trending
   Default: Default
@@ -154,8 +156,7 @@ Settings:
       Middle: Middle
       End: End
     Current Invidious Instance: Current Invidious Instance
-    # $ is replaced with the default Invidious instance
-    The currently set default instance is $: The currently set default instance is $
+    The currently set default instance is {instance}: The currently set default instance is {instance}
     No default instance has been set: No default instance has been set
     Current instance will be randomized on startup: Current instance will be randomized on startup
     Set Current Instance as Default: Set Current Instance as Default
@@ -175,6 +176,7 @@ Settings:
     Disable Smooth Scrolling: Disable Smooth Scrolling
     UI Scale: UI Scale
     Hide Side Bar Labels: Hide Side Bar Labels
+    Hide FreeTube Header Logo: Hide FreeTube Header Logo
     Base Theme:
       Base Theme: Base Theme
       Black: Black
@@ -182,6 +184,7 @@ Settings:
       System Default: System Default
       Light: Light
       Dracula: Dracula
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -207,6 +210,20 @@ Settings:
       Dracula Purple: Dracula Purple
       Dracula Red: Dracula Red
       Dracula Yellow: Dracula Yellow
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -222,6 +239,7 @@ Settings:
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
+    Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
     Next Video Interval: Next Video Interval
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
@@ -265,6 +283,9 @@ Settings:
     Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
     Custom External Player Executable: Custom External Player Executable
     Custom External Player Arguments: Custom External Player Arguments
+    Players:
+      None:
+        Name: None
   Privacy Settings:
     Privacy Settings: Privacy Settings
     Remember History: Remember History
@@ -287,6 +308,7 @@ Settings:
     Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
+    Fetch Automatically: Fetch Feed Automatically
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Hide Video Views: Hide Video Views
@@ -302,15 +324,17 @@ Settings:
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
     Hide Live Streams: Hide Live Streams
+    Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
+    Hide Chapters: Hide Chapters
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
-    Import FreeTube: Import FreeTube
-    Import YouTube: Import YouTube
-    Import NewPipe: Import NewPipe
+    Subscription File: Subscription File
+    History File: History File
+    Playlist File: Playlist File
     Check for Legacy Subscriptions: Check for Legacy Subscriptions
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
@@ -339,7 +363,7 @@ Settings:
       successfully imported
     All watched history has been successfully exported: All watched history has been
       successfully exported
-    Playlist insufficient data: Insufficient data for "$" playlist, skipping item
+    Playlist insufficient data: Insufficient data for "{playlist}" playlist, skipping item
     All playlists has been successfully imported: All playlists has been
       successfully imported
     All playlists has been successfully exported: All playlists has been
@@ -387,6 +411,10 @@ Settings:
     Download Behavior: Download Behavior
     Download in app: Download in app
     Open in web browser: Open in web browser
+  Experimental Settings:
+    Experimental Settings: Experimental Settings
+    Warning: These settings are experimental, they make cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
+    Replace HTTP Cache: Replace HTTP Cache
 About:
   #On About page
   About: About
@@ -437,14 +465,14 @@ Profile:
   Your profile name cannot be empty: Your profile name cannot be empty
   Profile has been created: Profile has been created
   Profile has been updated: Profile has been updated
-  Your default profile has been set to $: Your default profile has been set to $
-  Removed $ from your profiles: Removed $ from your profiles
+  Your default profile has been set to {profile}: Your default profile has been set to {profile}
+  Removed {profile} from your profiles: Removed {profile} from your profiles
   Your default profile has been changed to your primary profile: Your default profile
     has been changed to your primary profile
-  $ is now the active profile: $ is now the active profile
+  '{profile} is now the active profile': '{profile} is now the active profile'
   Subscription List: Subscription List
   Other Channels: Other Channels
-  $ selected: $ selected
+  '{number} selected': '{number} selected'
   Select All: Select All
   Select None: Select None
   Delete Selected: Delete Selected
@@ -465,8 +493,7 @@ Channel:
   Unsubscribe: Unsubscribe
   Channel has been removed from your subscriptions: Channel has been removed from
     your subscriptions
-  Removed subscription from $ other channel(s): Removed subscription from $ other
-    channel(s)
+  Removed subscription from {count} other channel(s): Removed subscription from {count} other channel(s)
   Added channel to your subscriptions: Added channel to your subscriptions
   Search Channel: Search Channel
   Your search results have returned 0 results: Your search results have returned 0
@@ -525,6 +552,7 @@ Video:
     the page to check again
   # As in a Live Video
   Premieres on: Premieres on
+  Premieres: Premieres
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -575,12 +603,12 @@ Video:
     Years: Years
     Ago: Ago
     Upcoming: Premieres on
+    In less than a minute: In less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
   translated from English: translated from English
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: $ % ago
+  Publicationtemplate: '{number} {unit} ago'
   Skipped segment: Skipped segment
   Sponsor Block category:
     sponsor: Sponsor
@@ -592,14 +620,11 @@ Video:
     recap: Recap
     filler: Filler
   External Player:
-    # $ is replaced with the external player
-    OpenInTemplate: Open in $
+    OpenInTemplate: Open in {externalPlayer}
     video: video
     playlist: playlist
-    # $ is replaced with the current context (see video/playlist above) and % the external player setting
-    OpeningTemplate: Opening $ in %...
-    # $ is replaced with the external player and % with the unsupported action
-    UnsupportedActionTemplate: '$ does not support: %'
+    OpeningTemplate: Opening {videoOrPlaylist} in {externalPlayer}...
+    UnsupportedActionTemplate: '{externalPlayer} does not support: {action}'
     Unsupported Actions:
       starting video at offset: starting video at offset
       setting a playback rate: setting a playback rate
@@ -647,7 +672,7 @@ Playlist:
 #& Views
 Toggle Theatre Mode: Toggle Theatre Mode
 Change Format:
-  Change Video Formats: Change Video Formats
+  Change Media Formats: Change Media Formats
   Use Dash Formats: Use DASH Formats
   Use Legacy Formats: Use Legacy Formats
   Use Audio Formats: Use Audio Formats
@@ -657,6 +682,7 @@ Change Format:
     for this video
 Share:
   Share Video: Share Video
+  Share Channel: Share Channel
   Include Timestamp: Include Timestamp
   Copy Link: Copy Link
   Open Link: Open Link
@@ -669,6 +695,14 @@ Share:
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
   YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
   YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+Clipboard:
+  Copy failed: Copy to clipboard failed
+  Cannot access clipboard without a secure connection: Cannot access clipboard without a secure connection
+
+Chapters:
+  Chapters: Chapters
+  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
 Mini Player: Mini Player
 Comments:
@@ -687,7 +721,7 @@ Comments:
   Replies: Replies
   Show More Replies: Show More Replies
   Reply: Reply
-  From $channelName: from $channelName
+  From {channelName}: from {channelName}
   And others: and others
   There are no comments available for this video: There are no comments available
     for this video
@@ -741,15 +775,18 @@ Tooltips:
       the current action (e.g. reversing playlists, etc.).
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
-    # $ is replaced with the default custom arguments for the current player, if defined.
-    DefaultCustomArgumentsTemplate: '(Default: ''$'')'
+    DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration or live status
+    Fetch Automatically: When enabled, FreeTube will automatically fetch
+      your subscription feed when a new window is opened and when switching profile.
   Privacy Settings:
     Remove Video Meta Files: When enabled, FreeTube automatically deletes meta files created during video playback,
       when the watch page is closed.
+  Experimental Settings:
+    Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
@@ -771,23 +808,22 @@ Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
-# $ is replaced with the default Invidious instance
-Default Invidious instance has been set to $: Default Invidious instance has been set to $
+
+Default Invidious instance has been set to {instance}: Default Invidious instance has been set to {instance}
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 Age Restricted:
-  # $contentType is replaced with video or channel
-  This $contentType is age restricted: This $ is age restricted
+  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
   Type:
     Channel: Channel
     Video: Video
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
-Downloading has completed: '"$" has finished downloading'
-Starting download: 'Starting download of "$"'
-Downloading failed: 'There was an issue downloading "$"'
-Screenshot Success: Saved screenshot as "$"
-Screenshot Error: Screenshot failed. $
+Downloading has completed: '"{videoTitle}" has finished downloading'
+Starting download: 'Starting download of "{videoTitle}"'
+Downloading failed: 'There was an issue downloading "{videoTitle}"'
+Screenshot Success: Saved screenshot as "{filePath}"
+Screenshot Error: Screenshot failed. {error}
 
 Yes: Yes
 No: No

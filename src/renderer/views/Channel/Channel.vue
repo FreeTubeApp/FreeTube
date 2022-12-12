@@ -51,14 +51,22 @@
             </div>
           </div>
 
-          <ft-button
-            v-if="!hideUnsubscribeButton"
-            :label="subscribedText"
-            background-color="var(--primary-color)"
-            text-color="var(--text-with-main-color)"
-            class="subscribeButton"
-            @click="handleSubscription"
-          />
+          <div class="channelInfoActionsContainer">
+            <ft-share-button
+              :id="id"
+              share-target-type="Channel"
+              class="shareIcon"
+            />
+
+            <ft-button
+              v-if="!hideUnsubscribeButton"
+              :label="subscribedText"
+              background-color="var(--primary-color)"
+              text-color="var(--text-with-main-color)"
+              class="subscribeButton"
+              @click="handleSubscription"
+            />
+          </div>
         </div>
 
         <ft-flex-box
@@ -192,7 +200,7 @@
           class="getNextPage"
           @click="handleFetchMore"
         >
-          <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
     </ft-card>
