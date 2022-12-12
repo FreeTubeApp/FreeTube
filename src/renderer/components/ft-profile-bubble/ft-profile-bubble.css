@@ -22,6 +22,8 @@
   margin: 20px auto 5px auto;
   border-radius: 50%;
   -webkit-border-radius: 50%;
+  background-position: center;
+  background-size: cover;
 }
 
 .initial {

@@ -7,6 +7,8 @@
   justify-content: center;
   border-radius: 50%;
   -webkit-border-radius: 50%;
+  background-position: center;
+  background-size: cover;
 }
 
 .colorOption:hover {

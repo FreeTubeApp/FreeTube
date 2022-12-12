@@ -35,6 +35,7 @@ export default Vue.extend({
       profileName: '',
       profileBgColor: '',
       profileTextColor: '',
+      profileImageUrl: '',
       profileSubscriptions: [],
       deletePromptValues: [
         'yes',
@@ -51,6 +52,10 @@ export default Vue.extend({
     },
     profileInitial: function () {
       return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
+    },
+    hasProfileImage: function () {
+      // the profile image url should both exist and be a non-empty string
+      return this?.profileImageUrl && !this.profileImageUrl?.length > 0
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -81,6 +86,7 @@ export default Vue.extend({
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
     this.profileTextColor = this.profile.textColor
+    this.profileImageUrl = this.profile.imageUrl
   },
   methods: {
     openDeletePrompt: function () {
@@ -104,6 +110,7 @@ export default Vue.extend({
         name: this.profileName,
         bgColor: this.profileBgColor,
         textColor: this.profileTextColor,
+        imageUrl: this.profileImageUrl,
         subscriptions: this.profile.subscriptions
       }
 

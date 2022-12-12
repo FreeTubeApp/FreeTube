@@ -18,11 +18,20 @@ export default Vue.extend({
     textColor: {
       type: String,
       required: true
+    },
+    profileImageUrl: {
+      type: String,
+      default: '',
+      required: false
     }
   },
   computed: {
     profileInitial: function () {
       return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
+    },
+    hasProfileImage: function () {
+      // the profile image url should both exist and be a non-empty string
+      return this?.profileImageUrl && !this.profileImageUrl?.length > 0
     }
   },
   methods: {

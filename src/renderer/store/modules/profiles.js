@@ -8,6 +8,7 @@ const state = {
     name: 'All Channels',
     bgColor: '#000000',
     textColor: '#FFFFFF',
+    imageUrl: null,
     subscriptions: []
   }],
   activeProfile: MAIN_PROFILE_ID
