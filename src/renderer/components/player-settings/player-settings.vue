@@ -35,6 +35,7 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
+          :disabled="videoSkipMouseScroll"
           :default-value="videoVolumeMouseScroll"
           @change="updateVideoVolumeMouseScroll"
         />
@@ -48,15 +49,10 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Skip by Scrolling Over Video Player')"
           :compact="true"
+          :disabled="videoVolumeMouseScroll"
           :default-value="videoSkipMouseScroll"
           :tooltip="$t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
           @change="updateVideoSkipMouseScroll"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
-          :compact="true"
-          :default-value="displayVideoPlayButton"
-          @change="updateDisplayVideoPlayButton"
         />
       </div>
       <div class="switchColumn">
