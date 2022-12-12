@@ -54,11 +54,12 @@ function runApp() {
     // the /playlist, /channel and /watch in-app URLs get transformed to their equivalent YouTube URLs
     append: (defaultActions, parameters, browserWindow) => {
       let visible = false
-      const isInAppUrl = parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0]
+      const urlParts = parameters.linkURL.split('#')
+      const isInAppUrl = urlParts[0] === browserWindow.webContents.getURL().split('#')[0]
 
       if (parameters.linkURL.length > 0) {
         if (isInAppUrl) {
-          const path = parameters.linkURL.split('#')[1]
+          const path = urlParts[1]
 
           if (path) {
             visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
@@ -75,7 +76,7 @@ function runApp() {
           let url = parameters.linkURL
 
           if (isInAppUrl) {
-            const [path, query] = url.split('#')[1].split('?')
+            const [path, query] = urlParts[1].split('?')
             const [route, id] = path.split('/').filter(p => p)
 
             switch (route) {
