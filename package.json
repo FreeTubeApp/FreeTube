@@ -47,7 +47,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@fortawesome/vue-fontawesome": "^2.0.8",
+    "@fortawesome/vue-fontawesome": "^2.0.9",
     "@freetube/youtube-chat": "^1.1.2",
     "@freetube/yt-comment-scraper": "^6.2.0",
     "@freetube/yt-trending-scraper": "^3.1.1",
