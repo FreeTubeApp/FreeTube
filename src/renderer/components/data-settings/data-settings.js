@@ -771,11 +771,11 @@ export default Vue.extend({
 
       const keyMapping = {
         title: [{ importKey: 'title', predicate: item => item.slice(8) }], // Removes the "Watched " term on the title
-        titleUrl: [{ importKey: 'videoId', predicate: item => item.replaceAll(/https:\/\/www.youtube.com\/watch\?v\u003d/gi, '') }], // Extracts the video ID
+        titleUrl: [{ importKey: 'videoId', predicate: item => item.replaceAll(/https:\/\/www\.youtube\.com\/watch\?v\u003d/gi, '') }], // Extracts the video ID
         time: [{ importKey: 'timeWatched', predicate: item => new Date(item).valueOf() }],
         subtitles: [
           { importKey: 'author', predicate: item => item[0].name ?? '' },
-          { importKey: 'authorId', predicate: item => item[0].url?.replaceAll(/https:\/\/www.youtube.com\/channel\//gi, '') ?? '' },
+          { importKey: 'authorId', predicate: item => item[0].url?.replaceAll(/https:\/\/www\.youtube\.com\/channel\//gi, '') ?? '' },
         ],
       }
 
