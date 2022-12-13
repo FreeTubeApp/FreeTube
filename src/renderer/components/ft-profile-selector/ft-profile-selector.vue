@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="hasProfileImage"
+      v-if="activeHasProfileImage"
       class="colorOption"
       :style="{ backgroundImage: `url(${activeProfile.imageUrl})` }"
       @click="toggleProfileList"
@@ -47,7 +47,7 @@
           @click="setActiveProfile(profile)"
         >
           <div
-            v-if="hasProfileImage"
+            v-if="hasProfileImages[index]"
             class="colorOption"
             :style="{ backgroundImage: `url(${profile.imageUrl})` }"
           />

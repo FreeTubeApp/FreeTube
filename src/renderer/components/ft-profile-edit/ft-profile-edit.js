@@ -113,6 +113,7 @@ export default Vue.extend({
         imageUrl: this.profileImageUrl,
         subscriptions: this.profile.subscriptions
       }
+      console.log(profile)
 
       if (!this.isNew) {
         profile._id = this.profileId
@@ -155,44 +156,35 @@ export default Vue.extend({
         path: '/settings/profile/'
       })
     },
+    profileImageUpload: function (event) {
+      const file = event.target.files[0]
+      const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png']
 
+      if (!(file && acceptedImageTypes.includes(file.type))) {
+        showToast(this.$t('Profile.File upload not successful'))
+        return
+      }
+      if (file.size > 64000) {
+        showToast(this.$t('Profile.Image must be smaller than 64KB'))
+        return
+      }
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        this.profileImageUrl = reader.result.toString()
+      }.bind(this);
+
+      reader.onerror = function (error) {
+        console.log('Error: ', error);
+        return
+      };
+    },
     ...mapActions([
       'createProfile',
       'updateProfile',
       'removeProfile',
       'updateDefaultProfile',
       'updateActiveProfile'
-    ]),
-
-    profileImageUpload: function (event) {
-      console.log("hello")
-      console.log(event.target.files[0])
-      const file = event.target.files[0]
-      const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png']
-
-      if (file && acceptedImageTypes.includes(file.type)) {
-        this.profileImageUrl = URL.createObjectURL(file)
-      }
-      else {
-        showToast(this.$t('Profile.File upload not successful'))
-      }
-      return
-      if (file.size > 64000) {
-        showToast(this.$t('Profile image must be smaller than 64KB'))
-        return
-      }
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        console.log(reader.result);
-        this.profileImageUrl = reader.result.toString()
-        this.profileBgColor = "#FFFFFF"
-        // console.log(this.profileImageUrl)
-      };
-      reader.onerror = function (error) {
-        console.log('Error: ', error);
-        return
-      };
-    }
+    ])
   }
 })

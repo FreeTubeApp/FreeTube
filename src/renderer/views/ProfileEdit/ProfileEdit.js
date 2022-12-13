@@ -65,6 +65,7 @@ export default Vue.extend({
         name: '',
         bgColor: bgColor,
         textColor: textColor,
+        imageUrl: '',
         subscriptions: []
       }
     } else {

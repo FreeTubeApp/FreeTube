@@ -464,6 +464,8 @@ Profile:
   All subscriptions will also be deleted.: All subscriptions will also be deleted.
   Profile could not be found: Profile could not be found
   Your profile name cannot be empty: Your profile name cannot be empty
+  File upload not successful: File upload not successful
+  Image must be smaller than 64KB: Image must be smaller than 64KB
   Profile has been created: Profile has been created
   Profile has been updated: Profile has been updated
   Your default profile has been set to {profile}: Your default profile has been set to {profile}

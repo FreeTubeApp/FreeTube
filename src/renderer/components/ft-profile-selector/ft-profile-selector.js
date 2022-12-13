@@ -36,9 +36,14 @@ export default Vue.extend({
         return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     },
-    hasProfileImage: function () {
+    activeHasProfileImage: function () {
       // the profile image url should both exist and be a non-empty string
       return this?.activeProfile?.imageUrl && this.activeProfile.imageUrl?.length > 0
+    },
+    hasProfileImages: function () {
+      return this.profileList.map((profile) => {
+        return profile?.imageUrl && profile.imageUrl?.length > 0
+      })
     }
   },
   methods: {
