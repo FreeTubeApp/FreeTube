@@ -33,6 +33,7 @@ export default Vue.extend({
       showDeletePrompt: false,
       profileId: '',
       profileName: '',
+      profilePicture: null,
       profileBgColor: '',
       profileTextColor: '',
       profileImageUrl: '',
@@ -84,6 +85,7 @@ export default Vue.extend({
   created: function () {
     this.profileId = this.$route.params.id
     this.profileName = this.profile.name
+    this.profilePicture = this.profile.picture
     this.profileBgColor = this.profile.bgColor
     this.profileTextColor = this.profile.textColor
     this.profileImageUrl = this.profile.imageUrl
@@ -108,6 +110,7 @@ export default Vue.extend({
       }
       const profile = {
         name: this.profileName,
+        picture: this.profilePicture,
         bgColor: this.profileBgColor,
         textColor: this.profileTextColor,
         imageUrl: this.profileImageUrl,
@@ -162,6 +165,10 @@ export default Vue.extend({
       'removeProfile',
       'updateDefaultProfile',
       'updateActiveProfile'
-    ])
+    ]),
+
+    profilePictureUpload: function (event) {
+      this.profilePicture = event.target.files[0]
+    }
   }
 })

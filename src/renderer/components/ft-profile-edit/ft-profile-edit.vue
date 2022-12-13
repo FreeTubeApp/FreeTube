@@ -11,6 +11,17 @@
           @input="e => profileName = e"
         />
       </ft-flex-box>
+      <h3>{{ $t("Profile.Upload Profile Picture") }}</h3>
+      <ft-flex-box>
+        <ft-button>
+          <p>{{ $t("Profile.Choose an Image") }}</p>
+          <input
+            type="file"
+            class="default-upload"
+            @change="profilePictureUpload"
+          />
+        </ft-button>
+      </ft-flex-box>
       <h3>{{ $t("Profile.Color Picker") }}</h3>
       <ft-flex-box
         class="bottomMargin colorOptions"
