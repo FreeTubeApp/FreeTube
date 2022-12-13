@@ -38,7 +38,7 @@ export default Vue.extend({
     },
     hasProfileImage: function () {
       // the profile image url should both exist and be a non-empty string
-      return this?.activeProfile?.imageUrl && !this.activeProfile.imageUrl?.length > 0
+      return this?.activeProfile?.imageUrl && this.activeProfile.imageUrl?.length > 0
     }
   },
   methods: {

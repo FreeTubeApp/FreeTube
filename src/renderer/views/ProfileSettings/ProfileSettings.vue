@@ -12,6 +12,7 @@
           :profile-name="profile.name"
           :background-color="profile.bgColor"
           :text-color="profile.textColor"
+          :profile-image-url="profile.imageUrl"
         />
       </ft-flex-box>
       <ft-flex-box>

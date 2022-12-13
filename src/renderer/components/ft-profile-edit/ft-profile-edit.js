@@ -33,7 +33,6 @@ export default Vue.extend({
       showDeletePrompt: false,
       profileId: '',
       profileName: '',
-      profilePicture: null,
       profileBgColor: '',
       profileTextColor: '',
       profileImageUrl: '',
@@ -56,7 +55,7 @@ export default Vue.extend({
     },
     hasProfileImage: function () {
       // the profile image url should both exist and be a non-empty string
-      return this?.profileImageUrl && !this.profileImageUrl?.length > 0
+      return this?.profileImageUrl && this.profileImageUrl?.length > 0
     },
     profileList: function () {
       return this.$store.getters.getProfileList
@@ -85,7 +84,6 @@ export default Vue.extend({
   created: function () {
     this.profileId = this.$route.params.id
     this.profileName = this.profile.name
-    this.profilePicture = this.profile.picture
     this.profileBgColor = this.profile.bgColor
     this.profileTextColor = this.profile.textColor
     this.profileImageUrl = this.profile.imageUrl
@@ -110,7 +108,6 @@ export default Vue.extend({
       }
       const profile = {
         name: this.profileName,
-        picture: this.profilePicture,
         bgColor: this.profileBgColor,
         textColor: this.profileTextColor,
         imageUrl: this.profileImageUrl,
@@ -167,8 +164,35 @@ export default Vue.extend({
       'updateActiveProfile'
     ]),
 
-    profilePictureUpload: function (event) {
-      this.profilePicture = event.target.files[0]
+    profileImageUpload: function (event) {
+      console.log("hello")
+      console.log(event.target.files[0])
+      const file = event.target.files[0]
+      const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png']
+
+      if (file && acceptedImageTypes.includes(file.type)) {
+        this.profileImageUrl = URL.createObjectURL(file)
+      }
+      else {
+        showToast(this.$t('Profile.File upload not successful'))
+      }
+      return
+      if (file.size > 64000) {
+        showToast(this.$t('Profile image must be smaller than 64KB'))
+        return
+      }
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        console.log(reader.result);
+        this.profileImageUrl = reader.result.toString()
+        this.profileBgColor = "#FFFFFF"
+        // console.log(this.profileImageUrl)
+      };
+      reader.onerror = function (error) {
+        console.log('Error: ', error);
+        return
+      };
     }
   }
 })

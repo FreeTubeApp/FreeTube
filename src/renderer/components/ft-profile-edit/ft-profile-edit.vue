@@ -18,7 +18,7 @@
           <input
             type="file"
             class="default-upload"
-            @change="profilePictureUpload"
+            @change="profileImageUpload"
           />
         </ft-button>
       </ft-flex-box>
@@ -31,7 +31,7 @@
           :key="index"
           class="colorOption"
           :style="{ background: color }"
-          @click="profileBgColor = color"
+          @click="profileBgColor = color; profileImageUrl = '';"
         />
       </ft-flex-box>
       <ft-flex-box
