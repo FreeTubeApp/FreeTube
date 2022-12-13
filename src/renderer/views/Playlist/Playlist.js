@@ -165,7 +165,7 @@ export default Vue.extend({
     },
 
     getNextPage: function () {
-      switch (this.backendPreference) {
+      switch (this.infoData.infoSource) {
         case 'local':
           this.getNextPageLocal()
           break
