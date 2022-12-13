@@ -196,27 +196,36 @@ export default Vue.extend({
 
     handleKeyDown: function (event) {
       if (this.visibleDataList.length === 0) { return }
-      // Update selectedOption based on arrow key pressed
-      if (event.key === 'ArrowDown') {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
-      } else if (event.key === 'ArrowUp') {
-        if (this.searchState.selectedOption < 1) {
-          this.searchState.selectedOption = this.visibleDataList.length - 1
-        } else {
-          this.searchState.selectedOption--
+      if (event.key === 'Enter') {
+        this.inputData = this.visibleDataList[this.searchState.selectedOption]
+        // Update Input box value if enter key was pressed and option selected
+        if (this.searchState.selectedOption !== -1) {
+          this.searchState.showOptions = false
+          event.preventDefault()
+          this.inputData = this.visibleDataList[this.searchState.selectedOption]
+          this.handleClick()
         }
       } else {
-        this.searchState.selectedOption = -1
-      }
-
-      // Key pressed isn't enter
-      if (event.key !== 'Enter') {
         this.searchState.showOptions = true
-      }
-      // Update Input box value if arrow keys were pressed
-      if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.searchState.selectedOption !== -1) {
-        event.preventDefault()
-        this.inputData = this.visibleDataList[this.searchState.selectedOption]
+        const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
+        if (isArrow) {
+          if (event.key === 'ArrowDown') {
+            this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+          } else if (event.key === 'ArrowUp') {
+            if (this.searchState.selectedOption < 1) {
+              this.searchState.selectedOption = this.visibleDataList.length - 1
+            } else {
+              this.searchState.selectedOption--
+            }
+          }
+          if (this.searchState.selectedOption < 0) {
+            this.searchState.selectedOption = this.visibleDataList.length
+          } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
+            this.searchState.selectedOption = 0
+          }
+        } else {
+          this.searchState.selectedOption = -1
+        }
       }
     },
 
