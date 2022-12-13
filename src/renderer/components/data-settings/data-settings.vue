@@ -11,9 +11,15 @@
         :label="$t('Settings.Data Settings.Export Subscriptions')"
         @click="showExportSubscriptionsPrompt = true"
       />
+    </ft-flex-box>
+    <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import History')"
         @click="importHistory"
+      />
+      <ft-button
+        :label="$t('Settings.Data Settings.Import YouTube History')"
+        @click="importYouTubeHistory"
       />
       <ft-button
         :label="$t('Settings.Data Settings.Export History')"

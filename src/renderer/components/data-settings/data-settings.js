@@ -735,6 +735,95 @@ export default Vue.extend({
       showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
+    importYouTubeHistory: async function() {
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: this.$t('Settings.Data Settings.History File'),
+            extensions: ['json']
+          }
+        ]
+      }
+
+      const response = await showOpenDialog(options)
+      if (response.canceled || response.filePaths?.length === 0) {
+        return
+      }
+      let textDecode
+      try {
+        textDecode = await readFileFromDialog(response)
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        showToast(`${message}: ${err}`)
+        return
+      }
+
+      const historyData = JSON.parse(textDecode)
+      const filterPredicate = item => item.products.includes('YouTube') &&
+                                      item.activityControls.includes('YouTube watch history') &&
+                                      (item.details?.some(detail => detail.name !== 'From Google Ads') ?? true)
+      const filteredHistoryData = historyData.filter(filterPredicate)
+
+      // We would technically already be done by the time the data is parsed,
+      // however we want to limit the possibility of malicious data being sent
+      // to the app, so we'll only grab the data we need here.
+
+      const keyMapping = {
+        title: [{ importKey: 'title', predicate: item => item.slice(8) }], // Removes the "Watched " term on the title
+        titleUrl: [{ importKey: 'videoId', predicate: item => item.replaceAll(/https:\/\/www.youtube.com\/watch\?v\u003d/gi, '') }], // Extracts the video ID
+        time: [{ importKey: 'timeWatched', predicate: item => new Date(item).valueOf() }],
+        subtitles: [
+          { importKey: 'author', predicate: item => item[0].name ?? '' },
+          { importKey: 'authorId', predicate: item => item[0].url?.replaceAll(/https:\/\/www.youtube.com\/channel\//gi, '') ?? '' },
+        ],
+      }
+
+      const knownKeys = [
+        'header',
+        'description',
+        'products',
+        'details',
+        'activityControls',
+      ].concat(Object.keys(keyMapping))
+
+      const historyObject = {}
+
+      filteredHistoryData.forEach(element => {
+        Object.keys(element).forEach((key) => {
+          if (!knownKeys.includes(key)) {
+            showToast(`Unknown data key: ${key}`)
+          } else {
+            const mapping = keyMapping[key]
+
+            if (mapping && mapping instanceof Array) {
+              mapping.forEach(item => {
+                historyObject[item.importKey] = item.predicate(element[key])
+              })
+            }
+          }
+        })
+
+        if (Object.keys(historyObject).length < keyMapping.length - 1) {
+          showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
+        } else {
+          // YouTube history export does not have these data, setting some defaults.
+          historyObject.type = 'video'
+          historyObject.published = historyObject.timeWatched ?? 1
+          historyObject.description = ''
+          historyObject.viewCount = 1
+          historyObject.lengthSeconds = 1
+          historyObject.watchProgress = 1
+          historyObject.isLive = false
+          historyObject.paid = false
+
+          this.updateHistory(historyObject)
+        }
+      })
+
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
+    },
+
     importHistory: async function () {
       const options = {
         properties: ['openFile'],

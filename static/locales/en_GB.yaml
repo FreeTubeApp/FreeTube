@@ -313,6 +313,7 @@ Settings:
     Export YouTube: 'Export YouTube'
     Export NewPipe: 'Export NewPipe'
     Import History: 'Import History'
+    Import YouTube History: 'Import YouTube History'
     Export History: 'Export History'
     Profile object has insufficient data, skipping item: 'Profile object has insufficient
       data, skipping item'
