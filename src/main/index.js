@@ -51,7 +51,7 @@ function runApp() {
       }
     ],
     // only show the copy link entry for external links and the /playlist, /channel and /watch in-app URLs
-    // the /playlist, /channel and /watch in-app URLs get transformed to their equivalent YouTube URLs
+    // the /playlist, /channel and /watch in-app URLs get transformed to their equivalent YouTube or Invidious URLs
     append: (defaultActions, parameters, browserWindow) => {
       let visible = false
       const urlParts = parameters.linkURL.split('#')
@@ -69,61 +69,91 @@ function runApp() {
         }
       }
 
-      return [{
-        label: 'Copy Lin&k',
-        visible: visible,
-        click: () => {
-          let url = parameters.linkURL
+      const copy = (url) => {
+        if (parameters.linkText) {
+          clipboard.write({
+            bookmark: parameters.linkText,
+            text: url
+          })
+        } else {
+          clipboard.writeText(url)
+        }
+      }
 
-          if (isInAppUrl) {
-            const [path, query] = urlParts[1].split('?')
-            const [route, id] = path.split('/').filter(p => p)
+      const transformURL = (toYouTube) => {
+        let origin
 
-            switch (route) {
-              case 'playlist':
-                url = `https://youtube.com/playlist?list=${id}`
-                break
-              case 'channel':
-                url = `https://www.youtube.com/channel/${id}`
-                break
-              case 'watch': {
-                url = `https://youtu.be/${id}`
+        if (toYouTube) {
+          origin = 'https://www.youtube.com'
+        } else {
+          origin = 'https://redirect.invidious.io'
+        }
 
-                if (query) {
-                  const params = new URLSearchParams(query)
-                  const newParams = new URLSearchParams()
-                  let hasParams = false
+        const [path, query] = urlParts[1].split('?')
+        const [route, id] = path.split('/').filter(p => p)
 
-                  if (params.has('playlistId')) {
-                    newParams.set('list', params.get('playlistId'))
-                    hasParams = true
-                  }
+        switch (route) {
+          case 'playlist':
+            return `${origin}/playlist?list=${id}`
+          case 'channel':
+            return `${origin}/channel/${id}`
+          case 'watch': {
+            let url
 
-                  if (params.has('timestamp')) {
-                    newParams.set('t', params.get('timestamp'))
-                    hasParams = true
-                  }
+            if (toYouTube) {
+              url = `https://youtu.be/${id}`
+            } else {
+              url = `https://redirect.invidious.io/watch?v=${id}`
+            }
 
-                  if (hasParams) {
-                    url += '?' + newParams.toString()
-                  }
-                }
+            if (query) {
+              const params = new URLSearchParams(query)
+              const newParams = new URLSearchParams()
+              let hasParams = false
 
-                break
+              if (params.has('playlistId')) {
+                newParams.set('list', params.get('playlistId'))
+                hasParams = true
+              }
+
+              if (params.has('timestamp')) {
+                newParams.set('t', params.get('timestamp'))
+                hasParams = true
+              }
+
+              if (hasParams) {
+                url += '?' + newParams.toString()
               }
             }
-          }
 
-          if (parameters.linkText) {
-            clipboard.write({
-              bookmark: parameters.linkText,
-              text: url
-            })
-          } else {
-            clipboard.writeText(url)
+            return url
           }
         }
-      }]
+      }
+
+      return [
+        {
+          label: 'Copy Lin&k',
+          visible: visible && !isInAppUrl,
+          click: () => {
+            copy(parameters.linkURL)
+          }
+        },
+        {
+          label: 'Copy YouTube Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(true))
+          }
+        },
+        {
+          label: 'Copy Invidious Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(false))
+          }
+        }
+      ]
     }
   })
 
