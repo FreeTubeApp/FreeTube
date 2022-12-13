@@ -5,6 +5,8 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
 import i18n from '../../i18n/index'
+import { getLocalPlaylist } from '../../helpers/api/local'
+import { extractNumberFromString } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Playlist',
@@ -64,18 +66,18 @@ export default Vue.extend({
     getPlaylistLocal: function () {
       this.isLoading = true
 
-      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
+      getLocalPlaylist(this.playlistId).then((result) => {
         this.infoData = {
-          id: result.id,
-          title: result.title,
-          description: result.description ? result.description : '',
+          id: this.playlistId,
+          title: result.info.title,
+          description: result.info.description ?? '',
           firstVideoId: result.items[0].id,
-          viewCount: result.views,
-          videoCount: result.estimatedItemCount,
-          lastUpdated: result.lastUpdated ? result.lastUpdated : '',
-          channelName: result.author ? result.author.name : '',
-          channelThumbnail: result.author ? result.author.bestAvatar.url : '',
-          channelId: result.author ? result.author.channelID : '',
+          viewCount: extractNumberFromString(result.info.views),
+          videoCount: extractNumberFromString(result.info.total_items),
+          lastUpdated: result.info.last_updated ?? '',
+          channelName: result.info.author?.name ?? '',
+          channelThumbnail: result.info.author?.best_thumbnail?.url ?? '',
+          channelId: result.info.author?.id,
           infoSource: 'local'
         }
 
@@ -86,18 +88,13 @@ export default Vue.extend({
         })
 
         this.playlistItems = result.items.map((video) => {
-          if (typeof video.author !== 'undefined') {
-            const channelName = video.author.name
-            const channelId = video.author.channelID ? video.author.channelID : channelName
-            video.author = channelName
-            video.authorId = channelId
-          } else {
-            video.author = ''
-            video.authorId = ''
+          return {
+            videoId: video.id,
+            title: video.title,
+            author: video.author.name,
+            authorId: video.author.id,
+            lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
           }
-          video.videoId = video.id
-          video.lengthSeconds = video.duration
-          return video
         })
 
         this.isLoading = false
@@ -177,7 +174,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'ytGetPlaylistInfo',
       'invidiousGetPlaylistInfo',
       'updateSubscriptionDetails'
     ])

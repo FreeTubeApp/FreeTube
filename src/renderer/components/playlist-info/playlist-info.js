@@ -93,11 +93,11 @@ export default Vue.extend({
     this.infoSource = this.data.infoSource
 
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined') {
+    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
       this.viewCount = this.hideViews ? null : Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
     }
 
-    if (typeof (this.data.videoCount) !== 'undefined') {
+    if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
       this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
     }
 
