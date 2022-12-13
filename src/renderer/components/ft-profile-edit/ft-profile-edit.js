@@ -79,12 +79,16 @@ export default Vue.extend({
   watch: {
     profileBgColor: function (val) {
       this.profileTextColor = calculateColorLuminance(val)
+    },
+    profileImg: function (img) {
+      this.profileImg = img
     }
   },
   created: function () {
     this.profileId = this.$route.params.id
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
+    this.profileImg = this.profile.profileImg
     this.profileTextColor = this.profile.textColor
     this.profileImageUrl = this.profile.imageUrl
   },
