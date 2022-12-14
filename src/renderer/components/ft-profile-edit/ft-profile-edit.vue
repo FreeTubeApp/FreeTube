@@ -19,7 +19,7 @@
             type="file"
             class="default-upload"
             @change="profileImageUpload"
-          />
+          >
         </ft-button>
       </ft-flex-box>
       <h3>{{ $t("Profile.Color Picker") }}</h3>
