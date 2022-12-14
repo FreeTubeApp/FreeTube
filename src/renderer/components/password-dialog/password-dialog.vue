@@ -1,20 +1,20 @@
 <template>
-    <div>
-      <ft-flex-box
-        class="settingsFlexStart460px"
-      >
+  <div>
+    <ft-card
+      class="card"
+    >
+      <h3>{{ $t("Settings.Password Dialog.Enter Password To Unlock") }}</h3>
+
+      <ft-flex-box>
         <ft-input
-          :placeholder="$t('Settings.Password Dialog.Enter Password To Unlock')"
+          ref="password"
+          :placeholder="$t('Settings.Password Dialog.Password')"
           :show-action-button="false"
-          :show-label="true"
           input-type="password"
+          class="passwordInput"
           :value="password"
+          select-on-focus="true"
           @input="e => password = e"
-        />
-        <ft-button
-          v-if="!unlocked"
-          :label="$t('Settings.Password Dialog.Unlock')"
-          @click="handleUnlock"
         />
       </ft-flex-box>
       <ft-prompt
@@ -24,7 +24,9 @@
         :option-values="['ok']"
         @click="handleLock"
       />
-    </div>
+    </ft-card>
+  </div>
 </template>
 
 <script src="./password-dialog.js" />
+<style scoped src="./password-dialog.css" />

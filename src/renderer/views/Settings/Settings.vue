@@ -28,12 +28,12 @@
       <experimental-settings v-if="usingElectron" />
       <hr>
       <password-settings
-      @settingsUnlocked="(n) => settingsUnlocked = n"
+        @settingsUnlocked="handleSettingsUnlocked"
       />
     </div>
     <div v-else>
       <password-dialog
-      @settingsUnlocked="(n) => settingsUnlocked = n"
+        @settingsUnlocked="handleSettingsUnlocked"
       />
     </div>
   </div>

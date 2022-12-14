@@ -415,6 +415,7 @@ Settings:
     Warning: These settings are experimental, they make cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
   Password Dialog:
+    Password: Password
     Enter Password To Unlock: Enter password to unlock settings
     Password Incorrect: Password Incorrect
     Unlock: Unlock

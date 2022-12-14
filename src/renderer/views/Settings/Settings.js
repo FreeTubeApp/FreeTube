@@ -39,10 +39,14 @@ export default Vue.extend({
       settingsUnlocked: false
     }
   },
-
   computed: {
     usingElectron: function () {
       return process.env.IS_ELECTRON
+    },
+  },
+  methods: {
+    handleSettingsUnlocked: function (n) {
+      this.settingsUnlocked = n
     },
   }
 })

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
+import FtCard from '../ft-card/ft-card.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -14,6 +15,7 @@ export default Vue.extend({
     'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
     'ft-input': FtInput,
+    'ft-card': FtCard,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
@@ -46,19 +48,16 @@ export default Vue.extend({
   },
   mounted: function () {
     this.propagateUnlockStatus()
+    this.$refs.password.focus()
   },
   methods: {
     handleLock: function () {
       this.password = ''
       this.showIncorrectPassword = false
     },
-    handleUnlock: function () {
-      this.showIncorrectPassword = !this.unlocked
-    },
     propagateUnlockStatus: function() {
       this.$emit('settingsUnlocked', this.unlocked)
     },
-
     ...mapActions([
       'updateSettingsPassword'
     ]),

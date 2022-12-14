@@ -263,6 +263,10 @@ export default Vue.extend({
       this.inputData = text
     },
 
+    focus() {
+      this.$refs.input.focus()
+    },
+
     ...mapActions([
       'getYoutubeUrlInfo'
     ])
