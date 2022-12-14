@@ -27,10 +27,15 @@
       <hr v-if="usingElectron">
       <experimental-settings v-if="usingElectron" />
       <hr>
-    </div>
-    <password-settings
+      <password-settings
       @settingsUnlocked="(n) => settingsUnlocked = n"
-    />
+      />
+    </div>
+    <div v-else>
+      <password-dialog
+      @settingsUnlocked="(n) => settingsUnlocked = n"
+      />
+    </div>
   </div>
 </template>
 

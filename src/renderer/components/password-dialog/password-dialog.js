@@ -9,7 +9,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
 export default Vue.extend({
-  name: 'PasswordSettings',
+  name: 'PasswordDialog',
   components: {
     'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
@@ -23,14 +23,15 @@ export default Vue.extend({
   data: function() {
     return {
       password: '',
+      showIncorrectPassword: false
     }
   },
   computed: {
     getStoredPassword: function() {
       return this.$store.getters.getSettingsPassword
     },
-    hasStoredPassword: function() {
-      return this.getStoredPassword !== ''
+    incorrectPassword: function() {
+      return this.password !== '' && !this.unlocked
     },
     unlocked: function() {
       return this.getStoredPassword === '' || this.password === this.getStoredPassword
@@ -43,14 +44,16 @@ export default Vue.extend({
       }
     },
   },
+  mounted: function () {
+    this.propagateUnlockStatus()
+  },
   methods: {
-    handleSetPassword: function () {
-      this.updateSettingsPassword(this.password)
+    handleLock: function () {
       this.password = ''
+      this.showIncorrectPassword = false
     },
-    handleRemovePassword: function () {
-      this.updateSettingsPassword('')
-      this.password = ''
+    handleUnlock: function () {
+      this.showIncorrectPassword = !this.unlocked
     },
     propagateUnlockStatus: function() {
       this.$emit('settingsUnlocked', this.unlocked)

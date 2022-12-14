@@ -13,6 +13,7 @@ import SponsorBlockSettings from '../../components/sponsor-block-settings/sponso
 import ParentControlSettings from '../../components/parental-control-settings/parental-control-settings.vue'
 import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
 import PasswordSettings from '../../components/password-settings/password-settings.vue'
+import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 
 export default Vue.extend({
   name: 'Settings',
@@ -31,6 +32,7 @@ export default Vue.extend({
     'parental-control-settings': ParentControlSettings,
     'experimental-settings': ExperimentalSettings,
     'password-settings': PasswordSettings,
+    'password-dialog': PasswordDialog,
   },
   data: function () {
     return {
