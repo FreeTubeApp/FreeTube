@@ -113,7 +113,6 @@ export default Vue.extend({
         imageUrl: this.profileImageUrl,
         subscriptions: this.profile.subscriptions
       }
-      console.log(profile)
 
       if (!this.isNew) {
         profile._id = this.profileId
@@ -168,16 +167,15 @@ export default Vue.extend({
         showToast(this.$t('Profile.Image must be smaller than 64KB'))
         return
       }
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
       reader.onload = function () {
         this.profileImageUrl = reader.result.toString()
-      }.bind(this);
+      }.bind(this)
 
-      reader.onerror = function (error) {
-        console.log('Error: ', error);
-        return
-      };
+      reader.onerror = function () {
+        showToast(this.$t('Profile.File upload not successful'))
+      }
     },
     ...mapActions([
       'createProfile',
