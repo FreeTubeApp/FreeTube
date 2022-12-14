@@ -185,6 +185,7 @@ Settings:
       Light: Light
       Dracula: Dracula
       Catppuccin Mocha: Catppuccin Mocha
+    Manage User Profile: Manage User Profile
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -448,6 +449,7 @@ Profile:
   Profile Filter: Profile Filter
   All Channels: All Channels
   Profile Manager: Profile Manager
+  Profile Manager Tooltip: Click a profile to edit the icon or manage subscriptions
   Create New Profile: Create New Profile
   Edit Profile: Edit Profile
   Upload Profile Picture: Upload Profile Picture
