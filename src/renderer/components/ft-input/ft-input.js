@@ -197,14 +197,13 @@ export default Vue.extend({
     handleKeyDown: function (event) {
       if (this.visibleDataList.length === 0) { return }
       if (event.key === 'Enter') {
-        this.inputData = this.visibleDataList[this.searchState.selectedOption]
         // Update Input box value if enter key was pressed and option selected
         if (this.searchState.selectedOption !== -1) {
           this.searchState.showOptions = false
           event.preventDefault()
           this.inputData = this.visibleDataList[this.searchState.selectedOption]
-          this.handleClick()
         }
+        this.handleClick()
       } else {
         this.searchState.showOptions = true
         const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
