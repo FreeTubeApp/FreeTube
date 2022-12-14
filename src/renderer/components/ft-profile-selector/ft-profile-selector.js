@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import { showToast } from '../../helpers/utils'
 
@@ -9,6 +10,7 @@ export default Vue.extend({
   name: 'FtProfileSelector',
   components: {
     'ft-card': FtCard,
+    'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton
   },
   data: function () {
