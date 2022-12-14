@@ -34,6 +34,11 @@
   color: var(--tertiary-text-color);
 }
 
+.loadNextPageWrapper {
+  /* about the same height as the button */
+  max-height: 7vh;
+}
+
 @media only screen and (max-width: 850px) {
   .routerView {
     flex-direction: column;

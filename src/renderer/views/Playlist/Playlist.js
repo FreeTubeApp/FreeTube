@@ -4,6 +4,8 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import FtButton from '../../components/ft-button/ft-button.vue'
 import i18n from '../../i18n/index'
 import { getLocalPlaylist } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
@@ -14,17 +16,18 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video': FtListVideo
+    'ft-list-video': FtListVideo,
+    'ft-flex-box': FtFlexBox,
+    'ft-button': FtButton
   },
   data: function () {
     return {
       isLoading: false,
       playlistId: null,
-      nextPageRef: '',
-      lastSearchQuery: '',
-      playlistPage: 1,
       infoData: {},
-      playlistItems: []
+      playlistItems: [],
+      continuationData: null,
+      isLoadingMore: false
     }
   },
   computed: {
@@ -87,15 +90,11 @@ export default Vue.extend({
           channelId: this.infoData.channelId
         })
 
-        this.playlistItems = result.items.map((video) => {
-          return {
-            videoId: video.id,
-            title: video.title,
-            author: video.author.name,
-            authorId: video.author.id,
-            lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
-          }
-        })
+        this.playlistItems = result.items.map(this.parseVideoLocal)
+
+        if (result.has_continuation) {
+          this.continuationData = result
+        }
 
         this.isLoading = false
       }).catch((err) => {
@@ -107,6 +106,16 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
+    },
+
+    parseVideoLocal: function (video) {
+      return {
+        videoId: video.id,
+        title: video.title.text,
+        author: video.author.name,
+        authorId: video.author.id,
+        lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
+      }
     },
 
     getPlaylistInvidious: function () {
@@ -155,22 +164,32 @@ export default Vue.extend({
       })
     },
 
-    nextPage: function () {
-      const payload = {
-        query: this.query,
-        options: {
-          nextpageRef: this.nextPageRef
-        },
-        nextPage: true
+    getNextPage: function () {
+      switch (this.infoData.infoSource) {
+        case 'local':
+          this.getNextPageLocal()
+          break
+        case 'invidious':
+          console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
+          break
       }
-
-      this.performSearch(payload)
     },
 
-    replaceShownResults: function (history) {
-      this.shownResults = history.data
-      this.nextPageRef = history.nextPageRef
-      this.isLoading = false
+    getNextPageLocal: function () {
+      this.isLoadingMore = true
+
+      this.continuationData.getContinuation().then((result) => {
+        const parsedVideos = result.items.map(this.parseVideoLocal)
+        this.playlistItems = this.playlistItems.concat(parsedVideos)
+
+        if (result.has_continuation) {
+          this.continuationData = result
+        } else {
+          this.continuationData = null
+        }
+
+        this.isLoadingMore = false
+      })
     },
 
     ...mapActions([
