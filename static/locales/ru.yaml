@@ -909,8 +909,8 @@ External link opening has been disabled in the general settings: Открыти�
 Search Bar:
   Clear Input: Очистить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
-Starting download: Запуск загрузки "{videoTitle}"
-Downloading has completed: '"{videoTitle}" закончил загрузку'
+Starting download: Запуск загрузки «{videoTitle}»
+Downloading has completed: '«{videoTitle}» закончил загрузку'
 Downloading failed: Возникла проблема с загрузкой "{videoTitle}"
 Screenshot Success: Снимок экрана сохранён как "{filePath}"
 Screenshot Error: Снимок экрана не удался. {error}
