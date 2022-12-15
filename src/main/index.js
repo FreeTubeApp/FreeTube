@@ -1132,22 +1132,6 @@ function runApp() {
           { role: 'togglefullscreen' },
           { type: 'separator' },
           {
-            label: 'History',
-            // MacOS: Command + Y
-            // Other OS: Ctrl + H
-            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
-            click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/history' }
-              )
-            },
-            type: 'normal'
-          },
-          { type: 'separator' },
-          {
             label: 'Back',
             accelerator: 'Alt+Left',
             click: (_menuItem, browserWindow, _event) => {
@@ -1172,6 +1156,96 @@ function runApp() {
             type: 'normal',
           },
         ]
+      },
+      {
+        label: 'Navigate',
+        submenu: [
+          {
+            label: 'Subscriptions',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/subscriptions' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Channels',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/subscribedchannels' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Trending',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/trending' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Most Popular',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/popular' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Playlists',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/userplaylists' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/history' }
+              )
+            },
+            type: 'normal'
+          },
+        ],
       },
       {
         role: 'window',
