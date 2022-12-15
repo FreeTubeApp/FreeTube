@@ -195,7 +195,6 @@ export default Vue.extend({
     },
 
     handleKeyDown: function (event) {
-      if (this.visibleDataList.length === 0) { return }
       if (event.key === 'Enter') {
         // Update Input box value if enter key was pressed and option selected
         if (this.searchState.selectedOption !== -1) {
@@ -204,27 +203,31 @@ export default Vue.extend({
           this.inputData = this.visibleDataList[this.searchState.selectedOption]
         }
         this.handleClick()
-      } else {
-        this.searchState.showOptions = true
-        const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
-        if (isArrow) {
-          if (event.key === 'ArrowDown') {
-            this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
-          } else if (event.key === 'ArrowUp') {
-            if (this.searchState.selectedOption < 1) {
-              this.searchState.selectedOption = this.visibleDataList.length - 1
-            } else {
-              this.searchState.selectedOption--
-            }
+        // Early return
+        return
+      }
+
+      if (this.visibleDataList.length === 0) { return }
+
+      this.searchState.showOptions = true
+      const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
+      if (isArrow) {
+        if (event.key === 'ArrowDown') {
+          this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+        } else if (event.key === 'ArrowUp') {
+          if (this.searchState.selectedOption < 1) {
+            this.searchState.selectedOption = this.visibleDataList.length - 1
+          } else {
+            this.searchState.selectedOption--
           }
-          if (this.searchState.selectedOption < 0) {
-            this.searchState.selectedOption = this.visibleDataList.length
-          } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
-            this.searchState.selectedOption = 0
-          }
-        } else {
-          this.searchState.selectedOption = -1
         }
+        if (this.searchState.selectedOption < 0) {
+          this.searchState.selectedOption = this.visibleDataList.length
+        } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
+          this.searchState.selectedOption = 0
+        }
+      } else {
+        this.searchState.selectedOption = -1
       }
     },
 
