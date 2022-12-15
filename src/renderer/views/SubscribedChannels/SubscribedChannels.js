@@ -204,10 +204,6 @@ export default Vue.extend({
       }
     },
 
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
-
     ...mapActions([
       'updateProfile',
       'updateSubscriptionDetails',

@@ -1,10 +1,10 @@
-.pointer {
-  cursor: pointer;
+.playlistTitle, .channelName {
+  text-decoration: none;
+  color: inherit;
 }
 
 .channelName {
   font-size: 15px;
-  cursor: pointer;
   position: relative;
   bottom: 15px;
 }
