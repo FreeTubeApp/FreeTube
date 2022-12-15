@@ -61,3 +61,20 @@ export async function getLocalPlaylist(id) {
   const innertube = await createInnertube()
   return await innertube.getPlaylist(id)
 }
+
+/**
+ * @typedef {import('youtubei.js/dist/src/parser/classes/PlaylistVideo').default} PlaylistVideo
+ */
+
+/**
+ * @param {PlaylistVideo} video
+ */
+export function parseLocalPlaylistVideo(video) {
+  return {
+    videoId: video.id,
+    title: video.title.text,
+    author: video.author.name,
+    authorId: video.author.id,
+    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
+  }
+}

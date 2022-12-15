@@ -8710,13 +8710,6 @@ ytdl-core@^3.2.2:
     miniget "^4.2.2"
     sax "^1.1.3"
 
-ytpl@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/ytpl/-/ytpl-2.3.0.tgz#74633b6e582e22ff03e409dfb65d200c1a4ca0d2"
-  integrity sha512-Cfw2rxq3PFK6qgWr2Z8gsRefVahEzbn9XEuiJldqdXHE6GhO7kTfEvbZKdfXing1SmgW635uJ/UL2g8r0fvu2Q==
-  dependencies:
-    miniget "^4.2.2"
-
 ytsr@^3.8.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/ytsr/-/ytsr-3.8.0.tgz#49a8e5dc413f41515fc3d79d93ee3e073d10e772"
