@@ -13,7 +13,6 @@
           input-type="password"
           class="passwordInput"
           :value="password"
-          select-on-focus="true"
           @input="e => password = e"
         />
       </ft-flex-box>
