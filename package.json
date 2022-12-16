@@ -78,7 +78,6 @@
     "yt-channel-info": "^3.2.1",
     "yt-dash-manifest-generator": "1.1.0",
     "ytdl-core": "https://github.com/absidue/node-ytdl-core#fix-likes-extraction",
-    "ytpl": "^2.3.0",
     "ytsr": "^3.8.0"
   },
   "devDependencies": {

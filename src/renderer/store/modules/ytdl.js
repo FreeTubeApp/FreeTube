@@ -1,12 +1,10 @@
 import ytdl from 'ytdl-core'
 import ytsr from 'ytsr'
-import ytpl from 'ytpl'
 
 import { SocksProxyAgent } from 'socks-proxy-agent'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { HttpProxyAgent } from 'http-proxy-agent'
 
-import i18n from '../../i18n/index'
 import { searchFiltersMatch } from '../../helpers/utils'
 
 const state = {
@@ -190,32 +188,6 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       resolve(filterUrl)
-    })
-  },
-
-  ytGetPlaylistInfo ({ rootState }, playlistId) {
-    return new Promise((resolve, reject) => {
-      let agent = null
-      const settings = rootState.settings
-
-      if (settings.useProxy) {
-        agent = createProxyAgent(settings.proxyProtocol, settings.proxyHostname, settings.proxyPort)
-      }
-      let locale = i18n.locale.replace('_', '-')
-
-      if (locale === 'nn') {
-        locale = 'no'
-      }
-
-      ytpl(playlistId, {
-        hl: locale,
-        limit: Infinity,
-        requestOptions: { agent }
-      }).then((result) => {
-        resolve(result)
-      }).catch((err) => {
-        reject(err)
-      })
     })
   },
 

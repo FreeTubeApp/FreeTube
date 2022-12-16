@@ -7,7 +7,7 @@ import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import i18n from '../../i18n/index'
-import { getLocalPlaylist } from '../../helpers/api/local'
+import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -90,7 +90,7 @@ export default Vue.extend({
           channelId: this.infoData.channelId
         })
 
-        this.playlistItems = result.items.map(this.parseVideoLocal)
+        this.playlistItems = result.items.map(parseLocalPlaylistVideo)
 
         if (result.has_continuation) {
           this.continuationData = result
@@ -106,16 +106,6 @@ export default Vue.extend({
           this.isLoading = false
         }
       })
-    },
-
-    parseVideoLocal: function (video) {
-      return {
-        videoId: video.id,
-        title: video.title.text,
-        author: video.author.name,
-        authorId: video.author.id,
-        lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
-      }
     },
 
     getPlaylistInvidious: function () {
@@ -179,7 +169,7 @@ export default Vue.extend({
       this.isLoadingMore = true
 
       this.continuationData.getContinuation().then((result) => {
-        const parsedVideos = result.items.map(this.parseVideoLocal)
+        const parsedVideos = result.items.map(parseLocalPlaylistVideo)
         this.playlistItems = this.playlistItems.concat(parsedVideos)
 
         if (result.has_continuation) {

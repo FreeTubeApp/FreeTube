@@ -4,6 +4,7 @@ import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
+import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'WatchVideoPlaylist',
@@ -241,36 +242,31 @@ export default Vue.extend({
       }
     },
 
-    getPlaylistInformationLocal: function () {
+    getPlaylistInformationLocal: async function () {
       this.isLoading = true
 
-      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
-        this.playlistTitle = result.title
-        this.playlistItems = result.items
-        this.videoCount = result.estimatedItemCount
-        this.channelName = result.author.name
-        this.channelThumbnail = result.author.bestAvatar.url
-        this.channelId = result.author.channelID
+      try {
+        let playlist = await getLocalPlaylist(this.playlistId)
 
-        this.playlistItems = result.items.filter((video) => {
-          return !(video.title === '[Private video]' || video.title === '[Deleted video]')
-        }).map((video) => {
-          if (typeof video.author !== 'undefined') {
-            const channelName = video.author.name
-            const channelId = video.author.channelID
-            video.author = channelName
-            video.authorId = channelId
-          } else {
-            video.author = ''
-            video.authorId = ''
-          }
-          video.videoId = video.id
-          video.lengthSeconds = video.duration
-          return video
-        })
+        this.playlistTitle = playlist.info.title
+        this.videoCount = playlist.info.total_items
+        this.channelName = playlist.info.author?.name
+        this.channelThumbnail = playlist.info.author?.best_thumbnail?.url
+        this.channelId = playlist.info.author?.id
+
+        const videos = playlist.items.map(parseLocalPlaylistVideo)
+
+        while (playlist.has_continuation) {
+          playlist = await playlist.getContinuation()
+
+          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
+          videos.push(...parsedVideos)
+        }
+
+        this.playlistItems = videos
 
         this.isLoading = false
-      }).catch((err) => {
+      } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -282,7 +278,7 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
-      })
+      }
     },
 
     getPlaylistInformationInvidious: function () {
@@ -339,7 +335,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'ytGetPlaylistInfo',
       'invidiousGetPlaylistInfo'
     ])
   }
