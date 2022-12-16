@@ -37,12 +37,11 @@
 .channelThumbnail {
   height: 120px;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 .channelName {
   flex-grow: 1;
-  cursor: pointer;
+  color: inherit;
   font-size: 1.1rem;
   text-decoration: none;
   text-align: center;

@@ -99,14 +99,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToPlaylist: function () {
-      this.$router.push({ path: `/playlist/${this.playlistId}` })
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
     toggleLoop: function () {
       if (this.loopEnabled) {
         this.loopEnabled = false
