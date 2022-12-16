@@ -1043,7 +1043,12 @@ function runApp() {
     mainWindow.webContents.send('change-view', data)
   }
 
-  function setMenu() {
+  async function setMenu() {
+    const sidenavSettings = baseHandlers.settings._findSidenavSettings()
+    const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos).value
+    const hidePopularVideos = (await sidenavSettings.hidePopularVideos).value
+    const hidePlaylists = (await sidenavSettings.hidePlaylists).value
+
     const template = [
       {
         label: 'File',
@@ -1188,7 +1193,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          {
+          !hideTrendingVideos && {
             label: 'Trending',
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) {
@@ -1202,7 +1207,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          {
+          !hidePopularVideos && {
             label: 'Most Popular',
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) {
@@ -1216,7 +1221,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          {
+          !hidePlaylists && {
             label: 'Playlists',
             click: (_menuItem, browserWindow, _event) => {
               if (browserWindow == null) {
@@ -1245,7 +1250,7 @@ function runApp() {
             },
             type: 'normal'
           },
-        ],
+        ].filter((v) => v !== false),
       },
       {
         role: 'window',
