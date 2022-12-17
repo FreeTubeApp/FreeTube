@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
@@ -19,6 +19,21 @@ export default Vue.extend({
     'ft-list-video': FtListVideo,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
+  },
+  beforeRouteLeave(to, from, next) {
+    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+      this.setCachedPlaylist({
+        id: this.playlistId,
+        title: this.infoData.title,
+        videoCount: this.infoData.videoCount,
+        channelName: this.infoData.channelName,
+        channelThumbnail: this.infoData.channelThumbnail,
+        channelId: this.infoData.channelId,
+        items: this.playlistItems,
+        continuationData: this.continuationData
+      })
+    }
+    next()
   },
   data: function () {
     return {
@@ -185,6 +200,10 @@ export default Vue.extend({
     ...mapActions([
       'invidiousGetPlaylistInfo',
       'updateSubscriptionDetails'
+    ]),
+
+    ...mapMutations([
+      'setCachedPlaylist'
     ])
   }
 })

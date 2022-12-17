@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
@@ -82,7 +82,11 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+    const cachedPlaylist = this.$store.getters.getCachedPlaylist
+
+    if (cachedPlaylist?.id === this.playlistId) {
+      this.loadCachedPlaylistInformation(cachedPlaylist)
+    } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
       this.getPlaylistInformationLocal()
@@ -242,6 +246,39 @@ export default Vue.extend({
       }
     },
 
+    loadCachedPlaylistInformation: async function (cachedPlaylist) {
+      this.isLoading = true
+      this.setCachedPlaylist(null)
+
+      this.playlistTitle = cachedPlaylist.title
+      this.videoCount = cachedPlaylist.videoCount
+      this.channelName = cachedPlaylist.channelName
+      this.channelThumbnail = cachedPlaylist.channelThumbnail
+      this.channelId = cachedPlaylist.channelId
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+        this.playlistItems = cachedPlaylist.items
+      } else {
+        const items = cachedPlaylist.items
+        let playlist = cachedPlaylist.continuationData
+
+        do {
+          playlist = await playlist.getContinuation()
+
+          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
+          items.push(...parsedVideos)
+
+          if (!playlist.has_continuation) {
+            playlist = null
+          }
+        } while (playlist !== null)
+
+        this.playlistItems = items
+      }
+
+      this.isLoading = false
+    },
+
     getPlaylistInformationLocal: async function () {
       this.isLoading = true
 
@@ -336,6 +373,10 @@ export default Vue.extend({
 
     ...mapActions([
       'invidiousGetPlaylistInfo'
+    ]),
+
+    ...mapMutations([
+      'setCachedPlaylist'
     ])
   }
 })
