@@ -394,6 +394,8 @@ Settings:
     Hide Live Streams: Schowaj transmisje na żywo
     Hide Chapters: Schowaj rozdziały
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
+    Hide Channels: Schowaj filmy z kanałów
+    Hide Channels Placeholder: Nazwa albo ID kanału
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -913,6 +915,10 @@ Tooltips:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
       to większe użycie pamięci RAM.
+  Distraction Free Settings:
+    Hide Channels: Wprowadź nazwę albo ID kanału, aby schować wszystkie filmy i playlisty
+      tego kanału, oraz sam kanał z wyszukiwań, oraz z zakładki „Na czasie”. Nazwa
+      kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
