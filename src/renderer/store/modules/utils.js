@@ -366,7 +366,7 @@ const actions = {
       /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
-      ['playlist', /^\/playlist\/?$/],
+      ['playlist', /^\/(playlist|embed)\/?$/],
       ['search', /^\/results\/?$/],
       ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
       ['channel', channelPattern]
