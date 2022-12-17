@@ -316,6 +316,8 @@ Settings:
     Hide Live Streams: Сховати прямі трансляції
     Hide Chapters: Сховати розділи
     Hide Upcoming Premieres: Сховати майбутні прем'єри
+    Hide Channels: Сховати відео з каналів
+    Hide Channels Placeholder: Назва або ID каналу
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -852,6 +854,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
+  Distraction Free Settings:
+    Hide Channels: Введіть назву або ID каналу, щоб сховати всі відео, списки відтворення
+      та сам канал від появи в пошуку або в тренді. Введена назва каналу повинна повністю
+      збігатися і чутлива до регістру.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
