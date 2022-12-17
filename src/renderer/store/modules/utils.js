@@ -292,7 +292,11 @@ const actions = {
       // youtube.com/embed
       function() {
         if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
-          extractParams(urlObject.pathname.replace('/embed/', ''))
+          if (urlObject.pathname.replace('/embed/', '') === 'videoseries') {
+            paramsObject.playlistId = urlObject.searchParams.get('list')
+          } else {
+            extractParams(urlObject.pathname.replace('/embed/', ''))
+          }
           return paramsObject
         }
       },
@@ -366,7 +370,7 @@ const actions = {
       /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
-      ['playlist', /^\/(playlist|embed)\/?$/],
+      ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results\/?$/],
       ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
       ['channel', channelPattern]
