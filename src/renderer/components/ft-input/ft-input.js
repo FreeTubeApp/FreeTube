@@ -8,6 +8,11 @@ export default Vue.extend({
     'ft-tooltip': FtTooltip
   },
   props: {
+    inputType: {
+      type: String,
+      required: false,
+      default: 'text'
+    },
     placeholder: {
       type: String,
       required: true
@@ -96,6 +101,11 @@ export default Vue.extend({
     inputData(val, oldVal) {
       if (val !== oldVal) {
         this.updateVisibleDataList()
+      }
+    },
+    value(val, oldVal) {
+      if (val !== oldVal) {
+        this.inputData = val
       }
     }
   },
@@ -262,6 +272,10 @@ export default Vue.extend({
 
     updateInputData: function(text) {
       this.inputData = text
+    },
+
+    focus() {
+      this.$refs.input.focus()
     },
 
     ...mapActions([

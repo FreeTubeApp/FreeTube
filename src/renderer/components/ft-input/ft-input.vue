@@ -43,7 +43,7 @@
       v-model="inputData"
       :list="idDataList"
       class="ft-input"
-      type="text"
+      :type="inputType"
       :placeholder="placeholder"
       :disabled="disabled"
       :spellcheck="spellcheck"
