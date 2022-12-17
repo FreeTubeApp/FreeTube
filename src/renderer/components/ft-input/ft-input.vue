@@ -14,8 +14,9 @@
     <label
       v-if="showLabel"
       :for="id"
+      class="selectLabel"
     >
-      {{ placeholder }}
+      {{ label || placeholder }}
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"
@@ -57,7 +58,8 @@
       :icon="actionButtonIconName"
       class="inputAction"
       :class="{
-        enabled: inputDataPresent
+        enabled: inputDataPresent,
+        withLabel: showLabel
       }"
       @click="handleClick"
     />

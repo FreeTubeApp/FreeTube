@@ -132,6 +132,12 @@
   cursor: pointer;
 }
 
+.inputAction.withLabel {
+  /* If showLabel defined, re-centralize the input button*/
+  top: 34px;
+}
+
+
 .search ::-webkit-calendar-picker-indicator {
   display: none;
 }

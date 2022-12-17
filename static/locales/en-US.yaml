@@ -326,6 +326,8 @@ Settings:
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
     Hide Chapters: Hide Chapters
+    Hide Channels: Hide Videos From Channels
+    Hide Channels Placeholder: Channel Name or ID
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -784,6 +786,9 @@ Tooltips:
     Custom External Player Arguments: Any custom command line arguments, separated by semicolons (';'),
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists and the channel itself from appearing in search or trending.
+       The channel name entered must be a complete match and is case sensitive.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,

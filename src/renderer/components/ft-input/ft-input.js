@@ -17,6 +17,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    label: {
+      type: String,
+      default: null
+    },
     value: {
       type: String,
       default: ''
@@ -24,6 +28,10 @@ export default Vue.extend({
     showActionButton: {
       type: Boolean,
       default: true
+    },
+    forceActionButtonIconName: {
+      type: Array,
+      default: null
     },
     showClearTextButton: {
       type: Boolean,
@@ -59,6 +67,10 @@ export default Vue.extend({
     }
   },
   data: function () {
+    let actionIcon = ['fas', 'search']
+    if (this.forceActionButtonIconName !== null) {
+      actionIcon = this.forceActionButtonIconName
+    }
     return {
       id: '',
       inputData: '',
@@ -72,7 +84,7 @@ export default Vue.extend({
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
-      actionButtonIconName: ['fas', 'search']
+      actionButtonIconName: actionIcon
     }
   },
   computed: {
@@ -152,7 +164,7 @@ export default Vue.extend({
       // Only need to update icon if visible
       if (!this.showActionButton) { return }
 
-      if (!this.inputDataPresent) {
+      if (!this.inputDataPresent && this.forceActionButtonIconName === null) {
         // Change back to default icon if text is blank
         this.actionButtonIconName = ['fas', 'search']
         return
@@ -180,18 +192,21 @@ export default Vue.extend({
               // isYoutubeLink is already `false`
             }
           }
-
-          if (isYoutubeLink) {
-            // Go to URL (i.e. Video/Playlist/Channel
-            this.actionButtonIconName = ['fas', 'arrow-right']
-          } else {
-            // Search with text
-            this.actionButtonIconName = ['fas', 'search']
+          if (this.forceActionButtonIconName === null) {
+            if (isYoutubeLink) {
+              // Go to URL (i.e. Video/Playlist/Channel
+              this.actionButtonIconName = ['fas', 'arrow-right']
+            } else {
+              // Search with text
+              this.actionButtonIconName = ['fas', 'search']
+            }
           }
         })
       } catch (ex) {
         // On exception, consider text as invalid URL
-        this.actionButtonIconName = ['fas', 'search']
+        if (this.forceActionButtonIconName === null) {
+          this.actionButtonIconName = ['fas', 'search']
+        }
         // Rethrow exception
         throw ex
       }
