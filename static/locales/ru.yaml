@@ -388,6 +388,7 @@ Settings:
     Hide Video Description: Скрыть описание видео
     Hide Chapters: Скрыть разделы
     Hide Upcoming Premieres: Скрыть предстоящие премьеры
+    Hide Channels Placeholder: Имя или идентификатор канала
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -447,6 +448,17 @@ Settings:
     Replace HTTP Cache: Заменить HTTP-кэш
     Warning: Эти настройки являются пробными, они вызывают сбои при включении. Желательно
       сделать резервные копии. Используйте на своё усмотрение!
+  Password Dialog:
+    Password: Пароль
+    Password Incorrect: Неверный пароль
+    Unlock: Разблокировать
+    Enter Password To Unlock: Введите пароль для разблокировки настроек
+  Password Settings:
+    Password Settings: Настройка пароля
+    Set Password To Prevent Access: Установите пароль для предотвращения доступа к
+      настройкам
+    Set Password: Установить пароль
+    Remove Password: Удалить пароль
 About:
   #On About page
   About: 'О приложении'
@@ -891,6 +903,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский
       кэш изображений в памяти. Приведет к увеличению использования оперативной памяти.
+  Distraction Free Settings:
+    Hide Channels: Введите название канала или его идентификатор, чтобы скрыть все
+      видео, плейлисты и сам канал от показа в поиске или трендах. Введенное название
+      канала должно полностью совпадать и учитывать регистр.
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите
@@ -942,3 +958,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Список разделов скрыт,
     текущий раздел: {chapterName}'
 Preferences: Предпочтения
+Ok: Хорошо
