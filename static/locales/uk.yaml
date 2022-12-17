@@ -440,6 +440,16 @@ Settings:
     Experimental Settings: Експериментальні налаштування
     Warning: Ці налаштування експериментальні, їхнє ввімкнення може призводити до
       збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
+  Password Dialog:
+    Enter Password To Unlock: Введіть пароль, щоб розблокувати налаштування
+    Unlock: Розблокувати
+    Password Incorrect: Пароль неправильний
+    Password: Пароль
+  Password Settings:
+    Password Settings: Налаштування пароля
+    Set Password: Установити пароль
+    Remove Password: Вилучити пароль
+    Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
 About:
   #On About page
   About: 'Про'
@@ -919,3 +929,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований,
     поточний розділ: {chapterName}'
 Preferences: Налаштування
+Ok: Гаразд
