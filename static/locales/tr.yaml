@@ -448,6 +448,16 @@ Settings:
       Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
       aittir!
     Experimental Settings: Deneysel Ayarlar
+  Password Dialog:
+    Password Incorrect: Parola Yanlış
+    Unlock: Kilidi aç
+    Password: Parola
+    Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
+  Password Settings:
+    Password Settings: Parola Ayarları
+    Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
+    Remove Password: Parolayı Kaldır
+    Set Password: Parola Ayarla
 About:
   #On About page
   About: 'Hakkında'
@@ -941,3 +951,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli
     bölüm: {chapterName}'
 Preferences: Tercihler
+Ok: Tamam

@@ -455,6 +455,17 @@ Settings:
       wenn sie aktiviert sind. Es wird dringend empfohlen, Sicherungskopien zu erstellen.
       Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
+  Password Dialog:
+    Password: Passwort
+    Enter Password To Unlock: Gib das Passwort ein, um die Einstellungen zu entsperren
+    Password Incorrect: Passwort falsch
+    Unlock: Entsperren
+  Password Settings:
+    Remove Password: Passwort entfernen
+    Password Settings: Passworteinstellungen
+    Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
+      zu verhindern
+    Set Password: Passwort festlegen
 About:
   #On About page
   About: Über
@@ -971,3 +982,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
     aktuelles Kapitel: {chapterName}'
 Preferences: Einstellungen
+Ok: Ok

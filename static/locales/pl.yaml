@@ -454,6 +454,16 @@ Settings:
     Experimental Settings: Ustawienia eksperymentalne
     Warning: Te ustawienia są w fazie testów i po włączeniu mogą spowodować wywalenie
       się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
+  Password Dialog:
+    Unlock: Odblokuj
+    Enter Password To Unlock: Wprowadź hasło, by odblokować ustawienia
+    Password Incorrect: Niepoprawne hasło
+    Password: Hasło
+  Password Settings:
+    Password Settings: Ustawienia hasła
+    Set Password To Prevent Access: Ustaw hasło, aby zabezpieczyć dostęp do ustawień
+    Set Password: Ustaw hasło
+    Remove Password: Usuń hasło
 About:
   #On About page
   About: 'O projekcie'
@@ -958,3 +968,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
     rozdział: {chapterName}'
 Preferences: Preferencje
+Ok: Ok
