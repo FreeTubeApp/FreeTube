@@ -25,9 +25,7 @@ export default Vue.extend({
       this.setCachedPlaylist({
         id: this.playlistId,
         title: this.infoData.title,
-        videoCount: this.infoData.videoCount,
         channelName: this.infoData.channelName,
-        channelThumbnail: this.infoData.channelThumbnail,
         channelId: this.infoData.channelId,
         items: this.playlistItems,
         continuationData: this.continuationData

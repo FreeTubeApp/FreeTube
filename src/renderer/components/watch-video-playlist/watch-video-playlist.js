@@ -31,7 +31,6 @@ export default Vue.extend({
       reversePlaylist: false,
       channelName: '',
       channelId: '',
-      channelThumbnail: '',
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: []
@@ -251,9 +250,7 @@ export default Vue.extend({
       this.setCachedPlaylist(null)
 
       this.playlistTitle = cachedPlaylist.title
-      this.videoCount = cachedPlaylist.videoCount
       this.channelName = cachedPlaylist.channelName
-      this.channelThumbnail = cachedPlaylist.channelThumbnail
       this.channelId = cachedPlaylist.channelId
 
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
@@ -286,9 +283,7 @@ export default Vue.extend({
         let playlist = await getLocalPlaylist(this.playlistId)
 
         this.playlistTitle = playlist.info.title
-        this.videoCount = playlist.info.total_items
         this.channelName = playlist.info.author?.name
-        this.channelThumbnail = playlist.info.author?.best_thumbnail?.url
         this.channelId = playlist.info.author?.id
 
         const videos = playlist.items.map(parseLocalPlaylistVideo)
@@ -328,9 +323,7 @@ export default Vue.extend({
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
         this.playlistTitle = result.title
-        this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = result.authorThumbnails[2].url
         this.channelId = result.authorId
         this.playlistItems = this.playlistItems.concat(result.videos)
 
