@@ -395,6 +395,8 @@ Settings:
     Hide Sharing Actions: Megosztási műveletek elrejtése
     Hide Chapters: Fejezetek elrejtése
     Hide Upcoming Premieres: Közelgő első előadások elrejtése
+    Hide Channels: Videók elrejtése a csatornákból
+    Hide Channels Placeholder: Csatorna neve vagy azonosítója
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -455,6 +457,16 @@ Settings:
     Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okoznak, ha engedélyezve
       vannak. Erősen ajánlott biztonsági mentéseket készíteni. Használat csak saját
       felelősségre!
+  Password Dialog:
+    Password Incorrect: Helytelen jelszó
+    Unlock: Zárolás feloldása
+    Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
+    Password: Jelszó
+  Password Settings:
+    Password Settings: Jelszóbeállítások
+    Set Password To Prevent Access: Beállítások jelszó megadása
+    Set Password: Jelszó megadása
+    Remove Password: Jelszó eltávolítása
 About:
   #On About page
   About: 'Névjegy'
@@ -887,6 +899,11 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+  Distraction Free Settings:
+    Hide Channels: Adja meg a csatorna nevét vagy csatornaazonosítóját, hogy elrejtse
+      az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
+      a keresésben vagy a népszerűségben. A megadott csatornanévnek teljes egyezésnek
+      kell lennie, és megkülönbözteti a kis- és nagybetűket.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
@@ -937,3 +954,4 @@ Clipboard:
   Copy failed: A vágólapra másolás nem sikerült
 Screenshot Error: A képernyőkép nem sikerült. {error}
 Preferences: Beállítások
+Ok: Rendben
