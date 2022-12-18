@@ -468,6 +468,12 @@ Settings:
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages
       lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes.
       Utilisez-les à vos risques et périls !
+  Password Dialog:
+    Password: Mot de passe
+    Enter Password To Unlock: Entrez le mot de passe pour déverrouiller les paramètres
+    Password Incorrect: Mot de passe incorrect
+  Password Settings:
+    Remove Password: Supprimer le mot de passe
 About:
   #On About page
   About: 'À propos'

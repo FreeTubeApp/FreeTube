@@ -354,6 +354,8 @@ Settings:
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节
     Hide Upcoming Premieres: 隐藏即将到来的首映
+    Hide Channels: 隐藏频道中的视频
+    Hide Channels Placeholder: 频道名称或 ID
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -407,6 +409,16 @@ Settings:
     Experimental Settings: 实验性设置
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
     Replace HTTP Cache: 替换 HTTP 缓存
+  Password Dialog:
+    Password: 密码
+    Enter Password To Unlock: 输入密码解锁设置
+    Password Incorrect: 密码不正确
+    Unlock: 解锁
+  Password Settings:
+    Password Settings: 密码设置
+    Set Password To Prevent Access: 设置密码防止访问设置
+    Set Password: 设置密码
+    Remove Password: 删除密码
 About:
   #On About page
   About: '关于'
@@ -784,6 +796,8 @@ Tooltips:
     Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
+  Distraction Free Settings:
+    Hide Channels: 输入频道名称或频道 ID 以隐藏所有视频、播放列表和频道本身，使其不出现在搜索结果或热门中。 输入的频道名称必须完全匹配，并且区分大小写。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
@@ -827,3 +841,4 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
   'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
 Preferences: 选项
+Ok: 好

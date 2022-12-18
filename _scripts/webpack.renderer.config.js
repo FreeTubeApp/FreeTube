@@ -28,10 +28,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  // webpack spits out errors while inlining ytpl and ytsr as
+  // webpack spits out errors while inlining ytsr as
   // they dynamically import their package.json file to extract the bug report URL
   // the error: "Critical dependency: the request of a dependency is an expression"
-  externals: ['ytpl', 'ytsr'],
+  externals: ['ytsr'],
   module: {
     rules: [
       {

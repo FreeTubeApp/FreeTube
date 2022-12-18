@@ -377,6 +377,8 @@ Settings:
     Hide Video Description: הסתרת תיאור וידאו
     Hide Chapters: הסתרת פרקים
     Hide Upcoming Premieres: הסתרת בכורות קרובות
+    Hide Channels: הסתרת סרטונים מהערוצים
+    Hide Channels Placeholder: שם או מזהה ערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -434,6 +436,16 @@ Settings:
     Replace HTTP Cache: החלפת מטמון HTTP
     Warning: אלו הגדרות ניסיוניות, הן עלולות לגרום לקריסת המערכת שהן פעילות. מומלץ
       מאוד לגבות. השימוש הוא על אחריותך בלבד!
+  Password Dialog:
+    Password Incorrect: הסיסמה שגויה
+    Unlock: שחרור
+    Password: סיסמה
+    Enter Password To Unlock: נא למלא סיסמה כדי לשחרר את ההגדרות
+  Password Settings:
+    Password Settings: הגדרות סיסמה
+    Set Password: הגדרת סיסמה
+    Remove Password: הסרת סיסמה
+    Set Password To Prevent Access: יש להגדיר סיסמה כדי למנוע גישה להגדרות
 About:
   #On About page
   About: 'על אודות'
@@ -854,6 +866,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
       אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
+  Distraction Free Settings:
+    Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה
+      ואת הערוץ עצמו כך שלא יופיע בחיפוש או במובילים. שם הערוץ שמילאת צריך להיות תואם
+      במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
 More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
@@ -902,3 +918,4 @@ Clipboard:
   Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא
     חיבור מאובטח
 Preferences: העדפות
+Ok: אישור

@@ -195,6 +195,7 @@ const state = {
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,
+  channelsHidden: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
@@ -274,7 +275,8 @@ const state = {
   screenshotAskPath: false,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
-  fetchSubscriptionsAutomatically: true
+  fetchSubscriptionsAutomatically: true,
+  settingsPassword: ''
 }
 
 const stateWithSideEffects = {

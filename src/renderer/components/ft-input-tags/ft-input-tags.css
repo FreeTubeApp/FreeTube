@@ -1,0 +1,50 @@
+.ft-input-tags-component {
+  position: relative;
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 5px;
+  display: block;
+  width: 60%;
+}
+
+.ft-tag-box ul {
+  overflow: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.ft-tag-box li {
+  list-style: none;
+  background-color: var(--card-bg-color);
+  margin: 5px;
+  border-radius: 5px;
+  display:flex;
+  float: left;
+}
+
+.ft-tag-box li>label {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  hyphens: auto;
+}
+
+
+.removeTagButton {
+  color: var(--primary-text-color);
+  opacity: 0.5;
+  padding: 10px;
+}
+
+.removeTagButton:hover {
+  cursor: pointer;
+}
+
+:deep(.ft-input-component .ft-input) {
+  margin-top: 10px;
+}
+

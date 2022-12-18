@@ -6,18 +6,20 @@
     <div
       v-else
     >
-      <h3
-        class="pointer"
-        @click="goToPlaylist"
-      >
-        {{ playlistTitle }}
+      <h3>
+        <router-link
+          class="playlistTitle"
+          :to="`/playlist/${playlistId}`"
+        >
+          {{ playlistTitle }}
+        </router-link>
       </h3>
-      <span
+      <router-link
         class="channelName"
-        @click="goToChannel"
+        :to="`/channel/${channelId}`"
       >
         {{ channelName }}
-      </span>
+      </router-link>
       <span
         class="playlistIndex"
       >

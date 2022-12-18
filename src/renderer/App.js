@@ -159,6 +159,7 @@ export default Vue.extend({
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
+          this.activateIPCListeners()
           this.openAllLinksExternally()
           this.enableSetSearchQueryText()
           this.enableOpenUrl()
@@ -292,15 +293,19 @@ export default Vue.extend({
       })
     },
 
+    activateIPCListeners: function () {
+      // handle menu event updates from main script
+      ipcRenderer.on('history-back', (_event) => {
+        this.$refs.topNav.historyBack()
+      })
+      ipcRenderer.on('history-forward', (_event) => {
+        this.$refs.topNav.historyForward()
+      })
+    },
+
     handleKeyboardShortcuts: function (event) {
       if (event.altKey) {
         switch (event.key) {
-          case 'ArrowRight':
-            this.$refs.topNav.historyForward()
-            break
-          case 'ArrowLeft':
-            this.$refs.topNav.historyBack()
-            break
           case 'D':
           case 'd':
             this.$refs.topNav.focusSearch()

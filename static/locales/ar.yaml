@@ -381,6 +381,8 @@ Settings:
     Hide Live Streams: إخفاء البث المباشر
     Hide Chapters: إخفاء الفصول
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
+    Hide Channels: إخفاء مقاطع الفيديو من القنوات
+    Hide Channels Placeholder: اسم القناة أو معرفها
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -438,6 +440,16 @@ Settings:
     Experimental Settings: الإعدادات التجريبية
     Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
       نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
+  Password Settings:
+    Set Password To Prevent Access: تعيين كلمة مرور لمنع الوصول إلى الإعدادات
+    Remove Password: إزالة كلمة المرور
+    Password Settings: إعدادات كلمة المرور
+    Set Password: ضبط كلمة السر
+  Password Dialog:
+    Password Incorrect: كلمة المرور غير صحيحة
+    Password: كلمة السر
+    Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
+    Unlock: الغاء القفل
 About:
   #On About page
   About: 'حول'
@@ -864,6 +876,10 @@ Tooltips:
     Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
       وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
       العشوائي.
+  Distraction Free Settings:
+    Hide Channels: أدخل اسم القناة أو رقم تعريف القناة لإخفاء كل الفيديوهات وقوائم
+      التشغيل والقناة نفسها من الظهور في "بحث Google" أو "المحتوى الرائج". يجب أن
+      يكون اسم القناة الذي تم إدخاله مطابقا تماما وحساسا لحالة الأحرف.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -916,3 +932,4 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {sectionName}'
 Preferences: التفضيلات
+Ok: موافق
