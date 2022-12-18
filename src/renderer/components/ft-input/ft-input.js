@@ -45,10 +45,6 @@ export default Vue.extend({
       type: Boolean,
       default: false
     },
-    selectOnFocus: {
-      type: Boolean,
-      default: false
-    },
     disabled: {
       type: Boolean,
       default: false
@@ -262,9 +258,6 @@ export default Vue.extend({
 
     handleFocus: function(e) {
       this.searchState.showOptions = true
-      if (this.selectOnFocus) {
-        e.target.select()
-      }
     },
 
     updateVisibleDataList: function () {
