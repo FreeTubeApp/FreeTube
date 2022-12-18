@@ -23,7 +23,7 @@
   float: left;
 }
 
-.ft-tag-box li>label {
+.ft-tag-box li>span {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
