@@ -317,6 +317,8 @@ Settings:
     Hide Comments: Ocultar comentarios
     Hide Chapters: Agochalos capítulos
     Hide Upcoming Premieres: Ocultalas próximas estreas
+    Hide Channels: Ocultalos vídeos das canles
+    Hide Channels Placeholder: Nome ou ID da canle
   Data Settings:
     Data Settings: 'Axustes dos datos'
     Select Import Type: 'Escoller tipo de importación'
@@ -451,6 +453,17 @@ Settings:
       están activadas. É moi recomendable facer copias de seguridade. Useas baixo
       o seu propio risco!
     Replace HTTP Cache: Substitúe a caché HTTP
+  Password Settings:
+    Password Settings: Configuración do contrasinal
+    Set Password To Prevent Access: Establece un contrasinal para impedilo acceso
+      á configuración
+    Set Password: Establecelo contrasinal
+    Remove Password: Eliminar contrasinal
+  Password Dialog:
+    Password: Contrasinal
+    Enter Password To Unlock: Introduce o contrasinal para desbloqueala configuración
+    Password Incorrect: Contrasinal incorrecto
+    Unlock: Desbloquear
 About:
   #On About page
   About: 'Sobre'
@@ -859,6 +872,11 @@ Tooltips:
     Replace HTTP Cache: Desactivouse a caché HTTP baseada no disco de Electrons e
       habilita unha caché das imaxes persoalizadas na memoria. Levará a un aumento
       no uso da RAM.
+  Distraction Free Settings:
+    Hide Channels: Introduce o nome dunha canle ou o ID de canle para ocultar todolos
+      vídeos, listas de reprodución e a propia canle para que non aparezan na busca
+      ou nas tendencias. O nome da canle introducido debe coincidir completamente
+      e distingue entre maiúsculas e minúsculas.
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
@@ -933,3 +951,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
     capítulo actual: {chapterName}'
 Screenshot Success: Captura da pantalla gardada como "{filePath}"
+Ok: De acordo
