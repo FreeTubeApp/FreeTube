@@ -399,6 +399,8 @@ Settings:
     Hide Video Description: Nascondi la descrizione del video
     Hide Chapters: Nascondi i capitoli
     Hide Upcoming Premieres: Nascondi le prossime Première
+    Hide Channels: Nascondi i video dai canali
+    Hide Channels Placeholder: Nome o ID del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?
@@ -460,6 +462,17 @@ Settings:
     Experimental Settings: Impostazioni sperimentali
     Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
       Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
+  Password Dialog:
+    Enter Password To Unlock: Inserisci la password per sbloccare le impostazioni
+    Password Incorrect: Password non corretta
+    Password: Password
+    Unlock: Sblocca
+  Password Settings:
+    Set Password: Imposta password
+    Password Settings: Impostazioni password
+    Set Password To Prevent Access: Imposta una password per impedire l'accesso alle
+      impostazioni
+    Remove Password: Rimuovi password
 About:
   #On About page
   About: 'Informazioni'
@@ -905,6 +918,11 @@ Tooltips:
     Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
       della RAM.
+  Distraction Free Settings:
+    Hide Channels: Inserisci il nome o l'ID di un canale per nascondere tutti i video,
+      le playlist e il canale stesso dalla visualizzazione nelle ricerche o nelle
+      tendenze. Il nome del canale inserito deve essere una corrispondenza completa
+      e fa distinzione tra maiuscole e minuscole.
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
@@ -957,3 +975,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Elenco capitoli nascosto,
     capitolo corrente: {chapterName}'
 Preferences: Preferenze
+Ok: Ok
