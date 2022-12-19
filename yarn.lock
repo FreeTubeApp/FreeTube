@@ -8667,10 +8667,10 @@ yauzl@^2.10.0:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
 
-youtubei.js@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-2.5.3.tgz#61e34e5cc541e4a0d213d812d06a2c0ee71a6fa7"
-  integrity sha512-j6njcwg0OhmAm8rhiwa+uMnAb1FKzzbwizYsjX9Vr+VC1RXJ5s4q6BxXYlkjV26yVlXWDl8/S9wCQNA/9r0M8A==
+youtubei.js@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-2.6.0.tgz#7ba11f0d81b2e8d76a0993524b98ca7554d1090a"
+  integrity sha512-QnpOdcCqikI5qVTmMY7Orx/CglNVfsP+OGUgavodX20MtSRYUqjR/s/HYo1vWAol1hZT+PThEnIUrX/6U9IueA==
   dependencies:
     "@protobuf-ts/runtime" "^2.7.0"
     jintr "^0.3.1"
