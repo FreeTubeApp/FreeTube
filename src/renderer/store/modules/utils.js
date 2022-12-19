@@ -22,6 +22,7 @@ const state = {
     gaming: null,
     movies: null
   },
+  cachedPlaylist: null,
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -58,6 +59,10 @@ const getters = {
 
   getTrendingCache () {
     return state.trendingCache
+  },
+
+  getCachedPlaylist() {
+    return state.cachedPlaylist
   },
 
   getSearchSettings () {
@@ -687,6 +692,10 @@ const mutations = {
 
   setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
+  },
+
+  setCachedPlaylist(state, value) {
+    state.cachedPlaylist = value
   },
 
   setSearchSortBy (state, value) {

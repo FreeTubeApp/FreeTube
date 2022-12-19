@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
@@ -31,7 +31,6 @@ export default Vue.extend({
       reversePlaylist: false,
       channelName: '',
       channelId: '',
-      channelThumbnail: '',
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: []
@@ -82,7 +81,11 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+    const cachedPlaylist = this.$store.getters.getCachedPlaylist
+
+    if (cachedPlaylist?.id === this.playlistId) {
+      this.loadCachedPlaylistInformation(cachedPlaylist)
+    } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
       this.getPlaylistInformationLocal()
@@ -242,6 +245,37 @@ export default Vue.extend({
       }
     },
 
+    loadCachedPlaylistInformation: async function (cachedPlaylist) {
+      this.isLoading = true
+      this.setCachedPlaylist(null)
+
+      this.playlistTitle = cachedPlaylist.title
+      this.channelName = cachedPlaylist.channelName
+      this.channelId = cachedPlaylist.channelId
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+        this.playlistItems = cachedPlaylist.items
+      } else {
+        const items = cachedPlaylist.items
+        let playlist = cachedPlaylist.continuationData
+
+        do {
+          playlist = await playlist.getContinuation()
+
+          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
+          items.push(...parsedVideos)
+
+          if (!playlist.has_continuation) {
+            playlist = null
+          }
+        } while (playlist !== null)
+
+        this.playlistItems = items
+      }
+
+      this.isLoading = false
+    },
+
     getPlaylistInformationLocal: async function () {
       this.isLoading = true
 
@@ -249,9 +283,7 @@ export default Vue.extend({
         let playlist = await getLocalPlaylist(this.playlistId)
 
         this.playlistTitle = playlist.info.title
-        this.videoCount = playlist.info.total_items
         this.channelName = playlist.info.author?.name
-        this.channelThumbnail = playlist.info.author?.best_thumbnail?.url
         this.channelId = playlist.info.author?.id
 
         const videos = playlist.items.map(parseLocalPlaylistVideo)
@@ -291,9 +323,7 @@ export default Vue.extend({
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
         this.playlistTitle = result.title
-        this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = result.authorThumbnails[2].url
         this.channelId = result.authorId
         this.playlistItems = this.playlistItems.concat(result.videos)
 
@@ -336,6 +366,10 @@ export default Vue.extend({
 
     ...mapActions([
       'invidiousGetPlaylistInfo'
+    ]),
+
+    ...mapMutations([
+      'setCachedPlaylist'
     ])
   }
 })

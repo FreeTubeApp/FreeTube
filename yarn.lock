@@ -2967,13 +2967,13 @@ css-declaration-sorter@^6.3.0:
   resolved "https://registry.yarnpkg.com/css-declaration-sorter/-/css-declaration-sorter-6.3.1.tgz#be5e1d71b7a992433fb1c542c7a1b835e45682ec"
   integrity sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==
 
-css-loader@^6.7.2:
-  version "6.7.2"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.7.2.tgz#26bc22401b5921686a10fbeba75d124228302304"
-  integrity sha512-oqGbbVcBJkm8QwmnNzrFrWTnudnRZC+1eXikLJl0n4ljcfotgRifpg2a1lKy8jTrc4/d9A/ap1GFq1jDKG7J+Q==
+css-loader@^6.7.3:
+  version "6.7.3"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.7.3.tgz#1e8799f3ccc5874fdd55461af51137fcc5befbcd"
+  integrity sha512-qhOH1KlBMnZP8FzRO6YCH9UHXQhVMcEGLyNdb7Hv2cpcmJbW0YrddO+tG1ab5nT41KpHIYGsbeHqxB9xPu1pKQ==
   dependencies:
     icss-utils "^5.1.0"
-    postcss "^8.4.18"
+    postcss "^8.4.19"
     postcss-modules-extract-imports "^3.0.0"
     postcss-modules-local-by-default "^4.0.0"
     postcss-modules-scope "^3.0.0"
@@ -6685,10 +6685,10 @@ postcss@^7.0.36:
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.4.14, postcss@^8.4.17, postcss@^8.4.18:
-  version "8.4.19"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.19.tgz#61178e2add236b17351897c8bcc0b4c8ecab56fc"
-  integrity sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==
+postcss@^8.4.14, postcss@^8.4.17, postcss@^8.4.19:
+  version "8.4.20"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.20.tgz#64c52f509644cecad8567e949f4081d98349dc56"
+  integrity sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==
   dependencies:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
@@ -7218,10 +7218,10 @@ sass-loader@^13.2.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass@^1.56.2:
-  version "1.56.2"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.56.2.tgz#9433b345ab3872996c82a53a58c014fd244fd095"
-  integrity sha512-ciEJhnyCRwzlBCB+h5cCPM6ie/6f8HrhZMQOf5vlU60Y1bI1rx5Zb0vlDZvaycHsg/MqFfF1Eq2eokAa32iw8w==
+sass@^1.57.0:
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.57.0.tgz#64c4144ed4e1c0ccb96dc18aef2c424cdbc0c12b"
+  integrity sha512-IZNEJDTK1cF5B1cGA593TPAV/1S0ysUDxq9XHjX/+SMy0QfUny+nfUsq5ZP7wWSl4eEf7wDJcEZ8ABYFmh3m/w==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -8265,13 +8265,13 @@ videojs-mobile-ui@^0.8.0:
   dependencies:
     global "^4.4.0"
 
-videojs-overlay@^2.1.4:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/videojs-overlay/-/videojs-overlay-2.1.5.tgz#763b9d89dff87c32d94e9a873451a5fb25f02c8e"
-  integrity sha512-BPpW8ayC/3fX+JOegxvzU9MDS1MBuF3l6DWy5DXTmhjvDen8j5p/q46UGyCkUb2H9ljnwetTIkIPMza0iP41Bw==
+videojs-overlay@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/videojs-overlay/-/videojs-overlay-3.0.0.tgz#546ce34d72cdbb07c33eb189e94a37847dfbebe8"
+  integrity sha512-V9n8J7qVIzBeIcFbn9wmRt1aEHLfPcD/JSPUsCI6RDUOThhU+4RX/GmleHkCSW0D1YmkeNOd8E7eMuqnYnsOrA==
   dependencies:
     global "^4.3.2"
-    video.js "^6 || ^7"
+    video.js "^6 || ^7 || ^8"
 
 videojs-vtt-thumbnails-freetube@0.0.15:
   version "0.0.15"
@@ -8667,10 +8667,10 @@ yauzl@^2.10.0:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
 
-youtubei.js@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-2.5.3.tgz#61e34e5cc541e4a0d213d812d06a2c0ee71a6fa7"
-  integrity sha512-j6njcwg0OhmAm8rhiwa+uMnAb1FKzzbwizYsjX9Vr+VC1RXJ5s4q6BxXYlkjV26yVlXWDl8/S9wCQNA/9r0M8A==
+youtubei.js@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-2.6.0.tgz#7ba11f0d81b2e8d76a0993524b98ca7554d1090a"
+  integrity sha512-QnpOdcCqikI5qVTmMY7Orx/CglNVfsP+OGUgavodX20MtSRYUqjR/s/HYo1vWAol1hZT+PThEnIUrX/6U9IueA==
   dependencies:
     "@protobuf-ts/runtime" "^2.7.0"
     jintr "^0.3.1"
