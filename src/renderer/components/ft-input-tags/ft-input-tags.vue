@@ -20,7 +20,7 @@
           v-for="tag in tagList"
           :key="tag.id"
         >
-          <label>{{ tag }}</label>
+          <span>{{ tag }}</span>
           <font-awesome-icon
             :icon="['fas', 'fa-times']"
             class="removeTagButton"
