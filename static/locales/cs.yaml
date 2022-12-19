@@ -446,6 +446,13 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
     Password: Heslo
+    Password Incorrect: Nesprávné heslo
+    Unlock: Odemknout
+  Password Settings:
+    Password Settings: Nastavení hesla
+    Set Password To Prevent Access: Nastavte heslo, abyste zabránili přístupu k nastavení
+    Remove Password: Odebrat heslo
+    Set Password: Nastavit heslo
 About:
   #On About page
   About: 'O aplikaci'
@@ -850,6 +857,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní paměťovou
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
+  Distraction Free Settings:
+    Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
+      a samotného kanálu před zobrazením ve vyhledávání nebo trendech. Zadaný název
+      kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
@@ -921,3 +932,4 @@ Chapters:
     současná kapitola: {chapterName}'
   Chapters: Kapitoly
 Preferences: Předvolby
+Ok: Ok
