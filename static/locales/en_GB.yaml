@@ -395,6 +395,8 @@ Settings:
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide sharing actions
     Hide Chapters: Hide chapters
+    Hide Channels: Hide videos from channels
+    Hide Channels Placeholder: Channel name or ID
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -444,6 +446,16 @@ Settings:
     Experimental Settings: Experimental settings
     Warning: These settings are experimental; they may cause crashes while enabled.
       Making back-ups is highly recommended. Use at your own risk!
+  Password Dialog:
+    Password: Password
+    Enter Password To Unlock: Enter password to unlock settings
+    Unlock: Unlock
+    Password Incorrect: Password incorrect
+  Password Settings:
+    Set Password To Prevent Access: Set a password to prevent access to settings
+    Remove Password: Remove password
+    Password Settings: Password settings
+    Set Password: Set password
 About:
   #On About page
   About: About
@@ -858,6 +870,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
       in-memory image cache. Will lead to increased RAM usage.
+  Distraction Free Settings:
+    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists
+      and the channel itself from appearing in search or trending. The channel name
+      entered must be a complete match and is case sensitive.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
@@ -906,3 +922,4 @@ Clipboard:
   Cannot access clipboard without a secure connection: Cannot access clipboard without
     a secure connection
 Preferences: Preferences
+Ok: OK
