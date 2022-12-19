@@ -406,6 +406,8 @@ Settings:
     Hide Sharing Actions: Masquer les actions de partage
     Hide Chapters: Masquer les chapitres
     Hide Upcoming Premieres: Cacher les avant-premières à venir
+    Hide Channels: Masquer les vidéos des chaînes
+    Hide Channels Placeholder: Nom ou identifiant de la chaîne
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -472,8 +474,13 @@ Settings:
     Password: Mot de passe
     Enter Password To Unlock: Entrez le mot de passe pour déverrouiller les paramètres
     Password Incorrect: Mot de passe incorrect
+    Unlock: Déverrouiller
   Password Settings:
     Remove Password: Supprimer le mot de passe
+    Set Password To Prevent Access: Définir un mot de passe pour empêcher l'accès
+      aux paramètres
+    Set Password: Définir un mot de passe
+    Password Settings: Paramètres de mot de passe
 About:
   #On About page
   About: 'À propos'
@@ -940,6 +947,11 @@ Tooltips:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active
       un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de
       l'utilisation de la mémoire vive.
+  Distraction Free Settings:
+    Hide Channels: Entrez un nom de chaîne ou un identifiant de chaîne pour empêcher
+      toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître
+      dans les recherches ou les tendances. Le nom du canal entré doit être une correspondance
+      complète et est sensible à la casse.
 More: Plus
 Playing Next Video Interval: Lecture de la prochaine vidéo en un rien de temps. Cliquez
   pour annuler. | Lecture de la prochaine vidéo dans {nextVideoInterval} seconde.
@@ -994,3 +1006,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Liste des chapitres cachée,
     chapitre actuel : {chapterName}'
 Preferences: Préférences
+Ok: OK
