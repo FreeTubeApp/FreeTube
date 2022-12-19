@@ -80,7 +80,6 @@
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :select-on-focus="true"
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
