@@ -13,29 +13,18 @@ export default Vue.extend({
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
   },
-  emits: ['settingsUnlocked'],
   data: function() {
     return {
       password: '',
     }
   },
   computed: {
-    getStoredPassword: function() {
+    settingsPassword: function() {
       return this.$store.getters.getSettingsPassword
     },
     hasStoredPassword: function() {
-      return this.getStoredPassword !== ''
-    },
-    unlocked: function() {
-      return this.getStoredPassword === '' || this.password === this.getStoredPassword
+      return this.settingsPassword !== ''
     }
-  },
-  watch: {
-    unlocked(val, oldVal) {
-      if (val !== oldVal) {
-        this.propagateUnlockStatus()
-      }
-    },
   },
   methods: {
     handleSetPassword: function () {
@@ -46,13 +35,8 @@ export default Vue.extend({
       this.updateSettingsPassword('')
       this.password = ''
     },
-    propagateUnlockStatus: function() {
-      this.$emit('settingsUnlocked', this.unlocked)
-    },
-
     ...mapActions([
       'updateSettingsPassword'
-    ]),
-
+    ])
   }
 })

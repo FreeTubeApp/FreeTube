@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="settingsUnlocked">
+    <template v-if="unlocked">
       <general-settings />
       <hr>
       <theme-settings />
@@ -27,15 +27,12 @@
       <hr v-if="usingElectron">
       <experimental-settings v-if="usingElectron" />
       <hr>
-      <password-settings
-        @settingsUnlocked="handleSettingsUnlocked"
-      />
-    </div>
-    <div v-else>
-      <password-dialog
-        @settingsUnlocked="handleSettingsUnlocked"
-      />
-    </div>
+      <password-settings />
+    </template>
+    <password-dialog
+      v-else
+      @unlocked="unlocked = true"
+    />
   </div>
 </template>
 

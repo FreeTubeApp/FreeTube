@@ -36,17 +36,21 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      settingsUnlocked: false
+      unlocked: false
     }
   },
   computed: {
     usingElectron: function () {
       return process.env.IS_ELECTRON
     },
+
+    settingsPassword: function () {
+      return this.$store.getters.getSettingsPassword
+    }
   },
-  methods: {
-    handleSettingsUnlocked: function (n) {
-      this.settingsUnlocked = n
-    },
+  mounted: function () {
+    if (this.settingsPassword === '') {
+      this.unlocked = true
+    }
   }
 })
