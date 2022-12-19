@@ -395,6 +395,8 @@ Settings:
     Hide Sharing Actions: Freigabe-Aktionen ausblenden
     Hide Chapters: Kapitel ausblenden
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
+    Hide Channels: Videos aus Kanälen ausblenden
+    Hide Channels Placeholder: Kanalname oder Kanal-ID
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -931,6 +933,11 @@ Tooltips:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
       einer erhöhten Nutzung des Direktzugriffsspeichers.
+  Distraction Free Settings:
+    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um alle Videos,
+      Wiedergabelisten und den Kanal selbst vor der Anzeige in der Suche oder den
+      Trends zu verbergen. Der eingegebene Kanalname muss vollständig übereinstimmen
+      und es wird zwischen Groß- und Kleinschreibung unterschieden.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -982,4 +989,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
     aktuelles Kapitel: {chapterName}'
 Preferences: Einstellungen
-Ok: Ok
+Ok: OK
