@@ -313,6 +313,8 @@ Settings:
     Hide Sharing Actions: Skrýt akce sdílení
     Hide Chapters: Skrýt kapitoly
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
+    Hide Channels: Skrýt videa z kanálů
+    Hide Channels Placeholder: Název nebo ID kanálu
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -441,6 +443,9 @@ Settings:
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci dochází k pádům.
       Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
+  Password Dialog:
+    Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
+    Password: Heslo
 About:
   #On About page
   About: 'O aplikaci'
