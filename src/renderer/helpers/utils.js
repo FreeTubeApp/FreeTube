@@ -422,3 +422,77 @@ export function searchFiltersMatch(filtersA, filtersB) {
     filtersA?.type === filtersB?.type &&
     filtersA?.duration === filtersB?.duration
 }
+
+export function replaceFilenameForbiddenChars(filenameOriginal) {
+  let filenameNew = filenameOriginal
+  let forbiddenChars = {}
+  switch (process.platform) {
+    case 'win32':
+      forbiddenChars = {
+        '<': '＜', // U+FF1C
+        '>': '＞', // U+FF1E
+        ':': '：', // U+FF1A
+        '"': '＂', // U+FF02
+        '/': '／', // U+FF0F
+        '\\': '＼', // U+FF3C
+        '|': '｜', // U+FF5C
+        '?': '？', // U+FF1F
+        '*': '＊' // U+FF0A
+      }
+      break
+    case 'darwin':
+      forbiddenChars = { '/': '／', ':': '：' }
+      break
+    case 'linux':
+      forbiddenChars = { '/': '／' }
+      break
+    default:
+      break
+  }
+
+  for (const forbiddenChar in forbiddenChars) {
+    filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
+  }
+  return filenameNew
+}
+
+export async function getSystemLocale() {
+  let locale
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    locale = await ipcRenderer.invoke(IpcChannels.GET_SYSTEM_LOCALE)
+  } else {
+    if (navigator && navigator.language) {
+      locale = navigator.language
+    }
+  }
+
+  return locale || 'en-US'
+}
+
+export async function getUserDataPath() {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
+  } else {
+    // TODO: implement getUserDataPath web compatible callback
+    return null
+  }
+}
+
+export async function getPicturesPath() {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.GET_PICTURES_PATH)
+  } else {
+    return null
+  }
+}
+
+export function extractNumberFromString(str) {
+  if (typeof str === 'string') {
+    return parseInt(str.replace(/\D+/, ''))
+  } else {
+    return NaN
+  }
+}

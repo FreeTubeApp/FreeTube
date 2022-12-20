@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
+import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'WatchVideoPlaylist',
@@ -30,7 +31,6 @@ export default Vue.extend({
       reversePlaylist: false,
       channelName: '',
       channelId: '',
-      channelThumbnail: '',
       playlistTitle: '',
       playlistItems: [],
       randomizedPlaylistItems: []
@@ -81,7 +81,11 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+    const cachedPlaylist = this.$store.getters.getCachedPlaylist
+
+    if (cachedPlaylist?.id === this.playlistId) {
+      this.loadCachedPlaylistInformation(cachedPlaylist)
+    } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
       this.getPlaylistInformationLocal()
@@ -99,14 +103,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    goToPlaylist: function () {
-      this.$router.push({ path: `/playlist/${this.playlistId}` })
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
     toggleLoop: function () {
       if (this.loopEnabled) {
         this.loopEnabled = false
@@ -249,36 +245,60 @@ export default Vue.extend({
       }
     },
 
-    getPlaylistInformationLocal: function () {
+    loadCachedPlaylistInformation: async function (cachedPlaylist) {
+      this.isLoading = true
+      this.setCachedPlaylist(null)
+
+      this.playlistTitle = cachedPlaylist.title
+      this.channelName = cachedPlaylist.channelName
+      this.channelId = cachedPlaylist.channelId
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+        this.playlistItems = cachedPlaylist.items
+      } else {
+        const items = cachedPlaylist.items
+        let playlist = cachedPlaylist.continuationData
+
+        do {
+          playlist = await playlist.getContinuation()
+
+          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
+          items.push(...parsedVideos)
+
+          if (!playlist.has_continuation) {
+            playlist = null
+          }
+        } while (playlist !== null)
+
+        this.playlistItems = items
+      }
+
+      this.isLoading = false
+    },
+
+    getPlaylistInformationLocal: async function () {
       this.isLoading = true
 
-      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
-        this.playlistTitle = result.title
-        this.playlistItems = result.items
-        this.videoCount = result.estimatedItemCount
-        this.channelName = result.author.name
-        this.channelThumbnail = result.author.bestAvatar.url
-        this.channelId = result.author.channelID
+      try {
+        let playlist = await getLocalPlaylist(this.playlistId)
 
-        this.playlistItems = result.items.filter((video) => {
-          return !(video.title === '[Private video]' || video.title === '[Deleted video]')
-        }).map((video) => {
-          if (typeof video.author !== 'undefined') {
-            const channelName = video.author.name
-            const channelId = video.author.channelID
-            video.author = channelName
-            video.authorId = channelId
-          } else {
-            video.author = ''
-            video.authorId = ''
-          }
-          video.videoId = video.id
-          video.lengthSeconds = video.duration
-          return video
-        })
+        this.playlistTitle = playlist.info.title
+        this.channelName = playlist.info.author?.name
+        this.channelId = playlist.info.author?.id
+
+        const videos = playlist.items.map(parseLocalPlaylistVideo)
+
+        while (playlist.has_continuation) {
+          playlist = await playlist.getContinuation()
+
+          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
+          videos.push(...parsedVideos)
+        }
+
+        this.playlistItems = videos
 
         this.isLoading = false
-      }).catch((err) => {
+      } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -290,7 +310,7 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
-      })
+      }
     },
 
     getPlaylistInformationInvidious: function () {
@@ -303,9 +323,7 @@ export default Vue.extend({
 
       this.invidiousGetPlaylistInfo(payload).then((result) => {
         this.playlistTitle = result.title
-        this.videoCount = result.videoCount
         this.channelName = result.author
-        this.channelThumbnail = result.authorThumbnails[2].url
         this.channelId = result.authorId
         this.playlistItems = this.playlistItems.concat(result.videos)
 
@@ -347,8 +365,11 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'ytGetPlaylistInfo',
       'invidiousGetPlaylistInfo'
+    ]),
+
+    ...mapMutations([
+      'setCachedPlaylist'
     ])
   }
 })

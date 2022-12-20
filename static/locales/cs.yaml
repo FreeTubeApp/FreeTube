@@ -219,6 +219,7 @@ Settings:
     Secondary Color Theme: 'Téma sekundární barvy'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt štítky na bočním panelu
+    Hide FreeTube Header Logo: Skrýt logo záhlaví FreeTube
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
     Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
@@ -311,6 +312,9 @@ Settings:
     Hide Live Streams: Skrýt živé streamy
     Hide Sharing Actions: Skrýt akce sdílení
     Hide Chapters: Skrýt kapitoly
+    Hide Upcoming Premieres: Skrýt nadcházející premiéry
+    Hide Channels: Skrýt videa z kanálů
+    Hide Channels Placeholder: Název nebo ID kanálu
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -439,6 +443,16 @@ Settings:
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci dochází k pádům.
       Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
+  Password Dialog:
+    Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
+    Password: Heslo
+    Password Incorrect: Nesprávné heslo
+    Unlock: Odemknout
+  Password Settings:
+    Password Settings: Nastavení hesla
+    Set Password To Prevent Access: Nastavte heslo, abyste zabránili přístupu k nastavení
+    Remove Password: Odebrat heslo
+    Set Password: Nastavit heslo
 About:
   #On About page
   About: 'O aplikaci'
@@ -594,8 +608,8 @@ Video:
   Watching: 'Sledujících'
   Watched: 'Zhlédnuto'
   Autoplay: 'Automatické přehrávání'
-  Starting soon, please refresh the page to check again: 'Prosím za chvilku obnovte
-    stránku a zkontrolujte stránku znovu'
+  Starting soon, please refresh the page to check again: 'Začínáme brzy, obnovte prosím
+    stránku pro opětovnou kontrolu'
   # As in a Live Video
   Live: 'Živě'
   Live Now: 'Živě nyní'
@@ -727,10 +741,10 @@ Playlist:
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
-  Use Dash Formats: 'Použít DASH formáty'
+  Use Dash Formats: 'Použít formáty DASH'
   Use Legacy Formats: 'Použít starší formáty'
   Use Audio Formats: 'Použít zvukové formáty'
-  Dash formats are not available for this video: 'DASH formáty nejsou pro toto video
+  Dash formats are not available for this video: 'Formáty DASH nejsou pro toto video
     dostupné'
   Audio formats are not available for this video: 'Zvukové formáty nejsou pro toto
     video dostupné'
@@ -753,6 +767,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL kanálu YouTube bylo zkopírováno do
     schránky'
 
+  Share Channel: Sdílet kanál
 Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'
@@ -769,7 +784,7 @@ Comments:
   View: 'Zobrazit'
   Hide: 'Skrýt'
   Replies: 'Odpovědi'
-  Reply: 'Odpovědět'
+  Reply: 'Odpověď'
   There are no comments available for this video: 'K tomuto videu nejsou dostupné
     žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
@@ -842,6 +857,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní paměťovou
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
+  Distraction Free Settings:
+    Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
+      a samotného kanálu před zobrazením ve vyhledávání nebo trendech. Zadaný název
+      kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
@@ -913,3 +932,4 @@ Chapters:
     současná kapitola: {chapterName}'
   Chapters: Kapitoly
 Preferences: Předvolby
+Ok: Ok

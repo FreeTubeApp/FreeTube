@@ -222,6 +222,7 @@ Settings:
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
     Hide Side Bar Labels: Slėpti šoninės juostos etiketes
+    Hide FreeTube Header Logo: Slėpti FreeTube logotipą antraštėje
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
     Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinę posistemę
@@ -326,6 +327,7 @@ Settings:
     Hide Live Streams: Slėpti tiesiogines transliacijas
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
     Hide Chapters: Slėpti skirsnius
+    Hide Upcoming Premieres: Slėpti būsimas premjeras
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkti importavimo tipą'
@@ -554,7 +556,7 @@ Video:
   Play Previous Video: 'Groti ankstesnį vaizdo įrašą'
   # Context is "X People Watching"
   Watching: 'Žiūri'
-  Watched: 'Žiūrėjo'
+  Watched: 'Žiūrėta'
   Autoplay: 'Paleisti automatiškai'
   Starting soon, please refresh the page to check again: 'Greitai prasidės, atnaujinkite
     puslapį, kad galėtumėte patikrinti dar kartą'
@@ -715,6 +717,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube įterpinio URL nukopijuotas į iškarpinę'
   YouTube Channel URL copied to clipboard: 'YouTube kanalo URL nukopijuotas į iškarpinę'
 
+  Share Channel: Dalintis kanalu
 Mini Player: 'Mini grotuvas'
 Comments:
   Comments: 'Komentarai'

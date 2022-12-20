@@ -32,12 +32,12 @@ Forward: 'Adiante'
 
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
-Download From Site: 'Descargar dende a páxina web'
+Download From Site: 'Descargar do sitio'
 A new blog is now available, {blogTitle}. Click to view more: 'Hai unha nova entrada
   no blog dispoñible, {blogTitle}. Fai clic para veres máis'
 
 # Search Bar
-Search / Go to URL: 'Buscar / Ir á URL'
+Search / Go to URL: 'Buscar / Ir a URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Buscar filtros'
@@ -77,8 +77,8 @@ Subscriptions:
   Subscriptions: 'Subscricións'
   Latest Subscriptions: 'Últimas subscricións'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Este
-    perfil ten unha gran cantidade de subscricións.  Forzanse as RSS para evitalo
-    límite'
+    perfil ten un gran número de subscricións.  Forzar ás RSS para evitar a limitación
+    da taxa'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     túa listaxe de subscricións está baleira. Engade algunhas para as ver aquí.'
   'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
@@ -220,6 +220,7 @@ Settings:
     Secondary Color Theme: 'Cor secundaria'
         #* Main Color Theme
     Hide Side Bar Labels: Ocultalas etiquetas da barra lateral
+    Hide FreeTube Header Logo: Ocultalo logotipo de Freetube na cabeceira
   Player Settings:
     Player Settings: 'Axustes do reprodutor'
     Force Local Backend for Legacy Formats: 'Forzar API local para formatos antigos
@@ -315,6 +316,9 @@ Settings:
     Hide Video Description: Ocultala descrición do vídeo
     Hide Comments: Ocultar comentarios
     Hide Chapters: Agochalos capítulos
+    Hide Upcoming Premieres: Ocultalas próximas estreas
+    Hide Channels: Ocultalos vídeos das canles
+    Hide Channels Placeholder: Nome ou ID da canle
   Data Settings:
     Data Settings: 'Axustes dos datos'
     Select Import Type: 'Escoller tipo de importación'
@@ -449,6 +453,17 @@ Settings:
       están activadas. É moi recomendable facer copias de seguridade. Useas baixo
       o seu propio risco!
     Replace HTTP Cache: Substitúe a caché HTTP
+  Password Settings:
+    Password Settings: Configuración do contrasinal
+    Set Password To Prevent Access: Establece un contrasinal para impedilo acceso
+      á configuración
+    Set Password: Establecelo contrasinal
+    Remove Password: Eliminar contrasinal
+  Password Dialog:
+    Password: Contrasinal
+    Enter Password To Unlock: Introduce o contrasinal para desbloqueala configuración
+    Password Incorrect: Contrasinal incorrecto
+    Unlock: Desbloquear
 About:
   #On About page
   About: 'Sobre'
@@ -686,7 +701,7 @@ Video:
     music offtopic: Música Offtopic
     interaction: Interacción
     self-promotion: Autopromoción
-    outro: Outro
+    outro: outro
     intro: Intro
     sponsor: Patrocinador
     recap: Recapitulación
@@ -857,6 +872,11 @@ Tooltips:
     Replace HTTP Cache: Desactivouse a caché HTTP baseada no disco de Electrons e
       habilita unha caché das imaxes persoalizadas na memoria. Levará a un aumento
       no uso da RAM.
+  Distraction Free Settings:
+    Hide Channels: Introduce o nome dunha canle ou o ID de canle para ocultar todolos
+      vídeos, listas de reprodución e a propia canle para que non aparezan na busca
+      ou nas tendencias. O nome da canle introducido debe coincidir completamente
+      e distingue entre maiúsculas e minúsculas.
 Local API Error (Click to copy): 'Erro de API local (Preme para copiar)'
 Invidious API Error (Click to copy): 'Erro de API Invidious (Preme para copiar)'
 Falling back to Invidious API: 'Recorrendo á API Invidious'
@@ -931,3 +951,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
     capítulo actual: {chapterName}'
 Screenshot Success: Captura da pantalla gardada como "{filePath}"
+Ok: De acordo

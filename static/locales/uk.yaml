@@ -219,6 +219,7 @@ Settings:
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
+    Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
   Player Settings:
     Player Settings: 'Налаштування програвача'
     Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
@@ -314,6 +315,9 @@ Settings:
     Hide Sharing Actions: Сховати дії поширення
     Hide Live Streams: Сховати прямі трансляції
     Hide Chapters: Сховати розділи
+    Hide Upcoming Premieres: Сховати майбутні прем'єри
+    Hide Channels: Сховати відео з каналів
+    Hide Channels Placeholder: Назва або ID каналу
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -438,6 +442,16 @@ Settings:
     Experimental Settings: Експериментальні налаштування
     Warning: Ці налаштування експериментальні, їхнє ввімкнення може призводити до
       збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
+  Password Dialog:
+    Enter Password To Unlock: Введіть пароль, щоб розблокувати налаштування
+    Unlock: Розблокувати
+    Password Incorrect: Пароль неправильний
+    Password: Пароль
+  Password Settings:
+    Password Settings: Налаштування пароля
+    Set Password: Установити пароль
+    Remove Password: Вилучити пароль
+    Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
 About:
   #On About page
   About: 'Про'
@@ -840,6 +854,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
+  Distraction Free Settings:
+    Hide Channels: Введіть назву або ID каналу, щоб сховати всі відео, списки відтворення
+      та сам канал від появи в пошуку або в тренді. Введена назва каналу повинна повністю
+      збігатися і чутлива до регістру.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
@@ -917,3 +935,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований,
     поточний розділ: {chapterName}'
 Preferences: Налаштування
+Ok: Гаразд

@@ -3,7 +3,7 @@ Locale Name: 'Türkçe'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gel.
+  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
 
 # Webkit Menu Bar
 File: 'Dosya'
@@ -214,6 +214,7 @@ Settings:
     Expand Side Bar by Default: Kenar Çubuğunu Öntanımlı Olarak Genişlet
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
     Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
+    Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
     Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
@@ -387,6 +388,9 @@ Settings:
     Hide Video Description: Video Açıklamasını Gizle
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle
+    Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
+    Hide Channels Placeholder: Kanal Adı veya Kimliği
+    Hide Channels: Kanallardan Videoları Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -446,6 +450,16 @@ Settings:
       Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
       aittir!
     Experimental Settings: Deneysel Ayarlar
+  Password Dialog:
+    Password Incorrect: Parola Yanlış
+    Unlock: Kilidi aç
+    Password: Parola
+    Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
+  Password Settings:
+    Password Settings: Parola Ayarları
+    Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
+    Remove Password: Parolayı Kaldır
+    Set Password: Parola Ayarla
 About:
   #On About page
   About: 'Hakkında'
@@ -774,6 +788,7 @@ Share:
     kopyalandı'
   YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
   Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
+  Share Channel: Kanalı Paylaş
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
@@ -884,6 +899,10 @@ Tooltips:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
       ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
       neden olacaktır.
+  Distraction Free Settings:
+    Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama
+      veya öne çıkanlarda görünmesini engellemek için bir kanal adı veya kanal kimliği
+      girin. Girilen kanal adı tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
@@ -938,3 +957,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli
     bölüm: {chapterName}'
 Preferences: Tercihler
+Ok: Tamam

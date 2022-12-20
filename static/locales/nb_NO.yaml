@@ -190,6 +190,7 @@ Settings:
     Disable Smooth Scrolling: Slå av myk rulling
     Expand Side Bar by Default: Utvidet sidefelt som forvalg
     Hide Side Bar Labels: Skjul sidefeltsetiketter
+    Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspillingsinnstillinger'
     Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
@@ -354,6 +355,8 @@ Settings:
     Hide Video Views: Skjul videovisninger
     Hide Live Chat: Skjul sanntidssludring
     Hide Playlists: Skjul spillelister
+    Hide Comments: Skjul kommentarer
+    Hide Live Streams: "\n"
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -817,3 +820,5 @@ Chapters:
   Chapters: Kapitler
 Screenshot Success: Lagre skjermavbildning som «{filePath}»
 Screenshot Error: Skjermavbildning mislyktes. {error}
+Ok: OK
+Preferences: Innstillinger

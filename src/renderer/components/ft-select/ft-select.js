@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default Vue.extend({
   name: 'FtSelect',
@@ -30,6 +31,11 @@ export default Vue.extend({
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    sanitizedPlaceholder: function() {
+      return sanitizeForHtmlId(this.placeholder)
     }
   }
 })

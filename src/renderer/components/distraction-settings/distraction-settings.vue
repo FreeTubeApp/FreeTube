@@ -91,6 +91,12 @@
           @change="updateHideLiveStreams"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
+          :compact="true"
+          :default-value="hideUpcomingPremieres"
+          @change="updateHideUpcomingPremieres"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Comments')"
           :compact="true"
           :default-value="hideComments"
@@ -98,6 +104,17 @@
         />
       </div>
     </div>
+    <br>
+    <ft-flex-box>
+      <ft-input-tags
+        :label="$t('Settings.Distraction Free Settings.Hide Channels')"
+        :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+        :show-action-button="true"
+        :tag-list="channelsHidden"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
+        @change="handleChannelsHidden"
+      />
+    </ft-flex-box>
   </ft-settings-section>
 </template>
 

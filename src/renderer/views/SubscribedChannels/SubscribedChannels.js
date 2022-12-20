@@ -60,6 +60,10 @@ export default Vue.extend({
       }
     },
 
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
     locale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
@@ -198,10 +202,6 @@ export default Vue.extend({
           })
         }, this.errorCount * 500)
       }
-    },
-
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
     },
 
     ...mapActions([

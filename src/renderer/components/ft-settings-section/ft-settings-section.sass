@@ -61,15 +61,15 @@
     justify-content: flex-start
 
 @media only screen and (max-width: 680px)
-  .settingsSection 
-    > div 
+  .settingsSection
+    > div
       :deep(.text.bottom)
         left: -85px
     :deep(.switch-ctn.containsTooltip)
       left: -10px
       margin-right: 5px
       padding: 0px 10px 0px 10px
-    :not(.select)
+    :not(.select, .selectLabel)
       > :deep(.tooltip)
         display: inline-block
         position: absolute

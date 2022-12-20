@@ -11,6 +11,7 @@ import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 import path from 'path'
+import { getPicturesPath } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'PlayerSettings',
@@ -204,7 +205,7 @@ export default Vue.extend({
     },
 
     getScreenshotEmptyFolderPlaceholder: async function() {
-      return path.join(await this.getPicturesPath(), 'Freetube')
+      return path.join(await getPicturesPath(), 'Freetube')
     },
 
     getScreenshotFolderPlaceholder: function() {
@@ -284,7 +285,6 @@ export default Vue.extend({
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
-      'getPicturesPath'
     ])
   }
 })

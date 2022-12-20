@@ -106,6 +106,13 @@ export default Vue.extend({
             this.removeProfile(profile._id)
           }
         })
+
+        this.updateAllSubscriptionsList([])
+        this.updateProfileSubscriptions({
+          activeProfile: MAIN_PROFILE_ID,
+          videoList: [],
+          errorChannels: []
+        })
       }
     },
 
@@ -117,7 +124,9 @@ export default Vue.extend({
       'clearSessionSearchHistory',
       'updateProfile',
       'removeProfile',
-      'updateActiveProfile'
+      'updateActiveProfile',
+      'updateAllSubscriptionsList',
+      'updateProfileSubscriptions'
     ])
   }
 })

@@ -64,7 +64,7 @@ const config = {
     '!node_modules/**/*',
 
     // renderer
-    'node_modules/{miniget,ytpl,ytsr}/**/*',
+    'node_modules/{miniget,ytsr}/**/*',
 
     '!**/README.md',
     '!**/*.js.map',

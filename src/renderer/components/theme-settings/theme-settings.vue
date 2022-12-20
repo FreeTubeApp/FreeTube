@@ -28,6 +28,12 @@
         :default-value="hideLabelsSideBar"
         @change="updateHideLabelsSideBar"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.Theme Settings.Hide FreeTube Header Logo')"
+        :compact="true"
+        :default-value="hideHeaderLogo"
+        @change="updateHideHeaderLogo"
+      />
     </ft-flex-box>
     <ft-flex-box>
       <ft-slider

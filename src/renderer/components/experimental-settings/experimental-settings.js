@@ -1,10 +1,10 @@
 import { closeSync, existsSync, openSync, rmSync } from 'fs'
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import { getUserDataPath } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ExperimentalSettings',
@@ -23,7 +23,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    this.getUserDataPath().then((userData) => {
+    getUserDataPath().then((userData) => {
       this.replaceHttpCachePath = `${userData}/experiment-replace-http-cache`
 
       this.replaceHttpCache = existsSync(this.replaceHttpCachePath)
@@ -64,10 +64,6 @@ export default Vue.extend({
 
       const { ipcRenderer } = require('electron')
       ipcRenderer.send('relaunchRequest')
-    },
-
-    ...mapActions([
-      'getUserDataPath'
-    ])
+    }
   }
 })

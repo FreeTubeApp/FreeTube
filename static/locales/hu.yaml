@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Magyar'
+Locale Name: 'magyar'
 FreeTube: 'SzabadCső'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -220,6 +220,7 @@ Settings:
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
     Hide Side Bar Labels: Oldalsáv címkéi elrejtése
+    Hide FreeTube Header Logo: FreeTube fejléc emblémájának elrejtése
   Player Settings:
     Player Settings: 'Lejátszó beállításai'
     Force Local Backend for Legacy Formats: 'Helyi háttéralkalmazás kényszerítése
@@ -393,6 +394,9 @@ Settings:
     Hide Live Streams: Élő adatfolyamok elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
     Hide Chapters: Fejezetek elrejtése
+    Hide Upcoming Premieres: Közelgő első előadások elrejtése
+    Hide Channels: Videók elrejtése a csatornákból
+    Hide Channels Placeholder: Csatorna neve vagy azonosítója
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -453,6 +457,16 @@ Settings:
     Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okoznak, ha engedélyezve
       vannak. Erősen ajánlott biztonsági mentéseket készíteni. Használat csak saját
       felelősségre!
+  Password Dialog:
+    Password Incorrect: Helytelen jelszó
+    Unlock: Zárolás feloldása
+    Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
+    Password: Jelszó
+  Password Settings:
+    Password Settings: Jelszóbeállítások
+    Set Password To Prevent Access: Beállítások jelszó megadása
+    Set Password: Jelszó megadása
+    Remove Password: Jelszó eltávolítása
 About:
   #On About page
   About: 'Névjegy'
@@ -652,7 +666,7 @@ Video:
     Year: 'évvel'
     Years: 'évvel'
     Ago: 'ezelőtt'
-    Upcoming: 'Az első előadás hamarosan lesz'
+    Upcoming: 'Első előadás dátuma'
     In less than a minute: Kevesebb, mint egy perce ezelőtt
   Published on: 'Megjelent'
   Publicationtemplate: '{number} {unit} ezelőtt'
@@ -702,7 +716,7 @@ Video:
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: '{externalPlayer} megnyításaban'
-  Premieres on: 'Bemutatkozás dátuma:'
+  Premieres on: 'Első előadás dátuma'
   Stats:
     Player Dimensions: Lejátszó méretei
     Video ID: Videóazonosító
@@ -715,7 +729,7 @@ Video:
     Buffered: Pufferelt
     Dropped / Total Frames: Elvetve/Összes képkocka
     Bitrate: Átviteli sebesség
-  Premieres: Premierek
+  Premieres: Első előadások
 Videos:
   #& Sort By
   Sort By:
@@ -769,6 +783,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube csatorna URL-címe vágólapra másolva
   Invidious Channel URL copied to clipboard: Invidious csatorna URL-címe vágólapra
     másolva
+  Share Channel: Csatorna megosztása
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Megjegyzések'
@@ -884,6 +899,11 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+  Distraction Free Settings:
+    Hide Channels: Adja meg a csatorna nevét vagy csatornaazonosítóját, hogy elrejtse
+      az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
+      a keresésben vagy a népszerűségben. A megadott csatornanévnek teljes egyezésnek
+      kell lennie, és megkülönbözteti a kis- és nagybetűket.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
@@ -934,3 +954,4 @@ Clipboard:
   Copy failed: A vágólapra másolás nem sikerült
 Screenshot Error: A képernyőkép nem sikerült. {error}
 Preferences: Beállítások
+Ok: Rendben
