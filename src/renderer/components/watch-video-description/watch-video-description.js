@@ -2,7 +2,6 @@ import Vue from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
-import $ from 'jquery'
 
 export default Vue.extend({
   name: 'WatchVideoDescription',
@@ -31,13 +30,22 @@ export default Vue.extend({
   },
   mounted: function () {
     if (this.descriptionHtml !== '') {
-      this.shownDescription = this.parseDescriptionHtml(this.descriptionHtml)
-    } else {
-      this.shownDescription = autolinker.link(this.description)
-    }
+      const parsed = this.parseDescriptionHtml(this.descriptionHtml)
 
-    if (/^\s*$/.test(this.shownDescription)) {
-      $('.videoDescription')[0].style.display = 'none'
+      // the invidious API returns emtpy html elements when the description is empty
+      // so we need to parse it to see if there is any meaningful text in the html
+      // or if it's just empty html elements e.g. `<p></p>`
+
+      const testDiv = document.createElement('div')
+      testDiv.innerHTML = parsed
+
+      if (!/^\s*$/.test(testDiv.innerText)) {
+        this.shownDescription = parsed
+      }
+    } else {
+      if (!/^\s*$/.test(this.description)) {
+        this.shownDescription = autolinker.link(this.description)
+      }
     }
   },
   methods: {

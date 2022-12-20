@@ -65,7 +65,6 @@ export default Vue.extend({
   methods: {
     handleExternalPlayer: function () {
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: 0,
         playbackRate: this.defaultPlayback,
         videoId: null,

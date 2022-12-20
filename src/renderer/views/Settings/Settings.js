@@ -1,6 +1,4 @@
 import Vue from 'vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
 import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
 import PlayerSettings from '../../components/player-settings/player-settings.vue'
@@ -12,12 +10,14 @@ import DataSettings from '../../components/data-settings/data-settings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 import ProxySettings from '../../components/proxy-settings/proxy-settings.vue'
 import SponsorBlockSettings from '../../components/sponsor-block-settings/sponsor-block-settings.vue'
+import ParentControlSettings from '../../components/parental-control-settings/parental-control-settings.vue'
+import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
+import PasswordSettings from '../../components/password-settings/password-settings.vue'
+import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 
 export default Vue.extend({
   name: 'Settings',
   components: {
-    'ft-card': FtCard,
-    'ft-element-list': FtElementList,
     'general-settings': GeneralSettings,
     'theme-settings': ThemeSettings,
     'player-settings': PlayerSettings,
@@ -28,11 +28,29 @@ export default Vue.extend({
     'distraction-settings': DistractionSettings,
     'proxy-settings': ProxySettings,
     'sponsor-block-settings': SponsorBlockSettings,
-    'download-settings': DownloadSettings
+    'download-settings': DownloadSettings,
+    'parental-control-settings': ParentControlSettings,
+    'experimental-settings': ExperimentalSettings,
+    'password-settings': PasswordSettings,
+    'password-dialog': PasswordDialog,
+  },
+  data: function () {
+    return {
+      unlocked: false
+    }
   },
   computed: {
     usingElectron: function () {
-      return this.$store.getters.getUsingElectron
+      return process.env.IS_ELECTRON
+    },
+
+    settingsPassword: function () {
+      return this.$store.getters.getSettingsPassword
+    }
+  },
+  mounted: function () {
+    if (this.settingsPassword === '') {
+      this.unlocked = true
     }
   }
 })

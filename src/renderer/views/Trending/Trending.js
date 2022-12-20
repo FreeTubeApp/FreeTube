@@ -6,8 +6,8 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
-import $ from 'jquery'
-import ytrend from 'yt-trending-scraper'
+import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'Trending',
@@ -22,19 +22,10 @@ export default Vue.extend({
     return {
       isLoading: false,
       shownResults: [],
-      currentTab: 'default',
-      tabInfoValues: [
-        'default',
-        'music',
-        'gaming',
-        'movies'
-      ]
+      currentTab: 'default'
     }
   },
   computed: {
-    usingElectron: function () {
-      return this.$store.getters.getUsingElectron
-    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -52,45 +43,19 @@ export default Vue.extend({
     }
   },
   mounted: function () {
+    document.addEventListener('keydown', this.keyboardShortcutHandler)
+
     if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
       this.getTrendingInfoCache()
     } else {
       this.getTrendingInfo()
     }
   },
+  beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
+  },
   methods: {
-    changeTab: function (tab, event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-          // navigate trending tabs with arrow keys
-          const index = this.tabInfoValues.indexOf(tab)
-          // tabs wrap around from leftmost to rightmost, and vice versa
-          tab = (event.key === 'ArrowLeft')
-            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
-            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
-
-          const tabNode = $(`#${tab}Tab`)
-          event.target.setAttribute('tabindex', '-1')
-          tabNode.attr('tabindex', '0')
-          tabNode[0].focus()
-        }
-
-        event.preventDefault()
-        if (event.key !== 'Enter' && event.key !== ' ') {
-          return
-        }
-      }
-      const currentTabNode = $('.trendingInfoTabs > .tab[aria-selected="true"]')
-      const newTabNode = $(`#${tab}Tab`)
-
-      // switch selectability from currently focused tab to new tab
-      $('.trendingInfoTabs > .tab[tabindex="0"]').attr('tabindex', '-1')
-      newTabNode.attr('tabindex', '0')
-
-      currentTabNode.attr('aria-selected', 'false')
-      newTabNode.attr('aria-selected', 'true')
+    changeTab: function (tab) {
       this.currentTab = tab
       if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
         this.getTrendingInfoCache()
@@ -99,56 +64,47 @@ export default Vue.extend({
       }
     },
 
-    getTrendingInfo () {
-      if (!this.usingElectron) {
-        this.getVideoInformationInvidious()
+    focusTab: function (tab) {
+      this.$refs[tab].focus()
+      this.$emit('showOutlines')
+    },
+
+    getTrendingInfo: function () {
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getTrendingInfoInvidious()
       } else {
-        switch (this.backendPreference) {
-          case 'local':
-            this.getTrendingInfoLocal()
-            break
-          case 'invidious':
-            this.getTrendingInfoInvidious()
-            break
-        }
+        this.getTrendingInfoLocal()
       }
     },
 
     getTrendingInfoLocal: function () {
       this.isLoading = true
 
-      console.log('getting local trending')
       const param = {
         parseCreatorOnRise: false,
         page: this.currentTab,
         geoLocation: this.region
       }
 
-      ytrend.scrape_trending_page(param).then((result) => {
+      scrapeTrendingPage(param).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
         this.shownResults = returnData
         this.isLoading = false
-        const currentTab = this.currentTab
-        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
-      }).then(() => {
-        document.querySelector(`#${this.currentTab}Tab`).focus()
-      }).catch((err) => {
-        console.log(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
+        this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
+        setTimeout(() => {
+          this.$refs[this.currentTab].focus()
         })
-        if (!this.usingElectron || (this.backendPreference === 'local' && this.backendFallback)) {
-          this.showToast({
-            message: this.$t('Falling back to Invidious API')
-          })
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
           this.getTrendingInfoInvidious()
         } else {
           this.isLoading = false
@@ -156,14 +112,19 @@ export default Vue.extend({
       })
     },
 
-    getTrendingInfoCache: function() {
+    getTrendingInfoCache: function () {
+      // the ft-element-list component has a bug where it doesn't change despite the data changing
+      // so we need to use this hack to make vue completely get rid of it and rerender it
+      // we should find a better way to do it to avoid the trending page flashing
       this.isLoading = true
       setTimeout(() => {
         this.shownResults = this.trendingCache[this.currentTab]
         this.isLoading = false
+        setTimeout(() => {
+          this.$refs[this.currentTab].focus()
+        })
       })
     },
-
     getTrendingInfoInvidious: function () {
       this.isLoading = true
 
@@ -182,33 +143,25 @@ export default Vue.extend({
           return
         }
 
-        console.log(result)
-
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
         })
 
         this.shownResults = returnData
         this.isLoading = false
-        const currentTab = this.currentTab
-        this.$store.commit('setTrendingCache', { value: returnData, page: currentTab })
-      }).then(() => {
-        document.querySelector(`#${this.currentTab}Tab`).focus()
+        this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
+        setTimeout(() => {
+          this.$refs[this.currentTab].focus()
+        })
       }).catch((err) => {
-        console.log(err)
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        this.showToast({
-          message: `${errorMessage}: ${err.responseText}`,
-          time: 10000,
-          action: () => {
-            navigator.clipboard.writeText(err)
-          }
+        showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
+          copyToClipboard(err.responseText)
         })
 
-        if (!this.usingElectron || (this.backendPreference === 'invidious' && this.backendFallback)) {
-          this.showToast({
-            message: this.$t('Falling back to Local API')
-          })
+        if (process.env.IS_ELECTRON && (this.backendPreference === 'invidious' && this.backendFallback)) {
+          showToast(this.$t('Falling back to Local API'))
           this.getTrendingInfoLocal()
         } else {
           this.isLoading = false
@@ -216,8 +169,22 @@ export default Vue.extend({
       })
     },
 
+    // This function should always be at the bottom of this file
+    keyboardShortcutHandler: function (event) {
+      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+      switch (event.key) {
+        case 'r':
+        case 'R':
+          if (!this.isLoading) {
+            this.getTrendingInfo()
+          }
+          break
+      }
+    },
+
     ...mapActions([
-      'showToast',
       'invidiousAPICall'
     ])
   }

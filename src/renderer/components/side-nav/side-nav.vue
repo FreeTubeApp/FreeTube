@@ -8,18 +8,17 @@
       class="inner"
       :class="applyHiddenLabels"
     >
-      <div
+      <router-link
         class="navOption topNavOption mobileShow "
         role="button"
-        tabindex="0"
+        to="/subscriptions"
         :title="$t('Subscriptions.Subscriptions')"
-        @click="navigate('subscriptions')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="rss"
+            :icon="['fas', 'rss']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -31,21 +30,42 @@
         >
           {{ $t("Subscriptions.Subscriptions") }}
         </p>
-      </div>
-      <div
-        v-if="!hideTrendingVideos"
+      </router-link>
+      <router-link
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
-        :title="$t('Trending.Trending')"
-        @click="navigate('trending')"
-        @keypress="navigate('trending')"
+        to="/subscribedchannels"
+        :title="$t('Channels.Channels')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="fire"
+            :icon="['fas', 'list']"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t("Channels.Channels") }}
+        </p>
+      </router-link>
+      <router-link
+        v-if="!hideTrendingVideos"
+        class="navOption mobileHidden"
+        role="button"
+        to="/trending"
+        :title="$t('Trending.Trending')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'fire']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -57,21 +77,19 @@
         >
           {{ $t("Trending.Trending") }}
         </p>
-      </div>
-      <div
-        v-if="!hidePopularVideos"
+      </router-link>
+      <router-link
+        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
+        to="/popular"
         :title="$t('Most Popular')"
-        @click="navigate('popular')"
-        @keypress="navigate('popular')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="users"
+            :icon="['fas', 'users']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -83,21 +101,19 @@
         >
           {{ $t("Most Popular") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hidePlaylists"
         class="navOption mobileShow"
         role="button"
-        tabindex="0"
+        to="/userplaylists"
         :title="$t('Playlists')"
-        @click="navigate('userplaylists')"
-        @keypress="navigate('userplaylists')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="bookmark"
+            :icon="['fas', 'bookmark']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -109,23 +125,19 @@
         >
           {{ $t("Playlists") }}
         </p>
-      </div>
-      <side-nav-more-options
-        @navigate="navigate"
-      />
-      <div
+      </router-link>
+      <side-nav-more-options />
+      <router-link
         class="navOption mobileShow"
         role="button"
-        tabindex="0"
+        to="/history"
         :title="$t('History.History')"
-        @click="navigate('history')"
-        @keypress="navigate('history')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="history"
+            :icon="['fas', 'history']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -137,21 +149,19 @@
         >
           {{ $t("History.History") }}
         </p>
-      </div>
+      </router-link>
       <hr>
-      <div
+      <router-link
         class="navOption mobileShow"
         role="button"
-        tabindex="0"
+        to="/settings"
         :title="$t('Settings.Settings')"
-        @click="navigate('settings')"
-        @keypress="navigate('settings')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="sliders-h"
+            :icon="['fas', 'sliders-h']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -163,20 +173,18 @@
         >
           {{ $t('Settings.Settings') }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         class="navOption mobileHidden"
         role="button"
-        tabindex="0"
+        to="/about"
         :title="$t('About.About')"
-        @click="navigate('about')"
-        @keypress="navigate('about')"
       >
         <div
           class="thumbnailContainer"
         >
           <font-awesome-icon
-            icon="info-circle"
+            :icon="['fas', 'info-circle']"
             class="navIcon"
             :class="applyNavIconExpand"
             fixed-width
@@ -188,20 +196,18 @@
         >
           {{ $t("About.About") }}
         </p>
-      </div>
+      </router-link>
       <hr>
       <div
         v-if="!hideActiveSubscriptions"
       >
-        <div
+        <router-link
           v-for="(channel, index) in activeSubscriptions"
           :key="index"
-          class="navChannel mobileHidden"
+          :to="`/channel/${channel.id}`"
+          class="navChannel channelLink mobileHidden"
           :title="channel.name"
           role="button"
-          tabindex="0"
-          @click="goToChannel(channel.id)"
-          @keypress="goToChannel(channel.id)"
         >
           <div
             class="thumbnailContainer"
@@ -217,7 +223,7 @@
           >
             {{ channel.name }}
           </p>
-        </div>
+        </router-link>
       </div>
     </div>
   </ft-flex-box>

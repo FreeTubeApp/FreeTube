@@ -1,9 +1,16 @@
-import IsEqual from 'lodash.isequal'
-import FtToastEvents from '../../components/ft-toast/ft-toast-events'
 import fs from 'fs'
+import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
+import {
+  createWebURL,
+  openExternalLink,
+  replaceFilenameForbiddenChars,
+  searchFiltersMatch,
+  showSaveDialog,
+  showToast
+} from '../../helpers/utils'
 
 const state = {
   isSideNavOpen: false,
@@ -15,6 +22,7 @@ const state = {
     gaming: null,
     movies: null
   },
+  cachedPlaylist: null,
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -26,57 +34,8 @@ const state = {
     type: 'all',
     duration: ''
   },
-  colorNames: [
-    'Red',
-    'Pink',
-    'Purple',
-    'DeepPurple',
-    'Indigo',
-    'Blue',
-    'LightBlue',
-    'Cyan',
-    'Teal',
-    'Green',
-    'LightGreen',
-    'Lime',
-    'Yellow',
-    'Amber',
-    'Orange',
-    'DeepOrange',
-    'DraculaCyan',
-    'DraculaGreen',
-    'DraculaOrange',
-    'DraculaPink',
-    'DraculaPurple',
-    'DraculaRed',
-    'DraculaYellow'
-  ],
-  colorValues: [
-    '#d50000',
-    '#C51162',
-    '#AA00FF',
-    '#6200EA',
-    '#304FFE',
-    '#2962FF',
-    '#0091EA',
-    '#00B8D4',
-    '#00BFA5',
-    '#00C853',
-    '#64DD17',
-    '#AEEA00',
-    '#FFD600',
-    '#FFAB00',
-    '#FF6D00',
-    '#DD2C00',
-    '#8BE9FD',
-    '#50FA7B',
-    '#FFB86C',
-    '#FF79C6',
-    '#BD93F9',
-    '#FF5555',
-    '#F1FA8C'
-  ],
   externalPlayerNames: [],
+  externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {}
 }
@@ -102,16 +61,12 @@ const getters = {
     return state.trendingCache
   },
 
+  getCachedPlaylist() {
+    return state.cachedPlaylist
+  },
+
   getSearchSettings () {
     return state.searchSettings
-  },
-
-  getColorNames () {
-    return state.colorNames
-  },
-
-  getColorValues () {
-    return state.colorValues
   },
 
   getShowProgressBar () {
@@ -138,6 +93,10 @@ const getters = {
     return state.externalPlayerNames
   },
 
+  getExternalPlayerNameTranslationKeys () {
+    return state.externalPlayerNameTranslationKeys
+  },
+
   getExternalPlayerValues () {
     return state.externalPlayerValues
   },
@@ -147,53 +106,16 @@ const getters = {
   }
 }
 
-/**
- * Wrapper function that calls `ipcRenderer.invoke(IRCtype, payload)` if the user is
- * using Electron or a provided custom callback otherwise.
- * @param {Object} context Object
- * @param {String} IRCtype String
- * @param {Function} webCbk Function
- * @param {Object} payload any (default: null)
-*/
-
-async function invokeIRC(context, IRCtype, webCbk, payload = null) {
-  let response = null
-  const usingElectron = context.rootState.settings.usingElectron
-  if (usingElectron) {
-    const { ipcRenderer } = require('electron')
-    response = await ipcRenderer.invoke(IRCtype, payload)
-  } else if (webCbk) {
-    response = await webCbk()
-  }
-
-  return response
-}
-
 const actions = {
-  openExternalLink ({ rootState }, url) {
-    const usingElectron = rootState.settings.usingElectron
-    if (usingElectron) {
-      const ipcRenderer = require('electron').ipcRenderer
-      ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
-    } else {
-      // Web placeholder
-    }
-  },
-
-  async downloadMedia({ rootState, dispatch }, { url, title, extension, fallingBackPath }) {
-    const fileName = `${title}.${extension}`
-    const usingElectron = rootState.settings.usingElectron
-    const locale = i18n._vm.locale
-    const translations = i18n._vm.messages[locale]
-    const startMessage = translations['Starting download'].replace('$', title)
-    const completedMessage = translations['Downloading has completed'].replace('$', title)
-    const errorMessage = translations['Downloading failed'].replace('$', title)
-    let folderPath = rootState.settings.downloadFolderPath
-
-    if (!usingElectron) {
-      // Add logic here in the future
+  async downloadMedia({ rootState }, { url, title, extension, fallingBackPath }) {
+    if (!process.env.IS_ELECTRON) {
+      openExternalLink(url)
       return
     }
+
+    const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
+    const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
+    let folderPath = rootState.settings.downloadFolderPath
 
     if (folderPath === '') {
       const options = {
@@ -205,7 +127,7 @@ const actions = {
           }
         ]
       }
-      const response = await dispatch('showSaveDialog', { options })
+      const response = await showSaveDialog(options)
 
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -213,27 +135,32 @@ const actions = {
       }
 
       folderPath = response.filePath
+    } else {
+      if (!fs.existsSync(folderPath)) {
+        try {
+          fs.mkdirSync(folderPath, { recursive: true })
+        } catch (err) {
+          console.error(err)
+          showToast(err)
+          return
+        }
+      }
+      folderPath = path.join(folderPath, fileName)
     }
 
-    dispatch('showToast', {
-      message: startMessage
-    })
+    showToast(i18n.t('Starting download', { videoTitle: title }))
 
     const response = await fetch(url).catch((error) => {
-      console.log(error)
-      dispatch('showToast', {
-        message: errorMessage
-      })
+      console.error(error)
+      showToast(errorMessage)
     })
 
     const reader = response.body.getReader()
     const chunks = []
 
     const handleError = (err) => {
-      console.log(err)
-      dispatch('showToast', {
-        message: errorMessage
-      })
+      console.error(err)
+      showToast(errorMessage)
     }
 
     const processText = async ({ done, value }) => {
@@ -257,48 +184,11 @@ const actions = {
     fs.writeFile(folderPath, new DataView(buffer), (err) => {
       if (err) {
         console.error(err)
-        dispatch('showToast', {
-          message: errorMessage
-        })
+        showToast(errorMessage)
       } else {
-        dispatch('showToast', {
-          message: completedMessage
-        })
+        showToast(i18n.t('Downloading has completed', { videoTitle: title }))
       }
     })
-  },
-
-  async getSystemLocale (context) {
-    const webCbk = () => {
-      if (navigator && navigator.language) {
-        return navigator.language
-      }
-    }
-
-    return (await invokeIRC(context, IpcChannels.GET_SYSTEM_LOCALE, webCbk)) || 'en-US'
-  },
-
-  async showOpenDialog (context, options) {
-    // TODO: implement showOpenDialog web compatible callback
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.SHOW_OPEN_DIALOG, webCbk, options)
-  },
-
-  async showSaveDialog (context, { options, useModal = false }) {
-    // TODO: implement showSaveDialog web compatible callback
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.SHOW_SAVE_DIALOG, webCbk, { options, useModal })
-  },
-
-  async getUserDataPath (context) {
-    // TODO: implement getUserDataPath web compatible callback
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.GET_USER_DATA_PATH, webCbk)
-  },
-
-  async getPicturesPath (context) {
-    const webCbk = () => null
-    return await invokeIRC(context, IpcChannels.GET_PICTURES_PATH, webCbk)
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
@@ -322,27 +212,13 @@ const actions = {
         parsedString = parsedString.replaceAll(key, value)
       }
 
-      const platform = process.platform
-      if (platform === 'win32') {
-        // https://www.boost.org/doc/libs/1_78_0/libs/filesystem/doc/portability_guide.htm
-        // https://stackoverflow.com/questions/1976007/
-        const noForbiddenChars = ['<', '>', ':', '"', '/', '|'].every(char => {
-          return parsedString.indexOf(char) === -1
-        })
-        if (!noForbiddenChars) {
-          reject(new Error('Forbidden Characters')) // use message as translation key
-        }
-      } else if (platform === 'darwin') {
-        // https://superuser.com/questions/204287/
-        if (parsedString.indexOf(':') !== -1) {
-          reject(new Error('Forbidden Characters'))
-        }
+      if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
+        reject(new Error('Forbidden Characters')) // use message as translation key
       }
 
-      const dirChar = platform === 'win32' ? '\\' : '/'
       let filename
-      if (parsedString.indexOf(dirChar) !== -1) {
-        const lastIndex = parsedString.lastIndexOf(dirChar)
+      if (parsedString.indexOf(path.sep) !== -1) {
+        const lastIndex = parsedString.lastIndexOf(path.sep)
         filename = parsedString.substring(lastIndex + 1)
       } else {
         filename = parsedString
@@ -360,26 +236,19 @@ const actions = {
     commit('setShowProgressBar', value)
   },
 
-  getRandomColorClass () {
-    const randomInt = Math.floor(Math.random() * state.colorNames.length)
-    return 'main' + state.colorNames[randomInt]
-  },
-
-  getRandomColor () {
-    const randomInt = Math.floor(Math.random() * state.colorValues.length)
-    return state.colorValues[randomInt]
-  },
-
-  getRegionData ({ commit }, payload) {
-    let fileData
-    /* eslint-disable-next-line */
-    const fileLocation = payload.isDev ? './static/geolocations/' : `${__dirname}/static/geolocations/`
-    if (fs.existsSync(`${fileLocation}${payload.locale}`)) {
-      fileData = fs.readFileSync(`${fileLocation}${payload.locale}/countries.json`)
+  async getRegionData ({ commit }, { locale }) {
+    let localePathExists
+    // Exclude __dirname from path if not in electron
+    const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
+    if (process.env.IS_ELECTRON) {
+      localePathExists = fs.existsSync(`${fileLocation}${locale}`)
     } else {
-      fileData = fs.readFileSync(`${fileLocation}en-US/countries.json`)
+      localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     }
-    const countries = JSON.parse(fileData).map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
+    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}/countries.json`
+    const fileData = process.env.IS_ELECTRON ? JSON.parse(fs.readFileSync(pathName)) : await (await fetch(createWebURL(pathName))).json()
+
+    const countries = fileData.map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
     countries.sort((a, b) => { return a.id - b.id })
 
     const regionNames = countries.map((entry) => { return entry.name })
@@ -387,57 +256,6 @@ const actions = {
 
     commit('setRegionNames', regionNames)
     commit('setRegionValues', regionValues)
-  },
-
-  calculateColorLuminance (_, colorValue) {
-    const cutHex = colorValue.substring(1, 7)
-    const colorValueR = parseInt(cutHex.substring(0, 2), 16)
-    const colorValueG = parseInt(cutHex.substring(2, 4), 16)
-    const colorValueB = parseInt(cutHex.substring(4, 6), 16)
-
-    const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
-
-    if (luminance > 0.5) {
-      return '#000000'
-    } else {
-      return '#FFFFFF'
-    }
-  },
-
-  calculatePublishedDate(_, publishedText) {
-    const date = new Date()
-
-    if (publishedText === 'Live') {
-      return publishedText
-    }
-
-    const textSplit = publishedText.split(' ')
-
-    if (textSplit[0].toLowerCase() === 'streamed') {
-      textSplit.shift()
-    }
-
-    const timeFrame = textSplit[1]
-    const timeAmount = parseInt(textSplit[0])
-    let timeSpan = null
-
-    if (timeFrame.indexOf('second') > -1) {
-      timeSpan = timeAmount * 1000
-    } else if (timeFrame.indexOf('minute') > -1) {
-      timeSpan = timeAmount * 60000
-    } else if (timeFrame.indexOf('hour') > -1) {
-      timeSpan = timeAmount * 3600000
-    } else if (timeFrame.indexOf('day') > -1) {
-      timeSpan = timeAmount * 86400000
-    } else if (timeFrame.indexOf('week') > -1) {
-      timeSpan = timeAmount * 604800000
-    } else if (timeFrame.indexOf('month') > -1) {
-      timeSpan = timeAmount * 2592000000
-    } else if (timeFrame.indexOf('year') > -1) {
-      timeSpan = timeAmount * 31556952000
-    }
-
-    return date.getTime() - timeSpan
   },
 
   getVideoParamsFromUrl (_, url) {
@@ -545,7 +363,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(c|channel|user)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^\/playlist\/?$/],
@@ -643,7 +461,9 @@ const actions = {
 
       */
       case 'channel': {
-        const channelId = url.pathname.match(channelPattern).groups.channelId
+        const match = url.pathname.match(channelPattern)
+        const channelId = match.groups.channelId
+        const idType = ['channel', 'user', 'c'].indexOf(match.groups.type) + 1
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
@@ -665,6 +485,7 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
+          idType,
           subPath
         }
       }
@@ -678,180 +499,19 @@ const actions = {
     }
   },
 
-  padNumberWithLeadingZeros(_, payload) {
-    let numberString = payload.number.toString()
-    while (numberString.length < payload.length) {
-      numberString = '0' + numberString
-    }
-    return numberString
-  },
-
-  async buildVTTFileLocally ({ dispatch }, Storyboard) {
-    let vttString = 'WEBVTT\n\n'
-    // how many images are in one image
-    const numberOfSubImagesPerImage = Storyboard.sWidth * Storyboard.sHeight
-    // the number of storyboard images
-    const numberOfImages = Math.ceil(Storyboard.count / numberOfSubImagesPerImage)
-    const intervalInSeconds = Storyboard.interval / 1000
-    let currentUrl = Storyboard.url
-    let startHours = 0
-    let startMinutes = 0
-    let startSeconds = 0
-    let endHours = 0
-    let endMinutes = 0
-    let endSeconds = intervalInSeconds
-    for (let i = 0; i < numberOfImages; i++) {
-      let xCoord = 0
-      let yCoord = 0
-      for (let j = 0; j < numberOfSubImagesPerImage; j++) {
-        // add the timestamp information
-        const paddedStartHours = await dispatch('padNumberWithLeadingZeros', {
-          number: startHours,
-          length: 2
-        })
-        const paddedStartMinutes = await dispatch('padNumberWithLeadingZeros', {
-          number: startMinutes,
-          length: 2
-        })
-        const paddedStartSeconds = await dispatch('padNumberWithLeadingZeros', {
-          number: startSeconds,
-          length: 2
-        })
-        const paddedEndHours = await dispatch('padNumberWithLeadingZeros', {
-          number: endHours,
-          length: 2
-        })
-        const paddedEndMinutes = await dispatch('padNumberWithLeadingZeros', {
-          number: endMinutes,
-          length: 2
-        })
-        const paddedEndSeconds = await dispatch('padNumberWithLeadingZeros', {
-          number: endSeconds,
-          length: 2
-        })
-        vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
-        // add the current image url as well as the x, y, width, height information
-        vttString += currentUrl + `#xywh=${xCoord},${yCoord},${Storyboard.width},${Storyboard.height}\n\n`
-        // update the variables
-        startHours = endHours
-        startMinutes = endMinutes
-        startSeconds = endSeconds
-        endSeconds += intervalInSeconds
-        if (endSeconds >= 60) {
-          endSeconds -= 60
-          endMinutes += 1
-        }
-        if (endMinutes >= 60) {
-          endMinutes -= 60
-          endHours += 1
-        }
-        // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
-        xCoord = (xCoord + Storyboard.width) % (Storyboard.width * Storyboard.sWidth)
-        // only if the x coordinate is , so in a new row, we have to update the y coordinate
-        if (xCoord === 0) {
-          yCoord += Storyboard.height
-        }
-      }
-      // make sure that there is no value like M0 or M1 in the parameters that gets replaced
-      currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
-    }
-    return vttString
-  },
-
-  toLocalePublicationString ({ dispatch }, payload) {
-    if (payload.isLive) {
-      return '0' + payload.liveStreamString
-    } else if (payload.isUpcoming || payload.publishText === null) {
-      // the check for null is currently just an inferring of knowledge, because there is no other possibility left
-      return `${payload.upcomingString}: ${payload.publishText}`
-    } else if (payload.isRSS) {
-      return payload.publishText
-    }
-    const strings = payload.publishText.split(' ')
-    // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
-    if (strings[0].toLowerCase() === 'streamed') {
-      strings.shift()
-    }
-    const singular = (strings[0] === '1')
-    let publicationString = payload.templateString.replace('$', strings[0])
-    switch (strings[1].substring(0, 2)) {
-      case 'se':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Second)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Seconds)
-        }
-        break
-      case 'mi':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Minute)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Minutes)
-        }
-        break
-      case 'ho':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Hour)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Hours)
-        }
-        break
-      case 'da':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Day)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Days)
-        }
-        break
-      case 'we':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Week)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Weeks)
-        }
-        break
-      case 'mo':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Month)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Months)
-        }
-        break
-      case 'ye':
-        if (singular) {
-          publicationString = publicationString.replace('%', payload.timeStrings.Year)
-        } else {
-          publicationString = publicationString.replace('%', payload.timeStrings.Years)
-        }
-        break
-    }
-    return publicationString
-  },
-
   clearSessionSearchHistory ({ commit }) {
     commit('setSessionSearchHistory', [])
   },
 
-  showToast (_, payload) {
-    FtToastEvents.$emit('toast-open', payload.message, payload.action, payload.time)
-  },
-
-  showExternalPlayerUnsupportedActionToast: function ({ dispatch }, payload) {
-    if (!payload.ignoreWarnings) {
-      const toastMessage = payload.template
-        .replace('$', payload.externalPlayer)
-        .replace('%', payload.action)
-      dispatch('showToast', {
-        message: toastMessage
-      })
-    }
+  showExternalPlayerUnsupportedActionToast: function (_, { externalPlayer, action }) {
+    showToast(i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action }))
   },
 
   getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
     let fileData
     /* eslint-disable-next-line */
-    const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
+    const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
 
     if (fs.existsSync(`${fileLocation}${fileName}`)) {
       fileData = fs.readFileSync(`${fileLocation}${fileName}`)
@@ -860,10 +520,11 @@ const actions = {
     }
 
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
-      return { name: entry.name, value: entry.value, cmdArguments: entry.cmdArguments }
+      return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
+    const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
     const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
@@ -871,6 +532,7 @@ const actions = {
     }, {})
 
     commit('setExternalPlayerNames', externalPlayerNames)
+    commit('setExternalPlayerNameTranslationKeys', externalPlayerNameTranslationKeys)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
@@ -895,15 +557,13 @@ const actions = {
       args.push(...defaultCustomArguments)
     }
 
-    if (payload.watchProgress > 0) {
+    if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
         args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
-      } else {
+      } else if (!ignoreWarnings) {
         dispatch('showExternalPlayerUnsupportedActionToast', {
-          ignoreWarnings,
           externalPlayer,
-          template: payload.strings.UnsupportedActionTemplate,
-          action: payload.strings['Unsupported Actions']['starting video at offset']
+          action: i18n.t('Video.External Player.Unsupported Actions.starting video at offset')
         })
       }
     }
@@ -911,12 +571,10 @@ const actions = {
     if (payload.playbackRate !== null) {
       if (typeof cmdArgs.playbackRate === 'string') {
         args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
-      } else {
+      } else if (!ignoreWarnings) {
         dispatch('showExternalPlayerUnsupportedActionToast', {
-          ignoreWarnings,
           externalPlayer,
-          template: payload.strings.UnsupportedActionTemplate,
-          action: payload.strings['Unsupported Actions']['setting a playback rate']
+          action: i18n.t('Video.External Player.Unsupported Actions.setting a playback rate')
         })
       }
     }
@@ -926,12 +584,10 @@ const actions = {
       if (payload.playlistIndex !== null) {
         if (typeof cmdArgs.playlistIndex === 'string') {
           args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
-        } else {
+        } else if (!ignoreWarnings) {
           dispatch('showExternalPlayerUnsupportedActionToast', {
-            ignoreWarnings,
             externalPlayer,
-            template: payload.strings.UnsupportedActionTemplate,
-            action: payload.strings['Unsupported Actions']['opening specific video in a playlist (falling back to opening the video)']
+            action: i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)')
           })
         }
       }
@@ -939,12 +595,10 @@ const actions = {
       if (payload.playlistReverse) {
         if (typeof cmdArgs.playlistReverse === 'string') {
           args.push(cmdArgs.playlistReverse)
-        } else {
+        } else if (!ignoreWarnings) {
           dispatch('showExternalPlayerUnsupportedActionToast', {
-            ignoreWarnings,
             externalPlayer,
-            template: payload.strings.UnsupportedActionTemplate,
-            action: payload.strings['Unsupported Actions']['reversing playlists']
+            action: i18n.t('Video.External Player.Unsupported Actions.reversing playlists')
           })
         }
       }
@@ -952,12 +606,10 @@ const actions = {
       if (payload.playlistShuffle) {
         if (typeof cmdArgs.playlistShuffle === 'string') {
           args.push(cmdArgs.playlistShuffle)
-        } else {
+        } else if (!ignoreWarnings) {
           dispatch('showExternalPlayerUnsupportedActionToast', {
-            ignoreWarnings,
             externalPlayer,
-            template: payload.strings.UnsupportedActionTemplate,
-            action: payload.strings['Unsupported Actions']['shuffling playlists']
+            action: i18n.t('Video.External Player.Unsupported Actions.shuffling playlists')
           })
         }
       }
@@ -965,12 +617,10 @@ const actions = {
       if (payload.playlistLoop) {
         if (typeof cmdArgs.playlistLoop === 'string') {
           args.push(cmdArgs.playlistLoop)
-        } else {
+        } else if (!ignoreWarnings) {
           dispatch('showExternalPlayerUnsupportedActionToast', {
-            ignoreWarnings,
             externalPlayer,
-            template: payload.strings.UnsupportedActionTemplate,
-            action: payload.strings['Unsupported Actions']['looping playlists']
+            action: i18n.t('Video.External Player.Unsupported Actions.looping playlists')
           })
         }
       }
@@ -980,12 +630,10 @@ const actions = {
         args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
       }
     } else {
-      if (payload.playlistId !== null && payload.playlistId !== '') {
+      if (payload.playlistId !== null && payload.playlistId !== '' && !ignoreWarnings) {
         dispatch('showExternalPlayerUnsupportedActionToast', {
-          ignoreWarnings,
           externalPlayer,
-          template: payload.strings.UnsupportedActionTemplate,
-          action: payload.strings['Unsupported Actions']['opening playlists']
+          action: i18n.t('Video.External Player.Unsupported Actions.opening playlists')
         })
       }
       if (payload.videoId !== null) {
@@ -997,16 +645,11 @@ const actions = {
       }
     }
 
-    const openingToast = payload.strings.OpeningTemplate
-      .replace('$', payload.playlistId === null || payload.playlistId === ''
-        ? payload.strings.video
-        : payload.strings.playlist)
-      .replace('%', externalPlayer)
-    dispatch('showToast', {
-      message: openingToast
-    })
+    const videoOrPlaylist = payload.playlistId === null || payload.playlistId === ''
+      ? i18n.t('Video.External Player.video')
+      : i18n.t('Video.External Player.playlist')
 
-    console.log(executable, args)
+    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
@@ -1032,7 +675,7 @@ const mutations = {
 
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
-      return search.query === payload.query && IsEqual(payload.searchSettings, search.searchSettings)
+      return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
     })
 
     if (sameSearch !== -1) {
@@ -1049,6 +692,10 @@ const mutations = {
 
   setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
+  },
+
+  setCachedPlaylist(state, value) {
+    state.cachedPlaylist = value
   },
 
   setSearchSortBy (state, value) {
@@ -1081,6 +728,10 @@ const mutations = {
 
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
+  },
+
+  setExternalPlayerNameTranslationKeys (state, value) {
+    state.externalPlayerNameTranslationKeys = value
   },
 
   setExternalPlayerValues (state, value) {

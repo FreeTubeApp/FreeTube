@@ -18,7 +18,7 @@
 }
 
 .channelBannerContainer.default {
-  background-image: url("images/defaultBanner.png");
+  background-image: url("../../assets/img/defaultBanner.png");
   background-repeat: repeat;
   background-size: contain;
 }
@@ -56,6 +56,12 @@
   left: 120px;
 }
 
+.channelInfoActionsContainer {
+  display: flex;
+  min-width: 230px;
+  justify-content: space-between;
+}
+
 .subscribeButton {
   height: 50px;
   min-width: 150px;
@@ -63,8 +69,12 @@
   margin-bottom: 10px;
 }
 
+.shareIcon {
+  align-items: center;
+}
+
 .channelSearch {
-  width: 200px;
+  width: 220px;
   margin-left: auto;
   align-self: flex-end;
   flex: 1 1 0%;
@@ -120,7 +130,7 @@
 }
 
 .aboutInfo {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 17px;
   white-space: pre-wrap;
 }

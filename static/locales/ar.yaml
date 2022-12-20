@@ -1,13 +1,13 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-FreeTube: 'فريتيوب'
+FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
 
 # Webkit Menu Bar
 File: 'ملف'
-Quit: 'إغلاق'
+Quit: 'خروج'
 Edit: 'تحرير'
 Undo: 'تراجع'
 Redo: 'إعادة'
@@ -56,7 +56,7 @@ Search Filters:
     #& Playlists
   Duration:
     Duration: 'المدة'
-    All Durations: 'كل المدد'
+    All Durations: 'كل الآوقات'
     Short (< 4 minutes): 'قصير (< 4 دقائق)'
     Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
@@ -64,7 +64,7 @@ Search Filters:
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
 # Sidebar
-  There are no more results for this search: لم يتبقى المزيد من النتائج لهذا البحث
+  There are no more results for this search: لا توجد نتائج أخرى لهذا البحث
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
@@ -77,6 +77,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
   Error Channels: القنوات التي بها أخطاء
+  Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات
+    لرؤيتها هنا.
+  Empty Channels: لا تحتوي قنواتك التي اشتركت فيها حاليا على أي مقاطع فيديو.
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -138,7 +141,8 @@ Settings:
     Current instance will be randomized on startup: سيتم عشوائية المثيل الحالي عند
       بدء التشغيل
     No default instance has been set: لم يتم تعيين مثيل افتراضي
-    The currently set default instance is $: المثيل الافتراضي المحدد حاليا هو $
+    The currently set default instance is {instance}: المثيل الافتراضي المحدد حاليا
+      هو {instance}
     Current Invidious Instance: المثيل الحالي Invidious
     Clear Default Instance: مسح المثيل الافتراضي
     External Link Handling:
@@ -156,6 +160,7 @@ Settings:
       Light: 'فاتح'
       Dracula: 'دراكولا'
       System Default: افتراضيات النظام
+      Catppuccin Mocha: كاتبوتشين موكا
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -181,12 +186,27 @@ Settings:
       Dracula Purple: 'دراكولا إرجواني'
       Dracula Red: 'دراكولا أحمر'
       Dracula Yellow: 'دراكولا أصفر'
+      Catppuccin Mocha Rosewater: كاتبوتشين موكا ماء الورد
+      Catppuccin Mocha Flamingo: كاتبوتشين موكا فلامنغو
+      Catppuccin Mocha Peach: كاتبوتشين موكا الخوخ
+      Catppuccin Mocha Green: كاتبوتشين موكا اخضر
+      Catppuccin Mocha Teal: كاتبوتشين موكا تيل
+      Catppuccin Mocha Sky: كاتبوتشين موكا سماوي
+      Catppuccin Mocha Sapphire: كاتبوتشين موكا سافير
+      Catppuccin Mocha Blue: كاتبوتشين موكا ازرق
+      Catppuccin Mocha Lavender: كاتبوتشين موكا لافندر
+      Catppuccin Mocha Mauve: كاتبوتشين موكا موف
+      Catppuccin Mocha Pink: كاتبوتشين موكا الوردية
+      Catppuccin Mocha Red: كاتبوتشين موكا أحمر
+      Catppuccin Mocha Maroon: كاتبوتشين موكا مارون
+      Catppuccin Mocha Yellow: كاتبوتشين موكا أصفر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
     Disable Smooth Scrolling: عطّل التمرير المتجانس
     Expand Side Bar by Default: كبّر الشريط الجانبي بشكل افتراضي
     Hide Side Bar Labels: إخفاء تسميات الشريط الجانبي
+    Hide FreeTube Header Logo: إخفاء شعار رأس FreeTube
   Player Settings:
     Player Settings: 'إعدادات المشغل'
     Force Local Backend for Legacy Formats: 'فرض الواجهة الخلفية المحلية للتنسيقات
@@ -239,6 +259,7 @@ Settings:
         2 أرقام. % D اليوم 2 أرقام. ٪ H ساعة 2 أرقام. % N دقيقة 2 أرقام. %S الثانية
         2 أرقام. % T ميلي ثانية 3 أرقام. %s الفيديو الثاني. % t فيديو ميلي ثانية 3
         أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
+    Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -269,6 +290,7 @@ Settings:
     Import Subscriptions: 'استيراد الاشتراكات'
     Export Subscriptions: 'تصدير الاشتراكات'
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
+    Fetch Automatically: جلب الخلاصة تلقائيا
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -333,10 +355,14 @@ Settings:
     Check for Legacy Subscriptions: تحقق من وجود اشتراكات بالصيغة القديمة
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
-    Playlist insufficient data: بيانات غير كافية لقائمة التشغيل "$"، تخطي العنصر
+    Playlist insufficient data: 'بيانات غير كافية لقائمة التشغيل "{playlist}" ، تخطي
+      العنصر'
     All playlists has been successfully exported: تم تصدير جميع قوائم التشغيل بنجاح
     Import Playlists: استيراد قوائم التشغيل
     Export Playlists: تصدير قوائم التشغيل
+    Subscription File: Subscription ملف
+    History File: ملف التاريخ
+    Playlist File: Playlist ملف
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -349,6 +375,14 @@ Settings:
     Distraction Free Settings: إعدادات عدم الإزعاج
     Hide Active Subscriptions: اخفي الإشتراكات الناشطة
     Hide Playlists: إخفاء قوائم التشغيل
+    Hide Video Description: إخفاء وصف الفيديو
+    Hide Comments: إخفاء التعليقات
+    Hide Sharing Actions: إخفاء إجراءات المشاركة
+    Hide Live Streams: إخفاء البث المباشر
+    Hide Chapters: إخفاء الفصول
+    Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
+    Hide Channels: إخفاء مقاطع الفيديو من القنوات
+    Hide Channels Placeholder: اسم القناة أو معرفها
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -386,10 +420,36 @@ Settings:
     Custom External Player Executable: مشغل خارجي مخصص قابل للتنفيذ
     Ignore Unsupported Action Warnings: تجاهل تحذيرات الإجراءات غير المدعومة
     External Player Settings: إعدادات المشغل الخارجي
+    Players:
+      None:
+        Name: لاشيء
   Download Settings:
     Download Settings: إعدادات التنزيل
     Choose Path: اختر المسار
     Ask Download Path: اطلب مسار التنزيل
+    Download Behavior: سلوك التحميل
+    Open in web browser: فتح في متصفح الويب
+    Download in app: تحميل في التطبيق
+  Parental Control Settings:
+    Hide Search Bar: إخفاء شريط البحث
+    Parental Control Settings: إعدادات الرقابة الأبوية
+    Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
+    Show Family Friendly Only: عرض مناسب للعائلة فقط
+  Experimental Settings:
+    Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
+    Experimental Settings: الإعدادات التجريبية
+    Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
+      نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
+  Password Settings:
+    Set Password To Prevent Access: تعيين كلمة مرور لمنع الوصول إلى الإعدادات
+    Remove Password: إزالة كلمة المرور
+    Password Settings: إعدادات كلمة المرور
+    Set Password: ضبط كلمة السر
+  Password Dialog:
+    Password Incorrect: كلمة المرور غير صحيحة
+    Password: كلمة السر
+    Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
+    Unlock: الغاء القفل
 About:
   #On About page
   About: 'حول'
@@ -464,11 +524,12 @@ Profile:
   Your profile name cannot be empty: 'لا يمكن أن يكون اسم ملفك الشخصي فارغاً'
   Profile has been created: 'تم إنشاء الملف الشخصي'
   Profile has been updated: 'تم تحديث الملف الشخصي'
-  Your default profile has been set to $: 'تم تعيين $ كملف شخصي افتراضي'
-  Removed $ from your profiles: 'تم إزالة $ من ملفاتك الشخصية'
+  Your default profile has been set to {profile}: 'تم تعيين ملف التعريف الافتراضي
+    الخاص بك إلى {profile}'
+  Removed {profile} from your profiles: 'تمت إزالة {profile} من ملفاتك الشخصية'
   Your default profile has been changed to your primary profile: 'تم تغيير ملفك الشخصي
     الافتراضي إلى ملفك الشخصي الأساسي'
-  $ is now the active profile: '$ هو الآن الملف الشخصي النشط'
+  '{profile} is now the active profile': '{profile} هو الآن الملف الشخصي النشط'
 #On Channel Page
   Profile Select: اختيار الملف الشخصي
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: هل
@@ -483,7 +544,7 @@ Profile:
   Delete Selected: حذف المُحدد
   Select None: إلغاء التحديد
   Select All: تحديد الكل
-  $ selected: $ تم اختياره
+  '{number} selected': '{number} محدد'
   Other Channels: قنوات أُخرى
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
@@ -517,8 +578,8 @@ Channel:
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
   Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
-  Removed subscription from $ other channel(s): تم إزالة الاشتراك من $ قناة/قنوات
-    أخرى
+  Removed subscription from {count} other channel(s): 'تمت إزالة الاشتراك من {count}
+    قناة (قنوات) أخرى'
   Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
@@ -578,9 +639,10 @@ Video:
     Years: 'سنوات'
     Ago: 'منذ'
     Upcoming: 'يبدأ العرض'
+    Less than a minute: أقل من دقيقة
+    In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'قبل $ %'
+  Publicationtemplate: 'قبل {number} {unit}'
 #& Videos
   Autoplay: تشغيل تلقائي
   Play Previous Video: شغل الفيديو السابق
@@ -628,11 +690,11 @@ Video:
       opening playlists: فتح قوائم التشغيل
       setting a playback rate: ضبط معدل التشغيل
       starting video at offset: بدء تشغيل الفيديو عند الإزاحة
-    UnsupportedActionTemplate: '$ لا يدعم: ٪'
-    OpeningTemplate: فتح $ في ٪...
+    UnsupportedActionTemplate: '{externalPlayer} لا يدعم: {action}'
+    OpeningTemplate: 'جارٍ فتح {videoOrPlaylist} في {externalPlayer} ...'
     playlist: قائمة التشغيل
     video: فيديو
-    OpenInTemplate: فتح في $
+    OpenInTemplate: فتح في {externalPlayer}
   Premieres on: العرض الأول بتاريخ
   Stats:
     video id: معرف الفيديو (يوتيوب)
@@ -654,6 +716,8 @@ Video:
     Buffered: مخزنة
     Dropped / Total Frames: إسقاط / إجمالي الإطارات
     Mimetype: نمط ميمي
+  Premieres in: العرض الأول في
+  Premieres: العرض الأولي
 Videos:
   #& Sort By
   Sort By:
@@ -681,7 +745,7 @@ Playlist:
   Playlist: قائمة التشغيل
 Toggle Theatre Mode: 'تمكين وضع المسرح'
 Change Format:
-  Change Video Formats: 'تغيير تنسيقات الفيديو'
+  Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
   Use Legacy Formats: 'استخدم التنسيقات التراثية'
   Use Audio Formats: 'استخدم تنسيقات الصوت'
@@ -701,6 +765,7 @@ Share:
   Include Timestamp: تضمين الختم الزمني
   YouTube Channel URL copied to clipboard: تم نسخ رابط قناة اليوتيوب
   Invidious Channel URL copied to clipboard: تم نسخ رابط قناة انفيديوس
+  Share Channel: مشاركة القناة
 Mini Player: 'المشغل المصغّر'
 Comments:
   Comments: 'التعليقات'
@@ -723,7 +788,7 @@ Comments:
   Show More Replies: إظهار المزيد من الردود
   Pinned by: تم التثبيت بواسطة
   And others: و اخرين
-  From $channelName: من $ channelName
+  From {channelName}: من {channelName}
   Member: عضو
 Up Next: 'التالي'
 
@@ -748,11 +813,11 @@ Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي �
 Yes: 'نعم'
 No: 'لا'
 The playlist has been reversed: تم عكس قائمة التشغيل
-A new blog is now available, $. Click to view more: مدوّنة جديدة متاحة الآن، $. انقر
-  لعرض المزيد
+A new blog is now available, {blogTitle}. Click to view more: 'هناك مدونة جديدة متاحة
+  الآن ، {blogTitle}. انقر لعرض المزيد'
 Download From Site: تنزيل من الموقع
-Version $ is now available!  Click for more details: الإصدار $ متاح الآن! انقر للحصول
-  على المزيد من التفاصيل
+Version {versionNumber} is now available!  Click for more details: 'الإصدار {versionNumber}
+  متاح الآن!  انقر لمزيد من التفاصيل'
 Tooltips:
   General Settings:
     Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإطار من
@@ -793,6 +858,8 @@ Tooltips:
     Fetch Feeds from RSS: عند تفعيلها، سوف يستخدم فريتيوب طريقة RSS بدلًا من طريقته
       المعتادة لجلب صفحة اشتراكاتك. طريقة RSS أسرع وتتخطى حجب الآي بي IP، لكنها لا
       تقدّم معلومات معينة مثل مدّة الفيديو أو حالة البث المباشر
+    Fetch Automatically: عند التمكين ، سيقوم FreeTube تلقائيا بجلب خلاصة الاشتراك
+      الخاصة بك عند فتح نافذة جديدة وعند تبديل ملف التعريف.
   External Player Settings:
     Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة مفصولة بفواصل منقوطة
       (';')، تريد تمريرها إلى المشغل الخارجي.
@@ -802,8 +869,17 @@ Tooltips:
       على المشغل الخارجي المختار عبر متغير بيئة PATH. إذا لزم الأمر ، يمكن تعيين مسار
       مخصص هنا.
     External Player: سيؤدي اختيار مشغل خارجي إلى عرض رمز لفتح الفيديو (قائمة التشغيل
-      إذا كان مدعوما) في المشغل الخارجي، على الصورة المصغرة.
-    DefaultCustomArgumentsTemplate: "(الافتراضي: '$')"
+      إذا كانت مدعومة) في المشغل الخارجي على الصورة المصغرة. تحذير ، لا تؤثر إعدادات
+      Invidious على المشغلات الخارجية.
+    DefaultCustomArgumentsTemplate: "(الافتراضي: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
+      وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
+      العشوائي.
+  Distraction Free Settings:
+    Hide Channels: أدخل اسم القناة أو رقم تعريف القناة لإخفاء كل الفيديوهات وقوائم
+      التشغيل والقناة نفسها من الظهور في "بحث Google" أو "المحتوى الرائج". يجب أن
+      يكون اسم القناة الذي تم إدخاله مطابقا تماما وحساسا لحالة الأحرف.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -816,17 +892,44 @@ Unknown YouTube url type, cannot be opened in app: نوع URL غير معروف 
   لا يمكن فتحه في التطبيق
 Open New Window: افتح نافذة جديدة
 Default Invidious instance has been cleared: تم مسح مثيل Invidious الافتراضي
-Default Invidious instance has been set to $: تم تعيين المثيل الافتراضي Invidious
-  إلى $
+Default Invidious instance has been set to {instance}: تم تعيين المثيل الافتراضي Invidious
+  إلى {instance}
 Search Bar:
   Clear Input: مسح المدخلات
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
-Downloading has completed: انتهى "$" من التنزيل
-Downloading failed: حدثت مشكلة أثناء تنزيل "$"
-Download folder does not exist: دليل التحميل "$" غير موجود. الرجوع إلى وضع "طلب المجلد".
+Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
+Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
+Download folder does not exist: ''
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
-Starting download: بدء تنزيل "$"
-Screenshot Success: تم حفظ لقطة الشاشة كا"$"
-Screenshot Error: فشل أخذ لقطة للشاشة. $
+Starting download: بدء تنزيل "{videoTitle}"
+Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
+Screenshot Error: فشل أخذ لقطة للشاشة. {error}
+New Window: نافذة جديدة
+Age Restricted:
+  Type:
+    Channel: القناة
+    Video: فيديو
+  This {videoOrPlaylist} is age restricted: 'هذا {videoOrPlaylist} مقيد بالعمر'
+Channels:
+  Count: تم العثور على قناة (قنوات) {number}.
+  Unsubscribed: 'تمت إزالة {channelName} من اشتراكاتك'
+  Channels: القنوات
+  Title: قائمة القنوات
+  Search bar placeholder: البحث في القنوات
+  Empty: قائمة قنواتك فارغة حاليا.
+  Unsubscribe: إلغاء الاشتراك
+  Unsubscribe Prompt: 'هل أنت متأكد من أنك تريد إلغاء الاشتراك من "{channelName}"؟'
+Clipboard:
+  Cannot access clipboard without a secure connection: لا يمكن الوصول إلى الحافظة
+    دون اتصال آمن
+  Copy failed: فشل النسخ إلى الحافظة
+Chapters:
+  Chapters: الفصول
+  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية ، الفصل
+    الحالي: {sectionName}'
+  'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
+    الفصل الحالي: {sectionName}'
+Preferences: التفضيلات
+Ok: موافق

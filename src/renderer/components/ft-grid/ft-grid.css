@@ -1,6 +1,0 @@
-.ft-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
-  justify-content: space-evenly;
-  grid-gap: 5px;
-}

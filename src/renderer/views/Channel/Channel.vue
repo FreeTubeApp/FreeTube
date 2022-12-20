@@ -7,7 +7,7 @@
       :fullscreen="true"
     />
     <ft-card
-      v-else
+      v-else-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card channelDetails"
     >
       <div
@@ -51,13 +51,22 @@
             </div>
           </div>
 
-          <ft-button
-            :label="subscribedText"
-            background-color="var(--primary-color)"
-            text-color="var(--text-with-main-color)"
-            class="subscribeButton"
-            @click="handleSubscription"
-          />
+          <div class="channelInfoActionsContainer">
+            <ft-share-button
+              :id="id"
+              share-target-type="Channel"
+              class="shareIcon"
+            />
+
+            <ft-button
+              v-if="!hideUnsubscribeButton"
+              :label="subscribedText"
+              background-color="var(--primary-color)"
+              text-color="var(--text-with-main-color)"
+              class="subscribeButton"
+              @click="handleSubscription"
+            />
+          </div>
         </div>
 
         <ft-flex-box
@@ -90,7 +99,7 @@
 
           <ft-input
             :placeholder="$t('Channel.Search Channel')"
-            :select-on-focus="true"
+            :show-clear-text-button="true"
             class="channelSearch"
             @click="newSearch"
           />
@@ -98,7 +107,7 @@
       </div>
     </ft-card>
     <ft-card
-      v-if="!isLoading && !errorMessage"
+      v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
       <div
@@ -194,7 +203,7 @@
           class="getNextPage"
           @click="handleFetchMore"
         >
-          <font-awesome-icon icon="search" /> {{ $t("Search Filters.Fetch more results") }}
+          <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
       </div>
     </ft-card>
@@ -206,6 +215,11 @@
         {{ errorMessage }}
       </p>
     </ft-card>
+    <ft-age-restricted
+      v-else-if="!isLoading && (!isFamilyFriendly && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'Channel'"
+    />
   </div>
 </template>
 

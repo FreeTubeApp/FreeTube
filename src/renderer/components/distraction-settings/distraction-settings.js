@@ -1,18 +1,16 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtButton from '../ft-button/ft-button.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 export default Vue.extend({
   name: 'PlayerSettings',
   components: {
-    'ft-card': FtCard,
+    'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-button': FtButton,
-    'ft-select': FtSelect,
+    'ft-input-tags': FtInputTags,
     'ft-flex-box': FtFlexBox
   },
   computed: {
@@ -45,6 +43,30 @@ export default Vue.extend({
     },
     hideActiveSubscriptions: function () {
       return this.$store.getters.getHideActiveSubscriptions
+    },
+    hideVideoDescription: function () {
+      return this.$store.getters.getHideVideoDescription
+    },
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+    hideUpcomingPremieres: function () {
+      return this.$store.getters.getHideUpcomingPremieres
+    },
+    hideSharingActions: function () {
+      return this.$store.getters.getHideSharingActions
+    },
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+    hideChapters: function () {
+      return this.$store.getters.getHideChapters
+    },
+    channelsHidden: function () {
+      return JSON.parse(this.$store.getters.getChannelsHidden)
     }
   },
   methods: {
@@ -54,6 +76,9 @@ export default Vue.extend({
       }
 
       this.updateHideRecommendedVideos(value)
+    },
+    handleChannelsHidden: function(value) {
+      this.updateChannelsHidden(JSON.stringify(value))
     },
 
     ...mapActions([
@@ -68,7 +93,14 @@ export default Vue.extend({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updatePlayNextVideo',
-      'updateDefaultTheatreMode'
+      'updateDefaultTheatreMode',
+      'updateHideVideoDescription',
+      'updateHideComments',
+      'updateHideLiveStreams',
+      'updateHideUpcomingPremieres',
+      'updateHideSharingActions',
+      'updateHideChapters',
+      'updateChannelsHidden'
     ])
   }
 })

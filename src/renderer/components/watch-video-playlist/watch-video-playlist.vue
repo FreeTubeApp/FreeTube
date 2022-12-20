@@ -6,54 +6,62 @@
     <div
       v-else
     >
-      <h3
-        class="pointer"
-        @click="goToPlaylist"
-      >
-        {{ playlistTitle }}
+      <h3>
+        <router-link
+          class="playlistTitle"
+          :to="`/playlist/${playlistId}`"
+        >
+          {{ playlistTitle }}
+        </router-link>
       </h3>
-      <span
+      <router-link
         class="channelName"
-        @click="goToChannel"
+        :to="`/channel/${channelId}`"
       >
         {{ channelName }}
-      </span>
+      </router-link>
       <span
         class="playlistIndex"
       >
         - {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        <progress
+          v-if="!shuffleEnabled && !reversePlaylist"
+          class="playlistProgressBar"
+          :value="currentVideoIndex"
+          :max="playlistVideoCount"
+        />
       </span>
       <p>
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: loopEnabled }"
-          icon="retweet"
+          :icon="['fas', 'retweet']"
           :title="$t('Video.Loop Playlist')"
           @click="toggleLoop"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: shuffleEnabled }"
-          icon="random"
+          :icon="['fas', 'random']"
           :title="$t('Video.Shuffle Playlist')"
           @click="toggleShuffle"
         />
         <font-awesome-icon
           class="playlistIcon"
           :class="{ playlistIconActive: reversePlaylist }"
-          icon="exchange-alt"
+          :icon="['fas', 'exchange-alt']"
           :title="$t('Video.Reverse Playlist')"
           @click="toggleReversePlaylist"
         />
         <font-awesome-icon
           class="playlistIcon"
-          icon="step-backward"
+          :icon="['fas', 'step-backward']"
           :title="$t('Video.Play Previous Video')"
           @click="playPreviousVideo"
         />
         <font-awesome-icon
           class="playlistIcon"
-          icon="step-forward"
+          :icon="['fas', 'step-forward']"
           :title="$t('Video.Play Next Video')"
           @click="playNextVideo"
         />
@@ -71,7 +79,7 @@
             <font-awesome-icon
               v-if="currentVideoIndex === (index + 1)"
               class="videoIndexIcon"
-              icon="play"
+              :icon="['fas', 'play']"
             />
             <p
               v-else

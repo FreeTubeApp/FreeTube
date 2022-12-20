@@ -1,6 +1,5 @@
 let handlers
-const usingElectron = window?.process?.type === 'renderer'
-if (usingElectron) {
+if (process.env.IS_ELECTRON) {
   handlers = require('./electron').default
 } else {
   handlers = require('./web').default

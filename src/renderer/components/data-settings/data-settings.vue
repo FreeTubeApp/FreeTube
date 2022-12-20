@@ -1,19 +1,11 @@
 <template>
-  <details>
-    <summary>
-      <h3>
-        {{ $t("Settings.Data Settings.Data Settings") }}
-      </h3>
-    </summary>
-    <hr>
+  <ft-settings-section
+    :title="$t('Settings.Data Settings.Data Settings')"
+  >
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
-        @click="showImportSubscriptionsPrompt = true"
-      />
-      <ft-button
-        :label="$t('Settings.Data Settings.Check for Legacy Subscriptions')"
-        @click="checkForLegacySubscriptions"
+        @click="importSubscriptions"
       />
       <ft-button
         :label="$t('Settings.Data Settings.Export Subscriptions')"
@@ -29,14 +21,11 @@
       />
     </ft-flex-box>
     <ft-flex-box>
-      <a
-        class="center"
-        href="https://docs.freetubeapp.io/usage/importing-subscriptions/"
-      >
-        <p>
+      <p>
+        <a href="https://docs.freetubeapp.io/usage/importing-subscriptions/">
           {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
-        </p>
-      </a>
+        </a>
+      </p>
     </ft-flex-box>
     <ft-flex-box>
       <ft-button
@@ -55,21 +44,13 @@
       />
     </ft-flex-box>
     <ft-prompt
-      v-if="showImportSubscriptionsPrompt"
-      :label="$t('Settings.Data Settings.Select Import Type')"
-      :option-names="importSubscriptionsPromptNames"
-      :option-values="subscriptionsPromptValues"
-      @click="importSubscriptions"
-    />
-    <ft-prompt
       v-if="showExportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Export Type')"
       :option-names="exportSubscriptionsPromptNames"
       :option-values="subscriptionsPromptValues"
       @click="exportSubscriptions"
     />
-  </details>
+  </ft-settings-section>
 </template>
 
 <script src="./data-settings.js" />
-<style scoped lang="sass" src="./data-settings.sass" />

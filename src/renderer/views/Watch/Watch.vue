@@ -11,7 +11,10 @@
       v-if="isLoading"
       :fullscreen="true"
     />
-    <div class="videoArea">
+    <div
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      class="videoArea"
+    >
       <div class="videoAreaMargin">
         <ft-video-player
           v-if="!isLoading && !hidePlayer && !isUpcoming"
@@ -24,12 +27,15 @@
           :format="activeFormat"
           :thumbnail="thumbnail"
           :video-id="videoId"
+          :length-seconds="videoLengthSeconds"
+          :chapters="videoChapters"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
           @ready="checkIfWatched"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
+          v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
           v-if="!isLoading && isUpcoming"
@@ -43,16 +49,24 @@
             class="premiereDate"
           >
             <font-awesome-icon
-              icon="satellite-dish"
+              :icon="['fas', 'satellite-dish']"
               class="premiereIcon"
             />
             <p
               v-if="upcomingTimestamp !== null"
               class="premiereText"
             >
-              {{ $t("Video.Premieres on") }}:
+              <span
+                class="premiereTextTimeLeft"
+              >
+                {{ $t("Video.Premieres") }} {{ upcomingTimeLeft }}
+              </span>
               <br>
-              {{ upcomingTimestamp }}
+              <span
+                class="premiereTextTimestamp"
+              >
+                {{ upcomingTimestamp }}
+              </span>
             </p>
             <p
               v-else
@@ -64,7 +78,17 @@
         </div>
       </div>
     </div>
-    <div class="infoArea">
+    <ft-age-restricted
+      v-if="(!isLoading && !isFamilyFriendly && showFamilyFriendlyOnly)"
+      class="ageRestricted"
+      :content-type-string="'Video'"
+    />
+    <div
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      ref="infoArea"
+      class="infoArea"
+      :class="{ infoAreaSticky }"
+    >
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
@@ -95,8 +119,17 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @pause-player="pausePlayer"
       />
+      <watch-video-chapters
+        v-if="!hideChapters && !isLoading && videoChapters.length > 0"
+        :compact="backendPreference === 'invidious'"
+        :chapters="videoChapters"
+        :current-chapter-index="videoCurrentChapterIndex"
+        class="watchVideo"
+        :class="{ theatreWatchVideo: useTheatreMode }"
+        @timestamp-event="changeTimestamp"
+      />
       <watch-video-description
-        v-if="!isLoading"
+        v-if="!isLoading && !hideVideoDescription"
         :published="videoPublished"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
@@ -105,7 +138,7 @@
         @timestamp-event="changeTimestamp"
       />
       <watch-video-comments
-        v-if="!isLoading && !isLive"
+        v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
@@ -114,7 +147,10 @@
         @timestamp-event="changeTimestamp"
       />
     </div>
-    <div class="sidebarArea">
+    <div
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      class="sidebarArea"
+    >
       <watch-video-live-chat
         v-if="!isLoading && isLive"
         :video-id="videoId"

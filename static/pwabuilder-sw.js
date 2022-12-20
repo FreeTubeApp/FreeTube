@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // This is the service worker with the Advanced caching
 
 const CACHE = 'pwabuilder-adv-cache'
@@ -83,7 +84,7 @@ function cacheFirstFetch(event) {
   event.respondWith(
     fromCache(event.request).then(
       function (response) {
-        // The response was found in the cache so we responde with it and update the entry
+        // The response was found in the cache so we respond with it and update the entry
 
         // This is where we call the server to get the newest version of the
         // file to use the next time we show view
@@ -110,7 +111,7 @@ function cacheFirstFetch(event) {
               return
             }
 
-            console.log('[PWA Builder] Network request failed and no cache.' + error)
+            console.error('[PWA Builder] Network request failed and no cache.' + error)
             // Use the precached offline page as fallback
             return caches.open(CACHE).then(function (cache) {
               cache.match(offlineFallbackPage)
@@ -130,7 +131,7 @@ function networkFirstFetch(event) {
         return response
       })
       .catch(function (error) {
-        console.log('[PWA Builder] Network request Failed. Serving content from cache: ' + error)
+        console.error('[PWA Builder] Network request Failed. Serving content from cache: ' + error)
         return fromCache(event.request)
       })
   )

@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
+import i18n from '../../i18n/index'
+import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'PlaylistInfo',
@@ -35,6 +36,10 @@ export default Vue.extend({
     }
   },
   computed: {
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -71,10 +76,12 @@ export default Vue.extend({
         default:
           return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
       }
+    },
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
-    console.log(this.data)
     this.id = this.data.id
     this.firstVideoId = this.data.firstVideoId
     this.title = this.data.title
@@ -86,12 +93,12 @@ export default Vue.extend({
     this.infoSource = this.data.infoSource
 
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined') {
-      this.viewCount = this.hideViews ? null : this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
+      this.viewCount = this.hideViews ? null : Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
     }
 
-    if (typeof (this.data.videoCount) !== 'undefined') {
-      this.videoCount = this.data.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
+      this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
     }
 
     this.lastUpdated = this.data.lastUpdated
@@ -103,22 +110,16 @@ export default Vue.extend({
 
       switch (method) {
         case 'copyYoutube':
-          navigator.clipboard.writeText(youtubeUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube URL copied to clipboard')
-          })
+          copyToClipboard(youtubeUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
-          this.openExternalLink(youtubeUrl)
+          openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
-          navigator.clipboard.writeText(invidiousUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious URL copied to clipboard')
-          })
+          copyToClipboard(invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
-          this.openExternalLink(invidiousUrl)
+          openExternalLink(invidiousUrl)
           break
       }
     },
@@ -134,15 +135,6 @@ export default Vue.extend({
           query: playlistInfo
         }
       )
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
-    },
-
-    ...mapActions([
-      'showToast',
-      'openExternalLink'
-    ])
+    }
   }
 })

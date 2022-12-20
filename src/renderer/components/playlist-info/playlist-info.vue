@@ -29,9 +29,9 @@
 
     <hr>
 
-    <div
+    <router-link
       class="playlistChannel"
-      @click="goToChannel"
+      :to="`/channel/${channelId}`"
     >
       <img
         class="channelThumbnail"
@@ -42,11 +42,12 @@
       >
         {{ channelName }}
       </h3>
-    </div>
+    </router-link>
 
     <br>
 
     <ft-list-dropdown
+      v-if="!hideSharingActions"
       :title="$t('Playlist.Share Playlist.Share Playlist')"
       :label-names="shareHeaders"
       :label-values="shareValues"

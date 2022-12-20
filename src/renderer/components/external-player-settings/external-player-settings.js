@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import FtCard from '../ft-card/ft-card.vue'
+import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -9,7 +9,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 export default Vue.extend({
   name: 'ExternalPlayerSettings',
   components: {
-    'ft-card': FtCard,
+    'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
     'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
@@ -19,12 +19,11 @@ export default Vue.extend({
     return {}
   },
   computed: {
-    isDev: function () {
-      return process.env.NODE_ENV === 'development'
-    },
-
     externalPlayerNames: function () {
-      return this.$store.getters.getExternalPlayerNames
+      const fallbackNames = this.$store.getters.getExternalPlayerNames
+      const nameTranslationKeys = this.$store.getters.getExternalPlayerNameTranslationKeys
+
+      return nameTranslationKeys.map((translationKey, idx) => this.$te(translationKey) ? this.$t(translationKey) : fallbackNames[idx])
     },
     externalPlayerValues: function () {
       return this.$store.getters.getExternalPlayerValues
@@ -46,8 +45,8 @@ export default Vue.extend({
 
       const cmdArgs = this.$store.getters.getExternalPlayerCmdArguments[this.externalPlayer]
       if (cmdArgs && typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-        const defaultArgs = this.$t('Tooltips.External Player Settings.DefaultCustomArgumentsTemplate')
-          .replace('$', cmdArgs.defaultCustomArguments)
+        const defaultArgs = this.$t('Tooltips.External Player Settings.DefaultCustomArgumentsTemplate',
+          { defaultCustomArguments: cmdArgs.defaultCustomArguments })
         return `${tooltip} ${defaultArgs}`
       }
 

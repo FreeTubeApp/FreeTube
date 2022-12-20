@@ -6,47 +6,52 @@
     <div class="side">
       <font-awesome-icon
         class="menuIcon navIcon"
-        icon="bars"
+        :icon="['fas', 'bars']"
         role="button"
         tabindex="0"
         @click="toggleSideNav"
-        @keypress="toggleSideNav"
+        @keydown.enter.prevent="toggleSideNav"
       />
       <font-awesome-icon
-        id="historyArrowBack"
+        ref="historyArrowBack"
         class="navBackIcon navIcon fa-arrow-left"
-        icon="arrow-left"
+        :icon="['fas', 'arrow-left']"
         role="button"
         tabindex="0"
         :title="backwardText"
         @click="historyBack"
-        @keypress="historyBack"
+        @keydown.enter.prevent="historyBack"
       />
       <font-awesome-icon
-        id="historyArrowForward"
+        ref="historyArrowForward"
         class="navForwardIcon navIcon fa-arrow-right"
-        icon="arrow-right"
+        :icon="['fas', 'arrow-right']"
         role="button"
         tabindex="0"
         :title="forwardText"
         @click="historyForward"
-        @keypress="historyForward"
+        @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
+        v-if="!hideSearchBar"
         class="navSearchIcon navIcon"
-        icon="search"
+        :icon="['fas', 'search']"
         role="button"
         tabindex="0"
         @click="toggleSearchContainer"
-        @keypress="toggleSearchContainer"
+        @keydown.enter.prevent="toggleSearchContainer"
       />
       <font-awesome-icon
         class="navNewWindowIcon navIcon"
-        icon="clone"
+        :icon="['fas', 'clone']"
         :title="newWindowText"
+        role="button"
+        tabindex="0"
         @click="createNewWindow"
+        @keydown.enter.prevent="createNewWindow"
       />
       <div
+        v-if="!hideHeaderLogo"
         class="logo"
         role="link"
         tabindex="0"
@@ -64,13 +69,17 @@
       </div>
     </div>
     <div class="middle">
-      <div class="searchContainer">
+      <div
+        v-if="!hideSearchBar"
+        v-show="showSearchContainer"
+        ref="searchContainer"
+        class="searchContainer"
+      >
         <ft-input
           ref="searchInput"
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :select-on-focus="true"
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
@@ -80,14 +89,15 @@
         <font-awesome-icon
           class="navFilterIcon navIcon"
           :class="{ filterChanged: searchFilterValueChanged }"
-          icon="filter"
+          :icon="['fas', 'filter']"
           role="button"
           tabindex="0"
           @click="showFilters = !showFilters"
-          @keypress="showFilters = !showFilters"
+          @keydown.enter.prevent="showFilters = !showFilters"
         />
       </div>
       <ft-search-filters
+        v-if="!hideSearchBar"
         v-show="showFilters"
         class="searchFilters"
         @filterValueUpdated="handleSearchFilterValueChanged"

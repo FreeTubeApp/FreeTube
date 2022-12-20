@@ -1,9 +1,10 @@
 # Put the name of your locale in the same language
-Locale Name: 'español'
+Locale Name: 'Español (España)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta sección de la app no está lista. Regresa más tarde cuando hayamos progresado.
+  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando se hayan
+  hecho progresos.
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -76,6 +77,11 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
   Load More Videos: Cargar más vídeos
+  Error Channels: Canales con errores
+  Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
+    Actualice las suscripciones para verlas aquí.
+  Empty Channels: Los canales a los que está suscrito no tienen actualmente ningún
+    vídeo.
 Trending:
   Trending: 'Tendencias'
   Default: Por defecto
@@ -84,7 +90,7 @@ Trending:
   Gaming: Videojuegos
   Music: Música
 Most Popular: 'Más populares'
-Playlists: 'Tus favoritos'
+Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Tus
@@ -138,8 +144,8 @@ Settings:
     Current instance will be randomized on startup: La instancia actual será elegida
       aleatoriamente al inicio
     No default instance has been set: No se ha especificado una instancia predeterminada
-    The currently set default instance is $: La instancia predeterminada actual es
-      $
+    The currently set default instance is {instance}: La instancia predeterminada
+      actual es {instance}
     Current Invidious Instance: Instancia actual de Invidious
     Clear Default Instance: Quitar la instancia por defecto
     Set Current Instance as Default: Establecer la instancia actual como la instancia
@@ -159,6 +165,7 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Valor predeterminado del sistema
+      Catppuccin Mocha: Catppuccin Moca
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -184,12 +191,27 @@ Settings:
       Dracula Purple: 'Drácula púrpura'
       Dracula Red: 'Drácula rojo'
       Dracula Yellow: 'Drácula amarillo'
+      Catppuccin Mocha Pink: Catppuccin Moca Rosa
+      Catppuccin Mocha Mauve: Catppuccin Mocha Malva
+      Catppuccin Mocha Peach: Catppuccin Moka Melocotón
+      Catppuccin Mocha Green: Catpuccin Moca Verde
+      Catppuccin Mocha Yellow: Catpuccin Moca Amarillo
+      Catppuccin Mocha Red: Catppuccin Moka Rojo
+      Catppuccin Mocha Flamingo: Catppuccin Moka Flamenco
+      Catppuccin Mocha Maroon: Catppuccin Moka Granate
+      Catppuccin Mocha Teal: Catppuccin Moka Turquesa
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Agua de Rosas
+      Catppuccin Mocha Sky: Catppuccin Moka Cielo
+      Catppuccin Mocha Sapphire: Catppuccin Moka Zafiro
+      Catppuccin Mocha Blue: Catpuccin Moka Azul
+      Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de interfaz gráfica
     Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
+    Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Reproductor FreeTube'
     Force Local Backend for Legacy Formats: 'Forzar API local para formato «Legacy»'
@@ -237,6 +259,15 @@ Settings:
       Enable: Habilitar capturas de pantalla
       Quality Label: Calidad de las capturas de pantalla
       Format Label: Formato de las capturas de pantalla
+      File Name Label: Patrón de nombre de archivo
+      Folder Label: Carpeta de capturas de pantalla
+      Ask Path: Pedir la Carpeta para Guardar
+      File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
+        %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
+        %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
+        Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
+        crear subcarpetas.
+    Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -259,6 +290,7 @@ Settings:
     Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
+    Fetch Automatically: Obtener los feed automáticamente
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -301,11 +333,14 @@ Settings:
     Import Playlists: Importar listas de reproducción
     Export Playlists: Exportar listas de reproducción
     Playlist insufficient data: Datos insuficientes para la lista de reproducción
-      «$», omitiendo el elemento
+      «{playlist}», omitiendo el elemento
     All playlists has been successfully imported: Todas las listas de reproducción
       se han importado con éxito
     All playlists has been successfully exported: Todas las listas de reproducción
       se han exportado con éxito
+    Subscription File: Archivo de suscripción
+    Playlist File: Archivo de la lista de reproducción
+    History File: Archivo del historial
   Advanced Settings:
     Advanced Settings: 'Ajustes avanzados'
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (muestra
@@ -345,6 +380,14 @@ Settings:
     Distraction Free Settings: Modo sin distracciones
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Playlists: Ocultar listas de reproducción
+    Hide Video Description: Ocultar la descripción del vídeo
+    Hide Comments: Ocultar comentarios
+    Hide Live Streams: Ocultar retransmisiones en directo
+    Hide Sharing Actions: Ocultar acciones de uso compartido
+    Hide Chapters: Ocultar los capítulos
+    Hide Upcoming Premieres: Ocultar los próximos estrenos
+    Hide Channels: Ocultar los vídeos de los canales
+    Hide Channels Placeholder: Nombre o ID del canal
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -369,17 +412,52 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
       SponsorBlock (por defecto es https://sponsor.ajay.app)
     Enable SponsorBlock: Activar SponsorBlock
-    SponsorBlock Settings: SponsorBlock
+    SponsorBlock Settings: Ajustes de SponsorBlock
+    Category Color: Color de categoría
+    Skip Options:
+      Show In Seek Bar: Mostrar en la barra de búsqueda
+      Do Nothing: No hacer nada
+      Skip Option: Omitir opción
+      Auto Skip: Salto automático
+      Prompt To Skip: Solicitar que se omita
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
     Ignore Unsupported Action Warnings: Omitir advertencias sobre acciones no soportadas
     External Player: Reproductor externo
     External Player Settings: Reproductor externo
+    Players:
+      None:
+        Name: Ninguno
   Download Settings:
     Download Settings: Descargas
     Ask Download Path: Preguntar ruta de descarga
     Choose Path: Elegir ruta
+    Download in app: Descargar en la aplicación
+    Open in web browser: Abrir en el navegador web
+    Download Behavior: Comportamiento de la descarga
+  Parental Control Settings:
+    Hide Unsubscribe Button: Ocultar botón de anular suscripción
+    Hide Search Bar: Ocultar barra de búsqueda
+    Parental Control Settings: Ajustes del Control Parental
+    Show Family Friendly Only: Mostrar solo lo apto para las familias
+  Experimental Settings:
+    Experimental Settings: Ajustes experimentales
+    Warning: Estas configuraciones son experimentales, pueden provocar fallos mientras
+      están activadas. Se recomienda hacer copias de seguridad. ¡Utilícelas bajo su
+      propio riesgo!
+    Replace HTTP Cache: Reemplazar la caché HTTP
+  Password Settings:
+    Password Settings: Configuración de la contraseña
+    Set Password To Prevent Access: Establecer una contraseña para impedir el acceso
+      a los ajustes
+    Set Password: Establecer contraseña
+    Remove Password: Eliminar contraseña
+  Password Dialog:
+    Password: Contraseña
+    Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
+    Password Incorrect: Contraseña incorrecta
+    Unlock: Desbloquear
 About:
   #On About page
   About: 'Acerca de'
@@ -419,7 +497,7 @@ About:
   room rules: reglas de la sala
   Please read the: Por favor, lee las
   Chat on Matrix: Chat en Matrix
-  Mastodon: Mastodon
+  Mastodon: Mastodon (red social)
   Email: Correo electrónico
   Blog: Blog
   Website: Sitio web
@@ -455,12 +533,12 @@ Profile:
   Your profile name cannot be empty: 'Tu nombre de perfil no puede estar vacío'
   Profile has been created: 'Se ha creado el perfil'
   Profile has been updated: 'El perfil se ha actualizado'
-  Your default profile has been set to $: 'Tu perfil predeterminado se ha establecido
-    como $'
-  Removed $ from your profiles: 'Eliminado $ de tus perfiles'
+  Your default profile has been set to {profile}: 'Tu perfil predeterminado se ha
+    establecido como {profile}'
+  Removed {profile} from your profiles: 'Eliminado {profile} de tus perfiles'
   Your default profile has been changed to your primary profile: 'Tu perfil predeterminado
     ha sido cambiado a tu perfil principal'
-  $ is now the active profile: '$ es ahora el perfil activo'
+  '{profile} is now the active profile': '{profile} es ahora el perfil activo'
 #On Channel Page
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ¿Está
     seguro de que desea eliminar los canales seleccionados? Esto no eliminará el canal
@@ -474,7 +552,7 @@ Profile:
   Delete Selected: Eliminar seleccionados
   Select None: No seleccionar nada
   Select All: Seleccionar todo
-  $ selected: $ seleccionados
+  '{number} selected': '{number} seleccionados'
   Other Channels: Otros canales
   Subscription List: Lista de suscripciones
   Profile Select: Seleccionar perfil
@@ -497,7 +575,7 @@ Channel:
       Oldest: 'Más antiguos'
       Most Popular: 'Más populares'
   Playlists:
-    Playlists: 'Playlists'
+    Playlists: 'Listas de reproducción'
     This channel does not currently have any playlists: 'Este canal no tiene actualmente
       ninguna lista de reproducción'
     Sort Types:
@@ -509,7 +587,8 @@ Channel:
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
   Added channel to your subscriptions: Canal añadido a tus suscripciones
-  Removed subscription from $ other channel(s): Suscripción eliminada de $ otros canales
+  Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
+    otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     tus suscripciones
 Video:
@@ -573,9 +652,10 @@ Video:
     Years: 'años'
     Ago: 'Hace'
     Upcoming: 'Se estrenará el'
+    Less than a minute: Menos de un minuto
+    In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
-  # $ is replaced with the number and % with the unit (days, hours, minutes...)
-  Publicationtemplate: 'Hace $ %'
+  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Play Previous Video: Reproducir el vídeo anterior
   Play Next Video: Reproducir vídeo siguiente
@@ -604,17 +684,19 @@ Video:
   Save Video: Guardar el vídeo
   translated from English: traducido del inglés
   Sponsor Block category:
-    music offtopic: música fuera de tema
-    interaction: interacción
-    self-promotion: autopromoción
-    outro: epílogo
-    intro: introducción
-    sponsor: patrocinador
+    music offtopic: No relacionado con la música
+    interaction: Interacción
+    self-promotion: Auto promoción
+    outro: Otro
+    intro: Introducción
+    sponsor: Patrocinador
+    recap: Recapitulación
+    filler: Relleno
   Skipped segment: Segmento saltado
   External Player:
     playlist: lista de reproducción
     video: vídeo
-    OpenInTemplate: Abrir en $
+    OpenInTemplate: Abrir en {externalPlayer}
     Unsupported Actions:
       looping playlists: reproducir en bucle las listas de reproducción
       shuffling playlists: aleatorizar las listas de reproducción
@@ -624,8 +706,8 @@ Video:
       opening playlists: abrir listas de reproducción
       setting a playback rate: establecer una velocidad de reproducción
       starting video at offset: iniciar el vídeo en un punto dado
-    UnsupportedActionTemplate: '$ no soporta: %'
-    OpeningTemplate: Abriendo $ en %...
+    UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
+    OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
   Premieres on: Se estrena el
   Stats:
     bandwidth: Velocidad de conexión
@@ -647,6 +729,8 @@ Video:
     Video ID: ID de vídeo
     Buffered: En búfer
     Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
+  Premieres in: Estrenos en
+  Premieres: Estrenos
 Videos:
   #& Sort By
   Sort By:
@@ -674,7 +758,7 @@ Playlist:
   Playlist: Lista de reproducción
 Toggle Theatre Mode: 'Activar modo cine'
 Change Format:
-  Change Video Formats: 'Cambiar formato de vídeo'
+  Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
   Use Legacy Formats: 'Usar formatos «Legacy»'
   Use Audio Formats: 'Utilizar formatos de audio'
@@ -700,6 +784,7 @@ Share:
     el portapapeles
   Invidious Channel URL copied to clipboard: Se copió el URL al canal de Invidious
     en el portapapeles
+  Share Channel: Compartir el canal
 Mini Player: 'Minirreproductor'
 Comments:
   Comments: 'Comentarios'
@@ -720,7 +805,7 @@ Comments:
   Sort by: Ordenar por
   No more comments available: No hay más comentarios
   Show More Replies: Mostrar más respuestas
-  From $channelName: de $channelName
+  From {channelName}: de {channelName}
   And others: y otros
   Pinned by: Fijado por
   Member: Miembro
@@ -747,11 +832,11 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, $. Click to view more: Nueva publicación del blog disponible,
-  $. Haga clic para saber más
+A new blog is now available, {blogTitle}. Click to view more: 'Nueva publicación del
+  blog disponible, {blogTitle}. Haga clic para saber más'
 Download From Site: Descargar desde el sitio web
-Version $ is now available!  Click for more details: ¡La versión $ está disponible!
-  Haz clic para saber más
+Version {versionNumber} is now available!  Click for more details: ¡La versión {versionNumber}
+  está disponible! Haz clic para saber más
 The playlist has been reversed: Orden de lista de reproducción invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo no está disponible por no tener un formato válido. Esto puede suceder por
@@ -762,18 +847,20 @@ Tooltips:
       predeterminado para recuperar el feed de suscripciones. RSS es más rápido y
       previene los bloqueos por IP, pero carece de ciertos datos, como la duración
       de los vídeos o el estado de transmisión en directo
+    Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente
+      su feed de suscripción cuando se abra una nueva ventana y al cambiar de perfil.
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato
       Dash puede reproducir resoluciones más altas. El formato Legacy está limitado
-      a 720p, pero requiere menos ancho de banda. El formato audio se limita a reproducir
-      solo audio.
+      a 720p, pero requiere menos ancho de banda. El formato del audio se limita al
+      reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
     Force Local Backend for Legacy Formats: Solo funcionará si la API de Invidious
-      es la preferente. Si lo activas, la API local usará el formato Legacy en lugar
-      de Invidious. Ayudará cuando Invidious no pueda reproducir un vídeo por restricciones
-      regionales.
+      es la preferente. Si la activas, la API local usará el formato Legacy en lugar
+      de Invidious. Esto ayudará cuando Invidious no pueda reproducir un vídeo por
+      culpa de las restricciones regionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -792,9 +879,9 @@ Tooltips:
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
-    External Link Handling: "Elige el comportamiento predeterminado al pulsar un enlace\
-      \ que no pueda ser abierto en FreeTube.\nPor defecto FreeTube abrirá el enlace\
-      \ en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
+      \ en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube\
+      \ abrirá el enlace que a pulsado en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
@@ -807,9 +894,20 @@ Tooltips:
       (;) cada argumento será enviado al reproductor externo.
     Ignore Warnings: Ocultar advertencias por argumentos incompatibles con el reproductor
       (ej. invertir listas de reproducción, etc.).
-    External Player: Al elegir un reproductor externo, aparecerá un botón en las miniaturas
-      de los vídeos para abrir el vídeo (o listas de reproducción si son compatibles).
-    DefaultCustomArgumentsTemplate: '(Predeterminado: «$»)'
+    External Player: La elección de un reproductor externo mostrará un icono, para
+      abrir el vídeo (lista de reproducción si es compatible) en el reproductor externo,
+      en la miniatura. Atención, los ajustes de Invidious no afectan a los reproductores
+      externos.
+    DefaultCustomArgumentsTemplate: '(Predeterminado: «{defaultCustomArguments}»)'
+  Experimental Settings:
+    Replace HTTP Cache: Desactiva la caché HTTP basada en Electron disk y habilite
+      una caché para la imagen en la memoria personalizada. Esto aumentará el uso
+      de la memoria RAM.
+  Distraction Free Settings:
+    Hide Channels: Introduzca un nombre o ID de canal para ocultar todos los vídeos,
+      listas de reproducción y el propio canal y evitar que aparezcan en las búsquedas
+      o en las tendencias. El nombre del canal introducido debe coincidir completamente
+      y distingue entre mayúsculas y minúsculas.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
   puede abrir en la aplicación
@@ -822,16 +920,44 @@ Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic p
   Haz clic para cancelar.
 Default Invidious instance has been cleared: La instancia de Invidious predeterminada
   ha sido borrada
-Default Invidious instance has been set to $: La instancia de Invidious predeterminada
-  ha sido establecida como $
+Default Invidious instance has been set to {instance}: La instancia de Invidious predeterminada
+  ha sido establecida como {instance}
 Search Bar:
   Clear Input: Borrar entrada
 External link opening has been disabled in the general settings: Se ha desactivado
   la apertura de enlaces externos en la configuración general
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
   enlace?
-Starting download: Inicio de la descarga de «$»
-Downloading has completed: '«$» ha terminado de descargarse'
-Downloading failed: Hubo un problema al descargar «$»
-Screenshot Success: Captura de pantalla guardada como «$»
-Screenshot Error: Captura de pantalla fallida. $
+Starting download: Inicio de la descarga de «{videoTitle}»
+Downloading has completed: '«{videoTitle}» ha terminado de descargarse'
+Downloading failed: Hubo un problema al descargar «{videoTitle}»
+Screenshot Success: Captura de pantalla guardada como «{filePath}»
+Screenshot Error: Captura de pantalla fallida. {error}
+New Window: Nueva ventana
+Channels:
+  Channels: Canales
+  Title: Lista de canales
+  Search bar placeholder: Buscar canales
+  Count: '{number} canal(es) encontrado(s).'
+  Empty: Tu lista de canales está actualmente vacía.
+  Unsubscribe: Cancelar la suscripción
+  Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
+  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "{channelName}"?
+Age Restricted:
+  Type:
+    Channel: Canal
+    Video: Vídeo
+  This {videoOrPlaylist} is age restricted: Este {videoOrPlaylist} tiene restricción
+    de edad
+Clipboard:
+  Copy failed: Error al copiar al portapapeles
+  Cannot access clipboard without a secure connection: No se puede acceder al portapapeles
+    sin una conexión segura
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos
+    visibles, capítulo actual: {nombredelcapítulo}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos
+    ocultos, capítulo actual: {nombredelcapítulo}'
+  Chapters: Capítulos
+Preferences: Preferencias
+Ok: De acuerdo

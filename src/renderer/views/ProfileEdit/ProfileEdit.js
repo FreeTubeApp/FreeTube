@@ -1,10 +1,12 @@
 import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtProfileEdit from '../../components/ft-profile-edit/ft-profile-edit.vue'
 import FtProfileChannelList from '../../components/ft-profile-channel-list/ft-profile-channel-list.vue'
 import FtProfileFilterChannelsList from '../../components/ft-profile-filter-channels-list/ft-profile-filter-channels-list.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
+import { showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ProfileEdit',
@@ -40,9 +42,7 @@ export default Vue.extend({
       handler: function () {
         const profile = this.profileById(this.profileId)
         if (!profile) {
-          this.showToast({
-            message: this.$t('Profile.Profile could not be found')
-          })
+          showToast(this.$t('Profile.Profile could not be found'))
           this.$router.push({
             path: '/settings/profile/'
           })
@@ -52,15 +52,15 @@ export default Vue.extend({
       deep: true
     }
   },
-  mounted: async function () {
+  mounted: function () {
     const profileType = this.$route.name
 
     this.deletePromptLabel = `${this.$t('Profile.Are you sure you want to delete this profile?')} ${this.$t('Profile["All subscriptions will also be deleted."]')}`
 
     if (profileType === 'newProfile') {
       this.isNew = true
-      const bgColor = await this.getRandomColor()
-      const textColor = await this.calculateColorLuminance(bgColor)
+      const bgColor = getRandomColor()
+      const textColor = calculateColorLuminance(bgColor)
       this.profile = {
         name: '',
         bgColor: bgColor,
@@ -73,9 +73,7 @@ export default Vue.extend({
 
       const profile = this.profileById(this.profileId)
       if (!profile) {
-        this.showToast({
-          message: this.$t('Profile.Profile could not be found')
-        })
+        showToast(this.$t('Profile.Profile could not be found'))
         this.$router.push({
           path: '/settings/profile/'
         })
@@ -84,12 +82,5 @@ export default Vue.extend({
     }
 
     this.isLoading = false
-  },
-  methods: {
-    ...mapActions([
-      'showToast',
-      'getRandomColor',
-      'calculateColorLuminance'
-    ])
   }
 })

@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
 <template>
   <div
     class="ft-input-component"
@@ -13,8 +14,9 @@
     <label
       v-if="showLabel"
       :for="id"
+      class="selectLabel"
     >
-      {{ placeholder }}
+      {{ label || placeholder }}
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"
@@ -24,7 +26,7 @@
     </label>
     <font-awesome-icon
       v-if="showClearTextButton"
-      icon="times-circle"
+      :icon="['fas', 'times-circle']"
       class="clearInputTextButton"
       :class="{
         visible: inputDataPresent
@@ -42,21 +44,22 @@
       v-model="inputData"
       :list="idDataList"
       class="ft-input"
-      type="text"
+      :type="inputType"
       :placeholder="placeholder"
       :disabled="disabled"
       :spellcheck="spellcheck"
       @input="e => handleInput(e.target.value)"
       @focus="handleFocus"
       @blur="handleInputBlur"
-      @keydown="e => handleKeyDown(e.keyCode)"
+      @keydown="handleKeyDown"
     >
     <font-awesome-icon
       v-if="showActionButton"
       :icon="actionButtonIconName"
       class="inputAction"
       :class="{
-        enabled: inputDataPresent
+        enabled: inputDataPresent,
+        withLabel: showLabel
       }"
       @click="handleClick"
     />
@@ -69,6 +72,7 @@
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"
       >
+        <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
           v-for="(list, index) in visibleDataList"
           :key="index"
@@ -78,6 +82,7 @@
         >
           {{ list }}
         </li>
+        <!-- skipped -->
       </ul>
     </div>
   </div>

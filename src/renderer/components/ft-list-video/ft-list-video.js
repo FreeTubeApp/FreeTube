@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import i18n from '../../i18n/index'
+import {
+  copyToClipboard,
+  formatDurationAsTimestamp,
+  openExternalLink,
+  showToast,
+  toLocalePublicationString
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -90,7 +98,13 @@ export default Vue.extend({
     },
 
     invidiousUrl: function () {
-      return `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     invidiousChannelUrl: function () {
@@ -98,10 +112,21 @@ export default Vue.extend({
     },
 
     youtubeUrl: function () {
-      return `https://www.youtube.com/watch?v=${this.id}`
+      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistId}`
+      }
+      return videoUrl
     },
 
     youtubeShareUrl: function () {
+      // `playlistId` can be undefined
+      if (this.playlistId && this.playlistId.length !== 0) {
+        // `index` seems can be ignored
+        return `https://youtu.be/${this.id}?list=${this.playlistId}`
+      }
       return `https://youtu.be/${this.id}`
     },
 
@@ -117,69 +142,76 @@ export default Vue.extend({
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
 
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
     dropdownOptions: function () {
       const options = []
-
       options.push(
         {
           label: this.watched
             ? this.$t('Video.Remove From History')
             : this.$t('Video.Mark As Watched'),
           value: 'history'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Copy YouTube Link'),
-          value: 'copyYoutube'
-        },
-        {
-          label: this.$t('Video.Copy YouTube Embedded Player Link'),
-          value: 'copyYoutubeEmbed'
-        },
-        {
-          label: this.$t('Video.Copy Invidious Link'),
-          value: 'copyInvidious'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Open in YouTube'),
-          value: 'openYoutube'
-        },
-        {
-          label: this.$t('Video.Open YouTube Embedded Player'),
-          value: 'openYoutubeEmbed'
-        },
-        {
-          label: this.$t('Video.Open in Invidious'),
-          value: 'openInvidious'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Copy YouTube Channel Link'),
-          value: 'copyYoutubeChannel'
-        },
-        {
-          label: this.$t('Video.Copy Invidious Channel Link'),
-          value: 'copyInvidiousChannel'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: this.$t('Video.Open Channel in YouTube'),
-          value: 'openYoutubeChannel'
-        },
-        {
-          label: this.$t('Video.Open Channel in Invidious'),
-          value: 'openInvidiousChannel'
         }
       )
+      if (!this.hideSharingActions) {
+        options.push(
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Link'),
+            value: 'copyYoutube'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Embedded Player Link'),
+            value: 'copyYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Link'),
+            value: 'copyInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open in YouTube'),
+            value: 'openYoutube'
+          },
+          {
+            label: this.$t('Video.Open YouTube Embedded Player'),
+            value: 'openYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Open in Invidious'),
+            value: 'openInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Channel Link'),
+            value: 'copyYoutubeChannel'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Channel Link'),
+            value: 'copyInvidiousChannel'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open Channel in YouTube'),
+            value: 'openYoutubeChannel'
+          },
+          {
+            label: this.$t('Video.Open Channel in Invidious'),
+            value: 'openInvidiousChannel'
+          }
+        )
+      }
 
       return options
     },
@@ -203,6 +235,15 @@ export default Vue.extend({
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
     },
+
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    },
+
+    hideUpcomingPremieres: function () {
+      return this.$store.getters.getHideUpcomingPremieres
+    },
+
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },
@@ -237,6 +278,10 @@ export default Vue.extend({
 
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+
+    currentLocale: function () {
+      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
@@ -248,10 +293,10 @@ export default Vue.extend({
       this.$emit('pause-player')
 
       this.openInExternalPlayer({
-        strings: this.$t('Video.External Player'),
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,
+        videoLength: this.data.lengthSeconds,
         playlistId: this.playlistId,
         playlistIndex: this.playlistIndex,
         playlistReverse: this.playlistReverse,
@@ -273,9 +318,6 @@ export default Vue.extend({
     },
 
     handleOptionsClick: function (option) {
-      console.log('Handling share')
-      console.log(option)
-
       switch (option) {
         case 'history':
           if (this.watched) {
@@ -285,89 +327,36 @@ export default Vue.extend({
           }
           break
         case 'copyYoutube':
-          navigator.clipboard.writeText(this.youtubeShareUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube URL copied to clipboard')
-          })
+          copyToClipboard(this.youtubeShareUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
-          this.openExternalLink(this.youtubeUrl)
+          openExternalLink(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
-          navigator.clipboard.writeText(this.youtubeEmbedUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube Embed URL copied to clipboard')
-          })
+          copyToClipboard(this.youtubeEmbedUrl, { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
           break
         case 'openYoutubeEmbed':
-          this.openExternalLink(this.youtubeEmbedUrl)
+          openExternalLink(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
-          navigator.clipboard.writeText(this.invidiousUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious URL copied to clipboard')
-          })
+          copyToClipboard(this.invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
-          this.openExternalLink(this.invidiousUrl)
+          openExternalLink(this.invidiousUrl)
           break
         case 'copyYoutubeChannel':
-          navigator.clipboard.writeText(this.youtubeChannelUrl)
-          this.showToast({
-            message: this.$t('Share.YouTube Channel URL copied to clipboard')
-          })
+          copyToClipboard(this.youtubeChannelUrl, { messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
           break
         case 'openYoutubeChannel':
-          this.openExternalLink(this.youtubeChannelUrl)
+          openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
-          navigator.clipboard.writeText(this.invidiousChannelUrl)
-          this.showToast({
-            message: this.$t('Share.Invidious Channel URL copied to clipboard')
-          })
+          copyToClipboard(this.invidiousChannelUrl, { messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
           break
         case 'openInvidiousChannel':
-          this.openExternalLink(this.invidiousChannelUrl)
+          openExternalLink(this.invidiousChannelUrl)
           break
       }
-    },
-
-    // For Invidious data, as duration is sent in seconds
-    calculateVideoDuration: function (lengthSeconds) {
-      if (typeof lengthSeconds === 'string') {
-        return lengthSeconds
-      }
-
-      if (typeof lengthSeconds === 'undefined') {
-        return '0:00'
-      }
-      let durationText = ''
-      let time = lengthSeconds
-      let hours = 0
-
-      if (time >= 3600) {
-        hours = Math.floor(time / 3600)
-        time = time - hours * 3600
-      }
-
-      let minutes = Math.floor(time / 60)
-      let seconds = time - minutes * 60
-
-      if (seconds < 10) {
-        seconds = '0' + seconds
-      }
-
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes
-      }
-
-      if (hours > 0) {
-        durationText = hours + ':' + minutes + ':' + seconds
-      } else {
-        durationText = minutes + ':' + seconds
-      }
-
-      return durationText
     },
 
     parseVideoData: function () {
@@ -377,7 +366,7 @@ export default Vue.extend({
 
       this.channelName = this.data.author
       this.channelId = this.data.authorId
-      this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
+      this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
@@ -392,26 +381,18 @@ export default Vue.extend({
 
       if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
         // produces a string according to the template in the locales string
-        this.toLocalePublicationString({
+        this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,
-          templateString: this.$t('Video.Publicationtemplate'),
-          timeStrings: this.$t('Video.Published'),
-          liveStreamString: this.$t('Video.Watching'),
-          upcomingString: this.$t('Video.Published.Upcoming'),
           isLive: this.isLive,
           isUpcoming: this.isUpcoming,
           isRSS: this.data.isRSS
-        }).then((data) => {
-          this.uploadedTime = data
-        }).catch((error) => {
-          console.error(error)
         })
       }
 
       if (this.hideVideoViews) {
         this.hideViews = true
       } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.parsedViewCount = this.data.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        this.parsedViewCount = Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
@@ -455,9 +436,7 @@ export default Vue.extend({
         type: 'video'
       }
       this.updateHistory(videoData)
-      this.showToast({
-        message: this.$t('Video.Video has been marked as watched')
-      })
+      showToast(this.$t('Video.Video has been marked as watched'))
 
       this.watched = true
     },
@@ -465,9 +444,7 @@ export default Vue.extend({
     removeFromWatched: function () {
       this.removeFromHistory(this.id)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your history')
-      })
+      showToast(this.$t('Video.Video has been removed from your history'))
 
       this.watched = false
       this.watchProgress = 0
@@ -496,9 +473,7 @@ export default Vue.extend({
 
       this.addVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been saved')
-      })
+      showToast(this.$t('Video.Video has been saved'))
     },
 
     removeFromPlaylist: function () {
@@ -509,20 +484,15 @@ export default Vue.extend({
 
       this.removeVideo(payload)
 
-      this.showToast({
-        message: this.$t('Video.Video has been removed from your saved list')
-      })
+      showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
-      'showToast',
-      'toLocalePublicationString',
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo',
-      'openExternalLink'
+      'removeVideo'
     ])
   }
 })

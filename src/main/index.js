@@ -1,15 +1,17 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell, nativeTheme
+  powerSaveBlocker, screen, session, shell,
+  nativeTheme, net, protocol, clipboard
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
 
 import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
+import { extractExpiryTimestamp, ImageCache } from './ImageCache'
+import { existsSync } from 'fs'
 
 if (process.argv.includes('--version')) {
-  console.log(`v${app.getVersion()}`)
   app.exit()
 } else {
   runApp()
@@ -20,40 +22,169 @@ function runApp() {
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
+    showSelectAll: false,
+    showCopyLink: false,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
-        label: 'Show Video Statistics',
+        label: 'Show / Hide Video Statistics',
         visible: parameters.mediaType === 'video',
         click: () => {
           browserWindow.webContents.send('showVideoStatistics')
         }
+      },
+      {
+        label: 'Open in a New Window',
+        // Only show the option for in-app URLs and not external ones
+        visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
+        click: () => {
+          createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
+        }
+      },
+      // Only show select all in text fields
+      {
+        label: 'Select All',
+        enabled: parameters.editFlags.canSelectAll,
+        visible: parameters.isEditable,
+        click: () => {
+          browserWindow.webContents.selectAll()
+        }
       }
-    ]
+    ],
+    // only show the copy link entry for external links and the /playlist, /channel and /watch in-app URLs
+    // the /playlist, /channel and /watch in-app URLs get transformed to their equivalent YouTube or Invidious URLs
+    append: (defaultActions, parameters, browserWindow) => {
+      let visible = false
+      const urlParts = parameters.linkURL.split('#')
+      const isInAppUrl = urlParts[0] === browserWindow.webContents.getURL().split('#')[0]
+
+      if (parameters.linkURL.length > 0) {
+        if (isInAppUrl) {
+          const path = urlParts[1]
+
+          if (path) {
+            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+          }
+        } else {
+          visible = true
+        }
+      }
+
+      const copy = (url) => {
+        if (parameters.linkText) {
+          clipboard.write({
+            bookmark: parameters.linkText,
+            text: url
+          })
+        } else {
+          clipboard.writeText(url)
+        }
+      }
+
+      const transformURL = (toYouTube) => {
+        let origin
+
+        if (toYouTube) {
+          origin = 'https://www.youtube.com'
+        } else {
+          origin = 'https://redirect.invidious.io'
+        }
+
+        const [path, query] = urlParts[1].split('?')
+        const [route, id] = path.split('/').filter(p => p)
+
+        switch (route) {
+          case 'playlist':
+            return `${origin}/playlist?list=${id}`
+          case 'channel':
+            return `${origin}/channel/${id}`
+          case 'watch': {
+            let url
+
+            if (toYouTube) {
+              url = `https://youtu.be/${id}`
+            } else {
+              url = `https://redirect.invidious.io/watch?v=${id}`
+            }
+
+            if (query) {
+              const params = new URLSearchParams(query)
+              const newParams = new URLSearchParams()
+              let hasParams = false
+
+              if (params.has('playlistId')) {
+                newParams.set('list', params.get('playlistId'))
+                hasParams = true
+              }
+
+              if (params.has('timestamp')) {
+                newParams.set('t', params.get('timestamp'))
+                hasParams = true
+              }
+
+              if (hasParams) {
+                url += '?' + newParams.toString()
+              }
+            }
+
+            return url
+          }
+        }
+      }
+
+      return [
+        {
+          label: 'Copy Lin&k',
+          visible: visible && !isInAppUrl,
+          click: () => {
+            copy(parameters.linkURL)
+          }
+        },
+        {
+          label: 'Copy YouTube Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(true))
+          }
+        },
+        {
+          label: 'Copy Invidious Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(false))
+          }
+        }
+      ]
+    }
   })
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-  const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
 
   let mainWindow
   let startupUrl
 
-  // CORS somehow gets re-enabled in Electron v9.0.4
-  // This line disables it.
-  // This line can possible be removed if the issue is fixed upstream
-  app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
-
   app.commandLine.appendSwitch('enable-accelerated-video-decode')
   app.commandLine.appendSwitch('enable-file-cookies')
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
+
+  // command line switches need to be added before the app ready event first
+  // that means we can't use the normal settings system as that is asynchonous,
+  // doing it synchronously ensures that we add it before the event fires
+  const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
+  if (replaceHttpCache) {
+    // the http cache causes excessive disk usage during video playback
+    // we've got a custom image cache to make up for disabling the http cache
+    // experimental as it increases RAM use in favour of reduced disk use
+    app.commandLine.appendSwitch('disable-http-cache')
+  }
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
   app.removeAsDefaultProtocolClient('freetube')
 
   // If we are running a non-packaged version of the app && on windows
-  if (isDev && process.platform === 'win32') {
+  if (process.env.NODE_ENV === 'development' && process.platform === 'win32') {
     // Set the path of electron.exe and your app.
     // These two additional parameters are only available on windows.
     app.setAsDefaultProtocolClient('freetube', process.execPath, [path.resolve(process.argv[1])])
@@ -61,7 +192,7 @@ function runApp() {
     app.setAsDefaultProtocolClient('freetube')
   }
 
-  if (!isDev) {
+  if (process.env.NODE_ENV !== 'development') {
     // Only allow single instance of the application
     const gotTheLock = app.requestSingleInstanceLock()
     if (!gotTheLock) {
@@ -79,10 +210,6 @@ function runApp() {
           mainWindow.webContents.send('openUrl', url)
         }
       }
-    })
-  } else {
-    require('electron-debug')({
-      showDevTools: !(process.env.RENDERER_REMOTE_DEBUGGING === 'true')
     })
   }
 
@@ -147,13 +274,135 @@ function runApp() {
       session.defaultSession.cookies.set({
         url: url,
         name: 'CONSENT',
-        value: 'YES+'
+        value: 'YES+',
+        sameSite: 'no_restriction'
       })
     })
 
+    // make InnerTube requests work with the fetch function
+    // InnerTube rejects requests if the referer isn't YouTube or empty
+    const innertubeRequestFilter = { urls: ['https://www.youtube.com/youtubei/*'] }
+
+    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
+      requestHeaders.referer = 'https://www.youtube.com'
+      // eslint-disable-next-line node/no-callback-literal
+      callback({ requestHeaders })
+    })
+
+    if (replaceHttpCache) {
+      // in-memory image cache
+
+      const imageCache = new ImageCache()
+
+      protocol.registerBufferProtocol('imagecache', (request, callback) => {
+        // Remove `imagecache://` prefix
+        const url = decodeURIComponent(request.url.substring(13))
+        if (imageCache.has(url)) {
+          const cached = imageCache.get(url)
+
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            mimeType: cached.mimeType,
+            data: cached.data
+          })
+          return
+        }
+
+        const newRequest = net.request({
+          method: request.method,
+          url
+        })
+
+        // Electron doesn't allow certain headers to be set:
+        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
+
+        for (const header of Object.keys(request.headers)) {
+          if (!blacklistedHeaders.includes(header.toLowerCase())) {
+            newRequest.setHeader(header, request.headers[header])
+          }
+        }
+
+        newRequest.on('response', (response) => {
+          const chunks = []
+          response.on('data', (chunk) => {
+            chunks.push(chunk)
+          })
+
+          response.on('end', () => {
+            const data = Buffer.concat(chunks)
+
+            const expiryTimestamp = extractExpiryTimestamp(response.headers)
+            const mimeType = response.headers['content-type']
+
+            imageCache.add(url, mimeType, data, expiryTimestamp)
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              mimeType,
+              data: data
+            })
+          })
+
+          response.on('error', (error) => {
+            console.error('image cache error', error)
+
+            // error objects don't get serialised properly
+            // https://stackoverflow.com/a/53624454
+
+            const errorJson = JSON.stringify(error, (key, value) => {
+              if (value instanceof Error) {
+                return {
+                  // Pull all enumerable properties, supporting properties on custom Errors
+                  ...value,
+                  // Explicitly pull Error's non-enumerable properties
+                  name: value.name,
+                  message: value.message,
+                  stack: value.stack
+                }
+              }
+
+              return value
+            })
+
+            // eslint-disable-next-line node/no-callback-literal
+            callback({
+              statusCode: response.statusCode ?? 400,
+              mimeType: 'application/json',
+              data: Buffer.from(errorJson)
+            })
+          })
+        })
+
+        newRequest.on('error', (err) => {
+          console.error(err)
+        })
+
+        newRequest.end()
+      })
+
+      const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
+      session.defaultSession.webRequest.onBeforeRequest(imageRequestFilter, (details, callback) => {
+        // the requests made by the imagecache:// handler to fetch the image,
+        // are allowed through, as their resourceType is 'other'
+        if (details.resourceType === 'image') {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({
+            redirectURL: `imagecache://${encodeURIComponent(details.url)}`
+          })
+        } else {
+          // eslint-disable-next-line node/no-callback-literal
+          callback({})
+        }
+      })
+
+      // --- end of `if experimentsDisableDiskCache` ---
+    }
+
     await createWindow()
 
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       installDevTools()
     }
 
@@ -168,11 +417,17 @@ function runApp() {
       require('vue-devtools').install()
       /* eslint-enable */
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 
-  async function createWindow({ replaceMainWindow = true, windowStartupUrl = null, showWindowNow = false } = { }) {
+  async function createWindow(
+    {
+      replaceMainWindow = true,
+      windowStartupUrl = null,
+      showWindowNow = false,
+      searchQueryText = null
+    } = { }) {
     // Syncing new window background to theme choice.
     const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
       switch (value) {
@@ -184,12 +439,14 @@ function runApp() {
           return '#000000'
         case 'dracula':
           return '#282a36'
+        case 'catppuccin-mocha':
+          return '#1e1e2e'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
     }).catch((error) => {
-      console.log(error)
+      console.error(error)
       // Default to nativeTheme settings if nothing is found.
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
@@ -200,7 +457,7 @@ function runApp() {
     const commonBrowserWindowOptions = {
       backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
-      icon: isDev
+      icon: process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '../../_icons/iconColor.png')
         /* eslint-disable-next-line */
         : `${__dirname}/_icons/iconColor.png`,
@@ -252,7 +509,7 @@ function runApp() {
 
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
-      const { maximized, ...bounds } = boundsDoc.value
+      const { maximized, fullScreen, ...bounds } = boundsDoc.value
       const allDisplaysSummaryWidth = screen
         .getAllDisplays()
         .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
@@ -269,6 +526,10 @@ function runApp() {
       if (maximized) {
         newWindow.maximize()
       }
+
+      if (fullScreen) {
+        newWindow.setFullScreen(true)
+      }
     }
 
     // If called multiple times
@@ -279,7 +540,7 @@ function runApp() {
     }
 
     // load root file/url
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       let devStartupURL = 'http://localhost:9080'
       if (windowStartupUrl != null) {
         devStartupURL = windowStartupUrl
@@ -292,18 +553,30 @@ function runApp() {
         /* eslint-disable-next-line */
         newWindow.loadFile(`${__dirname}/index.html`)
       }
+    }
 
-      global.__static = path
-        .join(__dirname, '/static')
-        .replace(/\\/g, '\\\\')
+    if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
+      ipcMain.once('searchInputHandlingReady', () => {
+        newWindow.webContents.send('updateSearchInputText', searchQueryText)
+      })
     }
 
     // Show when loaded
     newWindow.once('ready-to-show', () => {
-      if (newWindow.isVisible()) { return }
+      if (newWindow.isVisible()) {
+        // only open the dev tools if they aren't already open
+        if (process.env.NODE_ENV === 'development' && !newWindow.webContents.isDevToolsOpened()) {
+          newWindow.webContents.openDevTools({ activate: false })
+        }
+        return
+      }
 
       newWindow.show()
       newWindow.focus()
+
+      if (process.env.NODE_ENV === 'development') {
+        newWindow.webContents.openDevTools({ activate: false })
+      }
     })
 
     newWindow.once('close', async () => {
@@ -313,7 +586,8 @@ function runApp() {
 
       const value = {
         ...newWindow.getNormalBounds(),
-        maximized: newWindow.isMaximized()
+        maximized: newWindow.isMaximized(),
+        fullScreen: newWindow.isFullScreen()
       }
 
       await baseHandlers.settings._updateBounds(value)
@@ -326,8 +600,6 @@ function runApp() {
         // Which raises "Object has been destroyed" error
         mainWindow = allWindows[0]
       }
-
-      console.log('closed')
     })
   }
 
@@ -338,7 +610,7 @@ function runApp() {
   })
 
   ipcMain.once('relaunchRequest', () => {
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
     }
@@ -379,7 +651,6 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
-    console.log(url)
     session.defaultSession.setProxy({
       proxyRules: url
     })
@@ -409,21 +680,27 @@ function runApp() {
     return app.getPath('pictures')
   })
 
-  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async (_, options) => {
+  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {
+    const senderWindow = findSenderWindow(sender)
+    if (senderWindow) {
+      return await dialog.showOpenDialog(senderWindow, options)
+    }
     return await dialog.showOpenDialog(options)
   })
 
-  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (event, { options, useModal }) => {
-    if (useModal) {
-      const senderWindow = BrowserWindow.getAllWindows().find((window) => {
-        return window.webContents.id === event.sender.id
-      })
-      if (senderWindow) {
-        return await dialog.showSaveDialog(senderWindow, options)
-      }
+  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async ({ sender }, options) => {
+    const senderWindow = findSenderWindow(sender)
+    if (senderWindow) {
+      return await dialog.showSaveDialog(senderWindow, options)
     }
     return await dialog.showSaveDialog(options)
   })
+
+  function findSenderWindow(sender) {
+    return BrowserWindow.getAllWindows().find((window) => {
+      return window.webContents.id === sender.id
+    })
+  }
 
   ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
     powerSaveBlocker.stop(id)
@@ -433,11 +710,12 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null } = { }) => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null, searchQueryText = null } = { }) => {
     createWindow({
       replaceMainWindow: false,
       showWindowNow: true,
-      windowStartupUrl: windowStartupUrl
+      windowStartupUrl: windowStartupUrl,
+      searchQueryText: searchQueryText
     })
   })
 
@@ -769,7 +1047,35 @@ function runApp() {
     const template = [
       {
         label: 'File',
-        submenu: [{ role: 'quit' }]
+        submenu: [
+          {
+            label: 'New Window',
+            accelerator: 'CmdOrCtrl+N',
+            click: (_menuItem, _browserWindow, _event) => {
+              createWindow({
+                replaceMainWindow: false,
+                showWindowNow: true
+              })
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
+          {
+            label: 'Preferences',
+            accelerator: 'CmdOrCtrl+,',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/settings' }
+              )
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
+          { role: 'quit' }
+        ]
       },
       {
         label: 'Edit',
@@ -799,12 +1105,72 @@ function runApp() {
             accelerator: 'CmdOrCtrl+Shift+R'
           },
           { role: 'toggledevtools' },
+          { role: 'toggledevtools', accelerator: 'f12', visible: false },
+          {
+            label: 'Enter Inspect Element Mode',
+            accelerator: 'CmdOrCtrl+Shift+C',
+            click: (_, window) => {
+              if (window.webContents.isDevToolsOpened()) {
+                window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+              } else {
+                window.webContents.once('devtools-opened', () => {
+                  window.devToolsWebContents.executeJavaScript('DevToolsAPI.enterInspectElementMode()')
+                })
+                window.webContents.openDevTools()
+              }
+            }
+          },
           { type: 'separator' },
           { role: 'resetzoom' },
-          { role: 'zoomin' },
+          { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+Plus' },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+=', visible: false },
+          { role: 'zoomin', accelerator: 'CmdOrCtrl+numadd', visible: false },
           { role: 'zoomout' },
+          { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
-          { role: 'togglefullscreen' }
+          { role: 'togglefullscreen' },
+          { type: 'separator' },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/history' }
+              )
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
+          {
+            label: 'Back',
+            accelerator: 'Alt+Left',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-back',
+              )
+            },
+            type: 'normal',
+          },
+          {
+            label: 'Forward',
+            accelerator: 'Alt+Right',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-forward',
+              )
+            },
+            type: 'normal',
+          },
         ]
       },
       {

@@ -1,16 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
-const {
-  dependencies,
-  devDependencies,
-  productName,
-} = require('../package.json')
+const { productName } = require('../package.json')
 
-const externals = Object.keys(dependencies).concat(Object.keys(devDependencies))
 const isDevMode = process.env.NODE_ENV === 'development'
-const whiteListedModules = []
 
 const config = {
   name: 'main',
@@ -19,24 +14,27 @@ const config = {
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
   },
-  externals: externals.filter(d => !whiteListedModules.includes(d)),
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
-      },
     ],
+  },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new JsonMinimizerPlugin({
+        exclude: /\/locales\/.*\.json/
+      })
+    ]
   },
   node: {
     __dirname: isDevMode,
-    __filename: isDevMode,
-    global: isDevMode,
+    __filename: isDevMode
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -48,56 +46,22 @@ const config = {
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, '../dist'),
   },
-  resolve: {
-    extensions: ['.js', '.json'],
-    alias: {
-      '@': path.join(__dirname, '../src/'),
-      src: path.join(__dirname, '../src/'),
-    },
-  },
   target: 'electron-main',
 }
 
-if (isDevMode) {
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      __static: `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
-    })
-  )
-} else {
+if (!isDevMode) {
   config.plugins.push(
     new CopyWebpackPlugin({
         patterns: [
           {
-            from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-            to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-          },
-          {
             from: path.join(__dirname, '../static'),
-            to: path.join(__dirname, '../dist/web/static'),
+            to: path.join(__dirname, '../dist/static'),
             globOptions: {
-              ignore: ['.*', 'pwabuilder-sw.js'],
+              dot: true,
+              ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
             },
           },
-          {
-            from: path.join(__dirname, '../_icons'),
-            to: path.join(__dirname, '../dist/_icons'),
-            globOptions: {
-              ignore: ['.*'],
-            },
-          },
-          {
-            from: path.join(__dirname, '../src/renderer/assets/img'),
-            to: path.join(__dirname, '../dist/images'),
-            globOptions: {
-              ignore: ['.*'],
-            },
-          },
-        ]
-      }
-    ),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      ]
     })
   )
 }
