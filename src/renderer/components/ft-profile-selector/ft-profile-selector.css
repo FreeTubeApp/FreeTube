@@ -61,7 +61,10 @@
 }
 
 .profileName {
-  line-height: 50px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-right: 10px;
 }
 
 .profileListTitle {

@@ -206,6 +206,7 @@ Settings:
     Disable Smooth Scrolling: Poista tasainen vieritys käytöstä
     Expand Side Bar by Default: Laajenna sivupalkki oletusarvoisesti
     Hide Side Bar Labels: Piilota sivupalkin nimikkeet
+    Hide FreeTube Header Logo: Piilota FreeTube-otsikkologo
   Player Settings:
     Player Settings: 'Soittimen asetukset'
     Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
@@ -260,6 +261,7 @@ Settings:
         numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit.
         %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID. Voit myös käyttää
         "\" tai "/" luodaksesi alikansioita.
+    Enter Fullscreen on Display Rotate: Siirry koko näytön kokoiseen näytön kiertoon
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -380,6 +382,9 @@ Settings:
     Hide Live Streams: Piilota suorat lähetykset
     Hide Sharing Actions: Piilota jakamistoiminnot
     Hide Chapters: Piilota kappaleet
+    Hide Channels: Piilota videot kanavilta
+    Hide Upcoming Premieres: Piilota tulevat ensiesitykset
+    Hide Channels Placeholder: Kanavan nimi tai tunnus
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -440,6 +445,16 @@ Settings:
       ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa. Käytä omalla
       vastuullasi!
     Replace HTTP Cache: Korvaa HTTP-välimuisti
+  Password Dialog:
+    Password: Salasana
+    Enter Password To Unlock: Syötä salasana avataksesi asetukset
+    Password Incorrect: Salasana on virheellinen
+    Unlock: Avaa lukitus
+  Password Settings:
+    Set Password To Prevent Access: Aseta salasana estääksesi pääsyn asetuksiin
+    Password Settings: Salasana-asetukset
+    Set Password: Aseta salasana
+    Remove Password: Poista salasana
 About:
   #On About page
   About: 'Tietoja'
@@ -710,6 +725,7 @@ Share:
   Include Timestamp: Sisällytä aikaleima
   YouTube Channel URL copied to clipboard: Kanavan Youtube URL kopioitu leikepöydälle
   Invidious Channel URL copied to clipboard: Kanavan Invidious URL kopioutu leikepöydälle
+  Share Channel: Jaa kanava
 Mini Player: 'Pieni soitin'
 Comments:
   Comments: 'Kommentit'
@@ -862,6 +878,10 @@ Tooltips:
     Replace HTTP Cache: Poistaa Electronin levypohjaisen HTTP-välimuistin käytöstä
       ja ottaa käyttöön mukautetun muistissa olevan kuvavälimuistin. Lisää välimuistin
       käyttöä.
+  Distraction Free Settings:
+    Hide Channels: Anna kanavan nimi tai kanavatunnus piilottaaksesi kaikki videot,
+      soittolistat ja itse kanavan näkymästä haussa tai trendaamisessa. Annetun kanavan
+      nimen on vastattava täydellisesti ja kirjainkoolla on merkitystä.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -911,3 +931,4 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Lukujen luettelo näkyvissä,
     nykyinen luku: {chapterName}'
 Preferences: Asetukset
+Ok: OK

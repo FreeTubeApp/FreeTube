@@ -30,11 +30,11 @@ Close: 'Tutup'
 Back: 'Kembali'
 Forward: 'Maju'
 
-Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber} sekarang tersedia!  Klik
-  untuk detail lebih lanjut'
+Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
+  sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
-A new blog is now available, {blogTitle}. Click to view more: 'Blog baru sekarang tersedia,
-  {blogTitle}. Klik untuk lihat lebih lanjut'
+A new blog is now available, {blogTitle}. Click to view more: 'Blog baru sekarang
+  tersedia, {blogTitle}. Klik untuk lihat lebih lanjut'
 
 # Search Bar
 Search / Go to URL: 'Cari / Pergi ke URL'
@@ -152,8 +152,8 @@ Settings:
       Open Link: Buka link
       Ask Before Opening Link: Tanya sebelum membuka link
       No Action: Tidak ada
-    The currently set default instance is {instance}: Instans default yang saat ini disetel
-      adalah {instance}
+    The currently set default instance is {instance}: Instans default yang saat ini
+      disetel adalah {instance}
     No default instance has been set: Tidak ada instans default yang disetel
     Set Current Instance as Default: Tetapkan Instans Saat Ini sebagai Default
     Clear Default Instance: Hapus Instans Default
@@ -298,8 +298,8 @@ Settings:
     Manage Subscriptions: Kelola Langganan
     Import Playlists: Impor Playlist
     Export Playlists: Ekspor Playlist
-    Playlist insufficient data: Data tidak mencukupi untuk "{playlist}" playlist, melewatkan
-      item
+    Playlist insufficient data: Data tidak mencukupi untuk "{playlist}" playlist,
+      melewatkan item
     All playlists has been successfully imported: Semua playlist berhasil diimpor
     All playlists has been successfully exported: Semua playlist berhasil diekspor
   Advanced Settings:
@@ -449,7 +449,8 @@ Profile:
   Your profile name cannot be empty: 'Nama profil Anda tidak boleh kosong'
   Profile has been created: 'Profil telah dibuat'
   Profile has been updated: 'Profil telah diperbarui'
-  Your default profile has been set to {profile}: 'Profil bawaan Anda telah diatur ke {profile}'
+  Your default profile has been set to {profile}: 'Profil bawaan Anda telah diatur
+    ke {profile}'
   Removed {profile} from your profiles: '{profile} dihapus dari profil Anda'
   Your default profile has been changed to your primary profile: 'Profil bawaan Anda
     telah diubah ke profil utama Anda'
@@ -479,7 +480,8 @@ Channel:
   Unsubscribe: 'Berhenti Langganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
     Anda'
-  Removed subscription from {count} other channel(s): 'Langganan terhapus dari {count} kanal lainnya'
+  Removed subscription from {count} other channel(s): 'Langganan terhapus dari {count}
+    kanal lainnya'
   Added channel to your subscriptions: 'Kanal ditambahkan ke langganan Anda'
   Search Channel: 'Cari Kanal'
   Your search results have returned 0 results: 'Hasil pencarian Anda memberikan 0
@@ -806,9 +808,16 @@ Search Bar:
 External link opening has been disabled in the general settings: Pembukaan link eksternal
   telah dimatikan pada pengaturan umum
 Are you sure you want to open this link?: Yakin ingin membuka link ini?
-Default Invidious instance has been set to {instance}: 'Situs Invidious baku telah di atur ke
-  {instance}'
+Default Invidious instance has been set to {instance}: 'Situs Invidious baku telah
+  di atur ke {instance}'
 Default Invidious instance has been cleared: Situs Invidious baku telah dikosongkan
 Downloading has completed: '"{videoTitle}" telah selesai diunduh'
 Starting download: Mulai mengunduh "{videoTitle}"
 Downloading failed: Ada masalah mengunduh "{videoTitle}"
+New Window: Jendela Baru
+Channels:
+  Channels: Channel
+  Title: Daftar Channel
+  Search bar placeholder: Cari Channel
+  Count: '{number} channel ditemukan.'
+Preferences: Preferensi

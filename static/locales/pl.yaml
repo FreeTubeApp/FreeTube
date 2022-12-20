@@ -212,6 +212,7 @@ Settings:
     Expand Side Bar by Default: Domyślnie rozwiń pasek boczny
     Disable Smooth Scrolling: Wyłącz płynne przewijanie
     Hide Side Bar Labels: Schowaj etykiety paska bocznego
+    Hide FreeTube Header Logo: Schowaj logo FreeTube z paska górnego
   Player Settings:
     Player Settings: 'Ustawienia odtwarzacza'
     Force Local Backend for Legacy Formats: 'Wymuś lokalny back-end dla starych formatów'
@@ -267,6 +268,8 @@ Settings:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
       Enable: Włącz zrzuty ekranu
+    Enter Fullscreen on Display Rotate: Przyłącz na tryb pełnoekranowy przy zmianie
+      orientacji wyświetlacza
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -390,6 +393,9 @@ Settings:
     Hide Sharing Actions: Schowaj linki do dzielenia się filmem
     Hide Live Streams: Schowaj transmisje na żywo
     Hide Chapters: Schowaj rozdziały
+    Hide Upcoming Premieres: Schowaj nadchodzące premiery
+    Hide Channels: Schowaj filmy z kanałów
+    Hide Channels Placeholder: Nazwa albo ID kanału
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -441,7 +447,7 @@ Settings:
     Download in app: Pobierz w aplikacji
     Open in web browser: Otwórz w przeglądarce
   Parental Control Settings:
-    Parental Control Settings: Opcje kontroli rodzicielskiej
+    Parental Control Settings: Ustawienia kontroli rodzicielskiej
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
@@ -450,6 +456,16 @@ Settings:
     Experimental Settings: Ustawienia eksperymentalne
     Warning: Te ustawienia są w fazie testów i po włączeniu mogą spowodować wywalenie
       się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
+  Password Dialog:
+    Unlock: Odblokuj
+    Enter Password To Unlock: Wprowadź hasło, by odblokować ustawienia
+    Password Incorrect: Niepoprawne hasło
+    Password: Hasło
+  Password Settings:
+    Password Settings: Ustawienia hasła
+    Set Password To Prevent Access: Ustaw hasło, aby zabezpieczyć dostęp do ustawień
+    Set Password: Ustaw hasło
+    Remove Password: Usuń hasło
 About:
   #On About page
   About: 'O projekcie'
@@ -738,6 +754,7 @@ Share:
   YouTube Channel URL copied to clipboard: Skopiowano URL kanału na YouTube do schowka
   Invidious Channel URL copied to clipboard: Skopiowano URL kanału na Invidious do
     schowka
+  Share Channel: Podziel się kanałem
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
@@ -898,6 +915,10 @@ Tooltips:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP
       Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje
       to większe użycie pamięci RAM.
+  Distraction Free Settings:
+    Hide Channels: Wprowadź nazwę albo ID kanału, aby schować wszystkie filmy i playlisty
+      tego kanału, oraz sam kanał z wyszukiwań, oraz z zakładki „Na czasie”. Nazwa
+      kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij
@@ -953,3 +974,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
     rozdział: {chapterName}'
 Preferences: Preferencje
+Ok: Ok

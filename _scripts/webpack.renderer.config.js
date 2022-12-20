@@ -28,10 +28,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  // webpack spits out errors while inlining ytpl and ytsr as
+  // webpack spits out errors while inlining ytsr as
   // they dynamically import their package.json file to extract the bug report URL
   // the error: "Critical dependency: the request of a dependency is an expression"
-  externals: ['ytpl', 'ytsr'],
+  externals: ['ytsr'],
   module: {
     rules: [
       {
@@ -126,10 +126,19 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
+    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^canvas$/
+    })
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.common.js'
+      vue$: 'vue/dist/vue.common.js',
+
+      // defaults to the prebundled browser version which causes webpack to error with:
+      // "Critical dependency: require function is used in a way in which dependencies cannot be statically extracted"
+      // webpack likes to bundle the dependencies itself, could really have a better error message though
+      'youtubei.js$': 'youtubei.js/dist/browser.js',
     },
     extensions: ['.js', '.vue']
   },

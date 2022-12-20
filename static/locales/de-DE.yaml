@@ -8,7 +8,7 @@ FreeTube: FreeTube
 File: Datei
 Quit: Beenden
 Edit: Bearbeiten
-Undo: Rückgängig
+Undo: Rückgängig machen
 Redo: Wiederherstellen
 Cut: Ausschneiden
 Copy: Kopieren
@@ -214,6 +214,7 @@ Settings:
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
     Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
     Hide Side Bar Labels: Seitenleisten-Beschriftungen ausblenden
+    Hide FreeTube Header Logo: FreeTube Titel Logo ausblenden
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
     Force Local Backend for Legacy Formats: Lokales System für Legacy Formate erzwingen
@@ -267,6 +268,7 @@ Settings:
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
         Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
         Unterordner zu erstellen.
+    Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -392,6 +394,9 @@ Settings:
     Hide Live Streams: Livestreams ausblenden
     Hide Sharing Actions: Freigabe-Aktionen ausblenden
     Hide Chapters: Kapitel ausblenden
+    Hide Upcoming Premieres: Anstehende Premieren ausblenden
+    Hide Channels: Videos aus Kanälen ausblenden
+    Hide Channels Placeholder: Kanalname oder Kanal-ID
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -452,6 +457,17 @@ Settings:
       wenn sie aktiviert sind. Es wird dringend empfohlen, Sicherungskopien zu erstellen.
       Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
+  Password Dialog:
+    Password: Passwort
+    Enter Password To Unlock: Gib das Passwort ein, um die Einstellungen zu entsperren
+    Password Incorrect: Passwort falsch
+    Unlock: Entsperren
+  Password Settings:
+    Remove Password: Passwort entfernen
+    Password Settings: Passworteinstellungen
+    Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
+      zu verhindern
+    Set Password: Passwort festlegen
 About:
   #On About page
   About: Über
@@ -689,7 +705,7 @@ Video:
     Volume: Lautstärke
     Bandwidth: Bandbreite
     Buffered: Gepuffert
-    Dropped / Total Frames: Ausgelassene Bilder / Bilder insgesamt
+    Dropped / Total Frames: Entfallene Einzelbilder / Gesamtzahl der Einzelbilder
     Mimetype: Medientyp
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
@@ -755,6 +771,7 @@ Share:
     kopiert
   Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
     kopiert
+  Share Channel: Kanal teilen
 Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
@@ -916,6 +933,11 @@ Tooltips:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
       einer erhöhten Nutzung des Direktzugriffsspeichers.
+  Distraction Free Settings:
+    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um alle Videos,
+      Wiedergabelisten und den Kanal selbst vor der Anzeige in der Suche oder den
+      Trends zu verbergen. Der eingegebene Kanalname muss vollständig übereinstimmen
+      und es wird zwischen Groß- und Kleinschreibung unterschieden.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -967,3 +989,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
     aktuelles Kapitel: {chapterName}'
 Preferences: Einstellungen
+Ok: OK

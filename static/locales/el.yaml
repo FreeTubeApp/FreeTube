@@ -80,6 +80,7 @@ Subscriptions:
     το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Εγγραφών. Εξαναγκασμένη εναλλαγή σε λειτουργία
     RSS για αποφυγή περιορισμού των κλήσεων
   Load More Videos: Φόρτωση περισσότερων Βίντεο
+  Error Channels: Κανάλια με προβλήματα
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -144,8 +145,8 @@ Settings:
       περιπτώσεων
     System Default: Προεπιλογή συστήματος
     Current Invidious Instance: Τρέχων στιγμιότυπο Invidious
-    The currently set default instance is {instance}: 'Το τρέχων προεπιλεγμένο στιγμιότυπο είναι
-      {instance}'
+    The currently set default instance is {instance}: 'Το τρέχων προεπιλεγμένο στιγμιότυπο
+      είναι {instance}'
     No default instance has been set: Δεν έχει οριστεί κανένα προεπιλεγμένο στιγμιότυπο
     External Link Handling:
       External Link Handling: Χειρισμός εξωτερικών συνδέσμων
@@ -301,8 +302,8 @@ Settings:
     Manage Subscriptions: Διαχείριση συνδρομών
     Import Playlists: Εισαγωγή λιστών αναπαραγωγής
     Export Playlists: Εξαγωγή Λιστών Αναπαραγωγής
-    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}", γίνεται
-      παράκαμψη του αντικειμένου
+    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}",
+      γίνεται παράκαμψη του αντικειμένου
     All playlists has been successfully imported: Όλες οι λίστες αναπαραγωγής έχουν
       εισαχθεί με επιτυχία
     All playlists has been successfully exported: Όλες οι λίστες αναπαραγωγής έχουν
@@ -465,9 +466,10 @@ Profile:
     άδειο'
   Profile has been created: 'Το προφίλ σας έχει δημιουργηθεί'
   Profile has been updated: 'Το προφίλ σας έχει ενημερωθεί'
-  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το προεπιλεγμένο σας
-    προφίλ'
-  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ σας'
+  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το
+    προεπιλεγμένο σας προφίλ'
+  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ
+    σας'
   Your default profile has been changed to your primary profile: 'Το κύριο προφίλ
     σας έχει οριστεί ως το προεπιλεγμένο'
   '{profile} is now the active profile': 'Το {profile} είναι τώρα το ενεργό προφίλ'
@@ -496,8 +498,8 @@ Channel:
   Unsubscribe: 'Απεγγραφή'
   Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
     τις Συνδρομές/Εγγραφές σας'
-  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count} άλλα
-    κανάλια'
+  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count}
+    άλλα κανάλια'
   Added channel to your subscriptions: 'Προστέθηκε κανάλι στις συνδρομές/εγγραφές
     σας'
   Search Channel: 'Αναζήτηση στο κανάλι'
@@ -763,11 +765,11 @@ Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου
 
 Yes: 'Ναι'
 No: 'Όχι'
-A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο είναι
-  πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
+A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο
+  είναι πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
 Download From Site: Κάντε λήψη απο την Ιστοσελίδα
-Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber} είναι πλέον διαθέσιμη.
-  Κάντε κλικ για περισσότερες λεπτομέρειες
+Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber}
+  είναι πλέον διαθέσιμη. Κάντε κλικ για περισσότερες λεπτομέρειες
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό
   το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω
   μη διαθεσιμότητας του βίντεο στη χώρα σας.
@@ -845,8 +847,8 @@ Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος �
 Search Bar:
   Clear Input: Εκκαθάριση εισαγωγής
 Open New Window: Άνοιγμα Νέου παραθύρου
-Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο Invidious
-  έχει οριστεί σε {instance}
+Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο
+  Invidious έχει οριστεί σε {instance}
 Downloading has completed: Η λήψη του "{videoTitle}" ολοκληρώθηκε
 Starting download: Έναρξη λήψης του "{videoTitle}"
 Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious
@@ -856,3 +858,14 @@ External link opening has been disabled in the general settings: Το άνοιγ
 Are you sure you want to open this link?: Είστε σίγουροι ότι θέλετε να ανοίξετε αυτόν
   τον σύνδεσμο;
 Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "{videoTitle}"
+Channels:
+  Channels: Κανάλια
+  Title: Λίστα Καναλιών
+  Search bar placeholder: Αναζήτηση Καναλιών
+  Unsubscribe: Απεγγραφή
+  Count: $ κανάλι(α) βρέθηκαν.
+  Empty: Η λίστα καναλιών σας είναι άδεια.
+  Unsubscribed: $ έχει αφαιρεθεί απο τις εγγραφές σας
+  Unsubscribe Prompt: Είστε σίγουρος πως επιθυμείτε να απεγγραφείτε από το "$"?
+New Window: Νέο Παράθυρο
+Screenshot Error: Λήψη στιγμιότυπου απέτυχε. $

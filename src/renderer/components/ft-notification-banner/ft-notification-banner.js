@@ -18,8 +18,7 @@ export default Vue.extend({
       this.$emit('click', response)
     },
 
-    handleClose: function (event) {
-      event.stopPropagation()
+    handleClose: function () {
       this.handleClick(false)
     }
   }

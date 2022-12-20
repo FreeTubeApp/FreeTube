@@ -197,6 +197,7 @@ Settings:
     Expand Side Bar by Default: 預設展開側邊欄
     Disable Smooth Scrolling: 停用平滑捲動
     Hide Side Bar Labels: 隱藏側邊欄標籤
+    Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
@@ -354,6 +355,9 @@ Settings:
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
     Hide Chapters: 隱藏章節
+    Hide Upcoming Premieres: 隱藏即將到來的首映
+    Hide Channels Placeholder: 頻道名稱或 ID
+    Hide Channels: 隱藏頻道中的影片
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -407,6 +411,16 @@ Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
     Experimental Settings: 實驗設定
+  Password Settings:
+    Set Password To Prevent Access: 設定密碼以防止存取設定
+    Remove Password: 移除密碼
+    Password Settings: 密碼設定
+    Set Password: 設定密碼
+  Password Dialog:
+    Password: 密碼
+    Enter Password To Unlock: 輸入密碼以解鎖設定
+    Password Incorrect: 密碼不正確
+    Unlock: 解鎖
 About:
   #On About page
   About: '關於'
@@ -672,6 +686,7 @@ Share:
   Include Timestamp: 包含時間戳
   YouTube Channel URL copied to clipboard: YouTube頻道URL已複製到剪貼簿
   Invidious Channel URL copied to clipboard: Invidious頻道URL已複製到剪貼簿
+  Share Channel: 分享頻道
 Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
@@ -793,6 +808,8 @@ Tooltips:
     DefaultCustomArgumentsTemplate: （預設：'{defaultCustomArguments}'）
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
+  Distraction Free Settings:
+    Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋或趨勢中。輸入的頻道名稱必須完全符合，且區分大小寫。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
@@ -834,3 +851,4 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 章節清單可見，目前章節：{chapterName}
   'Chapters list hidden, current chapter: {chapterName}': 章節清單已隱藏，目前章節：{chapterName}
 Preferences: 偏好設定
+Ok: 確定

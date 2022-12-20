@@ -1,6 +1,7 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell, nativeTheme, net, protocol
+  powerSaveBlocker, screen, session, shell,
+  nativeTheme, net, protocol, clipboard
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -21,6 +22,8 @@ function runApp() {
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
+    showSelectAll: false,
+    showCopyLink: false,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
         label: 'Show / Hide Video Statistics',
@@ -31,12 +34,127 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        // Only show the option for in-app URLs and not external ones
+        visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
         click: () => {
           createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
+      },
+      // Only show select all in text fields
+      {
+        label: 'Select All',
+        enabled: parameters.editFlags.canSelectAll,
+        visible: parameters.isEditable,
+        click: () => {
+          browserWindow.webContents.selectAll()
+        }
       }
-    ]
+    ],
+    // only show the copy link entry for external links and the /playlist, /channel and /watch in-app URLs
+    // the /playlist, /channel and /watch in-app URLs get transformed to their equivalent YouTube or Invidious URLs
+    append: (defaultActions, parameters, browserWindow) => {
+      let visible = false
+      const urlParts = parameters.linkURL.split('#')
+      const isInAppUrl = urlParts[0] === browserWindow.webContents.getURL().split('#')[0]
+
+      if (parameters.linkURL.length > 0) {
+        if (isInAppUrl) {
+          const path = urlParts[1]
+
+          if (path) {
+            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+          }
+        } else {
+          visible = true
+        }
+      }
+
+      const copy = (url) => {
+        if (parameters.linkText) {
+          clipboard.write({
+            bookmark: parameters.linkText,
+            text: url
+          })
+        } else {
+          clipboard.writeText(url)
+        }
+      }
+
+      const transformURL = (toYouTube) => {
+        let origin
+
+        if (toYouTube) {
+          origin = 'https://www.youtube.com'
+        } else {
+          origin = 'https://redirect.invidious.io'
+        }
+
+        const [path, query] = urlParts[1].split('?')
+        const [route, id] = path.split('/').filter(p => p)
+
+        switch (route) {
+          case 'playlist':
+            return `${origin}/playlist?list=${id}`
+          case 'channel':
+            return `${origin}/channel/${id}`
+          case 'watch': {
+            let url
+
+            if (toYouTube) {
+              url = `https://youtu.be/${id}`
+            } else {
+              url = `https://redirect.invidious.io/watch?v=${id}`
+            }
+
+            if (query) {
+              const params = new URLSearchParams(query)
+              const newParams = new URLSearchParams()
+              let hasParams = false
+
+              if (params.has('playlistId')) {
+                newParams.set('list', params.get('playlistId'))
+                hasParams = true
+              }
+
+              if (params.has('timestamp')) {
+                newParams.set('t', params.get('timestamp'))
+                hasParams = true
+              }
+
+              if (hasParams) {
+                url += '?' + newParams.toString()
+              }
+            }
+
+            return url
+          }
+        }
+      }
+
+      return [
+        {
+          label: 'Copy Lin&k',
+          visible: visible && !isInAppUrl,
+          click: () => {
+            copy(parameters.linkURL)
+          }
+        },
+        {
+          label: 'Copy YouTube Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(true))
+          }
+        },
+        {
+          label: 'Copy Invidious Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(false))
+          }
+        }
+      ]
+    }
   })
 
   // disable electron warning
@@ -161,6 +279,16 @@ function runApp() {
       })
     })
 
+    // make InnerTube requests work with the fetch function
+    // InnerTube rejects requests if the referer isn't YouTube or empty
+    const innertubeRequestFilter = { urls: ['https://www.youtube.com/youtubei/*'] }
+
+    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
+      requestHeaders.referer = 'https://www.youtube.com'
+      // eslint-disable-next-line node/no-callback-literal
+      callback({ requestHeaders })
+    })
+
     if (replaceHttpCache) {
       // in-memory image cache
 
@@ -245,6 +373,10 @@ function runApp() {
               data: Buffer.from(errorJson)
             })
           })
+        })
+
+        newRequest.on('error', (err) => {
+          console.error(err)
         })
 
         newRequest.end()
@@ -997,7 +1129,48 @@ function runApp() {
           { role: 'zoomout' },
           { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
-          { role: 'togglefullscreen' }
+          { role: 'togglefullscreen' },
+          { type: 'separator' },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/history' }
+              )
+            },
+            type: 'normal'
+          },
+          { type: 'separator' },
+          {
+            label: 'Back',
+            accelerator: 'Alt+Left',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-back',
+              )
+            },
+            type: 'normal',
+          },
+          {
+            label: 'Forward',
+            accelerator: 'Alt+Right',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-forward',
+              )
+            },
+            type: 'normal',
+          },
         ]
       },
       {

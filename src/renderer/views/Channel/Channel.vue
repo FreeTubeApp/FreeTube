@@ -104,7 +104,7 @@
 
           <ft-input
             :placeholder="$t('Channel.Search Channel')"
-            :select-on-focus="true"
+            :show-clear-text-button="true"
             class="channelSearch"
             @click="newSearch"
           />

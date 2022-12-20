@@ -17,6 +17,7 @@ import {
   buildVTTFileLocally,
   copyToClipboard,
   formatDurationAsTimestamp,
+  getUserDataPath,
   showToast
 } from '../../helpers/utils'
 
@@ -1194,7 +1195,6 @@ export default Vue.extend({
       }
 
       if (this.removeVideoMetaFiles) {
-        const userData = await this.getUserDataPath()
         if (process.env.NODE_ENV === 'development') {
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
@@ -1206,6 +1206,7 @@ export default Vue.extend({
             fs.rmSync(vttFileLocation)
           }
         } else {
+          const userData = await getUserDataPath()
           const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
           const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
@@ -1239,7 +1240,7 @@ export default Vue.extend({
 
     createLocalDashManifest: async function (formats) {
       const xmlData = ytDashGen.generate_dash_file_from_formats(formats, this.videoLengthSeconds)
-      const userData = await this.getUserDataPath()
+      const userData = await getUserDataPath()
       let fileLocation
       let uriSchema
       if (process.env.NODE_ENV === 'development') {
@@ -1317,7 +1318,7 @@ export default Vue.extend({
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STORYBOARD ARRAY ELEMENTS
       const results = buildVTTFileLocally(storyboardArray[1])
-      this.getUserDataPath().then((userData) => {
+      getUserDataPath().then((userData) => {
         let fileLocation
         let uriSchema
 
@@ -1474,7 +1475,6 @@ export default Vue.extend({
     ...mapActions([
       'updateHistory',
       'updateWatchProgress',
-      'getUserDataPath',
       'ytGetVideoInformation',
       'invidiousGetVideoInformation',
       'updateSubscriptionDetails'

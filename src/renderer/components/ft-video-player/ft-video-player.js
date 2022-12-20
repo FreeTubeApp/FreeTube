@@ -15,7 +15,7 @@ import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
-import { showSaveDialog, showToast } from '../../helpers/utils'
+import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtVideoPlayer',
@@ -657,7 +657,7 @@ export default Vue.extend({
 
       markerDiv.title = chapter.title
       markerDiv.className = 'chapterMarker'
-      markerDiv.style.marginLeft = (chapter.startSeconds / this.lengthSeconds) * 100 - 0.5 + '%'
+      markerDiv.style.marginLeft = `calc(${(chapter.startSeconds / this.lengthSeconds) * 100}% - 1px)`
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
@@ -1382,7 +1382,7 @@ export default Vue.extend({
         }
 
         if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
-          dirPath = await this.getPicturesPath()
+          dirPath = await getPicturesPath()
         } else {
           dirPath = this.screenshotFolder
         }
@@ -1415,7 +1415,7 @@ export default Vue.extend({
         this.updateScreenshotFolderPath(dirPath)
       } else {
         if (this.screenshotFolder === '') {
-          dirPath = path.join(await this.getPicturesPath(), 'Freetube', subDir)
+          dirPath = path.join(await getPicturesPath(), 'Freetube', subDir)
         } else {
           dirPath = path.join(this.screenshotFolder, subDir)
         }
@@ -1767,9 +1767,31 @@ export default Vue.extend({
       return listContentHTML
     },
 
+    /**
+     * determines whether the jump to the previous or next chapter
+     * with the the keyboard shortcuts, should be done
+     * first it checks whether there are any chapters (the array is also empty if chapters are hidden)
+     * it also checks that the approprate combination was used ALT/OPTION on macOS and CTRL everywhere else
+     * @param {KeyboardEvent} event the keyboard event
+     * @param {string} direction the direction of the jump either previous or next
+     * @returns {boolean}
+     */
+    canChapterJump: function (event, direction) {
+      const currentChapter = this.$parent.videoCurrentChapterIndex
+      return this.chapters.length > 0 &&
+        (direction === 'previous' ? currentChapter > 0 : this.chapters.length - 1 !== currentChapter) &&
+        ((process.platform !== 'darwin' && event.ctrlKey) ||
+          (process.platform === 'darwin' && event.metaKey))
+    },
+
     // This function should always be at the bottom of this file
     keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+      if (document.activeElement.classList.contains('ft-input')) {
+        return
+      }
+
+      // allow chapter jump keyboard shortcuts
+      if (event.ctrlKey && (process.platform === 'darwin' || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))) {
         return
       }
 
@@ -1842,14 +1864,24 @@ export default Vue.extend({
             this.changeVolume(-0.05)
             break
           case 'ArrowLeft':
-            // Rewind by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
+            if (this.canChapterJump(event, 'previous')) {
+              // Jump to the previous chapter
+              this.player.currentTime(this.chapters[this.$parent.videoCurrentChapterIndex - 1].startSeconds)
+            } else {
+              // Rewind by the time-skip interval (in seconds)
+              this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
+            }
             break
           case 'ArrowRight':
-            // Fast-Forward by the time-skip interval (in seconds)
             event.preventDefault()
-            this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+            if (this.canChapterJump(event, 'next')) {
+              // Jump to the next chapter
+              this.player.currentTime(this.chapters[this.$parent.videoCurrentChapterIndex + 1].startSeconds)
+            } else {
+              // Fast-Forward by the time-skip interval (in seconds)
+              this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+            }
             break
           case 'I':
           case 'i':
@@ -1922,7 +1954,6 @@ export default Vue.extend({
       'updateDefaultCaptionSettings',
       'parseScreenshotCustomFileName',
       'updateScreenshotFolderPath',
-      'getPicturesPath'
     ])
   }
 })
