@@ -742,6 +742,17 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
           )
+          switch (data._id) {
+            // Update app menu on related setting update
+            case 'hideTrendingVideos':
+            case 'hidePopularVideos':
+            case 'hidePlaylists':
+              await setMenu()
+              break
+
+            default:
+              // Do nothing for unmatched settings
+          }
           return null
 
         default:
