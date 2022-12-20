@@ -1,54 +1,54 @@
 # Put the name of your locale in the same language
-Locale Name: 'हिन्दी'
-FreeTube: 'FreeTube'
+Locale Name: 'English (US)'
+FreeTube: 'फ्रीट्यूब'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   ऐप का यह हिस्सा अभी तैयार नहीं है। बाद में वापस आएँ जब प्रगति हुई हो
 
 # Webkit Menu Bar
 File: 'फ़ाइल'
-Quit: 'छोड़ना'
+Quit: 'बाहर आएं'
 Edit: 'संपादित करें'
-Undo: 'पूर्ववत करें'
+Undo: 'अनडू करें'
 Redo: 'फिर से करें'
-Cut: 'कट'
-Copy: 'प्रतिलिपि'
+Cut: 'काटें'
+Copy: 'कापी करें'
 Paste: 'पेस्ट करें'
-Delete: 'निकाले'
+Delete: 'मिटाएं'
 Select all: 'सबको चुनें'
 Reload: 'फिरसे लोड करे'
-Force Reload: 'फ़ोर्स से फिरसे लोड करे'
-Toggle Developer Tools: 'Developer tools टॉगल करे'
+Force Reload: 'फोर्स रीलोड'
+Toggle Developer Tools: 'डेवलपर टूल टॉगल करें'
 Actual size: 'वास्तविक आकार'
-Zoom in: 'Zoom in'
-Zoom out: 'Zoom out'
-Toggle fullscreen: 'फ़ुलस्क्रीन टॉगल करे'
+Zoom in: 'ज़ूम इन'
+Zoom out: 'ज़ूम आउट'
+Toggle fullscreen: 'फ़ुलस्क्रीन टॉगल करें'
 Window: 'विंडो'
-Minimize: 'मिनिमाइज़ (Minimize) करे'
-Close: 'बंद करे'
-Back: 'पीछे'
-Forward: 'आगे'
+Minimize: 'मिनिमाइज़ करें'
+Close: 'बंद करें'
+Back: 'पीछे जाएँ'
+Forward: 'आगे जाएँ'
 
-Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} आ गया है! और details
-  के लिए इधर click करे।'
-Download From Site: 'साइट से डाउनलोड (download) करे'
-A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग है, {blogTitle}। और जानने
-  के लिए इधर click करिए'
+Version {versionNumber} is now available!  Click for more details: 'संस्करण {versionNumber}
+  अब उपलब्ध है! अधिक विवरण के लिए क्लिक करें'
+Download From Site: 'साइट से डाउनलोड करें'
+A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग अब उपलब्ध
+  है, {blogTitle}। अधिक देखने के लिए क्लिक करें'
 
 # Search Bar
-Search / Go to URL: 'Search / URL पर जाए'
+Search / Go to URL: 'खोज / यूआरएल पर जाएं'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Search फ़िल्टर'
+  Search Filters: 'खोज फ़िल्टर'
   Sort By:
-    Sort By: 'सॉर्ट करे'
+    Sort By: 'इसके अनुसार क्रमबद्ध करें'
     Most Relevant: 'सबसे प्रासंगिक'
     Rating: 'रेटिंग'
-    Upload Date: 'अपलोड दिवस'
+    Upload Date: 'अपलोड की तारीख़'
     View Count: 'दृश्य गणना'
   Time:
-    Time: 'वक्त'
-    Any Time: 'किसी भी वक्त'
+    Time: 'समय'
+    Any Time: 'किसी भी समय'
     Last Hour: 'पिछले घंटे'
     Today: 'आज'
     This Week: 'इस हफ़्ते'
@@ -56,87 +56,118 @@ Search Filters:
     This Year: 'इस साल'
   Type:
     Type: 'प्रकार'
-    All Types: 'सब प्रकार'
-    Videos: 'विडीयोज'
-    Channels: 'चैनले'
+    All Types: 'सब प्रकार के'
+    Videos: 'वीडियो'
+    Channels: 'चैनल'
     #& Playlists
   Duration:
     Duration: 'अवधि'
-    All Durations: 'सब अवधि'
-    Short (< 4 minutes): 'छोटे (<४ मिनट)'
-    Long (> 20 minutes): 'बड़े (>२० मिनट)'
+    All Durations: 'सभी अवधियाँ'
+    Short (< 4 minutes): 'छोटे (<4 मिनट)'
+    Long (> 20 minutes): 'बड़े (>20 मिनट)'
   # On Search Page
-  Search Results: 'खोजे परिणाम'
+  Search Results: 'खोज के परिणाम'
   Fetching results. Please wait: 'परिणाम ला रहे है। कृपया प्रतीक्षा करे'
   Fetch more results: 'ज़्यादा परिणाम लाए'
 # Sidebar
-  There are no more results for this search: इस सर्च के लिए और परिणाम नहो है।
+  There are no more results for this search: इस खोज के लिए और कोई परिणाम नहीं है
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सब्सक्रिप्शन'
   Latest Subscriptions: 'सबसे नए सब्सक्रिप्शन'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'यह
-    प्रोफ़ाइल (profile)के पास बहुत सारे सब्सक्रिप्शने है।  RSS को बल से रटे लिमिटिंग
-    (rate limiting) से बचाए'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपकेय
-    सब्सक्रिप्शन लिस्ट अब के लिए ख़ाली है। सब्सक्रिप्शन add करने से इधर देख सक्ते
-    है।'
-  'Getting Subscriptions. Please wait.': 'सब्सक्रिप्शने (subscriptions) ढूंड रहे है।
-    कृपया रुके।'
-  Refresh Subscriptions: 'सब्सक्रिप्शने Refresh करे'
-  Load More Videos: 'ज़्यादा विडीओए लोड करे'
+    प्रोफ़ाइल के पास बहुत सारे सब्सक्रिप्शनस है।  RSS को बलपूर्वक प्रयोग करके रेट
+    लिमिटिंग से बचाएं'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपके
+    सब्सक्रिप्शन सूची वर्तमान में ख़ाली है। उन्हें यहां देखने के लिए सब्सक्रिप्शन
+    जोड़ना प्रारंभ करें।'
+  'Getting Subscriptions. Please wait.': 'सब्सक्रिप्शन प्राप्त कर रहे हैं, कृपया प्रतीक्षा
+    करें।'
+  Refresh Subscriptions: 'सब्सक्रिप्शन ताज़ा करें'
+  Load More Videos: 'और वीडियो लोड करें'
+  Error Channels: त्रुटि वाले चैनल
+  Disabled Automatic Fetching: आपने स्वचालित सदस्यता लाना अक्षम कर दिया है। सदस्यताओं
+    को यहां देखने के लिए उन्हें रीफ़्रेश करें।
+  Empty Channels: आपके सब्सक्राइब किए गए चैनल में वर्तमान में कोई वीडियो नहीं है।
 Trending:
-  Trending: 'ट्रेनडिंग'
-Most Popular: 'सबसे ज़्यादा देखा हुआ'
-Playlists: 'प्लेलिस्टे (playlists)'
+  Trending: 'रुझान में'
+  Music: संगीत
+  Default: डिफ़ॉल्ट
+  Movies: मूवीज
+  Trending Tabs: ट्रेंडिंग टैब्स
+  Gaming: गेमिंग
+Most Popular: 'सबसे लोकप्रिय'
+Playlists: 'प्लेलिस्ट'
 User Playlists:
-  Your Playlists: 'आपके प्लेलिस्टे'
+  Your Playlists: 'आपकी प्लेलिस्ट'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: आपके
-    पास बचाए गए वीडियोए नहीं हैं। एक वीडियो के कोने पर सेव बटन पर क्लिक (click) करें,
-    यहां लिस्ट पर वही आएगा
+    सहेजे गए वीडियो खाली हैं। किसी वीडियो को यहां सूचीबद्ध करने के लिए उसके कोने पर
+    सहेजें बटन पर क्लिक करें
   Playlist Message: यह पृष्ठ पूरी तरह से काम करने वाली प्लेलिस्ट को प्रतिबिंबित नहीं
     करता है। यह केवल उन वीडियो को सूचीबद्ध करता है जिन्हें आपने सहेजा है या पसंदीदा
     है। जब काम समाप्त हो जाता है, तो वर्तमान में यहां सभी वीडियो 'पसंदीदा' प्लेलिस्ट
     में स्थानांतरित हो जाएंगे।
+  Empty Search Message: इस प्लेलिस्ट में आपकी खोज से मेल खाने वाला कोई वीडियो नहीं
+    है
+  Search bar placeholder: प्लेलिस्ट में खोजें
 History:
   # On History Page
   History: 'इतिहास'
   Watch History: 'देखने का इतिहास'
-  Your history list is currently empty.: 'आपके देखे गए वीडियो की सूची खली है।'
+  Your history list is currently empty.: 'आपकी इतिहास सूची वर्तमान में खाली है।'
+  Empty Search Message: आपके इतिहास में ऐसा कोई वीडियो नहीं है जो आपकी खोज से मेल
+    खाता हो
+  Search bar placeholder: इतिहास में खोजें
 Settings:
   # On Settings Page
-  Settings: 'स्थापना'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'ऐप
-    को प्रभावी होने वाले परिवर्तनों के लिए पुनः आरंभ करने की आवश्यकता है। Restart
-    और परिवर्तन लागू करें?'
+  Settings: 'सेटिंग्स'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'परिवर्तनों
+    को प्रभावी करने के लिए ऐप को पुनः आरंभ करने की आवश्यकता है। पुनः आरंभ करें और
+    परिवर्तन लागू करें?'
   General Settings:
-    General Settings: 'सामान्य सेटिंग्स'
-    Check for Updates: ''
-    Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
-    Locale Preference: ''
+    General Settings: 'जनरल सेटिंग्स'
+    Check for Updates: 'अपडेट के लिए जाँच शुरु करें'
+    Check for Latest Blog Posts: 'नवीनतम ब्लॉग पोस्ट के लिए जाँच करें'
+    Fallback to Non-Preferred Backend on Failure: 'विफलता पर गैर-पसंदीदा बैकएंड पर
+      फ़ॉलबैक'
+    Enable Search Suggestions: 'खोज सुझाव सक्षम करें'
+    Default Landing Page: 'डिफ़ॉल्ट लैंडिंग पृष्ठ'
+    Locale Preference: 'स्थानीय प्रेफरन्स'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'पसंदीदा एपीआई बैकएंड'
+      Local API: 'स्थानीय एपीआई'
+      Invidious API: 'इनविडियस एपीआई'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'वीडियो दृश्य प्रकार'
+      Grid: 'ग्रिड'
+      List: 'सूची'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
+      Thumbnail Preference: 'थंमनेल प्रेफरन्स'
+      Default: 'डिफ़ॉल्ट'
+      Beginning: 'शुरुआत'
+      Middle: 'मध्य'
+      End: 'अंत'
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
-    Region for Trending: ''
+    Region for Trending: 'ट्रेंडिंग के लिए क्षेत्र'
         #! List countries
+    No default instance has been set: कोई डिफ़ॉल्ट इंस्टेंस सेट नहीं किया गया है
+    External Link Handling:
+      Open Link: लिंक खोलें
+      Ask Before Opening Link: लिंक खोलने से पहले पूछें
+      External Link Handling: बाहरी लिंक हैंडलिंग
+      No Action: कोई कार्रवाई नहीं
+    System Default: सिस्टम डिफ़ॉल्ट
+    Current instance will be randomized on startup: स्टार्टअप पर वर्तमान इंस्टेंस
+      यादृच्छिक किया जाएगा
+    The currently set default instance is {instance}: वर्तमान में निर्धारित डिफ़ॉल्ट
+      इंस्टेंस {instance} है
+    Clear Default Instance: डिफ़ॉल्ट इंस्टेंस साफ़ करें
+    View all Invidious instance information: इनविडियस इंस्टेंस की सभी जानकारी देखें
+    Set Current Instance as Default: वर्तमान इंस्टेंस को डिफ़ॉल्ट के रूप में सेट करें
+    Current Invidious Instance: वर्तमान इनविडियस इंस्टेंस
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'थीम सेटिंग्स'
+    Match Top Bar with Main Color: 'टॉप बार को मेन कलर से मैच करें'
     Expand Side Bar by Default: ''
     Disable Smooth Scrolling: ''
     UI Scale: ''
@@ -171,7 +202,7 @@ Settings:
     Play Next Video: ''
     Turn on Subtitles by Default: ''
     Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'इनविडियस के माध्यम से प्रॉक्सी वीडियो'
     Autoplay Playlists: ''
     Enable Theatre Mode by Default: ''
     Default Volume: ''
@@ -294,7 +325,7 @@ About:
 
   Latest FreeTube News: ''
 
-  Email: ईमेल
+  Email: ईमेल करें
 Profile:
   Profile Select: ''
   All Channels: ''
@@ -369,12 +400,12 @@ Video:
   Copy YouTube Link: ''
   Open YouTube Embedded Player: ''
   Copy YouTube Embedded Player Link: ''
-  Open in Invidious: ''
-  Copy Invidious Link: ''
+  Open in Invidious: 'इनविडियस में खोलें'
+  Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
   Open Channel in YouTube: ''
   Copy YouTube Channel Link: ''
-  Open Channel in Invidious: ''
-  Copy Invidious Channel Link: ''
+  Open Channel in Invidious: 'इनविडियस में चैनल खोलें'
+  Copy Invidious Channel Link: 'इनवीडियस चैनल लिंक कॉपी करें'
   View: ''
   Views: ''
   Loop Playlist: ''
@@ -395,7 +426,9 @@ Video:
   Live Chat is currently not supported in this build.: ''
   'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled.  Chat messages will appear here once sent.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'लाइव
+    चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन
+    आवश्यक है।'
   Download Video: ''
   video only: ''
   audio only: ''
@@ -456,8 +489,8 @@ Playlist:
     Share Playlist: ''
     Copy YouTube Link: ''
     Open in YouTube: ''
-    Copy Invidious Link: ''
-    Open in Invidious: ''
+    Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
+    Open in Invidious: 'इनवीडियस में खोलें'
 
 # On Video Watch Page
 #* Published
@@ -478,9 +511,11 @@ Share:
   Copy Embed: ''
   Open Embed: ''
   # On Click
-  Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
-  Invidious Channel URL copied to clipboard: ''
+  Invidious URL copied to clipboard: 'इनवीडियस URL क्लिपबोर्ड पर कापी किया गया'
+  Invidious Embed URL copied to clipboard: 'इनवीडियस एम्बेड URL क्लिपबोर्ड पर कापी
+    किया गया'
+  Invidious Channel URL copied to clipboard: 'इनविडियस चैनल URL क्लिपबोर्ड पर कॉपी
+    किया गया'
   YouTube URL copied to clipboard: ''
   YouTube Embed URL copied to clipboard: ''
   YouTube Channel URL copied to clipboard: ''
@@ -509,22 +544,35 @@ Up Next: ''
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
+    Preferred API Backend: 'वह बैकएंड चुनें जिसका उपयोग FreeTube डेटा प्राप्त करने
+      के लिए करता है। स्थानीय एपीआई एक अंतर्निहित चिमटा है। Invidious API को कनेक्ट
+      करने के लिए Invidious सर्वर की आवश्यकता होती है।'
     Fallback to Non-Preferred Backend on Failure: ''
     Thumbnail Preference: ''
-    Invidious Instance: ''
+    Invidious Instance: 'वह इनविडियस इंस्टेंस जिससे FreeTube API कॉल के लिए कनेक्ट
+      होगा।'
     Region for Trending: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
-    Proxy Videos Through Invidious: ''
+    Force Local Backend for Legacy Formats: 'केवल तभी काम करता है जब Invidious API
+      आपका डिफ़ॉल्ट हो। जब सक्षम किया जाता है, तो स्थानीय एपीआई चलेगा और इसके द्वारा
+      लौटाए गए लीगेसी प्रारूपों का उपयोग करेगा, बजाय इसके कि इनविदियस द्वारा लौटाए
+      गए। मदद करता है जब Invidious द्वारा लौटाए गए वीडियो देश प्रतिबंधों के कारण नहीं
+      चलते हैं।'
+    Proxy Videos Through Invidious: 'YouTube से सीधा संबंध बनाने के बजाय वीडियो परोसने
+      के लिए Invidious से जुड़ेंगे। एपीआई वरीयता को ओवरराइड करता है।'
     Default Video Format: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
 
 # Toast Messages
+  External Player Settings:
+    External Player: बाहरी प्लेयर चुनने पर, थंबनेल पर बाहरी प्लेयर में वीडियो खोलने
+      के लिए (प्लेलिस्ट अगर समर्थित है) एक आइकन प्रदर्शित होगा। चेतावनी, द्वेषपूर्ण
+      सेटिंग्स बाहरी खिलाड़ियों को प्रभावित नहीं करती हैं।
 Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
+Invidious API Error (Click to copy): 'कपटपूर्ण एपीआई त्रुटि (कॉपी करने के लिए क्लिक
+  करें)'
+Falling back to Invidious API: 'Invidious API पर वापस आना'
 Falling back to the local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
 Subscriptions have not yet been implemented: ''
@@ -541,4 +589,23 @@ Canceled next video autoplay: ''
 
 Yes: ''
 No: ''
-More: ज़्यादा
+More: अधिक
+New Window: नई विंडो
+Open New Window: नई विंडो खोलें
+Channels:
+  Channels: चैनल
+  Search bar placeholder: चैनल खोजें
+  Count: '{number} चैनल मिला(मिले)।'
+  Title: चैनल सूची
+  Empty: आपकी चैनल सूची वर्तमान में खाली है।
+  Unsubscribe: अनसब्सक्राईब करें
+  Unsubscribed: '{channelName} को आपकी सब्सक्रिप्शन से हटा दिया गया है'
+  Unsubscribe Prompt: क्या आप वाकई "{channelName}" की सदस्यता छोड़ना चाहते हैं?
+Are you sure you want to open this link?: क्या आप वाकई इस लिंक को खोलना चाहते हैं?
+Search Bar:
+  Clear Input: इनपुट खाली करें
+Default Invidious instance has been set to {instance}: डिफ़ॉल्ट इनविडियस इंस्टेंस
+  को {instance} पर सेट कर दिया गया है
+Default Invidious instance has been cleared: डिफ़ॉल्ट इनविडियस इंस्टेंस साफ़ कर दिया
+  गया है
+Preferences: प्रेफरन्स
