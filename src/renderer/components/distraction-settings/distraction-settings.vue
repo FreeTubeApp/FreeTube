@@ -103,7 +103,7 @@
           @change="updateHideComments"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Show distraction free titles')"
+          :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
           :compact="true"
           :default-value="showDistractionFreeTitles"
           @change="updateShowDistractionFreeTitles"

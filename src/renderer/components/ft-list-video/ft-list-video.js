@@ -288,6 +288,13 @@ export default Vue.extend({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+    displayTitle: function () {
+      if (this.showDistractionFreeTitles) {
+        return toDistractionFreeTitle(this.data.title)
+      } else {
+        return this.data.title
+      }
+    },
   },
   mounted: function () {
     this.parseVideoData()
@@ -366,12 +373,7 @@ export default Vue.extend({
 
     parseVideoData: function () {
       this.id = this.data.videoId
-
-      if (this.showDistractionFreeTitles) {
-        this.title = toDistractionFreeTitle(this.data.title)
-      } else {
-        this.title = this.data.title
-      }
+      this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author
