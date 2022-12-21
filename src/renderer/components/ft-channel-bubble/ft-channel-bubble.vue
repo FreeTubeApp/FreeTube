@@ -4,7 +4,7 @@
     tabindex="0"
     :aria-labelledby="sanitizedId"
     @click="handleClick"
-    @keydown.space.enter.prevent="handleClick(event)"
+    @keydown.space.enter.prevent="handleClick($event)"
   >
     <img
       class="bubble"
