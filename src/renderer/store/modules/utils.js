@@ -292,10 +292,11 @@ const actions = {
       // youtube.com/embed
       function() {
         if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
-          if (urlObject.pathname.replace('/embed/', '') === 'videoseries') {
+          const urlTail = urlObject.pathname.replace('/embed/', '')
+          if (urlTail === 'videoseries') {
             paramsObject.playlistId = urlObject.searchParams.get('list')
           } else {
-            extractParams(urlObject.pathname.replace('/embed/', ''))
+            extractParams(urlTail)
           }
           return paramsObject
         }
