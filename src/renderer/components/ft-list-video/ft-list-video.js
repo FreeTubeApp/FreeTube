@@ -7,7 +7,9 @@ import {
   formatDurationAsTimestamp,
   openExternalLink,
   showToast,
-  toLocalePublicationString
+  toLocalePublicationString,
+  toDistractionFreeTitle,
+
 } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -282,7 +284,10 @@ export default Vue.extend({
 
     currentLocale: function () {
       return i18n.locale.replace('_', '-')
-    }
+    },
+    showDistractionFreeTitles: function () {
+      return this.$store.getters.getShowDistractionFreeTitles
+    },
   },
   mounted: function () {
     this.parseVideoData()
@@ -361,7 +366,12 @@ export default Vue.extend({
 
     parseVideoData: function () {
       this.id = this.data.videoId
-      this.title = this.data.title
+
+      if (this.showDistractionFreeTitles) {
+        this.title = toDistractionFreeTitle(this.data.title)
+      } else {
+        this.title = this.data.title
+      }
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author
