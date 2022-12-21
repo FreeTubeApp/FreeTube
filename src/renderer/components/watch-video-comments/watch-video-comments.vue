@@ -3,14 +3,22 @@
     <h4
       v-if="commentData.length === 0 && !isLoading"
       class="getCommentsTitle"
+      role="button"
+      tabindex="0"
       @click="getCommentData"
+      @keydown.space.prevent="getCommentData"
+      @keydown.enter.prevent="getCommentData"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
     <h4
       v-if="commentData.length > 0 && !isLoading && !showComments"
       class="getCommentsTitle"
+      role="button"
+      tabindex="0"
       @click="showComments = true"
+      @keydown.space.prevent="showComments = true"
+      @keydown.enter.prevent="showComments = true"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -29,7 +37,11 @@
       {{ $t("Comments.Comments") }}
       <span
         class="hideComments"
+        role="button"
+        tabindex="0"
         @click="showComments = false"
+        @keydown.space.prevent="showComments = false"
+        @keydown.enter.prevent="showComments = false"
       >
         {{ $t("Comments.Hide Comments") }}
       </span>
@@ -39,14 +51,20 @@
     >
       <div
         v-for="(comment, index) in commentData"
+        :id="'comment' + index"
         :key="index"
         class="comment"
       >
-        <img
-          :src="comment.authorThumb"
-          class="commentThumbnail"
-          @click="goToChannel(comment.authorLink)"
+        <router-link
+          :to="`/channel/${comment.authorLink}`"
+          tabindex="-1"
         >
+          <img
+            :src="comment.authorThumb"
+            alt=""
+            class="commentThumbnail"
+          >
+        </router-link>
         <p
           v-if="comment.isPinned"
           class="commentPinned"
@@ -64,9 +82,12 @@
             :class="{
               commentOwner: comment.isOwner
             }"
-            @click="goToChannel(comment.authorLink)"
           >
-            {{ comment.author }}
+            <router-link
+              :to="`/channel/${comment.authorLink}`"
+            >
+              {{ comment.author }}
+            </router-link>
           </span>
           <img
             v-if="comment.isMember"
@@ -97,7 +118,10 @@
           >
             <img
               :src="channelThumbnail"
+              :title="$t('Comments.Hearted')"
+              :aria-label="$t('Comments.Hearted')"
               class="commentHeartBadgeImg"
+              alt=""
             >
             <font-awesome-icon
               :icon="['fas', 'heart']"
@@ -111,7 +135,11 @@
           <span
             v-if="comment.numReplies > 0"
             class="commentMoreReplies"
+            role="button"
+            tabindex="0"
             @click="toggleCommentReplies(index)"
+            @keydown.space.prevent="toggleCommentReplies(index)"
+            @keydown.enter.prevent="toggleCommentReplies(index)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -128,22 +156,32 @@
         >
           <div
             v-for="(reply, replyIndex) in comment.replies"
+            :id="'comment' + index + '-' + replyIndex"
             :key="replyIndex"
             class="comment"
           >
-            <img
-              :src="reply.authorThumb"
-              class="commentThumbnail"
+            <router-link
+              :to="`/channel/${reply.authorLink}`"
+              tabindex="-1"
             >
+              <img
+                :src="reply.authorThumb"
+                class="commentThumbnail"
+                alt=""
+              >
+            </router-link>
             <p class="commentAuthorWrapper">
               <span
                 class="commentAuthor"
                 :class="{
                   commentOwner: reply.isOwner
                 }"
-                @click="goToChannel(reply.authorLink)"
               >
-                {{ reply.author }}
+                <router-link
+                  :to="`/channel/${reply.authorLink}`"
+                >
+                  {{ reply.author }}
+                </router-link>
               </span>
               <img
                 v-if="reply.isMember"
@@ -171,13 +209,17 @@
               v-if="reply.numReplies > 0"
               class="commentMoreReplies"
             >
-              View {{ reply.numReplies }} replies
+              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }) }}
             </p>
           </div>
           <div
             v-if="comment.replyToken !== null"
             class="showMoreReplies"
-            @click="getCommentReplies(index)"
+            role="button"
+            tabindex="0"
+            @click="getCommentReplies(index, comment.replies.length)"
+            @keydown.space.prevent="getCommentReplies(index, comment.replies.length)"
+            @keydown.enter.prevent="getCommentReplies(index, comment.replies.length)"
           >
             <span>{{ $t("Comments.Show More Replies") }}</span>
           </div>
@@ -194,7 +236,11 @@
     <h4
       v-if="commentData.length > 0 && !isLoading && showComments && nextPageToken"
       class="getMoreComments"
+      role="button"
+      tabindex="0"
       @click="getMoreComments"
+      @keydown.space.prevent="getMoreComments"
+      @keydown.enter.prevent="getMoreComments"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>
