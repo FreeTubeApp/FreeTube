@@ -503,7 +503,7 @@ export function extractNumberFromString(str) {
  * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
  * @returns {string} the title with upper case characters removed
  */
-export function toDistractionFreeTitle(title, minUpperCase = 2) {
+export function toDistractionFreeTitle(title, minUpperCase = 3) {
   const firstValidCharIndex = (word) => {
     const reg = /[\p{L}]/u
     return word.search(reg)
@@ -516,6 +516,6 @@ export function toDistractionFreeTitle(title, minUpperCase = 2) {
     return chars.join('')
   }
 
-  const reg = RegExp(`\\p{Lu}{${minUpperCase},}`, 'ug')
+  const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
   return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
