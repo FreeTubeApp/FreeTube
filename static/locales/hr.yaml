@@ -387,6 +387,8 @@ Settings:
     Hide Live Streams: Sakrij prijenose uživo
     Hide Chapters: Sakrij poglavlja
     Hide Upcoming Premieres: Sakrij nadolazeće premijere
+    Hide Channels: Sakrij videa iz kanala
+    Hide Channels Placeholder: Ime kanala ili ID
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -444,6 +446,16 @@ Settings:
       programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
     Experimental Settings: Eksperimentalne postavke
     Replace HTTP Cache: Zamijeni HTTP predmemoriju
+  Password Dialog:
+    Password Incorrect: Lozinka neispravna
+    Unlock: Otključaj
+    Enter Password To Unlock: Za otključavanje postavki upiši lozinku
+    Password: Lozinka
+  Password Settings:
+    Password Settings: Lozinka za postavke
+    Set Password: Postavi lozinku
+    Remove Password: Ukloni lozinku
+    Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
 About:
   #On About page
   About: 'Informacije'
@@ -887,6 +899,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
+  Distraction Free Settings:
+    Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
+      kao i sam kanal u pretrazi ili u trendovima. Upisano ime kanala se mora potpuno
+      poklapati i razlikuje velika i mala slova.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -935,3 +951,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Popis poglavlja skriven,
     aktualno poglavlje: {chapterName}'
 Preferences: Korisničke postavke
+Ok: U redu
