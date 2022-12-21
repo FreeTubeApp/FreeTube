@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
+
 export default Vue.extend({
   name: 'FtChannelBubble',
   props: {
