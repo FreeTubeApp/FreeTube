@@ -276,6 +276,7 @@ Settings:
       a reproducción do vídeo
     Max Video Playback Rate: Velocidade máxima da reprodución do vídeo
     Enter Fullscreen on Display Rotate: Poñase a pantalla enteira o xirala pantalla
+    Skip by Scrolling Over Video Player: Saltar desprazándose polo reprodutor de vídeo
   Privacy Settings:
     Privacy Settings: 'Axustes de privacidade'
     Remember History: 'Lembrar histórico'
@@ -843,6 +844,8 @@ Tooltips:
       premida a tecla Control (tecla Comando no Mac) e prema co botón esquerdo do
       rato para voltar rapidamente á taxa de reprodución predeterminada (1x a menos
       que o modificase na configuración).
+    Skip by Scrolling Over Video Player: Usala roda de desprazamento para saltalo
+      vídeo, estilo MPV.
   Subscription Settings:
     Fetch Feeds from RSS: 'Cando está activado, FreeTube usará RSS no canto do método
       predeterminao para obter as subscricións. RSS é máis rápido e impide o bloqueo
