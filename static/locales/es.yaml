@@ -268,6 +268,8 @@ Settings:
         Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
         crear subcarpetas.
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
+    Skip by Scrolling Over Video Player: Omitir el desplazarse sobre el reproductor
+      de video
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -867,6 +869,8 @@ Tooltips:
       y mantén la tecla Control (Comando en Mac) y haz clic izquierdo para volver
       a la velocidad de reproducción por defecto (1x o la que hayas configurado en
       ajustes).
+    Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
+      el video, estilo MPV.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
