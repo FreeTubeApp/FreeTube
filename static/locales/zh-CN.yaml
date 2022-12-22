@@ -248,6 +248,7 @@ Settings:
       Enable: 允许截屏
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
+    Skip by Scrolling Over Video Player: 滚动视频播放器跳过
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -778,6 +779,7 @@ Tooltips:
       将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
+    Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。
