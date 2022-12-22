@@ -276,6 +276,7 @@ Settings:
         створення вкладених тек.
     Enter Fullscreen on Display Rotate: Переходити в повноекранний режим за обертання
       екрана
+    Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -826,6 +827,8 @@ Tooltips:
       клавішу Control (клавіша Command на Mac) і клацніть лівою кнопкою миші, щоб
       швидко повернутися до типової швидкості відтворення (1x, якщо вона не була змінена
       в налаштуваннях).
+    Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування
+      відео в стилі MPV.
   Subscription Settings:
     Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
       стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню
