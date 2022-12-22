@@ -270,6 +270,7 @@ Settings:
         Milisaniyesi 3 basamak. %i Video Kimliği. Alt klasörler oluşturmak için "\"
         veya "/" kullanabilirsiniz.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
+    Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -864,6 +865,8 @@ Tooltips:
       hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı
       oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek
       için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
+    Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma
+      tekerleğini kullanın.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
