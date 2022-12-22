@@ -237,6 +237,7 @@ Settings:
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
+    Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
     Next Video Interval: Next Video Interval
@@ -775,6 +776,7 @@ Tooltips:
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
+    Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the video, MPV style.
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.
