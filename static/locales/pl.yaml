@@ -249,7 +249,7 @@ Settings:
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
     Fast-Forward / Rewind Interval: Interwał przewijania
     Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
-      myszy na obszarze odtwarzania
+      myszy na obszarze odtwarzacza
     Max Video Playback Rate: Maksymalna szybkość odtwarzania
     Video Playback Rate Interval: Przeskoki w wyborze prędkości odtwarzania
     Screenshot:
@@ -270,6 +270,8 @@ Settings:
       Enable: Włącz zrzuty ekranu
     Enter Fullscreen on Display Rotate: Przyłącz na tryb pełnoekranowy przy zmianie
       orientacji wyświetlacza
+    Skip by Scrolling Over Video Player: Przewijaj film, kręcąc kółkiem myszy na obszarze
+      odtwarzacza
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -896,6 +898,8 @@ Tooltips:
       aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command”
       na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej
       wartości (1x, chyba że została zmieniona w ustawieniach).
+    Skip by Scrolling Over Video Player: Użyj kółka myszy, by przewijać film tak jak
+      w MPV.
   Privacy Settings:
     Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
