@@ -273,6 +273,7 @@ Settings:
       Quality Label: Kvalita snímku obrazovky
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
+    Skip by Scrolling Over Video Player: Přeskočení posouváním na přehrávači videa
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -831,6 +832,8 @@ Tooltips:
       rychlost přehrávání. Stisknutím a podržením Ctrl (Command na Mac) a stisknutím
       levého tlačítka myši se rychle vrátíte na výchozí rychlost přehrávání (1x, pokud
       není změněná v nastavení).
+    Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat
+      ve stylu MPV.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašeho odebírání kanálů. RSS je rychlejší a brání blokování
