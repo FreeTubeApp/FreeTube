@@ -31,10 +31,10 @@ Back: Recuar
 Forward: Avançar
 
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
-  está disponível! Clique aqui para mais informações.
+  já está disponível!  Clique para mais detalhes
 Download From Site: Descarregar do site
 A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um
-  novo blogue, {blogTitle}. Clique aqui para ver mais.'
+  novo blogue, {blogTitle}. Clique aqui para ver mais'
 
 # Search Bar
 Search / Go to URL: Pesquisar/Ir para o URL
@@ -68,7 +68,7 @@ Search Filters:
     Long (> 20 minutes): Longos (> 20 minutos)
   # On Search Page
   Search Results: Resultados
-  Fetching results. Please wait: A procurar. Por favor aguarde.
+  Fetching results. Please wait: A procurar. Por favor aguarde
   Fetch more results: Obter mais resultados
   There are no more results for this search: Não existem mais resultados
 # Sidebar
@@ -78,7 +78,7 @@ Subscriptions:
   Latest Subscriptions: Subscrições recentes
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
-    evitar que a sua rede seja bloqueada.
+    evitar que a sua rede seja bloqueada
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.
   'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
@@ -104,7 +104,7 @@ User Playlists:
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
     lista está vazia. Carregue no botão Guardar no canto de um vídeo para o mostrar
-    aqui.
+    aqui
   Search bar placeholder: Procurar na lista de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que correspondam à
     sua pesquisa
@@ -218,6 +218,7 @@ Settings:
     Secondary Color Theme: Cor secundária
         #* Main Color Theme
     Hide Side Bar Labels: Ocultar texto na barra lateral
+    Hide FreeTube Header Logo: Ocultar Logotipo Do Cabeçalho Do FreeTube
   Player Settings:
     Player Settings: Definições do reprodutor
     Force Local Backend for Legacy Formats: Forçar sistema de ligação local para formatos
@@ -272,6 +273,7 @@ Settings:
     Video Playback Rate Interval: Intervalo da velocidade de reprodução de vídeos
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
+    Skip by Scrolling Over Video Player: Saltar por percorrer o leitor de vídeo
   Privacy Settings:
     Privacy Settings: Definições de privacidade
     Remember History: Memorizar histórico
@@ -318,6 +320,9 @@ Settings:
     Hide Live Streams: Ocultar transmissões em direto
     Hide Sharing Actions: Ocultar ações de partilha
     Hide Chapters: Ocultar capítulos
+    Hide Upcoming Premieres: Ocultar Próximas estreias
+    Hide Channels: Ocultar vídeos de canais
+    Hide Channels Placeholder: Nome ou identificação do canal
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -423,6 +428,17 @@ Settings:
     Warning: Estas definições são experimentais e podem provocar falhas se ativadas.
       É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
     Replace HTTP Cache: Substituir cache HTTP
+  Password Dialog:
+    Password: Palavra passe
+    Enter Password To Unlock: Introduzir palavra-passe para desbloquear definições
+    Password Incorrect: Senha Incorrecta
+    Unlock: Desbloquear
+  Password Settings:
+    Password Settings: Definições de senha
+    Set Password To Prevent Access: Definir uma palavra-passe para impedir o acesso
+      às definições
+    Set Password: Definir Palavra-passe
+    Remove Password: Remover Palavra-passe
 About:
   #On About page
   About: Acerca
@@ -776,6 +792,8 @@ Tooltips:
       controlar a taxa de reprodução. Pressione e mantenha premida a tecla Ctrl (Comando
       no Mac) e clique com o botão esquerdo do rato para voltar rapidamente à taxa
       de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
+    Skip by Scrolling Over Video Player: Use a roda de rolagem para saltar através
+      do vídeo, estilo MPV.
   Subscription Settings:
     Fetch Feeds from RSS: Quando ativado, FreeTube irá obter as suas subscrições através
       de RSS em vez do método normal. O RSS é mais rápido e impede que seja bloqueado
@@ -803,6 +821,11 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Levará ao aumento da utilização de RAM.
+  Distraction Free Settings:
+    Hide Channels: Introduza o nome de um canal ou ID do canal para esconder todos
+      os vídeos, listas de reprodução e o próprio canal de aparecer em busca ou em
+      tendências. O nome do canal introduzido tem de ser uma correspondência completa
+      e é sensível a maiúsculas e minúsculas.
 Local API Error (Click to copy): API local encontrou um erro (clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (clique para
   copiar)
@@ -878,3 +901,4 @@ Clipboard:
   Copy failed: A cópia para a área de transferência falhou
   Cannot access clipboard without a secure connection: Não é possível aceder à área
     de transferência sem uma ligação segura
+Ok: Ok

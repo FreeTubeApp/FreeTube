@@ -230,9 +230,9 @@ Settings:
     Playlist Next Video Interval: 次の再生リストを再生する間隔
     Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
-    Display Play Button In Video Player: 動画プレーヤーで再生ボタンを表示する
-    Scroll Volume Over Video Player: 動画プレーヤーの上でボリュームをスクロール
-    Scroll Playback Rate Over Video Player: 動画の再生速度の調整
+    Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
+    Scroll Volume Over Video Player: 動画プレーヤーに音量調整を表示する
+    Scroll Playback Rate Over Video Player: 動画プレーヤーに再生速度調整を表示する
     Max Video Playback Rate: 最大動画再生速度
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
@@ -249,6 +249,7 @@ Settings:
       Ask Path: 保存フォルダを尋ねる
       Folder Button: フォルダーの選択
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
+    Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -262,7 +263,7 @@ Settings:
     Export Subscriptions: '登録のエクスポート'
     How do I import my subscriptions?: 'どうやってインポートするのですか？'
     Fetch Feeds from RSS: RSS から情報取得
-    Fetch Automatically: フィードを自動的に取得する
+    Fetch Automatically: フィードの自動取得
   Advanced Settings:
     Advanced Settings: '詳細設定'
     Enable Debug Mode (Prints data to the console): 'デバッグ モードの有効化（コンソールにデータ出力）'
@@ -356,6 +357,8 @@ Settings:
     Hide Sharing Actions: 共有の非表示
     Hide Chapters: チャプターの非表示
     Hide Upcoming Premieres: 今後のプレミア公開を非表示
+    Hide Channels: チャンネルから動画を非表示
+    Hide Channels Placeholder: チャネル名または ID
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -409,6 +412,16 @@ Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
     Warning: この設定項目は実験中であるため、有効にするとクラッシュするかもしれません。バックアップを必ず作成してください。使用は自己責任でお願いします！
+  Password Settings:
+    Password Settings: パスワード設定
+    Set Password To Prevent Access: 設定の変更にはパスワードを設定とする
+    Set Password: パスワードの設定
+    Remove Password: パスワードの削除
+  Password Dialog:
+    Enter Password To Unlock: パスワードを入力して設定を解除
+    Password Incorrect: パスワードが正しくありません
+    Password: パスワード
+    Unlock: ロック解除
 About:
   #On About page
   About: '概要'
@@ -771,6 +784,7 @@ Tooltips:
     Proxy Videos Through Invidious: 動画を取得するため、YouTube ではなく Invidious に接続します。API 設定を書き換えます。
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
+    Skip by Scrolling Over Video Player: スクロール ホイールを使用して、ビデオ、MPV スタイルをスキップします。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
@@ -794,6 +808,8 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
+  Distraction Free Settings:
+    Hide Channels: チャンネル名またはチャンネル ID を入力すると、すべてのビデオ、再生リスト、およびチャンネル自体が検索や人気に表示されなくなります。入力するチャンネル名は完全に一致することが必要で、大文字と小文字を区別します。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
@@ -837,3 +853,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター:
     {chapterName}'
 Preferences: 環境設定
+Ok: OK

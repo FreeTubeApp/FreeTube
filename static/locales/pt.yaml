@@ -269,6 +269,7 @@ Settings:
       Folder Label: Pasta das capturas de ecrã
       Ask Path: Perguntar onde guardar
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
+    Skip by Scrolling Over Video Player: Saltar por percorrer o leitor de vídeo
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Memorizar histórico'
@@ -889,6 +890,8 @@ Tooltips:
       controlar a taxa de reprodução. Pressione e mantenha premida a tecla Ctrl (Comando
       no Mac) e clique com o botão esquerdo do rato para voltar rapidamente à taxa
       de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
+    Skip by Scrolling Over Video Player: Use a roda de rolagem para pular o vídeo,
+      estilo MPV.
   General Settings:
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países mostrados funcionam
