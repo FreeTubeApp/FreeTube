@@ -714,6 +714,8 @@ Video:
     Dropped / Total Frames: Vyřazené / Celkový počet snímků
   Premieres in: Premiéra za
   Premieres: Premiéra
+  Show Super Chat Comment: Zobrazit komentář Super Chat
+  Scroll to Bottom: Posunout dolů
 Videos:
   #& Sort By
   Sort By:
@@ -795,6 +797,8 @@ Comments:
   From {channelName}: z {channelName}
   And others: a ostatní
   Member: Člen
+  View {replyCount} replies: Zobrazit {replyCount} odpovědí
+  Hearted: Se srdíčkem
 Up Next: 'Další'
 
 #Tooltips
