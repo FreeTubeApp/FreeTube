@@ -271,6 +271,7 @@ Settings:
         2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
+    Skip by Scrolling Over Video Player: Salta scorrendo il lettore video
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -875,6 +876,8 @@ Tooltips:
       CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
       alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
       nelle impostazioni).
+    Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
+      il video, in stile MPV.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
