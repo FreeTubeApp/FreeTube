@@ -731,6 +731,8 @@ Video:
     Dropped / Total Frames: Fotogramas perdidos/total de fotogramas
   Premieres in: Estreia em
   Premieres: Estreias
+  Scroll to Bottom: Rolar para baixo
+  Show Super Chat Comment: Mostrar Comentário do Super Chat
 Videos:
   #& Sort By
   Sort By:
@@ -810,6 +812,8 @@ Comments:
   And others: e outros
   From {channelName}: de {channelName}
   Member: Membro
+  Hearted: Marcado
+  View {replyCount} replies: Ver respostas {replyCount}
 Up Next: 'Próximo'
 
 # Toast Messages
