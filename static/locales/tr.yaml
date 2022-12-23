@@ -738,6 +738,8 @@ Video:
       videolar için kullanılabilir değil
   Premieres in: İlk gösterim
   Premieres: İlk gösterim
+  Scroll to Bottom: Aşağıya Kaydır
+  Show Super Chat Comment: Süper Sohbet Yorumunu Göster
 Videos:
   #& Sort By
   Sort By:
@@ -814,6 +816,8 @@ Comments:
   And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
+  View {replyCount} replies: '{replyCount} yanıtı görüntüle'
+  Hearted: Kalplendi
 Up Next: 'Sonraki'
 
 # Toast Messages
