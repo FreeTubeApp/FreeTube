@@ -250,6 +250,7 @@ Settings:
         為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。您也可以使用 "\"
         或 "/" 來建立子資料夾。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
+    Skip by Scrolling Over Video Player: 捲動影片播放器跳過
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -788,6 +789,7 @@ Tooltips:
       API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
       Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
+    Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
