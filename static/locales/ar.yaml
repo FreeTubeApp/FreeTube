@@ -260,6 +260,7 @@ Settings:
         2 أرقام. % T ميلي ثانية 3 أرقام. %s الفيديو الثاني. % t فيديو ميلي ثانية 3
         أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
+    Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -718,6 +719,8 @@ Video:
     Mimetype: نمط ميمي
   Premieres in: العرض الأول في
   Premieres: العرض الأولي
+  Scroll to Bottom: انتقل إلى الأسفل
+  Show Super Chat Comment: إظهار تعليق Super Chat
 Videos:
   #& Sort By
   Sort By:
@@ -790,6 +793,8 @@ Comments:
   And others: و اخرين
   From {channelName}: من {channelName}
   Member: عضو
+  View {replyCount} replies: عرض {replyCount} ردود
+  Hearted: القلب
 Up Next: 'التالي'
 
 # Toast Messages
@@ -851,6 +856,7 @@ Tooltips:
       للخلف للتحكم في معدل التشغيل. اضغط مع الاستمرار على مفتاح التحكم (مفتاح الأوامر
       على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم
       يتم تغييره في الإعدادات).
+    Skip by Scrolling Over Video Player: استخدم عجلة التمرير لتخطي الفيديو بنمط MPV.
   Privacy Settings:
     Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
       تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
