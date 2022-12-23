@@ -710,6 +710,8 @@ Video:
       для застарілих відео
   Premieres in: Прем'єри в
   Premieres: Прем'єри
+  Scroll to Bottom: Прокрутити до кінця
+  Show Super Chat Comment: Показати коментар із суперчату
 Videos:
   #& Sort By
   Sort By:
@@ -789,6 +791,8 @@ Comments:
   And others: та інших
   Pinned by: Закріплено
   Member: Учасник
+  Hearted: З сердечком
+  View {replyCount} replies: Переглянути {replyCount} відповідей
 Up Next: 'Далі вгору'
 
 #Tooltips
