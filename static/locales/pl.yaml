@@ -269,7 +269,7 @@ Settings:
         Empty File Name: Pusta nazwa pliku
       Enable: Włącz zrzuty ekranu
     Enter Fullscreen on Display Rotate: Przyłącz na tryb pełnoekranowy przy zmianie
-      orientacji wyświetlacza
+      orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film, kręcąc kółkiem myszy na obszarze
       odtwarzacza
   Subscription Settings:
@@ -427,7 +427,7 @@ Settings:
     Skip Options:
       Skip Option: Opcja pominięcia
       Auto Skip: Pomijaj automatycznie
-      Show In Seek Bar: Pokaż na pasku postępu
+      Show In Seek Bar: Pokazuj na pasku postępu
       Prompt To Skip: Zapytaj, czy pominąć
       Do Nothing: Nic nie rób
     Category Color: Kolor segmentu
@@ -705,6 +705,8 @@ Video:
     Dropped / Total Frames: Opuszczone klatki / klatki ogółem
   Premieres in: Premiera za
   Premieres: Premiery
+  Show Super Chat Comment: Pokazuj komentarze z „Superczatu”
+  Scroll to Bottom: Przewiń do końca
 Videos:
   #& Sort By
   Sort By:
@@ -760,13 +762,13 @@ Share:
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
-  Click to View Comments: 'Kliknij, aby wyświetlić komentarze'
+  Click to View Comments: 'Kliknij, aby zobaczyć komentarze'
   Getting comment replies, please wait: 'Pobieranie odpowiedzi do komentarza, proszę
     poczekać'
   Show Comments: 'Pokaż komentarze'
   Hide Comments: 'Schowaj komentarze'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Wyświetl'
+  View: 'Zobacz'
   Hide: 'Schowaj'
   Replies: 'odpowiedzi'
   Reply: 'odpowiedź'
@@ -783,6 +785,8 @@ Comments:
   Pinned by: Przypięty przez
   From {channelName}: od {channelName}
   Member: Wspierający
+  Hearted: z serduszkiem
+  View {replyCount} replies: Zobacz {replyCount} odpowiedzi
 Up Next: 'Następne'
 
 # Toast Messages
@@ -874,8 +878,8 @@ Tooltips:
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
       z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
-      chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wyświetlone
-      kraje są obsługiwane przez YouTube.
+      chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wymienione kraje
+      są obsługiwane przez YouTube.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
       API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
@@ -904,7 +908,7 @@ Tooltips:
     Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
   External Player Settings:
-    Ignore Warnings: Nie wyświetlaj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
+    Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).
     External Player: Wybranie zewnętrznego odtwarzacza spowoduje wyświetlenie na miniaturkach
       ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
