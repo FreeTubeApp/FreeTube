@@ -122,19 +122,6 @@ export default Vue.extend({
           openExternalLink(invidiousUrl)
           break
       }
-    },
-
-    playFirstVideo() {
-      const playlistInfo = {
-        playlistId: this.id
-      }
-
-      this.$router.push(
-        {
-          path: `/watch/${this.firstVideoId}`,
-          query: playlistInfo
-        }
-      )
     }
   }
 })
