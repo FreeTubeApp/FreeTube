@@ -630,6 +630,8 @@ Video:
   Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
+  Scroll to Bottom: 滚动到底部
+  Show Super Chat Comment: 显示超级聊天评论
 Videos:
   #& Sort By
   Sort By:
@@ -702,6 +704,8 @@ Comments:
   From {channelName}: 来自 {channelName}
   And others: 及其他
   Member: 成员
+  Hearted: 喜欢的
+  View {replyCount} replies: 查看 {replyCount} 条回复
 Up Next: 'Up Next'
 
 # Toast Messages
