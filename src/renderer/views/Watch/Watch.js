@@ -617,7 +617,7 @@ export default Vue.extend({
 
             if (typeof result.player_response.storyboards !== 'undefined') {
               const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-              this.createLocalStoryboardUrls(templateUrl)
+              await this.createLocalStoryboardUrls(templateUrl)
             }
           }
 
@@ -1328,12 +1328,13 @@ export default Vue.extend({
       if (process.env.NODE_ENV === 'development') {
         fileLocation = `static/storyboards/${this.videoId}.vtt`
         uriSchema = `storyboards/${this.videoId}.vtt`
-        // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
+        // if the location does not exist, writeFile will not create the directory, so we have to do that manually
         if (!(await pathExists('static/storyboards/'))) {
           fs.mkdir('static/storyboards/')
+        } else if (await pathExists(fileLocation)) {
+          await fs.rm(fileLocation)
         }
 
-        await fs.rm(fileLocation)
         await fs.writeFile(fileLocation, results)
       } else {
         if (!(await pathExists(`${userData}/storyboards/`))) {
