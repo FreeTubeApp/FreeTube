@@ -265,9 +265,7 @@ function runApp() {
 
     // Set CONSENT cookie on reasonable domains
     const consentCookieDomains = [
-      'http://www.youtube.com',
       'https://www.youtube.com',
-      'http://youtube.com',
       'https://youtube.com'
     ]
     consentCookieDomains.forEach(url => {
