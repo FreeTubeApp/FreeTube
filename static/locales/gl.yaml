@@ -726,6 +726,8 @@ Video:
     Dropped / Total Frames: Fotogramas Perdidos / Fotogramas Totales
   Premieres on: Estrease o
   Premieres: Estreos
+  Show Super Chat Comment: Mostralos comentarios do Super Chat
+  Scroll to Bottom: Desprácese ata abaixo
 Videos:
   #& Sort By
   Sort By:
@@ -806,6 +808,7 @@ Comments:
   Member: Membro
   From {channelName}: de {channelName}
   Show More Replies: Amosar máis respostas
+  View {replyCount} replies: Consulta {replyCount} respostas
 Up Next: 'Seguintes'
 
 #Tooltips
