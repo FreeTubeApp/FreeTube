@@ -711,6 +711,7 @@ Video:
       ältere Videos nicht verfügbar
   Premieres in: Premieren in
   Premieres: Premiere
+  Show Super Chat Comment: Super-Chat-Kommentar anzeigen
 Videos:
   #& Sort By
   Sort By:
@@ -797,6 +798,7 @@ Comments:
   And others: und andere
   Pinned by: Angeheftet von
   Member: Mitglied
+  View {replyCount} replies: '{replyCount} Antworten ansehen'
 Up Next: Nächster Titel
 
 # Toast Messages
