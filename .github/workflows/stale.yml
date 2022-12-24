@@ -20,4 +20,4 @@ jobs:
           stale-issue-label: 'U: stale'
           stale-pr-label: 'PR: stale'
           exempt-pr-labels: 'PR: WIP'
-          exempt-issue-labels: 'U: skip-stale'
+          exempt-issue-labels: 'enhancement'
