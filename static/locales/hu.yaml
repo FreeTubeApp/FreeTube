@@ -278,6 +278,7 @@ Settings:
     Max Video Playback Rate: Legfeljebb videó lejátszási sebesség
     Video Playback Rate Interval: Videó lejátszási sebesség időköze
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
+    Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -730,6 +731,8 @@ Video:
     Dropped / Total Frames: Elvetve/Összes képkocka
     Bitrate: Átviteli sebesség
   Premieres: Első előadások
+  Show Super Chat Comment: Haladó csevegési megjegyzés megjelenítése
+  Scroll to Bottom: Görgetés legalulra
 Videos:
   #& Sort By
   Sort By:
@@ -810,6 +813,8 @@ Comments:
   And others: és mások
   Pinned by: 'Kitűzte:'
   Member: Tag
+  View {replyCount} replies: '{replyCount} válasz megtekintése'
+  Hearted: Kedvenc
 Up Next: 'Következő'
 
 # Toast Messages
@@ -881,6 +886,8 @@ Tooltips:
       Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson
       az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez
       (1x, hacsak nem módosították a beállításokban).
+    Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja
+      a videót.
   Privacy Settings:
     Remove Video Meta Files: Ha engedélyezve van, a SzabadCső önműködően törli a videolejátszás
       során létrehozott metafájlokat, amikor a videómegtekintő oldal bezárul.
