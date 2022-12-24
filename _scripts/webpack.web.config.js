@@ -137,7 +137,7 @@ const config = {
     fallback: {
       buffer: require.resolve('buffer/'),
       dns: require.resolve('browserify/lib/_empty.js'),
-      fs: require.resolve('browserify/lib/_empty.js'),
+      'fs/promises': require.resolve('browserify/lib/_empty.js'),
       http: require.resolve('stream-http'),
       https: require.resolve('https-browserify'),
       net: require.resolve('browserify/lib/_empty.js'),
