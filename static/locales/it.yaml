@@ -703,6 +703,8 @@ Video:
     Mimetype: Tipo di media
   Premieres in: Anteprima in
   Premieres: Première
+  Scroll to Bottom: Scorri fino in fondo
+  Show Super Chat Comment: Mostra commento Super Chat
 Videos:
   #& Sort By
   Sort By:
@@ -783,6 +785,8 @@ Comments:
   And others: e altri
   Pinned by: Messo in primo piano da
   Member: Membro
+  Hearted: Di cuore
+  View {replyCount} replies: Visualizza {replyCount} risposte
 Up Next: 'Prossimi video'
 
 # Toast Messages
