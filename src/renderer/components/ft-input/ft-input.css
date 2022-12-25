@@ -114,6 +114,10 @@
   color: #EEEEEE;
 }
 
+.inputWrapper {
+  position: relative;
+}
+
 .inputAction {
   position: absolute;
   margin: 0 3px;
@@ -134,7 +138,7 @@
 
 .inputAction.withLabel {
   /* If showLabel defined, re-centralize the input button*/
-  top: 34px;
+  top: 14px;
 }
 
 
