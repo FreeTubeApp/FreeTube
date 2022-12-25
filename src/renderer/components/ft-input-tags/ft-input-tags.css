@@ -5,7 +5,6 @@
   border-radius: 5px;
   display: block;
   width: 60%;
-  margin-top: 2em;
 }
 
 .ft-tag-box ul {
@@ -48,7 +47,6 @@
 :deep(.ft-input-component .ft-input) {
   margin-top: 10px;
 }
-
 
 @media only screen and (max-width: 576px) {
   .ft-input-tags-component {
