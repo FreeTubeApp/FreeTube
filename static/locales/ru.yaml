@@ -267,6 +267,7 @@ Settings:
         для создания подпапок.
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
+    Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -688,6 +689,8 @@ Video:
   Premieres on: Премьеры
   Premieres in: Премьеры в
   Premieres: Премьеры
+  Show Super Chat Comment: Показать комментарий «Супер Чата»
+  Scroll to Bottom: Прокрутите вниз
 Videos:
   #& Sort By
   Sort By:
@@ -767,6 +770,8 @@ Comments:
   And others: и других
   Pinned by: Закреплено
   Member: Участник
+  View {replyCount} replies: Просмотреть {replyCount} ответ(а,ов)
+  Hearted: С сердечком
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -885,6 +890,8 @@ Tooltips:
       и удерживайте клавишу Control (клавиша Command на Mac) и щелкните левой кнопкой
       мыши, чтобы быстро вернуться к обычной скорости воспроизведения (1x, если она
       не была изменена в настройках).
+    Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
+      видео в стиле MPV.
   Privacy Settings:
     Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
       метаданные, созданные во время воспроизведения видео, когда страница просмотра
@@ -928,8 +935,8 @@ Search Bar:
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
 Starting download: Запуск загрузки «{videoTitle}»
 Downloading has completed: '«{videoTitle}» закончил загрузку'
-Downloading failed: Возникла проблема с загрузкой "{videoTitle}"
-Screenshot Success: Снимок экрана сохранён как "{filePath}"
+Downloading failed: Возникла проблема с загрузкой «{videoTitle}»
+Screenshot Success: Снимок экрана сохранён как «{filePath}»
 Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
 Age Restricted:
