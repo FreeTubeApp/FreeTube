@@ -38,7 +38,7 @@
       @keydown.space.prevent="handleClearTextClick"
       @keydown.enter.prevent="handleClearTextClick"
     />
-    <div class="inputWrapper">
+    <span class="inputWrapper">
       <input
         :id="id"
         ref="input"
@@ -64,7 +64,7 @@
         }"
         @click="handleClick"
       />
-    </div>
+    </span>
     <div class="options">
       <ul
         v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
