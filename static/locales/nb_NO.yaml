@@ -78,6 +78,9 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
   Error Channels: Kanaler med feil
+  Disabled Automatic Fetching: Automatisk innhenting av abonnementer avskrudd. Gjenoppfrisk
+    abonnementer for å se dem her.
+  Empty Channels: Ingen videoer fra kanaler du abonnerer på enda.
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -159,6 +162,7 @@ Settings:
       Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemforvalg
+      Catppuccin Mocha: Catppuccin-mokka
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -184,6 +188,20 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Rød'
       Dracula Yellow: 'Dracula Gul'
+      Catppuccin Mocha Flamingo: Catppuccin-mokka-flamingo
+      Catppuccin Mocha Pink: Catppuccin-mokka-rosa
+      Catppuccin Mocha Mauve: Catppuccin-mokka-blålilla
+      Catppuccin Mocha Red: Catppuccin-mokka-rød
+      Catppuccin Mocha Maroon: Catppuccin-mokka-kastanjebrun
+      Catppuccin Mocha Peach: Catppuccin-mokka-fersken
+      Catppuccin Mocha Yellow: Catppuccin-mokka-gul
+      Catppuccin Mocha Lavender: Catppuccin-mokka-lavendel
+      Catppuccin Mocha Sapphire: Catppuccin-mokka-saffir
+      Catppuccin Mocha Blue: Catppuccin-mokka-blå
+      Catppuccin Mocha Sky: Catppuccin-mokka-himmelblå
+      Catppuccin Mocha Green: Catppuccin-mokka-grønn
+      Catppuccin Mocha Teal: Catppuccin-mokka-blågrønn
+      Catppuccin Mocha Rosewater: Catppuccin-mokka-rosévann
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
     UI Scale: Grensesnittskala
@@ -229,7 +247,23 @@ Settings:
       Error:
         Forbidden Characters: Forbudte tegn
         Empty File Name: Tomt filnavn
+      Enable: Skru på skjermavbildninger
+      Folder Label: Skjermavbildningsmappe
+      Folder Button: Velg mappe
+      Format Label: Skjermavbildningsformat
+      Quality Label: Skjermavbildningskvalitet
+      Ask Path: Spør om hvor ting skal lagres
+      File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
+        i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
+        %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t
+        videomillisekunder, i tre siffer. %i video-ID. Du kan også bruke «\», eller
+        «/» for å lage undermapper.
     Max Video Playback Rate: Maks. videoavspillingshastighet
+    Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
+      videoavspiller
+    Video Playback Rate Interval: Intervall for videoavspillingshastighet
+    Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
+    Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -259,6 +293,7 @@ Settings:
     Export Subscriptions: 'Eksporter abonnementer'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
     Fetch Feeds from RSS: Hent informasjonskanaler fra RSS
+    Fetch Automatically: Hent informasjonskanaler automatisk
   Advanced Settings:
     Advanced Settings: 'Avanserte innstillinger'
     Enable Debug Mode (Prints data to the console): ''
@@ -364,6 +399,9 @@ Settings:
     Hide Chapters: Skjul kapitler
     Hide Channels Placeholder: Kanalnavn eller ID
     Hide Channels: Skjul videoer fra kanaler
+    Hide Sharing Actions: Skjul delingshandlinger
+    Hide Upcoming Premieres: Skjul kommende premièrer
+    Hide Video Description: Skjul videobeskrivelse
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -375,6 +413,10 @@ Settings:
     SponsorBlock Settings: SponsorBlock-innstillinger
     Skip Options:
       Do Nothing: Ikke gjør noe
+      Prompt To Skip: Spør om å hoppe over
+      Skip Option: Alternativ for å hoppe over
+      Auto Skip: Automatisk
+      Show In Seek Bar: Vis i blafringsfelt
     Category Color: Kategorifarge
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
@@ -390,11 +432,28 @@ Settings:
     Download Settings: Nedlastingsinnstillinger
     Download in app: Last ned i programmet
     Open in web browser: Åpne i nettleser
+    Download Behavior: Nedlastingsadferd
+    Ask Download Path: Spør om nedlastingssti
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
     Hide Search Bar: Skjul søkefelt
+    Show Family Friendly Only: Kun vis familievennlige
+    Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
   Experimental Settings:
     Experimental Settings: Eksperimentelle innstillinger
+    Replace HTTP Cache: Erstatt HTTP-hurtiglager
+    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasj. Sikkerhetskopi
+      anbefales. Bruk på egen risiko.
+  Password Settings:
+    Remove Password: Fjern passord
+    Password Settings: Passordinnstillinger
+    Set Password To Prevent Access: Sett et passord for å forhindre tilgang til innstillingene
+    Set Password: Sett passord
+  Password Dialog:
+    Unlock: Lås opp
+    Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
+    Password Incorrect: Feil passord
+    Password: Passord
 About:
   #On About page
   About: 'Om'
@@ -597,8 +656,15 @@ Video:
     Resolution: Oppløsning
     Player Dimensions: Avspillerdimensjoner
     Mimetype: Media-type
+    Buffered: Mellomlagret
+    Video ID: Video-ID
+    Video statistics are not available for legacy videos: Videostatistikk er ikke
+      tilgjengelig for gammeldagse videoer
+    Dropped / Total Frames: Tapte/totalt antall rammer
   Show Super Chat Comment: Vis supersludringskommentar
   Scroll to Bottom: Rull til bunnen
+  Premieres on: Har première
+  Premieres: Première
 Videos:
   #& Sort By
   Sort By:
@@ -651,6 +717,7 @@ Share:
   Include Timestamp: Inkluder tidsstempel
   Invidious Channel URL copied to clipboard: Invidious-kanalnettadresse kopiert til
     utklippstavle
+  Share Channel: Del kanal
 Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
@@ -675,6 +742,9 @@ Comments:
   From {channelName}: Fra {channelName}
   Pinned by: Festet av
   Member: Medlem
+  And others: og andre
+  View {replyCount} replies: Vis {replyCount} svar
+  Hearted: Hjertemerket
 Up Next: 'Neste'
 
 # Toast Messages
@@ -763,6 +833,8 @@ Tooltips:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
       av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler
       noe informasjon som videovarighet og sanntidsstatus.
+    Fetch Automatically: Henter abonnementer når en ny video åpnes og ved bytting
+      av profil.
   Player Settings:
     Default Video Format: Sett formater brukt når en video spilles. DASH-formater
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
@@ -774,6 +846,13 @@ Tooltips:
       av som følge av regionsbegrensninger.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube. Overstyrer API-innstillinger.
+    Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe deg gjennom
+      videoen i MPV-stil.
+    Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke
+      og holde Ctrl-tasten (⌘ på Mac) og rulle musehjulet forover eller bakover for
+      å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og
+      venstreklikk på musen for å gå tilbake til fovalgt avspillingshastighet (1x
+      med minde det har blitt endret i innstillingene).
   Privacy Settings:
     Remove Video Meta Files: Hvis denne instillingen er på, vil FreeTube automatisk
       slette metadata generert under videoavspilling når du lukker avspillingsiden.
@@ -788,6 +867,14 @@ Tooltips:
     External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
       hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
     DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på
+      bildehurtiglager i minne. Medfører økt minnebruk.
+  Distraction Free Settings:
+    Hide Channels: Skiv inn et kanalnavn eller kanal-ID for å skjule alle videoer,
+      spillelister og selve kanalen fra å vises i søk eller på vei opp. Kanalnavnet
+      som skrives inn må være et nøyaktig treff, og gjør forskjell på små og store
+      bokstaver.
 A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
   er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
@@ -825,11 +912,21 @@ Age Restricted:
   Type:
     Channel: Kanal
     Video: Video
+  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er aldersbegrenset
 Chapters:
   Chapters: Kapitler
+  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig.
+    Nåværende kapittel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende
+    kapittel: {chapterName}'
 Screenshot Success: Lagre skjermavbildning som «{filePath}»
 Screenshot Error: Skjermavbildning mislyktes. {error}
 Ok: OK
 Preferences: Innstillinger
 Downloading failed: Kunne ikke laste ned «{videoTitle}»
 Starting download: Starter nedlasting av «{videoTitle}» …
+Clipboard:
+  Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen
+    uten sikker forbindelse
+  Copy failed: Kunne ikke kopiere til utklippstavlen
+Downloading has completed: «{videoTitle}» er nedlastet
