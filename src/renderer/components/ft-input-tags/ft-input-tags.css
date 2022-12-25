@@ -48,3 +48,8 @@
   margin-top: 10px;
 }
 
+@media(max-width: 532px) {
+  .ft-input-tags-component {
+    width: 100%;
+  }
+}
