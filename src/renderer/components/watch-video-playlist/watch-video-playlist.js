@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 
@@ -11,7 +11,7 @@ export default Vue.extend({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video': FtListVideo
+    'ft-list-video-lazy': FtListVideoLazy
   },
   props: {
     playlistId: {

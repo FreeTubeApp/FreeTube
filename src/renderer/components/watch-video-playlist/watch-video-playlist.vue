@@ -108,7 +108,7 @@
               {{ index + 1 }}
             </p>
           </div>
-          <ft-list-video
+          <ft-list-video-lazy
             :data="item"
             :playlist-id="playlistId"
             :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
