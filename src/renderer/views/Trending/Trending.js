@@ -7,7 +7,7 @@ import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import { copyToClipboard, showToast } from '../../helpers/utils'
-import { getLocalTrending, parseLocalListVideo } from '../../helpers/api/local'
+import { getLocalTrending } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'Trending',
@@ -82,27 +82,13 @@ export default Vue.extend({
       this.isLoading = true
 
       try {
-        let trendingInstance
+        const { results, instance } = await getLocalTrending(this.region, this.currentTab, this.trendingInstance)
 
-        if (this.trendingInstance !== null) {
-          trendingInstance = this.trendingInstance
-        } else {
-          trendingInstance = await getLocalTrending(this.region)
-        }
-
-        // youtubei.js's tab names are localised, so we need to use the index to get tab name that youtubei.js expects
-        const tabIndex = ['default', 'music', 'gaming', 'movies'].indexOf(this.currentTab)
-        const results = await trendingInstance.getTabByName(trendingInstance.tabs[tabIndex])
-
-        const parsedVideos = results.videos
-          .filter((video) => video.type === 'Video')
-          .map(parseLocalListVideo)
-
-        this.shownResults = parsedVideos
+        this.shownResults = results
         this.isLoading = false
-        this.trendingInstance = results
+        this.trendingInstance = instance
 
-        this.$store.commit('setTrendingCache', { value: parsedVideos, page: this.currentTab })
+        this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
         setTimeout(() => {
           this.$refs[this.currentTab].focus()
         })

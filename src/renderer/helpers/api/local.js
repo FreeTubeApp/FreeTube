@@ -65,9 +65,33 @@ export async function getLocalPlaylist(id) {
   return await innertube.getPlaylist(id)
 }
 
-export async function getLocalTrending(location) {
-  const innertube = await createInnertube({ location })
-  return await innertube.getTrending()
+/**
+ * @typedef {import('youtubei.js/dist/src/core/TabbedFeed').default} TabbedFeed
+ */
+
+/**
+ * @param {string} location
+ * @param {string} tab
+ * @param {TabbedFeed|null} instance
+ */
+export async function getLocalTrending(location, tab, instance) {
+  if (instance === null) {
+    const innertube = await createInnertube({ location })
+    instance = await innertube.getTrending()
+  }
+
+  // youtubei.js's tab names are localised, so we need to use the index to get tab name that youtubei.js expects
+  const tabIndex = ['default', 'music', 'gaming', 'movies'].indexOf(tab)
+  const resultsInstance = await instance.getTabByName(instance.tabs[tabIndex])
+
+  const results = resultsInstance.videos
+    .filter((video) => video.type === 'Video')
+    .map(parseLocalListVideo)
+
+  return {
+    results,
+    instance: resultsInstance
+  }
 }
 
 /**
