@@ -118,7 +118,7 @@ export function parseLocalPlaylistVideo(video) {
 /**
  * @param {Video} video
  */
-export function parseLocalListVideo(video) {
+function parseLocalListVideo(video) {
   return {
     type: 'video',
     videoId: video.id,
