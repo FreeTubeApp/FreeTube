@@ -25,7 +25,7 @@
         >
           {{ index + 1 }}
         </p>
-        <ft-list-video
+        <ft-list-video-lazy
           :data="item"
           :playlist-id="playlistId"
           :playlist-index="index"
