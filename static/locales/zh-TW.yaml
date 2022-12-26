@@ -640,6 +640,8 @@ Video:
     Mimetype: 多媒體類型
   Premieres in: 首映於
   Premieres: 首映
+  Show Super Chat Comment: 顯示超級聊天留言
+  Scroll to Bottom: 捲動至底部
 Videos:
   #& Sort By
   Sort By:
@@ -712,6 +714,8 @@ Comments:
   From {channelName}: 來自 {channelName}
   Pinned by: 釘選由
   Member: 成員
+  View {replyCount} replies: 檢視 {replyCount} 則回覆
+  Hearted: 喜歡的
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
