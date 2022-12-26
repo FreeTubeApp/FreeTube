@@ -76,10 +76,10 @@ export default Vue.extend({
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
         let title =
         this.$route.meta.path === '/home'
-          ? process.env.PRODUCT_NAME
-          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+          ? packageDetails.productName
+          : `${this.$t(this.$route.meta.title)} - ${packageDetails.productName}`
         if (!title) {
-          title = process.env.PRODUCT_NAME
+          title = packageDetails.productName
         }
         return title
       } else {

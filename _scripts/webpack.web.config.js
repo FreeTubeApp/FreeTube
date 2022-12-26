@@ -9,8 +9,6 @@ const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
-const { productName } = require('../package.json')
-
 const isDevMode = process.env.NODE_ENV === 'development'
 
 const config = {
@@ -114,7 +112,6 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
       'process.env.IS_ELECTRON': false
     }),
     new webpack.ProvidePlugin({

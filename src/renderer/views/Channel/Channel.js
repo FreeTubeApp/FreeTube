@@ -16,6 +16,7 @@ import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import i18n from '../../i18n/index'
 import { copyToClipboard, showToast } from '../../helpers/utils'
+import packageDetails from '../../../../package.json'
 
 export default Vue.extend({
   name: 'Search',
@@ -273,7 +274,7 @@ export default Vue.extend({
         this.idType = 1
         this.channelName = channelName
         this.isFamilyFriendly = response.isFamilyFriendly
-        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
+        document.title = `${this.channelName} - ${packageDetails.productName}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
@@ -373,7 +374,7 @@ export default Vue.extend({
         const channelName = response.author
         const channelId = response.authorId
         this.channelName = channelName
-        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
+        document.title = `${this.channelName} - ${packageDetails.productName}`
         this.id = channelId
         this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
