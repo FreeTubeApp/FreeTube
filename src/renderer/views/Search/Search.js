@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import { calculateLengthInSeconds } from '@freetube/yt-trending-scraper/src/HtmlParser'
+import { timeToSeconds } from 'youtubei.js/dist/src/utils/Utils'
 import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -155,7 +155,7 @@ export default Vue.extend({
             let videoDuration = video.duration
             const videoId = video.id
             if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE' && videoDuration !== 'UPCOMING' && videoDuration !== 'PREMIERE') {
-              videoDuration = calculateLengthInSeconds(video.duration)
+              videoDuration = timeToSeconds(video.duration)
             }
             dataToShow.push(
               {
