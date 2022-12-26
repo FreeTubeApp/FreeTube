@@ -740,6 +740,17 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
           )
+          switch (data._id) {
+            // Update app menu on related setting update
+            case 'hideTrendingVideos':
+            case 'hidePopularVideos':
+            case 'hidePlaylists':
+              await setMenu()
+              break
+
+            default:
+              // Do nothing for unmatched settings
+          }
           return null
 
         default:
@@ -1041,7 +1052,12 @@ function runApp() {
     mainWindow.webContents.send('change-view', data)
   }
 
-  function setMenu() {
+  async function setMenu() {
+    const sidenavSettings = baseHandlers.settings._findSidenavSettings()
+    const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
+    const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
+    const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
+
     const template = [
       {
         label: 'File',
@@ -1130,22 +1146,6 @@ function runApp() {
           { role: 'togglefullscreen' },
           { type: 'separator' },
           {
-            label: 'History',
-            // MacOS: Command + Y
-            // Other OS: Ctrl + H
-            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
-            click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/history' }
-              )
-            },
-            type: 'normal'
-          },
-          { type: 'separator' },
-          {
             label: 'Back',
             accelerator: 'Alt+Left',
             click: (_menuItem, browserWindow, _event) => {
@@ -1170,6 +1170,96 @@ function runApp() {
             type: 'normal',
           },
         ]
+      },
+      {
+        label: 'Navigate',
+        submenu: [
+          {
+            label: 'Subscriptions',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/subscriptions' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Channels',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/subscribedchannels' }
+              )
+            },
+            type: 'normal'
+          },
+          !hideTrendingVideos && {
+            label: 'Trending',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/trending' }
+              )
+            },
+            type: 'normal'
+          },
+          !hidePopularVideos && {
+            label: 'Most Popular',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/popular' }
+              )
+            },
+            type: 'normal'
+          },
+          !hidePlaylists && {
+            label: 'Playlists',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) {
+                return
+              }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/userplaylists' }
+              )
+            },
+            type: 'normal'
+          },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'change-view',
+                { route: '/history' }
+              )
+            },
+            type: 'normal'
+          },
+        ].filter((v) => v !== false),
       },
       {
         role: 'window',

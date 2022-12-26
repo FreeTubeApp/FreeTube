@@ -31,6 +31,14 @@ class Settings {
     return db.settings.findOne({ _id: 'baseTheme' })
   }
 
+  static _findSidenavSettings() {
+    return {
+      hideTrendingVideos: db.settings.findOne({ _id: 'hideTrendingVideos' }),
+      hidePopularVideos: db.settings.findOne({ _id: 'hidePopularVideos' }),
+      hidePlaylists: db.settings.findOne({ _id: 'hidePlaylists' }),
+    }
+  }
+
   static _updateBounds(value) {
     return db.settings.update({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }
