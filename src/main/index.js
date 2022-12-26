@@ -1056,18 +1056,9 @@ function runApp() {
 
   async function setMenu() {
     const sidenavSettings = baseHandlers.settings._findSidenavSettings()
-    let hideTrendingVideos = false
-    try {
-      hideTrendingVideos = (await sidenavSettings.hideTrendingVideos).value
-    } catch {}
-    let hidePopularVideos = false
-    try {
-      hidePopularVideos = (await sidenavSettings.hidePopularVideos).value
-    } catch {}
-    let hidePlaylists = false
-    try {
-      hidePlaylists = (await sidenavSettings.hidePlaylists).value
-    } catch {}
+    const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
+    const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
+    const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [
       {
