@@ -443,6 +443,10 @@ const customActions = {
           commit('updateRecordWatchProgressInHistoryCache', data)
           break
 
+        case SyncEvents.HISTORY.UPDATE_PLAYLIST:
+          commit('updateRecordPlaylistInHistoryCache', data)
+          break
+
         case SyncEvents.GENERAL.DELETE:
           commit('removeFromHistoryCacheById', data)
           break

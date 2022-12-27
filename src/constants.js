@@ -38,7 +38,8 @@ const DBActions = {
   },
 
   HISTORY: {
-    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress'
+    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
+    UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
 
   PLAYLISTS: {
@@ -59,7 +60,8 @@ const SyncEvents = {
   },
 
   HISTORY: {
-    UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress'
+    UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
+    UPDATE_PLAYLIST: 'sync-history-update-playlist',
   },
 
   PLAYLISTS: {

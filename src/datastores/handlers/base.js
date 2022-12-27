@@ -58,6 +58,10 @@ class History {
     return db.history.update({ videoId }, { $set: { watchProgress } }, { upsert: true })
   }
 
+  static updateLastViewedPlaylist(videoId, playlistId) {
+    return db.history.update({ videoId }, { $set: { lastViewedPlaylistId: playlistId } }, { upsert: true })
+  }
+
   static delete(videoId) {
     return db.history.remove({ videoId })
   }
