@@ -13,12 +13,12 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
+import { pathExists } from '../../helpers/filesystem'
 import {
   buildVTTFileLocally,
   copyToClipboard,
   formatDurationAsTimestamp,
   getUserDataPath,
-  pathExists,
   showToast
 } from '../../helpers/utils'
 

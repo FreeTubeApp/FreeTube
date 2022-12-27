@@ -1,5 +1,5 @@
 import fs from 'fs/promises'
-import { pathExists } from '../../helpers/utils'
+import { pathExists } from '../../helpers/filesystem'
 
 const state = {
   currentInvidiousInstance: '',

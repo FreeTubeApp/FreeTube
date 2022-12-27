@@ -3,10 +3,10 @@ import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
+import { pathExists } from '../../helpers/filesystem'
 import {
   createWebURL,
   openExternalLink,
-  pathExists,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
   showSaveDialog,

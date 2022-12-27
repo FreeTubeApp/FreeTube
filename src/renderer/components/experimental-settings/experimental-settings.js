@@ -4,7 +4,8 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
-import { getUserDataPath, pathExists } from '../../helpers/utils'
+import { pathExists } from '../../helpers/filesystem'
+import { getUserDataPath } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'ExperimentalSettings',

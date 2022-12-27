@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { pathExists } from '../utils'
+import { pathExists } from '../filesystem'
 
 // based off https://github.com/LuanRT/YouTube.js/blob/6caa679df6ddc77d25be02dcb7355b722ab268aa/src/utils/Cache.ts
 // avoids errors caused by the fully dynamic `fs` and `path` module imports that youtubei.js's UniversalCache does
