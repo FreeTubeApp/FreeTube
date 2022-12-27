@@ -27,6 +27,10 @@ export default Vue.extend({
     optionValues: {
       type: Array,
       default: () => { return [] }
+    },
+    showClose: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
