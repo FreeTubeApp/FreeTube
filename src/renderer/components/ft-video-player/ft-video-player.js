@@ -1390,10 +1390,9 @@ export default Vue.extend({
         return
       }
 
-      const dirChar = process.platform === 'win32' ? '\\' : '/'
       let subDir = ''
-      if (filename.indexOf(dirChar) !== -1) {
-        const lastIndex = filename.lastIndexOf(dirChar)
+      if (filename.indexOf(path.sep) !== -1) {
+        const lastIndex = filename.lastIndexOf(path.sep)
         subDir = filename.substring(0, lastIndex)
         filename = filename.substring(lastIndex + 1)
       }
