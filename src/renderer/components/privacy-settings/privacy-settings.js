@@ -35,6 +35,9 @@ export default Vue.extend({
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
     },
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
+    },
     removeVideoMetaFiles: function () {
       return this.$store.getters.getRemoveVideoMetaFiles
     },
@@ -121,6 +124,7 @@ export default Vue.extend({
       'updateRemoveVideoMetaFiles',
       'removeAllHistory',
       'updateSaveWatchedProgress',
+      'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',
       'updateProfile',
       'removeProfile',

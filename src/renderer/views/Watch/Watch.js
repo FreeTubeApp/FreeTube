@@ -114,6 +114,9 @@ export default Vue.extend({
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
     },
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
+    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -935,9 +938,8 @@ export default Vue.extend({
 
     handlePlaylistPersisting: function () {
       // Only save playlist ID if enabled, and it's not special video types
-      if (!this.rememberHistory || this.isUpcoming || this.isLoading || this.isLive) {
-        return
-      }
+      if (!(this.rememberHistory && this.saveVideoHistoryWithLastViewedPlaylist)) { return }
+      if (this.isUpcoming || this.isLoading || this.isLive) { return }
 
       const payload = {
         videoId: this.videoId,

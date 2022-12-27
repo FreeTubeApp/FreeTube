@@ -281,6 +281,10 @@ export default Vue.extend({
       return this.$store.getters.getSaveWatchedProgress
     },
 
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
+    },
+
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
@@ -304,6 +308,8 @@ export default Vue.extend({
         return this.playlistId
       }
 
+      // Get playlist ID from history ONLY if option enabled
+      if (!this.saveVideoHistoryWithLastViewedPlaylist) { return }
       const historyIndex = this.historyIndex
       if (historyIndex === -1) {
         return undefined
