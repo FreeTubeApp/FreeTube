@@ -620,19 +620,20 @@ export default Vue.extend({
       }
 
       let opmlData = '<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">'
-      const endingOpmlString = '</outline></body></opml>'
-
-      let count = 0
 
       this.profileList[0].subscriptions.forEach((channel) => {
-        const channelOpmlString = `<outline text="${channel.name}" title="${channel.name}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}"/>`
-        count++
-        opmlData += channelOpmlString
+        const escapedName = channel.name
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&apos;')
 
-        if (count === this.profileList[0].subscriptions.length) {
-          opmlData += endingOpmlString
-        }
+        const channelOpmlString = `<outline text="${escapedName}" title="${escapedName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}"/>`
+        opmlData += channelOpmlString
       })
+
+      opmlData += '</outline></body></opml>'
 
       const response = await showSaveDialog(options)
       if (response.canceled || response.filePath === '') {
