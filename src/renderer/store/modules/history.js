@@ -56,7 +56,7 @@ const actions = {
     }
   },
 
-  async updatePlaylist({ commit }, { videoId, playlistId }) {
+  async updateLastViewedPlaylist({ commit }, { videoId, playlistId }) {
     try {
       await DBHistoryHandlers.updateLastViewedPlaylist(videoId, playlistId)
       commit('updateRecordLastViewedPlaylistIdInHistoryCache', { videoId, playlistId })
@@ -104,7 +104,7 @@ const mutations = {
     state.historyCache.splice(i, 1, targetRecord)
   },
 
-  updateRecordPlaylistInHistoryCache(state, { videoId, playlistId }) {
+  updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, playlistId }) {
     const i = state.historyCache.findIndex((currentRecord) => {
       return currentRecord.videoId === videoId
     })

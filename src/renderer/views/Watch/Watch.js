@@ -232,6 +232,7 @@ export default Vue.extend({
     this.useTheatreMode = this.defaultTheatreMode
 
     this.checkIfPlaylist()
+    this.handlePlaylistPersisting()
     this.checkIfTimestamp()
 
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
@@ -932,6 +933,20 @@ export default Vue.extend({
       }
     },
 
+    handlePlaylistPersisting: function () {
+      // Only save playlist ID if enabled, and it's not special video types
+      if (!this.rememberHistory || this.isUpcoming || this.isLoading || this.isLive) {
+        return
+      }
+
+      const payload = {
+        videoId: this.videoId,
+        // Whether there is a playlist ID or not, save it
+        playlistId: this.$route.query?.playlistId,
+      }
+      this.updateLastViewedPlaylist(payload)
+    },
+
     checkIfWatched: function () {
       const historyIndex = this.historyCache.findIndex((video) => {
         return video.videoId === this.videoId
@@ -1136,6 +1151,7 @@ export default Vue.extend({
       this.videoChapters = []
 
       this.handleWatchProgress()
+      this.handlePlaylistPersisting()
 
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
@@ -1422,6 +1438,7 @@ export default Vue.extend({
     ...mapActions([
       'updateHistory',
       'updateWatchProgress',
+      'updateLastViewedPlaylist',
       'updateSubscriptionDetails'
     ])
   }

@@ -444,7 +444,7 @@ const customActions = {
           break
 
         case SyncEvents.HISTORY.UPDATE_PLAYLIST:
-          commit('updateRecordPlaylistInHistoryCache', data)
+          commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
           break
 
         case SyncEvents.GENERAL.DELETE:
