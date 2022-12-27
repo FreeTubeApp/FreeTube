@@ -1066,13 +1066,6 @@
   dependencies:
     axios "^0.27.2"
 
-"@freetube/yt-trending-scraper@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@freetube/yt-trending-scraper/-/yt-trending-scraper-3.1.1.tgz#82d11ac3dad3ea25bc0f30d68e315364e9977046"
-  integrity sha512-qgWFLefcKiLfJmETtEeDVuv9MQ50JFwkGlR3NITDG/SzdrhTFBizG5Ggs34sub6UQd6M6Ib8HxI/lgtKYqN7qA==
-  dependencies:
-    axios "^0.27.2"
-
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
