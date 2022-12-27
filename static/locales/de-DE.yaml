@@ -269,6 +269,7 @@ Settings:
         Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
+    Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoplayer
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -712,6 +713,7 @@ Video:
   Premieres in: Premieren in
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
+  Scroll to Bottom: Nach unten scrollen
 Videos:
   #& Sort By
   Sort By:
@@ -799,6 +801,7 @@ Comments:
   Pinned by: Angeheftet von
   Member: Mitglied
   View {replyCount} replies: '{replyCount} Antworten ansehen'
+  Hearted: Gefällt mir
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -914,6 +917,8 @@ Tooltips:
       zu steuern. Halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
       klicken Sie mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit
       zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
+    Skip by Scrolling Over Video Player: Verwenden Sie das Scrollrad, um durch das
+      Video zu springen, MPV-Stil.
   Privacy Settings:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
