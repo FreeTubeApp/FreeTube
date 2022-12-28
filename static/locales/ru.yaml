@@ -127,7 +127,7 @@ Settings:
       Grid: 'Сеткой'
       List: 'Списком'
     Thumbnail Preference:
-      Thumbnail Preference: 'Настройки миниатюр'
+      Thumbnail Preference: 'Настройка заставок'
       Default: 'По умолчанию'
       Beginning: 'В начале'
       Middle: 'В середине'
@@ -850,8 +850,8 @@ This video is unavailable because of missing formats. This can happen due to cou
   ограничений.
 Tooltips:
   General Settings:
-    Thumbnail Preference: Все эскизы во FreeTube будут заменены кадром видео вместо
-      эскиза по умолчанию.
+    Thumbnail Preference: Все заставки во FreeTube будут заменены снимком из видео
+      вместо заставки по умолчанию.
     Invidious Instance: Образец Invidious, к которому FreeTube будет подключаться
       для вызовов набора функций.
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора
