@@ -48,7 +48,11 @@ export default Vue.extend({
     appearance: {
       type: String,
       required: true
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {
@@ -309,6 +313,7 @@ export default Vue.extend({
       }
 
       // Get playlist ID from history ONLY if option enabled
+      if (!this.showVideoWithLastViewedPlaylist) { return }
       if (!this.saveVideoHistoryWithLastViewedPlaylist) { return }
       const historyIndex = this.historyIndex
       if (historyIndex === -1) {

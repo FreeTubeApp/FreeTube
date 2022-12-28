@@ -26,7 +26,11 @@ export default Vue.extend({
     layout: {
       type: String,
       default: 'grid'
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {

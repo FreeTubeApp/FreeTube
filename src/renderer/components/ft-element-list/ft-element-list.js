@@ -12,7 +12,11 @@ export default Vue.extend({
     data: {
       type: Array,
       required: true
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   computed: {
     listType: function () {
