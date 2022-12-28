@@ -383,7 +383,7 @@ Settings:
     Skip Options:
       Skip Option: オプションのスキップ
       Auto Skip: 自動スキップ
-      Show In Seek Bar: 動画の進行状況バーの非表示
+      Show In Seek Bar: 動画の進行バーの非表示
       Prompt To Skip: ログイン プロンプトのスキップ
       Do Nothing: 何もしない
     Category Color: カテゴリの色
@@ -635,6 +635,8 @@ Video:
     Dropped / Total Frames: ドロップ率 / 総フレーム数
   Premieres in: 配信開始まで
   Premieres: プレミア
+  Show Super Chat Comment: Super Chat のコメント表示
+  Scroll to Bottom: 下までスクロール
 Videos:
   #& Sort By
   Sort By:
@@ -707,6 +709,8 @@ Comments:
   Pinned by: ピン留め
   From {channelName}: '{channelName} から'
   Member: メンバー
+  Hearted: ハート付
+  View {replyCount} replies: '{replyCount} 件の返信を表示'
 Up Next: '次の動画'
 
 # Toast Messages
