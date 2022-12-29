@@ -674,6 +674,8 @@ Video:
     Player Dimensions: Dimensões do reprodutor
   Premieres on: Estreia a
   Premieres: Estreias
+  Show Super Chat Comment: Mostrar Comentário do Super Chat
+  Scroll to Bottom: Percorrer para o fundo
 Videos:
   #& Sort By
   Sort By:
@@ -754,6 +756,8 @@ Comments:
   From {channelName}: de {channelName}
   Pinned by: Fixado por
   Member: Membro
+  View {replyCount} replies: Ver {Contagem de respostas} respostas
+  Hearted: Coração
 Up Next: Próximo
 
 #Tooltips
