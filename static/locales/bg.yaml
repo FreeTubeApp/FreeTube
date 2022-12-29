@@ -275,6 +275,7 @@ Settings:
       Format Label: Формат
       Folder Button: Избор на папка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
+    Skip by Scrolling Over Video Player: Пропускане чрез превъртане над видео плейъра
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -391,6 +392,8 @@ Settings:
     Hide Live Streams: Скриване на предавания на живо
     Hide Chapters: Скриване на главите
     Hide Upcoming Premieres: Скриване на предстоящите премиери
+    Hide Channels: Скриване видеата от каналите
+    Hide Channels Placeholder: Име или идентификатор на канала
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -451,6 +454,17 @@ Settings:
     Replace HTTP Cache: Замяна на HTTP кеша
     Warning: Тези настройки са експериментални и причиняват сривове, докато са разрешени.
       Силно се препоръчва създаването на резервни копия. Използвайте на свой риск!
+  Password Settings:
+    Password Settings: Настройки на паролата
+    Set Password To Prevent Access: Задайте парола, за да предотвратите достъпа до
+      настройките
+    Set Password: Задаване на парола
+    Remove Password: Премахване на паролата
+  Password Dialog:
+    Enter Password To Unlock: Въведете парола за отключване на настройките
+    Password Incorrect: Грешна парола
+    Unlock: Отключване
+    Password: Парола
 About:
   #On About page
   About: 'Относно'
@@ -722,6 +736,8 @@ Video:
   Premieres on: Премиера на
   Premieres in: Премиери в
   Premieres: Премиерa
+  Show Super Chat Comment: Показване на Super Chat коментар
+  Scroll to Bottom: Превъртане в долната част
 Videos:
   #& Sort By
   Sort By:
@@ -797,6 +813,8 @@ Comments:
   From {channelName}: от {channelName}
   And others: и други
   Member: Член
+  View {replyCount} replies: Преглед на {replyCount} отговора
+  Hearted: Сърдечно
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -848,6 +866,8 @@ Tooltips:
       и задръжте клавиша Control (Command Key на Mac) и щракнете с левия бутон на
       мишката, за да се върнете бързо към скоростта на възпроизвеждане по подразбиране
       (1x, освен ако не е променена в настройките).
+    Skip by Scrolling Over Video Player: Използване колелцето за превъртане, за прескачане
+      на видео в стил MPV.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
       избере страната, за която това се отнася. Не всички страни показани тук се поддържат
@@ -885,6 +905,11 @@ Tooltips:
     Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира
       персонализиран кеш за изображения в паметта. Ще доведе до увеличаване на използването
       на RAM паметта.
+  Distraction Free Settings:
+    Hide Channels: Въведете име или идентификатор на канал, за да скриете всички видеа,
+      плейлисти и самия канал от показване в търсенето или набиращите популярност.
+      Въведеното име на канал трябва да съвпада напълно и е чувствително към малки
+      и големи букви.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
@@ -936,3 +961,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
     текуща глава: {chapterName}'
 Preferences: Предпочитания
+Ok: Добре
