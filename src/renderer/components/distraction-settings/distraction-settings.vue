@@ -104,7 +104,7 @@
         />
       </div>
     </div>
-    <br class="hide-on-mobile" />
+    <br class="hide-on-mobile">
     <ft-flex-box>
       <ft-input-tags
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
