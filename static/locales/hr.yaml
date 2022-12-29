@@ -207,7 +207,7 @@ Settings:
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
-    Disable Smooth Scrolling: Deaktiviraj neisprekidano klizanje
+    Disable Smooth Scrolling: Deaktiviraj neisprekidano pomicanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
     Hide Side Bar Labels: Sakrij oznake bočnih traka
     Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
@@ -266,6 +266,7 @@ Settings:
         podmapa.
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
       ekrana
+    Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -734,6 +735,8 @@ Video:
     Dropped / Total Frames: Ispušteni/ukupni kadrovi
   Premieres in: Premijera u
   Premieres: Premijere
+  Show Super Chat Comment: Prikaži Super Chat komentar
+  Scroll to Bottom: Pomakni se skroz dolje
 Videos:
   #& Sort By
   Sort By:
@@ -810,6 +813,8 @@ Comments:
   And others: i drugi
   Pinned by: Prikvačio/la
   Member: Član
+  Hearted: Omiljeno
+  View {replyCount} replies: Pogledaj {replyCount} odgovora
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -857,6 +862,8 @@ Tooltips:
       ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control
       (Command tipka na Macu) i pritisni lijevom tipkom miša za brzo vraćanje na standardnu
       brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
+    Skip by Scrolling Over Video Player: Koristi kotačić za pregledavanje videa, MPV
+      stil.
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
       API-a.
