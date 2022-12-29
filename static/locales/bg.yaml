@@ -254,10 +254,10 @@ Settings:
       видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
     Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
-    Scroll Playback Rate Over Video Player: Превъртане на скоростта на възпроизвеждане
+    Scroll Playback Rate Over Video Player: Промяна на скоростта на възпроизвеждане
       над видео плейъра
-    Max Video Playback Rate: Максимална скорост на възпроизвеждане на видео
-    Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане на видео
+    Max Video Playback Rate: Максимална скорост на възпроизвеждане
+    Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане
     Screenshot:
       Enable: Включване на снимки на екрана
       Quality Label: Качество
@@ -275,7 +275,7 @@ Settings:
       Format Label: Формат
       Folder Button: Избор на папка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
-    Skip by Scrolling Over Video Player: Пропускане чрез превъртане над видео плейъра
+    Skip by Scrolling Over Video Player: Превъртане над видео плейъра
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -455,9 +455,9 @@ Settings:
     Warning: Тези настройки са експериментални и причиняват сривове, докато са разрешени.
       Силно се препоръчва създаването на резервни копия. Използвайте на свой риск!
   Password Settings:
-    Password Settings: Настройки на паролата
-    Set Password To Prevent Access: Задайте парола, за да предотвратите достъпа до
-      настройките
+    Password Settings: Настройки на парола
+    Set Password To Prevent Access: Задаване на парола, за предотвратяване на достъпа
+      до настройките
     Set Password: Задаване на парола
     Remove Password: Премахване на паролата
   Password Dialog:
@@ -863,10 +863,10 @@ Tooltips:
     Scroll Playback Rate Over Video Player: Докато курсорът е върху видеоклипа, натиснете
       и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката
       напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете
-      и задръжте клавиша Control (Command Key на Mac) и щракнете с левия бутон на
-      мишката, за да се върнете бързо към скоростта на възпроизвеждане по подразбиране
+      и задръжте клавиша Control (Command Key за Mac) и щракнете с левия бутон на
+      мишката, за да се върнете бързо към стандартната скорост на възпроизвеждане
       (1x, освен ако не е променена в настройките).
-    Skip by Scrolling Over Video Player: Използване колелцето за превъртане, за прескачане
+    Skip by Scrolling Over Video Player: Използване колелцето на мишката за превъртане
       на видео в стил MPV.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
@@ -908,8 +908,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Въведете име или идентификатор на канал, за да скриете всички видеа,
       плейлисти и самия канал от показване в търсенето или набиращите популярност.
-      Въведеното име на канал трябва да съвпада напълно и е чувствително към малки
-      и големи букви.
+      Въведеното име трябва да съвпада напълно и е чувствително към главни и малки
+      букви.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
