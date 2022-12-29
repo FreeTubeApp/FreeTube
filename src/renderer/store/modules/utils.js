@@ -1,8 +1,9 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import i18n from '../../i18n/index'
 
 import { IpcChannels } from '../../../constants'
+import { pathExists } from '../../helpers/filesystem'
 import {
   createWebURL,
   openExternalLink,
@@ -136,9 +137,9 @@ const actions = {
 
       folderPath = response.filePath
     } else {
-      if (!fs.existsSync(folderPath)) {
+      if (!(await pathExists(folderPath))) {
         try {
-          fs.mkdirSync(folderPath, { recursive: true })
+          await fs.mkdir(folderPath, { recursive: true })
         } catch (err) {
           console.error(err)
           showToast(err)
@@ -181,14 +182,14 @@ const actions = {
     const blobFile = new Blob(chunks)
     const buffer = await blobFile.arrayBuffer()
 
-    fs.writeFile(folderPath, new DataView(buffer), (err) => {
-      if (err) {
-        console.error(err)
-        showToast(errorMessage)
-      } else {
-        showToast(i18n.t('Downloading has completed', { videoTitle: title }))
-      }
-    })
+    try {
+      await fs.writeFile(folderPath, new DataView(buffer))
+
+      showToast(i18n.t('Downloading has completed', { videoTitle: title }))
+    } catch (err) {
+      console.error(err)
+      showToast(errorMessage)
+    }
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
@@ -241,12 +242,12 @@ const actions = {
     // Exclude __dirname from path if not in electron
     const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
     if (process.env.IS_ELECTRON) {
-      localePathExists = fs.existsSync(`${fileLocation}${locale}`)
+      localePathExists = await pathExists(`${fileLocation}${locale}`)
     } else {
       localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     }
     const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}/countries.json`
-    const fileData = process.env.IS_ELECTRON ? JSON.parse(fs.readFileSync(pathName)) : await (await fetch(createWebURL(pathName))).json()
+    const fileData = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
 
     const countries = fileData.map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
     countries.sort((a, b) => { return a.id - b.id })
@@ -512,14 +513,14 @@ const actions = {
     showToast(i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action }))
   },
 
-  getExternalPlayerCmdArgumentsData ({ commit }, payload) {
+  async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
     let fileData
     /* eslint-disable-next-line */
     const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
 
-    if (fs.existsSync(`${fileLocation}${fileName}`)) {
-      fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+    if (await pathExists(`${fileLocation}${fileName}`)) {
+      fileData = await fs.readFile(`${fileLocation}${fileName}`)
     } else {
       fileData = '[{"name":"None","value":"","cmdArguments":null}]'
     }

@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
@@ -260,13 +260,11 @@ export function readFileFromDialog(response, index = 0) {
   return new Promise((resolve, reject) => {
     if (process.env.IS_ELECTRON) {
       // if this is Electron, use fs
-      fs.readFile(response.filePaths[index], (err, data) => {
-        if (err) {
-          reject(err)
-          return
-        }
-        resolve(new TextDecoder('utf-8').decode(data))
-      })
+      fs.readFile(response.filePaths[index])
+        .then(data => {
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+        .catch(reject)
     } else {
       // if this is web, use FileReader
       try {
@@ -315,16 +313,8 @@ export async function showSaveDialog (options) {
 */
 export async function writeFileFromDialog (response, content) {
   if (process.env.IS_ELECTRON) {
-    return await new Promise((resolve, reject) => {
-      const { filePath } = response
-      fs.writeFile(filePath, content, (error) => {
-        if (error) {
-          reject(error)
-        } else {
-          resolve()
-        }
-      })
-    })
+    const { filePath } = response
+    return await fs.writeFile(filePath, content)
   } else {
     if ('showOpenFilePicker' in window) {
       const { handle } = response

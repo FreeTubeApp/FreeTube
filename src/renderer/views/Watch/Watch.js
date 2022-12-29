@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import fs from 'fs'
+import fs from 'fs/promises'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
@@ -13,6 +13,7 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
+import { pathExists } from '../../helpers/filesystem'
 import {
   buildVTTFileLocally,
   copyToClipboard,
@@ -616,7 +617,7 @@ export default Vue.extend({
 
             if (typeof result.player_response.storyboards !== 'undefined') {
               const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-              this.createLocalStoryboardUrls(templateUrl)
+              await this.createLocalStoryboardUrls(templateUrl)
             }
           }
 
@@ -1199,22 +1200,22 @@ export default Vue.extend({
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
-          if (fs.existsSync(dashFileLocation)) {
-            fs.rmSync(dashFileLocation)
+          if (await pathExists(dashFileLocation)) {
+            await fs.rm(dashFileLocation)
           }
-          if (fs.existsSync(vttFileLocation)) {
-            fs.rmSync(vttFileLocation)
+          if (await pathExists(vttFileLocation)) {
+            await fs.rm(vttFileLocation)
           }
         } else {
           const userData = await getUserDataPath()
           const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
           const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
-          if (fs.existsSync(dashFileLocation)) {
-            fs.rmSync(dashFileLocation)
+          if (await pathExists(dashFileLocation)) {
+            await fs.rm(dashFileLocation)
           }
-          if (fs.existsSync(vttFileLocation)) {
-            fs.rmSync(vttFileLocation)
+          if (await pathExists(vttFileLocation)) {
+            await fs.rm(vttFileLocation)
           }
         }
       }
@@ -1247,23 +1248,23 @@ export default Vue.extend({
         fileLocation = `static/dashFiles/${this.videoId}.xml`
         uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!fs.existsSync('static/dashFiles/')) {
-          fs.mkdirSync('static/dashFiles/')
+        if (!(await pathExists('static/dashFiles/'))) {
+          await fs.mkdir('static/dashFiles/')
         }
 
-        if (fs.existsSync(fileLocation)) {
-          fs.rmSync(fileLocation)
+        if (await pathExists(fileLocation)) {
+          await fs.rm(fileLocation)
         }
-        fs.writeFileSync(fileLocation, xmlData)
+        await fs.writeFile(fileLocation, xmlData)
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
 
-        if (!fs.existsSync(`${userData}/dashFiles/`)) {
-          fs.mkdirSync(`${userData}/dashFiles/`)
+        if (!(await pathExists(`${userData}/dashFiles/`))) {
+          await fs.mkdir(`${userData}/dashFiles/`)
         }
 
-        fs.writeFileSync(fileLocation, xmlData)
+        await fs.writeFile(fileLocation, xmlData)
       }
 
       return [
@@ -1293,7 +1294,7 @@ export default Vue.extend({
       ]
     },
 
-    createLocalStoryboardUrls: function (templateUrl) {
+    createLocalStoryboardUrls: async function (templateUrl) {
       const storyboards = templateUrl.split('|')
       const storyboardArray = []
       // Second storyboard: L1/M0 - Third storyboard: L2/M0 - Fourth: L3/M0
@@ -1318,35 +1319,34 @@ export default Vue.extend({
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STORYBOARD ARRAY ELEMENTS
       const results = buildVTTFileLocally(storyboardArray[1])
-      getUserDataPath().then((userData) => {
-        let fileLocation
-        let uriSchema
+      const userData = await getUserDataPath()
+      let fileLocation
+      let uriSchema
 
-        // Dev mode doesn't have access to the file:// schema, so we access
-        // storyboards differently when run in dev
-        if (process.env.NODE_ENV === 'development') {
-          fileLocation = `static/storyboards/${this.videoId}.vtt`
-          uriSchema = `storyboards/${this.videoId}.vtt`
-          // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-          if (!fs.existsSync('static/storyboards/')) {
-            fs.mkdirSync('static/storyboards/')
-          }
-
-          fs.rm(fileLocation, () => {
-            fs.writeFileSync(fileLocation, results)
-          })
-        } else {
-          if (!fs.existsSync(`${userData}/storyboards/`)) {
-            fs.mkdirSync(`${userData}/storyboards/`)
-          }
-          fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
-          uriSchema = `file://${fileLocation}`
-
-          fs.writeFileSync(fileLocation, results)
+      // Dev mode doesn't have access to the file:// schema, so we access
+      // storyboards differently when run in dev
+      if (process.env.NODE_ENV === 'development') {
+        fileLocation = `static/storyboards/${this.videoId}.vtt`
+        uriSchema = `storyboards/${this.videoId}.vtt`
+        // if the location does not exist, writeFile will not create the directory, so we have to do that manually
+        if (!(await pathExists('static/storyboards/'))) {
+          fs.mkdir('static/storyboards/')
+        } else if (await pathExists(fileLocation)) {
+          await fs.rm(fileLocation)
         }
 
-        this.videoStoryboardSrc = uriSchema
-      })
+        await fs.writeFile(fileLocation, results)
+      } else {
+        if (!(await pathExists(`${userData}/storyboards/`))) {
+          await fs.mkdir(`${userData}/storyboards/`)
+        }
+        fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+        uriSchema = `file://${fileLocation}`
+
+        await fs.writeFile(fileLocation, results)
+      }
+
+      this.videoStoryboardSrc = uriSchema
     },
 
     tryAddingTranslatedLocaleCaption: function (captionTracks, locale, baseUrl) {

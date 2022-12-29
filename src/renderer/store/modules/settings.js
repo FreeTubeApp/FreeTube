@@ -324,9 +324,7 @@ const stateWithSideEffects = {
         }
       }
 
-      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
-        await i18n.loadLocale(targetLocale)
-      }
+      await i18n.loadLocale(targetLocale)
 
       i18n.locale = targetLocale
       await dispatch('getRegionData', {

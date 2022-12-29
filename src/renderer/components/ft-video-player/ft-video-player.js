@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
@@ -15,6 +15,7 @@ import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -769,22 +770,23 @@ export default Vue.extend({
       }
     },
 
-    determineMaxFramerate: function() {
+    determineMaxFramerate: async function() {
       if (this.dashSrc.length === 0) {
         this.maxFramerate = 60
         return
       }
-      fs.readFile(this.dashSrc[0].url, (err, data) => {
-        if (err) {
-          this.maxFramerate = 60
-          return
-        }
+
+      try {
+        const data = await fs.readFile(this.dashSrc[0].url)
+
         if (data.includes('frameRate="60"')) {
           this.maxFramerate = 60
         } else {
           this.maxFramerate = 30
         }
-      })
+      } catch {
+        this.maxFramerate = 60
+      }
     },
 
     determineDefaultQualityLegacy: function () {
@@ -1406,7 +1408,7 @@ export default Vue.extend({
           this.player.pause()
         }
 
-        if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
+        if (this.screenshotFolder === '' || !(await pathExists(this.screenshotFolder))) {
           dirPath = await getPicturesPath()
         } else {
           dirPath = this.screenshotFolder
@@ -1445,9 +1447,9 @@ export default Vue.extend({
           dirPath = path.join(this.screenshotFolder, subDir)
         }
 
-        if (!fs.existsSync(dirPath)) {
+        if (!(await pathExists(dirPath))) {
           try {
-            fs.mkdirSync(dirPath, { recursive: true })
+            fs.mkdir(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
             showToast(this.$t('Screenshot Error', { error: err }))
@@ -1462,14 +1464,14 @@ export default Vue.extend({
         result.arrayBuffer().then(ab => {
           const arr = new Uint8Array(ab)
 
-          fs.writeFile(filePath, arr, (err) => {
-            if (err) {
+          fs.writeFile(filePath, arr)
+            .then(() => {
+              showToast(this.$t('Screenshot Success', { filePath }))
+            })
+            .catch((err) => {
               console.error(err)
               showToast(this.$t('Screenshot Error', { error: err }))
-            } else {
-              showToast(this.$t('Screenshot Success', { filePath }))
-            }
-          })
+            })
         })
       }, mimeType, imageQuality)
       canvas.remove()
