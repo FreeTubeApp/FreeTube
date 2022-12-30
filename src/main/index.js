@@ -1028,7 +1028,7 @@ function runApp() {
     }
   }
 
-  /**
+  /*
    * Auto Updater
    *
    * Uncomment the following code below and install `electron-updater` to
@@ -1047,9 +1047,15 @@ function runApp() {
   })
    */
 
-  /* eslint-disable-next-line */
-  const sendMenuEvent = async data => {
-    mainWindow.webContents.send('change-view', data)
+  function navigateTo(path, browserWindow) {
+    if (browserWindow == null) {
+      return
+    }
+
+    browserWindow.webContents.send(
+      'change-view',
+      { route: path }
+    )
   }
 
   async function setMenu() {
@@ -1078,12 +1084,7 @@ function runApp() {
             label: 'Preferences',
             accelerator: 'CmdOrCtrl+,',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/settings' }
-              )
+              navigateTo('/settings', browserWindow)
             },
             type: 'normal'
           },
@@ -1177,70 +1178,35 @@ function runApp() {
           {
             label: 'Subscriptions',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) {
-                return
-              }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/subscriptions' }
-              )
+              navigateTo('/subscriptions', browserWindow)
             },
             type: 'normal'
           },
           {
             label: 'Channels',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) {
-                return
-              }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/subscribedchannels' }
-              )
+              navigateTo('/subscribedchannels', browserWindow)
             },
             type: 'normal'
           },
           !hideTrendingVideos && {
             label: 'Trending',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) {
-                return
-              }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/trending' }
-              )
+              navigateTo('/trending', browserWindow)
             },
             type: 'normal'
           },
           !hidePopularVideos && {
             label: 'Most Popular',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) {
-                return
-              }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/popular' }
-              )
+              navigateTo('/popular', browserWindow)
             },
             type: 'normal'
           },
           !hidePlaylists && {
             label: 'Playlists',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) {
-                return
-              }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/userplaylists' }
-              )
+              navigateTo('/userplaylists', browserWindow)
             },
             type: 'normal'
           },
@@ -1250,12 +1216,7 @@ function runApp() {
             // Other OS: Ctrl + H
             accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/history' }
-              )
+              navigateTo('/history', browserWindow)
             },
             type: 'normal'
           },
