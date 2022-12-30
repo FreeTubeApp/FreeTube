@@ -77,18 +77,15 @@
         <p
           class="commentAuthorWrapper"
         >
-          <span
+          <router-link
             class="commentAuthor"
             :class="{
               commentOwner: comment.isOwner
             }"
+            :to="`/channel/${comment.authorLink}`"
           >
-            <router-link
-              :to="`/channel/${comment.authorLink}`"
-            >
-              {{ comment.author }}
-            </router-link>
-          </span>
+            {{ comment.author }}
+          </router-link>
           <img
             v-if="comment.isMember"
             :src="comment.memberIconUrl"

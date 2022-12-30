@@ -34,7 +34,6 @@
   height: 60px;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
-  cursor: pointer;
 }
 
 .commentAuthorWrapper {
@@ -53,7 +52,8 @@
 }
 
 .commentAuthor {
-  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
 .commentText {
