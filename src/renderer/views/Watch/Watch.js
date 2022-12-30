@@ -904,8 +904,14 @@ export default Vue.extend({
       } else {
         // Some YouTube URLs don't have the urlEndpoint so we handle them here
 
-        const path = part.navigationEndpoint.commandMetadata.webCommandMetadata.url
-        return `https://www.youtube.com${path}`
+        const { browseEndpoint, commandMetadata: { webCommandMetadata } } = part.navigationEndpoint
+        // channel handle
+        if (webCommandMetadata.webPageType === 'WEB_PAGE_TYPE_CHANNEL' && part.text.startsWith('@')) {
+          return `<a href="https://www.youtube.com/channel/${browseEndpoint.browseId}">${part.text}</a>`
+        } else {
+          const path = webCommandMetadata.url
+          return `https://www.youtube.com${path}`
+        }
       }
     },
 
