@@ -114,11 +114,15 @@
   color: #EEEEEE;
 }
 
+.inputWrapper {
+  position: relative;
+}
+
 .inputAction {
   position: absolute;
   margin: 0 3px;
   padding: 10px;
-  top: 5px;
+  top: -8px;
   right: 0;
   border-radius: 100%;
   color: var(--primary-text-color);
@@ -132,18 +136,9 @@
   cursor: pointer;
 }
 
-.inputAction.withLabel {
-  /* If showLabel defined, re-centralize the input button*/
-  top: 34px;
-}
-
 
 .search ::-webkit-calendar-picker-indicator {
   display: none;
-}
-
-.search .inputAction {
-  top: 12px;
 }
 
 .forceTextColor .inputAction {
