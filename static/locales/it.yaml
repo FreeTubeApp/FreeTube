@@ -219,7 +219,7 @@ Settings:
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
-      legacy'
+      compatibili'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -231,8 +231,8 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati legacy'
-      Audio Formats: 'Formati Audio'
+      Legacy Formats: 'Formati compatibili'
+      Audio Formats: 'Formati audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
       Auto: 'Auto'
@@ -369,7 +369,7 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni legacy
+    Check for Legacy Subscriptions: Controlla le iscrizioni compatibili
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
@@ -691,7 +691,7 @@ Video:
     video id: ID video (YouTube)
     player resolution: Finestra di visualizzazione
     Video statistics are not available for legacy videos: Le statistiche sui video
-      non sono disponibili per i video legacy
+      non sono disponibili per i video compatibili
     Video ID: ID video
     Resolution: Risoluzione
     Player Dimensions: Dimensioni del lettore
@@ -734,9 +734,9 @@ Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
-  Use Legacy Formats: 'Usa i formati legacy'
+  Use Legacy Formats: 'Usa i formati compatibili'
   Use Audio Formats: 'Usa i formati audio'
-  Audio formats are not available for this video: I formati Audio non sono disponibili
+  Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
   Dash formats are not available for this video: I formati DASH non sono disponibili
     per questo video
@@ -865,13 +865,13 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitate, le API locali useranno i formati legacy al posto
-      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
-      a causa di restrizioni geografiche.
+      predefinita. Quando abilitate, le API locali useranno i formati compatibili
+      al posto di quelli di Invidious. Utile quando i video di Invidious non vengono
+      riprodotti a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiore. I formati Legacy sono limitati
-      ad un massimo di 720p ma usano meno banda. I formati Audio riproducono solo
-      l'audio.
+      I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono
+      limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
+      solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
     Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
