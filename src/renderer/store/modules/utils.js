@@ -6,9 +6,11 @@ import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
 import {
   createWebURL,
+  getVideoParamsFromUrl,
   openExternalLink,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
+  showExternalPlayerUnsupportedActionToast,
   showSaveDialog,
   showToast
 } from '../../helpers/utils'
@@ -259,68 +261,6 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  getVideoParamsFromUrl (_, url) {
-    /** @type {URL} */
-    let urlObject
-    const paramsObject = { videoId: null, timestamp: null, playlistId: null }
-    try {
-      urlObject = new URL(url)
-    } catch (e) {
-      return paramsObject
-    }
-
-    function extractParams(videoId) {
-      paramsObject.videoId = videoId
-      paramsObject.timestamp = urlObject.searchParams.get('t')
-    }
-
-    const extractors = [
-      // anything with /watch?v=
-      function() {
-        if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
-          extractParams(urlObject.searchParams.get('v'))
-          paramsObject.playlistId = urlObject.searchParams.get('list')
-          return paramsObject
-        }
-      },
-      // youtu.be
-      function() {
-        if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
-          extractParams(urlObject.pathname.slice(1))
-          return paramsObject
-        }
-      },
-      // youtube.com/embed
-      function() {
-        if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
-          const urlTail = urlObject.pathname.replace('/embed/', '')
-          if (urlTail === 'videoseries') {
-            paramsObject.playlistId = urlObject.searchParams.get('list')
-          } else {
-            extractParams(urlTail)
-          }
-          return paramsObject
-        }
-      },
-      // youtube.com/shorts
-      function() {
-        if (urlObject.pathname.match(/^\/shorts\/[A-Za-z0-9_-]+$/)) {
-          extractParams(urlObject.pathname.replace('/shorts/', ''))
-          return paramsObject
-        }
-      },
-      // cloudtube
-      function() {
-        if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
-          extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
-          return paramsObject
-        }
-      }
-    ]
-
-    return extractors.reduce((a, c) => a || c(), null) || paramsObject
-  },
-
   getYoutubeUrlInfo ({ state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
@@ -348,7 +288,7 @@ const actions = {
     //
     // If `urlType` is "invalid_url"
     // Nothing else
-    const { videoId, timestamp, playlistId } = actions.getVideoParamsFromUrl(null, urlStr)
+    const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
     if (videoId) {
       return {
         urlType: 'video',
@@ -509,10 +449,6 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
-  showExternalPlayerUnsupportedActionToast: function (_, { externalPlayer, action }) {
-    showToast(i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action }))
-  },
-
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
     let fileData
@@ -543,7 +479,7 @@ const actions = {
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
-  openInExternalPlayer ({ dispatch, state, rootState }, payload) {
+  openInExternalPlayer ({ state, rootState }, payload) {
     const args = []
     const externalPlayer = rootState.settings.externalPlayer
     const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
@@ -567,10 +503,7 @@ const actions = {
       if (typeof cmdArgs.startOffset === 'string') {
         args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
       } else if (!ignoreWarnings) {
-        dispatch('showExternalPlayerUnsupportedActionToast', {
-          externalPlayer,
-          action: i18n.t('Video.External Player.Unsupported Actions.starting video at offset')
-        })
+        showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
       }
     }
 
@@ -578,10 +511,7 @@ const actions = {
       if (typeof cmdArgs.playbackRate === 'string') {
         args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
       } else if (!ignoreWarnings) {
-        dispatch('showExternalPlayerUnsupportedActionToast', {
-          externalPlayer,
-          action: i18n.t('Video.External Player.Unsupported Actions.setting a playback rate')
-        })
+        showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
       }
     }
 
@@ -591,10 +521,7 @@ const actions = {
         if (typeof cmdArgs.playlistIndex === 'string') {
           args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
         } else if (!ignoreWarnings) {
-          dispatch('showExternalPlayerUnsupportedActionToast', {
-            externalPlayer,
-            action: i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)')
-          })
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
         }
       }
 
@@ -602,10 +529,7 @@ const actions = {
         if (typeof cmdArgs.playlistReverse === 'string') {
           args.push(cmdArgs.playlistReverse)
         } else if (!ignoreWarnings) {
-          dispatch('showExternalPlayerUnsupportedActionToast', {
-            externalPlayer,
-            action: i18n.t('Video.External Player.Unsupported Actions.reversing playlists')
-          })
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
         }
       }
 
@@ -613,10 +537,7 @@ const actions = {
         if (typeof cmdArgs.playlistShuffle === 'string') {
           args.push(cmdArgs.playlistShuffle)
         } else if (!ignoreWarnings) {
-          dispatch('showExternalPlayerUnsupportedActionToast', {
-            externalPlayer,
-            action: i18n.t('Video.External Player.Unsupported Actions.shuffling playlists')
-          })
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
         }
       }
 
@@ -624,10 +545,7 @@ const actions = {
         if (typeof cmdArgs.playlistLoop === 'string') {
           args.push(cmdArgs.playlistLoop)
         } else if (!ignoreWarnings) {
-          dispatch('showExternalPlayerUnsupportedActionToast', {
-            externalPlayer,
-            action: i18n.t('Video.External Player.Unsupported Actions.looping playlists')
-          })
+          showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
         }
       }
       if (cmdArgs.supportsYtdlProtocol) {
@@ -637,10 +555,7 @@ const actions = {
       }
     } else {
       if (payload.playlistId !== null && payload.playlistId !== '' && !ignoreWarnings) {
-        dispatch('showExternalPlayerUnsupportedActionToast', {
-          externalPlayer,
-          action: i18n.t('Video.External Player.Unsupported Actions.opening playlists')
-        })
+        showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
       }
       if (payload.videoId !== null) {
         if (cmdArgs.supportsYtdlProtocol) {
