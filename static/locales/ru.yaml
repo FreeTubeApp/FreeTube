@@ -612,7 +612,7 @@ Video:
     Minute: Минута
     Less than a minute: Менее минуты
     In less than a minute: Меньше чем через минуту
-  Published on: 'Опубликовано'
+  Published on: 'Размещено'
   Publicationtemplate: '{number} {unit} назад'
 #& Videos
   Autoplay: Автовоспроизведение
