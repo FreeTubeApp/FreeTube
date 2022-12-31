@@ -38,10 +38,12 @@
 
 .clearInputTextButton {
   position: absolute;
-  margin: 0 3px;
-  padding: 10px;
   top: 5px;
   left: 0;
+  /* To be higher than `.inputWrapper` */
+  z-index: 1;
+  margin: 0 3px;
+  padding: 10px;
   border-radius: 100%;
   color: var(--primary-text-color);
   opacity: 0;
