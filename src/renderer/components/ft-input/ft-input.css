@@ -85,7 +85,6 @@
   width: 100%;
   padding: 1rem;
   border: none;
-  background: transparent;
   margin-bottom: 10px;
   font-size: 16px;
   height: 45px;
@@ -190,7 +189,7 @@
 
 .list li {
   display: block;
-  padding: 0px 15px;
+  padding: 0 15px;
   line-height: 2rem;
 }
 
