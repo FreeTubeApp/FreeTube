@@ -359,6 +359,7 @@ Settings:
     Hide Upcoming Premieres: 今後のプレミア公開を非表示
     Hide Channels: チャンネルから動画を非表示
     Hide Channels Placeholder: チャネル名または ID
+    Display Titles Without Excessive Capitalisation: 英語の大文字化を控えたタイトル表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
