@@ -316,6 +316,8 @@ Settings:
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
     Hide Channels: Skrýt videa z kanálů
     Hide Channels Placeholder: Název nebo ID kanálu
+    Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
+      použití velkých písmen
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
