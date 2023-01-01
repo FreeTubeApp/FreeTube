@@ -319,6 +319,8 @@ Settings:
     Hide Upcoming Premieres: Сховати майбутні прем'єри
     Hide Channels: Сховати відео з каналів
     Hide Channels Placeholder: Назва або ID каналу
+    Display Titles Without Excessive Capitalisation: Показувати заголовки без надмірно
+      великих літер
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
