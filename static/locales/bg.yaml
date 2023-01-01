@@ -394,6 +394,8 @@ Settings:
     Hide Upcoming Premieres: Скриване на предстоящите премиери
     Hide Channels: Скриване видеата от каналите
     Hide Channels Placeholder: Име или идентификатор на канала
+    Display Titles Without Excessive Capitalisation: Показване на заглавията без излишни
+      главни букви
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
