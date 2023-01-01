@@ -398,6 +398,8 @@ Settings:
     Hide Upcoming Premieres: Közelgő első előadások elrejtése
     Hide Channels: Videók elrejtése a csatornákból
     Hide Channels Placeholder: Csatorna neve vagy azonosítója
+    Display Titles Without Excessive Capitalisation: Címek megjelenítése túlzott nagybetűk
+      nélkül
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
