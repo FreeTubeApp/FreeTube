@@ -278,6 +278,7 @@ Settings:
       File Name Label: Modèle de nom de fichier
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
+    Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -723,6 +724,8 @@ Video:
   Premieres on: Avant-première le
   Premieres in: Première dans
   Premieres: Avant-première
+  Show Super Chat Comment: Afficher le commentaire Super Chat
+  Scroll to Bottom: Faire défiler jusqu'en bas
 Videos:
   #& Sort By
   Sort By:
@@ -803,6 +806,8 @@ Comments:
   Pinned by: Épinglé par
   And others: et d'autres
   Member: Membre
+  Hearted: Aimé
+  View {replyCount} replies: Voir les {replyCount} réponses
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -908,6 +913,8 @@ Tooltips:
       de lecture. Maintenez la touche Contrôle (touche Commande sur Mac) enfoncée
       et cliquez sur le bouton gauche de la souris pour revenir rapidement à la vitesse
       de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
+    Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer
+      d'une vidéo à l'autre, en style MPV.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.

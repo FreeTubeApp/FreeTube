@@ -264,6 +264,7 @@ Settings:
         ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
+    Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -716,6 +717,8 @@ Video:
     Mimetype: סוג MIME
   Premieres in: בכורה בעוד
   Premieres: בכורות
+  Scroll to Bottom: גלילה לתחתית
+  Show Super Chat Comment: הצגת הערת סופר צ׳אט
 Videos:
   #& Sort By
   Sort By:
@@ -788,6 +791,8 @@ Comments:
   And others: ואחרים
   Pinned by: ננעץ על ידי
   Member: חבר
+  View {replyCount} replies: הצגת {replyCount} תגובות
+  Hearted: סומן בלב
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -843,6 +848,8 @@ Tooltips:
       לשלוט בקצב הנגינה. לחיצה והחזקה של מקש Control (או Command ב־Mac) ולחיצה על
       הכפתור השמאלי בעכבר מחזירה במהירות לקצב הנגינה כברירת מחדל (1x אלמלא בוצע שינוי
       בהגדרות).
+    Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
+      כמו ב־MPV.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל

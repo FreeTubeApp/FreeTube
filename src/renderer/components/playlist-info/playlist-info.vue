@@ -3,10 +3,18 @@
     <div
       class="playlistThumbnail"
     >
-      <img
-        :src="thumbnail"
-        @click="playFirstVideo"
+      <router-link
+        :to="{
+          path: `/watch/${firstVideoId}`,
+          query: { playlistId: id }
+        }"
+        tabindex="-1"
       >
+        <img
+          :src="thumbnail"
+          alt=""
+        >
+      </router-link>
     </div>
 
     <div class="playlistStats">
@@ -36,6 +44,7 @@
       <img
         class="channelThumbnail"
         :src="channelThumbnail"
+        alt=""
       >
       <h3
         class="channelName"

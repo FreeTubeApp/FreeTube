@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
@@ -15,6 +15,7 @@ import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -180,6 +181,10 @@ export default Vue.extend({
 
     videoPlaybackRateMouseScroll: function () {
       return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
+    videoSkipMouseScroll: function () {
+      return this.$store.getters.getVideoSkipMouseScroll
     },
 
     useSponsorBlock: function () {
@@ -478,6 +483,9 @@ export default Vue.extend({
           this.player.el_.firstChild.style.pointerEvents = 'none'
           this.player.on('click', this.handlePlayerClick)
         }
+        if (this.videoSkipMouseScroll) {
+          this.player.on('wheel', this.mouseScrollSkip)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
@@ -721,6 +729,25 @@ export default Vue.extend({
       }
     },
 
+    mouseScrollSkip: function (event) {
+      // Avoid doing both
+      if ((event.ctrlKey || event.metaKey) && this.videoPlaybackRateMouseScroll) {
+        return
+      }
+
+      // ensure that the mouse is over the player
+      if (event.target && (event.target.matches('.vjs-tech') || event.target.matches('.ftVideoPlayer'))) {
+        event.preventDefault()
+
+        if (event.wheelDelta > 0) {
+          this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+        }
+        if (event.wheelDelta < 0) {
+          this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
+        }
+      }
+    },
+
     handlePlayerClick: function (event) {
       if (event.target.matches('.ftVideoPlayer')) {
         if (event.ctrlKey || event.metaKey) {
@@ -743,22 +770,23 @@ export default Vue.extend({
       }
     },
 
-    determineMaxFramerate: function() {
+    determineMaxFramerate: async function() {
       if (this.dashSrc.length === 0) {
         this.maxFramerate = 60
         return
       }
-      fs.readFile(this.dashSrc[0].url, (err, data) => {
-        if (err) {
-          this.maxFramerate = 60
-          return
-        }
+
+      try {
+        const data = await fs.readFile(this.dashSrc[0].url)
+
         if (data.includes('frameRate="60"')) {
           this.maxFramerate = 60
         } else {
           this.maxFramerate = 30
         }
-      })
+      } catch {
+        this.maxFramerate = 60
+      }
     },
 
     determineDefaultQualityLegacy: function () {
@@ -1364,10 +1392,9 @@ export default Vue.extend({
         return
       }
 
-      const dirChar = process.platform === 'win32' ? '\\' : '/'
       let subDir = ''
-      if (filename.indexOf(dirChar) !== -1) {
-        const lastIndex = filename.lastIndexOf(dirChar)
+      if (filename.indexOf(path.sep) !== -1) {
+        const lastIndex = filename.lastIndexOf(path.sep)
         subDir = filename.substring(0, lastIndex)
         filename = filename.substring(lastIndex + 1)
       }
@@ -1381,7 +1408,7 @@ export default Vue.extend({
           this.player.pause()
         }
 
-        if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
+        if (this.screenshotFolder === '' || !(await pathExists(this.screenshotFolder))) {
           dirPath = await getPicturesPath()
         } else {
           dirPath = this.screenshotFolder
@@ -1420,9 +1447,9 @@ export default Vue.extend({
           dirPath = path.join(this.screenshotFolder, subDir)
         }
 
-        if (!fs.existsSync(dirPath)) {
+        if (!(await pathExists(dirPath))) {
           try {
-            fs.mkdirSync(dirPath, { recursive: true })
+            fs.mkdir(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
             showToast(this.$t('Screenshot Error', { error: err }))
@@ -1437,14 +1464,14 @@ export default Vue.extend({
         result.arrayBuffer().then(ab => {
           const arr = new Uint8Array(ab)
 
-          fs.writeFile(filePath, arr, (err) => {
-            if (err) {
+          fs.writeFile(filePath, arr)
+            .then(() => {
+              showToast(this.$t('Screenshot Success', { filePath }))
+            })
+            .catch((err) => {
               console.error(err)
               showToast(this.$t('Screenshot Error', { error: err }))
-            } else {
-              showToast(this.$t('Screenshot Success', { filePath }))
-            }
-          })
+            })
         })
       }, mimeType, imageQuality)
       canvas.remove()

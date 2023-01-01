@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
@@ -260,13 +260,11 @@ export function readFileFromDialog(response, index = 0) {
   return new Promise((resolve, reject) => {
     if (process.env.IS_ELECTRON) {
       // if this is Electron, use fs
-      fs.readFile(response.filePaths[index], (err, data) => {
-        if (err) {
-          reject(err)
-          return
-        }
-        resolve(new TextDecoder('utf-8').decode(data))
-      })
+      fs.readFile(response.filePaths[index])
+        .then(data => {
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+        .catch(reject)
     } else {
       // if this is web, use FileReader
       try {
@@ -315,16 +313,8 @@ export async function showSaveDialog (options) {
 */
 export async function writeFileFromDialog (response, content) {
   if (process.env.IS_ELECTRON) {
-    return await new Promise((resolve, reject) => {
-      const { filePath } = response
-      fs.writeFile(filePath, content, (error) => {
-        if (error) {
-          reject(error)
-        } else {
-          resolve()
-        }
-      })
-    })
+    const { filePath } = response
+    return await fs.writeFile(filePath, content)
   } else {
     if ('showOpenFilePicker' in window) {
       const { handle } = response
@@ -495,6 +485,74 @@ export function extractNumberFromString(str) {
   } else {
     return NaN
   }
+}
+
+export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionName) {
+  const action = i18n.t(`Video.External Player.Unsupported Actions.${actionName}`)
+  const message = i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  showToast(message)
+}
+
+export function getVideoParamsFromUrl(url) {
+  /** @type {URL} */
+  let urlObject
+  const paramsObject = { videoId: null, timestamp: null, playlistId: null }
+  try {
+    urlObject = new URL(url)
+  } catch (e) {
+    return paramsObject
+  }
+
+  function extractParams(videoId) {
+    paramsObject.videoId = videoId
+    paramsObject.timestamp = urlObject.searchParams.get('t')
+  }
+
+  const extractors = [
+    // anything with /watch?v=
+    function () {
+      if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
+        extractParams(urlObject.searchParams.get('v'))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
+        return paramsObject
+      }
+    },
+    // youtu.be
+    function () {
+      if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
+        extractParams(urlObject.pathname.slice(1))
+        return paramsObject
+      }
+    },
+    // youtube.com/embed
+    function () {
+      if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
+        const urlTail = urlObject.pathname.replace('/embed/', '')
+        if (urlTail === 'videoseries') {
+          paramsObject.playlistId = urlObject.searchParams.get('list')
+        } else {
+          extractParams(urlTail)
+        }
+        return paramsObject
+      }
+    },
+    // youtube.com/shorts
+    function () {
+      if (urlObject.pathname.match(/^\/shorts\/[A-Za-z0-9_-]+$/)) {
+        extractParams(urlObject.pathname.replace('/shorts/', ''))
+        return paramsObject
+      }
+    },
+    // cloudtube
+    function () {
+      if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
+        extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
+        return paramsObject
+      }
+    }
+  ]
+
+  return extractors.reduce((a, c) => a || c(), null) || paramsObject
 }
 
 /**

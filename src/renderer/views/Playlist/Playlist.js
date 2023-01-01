@@ -3,7 +3,7 @@ import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
-import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
+import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import i18n from '../../i18n/index'
@@ -16,7 +16,7 @@ export default Vue.extend({
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video': FtListVideo,
+    'ft-list-video-lazy': FtListVideoLazy,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
   },

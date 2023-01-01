@@ -34,6 +34,7 @@
             @click="$emit('click', optionValues[index])"
           />
           <ft-button
+            v-if="showClose"
             :id="'prompt-' + sanitizedLabel + '-close'"
             :label="$t('Close')"
             tabindex="0"

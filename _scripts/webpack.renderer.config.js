@@ -6,9 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
-const { productName } = require('../package.json')
-
 const isDevMode = process.env.NODE_ENV === 'development'
+
+const processLocalesPlugin = new ProcessLocalesPlugin({
+  compress: !isDevMode,
+  inputDir: path.join(__dirname, '../static/locales'),
+  outputDir: 'static/locales',
+})
 
 const config = {
   name: 'renderer',
@@ -109,9 +113,10 @@ const config = {
     __filename: isDevMode
   },
   plugins: [
+    processLocalesPlugin,
     new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-      'process.env.IS_ELECTRON': true
+      'process.env.IS_ELECTRON': true,
+      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -143,24 +148,6 @@ const config = {
     extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
-}
-
-/**
- * Adjust rendererConfig for production settings
- */
-if (!isDevMode) {
-  const processLocalesPlugin = new ProcessLocalesPlugin({
-    compress: true,
-    inputDir: path.join(__dirname, '../static/locales'),
-    outputDir: 'static/locales',
-  })
-
-  config.plugins.push(
-    processLocalesPlugin,
-    new webpack.DefinePlugin({
-      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
-    })
-  )
 }
 
 module.exports = config
