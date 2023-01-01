@@ -82,7 +82,7 @@
           query: playlistId ? {playlistId} : {}
         }"
       >
-        {{ title }}
+        {{ displayTitle }}
       </router-link>
       <div class="infoLine">
         <router-link

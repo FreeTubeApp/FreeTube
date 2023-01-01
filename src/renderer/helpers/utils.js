@@ -554,3 +554,26 @@ export function getVideoParamsFromUrl(url) {
 
   return extractors.reduce((a, c) => a || c(), null) || paramsObject
 }
+
+/**
+ * This will match sequences of upper case characters and convert them into title cased words.
+ * @param {string} title the title to process
+ * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
+ * @returns {string} the title with upper case characters removed
+ */
+export function toDistractionFreeTitle(title, minUpperCase = 3) {
+  const firstValidCharIndex = (word) => {
+    const reg = /[\p{L}]/u
+    return word.search(reg)
+  }
+
+  const capitalizedWord = (word) => {
+    const chars = word.split('')
+    const index = firstValidCharIndex(word)
+    chars[index] = chars[index].toUpperCase()
+    return chars.join('')
+  }
+
+  const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
+  return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
+}
