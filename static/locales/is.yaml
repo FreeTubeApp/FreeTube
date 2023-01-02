@@ -278,6 +278,7 @@ Settings:
       Folder Button: Veldu möppu
       File Name Label: Mynstur skráaheita
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
+    Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -319,6 +320,9 @@ Settings:
     Hide Comments: Fela athugasemdir
     Hide Chapters: Fela kafla
     Hide Upcoming Premieres: Fela væntanlegar frumsýningar
+    Hide Channels: Fela myndskeið úr rásum
+    Hide Channels Placeholder: Heiti eða auðkenni rásar
+    Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -423,6 +427,16 @@ Settings:
     Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær
       eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
+  Password Dialog:
+    Password: Lykilorð
+    Password Incorrect: Rangt lykilorð
+    Enter Password To Unlock: Settu inn lykilorð til að aflæsa stillingum
+    Unlock: Aflæsa
+  Password Settings:
+    Set Password To Prevent Access: Settu lykilorð til að hindra aðgang að stillingum
+    Set Password: Setja lykilorð
+    Remove Password: Fjarlægja lykilorð
+    Password Settings: Stillingar lykilorðs
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -668,6 +682,8 @@ Video:
     Volume: Hljóðstyrkur
   Premieres in: Frumsýnt eftir
   Premieres: Frumsýnt
+  Show Super Chat Comment: Birta athugasemd Super Chat
+  Scroll to Bottom: Skruna neðst
 Videos:
   #& Sort By
   Sort By:
@@ -745,6 +761,8 @@ Comments:
   And others: og fleirum
   Pinned by: Fest af
   Member: Meðlimur
+  View {replyCount} replies: Skoða {replyCount} svör
+  Hearted: Líkað
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -784,6 +802,8 @@ Tooltips:
       haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og smelltu með vinstri
       músarhnappnum til að snúa aftur í sjálfgefinn hraða (1x nema ef því hefur verið
       breytt í stillingunum).
+    Skip by Scrolling Over Video Player: Nota skrunhjólið til að fletta í gegnum myndskeið,
+      svipað og í MPV.
   Subscription Settings:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
@@ -812,6 +832,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna
       minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
+  Distraction Free Settings:
+    Hide Channels: Settu inn heiti eða auðkenni rásar til að fela öll myndskeið, spilunarlista
+      og sjálfa rásina við leit eða vinsældaskráningu. Heiti rásarinnar sem sett er
+      inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
@@ -884,3 +908,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
     núverandi kafli: {chapterName}'
 Preferences: Kjörstillingar
+Ok: Í lagi
