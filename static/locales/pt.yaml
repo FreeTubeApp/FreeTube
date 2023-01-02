@@ -420,6 +420,8 @@ Settings:
     Hide Upcoming Premieres: Ocultar próximas estreias
     Hide Channels: Ocultar vídeos dos canais
     Hide Channels Placeholder: Nome ou ID do canal
+    Display Titles Without Excessive Capitalisation: Mostrar Títulos sem Capitalização
+      Excessiva
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
