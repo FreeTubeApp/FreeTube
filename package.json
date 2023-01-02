@@ -73,7 +73,7 @@
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
-    "youtubei.js": "^2.6.0",
+    "youtubei.js": "^2.7.0",
     "yt-channel-info": "^3.2.1",
     "yt-dash-manifest-generator": "1.1.0",
     "ytdl-core": "https://github.com/absidue/node-ytdl-core#fix-likes-extraction",
