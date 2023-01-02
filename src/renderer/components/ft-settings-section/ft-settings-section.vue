@@ -11,4 +11,4 @@
 </template>
 
 <script src="./ft-settings-section.js" />
-<style scoped src="./ft-settings-section.sass" lang="sass" />
+<style scoped src="./ft-settings-section.scss" lang="scss" />

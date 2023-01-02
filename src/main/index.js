@@ -283,7 +283,7 @@ function runApp() {
 
     session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
       requestHeaders.referer = 'https://www.youtube.com'
-      // eslint-disable-next-line node/no-callback-literal
+      // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
 
@@ -298,7 +298,7 @@ function runApp() {
         if (imageCache.has(url)) {
           const cached = imageCache.get(url)
 
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({
             mimeType: cached.mimeType,
             data: cached.data
@@ -336,7 +336,7 @@ function runApp() {
 
             imageCache.add(url, mimeType, data, expiryTimestamp)
 
-            // eslint-disable-next-line node/no-callback-literal
+            // eslint-disable-next-line n/no-callback-literal
             callback({
               mimeType,
               data: data
@@ -364,7 +364,7 @@ function runApp() {
               return value
             })
 
-            // eslint-disable-next-line node/no-callback-literal
+            // eslint-disable-next-line n/no-callback-literal
             callback({
               statusCode: response.statusCode ?? 400,
               mimeType: 'application/json',
@@ -385,12 +385,12 @@ function runApp() {
         // the requests made by the imagecache:// handler to fetch the image,
         // are allowed through, as their resourceType is 'other'
         if (details.resourceType === 'image') {
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({
             redirectURL: `imagecache://${encodeURIComponent(details.url)}`
           })
         } else {
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({})
         }
       })

@@ -228,7 +228,7 @@ export default Vue.extend({
       let count = 0
 
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
-        const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g
+        const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^\n",]*|(?:\n|$))/g
         return [...yt.matchAll(splitCSVRegex)].map(s => {
           let newVal = s[1]
           if (newVal.startsWith('"')) {
@@ -623,11 +623,11 @@ export default Vue.extend({
 
       this.profileList[0].subscriptions.forEach((channel) => {
         const escapedName = channel.name
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&apos;')
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll('\'', '&apos;')
 
         const channelOpmlString = `<outline text="${escapedName}" title="${escapedName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}"/>`
         opmlData += channelOpmlString

@@ -40,5 +40,5 @@ export function handleDropdownKeyboardEvent(event, target, afterElement) {
 }
 
 export function sanitizeForHtmlId(attribute) {
-  return attribute.replace(/\s+/g, '')
+  return attribute.replaceAll(/\s+/g, '')
 }

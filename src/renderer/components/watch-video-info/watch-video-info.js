@@ -264,7 +264,7 @@ export default Vue.extend({
       const locale = this.currentLocale.replace('_', '-')
       const localeDateString = new Intl.DateTimeFormat([locale, 'en'], { dateStyle: 'medium' }).format(date)
       // replace spaces with no break spaces to make the date act as a single entity while wrapping
-      return `${localeDateString}`.replace(/ /g, '\u00A0')
+      return `${localeDateString}`.replaceAll(' ', '\u00A0')
     },
 
     publishedString() {

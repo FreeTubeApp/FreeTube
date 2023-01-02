@@ -314,7 +314,7 @@ const actions = {
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results\/?$/],
-      ['hashtag', /^\/hashtag\/([^/?&#]+)$/],
+      ['hashtag', /^\/hashtag\/([^#&/?]+)$/],
       ['channel', channelPattern]
     ])
 

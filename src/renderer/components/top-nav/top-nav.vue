@@ -108,4 +108,4 @@
 </template>
 
 <script src="./top-nav.js" />
-<style scoped lang="sass" src="./top-nav.sass" />
+<style scoped lang="scss" src="./top-nav.scss" />

@@ -109,7 +109,7 @@ export default Vue.extend({
     colorNames: function () {
       return this.colorValues.map(colorVal => {
         // add spaces before capital letters
-        const colorName = colorVal.replace(/([A-Z])/g, ' $1').trim()
+        const colorName = colorVal.replaceAll(/([A-Z])/g, ' $1').trim()
         return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)
       })
     },

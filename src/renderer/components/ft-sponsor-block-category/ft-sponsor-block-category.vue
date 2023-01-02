@@ -20,4 +20,4 @@
   </div>
 </template>
 <script src="./ft-sponsor-block-category.js" />
-<style scoped lang="sass" src="./ft-sponsor-block-category.sass" />
+<style scoped lang="scss" src="./ft-sponsor-block-category.scss" />

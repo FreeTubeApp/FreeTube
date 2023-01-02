@@ -66,4 +66,4 @@
 </template>
 
 <script src="./playlist-info.js" />
-<style scoped lang="sass" src="./playlist-info.sass" />
+<style scoped lang="scss" src="./playlist-info.scss" />

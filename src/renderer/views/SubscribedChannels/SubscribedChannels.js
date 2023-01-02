@@ -23,7 +23,7 @@ export default Vue.extend({
       subscribedChannels: [],
       filteredChannels: [],
       re: {
-        url: /(.+=\w{1})\d+(.+)/,
+        url: /(.+=\w)\d+(.+)/,
         ivToIv: /^.+(ggpht.+)/,
         ivToYt: /^.+ggpht\/(.+)/,
         ytToIv: /^.+ggpht\.com\/(.+)/
@@ -115,7 +115,7 @@ export default Vue.extend({
         return
       }
 
-      const escapedQuery = this.query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const escapedQuery = this.query.replaceAll(/[$()*+.?[\\\]^{|}]/g, '\\$&')
       const re = new RegExp(escapedQuery, 'i')
       this.filteredChannels = this.subscribedChannels.filter(channel => {
         return re.test(channel.name)
