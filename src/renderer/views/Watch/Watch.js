@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       firstLoad: true,
       useTheatreMode: false,
       showDashPlayer: true,
