@@ -1,4 +1,4 @@
-import { Innertube, Session } from 'youtubei.js'
+import { Innertube } from 'youtubei.js'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
@@ -18,31 +18,19 @@ import { extractNumberFromString, getUserDataPath } from '../utils'
  * @returns the Innertube instance
  */
 async function createInnertube(options = { withPlayer: false, location: undefined }) {
+  let cache
   if (options.withPlayer) {
     const userData = await getUserDataPath()
-
-    return await Innertube.create({
-      // use browser fetch
-      location: options.location,
-      fetch: (input, init) => fetch(input, init),
-      cache: new PlayerCache(join(userData, 'player_cache'))
-    })
-  } else {
-    // from https://github.com/LuanRT/YouTube.js/pull/240
-    const sessionData = await Session.getSessionData(undefined, options.location)
-
-    const session = new Session(
-      sessionData.context,
-      sessionData.api_key,
-      sessionData.api_version,
-      sessionData.account_index,
-      undefined, // player
-      undefined, // cookies
-      (input, init) => fetch(input, init) // use browser fetch
-    )
-
-    return new Innertube(session)
+    cache = new PlayerCache(join(userData, 'player_cache'))
   }
+
+  return await Innertube.create({
+    retrieve_player: !!options.withPlayer,
+    location: options.location,
+    // use browser fetch
+    fetch: (input, init) => fetch(input, init),
+    cache
+  })
 }
 
 let searchSuggestionsSession = null
