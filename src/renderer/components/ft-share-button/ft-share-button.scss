@@ -1,16 +1,17 @@
 .shareLinks {
   display: grid;
-  grid-template-rows: auto auto;
   grid-auto-flow: column;
+  grid-template-rows: auto auto;
   padding: 12px;
   width: max-content;
 
   .header {
+    color: var(primary-text-color);
     font-size: 18px;
     font-weight: bold;
-    margin: 4px 0px 8px;
-    color: var(primary-text-color);
+    margin: 4px 0 8px;
   }
+
   .buttons {
     display: flex;
     flex-direction: column;
@@ -19,12 +20,14 @@
       padding: 6px;
     }
   }
+
   .divider {
-    grid-row: span 3;
-    margin: 0px 12px;
-    width: 1px;
     background: var(tertiary-text-color);
+    grid-row: span 3;
+    margin: 0 12px;
+    width: 1px;
   }
+
   .youtubeLogo {
     height: 18px;
     width: auto;
@@ -34,10 +37,12 @@
       .system[data-system-theme*='dark'] & {
         filter: brightness(0.868);
       }
+
       .black & {
         filter: brightness(0.933);
       }
-			/* no changes for the dracula theme */
+
+      /* no changes for the dracula theme */
 
       .light &,
       .system[data-system-theme*='light'] & {
@@ -45,17 +50,18 @@
       }
     }
   }
+
   .invidious {
     display: flex;
     justify-content: center;
     letter-spacing: -0.4px;
 
     .invidiousLogo {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
       background-size: cover;
+      display: inline-block;
+      height: 20px;
       margin-right: 2px;
+      width: 20px;
 
       @at-root {
         .dark &,
@@ -65,6 +71,7 @@
         .system[data-system-theme*='dark'] & {
           background-image: url(../../assets/img/invidious-logo-dark.svg);
         }
+
         .light &,
         .system[data-system-theme*='light'] & {
           background-image: url(../../assets/img/invidious-logo-light.svg);

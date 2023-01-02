@@ -4,7 +4,17 @@
   "overrides": [
     {
       "files": ["**/*.scss"],
-      "customSyntax": "postcss-scss"
+      "customSyntax": "postcss-scss",
+      "rules": {
+        "max-nesting-depth": null,
+        "selector-max-compound-selectors": null,
+        "selector-pseudo-class-no-unknown": [
+          true,
+          {
+            "ignorePseudoClasses": ["deep"]
+          }
+        ]
+      }
     },
     {
       "files": ["**/*.css"],

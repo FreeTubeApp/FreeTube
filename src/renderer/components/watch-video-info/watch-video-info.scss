@@ -1,78 +1,87 @@
 .watchVideoInfo {
+  column-gap: 15px;
   display: grid;
   grid-template-columns: auto minmax(min-content, 1fr);
-  column-gap: 15px;
   padding: 16px;
 
   @media screen and (max-width: 680px) {
     grid-template-columns: auto;
   }
 }
+
 .videoTitle {
-  font-size: 22px;
-  margin: 0 0 24px;
-  word-break: break-word;
   display: block;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  font-size: 22px;
   font-weight: normal;
+  margin: 0 0 24px;
+  margin-block-end: 1em;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  word-break: break-word;
 }
+
 .channelInformation {
   .profileRow {
     display: flex;
   }
+
   .channelThumbnail {
     border-radius: 50%;
-    margin-right: 10px;
     cursor: pointer;
+    margin-right: 10px;
     width: 56px;
   }
+
   .channelName {
-    margin-left: 6px;
-    cursor: pointer;
-    position: relative;
-    top: -2px;
-    display: block;
     color: inherit;
-    text-decoration: inherit;
-  }
-  .subscribeButton {
-    margin-top: 6px;
+    cursor: pointer;
+    display: block;
     margin-left: 6px;
-    padding: 6px;
+    position: relative;
+    text-decoration: inherit;
+    top: -2px;
+  }
+
+  .subscribeButton {
     font-size: 14px;
+    margin-left: 6px;
+    margin-top: 6px;
+    padding: 6px;
   }
 }
+
 .viewCount,
 .datePublished {
   color: var(secondary-text-color);
-  text-align: right;
   font-size: 15px;
+  text-align: right;
 
   @media screen and (max-width: 680px) {
     text-align: left;
   }
 }
+
 .viewCount {
-  margin: 18px 0px 0px;
+  margin: 18px 0 0;
 }
+
 .datePublished {
-  margin: 4px 0px 0px;
+  margin: 4px 0 0;
 
   @media screen and (max-width: 680px) {
     margin-top: 16px;
   }
 }
+
 .likeSection {
-  margin-top: 4px;
-  font-size: 16px;
   color: var(tertiary-text-color);
   display: flex;
   flex-direction: column;
+  font-size: 16px;
   margin-left: auto;
-  text-align: right;
+  margin-top: 4px;
   max-width: 210px;
+  text-align: right;
 
   @media screen and (max-width: 680px) {
     margin-left: 0;
@@ -80,22 +89,25 @@
   }
 
   .likeBar {
-    height: 8px;
     border-radius: 4px;
+    height: 8px;
     margin-bottom: 4px;
   }
+
   .likeCount {
-    margin-right: 0px;
+    margin-right: 0;
   }
 }
+
 .videoOptions {
-  margin-top: 16px;
   display: flex;
   justify-content: flex-end;
+  margin-top: 16px;
 
   .option:not(:first-child) {
     margin-left: 4px;
   }
+
   @media screen and (max-width: 680px) {
     justify-content: flex-start;
 
