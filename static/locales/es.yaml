@@ -390,6 +390,8 @@ Settings:
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar los vídeos de los canales
     Hide Channels Placeholder: Nombre o ID del canal
+    Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
+      mayúsculas
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
