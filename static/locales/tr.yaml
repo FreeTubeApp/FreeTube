@@ -392,6 +392,8 @@ Settings:
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
     Hide Channels Placeholder: Kanal Adı veya Kimliği
     Hide Channels: Kanallardan Videoları Gizle
+    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
+      Görüntüle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
