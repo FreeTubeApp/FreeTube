@@ -81,6 +81,9 @@ Subscriptions:
     RSS για αποφυγή περιορισμού των κλήσεων
   Load More Videos: Φόρτωση περισσότερων Βίντεο
   Error Channels: Κανάλια με προβλήματα
+  Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση συνδρομής.
+    Ανανεώστε τις συνδρομές για να τις δείτε εδώ.
+  Empty Channels: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν βίντεο.
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -167,6 +170,7 @@ Settings:
       Light: 'Φωτεινό'
       Dracula: 'Δράκουλας'
       System Default: Προεπιλογή Συστήματος
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -192,12 +196,27 @@ Settings:
       Dracula Purple: 'Δράκουλας Μωβ'
       Dracula Red: 'Δράκουλας Κόκκινο'
       Dracula Yellow: 'Δράκουλας Κίτρινο'
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
     Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
     Disable Smooth Scrolling: Απενεργοποίηση ομαλής κύλισης
     Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής γραμμής
+    Hide FreeTube Header Logo: Απόκρυψη Λογότυπου Κεφαλίδας FreeTube
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
     Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
@@ -238,6 +257,26 @@ Settings:
     Fast-Forward / Rewind Interval: Διάστημα Γρήγορης προώθησης / Επανατύλιξης
     Max Video Playback Rate: Μέγιστος ρυθμός αναπαραγωγής βίντεο
     Video Playback Rate Interval: Διάστημα ρυθμού αναπαραγωγής βίντεο
+    Screenshot:
+      Error:
+        Forbidden Characters: Απαγορευμένοι Χαρακτήρες
+        Empty File Name: Κενό Όνομα Αρχείου
+      Enable: Ενεργοποίηση Στιγμιότυπου οθόνης
+      Quality Label: Ποιότητα Στιγμιότυπου Οθόνης
+      Ask Path: Ερώτηση για Αποθήκευση Φακέλου
+      Folder Button: Επιλέξτε φάκελο
+      Folder Label: Φάκελος Στιγμιότυπου Οθόνης
+      File Name Label: Μοτίβο ονόματος αρχείου
+      File Name Tooltip: Μπορείτε να χρησιμοποιήσετε μεταβλητές παρακάτω. %Y Έτος
+        4 ψηφία. %M Μήνας 2 ψηφία. %D ψηφία ημέρας 2. %H Ώρα 2 ψηφία. %N Λεπτά 2 ψηφία.
+        %S Δεύτερα 2 ψηφία. %T χιλιοστού του δευτερολέπτου 3 ψηφία. %s Βίντεο δεύτερο.
+        %t Βίντεο χιλιοστού του δευτερολέπτου 3 ψηφία. %i Αναγνωριστικό Βίντεο. Μπορείτε
+        επίσης να χρησιμοποιήσετε το "\" ή το "/" για να δημιουργήσετε υποφακέλους.
+      Format Label: Μορφή Στιγμιότυπου Οθόνης
+    Skip by Scrolling Over Video Player: Παράλειψη με Κύλιση στο Πρόγραμμα Αναπαραγωγής
+      Βίντεο
+    Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
+      Οθόνης
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -260,6 +299,7 @@ Settings:
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Manage Subscriptions: 'Διαχείριση Εγγραφών'
+    Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
   Data Settings:
     Data Settings: 'Ρυθμίσεις Δεδομένων'
     Select Import Type: 'Επιλογή Τρόπου Εισαγωγής'
@@ -308,6 +348,9 @@ Settings:
       εισαχθεί με επιτυχία
     All playlists has been successfully exported: Όλες οι λίστες αναπαραγωγής έχουν
       εξαχθεί με επιτυχία
+    Subscription File: Αρχείο Συνδρομής
+    History File: Αρχείο Ιστορικού
+    Playlist File: Αρχείο Λίστας Αναπαραγωγής
   Advanced Settings:
     Advanced Settings: 'Ρυθμίσεις για προχωρημένους'
     Enable Debug Mode (Prints data to the console): 'Ενεργοποίηση λειτουργίας εντοπισμού
@@ -348,6 +391,16 @@ Settings:
     Hide Video Views: Απόκρυψη προβολών βίντεο
     Hide Active Subscriptions: Απόκρυψη ενεργών συνδρομών
     Hide Playlists: Απόκρυψη λιστών αναπαραγωγής
+    Hide Live Streams: Απόκρυψη Ζωντανών Ροών
+    Hide Sharing Actions: Απόκρυψη Ενεργειών Κοινής Χρήσης
+    Hide Channels: Απόκρυψη Βίντεο Από Κανάλια
+    Hide Upcoming Premieres: Απόκρυψη Επερχόμενων Πρεμιέρων
+    Hide Channels Placeholder: Όνομα Καναλιού ή Αναγνωριστικό
+    Hide Comments: Απόκρυψη Σχολίων
+    Hide Chapters: Απόκρυψη Κεφαλαίων
+    Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
+    Display Titles Without Excessive Capitalisation: Εμφάνιση Τίτλων Χωρίς Υπερβολική
+      Χρήση Κεφαλαίων
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -375,6 +428,9 @@ Settings:
     Custom External Player Executable: Εκτελέσιμο εξωτερικού προγράμματος αναπαραγωγής
     Custom External Player Arguments: Προσαρμοσμένα ορίσματα εξωτερικού προγράμματος
       αναπαραγωγής
+    Players:
+      None:
+        Name: Κανένα
   SponsorBlock Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
     Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
@@ -382,10 +438,43 @@ Settings:
     SponsorBlock Settings: Ρυθμίσεις SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
       API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: Επιλογή Παράλειψης
+      Do Nothing: Να Μην Γίνει Τίποτα
+      Auto Skip: Αυτόματη Παράλειψη
+      Show In Seek Bar: Εμφάνιση Στη Γραμμή Αναζήτησης
+      Prompt To Skip: Προτροπή Για Παράλειψη
+    Category Color: Χρώμα Κατηγορίας
   Download Settings:
     Download Settings: Λήψη ρυθμίσεων
     Ask Download Path: Ζητήστε τη διαδρομή λήψης
     Choose Path: Επιλέξτε διαδρομή
+    Download Behavior: Συμπεριφορά Λήψης
+    Download in app: Λήψη στην εφαρμογή
+    Open in web browser: Άνοιγμα στο πρόγραμμα περιήγησης ιστού
+  Password Dialog:
+    Password Incorrect: Λάθος κωδικός
+    Unlock: Ξεκλείδωμα
+    Enter Password To Unlock: Εισαγάγετε τον κωδικό πρόσβασης για να ξεκλειδώσετε
+      τις ρυθμίσεις
+    Password: Κωδικός πρόσβασης
+  Password Settings:
+    Password Settings: Ρυθμίσεις Κωδικού πρόσβασης
+    Set Password: Ορίστε Κωδικό πρόσβασης
+    Set Password To Prevent Access: Ορίστε έναν κωδικό πρόσβασης για να αποτρέψετε
+      την πρόσβαση στις ρυθμίσεις
+    Remove Password: Κατάργηση Κωδικού πρόσβασης
+  Experimental Settings:
+    Replace HTTP Cache: Αντικατάσταση HTTP Cache
+    Warning: Αυτές οι ρυθμίσεις είναι πειραματικές, προκαλούν σφάλματα ενώ είναι ενεργοποιημένες.
+      Συνιστάται ιδιαίτερα η δημιουργία αντιγράφων ασφαλείας. Χρησιμοποιήστε το με
+      δική σας ευθύνη!
+    Experimental Settings: Πειραματικές Ρυθμίσεις
+  Parental Control Settings:
+    Parental Control Settings: Ρυθμίσεις Γονικού Ελέγχου
+    Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
+    Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
+    Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
 About:
   #On About page
   About: 'Σχετικά με'
@@ -593,6 +682,7 @@ Video:
     Years: 'Χρόνια'
     Ago: 'Πριν'
     Upcoming: 'Κάνει πρεμιέρα στις'
+    In less than a minute: Σε λιγότερο από ένα λεπτό
   Published on: 'Δημοσιεύθηκε στις'
   Publicationtemplate: 'δημοσιεύθηκε πριν από {number} {unit}'
 #& Videos
@@ -618,12 +708,14 @@ Video:
   Save Video: Αποθήκευση βίντεο
   translated from English: μεταφράστηκε από τα Αγγλικά
   Sponsor Block category:
-    intro: εισαγωγή
-    interaction: αλληλεπίδραση
-    sponsor: χορηγός
-    outro: επίλογος
-    self-promotion: αυτοπροβολή
-    music offtopic: μουσική εκτός θέματος
+    intro: Εισαγωγή
+    interaction: Αλληλεπίδραση
+    sponsor: Χορηγός
+    outro: Επίλογος
+    self-promotion: Αυτοπροβολή
+    music offtopic: Μουσική Εκτός θέματος
+    recap: Ανακεφαλαίωση
+    filler: Γεμιστικό
   External Player:
     video: βίντεο
     OpenInTemplate: Άνοιγμα σε {externalPlayer}
@@ -661,6 +753,9 @@ Video:
     Buffered: Φορτωμένο
     Dropped / Total Frames: Πτωμένα / Συνολικά Καρέ
   Skipped segment: Τμήμα που παραλείφθηκε
+  Show Super Chat Comment: Εμφάνιση Σχολίου Super Chat
+  Scroll to Bottom: Κύλιση προς τα Κάτω
+  Premieres: Πρεμιέρες
 Videos:
   #& Sort By
   Sort By:
@@ -714,6 +809,7 @@ Share:
     στο πρόχειρο
   Invidious Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Invidious αντιγράφηκε
     στο πρόχειρο
+  Share Channel: Κοινή χρήση Καναλιού
 Mini Player: 'Μικρή πλατφόρμα αναπαραγωγής'
 Comments:
   Comments: 'Σχόλια'
@@ -739,6 +835,9 @@ Comments:
   From {channelName}: από {channelName}
   Show More Replies: Εμφάνιση περισσότερων απαντήσεων
   Pinned by: Καρφώθηκε από
+  Member: Μέλος
+  Hearted: Αγαπημένο
+  View {replyCount} replies: Προβολή {replyCount} απαντήσεων
 Up Next: 'Επόμενο'
 
 # Toast Messages
@@ -779,6 +878,8 @@ Tooltips:
       για την προεπιλεγμένη μέθοδο για την ανανέωση της τροφοδοσίας των συνδρομών
       σας. Η RSS είναι ταχύτερη και εμποδίζει το κλείδωμα IP, αλλά δεν παρέχει ορισμένες
       πληροφορίες, όπως η διάρκεια του βίντεο ή την κατάσταση αυτών
+    Fetch Automatically: Όταν είναι ενεργοποιημένο, το FreeTube θα λαμβάνει αυτόματα
+      τη ροή της συνδρομής σας όταν ανοίγει ένα νέο παράθυρο και όταν αλλάζει προφίλ.
   Player Settings:
     Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή
       ενός βίντεο. Οι μορφές DASH μπορούν να παίξουν υψηλότερη ποιότητα. Οι παλαιότερες
@@ -798,6 +899,8 @@ Tooltips:
       ρυθμό αναπαραγωγής. Πατήστε παρατεταμένα το πλήκτρο Control (Command Key σε
       Mac) και κάντε αριστερό κλικ στο ποντίκι για να επιστρέψετε γρήγορα στον προεπιλεγμένο
       ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
+    Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε
+      το βίντεο, στυλ MPV.
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες
@@ -830,11 +933,21 @@ Tooltips:
       κ.λπ.).
     External Player: Η επιλογή ενός εξωτερικού προγράμματος αναπαραγωγής θα εμφανίσει
       ένα εικονίδιο, για το άνοιγμα του βίντεο (λίστα αναπαραγωγής, εάν υποστηρίζεται)
-      στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία.
+      στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία. Προειδοποίηση, Οι ακατάλληλες
+      ρυθμίσεις δεν επηρεάζουν τις εξωτερικές συσκευές αναπαραγωγής.
     DefaultCustomArgumentsTemplate: "(Προεπιλογή: '{defaultCustomArguments}')"
     Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών,
       διαχωρισμένα με ερωτηματικά (';'), που θέλετε να μεταβιβαστούν στο εξωτερικό
       πρόγραμμα αναπαραγωγής.
+  Experimental Settings:
+    Replace HTTP Cache: Απενεργοποιεί το Electron's disk-based HTTP cache και ενεργοποιεί
+      μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη
+      χρήση RAM.
+  Distraction Free Settings:
+    Hide Channels: Εισαγάγετε ένα όνομα καναλιού ή ένα αναγνωριστικό καναλιού για
+      να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι ώστε
+      να μην εμφανίζονται στην αναζήτηση ή στις τάσεις. Το όνομα του καναλιού που
+      καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει διάκριση πεζών-κεφαλαίων.
 Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
   | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
   ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
@@ -869,3 +982,22 @@ Channels:
   Unsubscribe Prompt: Είστε σίγουρος πως επιθυμείτε να απεγγραφείτε από το "$"?
 New Window: Νέο Παράθυρο
 Screenshot Error: Λήψη στιγμιότυπου απέτυχε. $
+Clipboard:
+  Copy failed: Η αντιγραφή στο πρόχειρο απέτυχε
+  Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση
+    στο πρόχειρο χωρίς ασφαλή σύνδεση
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Κρυφή λίστα κεφαλαίων,
+    τρέχον κεφάλαιο: {chapterName}'
+  Chapters: Κεφάλαια
+  'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων,
+    τρέχον κεφάλαιο: {chapterName}'
+Age Restricted:
+  This {videoOrPlaylist} is age restricted: Αυτό το {videoOrPlaylist} έχει περιορισμό
+    ηλικίας
+  Type:
+    Channel: Κανάλι
+    Video: Βίντεο
+Ok: Εντάξει
+Preferences: Προτιμήσεις
+Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"
