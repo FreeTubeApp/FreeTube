@@ -18,63 +18,63 @@
   }
 
   &.base {
-    background-color: var(card-bg-color);
-    color: var(primary-text-color);
+    background-color: var(--card-bg-color);
+    color: var(--primary-text-color);
 
     &:hover {
-      background-color: var(side-nav-hover-color);
+      background-color: var(--side-nav-hover-color);
     }
 
     &:active {
-      background-color: var(side-nav-active-color);
+      background-color: var(--side-nav-active-color);
     }
   }
 
   &.base-no-default {
     &:hover {
-      background-color: var(side-nav-hover-color);
+      background-color: var(--side-nav-hover-color);
     }
 
     &:active {
-      background-color: var(side-nav-active-color);
+      background-color: var(--side-nav-active-color);
     }
   }
 
   &.primary {
-    background-color: var(primary-color);
-    color: var(text-with-main-color);
+    background-color: var(--primary-color);
+    color: var(--text-with-main-color);
 
     &:hover {
-      background-color: var(primary-color-hover);
+      background-color: var(--primary-color-hover);
     }
 
     &:active {
-      background-color: var(primary-color-active);
+      background-color: var(--primary-color-active);
     }
   }
 
   &.secondary {
-    background-color: var(accent-color);
-    color: var(text-with-accent-color);
+    background-color: var(--accent-color);
+    color: var(--text-with-accent-color);
 
     &:hover {
-      background-color: var(accent-color-hover);
+      background-color: var(--accent-color-hover);
     }
 
     &:active {
-      background-color: var(accent-color-active);
+      background-color: var(--accent-color-active);
     }
   }
 
   &.favorite {
-    color: var(favorite-icon-color);
+    color: var(--favorite-icon-color);
   }
 }
 
 .iconDropdown {
-  background-color: var(side-nav-color);
+  background-color: var(--side-nav-color);
   box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
-  color: var(secondary-text-color);
+  color: var(--secondary-text-color);
   display: inline;
   font-size: 12px;
   list-style-type: none;
@@ -107,18 +107,18 @@
 
     &:hover,
     &:focus {
-      background-color: var(side-nav-hover-color);
+      background-color: var(--side-nav-hover-color);
       transition: background 0.2s ease-in;
     }
 
     &:active {
-      background-color: var(side-nav-active-color);
+      background-color: var(--side-nav-active-color);
       transition: background 0.1s ease-in;
     }
   }
 
   .listItemDivider {
-    border-top: 1px solid var(tertiary-text-color);
+    border-top: 1px solid var(--tertiary-text-color);
     margin: 1px auto;
     // Too "visible" with current color
     opacity: 0.5;

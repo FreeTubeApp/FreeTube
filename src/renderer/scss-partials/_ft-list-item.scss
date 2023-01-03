@@ -40,7 +40,7 @@ $watched-transition-duration: 0.5s;
   @at-root {
     .watched &,
     .watched#{&} {
-      color: var(tertiary-text-color);
+      color: var(--tertiary-text-color);
       transition-duration: $watched-transition-duration;
     }
     .watched:hover &,
@@ -55,9 +55,9 @@ $watched-transition-duration: 0.5s;
   padding: 6px;
 
   &.watched {
-    @include low-contrast-when-watched(var(primary-text-color));
+    @include low-contrast-when-watched(var(--primary-text-color));
 
-    background-color: var(bg-color);
+    background-color: var(--bg-color);
 
     .thumbnailImage {
       opacity: 0.3;
@@ -89,8 +89,8 @@ $watched-transition-duration: 0.5s;
     }
 
     .videoWatched {
-      background-color: var(bg-color);
-      color: var(primary-text-color);
+      background-color: var(--bg-color);
+      color: var(--primary-text-color);
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
@@ -99,10 +99,10 @@ $watched-transition-duration: 0.5s;
     }
 
     .videoDuration {
-      background-color: var(card-bg-color);
+      background-color: var(--card-bg-color);
       border-radius: 5px;
       bottom: 4px;
-      color: var(primary-text-color);
+      color: var(--primary-text-color);
       font-size: 15px;
       line-height: 1.2;
       margin: 0;
@@ -139,7 +139,7 @@ $watched-transition-duration: 0.5s;
     }
 
     .watchedProgressBar {
-      background-color: var(primary-color);
+      background-color: var(--primary-color);
       bottom: 0;
       height: 2px;
       max-width: 100%;
@@ -165,13 +165,13 @@ $watched-transition-duration: 0.5s;
       }
 
       .background {
-        background-color: var(bg-color);
+        background-color: var(--bg-color);
         opacity: 0.9;
       }
 
       .inner {
         align-items: center;
-        color: var(primary-text-color);
+        color: var(--primary-text-color);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -202,7 +202,7 @@ $watched-transition-duration: 0.5s;
     }
 
     .title {
-      @include low-contrast-when-watched(var(primary-text-color));
+      @include low-contrast-when-watched(var(--primary-text-color));
 
       font-size: 20px;
       text-decoration: none;
@@ -223,16 +223,16 @@ $watched-transition-duration: 0.5s;
       }
 
       & {
-        @include low-contrast-when-watched(var(secondary-text-color));
+        @include low-contrast-when-watched(var(--secondary-text-color));
       }
 
       .channelName {
-        @include low-contrast-when-watched(var(secondary-text-color));
+        @include low-contrast-when-watched(var(--secondary-text-color));
       }
     }
 
     .description {
-      @include low-contrast-when-watched(var(secondary-text-color));
+      @include low-contrast-when-watched(var(--secondary-text-color));
 
       font-size: 14px;
       max-height: 50px;

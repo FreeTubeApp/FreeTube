@@ -10,8 +10,8 @@
 .topNav {
   align-content: center;
   align-items: center;
-  background-color: var(card-bg-color);
-  box-shadow: 0 2px 1px 0 var(primary-shadow-color);
+  background-color: var(--card-bg-color);
+  box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
   display: flex;
   height: 60px;
   left: 0;
@@ -28,7 +28,7 @@
   }
 
   @include top-nav-is-colored {
-    background-color: var(primary-color);
+    background-color: var(--primary-color);
   }
 
   @media only screen and (max-width: 680px) {
@@ -44,7 +44,7 @@
 
 .navIcon {
   border-radius: 50%;
-  color: var(primary-text-color);
+  color: var(--primary-text-color);
   cursor: pointer;
   font-size: 20px;
   height: 1em;
@@ -53,10 +53,10 @@
   width: 1em;
 
   @include top-nav-is-colored {
-    color: var(text-with-main-color);
+    color: var(--text-with-main-color);
 
     &:hover {
-      background-color: var(primary-color-hover);
+      background-color: var(--primary-color-hover);
     }
   }
 
@@ -69,16 +69,16 @@
   }
 
   &:hover {
-    background-color: var(side-nav-hover-color);
+    background-color: var(--side-nav-hover-color);
     transition: background 0.2s ease-in;
   }
 
   &:active {
-    background-color: var(tertiary-text-color);
+    background-color: var(--tertiary-text-color);
     transition: background 0.2s ease-in;
 
     @include top-nav-is-colored {
-      background-color: var(primary-color-active);
+      background-color: var(--primary-color-active);
     }
   }
 }
@@ -89,10 +89,10 @@
   margin-left: $effect-distance;
 
   &.filterChanged {
-    box-shadow: 0 0 $effect-distance var(primary-color);
+    box-shadow: 0 0 $effect-distance var(--primary-color);
 
     @include top-nav-is-colored {
-      box-shadow: 0 0 $effect-distance var(text-with-main-color);
+      box-shadow: 0 0 $effect-distance var(--text-with-main-color);
     }
   }
 }
@@ -126,16 +126,16 @@
     padding: 0 25px 0 10px;
 
     &:active {
-      background-color: var(tertiary-text-color);
+      background-color: var(--tertiary-text-color);
       transition: background 0.2s ease-in;
 
       @include top-nav-is-colored {
-        background-color: var(primary-color-active);
+        background-color: var(--primary-color-active);
       }
     }
 
     .logoIcon {
-      background-image: var(logo-icon);
+      background-image: var(--logo-icon);
       background-position: right top;
       background-repeat: no-repeat;
       background-size: 25px;
@@ -143,12 +143,12 @@
       width: 25px;
 
       @include top-nav-is-colored {
-        background-image: var(logo-icon-bar-color);
+        background-image: var(--logo-icon-bar-color);
       }
     }
 
     .logoText {
-      background-image: var(logo-text);
+      background-image: var(--logo-text);
       background-position: right top;
       background-repeat: no-repeat;
       background-size: 100px;
@@ -163,7 +163,7 @@
       }
 
       @include top-nav-is-colored {
-        background-image: var(logo-text-bar-color);
+        background-image: var(--logo-text-bar-color);
       }
     }
   }
@@ -178,14 +178,14 @@
     display: flex;
 
     @media only screen and (max-width: 680px) {
-      background-color: var(side-nav-color);
+      background-color: var(--side-nav-color);
       left: 0;
       position: fixed;
       right: 0;
       top: 60px;
 
       @include top-nav-is-colored {
-        background-color: var(primary-color-hover);
+        background-color: var(--primary-color-hover);
       }
     }
 
