@@ -359,6 +359,7 @@ Settings:
     Hide Upcoming Premieres: 隱藏即將到來的首映
     Hide Channels Placeholder: 頻道名稱或 ID
     Hide Channels: 隱藏頻道中的影片
+    Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫的標題
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
