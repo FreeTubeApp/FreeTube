@@ -391,6 +391,8 @@ Settings:
     Hide Upcoming Premieres: Скрыть предстоящие премьеры
     Hide Channels Placeholder: Название или идентификатор канала
     Hide Channels: Скрыть видео с каналов
+    Display Titles Without Excessive Capitalisation: Отображать заголовки без чрезмерного
+      использования заглавных букв
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
