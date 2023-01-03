@@ -1822,6 +1822,11 @@ export default Vue.extend({
         return
       }
 
+      // allow copying text
+      if ((event.ctrlKey || event.metaKey) && event.key.lowercase() === 'c') {
+        return
+      }
+
       if (this.player !== null) {
         switch (event.key) {
           case ' ':
