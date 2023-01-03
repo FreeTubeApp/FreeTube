@@ -409,6 +409,8 @@ Settings:
     Hide Upcoming Premieres: Cacher les avant-premières à venir
     Hide Channels: Masquer les vidéos des chaînes
     Hide Channels Placeholder: Nom ou identifiant de la chaîne
+    Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
+      excessives
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
