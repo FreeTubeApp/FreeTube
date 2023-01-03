@@ -260,9 +260,9 @@ export default Vue.extend({
             let skipIndex
             errorScreen.subreason.runs.forEach((message, index) => {
               if (index !== skipIndex) {
-                if (message.text.match(/<a.*>/)) {
+                if (/<a.*>/.test(message.text)) {
                   skipIndex = index + 1
-                } else if (!message.text.match(/<\/a>/)) {
+                } else if (!/<\/a>/.test(message.text)) {
                   if (typeof subReason === 'undefined') {
                     subReason = message.text
                   } else {
@@ -719,7 +719,7 @@ export default Vue.extend({
             // MM:SS - Text
             // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
             // HH:MM - HH:MM - Text // end timestamp is ignored
-            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>[0-9]+):)?(?<minutes>[0-9]+):(?<seconds>[0-9]+))(\s*[-–—]\s*(?:[0-9]+:)?[0-9]+:[0-9]+)?\s+([-–•—]\s*)?(?<title>.+)$/gm)
+            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(\s*[–—-]\s*(?:\d+:){1,2}\d+)?\s+([–—•-]\s*)?(?<title>.+)$/gm)
 
             for (const { groups } of chapterMatches) {
               let start = 60 * Number(groups.minutes) + Number(groups.seconds)
@@ -860,7 +860,7 @@ export default Vue.extend({
     },
 
     processDescriptionPart(part, fallbackDescription) {
-      const timestampRegex = /^([0-9]+:)?[0-9]+:[0-9]+$/
+      const timestampRegex = /^(\d+:)?\d+:\d+$/
 
       if (typeof part.navigationEndpoint === 'undefined' || part.navigationEndpoint === null || part.text.startsWith('#')) {
         return part.text
@@ -1314,7 +1314,7 @@ export default Vue.extend({
         /* eslint-disable-next-line */
         const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
         storyboardArray.push({
-          url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
+          url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replaceAll(/<\/?sub>/g, '') + '&sigh=' + sigh,
           width: Number(width), // Width of one sub image
           height: Number(height), // Height of one sub image
           sWidth: Number(sWidth), // Number of images vertically  (if full)
@@ -1412,7 +1412,7 @@ export default Vue.extend({
             // The character '#' needs to be percent-encoded in a (data) URI
             // because it signals an identifier, which means anything after it
             // is automatically removed when the URI is used as a source
-            let vtt = text.replace(/#/g, '%23')
+            let vtt = text.replaceAll('#', '%23')
 
             // A lot of videos have messed up caption positions that need to be removed
             // This can be either because this format isn't really used by YouTube
@@ -1424,9 +1424,9 @@ export default Vue.extend({
             // In addition, all aligns seem to be fixed to "start" when they do pop up in normal captions
             // If it's prominent enough that people start to notice, it can be removed then
             if (caption.kind === 'asr') {
-              vtt = vtt.replace(/ align:start| position:\d{1,3}%/g, '')
+              vtt = vtt.replaceAll(/ align:start| position:\d{1,3}%/g, '')
             } else {
-              vtt = vtt.replace(/ position:\d{1,3}%/g, '')
+              vtt = vtt.replaceAll(/ position:\d{1,3}%/g, '')
             }
 
             caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`

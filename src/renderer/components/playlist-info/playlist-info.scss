@@ -1,0 +1,55 @@
+.playListThumbnail {
+  width: 100%;
+}
+
+.playlistThumbnail img {
+  cursor: pointer;
+  width: 100%;
+
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+.playlistStats {
+  font-size: 15px;
+}
+
+.playlistStats p {
+  color: var(secondary-text-color);
+  margin: 0;
+}
+
+.playlistTitle {
+  margin-bottom: 0.1em;
+}
+
+.playlistDescription {
+  max-height: 20vh;
+  overflow-y: auto;
+  white-space: break-spaces;
+
+  @media only screen and (max-width: 500px) {
+    max-height: 10vh;
+  }
+}
+
+.playlistChannel {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  gap: 8px;
+  height: 40px;
+  text-decoration: none;
+}
+
+.channelThumbnail {
+  border-radius: 200px;
+  float: left;
+  width: 40px;
+}
+
+.channelName {
+  font-size: 15px;
+  margin: 0;
+}

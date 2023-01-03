@@ -1,0 +1,19 @@
+.ft-age-restricted {
+  color: var(primary-text-color);
+
+  h2 {
+    background-color: var(card-bg-color);
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .frown {
+    background-color: var(card-bg-color);
+    font-size: 10em;
+    height: 100%;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+  }
+}

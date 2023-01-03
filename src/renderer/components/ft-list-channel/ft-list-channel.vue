@@ -48,4 +48,4 @@
 </template>
 
 <script src="./ft-list-channel.js" />
-<style scoped lang="sass" src="./ft-list-channel.sass" />
+<style scoped lang="scss" src="./ft-list-channel.scss" />

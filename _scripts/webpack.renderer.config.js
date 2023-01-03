@@ -48,7 +48,7 @@ const config = {
         loader: 'vue-loader',
       },
       {
-        test: /\.s(c|a)ss$/,
+        test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -62,11 +62,7 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-              // eslint-disable-next-line
-              implementation: require('sass'),
-              sassOptions: {
-                indentedSyntax: true
-              }
+              implementation: require('sass')
             }
           },
         ],

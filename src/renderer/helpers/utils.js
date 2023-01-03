@@ -361,7 +361,7 @@ export function createWebURL(path) {
 
 // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
-  return value.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, '')
+  return value.replaceAll(/(<(?!br|\/?[bis]>)([^>]+)>)/gi, '')
 }
 
 /**
@@ -519,14 +519,14 @@ export function getVideoParamsFromUrl(url) {
     },
     // youtu.be
     function () {
-      if (urlObject.host === 'youtu.be' && urlObject.pathname.match(/^\/[A-Za-z0-9_-]+$/)) {
+      if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice(1))
         return paramsObject
       }
     },
     // youtube.com/embed
     function () {
-      if (urlObject.pathname.match(/^\/embed\/[A-Za-z0-9_-]+$/)) {
+      if (/^\/embed\/[\w-]+$/.test(urlObject.pathname)) {
         const urlTail = urlObject.pathname.replace('/embed/', '')
         if (urlTail === 'videoseries') {
           paramsObject.playlistId = urlObject.searchParams.get('list')
@@ -538,14 +538,14 @@ export function getVideoParamsFromUrl(url) {
     },
     // youtube.com/shorts
     function () {
-      if (urlObject.pathname.match(/^\/shorts\/[A-Za-z0-9_-]+$/)) {
+      if (/^\/shorts\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.replace('/shorts/', ''))
         return paramsObject
       }
     },
     // cloudtube
     function () {
-      if (urlObject.host.match(/^cadence\.(gq|moe)$/) && urlObject.pathname.match(/^\/cloudtube\/video\/[A-Za-z0-9_-]+$/)) {
+      if (/^cadence\.(gq|moe)$/.test(urlObject.host) && /^\/cloudtube\/video\/[\w-]+$/.test(urlObject.pathname)) {
         extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
         return paramsObject
       }

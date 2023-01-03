@@ -27,7 +27,7 @@ class CustomVueI18n extends VueI18n {
       // locales are only compressed in our production Electron builds
       try {
         // decompress brotli compressed json file and then load it
-        // eslint-disable-next-line node/no-path-concat
+        // eslint-disable-next-line n/no-path-concat
         const compressed = await readFile(`${__dirname}/static/locales/${locale}.json.br`)
         const decompressed = await brotliDecompressAsync(compressed)
         const data = JSON.parse(decompressed.toString())

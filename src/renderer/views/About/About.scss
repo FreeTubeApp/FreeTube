@@ -1,0 +1,62 @@
+.card {
+  margin: 0 auto;
+  margin-bottom: 60px;
+  width: 85%;
+
+  @media only screen and (max-width: 680px) {
+    width: 90%;
+  }
+}
+
+.brand {
+  text-align: center;
+}
+
+.logo {
+  max-width: 100%;
+  width: 500px;
+}
+
+.version {
+  font-size: 2em;
+}
+
+.about-chunks {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin: 80px auto;
+  max-width: 860px;
+
+  @media only screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chunk {
+  align-items: start;
+  background-color: var(bg-color);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px -1px rgb(0 0 0 / 50%);
+  display: grid;
+  grid-gap: 6px 14px;
+  grid-template: 'icon title' auto 'icon content' 1fr / auto 1fr;
+  justify-content: start;
+  margin: 0;
+  padding: 18px;
+  word-break: break-word;
+
+  @each $area in icon title content {
+    .#{$area} {
+      grid-area: $area;
+    }
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+
+  .title {
+    margin: 0;
+  }
+}

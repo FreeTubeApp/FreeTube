@@ -1,0 +1,12 @@
+.sponsorBlockCategory {
+  margin-top: 30px;
+  padding: 0 10px;
+
+  @media only screen and (max-width: 680px) {
+    width: 100%;
+  }
+
+  .sponsorTitle {
+    font-size: x-large;
+  }
+}

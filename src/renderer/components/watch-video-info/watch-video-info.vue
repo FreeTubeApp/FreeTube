@@ -130,4 +130,4 @@
 </template>
 
 <script src="./watch-video-info.js" />
-<style scoped src="./watch-video-info.sass" lang="sass" />
+<style scoped src="./watch-video-info.scss" lang="scss" />

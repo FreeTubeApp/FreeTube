@@ -11,4 +11,4 @@
 </template>
 
 <script src="./ft-auto-grid.js" />
-<style scoped lang="sass" src="./ft-auto-grid.sass" />
+<style scoped lang="scss" src="./ft-auto-grid.scss" />

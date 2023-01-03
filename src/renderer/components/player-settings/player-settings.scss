@@ -1,0 +1,19 @@
+.screenshotFolderContainer {
+  align-items: center;
+  column-gap: 1rem;
+  margin: 0 auto;
+  width: 95%;
+
+  .screenshotFolderLabel,
+  .screenshotFolderButton,
+  .screenshotFilenamePatternTitle {
+    flex-grow: 0;
+  }
+
+  .screenshotFolderPath,
+  .screenshotFilenamePatternInput,
+  .screenshotFilenamePatternExample {
+    flex-grow: 1;
+    margin-top: 10px;
+  }
+}

@@ -246,4 +246,4 @@
 </template>
 
 <script src="./player-settings.js" />
-<style scoped lang="sass" src="./player-settings.sass" />
+<style scoped lang="scss" src="./player-settings.scss" />

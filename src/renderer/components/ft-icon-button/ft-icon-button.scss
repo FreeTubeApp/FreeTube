@@ -1,0 +1,127 @@
+.ftIconButton {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  position: relative;
+  user-select: none;
+}
+
+.iconButton {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 1em;
+  transition: background 0.15s ease-out;
+  width: 1em;
+
+  &.shadow {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  }
+
+  &.base {
+    background-color: var(card-bg-color);
+    color: var(primary-text-color);
+
+    &:hover {
+      background-color: var(side-nav-hover-color);
+    }
+
+    &:active {
+      background-color: var(side-nav-active-color);
+    }
+  }
+
+  &.base-no-default {
+    &:hover {
+      background-color: var(side-nav-hover-color);
+    }
+
+    &:active {
+      background-color: var(side-nav-active-color);
+    }
+  }
+
+  &.primary {
+    background-color: var(primary-color);
+    color: var(text-with-main-color);
+
+    &:hover {
+      background-color: var(primary-color-hover);
+    }
+
+    &:active {
+      background-color: var(primary-color-active);
+    }
+  }
+
+  &.secondary {
+    background-color: var(accent-color);
+    color: var(text-with-accent-color);
+
+    &:hover {
+      background-color: var(accent-color-hover);
+    }
+
+    &:active {
+      background-color: var(accent-color-active);
+    }
+  }
+
+  &.favorite {
+    color: var(favorite-icon-color);
+  }
+}
+
+.iconDropdown {
+  background-color: var(side-nav-color);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  color: var(secondary-text-color);
+  display: inline;
+  font-size: 12px;
+  list-style-type: none;
+  margin-top: 45px;
+  position: absolute;
+  text-align: center;
+  user-select: none;
+  z-index: 3;
+
+  &.left {
+    right: calc(50% - 10px);
+  }
+
+  &.right {
+    left: calc(50% - 10px);
+  }
+
+  .list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .listItem {
+    cursor: pointer;
+    margin: 0;
+    padding: 8px 10px;
+    transition: background 0.2s ease-out;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      background-color: var(side-nav-hover-color);
+      transition: background 0.2s ease-in;
+    }
+
+    &:active {
+      background-color: var(side-nav-active-color);
+      transition: background 0.1s ease-in;
+    }
+  }
+
+  .listItemDivider {
+    border-top: 1px solid var(tertiary-text-color);
+    margin: 1px auto;
+    // Too "visible" with current color
+    opacity: 0.5;
+    width: 95%;
+  }
+}

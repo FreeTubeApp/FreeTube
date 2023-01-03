@@ -1,0 +1,34 @@
+{
+  "plugins": ["stylelint-high-performance-animation", "@double-great/stylelint-a11y"],
+  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss",
+      "rules": {
+        "max-nesting-depth": null,
+        "selector-max-compound-selectors": null
+      }
+    },
+    {
+      "files": ["**/*.css"],
+      "rules": {
+        "a11y/media-prefers-reduced-motion": true,
+        "a11y/no-outline-none": true,
+        "a11y/selector-pseudo-class-focus": true,
+        "a11y/font-size-is-readable": true
+      }
+    }
+  ],
+  "rules": {
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "plugin/no-low-performance-animation-properties": true,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["deep"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+@mixin dual-column-template {
+  grid-template: 'video video sidebar' 0fr 'info info sidebar' auto 'info info sidebar' 1fr / 1fr 1fr 1fr;
+}
+
+@mixin theatre-mode-template {
+  grid-template: 'video video video' auto 'info info sidebar' auto 'info info sidebar' auto / 1fr 1fr 1fr;
+}
+
+@mixin single-column-template {
+  grid-template: 'video' auto 'info' auto 'sidebar' auto / auto;
+}
+
+.ageRestricted {
+  @include single-column-template;
+
+  display: inline-block;
+  max-width: calc(80vh * 1.78);
+
+  @media only screen and (min-width: 901px) {
+    width: 300%;
+  }
+}
+
+.videoLayout {
+  @include dual-column-template;
+
+  align-items: start;
+  display: grid;
+
+  &.isLoading,
+  &.noSidebar {
+    @include single-column-template;
+  }
+
+  .videoArea {
+    grid-area: video;
+
+    .videoAreaMargin {
+      margin: 0 0 16px;
+    }
+
+    .videoPlayer {
+      grid-column: 1;
+      margin: 0 auto;
+      max-width: calc(80vh * 1.78);
+      position: relative;
+
+      .upcomingThumbnail {
+        width: 100%;
+      }
+
+      .premiereDate {
+        align-items: center;
+        background-color: rgb(0 0 0 / 80%);
+        border-radius: 5px;
+        bottom: 12px;
+        color: #fff;
+        display: flex;
+        height: 60px;
+        left: 12px;
+        padding: 0 12px;
+        position: absolute;
+
+        .premiereIcon {
+          float: left;
+          font-size: 25px;
+          margin: 0 12px;
+        }
+
+        .premiereText {
+          margin: 0 12px;
+          min-width: 200px;
+
+          .premiereTextTimestamp {
+            font-size: 0.85em;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .watchVideo {
+    grid-column: 1;
+    margin: 0 0 16px;
+  }
+
+  .infoArea {
+    grid-area: info;
+    position: relative;
+  }
+
+  .sidebarArea {
+    grid-area: sidebar;
+
+    @media only screen and (min-width: 901px) {
+      min-width: 380px;
+    }
+
+    @at-root .noSidebar#{&} {
+      grid-area: auto;
+    }
+  }
+
+  .watchVideoPlaylist,
+  .watchVideoSidebar,
+  .theatrePlaylist {
+    margin: 0 8px 16px;
+  }
+
+  .watchVideoSidebar,
+  .watchVideoPlaylist {
+    height: 500px;
+  }
+
+  .watchVideoRecommendations,
+  .theatreRecommendations {
+    margin: 0 0 16px;
+
+    @media only screen and (min-width: 901px) {
+      margin: 0 8px 16px;
+    }
+  }
+
+  @media only screen and (max-width: 1350px) {
+    @include theatre-mode-template;
+  }
+
+  @media only screen and (min-width: 901px) {
+    &.useTheatreMode {
+      @include theatre-mode-template;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    @include single-column-template;
+  }
+
+  @media only screen and (min-width: 901px) {
+    .infoArea {
+      scroll-margin-top: 76px;
+    }
+
+    .infoAreaSticky {
+      position: sticky;
+      top: 76px;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+.settingsSection {
+  background-color: var(card-bg-color);
+  margin: 0 auto;
+  width: 85%;
+
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
+
+  &[open] {
+    padding-bottom: 15px;
+  }
+
+  > div {
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  > div:not(:last-child, .ft-flex-box) {
+    @media only screen and (max-width: 800px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.sectionLine {
+  background-color: var(primary-color);
+  border: 0;
+  height: 2px;
+  margin-top: -1px;
+  width: 100%;
+}
+
+.sectionHeader {
+  cursor: pointer;
+  display: block;
+  padding: 1px;
+}
+
+.sectionTitle {
+  margin-left: 2%;
+}
+
+:deep(.switchGrid) {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-evenly;
+
+  @media only screen and (max-width: 680px) {
+    grid-template-columns: auto;
+  }
+}
+
+:deep(.switchColumnGrid) {
+  @extend :deep(.switchGrid);
+
+  align-items: start;
+}
+
+:deep(.switchColumn) {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+}
+
+:deep(.center) {
+  text-align: center;
+}
+
+@media only screen and (max-width: 460px) {
+  :deep(.settingsFlexStart460px) {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  :deep(.settingsFlexStart500px) {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .settingsSection {
+    > div {
+      :deep(.text.bottom) {
+        left: -85px;
+      }
+    }
+
+    :deep(.switch-ctn.containsTooltip) {
+      left: -10px;
+      margin-right: 5px;
+      padding: 0 10px;
+    }
+
+    :not(.select, .selectLabel) {
+      > :deep(.tooltip) {
+        display: inline-block;
+        position: absolute;
+        right: -25px;
+        top: 12px;
+      }
+    }
+
+    .settingsFlexStart460px :deep(.tooltip) {
+      right: 0;
+      top: -2px;
+    }
+
+    :deep(.switch-ctn) {
+      margin: 10px 7px;
+    }
+  }
+}
