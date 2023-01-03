@@ -58,7 +58,7 @@ jobs:
     - run: yarn run lint
 
     - name: Get Version Number
-      uses: nyaayaya/package-version@v1
+      uses: jozsefsallai/node-package-version@v1.0.4
       with:
         path: 'package.json'
         follow-symlinks: false
