@@ -31,7 +31,15 @@
         >
           {{ subscriberCount }} subscribers -
         </span>
+        <router-link
+          v-if="handle !== null"
+          class="handle"
+          :to="`/channel/${id}`"
+        >
+          {{ handle }}
+        </router-link>
         <span
+          v-else
           class="videoCount"
         >
           {{ videoCount }} videos
