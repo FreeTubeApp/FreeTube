@@ -390,6 +390,8 @@ Settings:
     Hide Upcoming Premieres: Sakrij nadolazeće premijere
     Hide Channels: Sakrij videa iz kanala
     Hide Channels Placeholder: Ime kanala ili ID
+    Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
+      korištenja velikih slova
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
