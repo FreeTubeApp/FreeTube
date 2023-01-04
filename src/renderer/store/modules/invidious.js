@@ -1,4 +1,5 @@
-import fs from 'fs'
+import fs from 'fs/promises'
+import { pathExists } from '../../helpers/filesystem'
 
 const state = {
   currentInvidiousInstance: '',
@@ -42,9 +43,9 @@ const actions = {
       const fileName = 'invidious-instances.json'
       /* eslint-disable-next-line */
       const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
-      if (fs.existsSync(`${fileLocation}${fileName}`)) {
+      if (await pathExists(`${fileLocation}${fileName}`)) {
         console.warn('reading static file for invidious instances')
-        const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+        const fileData = await fs.readFile(`${fileLocation}${fileName}`)
         instances = JSON.parse(fileData).map((entry) => {
           return entry.url
         })

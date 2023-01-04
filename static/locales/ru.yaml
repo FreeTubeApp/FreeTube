@@ -127,7 +127,7 @@ Settings:
       Grid: 'Сеткой'
       List: 'Списком'
     Thumbnail Preference:
-      Thumbnail Preference: 'Настройки миниатюр'
+      Thumbnail Preference: 'Настройка заставок'
       Default: 'По умолчанию'
       Beginning: 'В начале'
       Middle: 'В середине'
@@ -138,7 +138,7 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
     Check for Updates: Проверять обновления
-    View all Invidious instance information: Посмотреть все экземпляры Invidious
+    View all Invidious instance information: Просмотреть все экземпляры Invidious
     System Default: Системные установки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
     Set Current Instance as Default: Установить текущий экземпляр по умолчанию
@@ -267,6 +267,7 @@ Settings:
         для создания подпапок.
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
+    Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -390,6 +391,8 @@ Settings:
     Hide Upcoming Premieres: Скрыть предстоящие премьеры
     Hide Channels Placeholder: Название или идентификатор канала
     Hide Channels: Скрыть видео с каналов
+    Display Titles Without Excessive Capitalisation: Отображать заголовки без чрезмерного
+      использования заглавных букв
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -508,7 +511,7 @@ About:
   FAQ: ЧАВО
   FreeTube Wiki: Вики FreeTube
   Help: Помощь
-  GitHub releases: Релизы на GitHub
+  GitHub releases: Выпуски на GitHub
   Downloads / Changelog: Скачать / Список изменений
   View License: Посмотреть лицензию
   Licensed under the AGPLv3: Лицензия AGPLv3
@@ -611,7 +614,7 @@ Video:
     Minute: Минута
     Less than a minute: Менее минуты
     In less than a minute: Меньше чем через минуту
-  Published on: 'Опубликовано'
+  Published on: 'Размещено'
   Publicationtemplate: '{number} {unit} назад'
 #& Videos
   Autoplay: Автовоспроизведение
@@ -688,6 +691,8 @@ Video:
   Premieres on: Премьеры
   Premieres in: Премьеры в
   Premieres: Премьеры
+  Show Super Chat Comment: Показать комментарий «Супер Чата»
+  Scroll to Bottom: Прокрутите вниз
 Videos:
   #& Sort By
   Sort By:
@@ -767,6 +772,8 @@ Comments:
   And others: и других
   Pinned by: Закреплено
   Member: Участник
+  View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
+  Hearted: С сердечком
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -845,8 +852,8 @@ This video is unavailable because of missing formats. This can happen due to cou
   ограничений.
 Tooltips:
   General Settings:
-    Thumbnail Preference: Все эскизы во FreeTube будут заменены кадром видео вместо
-      эскиза по умолчанию.
+    Thumbnail Preference: Все заставки во FreeTube будут заменены снимком из видео
+      вместо заставки по умолчанию.
     Invidious Instance: Образец Invidious, к которому FreeTube будет подключаться
       для вызовов набора функций.
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора
@@ -885,6 +892,8 @@ Tooltips:
       и удерживайте клавишу Control (клавиша Command на Mac) и щелкните левой кнопкой
       мыши, чтобы быстро вернуться к обычной скорости воспроизведения (1x, если она
       не была изменена в настройках).
+    Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
+      видео в стиле MPV.
   Privacy Settings:
     Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
       метаданные, созданные во время воспроизведения видео, когда страница просмотра
@@ -928,8 +937,8 @@ Search Bar:
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
 Starting download: Запуск загрузки «{videoTitle}»
 Downloading has completed: '«{videoTitle}» закончил загрузку'
-Downloading failed: Возникла проблема с загрузкой "{videoTitle}"
-Screenshot Success: Снимок экрана сохранён как "{filePath}"
+Downloading failed: Возникла проблема с загрузкой «{videoTitle}»
+Screenshot Success: Снимок экрана сохранён как «{filePath}»
 Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
 Age Restricted:

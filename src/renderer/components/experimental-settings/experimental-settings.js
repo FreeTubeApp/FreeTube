@@ -1,9 +1,10 @@
-import { closeSync, existsSync, openSync, rmSync } from 'fs'
+import fs from 'fs/promises'
 import Vue from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import { pathExists } from '../../helpers/filesystem'
 import { getUserDataPath } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -26,28 +27,19 @@ export default Vue.extend({
     getUserDataPath().then((userData) => {
       this.replaceHttpCachePath = `${userData}/experiment-replace-http-cache`
 
-      this.replaceHttpCache = existsSync(this.replaceHttpCachePath)
-      this.replaceHttpCacheLoading = false
+      pathExists(this.replaceHttpCachePath).then((exists) => {
+        this.replaceHttpCache = exists
+        this.replaceHttpCacheLoading = false
+      })
     })
   },
   methods: {
-    updateReplaceHttpCache: function () {
-      this.replaceHttpCache = !this.replaceHttpCache
-
-      if (this.replaceHttpCache) {
-        // create an empty file
-        closeSync(openSync(this.replaceHttpCachePath, 'w'))
-      } else {
-        rmSync(this.replaceHttpCachePath)
-      }
-    },
-
     handleRestartPrompt: function (value) {
       this.replaceHttpCache = value
       this.showRestartPrompt = true
     },
 
-    handleReplaceHttpCache: function (value) {
+    handleReplaceHttpCache: async function (value) {
       this.showRestartPrompt = false
 
       if (value === null || value === 'no') {
@@ -57,9 +49,10 @@ export default Vue.extend({
 
       if (this.replaceHttpCache) {
         // create an empty file
-        closeSync(openSync(this.replaceHttpCachePath, 'w'))
+        const handle = await fs.open(this.replaceHttpCachePath, 'w')
+        await handle.close()
       } else {
-        rmSync(this.replaceHttpCachePath)
+        await fs.rm(this.replaceHttpCachePath)
       }
 
       const { ipcRenderer } = require('electron')

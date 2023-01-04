@@ -44,6 +44,7 @@
           <img
             :src="thumbnail"
             class="upcomingThumbnail"
+            alt=""
           >
           <div
             class="premiereDate"
@@ -184,4 +185,4 @@
 </template>
 
 <script src="./Watch.js" />
-<style scoped src="./Watch.sass" lang="sass" />
+<style scoped src="./Watch.scss" lang="scss" />

@@ -54,32 +54,28 @@ const router = new CustomRouter({
     {
       path: '/',
       meta: {
-        title: 'Subscriptions.Subscriptions',
-        icon: 'fa-home'
+        title: 'Subscriptions.Subscriptions'
       },
       component: Subscriptions
     },
     {
       path: '/subscriptions',
       meta: {
-        title: 'Subscriptions.Subscriptions',
-        icon: 'fa-home'
+        title: 'Subscriptions.Subscriptions'
       },
       component: Subscriptions
     },
     {
       path: '/subscribedchannels',
       meta: {
-        title: 'Channels.Title',
-        icon: 'fa-home'
+        title: 'Channels.Title'
       },
       component: SubscribedChannels
     },
     {
       path: '/settings/profile',
       meta: {
-        title: 'Profile.Profile Settings',
-        icon: 'fa-home'
+        title: 'Profile.Profile Settings'
       },
       component: ProfileSettings
     },
@@ -87,8 +83,7 @@ const router = new CustomRouter({
       path: '/settings/profile/new',
       name: 'newProfile',
       meta: {
-        title: 'Profile.Create New Profile',
-        icon: 'fa-home'
+        title: 'Profile.Create New Profile'
       },
       component: ProfileEdit
     },
@@ -96,32 +91,28 @@ const router = new CustomRouter({
       path: '/settings/profile/edit/:id',
       name: 'editProfile',
       meta: {
-        title: 'Profile.Edit Profile',
-        icon: 'fa-home'
+        title: 'Profile.Edit Profile'
       },
       component: ProfileEdit
     },
     {
       path: '/trending',
       meta: {
-        title: 'Trending.Trending',
-        icon: 'fa-home'
+        title: 'Trending.Trending'
       },
       component: Trending
     },
     {
       path: '/popular',
       meta: {
-        title: 'Most Popular',
-        icon: 'fa-home'
+        title: 'Most Popular'
       },
       component: Popular
     },
     {
       path: '/userplaylists',
       meta: {
-        title: 'User Playlists.Your Playlists',
-        icon: 'fa-home'
+        title: 'User Playlists.Your Playlists'
       },
       component: UserPlaylists
     },
@@ -129,56 +120,49 @@ const router = new CustomRouter({
       path: '/history',
       name: 'history',
       meta: {
-        title: 'History.History',
-        icon: 'fa-home'
+        title: 'History.History'
       },
       component: History
     },
     {
       path: '/settings',
       meta: {
-        title: 'Settings.Settings',
-        icon: 'fa-home'
+        title: 'Settings.Settings'
       },
       component: Settings
     },
     {
       path: '/about',
       meta: {
-        title: 'About.About',
-        icon: 'fa-home'
+        title: 'About.About'
       },
       component: About
     },
     {
       path: '/search/:query',
       meta: {
-        title: 'Search Filters.Search Results',
-        icon: 'fa-home'
+        title: 'Search Filters.Search Results'
       },
       component: Search
     },
     {
       path: '/playlist/:id',
       meta: {
-        title: 'Playlist.Playlist',
-        icon: 'fa-home'
+        title: 'Playlist.Playlist'
       },
       component: Playlist
     },
     {
       path: '/channel/:id/:currentTab?',
       meta: {
-        title: 'Channel',
-        icon: 'fa-user'
+        title: 'Channel'
       },
       component: Channel
     },
     {
       path: '/watch/:id',
       meta: {
-        title: 'Watch',
-        icon: 'fa-user'
+        title: 'Watch'
       },
       component: Watch
     }

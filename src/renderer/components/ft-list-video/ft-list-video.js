@@ -7,7 +7,9 @@ import {
   formatDurationAsTimestamp,
   openExternalLink,
   showToast,
-  toLocalePublicationString
+  toLocalePublicationString,
+  toDistractionFreeTitle,
+
 } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -282,7 +284,17 @@ export default Vue.extend({
 
     currentLocale: function () {
       return i18n.locale.replace('_', '-')
-    }
+    },
+    showDistractionFreeTitles: function () {
+      return this.$store.getters.getShowDistractionFreeTitles
+    },
+    displayTitle: function () {
+      if (this.showDistractionFreeTitles) {
+        return toDistractionFreeTitle(this.data.title)
+      } else {
+        return this.data.title
+      }
+    },
   },
   mounted: function () {
     this.parseVideoData()

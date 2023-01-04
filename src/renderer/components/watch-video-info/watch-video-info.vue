@@ -1,11 +1,11 @@
 <template>
   <ft-card class="watchVideoInfo">
     <div>
-      <p
+      <h1
         class="videoTitle"
       >
         {{ title }}
-      </p>
+      </h1>
       <div
         class="channelInformation"
       >
@@ -130,4 +130,4 @@
 </template>
 
 <script src="./watch-video-info.js" />
-<style scoped src="./watch-video-info.sass" lang="sass" />
+<style scoped src="./watch-video-info.scss" lang="scss" />

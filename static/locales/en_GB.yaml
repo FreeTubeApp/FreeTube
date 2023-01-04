@@ -268,6 +268,7 @@ Settings:
       Format Label: Screenshot format
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
+    Skip by Scrolling Over Video Player: Skip by scrolling over video player
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -711,6 +712,8 @@ Video:
     Video ID: Video ID
   Premieres in: Premieres in
   Premieres: Premieres
+  Show Super Chat Comment: Show Super Chat comment
+  Scroll to Bottom: Scroll to bottom
 Videos:
   #& Sort By
   Sort By:
@@ -787,6 +790,8 @@ Comments:
   From {channelName}: from {channelName}
   And others: and others
   Member: Member
+  Hearted: Hearted
+  View {replyCount} replies: View {replyCount} replies
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -835,6 +840,8 @@ Tooltips:
       or backwards to control the playback rate. Press and hold the Control key (Command
       Key on Mac) and left click the mouse to quickly return to the default playback
       rate (1x unless it has been changed in the settings).
+    Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the
+      video, MPV style.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually

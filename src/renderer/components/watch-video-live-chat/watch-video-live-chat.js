@@ -250,11 +250,6 @@ export default Vue.extend({
       })
       this.stayAtBottom = true
       this.showScrollToBottom = false
-    },
-
-    preventDefault: function (event) {
-      event.stopPropagation()
-      event.preventDefault()
     }
   }
 })

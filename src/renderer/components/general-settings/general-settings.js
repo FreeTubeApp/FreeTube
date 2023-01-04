@@ -114,22 +114,10 @@ export default Vue.extend({
     },
 
     localeNames: function () {
-      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
-        return [
-          this.$t('Settings.General Settings.System Default'),
-          ...process.env.LOCALE_NAMES
-        ]
-      }
-
-      const names = [
-        this.$t('Settings.General Settings.System Default')
+      return [
+        this.$t('Settings.General Settings.System Default'),
+        ...process.env.LOCALE_NAMES
       ]
-
-      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
-        names.push(localeData['Locale Name'] ?? locale)
-      })
-
-      return names
     },
 
     backendNames: function () {

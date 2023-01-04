@@ -49,13 +49,20 @@
         <div
           v-for="(comment, index) in superChatComments"
           :key="index"
+          :aria-label="$t('Video.Show Super Chat Comment')"
+          :style="{ backgroundColor: 'var(--primary-color)' }"
           class="superChat"
           :class="comment.superchat.colorClass"
+          role="button"
+          tabindex="0"
           @click="showSuperChatComment(comment)"
+          @keydown.space.prevent="showSuperChatComment(comment)"
+          @keydown.enter.prevent="showSuperChatComment(comment)"
         >
           <img
             :src="comment.author.thumbnail.url"
             class="channelThumbnail"
+            alt=""
           >
           <p
             class="superChatContent"
@@ -72,11 +79,15 @@
         v-if="showSuperChat"
         class="openedSuperChat"
         :class="superChat.superchat.colorClass"
+        role="button"
+        tabindex="0"
         @click="showSuperChat = false"
+        @keydown.space.prevent="showSuperChat = false"
+        @keydown.enter.prevent="showSuperChat = false"
       >
         <div
           class="superChatMessage"
-          @click="e => preventDefault(e)"
+          @click.stop.prevent
         >
           <div
             class="upperSuperChatMessage"
@@ -84,6 +95,7 @@
             <img
               :src="superChat.author.thumbnail.url"
               class="channelThumbnail"
+              alt=""
             >
             <p
               class="channelName"
@@ -125,6 +137,7 @@
               <img
                 :src="comment.author.thumbnail.url"
                 class="channelThumbnail"
+                alt=""
               >
               <p
                 class="channelName"
@@ -149,6 +162,7 @@
             <img
               :src="comment.author.thumbnail.url"
               class="channelThumbnail"
+              alt=""
             >
             <p
               class="chatContent"
@@ -169,7 +183,7 @@
               >
                 <img
                   :src="comment.author.badge.thumbnail.url"
-                  :alt="comment.author.badge.thumbnail.alt"
+                  alt=""
                   :title="comment.author.badge.thumbnail.alt"
                   class="badgeImage"
                 >
@@ -186,7 +200,12 @@
       <div
         v-if="showScrollToBottom"
         class="scrollToBottom"
+        :aria-label="$t('Video.Scroll to Bottom')"
+        role="button"
+        tabindex="0"
         @click="scrollToBottom"
+        @keydown.space.prevent="scrollToBottom"
+        @keydown.enter.prevent="scrollToBottom"
       >
         <font-awesome-icon
           class="icon"

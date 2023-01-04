@@ -38,32 +38,33 @@
       @keydown.space.prevent="handleClearTextClick"
       @keydown.enter.prevent="handleClearTextClick"
     />
-    <input
-      :id="id"
-      ref="input"
-      v-model="inputData"
-      :list="idDataList"
-      class="ft-input"
-      :type="inputType"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :spellcheck="spellcheck"
-      @input="e => handleInput(e.target.value)"
-      @focus="handleFocus"
-      @blur="handleInputBlur"
-      @keydown="handleKeyDown"
-    >
-    <font-awesome-icon
-      v-if="showActionButton"
-      :icon="actionButtonIconName"
-      class="inputAction"
-      :class="{
-        enabled: inputDataPresent,
-        withLabel: showLabel
-      }"
-      @click="handleClick"
-    />
-
+    <span class="inputWrapper">
+      <input
+        :id="id"
+        ref="input"
+        v-model="inputData"
+        :list="idDataList"
+        class="ft-input"
+        :type="inputType"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :spellcheck="spellcheck"
+        @input="e => handleInput(e.target.value)"
+        @focus="handleFocus"
+        @blur="handleInputBlur"
+        @keydown="handleKeyDown"
+      >
+      <font-awesome-icon
+        v-if="showActionButton"
+        :icon="actionButtonIconName"
+        class="inputAction"
+        :class="{
+          enabled: inputDataPresent,
+          withLabel: showLabel
+        }"
+        @click="handleClick"
+      />
+    </span>
     <div class="options">
       <ul
         v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"

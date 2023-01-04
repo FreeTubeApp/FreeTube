@@ -237,6 +237,7 @@ Settings:
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
+    Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
     Next Video Interval: Next Video Interval
@@ -322,6 +323,7 @@ Settings:
     Hide Active Subscriptions: Hide Active Subscriptions
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
+    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation
     Hide Live Streams: Hide Live Streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
@@ -580,6 +582,8 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
+  Show Super Chat Comment: Show Super Chat Comment
+  Scroll to Bottom: Scroll to Bottom
   Download Video: Download Video
   video only: video only
   audio only: audio only
@@ -729,6 +733,7 @@ Comments:
   Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
+  View {replyCount} replies: View {replyCount} replies
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   View: View
   Hide: Hide
@@ -743,6 +748,7 @@ Comments:
   No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
+  Hearted: Hearted
 Up Next: Up Next
 
 #Tooltips
@@ -778,6 +784,7 @@ Tooltips:
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
+    Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the video, MPV style.
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.

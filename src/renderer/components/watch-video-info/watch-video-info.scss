@@ -1,0 +1,119 @@
+.watchVideoInfo {
+  column-gap: 15px;
+  display: grid;
+  grid-template-columns: auto minmax(min-content, 1fr);
+  padding: 16px;
+
+  @media screen and (max-width: 680px) {
+    grid-template-columns: auto;
+  }
+}
+
+.videoTitle {
+  display: block;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0 0 24px;
+  margin-block-end: 1em;
+  margin-inline-end: 0;
+  margin-inline-start: 0;
+  word-break: break-word;
+}
+
+.channelInformation {
+  .profileRow {
+    display: flex;
+  }
+
+  .channelThumbnail {
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 56px;
+  }
+
+  .channelName {
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    margin-left: 6px;
+    position: relative;
+    text-decoration: inherit;
+    top: -2px;
+  }
+
+  .subscribeButton {
+    font-size: 14px;
+    margin-left: 6px;
+    margin-top: 6px;
+    padding: 6px;
+  }
+}
+
+.viewCount,
+.datePublished {
+  color: var(secondary-text-color);
+  font-size: 15px;
+  text-align: right;
+
+  @media screen and (max-width: 680px) {
+    text-align: left;
+  }
+}
+
+.viewCount {
+  margin: 18px 0 0;
+}
+
+.datePublished {
+  margin: 4px 0 0;
+
+  @media screen and (max-width: 680px) {
+    margin-top: 16px;
+  }
+}
+
+.likeSection {
+  color: var(tertiary-text-color);
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin-left: auto;
+  margin-top: 4px;
+  max-width: 210px;
+  text-align: right;
+
+  @media screen and (max-width: 680px) {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .likeBar {
+    border-radius: 4px;
+    height: 8px;
+    margin-bottom: 4px;
+  }
+
+  .likeCount {
+    margin-right: 0;
+  }
+}
+
+.videoOptions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+
+  .option:not(:first-child) {
+    margin-left: 4px;
+  }
+
+  @media screen and (max-width: 680px) {
+    justify-content: flex-start;
+
+    :deep(.iconDropdown) {
+      left: calc(50% - 20px);
+      right: auto;
+    }
+  }
+}

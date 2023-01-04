@@ -1,5 +1,7 @@
-import { access, mkdir, readFile, unlink, writeFile } from 'fs/promises'
-import { resolve } from 'path'
+import fs from 'fs/promises'
+import path from 'path'
+
+import { pathExists } from '../filesystem'
 
 // based off https://github.com/LuanRT/YouTube.js/blob/6caa679df6ddc77d25be02dcb7355b722ab268aa/src/utils/Cache.ts
 // avoids errors caused by the fully dynamic `fs` and `path` module imports that youtubei.js's UniversalCache does
@@ -9,10 +11,10 @@ export class PlayerCache {
   }
 
   async get(key) {
-    const filePath = resolve(this.cacheDirectory, key)
+    const filePath = path.resolve(this.cacheDirectory, key)
 
     try {
-      const contents = await readFile(filePath)
+      const contents = await fs.readFile(filePath)
       return contents.buffer
     } catch (e) {
       if (e?.code === 'ENOENT') {
@@ -23,19 +25,19 @@ export class PlayerCache {
   }
 
   async set(key, value) {
-    await mkdir(this.cacheDirectory, { recursive: true })
+    await fs.mkdir(this.cacheDirectory, { recursive: true })
 
-    const filePath = resolve(this.cacheDirectory, key)
-    await writeFile(filePath, new Uint8Array(value))
+    const filePath = path.resolve(this.cacheDirectory, key)
+    await fs.writeFile(filePath, new Uint8Array(value))
   }
 
   async remove(key) {
-    const filePath = resolve(this.cacheDirectory, key)
+    const filePath = path.resolve(this.cacheDirectory, key)
 
-    // only try to delete the file if it exists, access() throws an exception if the file doesn't exist
-    try {
-      await access(filePath)
-      await unlink(filePath)
-    } catch { }
+    if (await pathExists(filePath)) {
+      try {
+        await fs.unlink(filePath)
+      } catch { }
+    }
   }
 }

@@ -30,11 +30,11 @@ Close: 'Lukk'
 Back: 'Tilbake'
 Forward: 'Framover'
 
-Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber} er no tilgjengeleg!
-  Klikk for meir informasjon'
+Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
+  er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
-A new blog is now available, {blogTitle}. Click to view more: 'Eit nytt blogginnlegg er tilgjengeleg,
-  {blogTitle}. Klikk her for å sjå meir'
+A new blog is now available, {blogTitle}. Click to view more: 'Eit nytt blogginnlegg
+  er tilgjengeleg, {blogTitle}. Klikk her for å sjå meir'
 
 # Search Bar
 Search / Go to URL: 'Søk/gå til nettadresse'
@@ -367,8 +367,8 @@ Profile:
   Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
   Profile has been created: 'Profilet har blitt laga'
   Profile has been updated: 'Profilet har blitt oppdatert'
-  Your default profile has been set to {profile}: 'Ditt forvalte profil har blitt satt til
-    {profile}'
+  Your default profile has been set to {profile}: 'Ditt forvalte profil har blitt
+    satt til {profile}'
   Removed {profile} from your profiles: 'Fjerna {profile} frå profila dine'
   Your default profile has been changed to your primary profile: 'Ditt forvalte profil
     har blitt endra til ditt hovudprofil'
@@ -398,7 +398,8 @@ Channel:
   Unsubscribe: 'Opphev abonnement'
   Channel has been removed from your subscriptions: 'Kanalen har blitt fjerna frå
     dine abonnement'
-  Removed subscription from {count} other channel(s): 'Fjerna abonnement frå {count} kanal(ar)'
+  Removed subscription from {count} other channel(s): 'Fjerna abonnement frå {count}
+    kanal(ar)'
   Added channel to your subscriptions: 'Lagt til kanal til dine abonnentar'
   Search Channel: 'Søk i kanal'
   Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
@@ -680,3 +681,5 @@ Hashtags have not yet been implemented, try again later: Emneknaggar er ikkje im
 Search Bar:
   Clear Input: Tøm inndata
 Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?
+New Window: Nytt Vindauga
+Preferences: Innstillingar

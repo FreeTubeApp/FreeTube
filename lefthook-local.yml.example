@@ -1,0 +1,7 @@
+# See following doc for details
+# https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md#rc
+
+# You can choose whatever name/path you want for `~/.lefthookrc`.
+# You can share it between projects where you use lefthook.
+# Make sure the path is absolute.
+rc: ~/.lefthookrc

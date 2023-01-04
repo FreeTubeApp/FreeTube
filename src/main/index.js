@@ -265,9 +265,7 @@ function runApp() {
 
     // Set CONSENT cookie on reasonable domains
     const consentCookieDomains = [
-      'http://www.youtube.com',
       'https://www.youtube.com',
-      'http://youtube.com',
       'https://youtube.com'
     ]
     consentCookieDomains.forEach(url => {
@@ -285,7 +283,7 @@ function runApp() {
 
     session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
       requestHeaders.referer = 'https://www.youtube.com'
-      // eslint-disable-next-line node/no-callback-literal
+      // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
 
@@ -300,7 +298,7 @@ function runApp() {
         if (imageCache.has(url)) {
           const cached = imageCache.get(url)
 
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({
             mimeType: cached.mimeType,
             data: cached.data
@@ -338,7 +336,7 @@ function runApp() {
 
             imageCache.add(url, mimeType, data, expiryTimestamp)
 
-            // eslint-disable-next-line node/no-callback-literal
+            // eslint-disable-next-line n/no-callback-literal
             callback({
               mimeType,
               data: data
@@ -366,7 +364,7 @@ function runApp() {
               return value
             })
 
-            // eslint-disable-next-line node/no-callback-literal
+            // eslint-disable-next-line n/no-callback-literal
             callback({
               statusCode: response.statusCode ?? 400,
               mimeType: 'application/json',
@@ -387,12 +385,12 @@ function runApp() {
         // the requests made by the imagecache:// handler to fetch the image,
         // are allowed through, as their resourceType is 'other'
         if (details.resourceType === 'image') {
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({
             redirectURL: `imagecache://${encodeURIComponent(details.url)}`
           })
         } else {
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({})
         }
       })
@@ -742,6 +740,17 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
           )
+          switch (data._id) {
+            // Update app menu on related setting update
+            case 'hideTrendingVideos':
+            case 'hidePopularVideos':
+            case 'hidePlaylists':
+              await setMenu()
+              break
+
+            default:
+              // Do nothing for unmatched settings
+          }
           return null
 
         default:
@@ -1019,7 +1028,7 @@ function runApp() {
     }
   }
 
-  /**
+  /*
    * Auto Updater
    *
    * Uncomment the following code below and install `electron-updater` to
@@ -1038,12 +1047,23 @@ function runApp() {
   })
    */
 
-  /* eslint-disable-next-line */
-  const sendMenuEvent = async data => {
-    mainWindow.webContents.send('change-view', data)
+  function navigateTo(path, browserWindow) {
+    if (browserWindow == null) {
+      return
+    }
+
+    browserWindow.webContents.send(
+      'change-view',
+      { route: path }
+    )
   }
 
-  function setMenu() {
+  async function setMenu() {
+    const sidenavSettings = baseHandlers.settings._findSidenavSettings()
+    const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
+    const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
+    const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
+
     const template = [
       {
         label: 'File',
@@ -1064,12 +1084,7 @@ function runApp() {
             label: 'Preferences',
             accelerator: 'CmdOrCtrl+,',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/settings' }
-              )
+              navigateTo('/settings', browserWindow)
             },
             type: 'normal'
           },
@@ -1132,22 +1147,6 @@ function runApp() {
           { role: 'togglefullscreen' },
           { type: 'separator' },
           {
-            label: 'History',
-            // MacOS: Command + Y
-            // Other OS: Ctrl + H
-            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
-            click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/history' }
-              )
-            },
-            type: 'normal'
-          },
-          { type: 'separator' },
-          {
             label: 'Back',
             accelerator: 'Alt+Left',
             click: (_menuItem, browserWindow, _event) => {
@@ -1172,6 +1171,56 @@ function runApp() {
             type: 'normal',
           },
         ]
+      },
+      {
+        label: 'Navigate',
+        submenu: [
+          {
+            label: 'Subscriptions',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/subscriptions', browserWindow)
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Channels',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/subscribedchannels', browserWindow)
+            },
+            type: 'normal'
+          },
+          !hideTrendingVideos && {
+            label: 'Trending',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/trending', browserWindow)
+            },
+            type: 'normal'
+          },
+          !hidePopularVideos && {
+            label: 'Most Popular',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/popular', browserWindow)
+            },
+            type: 'normal'
+          },
+          !hidePlaylists && {
+            label: 'Playlists',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/userplaylists', browserWindow)
+            },
+            type: 'normal'
+          },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/history', browserWindow)
+            },
+            type: 'normal'
+          },
+        ].filter((v) => v !== false),
       },
       {
         role: 'window',

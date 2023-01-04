@@ -262,6 +262,7 @@ Settings:
         %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID. Voit myös käyttää
         "\" tai "/" luodaksesi alikansioita.
     Enter Fullscreen on Display Rotate: Siirry koko näytön kokoiseen näytön kiertoon
+    Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -676,6 +677,8 @@ Video:
     Dropped / Total Frames: Pudotettu / Yhteensä
   Premieres on: Julkaistaan
   Premieres: Ensilähetykset
+  Show Super Chat Comment: Näytä Super Chat -kommentti
+  Scroll to Bottom: Vieritä alaspäin
 Videos:
   #& Sort By
   Sort By:
@@ -750,6 +753,7 @@ Comments:
   From {channelName}: kanavalta {channelName}
   And others: ja muut
   Member: Jäsen
+  View {replyCount} replies: Näytä {replyCount} vastausta
 Up Next: 'Seuraavaksi'
 
 # Toast Messages

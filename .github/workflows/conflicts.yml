@@ -7,9 +7,6 @@ on:
   # In `pull_request` we wouldn't be able to change labels of fork PRs
   pull_request_target:
     types: [synchronize]
-  workflow_run:
-    workflows: ['Dummy workflow for conflicts']
-    types: [requested]
 
 jobs:
   main:
@@ -23,3 +20,4 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."
           commentOnClean: "Conflicts have been resolved. A maintainer will review the pull request shortly."
+

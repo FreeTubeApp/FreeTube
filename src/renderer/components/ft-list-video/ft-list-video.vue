@@ -82,7 +82,7 @@
           query: playlistId ? {playlistId} : {}
         }"
       >
-        {{ title }}
+        {{ displayTitle }}
       </router-link>
       <div class="infoLine">
         <router-link
@@ -120,4 +120,4 @@
 </template>
 
 <script src="./ft-list-video.js" />
-<style scoped src="./ft-list-video.sass" lang="sass" />
+<style scoped src="./ft-list-video.scss" lang="scss" />

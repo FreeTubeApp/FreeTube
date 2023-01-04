@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
-import fs from 'fs'
+import fs from 'fs/promises'
 import ytDashGen from 'yt-dash-manifest-generator'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtVideoPlayer from '../../components/ft-video-player/ft-video-player.vue'
@@ -13,6 +13,7 @@ import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-vide
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import i18n from '../../i18n/index'
+import { pathExists } from '../../helpers/filesystem'
 import {
   buildVTTFileLocally,
   copyToClipboard,
@@ -42,7 +43,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       firstLoad: true,
       useTheatreMode: false,
       showDashPlayer: true,
@@ -259,9 +260,9 @@ export default Vue.extend({
             let skipIndex
             errorScreen.subreason.runs.forEach((message, index) => {
               if (index !== skipIndex) {
-                if (message.text.match(/<a.*>/)) {
+                if (/<a.*>/.test(message.text)) {
                   skipIndex = index + 1
-                } else if (!message.text.match(/<\/a>/)) {
+                } else if (!/<\/a>/.test(message.text)) {
                   if (typeof subReason === 'undefined') {
                     subReason = message.text
                   } else {
@@ -616,7 +617,7 @@ export default Vue.extend({
 
             if (typeof result.player_response.storyboards !== 'undefined') {
               const templateUrl = result.player_response.storyboards.playerStoryboardSpecRenderer.spec
-              this.createLocalStoryboardUrls(templateUrl)
+              await this.createLocalStoryboardUrls(templateUrl)
             }
           }
 
@@ -718,7 +719,7 @@ export default Vue.extend({
             // MM:SS - Text
             // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
             // HH:MM - HH:MM - Text // end timestamp is ignored
-            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>[0-9]+):)?(?<minutes>[0-9]+):(?<seconds>[0-9]+))(\s*[-–—]\s*(?:[0-9]+:)?[0-9]+:[0-9]+)?\s+([-–•—]\s*)?(?<title>.+)$/gm)
+            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(\s*[–—-]\s*(?:\d+:){1,2}\d+)?\s+([–—•-]\s*)?(?<title>.+)$/gm)
 
             for (const { groups } of chapterMatches) {
               let start = 60 * Number(groups.minutes) + Number(groups.seconds)
@@ -859,7 +860,7 @@ export default Vue.extend({
     },
 
     processDescriptionPart(part, fallbackDescription) {
-      const timestampRegex = /^([0-9]+:)?[0-9]+:[0-9]+$/
+      const timestampRegex = /^(\d+:)?\d+:\d+$/
 
       if (typeof part.navigationEndpoint === 'undefined' || part.navigationEndpoint === null || part.text.startsWith('#')) {
         return part.text
@@ -903,8 +904,14 @@ export default Vue.extend({
       } else {
         // Some YouTube URLs don't have the urlEndpoint so we handle them here
 
-        const path = part.navigationEndpoint.commandMetadata.webCommandMetadata.url
-        return `https://www.youtube.com${path}`
+        const { browseEndpoint, commandMetadata: { webCommandMetadata } } = part.navigationEndpoint
+        // channel handle
+        if (webCommandMetadata.webPageType === 'WEB_PAGE_TYPE_CHANNEL' && part.text.startsWith('@')) {
+          return `<a href="https://www.youtube.com/channel/${browseEndpoint.browseId}">${part.text}</a>`
+        } else {
+          const path = webCommandMetadata.url
+          return `https://www.youtube.com${path}`
+        }
       }
     },
 
@@ -1199,22 +1206,22 @@ export default Vue.extend({
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`
           // only delete the file it actually exists
-          if (fs.existsSync(dashFileLocation)) {
-            fs.rmSync(dashFileLocation)
+          if (await pathExists(dashFileLocation)) {
+            await fs.rm(dashFileLocation)
           }
-          if (fs.existsSync(vttFileLocation)) {
-            fs.rmSync(vttFileLocation)
+          if (await pathExists(vttFileLocation)) {
+            await fs.rm(vttFileLocation)
           }
         } else {
           const userData = await getUserDataPath()
           const dashFileLocation = `${userData}/dashFiles/${videoId}.xml`
           const vttFileLocation = `${userData}/storyboards/${videoId}.vtt`
 
-          if (fs.existsSync(dashFileLocation)) {
-            fs.rmSync(dashFileLocation)
+          if (await pathExists(dashFileLocation)) {
+            await fs.rm(dashFileLocation)
           }
-          if (fs.existsSync(vttFileLocation)) {
-            fs.rmSync(vttFileLocation)
+          if (await pathExists(vttFileLocation)) {
+            await fs.rm(vttFileLocation)
           }
         }
       }
@@ -1247,23 +1254,23 @@ export default Vue.extend({
         fileLocation = `static/dashFiles/${this.videoId}.xml`
         uriSchema = `dashFiles/${this.videoId}.xml`
         // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-        if (!fs.existsSync('static/dashFiles/')) {
-          fs.mkdirSync('static/dashFiles/')
+        if (!(await pathExists('static/dashFiles/'))) {
+          await fs.mkdir('static/dashFiles/')
         }
 
-        if (fs.existsSync(fileLocation)) {
-          fs.rmSync(fileLocation)
+        if (await pathExists(fileLocation)) {
+          await fs.rm(fileLocation)
         }
-        fs.writeFileSync(fileLocation, xmlData)
+        await fs.writeFile(fileLocation, xmlData)
       } else {
         fileLocation = `${userData}/dashFiles/${this.videoId}.xml`
         uriSchema = `file://${fileLocation}`
 
-        if (!fs.existsSync(`${userData}/dashFiles/`)) {
-          fs.mkdirSync(`${userData}/dashFiles/`)
+        if (!(await pathExists(`${userData}/dashFiles/`))) {
+          await fs.mkdir(`${userData}/dashFiles/`)
         }
 
-        fs.writeFileSync(fileLocation, xmlData)
+        await fs.writeFile(fileLocation, xmlData)
       }
 
       return [
@@ -1293,7 +1300,7 @@ export default Vue.extend({
       ]
     },
 
-    createLocalStoryboardUrls: function (templateUrl) {
+    createLocalStoryboardUrls: async function (templateUrl) {
       const storyboards = templateUrl.split('|')
       const storyboardArray = []
       // Second storyboard: L1/M0 - Third storyboard: L2/M0 - Fourth: L3/M0
@@ -1307,7 +1314,7 @@ export default Vue.extend({
         /* eslint-disable-next-line */
         const [width, height, count, sWidth, sHeight, interval, _, sigh] = storyboard.split('#')
         storyboardArray.push({
-          url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replace(/<\/?sub>/g, '') + '&sigh=' + sigh,
+          url: baseUrl.replace('$L', i + 1).replace('$N', 'M0').replaceAll(/<\/?sub>/g, '') + '&sigh=' + sigh,
           width: Number(width), // Width of one sub image
           height: Number(height), // Height of one sub image
           sWidth: Number(sWidth), // Number of images vertically  (if full)
@@ -1318,35 +1325,34 @@ export default Vue.extend({
       })
       // TODO: MAKE A VARIABLE WHICH CAN CHOOSE BETWEEN STORYBOARD ARRAY ELEMENTS
       const results = buildVTTFileLocally(storyboardArray[1])
-      getUserDataPath().then((userData) => {
-        let fileLocation
-        let uriSchema
+      const userData = await getUserDataPath()
+      let fileLocation
+      let uriSchema
 
-        // Dev mode doesn't have access to the file:// schema, so we access
-        // storyboards differently when run in dev
-        if (process.env.NODE_ENV === 'development') {
-          fileLocation = `static/storyboards/${this.videoId}.vtt`
-          uriSchema = `storyboards/${this.videoId}.vtt`
-          // if the location does not exist, writeFileSync will not create the directory, so we have to do that manually
-          if (!fs.existsSync('static/storyboards/')) {
-            fs.mkdirSync('static/storyboards/')
-          }
-
-          fs.rm(fileLocation, () => {
-            fs.writeFileSync(fileLocation, results)
-          })
-        } else {
-          if (!fs.existsSync(`${userData}/storyboards/`)) {
-            fs.mkdirSync(`${userData}/storyboards/`)
-          }
-          fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
-          uriSchema = `file://${fileLocation}`
-
-          fs.writeFileSync(fileLocation, results)
+      // Dev mode doesn't have access to the file:// schema, so we access
+      // storyboards differently when run in dev
+      if (process.env.NODE_ENV === 'development') {
+        fileLocation = `static/storyboards/${this.videoId}.vtt`
+        uriSchema = `storyboards/${this.videoId}.vtt`
+        // if the location does not exist, writeFile will not create the directory, so we have to do that manually
+        if (!(await pathExists('static/storyboards/'))) {
+          fs.mkdir('static/storyboards/')
+        } else if (await pathExists(fileLocation)) {
+          await fs.rm(fileLocation)
         }
 
-        this.videoStoryboardSrc = uriSchema
-      })
+        await fs.writeFile(fileLocation, results)
+      } else {
+        if (!(await pathExists(`${userData}/storyboards/`))) {
+          await fs.mkdir(`${userData}/storyboards/`)
+        }
+        fileLocation = `${userData}/storyboards/${this.videoId}.vtt`
+        uriSchema = `file://${fileLocation}`
+
+        await fs.writeFile(fileLocation, results)
+      }
+
+      this.videoStoryboardSrc = uriSchema
     },
 
     tryAddingTranslatedLocaleCaption: function (captionTracks, locale, baseUrl) {
@@ -1406,7 +1412,7 @@ export default Vue.extend({
             // The character '#' needs to be percent-encoded in a (data) URI
             // because it signals an identifier, which means anything after it
             // is automatically removed when the URI is used as a source
-            let vtt = text.replace(/#/g, '%23')
+            let vtt = text.replaceAll('#', '%23')
 
             // A lot of videos have messed up caption positions that need to be removed
             // This can be either because this format isn't really used by YouTube
@@ -1418,9 +1424,9 @@ export default Vue.extend({
             // In addition, all aligns seem to be fixed to "start" when they do pop up in normal captions
             // If it's prominent enough that people start to notice, it can be removed then
             if (caption.kind === 'asr') {
-              vtt = vtt.replace(/ align:start| position:\d{1,3}%/g, '')
+              vtt = vtt.replaceAll(/ align:start| position:\d{1,3}%/g, '')
             } else {
-              vtt = vtt.replace(/ position:\d{1,3}%/g, '')
+              vtt = vtt.replaceAll(/ position:\d{1,3}%/g, '')
             }
 
             caption.baseUrl = `data:${caption.type};${caption.charset},${vtt}`

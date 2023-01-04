@@ -65,6 +65,9 @@ export default Vue.extend({
     hideChapters: function () {
       return this.$store.getters.getHideChapters
     },
+    showDistractionFreeTitles: function () {
+      return this.$store.getters.getShowDistractionFreeTitles
+    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
     }
@@ -100,7 +103,8 @@ export default Vue.extend({
       'updateHideUpcomingPremieres',
       'updateHideSharingActions',
       'updateHideChapters',
-      'updateChannelsHidden'
+      'updateChannelsHidden',
+      'updateShowDistractionFreeTitles'
     ])
   }
 })

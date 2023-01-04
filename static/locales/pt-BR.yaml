@@ -266,6 +266,7 @@ Settings:
         do vídeo 3 dígitos. %i ID do vídeo. Você também pode usar "\" ou "/" para
         criar subpastas.
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela
+    Skip by Scrolling Over Video Player: Pular rolando o tocador de vídeo
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -393,6 +394,10 @@ Settings:
     Hide Live Streams: Ocultar transmissões ao vivo
     Hide Chapters: Ocultar capítulos
     Hide Upcoming Premieres: Ocultar as Próximas Estréias
+    Hide Channels Placeholder: Nome ou ID do Canal
+    Display Titles Without Excessive Capitalisation: Mostrar Títulos sem Capitalização
+      Excessiva
+    Hide Channels: Ocultar Vídeos dos Canais
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -453,6 +458,16 @@ Settings:
       enquanto ativadas. Fazer backups é altamente recomendado. Use por sua conta
       e risco!
     Replace HTTP Cache: Repor Cache HTTP
+  Password Settings:
+    Password Settings: Configurações de senha
+    Set Password: Definir Senha
+    Remove Password: Remover senha
+    Set Password To Prevent Access: Defina uma senha para impedir o acesso às configurações
+  Password Dialog:
+    Unlock: Desbloquear
+    Password Incorrect: Senha Incorreta
+    Password: Senha
+    Enter Password To Unlock: Digite a senha para desbloquear as configurações
 About:
   #On About page
   About: 'Sobre'
@@ -680,6 +695,8 @@ Video:
     Dropped / Total Frames: Quadros perdidos / Total de quadros
   Premieres in: Estréias em
   Premieres: Estreia
+  Scroll to Bottom: Rolar para o final
+  Show Super Chat Comment: Mostrar Comentários do Super Chat
 Videos:
   #& Sort By
   Sort By:
@@ -759,6 +776,8 @@ Comments:
   And others: e outros
   From {channelName}: de {channelName}
   Member: Membro
+  Hearted: Coração
+  View {replyCount} replies: Exibir {replyCount} respostas
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -860,6 +879,8 @@ Tooltips:
       a tecla Control (tecla Command no Mac) e clique com o botão esquerdo do mouse
       para retornar rapidamente à taxa de reprodução padrão (1x a menos que tenha
       sido alterada nas configurações).
+    Skip by Scrolling Over Video Player: Use a roda de rolagem para pular o vídeo,
+      estilo MPV.
   General Settings:
     Region for Trending: A região de tendências lhe permite de escolher quais vídeos
       de tendências do país você quer exibir. Nem todos os países exibidos são realmente
@@ -897,6 +918,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
+  Distraction Free Settings:
+    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, listas
+      de reprodução e o próprio canal dos resultados da busca ou nas tendências. O
+      nome do canal digitado deve coincidir exatamente, observando maiúsculas e minúsculas.
 More: Mais
 Playing Next Video Interval: Reproduzindo o próximo vídeo imediatamente. Clique para
   cancelar. | Reproduzindo o próximo vídeo em {nextVideoInterval} segundo(s). Clique
@@ -949,3 +974,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos,
     capítulo atual: {chapterName}'
   Chapters: Capítulos
+Ok: Ok
