@@ -6,7 +6,7 @@
   width: max-content;
 
   .header {
-    color: var(primary-text-color);
+    color: var(--primary-text-color);
     font-size: 18px;
     font-weight: bold;
     margin: 4px 0 8px;
@@ -22,7 +22,7 @@
   }
 
   .divider {
-    background: var(tertiary-text-color);
+    background: var(--tertiary-text-color);
     grid-row: span 3;
     margin: 0 12px;
     width: 1px;
