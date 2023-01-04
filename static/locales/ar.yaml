@@ -384,6 +384,8 @@ Settings:
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
     Hide Channels: إخفاء مقاطع الفيديو من القنوات
     Hide Channels Placeholder: اسم القناة أو معرفها
+    Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
+      بشكل مفرط
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
