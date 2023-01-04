@@ -850,7 +850,7 @@ export default Vue.extend({
             copyToClipboard(err.responseText)
           })
           console.error(err)
-          if (this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
             showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {
@@ -1201,7 +1201,7 @@ export default Vue.extend({
         }
       }
 
-      if (this.removeVideoMetaFiles) {
+      if (process.env.IS_ELECTRON && this.removeVideoMetaFiles) {
         if (process.env.NODE_ENV === 'development') {
           const dashFileLocation = `static/dashFiles/${videoId}.xml`
           const vttFileLocation = `static/storyboards/${videoId}.vtt`

@@ -375,7 +375,7 @@ export default Vue.extend({
               resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
               break
             case 1:
-              if (this.backendFallback) {
+              if (process.env.IS_ELECTRON && this.backendFallback) {
                 showToast(this.$t('Falling back to the local API'))
                 resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
               } else {
@@ -414,7 +414,7 @@ export default Vue.extend({
           case 0:
             return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
           case 1:
-            if (this.backendFallback) {
+            if (process.env.IS_ELECTRON && this.backendFallback) {
               showToast(this.$t('Falling back to the local API'))
               return this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
             } else {

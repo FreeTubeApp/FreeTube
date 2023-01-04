@@ -261,7 +261,7 @@ export default Vue.extend({
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
-        if (this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendFallback) {
           console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )

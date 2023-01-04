@@ -334,7 +334,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistInformationLocal()
         } else {
