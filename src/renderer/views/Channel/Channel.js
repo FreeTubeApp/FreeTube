@@ -495,7 +495,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
           copyToClipboard(err.responseJSON.error)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistsLocal()
         } else {
@@ -532,7 +532,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
           copyToClipboard(err.responseJSON.error)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistsLocal()
         } else {
@@ -727,7 +727,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.searchChannelLocal()
         } else {

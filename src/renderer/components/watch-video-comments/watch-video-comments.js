@@ -299,7 +299,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
           copyToClipboard(xhr.responseText)
         })
-        if (this.backendFallback && this.backendPreference === 'invidious') {
+        if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to local API'))
           this.getCommentDataLocal()
         } else {

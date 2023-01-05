@@ -1027,7 +1027,7 @@ export default Vue.extend({
             copyToClipboard(err.responseJSON.error)
           })
 
-          if (this.backendFallback && this.backendPreference === 'invidious') {
+          if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
             showToast(this.$t('Falling back to the local API'))
             resolve(this.getChannelInfoLocal(channelId))
           } else {
