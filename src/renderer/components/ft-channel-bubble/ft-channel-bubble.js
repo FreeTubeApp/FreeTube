@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default Vue.extend({
   name: 'FtChannelBubble',
@@ -21,8 +22,20 @@ export default Vue.extend({
       selected: false
     }
   },
+  computed: {
+    sanitizedId: function() {
+      return 'channelBubble' + sanitizeForHtmlId(this.channelName)
+    }
+  },
   methods: {
-    handleClick: function () {
+    handleClick: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
+          return
+        }
+        event.preventDefault()
+      }
+
       if (this.showSelected) {
         this.selected = !this.selected
       }

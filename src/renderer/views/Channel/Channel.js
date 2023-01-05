@@ -68,6 +68,11 @@ export default Vue.extend({
       playlistSelectValues: [
         'last',
         'newest'
+      ],
+      tabInfoValues: [
+        'videos',
+        'playlists',
+        'about'
       ]
     }
   },
@@ -652,8 +657,34 @@ export default Vue.extend({
       }
     },
 
-    changeTab: function (tab) {
+    changeTab: function (tab, event) {
+      if (event instanceof KeyboardEvent) {
+        // use arrowkeys to navigate
+        event.preventDefault()
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          const index = this.tabInfoValues.indexOf(tab)
+
+          // focus left or right tab with wrap around
+          tab = (event.key === 'ArrowLeft')
+            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
+            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
+
+          const tabNode = document.getElementById(`${tab}Tab`)
+          event.target.setAttribute('tabindex', '-1')
+          tabNode.setAttribute('tabindex', 0)
+          tabNode.focus({ focusVisible: true })
+          return
+        }
+      }
+
+      const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
+      const newTabNode = document.getElementById(`${tab}Tab`)
+      document.querySelector('.tabs > .tab[tabindex="0"]').setAttribute('tabindex', '-1')
+      newTabNode.setAttribute('tabindex', '0')
+      currentTabNode.setAttribute('aria-selected', 'false')
+      newTabNode.setAttribute('aria-selected', 'true')
       this.currentTab = tab
+      newTabNode.focus({ focusVisible: true })
     },
 
     newSearch: function (query) {

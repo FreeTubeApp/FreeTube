@@ -1,7 +1,10 @@
 <template>
   <div
     class="bubblePadding"
+    tabindex="0"
+    :aria-labelledby="sanitizedId"
     @click="handleClick"
+    @keydown.space.enter.prevent="handleClick($event)"
   >
     <img
       class="bubble"
@@ -16,7 +19,10 @@
         class="icon"
       />
     </div>
-    <div class="channelName">
+    <div
+      :id="sanitizedId"
+      class="channelName"
+    >
       {{ channelName }}
     </div>
   </div>
