@@ -31,6 +31,14 @@ export default Vue.extend({
     disabled: {
       type: Boolean,
       default: false
+    },
+    sanitizedId: {
+      type: String,
+      default: null
+    },
+    describeById: {
+      type: String,
+      default: null
     }
   },
   computed: {

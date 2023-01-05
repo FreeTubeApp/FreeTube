@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { mapActions } from 'vuex'
 import { colors } from '../../helpers/colors'
 import FtSelect from '../ft-select/ft-select.vue'
-
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 export default Vue.extend({
   name: 'FtSponsorBlockCategory',
   components: {
@@ -68,6 +68,10 @@ export default Vue.extend({
           break
       }
       return sponsorVal
+    },
+
+    sanitizedId: function() {
+      return sanitizeForHtmlId(this.categoryName)
     },
 
     skipNames: function() {

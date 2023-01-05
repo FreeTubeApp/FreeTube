@@ -19,6 +19,7 @@
               <img
                 :src="channelThumbnail"
                 class="channelThumbnail"
+                alt=""
               >
             </router-link>
           </div>
