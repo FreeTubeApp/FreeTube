@@ -24,8 +24,7 @@ const config = {
   },
   externals: {
     electron: '{}',
-    'youtubei.js': '{}',
-    ytsr: '{}'
+    'youtubei.js': '{}'
   },
   module: {
     rules: [

@@ -385,7 +385,9 @@ export default Vue.extend({
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 
-      if (typeof (this.data.premiereTimestamp) !== 'undefined') {
+      if (typeof this.data.premiereDate !== 'undefined') {
+        this.publishedText = this.data.premiereDate.toLocaleString()
+      } else if (typeof (this.data.premiereTimestamp) !== 'undefined') {
         this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
       } else {
         this.publishedText = this.data.publishedText

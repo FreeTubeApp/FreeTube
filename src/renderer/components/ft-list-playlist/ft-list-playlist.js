@@ -56,7 +56,10 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.owner) === 'object') {
+    // temporary until we've migrated the whole local API to youtubei.js
+    if (this.data.dataSource === 'local') {
+      this.parseLocalDataNew()
+    } else if (typeof (this.data.owner) === 'object') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -96,6 +99,17 @@ export default Vue.extend({
       this.channelLink = this.data.owner.url
       this.playlistLink = this.data.url
       this.videoCount = this.data.length
+    },
+
+    // TODO: after the local API is fully switched to YouTube.js
+    // cleanup the old local API stuff
+    parseLocalDataNew: function () {
+      this.title = this.data.title
+      this.thumbnail = this.data.thumbnail
+      this.channelName = this.data.channelName
+      this.channelLink = this.data.channelId
+      this.playlistLink = this.data.playlistId
+      this.videoCount = this.data.videoCount
     },
 
     ...mapActions([

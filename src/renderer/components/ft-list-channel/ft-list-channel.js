@@ -20,6 +20,7 @@ export default Vue.extend({
       channelName: '',
       subscriberCount: 0,
       videoCount: '',
+      handle: null,
       uploadedTime: '',
       description: ''
     }
@@ -39,7 +40,7 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    if (typeof (this.data.avatars) !== 'undefined') {
+    if (this.data.dataSource === 'local' || typeof (this.data.avatars) !== 'undefined') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -47,7 +48,7 @@ export default Vue.extend({
   },
   methods: {
     parseLocalData: function () {
-      this.thumbnail = this.data.bestAvatar.url
+      this.thumbnail = this.data.thumbnail ?? this.data.bestAvatar.url
 
       if (!this.thumbnail.includes('https:')) {
         this.thumbnail = `https:${this.thumbnail}`
@@ -64,6 +65,10 @@ export default Vue.extend({
         this.videoCount = 0
       } else {
         this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videos)
+      }
+
+      if (this.data.handle) {
+        this.handle = this.data.handle
       }
 
       this.description = this.data.descriptionShort
