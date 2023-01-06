@@ -23,8 +23,7 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    electron: '{}',
-    'youtubei.js': '{}'
+    electron: '{}'
   },
   module: {
     rules: [
@@ -124,6 +123,10 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
+    // ignore all youtubei.js imports, even the ones with paths in them
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^youtubei\.js/
+    })
   ],
   resolve: {
     alias: {
