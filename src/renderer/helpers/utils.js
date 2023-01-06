@@ -92,11 +92,10 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
 export function buildVTTFileLocally(storyboard) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
-  const numberOfSubImagesPerImage = storyboard.sWidth * storyboard.sHeight
+  const numberOfSubImagesPerImage = storyboard.columns * storyboard.rows
   // the number of storyboard images
-  const numberOfImages = Math.ceil(storyboard.count / numberOfSubImagesPerImage)
+  const numberOfImages = Math.ceil(storyboard.thumbnail_count / numberOfSubImagesPerImage)
   const intervalInSeconds = storyboard.interval / 1000
-  let currentUrl = storyboard.url
   let startHours = 0
   let startMinutes = 0
   let startSeconds = 0
@@ -104,6 +103,7 @@ export function buildVTTFileLocally(storyboard) {
   let endMinutes = 0
   let endSeconds = intervalInSeconds
   for (let i = 0; i < numberOfImages; i++) {
+    const currentUrl = storyboard.template_url.replace('$M.jpg', `${i}.jpg`)
     let xCoord = 0
     let yCoord = 0
     for (let j = 0; j < numberOfSubImagesPerImage; j++) {
@@ -116,7 +116,7 @@ export function buildVTTFileLocally(storyboard) {
       const paddedEndSeconds = endSeconds.toString().padStart(2, '0')
       vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
       // add the current image url as well as the x, y, width, height information
-      vttString += currentUrl + `#xywh=${xCoord},${yCoord},${storyboard.width},${storyboard.height}\n\n`
+      vttString += `${currentUrl}#xywh=${xCoord},${yCoord},${storyboard.thumbnail_width},${storyboard.thumbnail_height}\n\n`
       // update the variables
       startHours = endHours
       startMinutes = endMinutes
@@ -131,16 +131,45 @@ export function buildVTTFileLocally(storyboard) {
         endHours += 1
       }
       // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
-      xCoord = (xCoord + storyboard.width) % (storyboard.width * storyboard.sWidth)
+      xCoord = (xCoord + storyboard.thumbnail_width) % (storyboard.thumbnail_width * storyboard.columns)
       // only if the x coordinate is , so in a new row, we have to update the y coordinate
       if (xCoord === 0) {
-        yCoord += storyboard.height
+        yCoord += storyboard.thumbnail_height
       }
     }
-    // make sure that there is no value like M0 or M1 in the parameters that gets replaced
-    currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
   }
   return vttString
+}
+
+export async function getFormatsFromHLSManifest(manifestUrl) {
+  const response = await fetch(manifestUrl)
+  const text = await response.text()
+
+  const lines = text.split('\n').filter(line => line)
+
+  const formats = []
+  let currentHeight = 0
+
+  for (const line of lines) {
+    if (line.startsWith('#')) {
+      if (!line.startsWith('#EXT-X-STREAM-INF:')) {
+        continue
+      }
+
+      const height = line
+        .split(',')
+        .find(part => part.startsWith('RESOLUTION'))
+        .split('x')[1]
+      currentHeight = parseInt(height)
+    } else {
+      formats.push({
+        height: currentHeight,
+        url: line.trim()
+      })
+    }
+  }
+
+  return formats
 }
 
 export function showToast(message, time = null, action = null) {
