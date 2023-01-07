@@ -1571,10 +1571,10 @@ export default Vue.extend({
 
     sortCaptions: function (captionList) {
       return captionList.sort((captionA, captionB) => {
-        const aCode = captionA.languageCode.split('-') // ex. [en,US]
-        const bCode = captionB.languageCode.split('-')
-        const aName = (captionA.label || captionA.name.simpleText) // ex: english (auto-generated)
-        const bName = (captionB.label || captionB.name.simpleText)
+        const aCode = captionA.language_code.split('-') // ex. [en,US]
+        const bCode = captionB.language_code.split('-')
+        const aName = (captionA.label) // ex: english (auto-generated)
+        const bName = (captionB.label)
         const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
         if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
           if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
@@ -1622,9 +1622,9 @@ export default Vue.extend({
       for (const caption of this.sortCaptions(captionList)) {
         this.player.addRemoteTextTrack({
           kind: 'subtitles',
-          src: caption.baseUrl || caption.url,
-          srclang: caption.languageCode,
-          label: caption.label || caption.name.simpleText,
+          src: caption.url,
+          srclang: caption.language_code,
+          label: caption.label,
           type: caption.type
         }, true)
       }
