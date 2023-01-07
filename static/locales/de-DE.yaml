@@ -398,6 +398,8 @@ Settings:
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
     Hide Channels: Videos aus Kanälen ausblenden
     Hide Channels Placeholder: Kanalname oder Kanal-ID
+    Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
+      anzeigen
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -714,6 +716,7 @@ Video:
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
   Scroll to Bottom: Nach unten scrollen
+  Upcoming: Demnächst
 Videos:
   #& Sort By
   Sort By:
