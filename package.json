@@ -86,7 +86,7 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/preset-env": "^7.20.2",
     "@double-great/stylelint-a11y": "^2.0.2",
-    "babel-loader": "^9.1.0",
+    "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
