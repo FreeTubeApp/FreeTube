@@ -27,15 +27,11 @@
       v-if="openMoreOptions"
       class="moreOptionContainer"
     >
-      <div
+      <router-link
         class="navOption mobileHidden"
-        role="link"
-        tabindex="0"
         :title="$t('Channels.Channels')"
-        aria-labelledby="channelLabel"
-        @click="navigate('subscribedchannels')"
-        @keydown.space.prevent="navigate('subscribedchannels')"
-        @keydown.enter.prevent="navigate('subscribedchannels')"
+        :aria-label="hideLabelsSideBar ? $t('Channels.Channels') : null"
+        to="/subscribedchannels"
       >
         <div
           class="thumbnailContainer"
@@ -53,17 +49,13 @@
         >
           {{ $t("Channels.Channels") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hideTrendingVideos"
         class="navOption"
-        role="link"
-        tabindex="0"
-        aria-labelledby="trendingNavLabel"
         :title="$t('Trending.Trending')"
-        @click="navigate('trending')"
-        @keydown.space.prevent="navigate('trending')"
-        @keydown.enter.prevent="navigate('trending')"
+        :aria-label="hideLabelsSideBar ? $t('Trending.Trending') : null"
+        to="/trending"
       >
         <font-awesome-icon
           :icon="['fas', 'fire']"
@@ -77,17 +69,13 @@
         >
           {{ $t("Trending.Trending") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption"
-        role="link"
-        tabindex="0"
-        aria-labelledby="mostPopularNavLabel"
         :title="$t('Most Popular')"
-        @click="navigate('popular')"
-        @keydown.space.prevent="navigate('popular')"
-        @keydown.enter.prevent="navigate('popular')"
+        :aria-label="hideLabelsSideBar ? $t('Most Popular') : null"
+        to="/popular"
       >
         <font-awesome-icon
           :icon="['fas', 'users']"
@@ -101,16 +89,12 @@
         >
           {{ $t("Most Popular") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         class="navOption"
-        role="link"
-        tabindex="0"
-        aria-labelledby="aboutNavLabel"
         :title="$t('About.About')"
-        @click="navigate('about')"
-        @keydown.space.prevent="navigate('about')"
-        @keydown.enter.prevent="navigate('about')"
+        :aria-label="hideLabelsSideBar ? $t('About.About') : null"
+        to="/about"
       >
         <font-awesome-icon
           :icon="['fas', 'info-circle']"
@@ -124,16 +108,13 @@
         >
           {{ $t("About.About") }}
         </p>
-      </div>
+      </router-link>
     </div>
-    <div
+    <router-link
       class="navOption mobileShow"
-      role="link"
-      tabindex="0"
-      aria-labelledby="historyNavLabel"
-      @click="navigate('history')"
-      @keydown.space.prevent="navigate('history')"
-      @keydown.enter.prevent="navigate('history')"
+      :title="$t('History.History')"
+      :aria-label="hideLabelsSideBar ? $t('History.History'): null"
+      to="/history"
     >
       <font-awesome-icon
         :icon="['fas', 'history']"
@@ -146,16 +127,13 @@
       >
         {{ $t("History.History") }}
       </p>
-    </div>
+    </router-link>
     <hr>
-    <div
+    <router-link
       class="navOption mobileShow"
-      role="link"
-      tabindex="0"
-      aria-labelledby="settingsNavLabel"
-      @click="navigate('settings')"
-      @keydown.space.prevent="navigate('settings')"
-      @keydown.enter.prevent="navigate('settings')"
+      :title="$t('Settings.Settings')"
+      :aria-label="hideLabelsSideBar ? $t('Settings.Settings') : null"
+      to="/settings"
     >
       <font-awesome-icon
         :icon="['fas', 'sliders-h']"
@@ -168,15 +146,12 @@
       >
         {{ $t("Settings.Settings") }}
       </p>
-    </div>
-    <div
+    </router-link>
+    <router-link
       class="navOption mobileHidden"
-      tabindex="0"
-      role="link"
-      aria-labelledby="aboutNavLabel"
-      @click="navigate('about')"
-      @keydown.space.prevent="navigate('about')"
-      @keydown.enter.prevent="navigate('about')"
+      :title="$t('About.About')"
+      to="/about"
+      :aria-label="hideLabelsSideBar ? $t('About.About') : null"
     >
       <font-awesome-icon
         :icon="['fas', 'info-circle']"
@@ -189,7 +164,7 @@
       >
         {{ $t("About.About") }}
       </p>
-    </div>
+    </router-link>
   </div>
 </template>
 

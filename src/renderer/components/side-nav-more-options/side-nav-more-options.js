@@ -28,11 +28,5 @@ export default Vue.extend({
         navIconExpand: this.hideLabelsSideBar
       }
     }
-  },
-  methods: {
-    navigate: function (route) {
-      this.openMoreOptions = false
-      this.$router.push('/' + route)
-    }
   }
 })
