@@ -7,6 +7,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import { showToast } from '../../helpers/utils'
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'FtProfileChannelList',
@@ -80,7 +81,7 @@ export default Vue.extend({
         return 0
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
         return channel
@@ -101,7 +102,7 @@ export default Vue.extend({
         return 0
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
         return channel

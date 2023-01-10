@@ -17,7 +17,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import i18n from '../../i18n/index'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
-import { invidiousAPICall, invidiousGetChannelInfo } from '../../helpers/api/invidious'
+import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Search',
@@ -389,18 +389,21 @@ export default Vue.extend({
           this.subCount = response.subCount
         }
         const thumbnail = response.authorThumbnails[3].url
-        this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
-          channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.authorThumbnails = channel.authorThumbnails.map(thumbnail => {
+            thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url, this.currentInvidiousInstance)
+            return thumbnail
+          })
           channel.channelId = channel.authorId
           return channel
         })
         this.latestVideos = response.latestVideos
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
-          this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
         } else {
           this.bannerUrl = null
         }

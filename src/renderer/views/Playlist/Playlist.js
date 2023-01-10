@@ -9,7 +9,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import i18n from '../../i18n/index'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
-import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Playlist',
@@ -134,7 +134,7 @@ export default Vue.extend({
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
+          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance),
           channelId: result.authorId,
           infoSource: 'invidious'
         }

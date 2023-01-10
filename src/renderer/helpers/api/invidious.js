@@ -93,11 +93,26 @@ export async function invidiousGetCommentReplies({ id, replyToken }) {
   return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
 }
 
+export function youtubeImageUrlToInvidious(url, currentInstance = null) {
+  if (currentInstance === null) {
+    currentInstance = getCurrentInstance()
+  }
+  // Can be prefixed with `https://` or `//` (protocol relative)
+  if (url.startsWith('//')) {
+    url = 'https:' + url
+  }
+  return url.replace('https://yt3.ggpht.com', `${currentInstance}/ggpht/`)
+}
+
+export function invidiousImageUrlToInvidious(url, currentInstance = null) {
+  return url.replace(/^.+(ggpht.+)/, currentInstance)
+}
+
 function parseInvidiousCommentData(response) {
   return response.comments.map((comment) => {
     comment.showReplies = false
     comment.authorLink = comment.authorId
-    comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${getCurrentInstance()}/ggpht/`)
+    comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails[1].url)
     comment.likes = comment.likeCount
     comment.text = autolinker.link(stripHTML(comment.content))
     comment.dataType = 'invidious'
