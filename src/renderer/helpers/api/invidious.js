@@ -13,6 +13,9 @@ export function invidiousAPICall({ resource, id = '', params = {} }) {
     fetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {
+        if (json.error !== undefined) {
+          throw new Error(json.error)
+        }
         resolve(json)
       })
       .catch((error) => {
