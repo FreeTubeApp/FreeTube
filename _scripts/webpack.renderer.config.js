@@ -32,6 +32,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
+  externals: {
+    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
+    canvas: '{}'
+  },
   module: {
     rules: [
       {
@@ -122,10 +126,6 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    }),
-    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^canvas$/
     })
   ],
   resolve: {

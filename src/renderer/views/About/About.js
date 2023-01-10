@@ -49,7 +49,7 @@ export default Vue.extend({
         {
           icon: ['fab', 'mastodon'],
           title: this.$t('About.Mastodon'),
-          content: '<a href="https://mastodon.technology/@FreeTube">@FreeTube@mastodon.technology</a>'
+          content: '<a href="https://fosstodon.org/@FreeTube">@FreeTube@fosstodon.org</a>'
         },
         {
           icon: ['fas', 'comment-dots'],

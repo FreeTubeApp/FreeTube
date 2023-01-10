@@ -8,8 +8,6 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-// FIXME: Missing web logic branching
-
 import { ipcRenderer } from 'electron'
 import debounce from 'lodash.debounce'
 

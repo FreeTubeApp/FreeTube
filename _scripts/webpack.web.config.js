@@ -22,10 +22,17 @@ const config = {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
   },
-  externals: {
-    electron: '{}',
-    'youtubei.js': '{}'
-  },
+  externals: [
+    {
+      electron: '{}'
+    },
+    ({ request }, callback) => {
+      if (request.startsWith('youtubei.js')) {
+        return callback(null, '{}')
+      }
+      callback()
+    }
+  ],
   module: {
     rules: [
       {
@@ -123,7 +130,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    }),
+    })
   ],
   resolve: {
     alias: {

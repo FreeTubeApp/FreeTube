@@ -17,8 +17,8 @@
       <hr>
       <data-settings />
       <hr>
-      <proxy-settings />
-      <hr>
+      <proxy-settings v-if="usingElectron" />
+      <hr v-if="usingElectron">
       <download-settings v-if="usingElectron" />
       <hr v-if="usingElectron">
       <parental-control-settings />

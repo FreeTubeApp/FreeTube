@@ -1,4 +1,5 @@
 import { Innertube } from 'youtubei.js'
+import { ClientType } from 'youtubei.js/dist/src/core/Session'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
@@ -16,9 +17,10 @@ import { extractNumberFromString, getUserDataPath } from '../utils'
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
+ * @param {string} options.clientType use an alterate client
  * @returns the Innertube instance
  */
-async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false }) {
+async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined }) {
   let cache
   if (options.withPlayer) {
     const userData = await getUserDataPath()
@@ -29,6 +31,8 @@ async function createInnertube(options = { withPlayer: false, location: undefine
     retrieve_player: !!options.withPlayer,
     location: options.location,
     enable_safety_mode: !!options.safetyMode,
+    client_type: options.clientType,
+
     // use browser fetch
     fetch: (input, init) => fetch(input, init),
     cache
@@ -107,6 +111,18 @@ export async function getLocalSearchContinuation(continuationData) {
   const response = await continuationData.getContinuation()
 
   return handleSearchResponse(response)
+}
+
+export async function getLocalVideoInfo(id, attemptBypass = false) {
+  if (attemptBypass) {
+    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED })
+    // the second request that getInfo makes 404s with the bypass, so we use getBasicInfo instead
+    // that's fine as we have most of the information from the original getInfo request
+    return await innertube.getBasicInfo(id, 'TV_EMBEDDED')
+  } else {
+    const innertube = await createInnertube({ withPlayer: true })
+    return await innertube.getInfo(id)
+  }
 }
 
 /**
@@ -234,6 +250,28 @@ function parseListItem(item) {
   }
 }
 
+/**
+ * @typedef {import('youtubei.js/dist/src/parser/classes/CompactVideo').default} CompactVideo
+ */
+
+/**
+ * @param {CompactVideo} video
+ */
+export function parseLocalWatchNextVideo(video) {
+  return {
+    type: 'video',
+    videoId: video.id,
+    title: video.title.text,
+    author: video.author.name,
+    authorId: video.author.id,
+    viewCount: extractNumberFromString(video.view_count.text),
+    // CompactVideo doesn't have is_live, is_upcoming or is_premiere,
+    // so we have to make do with this for the moment, to stop toLocalePublicationString erroring
+    publishedText: video.published.text === 'N/A' ? null : video.published.text,
+    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
+  }
+}
+
 function convertSearchFilters(filters) {
   const convertedFilters = {}
 
@@ -259,4 +297,87 @@ function convertSearchFilters(filters) {
   }
 
   return convertedFilters
+}
+
+/**
+ * @typedef {import('youtubei.js/dist/src/parser/classes/misc/TextRun').default} TextRun
+ */
+
+/**
+ * @param {TextRun[]} textRuns
+ */
+export function parseLocalTextRuns(textRuns) {
+  if (!Array.isArray(textRuns)) {
+    throw new Error('not an array of text runs')
+  }
+
+  const timestampRegex = /^(?:\d+:){1,2}\d+$/
+  const runs = []
+
+  for (const { text, endpoint } of textRuns) {
+    if (endpoint && !text.startsWith('#')) {
+      switch (endpoint.metadata.page_type) {
+        case 'WEB_PAGE_TYPE_WATCH':
+          if (timestampRegex.test(text)) {
+            runs.push(text)
+          } else {
+            runs.push(`https://www.youtube.com${endpoint.metadata.url}`)
+          }
+          break
+        case 'WEB_PAGE_TYPE_CHANNEL':
+          if (text.startsWith('@')) {
+            runs.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${text}</a>`)
+          } else {
+            runs.push(`https://www.youtube.com${endpoint.metadata.url}`)
+          }
+          break
+        case 'WEB_PAGE_TYPE_PLAYLIST':
+          runs.push(`https://www.youtube.com${endpoint.metadata.url}`)
+          break
+        case 'WEB_PAGE_TYPE_UNKNOWN':
+        default: {
+          const url = new URL(endpoint.payload.url)
+          if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
+            // remove utm tracking parameters
+            const realURL = new URL(url.searchParams.get('q'))
+
+            realURL.searchParams.delete('utm_source')
+            realURL.searchParams.delete('utm_medium')
+            realURL.searchParams.delete('utm_campaign')
+            realURL.searchParams.delete('utm_term')
+            realURL.searchParams.delete('utm_content')
+
+            runs.push(realURL.toString())
+          } else {
+            // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
+            runs.push(endpoint.payload.url)
+          }
+          break
+        }
+      }
+    } else {
+      runs.push(text)
+    }
+  }
+
+  return runs.join('')
+}
+
+/**
+ * @typedef {import('youtubei.js/dist/src/parser/classes/misc/Format').default} Format
+ */
+
+/**
+ * @param {Format} format
+ */
+export function mapLocalFormat(format) {
+  return {
+    itag: format.itag,
+    qualityLabel: format.quality_label,
+    fps: format.fps,
+    bitrate: format.bitrate,
+    mimeType: format.mime_type,
+    height: format.height,
+    url: format.url
+  }
 }
