@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import i18n from '../../i18n/index'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+
 export default Vue.extend({
   name: 'FtListChannel',
   props: {
