@@ -457,7 +457,7 @@ function runApp() {
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '../../_icons/iconColor.png')
-        /* eslint-disable-next-line */
+        /* eslint-disable-next-line n/no-path-concat */
         : `${__dirname}/_icons/iconColor.png`,
       autoHideMenuBar: true,
       // useContentSize: true,
@@ -548,7 +548,7 @@ function runApp() {
       if (windowStartupUrl != null) {
         newWindow.loadURL(windowStartupUrl)
       } else {
-        /* eslint-disable-next-line */
+        /* eslint-disable-next-line n/no-path-concat */
         newWindow.loadFile(`${__dirname}/index.html`)
       }
     }

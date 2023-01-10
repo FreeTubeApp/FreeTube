@@ -452,7 +452,7 @@ const actions = {
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
     let fileData
-    /* eslint-disable-next-line */
+    /* eslint-disable-next-line n/no-path-concat */
     const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
 
     if (await pathExists(`${fileLocation}${fileName}`)) {

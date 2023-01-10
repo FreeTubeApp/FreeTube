@@ -7,6 +7,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import ytch from 'yt-channel-info'
 import { showToast } from '../../helpers/utils'
+import { invidiousGetChannelInfo } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'SubscribedChannels',
@@ -193,7 +194,7 @@ export default Vue.extend({
         }, this.errorCount * 500)
       } else {
         setTimeout(() => {
-          this.invidiousGetChannelInfo(channel.id).then(response => {
+          invidiousGetChannelInfo(channel.id).then(response => {
             this.updateSubscriptionDetails({
               channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
               channelName: channel.name,
@@ -207,7 +208,6 @@ export default Vue.extend({
     ...mapActions([
       'updateProfile',
       'updateSubscriptionDetails',
-      'invidiousGetChannelInfo'
     ])
   }
 })

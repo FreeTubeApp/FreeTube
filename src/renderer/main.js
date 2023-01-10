@@ -125,7 +125,7 @@ library.add(
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
-/* eslint-disable-next-line */
+/* eslint-disable-next-line no-new */
 new Vue({
   el: '#app',
   router,

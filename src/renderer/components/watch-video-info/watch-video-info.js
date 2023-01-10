@@ -287,7 +287,6 @@ export default Vue.extend({
   },
   mounted: function () {
     if ('mediaSession' in navigator) {
-      /* eslint-disable-next-line */
       navigator.mediaSession.metadata = new MediaMetadata({
         title: this.title,
         artist: this.channelName,

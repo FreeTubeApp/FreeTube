@@ -9,6 +9,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import i18n from '../../i18n/index'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
+import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Playlist',
@@ -124,12 +125,7 @@ export default Vue.extend({
     getPlaylistInvidious: function () {
       this.isLoading = true
 
-      const payload = {
-        resource: 'playlists',
-        id: this.playlistId
-      }
-
-      this.invidiousGetPlaylistInfo(payload).then((result) => {
+      invidiousGetPlaylistInfo({ playlistId: this.playlistId }).then((result) => {
         this.infoData = {
           id: result.playlistId,
           title: result.title,
@@ -196,7 +192,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'invidiousGetPlaylistInfo',
       'updateSubscriptionDetails'
     ]),
 

@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Search',
@@ -214,7 +214,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(searchPayload).then((result) => {
+      invidiousAPICall(searchPayload).then((result) => {
         if (!result) {
           return
         }
@@ -295,10 +295,6 @@ export default Vue.extend({
       }
 
       this.isLoading = false
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

@@ -17,6 +17,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import i18n from '../../i18n/index'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
+import { invidiousAPICall, invidiousGetChannelInfo } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Search',
@@ -371,7 +372,7 @@ export default Vue.extend({
       this.apiUsed = 'invidious'
 
       const expectedId = this.originalId
-      this.invidiousGetChannelInfo(this.id).then((response) => {
+      invidiousGetChannelInfo(this.id).then((response) => {
         if (expectedId !== this.originalId) {
           return
         }
@@ -427,7 +428,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.latestVideos = this.latestVideos.concat(response)
         this.latestVideosPage++
         this.isElementListLoading = false
@@ -490,7 +491,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
@@ -527,7 +528,7 @@ export default Vue.extend({
         payload.params.continuation = this.playlistContinuationString
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
@@ -748,7 +749,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.searchResults = this.searchResults.concat(response)
         this.isElementListLoading = false
         this.searchPage++
@@ -769,8 +770,6 @@ export default Vue.extend({
 
     ...mapActions([
       'updateProfile',
-      'invidiousGetChannelInfo',
-      'invidiousAPICall',
       'updateSubscriptionDetails'
     ])
   }
