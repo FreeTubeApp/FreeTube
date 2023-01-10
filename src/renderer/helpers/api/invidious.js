@@ -77,21 +77,21 @@ export async function invidiousGetComments({ id, nextPageToken = '', sortNewest 
   return { response, commentData }
 }
 
-export async function invidiousGetCommentReplies({ id, replyContinuation }) {
+export async function invidiousGetCommentReplies({ id, replyToken }) {
   const payload = {
     resource: 'comments',
     id: id,
     params: {
-      continuation: replyContinuation
+      continuation: replyToken
     }
   }
 
   const response = await invidiousAPICall(payload)
-  return parseInvidiousCommentData(response)
+  return { commentData: parseInvidiousCommentData(response), continuation: response.continuation ?? null }
 }
 
-function parseInvidiousCommentData(comments) {
-  return comments.map((comment) => {
+function parseInvidiousCommentData(response) {
+  return response.comments.map((comment) => {
     comment.showReplies = false
     comment.authorLink = comment.authorId
     comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${getCurrentInstance()}/ggpht/`)
@@ -100,7 +100,7 @@ function parseInvidiousCommentData(comments) {
     comment.dataType = 'invidious'
     comment.isOwner = comment.authorIsChannelOwner
     comment.numReplies = comment.replies?.replyCount ?? 0
-    comment.replyContinuation = comment.replies?.continuation ?? ''
+    comment.replyToken = comment.replies?.continuation ?? ''
     comment.isHearted = comment.creatorHeart !== undefined
     comment.replies = []
     comment.time = toLocalePublicationString({

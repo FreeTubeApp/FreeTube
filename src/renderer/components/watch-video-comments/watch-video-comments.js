@@ -263,7 +263,12 @@ export default Vue.extend({
         })
         if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to local API'))
-          this.getCommentDataLocal()
+          this.getCommentDataLocal({
+            videoId: this.id,
+            setCookie: false,
+            sortByNewest: this.sortNewest,
+            continuation: this.nextPageToken ? this.nextPageToken : undefined
+          })
         } else {
           this.isLoading = false
         }
@@ -272,11 +277,12 @@ export default Vue.extend({
 
     getCommentRepliesInvidious: function (index) {
       showToast(this.$t('Comments.Getting comment replies, please wait'))
-      const replyContinuation = this.commentData[index].replyContinuation
-      invidiousGetCommentReplies({ id: this.id, replyContinuation: replyContinuation })
-        .then((commentData) => {
+      const replyToken = this.commentData[index].replyToken
+      invidiousGetCommentReplies({ id: this.id, replyToken: replyToken })
+        .then(({ commentData, continuation }) => {
           this.commentData[index].replies = commentData
           this.commentData[index].showReplies = true
+          this.commentData[index].replyToken = continuation
           this.isLoading = false
         }).catch((xhr) => {
           console.error(xhr)
