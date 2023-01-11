@@ -26,42 +26,23 @@ export function invidiousAPICall({ resource, id = '', params = {} }) {
 }
 
 export async function invidiousGetChannelInfo(channelId) {
-  return new Promise((resolve, reject) => {
-    invidiousAPICall({
-      resource: 'channels',
-      id: channelId,
-    }).then(response => {
-      resolve(response)
-    }).catch(xhr => {
-      console.error(xhr)
-      reject(xhr)
-    })
+  return await invidiousAPICall({
+    resource: 'channels',
+    id: channelId,
   })
 }
 
 export async function invidiousGetPlaylistInfo(playlistId) {
-  const payload = {
+  return await invidiousAPICall({
     resource: 'playlists',
-    id: playlistId
-  }
-  return new Promise((resolve, reject) => {
-    invidiousAPICall(payload).then((response) => {
-      resolve(response)
-    }).catch((xhr) => {
-      console.error(xhr)
-      reject(xhr)
-    })
+    id: playlistId,
   })
 }
 
 export async function invidiousGetVideoInformation(videoId) {
-  return new Promise((resolve, reject) => {
-    invidiousAPICall({ resource: 'videos', id: videoId }).then((response) => {
-      resolve(response)
-    }).catch((xhr) => {
-      console.error(xhr)
-      reject(xhr)
-    })
+  return await invidiousAPICall({
+    resource: 'videos',
+    id: videoId,
   })
 }
 export async function invidiousGetComments({ id, nextPageToken = '', sortNewest = true }) {
