@@ -35,7 +35,8 @@ async function createInnertube(options = { withPlayer: false, location: undefine
 
     // use browser fetch
     fetch: (input, init) => fetch(input, init),
-    cache
+    cache,
+    generate_session_locally: true
   })
 }
 
