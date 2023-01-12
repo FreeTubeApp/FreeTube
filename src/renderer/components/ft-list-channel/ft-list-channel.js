@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import i18n from '../../i18n/index'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { formatNumber } from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtListChannel',
@@ -35,9 +35,6 @@ export default Vue.extend({
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
-    },
-    currentLocale: function () {
-      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
@@ -65,7 +62,7 @@ export default Vue.extend({
       if (this.data.videos === null) {
         this.videoCount = 0
       } else {
-        this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videos)
+        this.videoCount = formatNumber(this.data.videos)
       }
 
       if (this.data.handle) {
@@ -86,9 +83,9 @@ export default Vue.extend({
       if (this.hideChannelSubscriptions) {
         this.subscriberCount = null
       } else {
-        this.subscriberCount = Intl.NumberFormat(this.currentLocale).format(this.data.subCount)
+        this.subscriberCount = formatNumber(this.data.subCount)
       }
-      this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
+      this.videoCount = formatNumber(this.data.videoCount)
       this.description = this.data.description
     }
   }

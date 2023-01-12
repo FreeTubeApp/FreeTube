@@ -6,7 +6,6 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import i18n from '../../i18n/index'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
@@ -55,7 +54,7 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
     currentLocale: function () {
-      return i18n.locale.replace('_', '-')
+      return this.$i18n.locale.replace('_', '-')
     }
   },
   watch: {
