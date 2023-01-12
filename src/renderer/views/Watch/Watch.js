@@ -59,6 +59,7 @@ export default Vue.extend({
       hidePlayer: false,
       isFamilyFriendly: false,
       isLive: false,
+      liveChat: null,
       isLiveContent: false,
       isUpcoming: false,
       upcomingTimestamp: null,
@@ -304,7 +305,7 @@ export default Vue.extend({
           channelId: this.channelId
         })
 
-        this.videoPublished = new Date(result.primary_info.published.text.replace('-', '/')).getTime()
+        this.videoPublished = new Date(result.page[0].microformat.publish_date.replace('-', '/')).getTime()
 
         if (result.secondary_info?.description.runs) {
           try {
@@ -409,6 +410,12 @@ export default Vue.extend({
         }
 
         this.videoChapters = chapters
+
+        if (!this.hideLiveChat && this.isLive && this.isLiveContent && result.livechat) {
+          this.liveChat = result.getLiveChat()
+        } else {
+          this.liveChat = null
+        }
 
         // the bypassed result is missing some of the info that we extract in the code above
         // so we only overwrite the result here

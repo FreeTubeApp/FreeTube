@@ -153,9 +153,10 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && isLive"
+        v-if="!isLoading && !hideLiveChat && isLive"
+        :live-chat="liveChat"
         :video-id="videoId"
-        :channel-name="channelName"
+        :channel-id="channelId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
       />

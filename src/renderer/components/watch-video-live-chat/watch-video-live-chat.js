@@ -4,9 +4,8 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
 import autolinker from 'autolinker'
-import { LiveChat } from '@freetube/youtube-chat'
 import { getRandomColorClass } from '../../helpers/colors'
-import { stripHTML } from '../../helpers/utils'
+import { getLocalVideoInfo, parseLocalTextRuns } from '../../helpers/api/local'
 
 export default Vue.extend({
   name: 'WatchVideoLiveChat',
@@ -15,23 +14,23 @@ export default Vue.extend({
     'ft-card': FtCard,
     'ft-button': FtButton
   },
-  beforeRouteLeave: function () {
-    this.liveChat.stop()
-    this.hasEnded = true
-  },
   props: {
+    liveChat: {
+      type: EventTarget,
+      default: null
+    },
     videoId: {
       type: String,
       required: true
     },
-    channelName: {
+    channelId: {
       type: String,
       required: true
     }
   },
   data: function () {
     return {
-      liveChat: null,
+      liveChatInstance: null,
       isLoading: true,
       hasError: false,
       hasEnded: false,
@@ -43,15 +42,15 @@ export default Vue.extend({
       comments: [],
       superChatComments: [],
       superChat: {
+        id: '',
         author: {
           name: '',
-          thumbnail: ''
+          thumbnailUrl: ''
         },
-        message: [
-          ''
-        ],
+        message: '',
         superChat: {
-          amount: ''
+          amount: '',
+          colorClass: ''
         }
       }
     }
@@ -73,13 +72,14 @@ export default Vue.extend({
       }
     },
 
-    hideLiveChat: function () {
-      return this.$store.getters.getHideLiveChat
-    },
-
     scrollingBehaviour: function () {
       return this.$store.getters.getDisableSmoothScrolling ? 'auto' : 'smooth'
     }
+  },
+  beforeDestroy: function () {
+    this.hasEnded = true
+    this.liveChatInstance?.stop()
+    this.liveChatInstance = null
   },
   created: function () {
     if (!process.env.IS_ELECTRON) {
@@ -88,7 +88,8 @@ export default Vue.extend({
     } else {
       switch (this.backendPreference) {
         case 'local':
-          this.getLiveChatLocal()
+          this.liveChatInstance = this.liveChat
+          this.startLiveChatLocal()
           break
         case 'invidious':
           if (this.backendFallback) {
@@ -111,95 +112,137 @@ export default Vue.extend({
       this.getLiveChatLocal()
     },
 
-    getLiveChatLocal: function () {
-      this.liveChat = new LiveChat({ liveId: this.videoId })
+    getLiveChatLocal: async function () {
+      const videoInfo = await getLocalVideoInfo(this.videoId)
+      this.liveChatInstance = videoInfo.getLiveChat()
 
-      this.isLoading = false
-
-      this.liveChat.on('start', (liveId) => {
-        this.isLoading = false
-      })
-
-      this.liveChat.on('end', (reason) => {
-        console.error('Live chat has ended')
-        console.error(reason)
-        this.hasError = true
-        this.showEnableChat = false
-        this.errorMessage = this.$t('Video["Chat is disabled or the Live Stream has ended."]')
-      })
-
-      this.liveChat.on('error', (err) => {
-        this.hasError = true
-        this.errorMessage = err
-        this.showEnableChat = false
-      })
-
-      this.liveChat.on('comment', (comment) => {
-        this.parseLiveChatComment(comment)
-      })
-
-      this.liveChat.start()
+      this.startLiveChatLocal()
     },
 
-    parseLiveChatComment: function (comment) {
-      if (this.hasEnded) {
-        return
-      }
+    startLiveChatLocal: function () {
+      this.liveChatInstance.once('start', initialData => {
+        /**
+         * @type {import ('youtubei.js/dist/src/parser/index').LiveChatContinuation}
+         */
+        const liveChatContinuation = initialData
 
-      comment.messageHtml = ''
+        const actions = liveChatContinuation.actions.filter(action => action.type === 'AddChatItemAction')
 
-      comment.message.forEach((text) => {
-        if (typeof text === 'undefined') return
-
-        if (typeof (text.navigationEndpoint) !== 'undefined') {
-          if (typeof (text.navigationEndpoint.watchEndpoint) !== 'undefined') {
-            const htmlRef = `<a href="https://www.youtube.com/watch?v=${text.navigationEndpoint.watchEndpoint.videoId}">${text.text}</a>`
-            comment.messageHtml = stripHTML(comment.messageHtml) + htmlRef
-          } else {
-            comment.messageHtml = stripHTML(comment.messageHtml + text.text)
+        for (const { item } of actions) {
+          switch (item.type) {
+            case 'LiveChatTextMessage':
+              this.parseLiveChatComment(item)
+              break
+            case 'LiveChatPaidMessage':
+              this.parseLiveChatSuperChat(item)
           }
-        } else if (typeof (text.alt) !== 'undefined') {
-          const htmlImg = `<img src="${text.url}" alt="${text.alt}" class="liveChatEmoji" height="24" width="24" />`
-          comment.messageHtml = stripHTML(comment.messageHtml) + htmlImg
-        } else {
-          comment.messageHtml = stripHTML(comment.messageHtml + text.text)
+        }
+
+        this.isLoading = false
+
+        setTimeout(() => {
+          this.$refs.liveChatComments?.scrollTo({
+            top: this.$refs.liveChatComments.scrollHeight,
+            behavior: 'instant'
+          })
+        })
+      })
+
+      this.liveChatInstance.on('chat-update', action => {
+        if (this.hasEnded) {
+          return
+        }
+        if (action.type === 'AddChatItemAction') {
+          switch (action.item.type) {
+            case 'LiveChatTextMessage':
+              this.parseLiveChatComment(action.item)
+              break
+            case 'LiveChatPaidMessage':
+              this.parseLiveChatSuperChat(action.item)
+              break
+          }
         }
       })
 
-      comment.messageHtml = autolinker.link(comment.messageHtml)
+      this.liveChatInstance.once('end', () => {
+        this.hasEnded = true
+        this.liveChatInstance = null
+      })
 
-      if (typeof this.$refs.liveChatComments === 'undefined' && typeof this.$refs.liveChatMessage === 'undefined') {
-        console.error("Can't find chat object.  Stopping chat connection")
-        this.liveChat.stop()
-        return
+      this.liveChatInstance.once('error', error => {
+        this.liveChatInstance.stop()
+        this.liveChatInstance = null
+        console.error(error)
+        this.errorMessage = error
+        this.hasError = true
+        this.isLoading = false
+        this.hasEnded = true
+      })
+
+      this.liveChatInstance.start()
+    },
+
+    /**
+     * @param {import('youtubei.js/dist/src/parser/classes/livechat/items/LiveChatTextMessage').default} comment
+     */
+    parseLiveChatComment: function (comment) {
+      /**
+       * can also be undefined if there is no badge
+       * @type {import('youtubei.js/dist/src/parser/classes/LiveChatAuthorBadge').default}
+       */
+      const badge = comment.author.badges.find(badge => badge.type === 'LiveChatAuthorBadge' && badge.custom_thumbnail)
+
+      const parsedComment = {
+        message: autolinker.link(parseLocalTextRuns(comment.message.runs, 20)),
+        author: {
+          name: comment.author.name.text,
+          thumbnailUrl: comment.author.thumbnails.at(-1).url,
+          isOwner: comment.author.id === this.channelId,
+          isModerator: comment.author.is_moderator,
+          isMember: !!badge
+        }
       }
 
-      this.comments.push(comment)
-
-      if (typeof (comment.superchat) !== 'undefined') {
-        comment.superchat.colorClass = getRandomColorClass()
-
-        this.superChatComments.unshift(comment)
-
-        setTimeout(() => {
-          this.removeFromSuperChat(comment.id)
-        }, 120000)
+      if (badge) {
+        parsedComment.badge = {
+          url: badge.custom_thumbnail.at(-1).url,
+          tooltip: badge.tooltip ?? ''
+        }
       }
 
-      if (comment.author.name[0] === 'Ge' || comment.author.name[0] === 'Ne') {
-        comment.superChat = {
-          amount: '$5.00',
+      this.pushComment(parsedComment)
+    },
+
+    /**
+     * @param {import('youtubei.js/dist/src/parser/classes/livechat/items/LiveChatPaidMessage').default} superChat
+     */
+    parseLiveChatSuperChat: function (superChat) {
+      const parsedComment = {
+        id: superChat.id,
+        message: autolinker.link(parseLocalTextRuns(superChat.message.runs, 20)),
+        author: {
+          name: superChat.author.name.text,
+          thumbnailUrl: superChat.author.thumbnails[0].url
+        },
+        superChat: {
+          amount: superChat.purchase_amount,
           colorClass: getRandomColorClass()
         }
-
-        this.superChatComments.unshift(comment)
-
-        setTimeout(() => {
-          this.removeFromSuperChat(comment.id)
-        }, 120000)
       }
 
-      if (this.stayAtBottom) {
+      this.superChatComments.unshift(parsedComment)
+
+      setTimeout(() => {
+        this.removeFromSuperChat(parsedComment.id)
+      }, 120000)
+
+      this.pushComment(parsedComment)
+    },
+
+    pushComment: function (comment) {
+      this.comments.push(comment)
+
+      if (!this.isLoading && this.stayAtBottom) {
         setTimeout(() => {
           this.$refs.liveChatComments?.scrollTo({
             top: this.$refs.liveChatComments.scrollHeight,
