@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
@@ -12,6 +11,7 @@ import {
   stripHTML,
   toLocalePublicationString
 } from '../../helpers/utils'
+import { invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'WatchVideoComments',
@@ -245,50 +245,12 @@ export default Vue.extend({
       }
     },
 
-    parseInvidiousCommentData: function (response) {
-      return response.comments.map((comment) => {
-        comment.showReplies = false
-        comment.authorLink = comment.authorId
-        comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-        if (this.hideCommentLikes) {
-          comment.likes = null
-        } else {
-          comment.likes = comment.likeCount
-        }
-        comment.text = autolinker.link(stripHTML(comment.content))
-        comment.dataType = 'invidious'
-        comment.isOwner = comment.authorIsChannelOwner
-
-        if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
-          comment.numReplies = comment.replies.replyCount
-          comment.replyContinuation = comment.replies.continuation
-        } else {
-          comment.numReplies = 0
-          comment.replyContinuation = ''
-        }
-
-        comment.replies = []
-        comment.time = toLocalePublicationString({
-          publishText: comment.publishedText
-        })
-
-        return comment
-      })
-    },
-
     getCommentDataInvidious: function () {
-      const payload = {
-        resource: 'comments',
+      invidiousGetComments({
         id: this.id,
-        params: {
-          continuation: this.nextPageToken ?? '',
-          sort_by: this.sortNewest ? 'new' : 'top'
-        }
-      }
-
-      this.invidiousAPICall(payload).then((response) => {
-        const commentData = this.parseInvidiousCommentData(response)
-
+        nextPageToken: this.nextPageToken,
+        sortNewest: this.sortNewest
+      }).then(({ response, commentData }) => {
         this.commentData = this.commentData.concat(commentData)
         this.nextPageToken = response.continuation
         this.isLoading = false
@@ -301,7 +263,12 @@ export default Vue.extend({
         })
         if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to local API'))
-          this.getCommentDataLocal()
+          this.getCommentDataLocal({
+            videoId: this.id,
+            setCookie: false,
+            sortByNewest: this.sortNewest,
+            continuation: this.nextPageToken ? this.nextPageToken : undefined
+          })
         } else {
           this.isLoading = false
         }
@@ -310,32 +277,21 @@ export default Vue.extend({
 
     getCommentRepliesInvidious: function (index) {
       showToast(this.$t('Comments.Getting comment replies, please wait'))
-      const payload = {
-        resource: 'comments',
-        id: this.id,
-        params: {
-          continuation: this.commentData[index].replyContinuation
-        }
-      }
-
-      this.invidiousAPICall(payload).then((response) => {
-        const commentData = this.parseInvidiousCommentData(response)
-
-        this.commentData[index].replies = commentData
-        this.commentData[index].showReplies = true
-        this.isLoading = false
-      }).catch((xhr) => {
-        console.error(xhr)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-          copyToClipboard(xhr.responseText)
+      const replyToken = this.commentData[index].replyToken
+      invidiousGetCommentReplies({ id: this.id, replyToken: replyToken })
+        .then(({ commentData, continuation }) => {
+          this.commentData[index].replies = commentData
+          this.commentData[index].showReplies = true
+          this.commentData[index].replyToken = continuation
+          this.isLoading = false
+        }).catch((xhr) => {
+          console.error(xhr)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
+            copyToClipboard(xhr.responseText)
+          })
+          this.isLoading = false
         })
-        this.isLoading = false
-      })
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

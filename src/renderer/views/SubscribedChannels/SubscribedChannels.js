@@ -7,6 +7,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
 import ytch from 'yt-channel-info'
 import { showToast } from '../../helpers/utils'
+import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'SubscribedChannels',
@@ -24,9 +25,7 @@ export default Vue.extend({
       filteredChannels: [],
       re: {
         url: /(.+=\w)\d+(.+)/,
-        ivToIv: /^.+(ggpht.+)/,
-        ivToYt: /^.+ggpht\/(.+)/,
-        ytToIv: /^.+ggpht\.com\/(.+)/
+        ivToYt: /^.+ggpht\/(.+)/
       },
       thumbnailSize: 176,
       ytBaseURL: 'https://yt3.ggpht.com',
@@ -165,13 +164,13 @@ export default Vue.extend({
       let newURL = originalURL
       if (new URL(originalURL).hostname === 'yt3.ggpht.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht/$1`)
+          newURL = youtubeImageUrlToInvidious(originalURL, this.currentInvidiousInstance)
         }
       } else {
         if (this.backendPreference === 'local') { // IV to YT
           newURL = originalURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
         } else { // IV to IV
-          newURL = originalURL.replace(this.re.ivToIv, `${this.currentInvidiousInstance}/$1`)
+          newURL = invidiousImageUrlToInvidious(originalURL, this.currentInvidiousInstance)
         }
       }
 
@@ -193,7 +192,7 @@ export default Vue.extend({
         }, this.errorCount * 500)
       } else {
         setTimeout(() => {
-          this.invidiousGetChannelInfo(channel.id).then(response => {
+          invidiousGetChannelInfo(channel.id).then(response => {
             this.updateSubscriptionDetails({
               channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
               channelName: channel.name,
@@ -207,7 +206,6 @@ export default Vue.extend({
     ...mapActions([
       'updateProfile',
       'updateSubscriptionDetails',
-      'invidiousGetChannelInfo'
     ])
   }
 })

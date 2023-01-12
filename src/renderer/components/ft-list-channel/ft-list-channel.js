@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import i18n from '../../i18n/index'
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'FtListChannel',
@@ -76,14 +77,9 @@ export default Vue.extend({
 
     parseInvidiousData: function () {
       // Can be prefixed with `https://` or `//` (protocol relative)
-      let thumbnailUrl = this.data.authorThumbnails[2].url
+      const thumbnailUrl = this.data.authorThumbnails[2].url
 
-      // Update protocol relative URL to be prefixed with `https://`
-      if (thumbnailUrl.startsWith('//')) {
-        thumbnailUrl = `https:${thumbnailUrl}`
-      }
-
-      this.thumbnail = thumbnailUrl.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+      this.thumbnail = youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
 
       this.channelName = this.data.author
       this.id = this.data.authorId

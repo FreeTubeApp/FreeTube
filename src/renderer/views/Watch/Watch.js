@@ -27,6 +27,7 @@ import {
   parseLocalTextRuns,
   parseLocalWatchNextVideo
 } from '../../helpers/api/local'
+import { invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Watch',
@@ -158,10 +159,6 @@ export default Vue.extend({
     },
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
-    },
-
-    youtubeNoCookieEmbeddedFrame: function () {
-      return `<iframe width='560' height='315' src='https://www.youtube-nocookie.com/embed/${this.videoId}?rel=0' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>`
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
@@ -656,7 +653,7 @@ export default Vue.extend({
       this.dashSrc = this.createInvidiousDashManifest()
       this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
-      this.invidiousGetVideoInformation(this.videoId)
+      invidiousGetVideoInformation(this.videoId)
         .then(result => {
           if (result.error) {
             throw new Error(result.error)
@@ -679,7 +676,7 @@ export default Vue.extend({
           this.channelId = result.authorId
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
-          this.channelThumbnail = channelThumb ? channelThumb.url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`) : ''
+          this.channelThumbnail = channelThumb ? youtubeImageUrlToInvidious(channelThumb.url, this.currentInvidiousInstance) : ''
           this.updateSubscriptionDetails({
             channelThumbnailUrl: channelThumb?.url,
             channelName: result.author,
@@ -1417,7 +1414,6 @@ export default Vue.extend({
     ...mapActions([
       'updateHistory',
       'updateWatchProgress',
-      'invidiousGetVideoInformation',
       'updateSubscriptionDetails'
     ])
   }

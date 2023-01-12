@@ -16,6 +16,7 @@ import {
   showToast,
   writeFileFromDialog
 } from '../../helpers/utils'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'DataSettings',
@@ -1018,7 +1019,7 @@ export default Vue.extend({
           params: {}
         }
 
-        this.invidiousAPICall(subscriptionsPayload).then((response) => {
+        invidiousAPICall(subscriptionsPayload).then((response) => {
           resolve(response)
         }).catch((err) => {
           console.error(err)
@@ -1116,7 +1117,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'invidiousAPICall',
       'updateProfile',
       'compactProfiles',
       'updateShowProgressBar',

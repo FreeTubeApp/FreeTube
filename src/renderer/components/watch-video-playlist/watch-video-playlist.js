@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
+import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'WatchVideoPlaylist',
@@ -316,12 +317,7 @@ export default Vue.extend({
     getPlaylistInformationInvidious: function () {
       this.isLoading = true
 
-      const payload = {
-        resource: 'playlists',
-        id: this.playlistId
-      }
-
-      this.invidiousGetPlaylistInfo(payload).then((result) => {
+      invidiousGetPlaylistInfo({ playlistId: this.playlistId }).then((result) => {
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId
@@ -363,10 +359,6 @@ export default Vue.extend({
 
       this.randomizedPlaylistItems = items
     },
-
-    ...mapActions([
-      'invidiousGetPlaylistInfo'
-    ]),
 
     ...mapMutations([
       'setCachedPlaylist'

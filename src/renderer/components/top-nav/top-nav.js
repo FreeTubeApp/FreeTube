@@ -8,6 +8,7 @@ import debounce from 'lodash.debounce'
 import { IpcChannels } from '../../../constants'
 import { openInternalPath, showToast } from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'TopNav',
@@ -257,7 +258,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(searchPayload).then((results) => {
+      invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
@@ -339,7 +340,6 @@ export default Vue.extend({
     },
     ...mapActions([
       'getYoutubeUrlInfo',
-      'invidiousAPICall'
     ])
   }
 })

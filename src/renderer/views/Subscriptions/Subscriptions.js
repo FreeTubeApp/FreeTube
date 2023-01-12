@@ -11,6 +11,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import ytch from 'yt-channel-info'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
 export default Vue.extend({
   name: 'Subscriptions',
@@ -359,7 +360,7 @@ export default Vue.extend({
           params: {}
         }
 
-        this.invidiousAPICall(subscriptionsPayload).then(async (result) => {
+        invidiousAPICall(subscriptionsPayload).then(async (result) => {
           resolve(await Promise.all(result.map((video) => {
             video.publishedDate = new Date(video.published * 1000)
             return video
@@ -481,7 +482,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'invidiousAPICall',
       'updateShowProgressBar',
       'updateProfileSubscriptions',
       'updateAllSubscriptionsList'
