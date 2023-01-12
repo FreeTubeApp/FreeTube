@@ -8,6 +8,7 @@
         <img
           src="../../../../_icons/logoColor.png"
           class="logo"
+          alt=""
         >
         <div class="version">
           {{ versionNumber }} {{ $t("About.Beta") }}

@@ -2,8 +2,13 @@
   <div class="sideNavMoreOptions">
     <div
       class="navOption moreOptionNav"
+      tabindex="0"
+      role="button"
+      aria-labelledby="moreNavLabel"
       :title="$t('More')"
       @click="openMoreOptions = !openMoreOptions"
+      @keydown.space.prevent="openMoreOptions = !openMoreOptions"
+      @keydown.enter.prevent="openMoreOptions = !openMoreOptions"
     >
       <font-awesome-icon
         :icon="['fas', 'ellipsis-h']"
@@ -12,6 +17,7 @@
       />
       <p
         v-if="!hideLabelsSideBar"
+        id="moreNavLabel"
         class="navLabel"
       >
         {{ $t("More") }}
@@ -21,12 +27,11 @@
       v-if="openMoreOptions"
       class="moreOptionContainer"
     >
-      <div
+      <router-link
         class="navOption mobileHidden"
-        role="button"
-        tabindex="0"
         :title="$t('Channels.Channels')"
-        @click="navigate('subscribedchannels')"
+        :aria-label="hideLabelsSideBar ? $t('Channels.Channels') : null"
+        to="/subscribedchannels"
       >
         <div
           class="thumbnailContainer"
@@ -39,17 +44,18 @@
           />
         </div>
         <p
+          id="channelLabel"
           class="navLabel"
         >
           {{ $t("Channels.Channels") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hideTrendingVideos"
         class="navOption"
         :title="$t('Trending.Trending')"
-
-        @click="navigate('trending')"
+        :aria-label="hideLabelsSideBar ? $t('Trending.Trending') : null"
+        to="/trending"
       >
         <font-awesome-icon
           :icon="['fas', 'fire']"
@@ -58,16 +64,18 @@
         />
         <p
           v-if="!hideLabelsSideBar"
+          id="trendingNavLabel"
           class="navLabel"
         >
           {{ $t("Trending.Trending") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
         class="navOption"
         :title="$t('Most Popular')"
-        @click="navigate('popular')"
+        :aria-label="hideLabelsSideBar ? $t('Most Popular') : null"
+        to="/popular"
       >
         <font-awesome-icon
           :icon="['fas', 'users']"
@@ -76,15 +84,17 @@
         />
         <p
           v-if="!hideLabelsSideBar"
+          id="mostPopularNavLabel"
           class="navLabel"
         >
           {{ $t("Most Popular") }}
         </p>
-      </div>
-      <div
+      </router-link>
+      <router-link
         class="navOption"
         :title="$t('About.About')"
-        @click="navigate('about')"
+        :aria-label="hideLabelsSideBar ? $t('About.About') : null"
+        to="/about"
       >
         <font-awesome-icon
           :icon="['fas', 'info-circle']"
@@ -93,42 +103,55 @@
         />
         <p
           v-if="!hideLabelsSideBar"
+          id="aboutNavLabel"
           class="navLabel"
         >
           {{ $t("About.About") }}
         </p>
-      </div>
+      </router-link>
     </div>
-    <div
+    <router-link
       class="navOption mobileShow"
-      @click="navigate('history')"
+      :title="$t('History.History')"
+      :aria-label="hideLabelsSideBar ? $t('History.History'): null"
+      to="/history"
     >
       <font-awesome-icon
         :icon="['fas', 'history']"
         class="navIcon"
         :class="applyNavIconExpand"
       />
-      <p class="navLabel">
+      <p
+        id="historyNavLabel"
+        class="navLabel"
+      >
         {{ $t("History.History") }}
       </p>
-    </div>
+    </router-link>
     <hr>
-    <div
+    <router-link
       class="navOption mobileShow"
-      @click="navigate('settings')"
+      :title="$t('Settings.Settings')"
+      :aria-label="hideLabelsSideBar ? $t('Settings.Settings') : null"
+      to="/settings"
     >
       <font-awesome-icon
         :icon="['fas', 'sliders-h']"
         class="navIcon"
         :class="applyNavIconExpand"
       />
-      <p class="navLabel">
+      <p
+        id="settingsNavLabel"
+        class="navLabel"
+      >
         {{ $t("Settings.Settings") }}
       </p>
-    </div>
-    <div
+    </router-link>
+    <router-link
       class="navOption mobileHidden"
-      @click="navigate('about')"
+      :title="$t('About.About')"
+      to="/about"
+      :aria-label="hideLabelsSideBar ? $t('About.About') : null"
     >
       <font-awesome-icon
         :icon="['fas', 'info-circle']"
@@ -141,7 +164,7 @@
       >
         {{ $t("About.About") }}
       </p>
-    </div>
+    </router-link>
   </div>
 </template>
 

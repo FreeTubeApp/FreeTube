@@ -215,6 +215,7 @@
             <img
               class="channelThumbnail"
               :src="channel.thumbnail"
+              :alt="isOpen ? '' : channel.name"
             >
           </div>
           <p

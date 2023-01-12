@@ -9,6 +9,7 @@
     <img
       class="bubble"
       :src="channelThumbnail"
+      alt=""
     >
     <div
       v-if="selected"

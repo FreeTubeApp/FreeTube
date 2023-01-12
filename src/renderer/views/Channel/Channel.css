@@ -109,7 +109,8 @@
   border-bottom: 3px solid transparent;
 }
 
-.tab:hover {
+.tab:hover,
+.tab:focus {
   font-weight: bold;
   border-bottom: 3px solid var(--tertiary-text-color);
 }

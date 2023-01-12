@@ -55,7 +55,8 @@
   @include top-nav-is-colored {
     color: var(--text-with-main-color);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--primary-color-hover);
     }
   }
@@ -68,7 +69,8 @@
     user-select: none;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--side-nav-hover-color);
     transition: background 0.2s ease-in;
   }

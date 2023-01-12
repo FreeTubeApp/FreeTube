@@ -21,7 +21,8 @@
     background-color: var(--card-bg-color);
     color: var(--primary-text-color);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--side-nav-hover-color);
     }
 
@@ -31,7 +32,8 @@
   }
 
   &.base-no-default {
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--side-nav-hover-color);
     }
 
@@ -44,7 +46,8 @@
     background-color: var(--primary-color);
     color: var(--text-with-main-color);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--primary-color-hover);
     }
 
@@ -57,7 +60,8 @@
     background-color: var(--accent-color);
     color: var(--text-with-accent-color);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--accent-color-hover);
     }
 

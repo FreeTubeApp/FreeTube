@@ -210,7 +210,8 @@
   transition: background 0.2s ease-out;
 }
 
-.scrollToBottom:hover {
+.scrollToBottom:hover,
+.scrollToBottom:focus {
   background-color: var(--accent-color-light);
   transition: background 0.2s ease-in;
 }
