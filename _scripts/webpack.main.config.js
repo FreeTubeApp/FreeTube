@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
@@ -33,7 +34,11 @@ const config = {
     __dirname: isDevMode,
     __filename: isDevMode
   },
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.IS_ELECTRON_MAIN': true
+    })
+  ],
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
