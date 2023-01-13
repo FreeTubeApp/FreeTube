@@ -55,7 +55,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^2.0.9",
-    "@freetube/youtube-chat": "^1.1.2",
     "@freetube/yt-comment-scraper": "^6.2.0",
     "@silvermine/videojs-quality-selector": "^1.2.5",
     "autolinker": "^4.0.0",
@@ -77,7 +76,7 @@
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
-    "youtubei.js": "^2.8.0",
+    "youtubei.js": "^2.9.0",
     "yt-channel-info": "^3.2.1"
   },
   "devDependencies": {

@@ -1,5 +1,6 @@
 import { Innertube } from 'youtubei.js'
 import { ClientType } from 'youtubei.js/dist/src/core/Session'
+import EmojiRun from 'youtubei.js/dist/src/parser/classes/misc/EmojiRun'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
@@ -305,63 +306,89 @@ function convertSearchFilters(filters) {
  */
 
 /**
- * @param {TextRun[]} textRuns
+ * @param {(TextRun|EmojiRun)[]} runs
+ * @param {number} emojiSize
  */
-export function parseLocalTextRuns(textRuns) {
-  if (!Array.isArray(textRuns)) {
+export function parseLocalTextRuns(runs, emojiSize = 16) {
+  if (!Array.isArray(runs)) {
     throw new Error('not an array of text runs')
   }
 
   const timestampRegex = /^(?:\d+:){1,2}\d+$/
-  const runs = []
+  const parsedRuns = []
 
-  for (const { text, endpoint } of textRuns) {
-    if (endpoint && !text.startsWith('#')) {
-      switch (endpoint.metadata.page_type) {
-        case 'WEB_PAGE_TYPE_WATCH':
-          if (timestampRegex.test(text)) {
-            runs.push(text)
-          } else {
-            runs.push(`https://www.youtube.com${endpoint.metadata.url}`)
-          }
-          break
-        case 'WEB_PAGE_TYPE_CHANNEL':
-          if (text.startsWith('@')) {
-            runs.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${text}</a>`)
-          } else {
-            runs.push(`https://www.youtube.com${endpoint.metadata.url}`)
-          }
-          break
-        case 'WEB_PAGE_TYPE_PLAYLIST':
-          runs.push(`https://www.youtube.com${endpoint.metadata.url}`)
-          break
-        case 'WEB_PAGE_TYPE_UNKNOWN':
-        default: {
-          const url = new URL(endpoint.payload.url)
-          if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
-            // remove utm tracking parameters
-            const realURL = new URL(url.searchParams.get('q'))
+  for (const run of runs) {
+    if (run instanceof EmojiRun) {
+      const { emoji, text } = run
 
-            realURL.searchParams.delete('utm_source')
-            realURL.searchParams.delete('utm_medium')
-            realURL.searchParams.delete('utm_campaign')
-            realURL.searchParams.delete('utm_term')
-            realURL.searchParams.delete('utm_content')
+      let altText
 
-            runs.push(realURL.toString())
-          } else {
-            // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
-            runs.push(endpoint.payload.url)
-          }
-          break
+      if (emoji.is_custom) {
+        if (emoji.shortcuts.length > 0) {
+          altText = emoji.shortcuts[0]
+        } else if (emoji.search_terms.length > 0) {
+          altText = emoji.search_terms.join(', ')
+        } else {
+          altText = 'Custom emoji'
         }
+      } else {
+        altText = text
       }
+
+      // lazy load the emoji image so it doesn't delay rendering of the text
+      // by defining a height and width, that space is reserved until the image is loaded
+      // that way we avoid layout shifts when it loads
+      parsedRuns.push(`<img src="${emoji.image[0].url}" alt="${altText}" width="${emojiSize}" height="${emojiSize}" loading="lazy" style="vertical-align: middle">`)
     } else {
-      runs.push(text)
+      const { text, endpoint } = run
+
+      if (endpoint && !text.startsWith('#')) {
+        switch (endpoint.metadata.page_type) {
+          case 'WEB_PAGE_TYPE_WATCH':
+            if (timestampRegex.test(text)) {
+              parsedRuns.push(text)
+            } else {
+              parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
+            }
+            break
+          case 'WEB_PAGE_TYPE_CHANNEL':
+            if (text.startsWith('@')) {
+              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${text}</a>`)
+            } else {
+              parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
+            }
+            break
+          case 'WEB_PAGE_TYPE_PLAYLIST':
+            parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
+            break
+          case 'WEB_PAGE_TYPE_UNKNOWN':
+          default: {
+            const url = new URL(endpoint.payload.url)
+            if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
+              // remove utm tracking parameters
+              const realURL = new URL(url.searchParams.get('q'))
+
+              realURL.searchParams.delete('utm_source')
+              realURL.searchParams.delete('utm_medium')
+              realURL.searchParams.delete('utm_campaign')
+              realURL.searchParams.delete('utm_term')
+              realURL.searchParams.delete('utm_content')
+
+              parsedRuns.push(realURL.toString())
+            } else {
+              // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
+              parsedRuns.push(endpoint.payload.url)
+            }
+            break
+          }
+        }
+      } else {
+        parsedRuns.push(text)
+      }
     }
   }
 
-  return runs.join('')
+  return parsedRuns.join('')
 }
 
 /**
