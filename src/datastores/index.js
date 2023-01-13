@@ -2,8 +2,7 @@ import Datastore from 'nedb-promises'
 
 let dbPath = null
 
-const isElectronMain = !!process?.versions?.electron
-if (isElectronMain) {
+if (process.env.IS_ELECTRON_MAIN) {
   const { app } = require('electron')
   const { join } = require('path')
   const userDataPath = app.getPath('userData') // This is based on the user's OS

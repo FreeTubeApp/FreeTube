@@ -112,6 +112,7 @@ const config = {
     processLocalesPlugin,
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': true,
+      'process.env.IS_ELECTRON_MAIN': false,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
     }),
     new HtmlWebpackPlugin({

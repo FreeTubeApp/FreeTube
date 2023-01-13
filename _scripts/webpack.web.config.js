@@ -114,7 +114,8 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.IS_ELECTRON': false
+      'process.env.IS_ELECTRON': false,
+      'process.env.IS_ELECTRON_MAIN': false
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser',
