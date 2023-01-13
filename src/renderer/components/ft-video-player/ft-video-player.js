@@ -1196,27 +1196,28 @@ export default Vue.extend({
     },
 
     createLoopButton: function () {
+      const toggleVideoLoop = this.toggleVideoLoop
+
       const VjsButton = videojs.getComponent('Button')
-      const loopButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.toggleVideoLoop()
-        },
-        createControlTextEl: function (button) {
+      class loopButton extends VjsButton {
+        handleClick() {
+          toggleVideoLoop()
+        }
+
+        createControlTextEl(button) {
           button.title = 'Toggle Loop'
 
           const div = document.createElement('div')
 
           div.id = 'loopButton'
-          div.className = 'vjs-icon-loop loop-white vjs-button loopWhite'
+          div.className = 'vjs-icon-loop loop-white vjs-button'
 
           button.appendChild(div)
 
           return div
         }
-      })
+      }
+
       videojs.registerComponent('loopButton', loopButton)
     },
 
@@ -1247,15 +1248,15 @@ export default Vue.extend({
     },
 
     createFullWindowButton: function () {
+      const toggleFullWindow = this.toggleFullWindow
+
       const VjsButton = videojs.getComponent('Button')
-      const fullWindowButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.toggleFullWindow()
-        },
-        createControlTextEl: function (button) {
+      class fullWindowButton extends VjsButton {
+        handleClick() {
+          toggleFullWindow()
+        }
+
+        createControlTextEl (button) {
           // Add class name to button to be able to target it with CSS selector
           button.classList.add('vjs-button-fullwindow')
           button.title = 'Full Window'
@@ -1268,7 +1269,8 @@ export default Vue.extend({
 
           return div
         }
-      })
+      }
+
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
@@ -1279,15 +1281,15 @@ export default Vue.extend({
 
       const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
 
+      const toggleTheatreMode = this.toggleTheatreMode
+
       const VjsButton = videojs.getComponent('Button')
-      const toggleTheatreModeButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.toggleTheatreMode()
-        },
-        createControlTextEl: function (button) {
+      class toggleTheatreModeButton extends VjsButton {
+        handleClick() {
+          toggleTheatreMode()
+        }
+
+        createControlTextEl(button) {
           button.classList.add('vjs-button-theatre')
           button.title = 'Toggle Theatre Mode'
 
@@ -1299,7 +1301,7 @@ export default Vue.extend({
 
           return button
         }
-      })
+      }
 
       videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
     },
@@ -1317,19 +1319,19 @@ export default Vue.extend({
       this.$parent.toggleTheatreMode()
     },
 
-    createScreenshotButton: function() {
+    createScreenshotButton: function () {
+      const takeScreenshot = this.takeScreenshot
+
       const VjsButton = videojs.getComponent('Button')
-      const screenshotButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.takeScreenshot()
+      class screenshotButton extends VjsButton {
+        handleClick() {
+          takeScreenshot()
           const video = document.getElementsByTagName('video')[0]
           video.focus()
           video.blur()
-        },
-        createControlTextEl: function (button) {
+        }
+
+        createControlTextEl(button) {
           button.classList.add('vjs-hidden')
           button.title = 'Screenshot'
 
@@ -1341,7 +1343,7 @@ export default Vue.extend({
 
           return div
         }
-      })
+      }
 
       videojs.registerComponent('screenshotButton', screenshotButton)
     },
@@ -1484,17 +1486,19 @@ export default Vue.extend({
         }, 200)
         return
       }
+      const adaptiveFormats = this.adaptiveFormats
+      const activeAdaptiveFormats = this.activeAdaptiveFormats
+      const setDashQualityLevel = this.setDashQualityLevel
+
       const VjsButton = videojs.getComponent('Button')
-      const dashQualitySelector = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: (event) => {
+      class dashQualitySelector extends VjsButton {
+        handleClick(event) {
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
-          this.setDashQualityLevel(bitrate)
-        },
-        createControlTextEl: (button) => {
+          setDashQualityLevel(bitrate)
+        }
+
+        createControlTextEl(button) {
           const beginningHtml = `<div class="vjs-quality-level-value">
            <span id="vjs-current-quality">1080p</span>
           </div>
@@ -1518,8 +1522,8 @@ export default Vue.extend({
             let qualityLabel
             let bitrate
 
-            if (typeof this.adaptiveFormats !== 'undefined' && this.adaptiveFormats.length > 0) {
-              const adaptiveFormat = this.adaptiveFormats.find((format) => {
+            if (typeof adaptiveFormats !== 'undefined' && adaptiveFormats.length > 0) {
+              const adaptiveFormat = adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
 
@@ -1527,7 +1531,7 @@ export default Vue.extend({
                 return
               }
 
-              this.activeAdaptiveFormats.push(adaptiveFormat)
+              activeAdaptiveFormats.push(adaptiveFormat)
 
               fps = adaptiveFormat.fps ? adaptiveFormat.fps : 30
               qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
@@ -1563,7 +1567,8 @@ export default Vue.extend({
 
           return button.children[0]
         }
-      })
+      }
+
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
       this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
       this.determineDefaultQualityDash()
