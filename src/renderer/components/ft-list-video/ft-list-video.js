@@ -4,11 +4,11 @@ import { mapActions } from 'vuex'
 import {
   copyToClipboard,
   formatDurationAsTimestamp,
+  formatNumber,
   openExternalLink,
   showToast,
   toLocalePublicationString,
-  toDistractionFreeTitle,
-  formatNumber
+  toDistractionFreeTitle
 } from '../../helpers/utils'
 
 export default Vue.extend({
