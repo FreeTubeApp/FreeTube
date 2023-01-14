@@ -1823,7 +1823,7 @@ export default Vue.extend({
       }
 
       // allow copying text
-      if ((event.ctrlKey || event.metaKey) && event.key.lowercase() === 'c') {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
         return
       }
 
