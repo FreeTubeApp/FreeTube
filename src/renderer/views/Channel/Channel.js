@@ -682,13 +682,14 @@ export default Vue.extend({
       }
 
       const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
+      // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
       document.querySelector('.tabs > .tab[tabindex="0"]').setAttribute('tabindex', '-1')
-      newTabNode.setAttribute('tabindex', '0')
+      newTabNode?.setAttribute('tabindex', '0')
       currentTabNode.setAttribute('aria-selected', 'false')
-      newTabNode.setAttribute('aria-selected', 'true')
+      newTabNode?.setAttribute('aria-selected', 'true')
       this.currentTab = tab
-      newTabNode.focus({ focusVisible: true })
+      newTabNode?.focus({ focusVisible: true })
     },
 
     newSearch: function (query) {
