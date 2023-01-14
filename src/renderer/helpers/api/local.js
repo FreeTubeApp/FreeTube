@@ -116,14 +116,42 @@ export async function getLocalSearchContinuation(continuationData) {
 }
 
 export async function getLocalVideoInfo(id, attemptBypass = false) {
+  let info
+  let player
+
   if (attemptBypass) {
     const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED })
+    player = innertube.actions.session.player
+
     // the second request that getInfo makes 404s with the bypass, so we use getBasicInfo instead
     // that's fine as we have most of the information from the original getInfo request
-    return await innertube.getBasicInfo(id, 'TV_EMBEDDED')
+    info = await innertube.getBasicInfo(id, 'TV_EMBEDDED')
   } else {
     const innertube = await createInnertube({ withPlayer: true })
-    return await innertube.getInfo(id)
+    player = innertube.actions.session.player
+
+    info = await innertube.getInfo(id)
+  }
+
+  if (info.streaming_data) {
+    decipherFormats(info.streaming_data.adaptive_formats, player)
+    decipherFormats(info.streaming_data.formats, player)
+  }
+
+  return info
+}
+
+/**
+ * @param {import('youtubei.js/dist/src/parser/classes/misc/Format').default[]} formats
+ * @param {import('youtubei.js/dist/index').Player} player
+ */
+function decipherFormats(formats, player) {
+  for (const format of formats) {
+    format.url = format.decipher(player)
+
+    // set these to undefined so that toDash doesn't try to decipher them again, throwing an error
+    format.cipher = undefined
+    format.signature_cipher = undefined
   }
 }
 
