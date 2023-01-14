@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SideNav',
   components: {
     'ft-flex-box': FtFlexBox,

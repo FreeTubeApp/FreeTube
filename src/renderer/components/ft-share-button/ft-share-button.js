@@ -1,12 +1,11 @@
-import Vue from 'vue'
-
+import { defineComponent } from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtShareButton',
   components: {
     'ft-flex-box': FtFlexBox,

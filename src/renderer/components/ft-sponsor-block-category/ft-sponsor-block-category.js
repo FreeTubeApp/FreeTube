@@ -1,9 +1,10 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import { colors } from '../../helpers/colors'
 import FtSelect from '../ft-select/ft-select.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
-export default Vue.extend({
+
+export default defineComponent({
   name: 'FtSponsorBlockCategory',
   components: {
     'ft-select': FtSelect

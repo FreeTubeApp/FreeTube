@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -7,7 +7,7 @@ import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoInfo',
   components: {
     'ft-card': FtCard,

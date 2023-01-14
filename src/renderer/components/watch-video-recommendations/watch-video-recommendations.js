@@ -1,10 +1,10 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoRecommendations',
   components: {
     'ft-card': FtCard,

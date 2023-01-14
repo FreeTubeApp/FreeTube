@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -9,7 +9,7 @@ import FtSelect from '../ft-select/ft-select.vue'
 import { showToast } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtProfileFilterChannelsList',
   components: {
     'ft-card': FtCard,

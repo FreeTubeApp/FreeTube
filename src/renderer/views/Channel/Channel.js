@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
@@ -18,7 +18,7 @@ import { copyToClipboard, formatNumber, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
 import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Search',
   components: {
     'ft-card': FtCard,

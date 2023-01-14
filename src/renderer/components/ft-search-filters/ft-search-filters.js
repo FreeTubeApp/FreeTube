@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../ft-radio-button/ft-radio-button.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtSearchFilters',
   components: {
     'ft-flex-box': FtFlexBox,

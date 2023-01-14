@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -9,7 +9,7 @@ import ytch from 'yt-channel-info'
 import { showToast } from '../../helpers/utils'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SubscribedChannels',
   components: {
     'ft-button': FtButton,
