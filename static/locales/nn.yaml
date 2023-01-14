@@ -85,13 +85,17 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
   Refresh Subscriptions: 'Oppdater abonnement'
   Load More Videos: 'Last inn fleire videoar'
+  Error Channels: Kanalar med feil
+  Disabled Automatic Fetching: Du har deaktivert automatisk henting av abonnement.
+    Oppdater abonnement for å sjå dei her.
+  Empty Channels: Kanalane du abonnerer på har ingen videoar for augeblikket.
 Trending:
   Trending: 'På veg opp'
   Music: Musikk
   Trending Tabs: På veg opp
   Movies: Filmar
   Gaming: Dataspel
-  Default: Forval
+  Default: Standard
 Most Popular: 'Mest populært'
 Playlists: 'Spelelister'
 User Playlists:
@@ -102,11 +106,17 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Du
     har ingen lagra videoar for augeblikket. Klikk på "Lagre"-knappen i hjørnet av
     ein video slik at den bli oppført her'
+  Search bar placeholder: Søk i speleliste
+  Empty Search Message: Det er ingen videoar i denne spelelista som samsvarar med
+    søket ditt
 History:
   # On History Page
   History: 'Historikk'
   Watch History: 'Visingshistorikk'
   Your history list is currently empty.: 'Historikken din er tom for augeblikket.'
+  Empty Search Message: Det er ingen videoar i historikken din som samsvarer med søket
+    ditt
+  Search bar placeholder: Søk i historikk
 Settings:
   # On Settings Page
   Settings: 'Innstillingar'
@@ -120,7 +130,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte
       backend ved feil'
     Enable Search Suggestions: 'Slå på søkeforslag'
-    Default Landing Page: 'Forvalt landingsside'
+    Default Landing Page: 'Standardlandingside'
     Locale Preference: 'Språkinnstilling'
     Preferred API Backend:
       Preferred API Backend: 'Føretrekte API-backend'
@@ -132,7 +142,7 @@ Settings:
       List: 'Liste'
     Thumbnail Preference:
       Thumbnail Preference: 'Miniatyrbiletepreferanse'
-      Default: 'Forval'
+      Default: 'Standard'
       Beginning: 'Begynning'
       Middle: 'Mellom'
       End: 'Slutt'
@@ -141,17 +151,25 @@ Settings:
     View all Invidious instance information: 'Vis informasjon om alle Invidious-førekomstar'
     Region for Trending: 'Region for "På veg opp"'
         #! List countries
-    System Default: Systemforval
+    System Default: Systemstandard
     External Link Handling:
       External Link Handling: Handtering av eksterne lenker
       Open Link: Opne lenke
       Ask Before Opening Link: Spør før opning av lenke
       No Action: Ingen handling
+    Current instance will be randomized on startup: Gjeldande førekomst vil bli satt
+      tilfeldig ved oppstart
+    Current Invidious Instance: Gjeldande Invidious-førekomstar
+    Set Current Instance as Default: Sett gjeldande førekomst som standardførekomst
+    Clear Default Instance: Tilbakestill standardførekomst
+    No default instance has been set: Ingen standardførekomst har blitt satt
+    The currently set default instance is {instance}: Gjeldande standardførekomst
+      er {instance}
   Theme Settings:
     Theme Settings: 'Temainnstillingar'
     Match Top Bar with Main Color: 'Tilpass topplinja slik at den har same farge som
       hovudfargen'
-    Expand Side Bar by Default: 'Utvid sidefeltet som forval'
+    Expand Side Bar by Default: 'Utvid sidefeltet som standard'
     Disable Smooth Scrolling: 'Slå av jamn rulling'
     UI Scale: 'Skalering av brukargrensesnitt'
     Base Theme:
@@ -160,6 +178,8 @@ Settings:
       Dark: 'Mørk'
       Light: 'Lys'
       Dracula: 'Dracula'
+      System Default: Systemstandard
+      Catppuccin Mocha: ''
     Main Color Theme:
       Main Color Theme: 'Hovudfargetema'
       Red: 'Raud'
@@ -187,15 +207,17 @@ Settings:
       Dracula Yellow: 'Dracula Gul'
     Secondary Color Theme: 'Sekundærfargetema'
         #* Main Color Theme
+    Hide Side Bar Labels: Skjul sidefeltetikettar
+    Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspelingsinnstillingar'
     Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelda format'
     Play Next Video: 'Spel av neste video'
-    Turn on Subtitles by Default: 'Slå på undertekst som forval'
+    Turn on Subtitles by Default: 'Slå på undertekst som standard'
     Autoplay Videos: 'Spel av videoar automatisk'
     Proxy Videos Through Invidious: 'Mellomten videoar gjennom Invidious'
     Autoplay Playlists: 'Spel av spelelister automatisk'
-    Enable Theatre Mode by Default: 'Kinomodus som forval'
+    Enable Theatre Mode by Default: 'Kinomodus som standard'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Avspelingshastigheit'
     Default Video Format:
@@ -218,6 +240,17 @@ Settings:
     Next Video Interval: Tid mellom videoar
     Display Play Button In Video Player: Vis videoavspelingsknappen i videoavspelaren
     Scroll Volume Over Video Player: Juster volum ved å bla på video
+    Screenshot:
+      Ask Path: Spør om kvar ting skal lagrast
+      Error:
+        Forbidden Characters: Forbodne teikn
+        Empty File Name: Tomt filnamn
+      Format Label: Skjermbileteformat
+      Enable: Aktiver skjermbilete
+      Folder Label: Skjermbiletemappe
+      Folder Button: Vel mappe
+      Quality Label: Skjermbiletekvalitet
+      File Name Label: Filnamnmøster
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
@@ -240,6 +273,7 @@ Settings:
     Hide Videos on Watch: 'Skjul sette videoar'
     Fetch Feeds from RSS: 'Hent informasjonskanalar frå RSS'
     Manage Subscriptions: 'Behandle abonnement'
+    Fetch Automatically: Hent informasjonkanalar automatisk
   Distraction Free Settings:
     Distraction Free Settings: 'Distraksjonsfri-instillingar'
     Hide Video Views: 'Skjul videovisingar'
@@ -252,6 +286,16 @@ Settings:
     Hide Live Chat: 'Skjul direktechat'
     Hide Active Subscriptions: 'Skjul aktive abonnement'
     Hide Playlists: Skjul spelelister
+    Hide Upcoming Premieres: Skjul komande premierar
+    Hide Sharing Actions: Skjul delehandlingar
+    Hide Comments: Skjul kommentarar
+    Hide Live Streams: Skjul direktesendingar
+    Hide Video Description: Skjul videobeskriving
+    Hide Chapters: Skjul kapittel
+    Display Titles Without Excessive Capitalisation: Vis titlar utan overdriven bruk
+      av store bokstavar
+    Hide Channels: Skjul videoar frå kanalar
+    Hide Channels Placeholder: Kanalnamn eller kanal-ID
   Data Settings:
     Data Settings: 'Datainnstillingar'
     Select Import Type: 'Vel importtype'
@@ -290,6 +334,17 @@ Settings:
     Unknown data key: 'Ukjent datanøkkel'
     How do I import my subscriptions?: 'Korleis importerer eg abonnementa mine?'
     Manage Subscriptions: 'Behandle abonnement'
+    Import Playlists: Importer spelelister
+    Subscription File: Abonnementfil
+    History File: Historikkfil
+    Playlist insufficient data: Utilstrekkeleg data for "{playlist}" speleliste, hopper
+      over element
+    All playlists has been successfully exported: Alle spelelister har blitt vellykka
+      eksportert
+    Export Playlists: Eksporter spelelister
+    All playlists has been successfully imported: Alle spelelister har blitt vellykka
+      importert
+    Playlist File: Spelelistefil
   Proxy Settings:
     Proxy Settings: 'Mellomtenarinnstillingar'
     Enable Tor / Proxy: 'Skru på Tor/mellomtenar'
@@ -308,16 +363,54 @@ Settings:
       ikkje hente nettverksinformasjon. Er mellomtenaren din konfigurert skikkeleg?'
   SponsorBlock Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
-      (forvalet er https://sponsor.ajay.app)
+      (standard er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock-innstillingar
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppa
       over
+    Skip Options:
+      Skip Option: Alternativ for å hoppe over
+      Auto Skip: Hopp over automatisk
+      Show In Seek Bar: Vis i søkefelt
+      Prompt To Skip: Spør om å hoppe over
+      Do Nothing: Ikkje gjer noko
+    Category Color: Kategorifarge
   External Player Settings:
     External Player Settings: Innstillingar for ekstern avspelar
     Custom External Player Executable: Eigendefinert køyrbar fil for ekstern avspelar
     Custom External Player Arguments: Eigendefinerte argument for ekstern avspelar
     External Player: Ekstern avspelar
+    Ignore Unsupported Action Warnings: Ignorer handlingvarslar som ikkje støttast
+    Players:
+      None:
+        Name: Ingen
+  Experimental Settings:
+    Replace HTTP Cache: Erstatt HTTP-hurtiglager
+    Experimental Settings: Eksperimentelle innstillingar
+    Warning: Desse innstillingane er eksperimentelle, og dei kan forårsake krasjar
+      mens dei er aktivert. Det anbefalast å ta tryggleikskopiar. Bruk på eiget ansvar.
+  Download Settings:
+    Download Settings: Nedlastinginnstillingar
+    Choose Path: Vel bane
+    Download Behavior: Nedlastingåtferd
+    Ask Download Path: Spør om nedlastingbane
+    Open in web browser: Opne i nettlesar
+    Download in app: Last ned i program
+  Parental Control Settings:
+    Hide Search Bar: Skjul søkefelt
+    Hide Unsubscribe Button: Skjul knapp for oppheving av abonnement
+    Parental Control Settings: Foreldrekontrollinnstillingar
+    Show Family Friendly Only: Vis kun familevenleg
+  Password Dialog:
+    Enter Password To Unlock: Skriv inn passord for å låse opp innstillingar
+    Password: Passord
+    Unlock: Lås opp
+    Password Incorrect: Feil passord
+  Password Settings:
+    Set Password To Prevent Access: Angi eit passord for å forhindre tilgang til innstillingane
+    Password Settings: Passordinnstillingar
+    Set Password: Angi passord
+    Remove Password: Fjern passord
 About:
   #On About page
   About: 'Om'
@@ -358,7 +451,7 @@ Profile:
   Profile Preview: 'Forhandsvising av profil'
   Create Profile: 'Lag profil'
   Update Profile: 'Oppdater profil'
-  Make Default Profile: 'Angi som forvalt profil'
+  Make Default Profile: 'Angi som standardprofil'
   Delete Profile: 'Fjern profil'
   Are you sure you want to delete this profile?: 'Er du sikker på at du vil fjerne
     denne profilet?'
@@ -367,10 +460,10 @@ Profile:
   Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
   Profile has been created: 'Profilet har blitt laga'
   Profile has been updated: 'Profilet har blitt oppdatert'
-  Your default profile has been set to {profile}: 'Ditt forvalte profil har blitt
-    satt til {profile}'
+  Your default profile has been set to {profile}: 'Ditt standardprofil har blitt satt
+    til {profile}'
   Removed {profile} from your profiles: 'Fjerna {profile} frå profila dine'
-  Your default profile has been changed to your primary profile: 'Ditt forvalte profil
+  Your default profile has been changed to your primary profile: 'Ditt standardprofil
     har blitt endra til ditt hovudprofil'
   '{profile} is now the active profile': '{profile} er no det aktive profilet'
   Subscription List: 'Abonnementliste'
@@ -507,6 +600,7 @@ Video:
     Years: 'År'
     Ago: 'Sidan'
     Upcoming: 'Har premiere på'
+    In less than a minute: Om mindre enn eit minutt
   Published on: 'Publisert på'
   Streamed on: 'Strauma på'
   Started streaming on: 'Begynte å straume på'
@@ -520,6 +614,8 @@ Video:
     sponsor: sponsor
     music offtopic: musikk (utanfor tema)
     self-promotion: eigenpromotering
+    recap: Oppsummering
+    filler: Fyllstoff
   Skipped segment: Overhoppa del
   External Player:
     video: video
@@ -530,6 +626,18 @@ Video:
     Unsupported Actions:
       opening playlists: Opner spelelister
       setting a playback rate: set ein avspelingshastigheit
+  Premieres on: Har premiere
+  Stats:
+    Volume: Lydstyrke
+    Bandwidth: Bandbreidde
+    Player Dimensions: Avspelarstorleik
+    Bitrate: Bithastigheit
+    Resolution: Oppløysing
+    Buffered: Mellomlagra
+  Show Super Chat Comment: Vis super-chat-kommentar
+  Premieres: Premiere
+  Scroll to Bottom: Rull til botn
+  Upcoming: Komande
 Videos:
   #& Sort By
   Sort By:
@@ -583,6 +691,7 @@ Share:
     utklippstavle'
   YouTube Channel URL copied to clipboard: 'YouTube-kanalnettadresse kopiert til utklippstavle'
 
+  Share Channel: Del kanal
 Mini Player: 'Miniavspelar'
 Comments:
   Comments: 'Kommentarar'
@@ -605,6 +714,12 @@ Comments:
   Load More Comments: 'Last inn fleire kommentarar'
   No more comments available: 'Ingen fleire kommentarar tilgjengeleg'
   Show More Replies: Vis fleire svar
+  Pinned by: Festa av
+  And others: og andre
+  From {channelName}: frå {channelName}
+  Member: Medlem
+  Hearted: Likt
+  View {replyCount} replies: Vis {replyCount} svar
 Up Next: 'Neste'
 
 #Tooltips
@@ -617,7 +732,7 @@ Tooltips:
       problem, vil FreeTube prøve å automatisk bruke ditt ikkje-føretrekte API som
       ein tilbakefallingsmetode dersom det er aktivert.'
     Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
-      bilete av videoen i staden for forvalt miniatyrbiletet'
+      bilete av videoen i staden for standardminiatyrbiletet'
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
       Fjern den gjeldene førekomsten for å sjå ei liste over offentlege førekomstar
       å velje mellom'
@@ -625,7 +740,7 @@ Tooltips:
       du ynskjer å vise. Ikkje alle land som visast støttast av YouTube.'
   Player Settings:
     Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
-      forval. Når det er påslått, vil det lokale API-et køyre og bruke dei forelda
+      standard. Når det er påslått, vil det lokale API-et køyre og bruke dei forelda
       formata som returnerast derifrå, i staden for dei som blir returnert av Invidious.
       Dette hjelper når videoar som blir returnert av Invidious, ikkje kan spelast
       av som følgje av regionsavgrensingar.'
@@ -635,16 +750,16 @@ Tooltips:
       kan spele høgare kvalitet. Forelda format er avgrensa til maks 720p, men bruker
       mindre bandbreidde. Lydformat er berre for lydstraumar.'
   Subscription Settings:
-    Fetch Feeds from RSS: 'Bruk RSS i staden for FreeTube sin forvalte metode for
-      innhenting av din abonnementsstraum. RSS er raskaren og forhindrar IP-blokkering,
-      men manglar noko informasjon som videovarigheit og sanntidsstatus.'
+    Fetch Feeds from RSS: 'Bruk RSS i staden for FreeTube sin standardmetode for innhenting
+      av din abonnementsstraum. RSS er raskaren og forhindrar IP-blokkering, men manglar
+      noko informasjon som videovarigheit og sanntidsstatus.'
 
 # Toast Messages
   Privacy Settings:
     Remove Video Meta Files: Viss denne innstillinga er på, vil FreeTube automatisk
       slette metadata generert under videoavspeling når du lukker avspelingsida.
   External Player Settings:
-    DefaultCustomArgumentsTemplate: "(Forval: '{defaultCustomArguments}')"
+    DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
 Local API Error (Click to copy): 'Lokal API-feil (Klikk her for å kopiere)'
 Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk her for å kopiere)'
 Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
@@ -683,3 +798,29 @@ Search Bar:
 Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?
 New Window: Nytt Vindauga
 Preferences: Innstillingar
+Channels:
+  Channels: Kanalar
+  Title: Kanalliste
+  Search bar placeholder: Søk etter kanalar
+  Count: Fant {number} kanal(ar).
+  Empty: Kanallista di er tom.
+  Unsubscribed: '{channelName} blei fjerna frå dine abonnement'
+  Unsubscribe Prompt: Er du sikker på at du vil avslutte abonnementet på "{channelName}"?
+  Unsubscribe: Opphev abonnement
+Screenshot Success: Lagra skjermbilete som "{filePath}"
+Age Restricted:
+  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er alderavgrensa
+  Type:
+    Video: Video
+    Channel: Kanal
+Screenshot Error: Skjermbilete feila. {error}
+Downloading has completed: Nedlastinga av "{videoTitle}" er fullført
+Ok: OK
+Clipboard:
+  Cannot access clipboard without a secure connection: Får ikkje tilgang til utklipptavla
+    utan ei sikker forbinding
+  Copy failed: Kopiering til utklipptavle feila
+Chapters:
+  Chapters: Kapittel
+Starting download: Starter nedlastinga av "{videoTitle}"
+Downloading failed: Det oppstod eit problem under nedlastinga av "{videoTitle}"
