@@ -179,7 +179,7 @@ Settings:
       Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemstandard
-      Catppuccin Mocha: ''
+      Catppuccin Mocha: 'Catppuccin-mokka'
     Main Color Theme:
       Main Color Theme: 'Hovudfargetema'
       Red: 'Raud'
@@ -205,6 +205,20 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Raud'
       Dracula Yellow: 'Dracula Gul'
+      Catppuccin Mocha Mauve: Catppuccin-mokkalilla
+      Catppuccin Mocha Red: Catppuccin-mokkarød
+      Catppuccin Mocha Maroon: Catppuccin-mokkakastanjebrun
+      Catppuccin Mocha Peach: Catppuccin-mokkafersken
+      Catppuccin Mocha Green: Catppuccin-mokkagrøn
+      Catppuccin Mocha Teal: Catppuccin-mokkablågrøn
+      Catppuccin Mocha Sky: Catppuccin-mokkahimmelblå
+      Catppuccin Mocha Flamingo: Catppuccin-mokka-flamingo
+      Catppuccin Mocha Rosewater: Catppuccin-mokkarosevann
+      Catppuccin Mocha Pink: Catppuccin-mokkarosa
+      Catppuccin Mocha Yellow: Catppuccin-mokkagul
+      Catppuccin Mocha Sapphire: Catppuccin-mokkasafir
+      Catppuccin Mocha Blue: Catppuccin-mokkablå
+      Catppuccin Mocha Lavender: Catppuccin-mokkalavendel
     Secondary Color Theme: 'Sekundærfargetema'
         #* Main Color Theme
     Hide Side Bar Labels: Skjul sidefeltetikettar
@@ -251,6 +265,11 @@ Settings:
       Folder Button: Vel mappe
       Quality Label: Skjermbiletekvalitet
       File Name Label: Filnamnmøster
+    Fast-Forward / Rewind Interval: Intervall for framover- og bakoverspoling
+    Skip by Scrolling Over Video Player: Hopp over ved å blad over videoavspelaren
+    Scroll Playback Rate Over Video Player: Blaavspelingshastigheit over videoavspelar
+    Video Playback Rate Interval: Intervall for videoavspelinghastigheit
+    Enter Fullscreen on Display Rotate: Bytt til fullskjerm ved skjermrotasjon
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
@@ -824,3 +843,9 @@ Chapters:
   Chapters: Kapittel
 Starting download: Starter nedlastinga av "{videoTitle}"
 Downloading failed: Det oppstod eit problem under nedlastinga av "{videoTitle}"
+Default Invidious instance has been cleared: Standard-Invidious-førekomst har blitt
+  tilbakestilt
+Default Invidious instance has been set to {instance}: Standard-Invidious-førekomst
+  har blitt satt til {instance}
+External link opening has been disabled in the general settings: Opening av eksterne
+  lenker har blitt deaktivert i innstillingane
