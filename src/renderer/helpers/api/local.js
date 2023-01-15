@@ -1,10 +1,15 @@
 import { Innertube } from 'youtubei.js'
 import { ClientType } from 'youtubei.js/dist/src/core/Session'
 import EmojiRun from 'youtubei.js/dist/src/parser/classes/misc/EmojiRun'
+import Autolinker from 'autolinker'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
-import { extractNumberFromString, getUserDataPath } from '../utils'
+import {
+  extractNumberFromString,
+  getUserDataPath,
+  toLocalePublicationString
+} from '../utils'
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -139,6 +144,11 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
   }
 
   return info
+}
+
+export async function getLocalComments(id, sortByNewest = false) {
+  const innertube = await createInnertube()
+  return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
 }
 
 /**
@@ -379,13 +389,15 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
             break
-          case 'WEB_PAGE_TYPE_CHANNEL':
-            if (text.startsWith('@')) {
-              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${text}</a>`)
+          case 'WEB_PAGE_TYPE_CHANNEL': {
+            const trimmedText = text.trim()
+            if (trimmedText.startsWith('@')) {
+              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
             break
+          }
           case 'WEB_PAGE_TYPE_PLAYLIST':
             parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             break
@@ -435,5 +447,29 @@ export function mapLocalFormat(format) {
     mimeType: format.mime_type,
     height: format.height,
     url: format.url
+  }
+}
+
+/**
+ * @param {import('youtubei.js/dist/src/parser/classes/comments/Comment').default} comment
+ */
+export function parseLocalComment(comment, hasOwnerReplied = false, replyToken = null) {
+  return {
+    dataType: 'local',
+    authorLink: comment.author.id,
+    author: comment.author.name,
+    authorThumb: comment.author.best_thumbnail.url,
+    isPinned: comment.is_pinned,
+    isOwner: comment.author_is_channel_owner,
+    isMember: comment.is_member,
+    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 14)),
+    time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
+    likes: comment.vote_count,
+    isHeadered: comment.is_hearted,
+    numReplies: comment.reply_count,
+    hasOwnerReplied,
+    replyToken,
+    showReplies: false,
+    replies: []
   }
 }

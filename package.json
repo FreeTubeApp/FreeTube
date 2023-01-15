@@ -55,7 +55,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^2.0.9",
-    "@freetube/yt-comment-scraper": "^6.2.0",
     "@silvermine/videojs-quality-selector": "^1.2.5",
     "autolinker": "^4.0.0",
     "browserify": "^17.0.0",
