@@ -402,6 +402,8 @@ Settings:
     Hide Sharing Actions: Skjul delingshandlinger
     Hide Upcoming Premieres: Skjul kommende premièrer
     Hide Video Description: Skjul videobeskrivelse
+    Display Titles Without Excessive Capitalisation: Vis titler uten overdrevet bruk
+      av store bokstaver
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -665,6 +667,7 @@ Video:
   Scroll to Bottom: Rull til bunnen
   Premieres on: Har première
   Premieres: Première
+  Upcoming: Kommende
 Videos:
   #& Sort By
   Sort By:
