@@ -606,3 +606,7 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
   const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
   return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
+
+export function formatNumber(number, options = undefined) {
+  return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
+}

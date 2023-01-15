@@ -17,6 +17,7 @@ import {
   copyToClipboard,
   extractNumberFromString,
   formatDurationAsTimestamp,
+  formatNumber,
   getFormatsFromHLSManifest,
   getUserDataPath,
   showToast
@@ -372,9 +373,9 @@ export default Vue.extend({
 
           if (!isNaN(subCount)) {
             if (subCount >= 10000) {
-              this.channelSubscriptionCountText = Intl.NumberFormat([this.currentLocale, 'en'], { notation: 'compact' }).format(subCount)
+              this.channelSubscriptionCountText = formatNumber(subCount, { notation: 'compact' })
             } else {
-              this.channelSubscriptionCountText = Intl.NumberFormat([this.currentLocale, 'en']).format(subCount)
+              this.channelSubscriptionCountText = formatNumber(subCount)
             }
           } else {
             this.channelSubscriptionCountText = ''

@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
-import i18n from '../../i18n/index'
 import {
   copyToClipboard,
   formatDurationAsTimestamp,
+  formatNumber,
   openExternalLink,
   showToast,
   toLocalePublicationString,
-  toDistractionFreeTitle,
-
+  toDistractionFreeTitle
 } from '../../helpers/utils'
 
 export default Vue.extend({
@@ -282,9 +281,6 @@ export default Vue.extend({
       return this.$store.getters.getSaveWatchedProgress
     },
 
-    currentLocale: function () {
-      return i18n.locale.replace('_', '-')
-    },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
@@ -406,7 +402,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         this.hideViews = true
       } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.parsedViewCount = Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
+        this.parsedViewCount = formatNumber(this.data.viewCount)
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {

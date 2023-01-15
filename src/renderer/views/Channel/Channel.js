@@ -14,8 +14,7 @@ import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import i18n from '../../i18n/index'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
 import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
@@ -143,15 +142,11 @@ export default Vue.extend({
       ]
     },
 
-    currentLocale: function () {
-      return i18n.locale.replace('_', '-')
-    },
-
     formattedSubCount: function () {
       if (this.hideChannelSubscriptions) {
         return null
       }
-      return Intl.NumberFormat(this.currentLocale).format(this.subCount)
+      return formatNumber(this.subCount)
     },
 
     showFetchMoreButton: function () {
