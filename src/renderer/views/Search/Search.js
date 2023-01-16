@@ -162,7 +162,7 @@ export default Vue.extend({
 
     getNextpageLocal: async function (payload) {
       try {
-        const { results, continuationData } = getLocalSearchContinuation(payload.options.nextPageRef)
+        const { results, continuationData } = await getLocalSearchContinuation(payload.options.nextPageRef)
 
         if (results.length === 0) {
           return
