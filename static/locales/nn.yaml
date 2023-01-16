@@ -225,7 +225,7 @@ Settings:
     Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspelingsinnstillingar'
-    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelda format'
+    Force Local Backend for Legacy Formats: 'Påtving lokal bakende for utdaterte format'
     Play Next Video: 'Spel av neste video'
     Turn on Subtitles by Default: 'Slå på undertekst som standard'
     Autoplay Videos: 'Spel av videoar automatisk'
@@ -237,7 +237,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Videoformat'
       Dash Formats: 'DASH-format'
-      Legacy Formats: 'Eldre format'
+      Legacy Formats: 'Utdaterte format'
       Audio Formats: 'Lydformat'
     Default Quality:
       Default Quality: 'Kvalitetsinnstilling'
@@ -265,6 +265,12 @@ Settings:
       Folder Button: Vel mappe
       Quality Label: Skjermbiletekvalitet
       File Name Label: Filnamnmøster
+      File Name Tooltip: Du kan bruke variablane nedanfor. %Y for år, med fire siffer.
+        %M for månad, med to siffer. %D for dag, med to siffer. %H for time, med to
+        siffer. %N for minutt, med to siffer. %S for sekund, med to siffer. %T for
+        millisekund, med tre siffer. %s for videosekund. %t for videomillisekund,
+        med tre siffer. %i for Video-ID. Du kan òg bruke "\" eller "/" for å lage
+        undermapper.
     Fast-Forward / Rewind Interval: Intervall for framover- og bakoverspoling
     Skip by Scrolling Over Video Player: Hopp over ved å blad over videoavspelaren
     Scroll Playback Rate Over Video Player: Blaavspelingshastigheit over videoavspelar
@@ -272,7 +278,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Bytt til fullskjerm ved skjermrotasjon
     Max Video Playback Rate: Maksimal videoavspelinghastigheit
   Privacy Settings:
-    Privacy Settings: 'Personvernsinnstillingar'
+    Privacy Settings: 'Personverninnstillingar'
     Remember History: 'Husk historikk'
     Save Watched Progress: 'Lagre framgangsdrift'
     Clear Search Cache: 'Slett søkehurtiglager'
@@ -291,11 +297,11 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
     Hide Videos on Watch: 'Skjul sette videoar'
-    Fetch Feeds from RSS: 'Hent informasjonskanalar frå RSS'
+    Fetch Feeds from RSS: 'Hent informasjonkanalar frå RSS'
     Manage Subscriptions: 'Behandle abonnement'
     Fetch Automatically: Hent informasjonkanalar automatisk
   Distraction Free Settings:
-    Distraction Free Settings: 'Distraksjonsfri-instillingar'
+    Distraction Free Settings: '"Ikkje forstyrr"-innstillingar'
     Hide Video Views: 'Skjul videovisingar'
     Hide Video Likes And Dislikes: 'Skjul videogunst'
     Hide Channel Subscribers: 'Skjul kanalabonnement'
@@ -324,7 +330,7 @@ Settings:
     Import FreeTube: 'Importer FreeTube'
     Import YouTube: 'Importer YouTube'
     Import NewPipe: 'Importer NewPipe'
-    Check for Legacy Subscriptions: 'Sjå etter forelda abonnement'
+    Check for Legacy Subscriptions: 'Sjå etter utdaterte abonnement'
     Export Subscriptions: 'Eksporter abonnement'
     Export FreeTube: 'Eksporter FreeTube'
     Export YouTube: 'Eksporter YouTube'
@@ -628,12 +634,12 @@ Video:
 #& Videos
   translated from English: omsett frå engelsk
   Sponsor Block category:
-    outro: utgang
-    interaction: samhandling
-    intro: introduksjon
-    sponsor: sponsor
-    music offtopic: musikk (utanfor tema)
-    self-promotion: eigenpromotering
+    outro: Avslutting
+    interaction: Samhandling
+    intro: Introduksjon
+    sponsor: Sponsor
+    music offtopic: Musikk utanfor tema
+    self-promotion: Eigenpromotering
     recap: Oppsummering
     filler: Fyllstoff
   Skipped segment: Overhoppa del
@@ -648,6 +654,8 @@ Video:
       setting a playback rate: set ein avspelingshastigheit
       shuffling playlists: sorterer spelelister i tilfeldig rekkefølgje
       looping playlists: gjentar spelelister
+      starting video at offset: starter video ved punktet
+      reversing playlists: speler av spelelister baklengs
   Premieres on: Har premiere
   Stats:
     Volume: Lydstyrke
@@ -658,6 +666,9 @@ Video:
     Buffered: Hurtiglagra
     Video ID: Video-ID
     Mimetype: Medietype
+    Video statistics are not available for legacy videos: Videostatestikk er ikkje
+      tilgjengeleg for utdaterte videoar
+    Dropped / Total Frames: Redusert/total mengd bilete
   Show Super Chat Comment: Vis super-chat-kommentar
   Premieres: Premiere
   Scroll to Bottom: Rull til botn
@@ -691,7 +702,7 @@ Toggle Theatre Mode: 'Veksle teatermodus'
 Change Format:
   Change Media Formats: 'Endre videoformat'
   Use Dash Formats: 'Bruk DASH-format'
-  Use Legacy Formats: 'Bruk forelda format'
+  Use Legacy Formats: 'Bruk utdaterte format'
   Use Audio Formats: 'Bruk lydformat'
   Dash formats are not available for this video: 'DASH-format er ikkje tilgjengeleg
     for denne videoen'
@@ -765,14 +776,14 @@ Tooltips:
       \ din standardnettlesar.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
-      standard. Når det er påslått, vil det lokale API-et køyre og bruke dei forelda
+      standard. Når det er påslått, vil det lokale API-et køyre og bruke dei utdaterte
       formata som returnerast derifrå, i staden for dei som blir returnert av Invidious.
       Dette hjelper når videoar som blir returnert av Invidious, ikkje kan spelast
       av som følgje av regionsavgrensingar.'
     Proxy Videos Through Invidious: 'Koplar til Invidious for å servere videoar i
       staden for å kople direkte til YouTube. Overstyrar API-innstillingar.'
     Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format
-      kan spele høgare kvalitet. Forelda format er avgrensa til maks 720p, men bruker
+      kan spele høgare kvalitet. Utdaterte format er avgrensa til maks 720p, men bruker
       mindre bandbreidde. Lydformat er berre for lydstraumar.'
     Skip by Scrolling Over Video Player: Bla for å hoppe deg gjennom videoen i MPV-stil.
   Subscription Settings:
@@ -826,7 +837,7 @@ Hashtags have not yet been implemented, try again later: Emneknaggar er ikkje im
 Search Bar:
   Clear Input: Tøm inndata
 Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?
-New Window: Nytt Vindauga
+New Window: Nytt vindauge
 Preferences: Innstillingar
 Channels:
   Channels: Kanalar
