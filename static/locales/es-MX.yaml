@@ -77,6 +77,7 @@ Subscriptions:
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
   Error Channels: Canales con errores
+  Empty Channels: Sus canales suscritos no tienen ningún video actualmente.
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -830,3 +831,7 @@ Playing Next Video Interval: El próximo video se abrirá inmediatamente. Haga c
   segundos. Haga clic aquí para cancelar.
 New Window: Nueva ventana
 Preferences: Preferencias
+Channels:
+  Channels: Canales
+  Title: Lista de Canales
+  Search bar placeholder: Buscar Canales
