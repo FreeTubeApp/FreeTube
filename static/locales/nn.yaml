@@ -270,14 +270,15 @@ Settings:
     Scroll Playback Rate Over Video Player: Blaavspelingshastigheit over videoavspelar
     Video Playback Rate Interval: Intervall for videoavspelinghastigheit
     Enter Fullscreen on Display Rotate: Bytt til fullskjerm ved skjermrotasjon
+    Max Video Playback Rate: Maksimal videoavspelinghastigheit
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillingar'
     Remember History: 'Husk historikk'
     Save Watched Progress: 'Lagre framgangsdrift'
-    Clear Search Cache: 'Slett søkebuffer'
+    Clear Search Cache: 'Slett søkehurtiglager'
     Are you sure you want to clear out your search cache?: 'Er du sikker på at du
-      vil slette søkebufferen?'
-    Search cache has been cleared: 'Søkebufferen har blitt sletta'
+      vil slette søkehurtiglageret?'
+    Search cache has been cleared: 'Søkehurtiglageret har blitt tømt'
     Remove Watch History: 'Slett visingshistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
       du vil fjerne heile visingshistorikken din?'
@@ -369,7 +370,7 @@ Settings:
     Enable Tor / Proxy: 'Skru på Tor/mellomtenar'
     Proxy Protocol: 'Mellomtenarprotokoll'
     Proxy Host: 'Mellomtenarvert'
-    Proxy Port Number: 'Mellomtenar-portnummer'
+    Proxy Port Number: 'Mellomtenarportnummer'
     Clicking on Test Proxy will send a request to: 'Viss du klikker på "Test mellomtenar"
       sender me ein førespurnad til'
     Test Proxy: 'Test mellomtenar'
@@ -643,8 +644,10 @@ Video:
     OpeningTemplate: Opner {videoOrPlaylist} om {externalPlayer} ...
     OpenInTemplate: Opne i {externalPlayer}
     Unsupported Actions:
-      opening playlists: Opner spelelister
+      opening playlists: opner spelelister
       setting a playback rate: set ein avspelingshastigheit
+      shuffling playlists: sorterer spelelister i tilfeldig rekkefølgje
+      looping playlists: gjentar spelelister
   Premieres on: Har premiere
   Stats:
     Volume: Lydstyrke
@@ -652,7 +655,9 @@ Video:
     Player Dimensions: Avspelarstorleik
     Bitrate: Bithastigheit
     Resolution: Oppløysing
-    Buffered: Mellomlagra
+    Buffered: Hurtiglagra
+    Video ID: Video-ID
+    Mimetype: Medietype
   Show Super Chat Comment: Vis super-chat-kommentar
   Premieres: Premiere
   Scroll to Bottom: Rull til botn
@@ -752,11 +757,12 @@ Tooltips:
       ein tilbakefallingsmetode dersom det er aktivert.'
     Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit
       bilete av videoen i staden for standardminiatyrbiletet'
-    Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.
-      Fjern den gjeldene førekomsten for å sjå ei liste over offentlege førekomstar
-      å velje mellom'
+    Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.'
     Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar
       du ynskjer å vise. Ikkje alle land som visast støttast av YouTube.'
+    External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke,\
+      \ som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i\
+      \ din standardnettlesar.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Fungerer berre med Invidious-API-et som
       standard. Når det er påslått, vil det lokale API-et køyre og bruke dei forelda
@@ -768,6 +774,7 @@ Tooltips:
     Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format
       kan spele høgare kvalitet. Forelda format er avgrensa til maks 720p, men bruker
       mindre bandbreidde. Lydformat er berre for lydstraumar.'
+    Skip by Scrolling Over Video Player: Bla for å hoppe deg gjennom videoen i MPV-stil.
   Subscription Settings:
     Fetch Feeds from RSS: 'Bruk RSS i staden for FreeTube sin standardmetode for innhenting
       av din abonnementsstraum. RSS er raskaren og forhindrar IP-blokkering, men manglar
@@ -779,6 +786,10 @@ Tooltips:
       slette metadata generert under videoavspeling når du lukker avspelingsida.
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Deaktiver Electrons diskbaserte HTTP-hurtiglager og aktiver
+      eit spesialtilpassa biletehurtiglager i minnet. Dette vil føre til ei auking
+      i minnebruk.
 Local API Error (Click to copy): 'Lokal API-feil (Klikk her for å kopiere)'
 Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk her for å kopiere)'
 Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
@@ -841,6 +852,10 @@ Clipboard:
   Copy failed: Kopiering til utklipptavle feila
 Chapters:
   Chapters: Kapittel
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Gjeldande
+    kapittel: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synleg.
+    Gjeldande kapittel: {chapterName}'
 Starting download: Starter nedlastinga av "{videoTitle}"
 Downloading failed: Det oppstod eit problem under nedlastinga av "{videoTitle}"
 Default Invidious instance has been cleared: Standard-Invidious-førekomst har blitt
