@@ -57,6 +57,10 @@ export default defineComponent({
   },
   methods: {
     changeTab: function (tab) {
+      if (tab === this.currentTab) {
+        return
+      }
+
       this.currentTab = tab
       if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
         this.getTrendingInfoCache()
