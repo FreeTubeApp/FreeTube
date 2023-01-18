@@ -361,7 +361,7 @@ export default defineComponent({
         }
 
         invidiousAPICall(subscriptionsPayload).then(async (result) => {
-          resolve(await Promise.all(result.map((video) => {
+          resolve(await Promise.all(result.videos.map((video) => {
             video.publishedDate = new Date(video.published * 1000)
             return video
           })))
