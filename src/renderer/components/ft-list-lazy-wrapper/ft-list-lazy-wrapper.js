@@ -54,7 +54,8 @@ export default defineComponent({
      *
      * @return {bool} false to hide the video, true to show it
      */
-    showResult: function (data) {
+    showResult: function () {
+      const { data } = this
       if (!data.type) {
         return false
       }
