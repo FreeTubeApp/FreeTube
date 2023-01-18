@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { formatNumber } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListChannel',
   props: {
     data: {

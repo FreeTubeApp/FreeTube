@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
@@ -7,7 +7,7 @@ import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoPlaylist',
   components: {
     'ft-loader': FtLoader,

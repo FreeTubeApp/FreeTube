@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
@@ -7,7 +7,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'UserPlaylists',
   components: {
     'ft-card': FtCard,
@@ -110,9 +110,9 @@ export default Vue.extend({
     refreshPage: function() {
       const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
       this.isLoading = true
-      Vue.nextTick(() => {
+      nextTick(() => {
         this.isLoading = false
-        Vue.nextTick(() => {
+        nextTick(() => {
           window.scrollTo(0, scrollPos)
         })
       })

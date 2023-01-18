@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListPlaylist',
   components: {
     'ft-icon-button': FtIconButton

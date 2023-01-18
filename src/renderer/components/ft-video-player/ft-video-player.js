@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import videojs from 'video.js'
@@ -18,7 +18,7 @@ import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtVideoPlayer',
   beforeRouteLeave: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)

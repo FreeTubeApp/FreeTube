@@ -1,10 +1,10 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtPrompt',
   components: {
     'ft-card': FtCard,

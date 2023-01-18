@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import fs from 'fs/promises'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
@@ -30,7 +30,7 @@ import {
 } from '../../helpers/api/local'
 import { invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Watch',
   components: {
     'ft-loader': FtLoader,

@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../ft-timestamp-catcher/ft-timestamp-catcher.vue'
 import autolinker from 'autolinker'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoDescription',
   components: {
     'ft-card': FtCard,

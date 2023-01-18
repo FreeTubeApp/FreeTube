@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
@@ -13,7 +13,7 @@ import {
 } from '../../helpers/utils'
 import { invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoComments',
   components: {
     'ft-card': FtCard,

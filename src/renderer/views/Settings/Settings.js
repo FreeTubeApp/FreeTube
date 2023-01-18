@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
 import ThemeSettings from '../../components/theme-settings/theme-settings.vue'
 import PlayerSettings from '../../components/player-settings/player-settings.vue'
@@ -15,7 +15,7 @@ import ExperimentalSettings from '../../components/experimental-settings/experim
 import PasswordSettings from '../../components/password-settings/password-settings.vue'
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Settings',
   components: {
     'general-settings': GeneralSettings,

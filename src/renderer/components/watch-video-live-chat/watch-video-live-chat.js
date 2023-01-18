@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -7,7 +7,7 @@ import autolinker from 'autolinker'
 import { getRandomColorClass } from '../../helpers/colors'
 import { getLocalVideoInfo, parseLocalTextRuns } from '../../helpers/api/local'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoLiveChat',
   components: {
     'ft-loader': FtLoader,

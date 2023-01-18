@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import packageDetails from '../../../../package.json'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'About',
   components: {
     'ft-card': FtCard

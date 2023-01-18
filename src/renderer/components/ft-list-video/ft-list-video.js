@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import {
@@ -11,7 +11,7 @@ import {
   toDistractionFreeTitle
 } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListVideo',
   components: {
     'ft-icon-button': FtIconButton

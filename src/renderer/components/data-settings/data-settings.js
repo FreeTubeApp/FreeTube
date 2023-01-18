@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
@@ -18,7 +18,7 @@ import {
 } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'DataSettings',
   components: {
     'ft-settings-section': FtSettingsSection,

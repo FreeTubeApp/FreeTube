@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtToastEvents from './ft-toast-events.js'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtToast',
   data: function () {
     return {

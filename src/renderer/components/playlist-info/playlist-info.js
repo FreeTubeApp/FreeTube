@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
 import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PlaylistInfo',
   components: {
     'ft-list-dropdown': FtListDropdown

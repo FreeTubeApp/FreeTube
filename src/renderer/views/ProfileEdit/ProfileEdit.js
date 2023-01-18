@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtProfileEdit from '../../components/ft-profile-edit/ft-profile-edit.vue'
@@ -8,7 +8,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import { showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ProfileEdit',
   components: {
     'ft-loader': FtLoader,

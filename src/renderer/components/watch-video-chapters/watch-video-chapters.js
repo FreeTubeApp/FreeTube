@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoChapters',
   components: {
     'ft-card': FtCard
