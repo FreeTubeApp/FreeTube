@@ -656,6 +656,8 @@ Video:
       looping playlists: gjentar spelelister
       starting video at offset: starter video ved punktet
       reversing playlists: speler av spelelister baklengs
+      opening specific video in a playlist (falling back to opening the video): opner
+        valt video i ei speleliste (faller tilbake til å opne videoen)
   Premieres on: Har premiere
   Stats:
     Volume: Lydstyrke
@@ -786,21 +788,43 @@ Tooltips:
       kan spele høgare kvalitet. Utdaterte format er avgrensa til maks 720p, men bruker
       mindre bandbreidde. Lydformat er berre for lydstraumar.'
     Skip by Scrolling Over Video Player: Bla for å hoppe deg gjennom videoen i MPV-stil.
+    Scroll Playback Rate Over Video Player: Mens musepeikaren er over videoen, trykk
+      og hald inne CTRL-tasten (kommandotasen på Mac) og bla opp og ned for å kontrollere
+      avspelingshastigheita. Trykk og hald inne CTRL-tasten (kommandotasten på Mac)
+      og venstretrykk rakst for å gå tilbake til standard avspelingshastigheita. Standard
+      avspelingshastigheit er 1x med mindre den har blitt endra i innstillingane.
   Subscription Settings:
     Fetch Feeds from RSS: 'Bruk RSS i staden for FreeTube sin standardmetode for innhenting
       av din abonnementsstraum. RSS er raskaren og forhindrar IP-blokkering, men manglar
       noko informasjon som videovarigheit og sanntidsstatus.'
 
 # Toast Messages
+    Fetch Automatically: Om dette alternativet er aktivert, vil FreeTube automatisk
+      hente abonnementfeeden din når eit nytt vindauge opnast og når du bytter profil.
   Privacy Settings:
     Remove Video Meta Files: Viss denne innstillinga er på, vil FreeTube automatisk
       slette metadata generert under videoavspeling når du lukker avspelingsida.
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
+    Custom External Player Executable: Som standard vil FreeTube anta at den valte
+      eksterne videoavspelaren kan bli funnen via programstivariabelen. Om naudsynt
+      kan ein endre på programstien.
+    Ignore Warnings: Skjul åtvaringar angåande eksterne videoavspelarar som ikkje
+      støtter gjeldande handlingar (f.eks. snu spelelister, osv.).
+    External Player: Viss ein har valt ein ekstern videoavspelar, blir eit ikon vist
+      på miniatyrbiletet til videoar. Dette ikonet lar ein opne desse videoane i ein
+      ekstern videoavspelar. Ver merksam på at Invidious-innstillingar ikkje påverker
+      den eksterne videoavspelaren.
+    Custom External Player Arguments: Eventuelle eigendefinerte kommandolinjeargument,
+      åtskilt med semikolon (";"), du vil at skal bli sendt til den eksterne videoavspelaren.
   Experimental Settings:
     Replace HTTP Cache: Deaktiver Electrons diskbaserte HTTP-hurtiglager og aktiver
-      eit spesialtilpassa biletehurtiglager i minnet. Dette vil føre til ei auking
-      i minnebruk.
+      eit eigendefinert biletehurtiglager i minnet. Dette vil føre til ei auking i
+      minnebruk.
+  Distraction Free Settings:
+    Hide Channels: Skriv inn eit kanalnamn eller ein kanal-ID for å skjule alle videoar,
+      spelelister og sjølve kanalen frå å dukke opp i "Søk" eller "På veg opp". Kanalnamnet
+      som blir skriven inn må samsvare fullstendig og skilje mellom store og små bokstavar.
 Local API Error (Click to copy): 'Lokal API-feil (Klikk her for å kopiere)'
 Invidious API Error (Click to copy): 'Invidious-API-feil (Klikk her for å kopiere)'
 Falling back to Invidious API: 'Faller tilbake til Invidious-API-et'
