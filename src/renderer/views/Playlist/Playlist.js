@@ -124,7 +124,7 @@ export default defineComponent({
     getPlaylistInvidious: function () {
       this.isLoading = true
 
-      invidiousGetPlaylistInfo({ playlistId: this.playlistId }).then((result) => {
+      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
         this.infoData = {
           id: result.playlistId,
           title: result.title,
