@@ -676,12 +676,13 @@ export default defineComponent({
         }
       }
 
+      // `currentTabNode` can be `null` on 2nd+ search
       const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
-      document.querySelector('.tabs > .tab[tabindex="0"]').setAttribute('tabindex', '-1')
+      document.querySelector('.tabs > .tab[tabindex="0"]')?.setAttribute('tabindex', '-1')
       newTabNode?.setAttribute('tabindex', '0')
-      currentTabNode.setAttribute('aria-selected', 'false')
+      currentTabNode?.setAttribute('aria-selected', 'false')
       newTabNode?.setAttribute('aria-selected', 'true')
       this.currentTab = tab
       newTabNode?.focus({ focusVisible: true })
