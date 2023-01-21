@@ -42,6 +42,10 @@ export default defineComponent({
     },
 
     channelId: function () {
+      if (this.channelLink === null) {
+        return null
+      }
+
       let id = this.channelLink.replace('https://www.youtube.com/user/', '')
       id = id.replace('https://www.youtube.com/channel/', '')
       return id

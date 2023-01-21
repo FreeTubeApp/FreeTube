@@ -41,11 +41,18 @@
       </router-link>
       <div class="infoLine">
         <router-link
+          v-if="channelId"
           class="channelName"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
         </router-link>
+        <span
+          v-else
+          class="channelName"
+        >
+          {{ channelName }}
+        </span>
       </div>
     </div>
   </div>
