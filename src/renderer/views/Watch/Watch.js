@@ -1333,7 +1333,7 @@ export default defineComponent({
         captionTracks.unshift({
           url: url.toString(),
           label,
-          languageCode: locale
+          language_code: locale
         })
       }
     },
