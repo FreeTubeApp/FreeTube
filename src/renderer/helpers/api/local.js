@@ -378,7 +378,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
       // that way we avoid layout shifts when it loads
       parsedRuns.push(`<img src="${emoji.image[0].url}" alt="${altText}" width="${emojiSize}" height="${emojiSize}" loading="lazy" style="vertical-align: middle">`)
     } else {
-      const { text, endpoint } = run
+      const { text, bold, italics, strikethrough, endpoint } = run
 
       if (endpoint && !text.startsWith('#')) {
         switch (endpoint.metadata.page_type) {
@@ -423,7 +423,20 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
           }
         }
       } else {
-        parsedRuns.push(text)
+        let formattedText = text
+        if (bold) {
+          formattedText = `<b>${formattedText}</b>`
+        }
+
+        if (italics) {
+          formattedText = `<i>${formattedText}</i>`
+        }
+
+        if (strikethrough) {
+          formattedText = `<s>${formattedText}</s>`
+        }
+
+        parsedRuns.push(formattedText)
       }
     }
   }
@@ -452,8 +465,17 @@ export function mapLocalFormat(format) {
 
 /**
  * @param {import('youtubei.js/dist/src/parser/classes/comments/Comment').default} comment
+ * @param {import('youtubei.js/dist/src/parser/classes/comments/CommentThread').default} commentThread
  */
-export function parseLocalComment(comment, hasOwnerReplied = false, replyToken = null) {
+export function parseLocalComment(comment, commentThread = undefined) {
+  let hasOwnerReplied = false
+  let replyToken = null
+
+  if (commentThread?.has_replies) {
+    hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
+    replyToken = commentThread
+  }
+
   return {
     dataType: 'local',
     authorLink: comment.author.id,
@@ -462,10 +484,10 @@ export function parseLocalComment(comment, hasOwnerReplied = false, replyToken =
     isPinned: comment.is_pinned,
     isOwner: comment.author_is_channel_owner,
     isMember: comment.is_member,
-    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 14)),
+    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16)),
     time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
     likes: comment.vote_count,
-    isHeadered: comment.is_hearted,
+    isHearted: comment.is_hearted,
     numReplies: comment.reply_count,
     hasOwnerReplied,
     replyToken,

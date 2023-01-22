@@ -86,17 +86,10 @@ export default Vue.extend({
 
     getCommentData: function () {
       this.isLoading = true
-      if (process.env.IS_ELECTRON) {
-        switch (this.backendPreference) {
-          case 'local':
-            this.getCommentDataLocal()
-            break
-          case 'invidious':
-            this.getCommentDataInvidious()
-            break
-        }
-      } else {
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
+      } else {
+        this.getCommentDataLocal()
       }
     },
 
@@ -104,17 +97,10 @@ export default Vue.extend({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (process.env.IS_ELECTRON) {
-          switch (this.backendPreference) {
-            case 'local':
-              this.getCommentDataLocal(true)
-              break
-            case 'invidious':
-              this.getCommentDataInvidious()
-              break
-          }
-        } else {
+        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           this.getCommentDataInvidious()
+        } else {
+          this.getCommentDataLocal(true)
         }
       }
     },
@@ -152,14 +138,8 @@ export default Vue.extend({
           comments = await getLocalComments(this.id, this.sortNewest)
         }
 
-        const parsedComments = []
-        for (const commentThread of comments.contents) {
-          const hasReplies = commentThread.has_replies
-          const hasOwnerReplied = hasReplies ? commentThread.comment_replies_data.has_channel_owner_replied : false
-          const replyToken = hasReplies ? commentThread : null
-
-          parsedComments.push(parseLocalComment(commentThread.comment, hasOwnerReplied, replyToken))
-        }
+        const parsedComments = comments.contents
+          .map(commentThread => parseLocalComment(commentThread.comment, commentThread))
 
         if (more) {
           this.commentData = this.commentData.concat(parsedComments)
@@ -195,10 +175,10 @@ export default Vue.extend({
 
         if (comment.replies.length > 0) {
           await commentThread.getContinuation()
-          comment.replies = comment.replies.concat(commentThread.replies.map(parseLocalComment))
+          comment.replies = comment.replies.concat(commentThread.replies.map(reply => parseLocalComment(reply)))
         } else {
           await commentThread.getReplies()
-          comment.replies = commentThread.replies.map(parseLocalComment)
+          comment.replies = commentThread.replies.map(reply => parseLocalComment(reply))
         }
 
         comment.replyToken = commentThread.has_continuation ? commentThread : null
