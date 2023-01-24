@@ -42,7 +42,8 @@
         :key="index"
         class="profile"
         tabindex="0"
-        @keydown="subscribe(profile, true, $event)"
+        :aria-describedby="`susbcribeTip${index}`"
+        @keydown.enter.space="subscribe(profile, true, $event)"
         @click="subscribe(profile, true)"
       >
         <div
@@ -51,11 +52,16 @@
         >
           <div
             class="initial"
-            :title="profile.name"
-            :aria-label="profile.name"
           >
             {{ notSubscribedProfileInitials[index] }}
           </div>
+        </div>
+        <div
+          :id="`susbcribeTip${index}`"
+          class="profileName"
+          role="tooltip"
+        >
+          {{ profile.name }}
         </div>
       </div>
     </div>
@@ -68,6 +74,7 @@
         :key="index"
         class="profile"
         tabindex="0"
+        :aria-describedby="`susbcribeTip${index}`"
         @keydown="subscribe(profile, false, $event)"
         @click="subscribe(profile, false)"
       >
@@ -77,11 +84,16 @@
         >
           <div
             class="initial"
-            :title="profile.name"
-            :aria-label="profile.name"
           >
             {{ subscribedProfileInitials[index] }}
           </div>
+        </div>
+        <div
+          :id="`susbcribeTip${index}`"
+          class="profileName"
+          role="tooltip"
+        >
+          {{ profile.name }}
         </div>
       </div>
     </div>

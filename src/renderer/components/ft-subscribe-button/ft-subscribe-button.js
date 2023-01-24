@@ -82,13 +82,8 @@ export default Vue.extend({
   methods: {
     subscribe: function (profile, subscribe = true, event) {
       if (event instanceof KeyboardEvent) {
-        if (event.key === 'Tab') {
-          return
-        }
         event.preventDefault()
         if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
-          return
-        } else if (event.key !== 'Enter' && event.key !== ' ') {
           return
         }
       }
@@ -101,9 +96,7 @@ export default Vue.extend({
       })
 
       if (channelIndex !== -1 && subscribe) {
-        this.showToast({
-          message: this.$t('Channel.Channel already added to your subscriptions')
-        })
+        showToast(this.$t('Channel.Channel already added to your subscriptions'))
       } else if (channelIndex !== -1 && !subscribe) {
         targetProfile.subscriptions = targetProfile.subscriptions.filter((channel) => {
           return channel.id !== this.channelId

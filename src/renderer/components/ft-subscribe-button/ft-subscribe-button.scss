@@ -23,6 +23,7 @@
   }
 }
 
+/* stylelint-disable-next-line selector-max-id */
 #profileList {
   align-content: flex-start;
   background-color: var(--card-bg-color);
@@ -41,11 +42,39 @@
   z-index: 1;
 }
 
+.profileName {
+  background-color: rgb(0 0 0 / 80%);
+  border-radius: 10px;
+  color: #fff;
+  display: block;
+  font-size: 0.6em;
+  margin: 0;
+  opacity: 0;
+  padding: 3px 5px;
+  pointer-events: none;
+  position: relative;
+  text-align: center;
+  top: 30px;
+  transform: translate(0, -230%);
+  transition-duration: 275ms;
+  transition-property: opacity, transform, visibility;
+  visibility: hidden;
+  white-space: nowrap;
+  width: max-content;
+  z-index: 1;
+}
+
 .profile {
   cursor: pointer;
   height: 29px;
   padding: 5px;
   width: 29px;
+
+  &:hover .profileName,
+  &:focus .profileName {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .colorOption {
