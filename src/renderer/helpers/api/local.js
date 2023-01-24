@@ -1,10 +1,15 @@
 import { Innertube } from 'youtubei.js'
 import { ClientType } from 'youtubei.js/dist/src/core/Session'
 import EmojiRun from 'youtubei.js/dist/src/parser/classes/misc/EmojiRun'
+import Autolinker from 'autolinker'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
-import { extractNumberFromString, getUserDataPath } from '../utils'
+import {
+  extractNumberFromString,
+  getUserDataPath,
+  toLocalePublicationString
+} from '../utils'
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -139,6 +144,11 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
   }
 
   return info
+}
+
+export async function getLocalComments(id, sortByNewest = false) {
+  const innertube = await createInnertube()
+  return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
 }
 
 /**
@@ -368,7 +378,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
       // that way we avoid layout shifts when it loads
       parsedRuns.push(`<img src="${emoji.image[0].url}" alt="${altText}" width="${emojiSize}" height="${emojiSize}" loading="lazy" style="vertical-align: middle">`)
     } else {
-      const { text, endpoint } = run
+      const { text, bold, italics, strikethrough, endpoint } = run
 
       if (endpoint && !text.startsWith('#')) {
         switch (endpoint.metadata.page_type) {
@@ -379,13 +389,15 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
             break
-          case 'WEB_PAGE_TYPE_CHANNEL':
-            if (text.startsWith('@')) {
-              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${text}</a>`)
+          case 'WEB_PAGE_TYPE_CHANNEL': {
+            const trimmedText = text.trim()
+            if (trimmedText.startsWith('@')) {
+              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
             break
+          }
           case 'WEB_PAGE_TYPE_PLAYLIST':
             parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             break
@@ -411,7 +423,20 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
           }
         }
       } else {
-        parsedRuns.push(text)
+        let formattedText = text
+        if (bold) {
+          formattedText = `<b>${formattedText}</b>`
+        }
+
+        if (italics) {
+          formattedText = `<i>${formattedText}</i>`
+        }
+
+        if (strikethrough) {
+          formattedText = `<s>${formattedText}</s>`
+        }
+
+        parsedRuns.push(formattedText)
       }
     }
   }
@@ -435,5 +460,38 @@ export function mapLocalFormat(format) {
     mimeType: format.mime_type,
     height: format.height,
     url: format.url
+  }
+}
+
+/**
+ * @param {import('youtubei.js/dist/src/parser/classes/comments/Comment').default} comment
+ * @param {import('youtubei.js/dist/src/parser/classes/comments/CommentThread').default} commentThread
+ */
+export function parseLocalComment(comment, commentThread = undefined) {
+  let hasOwnerReplied = false
+  let replyToken = null
+
+  if (commentThread?.has_replies) {
+    hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
+    replyToken = commentThread
+  }
+
+  return {
+    dataType: 'local',
+    authorLink: comment.author.id,
+    author: comment.author.name,
+    authorThumb: comment.author.best_thumbnail.url,
+    isPinned: comment.is_pinned,
+    isOwner: comment.author_is_channel_owner,
+    isMember: comment.is_member,
+    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16)),
+    time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
+    likes: comment.vote_count,
+    isHearted: comment.is_hearted,
+    numReplies: comment.reply_count,
+    hasOwnerReplied,
+    replyToken,
+    showReplies: false,
+    replies: []
   }
 }
