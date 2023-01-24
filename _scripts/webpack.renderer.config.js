@@ -32,10 +32,6 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  externals: {
-    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
-    canvas: '{}'
-  },
   module: {
     rules: [
       {
@@ -132,6 +128,9 @@ const config = {
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.common.js',
+
+      // use the web version of linkedom
+      linkedom$: 'linkedom/worker',
 
       // defaults to the prebundled browser version which causes webpack to error with:
       // "Critical dependency: require function is used in a way in which dependencies cannot be statically extracted"
