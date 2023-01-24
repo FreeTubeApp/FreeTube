@@ -15,7 +15,7 @@ import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { copyToClipboard, formatNumber, showToast } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
 import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
@@ -157,22 +157,13 @@ export default defineComponent({
     showFetchMoreButton: function () {
       switch (this.currentTab) {
         case 'videos':
-          if (this.apiUsed === 'invidious' || (this.videoContinuationString !== '' && this.videoContinuationString !== null)) {
-            return true
-          }
-          break
+          return isNullOrEmpty(this.videoContinuationString || this.apiUsed === 'invidious')
         case 'playlists':
-          if (this.playlistContinuationString !== '' && this.playlistContinuationString !== null) {
-            return true
-          }
-          break
+          return !isNullOrEmpty(this.playlistContinuationString)
         case 'search':
-          if (this.searchContinuationString !== '' && this.searchContinuationString !== null) {
-            return true
-          }
-          break
+          return (!isNullOrEmpty(this.searchContinuationString))
         case 'community':
-          return this.communityContinuationString !== null && this.searchContinuationString !== null
+          return !isNullOrEmpty(this.communityContinuationString)
       }
 
       return false
