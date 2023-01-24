@@ -111,7 +111,6 @@ function parseInvidiousCommentData(response) {
 }
 
 export async function InvidiousGetCommunityPosts(channelId) {
-  console.error(channelId)
   const payload = {
     resource: 'channels',
     id: channelId,
@@ -120,7 +119,6 @@ export async function InvidiousGetCommunityPosts(channelId) {
 
   const response = await invidiousAPICall(payload)
   response.comments = response.comments.map(communityPost => parseInvidiousCommunityData(communityPost))
-  console.error(response.comments)
   return response.comments
 }
 
