@@ -115,7 +115,7 @@
   border-bottom: 3px solid var(--tertiary-text-color);
 }
 
-.selectedTab:focus11,
+.selectedTab:focus,
 .selectedTab:hover {
   color: var(--primary-text-color);
   border-bottom: 3px solid var(--primary-color);
