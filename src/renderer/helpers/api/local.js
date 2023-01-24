@@ -1,6 +1,7 @@
 import { Innertube } from 'youtubei.js'
 import { ClientType } from 'youtubei.js/dist/src/core/Session'
 import EmojiRun from 'youtubei.js/dist/src/parser/classes/misc/EmojiRun'
+import Text from 'youtubei.js/dist/src/parser/classes/misc/Text'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
@@ -221,7 +222,7 @@ function parseListVideo(video) {
     authorId: video.author.id,
     description: video.description,
     viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.text,
+    publishedText: video.published.text !== 'N/A' ? video.published.text : null,
     lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
     liveNow: video.is_live,
     isUpcoming: video.is_upcoming || video.is_premiere,
@@ -250,15 +251,21 @@ function parseListItem(item) {
 
       // according to https://github.com/iv-org/invidious/issues/3514#issuecomment-1368080392
       // the response can be the new or old one, so we currently need to handle both here
-      let subscribers
+      let subscribers = null
       let videos = null
       let handle = null
       if (channel.subscribers.text.startsWith('@')) {
-        subscribers = channel.videos.text
         handle = channel.subscribers.text
+
+        if (channel.videos.text !== 'N/A') {
+          subscribers = channel.videos.text
+        }
       } else {
-        subscribers = channel.subscribers.text
-        videos = channel.videos.text
+        videos = extractNumberFromString(channel.videos.text)
+
+        if (channel.subscribers.text !== 'N/A') {
+          subscribers = channel.subscribers.text
+        }
       }
 
       return {
@@ -276,13 +283,24 @@ function parseListItem(item) {
     case 'Playlist': {
       /** @type {Playlist} */
       const playlist = item
+
+      let channelName
+      let channelId = null
+
+      if (playlist.author instanceof Text) {
+        channelName = playlist.author.text
+      } else {
+        channelName = playlist.author.name
+        channelId = playlist.author.id
+      }
+
       return {
         type: 'playlist',
         dataSource: 'local',
         title: playlist.title,
         thumbnail: playlist.thumbnails[0].url,
-        channelName: playlist.author.name,
-        channelId: playlist.author.id,
+        channelName,
+        channelId,
         playlistId: playlist.id,
         videoCount: extractNumberFromString(playlist.video_count.text)
       }
