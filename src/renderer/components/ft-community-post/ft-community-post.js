@@ -236,15 +236,11 @@ export default Vue.extend({
       this.authorThumbnails = this.data.authorThumbnails
       this.postContent = this.data.postContent
       this.postId = this.data.postId
-      toLocalePublicationString({
+      this.publishedText = toLocalePublicationString({
         publishText: this.data.publishedText,
         isLive: this.isLive,
         isUpcoming: this.isUpcoming,
         isRSS: this.data.isRSS
-      }).then((data) => {
-        this.publishedText = data
-      }).catch((error) => {
-        console.error(error)
       })
       this.voteCount = this.data.voteCount
       this.commentCount = this.data.commentCount

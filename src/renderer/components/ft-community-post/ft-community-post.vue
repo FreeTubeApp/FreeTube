@@ -148,7 +148,10 @@
     <div
       class="bottomSection"
     >
-      <span class="likeCount"><font-awesome-icon icon="thumbs-up" /> {{ voteCount }}</span>
+      <span class="likeCount"><font-awesome-icon
+        class="thumbs-up-icon"
+        :icon="['fas', 'thumbs-up']"
+      /> {{ voteCount }}</span>
       <span class="dislikeCount"><font-awesome-icon
         class="thumbs-down-icon"
         :icon="['fas', 'thumbs-down']"
@@ -163,5 +166,5 @@
 </template>
 
 <script src="./ft-community-post.js" />
-<style scoped src="./ft-community-post.sass" lang="sass" />
+<style scoped src="./ft-community-post.scss" lang="scss" />
 <style src="./tiny-slider.css" />

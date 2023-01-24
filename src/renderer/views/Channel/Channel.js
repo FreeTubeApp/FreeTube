@@ -20,7 +20,7 @@ import packageDetails from '../../../../package.json'
 import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
-  name: 'Search',
+  name: 'Channel',
   components: {
     'ft-card': FtCard,
     'ft-button': FtButton,
@@ -576,7 +576,11 @@ export default defineComponent({
       ytch.getChannelCommunityPostsMore({ continuation: this.communityContinuationString, innerTubeApi: this.communityContinuationAPIString }).then((response) => {
         this.communityContinuationString = response.continuation
         this.communityContinuationAPIString = response.innerTubeApi
-        this.latestCommunityPosts = this.latestCommunityPosts.concat(response.items)
+        const posts = response.items.map(element => {
+          element.type = 'community'
+          return element
+        })
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(posts)
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')

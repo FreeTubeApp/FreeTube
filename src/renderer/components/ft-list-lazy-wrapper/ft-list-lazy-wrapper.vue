@@ -33,7 +33,7 @@
     <div
       v-else
     >
-      Unknown Type {{ data.type }}
+      Unknown Type {{ data }}
     </div>
   </div>
 </template>
