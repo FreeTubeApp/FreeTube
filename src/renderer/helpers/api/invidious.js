@@ -141,12 +141,8 @@ function parseInvidiousCommunityData(data) {
 }
 
 function parseInvidiousCommunityAttachments(data) {
-  if (!data) {
+  if (!data || data.type === 'unknown') {
     return
-  }
-
-  if (data.type === 'unknown') {
-    return data
   }
 
   if (data.type === 'image') {
