@@ -507,7 +507,7 @@ export function filterFormats(formats, allowAv1 = false) {
   const h264Formats = []
   const av1Formats = []
 
-  for (const format of formats) {
+  formats.forEach(format => {
     const mimeType = format.mime_type
 
     if (mimeType.startsWith('audio/mp4')) {
@@ -517,7 +517,7 @@ export function filterFormats(formats, allowAv1 = false) {
     } else if (mimeType.startsWith('video/mp4; codecs="avc')) {
       h264Formats.push(format)
     }
-  }
+  })
 
   if (allowAv1 && av1Formats.length > 0) {
     return [...audioFormats, ...av1Formats]

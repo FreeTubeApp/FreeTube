@@ -279,7 +279,7 @@ const state = {
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
-  allowDashAv1Formats: false
+  allowDashAv1Formats: false,
 }
 
 const stateWithSideEffects = {
