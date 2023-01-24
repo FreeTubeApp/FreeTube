@@ -1,0 +1,63 @@
+.subscribeButton {
+  font-size: 15px;
+  height: 100%;
+  margin: 6px 0 6px 6px;
+  min-width: 146px;
+  padding: 6px;
+}
+
+.subIconButton {
+  display: inline-block;
+  font-size: 15px;
+  left: -4px;
+  margin-left: 0;
+  min-width: 35px;
+  padding: 6px;
+
+  &.plusButton {
+    margin-right: 0;
+  }
+
+  &.minusButton {
+    left: -8px;
+  }
+}
+
+#profileList {
+  align-content: flex-start;
+  background-color: var(--card-bg-color);
+  border: solid 1px var(--primary-color);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  left: 6px;
+  max-height: 80px;
+  min-height: 40px;
+  overflow-y: auto;
+  padding: 5px;
+  position: relative;
+  top: -5px;
+  width: 205px;
+  z-index: 1;
+}
+
+.profile {
+  cursor: pointer;
+  height: 29px;
+  padding: 5px;
+  width: 29px;
+}
+
+.colorOption {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 29px;
+  width: 29px;
+}
+
+.initial {
+  font-size: 1em;
+  line-height: 1em;
+  padding: 0.5em;
+  text-align: center;
+}
