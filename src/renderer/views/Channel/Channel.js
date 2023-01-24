@@ -8,7 +8,6 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import FtCommunityPost from '../../components/ft-community-post/ft-community-post.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 
@@ -17,7 +16,7 @@ import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { copyToClipboard, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
-import { InvidiousGetCommunityPosts, invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { invidiousGetCommunityPosts, invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'Channel',
@@ -30,7 +29,6 @@ export default defineComponent({
     'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
-    'ft-community-post': FtCommunityPost,
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton
   },
@@ -586,19 +584,20 @@ export default defineComponent({
     },
 
     getCommunityPostsInvidious: function() {
-      InvidiousGetCommunityPosts(this.id).then(posts => {
+      invidiousGetCommunityPosts(this.id).then(posts => {
         this.latestCommunityPosts = posts
-      }).catch((err) => {
-        console.error(err)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err}`, 10000, () => {
-          copyToClipboard(err)
-        })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-          showToast(this.$t('Falling back to Local API'))
-          this.getCommunityPostsLocal()
-        }
       })
+      // .catch((err) => {
+      //   console.error(err)
+      //   const errorMessage = this.$t('Invidious API Error (Click to copy)')
+      //   showToast(`${errorMessage}: ${err}`, 10000, () => {
+      //     copyToClipboard(err)
+      //   })
+      //   if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+      //     showToast(this.$t('Falling back to Local API'))
+      //     this.getCommunityPostsLocal()
+      //   }
+      // })
     },
 
     handleSubscription: function () {

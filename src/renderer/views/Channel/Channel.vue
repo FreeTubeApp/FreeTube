@@ -246,6 +246,10 @@
             {{ $t("Channel.Community.This channel currently does not have any posts") }}
           </p>
         </ft-flex-box>
+        <ft-element-list
+          v-show="currentTab === 'search'"
+          :data="searchResults"
+        />
         <ft-flex-box
           v-if="currentTab === 'search' && searchResults.length === 0"
         >

@@ -82,7 +82,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
     url = 'https:' + url
   }
 
-  return url.replace('https://yt3.ggpht.com', `${currentInstance}/ggpht`)
+  return url.replace('https://yt3.ggpht.com', `${currentInstance}/ggpht`).replace('https://yt3.googleusercontent.com', `${currentInstance}/ggpht`)
 }
 
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
@@ -110,7 +110,7 @@ function parseInvidiousCommentData(response) {
   })
 }
 
-export async function InvidiousGetCommunityPosts(channelId) {
+export async function invidiousGetCommunityPosts(channelId) {
   const payload = {
     resource: 'channels',
     id: channelId,
@@ -126,12 +126,15 @@ function parseInvidiousCommunityData(data) {
   return {
     postText: data.contentHtml,
     postId: data.commentId,
-    authorThumbnails: data.authorThumbnails,
+    authorThumbnails: data.authorThumbnails.map(thumbnail => {
+      thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+      return thumbnail
+    }),
     publishedText: data.publishedText,
     voteCount: data.likeCount,
     postContent: parseInvidiousCommunityAttachments(data.attachment),
     commentCount: null,
-    // workaround for invidious bug where the name is not shown (shows channel handle instead)
+    // workaround for invidious bug where the name is not shown (we'll show channel handle instead)
     author: isNullOrEmpty(data.author) ? data.authorUrl.substring(1) : data.author,
     type: 'community'
   }
@@ -149,11 +152,18 @@ function parseInvidiousCommunityAttachments(data) {
   if (data.type === 'image') {
     return {
       type: data.type,
-      content: data.imageThumbnails
+      content: data.imageThumbnails.map(thumbnail => {
+        thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+        return thumbnail
+      })
     }
   }
 
   if (data.type === 'video') {
+    data.videoThumbnails = data.videoThumbnails.map(thumbnail => {
+      thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+      return thumbnail
+    })
     return {
       type: data.type,
       content: data

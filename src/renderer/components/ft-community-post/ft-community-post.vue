@@ -9,7 +9,7 @@
       class="author-div"
     >
       <img
-        :src="'https://'+authorThumbnails[Math.max(0, authorThumbnails.length-1)].url"
+        :src="getBestQualityImage(authorThumbnails)"
         class="communityThumbnail"
         alt=""
       >
@@ -33,7 +33,7 @@
       <img
         v-for="(img, index) in postContent.content"
         :key="index"
-        :src="img[Math.max(0, postContent.content.length-1)].url"
+        :src="getBestQualityImage(img)"
         class="communityImage tns-lazy-img"
         alt=""
       >
@@ -42,7 +42,7 @@
       v-if="type === 'image'"
     >
       <img
-        :src="postContent.content[Math.max(0, postContent.content.length-1)].url"
+        :src="getBestQualityImage(postContent.content)"
         class="communityImage"
         alt=""
       >
