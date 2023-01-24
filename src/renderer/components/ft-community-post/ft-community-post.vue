@@ -155,6 +155,7 @@
       <span class="dislikeCount"><font-awesome-icon
         class="thumbs-down-icon"
         :icon="['fas', 'thumbs-down']"
+        flip="horizontal"
       /></span>
       <span class="commentCount">
         <font-awesome-icon
