@@ -1,17 +1,18 @@
-import Vue from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { defineComponent } from 'vue'
+import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
+import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoPlaylist',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video': FtListVideo
+    'ft-list-video-lazy': FtListVideoLazy
   },
   props: {
     playlistId: {
@@ -316,12 +317,7 @@ export default Vue.extend({
     getPlaylistInformationInvidious: function () {
       this.isLoading = true
 
-      const payload = {
-        resource: 'playlists',
-        id: this.playlistId
-      }
-
-      this.invidiousGetPlaylistInfo(payload).then((result) => {
+      invidiousGetPlaylistInfo({ playlistId: this.playlistId }).then((result) => {
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId
@@ -334,7 +330,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistInformationLocal()
         } else {
@@ -363,10 +359,6 @@ export default Vue.extend({
 
       this.randomizedPlaylistItems = items
     },
-
-    ...mapActions([
-      'invidiousGetPlaylistInfo'
-    ]),
 
     ...mapMutations([
       'setCachedPlaylist'

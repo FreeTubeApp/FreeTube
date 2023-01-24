@@ -3,8 +3,6 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
-const { productName } = require('../package.json')
-
 const isDevMode = process.env.NODE_ENV === 'development'
 
 const config = {
@@ -38,8 +36,8 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-    }),
+      'process.env.IS_ELECTRON_MAIN': true
+    })
   ],
   output: {
     filename: '[name].js',

@@ -57,10 +57,12 @@ import {
   faMinus,
   faPlus
 } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
-import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
-import { faMonero } from '@fortawesome/free-brands-svg-icons/faMonero'
-import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
+import {
+  faBitcoin,
+  faGithub,
+  faMastodon,
+  faMonero
+} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
@@ -129,7 +131,7 @@ library.add(
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
-/* eslint-disable-next-line */
+/* eslint-disable-next-line no-new */
 new Vue({
   el: '#app',
   router,

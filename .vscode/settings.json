@@ -1,0 +1,16 @@
+{
+  "stylelint.packageManager": "yarn",
+  "stylelint.snippet": [
+      "css",
+      "less",
+      "postcss",
+      "sass",
+      "scss"
+  ],
+  "stylelint.validate": [
+      "css",
+      "less",
+      "postcss",
+      "scss"
+  ]
+}

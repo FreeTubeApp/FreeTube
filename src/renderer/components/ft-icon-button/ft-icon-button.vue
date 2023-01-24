@@ -61,4 +61,4 @@
 </template>
 
 <script src="./ft-icon-button.js" />
-<style scoped lang="sass" src="./ft-icon-button.sass" />
+<style scoped lang="scss" src="./ft-icon-button.scss" />

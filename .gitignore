@@ -25,3 +25,6 @@ __coverage__
 csak-timelog.json
 .idea/
 debug/
+
+# Lefthook
+lefthook-local.yml

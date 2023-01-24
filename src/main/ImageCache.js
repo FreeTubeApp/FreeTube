@@ -51,7 +51,7 @@ export class ImageCache {
  * @returns a timestamp in seconds
  */
 export function extractExpiryTimestamp(headers) {
-  const maxAgeRegex = /max-age=([0-9]+)/
+  const maxAgeRegex = /max-age=(\d+)/
 
   const cacheControl = headers['cache-control']
   if (cacheControl && maxAgeRegex.test(cacheControl)) {

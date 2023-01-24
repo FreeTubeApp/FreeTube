@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -9,7 +9,7 @@ import { mapActions } from 'vuex'
 import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'DownloadSettings',
   components: {
     'ft-settings-section': FtSettingsSection,

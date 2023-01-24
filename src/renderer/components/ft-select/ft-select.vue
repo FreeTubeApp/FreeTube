@@ -1,11 +1,12 @@
 <template>
   <div class="select">
     <select
-      :id="sanitizedPlaceholder"
+      :id="sanitizedId ?? sanitizedPlaceholder"
+      :describe-by-id="describeById"
       class="select-text"
       :class="{disabled: disabled}"
       :value="value"
-      :name="sanitizedPlaceholder"
+      :name="sanitizedId ?? sanitizedPlaceholder"
       :disabled="disabled"
       @change="$emit('change', $event.target.value)"
     >
@@ -25,7 +26,7 @@
     <span class="select-bar" />
     <label
       class="select-label"
-      :for="sanitizedPlaceholder"
+      :for="sanitizedId ?? sanitizedPlaceholder"
       :hidden="disabled"
     >
       {{ placeholder }}

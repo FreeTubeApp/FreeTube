@@ -1,11 +1,15 @@
 <template>
   <div
     class="bubblePadding"
+    tabindex="0"
+    :aria-labelledby="sanitizedId"
     @click="handleClick"
+    @keydown.space.enter.prevent="handleClick($event)"
   >
     <img
       class="bubble"
       :src="channelThumbnail"
+      alt=""
     >
     <div
       v-if="selected"
@@ -16,7 +20,10 @@
         class="icon"
       />
     </div>
-    <div class="channelName">
+    <div
+      :id="sanitizedId"
+      class="channelName"
+    >
       {{ channelName }}
     </div>
   </div>

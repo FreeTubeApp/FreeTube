@@ -1,0 +1,7 @@
+src/data/
+src/datastores/
+src/main/
+src/renderer/videoJS.css
+dist/
+static/
+node_modules/

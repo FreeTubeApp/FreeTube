@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListLazyWrapper',
   components: {
     'ft-list-video': FtListVideo,
@@ -54,7 +54,8 @@ export default Vue.extend({
      *
      * @return {bool} false to hide the video, true to show it
      */
-    showResult: function (data) {
+    showResult: function () {
+      const { data } = this
       if (!data.type) {
         return false
       }

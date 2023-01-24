@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
@@ -14,10 +14,11 @@ import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
-import i18n from '../../i18n/index'
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, showToast } from '../../helpers/utils'
+import packageDetails from '../../../../package.json'
+import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Search',
   components: {
     'ft-card': FtCard,
@@ -68,6 +69,11 @@ export default Vue.extend({
       playlistSelectValues: [
         'last',
         'newest'
+      ],
+      tabInfoValues: [
+        'videos',
+        'playlists',
+        'about'
       ]
     }
   },
@@ -137,15 +143,11 @@ export default Vue.extend({
       ]
     },
 
-    currentLocale: function () {
-      return i18n.locale.replace('_', '-')
-    },
-
     formattedSubCount: function () {
       if (this.hideChannelSubscriptions) {
         return null
       }
-      return Intl.NumberFormat(this.currentLocale).format(this.subCount)
+      return formatNumber(this.subCount)
     },
 
     showFetchMoreButton: function () {
@@ -274,7 +276,7 @@ export default Vue.extend({
         this.idType = 1
         this.channelName = channelName
         this.isFamilyFriendly = response.isFamilyFriendly
-        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
+        document.title = `${this.channelName} - ${packageDetails.productName}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
         } else {
@@ -366,7 +368,7 @@ export default Vue.extend({
       this.apiUsed = 'invidious'
 
       const expectedId = this.originalId
-      this.invidiousGetChannelInfo(this.id).then((response) => {
+      invidiousGetChannelInfo(this.id).then((response) => {
         if (expectedId !== this.originalId) {
           return
         }
@@ -374,7 +376,7 @@ export default Vue.extend({
         const channelName = response.author
         const channelId = response.authorId
         this.channelName = channelName
-        document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
+        document.title = `${this.channelName} - ${packageDetails.productName}`
         this.id = channelId
         this.isFamilyFriendly = response.isFamilyFriendly
         if (this.hideChannelSubscriptions) {
@@ -383,18 +385,21 @@ export default Vue.extend({
           this.subCount = response.subCount
         }
         const thumbnail = response.authorThumbnails[3].url
-        this.thumbnailUrl = thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+        this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.channelDescription = autolinker.link(response.description)
         this.relatedChannels = response.relatedChannels.map((channel) => {
-          channel.authorThumbnails[channel.authorThumbnails.length - 1].url = channel.authorThumbnails[channel.authorThumbnails.length - 1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.authorThumbnails = channel.authorThumbnails.map(thumbnail => {
+            thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url, this.currentInvidiousInstance)
+            return thumbnail
+          })
           channel.channelId = channel.authorId
           return channel
         })
         this.latestVideos = response.latestVideos
 
         if (response.authorBanners instanceof Array && response.authorBanners.length > 0) {
-          this.bannerUrl = response.authorBanners[0].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          this.bannerUrl = youtubeImageUrlToInvidious(response.authorBanners[0].url, this.currentInvidiousInstance)
         } else {
           this.bannerUrl = null
         }
@@ -422,7 +427,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.latestVideos = this.latestVideos.concat(response)
         this.latestVideosPage++
         this.isElementListLoading = false
@@ -485,7 +490,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
@@ -495,7 +500,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
           copyToClipboard(err.responseJSON.error)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistsLocal()
         } else {
@@ -522,7 +527,7 @@ export default Vue.extend({
         payload.params.continuation = this.playlistContinuationString
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.playlistContinuationString = response.continuation
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
         this.isElementListLoading = false
@@ -532,7 +537,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
           copyToClipboard(err.responseJSON.error)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.getPlaylistsLocal()
         } else {
@@ -586,8 +591,36 @@ export default Vue.extend({
       }
     },
 
-    changeTab: function (tab) {
+    changeTab: function (tab, event) {
+      if (event instanceof KeyboardEvent) {
+        // use arrowkeys to navigate
+        event.preventDefault()
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          const index = this.tabInfoValues.indexOf(tab)
+
+          // focus left or right tab with wrap around
+          tab = (event.key === 'ArrowLeft')
+            ? this.tabInfoValues[(index > 0 ? index : this.tabInfoValues.length) - 1]
+            : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
+
+          const tabNode = document.getElementById(`${tab}Tab`)
+          event.target.setAttribute('tabindex', '-1')
+          tabNode.setAttribute('tabindex', 0)
+          tabNode.focus({ focusVisible: true })
+          return
+        }
+      }
+
+      // `currentTabNode` can be `null` on 2nd+ search
+      const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
+      // `newTabNode` can be `null` when `tab` === "search"
+      const newTabNode = document.getElementById(`${tab}Tab`)
+      document.querySelector('.tabs > .tab[tabindex="0"]')?.setAttribute('tabindex', '-1')
+      newTabNode?.setAttribute('tabindex', '0')
+      currentTabNode?.setAttribute('aria-selected', 'false')
+      newTabNode?.setAttribute('aria-selected', 'true')
       this.currentTab = tab
+      newTabNode?.focus({ focusVisible: true })
     },
 
     newSearch: function (query) {
@@ -651,7 +684,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(payload).then((response) => {
+      invidiousAPICall(payload).then((response) => {
         this.searchResults = this.searchResults.concat(response)
         this.isElementListLoading = false
         this.searchPage++
@@ -661,7 +694,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.searchChannelLocal()
         } else {
@@ -672,8 +705,6 @@ export default Vue.extend({
 
     ...mapActions([
       'updateProfile',
-      'invidiousGetChannelInfo',
-      'invidiousAPICall',
       'updateSubscriptionDetails'
     ])
   }

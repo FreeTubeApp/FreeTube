@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -10,7 +10,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import debounce from 'lodash.debounce'
 import { showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'GeneralSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -114,22 +114,10 @@ export default Vue.extend({
     },
 
     localeNames: function () {
-      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
-        return [
-          this.$t('Settings.General Settings.System Default'),
-          ...process.env.LOCALE_NAMES
-        ]
-      }
-
-      const names = [
-        this.$t('Settings.General Settings.System Default')
+      return [
+        this.$t('Settings.General Settings.System Default'),
+        ...process.env.LOCALE_NAMES
       ]
-
-      Object.entries(this.$i18n.messages).forEach(([locale, localeData]) => {
-        names.push(localeData['Locale Name'] ?? locale)
-      })
-
-      return names
     },
 
     backendNames: function () {

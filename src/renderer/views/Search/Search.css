@@ -8,6 +8,10 @@
   margin-top: 16px;
 }
 
+.getNextPage:hover, .getNextPage:focus {
+  background-color: var(--side-nav-hover-color);
+}
+
 .card {
   width: 85%;
   margin: 0 auto;

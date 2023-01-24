@@ -16,7 +16,11 @@
       />
       <div
         class="getNextPage"
+        role="button"
+        tabindex="0"
         @click="nextPage"
+        @keydown.enter.prevent="nextPage"
+        @keydown.space.prevent="nextPage"
       >
         <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
       </div>

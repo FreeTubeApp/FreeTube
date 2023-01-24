@@ -1,22 +1,22 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
-import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
+import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import i18n from '../../i18n/index'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
+import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Playlist',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video': FtListVideo,
+    'ft-list-video-lazy': FtListVideoLazy,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
   },
@@ -54,7 +54,7 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
     currentLocale: function () {
-      return i18n.locale.replace('_', '-')
+      return this.$i18n.locale.replace('_', '-')
     }
   },
   watch: {
@@ -124,12 +124,7 @@ export default Vue.extend({
     getPlaylistInvidious: function () {
       this.isLoading = true
 
-      const payload = {
-        resource: 'playlists',
-        id: this.playlistId
-      }
-
-      this.invidiousGetPlaylistInfo(payload).then((result) => {
+      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
         this.infoData = {
           id: result.playlistId,
           title: result.title,
@@ -138,7 +133,7 @@ export default Vue.extend({
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
+          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance),
           channelId: result.authorId,
           infoSource: 'invidious'
         }
@@ -157,7 +152,7 @@ export default Vue.extend({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {
@@ -196,7 +191,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'invidiousGetPlaylistInfo',
       'updateSubscriptionDetails'
     ]),
 

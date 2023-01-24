@@ -31,7 +31,15 @@
         >
           {{ subscriberCount }} subscribers -
         </span>
+        <router-link
+          v-if="handle !== null"
+          class="handle"
+          :to="`/channel/${id}`"
+        >
+          {{ handle }}
+        </router-link>
         <span
+          v-else
           class="videoCount"
         >
           {{ videoCount }} videos
@@ -48,4 +56,4 @@
 </template>
 
 <script src="./ft-list-channel.js" />
-<style scoped lang="sass" src="./ft-list-channel.sass" />
+<style scoped lang="scss" src="./ft-list-channel.scss" />

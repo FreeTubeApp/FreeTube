@@ -44,4 +44,4 @@
 </template>
 
 <script src="./download-settings.js" />
-<style scoped lang="sass" src="./download-settings.sass" />
+<style scoped lang="scss" src="./download-settings.scss" />

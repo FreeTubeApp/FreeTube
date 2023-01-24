@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import videojs from 'video.js'
 import qualitySelector from '@silvermine/videojs-quality-selector'
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import 'videojs-overlay/dist/videojs-overlay'
 import 'videojs-overlay/dist/videojs-overlay.css'
@@ -15,9 +15,10 @@ import 'videojs-mobile-ui/dist/videojs-mobile-ui.css'
 import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
+import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtVideoPlayer',
   beforeRouteLeave: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
@@ -180,6 +181,10 @@ export default Vue.extend({
 
     videoPlaybackRateMouseScroll: function () {
       return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
+    videoSkipMouseScroll: function () {
+      return this.$store.getters.getVideoSkipMouseScroll
     },
 
     useSponsorBlock: function () {
@@ -478,6 +483,9 @@ export default Vue.extend({
           this.player.el_.firstChild.style.pointerEvents = 'none'
           this.player.on('click', this.handlePlayerClick)
         }
+        if (this.videoSkipMouseScroll) {
+          this.player.on('wheel', this.mouseScrollSkip)
+        }
 
         this.player.on('fullscreenchange', this.fullscreenOverlay)
         this.player.on('fullscreenchange', this.toggleFullscreenClass)
@@ -721,6 +729,25 @@ export default Vue.extend({
       }
     },
 
+    mouseScrollSkip: function (event) {
+      // Avoid doing both
+      if ((event.ctrlKey || event.metaKey) && this.videoPlaybackRateMouseScroll) {
+        return
+      }
+
+      // ensure that the mouse is over the player
+      if (event.target && (event.target.matches('.vjs-tech') || event.target.matches('.ftVideoPlayer'))) {
+        event.preventDefault()
+
+        if (event.wheelDelta > 0) {
+          this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
+        }
+        if (event.wheelDelta < 0) {
+          this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
+        }
+      }
+    },
+
     handlePlayerClick: function (event) {
       if (event.target.matches('.ftVideoPlayer')) {
         if (event.ctrlKey || event.metaKey) {
@@ -743,22 +770,23 @@ export default Vue.extend({
       }
     },
 
-    determineMaxFramerate: function() {
+    determineMaxFramerate: async function() {
       if (this.dashSrc.length === 0) {
         this.maxFramerate = 60
         return
       }
-      fs.readFile(this.dashSrc[0].url, (err, data) => {
-        if (err) {
-          this.maxFramerate = 60
-          return
-        }
+
+      try {
+        const data = await fs.readFile(this.dashSrc[0].url)
+
         if (data.includes('frameRate="60"')) {
           this.maxFramerate = 60
         } else {
           this.maxFramerate = 30
         }
-      })
+      } catch {
+        this.maxFramerate = 60
+      }
     },
 
     determineDefaultQualityLegacy: function () {
@@ -1168,27 +1196,28 @@ export default Vue.extend({
     },
 
     createLoopButton: function () {
+      const toggleVideoLoop = this.toggleVideoLoop
+
       const VjsButton = videojs.getComponent('Button')
-      const loopButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.toggleVideoLoop()
-        },
-        createControlTextEl: function (button) {
+      class loopButton extends VjsButton {
+        handleClick() {
+          toggleVideoLoop()
+        }
+
+        createControlTextEl(button) {
           button.title = 'Toggle Loop'
 
           const div = document.createElement('div')
 
           div.id = 'loopButton'
-          div.className = 'vjs-icon-loop loop-white vjs-button loopWhite'
+          div.className = 'vjs-icon-loop loop-white vjs-button'
 
           button.appendChild(div)
 
           return div
         }
-      })
+      }
+
       videojs.registerComponent('loopButton', loopButton)
     },
 
@@ -1219,15 +1248,15 @@ export default Vue.extend({
     },
 
     createFullWindowButton: function () {
+      const toggleFullWindow = this.toggleFullWindow
+
       const VjsButton = videojs.getComponent('Button')
-      const fullWindowButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.toggleFullWindow()
-        },
-        createControlTextEl: function (button) {
+      class fullWindowButton extends VjsButton {
+        handleClick() {
+          toggleFullWindow()
+        }
+
+        createControlTextEl (button) {
           // Add class name to button to be able to target it with CSS selector
           button.classList.add('vjs-button-fullwindow')
           button.title = 'Full Window'
@@ -1240,7 +1269,8 @@ export default Vue.extend({
 
           return div
         }
-      })
+      }
+
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
@@ -1251,15 +1281,15 @@ export default Vue.extend({
 
       const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
 
+      const toggleTheatreMode = this.toggleTheatreMode
+
       const VjsButton = videojs.getComponent('Button')
-      const toggleTheatreModeButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.toggleTheatreMode()
-        },
-        createControlTextEl: function (button) {
+      class toggleTheatreModeButton extends VjsButton {
+        handleClick() {
+          toggleTheatreMode()
+        }
+
+        createControlTextEl(button) {
           button.classList.add('vjs-button-theatre')
           button.title = 'Toggle Theatre Mode'
 
@@ -1271,7 +1301,7 @@ export default Vue.extend({
 
           return button
         }
-      })
+      }
 
       videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
     },
@@ -1289,19 +1319,19 @@ export default Vue.extend({
       this.$parent.toggleTheatreMode()
     },
 
-    createScreenshotButton: function() {
+    createScreenshotButton: function () {
+      const takeScreenshot = this.takeScreenshot
+
       const VjsButton = videojs.getComponent('Button')
-      const screenshotButton = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: () => {
-          this.takeScreenshot()
+      class screenshotButton extends VjsButton {
+        handleClick() {
+          takeScreenshot()
           const video = document.getElementsByTagName('video')[0]
           video.focus()
           video.blur()
-        },
-        createControlTextEl: function (button) {
+        }
+
+        createControlTextEl(button) {
           button.classList.add('vjs-hidden')
           button.title = 'Screenshot'
 
@@ -1313,7 +1343,7 @@ export default Vue.extend({
 
           return div
         }
-      })
+      }
 
       videojs.registerComponent('screenshotButton', screenshotButton)
     },
@@ -1364,10 +1394,9 @@ export default Vue.extend({
         return
       }
 
-      const dirChar = process.platform === 'win32' ? '\\' : '/'
       let subDir = ''
-      if (filename.indexOf(dirChar) !== -1) {
-        const lastIndex = filename.lastIndexOf(dirChar)
+      if (filename.indexOf(path.sep) !== -1) {
+        const lastIndex = filename.lastIndexOf(path.sep)
         subDir = filename.substring(0, lastIndex)
         filename = filename.substring(lastIndex + 1)
       }
@@ -1381,7 +1410,7 @@ export default Vue.extend({
           this.player.pause()
         }
 
-        if (this.screenshotFolder === '' || !fs.existsSync(this.screenshotFolder)) {
+        if (this.screenshotFolder === '' || !(await pathExists(this.screenshotFolder))) {
           dirPath = await getPicturesPath()
         } else {
           dirPath = this.screenshotFolder
@@ -1420,9 +1449,9 @@ export default Vue.extend({
           dirPath = path.join(this.screenshotFolder, subDir)
         }
 
-        if (!fs.existsSync(dirPath)) {
+        if (!(await pathExists(dirPath))) {
           try {
-            fs.mkdirSync(dirPath, { recursive: true })
+            fs.mkdir(dirPath, { recursive: true })
           } catch (err) {
             console.error(err)
             showToast(this.$t('Screenshot Error', { error: err }))
@@ -1437,14 +1466,14 @@ export default Vue.extend({
         result.arrayBuffer().then(ab => {
           const arr = new Uint8Array(ab)
 
-          fs.writeFile(filePath, arr, (err) => {
-            if (err) {
+          fs.writeFile(filePath, arr)
+            .then(() => {
+              showToast(this.$t('Screenshot Success', { filePath }))
+            })
+            .catch((err) => {
               console.error(err)
               showToast(this.$t('Screenshot Error', { error: err }))
-            } else {
-              showToast(this.$t('Screenshot Success', { filePath }))
-            }
-          })
+            })
         })
       }, mimeType, imageQuality)
       canvas.remove()
@@ -1457,17 +1486,19 @@ export default Vue.extend({
         }, 200)
         return
       }
+      const adaptiveFormats = this.adaptiveFormats
+      const activeAdaptiveFormats = this.activeAdaptiveFormats
+      const setDashQualityLevel = this.setDashQualityLevel
+
       const VjsButton = videojs.getComponent('Button')
-      const dashQualitySelector = videojs.extend(VjsButton, {
-        constructor: function(player, options) {
-          VjsButton.call(this, player, options)
-        },
-        handleClick: (event) => {
+      class dashQualitySelector extends VjsButton {
+        handleClick(event) {
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
-          this.setDashQualityLevel(bitrate)
-        },
-        createControlTextEl: (button) => {
+          setDashQualityLevel(bitrate)
+        }
+
+        createControlTextEl(button) {
           const beginningHtml = `<div class="vjs-quality-level-value">
            <span id="vjs-current-quality">1080p</span>
           </div>
@@ -1491,8 +1522,8 @@ export default Vue.extend({
             let qualityLabel
             let bitrate
 
-            if (typeof this.adaptiveFormats !== 'undefined' && this.adaptiveFormats.length > 0) {
-              const adaptiveFormat = this.adaptiveFormats.find((format) => {
+            if (typeof adaptiveFormats !== 'undefined' && adaptiveFormats.length > 0) {
+              const adaptiveFormat = adaptiveFormats.find((format) => {
                 return format.bitrate === quality.bitrate
               })
 
@@ -1500,7 +1531,7 @@ export default Vue.extend({
                 return
               }
 
-              this.activeAdaptiveFormats.push(adaptiveFormat)
+              activeAdaptiveFormats.push(adaptiveFormat)
 
               fps = adaptiveFormat.fps ? adaptiveFormat.fps : 30
               qualityLabel = adaptiveFormat.qualityLabel ? adaptiveFormat.qualityLabel : quality.height + 'p'
@@ -1536,7 +1567,8 @@ export default Vue.extend({
 
           return button.children[0]
         }
-      })
+      }
+
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
       this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
       this.determineDefaultQualityDash()
@@ -1544,10 +1576,10 @@ export default Vue.extend({
 
     sortCaptions: function (captionList) {
       return captionList.sort((captionA, captionB) => {
-        const aCode = captionA.languageCode.split('-') // ex. [en,US]
-        const bCode = captionB.languageCode.split('-')
-        const aName = (captionA.label || captionA.name.simpleText) // ex: english (auto-generated)
-        const bName = (captionB.label || captionB.name.simpleText)
+        const aCode = captionA.language_code.split('-') // ex. [en,US]
+        const bCode = captionB.language_code.split('-')
+        const aName = (captionA.label) // ex: english (auto-generated)
+        const bName = (captionB.label)
         const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
         if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
           if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
@@ -1595,9 +1627,9 @@ export default Vue.extend({
       for (const caption of this.sortCaptions(captionList)) {
         this.player.addRemoteTextTrack({
           kind: 'subtitles',
-          src: caption.baseUrl || caption.url,
-          srclang: caption.languageCode,
-          label: caption.label || caption.name.simpleText,
+          src: caption.url,
+          srclang: caption.language_code,
+          label: caption.label,
           type: caption.type
         }, true)
       }
@@ -1792,6 +1824,11 @@ export default Vue.extend({
 
       // allow chapter jump keyboard shortcuts
       if (event.ctrlKey && (process.platform === 'darwin' || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))) {
+        return
+      }
+
+      // allow copying text
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
         return
       }
 

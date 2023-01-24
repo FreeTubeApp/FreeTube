@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtAutoGrid from '../ft-auto-grid/ft-auto-grid.vue'
 import FtListLazyWrapper from '../ft-list-lazy-wrapper/ft-list-lazy-wrapper.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtElementList',
   components: {
     'ft-auto-grid': FtAutoGrid,

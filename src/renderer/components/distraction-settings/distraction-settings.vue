@@ -102,9 +102,15 @@
           :default-value="hideComments"
           @change="updateHideComments"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
+          :compact="true"
+          :default-value="showDistractionFreeTitles"
+          @change="updateShowDistractionFreeTitles"
+        />
       </div>
     </div>
-    <br>
+    <br class="hide-on-mobile">
     <ft-flex-box>
       <ft-input-tags
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
@@ -119,3 +125,4 @@
 </template>
 
 <script src="./distraction-settings.js" />
+<style src="./distraction-settings.css" />

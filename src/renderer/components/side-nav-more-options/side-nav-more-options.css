@@ -6,6 +6,9 @@
   position: relative;
   padding: 5px;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  display: block;
 }
 
 .navOption:hover {

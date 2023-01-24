@@ -48,6 +48,7 @@
       :label="$t('Settings.Data Settings.Select Export Type')"
       :option-names="exportSubscriptionsPromptNames"
       :option-values="subscriptionsPromptValues"
+      :show-close="true"
       @click="exportSubscriptions"
     />
   </ft-settings-section>

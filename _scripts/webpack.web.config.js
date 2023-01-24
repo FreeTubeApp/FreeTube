@@ -9,8 +9,6 @@ const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
-const { productName } = require('../package.json')
-
 const isDevMode = process.env.NODE_ENV === 'development'
 
 const config = {
@@ -24,11 +22,17 @@ const config = {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
   },
-  externals: {
-    electron: '{}',
-    'youtubei.js': '{}',
-    ytsr: '{}'
-  },
+  externals: [
+    {
+      electron: '{}'
+    },
+    ({ request }, callback) => {
+      if (request.startsWith('youtubei.js')) {
+        return callback(null, '{}')
+      }
+      callback()
+    }
+  ],
   module: {
     rules: [
       {
@@ -41,7 +45,7 @@ const config = {
         loader: 'vue-loader'
       },
       {
-        test: /\.s(c|a)ss$/,
+        test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -55,11 +59,7 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-              // eslint-disable-next-line
-              implementation: require('sass'),
-              sassOptions: {
-                indentedSyntax: true
-              }
+              implementation: require('sass')
             }
           },
         ],
@@ -114,8 +114,8 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-      'process.env.IS_ELECTRON': false
+      'process.env.IS_ELECTRON': false,
+      'process.env.IS_ELECTRON_MAIN': false
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser',
@@ -131,7 +131,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    }),
+    })
   ],
   resolve: {
     alias: {
@@ -140,7 +140,7 @@ const config = {
     fallback: {
       buffer: require.resolve('buffer/'),
       dns: require.resolve('browserify/lib/_empty.js'),
-      fs: require.resolve('browserify/lib/_empty.js'),
+      'fs/promises': require.resolve('browserify/lib/_empty.js'),
       http: require.resolve('stream-http'),
       https: require.resolve('https-browserify'),
       net: require.resolve('browserify/lib/_empty.js'),

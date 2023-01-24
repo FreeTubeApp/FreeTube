@@ -52,4 +52,4 @@
 </template>
 
 <script src="./ft-list-playlist.js" />
-<style scoped lang="sass" src="./ft-list-playlist.sass" />
+<style scoped lang="scss" src="./ft-list-playlist.scss" />

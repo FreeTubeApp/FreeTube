@@ -1,14 +1,13 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
-import i18n from '../../i18n/index'
-import { openExternalLink, showToast } from '../../helpers/utils'
+import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoInfo',
   components: {
     'ft-card': FtCard,
@@ -134,7 +133,7 @@ export default Vue.extend({
     },
 
     currentLocale: function () {
-      return i18n.locale.replace('_', '-')
+      return this.$i18n.locale.replace('_', '-')
     },
 
     profileList: function () {
@@ -222,8 +221,7 @@ export default Vue.extend({
         return null
       }
 
-      const locale = this.currentLocale.replace('_', '-')
-      return this.likeCount.toLocaleString([locale, 'en'])
+      return formatNumber(this.likeCount)
     },
 
     parsedDislikeCount: function () {
@@ -231,8 +229,7 @@ export default Vue.extend({
         return null
       }
 
-      const locale = this.currentLocale.replace('_', '-')
-      return this.dislikeCount.toLocaleString([locale, 'en'])
+      return formatNumber(this.dislikeCount)
     },
 
     likePercentageRatio: function () {
@@ -243,7 +240,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         return null
       }
-      return Intl.NumberFormat(this.currentLocale).format(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
+      return formatNumber(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
     isSubscribed: function () {
@@ -268,10 +265,9 @@ export default Vue.extend({
 
     dateString() {
       const date = new Date(this.published)
-      const locale = this.currentLocale.replace('_', '-')
-      const localeDateString = new Intl.DateTimeFormat([locale, 'en'], { dateStyle: 'medium' }).format(date)
+      const localeDateString = new Intl.DateTimeFormat([this.currentLocale, 'en'], { dateStyle: 'medium' }).format(date)
       // replace spaces with no break spaces to make the date act as a single entity while wrapping
-      return `${localeDateString}`.replace(/ /g, '\u00A0')
+      return `${localeDateString}`.replaceAll(' ', '\u00A0')
     },
 
     publishedString() {
@@ -294,7 +290,6 @@ export default Vue.extend({
   },
   mounted: function () {
     if ('mediaSession' in navigator) {
-      /* eslint-disable-next-line */
       navigator.mediaSession.metadata = new MediaMetadata({
         title: this.title,
         artist: this.channelName,

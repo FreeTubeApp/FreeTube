@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtInputTags',
   components: {
     'ft-input': FtInput,

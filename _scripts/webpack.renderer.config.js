@@ -6,9 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
-const { productName } = require('../package.json')
-
 const isDevMode = process.env.NODE_ENV === 'development'
+
+const processLocalesPlugin = new ProcessLocalesPlugin({
+  compress: !isDevMode,
+  inputDir: path.join(__dirname, '../static/locales'),
+  outputDir: 'static/locales',
+})
 
 const config = {
   name: 'renderer',
@@ -28,10 +32,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  // webpack spits out errors while inlining ytsr as
-  // they dynamically import their package.json file to extract the bug report URL
-  // the error: "Critical dependency: the request of a dependency is an expression"
-  externals: ['ytsr'],
+  externals: {
+    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
+    canvas: '{}'
+  },
   module: {
     rules: [
       {
@@ -44,7 +48,7 @@ const config = {
         loader: 'vue-loader',
       },
       {
-        test: /\.s(c|a)ss$/,
+        test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -58,11 +62,7 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-              // eslint-disable-next-line
-              implementation: require('sass'),
-              sassOptions: {
-                indentedSyntax: true
-              }
+              implementation: require('sass')
             }
           },
         ],
@@ -109,9 +109,11 @@ const config = {
     __filename: isDevMode
   },
   plugins: [
+    processLocalesPlugin,
     new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-      'process.env.IS_ELECTRON': true
+      'process.env.IS_ELECTRON': true,
+      'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -125,10 +127,6 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    }),
-    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^canvas$/
     })
   ],
   resolve: {
@@ -143,24 +141,6 @@ const config = {
     extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
-}
-
-/**
- * Adjust rendererConfig for production settings
- */
-if (!isDevMode) {
-  const processLocalesPlugin = new ProcessLocalesPlugin({
-    compress: true,
-    inputDir: path.join(__dirname, '../static/locales'),
-    outputDir: 'static/locales',
-  })
-
-  config.plugins.push(
-    processLocalesPlugin,
-    new webpack.DefinePlugin({
-      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
-    })
-  )
 }
 
 module.exports = config

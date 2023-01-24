@@ -248,6 +248,7 @@ Settings:
       Enable: 允许截屏
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
+    Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -356,6 +357,7 @@ Settings:
     Hide Upcoming Premieres: 隐藏即将到来的首映
     Hide Channels: 隐藏频道中的视频
     Hide Channels Placeholder: 频道名称或 ID
+    Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -629,6 +631,9 @@ Video:
   Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
+  Scroll to Bottom: 滚动到底部
+  Show Super Chat Comment: 显示超级聊天评论
+  Upcoming: 即将到来
 Videos:
   #& Sort By
   Sort By:
@@ -701,6 +706,8 @@ Comments:
   From {channelName}: 来自 {channelName}
   And others: 及其他
   Member: 成员
+  Hearted: 喜欢的
+  View {replyCount} replies: 查看 {replyCount} 条回复
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -763,8 +770,7 @@ Profile:
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
-Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！
-  点击以取得更多信息
+Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！  点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
@@ -778,6 +784,7 @@ Tooltips:
       将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
+    Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。

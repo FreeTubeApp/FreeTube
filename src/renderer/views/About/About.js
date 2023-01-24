@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import packageDetails from '../../../../package.json'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'About',
   components: {
     'ft-card': FtCard
@@ -49,7 +49,7 @@ export default Vue.extend({
         {
           icon: ['fab', 'mastodon'],
           title: this.$t('About.Mastodon'),
-          content: '<a href="https://mastodon.technology/@FreeTube">@FreeTube@mastodon.technology</a>'
+          content: '<a href="https://fosstodon.org/@FreeTube">@FreeTube@fosstodon.org</a>'
         },
         {
           icon: ['fas', 'comment-dots'],

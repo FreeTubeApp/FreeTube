@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
-import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
 import { copyToClipboard, showToast } from '../../helpers/utils'
+import { getLocalTrending } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Trending',
   components: {
     'ft-card': FtCard,
@@ -22,7 +22,8 @@ export default Vue.extend({
     return {
       isLoading: false,
       shownResults: [],
-      currentTab: 'default'
+      currentTab: 'default',
+      trendingInstance: null
     }
   },
   computed: {
@@ -56,6 +57,10 @@ export default Vue.extend({
   },
   methods: {
     changeTab: function (tab) {
+      if (tab === this.currentTab) {
+        return
+      }
+
       this.currentTab = tab
       if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
         this.getTrendingInfoCache()
@@ -77,27 +82,21 @@ export default Vue.extend({
       }
     },
 
-    getTrendingInfoLocal: function () {
+    getTrendingInfoLocal: async function () {
       this.isLoading = true
 
-      const param = {
-        parseCreatorOnRise: false,
-        page: this.currentTab,
-        geoLocation: this.region
-      }
+      try {
+        const { results, instance } = await getLocalTrending(this.region, this.currentTab, this.trendingInstance)
 
-      scrapeTrendingPage(param).then((result) => {
-        const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
-        })
-
-        this.shownResults = returnData
+        this.shownResults = results
         this.isLoading = false
-        this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
+        this.trendingInstance = instance
+
+        this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
         setTimeout(() => {
           this.$refs[this.currentTab].focus()
         })
-      }).catch((err) => {
+      } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -109,7 +108,7 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
-      })
+      }
     },
 
     getTrendingInfoCache: function () {
@@ -138,7 +137,7 @@ export default Vue.extend({
         trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
       }
 
-      this.invidiousAPICall(trendingPayload).then((result) => {
+      invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
         }
@@ -182,10 +181,6 @@ export default Vue.extend({
           }
           break
       }
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

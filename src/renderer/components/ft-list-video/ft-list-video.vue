@@ -27,9 +27,12 @@
       <div
         v-if="isLive || duration !== '0:00'"
         class="videoDuration"
-        :class="{ live: isLive }"
+        :class="{
+          live: isLive,
+          upcoming: isUpcoming
+        }"
       >
-        {{ isLive ? $t("Video.Live") : duration }}
+        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : duration) }}
       </div>
       <ft-icon-button
         v-if="externalPlayer !== ''"
@@ -82,7 +85,7 @@
           query: playlistId ? {playlistId} : {}
         }"
       >
-        {{ title }}
+        {{ displayTitle }}
       </router-link>
       <div class="infoLine">
         <router-link
@@ -120,4 +123,4 @@
 </template>
 
 <script src="./ft-list-video.js" />
-<style scoped src="./ft-list-video.sass" lang="sass" />
+<style scoped src="./ft-list-video.scss" lang="scss" />
