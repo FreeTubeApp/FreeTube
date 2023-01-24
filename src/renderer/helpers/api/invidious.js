@@ -1,15 +1,14 @@
 import store from '../../store/index'
-import { stripHTML, toLocalePublicationString } from '../utils'
+import { isNullOrEmpty, stripHTML, toLocalePublicationString } from '../utils'
 import autolinker from 'autolinker'
 
 function getCurrentInstance() {
   return store.getters.getCurrentInvidiousInstance
 }
 
-export function invidiousAPICall({ resource, id = '', params = {} }) {
+export function invidiousAPICall({ resource, id = '', params = {}, subResource = '' }) {
   return new Promise((resolve, reject) => {
-    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + '?' + new URLSearchParams(params).toString()
-
+    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     fetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {
@@ -109,4 +108,59 @@ function parseInvidiousCommentData(response) {
 
     return comment
   })
+}
+
+export async function InvidiousGetCommunityPosts(channelId) {
+  console.error(channelId)
+  const payload = {
+    resource: 'channels',
+    id: channelId,
+    subResource: 'community'
+  }
+
+  const response = await invidiousAPICall(payload)
+  response.comments = response.comments.map(communityPost => parseInvidiousCommunityData(communityPost))
+  console.error(response.comments)
+  return response.comments
+}
+
+function parseInvidiousCommunityData(data) {
+  return {
+    postText: data.contentHtml,
+    postId: data.commentId,
+    authorThumbnails: data.authorThumbnails,
+    publishedText: data.publishedText,
+    voteCount: data.likeCount,
+    postContent: parseInvidiousCommunityAttachments(data.attachment),
+    commentCount: null,
+    // workaround for invidious bug where the name is not shown (shows channel handle instead)
+    author: isNullOrEmpty(data.author) ? data.authorUrl.substring(1) : data.author,
+    type: 'community'
+  }
+}
+
+function parseInvidiousCommunityAttachments(data) {
+  if (!data) {
+    return
+  }
+
+  if (data.type === 'unknown') {
+    return data
+  }
+
+  if (data.type === 'image') {
+    return {
+      type: data.type,
+      content: data.imageThumbnails
+    }
+  }
+
+  if (data.type === 'video') {
+    return {
+      type: data.type,
+      content: data
+    }
+  }
+
+  console.error('New Invidious Community Post Type: ' + data.type)
 }

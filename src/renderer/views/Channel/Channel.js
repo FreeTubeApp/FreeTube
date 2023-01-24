@@ -17,7 +17,7 @@ import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { copyToClipboard, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
-import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { InvidiousGetCommunityPosts, invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'Channel',
@@ -162,8 +162,8 @@ export default defineComponent({
           return !isNullOrEmpty(this.playlistContinuationString)
         case 'search':
           return (!isNullOrEmpty(this.searchContinuationString))
-        case 'community':
-          return !isNullOrEmpty(this.communityContinuationString)
+        case 'community':// invidious does not return a continuation string
+          return !isNullOrEmpty(this.communityContinuationString) && this.apiUsed !== 'invidious'
       }
 
       return false
@@ -195,6 +195,7 @@ export default defineComponent({
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
         this.getPlaylistsInvidious()
+        this.getCommunityPostsInvidious()
       } else {
         this.getChannelInfoLocal()
         this.getChannelVideosLocal()
@@ -245,6 +246,7 @@ export default defineComponent({
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
       this.getPlaylistsInvidious()
+      this.getCommunityPostsInvidious()
     } else {
       this.getChannelInfoLocal()
       this.getChannelVideosLocal()
@@ -412,8 +414,8 @@ export default defineComponent({
         this.setErrorMessage(err.responseJSON.error)
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          copyToClipboard(err.responseJSON.error)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         this.isLoading = false
       })
@@ -499,8 +501,8 @@ export default defineComponent({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          copyToClipboard(err.responseJSON.error)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -536,8 +538,8 @@ export default defineComponent({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          copyToClipboard(err.responseJSON.error)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -560,6 +562,10 @@ export default defineComponent({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 1000, () => copyToClipboard(err))
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getCommunityPostsInvidious()
+        }
       })
     },
 
@@ -576,6 +582,22 @@ export default defineComponent({
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 1000, () => copyToClipboard(err))
+      })
+    },
+
+    getCommunityPostsInvidious: function() {
+      InvidiousGetCommunityPosts(this.id).then(posts => {
+        this.latestCommunityPosts = posts
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getCommunityPostsLocal()
+        }
       })
     },
 
