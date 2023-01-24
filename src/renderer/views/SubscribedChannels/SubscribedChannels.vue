@@ -30,12 +30,14 @@
             class="channel"
           >
             <router-link
+              tabindex="-1"
               class="thumbnailContainer"
               :to="`/channel/${channel.id}`"
             >
               <img
                 class="channelThumbnail"
                 :src="thumbnailURL(channel.thumbnail)"
+                alt=""
                 @error.once="updateThumbnail(channel)"
               >
             </router-link>

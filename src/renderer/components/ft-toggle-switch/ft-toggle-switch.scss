@@ -46,7 +46,7 @@
     width: 34px;
 
     .switch-input:checked + & {
-      background-color: var(accent-color-light);
+      background-color: var(--accent-color-light);
     }
 
     .switch-input:disabled + & {
@@ -63,7 +63,7 @@
     width: 20px;
 
     .switch-input:checked + & {
-      background-color: var(accent-color);
+      background-color: var(--accent-color);
       transform: translate(80%, -50%);
     }
 

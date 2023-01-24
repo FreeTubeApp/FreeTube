@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import { timeToSeconds } from 'youtubei.js/dist/src/utils/Utils'
 import { copyToClipboard, searchFiltersMatch, showToast } from '../../helpers/utils'
+import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Search',
   components: {
     'ft-loader': FtLoader,
@@ -20,7 +20,7 @@ export default Vue.extend({
       amountOfResults: 0,
       query: '',
       searchPage: 1,
-      nextPageRef: '',
+      nextPageRef: null,
       lastSearchQuery: '',
       searchSettings: {},
       shownResults: []
@@ -65,7 +65,6 @@ export default Vue.extend({
 
       const payload = {
         query: query,
-        nextPage: false,
         options: {},
         searchSettings: searchSettings
       }
@@ -87,7 +86,6 @@ export default Vue.extend({
 
     const payload = {
       query: this.query,
-      nextPage: false,
       options: {},
       searchSettings: this.searchSettings
     }
@@ -122,86 +120,32 @@ export default Vue.extend({
       }
     },
 
-    performSearchLocal: function (payload) {
-      if (!payload.nextPage) {
-        this.isLoading = true
-        payload.options.pages = 1
-      }
+    performSearchLocal: async function (payload) {
+      this.isLoading = true
 
-      payload.options.safeSearch = this.showFamilyFriendlyOnly
+      try {
+        const { results, continuationData } = await getLocalSearchResults(payload.query, payload.searchSettings, this.showFamilyFriendlyOnly)
 
-      this.ytSearch(payload).then((result) => {
-        if (!result) {
+        if (results.length === 0) {
           return
         }
 
         this.apiUsed = 'local'
 
-        this.amountOfResults = result.results
+        this.shownResults = results
+        this.nextPageRef = continuationData
 
-        const returnData = result.items.filter((item) => {
-          if (typeof item !== 'undefined') {
-            return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
-          }
-
-          return null
-        })
-
-        const dataToShow = []
-        returnData.forEach((video) => {
-          if (video.type === 'video') {
-            const authId = video.author.channelID
-            const publishDate = video.uploadedAt
-            let videoDuration = video.duration
-            const videoId = video.id
-            if (videoDuration !== null && videoDuration !== '' && videoDuration !== 'LIVE' && videoDuration !== 'UPCOMING' && videoDuration !== 'PREMIERE') {
-              videoDuration = timeToSeconds(video.duration)
-            }
-            dataToShow.push(
-              {
-                videoId: videoId,
-                title: video.title,
-                type: 'video',
-                author: video.author.name,
-                authorId: authId,
-                authorUrl: video.author.url,
-                videoThumbnails: video.thumbnail,
-                description: video.description,
-                viewCount: video.views,
-                published: publishDate,
-                publishedText: publishDate,
-                lengthSeconds: videoDuration,
-                liveNow: video.isLive || videoDuration === 'LIVE',
-                paid: false,
-                premium: false,
-                isUpcoming: videoDuration === 'UPCOMING' || videoDuration === 'PREMIERE',
-                timeText: videoDuration
-              }
-            )
-          } else {
-            dataToShow.push(video)
-          }
-        })
-
-        if (payload.nextPage) {
-          this.shownResults = this.shownResults.concat(dataToShow)
-        } else {
-          this.shownResults = dataToShow
-        }
-
-        this.nextPageRef = result.continuation
         this.isLoading = false
 
         const historyPayload = {
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: result.continuation,
-          amountOfResults: result.results
+          nextPageRef: this.nextPageRef
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
-      }).catch((err) => {
+      } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -213,7 +157,43 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
-      })
+      }
+    },
+
+    getNextpageLocal: async function (payload) {
+      try {
+        const { results, continuationData } = await getLocalSearchContinuation(payload.options.nextPageRef)
+
+        if (results.length === 0) {
+          return
+        }
+
+        this.apiUsed = 'local'
+
+        this.shownResults = this.shownResults.concat(results)
+        this.nextPageRef = continuationData
+
+        const historyPayload = {
+          query: payload.query,
+          data: this.shownResults,
+          searchSettings: this.searchSettings,
+          nextPageRef: this.nextPageRef
+        }
+
+        this.$store.commit('addToSessionSearchHistory', historyPayload)
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.performSearchInvidious(payload)
+        } else {
+          this.isLoading = false
+        }
+      }
     },
 
     performSearchInvidious: function (payload) {
@@ -234,7 +214,7 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(searchPayload).then((result) => {
+      invidiousAPICall(searchPayload).then((result) => {
         if (!result) {
           return
         }
@@ -268,7 +248,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           this.performSearchLocal(payload)
         } else {
@@ -281,19 +261,18 @@ export default Vue.extend({
     nextPage: function () {
       const payload = {
         query: this.query,
-        nextPage: true,
         searchSettings: this.searchSettings,
         options: {
-          nextpageRef: this.nextPageRef
+          nextPageRef: this.nextPageRef
         }
       }
 
       if (this.apiUsed === 'local') {
-        if (this.amountOfResults <= this.shownResults.length) {
-          showToast(this.$t('Search Filters.There are no more results for this search'))
-        } else {
+        if (this.nextPageRef !== null) {
           showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
-          this.performSearchLocal(payload)
+          this.getNextpageLocal(payload)
+        } else {
+          showToast(this.$t('Search Filters.There are no more results for this search'))
         }
       } else {
         showToast(this.$t('Search Filters["Fetching results. Please wait"]'))
@@ -316,11 +295,6 @@ export default Vue.extend({
       }
 
       this.isLoading = false
-    },
-
-    ...mapActions([
-      'ytSearch',
-      'invidiousAPICall'
-    ])
+    }
   }
 })

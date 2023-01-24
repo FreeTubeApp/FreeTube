@@ -32,10 +32,10 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  // webpack spits out errors while inlining ytsr as
-  // they dynamically import their package.json file to extract the bug report URL
-  // the error: "Critical dependency: the request of a dependency is an expression"
-  externals: ['ytsr'],
+  externals: {
+    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
+    canvas: '{}'
+  },
   module: {
     rules: [
       {
@@ -112,6 +112,7 @@ const config = {
     processLocalesPlugin,
     new webpack.DefinePlugin({
       'process.env.IS_ELECTRON': true,
+      'process.env.IS_ELECTRON_MAIN': false,
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
     }),
     new HtmlWebpackPlugin({
@@ -126,10 +127,6 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    }),
-    // ignore linkedom's unnecessary broken canvas import, as youtubei.js only uses linkedom to generate DASH manifests
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^canvas$/
     })
   ],
   resolve: {

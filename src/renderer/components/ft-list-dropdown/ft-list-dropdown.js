@@ -1,6 +1,7 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { sanitizeForHtmlId, handleDropdownKeyboardEvent } from '../../helpers/accessibility'
-export default Vue.extend({
+
+export default defineComponent({
   name: 'FtListDropdown',
   props: {
     title: {

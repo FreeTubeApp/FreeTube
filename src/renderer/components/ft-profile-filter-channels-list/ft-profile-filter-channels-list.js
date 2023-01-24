@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -7,8 +7,9 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import { showToast } from '../../helpers/utils'
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtProfileFilterChannelsList',
   components: {
     'ft-card': FtCard,
@@ -71,7 +72,7 @@ export default Vue.extend({
         return index === -1
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
         return channel
@@ -98,7 +99,7 @@ export default Vue.extend({
         return index === -1
       }).map((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
         return channel

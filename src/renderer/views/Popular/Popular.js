@@ -1,11 +1,12 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
-export default Vue.extend({
+import { invidiousAPICall } from '../../helpers/api/invidious'
+
+export default defineComponent({
   name: 'Popular',
   components: {
     'ft-loader': FtLoader,
@@ -44,7 +45,7 @@ export default Vue.extend({
       }
 
       this.isLoading = true
-      const result = await this.invidiousAPICall(searchPayload)
+      const result = await invidiousAPICall(searchPayload)
         .catch((err) => {
           console.error(err)
         })
@@ -74,10 +75,6 @@ export default Vue.extend({
           }
           break
       }
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -8,8 +7,9 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Trending',
   components: {
     'ft-card': FtCard,
@@ -57,6 +57,10 @@ export default Vue.extend({
   },
   methods: {
     changeTab: function (tab) {
+      if (tab === this.currentTab) {
+        return
+      }
+
       this.currentTab = tab
       if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
         this.getTrendingInfoCache()
@@ -133,7 +137,7 @@ export default Vue.extend({
         trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
       }
 
-      this.invidiousAPICall(trendingPayload).then((result) => {
+      invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
         }
@@ -177,10 +181,6 @@ export default Vue.extend({
           }
           break
       }
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

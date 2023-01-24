@@ -1,6 +1,5 @@
 <template>
   <ft-card
-    v-if="!hideLiveChat"
     class="relative"
   >
     <ft-loader
@@ -52,7 +51,7 @@
           :aria-label="$t('Video.Show Super Chat Comment')"
           :style="{ backgroundColor: 'var(--primary-color)' }"
           class="superChat"
-          :class="comment.superchat.colorClass"
+          :class="comment.superChat.colorClass"
           role="button"
           tabindex="0"
           @click="showSuperChatComment(comment)"
@@ -60,7 +59,7 @@
           @keydown.enter.prevent="showSuperChatComment(comment)"
         >
           <img
-            :src="comment.author.thumbnail.url"
+            :src="comment.author.thumbnailUrl"
             class="channelThumbnail"
             alt=""
           >
@@ -70,7 +69,7 @@
             <span
               class="donationAmount"
             >
-              {{ comment.superchat.amount }}
+              {{ comment.superChat.amount }}
             </span>
           </p>
         </div>
@@ -78,7 +77,7 @@
       <div
         v-if="showSuperChat"
         class="openedSuperChat"
-        :class="superChat.superchat.colorClass"
+        :class="superChat.superChat.colorClass"
         role="button"
         tabindex="0"
         @click="showSuperChat = false"
@@ -93,7 +92,7 @@
             class="upperSuperChatMessage"
           >
             <img
-              :src="superChat.author.thumbnail.url"
+              :src="superChat.author.thumbnailUrl"
               class="channelThumbnail"
               alt=""
             >
@@ -105,13 +104,12 @@
             <p
               class="donationAmount"
             >
-              {{ superChat.superchat.amount }}
+              {{ superChat.superChat.amount }}
             </p>
           </div>
           <p
-            v-if="superChat.message.length > 0"
             class="chatMessage"
-            v-html="superChat.messageHtml"
+            v-html="superChat.message"
           />
         </div>
       </div>
@@ -125,17 +123,16 @@
           v-for="(comment, index) in comments"
           :key="index"
           class="comment"
-          :class="{ superChatMessage: typeof (comment.superchat) !== 'undefined' }"
+          :class="comment.superChat ? `superChatMessage ${comment.superChat.colorClass}` : ''"
         >
-          <div
-            v-if="typeof (comment.superchat) !== 'undefined'"
-            :class="comment.superchat.colorClass"
+          <template
+            v-if="comment.superChat"
           >
             <div
               class="upperSuperChatMessage"
             >
               <img
-                :src="comment.author.thumbnail.url"
+                :src="comment.author.thumbnailUrl"
                 class="channelThumbnail"
                 alt=""
               >
@@ -147,20 +144,20 @@
               <p
                 class="donationAmount"
               >
-                {{ comment.superchat.amount }}
+                {{ comment.superChat.amount }}
               </p>
             </div>
             <p
-              v-if="comment.message.length > 0"
+              v-if="comment.message"
               class="chatMessage"
-              v-html="comment.messageHtml"
+              v-html="comment.message"
             />
-          </div>
+          </template>
           <template
             v-else
           >
             <img
-              :src="comment.author.thumbnail.url"
+              :src="comment.author.thumbnailUrl"
               class="channelThumbnail"
               alt=""
             >
@@ -170,28 +167,27 @@
               <span
                 class="channelName"
                 :class="{
-                  member: typeof (comment.author.badge) !== 'undefined' || comment.membership,
-                  moderator: comment.isOwner,
-                  owner: comment.author.name === channelName
+                  member: comment.author.isMember,
+                  moderator: comment.author.isModerator,
+                  owner: comment.author.isOwner
                 }"
               >
                 {{ comment.author.name }}
               </span>
               <span
-                v-if="typeof (comment.author.badge) !== 'undefined'"
+                v-if="comment.author.badge"
                 class="badge"
               >
                 <img
-                  :src="comment.author.badge.thumbnail.url"
+                  :src="comment.author.badge.url"
                   alt=""
-                  :title="comment.author.badge.thumbnail.alt"
+                  :title="comment.author.badge.tooltip"
                   class="badgeImage"
                 >
               </span>
               <span
-                v-if="comment.message.length > 0"
                 class="chatMessage"
-                v-html="comment.messageHtml"
+                v-html="comment.message"
               />
             </p>
           </template>

@@ -6,7 +6,7 @@
 }
 
 .channelDetails {
-  padding: 0 0 16px;
+  padding: 0;
 }
 
 .channelBannerContainer {
@@ -75,38 +75,52 @@
 
 .channelSearch {
   width: 220px;
+  margin-left: auto;
   align-self: flex-end;
+  flex: 1 1 0%;
 }
 
 .sortSelect {
-  align-self: flex-end;
+  margin-left: auto;
 }
 
 .channelInfoTabs {
   position: relative;
   width: 100%;
-  margin-top: -16px;
-  margin-bottom: -13px;
+  height: auto;
+  justify-content: unset;
+  gap: 32px;
+  padding: .3em 0;
+}
+
+.tabs {
+  display: flex;
+  flex: 0 1 33%;
 }
 
 .tab {
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
+  flex: 1 1 0%;
   align-self: flex-end;
+  text-align: center;
   color: var(--tertiary-text-color);
+  border-bottom: 3px solid transparent;
 }
 
-.selectedTab {
+.tab:hover,
+.tab:focus {
+  font-weight: bold;
+  border-bottom: 3px solid var(--tertiary-text-color);
+}
+
+.selectedTab:focus11,
+.selectedTab:hover {
   color: var(--primary-text-color);
   border-bottom: 3px solid var(--primary-color);
-  margin-bottom: -3px;
   font-weight: bold;
   box-sizing: border-box;
-}
-
-.tab:hover {
-  font-weight: bold;
 }
 
 .aboutTab {
@@ -125,10 +139,7 @@
 
 .channelSearch {
   margin-top: 10px;
-}
-
-.elementList {
-  margin-top: 15px;
+  max-width: 250px;
 }
 
 .elementListLoading {
@@ -166,19 +177,32 @@
 }
 
 .communityThumbnail {
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-border-radius: 200px;
+  border-radius: 200px;
   height: 12%;
   width: 12%;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
 }
 
 .ft-community-image {
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  display: block;
 }
 
 .community-post-container {
   padding-left: 30%;
   padding-right: 30%;
+}
+
+@media only screen and (max-width: 800px) {
+  .channelInfoTabs {
+    height: auto;
+    flex-flow: column-reverse;
+  }
+
+  .channelSearch {
+    width: 100%;
+    max-width: none;
+  }
 }

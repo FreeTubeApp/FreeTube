@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListVideoLazy',
   components: {
     'ft-list-video': FtListVideo

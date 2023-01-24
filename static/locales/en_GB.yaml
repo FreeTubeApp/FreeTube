@@ -398,6 +398,8 @@ Settings:
     Hide Chapters: Hide chapters
     Hide Channels: Hide videos from channels
     Hide Channels Placeholder: Channel name or ID
+    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive
+      Capitalisation
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -714,6 +716,7 @@ Video:
   Premieres: Premieres
   Show Super Chat Comment: Show Super Chat comment
   Scroll to Bottom: Scroll to bottom
+  Upcoming: Upcoming
 Videos:
   #& Sort By
   Sort By:

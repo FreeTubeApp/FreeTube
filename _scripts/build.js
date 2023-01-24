@@ -62,13 +62,6 @@ const config = {
     './dist/**/*',
     '!dist/web/*',
     '!node_modules/**/*',
-
-    // renderer
-    'node_modules/{miniget,ytsr}/**/*',
-
-    '!**/README.md',
-    '!**/*.js.map',
-    '!**/*.d.ts',
   ],
   dmg: {
     contents: [

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "syler.sass-indented",
+    "redhat.vscode-yaml",
+    "vue.volar",
+    "eamodio.gitlens"
+  ]
+}

@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SubscriptionSettings',
   components: {
     'ft-settings-section': FtSettingsSection,

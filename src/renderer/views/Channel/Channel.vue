@@ -30,6 +30,7 @@
             <img
               class="channelThumbnail"
               :src="thumbnailUrl"
+              alt=""
             >
             <div
               class="channelLineContainer"
@@ -74,32 +75,62 @@
           class="channelInfoTabs"
         >
           <div
-            class="tab"
-            :class="(currentTab==='videos')?'selectedTab':''"
-            @click="changeTab('videos')"
+            class="tabs"
+            role="tablist"
+            :aria-label="$t('Channel.Channel Tabs')"
           >
-            {{ $t("Channel.Videos.Videos").toUpperCase() }}
-          </div>
-          <div
-            class="tab"
-            :class="(currentTab==='playlists')?'selectedTab':''"
-            @click="changeTab('playlists')"
-          >
-            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
-          </div>
-          <div
-            class="tab"
-            :class="(currentTab==='community')?'selectedTab':''"
-            @click="changeTab('community')"
-          >
-            {{ $t("Channel.Community.Community").toUpperCase() }}
-          </div>
-          <div
-            class="tab"
-            :class="(currentTab==='about')?'selectedTab':''"
-            @click="changeTab('about')"
-          >
-            {{ $t("Channel.About.About").toUpperCase() }}
+            <div
+              id="videosTab"
+              class="tab"
+              :class="(currentTab==='videos')?'selectedTab':''"
+              role="tab"
+              aria-selected="true"
+              aria-controls="videoPanel"
+              tabindex="0"
+              @click="changeTab('videos')"
+              @keydown.left.right.enter.space="changeTab('videos', $event)"
+            >
+              {{ $t("Channel.Videos.Videos").toUpperCase() }}
+            </div>
+            <div
+              id="playlistsTab"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="playlistPanel"
+              tabindex="-1"
+              :class="(currentTab==='playlists')?'selectedTab':''"
+              @click="changeTab('playlists')"
+              @keydown.left.right.enter.space="changeTab('playlists', $event)"
+            >
+              {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
+            </div>
+            <div
+              id="communityTab"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="communityPanel"
+              tabindex="-1"
+              :class="(currentTab==='community')?'selectedTab':''"
+              @click="changeTab('community')"
+              @keydown.left.right.enter.space="changeTab('community', $event)"
+            >
+              {{ $t("Channel.Community.Community").toUpperCase() }}
+            </div>
+            <div
+              id="aboutTab"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="aboutPanel"
+              tabindex="-1"
+              :class="(currentTab==='about')?'selectedTab':''"
+              @click="changeTab('about')"
+              @keydown.left.right.enter.space="changeTab('about', $event)"
+            >
+              {{ $t("Channel.About.About").toUpperCase() }}
+            </div>
           </div>
 
           <ft-input
@@ -107,24 +138,6 @@
             :show-clear-text-button="true"
             class="channelSearch"
             @click="newSearch"
-          />
-          <ft-select
-            v-show="currentTab === 'videos'"
-            class="sortSelect"
-            :value="videoSelectValues[0]"
-            :select-names="videoSelectNames"
-            :select-values="videoSelectValues"
-            :placeholder="$t('Search Filters.Sort By.Sort By')"
-            @change="videoSortBy = $event"
-          />
-          <ft-select
-            v-show="currentTab === 'playlists'"
-            class="sortSelect"
-            :value="playlistSelectValues[0]"
-            :select-names="playlistSelectNames"
-            :select-values="playlistSelectValues"
-            :placeholder="$t('Search Filters.Sort By.Sort By')"
-            @change="playlistSortBy = $event"
           />
         </ft-flex-box>
       </div>
@@ -135,6 +148,7 @@
     >
       <div
         v-if="currentTab === 'about'"
+        id="aboutPanel"
         class="aboutTab"
       >
         <h2>
@@ -159,10 +173,29 @@
             :channel-name="channel.author || channel.channelName"
             :channel-id="channel.channelId"
             :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
+            role="link"
             @click="goToChannel(channel.channelId)"
           />
         </ft-flex-box>
       </div>
+      <ft-select
+        v-show="currentTab === 'videos'"
+        class="sortSelect"
+        :value="videoSelectValues[0]"
+        :select-names="videoSelectNames"
+        :select-values="videoSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="videoSortBy = $event"
+      />
+      <ft-select
+        v-show="currentTab === 'playlists'"
+        class="sortSelect"
+        :value="playlistSelectValues[0]"
+        :select-names="playlistSelectNames"
+        :select-values="playlistSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="playlistSortBy = $event"
+      />
       <ft-loader
         v-if="isElementListLoading"
       />
@@ -172,7 +205,10 @@
       >
         <ft-element-list
           v-show="currentTab === 'videos'"
+          id="videoPanel"
           :data="latestVideos"
+          role="tabpanel"
+          aria-labelledby="videosTab"
         />
         <ft-flex-box
           v-if="currentTab === 'videos' && latestVideos.length === 0"
@@ -183,7 +219,10 @@
         </ft-flex-box>
         <ft-element-list
           v-show="currentTab === 'playlists'"
+          id="playlistPanel"
           :data="latestPlaylists"
+          role="tabpanel"
+          aria-labelledby="playlistsTab"
         />
         <ft-flex-box
           v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
@@ -194,7 +233,10 @@
         </ft-flex-box>
         <ft-element-list
           v-show="currentTab === 'community'"
+          id="communityPanel"
           :data="latestCommunityPosts"
+          role="tabpanel"
+          aria-labelledby="communityTab"
           :display="'list'"
         />
         <ft-flex-box
@@ -214,7 +256,11 @@
         <div
           v-if="showFetchMoreButton"
           class="getNextPage"
+          role="button"
+          tabindex="0"
           @click="handleFetchMore"
+          @keydown.space.prevent="handleFetchMore"
+          @keydown.enter.prevent="handleFetchMore"
         >
           <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
