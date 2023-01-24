@@ -109,6 +109,12 @@ export default defineComponent({
       showStatsModal: false,
       statsModalEventName: 'updateStats',
       usingTouch: false,
+      // whether or not sponsor segments should be skipped
+      skipSponsors: true,
+      // countdown before actually skipping sponsor segments
+      skipCountdown: 1,
+      // sponsor segments
+      skipSegments: null,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -580,10 +586,16 @@ export default defineComponent({
           if (skipSegments.length === 0) {
             return
           }
+          this.skipSegments = skipSegments
 
           this.player.ready(() => {
             this.player.on('timeupdate', () => {
-              this.skipSponsorBlocks(skipSegments)
+              this.skipSponsorBlocks()
+            })
+
+            this.player.on('seeking', () => {
+              // disabling sponsors auto skipping when the user manually seeks
+              this.skipSponsors = false
             })
 
             skipSegments.forEach(({
@@ -601,24 +613,33 @@ export default defineComponent({
         })
     },
 
-    skipSponsorBlocks(skipSegments) {
+    skipSponsorBlocks() {
       const currentTime = this.player.currentTime()
       const duration = this.player.duration()
       let newTime = null
       let skippedCategory = null
-      skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
+      this.skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
         if (startTime <= currentTime && currentTime < endTime) {
           newTime = endTime
           skippedCategory = category
         }
       })
-      if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
+      if (this.skipSponsors && newTime !== null && Math.abs(duration - currentTime) > 0.500) {
         if (this.sponsorSkips.autoSkip[skippedCategory]) {
-          if (this.sponsorBlockShowSkippedToast) {
-            this.showSkippedSponsorSegmentInformation(skippedCategory)
+          if (this.skipCountdown === 0) {
+            if (this.sponsorBlockShowSkippedToast) {
+              this.showSkippedSponsorSegmentInformation(skippedCategory)
+            }
+            this.player.currentTime(newTime)
+          } else {
+            this.skipCountdown--
           }
-          this.player.currentTime(newTime)
         }
+      }
+      // restoring sponsors skipping default values
+      if (newTime === null && !this.skipSponsors) {
+        this.skipSponsors = true
+        this.skipCountdown = 1
       }
     },
 
@@ -1920,6 +1941,22 @@ export default defineComponent({
               this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
             }
             break
+          case 'b':
+          case 'B': {
+            // Go back to the previous sponsor segment
+            const currentTime = this.player.currentTime()
+            let nearestSegment = null
+            this.skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
+              if (currentTime >= endTime && (nearestSegment === null || nearestSegment[1] < endTime)) {
+                nearestSegment = [startTime, endTime]
+              }
+            })
+            if (nearestSegment !== null) {
+              this.skipSponsors = false
+              this.player.currentTime(nearestSegment[0])
+            }
+            break
+          }
           case 'I':
           case 'i':
             event.preventDefault()
