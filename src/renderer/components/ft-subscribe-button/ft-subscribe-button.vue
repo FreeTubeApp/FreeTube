@@ -37,65 +37,79 @@
       v-if="showProfiles === 'subscribed'"
       id="profileList"
     >
-      <div
-        v-for="(profile, index) in notSubscribedProfiles"
-        :key="index"
-        class="profile"
-        tabindex="0"
-        :aria-describedby="`susbcribeTip${index}`"
-        @keydown.enter.space="subscribe(profile, true, $event)"
-        @click="subscribe(profile, true)"
+      <template
+        v-if="notSubscribedProfiles.length > 0"
       >
         <div
-          class="colorOption"
-          :style="{ background: profile.bgColor, color: profile.textColor }"
+          v-for="(profile, index) in notSubscribedProfiles"
+          :key="index"
+          class="profile"
+          tabindex="0"
+          :aria-describedby="`susbcribeTip${index}`"
+          @keydown.enter.space="subscribe(profile, true, $event)"
+          @click="subscribe(profile, true)"
         >
           <div
-            class="initial"
+            class="colorOption"
+            :style="{ background: profile.bgColor, color: profile.textColor }"
           >
-            {{ notSubscribedProfileInitials[index] }}
+            <div
+              class="initial"
+            >
+              {{ notSubscribedProfileInitials[index] }}
+            </div>
+          </div>
+          <div
+            :id="`susbcribeTip${index}`"
+            class="profileName"
+            role="tooltip"
+          >
+            {{ profile.name }}
           </div>
         </div>
-        <div
-          :id="`susbcribeTip${index}`"
-          class="profileName"
-          role="tooltip"
-        >
-          {{ profile.name }}
-        </div>
-      </div>
+      </template>
+      <template v-else>
+        {{ $t('Profile.All of your profiles are subscribed') }}
+      </template>
     </div>
     <div
       v-if="showProfiles === 'unsubscribed'"
       id="profileList"
     >
-      <div
-        v-for="(profile, index) in subscribedProfiles"
-        :key="index"
-        class="profile"
-        tabindex="0"
-        :aria-describedby="`susbcribeTip${index}`"
-        @keydown="subscribe(profile, false, $event)"
-        @click="subscribe(profile, false)"
+      <template
+        v-if="subscribedProfiles.length > 0"
       >
         <div
-          class="colorOption"
-          :style="{ background: profile.bgColor, color: profile.textColor }"
+          v-for="(profile, index) in subscribedProfiles"
+          :key="index"
+          class="profile"
+          tabindex="0"
+          :aria-describedby="`susbcribeTip${index}`"
+          @keydown="subscribe(profile, false, $event)"
+          @click="subscribe(profile, false)"
         >
           <div
-            class="initial"
+            class="colorOption"
+            :style="{ background: profile.bgColor, color: profile.textColor }"
           >
-            {{ subscribedProfileInitials[index] }}
+            <div
+              class="initial"
+            >
+              {{ subscribedProfileInitials[index] }}
+            </div>
+          </div>
+          <div
+            :id="`susbcribeTip${index}`"
+            class="profileName"
+            role="tooltip"
+          >
+            {{ profile.name }}
           </div>
         </div>
-        <div
-          :id="`susbcribeTip${index}`"
-          class="profileName"
-          role="tooltip"
-        >
-          {{ profile.name }}
-        </div>
-      </div>
+      </template>
+      <template v-else>
+        {{ $t('Profile.None of your profiles are subscribed') }}
+      </template>
     </div>
   </div>
 </template>
