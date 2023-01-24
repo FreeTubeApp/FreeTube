@@ -167,4 +167,3 @@
 
 <script src="./ft-community-post.js" />
 <style scoped src="./ft-community-post.scss" lang="scss" />
-<style src="./tiny-slider.css" />

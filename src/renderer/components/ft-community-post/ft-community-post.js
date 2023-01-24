@@ -2,10 +2,12 @@ import Vue from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
-
 import {
   toLocalePublicationString
 } from '../../helpers/utils'
+
+import 'tiny-slider/dist/tiny-slider.css'
+
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
