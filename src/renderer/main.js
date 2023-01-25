@@ -1,5 +1,6 @@
 // import the styles
 import Vue from 'vue'
+import { createPinia, PiniaVuePlugin } from 'pinia'
 import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
@@ -127,13 +128,17 @@ library.add(
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
+Vue.use(PiniaVuePlugin)
+const pinia = createPinia()
+
 /* eslint-disable-next-line no-new */
 new Vue({
   el: '#app',
   router,
   store,
   i18n,
-  render: h => h(App)
+  render: h => h(App),
+  pinia
 })
 
 // to avoid accessing electron api from web app build
