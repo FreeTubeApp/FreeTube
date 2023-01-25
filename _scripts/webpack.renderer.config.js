@@ -42,6 +42,11 @@ const config = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            whitespace: 'condense',
+          }
+        }
       },
       {
         test: /\.scss$/,
