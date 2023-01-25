@@ -263,6 +263,7 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Allow DASH AV1 formats: Allow DASH AV1 formats
     Screenshot:
       Enable: Enable Screenshot
       Format Label: Screenshot Format
@@ -778,6 +779,9 @@ Tooltips:
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
+    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
+      DASH AV1 formats require more power to playback! They are not available on all videos,
+      in those cases the player will use the DASH H.264 formats instead.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse

@@ -278,7 +278,8 @@ const state = {
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
   fetchSubscriptionsAutomatically: true,
-  settingsPassword: ''
+  settingsPassword: '',
+  allowDashAv1Formats: false,
 }
 
 const stateWithSideEffects = {
