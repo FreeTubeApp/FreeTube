@@ -265,6 +265,7 @@ Settings:
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
+    Allow DASH AV1 formats: לאפשר תצורות DASH AV1
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -281,6 +282,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'האם
       אתם בטוחים שאתם רוצים למחוק כל את המנויים והפרופילים? פעולה זו היא לא הפיכה.'
     Automatically Remove Video Meta Files: להסיר אוטומטית קובצי נתוני על של הסרטון
+    Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
+      הנגינה לאחרונים שנצפו
   Subscription Settings:
     Subscription Settings: 'הגדרות מנויים'
     Hide Videos on Watch: 'הסתר סרטונים לאחר הצפייה'
