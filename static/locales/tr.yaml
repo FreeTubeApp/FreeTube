@@ -271,6 +271,7 @@ Settings:
         veya "/" kullanabilirsiniz.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
+    Allow DASH AV1 formats: DASH AV1 biçimlerine izin ver
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -288,6 +289,8 @@ Settings:
       abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
     Automatically Remove Video Meta Files: Video Meta Dosyalarını Otomatik Olarak
       Kaldır
+    Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
+      Oynatma Listesiyle Kaydet
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -874,6 +877,9 @@ Tooltips:
       için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
     Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma
       tekerleğini kullanın.
+    Allow DASH AV1 formats: DASH AV1 biçimleri, DASH H.264 biçimlerinden daha iyi
+      görünebilir. DASH AV1 biçimleri oynatmak daha fazla güç gerektirir! Tüm videolarda
+      bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
