@@ -104,11 +104,14 @@
           @timestamp-event="onTimestamp"
         />
         <p class="commentLikeCount">
-          <font-awesome-icon
+          <template
             v-if="!hideCommentLikes"
-            :icon="['fas', 'thumbs-up']"
-          />
-          {{ comment.likes }}
+          >
+            <font-awesome-icon
+              :icon="['fas', 'thumbs-up']"
+            />
+            {{ comment.likes }}
+          </template>
           <span
             v-if="comment.isHearted"
             class="commentHeartBadge"
@@ -168,18 +171,15 @@
               >
             </router-link>
             <p class="commentAuthorWrapper">
-              <span
+              <router-link
                 class="commentAuthor"
                 :class="{
                   commentOwner: reply.isOwner
                 }"
+                :to="`/channel/${reply.authorLink}`"
               >
-                <router-link
-                  :to="`/channel/${reply.authorLink}`"
-                >
-                  {{ reply.author }}
-                </router-link>
-              </span>
+                {{ reply.author }}
+              </router-link>
               <img
                 v-if="reply.isMember"
                 :src="reply.memberIconUrl"
@@ -196,11 +196,15 @@
               @timestamp-event="onTimestamp"
             />
             <p class="commentLikeCount">
-              <font-awesome-icon
+              <template
                 v-if="!hideCommentLikes"
-                :icon="['fas', 'thumbs-up']"
-              />
-              {{ reply.likes }}
+              >
+                <font-awesome-icon
+                  v-if="!hideCommentLikes"
+                  :icon="['fas', 'thumbs-up']"
+                />
+                {{ reply.likes }}
+              </template>
             </p>
             <p
               v-if="reply.numReplies > 0"

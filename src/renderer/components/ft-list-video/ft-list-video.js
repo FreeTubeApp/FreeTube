@@ -48,7 +48,11 @@ export default defineComponent({
     appearance: {
       type: String,
       required: true
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {
@@ -101,9 +105,9 @@ export default defineComponent({
     invidiousUrl: function () {
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
-      if (this.playlistId && this.playlistId.length !== 0) {
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
         // `index` seems can be ignored
-        videoUrl += `&list=${this.playlistId}`
+        videoUrl += `&list=${this.playlistIdFinal}`
       }
       return videoUrl
     },
@@ -115,18 +119,18 @@ export default defineComponent({
     youtubeUrl: function () {
       let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
       // `playlistId` can be undefined
-      if (this.playlistId && this.playlistId.length !== 0) {
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
         // `index` seems can be ignored
-        videoUrl += `&list=${this.playlistId}`
+        videoUrl += `&list=${this.playlistIdFinal}`
       }
       return videoUrl
     },
 
     youtubeShareUrl: function () {
       // `playlistId` can be undefined
-      if (this.playlistId && this.playlistId.length !== 0) {
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
         // `index` seems can be ignored
-        return `https://youtu.be/${this.id}?list=${this.playlistId}`
+        return `https://youtu.be/${this.id}?list=${this.playlistIdFinal}`
       }
       return `https://youtu.be/${this.id}`
     },
@@ -281,15 +285,42 @@ export default defineComponent({
       return this.$store.getters.getSaveWatchedProgress
     },
 
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
+    },
+
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+
     displayTitle: function () {
       if (this.showDistractionFreeTitles) {
         return toDistractionFreeTitle(this.data.title)
       } else {
         return this.data.title
       }
+    },
+
+    historyIndex: function() {
+      return this.historyCache.findIndex((video) => {
+        return video.videoId === this.id
+      })
+    },
+
+    playlistIdFinal: function () {
+      if (this.playlistId) {
+        return this.playlistId
+      }
+
+      // Get playlist ID from history ONLY if option enabled
+      if (!this.showVideoWithLastViewedPlaylist) { return }
+      if (!this.saveVideoHistoryWithLastViewedPlaylist) { return }
+      const historyIndex = this.historyIndex
+      if (historyIndex === -1) {
+        return undefined
+      }
+
+      return this.historyCache[historyIndex].lastViewedPlaylistId
     },
   },
   mounted: function () {
@@ -305,7 +336,7 @@ export default defineComponent({
         playbackRate: this.defaultPlayback,
         videoId: this.id,
         videoLength: this.data.lengthSeconds,
-        playlistId: this.playlistId,
+        playlistId: this.playlistIdFinal,
         playlistIndex: this.playlistIndex,
         playlistReverse: this.playlistReverse,
         playlistShuffle: this.playlistShuffle,
@@ -411,9 +442,7 @@ export default defineComponent({
     },
 
     checkIfWatched: function () {
-      const historyIndex = this.historyCache.findIndex((video) => {
-        return video.videoId === this.id
-      })
+      const historyIndex = this.historyIndex
 
       if (historyIndex !== -1) {
         this.watched = true

@@ -17,6 +17,10 @@ export default defineComponent({
       type: String,
       required: false,
       default: ''
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {

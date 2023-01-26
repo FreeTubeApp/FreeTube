@@ -9,6 +9,7 @@
       :data="result"
       :first-screen="index < 16"
       :layout="displayValue"
+      :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
     />
   </ft-auto-grid>
 </template>

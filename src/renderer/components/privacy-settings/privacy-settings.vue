@@ -22,6 +22,15 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
+          :label="$t('Settings.Privacy Settings.Save Watched Videos With Last Viewed Playlist')"
+          :compact="true"
+          :disabled="!rememberHistory"
+          :default-value="saveVideoHistoryWithLastViewedPlaylist"
+          @change="updateSaveVideoHistoryWithLastViewedPlaylist"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
           :label="$t('Settings.Privacy Settings.Automatically Remove Video Meta Files')"
           :compact="true"
           :default-value="removeVideoMetaFiles"

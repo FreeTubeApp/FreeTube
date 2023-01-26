@@ -223,7 +223,7 @@ export default defineComponent({
           event.preventDefault()
           this.inputData = this.visibleDataList[this.searchState.selectedOption]
         }
-        this.handleClick()
+        this.handleClick(event)
         // Early return
         return
       }

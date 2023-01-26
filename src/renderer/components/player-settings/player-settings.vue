@@ -159,6 +159,14 @@
         :select-values="qualityValues"
         @change="updateDefaultQuality"
       />
+      <ft-toggle-switch
+        class="av1Switch"
+        :label="$t('Settings.Player Settings.Allow DASH AV1 formats')"
+        :compact="true"
+        :default-value="allowDashAv1Formats"
+        :tooltip="$t('Tooltips.Player Settings.Allow DASH AV1 formats')"
+        @change="updateAllowDashAv1Formats"
+      />
     </ft-flex-box>
     <br>
     <ft-flex-box>

@@ -28,7 +28,11 @@ export default defineComponent({
     layout: {
       type: String,
       default: 'grid'
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {

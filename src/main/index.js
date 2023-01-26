@@ -789,6 +789,15 @@ function runApp() {
           )
           return null
 
+        case DBActions.HISTORY.UPDATE_PLAYLIST:
+          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.playlistId)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.UPDATE_PLAYLIST, data }
+          )
+          return null
+
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)
           syncOtherWindows(

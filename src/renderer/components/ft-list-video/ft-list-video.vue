@@ -16,7 +16,7 @@
         tabindex="-1"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
         <img
@@ -82,7 +82,7 @@
         class="title"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
         {{ displayTitle }}
@@ -95,22 +95,22 @@
           <span>{{ channelName }}</span>
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount">• {{ parsedViewCount }}</span>
+          <span class="viewCount"> • {{ parsedViewCount }} </span>
           <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
           <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
         </template>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
           class="uploadedTime"
-        >• {{ uploadedTime }}</span>
+        > • {{ uploadedTime }}</span>
         <span
           v-if="inHistory"
           class="uploadedTime"
-        >• {{ publishedText }}</span>
+        > • {{ publishedText }}</span>
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
-        >• {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
+        > • {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
       </div>
       <p
         v-if="listType !== 'grid' && appearance === 'result'"
