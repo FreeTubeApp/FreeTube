@@ -331,6 +331,8 @@ Settings:
       można tego cofnąć.
     Remove All Subscriptions / Profiles: Usuń wszystkie subskrypcje / profile
     Automatically Remove Video Meta Files: Automatycznie usuwaj pliki metadanych filmu
+    Save Watched Videos With Last Viewed Playlist: Zapisuj do historii film wraz z
+      ostatnią odtwarzaną playlistą, która go zawierała
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
