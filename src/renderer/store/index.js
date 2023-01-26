@@ -1,15 +1,16 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-// import createPersistedState from 'vuex-persistedstate'
-
-import modules from './modules'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  modules,
-  strict: process.env.NODE_ENV !== 'production'
-
-  // TODO: Enable when deploy
-  // plugins: [createPersistedState()]
-})
+import { useHistoryStore } from './history'
+import { useInvidiousStore } from './invidious'
+import { usePlaylistsStore } from './playlists'
+import { useProfilesStore } from './profiles'
+import { useSettingsStore } from './settings'
+import { useSubscriptionsStore } from './subscriptions'
+import { useUtilsStore } from './utils'
+export {
+  useHistoryStore,
+  useInvidiousStore,
+  usePlaylistsStore,
+  useProfilesStore,
+  useSettingsStore,
+  useSubscriptionsStore,
+  useUtilsStore
+}
