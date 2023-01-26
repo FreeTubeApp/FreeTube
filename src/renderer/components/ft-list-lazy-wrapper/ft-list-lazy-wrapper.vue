@@ -19,6 +19,7 @@
       v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
       :appearance="appearance"
       :data="data"
+      :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
     />
     <ft-list-playlist
       v-if="data.type === 'playlist' && visible"

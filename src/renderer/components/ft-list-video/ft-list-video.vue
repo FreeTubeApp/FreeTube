@@ -16,7 +16,7 @@
         tabindex="-1"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
         <img
@@ -82,7 +82,7 @@
         class="title"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
         {{ displayTitle }}
