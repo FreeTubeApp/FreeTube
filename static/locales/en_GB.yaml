@@ -269,6 +269,7 @@ Settings:
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
+    Allow DASH AV1 formats: Allow DASH AV1 formats
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -295,6 +296,8 @@ Settings:
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
     Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
+    Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
+      Playlist
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -845,6 +848,9 @@ Tooltips:
       rate (1x unless it has been changed in the settings).
     Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the
       video, MPV style.
+    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
+      DASH AV1 formats require more power to playback! They are not available on all
+      videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
