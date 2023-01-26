@@ -81,8 +81,10 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
   if (url.startsWith('//')) {
     url = 'https:' + url
   }
-
-  return url.replace('https://yt3.ggpht.com', `${currentInstance}/ggpht`).replace('https://yt3.googleusercontent.com', `${currentInstance}/ggpht`)
+  const newUrl = `${currentInstance}/ggpht`
+  return url.replace('https://yt3.ggpht.com', newUrl)
+    .replace('https://yt3.googleusercontent.com', newUrl)
+    .replace(/https:\/\/i\d*\.ytimg\.com/, newUrl)
 }
 
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
