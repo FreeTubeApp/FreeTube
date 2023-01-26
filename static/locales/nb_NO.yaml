@@ -264,6 +264,7 @@ Settings:
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
     Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
+    Allow DASH AV1 formats: Tillat DASH AV1-formater
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -280,6 +281,8 @@ Settings:
       du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
       angres.
     Automatically Remove Video Meta Files: Fjern metadata automatisk fra videoer
+    Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette
+      spilleliste
   Subscription Settings:
     Subscription Settings: 'Abonnementsinnstillinger'
     Hide Videos on Watch: 'Skjul sette videoer'
@@ -856,6 +859,9 @@ Tooltips:
       å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og
       venstreklikk på musen for å gå tilbake til fovalgt avspillingshastighet (1x
       med minde det har blitt endret i innstillingene).
+    Allow DASH AV1 formats: DASH AV1-formater kan ha bedre kvalitet enn DASH H.264
+      -formater. DASH AV1-formater krever dog mer regnekraft for avspilling. Ikke
+      tilgjengelig for alle videoer, og i sådant fall bruker avspilleren DASH H.264-formater.
   Privacy Settings:
     Remove Video Meta Files: Hvis denne instillingen er på, vil FreeTube automatisk
       slette metadata generert under videoavspilling når du lukker avspillingsiden.
