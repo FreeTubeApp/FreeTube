@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { DBProfileHandlers } from '../../../datastores/handlers/index'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
-
-export const profilesStore = defineStore('profiles', {
+import { useSettingsStore } from './settings'
+export const useProfilesStore = defineStore('profiles', {
   state: () => {
     return {
       profileList: [{
@@ -67,9 +67,9 @@ export const profilesStore = defineStore('profiles', {
       profiles = profiles.sort(profileSort)
 
       if (this.profileList.length < profiles.length) {
+        const defaultProf = useSettingsStore().defaultProfile
         const profile = profiles.find((profile) => {
-          // todo: import defaultProfile from settings store
-          return profile._id === rootState.settings.defaultProfile
+          return profile._id === defaultProf
         })
 
         if (profile) {

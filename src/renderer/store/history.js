@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { DBHistoryHandlers } from '../../datastores/handlers/index'
-export const historyStore = defineStore('history', {
+export const useHistoryStore = defineStore('history', {
   state: () => {
     return {
       historyCache: []

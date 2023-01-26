@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
-export const playlistsStore = defineStore('playlists', {
+export const usePlaylistsStore = defineStore('playlists', {
   state: () => {
     return {
       playlists: [

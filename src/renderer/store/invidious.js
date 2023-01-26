@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import fs from 'fs/promises'
 import { pathExists } from '../../helpers/filesystem'
 
-export const invidiousStore = defineStore('invidious', {
+export const useInvidiousStore = defineStore('invidious', {
   state: () => {
     return {
       currentInvidiousInstance: '',

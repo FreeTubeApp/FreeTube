@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-export const subscriptionsStore = defineStore('subscriptions', {
+export const useSubscriptionsStore = defineStore('subscriptions', {
   state: () => {
     return {
       allSubscriptionsList: [],

@@ -3,8 +3,9 @@ import { DBSettingHandlers } from '../../../datastores/handlers/index'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import i18n from '../../i18n/index'
 import { getSystemLocale, showToast } from '../../helpers/utils'
-
-export const settingsStore = defineStore('settings', {
+import { useInvidiousStore } from './invidious'
+import { useUtilsStore } from './utils'
+export const useSettingsStore = defineStore('settings', {
   state: () => {
     return {
       autoplayPlaylists: true,
@@ -126,6 +127,78 @@ export const settingsStore = defineStore('settings', {
       fetchSubscriptionsAutomatically: true,
       settingsPassword: '',
       allowDashAv1Formats: false,
+      defaultInvidiousInstance: '',
+      defaultVolume: 1,
+      uiScale: 100,
+      currentLocale: 'en-US'
+    }
+  },
+  actions: {
+    async setCurrentLocale(value) {
+      const defaultLocale = 'en-US'
+      let targetLocale = value
+      if (value === 'system') {
+        const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
+        const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
+        const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
+          const localeLang = locale.replace('-', '_').split('_')[0]
+          return localeLang.includes(systemLocaleLang)
+        }).sort((a, b) => {
+          const aLocaleName = a.replace('-', '_')
+          const bLocaleName = b.replace('-', '_')
+          const aLocale = aLocaleName.split('_') // ex: [en, US]
+          const bLocale = bLocaleName.split('_')
+          if (aLocale.includes(systemLocaleName)) { // country & language match, prefer a
+            return -1
+          } else if (bLocale.includes(systemLocaleName)) { // country & language match, prefer b
+            return 1
+          } else if (aLocale.length === 1) { // no country code for a, prefer a
+            return -1
+          } else if (bLocale.length === 1) { // no country code for b, prefer b
+            return 1
+          } else { // a & b have different country code from system, sort alphabetically
+            return aLocaleName.localeCompare(bLocaleName)
+          }
+        })
+        if (targetLocaleOptions.length > 0) {
+          targetLocale = targetLocaleOptions[0]
+        }
+
+        // Go back to default value if locale is unavailable
+        if (!targetLocale) {
+          targetLocale = defaultLocale
+          // Translating this string isn't necessary
+          // because the user will always see it in the default locale
+          // (in this case, English (US))
+          showToast(`Locale not found, defaulting to ${defaultLocale}`)
+        }
+      }
+
+      await i18n.loadLocale(targetLocale)
+
+      i18n.locale = targetLocale
+      const utilsStore = useUtilsStore()
+      await utilsStore.getRegionData({ locale: targetLocale })
+    },
+
+    setDefaultInvidiousInstance(value) {
+      const invidiousStore = useInvidiousStore()
+      this.defaultInvidiousInstance = ''
+      if (value !== '' && invidiousStore.currentInvidiousInstance !== value) {
+        invidiousStore.setCurrentInvidiousInstance(value)
+      }
+    },
+    setDefaultVolume(value) {
+      this.defaultVolume = value
+      sessionStorage.setItem('volume', value)
+    },
+
+    setUIScale(value) {
+      this.uiScale = value
+      if (process.env.IS_ELECTRON) {
+        const { webFrame } = require('electron')
+        webFrame.setZoomFactor(value / 100)
+      }
     }
   }
 })

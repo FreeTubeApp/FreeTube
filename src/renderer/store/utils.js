@@ -15,8 +15,9 @@ import {
   showToast
 } from '../../helpers/utils'
 import { defineStore } from 'pinia'
+import { useSettingsStore } from './settings'
 
-export const utilsStore = defineStore('utils', {
+export const useUtilsStore = defineStore('utils', {
   state: () => {
     return {
       isSideNavOpen: false,
@@ -55,7 +56,8 @@ export const utilsStore = defineStore('utils', {
 
       const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
       const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
-      let folderPath = rootState.settings.downloadFolderPath
+      const settingsStore = useSettingsStore()
+      let folderPath = settingsStore.downloadFolderPath
 
       if (folderPath === '') {
         const options = {
@@ -133,7 +135,8 @@ export const utilsStore = defineStore('utils', {
 
     parseScreenshotCustomFileName: function(payload) {
       return new Promise((resolve, reject) => {
-        const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
+        const settingsStore = useSettingsStore()
+        const { pattern = settingsStore.screenshotFilenamePattern, date, playerTime, videoId } = payload
         const keywords = [
           ['%Y', date.getFullYear()], // year 4 digits
           ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
@@ -417,14 +420,15 @@ export const utilsStore = defineStore('utils', {
     },
 
     openInExternalPlayer (payload) {
+      const settingsStore = useSettingsStore()
       const args = []
-      const externalPlayer = rootState.settings.externalPlayer
+      const externalPlayer = settingsStore.externalPlayer
       const cmdArgs = this.externalPlayerCmdArguments[externalPlayer]
-      const executable = rootState.settings.externalPlayerExecutable !== ''
-        ? rootState.settings.externalPlayerExecutable
+      const executable = settingsStore.externalPlayerExecutable !== ''
+        ? settingsStore.externalPlayerExecutable
         : cmdArgs.defaultExecutable
-      const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
-      const customArgs = rootState.settings.externalPlayerCustomArgs
+      const ignoreWarnings = settingsStore.externalPlayerIgnoreWarnings
+      const customArgs = settingsStore.externalPlayerCustomArgs
 
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
