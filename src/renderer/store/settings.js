@@ -73,6 +73,7 @@ export const useSettingsStore = defineStore('settings', {
       rememberHistory: true,
       removeVideoMetaFiles: true,
       saveWatchedProgress: true,
+      saveVideoHistoryWithLastViewedPlaylist: true,
       showFamilyFriendlyOnly: false,
       sponsorBlockShowSkippedToast: true,
       sponsorBlockUrl: 'https://sponsor.ajay.app',

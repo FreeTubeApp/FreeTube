@@ -88,6 +88,21 @@ export const useHistoryStore = defineStore('history', {
           break
         }
       }
-    }
+    },
+
+    async updateLastViewedPlaylist({ videoId, playlistId }) {
+      try {
+        await DBHistoryHandlers.updateLastViewedPlaylist(videoId, playlistId)
+        const i = this.historyCache.findIndex((currentRecord) => {
+          return currentRecord.videoId === videoId
+        })
+
+        const targetRecord = Object.assign({}, this.historyCache[i])
+        targetRecord.lastViewedPlaylistId = playlistId
+        this.historyCache.splice(i, 1, targetRecord)
+      } catch (errMessage) {
+        console.error(errMessage)
+      }
+    },
   }
 })
