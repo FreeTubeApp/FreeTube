@@ -1,11 +1,11 @@
 import { defineComponent } from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
-import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
+import { useHistoryStore, useInvidiousStore, usePlaylistsStore, useProfilesStore, useSettingsStore, useUtilsStore } from '../../store'
 import ytch from 'yt-channel-info'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
@@ -26,6 +26,15 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-prompt': FtPrompt
   },
+  setup() {
+    const historyStore = useHistoryStore()
+    const invidiousStore = useInvidiousStore()
+    const playlistStore = usePlaylistsStore()
+    const profileStore = useProfilesStore()
+    const settingsStore = useSettingsStore()
+    const utilsStore = useUtilsStore()
+    return { historyStore, invidiousStore, playlistStore, profileStore, settingsStore, utilsStore }
+  },
   data: function () {
     return {
       showImportSubscriptionsPrompt: false,
@@ -41,28 +50,28 @@ export default defineComponent({
   },
   computed: {
     rememberHistory: function () {
-      return this.$store.getters.getRememberHistory
+      return this.settingsStore.rememberHistory
     },
     saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
+      return this.settingsStore.saveWatchedProgress
     },
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      return this.settingsStore.backendPreference
     },
     backendFallback: function () {
-      return this.$store.getters.getBackendFallback
+      return this.settingsStore.backendFallback
     },
     currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+      return this.invidiousStore.currentInvidiousInstance
     },
     profileList: function () {
-      return this.$store.getters.getProfileList
+      return this.profileStore.profileList
     },
     allPlaylists: function () {
-      return this.$store.getters.getAllPlaylists
+      return this.playlistStore.playlists
     },
     historyCache: function () {
-      return this.$store.getters.getHistoryCache
+      return this.historyStore.historyCache
     },
     exportSubscriptionsPromptNames: function () {
       const exportFreeTube = this.$t('Settings.Data Settings.Export FreeTube')
@@ -75,9 +84,6 @@ export default defineComponent({
         `${exportYouTube} (.opml)`,
         `${exportNewPipe} (.json)`
       ]
-    },
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
     },
     primaryProfile: function () {
       return JSON.parse(JSON.stringify(this.profileList[0]))
@@ -178,7 +184,7 @@ export default defineComponent({
 
               return profileIndex === index
             })
-            this.updateProfile(this.primaryProfile)
+            this.profileStore.updateProfile(this.primaryProfile)
           } else {
             const existingProfileIndex = this.profileList.findIndex((profile) => {
               return profile.name.includes(profileObject.name)
@@ -194,9 +200,9 @@ export default defineComponent({
 
                 return profileIndex === index
               })
-              this.updateProfile(existingProfile)
+              this.profileStore.updateProfile(existingProfile)
             } else {
-              this.updateProfile(profileObject)
+              this.profileStore.updateProfile(profileObject)
             }
 
             this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(profileObject.subscriptions)
@@ -207,7 +213,7 @@ export default defineComponent({
 
               return profileIndex === index
             })
-            this.updateProfile(this.primaryProfile)
+            this.profileStore.updateProfile(this.primaryProfile)
           }
         }
       })
@@ -224,8 +230,8 @@ export default defineComponent({
 
       showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
-      this.updateShowProgressBar(true)
-      this.setProgressBarPercentage(0)
+      this.utilsStore.updateShowProgressBar(true)
+      this.utilsStore.setProgressBarPercentage(0)
       let count = 0
 
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
@@ -262,7 +268,7 @@ export default defineComponent({
         })
       }).then(_ => {
         this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
-        this.updateProfile(this.primaryProfile)
+        this.profileStore.updateProfile(this.primaryProfile)
         if (errorList.length !== 0) {
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
@@ -272,7 +278,7 @@ export default defineComponent({
           showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
         }
       }).finally(_ => {
-        this.updateShowProgressBar(false)
+        this.utilsStore.updateShowProgressBar(false)
       })
     },
 
@@ -282,8 +288,8 @@ export default defineComponent({
 
       showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
-      this.updateShowProgressBar(true)
-      this.setProgressBarPercentage(0)
+      this.utilsStore.updateShowProgressBar(true)
+      this.utilsStore.setProgressBarPercentage(0)
 
       let count = 0
       new Promise((resolve) => {
@@ -315,7 +321,7 @@ export default defineComponent({
         })
       }).then(_ => {
         this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
-        this.updateProfile(this.primaryProfile)
+        this.profileStore.updateProfile(this.primaryProfile)
         if (errorList.length !== 0) {
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
@@ -325,7 +331,7 @@ export default defineComponent({
           showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
         }
       }).finally(_ => {
-        this.updateShowProgressBar(false)
+        this.utilsStore.updateShowProgressBar(false)
       })
     },
 
@@ -366,8 +372,8 @@ export default defineComponent({
 
       showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
-      this.updateShowProgressBar(true)
-      this.setProgressBarPercentage(0)
+      this.utilsStore.updateShowProgressBar(true)
+      this.utilsStore.setProgressBarPercentage(0)
 
       let count = 0
 
@@ -406,11 +412,11 @@ export default defineComponent({
         count++
 
         const progressPercentage = (count / feedData.length) * 100
-        this.setProgressBarPercentage(progressPercentage)
+        this.utilsStore.setProgressBarPercentage(progressPercentage)
 
         if (count === feedData.length) {
           this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
-          this.updateProfile(this.primaryProfile)
+          this.profileStore.updateProfile(this.primaryProfile)
 
           if (subscriptions.length < count) {
             showToast(this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported'))
@@ -418,7 +424,7 @@ export default defineComponent({
             showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
           }
 
-          this.updateShowProgressBar(false)
+          this.utilsStore.updateShowProgressBar(false)
         }
       })
     },
@@ -439,8 +445,8 @@ export default defineComponent({
 
       showToast(this.$t('Settings.Data Settings.This might take a while, please wait'))
 
-      this.updateShowProgressBar(true)
-      this.setProgressBarPercentage(0)
+      this.utilsStore.updateShowProgressBar(true)
+      this.utilsStore.setProgressBarPercentage(0)
 
       let count = 0
 
@@ -468,7 +474,7 @@ export default defineComponent({
         })
       }).then(_ => {
         this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
-        this.updateProfile(this.primaryProfile)
+        this.profileStore.updateProfile(this.primaryProfile)
         if (errorList.count > 0) {
           errorList.forEach(e => { // log it to console for now, dedicated tab for 'error' channels needed
             console.error(`failed to import ${e[2]}. Url to channel: ${e[1]}.`)
@@ -478,7 +484,7 @@ export default defineComponent({
           showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
         }
       }).finally(_ => {
-        this.updateShowProgressBar(false)
+        this.utilsStore.updateShowProgressBar(false)
       })
     },
 
@@ -798,7 +804,7 @@ export default defineComponent({
         if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
           showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
         } else {
-          this.updateHistory(historyObject)
+          this.historyCache.updateHistory(historyObject)
         }
       })
 
@@ -939,11 +945,11 @@ export default defineComponent({
                   videoData: video
                 }
 
-                this.addVideo(payload)
+                this.playlistStore.addVideo(payload)
               }
             })
           } else {
-            this.addPlaylist(playlistObject)
+            this.playlistStore.addPlaylist(playlistObject)
           }
         }
       })
@@ -1100,7 +1106,7 @@ export default defineComponent({
         result = -1
       }
       const progressPercentage = (count / (total - 1)) * 100
-      this.setProgressBarPercentage(progressPercentage)
+      this.utilsStore.setProgressBarPercentage(progressPercentage)
       return { subscription, result }
     },
 
@@ -1114,20 +1120,6 @@ export default defineComponent({
         return sub.id === channelId
       }) !== -1
       return subExists || subDuplicateExists
-    },
-
-    ...mapActions([
-      'updateProfile',
-      'compactProfiles',
-      'updateShowProgressBar',
-      'updateHistory',
-      'compactHistory',
-      'addPlaylist',
-      'addVideo'
-    ]),
-
-    ...mapMutations([
-      'setProgressBarPercentage'
-    ])
+    }
   }
 })
