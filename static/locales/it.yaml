@@ -272,6 +272,7 @@ Settings:
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta scorrendo il lettore video
+    Allow DASH AV1 formats: Consenti formati DASH AV1
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -885,6 +886,10 @@ Tooltips:
       nelle impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
+    Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
+      formati DASH H.264. I formati DASH AV1 richiedono più potenza per la riproduzione!
+      Non sono disponibili su tutti i video, in questo caso il lettore utilizzerà
+      invece i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il

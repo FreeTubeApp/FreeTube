@@ -272,6 +272,7 @@ Settings:
       orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
+    Allow DASH AV1 formats: Zezwól na format AV1 DASH
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -907,6 +908,10 @@ Tooltips:
       wartości (1x, chyba że została zmieniona w ustawieniach).
     Skip by Scrolling Over Video Player: Użyj kółka myszy, by przewijać film tak jak
       w MPV.
+    Allow DASH AV1 formats: Film w formacie AV1 DASH może wyglądać lepiej, niż w formacie
+      H.264 DASH. Dekodowanie formatu AV1 DASH wymaga większej mocy obliczeniowej.
+      W filmach, dla których ten format nie jest dostępny, zostanie użyty format H.264
+      DASH.
   Privacy Settings:
     Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
       utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.

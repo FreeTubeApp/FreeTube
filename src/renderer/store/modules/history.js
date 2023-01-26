@@ -56,6 +56,15 @@ const actions = {
     }
   },
 
+  async updateLastViewedPlaylist({ commit }, { videoId, playlistId }) {
+    try {
+      await DBHistoryHandlers.updateLastViewedPlaylist(videoId, playlistId)
+      commit('updateRecordLastViewedPlaylistIdInHistoryCache', { videoId, playlistId })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   compactHistory(_) {
     DBHistoryHandlers.persist()
   }
@@ -92,6 +101,16 @@ const mutations = {
 
     const targetRecord = Object.assign({}, state.historyCache[i])
     targetRecord.watchProgress = watchProgress
+    state.historyCache.splice(i, 1, targetRecord)
+  },
+
+  updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, playlistId }) {
+    const i = state.historyCache.findIndex((currentRecord) => {
+      return currentRecord.videoId === videoId
+    })
+
+    const targetRecord = Object.assign({}, state.historyCache[i])
+    targetRecord.lastViewedPlaylistId = playlistId
     state.historyCache.splice(i, 1, targetRecord)
   },
 

@@ -35,6 +35,7 @@
       <ft-element-list
         v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
+        :show-video-with-last-viewed-playlist="true"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

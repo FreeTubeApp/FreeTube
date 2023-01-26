@@ -277,6 +277,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Переходити в повноекранний режим за обертання
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
+    Allow DASH AV1 formats: Дозволити формат DASH AV1
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -836,6 +837,10 @@ Tooltips:
       в налаштуваннях).
     Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування
       відео в стилі MPV.
+    Allow DASH AV1 formats: Формати DASH AV1 можуть виглядати краще, ніж формати DASH
+      H.264. Формати DASH AV1 вимагають більше енергії для відтворення! Вони доступні
+      не для всіх відео, у таких випадках програвач буде використовувати формати DASH
+      H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
       стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню
