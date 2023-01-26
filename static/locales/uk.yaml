@@ -294,6 +294,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Справді
       хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
     Automatically Remove Video Meta Files: Автоматично вилучати метафайли відео
+    Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео в добірку,
+      яку ви переглядали останнім часом
   Subscription Settings:
     Subscription Settings: 'Налаштування підписки'
     Hide Videos on Watch: 'Ховати відео при перегляді'
