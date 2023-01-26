@@ -270,6 +270,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir el desplazarse sobre el reproductor
       de video
+    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -287,6 +288,8 @@ Settings:
       que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
     Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
       de vídeos
+    Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última
+      lista de reproducción vista
   Subscription Settings:
     Subscription Settings: 'Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
@@ -878,6 +881,10 @@ Tooltips:
       ajustes).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
       el video, estilo MPV.
+    Allow DASH AV1 formats: Los formatos DASH AV1 pueden verse mejor que los formatos
+      DASH H.264. ¡Los formatos DASH AV1 requieren más potencia para reproducirse!
+      No están disponibles en todos los videos, en esos casos el reproductor usará
+      los formatos DASH H.264 en su lugar.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
