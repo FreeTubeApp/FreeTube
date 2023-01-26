@@ -30,11 +30,11 @@ Close: 'Zapri'
 Back: 'Nazaj'
 Forward: 'Naprej'
 
-Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica {versionNumber}!·  Za
-  več podrobnosti kliknite tukaj'
+Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica
+  {versionNumber}!·  Za več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'
-A new blog is now available, {blogTitle}. Click to view more: 'Na voljo je nov članek, {blogTitle}. Kliknite
-  tukaj, če ga želite prebrati'
+A new blog is now available, {blogTitle}. Click to view more: 'Na voljo je nov članek,
+  {blogTitle}. Kliknite tukaj, če ga želite prebrati'
 
 # Search Bar
 Search / Go to URL: 'Išči/pojdi na URL naslov'
@@ -85,8 +85,16 @@ Subscriptions:
     profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo
     uporabljen RSS
   Load More Videos: Naloži več videoposnetkov
+  Error Channels: Kanali z napakami
+  Disabled Automatic Fetching: Onemogočili ste samodejno pridobivanje seznama naročnin.
+    Osvežite seznam naročnin, da jih vidite tukaj.
+  Empty Channels: Vaši naročeni kanali trenutno nimajo nobenega novega videoposnetka.
 Trending:
   Trending: 'Priljubljeno'
+  Default: Privzeto
+  Music: Glasba
+  Gaming: Igre
+  Movies: Filmi
 Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
 User Playlists:
@@ -98,11 +106,17 @@ User Playlists:
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Nimate
     shranjenih videoposnetkov. Kliknite na gumb Shrani v kotu videoposnetka, da bo
     ta dodan tukaj
+  Search bar placeholder: Iskanje v seznamu predvajanja
+  Empty Search Message: Na tem seznamu predvajanja ni videoposnetkov, ki bi ustrezali
+    vašemu iskanju
 History:
   # On History Page
   History: 'Zgodovina'
   Watch History: 'Zgodovina predvajanj'
   Your history list is currently empty.: 'Seznam vaše zgodovine je trenutno prazen.'
+  Search bar placeholder: Išči v zgodovini
+  Empty Search Message: V vaši zgodovini ni videoposnetkov, ki bi ustrezali vašemu
+    iskanju
 Settings:
   # On Settings Page
   Settings: 'Nastavitve'
@@ -135,6 +149,12 @@ Settings:
     Region for Trending: 'Regija za priljubljene videoposnetke'
         #! List countries
     View all Invidious instance information: Prikaži vse podatke o Invidious domeni
+    System Default: Sistemsko privzeto
+    External Link Handling:
+      External Link Handling: Ravnanje z zunanjimi povezavami
+      Open Link: Odpri povezavo
+      Ask Before Opening Link: Vprašaj pred odpiranjem povezave
+      No Action: Brez dejanja
   Theme Settings:
     Theme Settings: 'Nastavitve tem'
     Match Top Bar with Main Color: 'Uskladi zgornji trak z glavno barvo'
@@ -144,6 +164,8 @@ Settings:
       Dark: 'Temna'
       Light: 'Svetla'
       Dracula: 'Drakula'
+      Catppuccin Mocha: Catppuccin Mocha
+      System Default: Sistemsko privzeto
     Main Color Theme:
       Main Color Theme: 'Glavna barvna tema'
       Red: 'Rdeča'
@@ -169,11 +191,27 @@ Settings:
       Dracula Purple: 'Drakula Vijolična'
       Dracula Red: 'Drakula Rdeča'
       Dracula Yellow: 'Drakula Rumena'
+      Catppuccin Mocha Red: Catppuccin Mocha rdeča
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Maroon: Catppuccin Mocha kostanjeva
+      Catppuccin Mocha Pink: Catppuccin Mocha roza
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Yellow: Catppuccin Mocha rumena
+      Catppuccin Mocha Green: Catppuccin Mocha zelena
+      Catppuccin Mocha Teal: Catppuccin Mocha zelenomodra
+      Catppuccin Mocha Blue: Catppuccin Mocha modra
+      Catppuccin Mocha Sky: Catppuccin Mocha nebo
+      Catppuccin Mocha Peach: Catppuccin Mocha breskev
+      Catppuccin Mocha Lavender: Catppuccin Mocha sivka
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safir
     Secondary Color Theme: 'Sekundarna barvna tema'
         #* Main Color Theme
     UI Scale: Merilo uporabniškega vmesnika
     Disable Smooth Scrolling: Izklopi gladko drsenje
     Expand Side Bar by Default: Prevzeto razširi stransko vrstico
+    Hide FreeTube Header Logo: Skrij logotip v glavi FreeTube
+    Hide Side Bar Labels: Skrij oznake na stranski vrstici
   Player Settings:
     Player Settings: 'Nastavitve predvajalnika'
     Force Local Backend for Legacy Formats: 'Vedno uporabi lokalni zaledni sistem
@@ -204,6 +242,27 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Razmik med videoposnetki v seznamu predvajanja
+    Screenshot:
+      File Name Tooltip: Spodaj lahko uporabite spremenljivke. %Y leto 4 števke. %M
+        mesec 2 števki. %D dan 2 števki. %H ura 2 števki. %N minuta 2 števki. %S sekunda
+        2 števki. %T milisekunda 3 števke. %s video sekunda. %t Video milisekunda
+        3 števke. %i ID videa. Za ustvarjanje podmap lahko uporabite tudi "\" ali
+        "/".
+      Enable: Omogoči posnetek zaslona
+      Format Label: Format posnetka zaslona
+      Error:
+        Empty File Name: Prazno ime datoteke
+        Forbidden Characters: Prepovedani znaki
+      Quality Label: Kakovost posnetka zaslona
+      Folder Label: Mapa posnetkov zaslona
+      Folder Button: Izberi mapo
+      File Name Label: Vzorec imena datoteke
+    Enter Fullscreen on Display Rotate: Pri vrtenju zaslona vstopite v celozaslonski
+      način
+    Allow DASH AV1 formats: Dovoli oblike DASH AV1
+    Next Video Interval: Interval do naslednjega videa
+    Display Play Button In Video Player: Prikaz gumba za predvajanje v video predvajalniku
+    Fast-Forward / Rewind Interval: Interval za hitro previjanje naprej/nazaj
   Privacy Settings:
     Privacy Settings: 'Nastavitve zasebnosti'
     Remember History: 'Zapomni si zgodovino'
@@ -220,6 +279,9 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ste
       prepričani, da želite izbrisati vse naročnine in profile?·  Te odločitve ni
       mogoče razveljaviti.'
+    Save Watched Videos With Last Viewed Playlist: Shrani gledane videoposnetke z
+      nazadnje ogledanim seznamom predvajanja
+    Automatically Remove Video Meta Files: Samodejno izbriši meta datoteke videoposnetkov
   Subscription Settings:
     Subscription Settings: 'Nastavitve naročnin'
     Hide Videos on Watch: 'Skrij gledane videoposnetke'
@@ -302,6 +364,13 @@ Settings:
     Distraction Free Settings: Brezmotenjske nastavitve
     Hide Active Subscriptions: Skrij aktivne naročnine
     Hide Playlists: Skrij sezname predvajanja
+    Hide Comments: Skrij komentarje
+    Hide Chapters: Skrij poglavja
+    Hide Channels Placeholder: Ime ali ID kanala
+    Hide Live Streams: Skrij prenose v živo
+    Hide Channels: Skrij videoposnetke iz kanalov
+    Hide Video Description: Skrij opis videoposnetka
+    Hide Upcoming Premieres: Skrij prihajajoče premiere
   The app needs to restart for changes to take effect. Restart and apply change?: Program
     se mora ponovno zagnati, preden bodo spremembe uveljavljene. Ga želite ponovno
     zagnati zdaj?
@@ -322,6 +391,8 @@ Settings:
     Proxy Host: Gostitelj namestnika
     Proxy Protocol: Protokol namestnika
     Enable Tor / Proxy: Vklopi Tor/namestnik
+  External Player Settings:
+    External Player: Zunanji predvajalnik
 About:
   #On About page
   About: 'O programu'
@@ -398,8 +469,8 @@ Profile:
   Your profile name cannot be empty: 'Ime profila ne sme biti prazno'
   Profile has been created: 'Profil je bil ustvarjen'
   Profile has been updated: 'Profil je bil posodobljen'
-  Your default profile has been set to {profile}: 'Vaš prevzeti profil je bil nastavljen na
-    {profile}'
+  Your default profile has been set to {profile}: 'Vaš prevzeti profil je bil nastavljen
+    na {profile}'
   Removed {profile} from your profiles: 'Profil {profile} je bil izbrisan'
   Your default profile has been changed to your primary profile: 'Vaš prevzeti profil
     je bil nastavljen na vaš primarni profil'
@@ -416,10 +487,9 @@ Profile:
     same channels will be deleted in any profile they are found in.
   : 'To je vaš primarni profil.·  Ste prepričani, da želite izbrisati označene kanale?·  Kanali
     bodo izbrisani v vseh profilih, kjer se nahajajo.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ste
-    prepričani, da želite izbrisati označene kanale?
-
-    ·  Kanali ne bodo izbrisani iz drugih profilov.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ali
+    ste prepričani, da želite izbrisati označene kanale?  Kanali ne bodo izbrisani
+    iz drugih profilov.'
 #On Channel Page
   Profile Filter: Filter profilov
 Channel:
@@ -429,8 +499,8 @@ Channel:
   Unsubscribe: 'Prekini naročnino'
   Channel has been removed from your subscriptions: 'Kanal je bil odstranjen iz vaših
     naročnin'
-  Removed subscription from {count} other channel(s): 'Naročnina je bila prekinjena v {count}
-    kanalih'
+  Removed subscription from {count} other channel(s): 'Naročnina je bila prekinjena
+    v {count} kanalih'
   Added channel to your subscriptions: 'Kanal je bil dodan v vaše naročnine'
   Search Channel: 'Preišči kanal'
   Your search results have returned 0 results: 'Najdenih ni bilo nobenih rezultatov'
@@ -490,10 +560,9 @@ Video:
     pa se je neposredni prenos že končal.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Pogovor v živo
     je vklopljen.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Pogovor
-    v živo trenutno ni podprt v Invidious APV.
-
-    ·  Potrebna je neposredna povezava z YouTubom.'
+  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Klepet
+    v živo trenutno ni podprt v Invidious APV.  Potrebna je neposredna povezava z
+    YouTubom.'
   Published:
     Jan: 'jan.'
     Feb: 'feb.'
@@ -507,20 +576,20 @@ Video:
     Oct: 'okt.'
     Nov: 'nov.'
     Dec: 'dec.'
-    Second: 'sek.'
-    Seconds: 'sek.'
-    Minute: 'min.'
-    Minutes: 'min.'
+    Second: 'sekunda'
+    Seconds: 'sekunde'
+    Minute: 'minuta'
+    Minutes: 'minute'
     Hour: 'h'
     Hours: 'h'
     Day: 'd'
     Days: 'd'
     Week: 'ted.'
-    Weeks: 'ted.'
-    Month: 'mes.'
-    Months: 'mes.'
+    Weeks: 'tedni'
+    Month: 'mesec'
+    Months: 'meseci'
     Year: 'let.'
-    Years: 'let.'
+    Years: 'leta'
     Ago: 'Nazaj'
     Upcoming: 'Kmalu bo objavljeno'
   Published on: 'Objavljeno dne'
@@ -633,7 +702,7 @@ Playing next video in 5 seconds.  Click to cancel: 'Naslednji videoposnetek čez
   sekund. Kliknite za preklic.'
 Canceled next video autoplay: 'Samodejno predvajanje preklicano'
 'The playlist has ended.  Enable loop to continue playing': "Seznama predvajanja je\
-  \ konec. \n·  Vklopite ponovno predvajanje, če želite nadaljevati"
+  \ konec.  Vklopite ponovno predvajanje, če želite nadaljevati"
 
 Yes: 'Da'
 No: 'Ne'
@@ -643,3 +712,24 @@ Tooltips:
     Preferred API Backend: Izberite zaledje, ki ga FreeTube uporablja za pridobivanje
       podatkov. Lokalni APV je vgrajeni . Invidious APV za delovanje potrebuje Invidious
       strežnik.
+  Subscription Settings:
+    Fetch Feeds from RSS: Ko je omogočeno, bo FreeTube namesto privzete metode uporabljal
+      RSS za pridobivanje vašega vira naročnin. RSS je hitrejši in preprečuje blokiranje
+      IP-ja, vendar ne zagotavlja določenih informacij, kot je trajanje videa ali
+      status stanja v živo
+New Window: Novo okno
+Channels:
+  Channels: Kanali
+  Title: Seznam kanalov
+  Search bar placeholder: Išči kanale
+  Empty: Vaš seznam kanalov je trenutno prazen.
+  Unsubscribe: Prekini naročnino
+  Count: Najdenih {number} kanalov.
+  Unsubscribed: '{channelName} je bil odstranjen iz vašega seznama kanalov'
+  Unsubscribe Prompt: Ali ste prepričani, da želite prekiniti naročnino od "{channelName}"?
+Are you sure you want to open this link?: Ali ste prepričani, da želite odpreti to
+  povezavo?
+Preferences: Nastavitve
+Search Bar:
+  Clear Input: Izbriši vnos
+Open New Window: Odpri novo okno
