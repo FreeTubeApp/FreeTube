@@ -856,6 +856,9 @@ Tooltips:
       בהגדרות).
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
       כמו ב־MPV.
+    Allow DASH AV1 formats: תצורות DASH AV1 עשויות להיראות טוב יותר מתצורות DASH H.264.
+      תצורות DASH AV1 דורשות יותר חשמל כדי לנגן! הן אינן זמינות בכל הסרטונים, במקרים
+      האלה הנגן ישתמש בתצורות DASH H.264 במקום.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
