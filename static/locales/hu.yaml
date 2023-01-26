@@ -279,6 +279,7 @@ Settings:
     Video Playback Rate Interval: Videó lejátszási sebesség időköze
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
+    Allow DASH AV1 formats: DASH AV1 formátumok engedélyezése
   Privacy Settings:
     Privacy Settings: 'Adatvédelmi beállítások'
     Remember History: 'Előzmények megjegyzése'
@@ -295,6 +296,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
       törli az összes feliratkozást és profilt? A művelet nem vonható vissza.'
     Automatically Remove Video Meta Files: Videométafájlok önműködő eltávolítása
+    Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
+      utoljára megtekintett lejátszási listával
   Subscription Settings:
     Subscription Settings: 'Feliratkozás beállításai'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
@@ -891,6 +894,10 @@ Tooltips:
       (1x, hacsak nem módosították a beállításokban).
     Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja
       a videót.
+    Allow DASH AV1 formats: A DASH AV1 formátumok jobban nézhetnek ki, mint a DASH
+      H.264 formátumok. A DASH AV1 formátumok több energiát igényelnek a lejátszáshoz!
+      Nem minden videónál érhetők el, ilyenkor a lejátszó a DASH H.264 formátumot
+      használja helyette.
   Privacy Settings:
     Remove Video Meta Files: Ha engedélyezve van, a SzabadCső önműködően törli a videolejátszás
       során létrehozott metafájlokat, amikor a videómegtekintő oldal bezárul.
