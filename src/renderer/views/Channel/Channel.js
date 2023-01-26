@@ -586,18 +586,17 @@ export default defineComponent({
     getCommunityPostsInvidious: function() {
       invidiousGetCommunityPosts(this.id).then(posts => {
         this.latestCommunityPosts = posts
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getCommunityPostsLocal()
+        }
       })
-      // .catch((err) => {
-      //   console.error(err)
-      //   const errorMessage = this.$t('Invidious API Error (Click to copy)')
-      //   showToast(`${errorMessage}: ${err}`, 10000, () => {
-      //     copyToClipboard(err)
-      //   })
-      //   if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-      //     showToast(this.$t('Falling back to Local API'))
-      //     this.getCommunityPostsLocal()
-      //   }
-      // })
     },
 
     handleSubscription: function () {

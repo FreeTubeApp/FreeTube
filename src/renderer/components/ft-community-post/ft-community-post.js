@@ -88,6 +88,13 @@ export default Vue.extend({
           thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
           return thumbnail
         })
+      } else {
+        authorThumbnails = authorThumbnails.map(thumbnail => {
+          if (thumbnail.url.startsWith('//')) {
+            thumbnail.url = 'https:' + thumbnail.url
+          }
+          return thumbnail
+        })
       }
       this.authorThumbnails = authorThumbnails
       this.postContent = this.data.postContent

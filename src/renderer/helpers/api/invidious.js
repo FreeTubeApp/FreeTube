@@ -134,8 +134,7 @@ function parseInvidiousCommunityData(data) {
     voteCount: data.likeCount,
     postContent: parseInvidiousCommunityAttachments(data.attachment),
     commentCount: null,
-    // workaround for invidious bug where the name is not shown (we'll show channel handle instead)
-    author: isNullOrEmpty(data.author) ? data.authorUrl.substring(1) : data.author,
+    author: data.author,
     type: 'community'
   }
 }
