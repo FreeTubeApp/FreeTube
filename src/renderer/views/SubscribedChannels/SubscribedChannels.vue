@@ -48,28 +48,17 @@
             >
               {{ channel.name }}
             </router-link>
-            <div
+            <ft-subscribe-button
               v-if="!hideUnsubscribeButton"
-              class="unsubscribeContainer"
-            >
-              <ft-button
-                :label="$t('Channels.Unsubscribe')"
-                background-color="var(--search-bar-color)"
-                text-color="var(--secondary-text-color)"
-                @click="handleUnsubscribeButtonClick(channel)"
-              />
-            </div>
+              :channel-id="channel.id"
+              :channel-name="channel.name"
+              :channel-thumbnail="channel.thumbnail"
+              :is-subscribed="true"
+            />
           </div>
         </ft-flex-box>
       </template>
     </ft-card>
-    <ft-prompt
-      v-if="showUnsubscribePrompt"
-      :label="$t('Channels.Unsubscribe Prompt', { channelName: channelToUnsubscribe.name })"
-      :option-names="unsubscribePromptNames"
-      :option-values="unsubscribePromptValues"
-      @click="handleUnsubscribePromptClick"
-    />
   </div>
 </template>
 

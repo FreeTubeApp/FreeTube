@@ -5,8 +5,8 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
+import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import ytch from 'yt-channel-info'
-import { showToast } from '../../helpers/utils'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -16,7 +16,8 @@ export default defineComponent({
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-input': FtInput,
-    'ft-prompt': FtPrompt
+    'ft-prompt': FtPrompt,
+    'ft-subscribe-button': FtSubscribeButton
   },
   data: function () {
     return {
@@ -121,45 +122,6 @@ export default defineComponent({
       })
     },
 
-    handleUnsubscribeButtonClick: function(channel) {
-      this.channelToUnsubscribe = channel
-      this.showUnsubscribePrompt = true
-    },
-
-    handleUnsubscribePromptClick: function(value) {
-      this.showUnsubscribePrompt = false
-      if (value !== 'yes') {
-        this.channelToUnsubscribe = null
-        return
-      }
-      this.unsubscribeChannel()
-    },
-
-    unsubscribeChannel: function () {
-      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
-      let index = currentProfile.subscriptions.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      currentProfile.subscriptions.splice(index, 1)
-
-      this.updateProfile(currentProfile)
-      showToast(this.$t('Channels.Unsubscribed', { channelName: this.channelToUnsubscribe.name }))
-
-      index = this.subscribedChannels.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      this.subscribedChannels.splice(index, 1)
-
-      index = this.filteredChannels.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      if (index !== -1) {
-        this.filteredChannels.splice(index, 1)
-      }
-
-      this.channelToUnsubscribe = null
-    },
-
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
       if (new URL(originalURL).hostname === 'yt3.ggpht.com') {
@@ -184,7 +146,7 @@ export default defineComponent({
         setTimeout(() => {
           ytch.getChannelInfo({ channelId: channel.id }).then(response => {
             this.updateSubscriptionDetails({
-              channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
+              channelThumbnailUrl: response.authorThumbnails[0].url,
               channelName: channel.name,
               channelId: channel.id
             })
@@ -194,7 +156,7 @@ export default defineComponent({
         setTimeout(() => {
           invidiousGetChannelInfo(channel.id).then(response => {
             this.updateSubscriptionDetails({
-              channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
+              channelThumbnailUrl: response.authorThumbnails[0].url,
               channelName: channel.name,
               channelId: channel.id
             })
@@ -204,7 +166,6 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateProfile',
       'updateSubscriptionDetails',
     ])
   }

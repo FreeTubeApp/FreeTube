@@ -66,7 +66,6 @@
               :channel-name="channelName"
               :channel-thumbnail="thumbnailUrl"
               :is-subscribed="isSubscribed"
-              :subscribed-text="subscribedText"
             />
           </div>
         </div>

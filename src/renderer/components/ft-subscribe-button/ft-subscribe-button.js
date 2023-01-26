@@ -28,14 +28,16 @@ export default Vue.extend({
       type: Boolean,
       required: true
     },
-    subscribedText: {
+    subscriptionCountText: {
+      default: '',
       type: String,
-      required: true
+      required: false
     }
   },
   data: function () {
     return {
-      showProfiles: false
+      showProfiles: false,
+      subscribedText: ''
     }
   },
   computed: {
@@ -78,6 +80,13 @@ export default Vue.extend({
         return channelIndex === -1
       })
     }
+  },
+  mounted: function() {
+    let subscribedValue = (this.isSubscribed ? this.$t('Channel.Unsubscribe') : this.$t('Channel.Subscribe')).toUpperCase()
+    if (this.subscriptionCountText !== '') {
+      subscribedValue += ' ' + this.subscriptionCountText
+    }
+    this.subscribedText = subscribedValue
   },
   methods: {
     subscribe: function (profile, subscribe = true, event) {

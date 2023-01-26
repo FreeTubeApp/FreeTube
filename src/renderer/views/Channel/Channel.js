@@ -120,14 +120,6 @@ export default defineComponent({
       return this.subscriptionInfo !== null
     },
 
-    subscribedText: function () {
-      if (this.isSubscribed) {
-        return this.$t('Channel.Unsubscribe').toUpperCase()
-      } else {
-        return this.$t('Channel.Subscribe').toUpperCase()
-      }
-    },
-
     videoSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),

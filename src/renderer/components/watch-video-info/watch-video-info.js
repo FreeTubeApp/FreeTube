@@ -255,14 +255,6 @@ export default defineComponent({
       }
     },
 
-    subscribedText: function () {
-      if (this.isSubscribed) {
-        return `${this.$t('Channel.Unsubscribe').toUpperCase()} ${this.subscriptionCountText}`
-      } else {
-        return `${this.$t('Channel.Subscribe').toUpperCase()} ${this.subscriptionCountText}`
-      }
-    },
-
     dateString() {
       const date = new Date(this.published)
       const localeDateString = new Intl.DateTimeFormat([this.currentLocale, 'en'], { dateStyle: 'medium' }).format(date)
