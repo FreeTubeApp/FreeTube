@@ -1947,7 +1947,7 @@ export default defineComponent({
             const currentTime = this.player.currentTime()
             let nearestSegment = null
             this.skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
-              if (currentTime >= endTime && (nearestSegment === null || nearestSegment[1] < endTime)) {
+              if (this.sponsorSkips.autoSkip[category] && currentTime >= endTime && (nearestSegment === null || nearestSegment[1] < endTime)) {
                 nearestSegment = [startTime, endTime]
               }
             })
