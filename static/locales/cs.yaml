@@ -274,6 +274,7 @@ Settings:
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Přeskočení posouváním na přehrávači videa
+    Allow DASH AV1 formats: Povolit formáty DASH AV1
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -290,6 +291,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Opravdu
       chcete odstranit všechny odběry a profily? Tato akce je nevratná.'
     Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
+    Save Watched Videos With Last Viewed Playlist: Uložit zhlédnutá videa s naposledy
+      zobrazeným playlistem
   Subscription Settings:
     Subscription Settings: 'Nastavení odběrů'
     Hide Videos on Watch: 'Skrýt přehraná videa'
@@ -840,6 +843,9 @@ Tooltips:
       není změněná v nastavení).
     Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat
       ve stylu MPV.
+    Allow DASH AV1 formats: Formáty DASH AV1 mohou vypadat lépe než formáty DASH H.264,
+      vyžadují ale k přehrávání větší výkon! Nejsou k dispozici u všech videí, v těchto
+      případech přehrávač místo nich použije formáty DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale
