@@ -279,6 +279,7 @@ Settings:
       Folder Label: Dossier de capture d'écran
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
+    Allow DASH AV1 formats: Autoriser les formats DASH AV1
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -338,6 +339,8 @@ Settings:
     Remove All Subscriptions / Profiles: Supprimer tous les Abonnements / Profils
     Automatically Remove Video Meta Files: Retirer automatiquement les métafichiers
       vidéo
+    Save Watched Videos With Last Viewed Playlist: Sauvegarder les vidéos regardées
+      avec la dernière liste de lecture vue
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés
@@ -918,6 +921,10 @@ Tooltips:
       de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer
       d'une vidéo à l'autre, en style MPV.
+    Allow DASH AV1 formats: Les formats DASH AV1 peuvent être plus beaux que les formats
+      DASH H.264. Les formats DASH AV1 nécessitent plus de puissance pour être lus !
+      Ils ne sont pas disponibles sur toutes les vidéos, dans ce cas le lecteur utilisera
+      les formats DASH H.264 à la place.
   General Settings:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
