@@ -56,4 +56,13 @@
     box-sizing: border-box;
     width: 100%;
   }
+
+  :deep(.videoThumbnail) {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  :deep(.thumbnailImage) {
+    max-width: 35vw;
+  }
 }
