@@ -37,31 +37,32 @@
 
     <hr>
 
-    <router-link
-      class="playlistChannel"
-      :to="`/channel/${channelId}`"
+    <div
+      class="channelShareWrapper"
     >
-      <img
-        class="channelThumbnail"
-        :src="channelThumbnail"
-        alt=""
+      <router-link
+        class="playlistChannel"
+        :to="`/channel/${channelId}`"
       >
-      <h3
-        class="channelName"
-      >
-        {{ channelName }}
-      </h3>
-    </router-link>
+        <img
+          class="channelThumbnail"
+          :src="channelThumbnail"
+          alt=""
+        >
+        <h3
+          class="channelName"
+        >
+          {{ channelName }}
+        </h3>
+      </router-link>
 
-    <br>
-
-    <ft-list-dropdown
-      v-if="!hideSharingActions"
-      :title="$t('Playlist.Share Playlist.Share Playlist')"
-      :label-names="shareHeaders"
-      :label-values="shareValues"
-      @click="sharePlaylist"
-    />
+      <ft-share-button
+        v-if="!hideSharingActions"
+        :id="id"
+        :dropdown-position-y="description ? 'top' : 'bottom'"
+        share-target-type="Playlist"
+      />
+    </div>
   </div>
 </template>
 

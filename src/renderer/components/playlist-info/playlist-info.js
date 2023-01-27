@@ -1,11 +1,11 @@
 import { defineComponent } from 'vue'
-import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
+import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlaylistInfo',
   components: {
-    'ft-list-dropdown': FtListDropdown
+    'ft-share-button': FtShareButton
   },
   props: {
     data: {

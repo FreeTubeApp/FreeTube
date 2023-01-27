@@ -7,6 +7,7 @@
   >
     <ft-card
       class="promptCard"
+      :class="{ autosize }"
       :aria-labelledby="('dialog-' + sanitizedLabel)"
     >
       <slot>

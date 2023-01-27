@@ -4,7 +4,9 @@
     :title="$t(`Share.Share ${shareTargetType}`)"
     :theme="isVideo?'secondary':'base-no-default'"
     :icon="['fas', 'share-alt']"
+    :dropdown-modal-on-mobile="true"
     dropdown-position-x="left"
+    :dropdown-position-y="dropdownPositionY"
     :force-dropdown="true"
   >
     <ft-flex-box>

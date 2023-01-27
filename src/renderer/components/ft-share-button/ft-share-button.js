@@ -34,6 +34,10 @@ export default defineComponent({
     getTimestamp: {
       type: Function,
       default: null
+    },
+    dropdownPositionY: {
+      type: String,
+      default: 'bottom'
     }
   },
   data: function () {
@@ -44,6 +48,10 @@ export default defineComponent({
   computed: {
     isChannel: function() {
       return this.shareTargetType === 'Channel'
+    },
+
+    isPlaylist: function () {
+      return this.shareTargetType === 'Playlist'
     },
 
     isVideo: function() {
@@ -57,6 +65,9 @@ export default defineComponent({
     invidiousURL() {
       if (this.isChannel) {
         return `${this.currentInvidiousInstance}/channel/${this.id}`
+      }
+      if (this.isPlaylist) {
+        return `${this.currentInvidiousInstance}/playlist?list=${this.id}`
       }
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
@@ -75,9 +86,16 @@ export default defineComponent({
       return `https://www.youtube.com/channel/${this.id}`
     },
 
+    youtubePlaylistUrl() {
+      return `https://youtube.com/playlist?list=${this.id}`
+    },
+
     youtubeURL() {
       if (this.isChannel) {
         return this.youtubeChannelUrl
+      }
+      if (this.isPlaylist) {
+        return this.youtubePlaylistUrl
       }
       let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
       // `playlistId` can be undefined
@@ -91,6 +109,9 @@ export default defineComponent({
     youtubeShareURL() {
       if (this.isChannel) {
         return this.youtubeChannelUrl
+      }
+      if (this.isPlaylist) {
+        return this.youtubePlaylistUrl
       }
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
@@ -157,7 +178,7 @@ export default defineComponent({
     },
 
     getFinalUrl(url) {
-      if (this.isChannel) {
+      if (this.isChannel || this.isPlaylist) {
         return url
       }
       if (url.indexOf('?') === -1) {
