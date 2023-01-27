@@ -329,6 +329,8 @@ Settings:
       kann nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abonnements / Profile löschen
     Automatically Remove Video Meta Files: Meta-Dateien von Videos automatisch löschen
+    Save Watched Videos With Last Viewed Playlist: Gesehene Videos mit der zuletzt
+      gesehenen Wiedergabeliste speichern
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Unknown data key: Unbekannter Datenschlüssel
