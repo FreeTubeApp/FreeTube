@@ -64,7 +64,7 @@ export const useProfilesStore = defineStore('profiles', {
 
       // We want the primary profile to always be first
       // So sort with that then sort alphabetically by profile name
-      profiles = profiles.sort(profileSort)
+      profiles.sort(profileSort)
 
       if (this.profileList.length < profiles.length) {
         const defaultProf = useSettingsStore().defaultProfile
