@@ -268,6 +268,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
+    Allow DASH AV1 formats: Разрешить форматы DASH AV1
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -325,6 +326,8 @@ Settings:
       удаление всех подписок и учётных записей?  Невозможно отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
     Automatically Remove Video Meta Files: Автоудаление метафайлов видео
+    Save Watched Videos With Last Viewed Playlist: Сохранить просмотренные видео с
+      последней просмотренной подборкой
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
@@ -895,6 +898,10 @@ Tooltips:
       не была изменена в настройках).
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
       видео в стиле MPV.
+    Allow DASH AV1 formats: Форматы DASH AV1 могут выглядеть лучше, чем форматы DASH
+      H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
+      Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
+      будет использовать форматы DASH H.264.
   Privacy Settings:
     Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
       метаданные, созданные во время воспроизведения видео, когда страница просмотра
