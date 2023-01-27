@@ -270,6 +270,7 @@ Settings:
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoplayer
+    Allow DASH AV1 formats: DASH AV1-Formate zulassen
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -922,6 +923,10 @@ Tooltips:
       zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwenden Sie das Scrollrad, um durch das
       Video zu springen, MPV-Stil.
+    Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
+      Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
+      bei allen Videos verfügbar. In diesen Fällen verwendet der Player stattdessen
+      die DASH H.264-Formate.
   Privacy Settings:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
