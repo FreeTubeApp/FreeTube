@@ -155,6 +155,14 @@ Settings:
       Open Link: Odpri povezavo
       Ask Before Opening Link: Vprašaj pred odpiranjem povezave
       No Action: Brez dejanja
+    Current Invidious Instance: Trenutna Invidious instanca
+    No default instance has been set: Nastavljena ni nobena privzeta instanca
+    Clear Default Instance: Izbriši privzeto instanco
+    Current instance will be randomized on startup: Trenutna instanca bo ob zagonu
+      naključno izbrana
+    Set Current Instance as Default: Nastavi trenutno instanco kot privzeto
+    The currently set default instance is {instance}: Trenutno nastavljena privzeta
+      instanca je {instance}
   Theme Settings:
     Theme Settings: 'Nastavitve tem'
     Match Top Bar with Main Color: 'Uskladi zgornji trak z glavno barvo'
@@ -263,6 +271,7 @@ Settings:
     Next Video Interval: Interval do naslednjega videa
     Display Play Button In Video Player: Prikaz gumba za predvajanje v video predvajalniku
     Fast-Forward / Rewind Interval: Interval za hitro previjanje naprej/nazaj
+    Video Playback Rate Interval: Interval hitrosti predvajanja videa
   Privacy Settings:
     Privacy Settings: 'Nastavitve zasebnosti'
     Remember History: 'Zapomni si zgodovino'
@@ -393,6 +402,11 @@ Settings:
     Enable Tor / Proxy: Vklopi Tor/namestnik
   External Player Settings:
     External Player: Zunanji predvajalnik
+    External Player Settings: Nastavitve zunanjega predvajalnika
+    Players:
+      None:
+        Name: nobenega
+    Ignore Unsupported Action Warnings: Prezri opozorila o nepodprtih dejanjih
 About:
   #On About page
   About: 'O programu'
