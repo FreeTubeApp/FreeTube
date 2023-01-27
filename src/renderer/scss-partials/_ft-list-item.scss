@@ -61,7 +61,7 @@ $watched-transition-duration: 0.5s;
 
     .thumbnailImage {
       opacity: 0.3;
-      transition-duration: $watched-transition-duration;
+      transition: opacity $watched-transition-duration;
     }
 
     &:hover .thumbnailImage,
