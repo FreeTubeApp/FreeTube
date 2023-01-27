@@ -1030,7 +1030,8 @@ function runApp() {
     // add support for authority free url
       .replace('freetube:', '')
 
-    // fix for QT Url
+    // fix for Qt URL, like `freetube://https//www.youtube.com/watch?v=...`
+    // For details see https://github.com/FreeTubeApp/FreeTube/pull/3119
     if (newArg.startsWith('https') && !newArg.charAt(5) !== ':') {
       newArg = 'https:' + newArg.substring(5)
     }
