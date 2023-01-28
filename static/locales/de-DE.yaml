@@ -263,10 +263,10 @@ Settings:
       Error:
         Forbidden Characters: Verbotene Zeichen
         Empty File Name: Leerer Dateiname
-      File Name Tooltip: Sie können die folgenden Variablen verwenden. %Y Jahr 4-stellig.
+      File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig.
         %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
-        Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
+        Millisekunde 3 Ziffern. %i Video-ID. Du kannst auch \ oder / verwenden, um
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoplayer
@@ -923,8 +923,8 @@ Tooltips:
       zu steuern. Halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
       klicken Sie mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit
       zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
-    Skip by Scrolling Over Video Player: Verwenden Sie das Scrollrad, um durch das
-      Video zu springen, MPV-Stil.
+    Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
+      zu springen, MPV-Stil.
     Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
       Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
       bei allen Videos verfügbar. In diesen Fällen verwendet der Player stattdessen
@@ -990,7 +990,7 @@ Channels:
   Title: Kanalliste
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
-  Empty: Ihre Kanalliste ist derzeit leer.
+  Empty: Deine Kanalliste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abonnements entfernt'
   Unsubscribe Prompt: Bist du sicher, dass du „{channelName}“ aus dem Abos entfernen
