@@ -48,7 +48,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
@@ -58,7 +58,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
@@ -96,7 +96,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"
@@ -106,7 +106,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"

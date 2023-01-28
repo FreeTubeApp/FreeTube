@@ -79,6 +79,9 @@ export default defineComponent({
     },
 
     invidiousEmbedURL() {
+      if (this.isPlaylist) {
+        return `${this.currentInvidiousInstance}/embed/videoseries?list=${this.id}`
+      }
       return `${this.currentInvidiousInstance}/embed/${this.id}`
     },
 
@@ -122,6 +125,9 @@ export default defineComponent({
     },
 
     youtubeEmbedURL() {
+      if (this.isPlaylist) {
+        return `https://www.youtube-nocookie.com/embed/videoseries?list=${this.id}`
+      }
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     }
   },
