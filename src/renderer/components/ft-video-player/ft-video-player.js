@@ -113,8 +113,6 @@ export default defineComponent({
       skipSponsors: true,
       // countdown before actually skipping sponsor segments
       skipCountdown: 1,
-      // sponsor segments
-      skipSegments: null,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -586,11 +584,10 @@ export default defineComponent({
           if (skipSegments.length === 0) {
             return
           }
-          this.skipSegments = skipSegments
 
           this.player.ready(() => {
             this.player.on('timeupdate', () => {
-              this.skipSponsorBlocks()
+              this.skipSponsorBlocks(skipSegments)
             })
 
             this.player.on('seeking', () => {
@@ -613,12 +610,12 @@ export default defineComponent({
         })
     },
 
-    skipSponsorBlocks() {
+    skipSponsorBlocks(skipSegments) {
       const currentTime = this.player.currentTime()
       const duration = this.player.duration()
       let newTime = null
       let skippedCategory = null
-      this.skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
+      skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
         if (startTime <= currentTime && currentTime < endTime) {
           newTime = endTime
           skippedCategory = category
@@ -1941,22 +1938,6 @@ export default defineComponent({
               this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
             }
             break
-          case 'b':
-          case 'B': {
-            // Go back to the previous sponsor segment
-            const currentTime = this.player.currentTime()
-            let nearestSegment = null
-            this.skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
-              if (this.sponsorSkips.autoSkip[category] && currentTime >= endTime && (nearestSegment === null || nearestSegment[1] < endTime)) {
-                nearestSegment = [startTime, endTime]
-              }
-            })
-            if (nearestSegment !== null) {
-              this.skipSponsors = false
-              this.player.currentTime(nearestSegment[0])
-            }
-            break
-          }
           case 'I':
           case 'i':
             event.preventDefault()
