@@ -276,6 +276,7 @@ Settings:
       Folder Button: Избор на папка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
+    Allow DASH AV1 formats: Разрешаване на форматите DASH AV1
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -293,6 +294,8 @@ Settings:
       ли сте, че искате да премахнете всички абонаменти и профили? Това не може да
       бъде възстановено.'
     Automatically Remove Video Meta Files: Автоматично премахване на видео метафайловете
+    Save Watched Videos With Last Viewed Playlist: Запазване на гледани видеа с последно
+      гледан плейлист
   Subscription Settings:
     Subscription Settings: 'Настройки на абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
@@ -871,6 +874,10 @@ Tooltips:
       (1x, освен ако не е променена в настройките).
     Skip by Scrolling Over Video Player: Използване колелцето на мишката за превъртане
       на видео в стил MPV.
+    Allow DASH AV1 formats: Форматите DASH AV1 може да изглеждат по-добре от DASH
+      H.264. DASH AV1 форматите изискват повече енергия за възпроизвеждане! Те не
+      са налични за всички видеа, като в тези случаи плейърът ще използва DASH H.264
+      вместо тях.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
       избере страната, за която това се отнася. Не всички страни показани тук се поддържат
