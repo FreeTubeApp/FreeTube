@@ -8,49 +8,49 @@
           :label="$t('Settings.Distraction Free Settings.Hide Video Views')"
           :compact="true"
           :default-value="hideVideoViews"
-          @change="updateHideVideoViews"
+          @change="settingsStore.hideVideoViews = !settingsStore.hideVideoViews"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
           :compact="true"
           :default-value="hideVideoLikesAndDislikes"
-          @change="updateHideVideoLikesAndDislikes"
+          @change="settingsStore.hideVideoLikesAndDislikes = !settingsStore.hideVideoLikesAndDislikes"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
           :compact="true"
           :default-value="hideChannelSubscriptions"
-          @change="updateHideChannelSubscriptions"
+          @change="settingsStore.hideChannelSubscriptions = !settingsStore.hideChannelSubscriptions"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Comment Likes')"
           :compact="true"
           :default-value="hideCommentLikes"
-          @change="updateHideCommentLikes"
+          @change="settingsStore.hideCommentLikes = !settingsStore.hideCommentLikes"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
           :compact="true"
           :default-value="hideActiveSubscriptions"
-          @change="updateHideActiveSubscriptions"
+          @change="settingsStore.hideActiveSubscriptions = !settingsStore.hideActiveSubscriptions"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Video Description')"
           :compact="true"
           :default-value="hideVideoDescription"
-          @change="updateHideVideoDescription"
+          @change="settingsStore.hideVideoDescription = !settingsStore.hideVideoDescription"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
           :compact="true"
           :default-value="hideSharingActions"
-          @change="updateHideSharingActions"
+          @change="settingsStore.hideSharingActions = !settingsStore.hideSharingActions"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Chapters')"
           :compact="true"
           :default-value="hideChapters"
-          @change="updateHideChapters"
+          @change="settingsStore.hideChapters = !settingsStore.hideChapters"
         />
       </div>
       <div class="switchColumn">
@@ -64,49 +64,49 @@
           :label="$t('Settings.Distraction Free Settings.Hide Trending Videos')"
           :compact="true"
           :default-value="hideTrendingVideos"
-          @change="updateHideTrendingVideos"
+          @change="settingsStore.hideTrendingVideos = !settingsStore.hideTrendingVideos"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Popular Videos')"
           :compact="true"
           :default-value="hidePopularVideos"
-          @change="updateHidePopularVideos"
+          @change="settingsStore.hidePopularVideos = !settingsStore.hidePopularVideos"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Playlists')"
           :compact="true"
           :default-value="hidePlaylists"
-          @change="updateHidePlaylists"
+          @change="settingsStore.hidePlaylists = !settingsStore.hidePlaylists"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Live Chat')"
           :compact="true"
           :default-value="hideLiveChat"
-          @change="updateHideLiveChat"
+          @change="settingsStore.hideLiveChat = !settingsStore.hideLiveChat"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
           :compact="true"
           :default-value="hideLiveStreams"
-          @change="updateHideLiveStreams"
+          @change="settingsStore.hideLiveStreams = !settingsStore.hideLiveStreams"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
           :compact="true"
           :default-value="hideUpcomingPremieres"
-          @change="updateHideUpcomingPremieres"
+          @change="settingsStore.hideUpcomingPremieres = !settingsStore.hideUpcomingPremieres"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Comments')"
           :compact="true"
           :default-value="hideComments"
-          @change="updateHideComments"
+          @change="settingsStore.hideComments = !settingsStore.hideComments"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
           :compact="true"
           :default-value="showDistractionFreeTitles"
-          @change="updateShowDistractionFreeTitles"
+          @change="settingsStore.showDistractionFreeTitles = !settingsStore.showDistractionFreeTitles"
         />
       </div>
     </div>

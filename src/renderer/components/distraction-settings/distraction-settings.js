@@ -1,9 +1,9 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import { useSettingsStore } from '../../store'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -13,98 +13,79 @@ export default defineComponent({
     'ft-input-tags': FtInputTags,
     'ft-flex-box': FtFlexBox
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    return { settingsStore }
+  },
   computed: {
     hideVideoViews: function () {
-      return this.$store.getters.getHideVideoViews
+      return this.settingsStore.hideVideoViews
     },
     hideVideoLikesAndDislikes: function () {
-      return this.$store.getters.getHideVideoLikesAndDislikes
+      return this.settingsStore.hideVideoLikesAndDislikes
     },
     hideChannelSubscriptions: function () {
-      return this.$store.getters.getHideChannelSubscriptions
+      return this.settingsStore.hideChannelSubscriptions
     },
     hideCommentLikes: function () {
-      return this.$store.getters.getHideCommentLikes
+      return this.settingsStore.hideCommentLikes
     },
     hideRecommendedVideos: function () {
-      return this.$store.getters.getHideRecommendedVideos
+      return this.settingsStore.hideRecommendedVideos
     },
     hideTrendingVideos: function () {
-      return this.$store.getters.getHideTrendingVideos
+      return this.settingsStore.hideTrendingVideos
     },
     hidePopularVideos: function () {
-      return this.$store.getters.getHidePopularVideos
+      return this.settingsStore.hidePopularVideos
     },
     hidePlaylists: function () {
-      return this.$store.getters.getHidePlaylists
+      return this.settingsStore.hidePlaylists
     },
     hideLiveChat: function () {
-      return this.$store.getters.getHideLiveChat
+      return this.settingsStore.hideLiveChat
     },
     hideActiveSubscriptions: function () {
-      return this.$store.getters.getHideActiveSubscriptions
+      return this.settingsStore.hideActiveSubscriptions
     },
     hideVideoDescription: function () {
-      return this.$store.getters.getHideVideoDescription
+      return this.settingsStore.hideVideoDescription
     },
     hideComments: function () {
-      return this.$store.getters.getHideComments
+      return this.settingsStore.hideComments
     },
     hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
+      return this.settingsStore.hideLiveStreams
     },
     hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
+      return this.settingsStore.hideUpcomingPremieres
     },
     hideSharingActions: function () {
-      return this.$store.getters.getHideSharingActions
+      return this.settingsStore.hideSharingActions
     },
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      return this.settingsStore.backendPreference
     },
     hideChapters: function () {
-      return this.$store.getters.getHideChapters
+      return this.settingsStore.hideChapters
     },
     showDistractionFreeTitles: function () {
-      return this.$store.getters.getShowDistractionFreeTitles
+      return this.settingsStore.showDistractionFreeTitles
     },
     channelsHidden: function () {
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+      return JSON.parse(this.settingsStore.channelsHidden)
     }
   },
   methods: {
     handleHideRecommendedVideos: function (value) {
       if (value) {
-        this.updatePlayNextVideo(false)
+        this.settingsStore.playNextVideo = false
       }
-
-      this.updateHideRecommendedVideos(value)
+      this.settingsStore.hideRecommendedVideos = value
     },
+
     handleChannelsHidden: function(value) {
-      this.updateChannelsHidden(JSON.stringify(value))
-    },
-
-    ...mapActions([
-      'updateHideVideoViews',
-      'updateHideVideoLikesAndDislikes',
-      'updateHideChannelSubscriptions',
-      'updateHideCommentLikes',
-      'updateHideRecommendedVideos',
-      'updateHideTrendingVideos',
-      'updateHidePopularVideos',
-      'updateHidePlaylists',
-      'updateHideLiveChat',
-      'updateHideActiveSubscriptions',
-      'updatePlayNextVideo',
-      'updateDefaultTheatreMode',
-      'updateHideVideoDescription',
-      'updateHideComments',
-      'updateHideLiveStreams',
-      'updateHideUpcomingPremieres',
-      'updateHideSharingActions',
-      'updateHideChapters',
-      'updateChannelsHidden',
-      'updateShowDistractionFreeTitles'
-    ])
+      this.settingsStore.channelsHidden = JSON.stringify(value)
+    }
   }
 })
