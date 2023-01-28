@@ -43,7 +43,6 @@ export default defineComponent({
       bannerUrl: '',
       thumbnailUrl: '',
       subCount: 0,
-      latestVideosPage: 2,
       searchPage: 2,
       videoContinuationString: '',
       playlistContinuationString: '',
@@ -181,7 +180,6 @@ export default defineComponent({
       this.id = this.$route.params.id
       this.idType = this.$route.query.idType ? Number(this.$route.query.idType) : 0
       this.currentTab = this.$route.params.currentTab ?? 'videos'
-      this.latestVideosPage = 2
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
@@ -209,7 +207,6 @@ export default defineComponent({
           this.getChannelVideosLocal()
           break
         case 'invidious':
-          this.latestVideosPage = 1
           this.channelInvidiousVideos()
           break
         default:
