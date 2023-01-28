@@ -250,6 +250,7 @@ Settings:
       Folder Button: フォルダーの選択
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
     Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
+    Allow DASH AV1 formats: DASH AV1形式を許可する
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -300,6 +301,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Automatically Remove Video Meta Files: 動画のメタファイルの自動削除
+    Save Watched Videos With Last Viewed Playlist: 「最後に再生した」リストで視聴済み動画を保存
   Data Settings:
     How do I import my subscriptions?: 私の登録情報を取り込むにはどうしたらいいですか？
     Unknown data key: 不明なデータ キー
@@ -791,6 +793,8 @@ Tooltips:
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: スクロール ホイールを使用して、ビデオ、MPV スタイルをスキップします。
+    Allow DASH AV1 formats: DASH H.264形式よりDASH AV1形式の方がきれいに見える可能性があるけど、再生には必要な電力がより多い。全ての動画でDASH
+      AV1を利用できないため、プレイヤーはDASH H.264形式に自動変更する場合があります。
   General Settings:
     Invidious Instance: FreeTube が使用する Invidious API の接続先サーバーです。
     Preferred API Backend: FreeTube が youtube からデータを取得する方法を選択します。「内部 API」とはアプリから取得する方法です。「Invidious
