@@ -210,7 +210,7 @@ export default defineComponent({
           break
         case 'invidious':
           this.latestVideosPage = 1
-          this.channelInvidiousNextPage()
+          this.channelInvidiousVideos()
           break
         default:
           this.getChannelVideosLocal()
@@ -226,7 +226,7 @@ export default defineComponent({
           this.getPlaylistsLocal()
           break
         case 'invidious':
-          this.channelInvidiousNextPage()
+          this.getPlaylistsInvidious()
           break
         default:
           this.getPlaylistsLocal()
@@ -416,23 +416,23 @@ export default defineComponent({
       })
     },
 
-    channelInvidiousNextPage: function () {
+    channelInvidiousVideos: function (fetchMore) {
       const payload = {
         resource: 'channels/videos',
         id: this.id,
         params: {
           sort_by: this.videoSortBy,
-          page: this.latestVideosPage
         }
       }
+      if (fetchMore) payload.params.continuation = this.videoContinuationString
 
       invidiousAPICall(payload).then((response) => {
-        this.latestVideos = this.latestVideos.concat(response)
-        this.latestVideosPage++
+        this.latestVideos = this.latestVideos.concat(response.videos)
+        this.videoContinuationString = response.continuation
         this.isElementListLoading = false
       }).catch((err) => {
         console.error(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
@@ -629,7 +629,7 @@ export default defineComponent({
               this.channelLocalNextPage()
               break
             case 'invidious':
-              this.channelInvidiousNextPage()
+              this.channelInvidiousVideos(true)
               break
           }
           break
