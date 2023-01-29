@@ -643,7 +643,7 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            await this.createLocalStoryboardUrls(result.storyboards.boards[2])
+            await this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
           }
         }
 
@@ -1290,7 +1290,7 @@ export default defineComponent({
     },
 
     createLocalStoryboardUrls: async function (storyboardInfo) {
-      const results = buildVTTFileLocally(storyboardInfo)
+      const results = buildVTTFileLocally(storyboardInfo, this.videoLengthSeconds)
       const userData = await getUserDataPath()
       let fileLocation
       let uriSchema
