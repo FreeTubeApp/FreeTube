@@ -1,5 +1,7 @@
 <template>
-  <ft-card>
+  <ft-card
+    class="card"
+  >
     <h4
       v-if="commentData.length === 0 && !isLoading"
       class="getCommentsTitle"
@@ -33,6 +35,7 @@
     />
     <h3
       v-if="commentData.length > 0 && !isLoading && showComments"
+      class="commentsTitle"
     >
       {{ $t("Comments.Comments") }}
       <span
