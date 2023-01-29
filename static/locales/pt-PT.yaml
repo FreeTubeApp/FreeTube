@@ -274,6 +274,7 @@ Settings:
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Saltar por percorrer o leitor de vídeo
+    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: Definições de privacidade
     Remember History: Memorizar histórico
@@ -292,6 +293,8 @@ Settings:
       não pode ser revertida.
     Automatically Remove Video Meta Files: Remover automaticamente os meta ficheiros
       dos vídeos
+    Save Watched Videos With Last Viewed Playlist: Guardar Vídeos Vistos com a Última
+      Lista de Reprodução Visualizada
   Subscription Settings:
     Subscription Settings: Definições de subscrições
     Hide Videos on Watch: Ocultar vídeos visualizados
@@ -801,6 +804,10 @@ Tooltips:
       de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Use a roda de rolagem para saltar através
       do vídeo, estilo MPV.
+    Allow DASH AV1 formats: Os formatos DASH AV1 podem ter melhor aspeto do que os
+      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para a reprodução!
+      Não estão disponíveis em todos os vídeos, nesses casos o leitor utilizará em
+      vez disso os formatos DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Quando ativado, FreeTube irá obter as suas subscrições através
       de RSS em vez do método normal. O RSS é mais rápido e impede que seja bloqueado
