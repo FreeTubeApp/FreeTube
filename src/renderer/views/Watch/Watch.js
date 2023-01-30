@@ -951,7 +951,7 @@ export default defineComponent({
       const payload = {
         videoId: this.videoId,
         // Whether there is a playlist ID or not, save it
-        playlistId: this.$route.query?.playlistId,
+        lastViewedPlaylistId: this.$route.query?.playlistId,
       }
       this.updateLastViewedPlaylist(payload)
     },

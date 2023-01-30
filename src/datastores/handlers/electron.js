@@ -42,12 +42,12 @@ class History {
     )
   }
 
-  static updateLastViewedPlaylist(videoId, playlistId) {
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_HISTORY,
       {
         action: DBActions.HISTORY.UPDATE_PLAYLIST,
-        data: { videoId, playlistId }
+        data: { videoId, lastViewedPlaylistId }
       }
     )
   }
