@@ -267,6 +267,7 @@ Settings:
         criar subpastas.
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar a tela
     Skip by Scrolling Over Video Player: Pular rolando o tocador de vídeo
+    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Subscription Settings:
     Subscription Settings: 'Configurações de inscrições'
     Hide Videos on Watch: 'Esconder vídeos após assisti-los'
@@ -326,6 +327,8 @@ Settings:
     Remove All Subscriptions / Profiles: Remover Todas as Inscrições / Perfis
     Automatically Remove Video Meta Files: Remover automaticamente os metarquivos
       de vídeo
+    Save Watched Videos With Last Viewed Playlist: Salvar os vídeos vistos com a última
+      lista de reprodução vista
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -882,6 +885,10 @@ Tooltips:
       sido alterada nas configurações).
     Skip by Scrolling Over Video Player: Use a roda de rolagem para pular o vídeo,
       estilo MPV.
+    Allow DASH AV1 formats: Os formatos DASH AV1 podem ter melhor aspecto do que os
+      formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
+      Eles não estão disponíveis em todos os vídeos, e nesses casos o reprodutor usará
+      os formatos DASH H.264.
   General Settings:
     Region for Trending: A região de tendências lhe permite de escolher quais vídeos
       de tendências do país você quer exibir. Nem todos os países exibidos são realmente
