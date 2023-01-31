@@ -688,12 +688,6 @@ Playlist:
   View: 'Vaata'
   Views: 'vaatamist'
   Last Updated On: 'Viimati uuendatud'
-  Share Playlist:
-    Share Playlist: 'Jaga esitusloendit'
-    Copy YouTube Link: 'Kopeeri YouTube''i link'
-    Open in YouTube: 'Ava YouTube''is'
-    Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
-    Open in Invidious: 'Ava Invidious''e veebirakenduses'
 
 # On Video Watch Page
 #* Published
@@ -711,6 +705,7 @@ Change Format:
     jaoks saadaval'
 Share:
   Share Video: 'Jaga videot'
+  Share Playlist: 'Jaga esitusloendit'
   Include Timestamp: 'Lisa ajale järjehoidja'
   Copy Link: 'Kopeeri link'
   Open Link: 'Ava link'

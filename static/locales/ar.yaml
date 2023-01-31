@@ -741,12 +741,6 @@ Playlist:
   View: 'عرض'
   Views: 'مشاهدات'
   Last Updated On: 'تم إجراء التعديل الأخير في'
-  Share Playlist:
-    Share Playlist: 'مشاركة قائمة التشغيل'
-    Copy YouTube Link: '‫انسخ رابط اليوتيوب'
-    Open in YouTube: 'افتح في اليوتيوب'
-    Copy Invidious Link: 'انسخ رابط Invidious'
-    Open in Invidious: 'فتح في Invidious'
 
 # On Video Watch Page
 #* Published
@@ -762,6 +756,7 @@ Change Format:
   Dash formats are not available for this video: تنسيقات DASH غير متوفرة لهذا الفيديو
 Share:
   Share Video: 'شارك الفيديو'
+  Share Playlist: 'مشاركة قائمة التشغيل'
   Copy Link: 'انسخ الرابط'
   Open Link: 'افتح الرابط'
   Copy Embed: 'انسخ المُضمّن'

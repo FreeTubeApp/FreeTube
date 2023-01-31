@@ -580,12 +580,6 @@ Playlist:
   View: 'Pozrieť'
   Views: 'Zhliadnutí'
   Last Updated On: 'Posledná aktualizácia'
-  Share Playlist:
-    Share Playlist: 'Zdieľať zoznam videí'
-    Copy YouTube Link: 'Kopírovať YouTube odkaz'
-    Open in YouTube: 'Otvoriť v YouTube'
-    Copy Invidious Link: 'Kopírovať Invidious odkaz'
-    Open in Invidious: 'Otvoriť v Invidious'
 
 # On Video Watch Page
 #* Published
@@ -603,6 +597,7 @@ Change Format:
     zvukové formáty
 Share:
   Share Video: 'Zdieľať video'
+  Share Playlist: 'Zdieľať zoznam videí'
   Copy Link: 'Skopírovať odkaz'
   Open Link: 'Otvoriť odkaz'
   Copy Embed: 'Kopírovať Embed'

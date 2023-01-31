@@ -699,12 +699,6 @@ Playlist:
   View: 'Áhorf'
   Views: 'Áhorf'
   Last Updated On: 'Síðast uppfært'
-  Share Playlist:
-    Share Playlist: 'Deila spilunarlista'
-    Copy YouTube Link: 'Afrita YouTube-tengil'
-    Open in YouTube: 'Opna í YouTube'
-    Copy Invidious Link: 'Afrita Invidious-tengil'
-    Open in Invidious: 'Opna í Invidious'
 
 # On Video Watch Page
 #* Published
@@ -722,6 +716,7 @@ Change Format:
     fyrir þetta myndskeið'
 Share:
   Share Video: 'Deila myndskeiði'
+  Share Playlist: 'Deila spilunarlista'
   Include Timestamp: 'Hafa með tímamerki'
   Copy Link: 'Afrita tengil'
   Open Link: 'Opna tengil'

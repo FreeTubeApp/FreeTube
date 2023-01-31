@@ -25,13 +25,7 @@ export default defineComponent({
       viewCount: 0,
       lastUpdated: '',
       description: '',
-      infoSource: '',
-      shareValues: [
-        'copyYoutube',
-        'openYoutube',
-        'copyInvidious',
-        'openInvidious'
-      ]
+      infoSource: ''
     }
   },
   computed: {
@@ -53,15 +47,6 @@ export default defineComponent({
 
     hideViews: function () {
       return this.$store.getters.getHideVideoViews
-    },
-
-    shareHeaders: function () {
-      return [
-        this.$t('Playlist.Share Playlist.Copy YouTube Link'),
-        this.$t('Playlist.Share Playlist.Open in YouTube'),
-        this.$t('Playlist.Share Playlist.Copy Invidious Link'),
-        this.$t('Playlist.Share Playlist.Open in Invidious')
-      ]
     },
 
     thumbnail: function () {
