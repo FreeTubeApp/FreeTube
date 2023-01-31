@@ -96,12 +96,8 @@ export default defineComponent({
     isVideoOrMovieOrAll(type) {
       return type === 'video' || type === 'movie' || type === 'all'
     },
+
     updateSortBy: function (value) {
-      if (!this.isVideoOrMovieOrAll(this.searchSettings.type)) {
-        const typeRadio = this.$refs.typeRadio
-        typeRadio.updateSelectedValue('all')
-        this.$store.commit('setSearchType', 'all')
-      }
       this.$store.commit('setSearchSortBy', value)
       this.$emit('filterValueUpdated', this.filterValueChanged)
     },
