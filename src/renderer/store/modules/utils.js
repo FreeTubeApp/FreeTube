@@ -5,6 +5,7 @@ import i18n from '../../i18n/index'
 import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
 import {
+  CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
   openExternalLink,
@@ -14,6 +15,7 @@ import {
   showSaveDialog,
   showToast
 } from '../../helpers/utils'
+import { getLocalChannelId } from '../../helpers/api/local'
 
 const state = {
   isSideNavOpen: false,
@@ -261,7 +263,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  getYoutubeUrlInfo ({ state }, urlStr) {
+  async getYoutubeUrlInfo({ rootState, state }, { url: urlStr, resolveChannelUrl = false }) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -288,6 +290,14 @@ const actions = {
     //
     // If `urlType` is "invalid_url"
     // Nothing else
+
+    // Invidious doesn't support channel handles yet
+    if (process.env.IS_ELECTRON && (rootState.settings.backendPreference === 'local' || rootState.settings.backendFallback)) {
+      if (CHANNEL_HANDLE_REGEX.test(urlStr)) {
+        urlStr = `https://www.youtube.com/${urlStr}`
+      }
+    }
+
     const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
     if (videoId) {
       return {
@@ -309,7 +319,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
@@ -408,10 +418,20 @@ const actions = {
       */
       case 'channel': {
         const match = url.pathname.match(channelPattern)
-        const channelId = match.groups.channelId
-        const idType = ['channel', 'user', 'c'].indexOf(match.groups.type) + 1
+        let channelId = match.groups.channelId
         if (!channelId) {
           throw new Error('Channel: could not extract id')
+        }
+
+        if (process.env.IS_ELECTRON && resolveChannelUrl && (rootState.settings.backendPreference === 'local' || rootState.settings.backendFallback)) {
+          const resolvedChannelId = await getLocalChannelId(url.toString())
+
+          if (resolvedChannelId !== null) {
+            channelId = resolvedChannelId
+          } else {
+            // the channel page shows an error about the channel not existing when the id is @@@
+            channelId = '@@@'
+          }
         }
 
         let subPath = null
@@ -431,7 +451,6 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
-          idType,
           subPath
         }
       }

@@ -28,10 +28,16 @@
             class="thumbnailContainer"
           >
             <img
+              v-if="thumbnailUrl"
               class="channelThumbnail"
               :src="thumbnailUrl"
               alt=""
             >
+            <font-awesome-icon
+              v-else
+              class="channelThumbnail default"
+              :icon="['fas', 'circle-user']"
+            />
             <div
               class="channelLineContainer"
             >
@@ -54,13 +60,14 @@
 
           <div class="channelInfoActionsContainer">
             <ft-share-button
+              v-if="!errorMessage"
               :id="id"
               share-target-type="Channel"
               class="shareIcon"
             />
 
             <ft-button
-              v-if="!hideUnsubscribeButton"
+              v-if="!hideUnsubscribeButton && (!errorMessage || isSubscribed)"
               :label="subscribedText"
               background-color="var(--primary-color)"
               text-color="var(--text-with-main-color)"
@@ -138,14 +145,75 @@
         id="aboutPanel"
         class="aboutTab"
       >
-        <h2>
+        <h2
+          v-if="description"
+        >
           {{ $t("Channel.About.Channel Description") }}
         </h2>
         <div
+          v-if="description"
           class="aboutInfo"
-          v-html="channelDescription"
+          v-html="description"
         />
-        <br>
+        <h2>
+          {{ $t('Channel.About.Details') }}
+        </h2>
+        <table
+          class="aboutDetails"
+        >
+          <tr>
+            <th
+              scope="row"
+            >
+              {{ $t('Channel.About.Joined') }}
+            </th>
+            <td>{{ formattedJoined }}</td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+            >
+              {{ $t('Video.Views') }}
+            </th>
+            <td>{{ formattedViews }}</td>
+          </tr>
+          <tr
+            v-if="location"
+          >
+            <th
+              scope="row"
+            >
+              {{ $t('Channel.About.Location') }}
+            </th>
+            <td>{{ location }}</td>
+          </tr>
+        </table>
+        <h2
+          v-if="tags.length > 0"
+        >
+          {{ $t('Channel.About.Tags.Tags') }}
+        </h2>
+        <ul
+          v-if="tags.length > 0"
+          class="aboutTags"
+        >
+          <li
+            v-for="tag in tags"
+            :key="tag"
+            class="aboutTag"
+          >
+            <router-link
+              class="aboutTagLink"
+              :title="$t('Channel.About.Tags.Search for', { tag })"
+              :to="{
+                path: `/search/${encodeURIComponent(tag)}`,
+                query: searchSettings
+              }"
+            >
+              {{ tag }}
+            </router-link>
+          </li>
+        </ul>
         <h2
           v-if="relatedChannels.length > 0"
         >
@@ -157,16 +225,16 @@
           <ft-channel-bubble
             v-for="(channel, index) in relatedChannels"
             :key="index"
-            :channel-name="channel.author || channel.channelName"
-            :channel-id="channel.channelId"
-            :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
+            :channel-name="channel.name"
+            :channel-id="channel.id"
+            :channel-thumbnail="channel.thumbnailUrl"
             role="link"
             @click="goToChannel(channel.channelId)"
           />
         </ft-flex-box>
       </div>
       <ft-select
-        v-show="currentTab === 'videos'"
+        v-show="currentTab === 'videos' && latestVideos.length > 0"
         class="sortSelect"
         :value="videoSelectValues[0]"
         :select-names="videoSelectNames"
@@ -175,7 +243,7 @@
         @change="videoSortBy = $event"
       />
       <ft-select
-        v-show="currentTab === 'playlists'"
+        v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
         class="sortSelect"
         :value="playlistSelectValues[0]"
         :select-names="playlistSelectNames"

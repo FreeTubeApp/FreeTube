@@ -168,7 +168,7 @@ export default defineComponent({
 
       // Update action button icon according to input
       try {
-        this.getYoutubeUrlInfo(this.inputData).then((result) => {
+        this.getYoutubeUrlInfo({ url: this.inputData }).then((result) => {
           let isYoutubeLink = false
 
           switch (result.urlType) {

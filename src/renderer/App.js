@@ -374,7 +374,7 @@ export default defineComponent({
     },
 
     handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
-      this.getYoutubeUrlInfo(href).then((result) => {
+      this.getYoutubeUrlInfo({ url: href, resolveChannelUrl: true }).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp, playlistId } = result

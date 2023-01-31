@@ -119,7 +119,7 @@ export default defineComponent({
 
       clearLocalSearchSuggestionsSession()
 
-      this.getYoutubeUrlInfo(query).then((result) => {
+      this.getYoutubeUrlInfo({ url: query, resolveChannelUrl: true }).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp, playlistId } = result
@@ -175,11 +175,10 @@ export default defineComponent({
           }
 
           case 'channel': {
-            const { channelId, idType, subPath } = result
+            const { channelId, subPath } = result
 
             openInternalPath({
               path: `/channel/${channelId}/${subPath}`,
-              query: { idType },
               doCreateNewWindow
             })
             break
