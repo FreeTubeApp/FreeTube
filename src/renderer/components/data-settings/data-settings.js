@@ -5,7 +5,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-import { useHistoryStore, useInvidiousStore, usePlaylistsStore, useProfilesStore, useSettingsStore, useUtilsStore } from '../../store'
+import { useHistoryStore, useInvidiousStore, usePlaylistsStore, useProfilesStore, useSettingsStore, useUtilsStore } from '../../stores'
 import ytch from 'yt-channel-info'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {

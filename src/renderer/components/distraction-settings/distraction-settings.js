@@ -3,7 +3,7 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import { useSettingsStore } from '../../store'
+import { useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'PlayerSettings',
