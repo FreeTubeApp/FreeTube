@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { useUtilsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtNotificationBanner',
@@ -8,9 +9,13 @@ export default defineComponent({
       required: true
     }
   },
+  setup() {
+    const utilsStore = useUtilsStore()
+    return { utilsStore }
+  },
   computed: {
     progressBarPercentage: function () {
-      return this.$store.getters.getProgressBarPercentage
+      return this.utilsStore.progressBarPercentage
     }
   },
   methods: {

@@ -46,7 +46,7 @@ export const useInvidiousStore = defineStore('invidious', {
     setRandomCurrentInvidiousInstance() {
       const instanceList = this.invidiousInstancesList
       const randomIndex = Math.floor(Math.random() * instanceList.length)
-      this.setRandomCurrentInvidiousInstance(instanceList[randomIndex])
+      this.currentInvidiousInstance = instanceList[randomIndex]
     },
     setCurrentInvidiousInstance(value) {
       this.currentInvidiousInstance = value

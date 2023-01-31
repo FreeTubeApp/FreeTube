@@ -1,5 +1,5 @@
 import Vue, { defineComponent } from 'vue'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
@@ -13,7 +13,7 @@ import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
-
+import { useHistoryStore, useInvidiousStore, usePlaylistsStore, useProfilesStore, useSettingsStore, useUtilsStore } from './stores'
 let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
@@ -29,6 +29,15 @@ export default defineComponent({
     FtButton,
     FtToast,
     FtProgressBar
+  },
+  setup() {
+    const historyStore = useHistoryStore()
+    const invidiousStore = useInvidiousStore()
+    const playlistsStore = usePlaylistsStore()
+    const profilesStore = useProfilesStore()
+    const settingsStore = useSettingsStore()
+    const utilsStore = useUtilsStore()
+    return { historyStore, invidiousStore, playlistsStore, profilesStore, settingsStore, utilsStore }
   },
   data: function () {
     return {
@@ -52,25 +61,25 @@ export default defineComponent({
   },
   computed: {
     isOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
+      return this.utilsStore.isSideNavOpen
     },
     showProgressBar: function () {
-      return this.$store.getters.getShowProgressBar
+      return this.utilsStore.showProgressBar
     },
     isRightAligned: function () {
       return this.$i18n.locale === 'ar'
     },
     checkForUpdates: function () {
-      return this.$store.getters.getCheckForUpdates
+      return this.settingsStore.checkForUpdates
     },
     checkForBlogPosts: function () {
-      return this.$store.getters.getCheckForBlogPosts
+      return this.settingsStore.checkForBlogPosts
     },
     searchSettings: function () {
-      return this.$store.getters.getSearchSettings
+      return this.utilsStore.searchSettings
     },
     profileList: function () {
-      return this.$store.getters.getProfileList
+      return this.profilesStore.profileList
     },
     windowTitle: function () {
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
@@ -87,25 +96,25 @@ export default defineComponent({
       }
     },
     defaultProfile: function () {
-      return this.$store.getters.getDefaultProfile
+      return this.settingsStore.defaultProfile
     },
     externalPlayer: function () {
-      return this.$store.getters.getExternalPlayer
+      return this.settingsStore.externalPlayer
     },
     defaultInvidiousInstance: function () {
-      return this.$store.getters.getDefaultInvidiousInstance
+      return this.settingsStore.defaultInvidiousInstance
     },
 
     baseTheme: function () {
-      return this.$store.getters.getBaseTheme
+      return this.settingsStore.baseTheme
     },
 
     mainColor: function () {
-      return this.$store.getters.getMainColor
+      return this.settingsStore.mainColor
     },
 
     secColor: function () {
-      return this.$store.getters.getSecColor
+      return this.settingsStore.secColor
     },
 
     systemTheme: function () {
@@ -120,7 +129,7 @@ export default defineComponent({
     },
 
     externalLinkHandling: function () {
-      return this.$store.getters.getExternalLinkHandling
+      return this.settingsStore.externalLinkHandling
     }
   },
   watch: {
@@ -146,14 +155,14 @@ export default defineComponent({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances()
+      await this.invidiousStore.fetchInvidiousInstances()
       if (this.defaultInvidiousInstance === '') {
-        await this.setRandomCurrentInvidiousInstance()
+        this.invidiousStore.setRandomCurrentInvidiousInstance()
       }
 
-      this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
-        this.grabHistory()
-        this.grabAllPlaylists()
+      this.profilesStore.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
+        const grabHistory = this.historyStore.grabHistory()
+        const grabPlaylists = this.playlistsStore.grabAllPlaylists()
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -167,6 +176,8 @@ export default defineComponent({
           await this.checkExternalPlayer()
         }
 
+        await grabHistory
+        await grabPlaylists
         this.dataReady = true
 
         setTimeout(() => {
@@ -257,10 +268,9 @@ export default defineComponent({
     },
 
     checkExternalPlayer: async function () {
-      const payload = {
+      this.utilsStore.getExternalPlayerCmdArgumentsData({
         externalPlayer: this.externalPlayer
-      }
-      this.getExternalPlayerCmdArgumentsData(payload)
+      })
     },
 
     handleUpdateBannerClick: function (response) {
@@ -374,7 +384,7 @@ export default defineComponent({
     },
 
     handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
-      this.getYoutubeUrlInfo(href).then((result) => {
+      this.utilsStore.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp, playlistId } = result
@@ -505,23 +515,9 @@ export default defineComponent({
       }
     },
 
-    ...mapMutations([
-      'setInvidiousInstancesList'
-    ]),
-
     ...mapActions([
       'grabUserSettings',
-      'grabAllProfiles',
-      'grabHistory',
-      'grabAllPlaylists',
-      'getYoutubeUrlInfo',
-      'getExternalPlayerCmdArgumentsData',
-      'fetchInvidiousInstances',
-      'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
-      'updateBaseTheme',
-      'updateMainColor',
-      'updateSecColor'
     ])
   }
 })

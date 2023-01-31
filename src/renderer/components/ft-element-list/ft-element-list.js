@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtAutoGrid from '../ft-auto-grid/ft-auto-grid.vue'
 import FtListLazyWrapper from '../ft-list-lazy-wrapper/ft-list-lazy-wrapper.vue'
+import { useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtElementList',
@@ -18,9 +19,13 @@ export default defineComponent({
       default: false
     },
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    return { settingsStore }
+  },
   computed: {
     listType: function () {
-      return this.$store.getters.getListType
+      return this.settingsStore.listType
     }
   }
 })

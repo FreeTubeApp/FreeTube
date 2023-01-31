@@ -124,13 +124,12 @@ export const usePlaylistsStore = defineStore('playlists', {
       }
     },
 
-    async removeVideo(payload) {
+    async removeVideo({ playlistName, videoId }) {
       try {
-        const { playlistName, videoId } = payload
         await DBPlaylistHandlers.deleteVideoIdByPlaylistName(playlistName, videoId)
-        const playlist = this.playlists.findIndex(playlist => playlist.playlistName === payload.playlistName)
+        const playlist = this.playlists.findIndex(playlist => playlist.playlistName === playlistName)
         if (playlist !== -1) {
-          this.playlists[playlist].videos = this.playlists[playlist].videos.filter(video => video.videoId !== payload.videoId)
+          this.playlists[playlist].videos = this.playlists[playlist].videos.filter(video => video.videoId !== videoId)
         }
       } catch (errMessage) {
         console.error(errMessage)

@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { formatNumber } from '../../helpers/utils'
+import { useInvidiousStore, useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtListChannel',
@@ -13,6 +14,11 @@ export default defineComponent({
       type: String,
       required: true
     }
+  },
+  setup() {
+    const invidiousStore = useInvidiousStore()
+    const settingsStore = useSettingsStore()
+    return { invidiousStore, settingsStore }
   },
   data: function () {
     return {
@@ -28,13 +34,13 @@ export default defineComponent({
   },
   computed: {
     currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+      return this.invidiousStore.currentInvidiousInstance
     },
     listType: function () {
-      return this.$store.getters.getListType
+      return this.settingsStore.listType
     },
     hideChannelSubscriptions: function () {
-      return this.$store.getters.getHideChannelSubscriptions
+      return this.settingsStore.hideChannelSubscriptions
     }
   },
   mounted: function () {

@@ -133,10 +133,11 @@ export const useUtilsStore = defineStore('utils', {
       }
     },
 
-    parseScreenshotCustomFileName: function(payload) {
+    parseScreenshotCustomFileName: function(date, playerTime, videoId) {
       return new Promise((resolve, reject) => {
         const settingsStore = useSettingsStore()
-        const { pattern = settingsStore.screenshotFilenamePattern, date, playerTime, videoId } = payload
+        const pattern = settingsStore.screenshotFilenamePattern
+
         const keywords = [
           ['%Y', date.getFullYear()], // year 4 digits
           ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
@@ -389,7 +390,7 @@ export const useUtilsStore = defineStore('utils', {
       this.sessionSearchHistory = []
     },
 
-    async getExternalPlayerCmdArgumentsData (payload) {
+    async getExternalPlayerCmdArgumentsData ({ externalPlayer = null } = {}) {
       const fileName = 'external-player-map.json'
       let fileData
       /* eslint-disable-next-line n/no-path-concat */
@@ -419,7 +420,17 @@ export const useUtilsStore = defineStore('utils', {
       this.setExternalPlayerCmdArguments(externalPlayerCmdArguments)
     },
 
-    openInExternalPlayer (payload) {
+    openInExternalPlayer ({
+      watchProgress = 0,
+      playbackRate = 1,
+      videoId = null,
+      playlistId = null,
+      playlistIndex = null,
+      playlistReverse = null,
+      playlistShuffle = null,
+      playlistLoop = null,
+      videoLength = null
+    }) {
       const settingsStore = useSettingsStore()
       const args = []
       const externalPlayer = settingsStore.externalPlayer
@@ -440,33 +451,33 @@ export const useUtilsStore = defineStore('utils', {
         args.push(...defaultCustomArguments)
       }
 
-      if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
+      if (watchProgress > 0 && watchProgress < videoLength - 10) {
         if (typeof cmdArgs.startOffset === 'string') {
-          args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+          args.push(`${cmdArgs.startOffset}${watchProgress}`)
         } else if (!ignoreWarnings) {
           showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
         }
       }
 
-      if (payload.playbackRate !== null) {
+      if (playbackRate !== null) {
         if (typeof cmdArgs.playbackRate === 'string') {
-          args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
+          args.push(`${cmdArgs.playbackRate}${playbackRate}`)
         } else if (!ignoreWarnings) {
           showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
         }
       }
 
       // Check whether the video is in a playlist
-      if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId !== null && payload.playlistId !== '') {
-        if (payload.playlistIndex !== null) {
+      if (typeof cmdArgs.playlistUrl === 'string' && playlistId !== null && playlistId !== '') {
+        if (playlistIndex !== null) {
           if (typeof cmdArgs.playlistIndex === 'string') {
-            args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
+            args.push(`${cmdArgs.playlistIndex}${playlistIndex}`)
           } else if (!ignoreWarnings) {
             showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
           }
         }
 
-        if (payload.playlistReverse) {
+        if (playlistReverse) {
           if (typeof cmdArgs.playlistReverse === 'string') {
             args.push(cmdArgs.playlistReverse)
           } else if (!ignoreWarnings) {
@@ -474,7 +485,7 @@ export const useUtilsStore = defineStore('utils', {
           }
         }
 
-        if (payload.playlistShuffle) {
+        if (playlistShuffle) {
           if (typeof cmdArgs.playlistShuffle === 'string') {
             args.push(cmdArgs.playlistShuffle)
           } else if (!ignoreWarnings) {
@@ -482,7 +493,7 @@ export const useUtilsStore = defineStore('utils', {
           }
         }
 
-        if (payload.playlistLoop) {
+        if (playlistLoop) {
           if (typeof cmdArgs.playlistLoop === 'string') {
             args.push(cmdArgs.playlistLoop)
           } else if (!ignoreWarnings) {
@@ -490,24 +501,24 @@ export const useUtilsStore = defineStore('utils', {
           }
         }
         if (cmdArgs.supportsYtdlProtocol) {
-          args.push(`${cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
+          args.push(`${cmdArgs.playlistUrl}ytdl://${playlistId}`)
         } else {
-          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${playlistId}`)
         }
       } else {
-        if (payload.playlistId !== null && payload.playlistId !== '' && !ignoreWarnings) {
+        if (playlistId !== null && playlistId !== '' && !ignoreWarnings) {
           showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
         }
-        if (payload.videoId !== null) {
+        if (videoId !== null) {
           if (cmdArgs.supportsYtdlProtocol) {
-            args.push(`${cmdArgs.videoUrl}ytdl://${payload.videoId}`)
+            args.push(`${cmdArgs.videoUrl}ytdl://${videoId}`)
           } else {
-            args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+            args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${videoId}`)
           }
         }
       }
 
-      const videoOrPlaylist = payload.playlistId === null || payload.playlistId === ''
+      const videoOrPlaylist = playlistId === null || playlistId === ''
         ? i18n.t('Video.External Player.video')
         : i18n.t('Video.External Player.playlist')
 

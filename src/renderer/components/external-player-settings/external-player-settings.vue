@@ -9,7 +9,7 @@
         :select-names="externalPlayerNames"
         :select-values="externalPlayerValues"
         :tooltip="$t('Tooltips.External Player Settings.External Player')"
-        @change="updateExternalPlayer"
+        @change="(newExternalPlayer) => { settingsStore.externalPlayer = newExternalPlayer }"
       />
     </ft-flex-box>
     <ft-flex-box>
@@ -19,7 +19,7 @@
         :disabled="externalPlayer===''"
         :compact="true"
         :tooltip="$t('Tooltips.External Player Settings.Ignore Warnings')"
-        @change="updateExternalPlayerIgnoreWarnings"
+        @change="settingsStore.externalPlayerIgnoreWarnings = !settingsStore.externalPlayerIgnoreWarnings"
       />
     </ft-flex-box>
     <ft-flex-box
@@ -32,7 +32,7 @@
         :show-label="true"
         :value="externalPlayerExecutable"
         :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
-        @input="updateExternalPlayerExecutable"
+        @input="(newExecutable) => { settingsStore.externalPlayerExecutable = newExecutable }"
       />
       <ft-input
         :placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
@@ -40,7 +40,7 @@
         :show-label="true"
         :value="externalPlayerCustomArgs"
         :tooltip="externalPlayerCustomArgsTooltip"
-        @input="updateExternalPlayerCustomArgs"
+        @input="(newCustomArgs) => { settingsStore.externalPlayerCustomArgs = newCustomArgs }"
       />
     </ft-flex-box>
   </ft-settings-section>

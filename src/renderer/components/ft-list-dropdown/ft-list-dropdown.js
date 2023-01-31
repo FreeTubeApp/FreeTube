@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import { sanitizeForHtmlId, handleDropdownKeyboardEvent } from '../../helpers/accessibility'
+import { useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtListDropdown',
@@ -17,6 +18,10 @@ export default defineComponent({
       required: true
     }
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    return { settingsStore }
+  },
   data: function () {
     return {
       id: '',
@@ -30,7 +35,7 @@ export default defineComponent({
   },
   computed: {
     listType: function () {
-      return this.$store.getters.getListType
+      return this.settingsStore.listType
     }
   },
   methods: {

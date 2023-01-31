@@ -10,6 +10,7 @@ import {
   toLocalePublicationString,
   toDistractionFreeTitle
 } from '../../helpers/utils'
+import { useHistoryStore, useInvidiousStore, usePlaylistsStore, useSettingsStore, useUtilsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -54,6 +55,14 @@ export default defineComponent({
       default: false
     },
   },
+  setup() {
+    const historyStore = useHistoryStore()
+    const invidiousStore = useInvidiousStore()
+    const playlistsStore = usePlaylistsStore()
+    const settingsStore = useSettingsStore()
+    const utilsStore = useUtilsStore()
+    return { historyStore, invidiousStore, playlistsStore, settingsStore, utilsStore }
+  },
   data: function () {
     return {
       id: '',
@@ -77,23 +86,23 @@ export default defineComponent({
   },
   computed: {
     historyCache: function () {
-      return this.$store.getters.getHistoryCache
+      return this.historyStore.historyCache
     },
 
     listType: function () {
-      return this.$store.getters.getListType
+      return this.settingsStore.listType
     },
 
     thumbnailPreference: function () {
-      return this.$store.getters.getThumbnailPreference
+      return this.settingsStore.thumbnailPreference
     },
 
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      return this.settingsStore.backendPreference
     },
 
     currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+      return this.invidiousStore.currentInvidiousInstance
     },
 
     inHistory: function () {
@@ -148,7 +157,7 @@ export default defineComponent({
     },
 
     hideSharingActions: function() {
-      return this.$store.getters.getHideSharingActions
+      return this.settingsStore.hideSharingActions
     },
 
     dropdownOptions: function () {
@@ -242,15 +251,15 @@ export default defineComponent({
     },
 
     hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
+      return this.settingsStore.hideLiveStreams
     },
 
     hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
+      return this.settingsStore.hideUpcomingPremieres
     },
 
     hideVideoViews: function () {
-      return this.$store.getters.getHideVideoViews
+      return this.settingsStore.hideVideoViews
     },
 
     addWatchedStyle: function () {
@@ -258,7 +267,7 @@ export default defineComponent({
     },
 
     favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
+      return this.playlistsStore.getFavorites()
     },
 
     inFavoritesPlaylist: function () {
@@ -274,23 +283,23 @@ export default defineComponent({
     },
 
     externalPlayer: function () {
-      return this.$store.getters.getExternalPlayer
+      return this.settingsStore.externalPlayer
     },
 
     defaultPlayback: function () {
-      return this.$store.getters.getDefaultPlayback
+      return this.settingsStore.defaultPlayback
     },
 
     saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
+      return this.settingsStore.saveWatchedProgress
     },
 
     saveVideoHistoryWithLastViewedPlaylist: function () {
-      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
+      return this.settingsStore.saveVideoHistoryWithLastViewedPlaylist
     },
 
     showDistractionFreeTitles: function () {
-      return this.$store.getters.getShowDistractionFreeTitles
+      return this.settingsStore.showDistractionFreeTitles
     },
 
     displayTitle: function () {
@@ -330,8 +339,7 @@ export default defineComponent({
   methods: {
     handleExternalPlayer: function () {
       this.$emit('pause-player')
-
-      this.openInExternalPlayer({
+      this.utilsStore.openInExternalPlayer({
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -509,8 +517,7 @@ export default defineComponent({
         playlistName: 'Favorites',
         videoData: videoData
       }
-
-      this.addVideo(payload)
+      this.playlistsStore.addVideo(payload)
 
       showToast(this.$t('Video.Video has been saved'))
     },
@@ -521,16 +528,14 @@ export default defineComponent({
         videoId: this.id
       }
 
-      this.removeVideo(payload)
+      this.playlistsStore.removeVideo(payload)
 
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     ...mapActions([
-      'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
-      'addVideo',
       'removeVideo'
     ])
   }

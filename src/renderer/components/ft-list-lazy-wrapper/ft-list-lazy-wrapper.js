@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+import { useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtListLazyWrapper',
@@ -32,6 +33,10 @@ export default defineComponent({
       default: false
     },
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    return { settingsStore }
+  },
   data: function () {
     return {
       visible: this.firstScreen
@@ -39,13 +44,13 @@ export default defineComponent({
   },
   computed: {
     hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
+      return this.settingsStore.hideLiveStreams
     },
     channelsHidden: function() {
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+      return JSON.parse(this.settingsStore.channelsHidden)
     },
     hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
+      return this.settingsStore.hideUpcomingPremieres
     }
   },
   methods: {

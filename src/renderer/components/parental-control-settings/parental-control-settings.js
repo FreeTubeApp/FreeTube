@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import { useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'ParentalControlSettings',
@@ -9,15 +10,19 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    return { settingsStore }
+  },
   computed: {
     hideSearchBar: function () {
-      return this.$store.getters.getHideSearchBar
+      return this.settingsStore.hideSearchBar
     },
     hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
+      return this.settingsStore.hideUnsubscribeButton
     },
     showFamilyFriendlyOnly: function() {
-      return this.$store.getters.getShowFamilyFriendlyOnly
+      return this.settingsStore.showFamilyFriendlyOnly
     }
   },
   methods: {

@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
-import { mapActions } from 'vuex'
-
+import { useInvidiousStore, useSettingsStore, useUtilsStore } from '../../stores'
 export default defineComponent({
   name: 'FtListPlaylist',
   components: {
@@ -17,6 +16,12 @@ export default defineComponent({
       required: true
     }
   },
+  setup() {
+    const invidiousStore = useInvidiousStore()
+    const settingsStore = useSettingsStore()
+    const utilsStore = useUtilsStore()
+    return { invidiousStore, settingsStore, utilsStore }
+  },
   data: function () {
     return {
       playlistLink: '',
@@ -30,11 +35,11 @@ export default defineComponent({
   },
   computed: {
     currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+      return this.invidiousStore.currentInvidiousInstance
     },
 
     listType: function () {
-      return this.$store.getters.getListType
+      return this.settingsStore.listType
     },
 
     playlistId: function () {
@@ -52,11 +57,11 @@ export default defineComponent({
     },
 
     externalPlayer: function () {
-      return this.$store.getters.getExternalPlayer
+      return this.settingsStore.externalPlayer
     },
 
     defaultPlayback: function () {
-      return this.$store.getters.getDefaultPlayback
+      return this.settingsStore.defaultPlayback
     }
   },
   mounted: function () {
@@ -71,7 +76,7 @@ export default defineComponent({
   },
   methods: {
     handleExternalPlayer: function () {
-      this.openInExternalPlayer({
+      this.utilsStore.openInExternalPlayer({
         watchProgress: 0,
         playbackRate: this.defaultPlayback,
         videoId: null,
@@ -114,10 +119,6 @@ export default defineComponent({
       this.channelLink = this.data.channelId
       this.playlistLink = this.data.playlistId
       this.videoCount = this.data.videoCount
-    },
-
-    ...mapActions([
-      'openInExternalPlayer'
-    ])
+    }
   }
 })

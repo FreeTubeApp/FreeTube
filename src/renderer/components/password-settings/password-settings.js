@@ -1,9 +1,9 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
+import { useSettingsStore } from '../../stores'
 
 export default defineComponent({
   name: 'PasswordSettings',
@@ -13,6 +13,10 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton,
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    return { settingsStore }
+  },
   data: function() {
     return {
       password: '',
@@ -20,7 +24,7 @@ export default defineComponent({
   },
   computed: {
     settingsPassword: function() {
-      return this.$store.getters.getSettingsPassword
+      return this.settingsStore.settingsPassword
     },
     hasStoredPassword: function() {
       return this.settingsPassword !== ''
@@ -28,15 +32,12 @@ export default defineComponent({
   },
   methods: {
     handleSetPassword: function () {
-      this.updateSettingsPassword(this.password)
+      this.settingsStore.settingsPassword = this.password
       this.password = ''
     },
     handleRemovePassword: function () {
-      this.updateSettingsPassword('')
+      this.settingsStore.settingsPassword = ''
       this.password = ''
-    },
-    ...mapActions([
-      'updateSettingsPassword'
-    ])
+    }
   }
 })

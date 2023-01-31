@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { mapActions } from 'vuex'
+import { useSettingsStore, useUtilsStore } from '../../stores'
 
 export default defineComponent({
   name: 'FtInput',
@@ -62,6 +62,11 @@ export default defineComponent({
       default: ''
     }
   },
+  setup() {
+    const settingsStore = useSettingsStore()
+    const utilsStore = useUtilsStore()
+    return { settingsStore, utilsStore }
+  },
   data: function () {
     let actionIcon = ['fas', 'search']
     if (this.forceActionButtonIconName !== null) {
@@ -85,7 +90,7 @@ export default defineComponent({
   },
   computed: {
     barColor: function () {
-      return this.$store.getters.getBarColor
+      return this.settingsStore.barColor
     },
 
     forceTextColor: function () {
@@ -165,10 +170,9 @@ export default defineComponent({
         this.actionButtonIconName = ['fas', 'search']
         return
       }
-
       // Update action button icon according to input
       try {
-        this.getYoutubeUrlInfo(this.inputData).then((result) => {
+        this.utilsStore.getYoutubeUrlInfo(this.inputData).then((result) => {
           let isYoutubeLink = false
 
           switch (result.urlType) {
@@ -284,10 +288,6 @@ export default defineComponent({
 
     focus() {
       this.$refs.input.focus()
-    },
-
-    ...mapActions([
-      'getYoutubeUrlInfo'
-    ])
+    }
   }
 })
