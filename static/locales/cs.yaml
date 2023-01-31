@@ -280,8 +280,8 @@ Settings:
     Remember History: 'Zapamatovat historii'
     Save Watched Progress: 'Uložit průběh zhlédnutých videí'
     Clear Search Cache: 'Vymazat mezipaměť vyhledávání'
-    Are you sure you want to clear out your search cache?: 'Jste si jisti, že chcete
-      smazat cache vyhledávání?'
+    Are you sure you want to clear out your search cache?: 'Opravdu chcete vymazat
+      mezipaměť vyhledávání?'
     Search cache has been cleared: 'Cache vyhledávání byla vymazána'
     Remove Watch History: 'Odstranit historii sledování'
     Are you sure you want to remove your entire watch history?: 'Opravdu chcete odstranit
@@ -526,8 +526,8 @@ Profile:
   Create Profile: 'Vytvořit profil'
   Update Profile: 'Aktualizovat profil'
   Make Default Profile: 'Vytvořit výchozí profil'
-  Delete Profile: 'Smazat profil'
-  Are you sure you want to delete this profile?: 'Opravdu smazat tento profil?'
+  Delete Profile: 'Odstranit profil'
+  Are you sure you want to delete this profile?: 'Opravdu chcete odstranit tento profil?'
   All subscriptions will also be deleted.: 'Budou také odstraněny všechny odběry.'
   Profile could not be found: 'Profil nebyl nalezen'
   Your profile name cannot be empty: 'Jméno profilu nemůže být prázdné'
@@ -544,13 +544,13 @@ Profile:
   '{number} selected': '{number} vybrán'
   Select All: 'Vybrat vše'
   Select None: 'Zrušit výběr'
-  Delete Selected: 'Smazat vybrané'
+  Delete Selected: 'Odstranit vybrané'
   Add Selected To Profile: 'Přidat vybrané do profilu'
   No channel(s) have been selected: 'Nebyly vybrány žádné kanály'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 'Toto je váš primární profil.  Opravdu chcete odstranit vybrané kanály?  Stejné
-    kanály budou smazány ze všech profilů, ve kterém se nacházejí.'
+    kanály budou odstraněny ze všech profilů, ve kterých se nacházejí.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Opravdu
     chcete odstranit vybrané kanály?  Kanál tím nebude odstraněn z žádného jiného
     profilu.'
