@@ -183,7 +183,7 @@ export default defineComponent({
         // avoid too many concurrent requests
         setTimeout(() => {
           getLocalChannel(channel.id).then(response => {
-            if (typeof response !== 'string') {
+            if (!response.alert) {
               this.updateSubscriptionDetails({
                 channelThumbnailUrl: this.thumbnailURL(response.header.author.thumbnails[0].url),
                 channelName: channel.name,

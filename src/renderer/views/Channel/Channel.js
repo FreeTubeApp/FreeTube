@@ -293,8 +293,8 @@ export default defineComponent({
       try {
         const channel = await getLocalChannel(this.id)
 
-        if (typeof channel === 'string') {
-          this.setErrorMessage(channel)
+        if (channel.alert) {
+          this.setErrorMessage(channel.alert)
           return
         }
 

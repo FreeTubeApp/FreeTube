@@ -1042,7 +1042,7 @@ export default defineComponent({
       try {
         const channel = await getLocalChannel(channelId)
 
-        if (typeof channel === 'string') {
+        if (channel.alert) {
           return undefined
         }
 

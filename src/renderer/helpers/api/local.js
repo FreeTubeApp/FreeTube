@@ -196,7 +196,9 @@ export async function getLocalChannel(id) {
     result = await innertube.getChannel(id)
   } catch (error) {
     if (error instanceof ChannelError) {
-      result = error.message
+      result = {
+        alert: error.message
+      }
     } else {
       throw error
     }
@@ -207,7 +209,7 @@ export async function getLocalChannel(id) {
 export async function getLocalChannelVideos(id) {
   const channel = await getLocalChannel(id)
 
-  if (typeof channel === 'string') {
+  if (channel.alert) {
     return null
   }
 
