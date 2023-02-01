@@ -693,12 +693,6 @@ Playlist:
   View: 'Katselu'
   Views: 'Katsomiskertaa'
   Last Updated On: 'Viimeksi päivitetty'
-  Share Playlist:
-    Share Playlist: 'Jaa soittolista'
-    Copy YouTube Link: 'Kopioi YouTube-linkki'
-    Open in YouTube: 'Avaa YouTubessa'
-    Copy Invidious Link: 'Kopioi Invidious-linkki'
-    Open in Invidious: 'Avaa Invidious'
 
 # On Video Watch Page
 #* Published
@@ -716,6 +710,7 @@ Change Format:
     tähän videoon
 Share:
   Share Video: 'Jaa video'
+  Share Playlist: 'Jaa soittolista'
   Copy Link: 'Kopioi linkki'
   Open Link: 'Avaa linkki'
   Copy Embed: 'Kopioi upotus'

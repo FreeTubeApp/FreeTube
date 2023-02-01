@@ -774,12 +774,6 @@ Playlist:
   View: 'Προβολή'
   Views: 'Προβολές'
   Last Updated On: 'Τελευταία ενημέρωση στις'
-  Share Playlist:
-    Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
-    Copy YouTube Link: 'Αντιγραφή συνδέσμου YouTube'
-    Open in YouTube: 'Άνοιγμα στο YouTube'
-    Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-    Open in Invidious: 'Άνοιγμα στο Invidious'
 
 # On Video Watch Page
 #* Published
@@ -797,6 +791,7 @@ Change Format:
     αυτό το βίντεο'
 Share:
   Share Video: 'Κοινοποίηση βίντεο'
+  Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
   Include Timestamp: 'Συμπερίληψη χρονικής σήμανσης/στιγμής'
   Copy Link: 'Αντιγραφή συνδέσμου'
   Open Link: 'Άνοιγμα Συνδέσμου'

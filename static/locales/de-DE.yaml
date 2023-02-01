@@ -734,20 +734,7 @@ Playlist:
   View: Aufruf
   Views: Aufrufe
   Last Updated On: Zuletzt aktualisiert am
-# On Channel Playlist Page
-  Share Playlist:
-    Open in Invidious: In Invidious öffnen
-    Copy Invidious Link: Invidious-Link kopieren
-    Open in YouTube: In YouTube öffnen
-    Copy YouTube Link: YouTube-Link kopieren
-    Share Playlist: Wiedergabeliste teilen
   Playlist: Wiedergabeliste
-Share Playlist:
-  Share Playlist: Teile Playlist
-  Copy YouTube Link: Kopiere YouTube Link
-  Open in YouTube: Öffne auf YouTube
-  Copy Invidious Link: Kopiere Invidious Link
-  Open in Invidious: Öffne auf Invidious
 
 # On Video Watch Page
 #* Published
@@ -764,6 +751,7 @@ Change Format:
     nicht verfügbar
 Share:
   Share Video: Teile das Video
+  Share Playlist: Wiedergabeliste teilen
   Copy Link: Kopiere Link
   Open Link: Öffne Link
   Copy Embed: Kopiere eingebettete Version

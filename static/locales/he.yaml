@@ -739,12 +739,6 @@ Playlist:
   View: 'צפייה'
   Views: 'צפיות'
   Last Updated On: 'עודכן לאחרונה ב'
-  Share Playlist:
-    Share Playlist: 'שתפו פלייליסט'
-    Copy YouTube Link: 'העתיקו קישור ל-YouTube'
-    Open in YouTube: 'פתחו ב-Youtube'
-    Copy Invidious Link: 'העתיקו קישור ל-Invidious'
-    Open in Invidious: 'פתחו ב-Invidious'
 
 # On Video Watch Page
 #* Published
@@ -760,6 +754,7 @@ Change Format:
   Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
 Share:
   Share Video: 'שתפו את הסרטון'
+  Share Playlist: 'שתפו פלייליסט'
   Include Timestamp: 'לשמור נקודת זמן'
   Copy Link: 'העתקת קישור'
   Open Link: 'פתיחת קישור'

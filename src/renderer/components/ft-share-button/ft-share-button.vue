@@ -4,7 +4,9 @@
     :title="$t(`Share.Share ${shareTargetType}`)"
     :theme="isVideo?'secondary':'base-no-default'"
     :icon="['fas', 'share-alt']"
+    :dropdown-modal-on-mobile="true"
     dropdown-position-x="left"
+    :dropdown-position-y="dropdownPositionY"
     :force-dropdown="true"
   >
     <ft-flex-box>
@@ -46,7 +48,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
@@ -56,7 +58,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
@@ -94,7 +96,7 @@
           {{ $t("Share.Open Link") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"
@@ -104,7 +106,7 @@
           {{ $t("Share.Copy Embed") }}
         </ft-button>
         <ft-button
-          v-if="isVideo"
+          v-if="isVideo || isPlaylist"
           aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"

@@ -621,12 +621,6 @@ Playlist:
   View: 'Visning'
   Views: 'Visningar'
   Last Updated On: 'Senast uppdaterad den'
-  Share Playlist:
-    Share Playlist: 'Dela spellista'
-    Copy YouTube Link: 'Kopiera YouTube-länk'
-    Open in YouTube: 'Öppna på YouTube'
-    Copy Invidious Link: 'Kopiera Invidious-länk'
-    Open in Invidious: 'Öppna på Invidious'
 
 # On Video Watch Page
 #* Published
@@ -644,6 +638,7 @@ Change Format:
     för den här videon'
 Share:
   Share Video: 'Dela video'
+  Share Playlist: 'Dela spellista'
   Include Timestamp: 'Inkludera tidsstämpel'
   Copy Link: 'Kopiera länk'
   Open Link: 'Öppna länk'

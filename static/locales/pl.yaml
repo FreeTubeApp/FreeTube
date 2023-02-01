@@ -727,12 +727,6 @@ Playlist:
   View: 'wyświetlenie'
   Views: 'wyświetleń'
   Last Updated On: 'Ostatnio zaktualizowano'
-  Share Playlist:
-    Share Playlist: 'Podziel się playlistą'
-    Copy YouTube Link: 'Skopiuj link do strony YouTube'
-    Open in YouTube: 'Otwórz na stronie YouTube'
-    Copy Invidious Link: 'Skopiuj link do strony Invidious'
-    Open in Invidious: 'Otwórz w Invidious'
 
 # On Video Watch Page
 #* Published
@@ -750,6 +744,7 @@ Change Format:
     tego filmu
 Share:
   Share Video: 'Podziel się filmem'
+  Share Playlist: 'Podziel się playlistą'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
   Copy Embed: 'Skopiuj link do osadzenia'

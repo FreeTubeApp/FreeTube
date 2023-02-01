@@ -660,12 +660,6 @@ Playlist:
   View: '觀看'
   Views: '觀看'
   Last Updated On: '最後更新於'
-  Share Playlist:
-    Share Playlist: '分享播放清單'
-    Copy YouTube Link: '複製YouTube連結'
-    Open in YouTube: '在YouTube中開啟'
-    Copy Invidious Link: '複製Invidious連結'
-    Open in Invidious: '在Invidious中開啟'
 
 # On Video Watch Page
 #* Published
@@ -681,6 +675,7 @@ Change Format:
   Dash formats are not available for this video: 這個影片沒有 DASH 格式
 Share:
   Share Video: '分享影片'
+  Share Playlist: '分享播放清單'
   Copy Link: '複製連結'
   Open Link: '開啟連結'
   Copy Embed: '複製內嵌'

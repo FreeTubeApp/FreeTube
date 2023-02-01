@@ -655,12 +655,6 @@ Playlist:
   View: '回視聴'
   Views: '回視聴'
   Last Updated On: '最終更新日'
-  Share Playlist:
-    Share Playlist: '再生リストの共有'
-    Copy YouTube Link: 'YouTube リンクのコピー'
-    Open in YouTube: 'YouTube で表示'
-    Copy Invidious Link: 'Invidious リンクのコピー'
-    Open in Invidious: 'Invidious で表示'
 
 # On Video Watch Page
 #* Published
@@ -676,6 +670,7 @@ Change Format:
   Dash formats are not available for this video: この動画には DASH 形式はありません
 Share:
   Share Video: '動画の共有'
+  Share Playlist: '再生リストの共有'
   Copy Link: 'リンクのコピー'
   Open Link: 'リンクの表示'
   Copy Embed: '埋め込みのコピー'

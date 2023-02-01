@@ -735,12 +735,6 @@ Playlist:
   View: 'View'
   Views: 'Views'
   Last Updated On: 'Last Updated On'
-  Share Playlist:
-    Share Playlist: 'Share Playlist'
-    Copy YouTube Link: 'Copy YouTube Link'
-    Open in YouTube: 'Open in YouTube'
-    Copy Invidious Link: 'Copy Invidious Link'
-    Open in Invidious: 'Open in Invidious'
 
 # On Video Watch Page
 #* Published
@@ -758,6 +752,7 @@ Change Format:
 Share:
   Share Video: 'Share Video'
   Share Channel: 'Share Channel'
+  Share Playlist: 'Share Playlist'
   Include Timestamp: 'Include Timestamp'
   Copy Link: 'Copy Link'
   Open Link: 'Open Link'

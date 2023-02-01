@@ -650,12 +650,6 @@ Playlist:
   View: '观看'
   Views: '观看'
   Last Updated On: '最后更新于'
-  Share Playlist:
-    Share Playlist: '分享播放列表'
-    Copy YouTube Link: '复制YouTube链接'
-    Open in YouTube: '在YouTube中打开'
-    Copy Invidious Link: '复制Invidious链接'
-    Open in Invidious: '在Invidious中打开'
 
 # On Video Watch Page
 #* Published
@@ -671,6 +665,7 @@ Change Format:
   Dash formats are not available for this video: 这个视频没有Dash格式
 Share:
   Share Video: '分享视频'
+  Share Playlist: '分享播放列表'
   Copy Link: '复制链接'
   Open Link: '打开链接'
   Copy Embed: '复制内嵌'

@@ -725,12 +725,6 @@ Playlist:
   View: 'Visualizzazione'
   Views: 'Visualizzazioni'
   Last Updated On: 'Ultimo aggiornamento il'
-  Share Playlist:
-    Share Playlist: 'Condividi la playlist'
-    Copy YouTube Link: 'Copia link YouTube'
-    Open in YouTube: 'Apri con YouTube'
-    Copy Invidious Link: 'Copia link Invidious'
-    Open in Invidious: 'Apri con Invidious'
 
 # On Video Watch Page
 #* Published
@@ -748,6 +742,7 @@ Change Format:
     per questo video
 Share:
   Share Video: 'Condividi video'
+  Share Playlist: 'Condividi la playlist'
   Copy Link: 'Copia link'
   Open Link: 'Apri link'
   Copy Embed: 'Copia codice da incorporare'

@@ -753,12 +753,6 @@ Playlist:
   View: 'Megtekintés'
   Views: 'Megtekintések'
   Last Updated On: 'Utoljára frissítve'
-  Share Playlist:
-    Share Playlist: 'Lejátszási lista megosztása'
-    Copy YouTube Link: 'YouTube hivatkozás másolása'
-    Open in YouTube: 'YouTube megnyitása'
-    Copy Invidious Link: 'Invidious hivatkozás másolása'
-    Open in Invidious: 'Invidious megnyitása'
 
 # On Video Watch Page
 #* Published
@@ -778,6 +772,7 @@ Change Format:
     a videóhoz'
 Share:
   Share Video: 'Videó megosztása'
+  Share Playlist: 'Lejátszási lista megosztása'
   Include Timestamp: 'Időbélyeg beágyazása'
   Copy Link: 'Hivatkozás másolása'
   Open Link: 'Hivatkozás megnyitása'

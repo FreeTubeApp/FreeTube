@@ -760,12 +760,6 @@ Playlist:
   View: 'Görüntüle'
   Views: 'Görüntülenme'
   Last Updated On: 'Son Güncelleme Tarihi'
-  Share Playlist:
-    Share Playlist: 'Oynatma Listesini Paylaş'
-    Copy YouTube Link: 'YouTube Bağlantısını Kopyala'
-    Open in YouTube: 'YouTube''da aç'
-    Copy Invidious Link: 'Invidious Bağlantısını Kopyala'
-    Open in Invidious: 'Invidious''da aç'
 
 # On Video Watch Page
 #* Published
@@ -783,6 +777,7 @@ Change Format:
     değil'
 Share:
   Share Video: 'Videoyu Paylaş'
+  Share Playlist: 'Oynatma Listesini Paylaş'
   Include Timestamp: 'Zaman Damgasını Dahil Et'
   Copy Link: 'Bağlantıyı Kopyala'
   Open Link: 'Bağlantıyı Aç'

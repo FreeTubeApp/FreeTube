@@ -736,12 +736,6 @@ Playlist:
   View: 'Zobrazit'
   Views: 'Zobrazení'
   Last Updated On: 'Naposledy upraveno'
-  Share Playlist:
-    Share Playlist: 'Sdílet playlist'
-    Copy YouTube Link: 'Kopírovat YouTube odkaz'
-    Open in YouTube: 'Otevřít v YouTube'
-    Copy Invidious Link: 'Kopírovat Invidious odkaz'
-    Open in Invidious: 'Otevřít v Invidious'
 
 # On Video Watch Page
 #* Published
@@ -759,6 +753,7 @@ Change Format:
     video dostupné'
 Share:
   Share Video: 'Sdílet video'
+  Share Playlist: 'Sdílet playlist'
   Include Timestamp: 'Včetně časového razítka'
   Copy Link: 'Kopírovat odkaz'
   Open Link: 'Otevřít odkaz'

@@ -754,12 +754,6 @@ Playlist:
   View: 'Pogled'
   Views: 'Pogledi'
   Last Updated On: 'Zadnje aktualiziranje'
-  Share Playlist:
-    Share Playlist: 'Dijeli zbirku'
-    Copy YouTube Link: 'Kopiraj poveznicu na YouTube'
-    Open in YouTube: 'Otvori na YouTube stranici'
-    Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-    Open in Invidious: 'Otvori na Invidious stranici'
 
 # On Video Watch Page
 #* Published
@@ -777,6 +771,7 @@ Change Format:
     video
 Share:
   Share Video: 'Dijeli video'
+  Share Playlist: 'Dijeli zbirku'
   Copy Link: 'Kopiraj poveznicu'
   Open Link: 'Otvori poveznicu'
   Copy Embed: 'Kopiraj ugrađenu verziju'

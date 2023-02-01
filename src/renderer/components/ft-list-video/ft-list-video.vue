@@ -67,17 +67,6 @@
       />
     </div>
     <div class="info">
-      <ft-icon-button
-        class="optionsButton"
-        :icon="['fas', 'ellipsis-v']"
-        title="More Options"
-        theme="base-no-default"
-        :size="16"
-        :use-shadow="false"
-        dropdown-position-x="left"
-        :dropdown-options="dropdownOptions"
-        @click="handleOptionsClick"
-      />
       <router-link
         class="title"
         :to="{
@@ -112,6 +101,17 @@
           class="viewCount"
         > • {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
       </div>
+      <ft-icon-button
+        class="optionsButton"
+        :icon="['fas', 'ellipsis-v']"
+        title="More Options"
+        theme="base-no-default"
+        :size="16"
+        :use-shadow="false"
+        dropdown-position-x="left"
+        :dropdown-options="dropdownOptions"
+        @click="handleOptionsClick"
+      />
       <p
         v-if="listType !== 'grid' && appearance === 'result'"
         class="description"

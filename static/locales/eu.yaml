@@ -650,12 +650,6 @@ Playlist:
   View: 'Ikusi'
   Views: 'Ikustaldiak'
   Last Updated On: 'Azkenengoz eguneratua'
-  Share Playlist:
-    Share Playlist: 'Erreprodukzio-zerrenda partekatu'
-    Copy YouTube Link: 'Youtube-ko esteka kopiatu'
-    Open in YouTube: 'Youtube-n ireki'
-    Copy Invidious Link: 'Invidious-eko esteka kopiatu'
-    Open in Invidious: 'Invidious-en ireki'
 
 # On Video Watch Page
 #* Published
@@ -673,6 +667,7 @@ Change Format:
     bideo honentzat'
 Share:
   Share Video: 'Bideoa partekatu'
+  Share Playlist: 'Erreprodukzio-zerrenda partekatu'
   Include Timestamp: 'Timestamp erantsi'
   Copy Link: 'Esteka kopiatu'
   Open Link: 'Esteka ireki'

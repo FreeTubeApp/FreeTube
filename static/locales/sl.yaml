@@ -641,12 +641,6 @@ Playlist:
   View: 'Ogled'
   Views: 'Ogledi'
   Last Updated On: 'Nazadnje posodobljeno dne'
-  Share Playlist:
-    Share Playlist: 'Deli seznam predvajanja'
-    Copy YouTube Link: 'Kopiraj YouTube povezavo'
-    Open in YouTube: 'Odpri v YouTube'
-    Copy Invidious Link: 'Kopiraj Invidious povezavo'
-    Open in Invidious: 'Odpri v Invidious'
 
 # On Video Watch Page
 #* Published
@@ -663,6 +657,7 @@ Change Format:
     niso na voljo'
 Share:
   Share Video: 'Deli videoposnetek'
+  Share Playlist: 'Deli seznam predvajanja'
   Include Timestamp: 'Vključi časovno oznako'
   Copy Link: 'Kopiraj povezavo'
   Open Link: 'Odpri povezavo'

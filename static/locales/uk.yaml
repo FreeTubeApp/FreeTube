@@ -732,12 +732,6 @@ Playlist:
   View: 'Перегляд'
   Views: 'Переглядів'
   Last Updated On: 'Востаннє оновлено'
-  Share Playlist:
-    Share Playlist: 'Поділитися добіркою'
-    Copy YouTube Link: 'Копіювати посилання YouTube'
-    Open in YouTube: 'Відкрити в YouTube'
-    Copy Invidious Link: 'Копіювати посилання Invidious'
-    Open in Invidious: 'Відкрити в Invidious'
 
 # On Video Watch Page
 #* Published
@@ -755,6 +749,7 @@ Change Format:
     відео'
 Share:
   Share Video: 'Поділитися відео'
+  Share Playlist: 'Поділитися добіркою'
   Include Timestamp: 'Включити позначку часу'
   Copy Link: 'Копіювати посилання'
   Open Link: 'Відкрити посилання'

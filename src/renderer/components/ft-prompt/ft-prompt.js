@@ -31,6 +31,10 @@ export default defineComponent({
     showClose: {
       type: Boolean,
       default: false
+    },
+    autosize: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
