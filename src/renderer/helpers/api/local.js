@@ -350,7 +350,7 @@ function convertSearchFilters(filters) {
     }
 
     if (filters.duration) {
-      convertedFilters.type = filters.duration
+      convertedFilters.duration = filters.duration
     }
   }
 

@@ -65,11 +65,13 @@ Search Filters:
     All Types: All Types
     Videos: Videos
     Channels: Channels
+    Movies: Movies
     #& Playlists
   Duration:
     Duration: Duration
     All Durations: All Durations
     Short (< 4 minutes): Short (< 4 minutes)
+    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
     Long (> 20 minutes): Long (> 20 minutes)
   # On Search Page
   Search Results: Search Results
