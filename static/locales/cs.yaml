@@ -149,7 +149,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instancích
       Invidious
-    System Default: Výchozí nastavení systému
+    System Default: Podle systému
     Clear Default Instance: Vymazat výchozí instanci
     Set Current Instance as Default: Nastavit současnou instanci jako výchozí
     Current instance will be randomized on startup: Při spuštění bude vybrána náhodná
