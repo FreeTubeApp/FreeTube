@@ -56,7 +56,7 @@ export default defineComponent({
       description: '',
       tags: [],
       views: 0,
-      joined: null,
+      joined: 0,
       location: null,
       videoSortBy: 'newest',
       playlistSortBy: 'newest',
@@ -69,6 +69,7 @@ export default defineComponent({
       apiUsed: '',
       isFamilyFriendly: false,
       errorMessage: '',
+      showSearchBar: true,
       videoSelectValues: [
         'newest',
         'popular'
@@ -214,6 +215,7 @@ export default defineComponent({
       this.videoContinuationData = null
       this.playlistContinuationData = null
       this.searchContinuationData = null
+      this.showSearchBar = true
 
       if (this.id === '@@@') {
         this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
@@ -303,23 +305,84 @@ export default defineComponent({
           return
         }
 
-        /**
-         * @type {import('youtubei.js/dist/src/parser/classes/misc/Author').default}
-         */
-        const author = channel.header.author
+        let channelId
+        let channelName
+        let channelThumbnailUrl
+        let subscriberText = null
+        const tags = []
 
-        const channelName = author.name
-        const channelThumbnailUrl = author.best_thumbnail.url
+        switch (channel.header.type) {
+          case 'C4TabbedHeader': {
+            // example: Linus Tech Tips
+            // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/C4TabbedHeader').default}
+             */
+            const header = channel.header
+
+            channelId = header.author.id
+            channelName = header.author.name
+            channelThumbnailUrl = header.author.best_thumbnail.url
+            subscriberText = header.subscribers.text
+            break
+          }
+          case 'CarouselHeader': {
+            // examples: Music and YouTube Gaming
+            // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
+            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/CarouselHeader').default}
+             */
+            const header = channel.header
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/TopicChannelDetails').default}
+             */
+            const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
+            channelName = topicChannelDetails.title.text
+            subscriberText = topicChannelDetails.subtitle.text
+            channelThumbnailUrl = topicChannelDetails.avatar[0].url
+
+            if (channel.metadata.external_id) {
+              channelId = channel.metadata.external_id
+            } else {
+              channelId = topicChannelDetails.subscribe_button.channel_id
+            }
+            break
+          }
+          case 'InteractiveTabbedHeader': {
+            // example: Minecraft - Topic
+            // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/InteractiveTabbedHeader').default}
+             */
+            const header = channel.header
+            channelName = header.title.text
+            channelId = this.id
+            channelThumbnailUrl = header.box_art.at(-1).url
+
+            const badges = header.badges.map(badge => badge.style).filter(tag => tag)
+            tags.push(...badges)
+            break
+          }
+        }
 
         this.channelName = channelName
         this.thumbnailUrl = channelThumbnailUrl
-        this.isFamilyFriendly = channel.metadata.is_family_safe
-        this.tags = channel.metadata.tags ?? []
+        this.isFamilyFriendly = !!channel.metadata.is_family_safe
+
+        if (channel.metadata.tags) {
+          tags.push(...channel.metadata.tags)
+        }
+        this.tags = tags
 
         document.title = `${channelName} - ${packageDetails.productName}`
 
-        if (!this.hideChannelSubscriptions) {
-          const subCount = parseLocalSubscriberCount(channel.header.subscribers.text)
+        if (!this.hideChannelSubscriptions && subscriberText) {
+          const subCount = parseLocalSubscriberCount(subscriberText)
 
           if (isNaN(subCount)) {
             this.subCount = null
@@ -330,7 +393,7 @@ export default defineComponent({
           this.subCount = null
         }
 
-        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId: author.id })
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
 
         if (channel.header.banner?.length > 0) {
           this.bannerUrl = channel.header.banner[0].url
@@ -354,7 +417,14 @@ export default defineComponent({
 
         this.channelInstance = channel
 
-        this.getChannelAboutLocal()
+        if (channel.has_about) {
+          this.getChannelAboutLocal()
+        } else {
+          this.description = ''
+          this.views = null
+          this.joined = 0
+          this.location = null
+        }
 
         if (channel.has_videos) {
           this.getChannelVideosLocal()
@@ -363,6 +433,8 @@ export default defineComponent({
         if (channel.has_playlists) {
           this.getChannelPlaylistsLocal()
         }
+
+        this.showSearchBar = channel.has_search
 
         this.isLoading = false
       } catch (err) {
@@ -388,22 +460,20 @@ export default defineComponent({
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
-        if (about) {
-          this.description = about.description.text !== 'N/A' ? autolinker.link(about.description.text) : ''
+        this.description = about.description.text !== 'N/A' ? autolinker.link(about.description.text) : ''
 
-          const views = extractNumberFromString(about.views.text)
-          this.views = isNaN(views) ? 0 : views
+        const views = extractNumberFromString(about.views.text)
+        this.views = isNaN(views) ? null : views
 
-          this.joined = new Date(about.joined.text.replace('Joined').trim())
+        this.joined = new Date(about.joined.text.replace('Joined').trim())
 
-          this.location = about.country.text !== 'N/A' ? about.country.text : null
-        } else {
-          this.description = ''
-          this.views = 0
-          this.joined = 0
-          this.location = null
-        }
+        this.location = about.country.text !== 'N/A' ? about.country.text : null
       } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
         if (this.backendPreference === 'local' && this.backendFallback) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getChannelInfoInvidious()
@@ -861,6 +931,11 @@ export default defineComponent({
         let result
         let contents
         if (isNewSearch) {
+          if (!this.channelInstance.has_search) {
+            showToast(this.$t('Channel.This channel does not allow searching'), 5000)
+            this.showSearchBar = false
+            return
+          }
           result = await this.channelInstance.search(this.lastSearchQuery)
           contents = result.current_tab.content.contents
         } else {

@@ -128,6 +128,7 @@
           </div>
 
           <ft-input
+            v-if="showSearchBar"
             :placeholder="$t('Channel.Search Channel')"
             :show-clear-text-button="true"
             class="channelSearch"
@@ -155,13 +156,18 @@
           class="aboutInfo"
           v-html="description"
         />
-        <h2>
+        <h2
+          v-if="joined || views !== null || location"
+        >
           {{ $t('Channel.About.Details') }}
         </h2>
         <table
+          v-if="joined || views !== null || location"
           class="aboutDetails"
         >
-          <tr>
+          <tr
+            v-if="joined"
+          >
             <th
               scope="row"
             >
@@ -169,7 +175,9 @@
             </th>
             <td>{{ formattedJoined }}</td>
           </tr>
-          <tr>
+          <tr
+            v-if="views !== null"
+          >
             <th
               scope="row"
             >
@@ -229,7 +237,7 @@
             :channel-id="channel.id"
             :channel-thumbnail="channel.thumbnailUrl"
             role="link"
-            @click="goToChannel(channel.channelId)"
+            @click="goToChannel(channel.id)"
           />
         </ft-flex-box>
       </div>
