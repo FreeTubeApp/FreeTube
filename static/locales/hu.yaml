@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Videók'
     Channels: 'Csatornák'
     #& Playlists
+    Movies: Filmek
   Duration:
     Duration: 'Időtartam'
     All Durations: 'Bármilyen időtartam'
     Short (< 4 minutes): 'Rövid (kevesebb, mint 4 perc)'
     Long (> 20 minutes): 'Hosszú (hosszabb, mint 20 perc)'
   # On Search Page
+    Medium (4 - 20 minutes): Közepes (4-20 perc)
   Search Results: 'Keresési eredmények'
   Fetching results. Please wait: 'Eredmények lekérése. Kis türelmet kérünk'
   Fetch more results: 'További eredmények lekérése'
@@ -93,7 +95,7 @@ Subscriptions:
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
-  Movies: Film
+  Movies: Filmek
   Gaming: Játék
   Music: Zene
   Default: Alapértelmezett
