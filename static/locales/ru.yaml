@@ -52,12 +52,14 @@ Search Filters:
     Videos: 'Видео'
     Channels: 'Каналы'
     #& Playlists
+    Movies: Фильмы
   Duration:
     Duration: 'Длительность'
     All Durations: 'Любая длительность'
     Short (< 4 minutes): 'Короткие (< 4 минут)'
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
+    Medium (4 - 20 minutes): Средние (4—20 мин)
   Search Results: 'Итоги поиска'
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'
