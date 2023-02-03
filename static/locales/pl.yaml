@@ -53,12 +53,14 @@ Search Filters:
     Videos: 'Filmy'
     Channels: 'Kanały'
     #& Playlists
+    Movies: Filmy kinowe
   Duration:
     Duration: 'Długość'
     All Durations: 'Każda'
     Short (< 4 minutes): 'Krótkie (< 4 minuty)'
     Long (> 20 minutes): 'Długie (> 20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Średnie (4 - 20 minut)
   Search Results: 'Wyniki wyszukiwania'
   Fetching results. Please wait: 'Trwa wyszukiwanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
