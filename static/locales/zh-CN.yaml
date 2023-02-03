@@ -52,12 +52,14 @@ Search Filters:
     Videos: '视频'
     Channels: '频道'
     #& Playlists
+    Movies: 电影
   Duration:
     Duration: '时长'
     All Durations: '所有时长'
     Short (< 4 minutes): '短（< 4分钟）'
     Long (> 20 minutes): '长（> 20分钟）'
   # On Search Page
+    Medium (4 - 20 minutes): 中等（4-20 分钟）
   Search Results: '搜索结果'
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'
