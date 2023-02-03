@@ -52,12 +52,14 @@ Search Filters:
     Videos: '影片'
     Channels: '頻道'
     #& Playlists
+    Movies: 電影
   Duration:
     Duration: '影片長度'
     All Durations: '所有長度'
     Short (< 4 minutes): '短（小於4分鐘）'
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
+    Medium (4 - 20 minutes): 中（4到20 分鐘）
   Search Results: '搜尋結果'
   Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'
