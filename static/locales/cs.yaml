@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videa'
     Channels: 'Kanály'
     #& Playlists
+    Movies: Filmy
   Duration:
     Duration: 'Trvání'
     All Durations: 'Všechny trvání'
     Short (< 4 minutes): 'Krátké (< 4 minuty)'
     Long (> 20 minutes): 'Dlouhé (> 20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Střední (4 - 20 minut)
   Search Results: 'Výsledky hledání'
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'
