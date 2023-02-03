@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videolar'
     Channels: 'Kanallar'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Süre'
     All Durations: 'Tüm Süreler'
     Short (< 4 minutes): 'Kısa (4 dakikadan az)'
     Long (> 20 minutes): 'Uzun (20 dakikadan fazla)'
   # On Search Page
+    Medium (4 - 20 minutes): Orta (4 - 20 dakika)
   Search Results: 'Arama Sonuçları'
   Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
   Fetch more results: 'Daha fazla sonuç yükle'
