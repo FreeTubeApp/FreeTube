@@ -55,12 +55,14 @@ Search Filters:
     Videos: 'Vídeos'
     Channels: 'Canales'
     #& Playlists
+    Movies: Películas
   Duration:
     Duration: 'Duración'
     All Durations: 'Cualquier duración'
     Short (< 4 minutes): 'Cortos (< 4 minutos)'
     Long (> 20 minutes): 'Largos (> 20 minutos)'
   # On Search Page
+    Medium (4 - 20 minutes): Media (4 - 20 minutos)
   Search Results: 'Resultados de la búsqueda'
   Fetching results. Please wait: 'Obteniendo resultados. Por favor, espera'
   Fetch more results: 'Obtener más resultados'
