@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'סרטונים'
     Channels: 'ערוצים'
     #& Playlists
+    Movies: סרטים
   Duration:
     Duration: 'משך זמן'
     All Durations: 'הכול'
     Short (< 4 minutes): 'קצר (מתחת ל־4 דקות)'
     Long (> 20 minutes): 'ארוך (מעל 20 דקות)'
   # On Search Page
+    Medium (4 - 20 minutes): בינוני (4 - 20‏ דקות)
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'
