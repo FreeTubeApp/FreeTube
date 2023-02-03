@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Відео'
     Channels: 'Канали'
     #& Playlists
+    Movies: Фільми
   Duration:
     Duration: 'Тривалість'
     All Durations: 'Будь-яка тривалість'
     Short (< 4 minutes): 'Короткі (< 4 хвилини)'
     Long (> 20 minutes): 'Довгі (> 20 хвилин)'
   # On Search Page
+    Medium (4 - 20 minutes): Середні (4 - 20 хвилин)
   Search Results: 'Результати пошуку'
   Fetching results. Please wait: 'Завантажуються результати. Будь ласка, зачекайте'
   Fetch more results: 'Завантажити більше результатів'
