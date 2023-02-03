@@ -54,12 +54,14 @@ Search Filters:
     Videos: 'فيديوهات'
     Channels: 'قنوات'
     #& Playlists
+    Movies: الأفلام
   Duration:
     Duration: 'المدة'
     All Durations: 'كل الآوقات'
     Short (< 4 minutes): 'قصير (< 4 دقائق)'
     Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
+    Medium (4 - 20 minutes): متوسط (4 - 20 دقيقة)
   Search Results: 'نتائج البحث'
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
