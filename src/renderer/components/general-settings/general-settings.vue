@@ -141,4 +141,4 @@
 </template>
 
 <script src="./general-settings.js" />
-<style scoped lang="scss" src="./general-settings.scss" />
+<style scoped src="./general-settings.css" />

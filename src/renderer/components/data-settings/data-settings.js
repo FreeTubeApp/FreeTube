@@ -76,9 +76,6 @@ export default defineComponent({
         `${exportNewPipe} (.json)`
       ]
     },
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
-    },
     primaryProfile: function () {
       return JSON.parse(JSON.stringify(this.profileList[0]))
     }
