@@ -492,12 +492,15 @@ export default defineComponent({
 
         this.player.on('ready', () => {
           this.$emit('ready')
-          this.checkAspectRatio()
           this.createStatsModal()
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()
           }
           this.toggleScreenshotButton()
+        })
+
+        this.player.one('loadedmetadata', () => {
+          this.checkAspectRatio()
         })
 
         this.player.on('ended', () => {
@@ -673,13 +676,6 @@ export default defineComponent({
     checkAspectRatio() {
       const videoWidth = this.player.videoWidth()
       const videoHeight = this.player.videoHeight()
-
-      if (videoWidth === 0 || videoHeight === 0) {
-        setTimeout(() => {
-          this.checkAspectRatio()
-        }, 200)
-        return
-      }
 
       if ((videoWidth - videoHeight) <= 240) {
         this.player.fluid(false)
