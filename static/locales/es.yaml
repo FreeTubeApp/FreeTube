@@ -60,11 +60,11 @@ Search Filters:
     Duration: 'Duración'
     All Durations: 'Cualquier duración'
     Short (< 4 minutes): 'Cortos (< 4 minutos)'
-    Long (> 20 minutes): 'Largos (> 20 minutos)'
+    Long (> 20 minutes): 'Largo (> 20 minutos)'
   # On Search Page
-    Medium (4 - 20 minutes): Media (4 - 20 minutos)
+    Medium (4 - 20 minutes): Medio (4 - 20 minutos)
   Search Results: 'Resultados de la búsqueda'
-  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espera'
+  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
@@ -74,10 +74,10 @@ Subscriptions:
   Latest Subscriptions: 'Suscripciones más recientes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
-  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera.'
+  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
   Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
-    perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
+    perfil tiene muchas suscripciones. Forzar RSS para evitar la limitación de velocidad
   Load More Videos: Cargar más vídeos
   Error Channels: Canales con errores
   Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
@@ -86,8 +86,8 @@ Subscriptions:
     vídeo.
 Trending:
   Trending: 'Tendencias'
-  Default: Por defecto
-  Trending Tabs: Fichas de tendencias
+  Default: Predeterminado
+  Trending Tabs: Pestañas de tendencias
   Movies: Películas
   Gaming: Videojuegos
   Music: Música
@@ -130,7 +130,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferencia de miniaturas'
-      Default: 'Por defecto'
+      Default: 'Predeterminada'
       Beginning: 'Comienzo'
       Middle: 'Mitad'
       End: 'Final'
@@ -149,9 +149,9 @@ Settings:
     The currently set default instance is {instance}: La instancia predeterminada
       actual es {instance}
     Current Invidious Instance: Instancia actual de Invidious
-    Clear Default Instance: Quitar la instancia por defecto
+    Clear Default Instance: Quitar la instancia predeterminada
     Set Current Instance as Default: Establecer la instancia actual como la instancia
-      por defecto
+      predeterminada
     External Link Handling:
       No Action: Sin acción
       Ask Before Opening Link: Preguntar antes de abrir el enlace
@@ -228,7 +228,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
-      Legacy Formats: 'Legacy'
+      Legacy Formats: 'Formatos heredados'
       Audio Formats: 'Formatos de audio'
     Default Quality:
       Default Quality: 'Calidad predeterminada'
@@ -866,10 +866,10 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Solo funcionará si la API de Invidious
-      es la preferente. Si la activas, la API local usará el formato Legacy en lugar
-      de Invidious. Esto ayudará cuando Invidious no pueda reproducir un vídeo por
-      culpa de las restricciones regionales.
+    Force Local Backend for Legacy Formats: Solo funciona cuando la API de Invidious
+      es la predeterminada. la API local se ejecutará y usará los formatos heredados
+      en lugar de Invidious. Esto ayudará cuando Invidious no pueda reproducir un
+      vídeo por culpa de las restricciones regionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -896,7 +896,7 @@ Tooltips:
       de un servidor Invidious al cual conectarse.
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
       \ en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube\
-      \ abrirá el enlace que a pulsado en su navegador predeterminado.\n"
+      \ abrirá el enlace en el que se hizo clic en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
@@ -957,7 +957,7 @@ Channels:
   Empty: Tu lista de canales está actualmente vacía.
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
-  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "{channelName}"?
+  Unsubscribe Prompt: ¿Está seguro de querer desuscribirse de "{channelName}"?
 Age Restricted:
   Type:
     Channel: Canal
