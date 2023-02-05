@@ -54,12 +54,14 @@ Search Filters:
     Videos: 'Videa'
     Channels: 'Kanali'
     #& Playlists
+    Movies: Filmovi
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Sva trajanja'
     Short (< 4 minutes): 'Kratko (< 4 min)'
     Long (> 20 minutes): 'Dugo (> 20 min)'
   # On Search Page
+    Medium (4 - 20 minutes): Srednje (4 do 20 minuta)
   Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'
@@ -267,6 +269,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
+    Allow DASH AV1 formats: Dozvoli DASH AV1 formate
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -284,6 +287,8 @@ Settings:
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
     Automatically Remove Video Meta Files: Automatski ukloni datoteke metapodataka
       videa
+    Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
+      gledanom zbirkom
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
