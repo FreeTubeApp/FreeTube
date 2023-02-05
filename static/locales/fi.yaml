@@ -52,12 +52,14 @@ Search Filters:
     Videos: 'Videot'
     Channels: 'Kanavat'
     #& Playlists
+    Movies: Elokuvat
   Duration:
     Duration: 'Kesto'
     All Durations: 'Kaikki kestot'
     Short (< 4 minutes): 'Lyhyt (alle 4 minuuttia)'
     Long (> 20 minutes): 'Pitkä (yli 20 minuuttia)'
   # On Search Page
+    Medium (4 - 20 minutes): Keskikokoinen (4 - 20 minuuttia)
   Search Results: 'Hakutulokset'
   Fetching results. Please wait: 'Haetaan tuloksia. Odota hetki'
   Fetch more results: 'Hae lisää tuloksia'
