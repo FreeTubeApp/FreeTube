@@ -14,6 +14,3 @@ jobs:
           keywords: '["duplicate of #", "duplicate of https://github.com/FreeTubeApp/FreeTube/issues/", "duplicate of https://github.com/FreeTubeApp/FreeTube/pulls/"]'
           labels: '["U: duplicate"]'
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-
-
-
