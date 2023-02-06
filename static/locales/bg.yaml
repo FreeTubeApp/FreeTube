@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Видеа'
     Channels: 'Канали'
     #& Playlists
+    Movies: Филми
   Duration:
     Duration: 'Продължителност'
     All Durations: 'Всички продължителности'
     Short (< 4 minutes): 'Кратки (< 4 минути)'
     Long (> 20 minutes): 'Дълги (> 20 минути)'
   # On Search Page
+    Medium (4 - 20 minutes): Средни (4 - 20 минути)
   Search Results: 'Резултати от търсенето'
   Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
