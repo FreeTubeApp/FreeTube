@@ -239,7 +239,6 @@ export default defineComponent({
     this.useTheatreMode = this.defaultTheatreMode
 
     this.checkIfPlaylist()
-    this.handlePlaylistPersisting()
     this.checkIfTimestamp()
 
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
@@ -946,12 +945,12 @@ export default defineComponent({
     handlePlaylistPersisting: function () {
       // Only save playlist ID if enabled, and it's not special video types
       if (!(this.rememberHistory && this.saveVideoHistoryWithLastViewedPlaylist)) { return }
-      if (this.isUpcoming || this.isLoading || this.isLive) { return }
+      if (this.isUpcoming || this.isLive) { return }
 
       const payload = {
         videoId: this.videoId,
         // Whether there is a playlist ID or not, save it
-        playlistId: this.$route.query?.playlistId,
+        lastViewedPlaylistId: this.$route.query?.playlistId,
       }
       this.updateLastViewedPlaylist(payload)
     },
@@ -987,6 +986,10 @@ export default defineComponent({
         } else {
           this.addToHistory(0)
         }
+
+        // Must be called AFTER history entry inserted
+        // Otherwise the value is not saved for first time watched videos
+        this.handlePlaylistPersisting()
       }
     },
 
@@ -1160,7 +1163,6 @@ export default defineComponent({
       this.videoChapters = []
 
       this.handleWatchProgress()
-      this.handlePlaylistPersisting()
 
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player

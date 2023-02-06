@@ -33,8 +33,8 @@ class History {
     return baseHandlers.history.updateWatchProgress(videoId, watchProgress)
   }
 
-  static updateLastViewedPlaylist(videoId, playlistId) {
-    return baseHandlers.history.updateLastViewedPlaylist(videoId, playlistId)
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
+    return baseHandlers.history.updateLastViewedPlaylist(videoId, lastViewedPlaylistId)
   }
 
   static delete(videoId) {
