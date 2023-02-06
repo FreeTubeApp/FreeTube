@@ -64,7 +64,7 @@
     "marked": "^4.2.12",
     "nedb-promises": "^6.2.1",
     "process": "^0.11.10",
-    "video.js": "7.21.1",
+    "video.js": "7.21.2",
     "videojs-contrib-quality-levels": "^3.0.0",
     "videojs-http-source-selector": "^1.1.6",
     "videojs-mobile-ui": "^0.8.0",

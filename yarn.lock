@@ -1538,10 +1538,10 @@
   dependencies:
     "@types/node" "*"
 
-"@videojs/http-streaming@2.15.1":
-  version "2.15.1"
-  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.15.1.tgz#f559f155b2c8400af10d767d4e134971c71b1344"
-  integrity sha512-/uuN3bVkEeJAdrhu5Hyb19JoUo3CMys7yf2C1vUjeL1wQaZ4Oe8JrZzRrnWZ0rjvPgKfNLPXQomsRtgrMoRMJQ==
+"@videojs/http-streaming@2.16.0":
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.16.0.tgz#47f86e793fc773db26dbd9aeb3e5130b767c78fa"
+  integrity sha512-mGNTqjENzP86XGM6HSWdWVO/KAsDlf5+idW2W7dL1+NkzWpwZlSEYhrdEVVnhoOb0A6E7JW6LM611/JA7Jn/3A==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@videojs/vhs-utils" "3.0.5"
@@ -8680,13 +8680,13 @@ verror@^1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-video.js@7.21.1, "video.js@^6 || ^7", "video.js@^6 || ^7 || ^8", video.js@^7.0.0, "video.js@^7.2.0 || ^6.6.0":
-  version "7.21.1"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.21.1.tgz#c018e1d0f0643661fcebd5ca355e9723cc82312a"
-  integrity sha512-AvHfr14ePDHCfW5Lx35BvXk7oIonxF6VGhSxocmTyqotkQpxwYdmt4tnQSV7MYzNrYHb0GI8tJMt20NDkCQrxg==
+video.js@7.21.2, "video.js@^6 || ^7", "video.js@^6 || ^7 || ^8", video.js@^7.0.0, "video.js@^7.2.0 || ^6.6.0":
+  version "7.21.2"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.21.2.tgz#2dbf17b435690be739b15748bd53d3002f548e3a"
+  integrity sha512-Zbo23oT4CbtIxeAtfTvzdl7OlN/P34ir7hDzXFtLZB+BtJsaLy0Rgh/06dBMJSGEjQCDo4MUS6uPonuX0Nl3Kg==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    "@videojs/http-streaming" "2.15.1"
+    "@videojs/http-streaming" "2.16.0"
     "@videojs/vhs-utils" "^3.0.4"
     "@videojs/xhr" "2.6.0"
     aes-decrypter "3.1.3"
