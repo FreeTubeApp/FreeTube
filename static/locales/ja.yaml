@@ -52,12 +52,14 @@ Search Filters:
     Videos: '動画'
     Channels: 'チャンネル'
     #& Playlists
+    Movies: 映画
   Duration:
     Duration: '動画時間'
     All Durations: 'すべての長さ'
     Short (< 4 minutes): '短編（4 分未満）'
     Long (> 20 minutes): '長編（20 分以上）'
   # On Search Page
+    Medium (4 - 20 minutes): 中編（4 - 20 分間）
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
   Fetch more results: 'もっと見る'
