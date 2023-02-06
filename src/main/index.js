@@ -508,11 +508,12 @@ function runApp() {
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, fullScreen, ...bounds } = boundsDoc.value
-      const allDisplaysSummaryWidth = screen
-        .getAllDisplays()
-        .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
+      const windowVisible = screen.getAllDisplays().some(display => {
+        const { x, y, width, height } = display.bounds
+        return !(bounds.x > x + width || bounds.x + bounds.width < x || bounds.y > y + height || bounds.y + bounds.height < y)
+      })
 
-      if (allDisplaysSummaryWidth >= bounds.x) {
+      if (windowVisible) {
         newWindow.setBounds({
           x: bounds.x,
           y: bounds.y,
