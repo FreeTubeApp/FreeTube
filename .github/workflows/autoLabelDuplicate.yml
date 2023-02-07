@@ -7,7 +7,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Amwam/issue-comment-action@v1.3.1
+      - name: Check Comment Author
+        if: github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER' 
+        uses: Amwam/issue-comment-action@v1.3.1
         with:
           keywords: '["duplicate of #", "duplicate of https://github.com/FreeTubeApp/FreeTube/issues/", "duplicate of https://github.com/FreeTubeApp/FreeTube/pulls/"]'
           labels: '["U: duplicate"]'
