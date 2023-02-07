@@ -922,7 +922,7 @@ export default defineComponent({
       return convertedData
     },
 
-    promptAndWriteToFile: async function (saveOptions, content, successMessageKey) {
+    promptAndWriteToFile: async function (saveOptions, content, successMessageKeySuffix) {
       const response = await showSaveDialog(saveOptions)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -937,7 +937,7 @@ export default defineComponent({
         return
       }
 
-      showToast(this.$t(`Settings.Data Settings.${successMessageKey}`))
+      showToast(this.$t(`Settings.Data Settings.${successMessageKeySuffix}`))
     },
 
     getChannelInfoInvidious: function (channelId) {
