@@ -867,6 +867,10 @@ Tooltips:
       brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
     Skip by Scrolling Over Video Player: Koristi kotačić za pregledavanje videa, MPV
       stil.
+    Allow DASH AV1 formats: DASH AV1 formati mogu izgledati bolje od DASH H.264 formata.
+      DASH AV1 formati zahtijevaju više kapaciteta za reprodukciju! Nisu dostupni
+      pri svim videima. U tim će slučajevima player umjesto njih koristiti DASH H.264
+      formate.
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
       API-a.
