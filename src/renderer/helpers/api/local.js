@@ -11,6 +11,7 @@ import {
   getUserDataPath,
   toLocalePublicationString
 } from '../utils'
+import ytch from 'yt-channel-info'
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -542,4 +543,17 @@ export function filterFormats(formats, allowAv1 = false) {
   } else {
     return [...audioFormats, ...h264Formats]
   }
+}
+
+export function parseShortsResponse (response) {
+  return {
+    shorts: response.items,
+    continuationString: response.continuation
+  }
+}
+
+export async function channelShortsLocal (channelId, idType, sortBy) {
+  return await ytch.getChannelShorts(
+    { channelId, channelIdType: idType, sortBy: sortBy }
+  )
 }

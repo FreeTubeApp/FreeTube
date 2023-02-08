@@ -420,7 +420,7 @@ export default defineComponent({
         this.publishedText = this.data.publishedText
       }
 
-      if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
+      if (this.data.publishedText && !this.isLive) {
         // produces a string according to the template in the locales string
         this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,

@@ -14,9 +14,10 @@ import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import ytch from 'yt-channel-info'
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { copyToClipboard, formatNumber, showToast } from '../../helpers/utils'
+import { capitalizedWord, copyToClipboard, formatNumber, otherAPI, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
 import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { channelShorts } from '../../helpers/api'
 
 export default defineComponent({
   name: 'Search',
@@ -45,20 +46,28 @@ export default defineComponent({
       subCount: 0,
       searchPage: 2,
       videoContinuationString: '',
+      shortsContinuationString: '',
       playlistContinuationString: '',
       searchContinuationString: '',
       channelDescription: '',
       videoSortBy: 'newest',
+      shortsSortBy: 'newest',
       playlistSortBy: 'last',
       lastSearchQuery: '',
       relatedChannels: [],
       latestVideos: [],
+      latestShorts: [],
       latestPlaylists: [],
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
       isFamilyFriendly: false,
       errorMessage: '',
+      shortSelectValues: [
+        'newest',
+        'oldest',
+        'popular'
+      ],
       videoSelectValues: [
         'newest',
         'oldest',
@@ -126,7 +135,15 @@ export default defineComponent({
       }
     },
 
-    videoSelectNames: function () {
+    shortSelectNames: function() {
+      return [
+        this.$t('Channel.Shorts.Sort Types.Newest'),
+        this.$t('Channel.Shorts.Sort Types.Oldest'),
+        this.$t('Channel.Shorts.Sort Types.Most Popular')
+      ]
+    },
+
+    videoSelectNames: function() {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Oldest'),
@@ -183,6 +200,7 @@ export default defineComponent({
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
+      this.latestShorts = []
       this.latestPlaylists = []
       this.searchResults = []
       this.shownElementList = []
@@ -197,6 +215,7 @@ export default defineComponent({
         this.getChannelVideosLocal()
         this.getPlaylistsLocal()
       }
+      this.getChannelShorts(this.apiUsed)
     },
 
     videoSortBy () {
@@ -212,6 +231,11 @@ export default defineComponent({
         default:
           this.getChannelVideosLocal()
       }
+    },
+
+    shortsSortBy () {
+      this.latestShorts = []
+      this.getChannelShorts(this.apiUsed)
     },
 
     playlistSortBy () {
@@ -245,6 +269,7 @@ export default defineComponent({
       this.getChannelVideosLocal()
       this.getPlaylistsLocal()
     }
+    this.getChannelShorts(this.apiUsed)
   },
   methods: {
     goToChannel: function (id) {
@@ -346,7 +371,29 @@ export default defineComponent({
       })
     },
 
-    channelLocalNextPage: function () {
+    getChannelShorts: async function(api) {
+      this.isElementListLoading = true
+      try {
+        const result = await channelShorts(api, this.id, this.idType, this.shortsSortBy, this.shortsContinuationString)
+        this.latestShorts = result.shorts
+        this.shortsContinuationString = result.continuationString
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t(`${capitalizedWord(api)} API Error (Click to copy)`)
+        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
+          copyToClipboard(err.responseJSON.error)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === api && this.backendFallback) {
+          showToast(this.$t(`Falling back to ${capitalizedWord(otherAPI(api))} API`))
+          this.getChannelShorts(otherAPI(api))
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    channelLocalNextPage: function() {
       ytch.getChannelVideosMore({ continuation: this.videoContinuationString }).then((response) => {
         this.latestVideos = this.latestVideos.concat(response.items)
         this.videoContinuationString = response.continuation

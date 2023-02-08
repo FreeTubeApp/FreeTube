@@ -93,6 +93,19 @@
               {{ $t("Channel.Videos.Videos").toUpperCase() }}
             </div>
             <div
+              id="shortsTab"
+              class="tab"
+              :class="(currentTab==='shorts')?'selectedTab':''"
+              role="tab"
+              aria-selected="true"
+              aria-controls="shortsPanel"
+              tabindex="0"
+              @click="changeTab('shorts')"
+              @keydown.left.right.enter.space="changeTab('shorts', $event)"
+            >
+              {{ $t("Channel.Shorts.Shorts").toUpperCase() }}
+            </div>
+            <div
               id="playlistsTab"
               class="tab"
               role="tab"
@@ -183,6 +196,15 @@
         :placeholder="$t('Search Filters.Sort By.Sort By')"
         @change="playlistSortBy = $event"
       />
+      <ft-select
+        v-show="currentTab === 'shorts'"
+        class="sortSelect"
+        :value="shortSelectValues[0]"
+        :select-names="shortSelectNames"
+        :select-values="shortSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="shortsSortBy = $event"
+      />
       <ft-loader
         v-if="isElementListLoading"
       />
@@ -202,6 +224,20 @@
         >
           <p class="message">
             {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-show="currentTab === 'shorts'"
+          id="shortsPanel"
+          :data="latestShorts"
+          role="tabpanel"
+          aria-labelledby="shortsTab"
+        />
+        <ft-flex-box
+          v-if="currentTab === 'shorts' && latestShorts.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Shorts.This channel does not currently have any shorts") }}
           </p>
         </ft-flex-box>
         <ft-element-list

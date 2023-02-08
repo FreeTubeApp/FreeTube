@@ -110,3 +110,19 @@ function parseInvidiousCommentData(response) {
     return comment
   })
 }
+
+export function parseShortsResponse (response) {
+  return {
+    shorts: response.videos,
+    continuationString: response.continuation
+  }
+}
+
+export async function channelShortsInvidious (channelId, idType, sortBy = 'newest') {
+  const payload = {
+    resource: `channels/${channelId}/shorts`,
+    id: '',
+    params: { sortBy }
+  }
+  return exports.invidiousAPICall(payload)
+}

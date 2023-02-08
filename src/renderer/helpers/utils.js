@@ -595,23 +595,26 @@ export function getVideoParamsFromUrl(url) {
  * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
  * @returns {string} the title with upper case characters removed
  */
-export function toDistractionFreeTitle(title, minUpperCase = 3) {
-  const firstValidCharIndex = (word) => {
-    const reg = /[\p{L}]/u
-    return word.search(reg)
-  }
-
-  const capitalizedWord = (word) => {
-    const chars = word.split('')
-    const index = firstValidCharIndex(word)
-    chars[index] = chars[index].toUpperCase()
-    return chars.join('')
-  }
-
+export function toDistractionFreeTitle (title, minUpperCase = 3) {
   const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
   return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
 }
 
-export function formatNumber(number, options = undefined) {
+const firstValidCharIndex = (word) => {
+  const reg = /[\p{L}]/u
+  return word.search(reg)
+}
+export const capitalizedWord = (word) => {
+  const chars = word.split('')
+  const index = firstValidCharIndex(word)
+  chars[index] = chars[index].toUpperCase()
+  return chars.join('')
+}
+
+export function formatNumber (number, options = undefined) {
   return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
+}
+
+export const otherAPI = (current) => {
+  return current === 'local' ? 'invidious' : 'local'
 }
