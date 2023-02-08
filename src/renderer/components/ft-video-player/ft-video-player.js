@@ -364,6 +364,12 @@ export default defineComponent({
           await this.determineDefaultQualityLegacy()
         }
 
+        if (this.format === 'audio') {
+          const controlBarItems = this.dataSetup.controlBar.children
+          const index = controlBarItems.indexOf('pictureInPictureToggle')
+          controlBarItems.splice(index, 1)
+        }
+
         this.player = videojs(this.$refs.video, {
           html5: {
             preloadTextTracks: false,
