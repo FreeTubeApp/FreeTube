@@ -1,7 +1,7 @@
 name: "Pull Request Labeler"
 on:
   pull_request_target:
-    types: [opened, reopened]
+    types: [opened, reopened, ready_for_review]
 
 jobs:
   triage:
@@ -9,6 +9,7 @@ jobs:
       contents: read
       pull-requests: write
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.draft }}
     steps:
     - uses: actions/labeler@v4
       with:
