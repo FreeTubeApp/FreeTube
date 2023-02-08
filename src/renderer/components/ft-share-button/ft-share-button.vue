@@ -2,7 +2,7 @@
   <ft-icon-button
     ref="iconButton"
     :title="$t(`Share.Share ${shareTargetType}`)"
-    :theme="isVideo?'secondary':'base-no-default'"
+    theme="secondary"
     :icon="['fas', 'share-alt']"
     :dropdown-modal-on-mobile="true"
     dropdown-position-x="left"

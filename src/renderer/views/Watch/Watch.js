@@ -391,7 +391,7 @@ export default defineComponent({
           this.channelSubscriptionCountText = ''
         }
 
-        const chapters = []
+        let chapters = []
         if (!this.hideChapters) {
           const rawChapters = result.player_overlays?.decorated_player_bar?.player_bar?.markers_map?.get({ marker_key: 'DESCRIPTION_CHAPTERS' })?.value.chapters
           if (rawChapters) {
@@ -406,7 +406,11 @@ export default defineComponent({
                 thumbnail: chapter.thumbnail[0].url
               })
             }
+          } else {
+            chapters = this.extractChaptersFromDescription(this.videoDescription)
+          }
 
+          if (chapters.length > 0) {
             this.addChaptersEndSeconds(chapters, result.basic_info.duration)
 
             // prevent vue from adding reactivity which isn't needed
@@ -735,35 +739,9 @@ export default defineComponent({
               break
           }
 
-          const chapters = []
+          let chapters = []
           if (!this.hideChapters) {
-            // HH:MM:SS Text
-            // MM:SS Text
-            // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
-            // MM:SS - Text
-            // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
-            // HH:MM - HH:MM - Text // end timestamp is ignored
-            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(\s*[–—-]\s*(?:\d+:){1,2}\d+)?\s+([–—•-]\s*)?(?<title>.+)$/gm)
-
-            for (const { groups } of chapterMatches) {
-              let start = 60 * Number(groups.minutes) + Number(groups.seconds)
-
-              if (groups.hours) {
-                start += 3600 * Number(groups.hours)
-              }
-
-              // replace previous chapter with current one if they have an identical start time
-              if (chapters.length > 0 && chapters[chapters.length - 1].startSeconds === start) {
-                chapters.pop()
-              }
-
-              chapters.push({
-                title: groups.title.trim(),
-                timestamp: groups.timestamp,
-                startSeconds: start,
-                endSeconds: 0
-              })
-            }
+            chapters = this.extractChaptersFromDescription(result.description)
 
             if (chapters.length > 0) {
               this.addChaptersEndSeconds(chapters, result.lengthSeconds)
@@ -881,6 +859,42 @@ export default defineComponent({
             this.isLoading = false
           }
         })
+    },
+
+    /**
+     * @param {string} description
+     */
+    extractChaptersFromDescription: function (description) {
+      const chapters = []
+      // HH:MM:SS Text
+      // MM:SS Text
+      // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
+      // MM:SS - Text
+      // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
+      // HH:MM - HH:MM - Text // end timestamp is ignored
+      const chapterMatches = description.matchAll(/^(?<timestamp>((?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(\s*[–—-]\s*(?:\d+:){1,2}\d+)?\s+([–—•-]\s*)?(?<title>.+)$/gm)
+
+      for (const { groups } of chapterMatches) {
+        let start = 60 * Number(groups.minutes) + Number(groups.seconds)
+
+        if (groups.hours) {
+          start += 3600 * Number(groups.hours)
+        }
+
+        // replace previous chapter with current one if they have an identical start time
+        if (chapters.length > 0 && chapters[chapters.length - 1].startSeconds === start) {
+          chapters.pop()
+        }
+
+        chapters.push({
+          title: groups.title.trim(),
+          timestamp: groups.timestamp,
+          startSeconds: start,
+          endSeconds: 0
+        })
+      }
+
+      return chapters
     },
 
     addChaptersEndSeconds: function (chapters, videoLengthSeconds) {

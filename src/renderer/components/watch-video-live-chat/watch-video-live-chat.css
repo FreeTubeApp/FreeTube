@@ -207,6 +207,7 @@
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
+  text-align: center;
   transition: background 0.2s ease-out;
 }
 
@@ -220,6 +221,5 @@
   color: var(--text-with-accent-color);
   font-size: 22px;
   position: relative;
-  left: 0.5rem;
   top: 0.45rem;
 }
