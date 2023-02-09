@@ -23,3 +23,9 @@
   z-index: 2;
   background-color: #000;
 }
+.video-js.vjs-user-inactive.vjs-paused {
+  cursor: default
+}
+.video-js.vjs-user-inactive.vjs-playing {
+  cursor: none
+}
