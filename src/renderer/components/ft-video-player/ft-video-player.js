@@ -365,6 +365,7 @@ export default defineComponent({
         }
 
         if (this.format === 'audio') {
+          // hide the PIP button for the audio formats
           const controlBarItems = this.dataSetup.controlBar.children
           const index = controlBarItems.indexOf('pictureInPictureToggle')
           controlBarItems.splice(index, 1)
