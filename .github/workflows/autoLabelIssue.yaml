@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: Naturalclar/issue-action@v2.0.2
         with:
-          body: "both"
+          title-or-body: "body"
           parameters: >-
             [
               {
