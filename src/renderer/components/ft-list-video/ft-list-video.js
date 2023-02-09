@@ -313,11 +313,11 @@ export default defineComponent({
       }
 
       // Get playlist ID from history ONLY if option enabled
-      if (!this.showVideoWithLastViewedPlaylist) { return null }
-      if (!this.saveVideoHistoryWithLastViewedPlaylist) { return null }
+      if (!this.showVideoWithLastViewedPlaylist) { return }
+      if (!this.saveVideoHistoryWithLastViewedPlaylist) { return }
       const historyIndex = this.historyIndex
       if (historyIndex === -1) {
-        return null
+        return undefined
       }
 
       return this.historyCache[historyIndex].lastViewedPlaylistId
