@@ -522,19 +522,7 @@ export default defineComponent({
         ]
       }
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-      try {
-        await writeFileFromDialog(response, subscriptionsDb)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, subscriptionsDb, 'Subscriptions have been successfully exported')
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -587,20 +575,7 @@ export default defineComponent({
         return object
       })
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      try {
-        await writeFileFromDialog(response, JSON.stringify(subscriptionsObject))
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, JSON.stringify(subscriptionsObject), 'Subscriptions have been successfully exported')
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
@@ -633,20 +608,7 @@ export default defineComponent({
 
       opmlData += '</outline></body></opml>'
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      try {
-        await writeFileFromDialog(response, opmlData)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, opmlData, 'Subscriptions have been successfully exported')
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -672,20 +634,8 @@ export default defineComponent({
         exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
 
-      try {
-        await writeFileFromDialog(response, exportText)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, exportText, 'Subscriptions have been successfully exported')
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -719,19 +669,7 @@ export default defineComponent({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-      try {
-        await writeFileFromDialog(response, JSON.stringify(newPipeObject))
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), 'Subscriptions have been successfully exported')
     },
 
     importHistory: async function () {
@@ -819,19 +757,7 @@ export default defineComponent({
         ]
       }
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      try {
-        await writeFileFromDialog(response, historyDb)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-      }
-      showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
+      await this.promptAndWriteToFile(options, historyDb, 'All watched history has been successfully exported')
     },
 
     importPlaylists: async function () {
@@ -962,19 +888,7 @@ export default defineComponent({
         ]
       }
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-      try {
-        await writeFileFromDialog(response, JSON.stringify(this.allPlaylists))
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')}`)
+      await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), 'All playlists has been successfully exported')
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
@@ -1006,6 +920,24 @@ export default defineComponent({
         }
       }
       return convertedData
+    },
+
+    promptAndWriteToFile: async function (saveOptions, content, successMessageKeySuffix) {
+      const response = await showSaveDialog(saveOptions)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      try {
+        await writeFileFromDialog(response, content)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+
+      showToast(this.$t(`Settings.Data Settings.${successMessageKeySuffix}`))
     },
 
     getChannelInfoInvidious: function (channelId) {
