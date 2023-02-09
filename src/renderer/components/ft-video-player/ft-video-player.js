@@ -1831,8 +1831,11 @@ export default defineComponent({
     },
 
     // This function should always be at the bottom of this file
+    /**
+     * @param {KeyboardEvent} event
+     */
     keyboardShortcutHandler: function (event) {
-      if (document.activeElement.classList.contains('ft-input')) {
+      if (document.activeElement.classList.contains('ft-input') || event.altKey) {
         return
       }
 
