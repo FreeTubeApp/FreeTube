@@ -507,7 +507,7 @@ const actions = {
       }
     }
 
-    if (payload.playbackRate !== null) {
+    if (payload.playbackRate != null) {
       if (typeof cmdArgs.playbackRate === 'string') {
         args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
       } else if (!ignoreWarnings) {
@@ -516,8 +516,8 @@ const actions = {
     }
 
     // Check whether the video is in a playlist
-    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId !== null && payload.playlistId !== '') {
-      if (payload.playlistIndex !== null) {
+    if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
+      if (payload.playlistIndex != null) {
         if (typeof cmdArgs.playlistIndex === 'string') {
           args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
         } else if (!ignoreWarnings) {
@@ -554,10 +554,10 @@ const actions = {
         args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
       }
     } else {
-      if (payload.playlistId !== null && payload.playlistId !== '' && !ignoreWarnings) {
+      if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
         showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
       }
-      if (payload.videoId !== null) {
+      if (payload.videoId != null) {
         if (cmdArgs.supportsYtdlProtocol) {
           args.push(`${cmdArgs.videoUrl}ytdl://${payload.videoId}`)
         } else {
@@ -566,9 +566,9 @@ const actions = {
       }
     }
 
-    const videoOrPlaylist = payload.playlistId === null || payload.playlistId === ''
-      ? i18n.t('Video.External Player.video')
-      : i18n.t('Video.External Player.playlist')
+    const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
+      ? i18n.t('Video.External Player.playlist')
+      : i18n.t('Video.External Player.video')
 
     showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
