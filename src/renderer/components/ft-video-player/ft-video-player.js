@@ -470,6 +470,10 @@ export default defineComponent({
         document.removeEventListener('keydown', this.keyboardShortcutHandler)
         document.addEventListener('keydown', this.keyboardShortcutHandler)
 
+        this.player.on('mousemove', this.hideMouseTimeout)
+        this.player.on('mouseenter', this.hideMouseTimeout)
+        this.player.on('mouseleave', this.removeMouseTimeout)
+
         this.player.on('volumechange', this.updateVolume)
         if (this.videoVolumeMouseScroll) {
           this.player.on('wheel', this.mouseScrollVolume)
@@ -1684,6 +1688,22 @@ export default defineComponent({
         this.player.exitFullscreen()
       } else {
         this.player.requestFullscreen()
+      }
+    },
+
+    hideMouseTimeout: function () {
+      if (typeof this.$refs.video !== 'undefined') {
+        this.$refs.video.style.cursor = 'default'
+        clearTimeout(this.mouseTimeout)
+        this.mouseTimeout = setTimeout(() => {
+          this.$refs.video.style.cursor = 'none'
+        }, 2650)
+      }
+    },
+
+    removeMouseTimeout: function () {
+      if (this.mouseTimeout !== null) {
+        clearTimeout(this.mouseTimeout)
       }
     },
 
