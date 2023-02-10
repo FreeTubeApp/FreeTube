@@ -98,7 +98,6 @@ export default defineComponent({
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      pictureInPictureButtonInverval: null,
       infoAreaSticky: true
     }
   },
@@ -212,25 +211,6 @@ export default defineComponent({
           }
           break
       }
-    },
-    activeFormat: function (format) {
-      clearInterval(this.pictureInPictureButtonInverval)
-
-      // only hide/show the button once the player is available
-      this.pictureInPictureButtonInverval = setInterval(() => {
-        if (!this.hidePlayer) {
-          const pipButton = document.querySelector('.vjs-picture-in-picture-control')
-          if (pipButton === null) {
-            return
-          }
-          if (format === 'audio') {
-            pipButton.classList.add('vjs-hidden')
-          } else {
-            pipButton.classList.remove('vjs-hidden')
-          }
-          clearInterval(this.pictureInPictureButtonInverval)
-        }
-      }, 100)
     }
   },
   mounted: function () {
