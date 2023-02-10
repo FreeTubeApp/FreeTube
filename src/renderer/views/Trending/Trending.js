@@ -69,9 +69,16 @@ export default defineComponent({
       }
     },
 
-    focusTab: function (tab) {
-      this.$refs[tab].focus()
-      this.$emit('showOutlines')
+    /**
+     * @param {KeyboardEvent} event
+     * @param {string} tab
+     */
+    focusTab: function (event, tab) {
+      if (!event.altKey) {
+        event.preventDefault()
+        this.$refs[tab].focus()
+        this.$emit('showOutlines')
+      }
     },
 
     getTrendingInfo: function () {
