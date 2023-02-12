@@ -167,5 +167,18 @@ function parseInvidiousCommunityAttachments(data) {
     }
   }
 
+  if (data.type === 'multiImage') {
+    const content = data.images.map(imageThumbnails => {
+      return imageThumbnails.map(thumbnail => {
+        thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+        return thumbnail
+      })
+    })
+    return {
+      type: 'multiImage',
+      content: content
+    }
+  }
+
   console.error('New Invidious Community Post Type: ' + data.type)
 }
