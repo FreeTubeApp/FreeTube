@@ -28,11 +28,13 @@ export default defineComponent({
         'all',
         'video',
         'channel',
-        'playlist'
+        'playlist',
+        'movie'
       ],
       durationValues: [
         '',
         'short',
+        'medium',
         'long'
       ]
     }
@@ -76,7 +78,8 @@ export default defineComponent({
         this.$t('Search Filters.Type.All Types'),
         this.$t('Search Filters.Type.Videos'),
         this.$t('Search Filters.Type.Channels'),
-        this.$t('Playlists')
+        this.$t('Playlists'),
+        this.$t('Search Filters.Type.Movies')
       ]
     },
 
@@ -84,18 +87,23 @@ export default defineComponent({
       return [
         this.$t('Search Filters.Duration.All Durations'),
         this.$t('Search Filters.Duration.Short (< 4 minutes)'),
+        this.$t('Search Filters.Duration.Medium (4 - 20 minutes)'),
         this.$t('Search Filters.Duration.Long (> 20 minutes)')
       ]
     }
   },
   methods: {
+    isVideoOrMovieOrAll(type) {
+      return type === 'video' || type === 'movie' || type === 'all'
+    },
+
     updateSortBy: function (value) {
       this.$store.commit('setSearchSortBy', value)
       this.$emit('filterValueUpdated', this.filterValueChanged)
     },
 
     updateTime: function (value) {
-      if (this.searchSettings.type !== 'video') {
+      if (!this.isVideoOrMovieOrAll(this.searchSettings.type)) {
         const typeRadio = this.$refs.typeRadio
         typeRadio.updateSelectedValue('all')
         this.$store.commit('setSearchType', 'all')
@@ -108,17 +116,20 @@ export default defineComponent({
       if (value === 'channel' || value === 'playlist') {
         const timeRadio = this.$refs.timeRadio
         const durationRadio = this.$refs.durationRadio
+        const sortByRadio = this.$refs.sortByRadio
         timeRadio.updateSelectedValue('')
         durationRadio.updateSelectedValue('')
+        sortByRadio.updateSelectedValue(this.sortByValues[0])
         this.$store.commit('setSearchTime', '')
         this.$store.commit('setSearchDuration', '')
+        this.$store.commit('setSearchSortBy', this.sortByValues[0])
       }
       this.$store.commit('setSearchType', value)
       this.$emit('filterValueUpdated', this.filterValueChanged)
     },
 
     updateDuration: function (value) {
-      if (value !== '' && this.searchSettings.type !== 'video') {
+      if (value !== '' && !this.isVideoOrMovieOrAll(this.searchSettings.type)) {
         const typeRadio = this.$refs.typeRadio
         typeRadio.updateSelectedValue('all')
         this.updateType('all')

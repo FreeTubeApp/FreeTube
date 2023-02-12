@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'סרטונים'
     Channels: 'ערוצים'
     #& Playlists
+    Movies: סרטים
   Duration:
     Duration: 'משך זמן'
     All Durations: 'הכול'
     Short (< 4 minutes): 'קצר (מתחת ל־4 דקות)'
     Long (> 20 minutes): 'ארוך (מעל 20 דקות)'
   # On Search Page
+    Medium (4 - 20 minutes): בינוני (4 - 20‏ דקות)
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'
@@ -265,6 +267,7 @@ Settings:
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
+    Allow DASH AV1 formats: לאפשר תצורות DASH AV1
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -281,6 +284,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'האם
       אתם בטוחים שאתם רוצים למחוק כל את המנויים והפרופילים? פעולה זו היא לא הפיכה.'
     Automatically Remove Video Meta Files: להסיר אוטומטית קובצי נתוני על של הסרטון
+    Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
+      הנגינה לאחרונים שנצפו
   Subscription Settings:
     Subscription Settings: 'הגדרות מנויים'
     Hide Videos on Watch: 'הסתר סרטונים לאחר הצפייה'
@@ -736,12 +741,6 @@ Playlist:
   View: 'צפייה'
   Views: 'צפיות'
   Last Updated On: 'עודכן לאחרונה ב'
-  Share Playlist:
-    Share Playlist: 'שתפו פלייליסט'
-    Copy YouTube Link: 'העתיקו קישור ל-YouTube'
-    Open in YouTube: 'פתחו ב-Youtube'
-    Copy Invidious Link: 'העתיקו קישור ל-Invidious'
-    Open in Invidious: 'פתחו ב-Invidious'
 
 # On Video Watch Page
 #* Published
@@ -757,6 +756,7 @@ Change Format:
   Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
 Share:
   Share Video: 'שתפו את הסרטון'
+  Share Playlist: 'שתפו פלייליסט'
   Include Timestamp: 'לשמור נקודת זמן'
   Copy Link: 'העתקת קישור'
   Open Link: 'פתיחת קישור'
@@ -853,6 +853,9 @@ Tooltips:
       בהגדרות).
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
       כמו ב־MPV.
+    Allow DASH AV1 formats: תצורות DASH AV1 עשויות להיראות טוב יותר מתצורות DASH H.264.
+      תצורות DASH AV1 דורשות יותר חשמל כדי לנגן! הן אינן זמינות בכל הסרטונים, במקרים
+      האלה הנגן ישתמש בתצורות DASH H.264 במקום.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל

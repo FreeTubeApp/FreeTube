@@ -55,12 +55,14 @@ Search Filters:
     Videos: 'Βίντεο'
     Channels: 'Κανάλια'
     #& Playlists
+    Movies: Ταινίες
   Duration:
     Duration: 'Διάρκεια'
     All Durations: 'Οποιασδήποτε Διάρκειας'
     Short (< 4 minutes): 'Μικρό(<4 λεπτών)'
     Long (> 20 minutes): 'Μεγάλο (>20 λεπτών)'
   # On Search Page
+    Medium (4 - 20 minutes): Μεσαία (4 - 20 λεπτά)
   Search Results: 'Αποτελέσματα αναζήτησης'
   Fetching results. Please wait: 'Aνάκτηση αποτελεσμάτων. Παρακαλώ περιμένετε'
   Fetch more results: 'Λήψη περαιτέρω αποτελεσμάτων'
@@ -277,6 +279,7 @@ Settings:
       Βίντεο
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
+    Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -294,6 +297,8 @@ Settings:
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
     Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
+    Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
+      Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
   Subscription Settings:
     Subscription Settings: 'Ρυθμίσεις Συνδρομών'
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
@@ -771,12 +776,6 @@ Playlist:
   View: 'Προβολή'
   Views: 'Προβολές'
   Last Updated On: 'Τελευταία ενημέρωση στις'
-  Share Playlist:
-    Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
-    Copy YouTube Link: 'Αντιγραφή συνδέσμου YouTube'
-    Open in YouTube: 'Άνοιγμα στο YouTube'
-    Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-    Open in Invidious: 'Άνοιγμα στο Invidious'
 
 # On Video Watch Page
 #* Published
@@ -794,6 +793,7 @@ Change Format:
     αυτό το βίντεο'
 Share:
   Share Video: 'Κοινοποίηση βίντεο'
+  Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
   Include Timestamp: 'Συμπερίληψη χρονικής σήμανσης/στιγμής'
   Copy Link: 'Αντιγραφή συνδέσμου'
   Open Link: 'Άνοιγμα Συνδέσμου'
@@ -902,6 +902,10 @@ Tooltips:
       ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
     Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε
       το βίντεο, στυλ MPV.
+    Allow DASH AV1 formats: Οι μορφές DASH AV1 μπορεί να φαίνονται καλύτερες από τις
+      μορφές DASH H.264. Οι μορφές DASH AV1 απαιτούν περισσότερη ισχύ για την αναπαραγωγή!
+      Δεν είναι διαθέσιμα σε όλα τα βίντεο, σε αυτές τις περιπτώσεις το πρόγραμμα
+      αναπαραγωγής θα χρησιμοποιήσει τις μορφές DASH H.264.
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες

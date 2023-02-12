@@ -52,12 +52,14 @@ Search Filters:
     Videos: 'Видео'
     Channels: 'Каналы'
     #& Playlists
+    Movies: Фильмы
   Duration:
     Duration: 'Длительность'
     All Durations: 'Любая длительность'
     Short (< 4 minutes): 'Короткие (< 4 минут)'
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
+    Medium (4 - 20 minutes): Средние (4—20 мин)
   Search Results: 'Итоги поиска'
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'
@@ -268,6 +270,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
+    Allow DASH AV1 formats: Разрешить форматы DASH AV1
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -325,6 +328,8 @@ Settings:
       удаление всех подписок и учётных записей?  Невозможно отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
     Automatically Remove Video Meta Files: Автоудаление метафайлов видео
+    Save Watched Videos With Last Viewed Playlist: Сохранить просмотренные видео с
+      последней просмотренной подборкой
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
@@ -708,12 +713,6 @@ Playlist:
   View: 'Вид'
   Views: 'Просмотров'
   Last Updated On: 'Последнее обновление'
-  Share Playlist:
-    Share Playlist: 'Поделиться подборкой'
-    Copy YouTube Link: 'Скопировать ссылку YouTube'
-    Open in YouTube: 'Открыть в YouTube'
-    Copy Invidious Link: 'Скопировать ссылку Invidious'
-    Open in Invidious: 'Открыть в Invidious'
 
 # On Video Watch Page
 #* Published
@@ -731,6 +730,7 @@ Change Format:
     видео
 Share:
   Share Video: 'Поделиться видео'
+  Share Playlist: 'Поделиться подборкой'
   Copy Link: 'Скопировать ссылку'
   Open Link: 'Открыть ссылку'
   Copy Embed: 'Скопировать встраиваемые'
@@ -895,6 +895,10 @@ Tooltips:
       не была изменена в настройках).
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить
       видео в стиле MPV.
+    Allow DASH AV1 formats: Форматы DASH AV1 могут выглядеть лучше, чем форматы DASH
+      H.264. Форматы DASH AV1 требуют большей производительности для воспроизведения!
+      Они доступны не для всех видео. Если они будут недоступны, тогда проигрыватель
+      будет использовать форматы DASH H.264.
   Privacy Settings:
     Remove Video Meta Files: Если эта настройка включена, FreeTube автоматически удаляет
       метаданные, созданные во время воспроизведения видео, когда страница просмотра

@@ -89,13 +89,18 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
 }
 
-export function buildVTTFileLocally(storyboard) {
+export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
   const numberOfSubImagesPerImage = storyboard.columns * storyboard.rows
   // the number of storyboard images
   const numberOfImages = Math.ceil(storyboard.thumbnail_count / numberOfSubImagesPerImage)
-  const intervalInSeconds = storyboard.interval / 1000
+  let intervalInSeconds
+  if (storyboard.interval > 0) {
+    intervalInSeconds = storyboard.interval / 1000
+  } else {
+    intervalInSeconds = videoLengthSeconds / (numberOfImages * numberOfSubImagesPerImage)
+  }
   let startHours = 0
   let startMinutes = 0
   let startSeconds = 0
@@ -110,11 +115,11 @@ export function buildVTTFileLocally(storyboard) {
       // add the timestamp information
       const paddedStartHours = startHours.toString().padStart(2, '0')
       const paddedStartMinutes = startMinutes.toString().padStart(2, '0')
-      const paddedStartSeconds = startSeconds.toString().padStart(2, '0')
+      const paddedStartSeconds = startSeconds.toFixed(3).padStart(6, '0')
       const paddedEndHours = endHours.toString().padStart(2, '0')
       const paddedEndMinutes = endMinutes.toString().padStart(2, '0')
-      const paddedEndSeconds = endSeconds.toString().padStart(2, '0')
-      vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
+      const paddedEndSeconds = endSeconds.toFixed(3).padStart(6, '0')
+      vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds} --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}\n`
       // add the current image url as well as the x, y, width, height information
       vttString += `${currentUrl}#xywh=${xCoord},${yCoord},${storyboard.thumbnail_width},${storyboard.thumbnail_height}\n\n`
       // update the variables

@@ -622,12 +622,6 @@ Playlist:
   View: 'Visualitza'
   Views: 'Visualitzacions'
   Last Updated On: 'Última Actualització'
-  Share Playlist:
-    Share Playlist: 'Comparteix La Llista De Reproducció'
-    Copy YouTube Link: 'Copia Enllaç De YouTube'
-    Open in YouTube: 'Obri a YouTube'
-    Copy Invidious Link: 'Copia Enllaç d''Indivious'
-    Open in Invidious: 'Obri a Invidious'
 
 # On Video Watch Page
 #* Published
@@ -644,6 +638,7 @@ Change Format:
     per aquest vídeo'
 Share:
   Share Video: 'Comparteix Vídeo'
+  Share Playlist: 'Comparteix La Llista De Reproducció'
   Include Timestamp: 'Afegeix Marca De Temps'
   Copy Link: 'Copia l''Enllaç'
   Open Link: 'Obri l''Enllaç'

@@ -82,7 +82,6 @@
   display: inline;
   font-size: 12px;
   list-style-type: none;
-  margin-top: 45px;
   position: absolute;
   text-align: center;
   user-select: none;
@@ -94,6 +93,14 @@
 
   &.right {
     left: calc(50% - 10px);
+  }
+
+  &.top {
+    bottom: 45px;
+  }
+
+  &.bottom {
+    top: 45px;
   }
 
   .list {

@@ -55,14 +55,16 @@ Search Filters:
     Videos: 'Vídeos'
     Channels: 'Canales'
     #& Playlists
+    Movies: Películas
   Duration:
     Duration: 'Duración'
     All Durations: 'Cualquier duración'
     Short (< 4 minutes): 'Cortos (< 4 minutos)'
-    Long (> 20 minutes): 'Largos (> 20 minutos)'
+    Long (> 20 minutes): 'Largo (> 20 minutos)'
   # On Search Page
+    Medium (4 - 20 minutes): Medio (4 - 20 minutos)
   Search Results: 'Resultados de la búsqueda'
-  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espera'
+  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
@@ -72,10 +74,10 @@ Subscriptions:
   Latest Subscriptions: 'Suscripciones más recientes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
-  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espera.'
+  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
   Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
-    perfil tiene muchas suscripciones. Para eludir este límite, usaremos RSS
+    perfil tiene muchas suscripciones. Forzar RSS para evitar la limitación de velocidad
   Load More Videos: Cargar más vídeos
   Error Channels: Canales con errores
   Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones.
@@ -84,8 +86,8 @@ Subscriptions:
     vídeo.
 Trending:
   Trending: 'Tendencias'
-  Default: Por defecto
-  Trending Tabs: Fichas de tendencias
+  Default: Predeterminado
+  Trending Tabs: Pestañas de tendencias
   Movies: Películas
   Gaming: Videojuegos
   Music: Música
@@ -128,7 +130,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferencia de miniaturas'
-      Default: 'Por defecto'
+      Default: 'Predeterminada'
       Beginning: 'Comienzo'
       Middle: 'Mitad'
       End: 'Final'
@@ -147,9 +149,9 @@ Settings:
     The currently set default instance is {instance}: La instancia predeterminada
       actual es {instance}
     Current Invidious Instance: Instancia actual de Invidious
-    Clear Default Instance: Quitar la instancia por defecto
+    Clear Default Instance: Quitar la instancia predeterminada
     Set Current Instance as Default: Establecer la instancia actual como la instancia
-      por defecto
+      predeterminada
     External Link Handling:
       No Action: Sin acción
       Ask Before Opening Link: Preguntar antes de abrir el enlace
@@ -226,7 +228,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
-      Legacy Formats: 'Legacy'
+      Legacy Formats: 'Formatos heredados'
       Audio Formats: 'Formatos de audio'
     Default Quality:
       Default Quality: 'Calidad predeterminada'
@@ -270,6 +272,7 @@ Settings:
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir el desplazarse sobre el reproductor
       de video
+    Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -287,6 +290,8 @@ Settings:
       que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
     Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
       de vídeos
+    Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última
+      lista de reproducción vista
   Subscription Settings:
     Subscription Settings: 'Suscripciones'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
@@ -752,12 +757,6 @@ Playlist:
   View: 'Ver'
   Views: 'Vistas'
   Last Updated On: 'Se actualizó por última vez el'
-  Share Playlist:
-    Share Playlist: 'Compartir lista de reproducción'
-    Copy YouTube Link: 'Copiar enlace de YouTube'
-    Open in YouTube: 'Abrir en YouTube'
-    Copy Invidious Link: 'Copiar enlace de Invidious'
-    Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
@@ -775,6 +774,7 @@ Change Format:
     para este vídeo
 Share:
   Share Video: 'Compartir vídeo'
+  Share Playlist: 'Compartir lista de reproducción'
   Copy Link: 'Copiar enlace'
   Open Link: 'Abrir enlace'
   Copy Embed: 'Copiar código de incrustación'
@@ -866,10 +866,10 @@ Tooltips:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube. Sobreescribirá la preferencia de
       API.
-    Force Local Backend for Legacy Formats: Solo funcionará si la API de Invidious
-      es la preferente. Si la activas, la API local usará el formato Legacy en lugar
-      de Invidious. Esto ayudará cuando Invidious no pueda reproducir un vídeo por
-      culpa de las restricciones regionales.
+    Force Local Backend for Legacy Formats: Solo funciona cuando la API de Invidious
+      es la predeterminada. la API local se ejecutará y usará los formatos heredados
+      en lugar de Invidious. Esto ayudará cuando Invidious no pueda reproducir un
+      vídeo por culpa de las restricciones regionales.
     Scroll Playback Rate Over Video Player: Cuando el cursor esté sobre el vídeo,
       presiona y mantén la tecla Control (Comando en Mac) y desplaza la rueda del
       ratón hacia arriba o abajo para cambiar la velocidad de reproducción. Presiona
@@ -878,6 +878,10 @@ Tooltips:
       ajustes).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
       el video, estilo MPV.
+    Allow DASH AV1 formats: Los formatos DASH AV1 pueden verse mejor que los formatos
+      DASH H.264. ¡Los formatos DASH AV1 requieren más potencia para reproducirse!
+      No están disponibles en todos los videos, en esos casos el reproductor usará
+      los formatos DASH H.264 en su lugar.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
       en un país determinado. YouTube no admite todos los países mostrados.
@@ -892,7 +896,7 @@ Tooltips:
       de un servidor Invidious al cual conectarse.
     External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
       \ en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube\
-      \ abrirá el enlace que a pulsado en su navegador predeterminado.\n"
+      \ abrirá el enlace en el que se hizo clic en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
@@ -953,7 +957,7 @@ Channels:
   Empty: Tu lista de canales está actualmente vacía.
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
-  Unsubscribe Prompt: ¿Esta seguro de querer desuscribirse de "{channelName}"?
+  Unsubscribe Prompt: ¿Está seguro de querer desuscribirse de "{channelName}"?
 Age Restricted:
   Type:
     Channel: Canal

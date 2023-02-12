@@ -1,11 +1,26 @@
+.card {
+  padding: 0 16px;
+}
+
+.getCommentsTitle,
+.commentsTitle,
+.getMoreComments {
+  margin: 0;
+}
+
 .getCommentsTitle {
-  height: 10px;
-  margin-top: 5px;
-  margin-bottom: 0px;
+  padding-bottom: 8px;
+  padding-top: 8px;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
+}
+
+.commentsTitle,
+.getMoreComments {
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 
 .center {
@@ -19,6 +34,10 @@
 .comment {
   padding: 15px;
   position: relative;
+}
+
+.comment:last-child {
+  padding-bottom: 0;
 }
 
 .hideComments {
@@ -147,9 +166,6 @@
 }
 
 .getMoreComments {
-  height: 10px;
-  margin-top: 5px;
-  margin-bottom: 10px;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;

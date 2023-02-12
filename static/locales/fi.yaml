@@ -52,12 +52,14 @@ Search Filters:
     Videos: 'Videot'
     Channels: 'Kanavat'
     #& Playlists
+    Movies: Elokuvat
   Duration:
     Duration: 'Kesto'
     All Durations: 'Kaikki kestot'
     Short (< 4 minutes): 'Lyhyt (alle 4 minuuttia)'
     Long (> 20 minutes): 'Pitkä (yli 20 minuuttia)'
   # On Search Page
+    Medium (4 - 20 minutes): Keskikokoinen (4 - 20 minuuttia)
   Search Results: 'Hakutulokset'
   Fetching results. Please wait: 'Haetaan tuloksia. Odota hetki'
   Fetch more results: 'Hae lisää tuloksia'
@@ -693,12 +695,6 @@ Playlist:
   View: 'Katselu'
   Views: 'Katsomiskertaa'
   Last Updated On: 'Viimeksi päivitetty'
-  Share Playlist:
-    Share Playlist: 'Jaa soittolista'
-    Copy YouTube Link: 'Kopioi YouTube-linkki'
-    Open in YouTube: 'Avaa YouTubessa'
-    Copy Invidious Link: 'Kopioi Invidious-linkki'
-    Open in Invidious: 'Avaa Invidious'
 
 # On Video Watch Page
 #* Published
@@ -716,6 +712,7 @@ Change Format:
     tähän videoon
 Share:
   Share Video: 'Jaa video'
+  Share Playlist: 'Jaa soittolista'
   Copy Link: 'Kopioi linkki'
   Open Link: 'Avaa linkki'
   Copy Embed: 'Kopioi upotus'

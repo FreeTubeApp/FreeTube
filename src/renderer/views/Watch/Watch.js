@@ -239,7 +239,6 @@ export default defineComponent({
     this.useTheatreMode = this.defaultTheatreMode
 
     this.checkIfPlaylist()
-    this.handlePlaylistPersisting()
     this.checkIfTimestamp()
 
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
@@ -392,7 +391,7 @@ export default defineComponent({
           this.channelSubscriptionCountText = ''
         }
 
-        const chapters = []
+        let chapters = []
         if (!this.hideChapters) {
           const rawChapters = result.player_overlays?.decorated_player_bar?.player_bar?.markers_map?.get({ marker_key: 'DESCRIPTION_CHAPTERS' })?.value.chapters
           if (rawChapters) {
@@ -407,7 +406,11 @@ export default defineComponent({
                 thumbnail: chapter.thumbnail[0].url
               })
             }
+          } else {
+            chapters = this.extractChaptersFromDescription(this.videoDescription)
+          }
 
+          if (chapters.length > 0) {
             this.addChaptersEndSeconds(chapters, result.basic_info.duration)
 
             // prevent vue from adding reactivity which isn't needed
@@ -643,7 +646,7 @@ export default defineComponent({
           }
 
           if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            await this.createLocalStoryboardUrls(result.storyboards.boards[2])
+            await this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
           }
         }
 
@@ -736,35 +739,9 @@ export default defineComponent({
               break
           }
 
-          const chapters = []
+          let chapters = []
           if (!this.hideChapters) {
-            // HH:MM:SS Text
-            // MM:SS Text
-            // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
-            // MM:SS - Text
-            // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
-            // HH:MM - HH:MM - Text // end timestamp is ignored
-            const chapterMatches = result.description.matchAll(/^(?<timestamp>((?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(\s*[–—-]\s*(?:\d+:){1,2}\d+)?\s+([–—•-]\s*)?(?<title>.+)$/gm)
-
-            for (const { groups } of chapterMatches) {
-              let start = 60 * Number(groups.minutes) + Number(groups.seconds)
-
-              if (groups.hours) {
-                start += 3600 * Number(groups.hours)
-              }
-
-              // replace previous chapter with current one if they have an identical start time
-              if (chapters.length > 0 && chapters[chapters.length - 1].startSeconds === start) {
-                chapters.pop()
-              }
-
-              chapters.push({
-                title: groups.title.trim(),
-                timestamp: groups.timestamp,
-                startSeconds: start,
-                endSeconds: 0
-              })
-            }
+            chapters = this.extractChaptersFromDescription(result.description)
 
             if (chapters.length > 0) {
               this.addChaptersEndSeconds(chapters, result.lengthSeconds)
@@ -884,6 +861,42 @@ export default defineComponent({
         })
     },
 
+    /**
+     * @param {string} description
+     */
+    extractChaptersFromDescription: function (description) {
+      const chapters = []
+      // HH:MM:SS Text
+      // MM:SS Text
+      // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'
+      // MM:SS - Text
+      // HH:MM:SS - HH:MM:SS - Text // end timestamp is ignored, separator is one of '-', '–', '—'
+      // HH:MM - HH:MM - Text // end timestamp is ignored
+      const chapterMatches = description.matchAll(/^(?<timestamp>((?<hours>\d+):)?(?<minutes>\d+):(?<seconds>\d+))(\s*[–—-]\s*(?:\d+:){1,2}\d+)?\s+([–—•-]\s*)?(?<title>.+)$/gm)
+
+      for (const { groups } of chapterMatches) {
+        let start = 60 * Number(groups.minutes) + Number(groups.seconds)
+
+        if (groups.hours) {
+          start += 3600 * Number(groups.hours)
+        }
+
+        // replace previous chapter with current one if they have an identical start time
+        if (chapters.length > 0 && chapters[chapters.length - 1].startSeconds === start) {
+          chapters.pop()
+        }
+
+        chapters.push({
+          title: groups.title.trim(),
+          timestamp: groups.timestamp,
+          startSeconds: start,
+          endSeconds: 0
+        })
+      }
+
+      return chapters
+    },
+
     addChaptersEndSeconds: function (chapters, videoLengthSeconds) {
       for (let i = 0; i < chapters.length - 1; i++) {
         chapters[i].endSeconds = chapters[i + 1].startSeconds
@@ -946,12 +959,12 @@ export default defineComponent({
     handlePlaylistPersisting: function () {
       // Only save playlist ID if enabled, and it's not special video types
       if (!(this.rememberHistory && this.saveVideoHistoryWithLastViewedPlaylist)) { return }
-      if (this.isUpcoming || this.isLoading || this.isLive) { return }
+      if (this.isUpcoming || this.isLive) { return }
 
       const payload = {
         videoId: this.videoId,
         // Whether there is a playlist ID or not, save it
-        playlistId: this.$route.query?.playlistId,
+        lastViewedPlaylistId: this.$route.query?.playlistId,
       }
       this.updateLastViewedPlaylist(payload)
     },
@@ -987,6 +1000,10 @@ export default defineComponent({
         } else {
           this.addToHistory(0)
         }
+
+        // Must be called AFTER history entry inserted
+        // Otherwise the value is not saved for first time watched videos
+        this.handlePlaylistPersisting()
       }
     },
 
@@ -1160,7 +1177,6 @@ export default defineComponent({
       this.videoChapters = []
 
       this.handleWatchProgress()
-      this.handlePlaylistPersisting()
 
       if (!this.isUpcoming && !this.isLoading) {
         const player = this.$refs.videoPlayer.player
@@ -1290,7 +1306,7 @@ export default defineComponent({
     },
 
     createLocalStoryboardUrls: async function (storyboardInfo) {
-      const results = buildVTTFileLocally(storyboardInfo)
+      const results = buildVTTFileLocally(storyboardInfo, this.videoLengthSeconds)
       const userData = await getUserDataPath()
       let fileLocation
       let uriSchema

@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videos'
     Channels: 'Channels'
     #& Playlists
+    Movies: Films
   Duration:
     Duration: 'Duration'
     All Durations: 'All durations'
     Short (< 4 minutes): 'Short (< 4 minutes)'
     Long (> 20 minutes): 'Long (> 20 minutes)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
   Search Results: 'Search results'
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'
@@ -269,6 +271,7 @@ Settings:
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
+    Allow DASH AV1 formats: Allow DASH AV1 formats
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -295,6 +298,8 @@ Settings:
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
     Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
+    Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
+      Playlist
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -732,12 +737,6 @@ Playlist:
   View: 'View'
   Views: 'Views'
   Last Updated On: 'Last Updated On'
-  Share Playlist:
-    Share Playlist: 'Share Playlist'
-    Copy YouTube Link: 'Copy YouTube Link'
-    Open in YouTube: 'Open in YouTube'
-    Copy Invidious Link: 'Copy Invidious Link'
-    Open in Invidious: 'Open in Invidious'
 
 # On Video Watch Page
 #* Published
@@ -755,6 +754,7 @@ Change Format:
 Share:
   Share Video: 'Share Video'
   Share Channel: 'Share Channel'
+  Share Playlist: 'Share Playlist'
   Include Timestamp: 'Include Timestamp'
   Copy Link: 'Copy Link'
   Open Link: 'Open Link'
@@ -845,6 +845,9 @@ Tooltips:
       rate (1x unless it has been changed in the settings).
     Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the
       video, MPV style.
+    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
+      DASH AV1 formats require more power to playback! They are not available on all
+      videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually

@@ -1,5 +1,7 @@
 <template>
-  <ft-card>
+  <ft-card
+    class="card"
+  >
     <h4
       v-if="commentData.length === 0 && !isLoading"
       class="getCommentsTitle"
@@ -33,6 +35,7 @@
     />
     <h3
       v-if="commentData.length > 0 && !isLoading && showComments"
+      class="commentsTitle"
     >
       {{ $t("Comments.Comments") }}
       <span
@@ -147,7 +150,7 @@
             <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
             <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
             <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From {channelName}", { channelName }) }}</span>
-            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies">{{ $t("Comments.And others") }}</span>
+            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.And others") }}</span>
           </span>
         </p>
         <div

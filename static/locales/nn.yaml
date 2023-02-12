@@ -689,12 +689,6 @@ Playlist:
   View: 'Vising'
   Views: 'Visingar'
   Last Updated On: 'Sist oppdatert'
-  Share Playlist:
-    Share Playlist: 'Del speleliste'
-    Copy YouTube Link: 'Kopier YouTube-lenke'
-    Open in YouTube: 'Opne i YouTube'
-    Copy Invidious Link: 'Kopier Invidious-lenke'
-    Open in Invidious: 'Opne i Invidious'
 
 # On Video Watch Page
 #* Published
@@ -712,6 +706,7 @@ Change Format:
     for denne videoen'
 Share:
   Share Video: 'Del video'
+  Share Playlist: 'Del speleliste'
   Include Timestamp: 'Inkluder tidsstempel'
   Copy Link: 'Kopier lenke'
   Open Link: 'Opne lenke'

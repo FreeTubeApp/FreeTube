@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videa'
     Channels: 'Kanály'
     #& Playlists
+    Movies: Filmy
   Duration:
     Duration: 'Trvání'
     All Durations: 'Všechny trvání'
     Short (< 4 minutes): 'Krátké (< 4 minuty)'
     Long (> 20 minutes): 'Dlouhé (> 20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Střední (4 - 20 minut)
   Search Results: 'Výsledky hledání'
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'
@@ -149,7 +151,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instancích
       Invidious
-    System Default: Výchozí nastavení systému
+    System Default: Podle systému
     Clear Default Instance: Vymazat výchozí instanci
     Set Current Instance as Default: Nastavit současnou instanci jako výchozí
     Current instance will be randomized on startup: Při spuštění bude vybrána náhodná
@@ -274,13 +276,14 @@ Settings:
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Přeskočení posouváním na přehrávači videa
+    Allow DASH AV1 formats: Povolit formáty DASH AV1
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
     Save Watched Progress: 'Uložit průběh zhlédnutých videí'
     Clear Search Cache: 'Vymazat mezipaměť vyhledávání'
-    Are you sure you want to clear out your search cache?: 'Jste si jisti, že chcete
-      smazat cache vyhledávání?'
+    Are you sure you want to clear out your search cache?: 'Opravdu chcete vymazat
+      mezipaměť vyhledávání?'
     Search cache has been cleared: 'Cache vyhledávání byla vymazána'
     Remove Watch History: 'Odstranit historii sledování'
     Are you sure you want to remove your entire watch history?: 'Opravdu chcete odstranit
@@ -290,6 +293,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Opravdu
       chcete odstranit všechny odběry a profily? Tato akce je nevratná.'
     Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
+    Save Watched Videos With Last Viewed Playlist: Uložit zhlédnutá videa s naposledy
+      zobrazeným playlistem
   Subscription Settings:
     Subscription Settings: 'Nastavení odběrů'
     Hide Videos on Watch: 'Skrýt přehraná videa'
@@ -523,8 +528,8 @@ Profile:
   Create Profile: 'Vytvořit profil'
   Update Profile: 'Aktualizovat profil'
   Make Default Profile: 'Vytvořit výchozí profil'
-  Delete Profile: 'Smazat profil'
-  Are you sure you want to delete this profile?: 'Opravdu smazat tento profil?'
+  Delete Profile: 'Odstranit profil'
+  Are you sure you want to delete this profile?: 'Opravdu chcete odstranit tento profil?'
   All subscriptions will also be deleted.: 'Budou také odstraněny všechny odběry.'
   Profile could not be found: 'Profil nebyl nalezen'
   Your profile name cannot be empty: 'Jméno profilu nemůže být prázdné'
@@ -541,13 +546,13 @@ Profile:
   '{number} selected': '{number} vybrán'
   Select All: 'Vybrat vše'
   Select None: 'Zrušit výběr'
-  Delete Selected: 'Smazat vybrané'
+  Delete Selected: 'Odstranit vybrané'
   Add Selected To Profile: 'Přidat vybrané do profilu'
   No channel(s) have been selected: 'Nebyly vybrány žádné kanály'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 'Toto je váš primární profil.  Opravdu chcete odstranit vybrané kanály?  Stejné
-    kanály budou smazány ze všech profilů, ve kterém se nacházejí.'
+    kanály budou odstraněny ze všech profilů, ve kterých se nacházejí.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Opravdu
     chcete odstranit vybrané kanály?  Kanál tím nebude odstraněn z žádného jiného
     profilu.'
@@ -733,12 +738,6 @@ Playlist:
   View: 'Zobrazit'
   Views: 'Zobrazení'
   Last Updated On: 'Naposledy upraveno'
-  Share Playlist:
-    Share Playlist: 'Sdílet playlist'
-    Copy YouTube Link: 'Kopírovat YouTube odkaz'
-    Open in YouTube: 'Otevřít v YouTube'
-    Copy Invidious Link: 'Kopírovat Invidious odkaz'
-    Open in Invidious: 'Otevřít v Invidious'
 
 # On Video Watch Page
 #* Published
@@ -756,6 +755,7 @@ Change Format:
     video dostupné'
 Share:
   Share Video: 'Sdílet video'
+  Share Playlist: 'Sdílet playlist'
   Include Timestamp: 'Včetně časového razítka'
   Copy Link: 'Kopírovat odkaz'
   Open Link: 'Otevřít odkaz'
@@ -840,6 +840,9 @@ Tooltips:
       není změněná v nastavení).
     Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat
       ve stylu MPV.
+    Allow DASH AV1 formats: Formáty DASH AV1 mohou vypadat lépe než formáty DASH H.264,
+      vyžadují ale k přehrávání větší výkon! Nejsou k dispozici u všech videí, v těchto
+      případech přehrávač místo nich použije formáty DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
       metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale

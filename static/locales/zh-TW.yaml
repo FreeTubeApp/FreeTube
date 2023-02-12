@@ -52,12 +52,14 @@ Search Filters:
     Videos: '影片'
     Channels: '頻道'
     #& Playlists
+    Movies: 電影
   Duration:
     Duration: '影片長度'
     All Durations: '所有長度'
     Short (< 4 minutes): '短（小於4分鐘）'
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
+    Medium (4 - 20 minutes): 中（4到20 分鐘）
   Search Results: '搜尋結果'
   Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'
@@ -251,6 +253,7 @@ Settings:
         或 "/" 來建立子資料夾。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
+    Allow DASH AV1 formats: 允許 DASH AV1 格式
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -300,6 +303,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
     Automatically Remove Video Meta Files: 自動刪除影片元檔案
+    Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -658,12 +662,6 @@ Playlist:
   View: '觀看'
   Views: '觀看'
   Last Updated On: '最後更新於'
-  Share Playlist:
-    Share Playlist: '分享播放清單'
-    Copy YouTube Link: '複製YouTube連結'
-    Open in YouTube: '在YouTube中開啟'
-    Copy Invidious Link: '複製Invidious連結'
-    Open in Invidious: '在Invidious中開啟'
 
 # On Video Watch Page
 #* Published
@@ -679,6 +677,7 @@ Change Format:
   Dash formats are not available for this video: 這個影片沒有 DASH 格式
 Share:
   Share Video: '分享影片'
+  Share Playlist: '分享播放清單'
   Copy Link: '複製連結'
   Open Link: '開啟連結'
   Copy Embed: '複製內嵌'
@@ -796,6 +795,8 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
       Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
+    Allow DASH AV1 formats: DASH AV1 格式可能會看起來比 DASH H.264 格式更好。DASH AV1 格式需要更大的功率來播放！且並非所有影片都提供，在這種情況下，播放程式會使用
+      DASH H.264 格式代替。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。

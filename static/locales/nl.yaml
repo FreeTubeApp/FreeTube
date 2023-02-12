@@ -660,12 +660,6 @@ Playlist:
   View: 'Bekijk'
   Views: 'Weergaven'
   Last Updated On: 'Laatste bijgewerkt op'
-  Share Playlist:
-    Share Playlist: 'Afspeellijst delen'
-    Copy YouTube Link: 'YouTube-link kopiëren'
-    Open in YouTube: 'In YouTube openen'
-    Copy Invidious Link: 'Invidious-link kopiëren'
-    Open in Invidious: 'In Invidious openen'
 
 # On Video Watch Page
 #* Published
@@ -683,6 +677,7 @@ Change Format:
     voor deze video
 Share:
   Share Video: 'Video delen'
+  Share Playlist: 'Afspeellijst delen'
   Copy Link: 'Koppeling kopiëren'
   Open Link: 'Koppeling openen'
   Copy Embed: 'Insluitlink kopiëren'

@@ -708,12 +708,6 @@ Playlist:
   View: 'Vizionări'
   Views: 'Vizualizări'
   Last Updated On: 'Ultima actualizare la'
-  Share Playlist:
-    Share Playlist: 'Distribuie lista de redare'
-    Copy YouTube Link: 'Copiați link-ul YouTube'
-    Open in YouTube: 'Deschideți în YouTube'
-    Copy Invidious Link: 'Copiați linkul Invidious'
-    Open in Invidious: 'Deschis în Invidious'
 
 # On Video Watch Page
 #* Published
@@ -731,6 +725,7 @@ Change Format:
     pentru acest videoclip'
 Share:
   Share Video: 'Distribuiți video'
+  Share Playlist: 'Distribuie lista de redare'
   Include Timestamp: 'Includeți timpul de începere'
   Copy Link: 'Copiați link-ul'
   Open Link: 'Deschideți link-ul'
