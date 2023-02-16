@@ -295,8 +295,27 @@ export default defineComponent({
       try {
         const channel = await getLocalChannel(this.id)
 
+        let channelName
+        let channelThumbnailUrl
+
         if (channel.alert) {
           this.setErrorMessage(channel.alert)
+          return
+        } else if (channel.memo.has('ChannelAgeGate')) {
+          /** @type {import('youtubei.js/dist/src/parser/classes/ChannelAgeGate').default} */
+          const ageGate = channel.memo.get('ChannelAgeGate')[0]
+
+          channelName = ageGate.channel_title
+          channelThumbnailUrl = ageGate.avatar[0].url
+
+          this.channelName = channelName
+          this.thumbnailUrl = channelThumbnailUrl
+
+          document.title = `${channelName} - ${packageDetails.productName}`
+
+          this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId: this.id })
+
+          this.setErrorMessage(this.$t('Channel["This channel is age resticted and currently cannot be viewed in FreeTube."]'), true)
           return
         }
 
@@ -306,8 +325,6 @@ export default defineComponent({
         }
 
         let channelId
-        let channelName
-        let channelThumbnailUrl
         let subscriberText = null
         const tags = []
 
@@ -831,12 +848,14 @@ export default defineComponent({
       }
     },
 
-    setErrorMessage: function (errorMessage) {
+    setErrorMessage: function (errorMessage, hasNameAndThumbnail = false) {
       this.isLoading = false
       this.errorMessage = errorMessage
       this.id = this.subscriptionInfo?.id
-      this.channelName = this.subscriptionInfo?.name
-      this.thumbnailUrl = this.subscriptionInfo?.thumbnail
+      if (!hasNameAndThumbnail) {
+        this.channelName = this.subscriptionInfo?.name
+        this.thumbnailUrl = this.subscriptionInfo?.thumbnail
+      }
       this.bannerUrl = null
       this.subCount = null
     },
