@@ -377,24 +377,28 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
     if (run instanceof EmojiRun) {
       const { emoji, text } = run
 
-      let altText
+      // empty array if video creator removes a channel emoji so we ignore.
+      // eg: pinned comment here https://youtu.be/v3wm83zoSSY
+      if (emoji.image.length > 0) {
+        let altText
 
-      if (emoji.is_custom) {
-        if (emoji.shortcuts.length > 0) {
-          altText = emoji.shortcuts[0]
-        } else if (emoji.search_terms.length > 0) {
-          altText = emoji.search_terms.join(', ')
+        if (emoji.is_custom) {
+          if (emoji.shortcuts.length > 0) {
+            altText = emoji.shortcuts[0]
+          } else if (emoji.search_terms.length > 0) {
+            altText = emoji.search_terms.join(', ')
+          } else {
+            altText = 'Custom emoji'
+          }
         } else {
-          altText = 'Custom emoji'
+          altText = text
         }
-      } else {
-        altText = text
-      }
 
-      // lazy load the emoji image so it doesn't delay rendering of the text
-      // by defining a height and width, that space is reserved until the image is loaded
-      // that way we avoid layout shifts when it loads
-      parsedRuns.push(`<img src="${emoji.image[0].url}" alt="${altText}" width="${emojiSize}" height="${emojiSize}" loading="lazy" style="vertical-align: middle">`)
+        // lazy load the emoji image so it doesn't delay rendering of the text
+        // by defining a height and width, that space is reserved until the image is loaded
+        // that way we avoid layout shifts when it loads
+        parsedRuns.push(`<img src="${emoji.image[0].url}" alt="${altText}" width="${emojiSize}" height="${emojiSize}" loading="lazy" style="vertical-align: middle">`)
+      }
     } else {
       const { text, bold, italics, strikethrough, endpoint } = run
 
@@ -502,6 +506,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     isPinned: comment.is_pinned,
     isOwner: comment.author_is_channel_owner,
     isMember: comment.is_member,
+    memberIconUrl: comment.is_member ? comment.sponsor_comment_badge.custom_badge[0].url : '',
     text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16)),
     time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
     likes: comment.vote_count,
