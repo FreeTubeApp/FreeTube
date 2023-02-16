@@ -32,11 +32,11 @@ Back: 'უკან'
 Forward: 'წინ'
 Open New Window: 'ახალი ფანჯრის გახსნა'
 
-Version {versionNumber} is now available!  Click for more details: 'ხელმისაწვდომია {versionNumber} ვერსია!  დააჭირეთ
-  დამატებითი ინფორმაციისთვის'
+Version {versionNumber} is now available!  Click for more details: 'ხელმისაწვდომია
+  {versionNumber} ვერსია!  დააჭირეთ დამატებითი ინფორმაციისთვის'
 Download From Site: 'საიტიდან ჩამოტვირთვა'
-A new blog is now available, {blogTitle}. Click to view more: 'ხელმისაწვდომია ახალი ბლოგი, {blogTitle}.
-  დააჭირეთ დამატებითი ინფორმაციისთვის'
+A new blog is now available, {blogTitle}. Click to view more: 'ხელმისაწვდომია ახალი
+  ბლოგი, {blogTitle}. დააჭირეთ დამატებითი ინფორმაციისთვის'
 Are you sure you want to open this link?: 'დარწმუნებული ხართ, რომ გსურთ ამ ბმულის
   გახსნა?'
 
@@ -150,7 +150,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'სტანდარტული API'
       Local API: 'ლოკალური API'
-      Invidious API: 'Invidious API'
+      Invidious API: ''
     Video View Type:
       Video View Type: 'ვიდეოს ჩვენების ტიპი'
       Grid: 'ბადე'
@@ -190,8 +190,8 @@ Settings:
       Dark: 'მუქი'
       System Default: 'სისტემის შესაბამისი'
       Light: 'ღია'
-      Dracula: 'Dracula'
-      Catppuccin Mocha: 'Catppuccin Mocha'
+      Dracula: 'დრაკულა'
+      Catppuccin Mocha: ''
     Main Color Theme:
       Main Color Theme: 'თემის მთავარი ფერი'
       Red: 'წითელი'
