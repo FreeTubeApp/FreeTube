@@ -364,7 +364,7 @@ export default defineComponent({
             channelId = this.id
             channelThumbnailUrl = header.box_art.at(-1).url
 
-            const badges = header.badges.map(badge => badge.style).filter(tag => tag)
+            const badges = header.badges.map(badge => badge.label).filter(tag => tag)
             tags.push(...badges)
             break
           }

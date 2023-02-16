@@ -1,8 +1,4 @@
-import { Innertube } from 'youtubei.js'
-import { ChannelError } from 'youtubei.js/dist/src/utils/Utils'
-import { ClientType } from 'youtubei.js/dist/src/core/Session'
-import EmojiRun from 'youtubei.js/dist/src/parser/classes/misc/EmojiRun'
-import Text from 'youtubei.js/dist/src/parser/classes/misc/Text'
+import { Innertube, ClientType, Misc, Utils } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
@@ -195,7 +191,7 @@ export async function getLocalChannel(id) {
   try {
     result = await innertube.getChannel(id)
   } catch (error) {
-    if (error instanceof ChannelError) {
+    if (error instanceof Utils.ChannelError) {
       result = {
         alert: error.message
       }
@@ -252,7 +248,7 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
   let channelId = null
 
   if (playlist.author) {
-    if (playlist.author instanceof Text) {
+    if (playlist.author instanceof Misc.Text) {
       channelName = playlist.author.text
 
       if (author) {
@@ -440,6 +436,7 @@ function convertSearchFilters(filters) {
 
 /**
  * @typedef {import('youtubei.js/dist/src/parser/classes/misc/TextRun').default} TextRun
+ * @typedef {import('youtubei.js/dist/src/parser/classes/misc/EmojiRun').default} EmojiRun
  */
 
 /**
@@ -455,7 +452,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
   const parsedRuns = []
 
   for (const run of runs) {
-    if (run instanceof EmojiRun) {
+    if (run instanceof Misc.EmojiRun) {
       const { emoji, text } = run
 
       // empty array if video creator removes a channel emoji so we ignore.
