@@ -505,6 +505,7 @@ export default defineComponent({
 
         this.player.one('loadedmetadata', () => {
           if (this.useDash) {
+            // Reserved for switching back to videojs-http-quality-selector if needed
             // this.dataSetup.plugins.httpSourceSelector = {
             // default: 'auto'
             // }
