@@ -76,7 +76,7 @@
 }
 
 .shareIcon {
-  align-items: center;
+  align-self: center;
 }
 
 .channelSearch {

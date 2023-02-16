@@ -52,4 +52,11 @@
 .channelName {
   font-size: 15px;
   margin: 0;
+  word-break: break-all;
+}
+
+.channelShareWrapper {
+  column-gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }

@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videa'
     Channels: 'Kanály'
     #& Playlists
+    Movies: Filmy
   Duration:
     Duration: 'Trvání'
     All Durations: 'Všechny trvání'
     Short (< 4 minutes): 'Krátké (< 4 minuty)'
     Long (> 20 minutes): 'Dlouhé (> 20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Střední (4 - 20 minut)
   Search Results: 'Výsledky hledání'
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'
@@ -149,7 +151,7 @@ Settings:
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instancích
       Invidious
-    System Default: Výchozí nastavení systému
+    System Default: Podle systému
     Clear Default Instance: Vymazat výchozí instanci
     Set Current Instance as Default: Nastavit současnou instanci jako výchozí
     Current instance will be randomized on startup: Při spuštění bude vybrána náhodná
@@ -736,12 +738,6 @@ Playlist:
   View: 'Zobrazit'
   Views: 'Zobrazení'
   Last Updated On: 'Naposledy upraveno'
-  Share Playlist:
-    Share Playlist: 'Sdílet playlist'
-    Copy YouTube Link: 'Kopírovat YouTube odkaz'
-    Open in YouTube: 'Otevřít v YouTube'
-    Copy Invidious Link: 'Kopírovat Invidious odkaz'
-    Open in Invidious: 'Otevřít v Invidious'
 
 # On Video Watch Page
 #* Published
@@ -759,6 +755,7 @@ Change Format:
     video dostupné'
 Share:
   Share Video: 'Sdílet video'
+  Share Playlist: 'Sdílet playlist'
   Include Timestamp: 'Včetně časového razítka'
   Copy Link: 'Kopírovat odkaz'
   Open Link: 'Otevřít odkaz'

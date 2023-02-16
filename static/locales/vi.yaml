@@ -655,12 +655,6 @@ Playlist:
   View: 'Lượt xem'
   Views: 'Lượt xem'
   Last Updated On: 'Update lần cuối vào'
-  Share Playlist:
-    Share Playlist: 'Chia sẻ danh sách phát'
-    Copy YouTube Link: 'Sao chép liên kết Youtube'
-    Open in YouTube: 'Mở trong Youtube'
-    Copy Invidious Link: 'Sao chép liên kết Invidious'
-    Open in Invidious: 'Mở trong Invidious'
 
 # On Video Watch Page
 #* Published
@@ -678,6 +672,7 @@ Change Format:
     này
 Share:
   Share Video: 'Chia sẻ video'
+  Share Playlist: 'Chia sẻ danh sách phát'
   Copy Link: 'Sao chép liên kết'
   Open Link: 'Mở liên kết'
   Copy Embed: 'Sao chép Embed'

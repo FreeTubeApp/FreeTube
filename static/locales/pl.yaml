@@ -53,12 +53,14 @@ Search Filters:
     Videos: 'Filmy'
     Channels: 'Kanały'
     #& Playlists
+    Movies: Filmy kinowe
   Duration:
     Duration: 'Długość'
     All Durations: 'Każda'
     Short (< 4 minutes): 'Krótkie (< 4 minuty)'
     Long (> 20 minutes): 'Długie (> 20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Średnie (4 - 20 minut)
   Search Results: 'Wyniki wyszukiwania'
   Fetching results. Please wait: 'Trwa wyszukiwanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
@@ -727,12 +729,6 @@ Playlist:
   View: 'wyświetlenie'
   Views: 'wyświetleń'
   Last Updated On: 'Ostatnio zaktualizowano'
-  Share Playlist:
-    Share Playlist: 'Podziel się playlistą'
-    Copy YouTube Link: 'Skopiuj link do strony YouTube'
-    Open in YouTube: 'Otwórz na stronie YouTube'
-    Copy Invidious Link: 'Skopiuj link do strony Invidious'
-    Open in Invidious: 'Otwórz w Invidious'
 
 # On Video Watch Page
 #* Published
@@ -750,6 +746,7 @@ Change Format:
     tego filmu
 Share:
   Share Video: 'Podziel się filmem'
+  Share Playlist: 'Podziel się playlistą'
   Copy Link: 'Skopiuj link'
   Open Link: 'Otwórz link'
   Copy Embed: 'Skopiuj link do osadzenia'

@@ -52,12 +52,14 @@ Search Filters:
     Videos: 'Видео'
     Channels: 'Каналы'
     #& Playlists
+    Movies: Фильмы
   Duration:
     Duration: 'Длительность'
     All Durations: 'Любая длительность'
     Short (< 4 minutes): 'Короткие (< 4 минут)'
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
+    Medium (4 - 20 minutes): Средние (4—20 мин)
   Search Results: 'Итоги поиска'
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'
@@ -711,12 +713,6 @@ Playlist:
   View: 'Вид'
   Views: 'Просмотров'
   Last Updated On: 'Последнее обновление'
-  Share Playlist:
-    Share Playlist: 'Поделиться подборкой'
-    Copy YouTube Link: 'Скопировать ссылку YouTube'
-    Open in YouTube: 'Открыть в YouTube'
-    Copy Invidious Link: 'Скопировать ссылку Invidious'
-    Open in Invidious: 'Открыть в Invidious'
 
 # On Video Watch Page
 #* Published
@@ -734,6 +730,7 @@ Change Format:
     видео
 Share:
   Share Video: 'Поделиться видео'
+  Share Playlist: 'Поделиться подборкой'
   Copy Link: 'Скопировать ссылку'
   Open Link: 'Открыть ссылку'
   Copy Embed: 'Скопировать встраиваемые'

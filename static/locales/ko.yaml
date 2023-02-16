@@ -652,12 +652,6 @@ Playlist:
   View: '보기'
   Views: '보기'
   Last Updated On: '마지막 업데이트 날짜'
-  Share Playlist:
-    Share Playlist: '재생 목록 공유'
-    Copy YouTube Link: 'YouTube 링크 복사'
-    Open in YouTube: 'YouTube에서 열기'
-    Copy Invidious Link: 'Invidious 링크 복사'
-    Open in Invidious: 'Invidious에서 열기'
 
 # On Video Watch Page
 #* Published
@@ -673,6 +667,7 @@ Change Format:
   Audio formats are not available for this video: '이 비디오에는 오디오 형식을 사용할 수 없습니다'
 Share:
   Share Video: '동영상 공유'
+  Share Playlist: '재생 목록 공유'
   Include Timestamp: '타임스탬프 포함'
   Copy Link: '링크 복사'
   Open Link: '링크 열기'

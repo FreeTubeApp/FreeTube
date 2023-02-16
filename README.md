@@ -7,6 +7,14 @@ Use YouTube without advertisements and prevent Google from tracking you with the
 Available for Windows, Mac & Linux thanks to Electron.
 
 <p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
+<p align="center">
+  <a href="https://github.com/FreeTubeApp/FreeTube/actions/workflows/build.yml" alt='Build status'>
+    <img src="https://github.com/FreeTubeApp/FreeTube/actions/workflows/build.yml/badge.svg?branch=development" />
+  </a>
+  <a href="https://hosted.weblate.org/engage/free-tube/">
+    <img src="https://hosted.weblate.org/widgets/free-tube/-/svg-badge.svg" alt="Translation status" />
+  </a>
+</p>
 
 <hr>
 <p align="center"><a href="#screenshots">Screenshots</a> &bull; <a href="#how-does-it-work">How does it work?</a> &bull; <a href="#features">Features</a> &bull; <a href="#download-links">Download Links</a> &bull; <a href="#contributing">Contributing</a> &bull; <a href="#localization">Localization</a> &bull; <a href="#contact">Contact</a> &bull; <a href="#donate">Donate</a> &bull; <a href="#license">License</a></p>
@@ -53,7 +61,7 @@ FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/
 
 * Download Privacy Redirect for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) or [Google Chrome](https://chrome.google.com/webstore/detail/privacy-redirect/pmcmeagblkinmogikoikkdjiligflglb).
 
-* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://github.com/libredirect/libredirect/blob/master/chromium.md).
+* Download LibRedirect for [Firefox](https://addons.mozilla.org/firefox/addon/libredirect/) or [Google Chrome](https://libredirect.github.io/download_chromium.html).
 
 If you have issues with the extension working with FreeTube, please create an issue in this repository instead of the extension repository. This extension does not work on Linux portable builds!
 

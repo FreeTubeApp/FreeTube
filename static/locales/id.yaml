@@ -653,12 +653,6 @@ Playlist:
   View: 'Tampilan'
   Views: 'Tampilan'
   Last Updated On: 'Terakhir Diperbarui pada'
-  Share Playlist:
-    Share Playlist: 'Bagikan Daftar Putar'
-    Copy YouTube Link: 'Salin Tautan YouTube'
-    Open in YouTube: 'Buka di YouTube'
-    Copy Invidious Link: 'Salin Tautan Invidious'
-    Open in Invidious: 'Buka di Invidious'
 
 # On Video Watch Page
 #* Published
@@ -676,6 +670,7 @@ Change Format:
     video ini'
 Share:
   Share Video: 'Bagikan Video'
+  Share Playlist: 'Bagikan Daftar Putar'
   Include Timestamp: 'Sertakan Waktu-Terkini'
   Copy Link: 'Salin Tautan'
   Open Link: 'Buka Tautan'

@@ -679,12 +679,6 @@ Playlist:
   View: 'Žiūrėti'
   Views: 'Peržiūros'
   Last Updated On: 'Paskutinį kartą atnaujinta'
-  Share Playlist:
-    Share Playlist: 'Dalintis grojaraščiu'
-    Copy YouTube Link: 'Kopijuoti YouTube nuorodą'
-    Open in YouTube: 'Atidaryti Youtube'
-    Copy Invidious Link: 'Kopijuoti Invidious nuorodą'
-    Open in Invidious: 'Atidaryti Invidious'
 
 # On Video Watch Page
 #* Published
@@ -702,6 +696,7 @@ Change Format:
     negalimi'
 Share:
   Share Video: 'Dalintis vaizdo įrašu'
+  Share Playlist: 'Dalintis grojaraščiu'
   Include Timestamp: 'Pridėti laiko žymą'
   Copy Link: 'Kopijuoti nuorodą'
   Open Link: 'Atidaryti nuorodą'

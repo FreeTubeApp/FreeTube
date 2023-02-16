@@ -109,6 +109,10 @@ export default defineComponent({
       showStatsModal: false,
       statsModalEventName: 'updateStats',
       usingTouch: false,
+      // whether or not sponsor segments should be skipped
+      skipSponsors: true,
+      // countdown before actually skipping sponsor segments
+      skipCountdown: 1,
       dataSetup: {
         fluid: true,
         nativeTextTracks: false,
@@ -360,6 +364,13 @@ export default defineComponent({
           await this.determineDefaultQualityLegacy()
         }
 
+        if (this.format === 'audio') {
+          // hide the PIP button for the audio formats
+          const controlBarItems = this.dataSetup.controlBar.children
+          const index = controlBarItems.indexOf('pictureInPictureToggle')
+          controlBarItems.splice(index, 1)
+        }
+
         this.player = videojs(this.$refs.video, {
           html5: {
             preloadTextTracks: false,
@@ -492,12 +503,15 @@ export default defineComponent({
 
         this.player.on('ready', () => {
           this.$emit('ready')
-          this.checkAspectRatio()
           this.createStatsModal()
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()
           }
           this.toggleScreenshotButton()
+        })
+
+        this.player.one('loadedmetadata', () => {
+          this.checkAspectRatio()
         })
 
         this.player.on('ended', () => {
@@ -586,6 +600,11 @@ export default defineComponent({
               this.skipSponsorBlocks(skipSegments)
             })
 
+            this.player.on('seeking', () => {
+              // disabling sponsors auto skipping when the user manually seeks
+              this.skipSponsors = false
+            })
+
             skipSegments.forEach(({
               category,
               segment: [startTime, endTime]
@@ -612,13 +631,22 @@ export default defineComponent({
           skippedCategory = category
         }
       })
-      if (newTime !== null && Math.abs(duration - currentTime) > 0.500) {
+      if (this.skipSponsors && newTime !== null && Math.abs(duration - currentTime) > 0.500) {
         if (this.sponsorSkips.autoSkip[skippedCategory]) {
-          if (this.sponsorBlockShowSkippedToast) {
-            this.showSkippedSponsorSegmentInformation(skippedCategory)
+          if (this.skipCountdown === 0) {
+            if (this.sponsorBlockShowSkippedToast) {
+              this.showSkippedSponsorSegmentInformation(skippedCategory)
+            }
+            this.player.currentTime(newTime)
+          } else {
+            this.skipCountdown--
           }
-          this.player.currentTime(newTime)
         }
+      }
+      // restoring sponsors skipping default values
+      if (newTime === null && !this.skipSponsors) {
+        this.skipSponsors = true
+        this.skipCountdown = 1
       }
     },
 
@@ -673,13 +701,6 @@ export default defineComponent({
     checkAspectRatio() {
       const videoWidth = this.player.videoWidth()
       const videoHeight = this.player.videoHeight()
-
-      if (videoWidth === 0 || videoHeight === 0) {
-        setTimeout(() => {
-          this.checkAspectRatio()
-        }, 200)
-        return
-      }
 
       if ((videoWidth - videoHeight) <= 240) {
         this.player.fluid(false)
@@ -1817,8 +1838,11 @@ export default defineComponent({
     },
 
     // This function should always be at the bottom of this file
+    /**
+     * @param {KeyboardEvent} event
+     */
     keyboardShortcutHandler: function (event) {
-      if (document.activeElement.classList.contains('ft-input')) {
+      if (document.activeElement.classList.contains('ft-input') || event.altKey) {
         return
       }
 

@@ -4,14 +4,18 @@
     :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
   >
-    <router-link
+    <div
       class="videoThumbnail"
-      :to="`/playlist/${playlistId}`"
     >
-      <img
-        :src="thumbnail"
-        class="thumbnailImage"
+      <router-link
+        class="thumbnailLink"
+        :to="`/playlist/${playlistId}`"
       >
+        <img
+          :src="thumbnail"
+          class="thumbnailImage"
+        >
+      </router-link>
       <div
         class="videoCountContainer"
       >
@@ -21,18 +25,8 @@
           <div><font-awesome-icon :icon="['fas','list']" /></div>
         </div>
       </div>
-    </router-link>
+    </div>
     <div class="info">
-      <ft-icon-button
-        v-if="externalPlayer !== ''"
-        :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
-        :icon="['fas', 'external-link-alt']"
-        class="externalPlayerButton"
-        theme="base-no-default"
-        :size="16"
-        :use-shadow="false"
-        @click="handleExternalPlayer"
-      />
       <router-link
         class="title"
         :to="`/playlist/${playlistId}`"
@@ -54,6 +48,16 @@
           {{ channelName }}
         </span>
       </div>
+      <ft-icon-button
+        v-if="externalPlayer !== ''"
+        :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
+        :icon="['fas', 'external-link-alt']"
+        class="externalPlayerButton"
+        theme="base-no-default"
+        :size="16"
+        :use-shadow="false"
+        @click="handleExternalPlayer"
+      />
     </div>
   </div>
 </template>

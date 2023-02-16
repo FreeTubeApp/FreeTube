@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Videók'
     Channels: 'Csatornák'
     #& Playlists
+    Movies: Filmek
   Duration:
     Duration: 'Időtartam'
     All Durations: 'Bármilyen időtartam'
     Short (< 4 minutes): 'Rövid (kevesebb, mint 4 perc)'
     Long (> 20 minutes): 'Hosszú (hosszabb, mint 20 perc)'
   # On Search Page
+    Medium (4 - 20 minutes): Közepes (4-20 perc)
   Search Results: 'Keresési eredmények'
   Fetching results. Please wait: 'Eredmények lekérése. Kis türelmet kérünk'
   Fetch more results: 'További eredmények lekérése'
@@ -93,7 +95,7 @@ Subscriptions:
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
-  Movies: Film
+  Movies: Filmek
   Gaming: Játék
   Music: Zene
   Default: Alapértelmezett
@@ -753,12 +755,6 @@ Playlist:
   View: 'Megtekintés'
   Views: 'Megtekintések'
   Last Updated On: 'Utoljára frissítve'
-  Share Playlist:
-    Share Playlist: 'Lejátszási lista megosztása'
-    Copy YouTube Link: 'YouTube hivatkozás másolása'
-    Open in YouTube: 'YouTube megnyitása'
-    Copy Invidious Link: 'Invidious hivatkozás másolása'
-    Open in Invidious: 'Invidious megnyitása'
 
 # On Video Watch Page
 #* Published
@@ -778,6 +774,7 @@ Change Format:
     a videóhoz'
 Share:
   Share Video: 'Videó megosztása'
+  Share Playlist: 'Lejátszási lista megosztása'
   Include Timestamp: 'Időbélyeg beágyazása'
   Copy Link: 'Hivatkozás másolása'
   Open Link: 'Hivatkozás megnyitása'

@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Видеа'
     Channels: 'Канали'
     #& Playlists
+    Movies: Филми
   Duration:
     Duration: 'Продължителност'
     All Durations: 'Всички продължителности'
     Short (< 4 minutes): 'Кратки (< 4 минути)'
     Long (> 20 minutes): 'Дълги (> 20 минути)'
   # On Search Page
+    Medium (4 - 20 minutes): Средни (4 - 20 минути)
   Search Results: 'Резултати от търсенето'
   Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
@@ -758,12 +760,6 @@ Playlist:
   View: 'показване'
   Views: 'Показвания'
   Last Updated On: 'Последна актуализиция на'
-  Share Playlist:
-    Share Playlist: 'Споделяне на плейлиста'
-    Copy YouTube Link: 'Копиране на връзка за YouTube'
-    Open in YouTube: 'Отваряне в YouTube'
-    Copy Invidious Link: 'Копиране на връзка за Invidious'
-    Open in Invidious: 'Отваряне в Invidious'
 
 # On Video Watch Page
 #* Published
@@ -781,6 +777,7 @@ Change Format:
     за това видео'
 Share:
   Share Video: 'Споделяне на видео'
+  Share Playlist: 'Споделяне на плейлиста'
   Include Timestamp: 'Включване на текущото време'
   Copy Link: 'Копиране на връзка'
   Open Link: 'Отваряне на връзка'

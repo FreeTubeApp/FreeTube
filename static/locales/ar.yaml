@@ -54,12 +54,14 @@ Search Filters:
     Videos: 'فيديوهات'
     Channels: 'قنوات'
     #& Playlists
+    Movies: الأفلام
   Duration:
     Duration: 'المدة'
     All Durations: 'كل الآوقات'
     Short (< 4 minutes): 'قصير (< 4 دقائق)'
     Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
+    Medium (4 - 20 minutes): متوسط (4 - 20 دقيقة)
   Search Results: 'نتائج البحث'
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
@@ -741,12 +743,6 @@ Playlist:
   View: 'عرض'
   Views: 'مشاهدات'
   Last Updated On: 'تم إجراء التعديل الأخير في'
-  Share Playlist:
-    Share Playlist: 'مشاركة قائمة التشغيل'
-    Copy YouTube Link: '‫انسخ رابط اليوتيوب'
-    Open in YouTube: 'افتح في اليوتيوب'
-    Copy Invidious Link: 'انسخ رابط Invidious'
-    Open in Invidious: 'فتح في Invidious'
 
 # On Video Watch Page
 #* Published
@@ -762,6 +758,7 @@ Change Format:
   Dash formats are not available for this video: تنسيقات DASH غير متوفرة لهذا الفيديو
 Share:
   Share Video: 'شارك الفيديو'
+  Share Playlist: 'مشاركة قائمة التشغيل'
   Copy Link: 'انسخ الرابط'
   Open Link: 'افتح الرابط'
   Copy Embed: 'انسخ المُضمّن'

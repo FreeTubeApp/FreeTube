@@ -53,12 +53,14 @@ Search Filters:
     Videos: 'Vídeos'
     Channels: 'Canais'
     #& Playlists
+    Movies: Filmes
   Duration:
     Duration: 'Duração'
     All Durations: 'Qualquer duração'
     Short (< 4 minutes): 'Curto (< 4 minutos)'
     Long (> 20 minutes): 'Longo (> 20 minutos)'
   # On Search Page
+    Medium (4 - 20 minutes): Médio (4 - 20 minutos)
   Search Results: 'Resultados da busca'
   Fetching results. Please wait: 'Buscando resultados. Por favor, espere'
   Fetch more results: 'Buscar mais resultados'
@@ -715,12 +717,6 @@ Playlist:
   View: 'Visualização'
   Views: 'Visualizações'
   Last Updated On: 'Atualizado em'
-  Share Playlist:
-    Share Playlist: 'Compartilhar Lista'
-    Copy YouTube Link: 'Copiar link do YouTube'
-    Open in YouTube: 'Abrir no YouTube'
-    Copy Invidious Link: 'Copiar link do Invidious'
-    Open in Invidious: 'Abrir no Invidious'
 
 # On Video Watch Page
 #* Published
@@ -738,6 +734,7 @@ Change Format:
     este vídeo
 Share:
   Share Video: 'Compartilhar vídeo'
+  Share Playlist: 'Compartilhar Lista'
   Copy Link: 'Copiar link'
   Open Link: 'Abrir link'
   Copy Embed: 'Copiar incorporado'

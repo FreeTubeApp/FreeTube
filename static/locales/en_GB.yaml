@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videos'
     Channels: 'Channels'
     #& Playlists
+    Movies: Films
   Duration:
     Duration: 'Duration'
     All Durations: 'All durations'
     Short (< 4 minutes): 'Short (< 4 minutes)'
     Long (> 20 minutes): 'Long (> 20 minutes)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
   Search Results: 'Search results'
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'
@@ -735,12 +737,6 @@ Playlist:
   View: 'View'
   Views: 'Views'
   Last Updated On: 'Last Updated On'
-  Share Playlist:
-    Share Playlist: 'Share Playlist'
-    Copy YouTube Link: 'Copy YouTube Link'
-    Open in YouTube: 'Open in YouTube'
-    Copy Invidious Link: 'Copy Invidious Link'
-    Open in Invidious: 'Open in Invidious'
 
 # On Video Watch Page
 #* Published
@@ -758,6 +754,7 @@ Change Format:
 Share:
   Share Video: 'Share Video'
   Share Channel: 'Share Channel'
+  Share Playlist: 'Share Playlist'
   Include Timestamp: 'Include Timestamp'
   Copy Link: 'Copy Link'
   Open Link: 'Open Link'
