@@ -445,15 +445,6 @@ export default defineComponent({
           })
         }
 
-        if (this.useDash) {
-          // this.dataSetup.plugins.httpSourceSelector = {
-          // default: 'auto'
-          // }
-
-          // this.player.httpSourceSelector()
-          this.createDashQualitySelector(this.player.qualityLevels())
-        }
-
         if (this.autoplayVideos) {
           // Calling play() won't happen right away, so a quick timeout will make it function properly.
           setTimeout(() => {
@@ -498,8 +489,10 @@ export default defineComponent({
           this.player.on('wheel', this.mouseScrollSkip)
         }
 
-        this.player.on('fullscreenchange', this.fullscreenOverlay)
-        this.player.on('fullscreenchange', this.toggleFullscreenClass)
+        this.player.on('fullscreenchange', () => {
+          this.fullscreenOverlay()
+          this.toggleFullscreenClass()
+        })
 
         this.player.on('ready', () => {
           this.$emit('ready')
@@ -511,6 +504,16 @@ export default defineComponent({
         })
 
         this.player.one('loadedmetadata', () => {
+          if (this.useDash) {
+            // Reserved for switching back to videojs-http-quality-selector if needed
+            // this.dataSetup.plugins.httpSourceSelector = {
+            // default: 'auto'
+            // }
+
+            // this.player.httpSourceSelector()
+            this.createDashQualitySelector(this.player.qualityLevels())
+          }
+
           this.checkAspectRatio()
         })
 
@@ -1501,12 +1504,6 @@ export default defineComponent({
     },
 
     createDashQualitySelector: function (levels) {
-      if (levels.levels_.length === 0) {
-        setTimeout(() => {
-          this.createDashQualitySelector(this.player.qualityLevels())
-        }, 200)
-        return
-      }
       const adaptiveFormats = this.adaptiveFormats
       const activeAdaptiveFormats = this.activeAdaptiveFormats
       const setDashQualityLevel = this.setDashQualityLevel
