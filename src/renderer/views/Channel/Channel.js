@@ -196,6 +196,10 @@ export default defineComponent({
 
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
+    },
+
+    hideSearchBar: function () {
+      return this.$store.getters.getHideSearchBar
     }
   },
   watch: {

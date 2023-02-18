@@ -211,6 +211,7 @@
             class="aboutTag"
           >
             <router-link
+              v-if="!hideSearchBar"
               class="aboutTagLink"
               :title="$t('Channel.About.Tags.Search for', { tag })"
               :to="{
@@ -220,6 +221,12 @@
             >
               {{ tag }}
             </router-link>
+            <span
+              v-else
+              class="aboutTagLink"
+            >
+              {{ tag }}
+            </span>
           </li>
         </ul>
         <h2
