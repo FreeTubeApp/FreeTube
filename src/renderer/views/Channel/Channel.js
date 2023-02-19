@@ -234,6 +234,7 @@ export default defineComponent({
 
       this.isLoading = true
       this.showShareMenu = true
+      this.errorMessage = ''
 
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()

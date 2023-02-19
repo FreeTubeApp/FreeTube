@@ -16,6 +16,7 @@ import {
   showToast
 } from '../../helpers/utils'
 import { getLocalChannelId } from '../../helpers/api/local'
+import { invidiousGetChannelId } from '../../helpers/api/invidious'
 
 const state = {
   isSideNavOpen: false,
@@ -291,11 +292,8 @@ const actions = {
     // If `urlType` is "invalid_url"
     // Nothing else
 
-    // Invidious doesn't support channel handles yet
-    if (process.env.IS_ELECTRON && (rootState.settings.backendPreference === 'local' || rootState.settings.backendFallback)) {
-      if (CHANNEL_HANDLE_REGEX.test(urlStr)) {
-        urlStr = `https://www.youtube.com/${urlStr}`
-      }
+    if (CHANNEL_HANDLE_REGEX.test(urlStr)) {
+      urlStr = `https://www.youtube.com/${urlStr}`
     }
 
     const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
@@ -423,8 +421,14 @@ const actions = {
           throw new Error('Channel: could not extract id')
         }
 
-        if (process.env.IS_ELECTRON && resolveChannelUrl && (rootState.settings.backendPreference === 'local' || rootState.settings.backendFallback)) {
-          const resolvedChannelId = await getLocalChannelId(url.toString())
+        if (resolveChannelUrl) {
+          let resolvedChannelId
+
+          if (!process.env.IS_ELECTRON || rootState.settings.backendPreference === 'invidious') {
+            resolvedChannelId = await invidiousGetChannelId(url.toString())
+          } else {
+            resolvedChannelId = await getLocalChannelId(url.toString())
+          }
 
           if (resolvedChannelId !== null) {
             channelId = resolvedChannelId
