@@ -70,6 +70,7 @@ export default defineComponent({
       isFamilyFriendly: false,
       errorMessage: '',
       showSearchBar: true,
+      showShareMenu: true,
       videoSelectValues: [
         'newest',
         'popular'
@@ -200,6 +201,10 @@ export default defineComponent({
 
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
+    },
+
+    hideSharingActions: function () {
+      return this.$store.getters.getHideSharingActions
     }
   },
   watch: {
@@ -222,11 +227,13 @@ export default defineComponent({
       this.showSearchBar = true
 
       if (this.id === '@@@') {
+        this.showShareMenu = false
         this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
         return
       }
 
       this.isLoading = true
+      this.showShareMenu = true
 
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
@@ -274,6 +281,7 @@ export default defineComponent({
     this.currentTab = this.$route.params.currentTab ?? 'videos'
 
     if (this.id === '@@@') {
+      this.showShareMenu = false
       this.setErrorMessage(this.$i18n.t('Channel.This channel does not exist'))
       return
     }

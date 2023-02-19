@@ -23,6 +23,7 @@
       >
         <div
           class="channelInfo"
+          :class="{ channelInfoHasError: errorMessage }"
         >
           <div
             class="thumbnailContainer"
@@ -35,7 +36,7 @@
             >
             <font-awesome-icon
               v-else
-              class="channelThumbnail default"
+              class="channelThumbnail"
               :icon="['fas', 'circle-user']"
             />
             <div
@@ -60,7 +61,7 @@
 
           <div class="channelInfoActionsContainer">
             <ft-share-button
-              v-if="!errorMessage"
+              v-if="!hideSharingActions && showShareMenu"
               :id="id"
               share-target-type="Channel"
               class="shareIcon"
