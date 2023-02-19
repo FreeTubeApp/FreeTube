@@ -852,11 +852,11 @@ export default defineComponent({
       }
     },
 
-    setErrorMessage: function (errorMessage, hasNameAndThumbnail = false) {
+    setErrorMessage: function (errorMessage, responseHasNameAndThumbnail = false) {
       this.isLoading = false
       this.errorMessage = errorMessage
       this.id = this.subscriptionInfo?.id
-      if (!hasNameAndThumbnail) {
+      if (!responseHasNameAndThumbnail) {
         this.channelName = this.subscriptionInfo?.name
         this.thumbnailUrl = this.subscriptionInfo?.thumbnail
       }
