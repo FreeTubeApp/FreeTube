@@ -349,6 +349,7 @@ const stateWithSideEffects = {
     defaultValue: 1,
     sideEffectsHandler: (_, value) => {
       sessionStorage.setItem('volume', value)
+      value === 0 ? sessionStorage.setItem('muted', true) : sessionStorage.setItem('muted', false)
     }
   },
 

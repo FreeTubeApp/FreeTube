@@ -89,6 +89,7 @@ export default defineComponent({
       id: '',
       powerSaveBlocker: null,
       volume: 1,
+      muted: false,
       player: null,
       useDash: false,
       useHls: false,
@@ -315,9 +316,16 @@ export default defineComponent({
   },
   mounted: function () {
     const volume = sessionStorage.getItem('volume')
+    const muted = sessionStorage.getItem('muted')
 
     if (volume !== null) {
       this.volume = volume
+    }
+
+    if (muted !== null) {
+      // as sessionStorage stores string values which are truthy by default so we must check with 'true'
+      // otherwise 'false' will be returned as true as well
+      this.muted = (muted === 'true')
     }
 
     this.dataSetup.playbackRates = this.playbackRates
@@ -400,6 +408,7 @@ export default defineComponent({
         })
 
         this.player.volume(this.volume)
+        this.player.muted(this.muted)
         this.player.playbackRate(this.defaultPlayback)
         this.player.textTrackSettings.setValues(this.defaultCaptionSettings)
         // Remove big play button
@@ -712,10 +721,12 @@ export default defineComponent({
     },
 
     updateVolume: function (_event) {
-      // 0 means muted
       // https://docs.videojs.com/html5#volume
-      const volume = this.player.muted() ? 0 : this.player.volume()
+      const volume = this.player.volume()
+      const muted = this.player.muted()
+
       sessionStorage.setItem('volume', volume)
+      sessionStorage.setItem('muted', muted)
     },
 
     mouseScrollVolume: function (event) {
