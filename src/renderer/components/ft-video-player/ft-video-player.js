@@ -328,11 +328,6 @@ export default defineComponent({
       this.muted = (muted === 'true')
     }
 
-    if (muted === 'false' && volume === '0') {
-      this.muted = true
-      sessionStorage.setItem('volume', 0.25)
-    }
-
     this.dataSetup.playbackRates = this.playbackRates
 
     this.createFullWindowButton()
@@ -411,7 +406,6 @@ export default defineComponent({
             tapTimeout: 300
           }
         })
-
         this.player.volume(this.volume)
         this.player.muted(this.muted)
         this.player.playbackRate(this.defaultPlayback)
