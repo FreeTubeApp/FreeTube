@@ -406,6 +406,7 @@ export default defineComponent({
             tapTimeout: 300
           }
         })
+
         this.player.volume(this.volume)
         this.player.muted(this.muted)
         this.player.playbackRate(this.defaultPlayback)
