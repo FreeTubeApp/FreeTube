@@ -116,7 +116,7 @@
     "stylelint": "^14.16.1",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^29.0.0",
-    "stylelint-high-performance-animation": "^1.7.0",
+    "stylelint-high-performance-animation": "^1.8.0",
     "tree-kill": "1.2.2",
     "vue-devtools": "^5.1.4",
     "vue-eslint-parser": "^9.1.0",

@@ -8093,10 +8093,10 @@ stylelint-config-standard@^29.0.0:
   dependencies:
     stylelint-config-recommended "^9.0.0"
 
-stylelint-high-performance-animation@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/stylelint-high-performance-animation/-/stylelint-high-performance-animation-1.7.0.tgz#c4b7da56e002d33c24328d6173f05e05f8efb0fe"
-  integrity sha512-Gq3tiCAhHU0WZBVwiCYKk+Kdkf1EeHyzDruRvDL9EhqrkpKxkktIzqmX+RM+Jn7s1sN9iAnoYIXPa0Py6d7j/Q==
+stylelint-high-performance-animation@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/stylelint-high-performance-animation/-/stylelint-high-performance-animation-1.8.0.tgz#f118fbc232206f1da6a471d62ac227939d43a479"
+  integrity sha512-wxHt+F7Z54mtGZpbdMwUtpfQwr81uiml39EFCCdZAbVnEO7Wl0Mh5ncmgbxH42xpB5z79eIgHI62qtKfUmWzhg==
   dependencies:
     postcss-value-parser "^4.2.0"
 
