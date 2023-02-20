@@ -210,7 +210,6 @@ export default defineComponent({
   watch: {
     $route() {
       // react to route changes...
-      this.originalId = this.$route.params.id
       this.id = this.$route.params.id
       this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.searchPage = 2
@@ -238,8 +237,6 @@ export default defineComponent({
 
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
-        this.channelInvidiousVideos()
-        this.getPlaylistsInvidious()
       } else {
         this.getChannelLocal()
       }
@@ -277,7 +274,6 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.originalId = this.$route.params.id
     this.id = this.$route.params.id
     this.currentTab = this.$route.params.currentTab ?? 'videos'
 
@@ -291,8 +287,6 @@ export default defineComponent({
 
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
-      this.channelInvidiousVideos()
-      this.getPlaylistsInvidious()
     } else {
       this.getChannelLocal()
     }
@@ -304,7 +298,9 @@ export default defineComponent({
 
     getChannelLocal: async function () {
       this.apiUsed = 'local'
+      this.isLoading = true
       const expectedId = this.id
+
       try {
         const channel = await getLocalChannel(this.id)
 
@@ -574,9 +570,9 @@ export default defineComponent({
       this.apiUsed = 'invidious'
       this.channelInstance = null
 
-      const expectedId = this.originalId
+      const expectedId = this.id
       invidiousGetChannelInfo(this.id).then((response) => {
-        if (expectedId !== this.originalId) {
+        if (expectedId !== this.id) {
           return
         }
 
@@ -614,15 +610,32 @@ export default defineComponent({
         }
 
         this.errorMessage = ''
+
+        // some channels only have a few tabs
+        // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
+
+        if (response.tabs.includes('videos')) {
+          this.channelInvidiousVideos()
+        }
+
+        if (response.tabs.includes('playlists')) {
+          this.getPlaylistsInvidious()
+        }
+
         this.isLoading = false
       }).catch((err) => {
-        this.setErrorMessage(err.responseJSON.error)
+        this.setErrorMessage(err)
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          copyToClipboard(err.responseJSON.error)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
-        this.isLoading = false
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        } else {
+          this.isLoading = false
+        }
       })
     },
 
@@ -659,7 +672,7 @@ export default defineComponent({
     },
 
     getChannelPlaylistsLocal: async function () {
-      const expectedId = this.originalId
+      const expectedId = this.id
 
       try {
         /**
@@ -746,8 +759,8 @@ export default defineComponent({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          copyToClipboard(err.responseJSON.error)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -783,8 +796,8 @@ export default defineComponent({
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-          copyToClipboard(err.responseJSON.error)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
@@ -864,7 +877,7 @@ export default defineComponent({
     setErrorMessage: function (errorMessage, responseHasNameAndThumbnail = false) {
       this.isLoading = false
       this.errorMessage = errorMessage
-      this.id = this.subscriptionInfo?.id
+
       if (!responseHasNameAndThumbnail) {
         this.channelName = this.subscriptionInfo?.name
         this.thumbnailUrl = this.subscriptionInfo?.thumbnail
