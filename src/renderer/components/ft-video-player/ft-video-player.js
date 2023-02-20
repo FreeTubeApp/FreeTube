@@ -328,6 +328,11 @@ export default defineComponent({
       this.muted = (muted === 'true')
     }
 
+    if (muted === 'false' && volume === '0') {
+      this.muted = true
+      sessionStorage.setItem('volume', 0.25)
+    }
+
     this.dataSetup.playbackRates = this.playbackRates
 
     this.createFullWindowButton()
@@ -722,11 +727,17 @@ export default defineComponent({
 
     updateVolume: function (_event) {
       // https://docs.videojs.com/html5#volume
-      const volume = this.player.volume()
-      const muted = this.player.muted()
-
-      sessionStorage.setItem('volume', volume)
-      sessionStorage.setItem('muted', muted)
+      if (sessionStorage.getItem('muted') === 'false' && this.player.volume() === 0) {
+        const volume = parseFloat(sessionStorage.getItem('defaultVolume'))
+        const muted = true
+        sessionStorage.setItem('volume', volume)
+        sessionStorage.setItem('muted', muted)
+      } else {
+        const volume = this.player.volume()
+        const muted = this.player.muted()
+        sessionStorage.setItem('volume', volume)
+        sessionStorage.setItem('muted', muted)
+      }
     },
 
     mouseScrollVolume: function (event) {
