@@ -723,14 +723,14 @@ export default defineComponent({
     updateVolume: function (_event) {
       // https://docs.videojs.com/html5#volume
       if (sessionStorage.getItem('muted') === 'false' && this.player.volume() === 0) {
-        // If video was muted by dragging volume slider, we reset the volume to default volume.
-        // dragging volume to 0 doesn't change muted in sessionStorage to true hence checking it with 'false'
+        // If video is muted by dragging volume slider, it doesn't change 'muted' in sessionStorage to true
+        // hence compare it with 'false' and set volume to defaultVolume.
         const volume = parseFloat(sessionStorage.getItem('defaultVolume'))
         const muted = true
         sessionStorage.setItem('volume', volume)
         sessionStorage.setItem('muted', muted)
       } else {
-        // If video was muted by pressing 'm'/'M' or clicking on mute button, then we reset the volume to previous volume.
+        // If volume isn't muted by dragging the slider, muted and volume values are carried over to next video.
         const volume = this.player.volume()
         const muted = this.player.muted()
         sessionStorage.setItem('volume', volume)
