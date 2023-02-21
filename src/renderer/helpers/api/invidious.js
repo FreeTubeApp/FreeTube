@@ -6,7 +6,7 @@ function getCurrentInstance() {
   return store.getters.getCurrentInvidiousInstance
 }
 
-export function invidiousAPICall({ resource, id = '', params = {}, dontLogError = false }) {
+export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true }) {
   return new Promise((resolve, reject) => {
     const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + '?' + new URLSearchParams(params).toString()
 
@@ -19,7 +19,7 @@ export function invidiousAPICall({ resource, id = '', params = {}, dontLogError 
         resolve(json)
       })
       .catch((error) => {
-        if (!dontLogError) {
+        if (doLogError) {
           console.error('Invidious API error', requestUrl, error)
         }
         reject(error)
@@ -39,7 +39,7 @@ export async function invidiousGetChannelId(url) {
       params: {
         url
       },
-      dontLogError: true
+      doLogError: false
     })
 
     if (response.pageType === 'WEB_PAGE_TYPE_CHANNEL') {
