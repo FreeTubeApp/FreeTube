@@ -20,23 +20,6 @@ import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtVideoPlayer',
-  beforeRouteLeave: function () {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
-    if (this.player !== null) {
-      this.exitFullWindow()
-    }
-    if (this.player !== null && !this.player.isInPictureInPicture()) {
-      this.player.dispose()
-      this.player = null
-    } else if (this.player.isInPictureInPicture()) {
-      this.player.play()
-    }
-
-    if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
-    }
-  },
   props: {
     format: {
       type: String,
@@ -332,6 +315,7 @@ export default defineComponent({
     }
   },
   beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {
       this.exitFullWindow()
 
