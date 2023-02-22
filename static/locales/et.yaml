@@ -29,11 +29,11 @@ Close: 'Sulge'
 Back: 'Tagasi'
 Forward: 'Edasi'
 
-Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber} in nüüd saadaval!
-  Lisateavet leiad siit'
+Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
+  in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
-A new blog is now available, {blogTitle}. Click to view more: 'Uus blogiartikkel on saadaval.
-  Loe siit {blogTitle}'
+A new blog is now available, {blogTitle}. Click to view more: 'Uus blogiartikkel on
+  saadaval. Loe siit {blogTitle}'
 
 # Search Bar
 Search / Go to URL: 'Otsi aadressi või ava see'
@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videod'
     Channels: 'Kanalid'
     #& Playlists
+    Movies: Filmid
   Duration:
     Duration: 'Kestus'
     All Durations: 'Kõik kestused'
     Short (< 4 minutes): 'Lühikesed (alla 4 minuti)'
     Long (> 20 minutes): 'Pikad (üle 20 minuti)'
   # On Search Page
+    Medium (4 - 20 minutes): Keskmine (4 - 20 minutit)
   Search Results: 'Otsingutulemused'
   Fetching results. Please wait: 'Laadin tulemusi. Palun oota üks hetk'
   Fetch more results: 'Laadi veel andmeid'
@@ -84,6 +86,9 @@ Subscriptions:
     profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teeme
     RSS-voo päringud harvemini
   Error Channels: Vigadega kanalid
+  Disabled Automatic Fetching: Sa oled lülitanud välja automaatse tellimuste laadimise.
+    Uuendatud teabe nägemiseks laadi vaade uuesti.
+  Empty Channels: Sinu tellitud kanalites hetkel pole ühtegi videot.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -149,7 +154,8 @@ Settings:
     Current instance will be randomized on startup: Hetkel kasutatav vaikimisi teenus
       valitakse rakenduse käivitamisel juhuslikult
     No default instance has been set: Vaikimisi kasutatav teenus on seadistamata
-    The currently set default instance is {instance}: Hetkel kehtiv vaikimisi teenus on {instance}
+    The currently set default instance is {instance}: Hetkel kehtiv vaikimisi teenus
+      on {instance}
     Current Invidious Instance: Hetkel kasutusel olev Invidious'e teenuse server
     External Link Handling:
       No Action: Tegevus puudub
@@ -212,6 +218,7 @@ Settings:
     Disable Smooth Scrolling: Ära kasuta sujuvat kerimist
     Expand Side Bar by Default: Vaikimisi näita külgriba laiana
     Hide Side Bar Labels: Peida külgriba sildid
+    Hide FreeTube Header Logo: Peida FreeTube'i päise logo
   Player Settings:
     Player Settings: 'Videomängija seadistused'
     Force Local Backend for Legacy Formats: 'Pärandvormingute puhul kasuta sundkorras
@@ -264,6 +271,9 @@ Settings:
         %N 2-numbriline minut. %S 2-numbriline sekund. %T 3-numbriline millisekund.
         %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
         Alamkaustade loomiseks võid kasutada ka „\“ või „/“.
+    Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
+    Allow DASH AV1 formats: Luba DASH AV1 vormingud
+    Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -281,11 +291,14 @@ Settings:
       sa oled kindel, et soovid kustutada kõik tellimused/profiilid? Seda tegevust
       ei saa tagasi pöörata.'
     Automatically Remove Video Meta Files: Automaatselt kustuta videote metateave
+    Save Watched Videos With Last Viewed Playlist: Salvesta vaadatud videod viimati
+      vaadatud videote esitusloendisse
   Subscription Settings:
     Subscription Settings: 'Tellimuste seadistused'
     Hide Videos on Watch: 'Vaatamisel peida videod'
     Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
     Manage Subscriptions: 'Halda tellimusi'
+    Fetch Automatically: Laadi tellimuste voog automaatselt
   Data Settings:
     Data Settings: 'Andmehaldus'
     Select Import Type: 'Vali imporditava faili vorming'
@@ -328,8 +341,11 @@ Settings:
     All playlists has been successfully imported: Kõikide esitusloendite import õnnestus
     All playlists has been successfully exported: Kõikide esitusloendite eksport õnnestus
     Import Playlists: Impordi esitusloendeid
-    Playlist insufficient data: „{playlist}“ esitusloendi kohta pole piisavalt andmeid, jätame
-      vahele
+    Playlist insufficient data: „{playlist}“ esitusloendi kohta pole piisavalt andmeid,
+      jätame vahele
+    Subscription File: Tellimuse fail
+    History File: Ajaloo fail
+    Playlist File: Esitusloendi fail
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -368,6 +384,12 @@ Settings:
     Hide Comments: Peida kommentaarid
     Hide Live Streams: Peida otseülekanded
     Hide Sharing Actions: Peida jagamisega seotud toimingud
+    Hide Upcoming Premieres: Peida tulevased esilinastused
+    Hide Chapters: Peida peatükid
+    Hide Channels: Peida kanalites leiduvad videod
+    Hide Channels Placeholder: Kanali nimi või tunnus
+    Display Titles Without Excessive Capitalisation: Näita pealkirju ilma liigsete
+      suurtähtedeta
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -405,6 +427,9 @@ Settings:
     Custom External Player Arguments: Välise meediamängija rakenduse argumendid
     Custom External Player Executable: Välise meediamängija rakenduse asukoht
     Ignore Unsupported Action Warnings: Eira mittetoetatud toimingute hoiatusi
+    Players:
+      None:
+        Name: Puudub
   Download Settings:
     Download Settings: Allalaadimise seadistused
     Ask Download Path: Küsi kausta, kuhu soovid faile alla laadida
@@ -417,6 +442,22 @@ Settings:
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
     Show Family Friendly Only: Näita ainult peresõbralikku sisu
     Hide Search Bar: Peida otsinguriba
+  Experimental Settings:
+    Experimental Settings: Katselised seadistused
+    Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada
+      rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete vatundamist. Jätka
+      omal vastutusel!
+    Replace HTTP Cache: Asenda HTTP vahemälu
+  Password Dialog:
+    Enter Password To Unlock: Seadistuste avamiseks sisesta salasõna
+    Password Incorrect: Vigane salasõna
+    Unlock: Võta lukust lahti
+    Password: Salasõna
+  Password Settings:
+    Password Settings: Salasõna seadistused
+    Remove Password: Eemalda salasõna
+    Set Password: Määra salasõna
+    Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
 About:
   #On About page
   About: 'Teave'
@@ -484,7 +525,8 @@ Profile:
   Your profile name cannot be empty: 'Profiilil peab olema nimi'
   Profile has been created: 'Profiili loomine õnnestus'
   Profile has been updated: 'Profiili uuendamine õnnestus'
-  Your default profile has been set to {profile}: 'Määrasin {profile} sinu vaikimisi profiiliks'
+  Your default profile has been set to {profile}: 'Määrasin {profile} sinu vaikimisi
+    profiiliks'
   Removed {profile} from your profiles: 'Kustutasin {profile} sinu profiilide loendist'
   Your default profile has been changed to your primary profile: 'Muutsin sinu esmase
     profiili vaikimisi kasutatavaks profiiliks'
@@ -513,8 +555,8 @@ Channel:
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
   Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
-  Removed subscription from {count} other channel(s): 'Kustutasin tellimuse ka {count}''st muust
-    kanalist'
+  Removed subscription from {count} other channel(s): 'Kustutasin tellimuse ka {count}''st
+    muust kanalist'
   Added channel to your subscriptions: 'Lisasin kanali sinu tellimuste hulka'
   Search Channel: 'Otsi kanalit'
   Your search results have returned 0 results: 'Otsingul on 0 tulemust'
@@ -606,6 +648,7 @@ Video:
     Years: 'Aastat'
     Ago: 'tagasi'
     Upcoming: 'Esilinastus'
+    In less than a minute: Vähem kui minuti pärast
   Published on: 'Avaldatud'
   Publicationtemplate: '{number} {unit} tagasi'
 #& Videos
@@ -674,6 +717,10 @@ Video:
     Video statistics are not available for legacy videos: Vana tüüpi videote puhul
       pole statistika saataval
     Resolution: Resolutsioon
+  Premieres: Esilinastused
+  Show Super Chat Comment: Näita Super Chat'i kommentaare
+  Scroll to Bottom: Keri alla
+  Upcoming: Tulemas
 Videos:
   #& Sort By
   Sort By:
@@ -720,6 +767,7 @@ Share:
   YouTube Channel URL copied to clipboard: Kopeerisin YouTube'i kanali aadressi lõikelauale
   Invidious Channel URL copied to clipboard: Kopeerisin kanali aadressi Invidious'e
     API'st lõikelauale
+  Share Channel: Jaga kanalit
 Mini Player: 'Kompaktne vaade'
 Comments:
   Comments: 'Kommentaarid'
@@ -744,6 +792,8 @@ Comments:
   Pinned by: Esiplaanile tõstja
   From {channelName}: kanalist {channelName}
   Member: Liige
+  Hearted: Südamlik
+  View {replyCount} replies: Näita {replyCount} vastust
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -793,6 +843,8 @@ Tooltips:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
       laadimisel vaikimisi meetodi asemel RSS-uudisvoogu. RSS on kiirem ja välistab
       IP-aadressi blokeerimise, kuid ei sisalda video kestust ja otseesituse olekut
+    Fetch Automatically: Kui see valik on kasutusel, siis FreeTube automaatselt laadib
+      uue akna avamisel ja profiili vahetamisel sinu tellimuste loendi.
   Privacy Settings:
     Remove Video Meta Files: Selle valiku kasutamisel FreeTube automaatselt kustutab
       peale video esitamist kogu metateabe.
@@ -825,13 +877,27 @@ Tooltips:
       edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud,
       siis on see 1x) hoia all Ctrl klahvi (Mac'is ⌘ klahvi) ja klõpsi hiire vasakut
       nuppu.
+    Allow DASH AV1 formats: DASH AV1 vormingu puhul pilt võib tunduda paremad kui
+      DASH H.264 puhul. DASH AV1 vormingu dekodeerimine kasutab esitamise ajal rohkem
+      energiat! See vorming ei ole saadaval kõikide videote puhul, mispuhul kasutab
+      videoesitaja selle asemel DASH H.264 vormingut.
+    Skip by Scrolling Over Video Player: MPV-stiilis video läbilappamiseks kasuta
+      hiire ratast.
+  Distraction Free Settings:
+    Hide Channels: Sisesta kanali nimi või kanali ID, et kõik videod, esitusloendid
+      ja kanal ise ei oleks nähtav otsingus ega populaarsust koguvate videote vaates.
+      Sisestatud kanali nimi peab vastama täielikult ja on tõstutundlik.
+  Experimental Settings:
+    Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
+      http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks
+      saab olema suurem mälukasutus.
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
 Default Invidious instance has been cleared: Vaikimisi kasutatav Invidious'e teenus
   on kustutatud
-Default Invidious instance has been set to {instance}: Vaikimisi kasutatav Invidious'e teenus
-  on {instance}
+Default Invidious instance has been set to {instance}: Vaikimisi kasutatav Invidious'e
+  teenus on {instance}
 Search Bar:
   Clear Input: Kustuta sisend
 External link opening has been disabled in the general settings: Väliste linkide avamine
@@ -857,3 +923,15 @@ Age Restricted:
     Channel: Kanal
     Video: Video
 Screenshot Success: Kuvatõmmis on salvestatud faili „{filePath}“
+Clipboard:
+  Copy failed: Lõikelauale kopeerimine ei õnnestunud
+  Cannot access clipboard without a secure connection: Ilma turvalise ühenduseta ei
+    pääse ligi lõikelauale
+Chapters:
+  Chapters: Peatükid
+  'Chapters list visible, current chapter: {chapterName}': 'Peatükkide loend on nähtav,
+    praegune peatükk: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Peatükkide loend on peidetud,
+    praegune peatükk: {chapterName}'
+Ok: Sobib
+Preferences: Eelistused
