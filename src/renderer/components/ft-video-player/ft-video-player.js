@@ -28,7 +28,6 @@ export default defineComponent({
     if (this.player !== null && !this.player.isInPictureInPicture()) {
       this.player.dispose()
       this.player = null
-      clearTimeout(this.mouseTimeout)
     } else if (this.player.isInPictureInPicture()) {
       this.player.play()
     }
@@ -102,8 +101,6 @@ export default defineComponent({
       maxFramerate: 0,
       activeSourceList: [],
       activeAdaptiveFormats: [],
-      mouseTimeout: null,
-      touchTimeout: null,
       playerStats: null,
       statsModal: null,
       showStatsModal: false,
@@ -341,7 +338,6 @@ export default defineComponent({
       if (!this.player.isInPictureInPicture()) {
         this.player.dispose()
         this.player = null
-        clearTimeout(this.mouseTimeout)
       }
     }
 
@@ -467,9 +463,6 @@ export default defineComponent({
 
         document.removeEventListener('keydown', this.keyboardShortcutHandler)
         document.addEventListener('keydown', this.keyboardShortcutHandler)
-
-        this.player.on('mousemove', this.hideMouseTimeout)
-        this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
         if (this.videoVolumeMouseScroll) {
@@ -1691,22 +1684,6 @@ export default defineComponent({
         this.player.exitFullscreen()
       } else {
         this.player.requestFullscreen()
-      }
-    },
-
-    hideMouseTimeout: function () {
-      if (typeof this.$refs.video !== 'undefined') {
-        this.$refs.video.style.cursor = 'default'
-        clearTimeout(this.mouseTimeout)
-        this.mouseTimeout = setTimeout(() => {
-          this.$refs.video.style.cursor = 'none'
-        }, 2650)
-      }
-    },
-
-    removeMouseTimeout: function () {
-      if (this.mouseTimeout !== null) {
-        clearTimeout(this.mouseTimeout)
       }
     },
 
