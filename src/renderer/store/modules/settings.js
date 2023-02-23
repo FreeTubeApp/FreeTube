@@ -281,6 +281,8 @@ const state = {
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
   allowDashAv1Formats: false,
+  returnYouTubeDislikesUrl: 'https://ryd-proxy.kavin.rocks',
+  useReturnYouTubeDislikes: false,
 }
 
 const stateWithSideEffects = {

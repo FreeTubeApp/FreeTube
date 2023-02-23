@@ -27,6 +27,8 @@
       <hr v-if="usingElectron">
       <experimental-settings v-if="usingElectron" />
       <hr>
+      <ryd-settings />
+      <hr>
       <password-settings />
     </template>
     <password-dialog

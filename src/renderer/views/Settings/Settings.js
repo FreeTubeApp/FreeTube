@@ -14,6 +14,7 @@ import ParentControlSettings from '../../components/parental-control-settings/pa
 import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
 import PasswordSettings from '../../components/password-settings/password-settings.vue'
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
+import RydSettings from '../../components/ryd-settings/ryd-settings.vue'
 
 export default defineComponent({
   name: 'Settings',
@@ -33,6 +34,7 @@ export default defineComponent({
     'experimental-settings': ExperimentalSettings,
     'password-settings': PasswordSettings,
     'password-dialog': PasswordDialog,
+    'ryd-settings': RydSettings,
   },
   data: function () {
     return {

@@ -279,6 +279,10 @@ export default defineComponent({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
+    },
+
+    useReturnYoutubeDislikes: function () {
+      return this.$store.getters.getUseReturnYouTubeDislikes
     }
   },
   mounted: function () {

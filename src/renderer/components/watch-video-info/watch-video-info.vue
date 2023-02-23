@@ -56,31 +56,24 @@
         <div
           class="likeSection"
         >
-          <div>
-            <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
-          </div>
-        </div>
-      </div>
-      <!--
-      // Uncomment if suitable solution for bringing back dislikes is introduced
-      <div
-        v-if="!hideVideoLikesAndDislikes"
-        class="likeBarContainer"
-      >
-        <div
-          class="likeSection"
-        >
           <div
+            v-if="useReturnYoutubeDislikes"
             class="likeBar"
             :style="{ background: `linear-gradient(to right, var(--accent-color) ${likePercentageRatio}%, #9E9E9E ${likePercentageRatio}%` }"
           />
           <div>
             <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
-            <span class="dislikeCount"><font-awesome-icon :icon="['fas', 'thumbs-down']" /> {{ parsedDislikeCount }}</span>
+            <span
+              v-if="useReturnYoutubeDislikes"
+              class="dislikeCount"
+            >
+              &nbsp;
+              <font-awesome-icon :icon="['fas', 'thumbs-down']" />
+              {{ parsedDislikeCount }}
+            </span>
           </div>
         </div>
       </div>
-      -->
       <div class="videoOptions">
         <ft-icon-button
           v-if="!isUpcoming"

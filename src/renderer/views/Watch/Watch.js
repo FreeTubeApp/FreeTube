@@ -30,6 +30,7 @@ import {
   parseLocalWatchNextVideo
 } from '../../helpers/api/local'
 import { invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { getVideoDislikes } from '../../helpers/returnyoutubedislike'
 
 export default defineComponent({
   name: 'Watch',
@@ -182,6 +183,9 @@ export default defineComponent({
     },
     allowDashAv1Formats: function () {
       return this.$store.getters.getAllowDashAv1Formats
+    },
+    useReturnYouTubeDislikes: function () {
+      return this.$store.getters.getUseReturnYouTubeDislikes
     }
   },
   watch: {
@@ -329,6 +333,12 @@ export default defineComponent({
 
           // YouTube doesn't return dislikes anymore
           this.videoDislikeCount = 0
+
+          if (this.useReturnYouTubeDislikes) {
+            getVideoDislikes(this.videoId).then(dislikes => {
+              this.videoDislikeCount = isNaN(dislikes) ? 0 : dislikes
+            })
+          }
         }
 
         this.isLive = !!result.basic_info.is_live
@@ -669,6 +679,11 @@ export default defineComponent({
           } else {
             this.videoLikeCount = result.likeCount
             this.videoDislikeCount = result.dislikeCount
+            if (this.useReturnYouTubeDislikes) {
+              getVideoDislikes(this.videoId).then((dislikes) => {
+                this.videoDislikeCount = isNaN(dislikes) ? 0 : dislikes
+              })
+            }
           }
           if (this.hideChannelSubscriptions) {
             this.channelSubscriptionCountText = ''
