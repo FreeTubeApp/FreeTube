@@ -33,7 +33,7 @@ export default defineComponent({
 
     handleUpdateReturnYouTubeDislikesUrl: function (value) {
       const RYDUrlWithoutTrailingSlash = value.replace(/\/$/, '')
-      const RYDUrlWithoutVotesSuffix = RYDUrlWithoutTrailingSlash.replace(/\/votes$/, '')
+      const RYDUrlWithoutVotesSuffix = RYDUrlWithoutTrailingSlash.replace(/\/votes$/i, '')
       this.updateReturnYouTubeDislikesUrl(RYDUrlWithoutVotesSuffix)
     },
 
