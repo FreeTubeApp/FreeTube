@@ -322,6 +322,10 @@ export default defineComponent({
 
       return this.historyCache[historyIndex].lastViewedPlaylistId
     },
+
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
   },
   mounted: function () {
     this.parseVideoData()
@@ -420,7 +424,25 @@ export default defineComponent({
         this.publishedText = this.data.publishedText
       }
 
-      if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
+      if (this.data.isRSS && this.data.publishedDate != null && !this.isLive) {
+        const now = new Date()
+        // Convert from ms to second to minute
+        let timeDiffFromNow = ((now - this.data.publishedDate) / 1000) / 60
+        let timeUnit = 'minute'
+
+        if (timeDiffFromNow > 60) {
+          timeDiffFromNow /= 60
+          timeUnit = 'hour'
+        }
+
+        if (timeUnit === 'hour' && timeDiffFromNow > 24) {
+          timeDiffFromNow /= 24
+          timeUnit = 'day'
+        }
+
+        // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
+        this.uploadedTime = new Intl.RelativeTimeFormat(this.currentLocale).format(Math.ceil(-timeDiffFromNow), timeUnit)
+      } else if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
         // produces a string according to the template in the locales string
         this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,
