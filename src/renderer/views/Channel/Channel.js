@@ -335,7 +335,7 @@ export default defineComponent({
 
         let channelId
         let subscriberText = null
-        const tags = []
+        let tags = []
 
         switch (channel.header.type) {
           case 'C4TabbedHeader': {
@@ -402,6 +402,13 @@ export default defineComponent({
 
         if (channel.metadata.tags) {
           tags.push(...channel.metadata.tags)
+        }
+
+        // deduplicate tags
+        // a Set can only ever contain unique elements,
+        // so this is an easy way to get rid of duplicates
+        if (tags.length > 0) {
+          tags = Array.from(new Set(tags))
         }
         this.tags = tags
 
