@@ -59,10 +59,10 @@ Search Filters:
   Duration:
     Duration: 'Duración'
     All Durations: 'Cualquier duración'
-    Short (< 4 minutes): 'Cortos (< 4 minutos)'
-    Long (> 20 minutes): 'Largo (> 20 minutos)'
+    Short (< 4 minutes): 'Corta (< 4 minutos)'
+    Long (> 20 minutes): 'Larga (> 20 minutos)'
   # On Search Page
-    Medium (4 - 20 minutes): Medio (4 - 20 minutos)
+    Medium (4 - 20 minutes): Media (4 - 20 minutos)
   Search Results: 'Resultados de la búsqueda'
   Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
   Fetch more results: 'Obtener más resultados'
@@ -319,7 +319,7 @@ Settings:
     All subscriptions have been successfully imported: 'Todas las suscripciones han
       sido importadas con éxito'
     Invalid subscriptions file: 'Archivo de suscripciones no válido'
-    This might take a while, please wait: 'Esto puede tardar un rato. Por favor, espera'
+    This might take a while, please wait: 'Esto puede tardar un rato. Por favor, espere'
     Invalid history file: 'Archivo de historial no válido'
     Subscriptions have been successfully exported: 'Las suscripciones han sido exportadas
       con éxito'
