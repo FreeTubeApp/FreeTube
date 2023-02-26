@@ -270,8 +270,8 @@ Settings:
         Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
         crear subcarpetas.
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
-    Skip by Scrolling Over Video Player: Omitir el desplazarse sobre el reproductor
-      de video
+    Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
+      de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
   Privacy Settings:
     Privacy Settings: 'Privacidad'
@@ -290,7 +290,7 @@ Settings:
       que quiere borrar todas las suscripciones y perfiles? Esta operación es irreversible.'
     Automatically Remove Video Meta Files: Eliminar automáticamente los metadatos
       de vídeos
-    Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última
+    Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última
       lista de reproducción vista
   Subscription Settings:
     Subscription Settings: 'Suscripciones'
@@ -696,7 +696,7 @@ Video:
     music offtopic: No relacionado con la música
     interaction: Interacción
     self-promotion: Auto promoción
-    outro: Otro
+    outro: Epílogo
     intro: Introducción
     sponsor: Patrocinador
     recap: Recapitulación
@@ -877,7 +877,7 @@ Tooltips:
       a la velocidad de reproducción por defecto (1x o la que hayas configurado en
       ajustes).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar
-      el video, estilo MPV.
+      el vídeo, estilo MPV.
     Allow DASH AV1 formats: Los formatos DASH AV1 pueden verse mejor que los formatos
       DASH H.264. ¡Los formatos DASH AV1 requieren más potencia para reproducirse!
       No están disponibles en todos los videos, en esos casos el reproductor usará
