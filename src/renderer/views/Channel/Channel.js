@@ -655,10 +655,18 @@ export default defineComponent({
         }
       }
 
+      if (sortByChanged) {
+        this.videoContinuationData = null
+      }
+
       let more = false
       if (this.videoContinuationData) {
         payload.params.continuation = this.videoContinuationData
-        more = !sortByChanged
+        more = true
+      }
+
+      if (!more) {
+        this.isElementListLoading = true
       }
 
       invidiousAPICall(payload).then((response) => {
@@ -751,6 +759,7 @@ export default defineComponent({
     },
 
     getPlaylistsInvidious: function () {
+      this.isElementListLoading = true
       const payload = {
         resource: 'channels/playlists',
         id: this.id,
