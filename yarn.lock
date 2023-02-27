@@ -1199,11 +1199,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@protobuf-ts/runtime@^2.7.0":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@protobuf-ts/runtime/-/runtime-2.8.1.tgz#e88f89650ab29c3eba0afebe32b9f3552f35fc85"
-  integrity sha512-D9M5hSumYCovIfNllt7N6ODh4q+LrjiMWtNETvooaf+a2XheZJ7kgjFlsFghti0CFWwtA//of4JXQfw9hU+cCw==
-
 "@seald-io/binary-search-tree@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@seald-io/binary-search-tree/-/binary-search-tree-1.0.2.tgz#9f0e5cec5e0acf97f1b495f2f6d3476ddb6a94ed"
@@ -5507,10 +5502,10 @@ jest-worker@^29.1.2:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jintr@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/jintr/-/jintr-0.3.1.tgz#0ab49390a187d77dc5f2c19580c644d70a94528a"
-  integrity sha512-AUcq8fKL4BE9jDx8TizZmJ9UOvk1CHKFW0nQcWaOaqk9tkLS9S10fNmusTWGEYTncn7U43nXrCbhYko/ylqrSg==
+jintr@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/jintr/-/jintr-0.4.1.tgz#df61dd341e08ea619cf80a955be3085059eddeb7"
+  integrity sha512-R42VuIoTjsGbZuEmtT7WqyErd9JQuuV17Cg05wQwRWkQbmQNm2zO519Af1Ib7P7SBATqSMbhyu2/VcTnb3TcOg==
   dependencies:
     acorn "^8.8.0"
 
@@ -8501,10 +8496,10 @@ underscore@1.13.1:
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.1.tgz#0c1c6bd2df54b6b69f2314066d65b6cde6fcf9d1"
   integrity sha512-hzSoAVtJF+3ZtiFX0VgfFPHEDRm7Y/QPjGyNo4TVdnDTdft3tr8hEkD25a1jC+TjTuE7tkHGKkhwCgs9dgBB2g==
 
-undici@^5.7.0:
-  version "5.19.1"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-5.19.1.tgz#92b1fd3ab2c089b5a6bd3e579dcda8f1934ebf6d"
-  integrity sha512-YiZ61LPIgY73E7syxCDxxa3LV2yl3sN8spnIuTct60boiiRaE1J8mNWHO8Im2Zi/sFrPusjLlmRPrsyraSqX6A==
+undici@^5.19.1:
+  version "5.20.0"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.20.0.tgz#6327462f5ce1d3646bcdac99da7317f455bcc263"
+  integrity sha512-J3j60dYzuo6Eevbawwp1sdg16k5Tf768bxYK4TUJRH7cBM4kFCbf3mOnM/0E3vQYXvpxITbbWmBafaDbxLDz3g==
   dependencies:
     busboy "^1.6.0"
 
@@ -9153,15 +9148,14 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-2.9.0.tgz#17426dfb0555169cddede509d50d3db62c102270"
-  integrity sha512-paxfeQGwxGw0oPeKdC96jNalS0OnYQ5xdJY27k3J+vamzVcwX6Ky+idALW6Ej9aUC7FISbchBsEVg0Wa7wgGyA==
+youtubei.js@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-3.1.0.tgz#134169fc45aa4cdfc6f28b2071a38baac834c50b"
+  integrity sha512-eVklZqdg2DRon40srC2uMw8z67Bv3qT3vgfiTO9crqRVV2phirGXq0RM6vxmovW3lDIJR0jK67M8j69OvK1BkA==
   dependencies:
-    "@protobuf-ts/runtime" "^2.7.0"
-    jintr "^0.3.1"
+    jintr "^0.4.1"
     linkedom "^0.14.12"
-    undici "^5.7.0"
+    undici "^5.19.1"
 
 yt-channel-info@^3.2.1:
   version "3.2.1"
