@@ -15,8 +15,6 @@ import {
   showSaveDialog,
   showToast
 } from '../../helpers/utils'
-import { getLocalChannelId } from '../../helpers/api/local'
-import { invidiousGetChannelId } from '../../helpers/api/invidious'
 
 const state = {
   isSideNavOpen: false,
@@ -264,7 +262,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ rootState, state }, { url: urlStr, resolveChannelUrl = false }) {
+  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -416,26 +414,9 @@ const actions = {
       */
       case 'channel': {
         const match = url.pathname.match(channelPattern)
-        let channelId = match.groups.channelId
+        const channelId = match.groups.channelId
         if (!channelId) {
           throw new Error('Channel: could not extract id')
-        }
-
-        if (resolveChannelUrl) {
-          let resolvedChannelId
-
-          if (!process.env.IS_ELECTRON || rootState.settings.backendPreference === 'invidious') {
-            resolvedChannelId = await invidiousGetChannelId(url.toString())
-          } else {
-            resolvedChannelId = await getLocalChannelId(url.toString())
-          }
-
-          if (resolvedChannelId !== null) {
-            channelId = resolvedChannelId
-          } else {
-            // the channel page shows an error about the channel not existing when the id is @@@
-            channelId = '@@@'
-          }
         }
 
         let subPath = null
@@ -455,7 +436,8 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
-          subPath
+          subPath,
+          url: url.toString()
         }
       }
 

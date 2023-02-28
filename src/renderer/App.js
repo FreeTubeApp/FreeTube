@@ -374,7 +374,7 @@ export default defineComponent({
     },
 
     handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
-      this.getYoutubeUrlInfo({ url: href, resolveChannelUrl: true }).then((result) => {
+      this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp, playlistId } = result
@@ -430,11 +430,14 @@ export default defineComponent({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, subPath, url } = result
 
             openInternalPath({
               path: `/channel/${channelId}/${subPath}`,
-              doCreateNewWindow
+              doCreateNewWindow,
+              query: {
+                url
+              }
             })
             break
           }

@@ -15,9 +15,15 @@ import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
-import { invidiousAPICall, invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import {
+  invidiousAPICall,
+  invidiousGetChannelId,
+  invidiousGetChannelInfo,
+  youtubeImageUrlToInvidious
+} from '../../helpers/api/invidious'
 import {
   getLocalChannel,
+  getLocalChannelId,
   parseLocalChannelVideos,
   parseLocalListPlaylist,
   parseLocalListVideo,
@@ -210,6 +216,13 @@ export default defineComponent({
   watch: {
     $route() {
       // react to route changes...
+      this.isLoading = true
+
+      if (this.$route.query.url) {
+        this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
+        return
+      }
+
       this.id = this.$route.params.id
       this.currentTab = this.$route.params.currentTab ?? 'videos'
       this.searchPage = 2
@@ -231,7 +244,6 @@ export default defineComponent({
         return
       }
 
-      this.isLoading = true
       this.showShareMenu = true
       this.errorMessage = ''
 
@@ -274,6 +286,13 @@ export default defineComponent({
     }
   },
   mounted: function () {
+    this.isLoading = true
+
+    if (this.$route.query.url) {
+      this.resolveChannelUrl(this.$route.query.url, this.$route.params.currentTab)
+      return
+    }
+
     this.id = this.$route.params.id
     this.currentTab = this.$route.params.currentTab ?? 'videos'
 
@@ -283,8 +302,6 @@ export default defineComponent({
       return
     }
 
-    this.isLoading = true
-
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
     } else {
@@ -292,6 +309,31 @@ export default defineComponent({
     }
   },
   methods: {
+    resolveChannelUrl: async function (url, tab = undefined) {
+      let id
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        id = await invidiousGetChannelId(url)
+      } else {
+        id = await getLocalChannelId(url)
+      }
+
+      if (id === null) {
+        // the channel page shows an error about the channel not existing when the id is @@@
+        id = '@@@'
+      }
+
+      // use router.replace to replace the current history entry
+      // with the one with the resolved channel id
+      // that way if you navigate back or forward in the history to this entry
+      // we don't need to resolve the URL again as we already know it
+      if (tab) {
+        this.$router.replace({ path: `/channel/${id}/${tab}` })
+      } else {
+        this.$router.replace({ path: `/channel/${id}` })
+      }
+    },
+
     goToChannel: function (id) {
       this.$router.push({ path: `/channel/${id}` })
     },
