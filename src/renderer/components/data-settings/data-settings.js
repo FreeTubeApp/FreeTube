@@ -697,18 +697,39 @@ export default defineComponent({
       }
 
       const historyData = JSON.parse(textDecode)
-      const filterPredicate = item => item.products.includes('YouTube') &&
-                                      item.activityControls.includes('YouTube watch history') &&
-                                      (item.details?.some(detail => detail.name !== 'From Google Ads') ?? true)
+
+      const filterPredicate = item =>
+        item.products.includes('YouTube') &&
+        item.titleUrl != null && // removed video doesnt contain url...
+        item.titleUrl.includes('www.youtube.com/watch?v') &&
+        item.details == null // dont import ads
+
       const filteredHistoryData = historyData.filter(filterPredicate)
 
+      // remove 'Watched' and translated variants from start of title
+      // so we get the common string prefix for all the titles
+      const getCommonStart = (allTitles) => {
+        const watchedTitle = allTitles[0].split(' ')
+        allTitles.forEach((title) => {
+          const splitTitle = title.split(' ')
+          for (let wtIndex = 0; wtIndex <= watchedTitle.length; wtIndex++) {
+            if (!splitTitle.includes(watchedTitle[wtIndex])) {
+              watchedTitle.splice(wtIndex, watchedTitle.length - wtIndex)
+            }
+          }
+        })
+
+        return watchedTitle.join(' ')
+      }
+
+      const commonStart = getCommonStart(filteredHistoryData.map(e => e.title))
       // We would technically already be done by the time the data is parsed,
       // however we want to limit the possibility of malicious data being sent
       // to the app, so we'll only grab the data we need here.
 
       const keyMapping = {
-        title: [{ importKey: 'title', predicate: item => item.slice(8) }], // Removes the "Watched " term on the title
-        titleUrl: [{ importKey: 'videoId', predicate: item => item.replaceAll(/https:\/\/www\.youtube\.com\/watch\?v\u003d/gi, '') }], // Extracts the video ID
+        title: [{ importKey: 'title', predicate: item => item.slice(commonStart.length) }], // Removes the "Watched " term on the title
+        titleUrl: [{ importKey: 'videoId', predicate: item => item.replaceAll(/https:\/\/www\.youtube\.com\/watch\?v=/gi, '') }], // Extracts the video ID
         time: [{ importKey: 'timeWatched', predicate: item => new Date(item).valueOf() }],
         subtitles: [
           { importKey: 'author', predicate: item => item[0].name ?? '' },
@@ -726,7 +747,7 @@ export default defineComponent({
 
       const historyObject = {}
 
-      filteredHistoryData.forEach(element => {
+      filteredHistoryData.forEach(async element => {
         Object.keys(element).forEach((key) => {
           if (!knownKeys.includes(key)) {
             showToast(`Unknown data key: ${key}`)
@@ -754,7 +775,7 @@ export default defineComponent({
           historyObject.isLive = false
           historyObject.paid = false
 
-          this.updateHistory(historyObject)
+          await this.updateHistory(historyObject)
         }
       })
 
