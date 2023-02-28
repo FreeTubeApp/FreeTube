@@ -71,7 +71,7 @@ If you have issues with the extension working with FreeTube, please create an is
 
 * [FreeTube Website](https://freetubeapp.io/#download)
 
-* Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
+* Flatpak on Flathub: [Download](https://flathub.org/apps/details/io.freetubeapp.FreeTube) and [Source](https://github.com/flathub/io.freetubeapp.FreeTube)
 
 #### Automated Builds (Nightly / Weekly)
 Builds are automatically created from changes to our development branch via [GitHub Actions](https://github.com/FreeTubeApp/FreeTube/actions?query=workflow%3ABuild).
@@ -87,7 +87,7 @@ These builds are maintained by the community.  While they should be safe, downlo
 
 * makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
 
-* PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) [Source](https://github.com/rddim/FreeTubePortable)
+* PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) and [Source](https://github.com/rddim/FreeTubePortable)
 
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
