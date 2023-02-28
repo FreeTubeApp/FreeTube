@@ -23,7 +23,7 @@ import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
 videojs.Vhs.xhr.beforeRequest = (options) => {
   if (options.headers?.Range && new URL(options.uri).hostname.endsWith('.googlevideo.com')) {
-    options.uri += `&range=${options.headers.Range.replace('bytes=', '')}`
+    options.uri += `&range=${options.headers.Range.split('=')[1]}`
     delete options.headers.Range
   }
 }
