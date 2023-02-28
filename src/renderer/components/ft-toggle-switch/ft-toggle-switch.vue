@@ -35,4 +35,4 @@
 </template>
 
 <script src="./ft-toggle-switch.js" />
-<style scoped lang="sass" src="./ft-toggle-switch.sass" />
+<style scoped lang="scss" src="./ft-toggle-switch.scss" />

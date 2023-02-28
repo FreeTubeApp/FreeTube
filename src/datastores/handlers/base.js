@@ -31,6 +31,14 @@ class Settings {
     return db.settings.findOne({ _id: 'baseTheme' })
   }
 
+  static _findSidenavSettings() {
+    return {
+      hideTrendingVideos: db.settings.findOne({ _id: 'hideTrendingVideos' }),
+      hidePopularVideos: db.settings.findOne({ _id: 'hidePopularVideos' }),
+      hidePlaylists: db.settings.findOne({ _id: 'hidePlaylists' }),
+    }
+  }
+
   static _updateBounds(value) {
     return db.settings.update({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }
@@ -48,6 +56,10 @@ class History {
 
   static updateWatchProgress(videoId, watchProgress) {
     return db.history.update({ videoId }, { $set: { watchProgress } }, { upsert: true })
+  }
+
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
+    return db.history.update({ videoId }, { $set: { lastViewedPlaylistId } }, { upsert: true })
   }
 
   static delete(videoId) {

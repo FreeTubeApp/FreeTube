@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
@@ -8,8 +8,9 @@ import debounce from 'lodash.debounce'
 import { IpcChannels } from '../../../constants'
 import { openInternalPath, showToast } from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'TopNav',
   components: {
     FtInput,
@@ -257,11 +258,11 @@ export default Vue.extend({
         }
       }
 
-      this.invidiousAPICall(searchPayload).then((results) => {
+      invidiousAPICall(searchPayload).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
-        if (this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendFallback) {
           console.error(
             'Error gettings search suggestions.  Falling back to Local API'
           )
@@ -339,7 +340,6 @@ export default Vue.extend({
     },
     ...mapActions([
       'getYoutubeUrlInfo',
-      'invidiousAPICall'
     ])
   }
 })

@@ -53,12 +53,14 @@ Search Filters:
     Videos: Videos
     Channels: Kanäle
     #& Playlists
+    Movies: Filme
   Duration:
     Duration: Dauer
     All Durations: Alle Dauern
     Short (< 4 minutes): Kurz (< 4 Minuten)
     Long (> 20 minutes): Lang (> 20 Minuten)
   # On Search Page
+    Medium (4 - 20 minutes): Mittel (4 - 20 Minuten)
   Search Results: Suchergebnisse
   Fetching results. Please wait: Ergebnisse werden geladen. Bitte warten
   Fetch more results: Mehr Ergebnisse laden
@@ -263,12 +265,14 @@ Settings:
       Error:
         Forbidden Characters: Verbotene Zeichen
         Empty File Name: Leerer Dateiname
-      File Name Tooltip: Sie können die folgenden Variablen verwenden. %Y Jahr 4-stellig.
+      File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig.
         %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
-        Millisekunde 3 Ziffern. %i Video-ID. Sie können auch \ oder / verwenden, um
+        Millisekunde 3 Ziffern. %i Video-ID. Du kannst auch \ oder / verwenden, um
         Unterordner zu erstellen.
     Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
+    Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoplayer
+    Allow DASH AV1 formats: DASH AV1-Formate zulassen
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -327,6 +331,8 @@ Settings:
       kann nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abonnements / Profile löschen
     Automatically Remove Video Meta Files: Meta-Dateien von Videos automatisch löschen
+    Save Watched Videos With Last Viewed Playlist: Gesehene Videos mit der zuletzt
+      gesehenen Wiedergabeliste speichern
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
     Unknown data key: Unbekannter Datenschlüssel
@@ -396,6 +402,10 @@ Settings:
     Hide Sharing Actions: Freigabe-Aktionen ausblenden
     Hide Chapters: Kapitel ausblenden
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
+    Hide Channels: Videos aus Kanälen ausblenden
+    Hide Channels Placeholder: Kanalname oder Kanal-ID
+    Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
+      anzeigen
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -456,6 +466,17 @@ Settings:
       wenn sie aktiviert sind. Es wird dringend empfohlen, Sicherungskopien zu erstellen.
       Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
+  Password Dialog:
+    Password: Passwort
+    Enter Password To Unlock: Gib das Passwort ein, um die Einstellungen zu entsperren
+    Password Incorrect: Passwort falsch
+    Unlock: Entsperren
+  Password Settings:
+    Remove Password: Passwort entfernen
+    Password Settings: Passworteinstellungen
+    Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
+      zu verhindern
+    Set Password: Passwort festlegen
 About:
   #On About page
   About: Über
@@ -699,6 +720,9 @@ Video:
       ältere Videos nicht verfügbar
   Premieres in: Premieren in
   Premieres: Premiere
+  Show Super Chat Comment: Super-Chat-Kommentar anzeigen
+  Scroll to Bottom: Nach unten scrollen
+  Upcoming: Demnächst
 Videos:
   #& Sort By
   Sort By:
@@ -713,20 +737,7 @@ Playlist:
   View: Aufruf
   Views: Aufrufe
   Last Updated On: Zuletzt aktualisiert am
-# On Channel Playlist Page
-  Share Playlist:
-    Open in Invidious: In Invidious öffnen
-    Copy Invidious Link: Invidious-Link kopieren
-    Open in YouTube: In YouTube öffnen
-    Copy YouTube Link: YouTube-Link kopieren
-    Share Playlist: Wiedergabeliste teilen
   Playlist: Wiedergabeliste
-Share Playlist:
-  Share Playlist: Teile Playlist
-  Copy YouTube Link: Kopiere YouTube Link
-  Open in YouTube: Öffne auf YouTube
-  Copy Invidious Link: Kopiere Invidious Link
-  Open in Invidious: Öffne auf Invidious
 
 # On Video Watch Page
 #* Published
@@ -743,6 +754,7 @@ Change Format:
     nicht verfügbar
 Share:
   Share Video: Teile das Video
+  Share Playlist: Wiedergabeliste teilen
   Copy Link: Kopiere Link
   Open Link: Öffne Link
   Copy Embed: Kopiere eingebettete Version
@@ -785,6 +797,8 @@ Comments:
   And others: und andere
   Pinned by: Angeheftet von
   Member: Mitglied
+  View {replyCount} replies: '{replyCount} Antworten ansehen'
+  Hearted: Gefällt mir
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -900,6 +914,12 @@ Tooltips:
       zu steuern. Halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
       klicken Sie mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit
       zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
+    Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
+      zu springen, MPV-Stil.
+    Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
+      Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
+      bei allen Videos verfügbar. In diesen Fällen verwendet der Player stattdessen
+      die DASH H.264-Formate.
   Privacy Settings:
     Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
       während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
@@ -921,6 +941,11 @@ Tooltips:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
       einer erhöhten Nutzung des Direktzugriffsspeichers.
+  Distraction Free Settings:
+    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um alle Videos,
+      Wiedergabelisten und den Kanal selbst vor der Anzeige in der Suche oder den
+      Trends zu verbergen. Der eingegebene Kanalname muss vollständig übereinstimmen
+      und es wird zwischen Groß- und Kleinschreibung unterschieden.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -956,7 +981,7 @@ Channels:
   Title: Kanalliste
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
-  Empty: Ihre Kanalliste ist derzeit leer.
+  Empty: Deine Kanalliste ist derzeit leer.
   Unsubscribe: Abo entfernen
   Unsubscribed: '{channelName} wurde aus deinen Abonnements entfernt'
   Unsubscribe Prompt: Bist du sicher, dass du „{channelName}“ aus dem Abos entfernen
@@ -972,3 +997,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
     aktuelles Kapitel: {chapterName}'
 Preferences: Einstellungen
+Ok: OK

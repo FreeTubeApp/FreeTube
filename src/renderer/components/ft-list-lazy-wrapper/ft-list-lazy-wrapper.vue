@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="showResult(data)"
+    v-if="showResult"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
       once: true,
@@ -19,6 +19,7 @@
       v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
       :appearance="appearance"
       :data="data"
+      :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
     />
     <ft-list-playlist
       v-if="data.type === 'playlist' && visible"

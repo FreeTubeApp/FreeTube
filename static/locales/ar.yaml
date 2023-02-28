@@ -54,12 +54,14 @@ Search Filters:
     Videos: 'فيديوهات'
     Channels: 'قنوات'
     #& Playlists
+    Movies: الأفلام
   Duration:
     Duration: 'المدة'
     All Durations: 'كل الآوقات'
     Short (< 4 minutes): 'قصير (< 4 دقائق)'
     Long (> 20 minutes): 'طويل (> 20 دقيقة)'
   # On Search Page
+    Medium (4 - 20 minutes): متوسط (4 - 20 دقيقة)
   Search Results: 'نتائج البحث'
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
@@ -260,6 +262,8 @@ Settings:
         2 أرقام. % T ميلي ثانية 3 أرقام. %s الفيديو الثاني. % t فيديو ميلي ثانية 3
         أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
+    Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
+    Allow DASH AV1 formats: السماح بتنسيقات DASH AV1
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -277,6 +281,8 @@ Settings:
       هذا.
     Remove All Subscriptions / Profiles: إزالة جميع الاشتراكات \ الملفات الشخصية
     Automatically Remove Video Meta Files: إزالة ملفات تعريف الفيديو تلقائيًا
+    Save Watched Videos With Last Viewed Playlist: حفظ مقاطع الفيديو التي تمت مشاهدتها
+      مع آخر قائمة تشغيل تم عرضها
   Subscription Settings:
     Subscription Settings: 'إعدادات الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
@@ -381,6 +387,10 @@ Settings:
     Hide Live Streams: إخفاء البث المباشر
     Hide Chapters: إخفاء الفصول
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
+    Hide Channels: إخفاء مقاطع الفيديو من القنوات
+    Hide Channels Placeholder: اسم القناة أو معرفها
+    Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
+      بشكل مفرط
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -438,6 +448,16 @@ Settings:
     Experimental Settings: الإعدادات التجريبية
     Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
       نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
+  Password Settings:
+    Set Password To Prevent Access: تعيين كلمة مرور لمنع الوصول إلى الإعدادات
+    Remove Password: إزالة كلمة المرور
+    Password Settings: إعدادات كلمة المرور
+    Set Password: ضبط كلمة السر
+  Password Dialog:
+    Password Incorrect: كلمة المرور غير صحيحة
+    Password: كلمة السر
+    Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
+    Unlock: الغاء القفل
 About:
   #On About page
   About: 'حول'
@@ -706,6 +726,9 @@ Video:
     Mimetype: نمط ميمي
   Premieres in: العرض الأول في
   Premieres: العرض الأولي
+  Scroll to Bottom: انتقل إلى الأسفل
+  Show Super Chat Comment: إظهار تعليق Super Chat
+  Upcoming: القادمة
 Videos:
   #& Sort By
   Sort By:
@@ -720,12 +743,6 @@ Playlist:
   View: 'عرض'
   Views: 'مشاهدات'
   Last Updated On: 'تم إجراء التعديل الأخير في'
-  Share Playlist:
-    Share Playlist: 'مشاركة قائمة التشغيل'
-    Copy YouTube Link: '‫انسخ رابط اليوتيوب'
-    Open in YouTube: 'افتح في اليوتيوب'
-    Copy Invidious Link: 'انسخ رابط Invidious'
-    Open in Invidious: 'فتح في Invidious'
 
 # On Video Watch Page
 #* Published
@@ -741,6 +758,7 @@ Change Format:
   Dash formats are not available for this video: تنسيقات DASH غير متوفرة لهذا الفيديو
 Share:
   Share Video: 'شارك الفيديو'
+  Share Playlist: 'مشاركة قائمة التشغيل'
   Copy Link: 'انسخ الرابط'
   Open Link: 'افتح الرابط'
   Copy Embed: 'انسخ المُضمّن'
@@ -778,6 +796,8 @@ Comments:
   And others: و اخرين
   From {channelName}: من {channelName}
   Member: عضو
+  View {replyCount} replies: عرض {replyCount} ردود
+  Hearted: القلب
 Up Next: 'التالي'
 
 # Toast Messages
@@ -839,6 +859,10 @@ Tooltips:
       للخلف للتحكم في معدل التشغيل. اضغط مع الاستمرار على مفتاح التحكم (مفتاح الأوامر
       على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم
       يتم تغييره في الإعدادات).
+    Skip by Scrolling Over Video Player: استخدم عجلة التمرير لتخطي الفيديو بنمط MPV.
+    Allow DASH AV1 formats: قد تبدو تنسيقات DASH AV1 أفضل من تنسيقات DASH H.264. تتطلب
+      تنسيقات DASH AV1 مزيدا من الطاقة للتشغيل! وهي غير متوفرة في جميع مقاطع الفيديو
+      ، وفي هذه الحالات سيستخدم المشغل تنسيقات DASH H.264 بدلا من ذلك.
   Privacy Settings:
     Remove Video Meta Files: عندما يمكن، يحذف Freetube تلقائيًا ملفات التعريف التي
       تم إنشاؤها أثناء تشغيل الفيديو ، عندما تكون صفحة المشاهدة مغلقة.
@@ -864,6 +888,10 @@ Tooltips:
     Replace HTTP Cache: تعطيل ذاكرة التخزين المؤقت HTTP المستندة إلى قرص Electron
       وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
       العشوائي.
+  Distraction Free Settings:
+    Hide Channels: أدخل اسم القناة أو رقم تعريف القناة لإخفاء كل الفيديوهات وقوائم
+      التشغيل والقناة نفسها من الظهور في "بحث Google" أو "المحتوى الرائج". يجب أن
+      يكون اسم القناة الذي تم إدخاله مطابقا تماما وحساسا لحالة الأحرف.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.
@@ -916,3 +944,4 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {sectionName}'
 Preferences: التفضيلات
+Ok: موافق

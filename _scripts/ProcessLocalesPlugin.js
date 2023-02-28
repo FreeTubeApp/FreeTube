@@ -1,6 +1,9 @@
 const { existsSync, readFileSync } = require('fs')
-const { brotliCompressSync, constants } = require('zlib')
+const { brotliCompress, constants } = require('zlib')
+const { promisify } = require('util')
 const { load: loadYaml } = require('js-yaml')
+
+const brotliCompressAsync = promisify(brotliCompress)
 
 class ProcessLocalesPlugin {
   constructor(options = {}) {
@@ -34,9 +37,9 @@ class ProcessLocalesPlugin {
       },
         async (_assets) => {
           const promises = []
-          
+
           for (const { locale, data } of this.locales) {
-            promises.push(new Promise((resolve) => {
+            promises.push(new Promise(async (resolve) => {
               if (Object.prototype.hasOwnProperty.call(data, 'Locale Name')) {
                 delete data['Locale Name']
               }
@@ -46,7 +49,7 @@ class ProcessLocalesPlugin {
 
               if (this.compress) {
                 filename += '.br'
-                output = this.compressLocale(output)
+                output = await this.compressLocale(output)
               }
 
               compilation.emitAsset(
@@ -78,10 +81,10 @@ class ProcessLocalesPlugin {
     }
   }
 
-  compressLocale(data) {
+  async compressLocale(data) {
     const buffer = Buffer.from(data, 'utf-8')
 
-    return brotliCompressSync(buffer, {
+    return await brotliCompressAsync(buffer, {
       params: {
         [constants.BROTLI_PARAM_MODE]: constants.BROTLI_MODE_TEXT,
         [constants.BROTLI_PARAM_QUALITY]: constants.BROTLI_MAX_QUALITY,

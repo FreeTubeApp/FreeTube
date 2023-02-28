@@ -8,6 +8,7 @@
         <img
           src="../../../../_icons/logoColor.png"
           class="logo"
+          alt=""
         >
         <div class="version">
           {{ versionNumber }} {{ $t("About.Beta") }}
@@ -37,4 +38,4 @@
 </template>
 
 <script src="./About.js" />
-<style scoped src="./About.sass" lang="sass" />
+<style scoped src="./About.scss" lang="scss" />

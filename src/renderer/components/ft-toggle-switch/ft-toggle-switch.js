@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtToggleSwitch',
   components: {
     'ft-tooltip': FtTooltip

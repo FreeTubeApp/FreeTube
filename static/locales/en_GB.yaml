@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videos'
     Channels: 'Channels'
     #& Playlists
+    Movies: Films
   Duration:
     Duration: 'Duration'
     All Durations: 'All durations'
     Short (< 4 minutes): 'Short (< 4 minutes)'
     Long (> 20 minutes): 'Long (> 20 minutes)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
   Search Results: 'Search results'
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'
@@ -268,6 +270,8 @@ Settings:
       Format Label: Screenshot format
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
+    Skip by Scrolling Over Video Player: Skip by scrolling over video player
+    Allow DASH AV1 formats: Allow DASH AV1 formats
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -294,6 +298,8 @@ Settings:
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
     Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
+    Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
+      Playlist
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -396,6 +402,10 @@ Settings:
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide sharing actions
     Hide Chapters: Hide chapters
+    Hide Channels: Hide videos from channels
+    Hide Channels Placeholder: Channel name or ID
+    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive
+      Capitalisation
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -445,6 +455,16 @@ Settings:
     Experimental Settings: Experimental settings
     Warning: These settings are experimental; they may cause crashes while enabled.
       Making back-ups is highly recommended. Use at your own risk!
+  Password Dialog:
+    Password: Password
+    Enter Password To Unlock: Enter password to unlock settings
+    Unlock: Unlock
+    Password Incorrect: Password incorrect
+  Password Settings:
+    Set Password To Prevent Access: Set a password to prevent access to settings
+    Remove Password: Remove password
+    Password Settings: Password settings
+    Set Password: Set password
 About:
   #On About page
   About: About
@@ -700,6 +720,9 @@ Video:
     Video ID: Video ID
   Premieres in: Premieres in
   Premieres: Premieres
+  Show Super Chat Comment: Show Super Chat comment
+  Scroll to Bottom: Scroll to bottom
+  Upcoming: Upcoming
 Videos:
   #& Sort By
   Sort By:
@@ -715,12 +738,6 @@ Playlist:
   View: 'View'
   Views: 'Views'
   Last Updated On: 'Last Updated On'
-  Share Playlist:
-    Share Playlist: 'Share Playlist'
-    Copy YouTube Link: 'Copy YouTube Link'
-    Open in YouTube: 'Open in YouTube'
-    Copy Invidious Link: 'Copy Invidious Link'
-    Open in Invidious: 'Open in Invidious'
 
 # On Video Watch Page
 #* Published
@@ -738,6 +755,7 @@ Change Format:
 Share:
   Share Video: 'Share Video'
   Share Channel: 'Share Channel'
+  Share Playlist: 'Share Playlist'
   Include Timestamp: 'Include Timestamp'
   Copy Link: 'Copy Link'
   Open Link: 'Open Link'
@@ -776,6 +794,8 @@ Comments:
   From {channelName}: from {channelName}
   And others: and others
   Member: Member
+  Hearted: Hearted
+  View {replyCount} replies: View {replyCount} replies
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -824,6 +844,11 @@ Tooltips:
       or backwards to control the playback rate. Press and hold the Control key (Command
       Key on Mac) and left click the mouse to quickly return to the default playback
       rate (1x unless it has been changed in the settings).
+    Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the
+      video, MPV style.
+    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
+      DASH AV1 formats require more power to playback! They are not available on all
+      videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
       videos you want to have displayed. Not all countries displayed are actually
@@ -859,6 +884,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
       in-memory image cache. Will lead to increased RAM usage.
+  Distraction Free Settings:
+    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists
+      and the channel itself from appearing in search or trending. The channel name
+      entered must be a complete match and is case sensitive.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
@@ -907,3 +936,4 @@ Clipboard:
   Cannot access clipboard without a secure connection: Cannot access clipboard without
     a secure connection
 Preferences: Preferences
+Ok: OK

@@ -47,6 +47,7 @@
       >
         <img
           v-if="!compact"
+          alt=""
           aria-hidden="true"
           class="chapterThumbnail"
           :src="chapter.thumbnail"

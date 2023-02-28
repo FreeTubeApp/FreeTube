@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListLazyWrapper',
   components: {
     'ft-list-video': FtListVideo,
@@ -26,7 +26,11 @@ export default Vue.extend({
     layout: {
       type: String,
       default: 'grid'
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {
@@ -37,6 +41,9 @@ export default Vue.extend({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     },
+    channelsHidden: function() {
+      return JSON.parse(this.$store.getters.getChannelsHidden)
+    },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
     }
@@ -46,7 +53,13 @@ export default Vue.extend({
       this.visible = visible
     },
 
-    showResult: function (data) {
+    /**
+     *  Show or Hide results in the list
+     *
+     * @return {bool} false to hide the video, true to show it
+     */
+    showResult: function () {
+      const { data } = this
       if (!data.type) {
         return false
       }
@@ -66,8 +79,23 @@ export default Vue.extend({
           // hide upcoming
           return false
         }
+        if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
+          // hide videos by author
+          return false
+        }
+      } else if (data.type === 'channel') {
+        if (this.channelsHidden.includes(data.channelID) || this.channelsHidden.includes(data.name)) {
+          // hide channels by author
+          return false
+        }
+      } else if (data.type === 'playlist') {
+        if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
+          // hide playlists by author
+          return false
+        }
       }
       return true
     }
+
   }
 })

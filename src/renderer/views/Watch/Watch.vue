@@ -44,6 +44,7 @@
           <img
             :src="thumbnail"
             class="upcomingThumbnail"
+            alt=""
           >
           <div
             class="premiereDate"
@@ -121,7 +122,6 @@
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
-        :compact="backendPreference === 'invidious'"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
         class="watchVideo"
@@ -152,9 +152,10 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && isLive"
+        v-if="!isLoading && !hideLiveChat && isLive"
+        :live-chat="liveChat"
         :video-id="videoId"
-        :channel-name="channelName"
+        :channel-id="channelId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
       />
@@ -184,4 +185,4 @@
 </template>
 
 <script src="./Watch.js" />
-<style scoped src="./Watch.sass" lang="sass" />
+<style scoped src="./Watch.scss" lang="scss" />

@@ -24,8 +24,8 @@
           :class="{ selectedTab: currentTab === 'default' }"
           @click="changeTab('default')"
           @keydown.space.enter.prevent="changeTab('default')"
-          @keydown.left.prevent="focusTab('movies')"
-          @keydown.right.prevent="focusTab('music')"
+          @keydown.left="focusTab($event, 'movies')"
+          @keydown.right="focusTab($event, 'music')"
         >
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
@@ -39,8 +39,8 @@
           :class="{ selectedTab: currentTab === 'music' }"
           @click="changeTab('music')"
           @keydown.space.enter.prevent="changeTab('music')"
-          @keydown.left.prevent="focusTab('default')"
-          @keydown.right.prevent="focusTab('gaming')"
+          @keydown.left="focusTab($event, 'default')"
+          @keydown.right="focusTab($event, 'gaming')"
         >
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
@@ -54,8 +54,8 @@
           :class="{ selectedTab: currentTab === 'gaming' }"
           @click="changeTab('gaming')"
           @keydown.space.enter.prevent="changeTab('gaming')"
-          @keydown.left.prevent="focusTab('music')"
-          @keydown.right.prevent="focusTab('movies')"
+          @keydown.left="focusTab($event, 'music')"
+          @keydown.right="focusTab($event, 'movies')"
         >
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
@@ -69,8 +69,8 @@
           :class="{ selectedTab: currentTab === 'movies' }"
           @click="changeTab('movies')"
           @keydown.space.enter.prevent="changeTab('movies')"
-          @keydown.left.prevent="focusTab('gaming')"
-          @keydown.right.prevent="focusTab('default')"
+          @keydown.left="focusTab($event, 'gaming')"
+          @keydown.right="focusTab($event, 'default')"
         >
           {{ $t("Trending.Movies").toUpperCase() }}
         </div>

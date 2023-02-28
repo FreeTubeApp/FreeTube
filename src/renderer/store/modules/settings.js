@@ -195,6 +195,7 @@ const state = {
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,
+  channelsHidden: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
@@ -212,6 +213,7 @@ const state = {
   hideWatchedSubs: false,
   hideLabelsSideBar: false,
   hideChapters: false,
+  showDistractionFreeTitles: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
@@ -224,6 +226,7 @@ const state = {
   rememberHistory: true,
   removeVideoMetaFiles: true,
   saveWatchedProgress: true,
+  saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
@@ -265,6 +268,7 @@ const state = {
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
+  videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   downloadFolderPath: '',
   downloadBehavior: 'download',
@@ -274,7 +278,9 @@ const state = {
   screenshotAskPath: false,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
-  fetchSubscriptionsAutomatically: true
+  fetchSubscriptionsAutomatically: true,
+  settingsPassword: '',
+  allowDashAv1Formats: false,
 }
 
 const stateWithSideEffects = {
@@ -321,9 +327,7 @@ const stateWithSideEffects = {
         }
       }
 
-      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
-        await i18n.loadLocale(targetLocale)
-      }
+      await i18n.loadLocale(targetLocale)
 
       i18n.locale = targetLocale
       await dispatch('getRegionData', {
@@ -439,6 +443,10 @@ const customActions = {
 
         case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
           commit('updateRecordWatchProgressInHistoryCache', data)
+          break
+
+        case SyncEvents.HISTORY.UPDATE_PLAYLIST:
+          commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
           break
 
         case SyncEvents.GENERAL.DELETE:

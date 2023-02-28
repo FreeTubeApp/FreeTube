@@ -2,12 +2,21 @@ import Datastore from 'nedb-promises'
 
 let dbPath = null
 
-const isElectronMain = !!process?.versions?.electron
-if (isElectronMain) {
+if (process.env.IS_ELECTRON_MAIN) {
   const { app } = require('electron')
   const { join } = require('path')
+  // this code only runs in the electron main process, so hopefully using sync fs code here should be fine 😬
+  const { existsSync, statSync, realpathSync } = require('fs')
   const userDataPath = app.getPath('userData') // This is based on the user's OS
-  dbPath = (dbName) => join(userDataPath, `${dbName}.db`)
+  dbPath = (dbName) => {
+    let path = join(userDataPath, `${dbName}.db`)
+
+    if (existsSync(path) && statSync(path).isSymbolicLink) {
+      path = realpathSync(path)
+    }
+
+    return path
+  }
 } else {
   dbPath = (dbName) => `${dbName}.db`
 }

@@ -1,0 +1,305 @@
+$thumbnail-overlay-opacity: 0.85;
+$watched-transition-duration: 0.5s;
+
+@mixin is-result {
+  @at-root {
+    .result#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin is-watch-playlist-item {
+  @at-root {
+    .watchPlaylistItem#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin is-recommendation {
+  @at-root {
+    .recommendation#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin is-sidebar-item {
+  @at-root {
+    .watchPlaylistItem#{&},
+    .recommendation#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin low-contrast-when-watched($col) {
+  color: $col;
+
+  @at-root {
+    .watched &,
+    .watched#{&} {
+      color: var(--tertiary-text-color);
+      transition-duration: $watched-transition-duration;
+    }
+    .watched:hover &,
+    .watched:hover#{&} {
+      color: $col;
+      transition-duration: $watched-transition-duration;
+    }
+  }
+}
+
+.ft-list-item {
+  padding: 6px;
+
+  &.watched {
+    @include low-contrast-when-watched(var(--primary-text-color));
+
+    background-color: var(--bg-color);
+
+    .thumbnailImage {
+      opacity: 0.3;
+      transition: opacity $watched-transition-duration;
+    }
+
+    &:hover .thumbnailImage,
+    &:focus .thumbnailImage {
+      opacity: 1;
+      transition-duration: $watched-transition-duration;
+    }
+  }
+
+  .videoThumbnail {
+    display: grid;
+
+    .thumbnailLink,
+    .videoWatched,
+    .videoDuration,
+    .externalPlayerIcon,
+    .favoritesIcon,
+    .watchedProgressBar,
+    .videoCountContainer,
+    .background,
+    .inner {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .thumbnailLink {
+      display: flex;
+    }
+
+    .thumbnailImage {
+      @include is-sidebar-item {
+        height: 75px;
+      }
+
+      @include is-recommendation {
+        height: auto;
+        width: 163px;
+      }
+    }
+
+    .videoWatched {
+      align-self: flex-start;
+      background-color: var(--bg-color);
+      color: var(--primary-text-color);
+      justify-self: left;
+      opacity: $thumbnail-overlay-opacity;
+      padding: 2px;
+      pointer-events: none;
+    }
+
+    .videoDuration {
+      align-self: flex-end;
+      background-color: var(--card-bg-color);
+      border-radius: 5px;
+      color: var(--primary-text-color);
+      font-size: 15px;
+      justify-self: right;
+      line-height: 1.2;
+      margin: 0 4px 4px 0;
+      opacity: $thumbnail-overlay-opacity;
+      padding: 3px 4px;
+      pointer-events: none;
+
+      @include is-watch-playlist-item {
+        font-size: 12px;
+      }
+
+      &.live {
+        background-color: #f22;
+        color: #fff;
+      }
+    }
+
+    .externalPlayerIcon {
+      align-self: flex-end;
+      font-size: 17px;
+      justify-self: left;
+      margin-bottom: 4px;
+      margin-left: 4px;
+      opacity: $thumbnail-overlay-opacity;
+    }
+
+    .favoritesIcon {
+      font-size: 17px;
+      justify-self: right;
+      margin-right: 3px;
+      margin-top: 3px;
+      opacity: $thumbnail-overlay-opacity;
+    }
+
+    .watchedProgressBar {
+      align-self: flex-end;
+      background-color: var(--primary-color);
+      height: 2px;
+      justify-self: stretch;
+      z-index: 2;
+    }
+
+    .videoCountContainer {
+      align-self: stretch;
+      display: grid;
+      font-size: 20px;
+      justify-self: right;
+      width: 60px;
+
+      .background {
+        background-color: var(--bg-color);
+        opacity: 0.9;
+      }
+
+      .inner {
+        align-items: center;
+        color: var(--primary-text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+      }
+    }
+  }
+
+  .channelThumbnail {
+    display: flex;
+    justify-content: center;
+
+    .channelImage {
+      border-radius: 50%;
+      height: 130px;
+    }
+  }
+
+  .info {
+    align-content: flex-start;
+    display: grid;
+    flex: 1;
+    grid-template:
+      'title optionsExternalButton' auto
+      'infoLine optionsExternalButton' auto
+      'description description' auto / 1fr auto;
+
+    .optionsButton {
+      grid-area: optionsExternalButton;
+    }
+
+    .externalPlayerButton {
+      grid-area: optionsExternalButton;
+    }
+
+    .title {
+      @include low-contrast-when-watched(var(--primary-text-color));
+
+      font-size: 20px;
+      grid-area: title;
+      text-decoration: none;
+      word-break: break-word;
+      word-wrap: break-word;
+
+      @include is-sidebar-item {
+        font-size: 15px;
+      }
+    }
+
+    .infoLine {
+      font-size: 14px;
+      grid-area: infoLine;
+      margin-top: 5px;
+
+      @include is-sidebar-item {
+        font-size: 12px;
+      }
+
+      & {
+        @include low-contrast-when-watched(var(--secondary-text-color));
+      }
+
+      .channelName {
+        @include low-contrast-when-watched(var(--secondary-text-color));
+      }
+    }
+
+    .description {
+      @include low-contrast-when-watched(var(--secondary-text-color));
+
+      font-size: 14px;
+      grid-area: description;
+      max-height: 50px;
+      overflow-y: hidden;
+    }
+  }
+
+  &.list {
+    align-items: flex-start;
+    display: flex;
+
+    @include is-sidebar-item {
+      .videoThumbnail {
+        margin-right: 10px;
+      }
+    }
+
+    .videoThumbnail,
+    .channelThumbnail {
+      margin-right: 20px;
+    }
+
+    .channelThumbnail {
+      width: 231px;
+    }
+  }
+
+  &.grid {
+    display: flex;
+    flex-direction: column;
+    min-height: 230px;
+    padding-bottom: 20px;
+
+    .videoThumbnail,
+    .channelThumbnail {
+      margin-bottom: 12px;
+
+      .thumbnailImage {
+        width: 100%;
+      }
+    }
+
+    .title {
+      font-size: 18px;
+    }
+
+    .infoLine {
+      font-size: 13px;
+      margin-top: 8px;
+    }
+  }
+}
+
+.videoWatched,
+.live,
+.upcoming {
+  text-transform: uppercase;
+}

@@ -1,19 +1,13 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timestamp-catcher.vue'
-import autolinker from 'autolinker'
-import ytcm from '@freetube/yt-comment-scraper'
-import {
-  copyToClipboard,
-  showToast,
-  stripHTML,
-  toLocalePublicationString
-} from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
+import { invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
+import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoComments',
   components: {
     'ft-card': FtCard,
@@ -39,12 +33,9 @@ export default Vue.extend({
     return {
       isLoading: false,
       showComments: false,
-      commentScraper: null,
       nextPageToken: null,
       commentData: [],
-      sortNewest: false,
-      commentProcess: null,
-      sortingChanged: false
+      sortNewest: false
     }
   },
   computed: {
@@ -82,52 +73,23 @@ export default Vue.extend({
     }
   },
 
-  beforeDestroy: function () {
-    if (this.commentProcess !== null) {
-      this.commentProcess.send('end')
-    }
-  },
   methods: {
     onTimestamp: function (timestamp) {
       this.$emit('timestamp-event', timestamp)
     },
 
-    handleSortChange: function (sortType) {
+    handleSortChange: function () {
       this.sortNewest = !this.sortNewest
-      switch (this.backendPreference) {
-        case 'local':
-          this.isLoading = true
-          this.commentData = []
-          this.nextPageToken = undefined
-          this.getCommentDataLocal({
-            videoId: this.id,
-            setCookie: false,
-            sortByNewest: this.sortNewest,
-            continuation: this.nextPageToken ? this.nextPageToken : undefined
-          })
-          break
-        case 'invidious':
-          this.isLoading = true
-          this.commentData = []
-          this.getCommentDataInvidious()
-          break
-      }
+      this.commentData = []
+      this.getCommentData()
     },
 
     getCommentData: function () {
       this.isLoading = true
-      switch (this.backendPreference) {
-        case 'local':
-          this.getCommentDataLocal({
-            videoId: this.id,
-            setCookie: false,
-            sortByNewest: this.sortNewest,
-            continuation: this.nextPageToken ? this.nextPageToken : undefined
-          })
-          break
-        case 'invidious':
-          this.getCommentDataInvidious()
-          break
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getCommentDataInvidious()
+      } else {
+        this.getCommentDataLocal()
       }
     },
 
@@ -135,7 +97,11 @@ export default Vue.extend({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        this.getCommentData()
+        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+          this.getCommentDataInvidious()
+        } else {
+          this.getCommentDataLocal(true)
+        }
       }
     },
 
@@ -148,147 +114,96 @@ export default Vue.extend({
     },
 
     getCommentReplies: function (index) {
-      switch (this.commentData[index].dataType) {
-        case 'local':
-          this.getCommentRepliesLocal({
-            videoId: this.id,
-            setCookie: false,
-            sortByNewest: this.sortNewest,
-            replyToken: this.commentData[index].replyToken,
-            index: index
-          })
-          break
-        case 'invidious':
-          this.getCommentRepliesInvidious(index)
-          break
-      }
-    },
-
-    getCommentDataLocal: function (payload) {
-      ytcm.getComments(payload).then((response) => {
-        this.parseLocalCommentData(response, null)
-      }).catch((err) => {
-        console.error(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err}`, 10000, () => {
-          copyToClipboard(err)
-        })
-        if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious()
-        } else {
-          this.isLoading = false
-        }
-      })
-    },
-
-    getCommentRepliesLocal: function (payload) {
-      showToast(this.$t('Comments.Getting comment replies, please wait'))
-
-      ytcm.getCommentReplies(payload).then((response) => {
-        this.parseLocalCommentData(response, payload.index)
-      }).catch((err) => {
-        console.error(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err}`, 10000, () => {
-          copyToClipboard(err)
-        })
-        if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious()
-        } else {
-          this.isLoading = false
-        }
-      })
-    },
-
-    parseLocalCommentData: function (response, index = null) {
-      const commentData = response.comments.map((comment) => {
-        comment.authorLink = comment.authorId
-        comment.showReplies = false
-        comment.authorThumb = comment.authorThumb[0].url
-        comment.replies = []
-        comment.dataType = 'local'
-        comment.time = toLocalePublicationString({
-          publishText: (comment.time + ' ago')
-        })
-
-        if (this.hideCommentLikes) {
-          comment.likes = null
-        }
-
-        comment.text = autolinker.link(stripHTML(comment.text))
-        if (comment.customEmojis.length > 0) {
-          comment.customEmojis.forEach(emoji => {
-            comment.text = comment.text.replace(emoji.text, `<img width="14" height="14" class="commentCustomEmoji" alt="${emoji.text.substring(2, emoji.text.length - 1)}" src="${emoji.emojiThumbnails[0].url}">`)
-          })
-        }
-
-        return comment
-      })
-
-      if (index !== null) {
-        if (this.commentData[index].replies.length === 0 || this.commentData[index].replies[this.commentData[index].replies.length - 1].commentId !== commentData[commentData.length - 1].commentId) {
-          this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
-          this.commentData[index].replyToken = response.continuation
-          this.commentData[index].showReplies = true
+      if (process.env.IS_ELECTRON) {
+        switch (this.commentData[index].dataType) {
+          case 'local':
+            this.getCommentRepliesLocal(index)
+            break
+          case 'invidious':
+            this.getCommentRepliesInvidious(index)
+            break
         }
       } else {
-        if (this.sortingChanged) {
-          this.commentData = []
-          this.sortingChanged = false
-        }
-        this.commentData = this.commentData.concat(commentData)
-        this.isLoading = false
-        this.showComments = true
-        this.nextPageToken = response.continuation
+        this.getCommentRepliesInvidious(index)
       }
     },
 
-    parseInvidiousCommentData: function (response) {
-      return response.comments.map((comment) => {
-        comment.showReplies = false
-        comment.authorLink = comment.authorId
-        comment.authorThumb = comment.authorThumbnails[1].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
-        if (this.hideCommentLikes) {
-          comment.likes = null
+    getCommentDataLocal: async function (more) {
+      try {
+        /** @type {import('youtubei.js/dist/src/parser/youtube/Comments').default} */
+        let comments
+        if (more) {
+          comments = await this.nextPageToken.getContinuation()
         } else {
-          comment.likes = comment.likeCount
-        }
-        comment.text = autolinker.link(stripHTML(comment.content))
-        comment.dataType = 'invidious'
-        comment.isOwner = comment.authorIsChannelOwner
-
-        if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
-          comment.numReplies = comment.replies.replyCount
-          comment.replyContinuation = comment.replies.continuation
-        } else {
-          comment.numReplies = 0
-          comment.replyContinuation = ''
+          comments = await getLocalComments(this.id, this.sortNewest)
         }
 
-        comment.replies = []
-        comment.time = toLocalePublicationString({
-          publishText: comment.publishedText
+        const parsedComments = comments.contents
+          .map(commentThread => parseLocalComment(commentThread.comment, commentThread))
+
+        if (more) {
+          this.commentData = this.commentData.concat(parsedComments)
+        } else {
+          this.commentData = parsedComments
+        }
+
+        this.nextPageToken = comments.has_continuation ? comments : null
+        this.isLoading = false
+        this.showComments = true
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
+        if (this.backendFallback && this.backendPreference === 'local') {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getCommentDataInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
 
-        return comment
-      })
+    getCommentRepliesLocal: async function (index) {
+      showToast(this.$t('Comments.Getting comment replies, please wait'))
+
+      try {
+        const comment = this.commentData[index]
+        /** @type {import('youtubei.js/dist/src/parser/classes/comments/CommentThread').default} */
+        const commentThread = comment.replyToken
+
+        if (comment.replies.length > 0) {
+          await commentThread.getContinuation()
+          comment.replies = comment.replies.concat(commentThread.replies.map(reply => parseLocalComment(reply)))
+        } else {
+          await commentThread.getReplies()
+          comment.replies = commentThread.replies.map(reply => parseLocalComment(reply))
+        }
+
+        comment.replyToken = commentThread.has_continuation ? commentThread : null
+        comment.showReplies = true
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendFallback && this.backendPreference === 'local') {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getCommentDataInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
     },
 
     getCommentDataInvidious: function () {
-      const payload = {
-        resource: 'comments',
+      invidiousGetComments({
         id: this.id,
-        params: {
-          continuation: this.nextPageToken ?? '',
-          sort_by: this.sortNewest ? 'new' : 'top'
-        }
-      }
-
-      this.invidiousAPICall(payload).then((response) => {
-        const commentData = this.parseInvidiousCommentData(response)
-
+        nextPageToken: this.nextPageToken,
+        sortNewest: this.sortNewest
+      }).then(({ response, commentData }) => {
         this.commentData = this.commentData.concat(commentData)
         this.nextPageToken = response.continuation
         this.isLoading = false
@@ -299,7 +214,7 @@ export default Vue.extend({
         showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
           copyToClipboard(xhr.responseText)
         })
-        if (this.backendFallback && this.backendPreference === 'invidious') {
+        if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to local API'))
           this.getCommentDataLocal()
         } else {
@@ -310,36 +225,21 @@ export default Vue.extend({
 
     getCommentRepliesInvidious: function (index) {
       showToast(this.$t('Comments.Getting comment replies, please wait'))
-      const payload = {
-        resource: 'comments',
-        id: this.id,
-        params: {
-          continuation: this.commentData[index].replyContinuation
-        }
-      }
-
-      this.invidiousAPICall(payload).then((response) => {
-        const commentData = this.parseInvidiousCommentData(response)
-
-        this.commentData[index].replies = commentData
-        this.commentData[index].showReplies = true
-        this.isLoading = false
-      }).catch((xhr) => {
-        console.error(xhr)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-          copyToClipboard(xhr.responseText)
+      const replyToken = this.commentData[index].replyToken
+      invidiousGetCommentReplies({ id: this.id, replyToken: replyToken })
+        .then(({ commentData, continuation }) => {
+          this.commentData[index].replies = commentData
+          this.commentData[index].showReplies = true
+          this.commentData[index].replyToken = continuation
+          this.isLoading = false
+        }).catch((xhr) => {
+          console.error(xhr)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
+            copyToClipboard(xhr.responseText)
+          })
+          this.isLoading = false
         })
-        this.isLoading = false
-      })
-    },
-
-    goToChannel: function (channelId) {
-      this.$router.push({ path: `/channel/${channelId}` })
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

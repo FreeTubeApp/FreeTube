@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videa'
     Channels: 'Kanály'
     #& Playlists
+    Movies: Filmy
   Duration:
     Duration: 'Trvání'
     All Durations: 'Všechny trvání'
     Short (< 4 minutes): 'Krátké (< 4 minuty)'
     Long (> 20 minutes): 'Dlouhé (> 20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Střední (4 - 20 minut)
   Search Results: 'Výsledky hledání'
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'
@@ -124,8 +126,8 @@ Settings:
     General Settings: 'Obecné nastavení'
     Check for Updates: 'Kontrolovat aktualizace'
     Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky blogů'
-    Fallback to Non-Preferred Backend on Failure: 'Přepnutí na nepreferovaný backend
-      při chybě'
+    Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný
+      backend'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
     Default Landing Page: 'Výchozí vstupní stránka'
     Locale Preference: 'Předvolby jazyka'
@@ -134,7 +136,7 @@ Settings:
       Local API: 'Lokální API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Typ zobrazení videa'
+      Video View Type: 'Typ zobrazení videí'
       Grid: 'Mřížka'
       List: 'Seznam'
     Thumbnail Preference:
@@ -149,10 +151,10 @@ Settings:
         #! List countries
     View all Invidious instance information: Zobrazit všechny informace o instancích
       Invidious
-    System Default: Výchozí nastavení systému
+    System Default: Podle systému
     Clear Default Instance: Vymazat výchozí instanci
     Set Current Instance as Default: Nastavit současnou instanci jako výchozí
-    Current instance will be randomized on startup: Při startu bude vybrána náhodná
+    Current instance will be randomized on startup: Při spuštění bude vybrána náhodná
       instance
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádná výchozí instance
@@ -165,43 +167,43 @@ Settings:
       External Link Handling: Zpracování externích odkazů
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
-    Match Top Bar with Main Color: 'Přizpůsobit hlavní lištu hlavní barvě'
+    Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
     Expand Side Bar by Default: 'Ve výchozím stavu rozbalený postranní panel'
     Disable Smooth Scrolling: 'Zakázat plynulé posouvání'
-    UI Scale: 'Škála UI'
+    UI Scale: 'Měřítko rozhraní'
     Base Theme:
       Base Theme: 'Základní motiv'
       Black: 'Černý'
       Dark: 'Tmavý'
       Light: 'Světlý'
       Dracula: 'Drákula'
-      System Default: Výchozí nastavení systému
+      System Default: Podle systému
       Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
-      Main Color Theme: 'Hlavní barevný motiv'
-      Red: 'Červený'
-      Pink: 'Růžový'
-      Purple: 'Fialový'
-      Deep Purple: 'Temně fialový'
+      Main Color Theme: 'Hlavní barva motivu'
+      Red: 'Červená'
+      Pink: 'Růžová'
+      Purple: 'Fialová'
+      Deep Purple: 'Temně fialová'
       Indigo: 'Indigo'
-      Blue: 'Modrý'
-      Light Blue: 'Světle modrý'
-      Cyan: 'Azurový'
-      Teal: 'Modrozelený'
-      Green: 'Zelený'
-      Light Green: 'Světle zelený'
-      Lime: 'Zelenožlutý'
-      Yellow: 'Žlutý'
-      Amber: 'Jantarový'
-      Orange: 'Oranžový'
-      Deep Orange: 'Tmavě oranžový'
-      Dracula Cyan: 'Drákula Azurový'
-      Dracula Green: 'Drákula Zelený'
-      Dracula Orange: 'Drákula Oranžový'
-      Dracula Pink: 'Drákula Růžový'
-      Dracula Purple: 'Drákula Fialový'
-      Dracula Red: 'Drákula Červený'
-      Dracula Yellow: 'Drákula Žlutý'
+      Blue: 'Modrá'
+      Light Blue: 'Světle modrá'
+      Cyan: 'Azurová'
+      Teal: 'Modrozelená'
+      Green: 'Zelená'
+      Light Green: 'Světle zelená'
+      Lime: 'Limetková'
+      Yellow: 'Žlutá'
+      Amber: 'Jantarová'
+      Orange: 'Oranžová'
+      Deep Orange: 'Temně oranžová'
+      Dracula Cyan: 'Azurový drákula'
+      Dracula Green: 'Zelený drákula'
+      Dracula Orange: 'Oranžový drákula'
+      Dracula Pink: 'Růžový drákula'
+      Dracula Purple: 'Fialový drákula'
+      Dracula Red: 'Červený drákula'
+      Dracula Yellow: 'Žlutý drákula'
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
@@ -216,7 +218,7 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
-    Secondary Color Theme: 'Téma sekundární barvy'
+    Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt štítky na bočním panelu
     Hide FreeTube Header Logo: Skrýt logo záhlaví FreeTube
@@ -228,7 +230,7 @@ Settings:
     Autoplay Videos: 'Automatické přehrávání videí'
     Proxy Videos Through Invidious: 'Proxy videa prostřednictvím Invidious'
     Autoplay Playlists: 'Automaticky přehrávat playlist'
-    Enable Theatre Mode by Default: 'Ve výchozím nastavení povolit režim Divadlo'
+    Enable Theatre Mode by Default: 'Ve výchozím nastavení povolit režim kino'
     Default Volume: 'Výchozí hlasitost'
     Default Playback Rate: 'Výchozí rychlost přehrávání'
     Default Video Format:
@@ -250,7 +252,7 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Interval pro další video na playlistu
     Next Video Interval: Další interval videa
-    Display Play Button In Video Player: Zobrazit tlačítko 'přehrát' ve video přehrávači
+    Display Play Button In Video Player: Zobrazit tlačítko Přehrát v přehrávači videa
     Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
     Fast-Forward / Rewind Interval: Interval rychlého přetáčení vpřed / vzad
     Scroll Playback Rate Over Video Player: Změna rychlosti přehrávání posuvem kolečka
@@ -273,30 +275,34 @@ Settings:
       Quality Label: Kvalita snímku obrazovky
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
+    Skip by Scrolling Over Video Player: Přeskočení posouváním na přehrávači videa
+    Allow DASH AV1 formats: Povolit formáty DASH AV1
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
     Save Watched Progress: 'Uložit průběh zhlédnutých videí'
-    Clear Search Cache: 'Vyčistit cache vyhledávání'
-    Are you sure you want to clear out your search cache?: 'Jste si jisti, že chcete
-      smazat cache vyhledávání?'
+    Clear Search Cache: 'Vymazat mezipaměť vyhledávání'
+    Are you sure you want to clear out your search cache?: 'Opravdu chcete vymazat
+      mezipaměť vyhledávání?'
     Search cache has been cleared: 'Cache vyhledávání byla vymazána'
-    Remove Watch History: 'Odstranit historii viděných videí'
+    Remove Watch History: 'Odstranit historii sledování'
     Are you sure you want to remove your entire watch history?: 'Opravdu chcete odstranit
       historii viděných videí?'
     Watch history has been cleared: 'Historie viděných videí byla odstraněna'
-    Remove All Subscriptions / Profiles: 'Odstranit všechna odebírání / profily'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Chcete
-      opravdu odstranit všechna odebírání a profily? Toto nelze vrátit zpět.'
+    Remove All Subscriptions / Profiles: 'Odstranit všechny odběry / profily'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Opravdu
+      chcete odstranit všechny odběry a profily? Tato akce je nevratná.'
     Automatically Remove Video Meta Files: Automaticky odstranit meta soubory videa
+    Save Watched Videos With Last Viewed Playlist: Uložit zhlédnutá videa s naposledy
+      zobrazeným playlistem
   Subscription Settings:
     Subscription Settings: 'Nastavení odběrů'
-    Hide Videos on Watch: 'Skrýt přehrané video'
+    Hide Videos on Watch: 'Skrýt přehraná videa'
     Fetch Feeds from RSS: 'Načíst kanály z RSS'
     Manage Subscriptions: 'Spravovat odebírané kanály'
     Fetch Automatically: Automaticky načítat odběry
   Distraction Free Settings:
-    Distraction Free Settings: 'Nastavení Režimu nerozptylování'
+    Distraction Free Settings: 'Nastavení rozptylování'
     Hide Video Views: 'Skrýt počet přehrání videa'
     Hide Video Likes And Dislikes: 'Skrýt hodnocení videa'
     Hide Channel Subscribers: 'Skrýt odběratele kanálu'
@@ -309,10 +315,14 @@ Settings:
     Hide Playlists: Skrýt playlist
     Hide Video Description: Skrýt popis videa
     Hide Comments: Skrýt komentáře
-    Hide Live Streams: Skrýt živé streamy
+    Hide Live Streams: Skrýt živé přenosy
     Hide Sharing Actions: Skrýt akce sdílení
     Hide Chapters: Skrýt kapitoly
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
+    Hide Channels: Skrýt videa z kanálů
+    Hide Channels Placeholder: Název nebo ID kanálu
+    Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
+      použití velkých písmen
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -391,7 +401,7 @@ Settings:
     City: Město
     Ip: IP
     Your Info: Vaše informace
-    Enable Tor / Proxy: Povolit Tor / Proxy
+    Enable Tor / Proxy: Povolit Tor / proxy
     Region: Region
     Country: Země
     Test Proxy: Otestovat proxy
@@ -407,7 +417,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock
       (výchozí je https://sponsor.ajay.app)
     Enable SponsorBlock: Povolit SponsorBlock
-    SponsorBlock Settings: Nastavení SponsorBlock
+    SponsorBlock Settings: Nastavení služby SponsorBlock
     Skip Options:
       Do Nothing: Nic nedělat
       Skip Option: Možnost přeskočení
@@ -441,6 +451,16 @@ Settings:
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci dochází k pádům.
       Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
+  Password Dialog:
+    Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
+    Password: Heslo
+    Password Incorrect: Nesprávné heslo
+    Unlock: Odemknout
+  Password Settings:
+    Password Settings: Nastavení hesla
+    Set Password To Prevent Access: Nastavte heslo, abyste zabránili přístupu k nastavení
+    Remove Password: Odebrat heslo
+    Set Password: Nastavit heslo
 About:
   #On About page
   About: 'O aplikaci'
@@ -483,19 +503,19 @@ About:
   Mastodon: Mastodon
   Email: E-mail
   Blog: Blog
-  Website: Webová stránka
+  Website: Webové stránky
   FAQ: Často kladené dotazy
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: Wiki FreeTube
   Downloads / Changelog: Ke stažení / Seznam změn
   View License: Zobrazit licenci
   Translate: Překlady
   these people and projects: těmto lidem a projektům
-  FreeTube is made possible by: FreeTube je možné udělat díky
+  FreeTube is made possible by: FreeTube je možné dělat díky
   Please check for duplicates before posting: Před odesláním prosím zkontrolujte duplicity
   GitHub issues: Chyby na GitHub
   Report a problem: Nahlásit problém
   Help: Nápověda
-  GitHub releases: Vydaní na GitHub
+  GitHub releases: Vydání na GitHubu
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -508,16 +528,16 @@ Profile:
   Create Profile: 'Vytvořit profil'
   Update Profile: 'Aktualizovat profil'
   Make Default Profile: 'Vytvořit výchozí profil'
-  Delete Profile: 'Smazat profil'
-  Are you sure you want to delete this profile?: 'Opravdu smazat tento profil?'
-  All subscriptions will also be deleted.: 'Všechna odebírání budou také smazána.'
+  Delete Profile: 'Odstranit profil'
+  Are you sure you want to delete this profile?: 'Opravdu chcete odstranit tento profil?'
+  All subscriptions will also be deleted.: 'Budou také odstraněny všechny odběry.'
   Profile could not be found: 'Profil nebyl nalezen'
   Your profile name cannot be empty: 'Jméno profilu nemůže být prázdné'
   Profile has been created: 'Profil byl vytvořen'
   Profile has been updated: 'Profil byl upraven'
   Your default profile has been set to {profile}: 'Váš výchozí profil byl nastaven
     na {profile}'
-  Removed {profile} from your profiles: 'Odstranit {profile} z vašeho profilu'
+  Removed {profile} from your profiles: 'Profil {profile} byl odebrán'
   Your default profile has been changed to your primary profile: 'Váš výchozí profil
     byl změněn na primární profil'
   '{profile} is now the active profile': '{profile} je nyní aktivním profilem'
@@ -526,15 +546,15 @@ Profile:
   '{number} selected': '{number} vybrán'
   Select All: 'Vybrat vše'
   Select None: 'Zrušit výběr'
-  Delete Selected: 'Smazat vybrané'
+  Delete Selected: 'Odstranit vybrané'
   Add Selected To Profile: 'Přidat vybrané do profilu'
   No channel(s) have been selected: 'Nebyly vybrány žádné kanály'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : 'Toto je váš primární profil.  Opravdu chcete odstranit vybrané kanály?  Stejné
-    kanály budou smazány ze všech profilů, ve kterém se nacházejí.'
+    kanály budou odstraněny ze všech profilů, ve kterých se nacházejí.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Opravdu
-    chcete odstranit vybrané kanály?  Tím nebude kanál odstraněn z žádného jiného
+    chcete odstranit vybrané kanály?  Kanál tím nebude odstraněn z žádného jiného
     profilu.'
 #On Channel Page
   Profile Filter: Filtr profilu
@@ -545,9 +565,9 @@ Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
   Channel has been removed from your subscriptions: 'Kanál byl odebrán z vašich odběrů'
-  Removed subscription from {count} other channel(s): 'Odběr odebrán z {count} jiných
+  Removed subscription from {count} other channel(s): 'Odběr odebrán z {count} dalších
     kanálů'
-  Added channel to your subscriptions: 'K vašim odběrům byl přidán kanál'
+  Added channel to your subscriptions: 'Kanál přidán do vašich odběrů'
   Search Channel: 'Hledat v kanálu'
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
   Sort By: 'Seřadit podle'
@@ -670,7 +690,7 @@ Video:
     sponsor: Sponzor
     recap: Shrnutí
     filler: Výplň
-  Skipped segment: Přeskočený segment
+  Skipped segment: Přeskočen segment
   External Player:
     Unsupported Actions:
       opening specific video in a playlist (falling back to opening the video): Otevření
@@ -701,6 +721,9 @@ Video:
     Dropped / Total Frames: Vyřazené / Celkový počet snímků
   Premieres in: Premiéra za
   Premieres: Premiéra
+  Show Super Chat Comment: Zobrazit komentář Super Chat
+  Scroll to Bottom: Posunout dolů
+  Upcoming: Nadcházející
 Videos:
   #& Sort By
   Sort By:
@@ -715,12 +738,6 @@ Playlist:
   View: 'Zobrazit'
   Views: 'Zobrazení'
   Last Updated On: 'Naposledy upraveno'
-  Share Playlist:
-    Share Playlist: 'Sdílet playlist'
-    Copy YouTube Link: 'Kopírovat YouTube odkaz'
-    Open in YouTube: 'Otevřít v YouTube'
-    Copy Invidious Link: 'Kopírovat Invidious odkaz'
-    Open in Invidious: 'Otevřít v Invidious'
 
 # On Video Watch Page
 #* Published
@@ -738,6 +755,7 @@ Change Format:
     video dostupné'
 Share:
   Share Video: 'Sdílet video'
+  Share Playlist: 'Sdílet playlist'
   Include Timestamp: 'Včetně časového razítka'
   Copy Link: 'Kopírovat odkaz'
   Open Link: 'Otevřít odkaz'
@@ -760,8 +778,7 @@ Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'
   Click to View Comments: 'Kliknutím zobrazíte komentáře'
-  Getting comment replies, please wait: 'Dostáváte odpovědi na komentář, počkejte
-    prosím'
+  Getting comment replies, please wait: 'Načítání odpovědí na komentář, čekejte prosím'
   There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
   Show Comments: 'Zobrazit komentáře'
   Hide Comments: 'Skrýt komentáře'
@@ -771,17 +788,19 @@ Comments:
   # Context: View 10 Replies, View 1 Reply
   View: 'Zobrazit'
   Hide: 'Skrýt'
-  Replies: 'Odpovědi'
-  Reply: 'Odpovědět'
+  Replies: 'Odpovědí'
+  Reply: 'Odpověď'
   There are no comments available for this video: 'K tomuto videu nejsou dostupné
     žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
   No more comments available: 'Žádné další komentáře nejsou k dispozici'
   Show More Replies: Načíst více výsledků
   Pinned by: připnuto uživatelem
-  From {channelName}: z {channelName}
-  And others: a ostatní
+  From {channelName}: od {channelName}
+  And others: a dalších
   Member: Člen
+  View {replyCount} replies: Zobrazit {replyCount} odpovědí
+  Hearted: Se srdíčkem
 Up Next: 'Další'
 
 #Tooltips
@@ -795,11 +814,11 @@ Tooltips:
       pokud je povoleno.'
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem
       z videa namísto výchozí miniatury.'
-    Invidious Instance: 'Invidious instance, ke které se FreeTube připojí za účelem
+    Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem
       volání API.'
-    Region for Trending: 'Region trendů vám umožní vybrat si zemi, ze které si přejete
-      zobrazovat videa trendů. Ne všechny zobrazené země jsou ale službou YouTube
-      reálně podporovány.'
+    Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si
+      přejete zobrazovat videa v trendech. Ne všechny zobrazené země jsou ale službou
+      YouTube opravdu podporovány.'
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze\
       \ otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem\
       \ výchozím prohlížeči.\n"
@@ -819,10 +838,15 @@ Tooltips:
       rychlost přehrávání. Stisknutím a podržením Ctrl (Command na Mac) a stisknutím
       levého tlačítka myši se rychle vrátíte na výchozí rychlost přehrávání (1x, pokud
       není změněná v nastavení).
+    Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat
+      ve stylu MPV.
+    Allow DASH AV1 formats: Formáty DASH AV1 mohou vypadat lépe než formáty DASH H.264,
+      vyžadují ale k přehrávání větší výkon! Nejsou k dispozici u všech videí, v těchto
+      případech přehrávač místo nich použije formáty DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
-      metody pro získání vašeho odebírání kanálů. RSS je rychlejší a brání blokování
-      IP, ale neposkytuje určité informace, jako je délka videa a podobně'
+      metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale
+      neposkytuje určité informace, jako je délka videa a podobně'
 
 # Toast Messages
     Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
@@ -845,6 +869,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní paměťovou
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
+  Distraction Free Settings:
+    Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
+      a samotného kanálu před zobrazením ve vyhledávání nebo trendech. Zadaný název
+      kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'
@@ -877,8 +905,8 @@ Hashtags have not yet been implemented, try again later: Hashtagy nebyly dosud i
 Unknown YouTube url type, cannot be opened in app: Neznámý typ adresy URL YouTube,
   nelze v aplikaci otevřít
 Open New Window: Otevřít nové okno
-Default Invidious instance has been cleared: Výchozí Invidious instance byla vymazána
-Default Invidious instance has been set to {instance}: Výchozí Invidious instance
+Default Invidious instance has been cleared: Výchozí instance Invidious byla vymazána
+Default Invidious instance has been set to {instance}: Výchozí instance Invidious
   byla nastavena na {instance}
 Search Bar:
   Clear Input: Vymazat
@@ -898,7 +926,7 @@ Channels:
   Channels: Kanály
   Title: Seznam kanálů
   Unsubscribed: Kanál {channelName} byl odebrán z vašich odběrů
-  Unsubscribe Prompt: Opavdu chcete zrušit odběr kanálu "{channelName}"?
+  Unsubscribe Prompt: Opavdu chcete zrušit odběr kanálu „{channelName}“?
   Empty: Seznam vašich kanálů je momentálně prázdný.
   Search bar placeholder: Hledat kanály
   Count: Nalezeno {number} kanálů.
@@ -916,3 +944,4 @@ Chapters:
     současná kapitola: {chapterName}'
   Chapters: Kapitoly
 Preferences: Předvolby
+Ok: Ok

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -8,7 +8,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { colors } from '../../helpers/colors'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ThemeSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -109,7 +109,7 @@ export default Vue.extend({
     colorNames: function () {
       return this.colorValues.map(colorVal => {
         // add spaces before capital letters
-        const colorName = colorVal.replace(/([A-Z])/g, ' $1').trim()
+        const colorName = colorVal.replaceAll(/([A-Z])/g, ' $1').trim()
         return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)
       })
     },

@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
 <template>
   <div
     class="ft-input-component"
@@ -13,8 +14,9 @@
     <label
       v-if="showLabel"
       :for="id"
+      class="selectLabel"
     >
-      {{ placeholder }}
+      {{ label || placeholder }}
       <ft-tooltip
         v-if="tooltip !== ''"
         class="selectTooltip"
@@ -36,32 +38,33 @@
       @keydown.space.prevent="handleClearTextClick"
       @keydown.enter.prevent="handleClearTextClick"
     />
-    <input
-      :id="id"
-      ref="input"
-      v-model="inputData"
-      :list="idDataList"
-      class="ft-input"
-      type="text"
-      :placeholder="placeholder"
-      :disabled="disabled"
-      :spellcheck="spellcheck"
-      @input="e => handleInput(e.target.value)"
-      @focus="handleFocus"
-      @blur="handleInputBlur"
-      @keydown="handleKeyDown"
-      @keydown.enter="handleClick"
-    >
-    <font-awesome-icon
-      v-if="showActionButton"
-      :icon="actionButtonIconName"
-      class="inputAction"
-      :class="{
-        enabled: inputDataPresent
-      }"
-      @click="handleClick"
-    />
-
+    <span class="inputWrapper">
+      <input
+        :id="id"
+        ref="input"
+        v-model="inputData"
+        :list="idDataList"
+        class="ft-input"
+        :type="inputType"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :spellcheck="spellcheck"
+        @input="e => handleInput(e.target.value)"
+        @focus="handleFocus"
+        @blur="handleInputBlur"
+        @keydown="handleKeyDown"
+      >
+      <font-awesome-icon
+        v-if="showActionButton"
+        :icon="actionButtonIconName"
+        class="inputAction"
+        :class="{
+          enabled: inputDataPresent,
+          withLabel: showLabel
+        }"
+        @click="handleClick"
+      />
+    </span>
     <div class="options">
       <ul
         v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
@@ -70,6 +73,7 @@
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"
       >
+        <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
           v-for="(list, index) in visibleDataList"
           :key="index"
@@ -79,6 +83,7 @@
         >
           {{ list }}
         </li>
+        <!-- skipped -->
       </ul>
     </div>
   </div>

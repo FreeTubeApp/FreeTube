@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtNotificationBanner',
   props: {
     message: {
@@ -18,8 +18,7 @@ export default Vue.extend({
       this.$emit('click', response)
     },
 
-    handleClose: function (event) {
-      event.stopPropagation()
+    handleClose: function () {
       this.handleClick(false)
     }
   }

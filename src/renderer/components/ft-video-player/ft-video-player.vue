@@ -1,3 +1,6 @@
+<!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
+<!-- eslint-disable vuejs-accessibility/media-has-caption -->
+
 <template>
   <div
     class="relative"

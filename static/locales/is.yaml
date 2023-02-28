@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Myndskeið'
     Channels: 'Rásir'
     #& Playlists
+    Movies: Kvikmyndir
   Duration:
     Duration: 'Tímalengd'
     All Durations: 'Allar tímalengdir'
     Short (< 4 minutes): 'Stutt (< 4 mínútur)'
     Long (> 20 minutes): 'Langt (> 20 mínútur)'
   # On Search Page
+    Medium (4 - 20 minutes): Miðlungs (4 - 20 mínútur)
   Search Results: 'Leitarniðurstöður'
   Fetching results. Please wait: 'Sæki niðurstöður. Hinkraðu aðeins'
   Fetch more results: 'Sækja fleiri niðurstöður'
@@ -278,6 +280,8 @@ Settings:
       Folder Button: Veldu möppu
       File Name Label: Mynstur skráaheita
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
+    Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
+    Allow DASH AV1 formats: Leyfa DASH AV1 snið
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna vinnsluferil'
@@ -295,6 +299,8 @@ Settings:
       viss um að þú viljir fjarlægja allar áskriftir og notkunarsnið? Ekki er hægt
       að afturkalla þetta.'
     Automatically Remove Video Meta Files: Sjálfvirkt fjarlægja lýsigögn úr myndskeiðaskrám
+    Save Watched Videos With Last Viewed Playlist: Vista myndskeið sem horft var á
+      með síðast notaða spilunarlista
   Subscription Settings:
     Subscription Settings: 'Stillingar áskrifta'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
@@ -319,6 +325,9 @@ Settings:
     Hide Comments: Fela athugasemdir
     Hide Chapters: Fela kafla
     Hide Upcoming Premieres: Fela væntanlegar frumsýningar
+    Hide Channels: Fela myndskeið úr rásum
+    Hide Channels Placeholder: Heiti eða auðkenni rásar
+    Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -423,6 +432,16 @@ Settings:
     Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær
       eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
+  Password Dialog:
+    Password: Lykilorð
+    Password Incorrect: Rangt lykilorð
+    Enter Password To Unlock: Settu inn lykilorð til að aflæsa stillingum
+    Unlock: Aflæsa
+  Password Settings:
+    Set Password To Prevent Access: Settu lykilorð til að hindra aðgang að stillingum
+    Set Password: Setja lykilorð
+    Remove Password: Fjarlægja lykilorð
+    Password Settings: Stillingar lykilorðs
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -668,6 +687,9 @@ Video:
     Volume: Hljóðstyrkur
   Premieres in: Frumsýnt eftir
   Premieres: Frumsýnt
+  Show Super Chat Comment: Birta athugasemd Super Chat
+  Scroll to Bottom: Skruna neðst
+  Upcoming: Á næstunni
 Videos:
   #& Sort By
   Sort By:
@@ -682,12 +704,6 @@ Playlist:
   View: 'Áhorf'
   Views: 'Áhorf'
   Last Updated On: 'Síðast uppfært'
-  Share Playlist:
-    Share Playlist: 'Deila spilunarlista'
-    Copy YouTube Link: 'Afrita YouTube-tengil'
-    Open in YouTube: 'Opna í YouTube'
-    Copy Invidious Link: 'Afrita Invidious-tengil'
-    Open in Invidious: 'Opna í Invidious'
 
 # On Video Watch Page
 #* Published
@@ -705,6 +721,7 @@ Change Format:
     fyrir þetta myndskeið'
 Share:
   Share Video: 'Deila myndskeiði'
+  Share Playlist: 'Deila spilunarlista'
   Include Timestamp: 'Hafa með tímamerki'
   Copy Link: 'Afrita tengil'
   Open Link: 'Opna tengil'
@@ -745,6 +762,8 @@ Comments:
   And others: og fleirum
   Pinned by: Fest af
   Member: Meðlimur
+  View {replyCount} replies: Skoða {replyCount} svör
+  Hearted: Líkað
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -784,6 +803,11 @@ Tooltips:
       haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og smelltu með vinstri
       músarhnappnum til að snúa aftur í sjálfgefinn hraða (1x nema ef því hefur verið
       breytt í stillingunum).
+    Skip by Scrolling Over Video Player: Nota skrunhjólið til að fletta í gegnum myndskeið,
+      svipað og í MPV.
+    Allow DASH AV1 formats: DASH AV1 snið geta litið betur út en DASH H.264 snið.
+      DASH AV1 snið krefjast hins vegar meira afls í afspilun! Það er ekki til taks
+      í öllum myndskeiðum, þá mun spilarinn nota DASH H.264 snið í staðinn.
   Subscription Settings:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
@@ -812,6 +836,10 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna
       minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
+  Distraction Free Settings:
+    Hide Channels: Settu inn heiti eða auðkenni rásar til að fela öll myndskeið, spilunarlista
+      og sjálfa rásina við leit eða vinsældaskráningu. Heiti rásarinnar sem sett er
+      inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella
@@ -884,3 +912,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
     núverandi kafli: {chapterName}'
 Preferences: Kjörstillingar
+Ok: Í lagi

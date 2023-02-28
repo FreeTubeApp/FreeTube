@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue, { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
@@ -18,7 +18,7 @@ let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
 
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
   components: {
     FtFlexBox,
@@ -76,10 +76,10 @@ export default Vue.extend({
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
         let title =
         this.$route.meta.path === '/home'
-          ? process.env.PRODUCT_NAME
-          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+          ? packageDetails.productName
+          : `${this.$t(this.$route.meta.title)} - ${packageDetails.productName}`
         if (!title) {
-          title = process.env.PRODUCT_NAME
+          title = packageDetails.productName
         }
         return title
       } else {
@@ -159,6 +159,7 @@ export default Vue.extend({
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
+          this.activateIPCListeners()
           this.openAllLinksExternally()
           this.enableSetSearchQueryText()
           this.enableOpenUrl()
@@ -292,15 +293,19 @@ export default Vue.extend({
       })
     },
 
+    activateIPCListeners: function () {
+      // handle menu event updates from main script
+      ipcRenderer.on('history-back', (_event) => {
+        this.$refs.topNav.historyBack()
+      })
+      ipcRenderer.on('history-forward', (_event) => {
+        this.$refs.topNav.historyForward()
+      })
+    },
+
     handleKeyboardShortcuts: function (event) {
       if (event.altKey) {
         switch (event.key) {
-          case 'ArrowRight':
-            this.$refs.topNav.historyForward()
-            break
-          case 'ArrowLeft':
-            this.$refs.topNav.historyBack()
-            break
           case 'D':
           case 'd':
             this.$refs.topNav.focusSearch()

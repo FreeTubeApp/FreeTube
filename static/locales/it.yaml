@@ -55,12 +55,14 @@ Search Filters:
     Videos: 'Video'
     Channels: 'Canali'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Durata'
     All Durations: 'Tutte le durate'
     Short (< 4 minutes): 'Corto (< 4 minuti)'
     Long (> 20 minutes): 'Lungo (> 20 minuti)'
   # On Search Page
+    Medium (4 - 20 minutes): Medio (4 - 20 minuti)
   Search Results: 'Risultati della ricerca'
   Fetching results. Please wait: 'Caricamento risultati. Per favore attendi'
   Fetch more results: 'Carica più risultati'
@@ -219,7 +221,7 @@ Settings:
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
     Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
-      legacy'
+      compatibili'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -231,8 +233,8 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati legacy'
-      Audio Formats: 'Formati Audio'
+      Legacy Formats: 'Formati compatibili'
+      Audio Formats: 'Formati audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
       Auto: 'Auto'
@@ -271,6 +273,8 @@ Settings:
         2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
+    Skip by Scrolling Over Video Player: Salta scorrendo il lettore video
+    Allow DASH AV1 formats: Consenti formati DASH AV1
   Privacy Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
@@ -289,6 +293,8 @@ Settings:
     Remove All Subscriptions / Profiles: Elimina tutte le iscrizioni e i profili
     Automatically Remove Video Meta Files: Rimuovi automaticamente i metafile dai
       video
+    Save Watched Videos With Last Viewed Playlist: Salva i video guardati con l'ultima
+      playlist vista
   Subscription Settings:
     Subscription Settings: 'Impostazioni delle iscrizioni'
     Hide Videos on Watch: 'Nascondi i video successivi durante la riproduzione'
@@ -368,7 +374,7 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni legacy
+    Check for Legacy Subscriptions: Controlla le iscrizioni compatibili
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
@@ -399,6 +405,10 @@ Settings:
     Hide Video Description: Nascondi la descrizione del video
     Hide Chapters: Nascondi i capitoli
     Hide Upcoming Premieres: Nascondi le prossime Première
+    Hide Channels: Nascondi i video dai canali
+    Hide Channels Placeholder: Nome o ID del canale
+    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole
+      eccessive
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
     subito?
@@ -460,6 +470,17 @@ Settings:
     Experimental Settings: Impostazioni sperimentali
     Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
       Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
+  Password Dialog:
+    Enter Password To Unlock: Inserisci la password per sbloccare le impostazioni
+    Password Incorrect: Password non corretta
+    Password: Password
+    Unlock: Sblocca
+  Password Settings:
+    Set Password: Imposta password
+    Password Settings: Impostazioni password
+    Set Password To Prevent Access: Imposta una password per impedire l'accesso alle
+      impostazioni
+    Remove Password: Rimuovi password
 About:
   #On About page
   About: 'Informazioni'
@@ -677,7 +698,7 @@ Video:
     video id: ID video (YouTube)
     player resolution: Finestra di visualizzazione
     Video statistics are not available for legacy videos: Le statistiche sui video
-      non sono disponibili per i video legacy
+      non sono disponibili per i video compatibili
     Video ID: ID video
     Resolution: Risoluzione
     Player Dimensions: Dimensioni del lettore
@@ -689,6 +710,9 @@ Video:
     Mimetype: Tipo di media
   Premieres in: Anteprima in
   Premieres: Première
+  Scroll to Bottom: Scorri fino in fondo
+  Show Super Chat Comment: Mostra commento Super Chat
+  Upcoming: In arrivo
 Videos:
   #& Sort By
   Sort By:
@@ -703,12 +727,6 @@ Playlist:
   View: 'Visualizzazione'
   Views: 'Visualizzazioni'
   Last Updated On: 'Ultimo aggiornamento il'
-  Share Playlist:
-    Share Playlist: 'Condividi la playlist'
-    Copy YouTube Link: 'Copia link YouTube'
-    Open in YouTube: 'Apri con YouTube'
-    Copy Invidious Link: 'Copia link Invidious'
-    Open in Invidious: 'Apri con Invidious'
 
 # On Video Watch Page
 #* Published
@@ -718,14 +736,15 @@ Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
-  Use Legacy Formats: 'Usa i formati legacy'
+  Use Legacy Formats: 'Usa i formati compatibili'
   Use Audio Formats: 'Usa i formati audio'
-  Audio formats are not available for this video: I formati Audio non sono disponibili
+  Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
   Dash formats are not available for this video: I formati DASH non sono disponibili
     per questo video
 Share:
   Share Video: 'Condividi video'
+  Share Playlist: 'Condividi la playlist'
   Copy Link: 'Copia link'
   Open Link: 'Apri link'
   Copy Embed: 'Copia codice da incorporare'
@@ -769,6 +788,8 @@ Comments:
   And others: e altri
   Pinned by: Messo in primo piano da
   Member: Membro
+  Hearted: Di cuore
+  View {replyCount} replies: Visualizza {replyCount} risposte
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -847,13 +868,13 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitate, le API locali useranno i formati legacy al posto
-      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
-      a causa di restrizioni geografiche.
+      predefinita. Quando abilitate, le API locali useranno i formati compatibili
+      al posto di quelli di Invidious. Utile quando i video di Invidious non vengono
+      riprodotti a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiore. I formati Legacy sono limitati
-      ad un massimo di 720p ma usano meno banda. I formati Audio riproducono solo
-      l'audio.
+      I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono
+      limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
+      solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube. Sovrascrive le preferenze API.
     Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni
@@ -862,6 +883,12 @@ Tooltips:
       CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
       alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
       nelle impostazioni).
+    Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
+      il video, in stile MPV.
+    Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
+      formati DASH H.264. I formati DASH AV1 richiedono più potenza per la riproduzione!
+      Non sono disponibili su tutti i video, in questo caso il lettore utilizzerà
+      invece i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
@@ -905,6 +932,11 @@ Tooltips:
     Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
       della RAM.
+  Distraction Free Settings:
+    Hide Channels: Inserisci il nome o l'ID di un canale per nascondere tutti i video,
+      le playlist e il canale stesso dalla visualizzazione nelle ricerche o nelle
+      tendenze. Il nome del canale inserito deve essere una corrispondenza completa
+      e fa distinzione tra maiuscole e minuscole.
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}
@@ -957,3 +989,4 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Elenco capitoli nascosto,
     capitolo corrente: {chapterName}'
 Preferences: Preferenze
+Ok: OK

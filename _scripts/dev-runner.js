@@ -9,15 +9,22 @@ const kill = require('tree-kill')
 const path = require('path')
 const { spawn } = require('child_process')
 
-const mainConfig = require('./webpack.main.config')
-const rendererConfig = require('./webpack.renderer.config')
-const webConfig = require('./webpack.web.config')
-
 let electronProcess = null
 let manualRestart = null
 
 const remoteDebugging = process.argv.indexOf('--remote-debug') !== -1
 const web = process.argv.indexOf('--web') !== -1
+
+let mainConfig
+let rendererConfig
+let webConfig
+
+if (!web) {
+  mainConfig = require('./webpack.main.config')
+  rendererConfig = require('./webpack.renderer.config')
+} else {
+  webConfig = require('./webpack.web.config')
+}
 
 if (remoteDebugging) {
   // disable dvtools open in electron

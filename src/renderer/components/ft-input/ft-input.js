@@ -1,16 +1,25 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { mapActions } from 'vuex'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtInput',
   components: {
     'ft-tooltip': FtTooltip
   },
   props: {
+    inputType: {
+      type: String,
+      required: false,
+      default: 'text'
+    },
     placeholder: {
       type: String,
       required: true
+    },
+    label: {
+      type: String,
+      default: null
     },
     value: {
       type: String,
@@ -19,6 +28,10 @@ export default Vue.extend({
     showActionButton: {
       type: Boolean,
       default: true
+    },
+    forceActionButtonIconName: {
+      type: Array,
+      default: null
     },
     showClearTextButton: {
       type: Boolean,
@@ -29,10 +42,6 @@ export default Vue.extend({
       default: false
     },
     isSearch: {
-      type: Boolean,
-      default: false
-    },
-    selectOnFocus: {
       type: Boolean,
       default: false
     },
@@ -54,6 +63,10 @@ export default Vue.extend({
     }
   },
   data: function () {
+    let actionIcon = ['fas', 'search']
+    if (this.forceActionButtonIconName !== null) {
+      actionIcon = this.forceActionButtonIconName
+    }
     return {
       id: '',
       inputData: '',
@@ -67,7 +80,7 @@ export default Vue.extend({
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
-      actionButtonIconName: ['fas', 'search']
+      actionButtonIconName: actionIcon
     }
   },
   computed: {
@@ -96,6 +109,11 @@ export default Vue.extend({
     inputData(val, oldVal) {
       if (val !== oldVal) {
         this.updateVisibleDataList()
+      }
+    },
+    value(val, oldVal) {
+      if (val !== oldVal) {
+        this.inputData = val
       }
     }
   },
@@ -142,7 +160,7 @@ export default Vue.extend({
       // Only need to update icon if visible
       if (!this.showActionButton) { return }
 
-      if (!this.inputDataPresent) {
+      if (!this.inputDataPresent && this.forceActionButtonIconName === null) {
         // Change back to default icon if text is blank
         this.actionButtonIconName = ['fas', 'search']
         return
@@ -170,18 +188,21 @@ export default Vue.extend({
               // isYoutubeLink is already `false`
             }
           }
-
-          if (isYoutubeLink) {
-            // Go to URL (i.e. Video/Playlist/Channel
-            this.actionButtonIconName = ['fas', 'arrow-right']
-          } else {
-            // Search with text
-            this.actionButtonIconName = ['fas', 'search']
+          if (this.forceActionButtonIconName === null) {
+            if (isYoutubeLink) {
+              // Go to URL (i.e. Video/Playlist/Channel
+              this.actionButtonIconName = ['fas', 'arrow-right']
+            } else {
+              // Search with text
+              this.actionButtonIconName = ['fas', 'search']
+            }
           }
         })
       } catch (ex) {
         // On exception, consider text as invalid URL
-        this.actionButtonIconName = ['fas', 'search']
+        if (this.forceActionButtonIconName === null) {
+          this.actionButtonIconName = ['fas', 'search']
+        }
         // Rethrow exception
         throw ex
       }
@@ -195,28 +216,39 @@ export default Vue.extend({
     },
 
     handleKeyDown: function (event) {
+      if (event.key === 'Enter') {
+        // Update Input box value if enter key was pressed and option selected
+        if (this.searchState.selectedOption !== -1) {
+          this.searchState.showOptions = false
+          event.preventDefault()
+          this.inputData = this.visibleDataList[this.searchState.selectedOption]
+        }
+        this.handleClick(event)
+        // Early return
+        return
+      }
+
       if (this.visibleDataList.length === 0) { return }
-      // Update selectedOption based on arrow key pressed
-      if (event.key === 'ArrowDown') {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
-      } else if (event.key === 'ArrowUp') {
-        if (this.searchState.selectedOption < 1) {
-          this.searchState.selectedOption = this.visibleDataList.length - 1
-        } else {
-          this.searchState.selectedOption--
+
+      this.searchState.showOptions = true
+      const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
+      if (isArrow) {
+        if (event.key === 'ArrowDown') {
+          this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+        } else if (event.key === 'ArrowUp') {
+          if (this.searchState.selectedOption < 1) {
+            this.searchState.selectedOption = this.visibleDataList.length - 1
+          } else {
+            this.searchState.selectedOption--
+          }
+        }
+        if (this.searchState.selectedOption < 0) {
+          this.searchState.selectedOption = this.visibleDataList.length
+        } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
+          this.searchState.selectedOption = 0
         }
       } else {
         this.searchState.selectedOption = -1
-      }
-
-      // Key pressed isn't enter
-      if (event.key !== 'Enter') {
-        this.searchState.showOptions = true
-      }
-      // Update Input box value if arrow keys were pressed
-      if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.searchState.selectedOption !== -1) {
-        event.preventDefault()
-        this.inputData = this.visibleDataList[this.searchState.selectedOption]
       }
     },
 
@@ -226,9 +258,6 @@ export default Vue.extend({
 
     handleFocus: function(e) {
       this.searchState.showOptions = true
-      if (this.selectOnFocus) {
-        e.target.select()
-      }
     },
 
     updateVisibleDataList: function () {
@@ -251,6 +280,10 @@ export default Vue.extend({
 
     updateInputData: function(text) {
       this.inputData = text
+    },
+
+    focus() {
+      this.$refs.input.focus()
     },
 
     ...mapActions([

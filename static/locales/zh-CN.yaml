@@ -52,12 +52,14 @@ Search Filters:
     Videos: '视频'
     Channels: '频道'
     #& Playlists
+    Movies: 电影
   Duration:
     Duration: '时长'
     All Durations: '所有时长'
     Short (< 4 minutes): '短（< 4分钟）'
     Long (> 20 minutes): '长（> 20分钟）'
   # On Search Page
+    Medium (4 - 20 minutes): 中等（4-20 分钟）
   Search Results: '搜索结果'
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'
@@ -248,6 +250,8 @@ Settings:
       Enable: 允许截屏
       Folder Label: 截屏文件夹
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
+    Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
+    Allow DASH AV1 formats: 允许 DASH AV1 格式
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -297,6 +301,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
     Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
+    Save Watched Videos With Last Viewed Playlist: 记住上次看过的播放列表中看过的视频 ID
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
     This might take a while, please wait: 这可能需要一段时间，请稍候
@@ -354,6 +359,9 @@ Settings:
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节
     Hide Upcoming Premieres: 隐藏即将到来的首映
+    Hide Channels: 隐藏频道中的视频
+    Hide Channels Placeholder: 频道名称或 ID
+    Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -407,6 +415,16 @@ Settings:
     Experimental Settings: 实验性设置
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
     Replace HTTP Cache: 替换 HTTP 缓存
+  Password Dialog:
+    Password: 密码
+    Enter Password To Unlock: 输入密码解锁设置
+    Password Incorrect: 密码不正确
+    Unlock: 解锁
+  Password Settings:
+    Password Settings: 密码设置
+    Set Password To Prevent Access: 设置密码防止访问设置
+    Set Password: 设置密码
+    Remove Password: 删除密码
 About:
   #On About page
   About: '关于'
@@ -617,6 +635,9 @@ Video:
   Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
+  Scroll to Bottom: 滚动到底部
+  Show Super Chat Comment: 显示超级聊天评论
+  Upcoming: 即将到来
 Videos:
   #& Sort By
   Sort By:
@@ -631,12 +652,6 @@ Playlist:
   View: '观看'
   Views: '观看'
   Last Updated On: '最后更新于'
-  Share Playlist:
-    Share Playlist: '分享播放列表'
-    Copy YouTube Link: '复制YouTube链接'
-    Open in YouTube: '在YouTube中打开'
-    Copy Invidious Link: '复制Invidious链接'
-    Open in Invidious: '在Invidious中打开'
 
 # On Video Watch Page
 #* Published
@@ -652,6 +667,7 @@ Change Format:
   Dash formats are not available for this video: 这个视频没有Dash格式
 Share:
   Share Video: '分享视频'
+  Share Playlist: '分享播放列表'
   Copy Link: '复制链接'
   Open Link: '打开链接'
   Copy Embed: '复制内嵌'
@@ -689,6 +705,8 @@ Comments:
   From {channelName}: 来自 {channelName}
   And others: 及其他
   Member: 成员
+  Hearted: 喜欢的
+  View {replyCount} replies: 查看 {replyCount} 条回复
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -751,8 +769,7 @@ Profile:
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
-Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！
-  点击以取得更多信息
+Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！  点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
@@ -766,6 +783,9 @@ Tooltips:
       将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
+    Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
+    Allow DASH AV1 formats: DASH AV1 格式画质也许比 DASH H.264 格式要好。 但请注意 DASH AV1 格式耗电更多！不是所有视频都有
+      DASH AV1 格式，如果没有的话，播放器会使用 DASH H.264 格式。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。
@@ -784,6 +804,8 @@ Tooltips:
     Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
+  Distraction Free Settings:
+    Hide Channels: 输入频道名称或频道 ID 以隐藏所有视频、播放列表和频道本身，使其不出现在搜索结果或热门中。 输入的频道名称必须完全匹配，并且区分大小写。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
@@ -827,3 +849,4 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
   'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
 Preferences: 选项
+Ok: 好

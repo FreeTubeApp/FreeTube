@@ -1,16 +1,12 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoChapters',
   components: {
     'ft-card': FtCard
   },
   props: {
-    compact: {
-      type: Boolean,
-      default: false
-    },
     chapters: {
       type: Array,
       required: true
@@ -29,6 +25,10 @@ export default Vue.extend({
   computed: {
     currentTitle: function () {
       return this.chapters[this.currentIndex].title
+    },
+
+    compact: function () {
+      return !this.chapters[0].thumbnail
     }
   },
   watch: {

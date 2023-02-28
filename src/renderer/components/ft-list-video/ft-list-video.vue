@@ -16,7 +16,7 @@
         tabindex="-1"
         :to="{
           path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
+          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
         <img
@@ -27,9 +27,12 @@
       <div
         v-if="isLive || duration !== '0:00'"
         class="videoDuration"
-        :class="{ live: isLive }"
+        :class="{
+          live: isLive,
+          upcoming: isUpcoming
+        }"
       >
-        {{ isLive ? $t("Video.Live") : duration }}
+        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : duration) }}
       </div>
       <ft-icon-button
         v-if="externalPlayer !== ''"
@@ -64,6 +67,40 @@
       />
     </div>
     <div class="info">
+      <router-link
+        class="title"
+        :to="{
+          path: `/watch/${id}`,
+          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
+        }"
+      >
+        {{ displayTitle }}
+      </router-link>
+      <div class="infoLine">
+        <router-link
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          <span>{{ channelName }}</span>
+        </router-link>
+        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
+          <span class="viewCount"> • {{ parsedViewCount }} </span>
+          <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
+          <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
+        </template>
+        <span
+          v-if="uploadedTime !== '' && !isLive && !inHistory"
+          class="uploadedTime"
+        > • {{ uploadedTime }}</span>
+        <span
+          v-if="inHistory"
+          class="uploadedTime"
+        > • {{ publishedText }}</span>
+        <span
+          v-if="isLive && !hideViews"
+          class="viewCount"
+        > • {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
+      </div>
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
@@ -75,40 +112,6 @@
         :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
-      <router-link
-        class="title"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
-        }"
-      >
-        {{ title }}
-      </router-link>
-      <div class="infoLine">
-        <router-link
-          class="channelName"
-          :to="`/channel/${channelId}`"
-        >
-          <span>{{ channelName }}</span>
-        </router-link>
-        <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount">• {{ parsedViewCount }}</span>
-          <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
-          <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
-        </template>
-        <span
-          v-if="uploadedTime !== '' && !isLive && !inHistory"
-          class="uploadedTime"
-        >• {{ uploadedTime }}</span>
-        <span
-          v-if="inHistory"
-          class="uploadedTime"
-        >• {{ publishedText }}</span>
-        <span
-          v-if="isLive && !hideViews"
-          class="viewCount"
-        >• {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
-      </div>
       <p
         v-if="listType !== 'grid' && appearance === 'result'"
         class="description"
@@ -120,4 +123,4 @@
 </template>
 
 <script src="./ft-list-video.js" />
-<style scoped src="./ft-list-video.sass" lang="sass" />
+<style scoped src="./ft-list-video.scss" lang="scss" />

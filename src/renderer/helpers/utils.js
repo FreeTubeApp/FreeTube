@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
@@ -89,14 +89,18 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
 }
 
-export function buildVTTFileLocally(storyboard) {
+export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
-  const numberOfSubImagesPerImage = storyboard.sWidth * storyboard.sHeight
+  const numberOfSubImagesPerImage = storyboard.columns * storyboard.rows
   // the number of storyboard images
-  const numberOfImages = Math.ceil(storyboard.count / numberOfSubImagesPerImage)
-  const intervalInSeconds = storyboard.interval / 1000
-  let currentUrl = storyboard.url
+  const numberOfImages = Math.ceil(storyboard.thumbnail_count / numberOfSubImagesPerImage)
+  let intervalInSeconds
+  if (storyboard.interval > 0) {
+    intervalInSeconds = storyboard.interval / 1000
+  } else {
+    intervalInSeconds = videoLengthSeconds / (numberOfImages * numberOfSubImagesPerImage)
+  }
   let startHours = 0
   let startMinutes = 0
   let startSeconds = 0
@@ -104,19 +108,20 @@ export function buildVTTFileLocally(storyboard) {
   let endMinutes = 0
   let endSeconds = intervalInSeconds
   for (let i = 0; i < numberOfImages; i++) {
+    const currentUrl = storyboard.template_url.replace('$M.jpg', `${i}.jpg`)
     let xCoord = 0
     let yCoord = 0
     for (let j = 0; j < numberOfSubImagesPerImage; j++) {
       // add the timestamp information
       const paddedStartHours = startHours.toString().padStart(2, '0')
       const paddedStartMinutes = startMinutes.toString().padStart(2, '0')
-      const paddedStartSeconds = startSeconds.toString().padStart(2, '0')
+      const paddedStartSeconds = startSeconds.toFixed(3).padStart(6, '0')
       const paddedEndHours = endHours.toString().padStart(2, '0')
       const paddedEndMinutes = endMinutes.toString().padStart(2, '0')
-      const paddedEndSeconds = endSeconds.toString().padStart(2, '0')
-      vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
+      const paddedEndSeconds = endSeconds.toFixed(3).padStart(6, '0')
+      vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds} --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}\n`
       // add the current image url as well as the x, y, width, height information
-      vttString += currentUrl + `#xywh=${xCoord},${yCoord},${storyboard.width},${storyboard.height}\n\n`
+      vttString += `${currentUrl}#xywh=${xCoord},${yCoord},${storyboard.thumbnail_width},${storyboard.thumbnail_height}\n\n`
       // update the variables
       startHours = endHours
       startMinutes = endMinutes
@@ -131,16 +136,45 @@ export function buildVTTFileLocally(storyboard) {
         endHours += 1
       }
       // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
-      xCoord = (xCoord + storyboard.width) % (storyboard.width * storyboard.sWidth)
+      xCoord = (xCoord + storyboard.thumbnail_width) % (storyboard.thumbnail_width * storyboard.columns)
       // only if the x coordinate is , so in a new row, we have to update the y coordinate
       if (xCoord === 0) {
-        yCoord += storyboard.height
+        yCoord += storyboard.thumbnail_height
       }
     }
-    // make sure that there is no value like M0 or M1 in the parameters that gets replaced
-    currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
   }
   return vttString
+}
+
+export async function getFormatsFromHLSManifest(manifestUrl) {
+  const response = await fetch(manifestUrl)
+  const text = await response.text()
+
+  const lines = text.split('\n').filter(line => line)
+
+  const formats = []
+  let currentHeight = 0
+
+  for (const line of lines) {
+    if (line.startsWith('#')) {
+      if (!line.startsWith('#EXT-X-STREAM-INF:')) {
+        continue
+      }
+
+      const height = line
+        .split(',')
+        .find(part => part.startsWith('RESOLUTION'))
+        .split('x')[1]
+      currentHeight = parseInt(height)
+    } else {
+      formats.push({
+        height: currentHeight,
+        url: line.trim()
+      })
+    }
+  }
+
+  return formats
 }
 
 export function showToast(message, time = null, action = null) {
@@ -260,13 +294,11 @@ export function readFileFromDialog(response, index = 0) {
   return new Promise((resolve, reject) => {
     if (process.env.IS_ELECTRON) {
       // if this is Electron, use fs
-      fs.readFile(response.filePaths[index], (err, data) => {
-        if (err) {
-          reject(err)
-          return
-        }
-        resolve(new TextDecoder('utf-8').decode(data))
-      })
+      fs.readFile(response.filePaths[index])
+        .then(data => {
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+        .catch(reject)
     } else {
       // if this is web, use FileReader
       try {
@@ -315,16 +347,8 @@ export async function showSaveDialog (options) {
 */
 export async function writeFileFromDialog (response, content) {
   if (process.env.IS_ELECTRON) {
-    return await new Promise((resolve, reject) => {
-      const { filePath } = response
-      fs.writeFile(filePath, content, (error) => {
-        if (error) {
-          reject(error)
-        } else {
-          resolve()
-        }
-      })
-    })
+    const { filePath } = response
+    return await fs.writeFile(filePath, content)
   } else {
     if ('showOpenFilePicker' in window) {
       const { handle } = response
@@ -371,7 +395,7 @@ export function createWebURL(path) {
 
 // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
-  return value.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, '')
+  return value.replaceAll(/(<(?!br|\/?[bis]>)([^>]+)>)/gi, '')
 }
 
 /**
@@ -487,4 +511,107 @@ export async function getPicturesPath() {
   } else {
     return null
   }
+}
+
+export function extractNumberFromString(str) {
+  if (typeof str === 'string') {
+    return parseInt(str.replaceAll(/\D+/g, ''))
+  } else {
+    return NaN
+  }
+}
+
+export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionName) {
+  const action = i18n.t(`Video.External Player.Unsupported Actions.${actionName}`)
+  const message = i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  showToast(message)
+}
+
+export function getVideoParamsFromUrl(url) {
+  /** @type {URL} */
+  let urlObject
+  const paramsObject = { videoId: null, timestamp: null, playlistId: null }
+  try {
+    urlObject = new URL(url)
+  } catch (e) {
+    return paramsObject
+  }
+
+  function extractParams(videoId) {
+    paramsObject.videoId = videoId
+    paramsObject.timestamp = urlObject.searchParams.get('t')
+  }
+
+  const extractors = [
+    // anything with /watch?v=
+    function () {
+      if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
+        extractParams(urlObject.searchParams.get('v'))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
+        return paramsObject
+      }
+    },
+    // youtu.be
+    function () {
+      if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.slice(1))
+        return paramsObject
+      }
+    },
+    // youtube.com/embed
+    function () {
+      if (/^\/embed\/[\w-]+$/.test(urlObject.pathname)) {
+        const urlTail = urlObject.pathname.replace('/embed/', '')
+        if (urlTail === 'videoseries') {
+          paramsObject.playlistId = urlObject.searchParams.get('list')
+        } else {
+          extractParams(urlTail)
+        }
+        return paramsObject
+      }
+    },
+    // youtube.com/shorts
+    function () {
+      if (/^\/shorts\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.replace('/shorts/', ''))
+        return paramsObject
+      }
+    },
+    // cloudtube
+    function () {
+      if (/^cadence\.(gq|moe)$/.test(urlObject.host) && /^\/cloudtube\/video\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
+        return paramsObject
+      }
+    }
+  ]
+
+  return extractors.reduce((a, c) => a || c(), null) || paramsObject
+}
+
+/**
+ * This will match sequences of upper case characters and convert them into title cased words.
+ * @param {string} title the title to process
+ * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
+ * @returns {string} the title with upper case characters removed
+ */
+export function toDistractionFreeTitle(title, minUpperCase = 3) {
+  const firstValidCharIndex = (word) => {
+    const reg = /[\p{L}]/u
+    return word.search(reg)
+  }
+
+  const capitalizedWord = (word) => {
+    const chars = word.split('')
+    const index = firstValidCharIndex(word)
+    chars[index] = chars[index].toUpperCase()
+    return chars.join('')
+  }
+
+  const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
+  return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
+}
+
+export function formatNumber(number, options = undefined) {
+  return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
 }

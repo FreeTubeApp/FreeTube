@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
@@ -16,8 +16,9 @@ import {
   showToast,
   writeFileFromDialog
 } from '../../helpers/utils'
+import { invidiousAPICall } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'DataSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -74,9 +75,6 @@ export default Vue.extend({
         `${exportYouTube} (.opml)`,
         `${exportNewPipe} (.json)`
       ]
-    },
-    usingElectron: function () {
-      return process.env.IS_ELECTRON
     },
     primaryProfile: function () {
       return JSON.parse(JSON.stringify(this.profileList[0]))
@@ -228,7 +226,7 @@ export default Vue.extend({
       let count = 0
 
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
-        const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^",\n]*|(?:\n|$))/g
+        const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^\n",]*|(?:\n|$))/g
         return [...yt.matchAll(splitCSVRegex)].map(s => {
           let newVal = s[1]
           if (newVal.startsWith('"')) {
@@ -524,19 +522,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-      try {
-        await writeFileFromDialog(response, subscriptionsDb)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, subscriptionsDb, 'Subscriptions have been successfully exported')
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -589,20 +575,7 @@ export default Vue.extend({
         return object
       })
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      try {
-        await writeFileFromDialog(response, JSON.stringify(subscriptionsObject))
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, JSON.stringify(subscriptionsObject), 'Subscriptions have been successfully exported')
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
@@ -620,34 +593,22 @@ export default Vue.extend({
       }
 
       let opmlData = '<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">'
-      const endingOpmlString = '</outline></body></opml>'
-
-      let count = 0
 
       this.profileList[0].subscriptions.forEach((channel) => {
-        const channelOpmlString = `<outline text="${channel.name}" title="${channel.name}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}"/>`
-        count++
-        opmlData += channelOpmlString
+        const escapedName = channel.name
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll('\'', '&apos;')
 
-        if (count === this.profileList[0].subscriptions.length) {
-          opmlData += endingOpmlString
-        }
+        const channelOpmlString = `<outline text="${escapedName}" title="${escapedName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}"/>`
+        opmlData += channelOpmlString
       })
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
+      opmlData += '</outline></body></opml>'
 
-      try {
-        await writeFileFromDialog(response, opmlData)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, opmlData, 'Subscriptions have been successfully exported')
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -673,20 +634,8 @@ export default Vue.extend({
         exportText += `${channel.id},${channelUrl},${channelName}\n`
       })
       exportText += '\n'
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
 
-      try {
-        await writeFileFromDialog(response, exportText)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, exportText, 'Subscriptions have been successfully exported')
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -720,19 +669,7 @@ export default Vue.extend({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-      try {
-        await writeFileFromDialog(response, JSON.stringify(newPipeObject))
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
+      await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), 'Subscriptions have been successfully exported')
     },
 
     importYouTubeHistory: async function() {
@@ -909,19 +846,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      try {
-        await writeFileFromDialog(response, historyDb)
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-      }
-      showToast(this.$t('Settings.Data Settings.All watched history has been successfully exported'))
+      await this.promptAndWriteToFile(options, historyDb, 'All watched history has been successfully exported')
     },
 
     importPlaylists: async function () {
@@ -1052,19 +977,7 @@ export default Vue.extend({
         ]
       }
 
-      const response = await showSaveDialog(options)
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-      try {
-        await writeFileFromDialog(response, JSON.stringify(this.allPlaylists))
-      } catch (writeErr) {
-        const message = this.$t('Settings.Data Settings.Unable to write file')
-        showToast(`${message}: ${writeErr}`)
-        return
-      }
-      showToast(`${this.$t('Settings.Data Settings.All playlists has been successfully exported')}`)
+      await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), 'All playlists has been successfully exported')
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
@@ -1098,6 +1011,24 @@ export default Vue.extend({
       return convertedData
     },
 
+    promptAndWriteToFile: async function (saveOptions, content, successMessageKeySuffix) {
+      const response = await showSaveDialog(saveOptions)
+      if (response.canceled || response.filePath === '') {
+        // User canceled the save dialog
+        return
+      }
+
+      try {
+        await writeFileFromDialog(response, content)
+      } catch (writeErr) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+
+      showToast(this.$t(`Settings.Data Settings.${successMessageKeySuffix}`))
+    },
+
     getChannelInfoInvidious: function (channelId) {
       return new Promise((resolve, reject) => {
         const subscriptionsPayload = {
@@ -1106,7 +1037,7 @@ export default Vue.extend({
           params: {}
         }
 
-        this.invidiousAPICall(subscriptionsPayload).then((response) => {
+        invidiousAPICall(subscriptionsPayload).then((response) => {
           resolve(response)
         }).catch((err) => {
           console.error(err)
@@ -1115,7 +1046,7 @@ export default Vue.extend({
             copyToClipboard(err.responseJSON.error)
           })
 
-          if (this.backendFallback && this.backendPreference === 'invidious') {
+          if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
             showToast(this.$t('Falling back to the local API'))
             resolve(this.getChannelInfoLocal(channelId))
           } else {
@@ -1204,7 +1135,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'invidiousAPICall',
       'updateProfile',
       'compactProfiles',
       'updateShowProgressBar',

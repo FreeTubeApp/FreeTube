@@ -1,28 +1,46 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
+import { mapActions, mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
-import FtListVideo from '../../components/ft-list-video/ft-list-video.vue'
-import i18n from '../../i18n/index'
+import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import FtButton from '../../components/ft-button/ft-button.vue'
+import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
+import { extractNumberFromString } from '../../helpers/utils'
+import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Playlist',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
     'playlist-info': PlaylistInfo,
-    'ft-list-video': FtListVideo
+    'ft-list-video-lazy': FtListVideoLazy,
+    'ft-flex-box': FtFlexBox,
+    'ft-button': FtButton
+  },
+  beforeRouteLeave(to, from, next) {
+    if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
+      this.setCachedPlaylist({
+        id: this.playlistId,
+        title: this.infoData.title,
+        channelName: this.infoData.channelName,
+        channelId: this.infoData.channelId,
+        items: this.playlistItems,
+        continuationData: this.continuationData
+      })
+    }
+    next()
   },
   data: function () {
     return {
       isLoading: false,
       playlistId: null,
-      nextPageRef: '',
-      lastSearchQuery: '',
-      playlistPage: 1,
       infoData: {},
-      playlistItems: []
+      playlistItems: [],
+      continuationData: null,
+      isLoadingMore: false
     }
   },
   computed: {
@@ -36,7 +54,7 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
     currentLocale: function () {
-      return i18n.locale.replace('_', '-')
+      return this.$i18n.locale.replace('_', '-')
     }
   },
   watch: {
@@ -64,18 +82,18 @@ export default Vue.extend({
     getPlaylistLocal: function () {
       this.isLoading = true
 
-      this.ytGetPlaylistInfo(this.playlistId).then((result) => {
+      getLocalPlaylist(this.playlistId).then((result) => {
         this.infoData = {
-          id: result.id,
-          title: result.title,
-          description: result.description ? result.description : '',
+          id: this.playlistId,
+          title: result.info.title,
+          description: result.info.description ?? '',
           firstVideoId: result.items[0].id,
-          viewCount: result.views,
-          videoCount: result.estimatedItemCount,
-          lastUpdated: result.lastUpdated ? result.lastUpdated : '',
-          channelName: result.author ? result.author.name : '',
-          channelThumbnail: result.author ? result.author.bestAvatar.url : '',
-          channelId: result.author ? result.author.channelID : '',
+          viewCount: extractNumberFromString(result.info.views),
+          videoCount: extractNumberFromString(result.info.total_items),
+          lastUpdated: result.info.last_updated ?? '',
+          channelName: result.info.author?.name ?? '',
+          channelThumbnail: result.info.author?.best_thumbnail?.url ?? '',
+          channelId: result.info.author?.id,
           infoSource: 'local'
         }
 
@@ -85,20 +103,11 @@ export default Vue.extend({
           channelId: this.infoData.channelId
         })
 
-        this.playlistItems = result.items.map((video) => {
-          if (typeof video.author !== 'undefined') {
-            const channelName = video.author.name
-            const channelId = video.author.channelID ? video.author.channelID : channelName
-            video.author = channelName
-            video.authorId = channelId
-          } else {
-            video.author = ''
-            video.authorId = ''
-          }
-          video.videoId = video.id
-          video.lengthSeconds = video.duration
-          return video
-        })
+        this.playlistItems = result.items.map(parseLocalPlaylistVideo)
+
+        if (result.has_continuation) {
+          this.continuationData = result
+        }
 
         this.isLoading = false
       }).catch((err) => {
@@ -115,12 +124,7 @@ export default Vue.extend({
     getPlaylistInvidious: function () {
       this.isLoading = true
 
-      const payload = {
-        resource: 'playlists',
-        id: this.playlistId
-      }
-
-      this.invidiousGetPlaylistInfo(payload).then((result) => {
+      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
         this.infoData = {
           id: result.playlistId,
           title: result.title,
@@ -129,7 +133,7 @@ export default Vue.extend({
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: result.authorThumbnails[2].url.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`),
+          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance),
           channelId: result.authorId,
           infoSource: 'invidious'
         }
@@ -148,7 +152,7 @@ export default Vue.extend({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           console.warn('Error getting data with Invidious, falling back to local backend')
           this.getPlaylistLocal()
         } else {
@@ -158,28 +162,40 @@ export default Vue.extend({
       })
     },
 
-    nextPage: function () {
-      const payload = {
-        query: this.query,
-        options: {
-          nextpageRef: this.nextPageRef
-        },
-        nextPage: true
+    getNextPage: function () {
+      switch (this.infoData.infoSource) {
+        case 'local':
+          this.getNextPageLocal()
+          break
+        case 'invidious':
+          console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
+          break
       }
-
-      this.performSearch(payload)
     },
 
-    replaceShownResults: function (history) {
-      this.shownResults = history.data
-      this.nextPageRef = history.nextPageRef
-      this.isLoading = false
+    getNextPageLocal: function () {
+      this.isLoadingMore = true
+
+      this.continuationData.getContinuation().then((result) => {
+        const parsedVideos = result.items.map(parseLocalPlaylistVideo)
+        this.playlistItems = this.playlistItems.concat(parsedVideos)
+
+        if (result.has_continuation) {
+          this.continuationData = result
+        } else {
+          this.continuationData = null
+        }
+
+        this.isLoadingMore = false
+      })
     },
 
     ...mapActions([
-      'ytGetPlaylistInfo',
-      'invidiousGetPlaylistInfo',
       'updateSubscriptionDetails'
+    ]),
+
+    ...mapMutations([
+      'setCachedPlaylist'
     ])
   }
 })

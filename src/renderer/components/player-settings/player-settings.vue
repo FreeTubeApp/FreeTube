@@ -35,6 +35,7 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
+          :disabled="videoSkipMouseScroll"
           :default-value="videoVolumeMouseScroll"
           @change="updateVideoVolumeMouseScroll"
         />
@@ -44,6 +45,14 @@
           :default-value="videoPlaybackRateMouseScroll"
           :tooltip="$t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
           @change="updateVideoPlaybackRateMouseScroll"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Skip by Scrolling Over Video Player')"
+          :compact="true"
+          :disabled="videoVolumeMouseScroll"
+          :default-value="videoSkipMouseScroll"
+          :tooltip="$t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
+          @change="updateVideoSkipMouseScroll"
         />
       </div>
       <div class="switchColumn">
@@ -150,6 +159,14 @@
         :select-values="qualityValues"
         @change="updateDefaultQuality"
       />
+      <ft-toggle-switch
+        class="av1Switch"
+        :label="$t('Settings.Player Settings.Allow DASH AV1 formats')"
+        :compact="true"
+        :default-value="allowDashAv1Formats"
+        :tooltip="$t('Tooltips.Player Settings.Allow DASH AV1 formats')"
+        @change="updateAllowDashAv1Formats"
+      />
     </ft-flex-box>
     <br>
     <ft-flex-box>
@@ -237,4 +254,4 @@
 </template>
 
 <script src="./player-settings.js" />
-<style scoped lang="sass" src="./player-settings.sass" />
+<style scoped lang="scss" src="./player-settings.scss" />

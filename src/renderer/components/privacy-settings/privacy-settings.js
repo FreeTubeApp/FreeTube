@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -8,7 +8,7 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PrivacySettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -34,6 +34,9 @@ export default Vue.extend({
     },
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
     },
     removeVideoMetaFiles: function () {
       return this.$store.getters.getRemoveVideoMetaFiles
@@ -121,6 +124,7 @@ export default Vue.extend({
       'updateRemoveVideoMetaFiles',
       'removeAllHistory',
       'updateSaveWatchedProgress',
+      'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',
       'updateProfile',
       'removeProfile',

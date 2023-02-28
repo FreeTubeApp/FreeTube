@@ -137,26 +137,26 @@
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
 }
 
-.mainRed
-.mainPink
-.mainPurple
-.mainDeepPurple
-.mainIndigo
-.mainBlue
-.mainLightBlue
-.mainCyan
-.mainTeal
+.mainRed,
+.mainPink,
+.mainPurple,
+.mainDeepPurple,
+.mainIndigo,
+.mainBlue,
+.mainLightBlue,
+.mainCyan,
+.mainTeal,
 .mainGreen {
   --text-with-main-color: #FFFFFF;
   --logo-icon-bar-color: url("../../_icons/iconWhite.png");
   --logo-text-bar-color: url("../../_icons/textWhite.png");
 }
 
-.mainLightGreen
-.mainLime
-.mainYellow
-.mainAmber
-.mainOrange
+.mainLightGreen,
+.mainLime,
+.mainYellow,
+.mainAmber,
+.mainOrange,
 .mainDeepOrange {
   --text-with-main-color: #000000;
   --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
@@ -421,24 +421,24 @@
   --primary-color-active: #8d98e4;
 }
 
-.secRed
-.secPink
-.secPurple
-.secDeepPurple
-.secIndigo
-.secBlue
-.secLightBlue
-.secCyan
-.secTeal
+.secRed,
+.secPink,
+.secPurple,
+.secDeepPurple,
+.secIndigo,
+.secBlue,
+.secLightBlue,
+.secCyan,
+.secTeal,
 .secGreen {
   --text-with-accent-color: #FFFFFF;
 }
 
-.secLightGreen
-.secLime
-.secYellow
-.secAmber
-.secOrange
+.secLightGreen,
+.secLime,
+.secYellow,
+.secAmber,
+.secOrange,
 .secDeepOrange {
   --text-with-accent-color: #000000;
 }

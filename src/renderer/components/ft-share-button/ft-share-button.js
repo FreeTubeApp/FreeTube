@@ -1,12 +1,11 @@
-import Vue from 'vue'
-
+import { defineComponent } from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtShareButton',
   components: {
     'ft-flex-box': FtFlexBox,
@@ -35,6 +34,10 @@ export default Vue.extend({
     getTimestamp: {
       type: Function,
       default: null
+    },
+    dropdownPositionY: {
+      type: String,
+      default: 'bottom'
     }
   },
   data: function () {
@@ -45,6 +48,10 @@ export default Vue.extend({
   computed: {
     isChannel: function() {
       return this.shareTargetType === 'Channel'
+    },
+
+    isPlaylist: function () {
+      return this.shareTargetType === 'Playlist'
     },
 
     isVideo: function() {
@@ -59,6 +66,9 @@ export default Vue.extend({
       if (this.isChannel) {
         return `${this.currentInvidiousInstance}/channel/${this.id}`
       }
+      if (this.isPlaylist) {
+        return `${this.currentInvidiousInstance}/playlist?list=${this.id}`
+      }
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
@@ -69,6 +79,9 @@ export default Vue.extend({
     },
 
     invidiousEmbedURL() {
+      if (this.isPlaylist) {
+        return `${this.currentInvidiousInstance}/embed/videoseries?list=${this.id}`
+      }
       return `${this.currentInvidiousInstance}/embed/${this.id}`
     },
 
@@ -76,9 +89,16 @@ export default Vue.extend({
       return `https://www.youtube.com/channel/${this.id}`
     },
 
+    youtubePlaylistUrl() {
+      return `https://youtube.com/playlist?list=${this.id}`
+    },
+
     youtubeURL() {
       if (this.isChannel) {
         return this.youtubeChannelUrl
+      }
+      if (this.isPlaylist) {
+        return this.youtubePlaylistUrl
       }
       let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
       // `playlistId` can be undefined
@@ -93,6 +113,9 @@ export default Vue.extend({
       if (this.isChannel) {
         return this.youtubeChannelUrl
       }
+      if (this.isPlaylist) {
+        return this.youtubePlaylistUrl
+      }
       // `playlistId` can be undefined
       if (this.playlistId && this.playlistId.length !== 0) {
         // `index` seems can be ignored
@@ -102,6 +125,9 @@ export default Vue.extend({
     },
 
     youtubeEmbedURL() {
+      if (this.isPlaylist) {
+        return `https://www.youtube-nocookie.com/embed/videoseries?list=${this.id}`
+      }
       return `https://www.youtube-nocookie.com/embed/${this.id}`
     }
   },
@@ -158,7 +184,7 @@ export default Vue.extend({
     },
 
     getFinalUrl(url) {
-      if (this.isChannel) {
+      if (this.isChannel || this.isPlaylist) {
         return url
       }
       if (url.indexOf('?') === -1) {

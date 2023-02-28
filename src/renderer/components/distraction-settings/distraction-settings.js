@@ -1,13 +1,17 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PlayerSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
-    'ft-toggle-switch': FtToggleSwitch
+    'ft-toggle-switch': FtToggleSwitch,
+    'ft-input-tags': FtInputTags,
+    'ft-flex-box': FtFlexBox
   },
   computed: {
     hideVideoViews: function () {
@@ -60,6 +64,12 @@ export default Vue.extend({
     },
     hideChapters: function () {
       return this.$store.getters.getHideChapters
+    },
+    showDistractionFreeTitles: function () {
+      return this.$store.getters.getShowDistractionFreeTitles
+    },
+    channelsHidden: function () {
+      return JSON.parse(this.$store.getters.getChannelsHidden)
     }
   },
   methods: {
@@ -69,6 +79,9 @@ export default Vue.extend({
       }
 
       this.updateHideRecommendedVideos(value)
+    },
+    handleChannelsHidden: function(value) {
+      this.updateChannelsHidden(JSON.stringify(value))
     },
 
     ...mapActions([
@@ -89,7 +102,9 @@ export default Vue.extend({
       'updateHideLiveStreams',
       'updateHideUpcomingPremieres',
       'updateHideSharingActions',
-      'updateHideChapters'
+      'updateHideChapters',
+      'updateChannelsHidden',
+      'updateShowDistractionFreeTitles'
     ])
   }
 })

@@ -12,4 +12,4 @@
 </template>
 
 <script src="./ft-age-restricted.js" />
-<style scoped lang="sass" src="./ft-age-restricted.sass" />
+<style scoped lang="scss" src="./ft-age-restricted.scss" />

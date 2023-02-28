@@ -1,7 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtSelect',
   components: {
     'ft-tooltip': FtTooltip
@@ -30,6 +31,19 @@ export default Vue.extend({
     disabled: {
       type: Boolean,
       default: false
+    },
+    sanitizedId: {
+      type: String,
+      default: null
+    },
+    describeById: {
+      type: String,
+      default: null
+    }
+  },
+  computed: {
+    sanitizedPlaceholder: function() {
+      return sanitizeForHtmlId(this.placeholder)
     }
   }
 })

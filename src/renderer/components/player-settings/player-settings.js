@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -13,7 +13,7 @@ import { IpcChannels } from '../../../constants'
 import path from 'path'
 import { getPicturesPath } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PlayerSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -113,6 +113,10 @@ export default Vue.extend({
       return this.$store.getters.getDefaultQuality
     },
 
+    allowDashAv1Formats: function () {
+      return this.$store.getters.getAllowDashAv1Formats
+    },
+
     defaultTheatreMode: function () {
       return this.$store.getters.getDefaultTheatreMode
     },
@@ -127,6 +131,10 @@ export default Vue.extend({
 
     videoPlaybackRateMouseScroll: function () {
       return this.$store.getters.getVideoPlaybackRateMouseScroll
+    },
+
+    videoSkipMouseScroll: function () {
+      return this.$store.getters.getVideoSkipMouseScroll
     },
 
     displayVideoPlayButton: function () {
@@ -272,8 +280,10 @@ export default Vue.extend({
       'updateDefaultPlayback',
       'updateDefaultVideoFormat',
       'updateDefaultQuality',
+      'updateAllowDashAv1Formats',
       'updateVideoVolumeMouseScroll',
       'updateVideoPlaybackRateMouseScroll',
+      'updateVideoSkipMouseScroll',
       'updateDisplayVideoPlayButton',
       'updateEnterFullscreenOnDisplayRotate',
       'updateMaxVideoPlaybackRate',
