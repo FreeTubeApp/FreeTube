@@ -620,6 +620,15 @@ Channel:
     About: 'Σχετικά με'
     Channel Description: 'Περιγραφή καναλιού'
     Featured Channels: 'Προτεινόμενα κανάλια'
+    Tags:
+      Tags: Ετικέτες
+      Search for: Αναζήτηση για "{ετικέτα}"
+  This channel does not allow searching: Αυτό το κανάλι δεν επιτρέπει την αναζήτηση
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Αυτό
+    το κανάλι έχει περιορισμό ηλικίας και προς το παρόν δεν μπορεί να προβληθεί στο
+    FreeTube.
+  Channel Tabs: Καρτέλες Καναλιών
+  This channel does not exist: Αυτό το κανάλι δεν υπάρχει
 Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
