@@ -680,6 +680,9 @@ export function parseLocalCommunityPost(post) {
 }
 
 function parseLocalAttachment(attachment) {
+  if (!attachment) {
+    return null
+  }
   // image post
   if (attachment.type === 'BackstageImage') {
     return {

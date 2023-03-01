@@ -187,8 +187,7 @@ export default defineComponent({
         case 'playlists':
           return !isNullOrEmpty(this.playlistContinuationData)
         case 'community':
-          return false // not supported in invidious or Youtube.js
-        //   return !isNullOrEmpty(this.communityContinuationData)
+          return !isNullOrEmpty(this.communityContinuationData)
         case 'search':
           return !isNullOrEmpty(this.searchContinuationData)
       }
@@ -902,23 +901,22 @@ export default defineComponent({
       }
     },
 
-    // https://github.com/LuanRT/YouTube.js/issues/328
-    // getCommunityPostsLocalMore: async function () {
-    //   try {
-    //     /**
-    //      * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
-    //      */
-    //     const continuation = await this.communityContinuationData.getContinuation()
-    //     this.latestCommunityPosts = this.latestCommunityPosts.concat(continuation.posts.map(parseLocalCommunityPost))
-    //     this.communityContinuationData = continuation.has_continuation ? continuation : null
-    //   } catch (err) {
-    //     console.error(err)
-    //     const errorMessage = this.$t('Local API Error (Click to copy)')
-    //     showToast(`${errorMessage}: ${err}`, 10000, () => {
-    //       copyToClipboard(err)
-    //     })
-    //   }
-    // },
+    getCommunityPostsLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
+         */
+        const continuation = await this.communityContinuationData.getContinuation()
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(continuation.posts.map(parseLocalCommunityPost))
+        this.communityContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
 
     getCommunityPostsInvidious: function() {
       invidiousGetCommunityPosts(this.id).then(posts => {
@@ -1049,8 +1047,7 @@ export default defineComponent({
         case 'community':
           switch (this.apiUsed) {
             case 'local':
-              // not supported by Youtube.js yet...
-              // this.getCommunityPostsLocalMore()
+              this.getCommunityPostsLocalMore()
               break
             case 'invidious':
               // not supported by invidious yet...

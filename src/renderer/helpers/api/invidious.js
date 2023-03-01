@@ -169,8 +169,8 @@ function parseInvidiousCommunityData(data) {
 }
 
 function parseInvidiousCommunityAttachments(data) {
-  if (!data || data.type === 'unknown') {
-    return
+  if (!data) {
+    return null
   }
 
   if (data.type === 'image') {
