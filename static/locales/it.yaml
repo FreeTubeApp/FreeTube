@@ -566,11 +566,23 @@ Channel:
     About: 'Informazioni'
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali suggeriti'
+    Tags:
+      Search for: Cerca "{tag}"
+      Tags: Tag
+    Details: Dettagli
+    Joined: Partecipato
+    Location: Posizione
   Added channel to your subscriptions: Il canale è stato aggiunto alle tue iscrizioni
   Removed subscription from {count} other channel(s): È stata rimossa l'iscrizione
     dagli altri canali di {count}
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle
     tue iscrizioni
+  This channel does not exist: Questo canale non esiste
+  This channel does not allow searching: Questo canale non consente la ricerca
+  Channel Tabs: Schede canale
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Questo
+    canale è soggetto a limiti di età e al momento non può essere visualizzato su
+    FreeTube.
 Video:
   Mark As Watched: 'Segna come già visto'
   Remove From History: 'Rimuovi dalla cronologia'
