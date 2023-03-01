@@ -568,11 +568,22 @@ Channel:
     About: 'O kanale'
     Channel Description: 'Opis kanału'
     Featured Channels: 'Polecane kanały'
+    Details: Szczegóły
+    Joined: Data dołączenia
+    Location: Lokalizacja
+    Tags:
+      Tags: Tagi
+      Search for: Szukaj „{tag}”
   Added channel to your subscriptions: Dodano kanał do twoich subskrypcji
   Removed subscription from {count} other channel(s): Usunięto subskrypcje z {count}
     pozostałych kanałów
   Channel has been removed from your subscriptions: Kanał został usunięty z twoich
     subskrypcji
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Kanał
+    ten ma ograniczenie wiekowe, dlatego nie zostanie wyświetlony we FreeTube.
+  Channel Tabs: Karty kanału
+  This channel does not exist: Nie ma takiego kanału
+  This channel does not allow searching: Ten kanał nie zezwala na przeszukiwanie
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
