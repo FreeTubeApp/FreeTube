@@ -608,6 +608,17 @@ Channel:
     About: 'Hakkında'
     Channel Description: 'Kanal Açıklaması'
     Featured Channels: 'Öne Çıkan Kanallar'
+    Tags:
+      Tags: Etiketler
+      Search for: '"{tag}" için ara'
+    Details: Ayrıntılar
+    Joined: Katıldı
+    Location: Konum
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Bu kanal
+    yaş sınırlamasına tabidir ve şu anda FreeTube'da görüntülenememektedir.
+  Channel Tabs: Kanal Sekmeleri
+  This channel does not allow searching: Bu kanal aramaya izin vermiyor
+  This channel does not exist: Bu kanal mevcut değil
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'
