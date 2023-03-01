@@ -18,6 +18,16 @@ import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
+// YouTube now throttles if you use the `Range` header for the DASH formats, instead of the range query parameter
+// videojs-http-streaming calls this hook everytime it makes a request,
+// so we can use it to convert the Range header into the range query parameter for the streaming URLs
+videojs.Vhs.xhr.beforeRequest = (options) => {
+  if (options.headers?.Range && new URL(options.uri).hostname.endsWith('.googlevideo.com')) {
+    options.uri += `&range=${options.headers.Range.split('=')[1]}`
+    delete options.headers.Range
+  }
+}
+
 export default defineComponent({
   name: 'FtVideoPlayer',
   props: {
