@@ -567,8 +567,8 @@ Channel:
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali suggeriti'
     Tags:
-      Search for: Cerca "{tag}"
-      Tags: Tag
+      Search for: Cerca «{tag}»
+      Tags: Etichette
     Details: Dettagli
     Joined: Partecipato
     Location: Posizione
