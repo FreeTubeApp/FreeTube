@@ -9,6 +9,7 @@
       class="author-div"
     >
       <img
+        v-if="authorThumbnails.length > 0"
         :src="getBestQualityImage(authorThumbnails)"
         class="communityThumbnail"
         alt=""
@@ -26,7 +27,7 @@
     </div>
     <p v-html="postText" />
     <tiny-slider
-      v-if="type === 'multiImage'"
+      v-if="type === 'multiImage' && postContent.content.length > 0"
       v-bind="tinySliderOptions"
       class="slider"
     >
@@ -39,7 +40,7 @@
       >
     </tiny-slider>
     <div
-      v-if="type === 'image'"
+      v-if="type === 'image' && postContent.content.length > 0"
     >
       <img
         :src="getBestQualityImage(postContent.content)"
@@ -91,65 +92,10 @@
       v-if="type === 'playlist'"
       class="playlistWrapper"
     >
-      <router-link
-        class="videoThumbnail"
-        :to="`/playlist/${postContent.content.playlistId}`"
-      >
-        <div
-          class="imageWrapper"
-        >
-          <img
-            :src="postContent.content.thumbnails[0].thumbnails[0].url"
-            class="thumbnailImage"
-            alt=""
-          >
-        </div>
-      </router-link>
-      <div
-        class="playlistText"
-      >
-        <router-link
-          class="playlistTitle"
-          :to="`/playlist/${playlistId}`"
-        >
-          {{ postContent.content.title }}
-        </router-link>
-        <br>
-        <span
-          class="playlistAuthor"
-        >
-          {{ postContent.content.author }}
-          -
-          <span
-            class="playlistVideoCount"
-          >
-            {{ postContent.content.videoCountText.text }}
-            {{ $t('Channel.Videos.Videos') }}
-          </span>
-          <br>
-        </span>
-        <router-link
-          v-for="video in postContent.content.playlistVideoRenderer"
-          :key="video.videoId"
-          class="playlistPreviewVideos"
-          :to="`/watch/${video.videoId}`"
-        >
-          <span
-            class="playlistPreviewVideoTitle"
-          >
-            {{ video.title }}
-          </span>
-          <span>
-            &#183;
-          </span>
-          <span
-            class="playlistPreviewVideoLength"
-          >
-            {{ video.lengthText }}
-          </span>
-          <br>
-        </router-link>
-      </div>
+      <ft-list-playlist
+        :data="postContent.content"
+        :appearance="appearance"
+      />
     </div>
     <div
       class="bottomSection"

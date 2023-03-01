@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
 
@@ -13,6 +15,7 @@ import 'tiny-slider/dist/tiny-slider.css'
 export default Vue.extend({
   name: 'FtCommunityPost',
   components: {
+    'ft-list-playlist': FtListPlaylist,
     'ft-list-video': FtListVideo,
     'tiny-slider': VueTinySlider
   },
@@ -113,7 +116,11 @@ export default Vue.extend({
     },
 
     getBestQualityImage(imageArray) {
-      return imageArray[Math.max(0, imageArray.length - 1)].url
+      if (imageArray.length > 0) {
+        return imageArray[Math.max(0, imageArray.length - 1)].url
+      } else {
+        return ''
+      }
     }
   }
 })

@@ -31,11 +31,6 @@
       :appearance="appearance"
       :data="data"
     />
-    <div
-      v-else
-    >
-      Unknown Type {{ JSON.stringify(data) }}
-    </div>
   </div>
 </template>
 
