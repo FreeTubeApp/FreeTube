@@ -64,7 +64,7 @@
         {{ postContent.content.totalVotes }}
       </div>
       <div
-        v-for="(poll, index) in postContent.content.choices"
+        v-for="(poll, index) in postContent.content"
         :key="index"
       >
         <div
@@ -76,7 +76,13 @@
           <div
             class="poll-text"
           >
-            {{ poll }}
+            <!-- <img
+              v-if="poll.image != null && poll.image.length >0"
+              :src="getBestQualityImage(poll.image)"
+              class="poll-image"
+              alt=""
+            > -->
+            {{ poll.text }}
           </div>
         </div>
       </div>

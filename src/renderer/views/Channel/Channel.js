@@ -508,7 +508,6 @@ export default defineComponent({
         }
 
         if (channel.has_community) {
-          console.error('get community')
           this.getCommunityPostsLocal()
         }
 
