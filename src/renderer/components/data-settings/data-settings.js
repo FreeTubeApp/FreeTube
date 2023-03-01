@@ -9,11 +9,12 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   copyToClipboard,
+  getTodayDateStrLocalTimezone,
   readFileFromDialog,
   showOpenDialog,
   showSaveDialog,
   showToast,
-  writeFileFromDialog
+  writeFileFromDialog,
 } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
@@ -509,8 +510,8 @@ export default defineComponent({
       const subscriptionsDb = this.profileList.map((profile) => {
         return JSON.stringify(profile)
       }).join('\n') + '\n'// a trailing line is expected
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'freetube-subscriptions-' + date + '.db'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'freetube-subscriptions-' + dateStr + '.db'
 
       const options = {
         defaultPath: exportFileName,
@@ -526,8 +527,8 @@ export default defineComponent({
     },
 
     exportYouTubeSubscriptions: async function () {
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'youtube-subscriptions-' + date + '.json'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'youtube-subscriptions-' + dateStr + '.json'
 
       const options = {
         defaultPath: exportFileName,
@@ -579,8 +580,8 @@ export default defineComponent({
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'youtube-subscriptions-' + date + '.opml'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'youtube-subscriptions-' + dateStr + '.opml'
 
       const options = {
         defaultPath: exportFileName,
@@ -612,8 +613,8 @@ export default defineComponent({
     },
 
     exportCsvYouTubeSubscriptions: async function () {
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'youtube-subscriptions-' + date + '.csv'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'youtube-subscriptions-' + dateStr + '.csv'
 
       const options = {
         defaultPath: exportFileName,
@@ -639,8 +640,8 @@ export default defineComponent({
     },
 
     exportNewPipeSubscriptions: async function () {
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'newpipe-subscriptions-' + date + '.json'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'newpipe-subscriptions-' + dateStr + '.json'
 
       const options = {
         defaultPath: exportFileName,
@@ -744,8 +745,8 @@ export default defineComponent({
       const historyDb = this.historyCache.map((historyEntry) => {
         return JSON.stringify(historyEntry)
       }).join('\n') + '\n'
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'freetube-history-' + date + '.db'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'freetube-history-' + dateStr + '.db'
 
       const options = {
         defaultPath: exportFileName,
@@ -875,8 +876,8 @@ export default defineComponent({
     },
 
     exportPlaylists: async function () {
-      const date = new Date().toISOString().split('T')[0]
-      const exportFileName = 'freetube-playlists-' + date + '.db'
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'freetube-playlists-' + dateStr + '.db'
 
       const options = {
         defaultPath: exportFileName,
