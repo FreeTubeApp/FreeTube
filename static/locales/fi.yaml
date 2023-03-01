@@ -321,6 +321,8 @@ Settings:
       cvarmasti poistaa kaikki tilaukset ja profiilit. Tätä toimintoa ei voi perua.
     Remove All Subscriptions / Profiles: Poista kaikki tilaukset / profiilit
     Automatically Remove Video Meta Files: Poista videoiden metadata automaattisesti
+    Save Watched Videos With Last Viewed Playlist: Tallenna katsotut videot viimeksi
+      katsotulla soittolistalla
   Data Settings:
     How do I import my subscriptions?: Kuinka voin tuoda tilaukseni?
     Unknown data key: Tuntematon data-avain
@@ -388,6 +390,8 @@ Settings:
     Hide Channels: Piilota videot kanavilta
     Hide Upcoming Premieres: Piilota tulevat ensiesitykset
     Hide Channels Placeholder: Kanavan nimi tai tunnus
+    Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista
+      isoja kirjaimia
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -539,10 +543,21 @@ Channel:
     About: 'Tietoja'
     Channel Description: 'Kanavan kuvaus'
     Featured Channels: 'Suositellut kanavat'
+    Tags:
+      Tags: Tunnisteet
+      Search for: Etsi ”{tag}”
+    Location: Sijainti
+    Joined: Liittynyt
+    Details: Yksityiskohdat
   Added channel to your subscriptions: Kanava on lisätty tilauksiisi
   Removed subscription from {count} other channel(s): Poistettu tilaus {count} muulta
     kanavalta
   Channel has been removed from your subscriptions: Kanava on poistettu tilauksistasi
+  Channel Tabs: Kanavavälilehdet
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Tämä
+    kanava on ikärajoitettu, eikä sitä voi tällä hetkellä katsoa FreeTubessa.
+  This channel does not exist: Tätä kanavaa ei ole olemassa
+  This channel does not allow searching: Tämä kanava ei salli etsintää
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
@@ -681,6 +696,7 @@ Video:
   Premieres: Ensilähetykset
   Show Super Chat Comment: Näytä Super Chat -kommentti
   Scroll to Bottom: Vieritä alaspäin
+  Upcoming: Tuleva
 Videos:
   #& Sort By
   Sort By:
@@ -751,6 +767,7 @@ Comments:
   And others: ja muut
   Member: Jäsen
   View {replyCount} replies: Näytä {replyCount} vastausta
+  Hearted: Tykätty
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -859,6 +876,11 @@ Tooltips:
       toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
       määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa)
       painettuna ja paina hiiren vasenta näppäintä.
+    Skip by Scrolling Over Video Player: Käytä vierityspyörää videon selaamiseen MPV-tyyliin.
+    Allow DASH AV1 formats: DASH AV1 -formaatit saattavat näyttää paremmalta kuin
+      DASH H.264 -formaatit. DASH AV1 -formaatit vaativat enemmän tehoa toistamiseen!
+      Ne eivät ole käytettävissä kaikissa videoissa, ja näissä tapauksissa soitin
+      käyttää sen sijaan DASH H.264 -formaatteja.
   Privacy Settings:
     Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
       meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
