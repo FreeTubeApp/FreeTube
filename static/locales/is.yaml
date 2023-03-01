@@ -547,6 +547,17 @@ Channel:
     About: 'Um rásina'
     Channel Description: 'Lýsing á rás'
     Featured Channels: 'Rásir í deiglunni'
+    Tags:
+      Tags: Merki
+      Search for: Leita að "{tag}"
+    Details: Nánar
+    Joined: Skráði sig
+    Location: Staðsetning
+  This channel does not exist: Þessi rás er ekki til
+  This channel does not allow searching: Þessi rás gefur ekki kost á að leita
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Þessi
+    rás er með aldurstakmark og er í augnablikinu ekki hægt að skoða í FreeTube.
+  Channel Tabs: Rásaflipar
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr vinnsluferli'
