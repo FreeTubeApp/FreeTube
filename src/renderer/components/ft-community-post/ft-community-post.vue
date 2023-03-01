@@ -120,4 +120,4 @@
 
 <script src="./ft-community-post.js" />
 <style src="./ft-community-post.scss" lang="scss" />
-<style src="./slider-style.scss" lang="scss" />
+<style src="./slider-style.css" lang="css" />

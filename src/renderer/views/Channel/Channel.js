@@ -233,7 +233,7 @@ export default defineComponent({
       this.videoContinuationData = null
       this.playlistContinuationData = null
       this.searchContinuationData = null
-      this.this.communityContinuationData = null
+      this.communityContinuationData = null
       this.showSearchBar = true
 
       if (this.id === '@@@') {
