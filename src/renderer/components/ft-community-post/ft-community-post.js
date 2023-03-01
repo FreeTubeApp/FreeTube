@@ -51,7 +51,7 @@ export default Vue.extend({
     tinySliderOptions: function() {
       return {
         items: 1,
-        arrowKeys: true,
+        arrowKeys: false,
         controls: false,
         autoplay: false,
         slideBy: 'page',

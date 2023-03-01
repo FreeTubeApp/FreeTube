@@ -173,4 +173,5 @@
 </template>
 
 <script src="./ft-community-post.js" />
-<style scoped src="./ft-community-post.scss" lang="scss" />
+<style src="./ft-community-post.scss" lang="scss" />
+<style src="./slider-style.scss" lang="scss" />

@@ -667,7 +667,7 @@ export function parseLocalCommunityPost(post) {
   }
 
   return {
-    postText: post.content.text,
+    postText: post.content.text === 'N/A' ? '' : post.content.text,
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
     publishedText: post.published.text,
