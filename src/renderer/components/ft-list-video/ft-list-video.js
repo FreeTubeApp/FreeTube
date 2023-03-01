@@ -322,6 +322,10 @@ export default defineComponent({
 
       return this.historyCache[historyIndex].lastViewedPlaylistId
     },
+
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
   },
   mounted: function () {
     this.parseVideoData()
@@ -420,7 +424,46 @@ export default defineComponent({
         this.publishedText = this.data.publishedText
       }
 
-      if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
+      if (this.data.isRSS && this.data.publishedDate != null && !this.isLive) {
+        const now = new Date()
+        // Convert from ms to second
+        // For easier code interpretation the value is made to be positive
+        // `publishedDate` is sometimes a string, e.g. when switched back from another view
+        const publishedDate = Date.parse(this.data.publishedDate)
+        let timeDiffFromNow = ((now - publishedDate) / 1000)
+        let timeUnit = 'second'
+
+        if (timeDiffFromNow > 60) {
+          timeDiffFromNow /= 60
+          timeUnit = 'minute'
+        }
+
+        if (timeUnit === 'minute' && timeDiffFromNow > 60) {
+          timeDiffFromNow /= 60
+          timeUnit = 'hour'
+        }
+
+        if (timeUnit === 'hour' && timeDiffFromNow > 24) {
+          timeDiffFromNow /= 24
+          timeUnit = 'day'
+        }
+
+        // Diff month might have diff no. of days
+        // To ensure the display is fine we use 31
+        if (timeUnit === 'day' && timeDiffFromNow > 31) {
+          timeDiffFromNow /= 24
+          timeUnit = 'month'
+        }
+
+        if (timeUnit === 'month' && timeDiffFromNow > 12) {
+          timeDiffFromNow /= 12
+          timeUnit = 'year'
+        }
+
+        // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
+        // Notice that the value is turned to negative to be displayed as "ago"
+        this.uploadedTime = new Intl.RelativeTimeFormat(this.currentLocale).format(Math.ceil(-timeDiffFromNow), timeUnit)
+      } else if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
         // produces a string according to the template in the locales string
         this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,

@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Videoposnetki'
     Channels: 'Kanali'
     #& Playlists
+    Movies: Filmi
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Vsa trajanja'
     Short (< 4 minutes): 'Kratko (<4 minute)'
     Long (> 20 minutes): 'Dolgo (>20 minut)'
   # On Search Page
+    Medium (4 - 20 minutes): Srednje (4–20 minut)
   Search Results: 'Rezultati'
   Fetching results. Please wait: 'Pridobivamo rezultate. Prosimo, počakajte'
   Fetch more results: 'Pridobi več rezultatov'
@@ -93,7 +95,7 @@ Trending:
   Trending: 'Priljubljeno'
   Default: Privzeto
   Music: Glasba
-  Gaming: Igre
+  Gaming: Igričarstvo
   Movies: Filmi
 Most Popular: 'Najbolj popularno'
 Playlists: 'Seznami predvajanja'
@@ -506,6 +508,7 @@ Profile:
     iz drugih profilov.'
 #On Channel Page
   Profile Filter: Filter profilov
+  Profile Settings: Nastavitve profila
 Channel:
   Subscriber: 'Naročnik'
   Subscribers: 'Naročnikov'
@@ -606,6 +609,7 @@ Video:
     Years: 'leta'
     Ago: 'Nazaj'
     Upcoming: 'Kmalu bo objavljeno'
+    In less than a minute: Manj kot minuti
   Published on: 'Objavljeno dne'
   Publicationtemplate: '{number} {unit} nazaj'
 #& Videos
@@ -627,6 +631,9 @@ Video:
     seznama
   Video has been saved: Videoposnetek je bil shranjen
   Save Video: Shrani videoposnetek
+  Stats:
+    Bandwidth: Pasovna širina
+  translated from English: prevedeno iz angleščine
 Videos:
   #& Sort By
   Sort By:
@@ -645,6 +652,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Playlist: Seznam predvajanja
 Toggle Theatre Mode: 'Preklopi gledališki način'
 Change Format:
   Change Media Formats: 'Spremeni vrsto videoposnetka'
@@ -670,6 +678,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube vložek URL kopiran'
   YouTube Channel URL copied to clipboard: URL YouTube kanala je bil kopiran
   Invidious Channel URL copied to clipboard: URL Invidious kanala je bil kopiran
+  Share Channel: Deli kanal
 Mini Player: 'Mini predvajalnik'
 Comments:
   Comments: 'Komentarji'
@@ -690,6 +699,8 @@ Comments:
   Top comments: Najbolje ocenjeni komentarji
   Sort by: Razvrstitev
   No more comments available: Ni več komentarjev
+  Show More Replies: Pokaži več odgovorov
+  Member: Član
 Up Next: 'Naslednje na sporedu'
 
 # Toast Messages
@@ -726,6 +737,9 @@ Tooltips:
       RSS za pridobivanje vašega vira naročnin. RSS je hitrejši in preprečuje blokiranje
       IP-ja, vendar ne zagotavlja določenih informacij, kot je trajanje videa ali
       status stanja v živo
+  Player Settings:
+    Skip by Scrolling Over Video Player: Uporabite kolesce za pomikanje po videoposnetku
+      v slogu MPV.
 New Window: Novo okno
 Channels:
   Channels: Kanali
@@ -740,5 +754,7 @@ Are you sure you want to open this link?: Ali ste prepričani, da želite odpret
   povezavo?
 Preferences: Nastavitve
 Search Bar:
-  Clear Input: Izbriši vnos
+  Clear Input: Počisti vnos
 Open New Window: Odpri novo okno
+Chapters:
+  Chapters: Poglavja

@@ -134,13 +134,7 @@ const config = {
     alias: {
       vue$: 'vue/dist/vue.common.js',
 
-      // use the web version of linkedom
-      linkedom$: 'linkedom/worker',
-
-      // defaults to the prebundled browser version which causes webpack to error with:
-      // "Critical dependency: require function is used in a way in which dependencies cannot be statically extracted"
-      // webpack likes to bundle the dependencies itself, could really have a better error message though
-      'youtubei.js$': 'youtubei.js/dist/browser.js',
+      'youtubei.js$': 'youtubei.js/web',
     },
     extensions: ['.js', '.vue']
   },

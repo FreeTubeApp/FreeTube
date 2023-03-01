@@ -6,6 +6,10 @@
   width:100%;
 }
 
+.ftVideoPlayer.vjs-user-inactive {
+  cursor: none;
+}
+
 :deep(.sponsorBlockMarker), :deep(.chapterMarker) {
   position: absolute;
   opacity: 0.6;

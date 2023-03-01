@@ -8,10 +8,10 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
-import ytch from 'yt-channel-info'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getLocalChannelVideos } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'Subscriptions',
@@ -270,50 +270,47 @@ export default defineComponent({
       }
     },
 
-    getChannelVideosLocalScraper: function (channel, failedAttempts = 0) {
-      return new Promise((resolve, reject) => {
-        ytch.getChannelVideos({ channelId: channel.id, sortBy: 'latest' }).then((response) => {
-          if (response.alertMessage) {
-            this.errorChannels.push(channel)
-            resolve([])
-            return
-          }
-          const videos = response.items.map((video) => {
-            if (video.liveNow) {
-              video.publishedDate = new Date().getTime()
-            } else {
-              video.publishedDate = calculatePublishedDate(video.publishedText)
-            }
-            return video
-          })
+    getChannelVideosLocalScraper: async function (channel, failedAttempts = 0) {
+      try {
+        const videos = await getLocalChannelVideos(channel.id)
 
-          resolve(videos)
-        }).catch((err) => {
-          console.error(err)
-          const errorMessage = this.$t('Local API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err}`, 10000, () => {
-            copyToClipboard(err)
-          })
-          switch (failedAttempts) {
-            case 0:
-              resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
-              break
-            case 1:
-              if (this.backendFallback) {
-                showToast(this.$t('Falling back to Invidious API'))
-                resolve(this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1))
-              } else {
-                resolve([])
-              }
-              break
-            case 2:
-              resolve(this.getChannelVideosLocalRSS(channel, failedAttempts + 1))
-              break
-            default:
-              resolve([])
+        if (videos === null) {
+          this.errorChannels.push(channel)
+          return []
+        }
+
+        videos.map(video => {
+          if (video.liveNow) {
+            video.publishedDate = new Date().getTime()
+          } else {
+            video.publishedDate = calculatePublishedDate(video.publishedText)
           }
+          return video
         })
-      })
+
+        return videos
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        switch (failedAttempts) {
+          case 0:
+            return await this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
+          case 1:
+            if (this.backendFallback) {
+              showToast(this.$t('Falling back to Invidious API'))
+              return await this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
+            } else {
+              return []
+            }
+          case 2:
+            return await this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
+          default:
+            return []
+        }
+      }
     },
 
     getChannelVideosLocalRSS: async function (channel, failedAttempts = 0) {

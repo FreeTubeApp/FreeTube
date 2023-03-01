@@ -15,7 +15,6 @@ import { pathExists } from '../../helpers/filesystem'
 import {
   buildVTTFileLocally,
   copyToClipboard,
-  extractNumberFromString,
   formatDurationAsTimestamp,
   formatNumber,
   getFormatsFromHLSManifest,
@@ -26,6 +25,7 @@ import {
   filterFormats,
   getLocalVideoInfo,
   mapLocalFormat,
+  parseLocalSubscriberCount,
   parseLocalTextRuns,
   parseLocalWatchNextVideo
 } from '../../helpers/api/local'
@@ -98,7 +98,6 @@ export default defineComponent({
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      pictureInPictureButtonInverval: null,
       infoAreaSticky: true
     }
   },
@@ -212,25 +211,6 @@ export default defineComponent({
           }
           break
       }
-    },
-    activeFormat: function (format) {
-      clearInterval(this.pictureInPictureButtonInverval)
-
-      // only hide/show the button once the player is available
-      this.pictureInPictureButtonInverval = setInterval(() => {
-        if (!this.hidePlayer) {
-          const pipButton = document.querySelector('.vjs-picture-in-picture-control')
-          if (pipButton === null) {
-            return
-          }
-          if (format === 'audio') {
-            pipButton.classList.add('vjs-hidden')
-          } else {
-            pipButton.classList.remove('vjs-hidden')
-          }
-          clearInterval(this.pictureInPictureButtonInverval)
-        }
-      }, 100)
     }
   },
   mounted: function () {
@@ -356,27 +336,7 @@ export default defineComponent({
         this.isLiveContent = !!result.basic_info.is_live_content
 
         if (!this.hideChannelSubscriptions) {
-          // really not a fan of this :(, YouTube returns the subscribers as "15.1M subscribers"
-          // so we have to parse it somehow
-          const rawSubCount = result.secondary_info.owner.subscriber_count.text
-          const match = rawSubCount
-            .replace(',', '.')
-            .toUpperCase()
-            .match(/([\d.]+)\s*([KM]?)/)
-          let subCount
-          if (match) {
-            subCount = parseFloat(match[1])
-
-            if (match[2] === 'K') {
-              subCount *= 1000
-            } else if (match[2] === 'M') {
-              subCount *= 1000_000
-            }
-
-            subCount = Math.trunc(subCount)
-          } else {
-            subCount = extractNumberFromString(rawSubCount)
-          }
+          const subCount = parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text)
 
           if (!isNaN(subCount)) {
             if (subCount >= 10000) {

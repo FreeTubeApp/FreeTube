@@ -6,7 +6,7 @@ function getCurrentInstance() {
   return store.getters.getCurrentInvidiousInstance
 }
 
-export function invidiousAPICall({ resource, id = '', params = {}, subResource = '' }) {
+export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   return new Promise((resolve, reject) => {
     const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     fetch(requestUrl)
@@ -18,10 +18,37 @@ export function invidiousAPICall({ resource, id = '', params = {}, subResource =
         resolve(json)
       })
       .catch((error) => {
-        console.error('Invidious API error', requestUrl, error)
+        if (doLogError) {
+          console.error('Invidious API error', requestUrl, error)
+        }
         reject(error)
       })
   })
+}
+
+/**
+ * Gets the channel ID for a channel URL
+ * used to get the ID for channel usernames and handles
+ * @param {string} url
+ */
+export async function invidiousGetChannelId(url) {
+  try {
+    const response = await invidiousAPICall({
+      resource: 'resolveurl',
+      params: {
+        url
+      },
+      doLogError: false
+    })
+
+    if (response.pageType === 'WEB_PAGE_TYPE_CHANNEL') {
+      return response.ucid
+    } else {
+      return null
+    }
+  } catch {
+    return null
+  }
 }
 
 export async function invidiousGetChannelInfo(channelId) {

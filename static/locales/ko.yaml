@@ -3,7 +3,7 @@ Locale Name: '한국어'
 FreeTube: '프리튜브'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  아직 구현되지않은 기능입니다. 개발이 완료 된 후 다시 시도해주세요.
+  아직 구현 되지 않은 기능입니다. 개발이 완료된 후 다시 시도해주세요.
 
 # Webkit Menu Bar
 File: '파일'
@@ -16,8 +16,8 @@ Copy: '복사하기'
 Paste: '붙여넣기'
 Delete: '지우기'
 Select all: '전체선택'
-Reload: '리로드'
-Force Reload: '강제리로드'
+Reload: '새로고침'
+Force Reload: '강제 새로고침'
 Toggle Developer Tools: '개발자도구 전환'
 Actual size: '실제크기'
 Zoom in: '확대'
@@ -29,10 +29,11 @@ Close: '닫기'
 Back: '뒤로가기'
 Forward: '앞으로가기'
 
-Version {versionNumber} is now available!  Click for more details: '{versionNumber} 버전이 사용가능합니다! 클릭하여 자세한 정보를
-  확인하세요'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber}
+  버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
-A new blog is now available, {blogTitle}. Click to view more: '새로운 블로그가 업로드되었습니다, {blogTitle}. 클릭하여 확인하세요'
+A new blog is now available, {blogTitle}. Click to view more: '새로운 블로그가 업로드되었습니다,
+  {blogTitle}. 클릭하여 확인하세요'
 
 # Search Bar
 Search / Go to URL: '검색 / URL로 이동'
@@ -54,17 +55,19 @@ Search Filters:
     This Month: '이번달'
     This Year: '올해'
   Type:
-    Type: '종류'
-    All Types: '모든 종류'
+    Type: '구분'
+    All Types: '전체'
     Videos: '동영상'
     Channels: '채널'
     #& Playlists
+    Movies: 영화
   Duration:
     Duration: '영상길이'
     All Durations: '모두'
     Short (< 4 minutes): '짧음(4분이내)'
     Long (> 20 minutes): '긴(20분)'
   # On Search Page
+    Medium (4 - 20 minutes): 4~20분
   Search Results: '검색 결과'
   Fetching results. Please wait: '결과를 불러오는 중입니다. 잠시만 기다려 주세요'
   Fetch more results: '검색 결과 더 보기'
@@ -82,6 +85,8 @@ Subscriptions:
   Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
   Error Channels: 오류가 있는 채널
+  Disabled Automatic Fetching: 자동 구독 정보 수집이 비활성화 되어 있습니다. 구독을 새로고침해주세요.
+  Empty Channels: 구독한 채널들에 업로드 된 영상이 없습니다.
 Trending:
   Trending: '트렌딩'
   Trending Tabs: 트렌딩 탭
@@ -206,6 +211,7 @@ Settings:
     Secondary Color Theme: '보조색상테마'
         #* Main Color Theme
     Hide Side Bar Labels: 사이드 바 레이블 숨기기
+    Hide FreeTube Header Logo: FreeTube 헤더 로고 숨기기
   Player Settings:
     Player Settings: '플레이어 설정'
     Force Local Backend for Legacy Formats: '레거시 포멧에 로컬 백엔드 강제적용'
@@ -256,6 +262,9 @@ Settings:
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
         %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
         "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
+    Allow DASH AV1 formats: DASH AV1 포맷 허용
+    Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
+    Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
     Privacy Settings: '개인정보 설정'
     Remember History: '기록 저장하기'
@@ -275,6 +284,7 @@ Settings:
     Hide Videos on Watch: '시청한 동영상 숨기기'
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
     Manage Subscriptions: '구독 관리'
+    Fetch Automatically: 자동으로 피드 수집하기
   Distraction Free Settings:
     Distraction Free Settings: '방해받지 않는 모드 설정'
     Hide Video Views: '조회수 숨기기'
@@ -291,6 +301,11 @@ Settings:
     Hide Live Streams: 라이브 스트림 숨기기
     Hide Video Description: 비디오 설명 숨기기
     Hide Comments: 주석 숨기기
+    Hide Upcoming Premieres: 공개 예정 Premiere 숨기기
+    Hide Chapters: 챕터 숨기기
+    Display Titles Without Excessive Capitalisation: 제목에서 과도한 대문자 제거하기
+    Hide Channels: 채널 목록에서 동영상 숨기기
+    Hide Channels Placeholder: 채널 이름이나 ID를 입력하세요
   Data Settings:
     Data Settings: '데이터 설정'
     Select Import Type: '가져오기 유형 선택'
@@ -328,6 +343,9 @@ Settings:
     All playlists has been successfully exported: 모든 재생 목록을 내보냈습니다
     Import Playlists: 재생 목록 가져오기
     Export Playlists: 재생 목록 내보내기
+    Subscription File: 구독 정보 파일
+    Playlist File: 재생목록 파일
+    History File: 시청기록 파일
   Advanced Settings:
     Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): ''
@@ -399,6 +417,21 @@ Settings:
     Hide Unsubscribe Button: 구독 취소 단추 숨기기
     Hide Search Bar: 검색 막대 숨기기
     Show Family Friendly Only: 가족 친목만 표시
+  Password Dialog:
+    Password Incorrect: 비밀번호가 일치하지 않습니다
+    Password: 비밀번호
+    Enter Password To Unlock: 설정을 활성화하기 위해서 비밀번호를 입력하세요
+    Unlock: 활성화
+  Experimental Settings:
+    Experimental Settings: 실험적 기능 설정
+    Warning: 본 설정들은 실험적 기능이며, 활성화 되었을 때 충돌을 유발할 수 있습니다. 백업을 하는 것을 강력히 권장합니다. 모든 책임은
+      사용자 본인에게 있습니다!
+    Replace HTTP Cache: HTTP 캐시 대체하기
+  Password Settings:
+    Password Settings: 비밀번호 설정
+    Set Password To Prevent Access: 설정 접근에 비밀번호 설정하기
+    Set Password: 비밀번호 설정하기
+    Remove Password: 비밀번호 제거하기
 About:
   #On About page
   About: '정보'
@@ -638,6 +671,9 @@ Video:
   translated from English: 영어에서 번역됨
   Skipped segment: 건너뛴 세그먼트
   Premieres: 프리미어
+  Upcoming: 공개 예정
+  Show Super Chat Comment: 슈퍼채팅 댓글 보이기
+  Scroll to Bottom: 맨 아래로 스크롤하기
 Videos:
   #& Sort By
   Sort By:
@@ -681,6 +717,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube 임베드 URL이 클립보드에 복사되었습니다'
   YouTube Channel URL copied to clipboard: 'YouTube 채널 URL이 클립보드에 복사되었습니다'
 
+  Share Channel: 채널 공유하기
 Mini Player: '미니 플레이어'
 Comments:
   Comments: '댓글'
@@ -702,9 +739,11 @@ Comments:
   No more comments available: '더 이상 사용할 수 있는 댓글이 없습니다'
   Show More Replies: 더 많은 답글 보기
   From {channelName}: '{channelName}에서'
-  Pinned by: 에 의해 고정
+  Pinned by: 고정된 댓글
   And others: 및 기타
   Member: 구성원
+  Hearted: 좋아요 표시한
+  View {replyCount} replies: '{reply Count} 개의 답글 보기'
 Up Next: '다음 위로'
 
 #Tooltips
@@ -731,6 +770,9 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command
       키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게
       누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
+    Allow DASH AV1 formats: DASH AV1 포맷은 DASH H.264 포맷보다 화질이 좋을 수 있으나, 영상 재생을 위해 더
+      높은 성능을 요구합니다. 모든 영상에서 사용 가능한 것은 아니며, 사용이 불가능할 경우 DASH H.264 포맷을 사용합니다.
+    Skip by Scrolling Over Video Player: MPV 방식으로 마우스 스크롤을 이용해 영상을 스킵합니다.
   Subscription Settings:
     Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더
       빠르고 IP 차단을 방지하지만 비디오 길이 또는 라이브 상태와 같은 특정 정보를 제공하지 않습니다'
@@ -748,6 +790,9 @@ Tooltips:
   Privacy Settings:
     Remove Video Meta Files: 활성화되면 FreeTube는 보기 페이지가 닫힐 때 비디오 재생 중에 생성된 메타 파일을 자동으로
       삭제합니다.
+  Distraction Free Settings:
+    Hide Channels: 채널 이름이나 채널 ID를 입력해 해당 채널의 영상이나 재생목록, 채널 자체가 검색이나 인기 영상에 나타나지 않도록
+      합니다. 입력되는 채널 이름은 완전히 일치해야하며, 대소문자를 구별합니다.
 Local API Error (Click to copy): '로컬 API 오류(복사하려면 클릭)'
 Invidious API Error (Click to copy): 'Invidious API 오류(복사하려면 클릭)'
 Falling back to Invidious API: 'Invidious API로 대체'
@@ -776,7 +821,8 @@ Hashtags have not yet been implemented, try again later: 해시태그가 아직 
   다시 시도하세요
 Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초
   후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
-Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로 설정되었습니다
+Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로
+  설정되었습니다
 External link opening has been disabled in the general settings: 일반 설정에서 외부 링크 열기가
   비활성화되었습니다
 Open New Window: 새 창 열기
@@ -807,3 +853,8 @@ Screenshot Success: 스크린샷을 "{filePath}"로 저장
 Clipboard:
   Copy failed: 클립보드에 복사 실패
   Cannot access clipboard without a secure connection: 안전한 연결 없이 클립보드에 접근할 수 없습니다
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 챕터 목록 숨겨짐, 현재 챕터 {chapterName}
+  'Chapters list visible, current chapter: {chapterName}': '챕터 목록 보임, 현재 챕터: {chapterName}'
+  Chapters: 챕터
+Preferences: 설정
