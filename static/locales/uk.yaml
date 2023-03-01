@@ -579,6 +579,17 @@ Channel:
     About: 'Про'
     Channel Description: 'Опис каналу'
     Featured Channels: 'Рекомендовані канали'
+    Tags:
+      Tags: Мітки
+      Search for: Шукати "{tag}"
+    Details: Подробиці
+    Joined: Дата приєднання
+    Location: Розташування
+  This channel does not exist: Цей канал не існує
+  This channel does not allow searching: Цей канал не дозволяє здійснювати пошук
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Цей канал
+    має вікові обмеження і наразі не може бути переглянутий на FreeTube.
+  Channel Tabs: Вкладки каналів
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
