@@ -162,7 +162,7 @@ function parseInvidiousCommunityData(data) {
     publishedText: data.publishedText,
     voteCount: data.likeCount,
     postContent: parseInvidiousCommunityAttachments(data.attachment),
-    commentCount: null,
+    commentCount: data?.replyCount ?? 0, // https://github.com/iv-org/invidious/pull/3635/
     author: data.author,
     type: 'community'
   }
@@ -204,6 +204,23 @@ function parseInvidiousCommunityAttachments(data) {
     return {
       type: 'multiImage',
       content: content
+    }
+  }
+
+  // https://github.com/iv-org/invidious/pull/3635/files
+  if (data.type === 'poll') {
+    return {
+      type: 'poll',
+      totalVotes: data.totalVotes ?? 0,
+      content: data.choices.map(choice => {
+        return {
+          text: choice.text,
+          image: choice.image.map(thumbnail => {
+            thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+            return thumbnail
+          })
+        }
+      })
     }
   }
 

@@ -704,6 +704,7 @@ function parseLocalAttachment(attachment) {
   } else if (attachment.type === 'Poll') {
     return {
       type: 'poll',
+      totalVotes: attachment.total_votes ?? 0,
       content: attachment.choices.map(choice => {
         return {
           text: choice.text.text,

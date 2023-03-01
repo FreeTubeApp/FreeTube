@@ -61,7 +61,7 @@
       <div
         class="poll-count"
       >
-        {{ postContent.content.totalVotes }}
+        {{ postContent.totalVotes }}
       </div>
       <div
         v-for="(poll, index) in postContent.content"
