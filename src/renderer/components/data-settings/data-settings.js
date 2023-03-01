@@ -6,7 +6,6 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-import ytch from 'yt-channel-info'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   copyToClipboard,
@@ -17,6 +16,7 @@ import {
   writeFileFromDialog
 } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getLocalChannel } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'DataSettings',
@@ -967,25 +967,32 @@ export default defineComponent({
       })
     },
 
-    getChannelInfoLocal: function (channelId) {
-      return new Promise((resolve, reject) => {
-        ytch.getChannelInfo({ channelId: channelId }).then(async (response) => {
-          resolve(response)
-        }).catch((err) => {
-          console.error(err)
-          const errorMessage = this.$t('Local API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err}`, 10000, () => {
-            copyToClipboard(err)
-          })
+    getChannelInfoLocal: async function (channelId) {
+      try {
+        const channel = await getLocalChannel(channelId)
 
-          if (this.backendFallback && this.backendPreference === 'local') {
-            showToast(this.$t('Falling back to the Invidious API'))
-            resolve(this.getChannelInfoInvidious(channelId))
-          } else {
-            resolve([])
-          }
+        if (channel.alert) {
+          return undefined
+        }
+
+        return {
+          author: channel.header.author.name,
+          authorThumbnails: channel.header.author.thumbnails
+        }
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
-      })
+
+        if (this.backendFallback && this.backendPreference === 'local') {
+          showToast(this.$t('Falling back to the Invidious API'))
+          return await this.getChannelInfoInvidious(channelId)
+        } else {
+          return []
+        }
+      }
     },
 
     /*

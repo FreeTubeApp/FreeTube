@@ -430,11 +430,14 @@ export default defineComponent({
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, subPath, url } = result
 
             openInternalPath({
               path: `/channel/${channelId}/${subPath}`,
-              doCreateNewWindow
+              doCreateNewWindow,
+              query: {
+                url
+              }
             })
             break
           }

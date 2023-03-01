@@ -5,6 +5,7 @@ import i18n from '../../i18n/index'
 import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
 import {
+  CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
   openExternalLink,
@@ -261,7 +262,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  getYoutubeUrlInfo ({ state }, urlStr) {
+  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -288,6 +289,11 @@ const actions = {
     //
     // If `urlType` is "invalid_url"
     // Nothing else
+
+    if (CHANNEL_HANDLE_REGEX.test(urlStr)) {
+      urlStr = `https://www.youtube.com/${urlStr}`
+    }
+
     const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
     if (videoId) {
       return {
@@ -309,7 +315,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?<type>channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(join|featured|videos|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
@@ -409,7 +415,6 @@ const actions = {
       case 'channel': {
         const match = url.pathname.match(channelPattern)
         const channelId = match.groups.channelId
-        const idType = ['channel', 'user', 'c'].indexOf(match.groups.type) + 1
         if (!channelId) {
           throw new Error('Channel: could not extract id')
         }
@@ -431,8 +436,8 @@ const actions = {
         return {
           urlType: 'channel',
           channelId,
-          idType,
-          subPath
+          subPath,
+          url: url.toString()
         }
       }
 

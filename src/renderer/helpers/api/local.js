@@ -1,12 +1,10 @@
-import { Innertube } from 'youtubei.js'
-import { ClientType } from 'youtubei.js/dist/src/core/Session'
-import EmojiRun from 'youtubei.js/dist/src/parser/classes/misc/EmojiRun'
-import Text from 'youtubei.js/dist/src/parser/classes/misc/Text'
+import { Innertube, ClientType, Misc, Utils } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
 import { PlayerCache } from './PlayerCache'
 import {
+  CHANNEL_HANDLE_REGEX,
   extractNumberFromString,
   getUserDataPath,
   toLocalePublicationString
@@ -88,7 +86,7 @@ export async function getLocalTrending(location, tab, instance) {
 
   const results = resultsInstance.videos
     .filter((video) => video.type === 'Video')
-    .map(parseListVideo)
+    .map(parseLocalListVideo)
 
   return {
     results,
@@ -166,6 +164,117 @@ function decipherFormats(formats, player) {
   }
 }
 
+export async function getLocalChannelId(url) {
+  try {
+    const innertube = await createInnertube()
+
+    // resolveURL throws an error if the URL doesn't exist
+    const navigationEndpoint = await innertube.resolveURL(url)
+
+    if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
+      return navigationEndpoint.payload.browseId
+    } else {
+      return null
+    }
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Returns the channel or the channel termination reason
+ * @param {string} id
+ */
+export async function getLocalChannel(id) {
+  const innertube = await createInnertube()
+  let result
+  try {
+    result = await innertube.getChannel(id)
+  } catch (error) {
+    if (error instanceof Utils.ChannelError) {
+      result = {
+        alert: error.message
+      }
+    } else {
+      throw error
+    }
+  }
+  return result
+}
+
+export async function getLocalChannelVideos(id) {
+  const channel = await getLocalChannel(id)
+
+  if (channel.alert) {
+    return null
+  }
+
+  if (!channel.has_videos) {
+    return []
+  }
+
+  const videosTab = await channel.getVideos()
+
+  return parseLocalChannelVideos(videosTab.videos, channel.header.author)
+}
+
+/**
+ * @param {import('youtubei.js/dist/src/parser/classes/Video').default[]} videos
+ * @param {import('youtubei.js/dist/src/parser/classes/misc/Author').default} author
+ */
+export function parseLocalChannelVideos(videos, author) {
+  const parsedVideos = videos.map(parseLocalListVideo)
+
+  // fix empty author info
+  parsedVideos.forEach(video => {
+    video.author = author.name
+    video.authorId = author.id
+  })
+
+  return parsedVideos
+}
+
+/**
+ * @typedef {import('youtubei.js/dist/src/parser/classes/Playlist').default} Playlist
+ * @typedef {import('youtubei.js/dist/src/parser/classes/GridPlaylist').default} GridPlaylist
+ */
+
+/**
+ * @param {Playlist|GridPlaylist} playlist
+ * @param {import('youtubei.js/dist/src/parser/classes/misc/Author').default} author
+ */
+export function parseLocalListPlaylist(playlist, author = undefined) {
+  let channelName
+  let channelId = null
+
+  if (playlist.author) {
+    if (playlist.author instanceof Misc.Text) {
+      channelName = playlist.author.text
+
+      if (author) {
+        channelId = author.id
+      }
+    } else {
+      channelName = playlist.author.name
+      channelId = playlist.author.id
+    }
+  } else {
+    channelName = author.name
+    channelId = author.id
+  }
+
+  return {
+    type: 'playlist',
+    dataSource: 'local',
+    title: playlist.title.text,
+    thumbnail: playlist.thumbnails[0].url,
+    channelName,
+    channelId,
+    playlistId: playlist.id,
+    videoCount: extractNumberFromString(playlist.video_count.text)
+  }
+}
+
 /**
  * @param {Search} response
  */
@@ -207,13 +316,9 @@ export function parseLocalPlaylistVideo(video) {
 }
 
 /**
- * @typedef {import('youtubei.js/dist/src/parser/classes/Video').default} Video
+ * @param {import('youtubei.js/dist/src/parser/classes/Video').default} video
  */
-
-/**
- * @param {Video} video
- */
-function parseListVideo(video) {
+export function parseLocalListVideo(video) {
   return {
     type: 'video',
     videoId: video.id,
@@ -231,20 +336,14 @@ function parseListVideo(video) {
 }
 
 /**
- * @typedef {import('youtubei.js/dist/src/parser/helpers').YTNode} YTNode
- * @typedef {import('youtubei.js/dist/src/parser/classes/Channel').default} Channel
- * @typedef {import('youtubei.js/dist/src/parser/classes/Playlist').default} Playlist
- */
-
-/**
- * @param {YTNode} item
+ * @param {import('youtubei.js/dist/src/parser/helpers').YTNode} item
  */
 function parseListItem(item) {
   switch (item.type) {
     case 'Video':
-      return parseListVideo(item)
+      return parseLocalListVideo(item)
     case 'Channel': {
-      /** @type {Channel} */
+      /** @type {import('youtubei.js/dist/src/parser/classes/Channel').default} */
       const channel = item
 
       // see upstream TODO: https://github.com/LuanRT/YouTube.js/blob/main/src/parser/classes/Channel.ts#L33
@@ -281,29 +380,7 @@ function parseListItem(item) {
       }
     }
     case 'Playlist': {
-      /** @type {Playlist} */
-      const playlist = item
-
-      let channelName
-      let channelId = null
-
-      if (playlist.author instanceof Text) {
-        channelName = playlist.author.text
-      } else {
-        channelName = playlist.author.name
-        channelId = playlist.author.id
-      }
-
-      return {
-        type: 'playlist',
-        dataSource: 'local',
-        title: playlist.title,
-        thumbnail: playlist.thumbnails[0].url,
-        channelName,
-        channelId,
-        playlistId: playlist.id,
-        videoCount: extractNumberFromString(playlist.video_count.text)
-      }
+      return parseLocalListPlaylist(item)
     }
   }
 }
@@ -359,6 +436,7 @@ function convertSearchFilters(filters) {
 
 /**
  * @typedef {import('youtubei.js/dist/src/parser/classes/misc/TextRun').default} TextRun
+ * @typedef {import('youtubei.js/dist/src/parser/classes/misc/EmojiRun').default} EmojiRun
  */
 
 /**
@@ -374,7 +452,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
   const parsedRuns = []
 
   for (const run of runs) {
-    if (run instanceof EmojiRun) {
+    if (run instanceof Misc.EmojiRun) {
       const { emoji, text } = run
 
       // empty array if video creator removes a channel emoji so we ignore.
@@ -413,7 +491,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
             break
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
-            if (trimmedText.startsWith('@')) {
+            if (CHANNEL_HANDLE_REGEX.test(trimmedText)) {
               parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
@@ -547,4 +625,33 @@ export function filterFormats(formats, allowAv1 = false) {
   } else {
     return [...audioFormats, ...h264Formats]
   }
+}
+
+/**
+ * Really not a fan of this :(, YouTube returns the subscribers as "15.1M subscribers"
+ * so we have to parse it somehow
+ * @param {string} text
+ */
+export function parseLocalSubscriberCount(text) {
+  const match = text
+    .replace(',', '.')
+    .toUpperCase()
+    .match(/([\d.]+)\s*([KM]?)/)
+
+  let subscribers
+  if (match) {
+    subscribers = parseFloat(match[1])
+
+    if (match[2] === 'K') {
+      subscribers *= 1000
+    } else if (match[2] === 'M') {
+      subscribers *= 1000_000
+    }
+
+    subscribers = Math.trunc(subscribers)
+  } else {
+    subscribers = extractNumberFromString(text)
+  }
+
+  return subscribers
 }

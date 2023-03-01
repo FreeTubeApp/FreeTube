@@ -18,6 +18,7 @@
 }
 
 .channelBannerContainer.default {
+  background-color: black;
   background-image: url("../../assets/img/defaultBanner.png");
   background-repeat: repeat;
   background-size: contain;
@@ -37,11 +38,16 @@
   justify-content: space-between;
 }
 
+.channelInfoHasError {
+  padding-bottom: 10px;
+}
+
 .channelThumbnail {
   width: 100px;
   height: 100px;
   border-radius: 200px 200px 200px 200px;
   -webkit-border-radius: 200px 200px 200px 200px;
+  object-fit: cover;
 }
 
 .channelName {
@@ -58,7 +64,7 @@
 
 .channelInfoActionsContainer {
   display: flex;
-  min-width: 230px;
+  gap: 30px;
   justify-content: space-between;
 }
 
@@ -135,6 +141,36 @@
   font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 17px;
   white-space: pre-wrap;
+}
+
+.aboutTags {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5px 15px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.aboutTag {
+  display: flex;
+  list-style: none;
+}
+
+.aboutTagLink {
+  background-color: var(--secondary-card-bg-color);
+  border-radius: 7px;
+  color: inherit;
+  padding: 7px;
+  text-decoration: none;
+}
+
+.aboutDetails {
+  text-align: left;
+}
+
+.aboutDetails th {
+  padding-right: 10px;
 }
 
 .channelSearch {

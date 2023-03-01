@@ -5,9 +5,9 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
-import ytch from 'yt-channel-info'
 import { showToast } from '../../helpers/utils'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
+import { getLocalChannel } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'SubscribedChannels',
@@ -182,12 +182,14 @@ export default defineComponent({
       if (this.backendPreference === 'local') {
         // avoid too many concurrent requests
         setTimeout(() => {
-          ytch.getChannelInfo({ channelId: channel.id }).then(response => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
-              channelName: channel.name,
-              channelId: channel.id
-            })
+          getLocalChannel(channel.id).then(response => {
+            if (!response.alert) {
+              this.updateSubscriptionDetails({
+                channelThumbnailUrl: this.thumbnailURL(response.header.author.thumbnails[0].url),
+                channelName: channel.name,
+                channelId: channel.id
+              })
+            }
           })
         }, this.errorCount * 500)
       } else {

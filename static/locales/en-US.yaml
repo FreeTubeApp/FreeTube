@@ -516,6 +516,10 @@ Channel:
   Your search results have returned 0 results: Your search results have returned 0
     results
   Sort By: Sort By
+  This channel does not exist: This channel does not exist
+  This channel does not allow searching: This channel does not allow searching
+  This channel is age resticted and currently cannot be viewed in FreeTube.: This channel is age resticted and currently cannot be viewed in FreeTube.
+  Channel Tabs: Channel Tabs
   Videos:
     Videos: Videos
     This channel does not currently have any videos: This channel does not currently
@@ -535,6 +539,12 @@ Channel:
   About:
     About: About
     Channel Description: Channel Description
+    Tags:
+      Tags: Tags
+      Search for: Search for "{tag}"
+    Details: Details
+    Joined: Joined
+    Location: Location
     Featured Channels: Featured Channels
 Video:
   Mark As Watched: Mark As Watched
