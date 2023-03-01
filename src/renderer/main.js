@@ -16,6 +16,7 @@ import {
   faChevronRight,
   faCircleUser,
   faClone,
+  faComment,
   faCommentDots,
   faCopy,
   faDownload,
@@ -50,13 +51,12 @@ import {
   faStepBackward,
   faStepForward,
   faSync,
+  faThumbsDown,
   faThumbsUp,
   faThumbtack,
   faTimes,
   faTimesCircle,
-  faUsers,
-  faComment,
-  faThumbsDown
+  faUsers
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBitcoin,
@@ -82,6 +82,7 @@ library.add(
   faChevronRight,
   faCircleUser,
   faClone,
+  faComment,
   faCommentDots,
   faCopy,
   faDownload,
@@ -116,13 +117,12 @@ library.add(
   faStepBackward,
   faStepForward,
   faSync,
+  faThumbsDown,
   faThumbsUp,
   faThumbtack,
   faTimes,
   faTimesCircle,
   faUsers,
-  faComment,
-  faThumbsDown,
 
   // brand icons
   faGithub,
