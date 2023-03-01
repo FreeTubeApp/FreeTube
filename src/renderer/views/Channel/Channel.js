@@ -429,7 +429,7 @@ export default defineComponent({
 
           this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId: this.id })
 
-          this.setErrorMessage(this.$t('Channel["This channel is age resticted and currently cannot be viewed in FreeTube."]'), true)
+          this.setErrorMessage(this.$t('Channel["This channel is age restricted and currently cannot be viewed in FreeTube."]'), true)
           return
         }
 
