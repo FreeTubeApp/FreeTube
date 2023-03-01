@@ -600,6 +600,17 @@ Channel:
     About: 'Acerca'
     Channel Description: 'Descrição'
     Featured Channels: 'Canais'
+    Tags:
+      Tags: Etiquetas
+      Search for: Procurar por "{etiqueta}"
+    Details: Detalhes
+    Joined: Aderiu a
+    Location: Localização
+  This channel does not exist: Este canal não existe
+  This channel does not allow searching: Este canal não permite pesquisas
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Este
+    canal tem restrição de idade e atualmente não pode ser visualizado no Free Tube.
+  Channel Tabs: Separadores de canais
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'
