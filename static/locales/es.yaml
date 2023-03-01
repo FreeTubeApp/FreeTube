@@ -595,11 +595,22 @@ Channel:
     About: 'Acerca de'
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
+    Tags:
+      Tags: Etiquetas
+      Search for: Buscar por "{tag}"
+    Details: Detalles
+    Joined: Ingresó en
+    Location: Ubicación
   Added channel to your subscriptions: Canal añadido a tus suscripciones
   Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
     otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     tus suscripciones
+  This channel does not exist: Este canal no existe
+  This channel does not allow searching: Este canal no permite realizar búsquedas
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Este
+    canal tiene restricciones de edad y actualmente no puede verse en FreeTube.
+  Channel Tabs: Ficha del Canal
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
