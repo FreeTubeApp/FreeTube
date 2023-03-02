@@ -573,11 +573,22 @@ Channel:
     About: Über
     Channel Description: Kanalbeschreibung
     Featured Channels: Empfohlene Kanäle
+    Tags:
+      Search for: Nach „{tag}“ suchen
+      Tags: Markierungen
+    Details: Einzelheiten
+    Location: Standort
+    Joined: Beigetreten
   Added channel to your subscriptions: Der Kanal wurde deinen Abonnements hinzugefügt
   Removed subscription from {count} other channel(s): Es wurden {count} anderen Kanälen
     deabonniert
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
     entfernt
+  Channel Tabs: Kanal-Registerkarten
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Dieser
+    Kanal ist altersbeschränkt und kann derzeit nicht in FreeTube angesehen werden.
+  This channel does not allow searching: Dieser Kanal erlaubt keine Suche
+  This channel does not exist: Dieser Kanal existiert nicht
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren

@@ -586,11 +586,22 @@ Channel:
     About: 'À propos'
     Channel Description: 'Description de la chaîne'
     Featured Channels: 'Chaînes en vedette'
+    Tags:
+      Tags: Étiquettes
+      Search for: Rechercher « {tag} »
+    Details: Détails
+    Joined: Inscrit·e
+    Location: Emplacement
   Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
   Removed subscription from {count} other channel(s): Abonnement supprimé de {count}
     autre(s) chaîne(s)
   Channel has been removed from your subscriptions: La chaîne a été retirée de vos
     abonnements
+  This channel does not exist: Cette chaîne n'existe pas
+  This channel does not allow searching: Cette chaîne ne permet pas la recherche
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Cette
+    chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
+  Channel Tabs: Onglets des chaînes
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'

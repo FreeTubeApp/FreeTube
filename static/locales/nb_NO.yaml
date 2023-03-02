@@ -54,12 +54,14 @@ Search Filters:
     Videos: 'Videoer'
     Channels: 'Kanaler'
     #& Playlists
+    Movies: Filmer
   Duration:
     Duration: 'Varighet'
     All Durations: 'Alle varigheter'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
+    Medium (4 - 20 minutes): Middels (4–20 minutter)
   Search Results: 'Søkeresultater'
   Fetching results. Please wait: 'Henter resultater. Vennligst vent.'
   Fetch more results: 'Hent flere resultater'
@@ -534,11 +536,22 @@ Channel:
     About: 'Om'
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
+    Tags:
+      Tags: Etiketter
+      Search for: Søk etter «{tag}»
+    Details: Detaljer
+    Joined: Registrert
+    Location: Posisjon
   Added channel to your subscriptions: Lagt til kanal til dine abonnenter
   Removed subscription from {count} other channel(s): Fjernet abonnement fra {count}
     andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
     dine abonnement
+  This channel does not exist: Denne kanalen finnes ikke
+  This channel does not allow searching: Denne kanalen tillater ikke søk
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Denne
+    kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
+  Channel Tabs: Kanalfaner
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'

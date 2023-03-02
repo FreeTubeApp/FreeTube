@@ -500,9 +500,20 @@ Channel:
     About: '关于'
     Channel Description: '频道描述'
     Featured Channels: '列出频道'
+    Tags:
+      Search for: 搜索“{tag}”标签
+      Tags: 标签
+    Details: 详情
+    Joined: 已加入
+    Location: 位置
   Removed subscription from {count} other channel(s): 从{count}个其他频道移除订阅
   Added channel to your subscriptions: 已新增频道至您的订阅
   Channel has been removed from your subscriptions: 频道已从您的订阅中移除
+  This channel is age resticted and currently cannot be viewed in FreeTube.: 此频道对观众年龄进行了限制，当前无法在
+    FreeTube 中查看。
+  Channel Tabs: 频道标签页
+  This channel does not exist: 此频道不存在
+  This channel does not allow searching: 此频道不允许搜索
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'

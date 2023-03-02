@@ -585,10 +585,21 @@ Channel:
     About: 'حول'
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
+    Tags:
+      Tags: الوسوم
+      Search for: ابحث عن "{علامة}"
+    Details: التفاصيل
+    Joined: انضم
+    Location: الموقع
   Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
   Removed subscription from {count} other channel(s): 'تمت إزالة الاشتراك من {count}
     قناة (قنوات) أخرى'
   Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
+  Channel Tabs: علامات تبويب القنوات
+  This channel does not exist: هذه القناة غير موجودة
+  This channel does not allow searching: هذه القناة لا تسمح بالبحث
+  This channel is age resticted and currently cannot be viewed in FreeTube.: هذه القناة
+    مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'

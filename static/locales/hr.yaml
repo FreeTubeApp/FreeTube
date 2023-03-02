@@ -599,10 +599,21 @@ Channel:
     About: 'Informacije'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
+    Tags:
+      Tags: Oznake
+      Search for: Traži „{tag}”
+    Details: Detalji
+    Joined: Pridruženo
+    Location: Lokacija
   Added channel to your subscriptions: Kanal je dodan tvojim pretplatama
   Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count}
     drugih kanala
   Channel has been removed from your subscriptions: Kanal je uklonjen iz tvojih pretplata
+  Channel Tabs: Kartice kanala
+  This channel does not exist: Ovaj kanal ne postoji
+  This channel does not allow searching: Ovaj kanal ne dozvoljava pretraživanje
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Ovaj
+    kanal je dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'

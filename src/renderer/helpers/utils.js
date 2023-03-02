@@ -628,3 +628,14 @@ export function formatNumber(number, options = undefined) {
 export function isNullOrEmpty(_string) {
   return _string == null || _string === ''
 }
+
+export function getTodayDateStrLocalTimezone() {
+  const timeNow = new Date()
+  // `Date#getTimezoneOffset` returns the difference, in minutes
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
+  const timeNowStr = new Date(timeNow.getTime() - (timeNow.getTimezoneOffset() * 60000)).toISOString()
+  // `Date#toISOString` returns string with `T` as date/time separator (ISO 8601 format)
+  // e.g. 2011-10-05T14:48:00.000Z
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+  return timeNowStr.split('T')[0]
+}

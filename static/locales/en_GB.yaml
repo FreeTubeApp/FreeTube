@@ -580,6 +580,17 @@ Channel:
     About: 'About'
     Channel Description: 'Channel Description'
     Featured Channels: 'Featured Channels'
+    Tags:
+      Tags: Tags
+      Search for: Search for ‘{tag}’
+    Details: Details
+    Joined: Joined
+    Location: Location
+  This channel does not exist: This channel does not exist
+  Channel Tabs: Channel tabs
+  This channel does not allow searching: This channel does not allow searching
+  This channel is age resticted and currently cannot be viewed in FreeTube.: This
+    channel is age resticted and currently cannot be viewed in FreeTube.
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'

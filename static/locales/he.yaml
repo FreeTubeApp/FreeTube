@@ -589,6 +589,17 @@ Channel:
     About: 'על אודות'
     Channel Description: 'תיאור הערוץ'
     Featured Channels: 'ערוצים מומלצים'
+    Tags:
+      Tags: תגיות
+      Search for: חיפוש אחר „{tag}”
+    Details: פרטים
+    Joined: הצטרפות
+    Location: מקום
+  This channel does not allow searching: הערוץ הזה לא מאפשר חיפוש
+  Channel Tabs: לשוניות ערוצים
+  This channel does not exist: הערוץ הזה לא קיים
+  This channel is age resticted and currently cannot be viewed in FreeTube.: הערוץ
+    מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
