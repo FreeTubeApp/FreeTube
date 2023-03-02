@@ -553,10 +553,21 @@ Channel:
     About: 'О канале'
     Channel Description: 'Описание канала'
     Featured Channels: 'Избранные каналы'
+    Tags:
+      Tags: Метки
+      Search for: Поиск по "{tag}"
+    Details: Подробности
+    Joined: Присоединился
+    Location: Расположение
   Added channel to your subscriptions: Канал добавлен в ваши подписки
   Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их)
     канала(ов)
   Channel has been removed from your subscriptions: Канал был удалён из подписок
+  This channel does not exist: Этого канала не существует
+  This channel does not allow searching: Этот канал не позволяет выполнять поиск
+  Channel Tabs: Вкладки каналов
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Этот
+    канал ограничен по возрасту и в настоящее время не может быть просмотрен во FreeTube.
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
