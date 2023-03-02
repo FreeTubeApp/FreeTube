@@ -392,7 +392,7 @@ export default defineComponent({
             channelId = header.author.id
             channelName = header.author.name
             channelThumbnailUrl = header.author.best_thumbnail.url
-            subscriberText = header.subscribers.text
+            subscriberText = header.subscribers?.text
             break
           }
           case 'CarouselHeader': {
