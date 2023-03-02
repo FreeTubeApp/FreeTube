@@ -92,6 +92,7 @@ export default defineComponent({
       tabInfoValues: [
         'videos',
         'playlists',
+        'community',
         'about'
       ]
     }

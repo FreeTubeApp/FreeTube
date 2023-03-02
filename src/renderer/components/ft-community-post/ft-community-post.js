@@ -116,11 +116,7 @@ export default Vue.extend({
     },
 
     getBestQualityImage(imageArray) {
-      if (imageArray.length > 0) {
-        return imageArray[Math.max(0, imageArray.length - 1)].url
-      } else {
-        return ''
-      }
+      return imageArray.at(-1)?.url ?? ''
     }
   }
 })

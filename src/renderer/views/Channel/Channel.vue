@@ -321,7 +321,7 @@
           :data="latestCommunityPosts"
           role="tabpanel"
           aria-labelledby="communityTab"
-          :display="'list'"
+          display="list"
         />
         <ft-flex-box
           v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
