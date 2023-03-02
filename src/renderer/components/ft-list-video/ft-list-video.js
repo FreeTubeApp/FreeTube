@@ -463,7 +463,7 @@ export default defineComponent({
         // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
         // Notice that the value is turned to negative to be displayed as "ago"
         this.uploadedTime = new Intl.RelativeTimeFormat(this.currentLocale).format(Math.ceil(-timeDiffFromNow), timeUnit)
-      } else if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
+      } else if (this.publishedText && !this.isLive) {
         // produces a string according to the template in the locales string
         this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,

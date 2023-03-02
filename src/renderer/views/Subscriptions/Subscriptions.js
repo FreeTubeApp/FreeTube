@@ -282,6 +282,8 @@ export default defineComponent({
         videos.map(video => {
           if (video.liveNow) {
             video.publishedDate = new Date().getTime()
+          } else if (video.isUpcoming) {
+            video.publishedDate = video.premiereDate
           } else {
             video.publishedDate = calculatePublishedDate(video.publishedText)
           }
