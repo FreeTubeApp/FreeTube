@@ -372,7 +372,7 @@ function parseListItem(item) {
         dataSource: 'local',
         thumbnail: channel.author.best_thumbnail?.url,
         name: channel.author.name,
-        channelID: channel.author.id,
+        id: channel.author.id,
         subscribers,
         videos,
         handle,
