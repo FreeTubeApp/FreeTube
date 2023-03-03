@@ -116,7 +116,12 @@ export default Vue.extend({
     },
 
     getBestQualityImage(imageArray) {
-      return imageArray.at(-1)?.url ?? ''
+      const imageArrayCopy = Array.from(imageArray)
+      imageArrayCopy.sort((a, b) => {
+        return Number.parseInt(b.width) - Number.parseInt(a.width)
+      })
+
+      return imageArrayCopy.at(0)?.url ?? ''
     }
   }
 })
