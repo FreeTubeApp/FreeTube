@@ -311,7 +311,10 @@ export function parseLocalPlaylistVideo(video) {
     title: video.title.text,
     author: video.author.name,
     authorId: video.author.id,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
+    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
+    liveNow: video.is_live,
+    isUpcoming: video.is_upcoming,
+    premiereDate: video.upcoming
   }
 }
 
@@ -400,10 +403,10 @@ export function parseLocalWatchNextVideo(video) {
     author: video.author.name,
     authorId: video.author.id,
     viewCount: extractNumberFromString(video.view_count.text),
-    // CompactVideo doesn't have is_live, is_upcoming or is_premiere,
-    // so we have to make do with this for the moment, to stop toLocalePublicationString erroring
     publishedText: video.published.text === 'N/A' ? null : video.published.text,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds
+    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
+    liveNow: video.is_live,
+    isUpcoming: video.is_premiere
   }
 }
 
