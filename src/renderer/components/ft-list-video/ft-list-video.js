@@ -417,7 +417,13 @@ export default defineComponent({
       this.viewCount = this.data.viewCount
 
       if (typeof this.data.premiereDate !== 'undefined') {
-        this.publishedText = this.data.premiereDate.toLocaleString()
+        let premiereDate = this.data.premiereDate
+
+        // premiereDate will be a string when the subscriptions are restored from the cache
+        if (typeof premiereDate === 'string') {
+          premiereDate = new Date(premiereDate)
+        }
+        this.publishedText = premiereDate.toLocaleString()
       } else if (typeof (this.data.premiereTimestamp) !== 'undefined') {
         this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
       } else {
