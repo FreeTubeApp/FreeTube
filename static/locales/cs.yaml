@@ -590,6 +590,17 @@ Channel:
     About: 'O kanálu'
     Channel Description: 'Popis kanálu'
     Featured Channels: 'Doporučené kanály'
+    Tags:
+      Tags: Štítky
+      Search for: Hledat štítek „{tag}“
+    Details: Podrobnosti
+    Joined: Připojeno
+    Location: Umístěí
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Tento
+    kanál je věkově omezen a v současné době jej nelze procházet na FreeTube.
+  This channel does not exist: Tento kanál neexistuje
+  This channel does not allow searching: Tento kanál neumožňuje vyhledávání
+  Channel Tabs: Karty kanálů
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
