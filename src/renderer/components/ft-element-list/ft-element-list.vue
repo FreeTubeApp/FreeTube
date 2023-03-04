@@ -1,6 +1,6 @@
 <template>
   <ft-auto-grid
-    :grid="listType !== 'list'"
+    :grid="displayValue !== 'list'"
   >
     <ft-list-lazy-wrapper
       v-for="(result, index) in data"
@@ -8,7 +8,7 @@
       appearance="result"
       :data="result"
       :first-screen="index < 16"
-      :layout="listType"
+      :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
     />
   </ft-auto-grid>

@@ -121,8 +121,7 @@
   border-bottom: 3px solid var(--tertiary-text-color);
 }
 
-.selectedTab,
-.selectedTab:hover {
+.selectedTab {
   color: var(--primary-text-color);
   border-bottom: 3px solid var(--primary-color);
   font-weight: bold;
@@ -210,6 +209,25 @@
 .channelLineContainer h1,
 .channelLineContainer p {
   margin: 0;
+}
+
+.communityThumbnail {
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-border-radius: 200px;
+  border-radius: 200px;
+  height: 12%;
+  width: 12%;
+}
+
+.ft-community-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.community-post-container {
+  padding-left: 30%;
+  padding-right: 30%;
 }
 
 @media only screen and (max-width: 800px) {

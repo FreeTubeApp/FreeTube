@@ -655,3 +655,68 @@ export function parseLocalSubscriberCount(text) {
 
   return subscribers
 }
+
+/**
+ * Parse community posts
+ * @param {import('youtubei.js/dist/src/parser/classes/BackstagePost').default} post
+ */
+export function parseLocalCommunityPost(post) {
+  let replyCount = post.action_buttons.reply_button?.text ?? null
+  if (replyCount !== null) {
+    replyCount = parseLocalSubscriberCount(post?.action_buttons.reply_button.text)
+  }
+
+  return {
+    postText: post.content.text === 'N/A' ? '' : post.content.text,
+    postId: post.id,
+    authorThumbnails: post.author.thumbnails,
+    publishedText: post.published.text,
+    voteCount: post.vote_count,
+    postContent: parseLocalAttachment(post.attachment),
+    commentCount: replyCount,
+    author: post.author.name,
+    type: 'community'
+  }
+}
+
+function parseLocalAttachment(attachment) {
+  if (!attachment) {
+    return null
+  }
+  // image post
+  if (attachment.type === 'BackstageImage') {
+    return {
+      type: 'image',
+      content: attachment.image
+    }
+  } else if (attachment.type === 'Video') {
+    return {
+      type: 'video',
+      content: parseLocalListVideo(attachment)
+    }
+  } else if (attachment.type === 'Playlist') {
+    return {
+      type: 'playlist',
+      content: parseLocalListPlaylist(attachment)
+    }
+  } else if (attachment.type === 'PostMultiImage') {
+    return {
+      type: 'multiImage',
+      content: attachment.images.map(thumbnail => thumbnail.image)
+    }
+  } else if (attachment.type === 'Poll') {
+    return {
+      type: 'poll',
+      totalVotes: attachment.total_votes ?? 0,
+      content: attachment.choices.map(choice => {
+        return {
+          text: choice.text.text,
+          image: choice.image
+        }
+      })
+    }
+  } else {
+    console.error(attachment)
+    console.error('unknown type')
+  }
+}

@@ -13,18 +13,20 @@ import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 
 import autolinker from 'autolinker'
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
+import { copyToClipboard, extractNumberFromString, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
 import {
   invidiousAPICall,
   invidiousGetChannelId,
   invidiousGetChannelInfo,
+  invidiousGetCommunityPosts,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
 import {
   getLocalChannel,
   getLocalChannelId,
   parseLocalChannelVideos,
+  parseLocalCommunityPost,
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount
@@ -59,6 +61,7 @@ export default defineComponent({
       videoContinuationData: null,
       playlistContinuationData: null,
       searchContinuationData: null,
+      communityContinuationData: null,
       description: '',
       tags: [],
       views: 0,
@@ -70,6 +73,7 @@ export default defineComponent({
       relatedChannels: [],
       latestVideos: [],
       latestPlaylists: [],
+      latestCommunityPosts: [],
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
@@ -88,6 +92,7 @@ export default defineComponent({
       tabInfoValues: [
         'videos',
         'playlists',
+        'community',
         'about'
       ]
     }
@@ -179,20 +184,13 @@ export default defineComponent({
     showFetchMoreButton: function () {
       switch (this.currentTab) {
         case 'videos':
-          if (this.videoContinuationData !== null) {
-            return true
-          }
-          break
+          return !isNullOrEmpty(this.videoContinuationData)
         case 'playlists':
-          if (this.playlistContinuationData !== null) {
-            return true
-          }
-          break
+          return !isNullOrEmpty(this.playlistContinuationData)
+        case 'community':
+          return !isNullOrEmpty(this.communityContinuationData)
         case 'search':
-          if (this.searchContinuationData !== null) {
-            return true
-          }
-          break
+          return !isNullOrEmpty(this.searchContinuationData)
       }
 
       return false
@@ -236,6 +234,7 @@ export default defineComponent({
       this.videoContinuationData = null
       this.playlistContinuationData = null
       this.searchContinuationData = null
+      this.communityContinuationData = null
       this.showSearchBar = true
 
       if (this.id === '@@@') {
@@ -509,6 +508,10 @@ export default defineComponent({
           this.getChannelPlaylistsLocal()
         }
 
+        if (channel.has_community) {
+          this.getCommunityPostsLocal()
+        }
+
         this.showSearchBar = channel.has_search
 
         this.isLoading = false
@@ -669,6 +672,10 @@ export default defineComponent({
 
         if (response.tabs.includes('playlists')) {
           this.getPlaylistsInvidious()
+        }
+
+        if (response.tabs.includes('community')) {
+          this.getCommunityPostsInvidious()
         }
 
         this.isLoading = false
@@ -866,6 +873,68 @@ export default defineComponent({
       })
     },
 
+    getCommunityPostsLocal: async function () {
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+         */
+        const channel = this.channelInstance
+        const communityTab = await channel.getCommunity()
+        if (expectedId !== this.id) {
+          return
+        }
+        this.latestCommunityPosts = communityTab.posts.map(parseLocalCommunityPost)
+        this.communityContinuationData = communityTab.has_continuation ? communityTab : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getCommunityPostsInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getCommunityPostsLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
+         */
+        const continuation = await this.communityContinuationData.getContinuation()
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(continuation.posts.map(parseLocalCommunityPost))
+        this.communityContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    getCommunityPostsInvidious: function() {
+      invidiousGetCommunityPosts(this.id).then(posts => {
+        this.latestCommunityPosts = posts
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getCommunityPostsLocal()
+        }
+      })
+    },
+
     handleSubscription: function () {
       const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
       const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
@@ -976,6 +1045,19 @@ export default defineComponent({
               break
           }
           break
+        case 'community':
+          switch (this.apiUsed) {
+            case 'local':
+              this.getCommunityPostsLocalMore()
+              break
+            case 'invidious':
+              // not supported by invidious yet...
+              // this.getCommunityPostsInvidiousMore()
+              break
+          }
+          break
+        default:
+          console.error(this.currentTab)
       }
     },
 

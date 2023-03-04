@@ -162,7 +162,8 @@ export default defineComponent({
 
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
-      if (new URL(originalURL).hostname === 'yt3.ggpht.com') {
+      const hostname = new URL(originalURL).hostname
+      if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
           newURL = youtubeImageUrlToInvidious(originalURL, this.currentInvidiousInstance)
         }

@@ -12,6 +12,7 @@
         :to="`/playlist/${playlistId}`"
       >
         <img
+          alt=""
           :src="thumbnail"
           class="thumbnailImage"
         >

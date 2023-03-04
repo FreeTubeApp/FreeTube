@@ -74,8 +74,9 @@
     "vue-i18n": "^8.28.2",
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
+    "vue-tiny-slider": "^0.1.39",
     "vuex": "^3.6.2",
-    "youtubei.js": "^3.1.0"
+    "youtubei.js": "^3.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",

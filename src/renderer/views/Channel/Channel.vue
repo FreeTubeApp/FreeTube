@@ -114,6 +114,19 @@
               {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
             </div>
             <div
+              id="communityTab"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="communityPanel"
+              tabindex="-1"
+              :class="(currentTab==='community')?'selectedTab':''"
+              @click="changeTab('community')"
+              @keydown.left.right.enter.space="changeTab('community', $event)"
+            >
+              {{ $t("Channel.Community.Community").toUpperCase() }}
+            </div>
+            <div
               id="aboutTab"
               class="tab"
               role="tab"
@@ -300,6 +313,21 @@
         >
           <p class="message">
             {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-show="currentTab === 'community'"
+          id="communityPanel"
+          :data="latestCommunityPosts"
+          role="tabpanel"
+          aria-labelledby="communityTab"
+          display="list"
+        />
+        <ft-flex-box
+          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Community.This channel currently does not have any posts") }}
           </p>
         </ft-flex-box>
         <ft-element-list

@@ -620,6 +620,15 @@ export function formatNumber(number, options = undefined) {
   return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
 }
 
+/**
+ * This will return true if a string is null, undefined or empty.
+ * @param {string} _string the string to process
+ * @returns {bool} whether the string is empty or not
+ */
+export function isNullOrEmpty(_string) {
+  return _string == null || _string === ''
+}
+
 export function getTodayDateStrLocalTimezone() {
   const timeNow = new Date()
   // `Date#getTimezoneOffset` returns the difference, in minutes
