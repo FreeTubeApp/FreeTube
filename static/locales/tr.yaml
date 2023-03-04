@@ -523,7 +523,7 @@ About:
   Chat on Matrix: Matrix'te sohbet et
   Mastodon: Mastodon
   Please check for duplicates before posting: Lütfen bildirmeden önce bildirilmiş
-    olup olmadığını kontrol edin
+    olup olmadığına bakın
   GitHub issues: GitHub sorunları
   Report a problem: Sorun bildir
   FreeTube Wiki: FreeTube Wiki
@@ -619,6 +619,10 @@ Channel:
   Channel Tabs: Kanal Sekmeleri
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
   This channel does not exist: Bu kanal mevcut değil
+  Community:
+    Community: Topluluk
+    This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
+      gönderi yok
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'
