@@ -591,6 +591,10 @@ Channel:
   This channel does not allow searching: This channel does not allow searching
   This channel is age resticted and currently cannot be viewed in FreeTube.: This
     channel is age resticted and currently cannot be viewed in FreeTube.
+  Community:
+    This channel currently does not have any posts: This channel currently does not
+      have any posts
+    Community: Community
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
