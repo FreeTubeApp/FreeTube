@@ -568,6 +568,10 @@ Channel:
   Channel Tabs: Вкладки каналов
   This channel is age resticted and currently cannot be viewed in FreeTube.: Этот
     канал ограничен по возрасту и в настоящее время не может быть просмотрен во FreeTube.
+  Community:
+    Community: Сообщество
+    This channel currently does not have any posts: На этом канале в настоящее время
+      нет никаких записей
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
