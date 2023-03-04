@@ -19,8 +19,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      playlistLink: '',
-      channelLink: '',
+      playlistId: '',
+      channelId: '',
       title: 'Pop Music Playlist - Timeless Pop Songs (Updated Weekly 2020)',
       thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/mqdefault.jpg',
       channelName: '#RedMusic: Just Hits',
@@ -37,20 +37,6 @@ export default defineComponent({
       return this.$store.getters.getListType
     },
 
-    playlistId: function () {
-      return this.playlistLink.replace('https://www.youtube.com/playlist?list=', '')
-    },
-
-    channelId: function () {
-      if (this.channelLink === null) {
-        return null
-      }
-
-      let id = this.channelLink.replace('https://www.youtube.com/user/', '')
-      id = id.replace('https://www.youtube.com/channel/', '')
-      return id
-    },
-
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
@@ -60,10 +46,7 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    // temporary until we've migrated the whole local API to youtubei.js
     if (this.data.dataSource === 'local') {
-      this.parseLocalDataNew()
-    } else if (typeof (this.data.owner) === 'object') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -87,8 +70,8 @@ export default defineComponent({
       this.title = this.data.title
       this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
-      this.channelLink = this.data.authorUrl
-      this.playlistLink = this.data.playlistId
+      this.channelId = this.data.authorId
+      this.playlistId = this.data.playlistId
       this.videoCount = this.data.videoCount
 
       if (this.data.proxyThumbnail === false) {
@@ -98,21 +81,10 @@ export default defineComponent({
 
     parseLocalData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.firstVideo.bestThumbnail.url
-      this.channelName = this.data.owner.name
-      this.channelLink = this.data.owner.url
-      this.playlistLink = this.data.url
-      this.videoCount = this.data.length
-    },
-
-    // TODO: after the local API is fully switched to YouTube.js
-    // cleanup the old local API stuff
-    parseLocalDataNew: function () {
-      this.title = this.data.title
       this.thumbnail = this.data.thumbnail
       this.channelName = this.data.channelName
-      this.channelLink = this.data.channelId
-      this.playlistLink = this.data.playlistId
+      this.channelId = this.data.channelId
+      this.playlistId = this.data.playlistId
       this.videoCount = this.data.videoCount
     },
 
