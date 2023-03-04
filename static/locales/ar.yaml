@@ -600,6 +600,10 @@ Channel:
   This channel does not allow searching: هذه القناة لا تسمح بالبحث
   This channel is age resticted and currently cannot be viewed in FreeTube.: هذه القناة
     مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
+  Community:
+    Community: المجتمع
+    This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
+      أي مشاركات
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
