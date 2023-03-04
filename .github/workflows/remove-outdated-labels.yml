@@ -24,7 +24,7 @@ jobs:
 
   remove-closed-pr-labels:
     name: Remove closed pull request labels
-    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft')
+    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft') && (github.event.action != 'ready_for_review')
     runs-on: ubuntu-latest
     steps:
       - uses: mondeja/remove-labels-gh-action@v1.1.1
