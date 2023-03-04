@@ -600,6 +600,9 @@ Channel:
   This channel does not exist: הערוץ הזה לא קיים
   This channel is age resticted and currently cannot be viewed in FreeTube.: הערוץ
     מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
+  Community:
+    This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
+    Community: קהילה
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
