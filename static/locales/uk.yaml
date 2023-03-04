@@ -590,6 +590,9 @@ Channel:
   This channel is age resticted and currently cannot be viewed in FreeTube.: Цей канал
     має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
+  Community:
+    Community: Спільнота
+    This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
