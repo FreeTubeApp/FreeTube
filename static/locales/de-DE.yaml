@@ -580,8 +580,8 @@ Channel:
     Location: Standort
     Joined: Beigetreten
   Added channel to your subscriptions: Der Kanal wurde deinen Abonnements hinzugefügt
-  Removed subscription from {count} other channel(s): Es wurden {count} anderen Kanälen
-    deabonniert
+  Removed subscription from {count} other channel(s): Abonnement von {count} anderem/n
+    Kanal/Kanälen entfernt
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
     entfernt
   Channel Tabs: Kanal-Registerkarten
@@ -592,6 +592,7 @@ Channel:
   Community:
     This channel currently does not have any posts: Dieser Kanal enthält derzeit keine
       Beiträge
+    Community: Gemeinschaft
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
