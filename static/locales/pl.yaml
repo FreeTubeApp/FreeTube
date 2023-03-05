@@ -584,6 +584,10 @@ Channel:
   Channel Tabs: Karty kanału
   This channel does not exist: Nie ma takiego kanału
   This channel does not allow searching: Ten kanał nie zezwala na przeszukiwanie
+  Community:
+    This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
+      publikacji
+    Community: Społeczność
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
