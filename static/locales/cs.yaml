@@ -601,6 +601,10 @@ Channel:
   This channel does not exist: Tento kanál neexistuje
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
   Channel Tabs: Karty kanálů
+  Community:
+    Community: Komunita
+    This channel currently does not have any posts: Tento kanál v současné době nemá
+      žádné příspěvky
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
