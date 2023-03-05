@@ -214,6 +214,9 @@
           >
             <img
               class="channelThumbnail"
+              height="35"
+              width="35"
+              loading="lazy"
               :src="channel.thumbnail"
               :alt="isOpen ? '' : channel.name"
             >

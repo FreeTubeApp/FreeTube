@@ -50,6 +50,7 @@
           alt=""
           aria-hidden="true"
           class="chapterThumbnail"
+          loading="lazy"
           :src="chapter.thumbnail"
         >
         <div class="chapterTimestamp">
