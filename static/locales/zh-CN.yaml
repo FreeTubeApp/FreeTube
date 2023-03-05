@@ -514,6 +514,9 @@ Channel:
   Channel Tabs: 频道标签页
   This channel does not exist: 此频道不存在
   This channel does not allow searching: 此频道不允许搜索
+  Community:
+    Community: 社区
+    This channel currently does not have any posts: 此频道当前没有任何帖子
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
