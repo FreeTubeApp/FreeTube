@@ -463,7 +463,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Ustawienia eksperymentalne
-    Warning: Te ustawienia są w fazie testów i po włączeniu mogą spowodować wywalenie
+    Warning: Te ustawienia są w fazie testów i po włączeniu mogą powodować wywalanie
       się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
   Password Dialog:
     Unlock: Odblokuj
