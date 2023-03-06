@@ -132,7 +132,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.common.js',
+      vue$: 'vue/dist/vue.runtime.esm.js',
 
       'youtubei.js$': 'youtubei.js/web',
     },

@@ -133,7 +133,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.runtime.esm.js'
     },
     fallback: {
       buffer: require.resolve('buffer/'),
