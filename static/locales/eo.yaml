@@ -28,8 +28,8 @@ Close: 'Fermi'
 Back: 'Reen'
 Forward: 'Antaŭen'
 
-Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaki
-  por pli informoj.'
+Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
+  disponeblas nun!  Alklaki por pli informoj.'
 Download From Site: 'Elŝuti el retejo'
 A new blog is now available, {blogTitle}. Click to view more: ''
 
@@ -334,6 +334,9 @@ Channel:
     About: ''
     Channel Description: ''
     Featured Channels: ''
+    Details: Detaloj
+  Community:
+    Community: Komunumo
 Video:
   Mark As Watched: ''
   Remove From History: ''
