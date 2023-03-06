@@ -265,6 +265,7 @@ Settings:
         "\" tai "/" luodaksesi alikansioita.
     Enter Fullscreen on Display Rotate: Siirry koko näytön kokoiseen näytön kiertoon
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
+    Allow DASH AV1 formats: Salli DASH AV1 -formaatit
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -558,6 +559,10 @@ Channel:
     kanava on ikärajoitettu, eikä sitä voi tällä hetkellä katsoa FreeTubessa.
   This channel does not exist: Tätä kanavaa ei ole olemassa
   This channel does not allow searching: Tämä kanava ei salli etsintää
+  Community:
+    This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
+      mitään
+    Community: Yhteisö
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
