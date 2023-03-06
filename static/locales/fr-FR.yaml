@@ -602,6 +602,10 @@ Channel:
   This channel is age resticted and currently cannot be viewed in FreeTube.: Cette
     chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
+  Community:
+    Community: Communauté
+    This channel currently does not have any posts: Cette chaîne n'a actuellement
+      aucune publication
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'
