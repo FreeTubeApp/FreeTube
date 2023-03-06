@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Português'
+Locale Name: 'português'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -602,7 +602,7 @@ Channel:
     Featured Channels: 'Canais'
     Tags:
       Tags: Etiquetas
-      Search for: Procurar por "{etiqueta}"
+      Search for: Procurar por «{tag}»
     Details: Detalhes
     Joined: Aderiu a
     Location: Localização
