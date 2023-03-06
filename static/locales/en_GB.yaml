@@ -440,7 +440,7 @@ Settings:
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
-    Choose Path: Choose Path
+    Choose Path: Choose path
     Download Behavior: Download behaviour
     Open in web browser: Open in web browser
     Download in app: Download in app
@@ -452,8 +452,8 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Replace HTTP cache
     Experimental Settings: Experimental settings
-    Warning: These settings are experimental; they may cause crashes while enabled.
-      Making back-ups is highly recommended. Use at your own risk!
+    Warning: These settings are experimental, they may cause crashes while enabled.
+      Making backups is highly recommended. Use at your own risk!
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
