@@ -555,7 +555,7 @@ Channel:
     Featured Channels: 'Избранные каналы'
     Tags:
       Tags: Метки
-      Search for: Поиск по "{tag}"
+      Search for: Поиск по «{tag}»
     Details: Подробности
     Joined: Присоединился
     Location: Расположение
