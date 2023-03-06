@@ -452,9 +452,9 @@ Settings:
     Show Family Friendly Only: Mostrar solo lo apto para las familias
   Experimental Settings:
     Experimental Settings: Ajustes experimentales
-    Warning: Estas configuraciones son experimentales, pueden provocar fallos mientras
-      están activadas. Se recomienda hacer copias de seguridad. ¡Utilícelas bajo su
-      propio riesgo!
+    Warning: Estas configuraciones son experimentales, pueden causar fallos mientras
+      están habilitadas. Es muy recomendable hacer copias de seguridad. ¡Úselo bajo
+      su propio riesgo!
     Replace HTTP Cache: Reemplazar la caché HTTP
   Password Settings:
     Password Settings: Configuración de la contraseña
