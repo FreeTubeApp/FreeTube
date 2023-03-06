@@ -442,8 +442,8 @@ Settings:
   Experimental Settings:
     Experimental Settings: הגדרות ניסיוניות
     Replace HTTP Cache: החלפת מטמון HTTP
-    Warning: אלו הגדרות ניסיוניות, הן עלולות לגרום לקריסת המערכת שהן פעילות. מומלץ
-      מאוד לגבות. השימוש הוא על אחריותך בלבד!
+    Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. ביצוע גיבויים
+      מומלץ מאוד. השימוש על אחריותך בלבד!
   Password Dialog:
     Password Incorrect: הסיסמה שגויה
     Unlock: שחרור
