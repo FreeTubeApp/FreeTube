@@ -349,8 +349,8 @@ Settings:
     All playlists has been successfully imported: Alle speellijsten zijn met succes
       geïmporteerd
     Import Playlists: Afspeellijsten importeren
-    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}", item word
-      overgeslagen
+    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}",
+      item word overgeslagen
     All playlists has been successfully exported: Alle speellijsten zijn met succes
       geëxporteerd
   Distraction Free Settings:
@@ -507,9 +507,11 @@ Channel:
     About: 'Over'
     Channel Description: 'Kanaalbeschrijving'
     Featured Channels: 'Uitgelichte kanalen'
+    Tags:
+      Search for: Zoek naar ‘{tag}’
   Added channel to your subscriptions: Kanaal is toegevoegd aan uw abonnementen
-  Removed subscription from {count} other channel(s): Abonnementen van {count} andere kanalen
-    zijn verwijderd
+  Removed subscription from {count} other channel(s): Abonnementen van {count} andere
+    kanalen zijn verwijderd
   Channel has been removed from your subscriptions: Kanaal is verwijderd uit uw abonnementen
 Video:
   Mark As Watched: 'Als bekeken markeren'
@@ -747,7 +749,8 @@ Profile:
   Your default profile has been changed to your primary profile: Uw standaardprofiel
     is veranderd naar uw hoofdprofiel
   Removed {profile} from your profiles: '{profile} is verwijderd uit uw profielen'
-  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld op {profile}
+  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld
+    op {profile}
   Profile has been updated: Profiel is bijgewerkt
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
@@ -784,11 +787,11 @@ Profile:
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
   Profile Settings: Profielinstellingen
-A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost is beschikbaar,
-  {blogTitle}. Klik voor meer informatie
+A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
+  is beschikbaar, {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
-Version {versionNumber} is now available!  Click for more details: Versie {versionNumber} is nu beschikbaar! Klik
-  voor meer informatie
+Version {versionNumber} is now available!  Click for more details: Versie {versionNumber}
+  is nu beschikbaar! Klik voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
   video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als
   de video niet in uw land beschikbaar is.
@@ -860,8 +863,8 @@ Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-URL; de URL
   niet worden geopend in de app
 Open New Window: Nieuw venster openen
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
-Default Invidious instance has been set to {instance}: Standaard Invidious-instantie is ingesteld
-  op {instance}
+Default Invidious instance has been set to {instance}: Standaard Invidious-instantie
+  is ingesteld op {instance}
 Are you sure you want to open this link?: Weet je zeker dat je deze link wilt openen?
 Search Bar:
   Clear Input: Invoer wissen
