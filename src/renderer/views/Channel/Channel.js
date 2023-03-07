@@ -59,6 +59,7 @@ export default defineComponent({
       subCount: 0,
       searchPage: 2,
       videoContinuationData: null,
+      liveContinuationData: null,
       playlistContinuationData: null,
       searchContinuationData: null,
       communityContinuationData: null,
@@ -68,10 +69,12 @@ export default defineComponent({
       joined: 0,
       location: null,
       videoSortBy: 'newest',
+      liveSortBy: 'newest',
       playlistSortBy: 'newest',
       lastSearchQuery: '',
       relatedChannels: [],
       latestVideos: [],
+      latestLive: [],
       latestPlaylists: [],
       latestCommunityPosts: [],
       searchResults: [],
@@ -81,19 +84,13 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoSelectValues: [
+      videoShortLiveSelectValues: [
         'newest',
         'popular'
       ],
       playlistSelectValues: [
         'newest',
         'last'
-      ],
-      tabInfoValues: [
-        'videos',
-        'playlists',
-        'community',
-        'about'
       ]
     }
   },
@@ -152,7 +149,7 @@ export default defineComponent({
       }
     },
 
-    videoSelectNames: function () {
+    videoShortLiveSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular')
@@ -185,6 +182,8 @@ export default defineComponent({
       switch (this.currentTab) {
         case 'videos':
           return !isNullOrEmpty(this.videoContinuationData)
+        case 'live':
+          return !isNullOrEmpty(this.liveContinuationData)
         case 'playlists':
           return !isNullOrEmpty(this.playlistContinuationData)
         case 'community':
@@ -209,6 +208,28 @@ export default defineComponent({
 
     hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
+    },
+
+    hideLiveStreams: function () {
+      return this.$store.getters.getHideLiveStreams
+    },
+
+    tabInfoValues: function () {
+      const values = [
+        'videos',
+        'live',
+        'playlists',
+        'community',
+        'about'
+      ]
+
+      // remove tabs from the array based on user settings
+      if (this.hideLiveStreams) {
+        const index = values.indexOf('live')
+        values.splice(index, 1)
+      }
+
+      return values
     }
   },
   watch: {
@@ -222,7 +243,7 @@ export default defineComponent({
       }
 
       this.id = this.$route.params.id
-      this.currentTab = this.$route.params.currentTab ?? 'videos'
+      let currentTab = this.$route.params.currentTab ?? 'videos'
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
@@ -232,10 +253,17 @@ export default defineComponent({
       this.apiUsed = ''
       this.channelInstance = ''
       this.videoContinuationData = null
+      this.liveContinuationData = null
       this.playlistContinuationData = null
       this.searchContinuationData = null
       this.communityContinuationData = null
       this.showSearchBar = true
+
+      if (this.hideLiveStreams && currentTab === 'live') {
+        currentTab = 'videos'
+      }
+
+      this.currentTab = currentTab
 
       if (this.id === '@@@') {
         this.showShareMenu = false
@@ -268,6 +296,21 @@ export default defineComponent({
       }
     },
 
+    liveSortBy () {
+      this.isElementListLoading = true
+      this.latestLive = []
+      switch (this.apiUsed) {
+        case 'local':
+          this.getChannelLiveLocal()
+          break
+        case 'invidious':
+          this.channelInvidiousLive(true)
+          break
+        default:
+          this.getChannelLiveLocal()
+      }
+    },
+
     playlistSortBy () {
       this.isElementListLoading = true
       this.latestPlaylists = []
@@ -293,7 +336,14 @@ export default defineComponent({
     }
 
     this.id = this.$route.params.id
-    this.currentTab = this.$route.params.currentTab ?? 'videos'
+
+    let currentTab = this.$route.params.currentTab ?? 'videos'
+
+    if (this.hideLiveStreams && currentTab === 'live') {
+      currentTab = 'videos'
+    }
+
+    this.currentTab = currentTab
 
     if (this.id === '@@@') {
       this.showShareMenu = false
@@ -504,6 +554,10 @@ export default defineComponent({
           this.getChannelVideosLocal()
         }
 
+        if (!this.hideLiveStreams && channel.has_live_streams) {
+          this.getChannelLiveLocal()
+        }
+
         if (channel.has_playlists) {
           this.getChannelPlaylistsLocal()
         }
@@ -573,7 +627,7 @@ export default defineComponent({
         let videosTab = await channel.getVideos()
 
         if (this.videoSortBy !== 'newest') {
-          const index = this.videoSelectValues.indexOf(this.videoSortBy)
+          const index = this.videoShortLiveSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
 
@@ -608,6 +662,62 @@ export default defineComponent({
 
         this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
         this.videoContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    getChannelLiveLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+        */
+        const channel = this.channelInstance
+        let liveTab = await channel.getLiveStreams()
+
+        if (this.liveSortBy !== 'newest') {
+          const index = this.videoShortLiveSelectValues.indexOf(this.liveSortBy)
+          liveTab = await liveTab.applyFilter(liveTab.filters[index])
+        }
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestLive = parseLocalChannelVideos(liveTab.videos, channel.header.author)
+        this.liveContinuationData = liveTab.has_continuation ? liveTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getChannelInfoInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getChannelLiveLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation|import('youtubei.js/dist/src/parser/youtube/Channel').FilteredChannelList}
+         */
+        const continuation = await this.liveContinuationData.getContinuation()
+
+        this.latestLive.push(...parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
+        this.liveContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -670,6 +780,10 @@ export default defineComponent({
           this.channelInvidiousVideos()
         }
 
+        if (!this.hideLiveStreams && response.tabs.includes('streams')) {
+          this.channelInvidiousLive()
+        }
+
         if (response.tabs.includes('playlists')) {
           this.getPlaylistsInvidious()
         }
@@ -725,6 +839,47 @@ export default defineComponent({
           this.latestVideos = response.videos
         }
         this.videoContinuationData = response.continuation || null
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      })
+    },
+
+    channelInvidiousLive: function (sortByChanged) {
+      const payload = {
+        resource: 'channels',
+        id: this.id,
+        subResource: 'streams',
+        params: {
+          sort_by: this.liveSortBy,
+        }
+      }
+
+      if (sortByChanged) {
+        this.liveContinuationData = null
+      }
+
+      let more = false
+      if (this.liveContinuationData) {
+        payload.params.continuation = this.liveContinuationData
+        more = true
+      }
+
+      if (!more) {
+        this.isElementListLoading = true
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        if (more) {
+          this.latestLive.push(...response.videos)
+        } else {
+          this.latestLive = response.videos
+        }
+        this.liveContinuationData = response.continuation || null
         this.isElementListLoading = false
       }).catch((err) => {
         console.error(err)
@@ -1022,6 +1177,16 @@ export default defineComponent({
               break
             case 'invidious':
               this.channelInvidiousVideos()
+              break
+          }
+          break
+        case 'live':
+          switch (this.apiUsed) {
+            case 'local':
+              this.getChannelLiveLocalMore()
+              break
+            case 'invidious':
+              this.channelInvidiousLive()
               break
           }
           break

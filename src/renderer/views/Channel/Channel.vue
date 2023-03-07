@@ -101,6 +101,20 @@
               {{ $t("Channel.Videos.Videos").toUpperCase() }}
             </div>
             <div
+              v-if="!hideLiveStreams"
+              id="liveTab"
+              class="tab"
+              :class="(currentTab==='live')?'selectedTab':''"
+              role="tab"
+              aria-selected="true"
+              aria-controls="livePanel"
+              tabindex="0"
+              @click="changeTab('live')"
+              @keydown.left.right.enter.space="changeTab('live', $event)"
+            >
+              {{ $t("Channel.Live.Live").toUpperCase() }}
+            </div>
+            <div
               id="playlistsTab"
               class="tab"
               role="tab"
@@ -265,11 +279,21 @@
       <ft-select
         v-show="currentTab === 'videos' && latestVideos.length > 0"
         class="sortSelect"
-        :value="videoSelectValues[0]"
-        :select-names="videoSelectNames"
-        :select-values="videoSelectValues"
+        :value="videoShortLiveSelectValues[0]"
+        :select-names="videoShortLiveSelectNames"
+        :select-values="videoShortLiveSelectValues"
         :placeholder="$t('Search Filters.Sort By.Sort By')"
         @change="videoSortBy = $event"
+      />
+      <ft-select
+        v-if="!hideLiveStreams"
+        v-show="currentTab === 'live' && latestLive.length > 0"
+        class="sortSelect"
+        :value="videoShortLiveSelectValues[0]"
+        :select-names="videoShortLiveSelectNames"
+        :select-values="videoShortLiveSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="liveSortBy = $event"
       />
       <ft-select
         v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
@@ -299,6 +323,21 @@
         >
           <p class="message">
             {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-if="!hideLiveStreams"
+          v-show="currentTab === 'live'"
+          id="livePanel"
+          :data="latestLive"
+          role="tabpanel"
+          aria-labelledby="liveTab"
+        />
+        <ft-flex-box
+          v-if="!hideLiveStreams && currentTab === 'live' && latestLive.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Live.This channel does not currently have any live streams") }}
           </p>
         </ft-flex-box>
         <ft-element-list
