@@ -315,7 +315,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|live|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|live|streams|playlists|about|community|channels))?\/?$/
 
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
@@ -422,6 +422,7 @@ const actions = {
         let subPath = null
         switch (match.groups.tab) {
           case 'live':
+          case 'streams':
             subPath = 'live'
             break
           case 'playlists':
