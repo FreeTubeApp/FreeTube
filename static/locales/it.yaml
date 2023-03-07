@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'italiano'
+Locale Name: 'Italiano'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -468,9 +468,8 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Impostazioni sperimentali
-    Warning: Queste impostazioni sono sperimentali e possono causare arresti anomali
-      quando sono abilitate. Si consiglia vivamente di eseguire dei backup. Usa a
-      proprio rischio e pericolo!
+    Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
+      Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
   Password Dialog:
     Enter Password To Unlock: Inserisci la password per sbloccare le impostazioni
     Password Incorrect: Password non corretta
