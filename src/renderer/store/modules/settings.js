@@ -227,6 +227,7 @@ const state = {
   removeVideoMetaFiles: true,
   saveWatchedProgress: true,
   saveVideoHistoryWithLastViewedPlaylist: true,
+  scrollbarWidth: 6,
   showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',

@@ -54,6 +54,9 @@ export default defineComponent({
     isOpen: function () {
       return this.$store.getters.getIsSideNavOpen
     },
+    scrollbarWidth: function() {
+      return this.$store.getters.getScrollbarWidth
+    },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
@@ -131,6 +134,8 @@ export default defineComponent({
     mainColor: 'checkThemeSettings',
 
     secColor: 'checkThemeSettings',
+
+    scrollbarWidth: 'setScrollbarWidth',
 
     $route () {
       // react to route changes...
@@ -500,6 +505,11 @@ export default defineComponent({
         // Open links externally
         openExternalLink(this.lastExternalLinkToBeOpened)
       }
+    },
+
+    setScrollbarWidth: function() {
+      const root = document.querySelector(':root')
+      root.style.setProperty('--scrollbar-width', `${this.$store.getters.getScrollbarWidth}px`)
     },
 
     setWindowTitle: function() {

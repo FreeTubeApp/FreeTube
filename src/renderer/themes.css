@@ -933,7 +933,7 @@ a:visited {
 }
 
 ::-webkit-scrollbar {
-	width: 6px;
+	width: var(--scrollbar-width, 6px);
   height: 6px;
 }
 

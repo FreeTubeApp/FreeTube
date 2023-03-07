@@ -41,6 +41,15 @@
     </div>
     <ft-flex-box>
       <ft-slider
+        :label="$t('Settings.Theme Settings.Scrollbar Width')"
+        :default-value="scrollbarWidth"
+        :min-value="minScrollbarWidth"
+        :max-value="maxScrollbarWidth"
+        :step="scrollbarWidthStep"
+        value-extension="px"
+        @change="updateScrollbarWidth(parseInt($event))"
+      />
+      <ft-slider
         :label="$t('Settings.Theme Settings.UI Scale')"
         :default-value="uiScale"
         :min-value="minUiScale"

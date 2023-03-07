@@ -23,6 +23,9 @@ export default defineComponent({
       minUiScale: 50,
       maxUiScale: 300,
       uiScaleStep: 5,
+      minScrollbarWidth: 5,
+      maxScrollbarWidth: 25,
+      scrollbarWidthStep: 1,
       disableSmoothScrollingToggleValue: false,
       showRestartPrompt: false,
       restartPromptValues: [
@@ -58,6 +61,10 @@ export default defineComponent({
 
     isSideNavOpen: function () {
       return this.$store.getters.getIsSideNavOpen
+    },
+
+    scrollbarWidth: function() {
+      return this.$store.getters.getScrollbarWidth
     },
 
     uiScale: function () {
@@ -156,6 +163,7 @@ export default defineComponent({
       'updateMainColor',
       'updateSecColor',
       'updateExpandSideBar',
+      'updateScrollbarWidth',
       'updateUiScale',
       'updateDisableSmoothScrolling',
       'updateHideLabelsSideBar',
