@@ -227,7 +227,7 @@ export default defineComponent({
       let count = 0
 
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
-        const splitCSVRegex = /(?:^|,|\n)(?:"((?:[^"]|"")*)"|([^\n",]*))/g
+        const splitCSVRegex = /(?:^|,|\n)(?:"((?:[^"]|"")*)"|([^,"\n]*))/g
         return [...yt.matchAll(splitCSVRegex)].map(s => {
           let newVal = s[1]
           if (newVal.startsWith('"')) {
