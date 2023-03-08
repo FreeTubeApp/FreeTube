@@ -247,6 +247,7 @@ export default defineComponent({
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
+      this.latestLive = []
       this.latestPlaylists = []
       this.searchResults = []
       this.shownElementList = []
