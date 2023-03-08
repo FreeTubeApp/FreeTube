@@ -448,8 +448,8 @@ Settings:
     Hide Unsubscribe Button: Skrýt tlačítko ke zrušení odběru
   Experimental Settings:
     Experimental Settings: Experimentální nastavení
-    Warning: Tato nastavení jsou experimentální, při jejich aktivaci dochází k pádům.
-      Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
+    Warning: Tato nastavení jsou experimentální, při jejich aktivaci může docházet
+      k pádům. Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
   Password Dialog:
     Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
@@ -590,6 +590,21 @@ Channel:
     About: 'O kanálu'
     Channel Description: 'Popis kanálu'
     Featured Channels: 'Doporučené kanály'
+    Tags:
+      Tags: Štítky
+      Search for: Hledat štítek „{tag}“
+    Details: Podrobnosti
+    Joined: Připojeno
+    Location: Umístěí
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Tento
+    kanál je věkově omezen a v současné době jej nelze procházet na FreeTube.
+  This channel does not exist: Tento kanál neexistuje
+  This channel does not allow searching: Tento kanál neumožňuje vyhledávání
+  Channel Tabs: Karty kanálů
+  Community:
+    Community: Komunita
+    This channel currently does not have any posts: Tento kanál v současné době nemá
+      žádné příspěvky
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'

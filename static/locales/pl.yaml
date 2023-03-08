@@ -463,7 +463,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Ustawienia eksperymentalne
-    Warning: Te ustawienia są w fazie testów i po włączeniu mogą spowodować wywalenie
+    Warning: Te ustawienia są w fazie testów i po włączeniu mogą powodować wywalanie
       się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
   Password Dialog:
     Unlock: Odblokuj
@@ -568,11 +568,26 @@ Channel:
     About: 'O kanale'
     Channel Description: 'Opis kanału'
     Featured Channels: 'Polecane kanały'
+    Details: Szczegóły
+    Joined: Data dołączenia
+    Location: Lokalizacja
+    Tags:
+      Tags: Tagi
+      Search for: Szukaj „{tag}”
   Added channel to your subscriptions: Dodano kanał do twoich subskrypcji
   Removed subscription from {count} other channel(s): Usunięto subskrypcje z {count}
     pozostałych kanałów
   Channel has been removed from your subscriptions: Kanał został usunięty z twoich
     subskrypcji
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Kanał
+    ten ma ograniczenie wiekowe, dlatego nie zostanie wyświetlony we FreeTube.
+  Channel Tabs: Karty kanału
+  This channel does not exist: Nie ma takiego kanału
+  This channel does not allow searching: Ten kanał nie zezwala na przeszukiwanie
+  Community:
+    This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
+      publikacji
+    Community: Społeczność
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -812,7 +827,7 @@ Canceled next video autoplay: 'Anulowano odtworzenie następnego filmu'
 
 Yes: 'Tak'
 No: 'Nie'
-Locale Name: Polski
+Locale Name: polski
 Profile:
   '{profile} is now the active profile': '{profile} jest teraz aktywnym profilem'
   Your default profile has been changed to your primary profile: Twój domyślny profil

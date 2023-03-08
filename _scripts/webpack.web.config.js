@@ -22,17 +22,10 @@ const config = {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
   },
-  externals: [
-    {
-      electron: '{}'
-    },
-    ({ request }, callback) => {
-      if (request.startsWith('youtubei.js')) {
-        return callback(null, '{}')
-      }
-      callback()
-    }
-  ],
+  externals: {
+    electron: '{}',
+    'youtubei.js': '{}'
+  },
   module: {
     rules: [
       {
@@ -140,7 +133,7 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.runtime.esm.js'
     },
     fallback: {
       buffer: require.resolve('buffer/'),

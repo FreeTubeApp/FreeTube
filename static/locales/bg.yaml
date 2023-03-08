@@ -459,8 +459,9 @@ Settings:
   Experimental Settings:
     Experimental Settings: Експериментални настройки
     Replace HTTP Cache: Замяна на HTTP кеша
-    Warning: Тези настройки са експериментални и причиняват сривове, докато са разрешени.
-      Силно се препоръчва създаването на резервни копия. Използвайте на свой риск!
+    Warning: Тези настройки са експериментални и може да причинят сривове, докато
+      са разрешени. Силно се препоръчва създаването на резервни копия. Използвайте
+      на свой риск!
   Password Settings:
     Password Settings: Настройки на парола
     Set Password To Prevent Access: Задаване на парола, за предотвратяване на достъпа
@@ -604,6 +605,21 @@ Channel:
     About: 'Относно'
     Channel Description: 'Описание на канала'
     Featured Channels: 'Препоръчани канали'
+    Tags:
+      Tags: Етикети
+      Search for: Търсене за "{tag}"
+    Details: Детайли
+    Joined: Присъедини се към
+    Location: Местоположение
+  Community:
+    Community: Общност
+    This channel currently does not have any posts: В момента този канал няма никакви
+      публикации
+  This channel does not exist: Каналът не съществува
+  This channel does not allow searching: Каналът не позволява търсене
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Каналът
+    е възрастово ограничен и в момента не може да бъде гледан във FreeTube.
+  Channel Tabs: Раздели на каналите
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'

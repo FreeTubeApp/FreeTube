@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Português'
+Locale Name: 'português'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -600,6 +600,21 @@ Channel:
     About: 'Acerca'
     Channel Description: 'Descrição'
     Featured Channels: 'Canais'
+    Tags:
+      Tags: Etiquetas
+      Search for: Procurar por «{tag}»
+    Details: Detalhes
+    Joined: Aderiu a
+    Location: Localização
+  This channel does not exist: Este canal não existe
+  This channel does not allow searching: Este canal não permite pesquisas
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Este
+    canal tem restrição de idade e atualmente não pode ser visualizado no Free Tube.
+  Channel Tabs: Separadores de canais
+  Community:
+    This channel currently does not have any posts: Neste momento, este canal não
+      tem publicações
+    Community: Comunidade
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'

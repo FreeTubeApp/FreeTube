@@ -38,7 +38,7 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    if (this.data.dataSource === 'local' || typeof (this.data.avatars) !== 'undefined') {
+    if (this.data.dataSource === 'local') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -46,14 +46,14 @@ export default defineComponent({
   },
   methods: {
     parseLocalData: function () {
-      this.thumbnail = this.data.thumbnail ?? this.data.bestAvatar.url
+      this.thumbnail = this.data.thumbnail
 
       if (!this.thumbnail.includes('https:')) {
         this.thumbnail = `https:${this.thumbnail}`
       }
 
       this.channelName = this.data.name
-      this.id = this.data.channelID
+      this.id = this.data.id
       if (this.hideChannelSubscriptions || this.data.subscribers === null) {
         this.subscriberCount = null
       } else {

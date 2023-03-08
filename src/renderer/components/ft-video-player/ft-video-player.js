@@ -18,26 +18,18 @@ import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 
+// YouTube now throttles if you use the `Range` header for the DASH formats, instead of the range query parameter
+// videojs-http-streaming calls this hook everytime it makes a request,
+// so we can use it to convert the Range header into the range query parameter for the streaming URLs
+videojs.Vhs.xhr.beforeRequest = (options) => {
+  if (options.headers?.Range && new URL(options.uri).hostname.endsWith('.googlevideo.com')) {
+    options.uri += `&range=${options.headers.Range.split('=')[1]}`
+    delete options.headers.Range
+  }
+}
+
 export default defineComponent({
   name: 'FtVideoPlayer',
-  beforeRouteLeave: function () {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
-    if (this.player !== null) {
-      this.exitFullWindow()
-    }
-    if (this.player !== null && !this.player.isInPictureInPicture()) {
-      this.player.dispose()
-      this.player = null
-      clearTimeout(this.mouseTimeout)
-    } else if (this.player.isInPictureInPicture()) {
-      this.player.play()
-    }
-
-    if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
-    }
-  },
   props: {
     format: {
       type: String,
@@ -103,8 +95,6 @@ export default defineComponent({
       maxFramerate: 0,
       activeSourceList: [],
       activeAdaptiveFormats: [],
-      mouseTimeout: null,
-      touchTimeout: null,
       playerStats: null,
       statsModal: null,
       showStatsModal: false,
@@ -343,13 +333,13 @@ export default defineComponent({
     }
   },
   beforeDestroy: function () {
+    document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {
       this.exitFullWindow()
 
       if (!this.player.isInPictureInPicture()) {
         this.player.dispose()
         this.player = null
-        clearTimeout(this.mouseTimeout)
       }
     }
 
@@ -476,9 +466,6 @@ export default defineComponent({
 
         document.removeEventListener('keydown', this.keyboardShortcutHandler)
         document.addEventListener('keydown', this.keyboardShortcutHandler)
-
-        this.player.on('mousemove', this.hideMouseTimeout)
-        this.player.on('mouseleave', this.removeMouseTimeout)
 
         this.player.on('volumechange', this.updateVolume)
         if (this.videoVolumeMouseScroll) {
@@ -1711,22 +1698,6 @@ export default defineComponent({
         this.player.exitFullscreen()
       } else {
         this.player.requestFullscreen()
-      }
-    },
-
-    hideMouseTimeout: function () {
-      if (typeof this.$refs.video !== 'undefined') {
-        this.$refs.video.style.cursor = 'default'
-        clearTimeout(this.mouseTimeout)
-        this.mouseTimeout = setTimeout(() => {
-          this.$refs.video.style.cursor = 'none'
-        }, 2650)
-      }
-    },
-
-    removeMouseTimeout: function () {
-      if (this.mouseTimeout !== null) {
-        clearTimeout(this.mouseTimeout)
       }
     },
 

@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Dansk'
+Locale Name: 'dansk'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -29,8 +29,8 @@ Close: 'Luk'
 Back: 'Tilbage'
 Forward: 'Fremad'
 
-Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} er nu tilgængelig!  Klik
-  for flere detaljer'
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
+  er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
   {blogTitle}. Klik for at vise mere'
@@ -152,7 +152,8 @@ Settings:
     Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
       ved opstart
     System Default: Systemstandard
-    The currently set default instance is {instance}: Den nuværende standardinstans er {instance}
+    The currently set default instance is {instance}: Den nuværende standardinstans
+      er {instance}
     Current Invidious Instance: Nuværende Invidious-instans
     No default instance has been set: Ingen standardinstans er angivet
     Set Current Instance as Default: Angiv Nuværende Instans som Standard
@@ -323,8 +324,8 @@ Settings:
     Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
     Export Playlists: Eksportér Playlister
-    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer objektet
-      over
+    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer
+      objektet over
     Import Playlists: Importér Playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
       succesfuldt
@@ -532,7 +533,8 @@ Channel:
   Unsubscribe: 'Afmeld'
   Channel has been removed from your subscriptions: 'Kanal er blevet fjernet fra dine
     abonnementer'
-  Removed subscription from {count} other channel(s): 'Fjernede abonnement fra {count} andre kanaler'
+  Removed subscription from {count} other channel(s): 'Fjernede abonnement fra {count}
+    andre kanaler'
   Added channel to your subscriptions: 'Føjede kanal til dine abonnementer'
   Search Channel: 'Kanalsøgning'
   Your search results have returned 0 results: 'Dine søgeresultater har givet 0 resultater'
@@ -846,8 +848,8 @@ Channels:
   Empty: Din kanalliste er i øjeblikket tom.
   Unsubscribe: Afmeld
   Unsubscribed: '{channelName} er fjernet fra dine abonnementer'
-Default Invidious instance has been set to {instance}: Standard Invidious-instans er blevet
-  sat til {instance}
+Default Invidious instance has been set to {instance}: Standard Invidious-instans
+  er blevet sat til {instance}
 Default Invidious instance has been cleared: Standard Invidious-instans er blevet
   ryddet
 Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?

@@ -557,10 +557,23 @@ Channel:
     About: 'Sobre'
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais destacados'
+    Tags:
+      Search for: Procurar por “{tag}”
+      Tags: Etiquetas
+    Details: Detalhes
+    Location: Localização
   Added channel to your subscriptions: Canal adicionado às suas inscrições
   Removed subscription from {count} other channel(s): Inscrição removida de outros
     {count} canais
   Channel has been removed from your subscriptions: O canal foi removido da suas inscrições
+  This channel does not exist: Este canal não existe
+  This channel does not allow searching: Este canal não permite a busca
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Este
+    canal é resiliente à idade e atualmente não pode ser visto no FreeTube.
+  Community:
+    Community: Comunidade
+    This channel currently does not have any posts: Neste momento, este canal não
+      tem publicações
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
@@ -801,7 +814,7 @@ Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo v
 
 Yes: 'Sim'
 No: 'Não'
-Locale Name: Português (BR)
+Locale Name: português (BR)
 Profile:
   Delete Profile: Deletar Perfil
   Update Profile: Atualizar Perfil

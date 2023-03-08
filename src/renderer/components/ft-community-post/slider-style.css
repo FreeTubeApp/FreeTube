@@ -1,0 +1,11 @@
+.tns-nav .tns-nav-active {
+  background-color: #999;
+}
+
+.tns-nav button {
+  background-color: #ddd;
+  border-radius: 50%;
+  height: 1.5em;
+  padding: 0;
+  width: 1.5em;
+}

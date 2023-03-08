@@ -1,0 +1,149 @@
+/* stylelint-disable property-no-vendor-prefix */
+@use '../../scss-partials/_ft-list-item';
+
+.outside {
+  margin: auto;
+  width: 40%;
+}
+
+.circle {
+  background-color: transparent;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  display: block;
+  float: left;
+  height: 10px;
+  left: 5px;
+  position: relative;
+  top: 8px;
+  width: 10px;
+}
+
+.poll-text {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 5px 25px;
+}
+
+.poll-option {
+  padding-bottom: 10px;
+}
+
+.communityImage {
+  height: 100%;
+  width: 100%;
+}
+
+.communityThumbnail {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  height: 55px;
+  margin-right: 5px;
+  width: 55px;
+}
+
+.author-div {
+  display: flex;
+
+  .authorName {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px 6px 0 5px;
+  }
+
+  .publishedText {
+    font-size: 15px;
+    margin: 5px 6px 0 5px;
+  }
+}
+
+.bottomSection {
+  color: var(--tertiary-text-color);
+  display: block;
+  flex-direction: column;
+  font-size: 15px;
+  margin-top: 4px;
+  max-width: 210px;
+  text-align: left;
+
+  @media screen and (max-width: 680px) {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .likeBar {
+    border-radius: 4px;
+    height: 8px;
+    margin-bottom: 4px;
+  }
+
+  .likeCount {
+    margin-left: 5px;
+    margin-right: 6px;
+  }
+
+  .dislikeCount {
+    margin-right: 10px;
+  }
+}
+
+.playlistWrapper {
+  display: flex;
+
+  .videoThumbnail {
+    display: flex;
+    margin-bottom: auto;
+    margin-top: auto;
+    position: relative;
+    width: fit-content;
+
+    .thumbnailImage {
+      display: block;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  .playlistText {
+    margin-left: 10px;
+    width: 50%;
+    word-wrap: break-word;
+
+    .playlistAuthor {
+      font-size: small;
+
+      .playlistVideoCount {
+        font-size: smaller;
+      }
+    }
+
+    .playlistTitle {
+      color: var(--primary-text-color);
+    }
+
+    .playlistPreviewVideos {
+      color: var(--primary-text-color);
+      display: flex;
+      font-size: small;
+      padding-top: 10px;
+      text-decoration-line: none;
+      width: 100%;
+    }
+
+    .playlistPreviewVideoTitle {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+  }
+}
+
+.ft-list-item.grid {
+  min-height: 0 !important;
+  padding-bottom: 20px;
+}

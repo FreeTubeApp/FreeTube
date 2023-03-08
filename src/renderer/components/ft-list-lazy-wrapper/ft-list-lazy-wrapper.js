@@ -2,13 +2,15 @@ import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+import FtCommunityPost from '../ft-community-post/ft-community-post.vue'
 
 export default defineComponent({
   name: 'FtListLazyWrapper',
   components: {
     'ft-list-video': FtListVideo,
     'ft-list-channel': FtListChannel,
-    'ft-list-playlist': FtListPlaylist
+    'ft-list-playlist': FtListPlaylist,
+    'ft-community-post': FtCommunityPost
   },
   props: {
     data: {
