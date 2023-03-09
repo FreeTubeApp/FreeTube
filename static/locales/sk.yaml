@@ -53,12 +53,14 @@ Search Filters:
     Videos: 'Videá'
     Channels: 'Kanály'
     #& Playlists
+    Movies: Filmy
   Duration:
     Duration: 'Trvanie'
     All Durations: 'Všetky trvania'
     Short (< 4 minutes): 'Krátke (menej ako 4 minúty)'
     Long (> 20 minutes): 'Dlhé (viac ako 20 minút)'
   # On Search Page
+    Medium (4 - 20 minutes): Stredné (4 až 20 minút)
   Search Results: 'Výsledky vyhľadávania'
   Fetching results. Please wait: 'Načítavajú sa výsledky. Prosím čakajte'
   Fetch more results: 'Načítať viac výsledkov'
@@ -535,11 +537,11 @@ Video:
   Save Video: Uložiť Video
   Sponsor Block category:
     music offtopic: hudba ostatné
-    interaction: interakcia
-    self-promotion: samopropagácia
-    outro: záver
-    intro: úvod
-    sponsor: sponzor
+    interaction: Interakcia
+    self-promotion: Samopropagácia
+    outro: Záver
+    intro: Úvod
+    sponsor: Sponzor
   Skipped segment: Preskočený segment
   translated from English: preložené z angličtiny
   Stats:
@@ -711,6 +713,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(Predvolené: '{defaultCustomArguments}')"
     External Player: Po výbere externého prehrávača sa na miniatúre zobrazí ikona
       na otvorenie videa (zoznam videí, ak je podporovaný) v externom prehrávači.
+      Pozor, nastavenia Invidious nemajú vplyv na externé prehrávače.
     Custom External Player Executable: V predvolenom nastavení bude FreeTube predpokladať,
       že vybraný externý prehrávač možno nájsť prostredníctvom premennej prostredia
       PATH. V prípade potreby tu môžete nastaviť vlastnú cestu.
@@ -782,3 +785,10 @@ Default Invidious instance has been cleared: Predvolená Invidious inštancia bo
 External link opening has been disabled in the general settings: V nastaveniach bolo
   vypnuté otváranie odkazov v externých aplikáciach
 Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?
+New Window: Nové okno
+Channels:
+  Channels: Kanály
+  Title: List kanálov
+  Count: '{číslo} kanál(e) sa nenašli.'
+  Search bar placeholder: Vyhľadávať kanále
+Preferences: Preferencie
