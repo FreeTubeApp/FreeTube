@@ -457,9 +457,9 @@ Settings:
     Download Behavior: Comportamento da descarga
   Experimental Settings:
     Experimental Settings: Configuracións experimentais
-    Warning: Estas opcións da configuración son experimentais e provocan fallos mentres
-      están activadas. É moi recomendable facer copias de seguridade. Useas baixo
-      o seu propio risco!
+    Warning: Estas opcións de configuración son experimentais, poden causar fallos
+      mentres están activadas. É moi recomendable facer copias de seguridade. Use
+      baixo o seu propio risco!
     Replace HTTP Cache: Substitúe a caché HTTP
   Password Settings:
     Password Settings: Configuración do contrasinal
