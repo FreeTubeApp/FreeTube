@@ -226,3 +226,33 @@ function parseInvidiousCommunityAttachments(data) {
 
   console.error('New Invidious Community Post Type: ' + data.type)
 }
+
+/**
+ * video.js only supports MP4 DASH not WebM DASH
+ * so we filter out the WebM DASH formats
+ * @param {any[]} formats
+ * @param {boolean} allowAv1 Use the AV1 formats if they are available
+ */
+export function filterInvidiousFormats(formats, allowAv1 = false) {
+  const audioFormats = []
+  const h264Formats = []
+  const av1Formats = []
+
+  formats.forEach(format => {
+    const mimeType = format.type
+
+    if (mimeType.startsWith('audio/mp4')) {
+      audioFormats.push(format)
+    } else if (allowAv1 && mimeType.startsWith('video/mp4; codecs="av01')) {
+      av1Formats.push(format)
+    } else if (mimeType.startsWith('video/mp4; codecs="avc')) {
+      h264Formats.push(format)
+    }
+  })
+
+  if (allowAv1 && av1Formats.length > 0) {
+    return [...audioFormats, ...av1Formats]
+  } else {
+    return [...audioFormats, ...h264Formats]
+  }
+}

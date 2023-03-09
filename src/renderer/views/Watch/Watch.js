@@ -22,14 +22,14 @@ import {
   showToast
 } from '../../helpers/utils'
 import {
-  filterFormats,
+  filterLocalFormats,
   getLocalVideoInfo,
   mapLocalFormat,
   parseLocalSubscriberCount,
   parseLocalTextRuns,
   parseLocalWatchNextVideo
 } from '../../helpers/api/local'
-import { invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { filterInvidiousFormats, invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'Watch',
@@ -486,7 +486,7 @@ export default defineComponent({
             if (result.streaming_data.formats.length > 0) {
               this.videoSourceList = result.streaming_data.formats.map(mapLocalFormat).reverse()
             } else {
-              this.videoSourceList = filterFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats).map(mapLocalFormat).reverse()
+              this.videoSourceList = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats).map(mapLocalFormat).reverse()
             }
             this.adaptiveFormats = this.videoSourceList
 
@@ -584,7 +584,7 @@ export default defineComponent({
             }).reverse()
 
             // we need to alter the result object so the toDash function uses the filtered formats too
-            result.streaming_data.adaptive_formats = filterFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
+            result.streaming_data.adaptive_formats = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
 
             this.adaptiveFormats = result.streaming_data.adaptive_formats.map(mapLocalFormat)
             if (this.proxyVideos) {
@@ -668,13 +668,14 @@ export default defineComponent({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
-          this.adaptiveFormats = result.adaptiveFormats.map((format) => {
-            format.bitrate = parseInt(format.bitrate)
-            if (typeof format.resolution !== 'undefined') {
-              format.height = parseInt(format.resolution.replace('p', ''))
-            }
-            return format
-          })
+          this.adaptiveFormats = filterInvidiousFormats(result.adaptiveFormats, this.allowDashAv1Formats)
+            .map((format) => {
+              format.bitrate = parseInt(format.bitrate)
+              if (typeof format.resolution !== 'undefined') {
+                format.height = parseInt(format.resolution.replace('p', ''))
+              }
+              return format
+            })
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {

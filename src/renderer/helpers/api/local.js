@@ -562,6 +562,7 @@ export function mapLocalFormat(format) {
     bitrate: format.bitrate,
     mimeType: format.mime_type,
     height: format.height,
+    width: format.width,
     url: format.url
   }
 }
@@ -606,7 +607,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
  * @param {Format[]} formats
  * @param {boolean} allowAv1 Use the AV1 formats if they are available
  */
-export function filterFormats(formats, allowAv1 = false) {
+export function filterLocalFormats(formats, allowAv1 = false) {
   const audioFormats = []
   const h264Formats = []
   const av1Formats = []
