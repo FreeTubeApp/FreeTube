@@ -142,8 +142,8 @@ Settings:
     Region for Trending: 'Region för Trender'
         #! List countries
     View all Invidious instance information: Visa all Invidious instansinformation
-    System Default: Standard inställningar
-    Clear Default Instance: Rensa standrad instansen
+    System Default: Standardinställningar
+    Clear Default Instance: Rensa standard instansen
     Set Current Instance as Default: Välj den nuvarande instansen som standard
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
       vid start
@@ -239,7 +239,7 @@ Settings:
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
   Privacy Settings:
-    Privacy Settings: 'Integritets inställningar'
+    Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
     Save Watched Progress: 'Spara sedd framsteg'
     Clear Search Cache: 'Rensa sökcache'
@@ -255,7 +255,7 @@ Settings:
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
   Subscription Settings:
-    Subscription Settings: 'Prenumerations inställningar'
+    Subscription Settings: 'Prenumerationsinställningar'
     Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
@@ -462,7 +462,7 @@ Profile:
     kanalen från någon annan profil.'
 #On Channel Page
   Profile Filter: Profil-filter
-  Profile Settings: Profil inställningar
+  Profile Settings: Profilinställningar
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
