@@ -115,7 +115,7 @@ Settings:
   # On Settings Page
   Settings: 'Inställningar'
   General Settings:
-    General Settings: 'General'
+    General Settings: 'Allmänna inställningar'
     Check for Updates: 'Sök efter uppdateringar'
     Check for Latest Blog Posts: 'Sök efter senaste blogginlägg'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen
@@ -147,7 +147,7 @@ Settings:
     Set Current Instance as Default: Välj den nuvarande instansen som standard
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
       vid start
-    No default instance has been set: Ingen standard instans är vald
+    No default instance has been set: Ingen standardinstans är vald
     The currently set default instance is {instance}: Den nuvarande aktiva instansen är {instance}
     Current Invidious Instance: Aktiva Invidious Instansen
     External Link Handling:
@@ -156,10 +156,10 @@ Settings:
       Open Link: Öppna länk
       External Link Handling: Hantering av extern länk
   Theme Settings:
-    Theme Settings: 'Tema inställningar'
+    Theme Settings: 'Temainställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
     Base Theme:
-      Base Theme: 'Grund Tema'
+      Base Theme: 'Grundtema'
       Black: 'Svart'
       Dark: 'Mörkt'
       Light: 'Ljust'
@@ -239,7 +239,7 @@ Settings:
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
   Privacy Settings:
-    Privacy Settings: 'Integritets inställningar'
+    Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
     Save Watched Progress: 'Spara sedd framsteg'
     Clear Search Cache: 'Rensa sökcache'
@@ -255,12 +255,12 @@ Settings:
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
   Subscription Settings:
-    Subscription Settings: 'Prenumerations inställningar'
+    Subscription Settings: 'Prenumerationsinställningar'
     Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
   Data Settings:
-    Data Settings: 'Data inställningar'
+    Data Settings: 'Datainställningar'
     Select Import Type: 'Välj import-typen'
     Select Export Type: 'Välj export-typen'
     Import Subscriptions: 'Importera prenumerationer'
@@ -352,7 +352,7 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy-protokoll
     Enable Tor / Proxy: Aktivera Tor / Proxy
-    Proxy Settings: Proxy Inställningar
+    Proxy Settings: Proxyinställningar
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering
@@ -399,7 +399,7 @@ About:
   Donate: Donera
   these people and projects: dessa människor och projekt
   FreeTube is made possible by: FreeTube möjliggörs av
-  Credits: Krediter
+  Credits: Erkännande
   Translate: Översätta
   room rules: Rumsregler
   Please read the: Vänligen läs
@@ -413,7 +413,7 @@ About:
   GitHub issues: GitHub-problem
   Report a problem: Rapportera ett problem
   FAQ: Frågor och svar
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube Wiki: FreeTubewiki
   Help: Hjälp
   GitHub releases: GitHub släpp
   Downloads / Changelog: Nedladdningar / Ändringslogg
@@ -461,8 +461,8 @@ Profile:
     du säker på att du ta bort de markerade kanalerna?  Detta kommer inte att radera
     kanalen från någon annan profil.'
 #On Channel Page
-  Profile Filter: Profil-filter
-  Profile Settings: Profil inställningar
+  Profile Filter: Profilfilter
+  Profile Settings: Profilinställningar
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -481,16 +481,16 @@ Channel:
     This channel does not currently have any videos: 'Den här kanalen har för närvarande
       inga videor'
     Sort Types:
-      Newest: 'Nyaste'
+      Newest: 'Senaste'
       Oldest: 'Äldsta'
-      Most Popular: 'Mest populära'
+      Most Popular: 'Populäraste'
   Playlists:
     Playlists: 'Spellistor'
     This channel does not currently have any playlists: 'Den här kanalen har för närvarande
       inga spellistor'
     Sort Types:
       Last Video Added: 'Senaste video tillagd'
-      Newest: 'Nyaste'
+      Newest: 'Senaste'
       Oldest: 'Äldsta'
   About:
     About: 'Om'
@@ -521,14 +521,14 @@ Video:
   Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera
     sidan för att kontrollera igen'
   # As in a Live Video
-  Live: 'Live-visning'
+  Live: 'Livevisning'
   Live Now: 'Live nu'
   Live Chat: 'Livechatt'
   Enable Live Chat: 'Aktivera livechatt'
   Live Chat is currently not supported in this build.: 'Livechatt stöds för närvarande
     inte i denna version.'
   'Chat is disabled or the Live Stream has ended.': 'Chatten är inaktiverad eller
-    så har Live strömmen avslutats.'
+    så har liveströmningen avslutats.'
   Live chat is enabled.  Chat messages will appear here once sent.: 'Livechatt är
     aktiverat. Meddelanden visas här när de har skickats.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Livechatt
@@ -610,7 +610,7 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: 'Nyaste'
+    Newest: 'Senaste'
     Oldest: 'Äldsta'
     #& Most Popular
 #& Playlists
@@ -668,7 +668,7 @@ Comments:
   There are no comments available for this video: 'Det finns inga kommentarer tillgängliga
     för videon'
   Load More Comments: 'Fler kommentarer'
-  Newest first: Nyaste först
+  Newest first: Senaste först
   Top comments: Toppkommentarer
   Sort by: Sortera efter
   No more comments available: Det finns inga fler kommentarer
@@ -705,7 +705,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
       för standardmetoden för ditt prenumerationsflöde. RSS är snabbare och förhindrar
-      IP-blockering, men saknarviss information som video varaktighet eller live status
+      IP-blockering, men saknar viss information som video varaktighet eller livestatus
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp.
       DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
@@ -752,7 +752,7 @@ Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. 
   video om {nextVideoInterval} sekunder. Klicka för att stoppa.
 Hashtags have not yet been implemented, try again later: Hashtaggar har inte implementerats
   än, försök vid ett senare tillfälle
-Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas
+Unknown YouTube url type, cannot be opened in app: Okänd YouTube-URL, kan inte öppnas
   i programmet
 Default Invidious instance has been cleared: Standard Invidious-instans har rensats
 Default Invidious instance has been set to {instance}: Standard Invidious-instans har ställts
