@@ -420,6 +420,9 @@ Settings:
     External Player Settings: Inställningar för extern spelare
     Custom External Player Arguments: Anpassade externa spelargument
     Custom External Player Executable: Anpassad extern spelare körbar
+    Players:
+      None:
+        Name: Ingen
   Parental Control Settings:
     Hide Unsubscribe Button: Dölj Avprenumereraknappen
     Parental Control Settings: Föräldrakontrollinställningar
