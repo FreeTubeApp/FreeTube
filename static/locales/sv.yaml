@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'svenska'
+Locale Name: 'Svenska'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -29,11 +29,11 @@ Close: 'Stäng'
 Back: 'Tillbaka'
 Forward: 'Framåt'
 
-Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber} är nu tillgänglig!
-  Klicka för mer detaljer'
+Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
+  är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
-A new blog is now available, {blogTitle}. Click to view more: 'En ny bloggpost är nu tillgänglig,
-  {blogTitle}. Klicka för att se mer'
+A new blog is now available, {blogTitle}. Click to view more: 'En ny bloggpost är
+  nu tillgänglig, {blogTitle}. Klicka för att se mer'
 
 # Search Bar
 Search / Go to URL: 'Sök / Gå till URL'
@@ -47,7 +47,7 @@ Search Filters:
     Upload Date: 'Uppladdningsdatum'
     View Count: 'Antal visningar'
   Time:
-    Time: 'Uppladdningsdatum'
+    Time: 'Tid'
     Any Time: 'När som helst'
     Last Hour: 'Senaste timmen'
     Today: 'I dag'
@@ -58,14 +58,16 @@ Search Filters:
     Type: 'Typ'
     All Types: 'Alla typer'
     Videos: 'Videor'
-    Channels: 'Kanal'
+    Channels: 'Kanaler'
     #& Playlists
+    Movies: Filmer
   Duration:
     Duration: 'Längd'
     All Durations: 'Alla längder'
     Short (< 4 minutes): 'Kort (< 4 minuter)'
     Long (> 20 minutes): 'Lång (> 20 minuter)'
   # On Search Page
+    Medium (4 - 20 minutes): Mellan (4 - 20 minuter)
   Search Results: 'Sökresultat'
   Fetching results. Please wait: 'Hämtar resultat. Snälla vänta'
   Fetch more results: 'Hämta fler resultat'
@@ -85,24 +87,28 @@ Subscriptions:
     ränta begränsa
   Load More Videos: Se mer
   Error Channels: Kanaler med fel
+  Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning.
+    Uppdatera prenumerationerna för att se dem här.
+  Empty Channels: Dina prenumererade kanaler har inga filmer.
 Trending:
-  Trending: 'Trender'
+  Trending: 'Populärt'
   Movies: Filmer
   Gaming: Spel
   Music: Musik
   Default: Standard
   Trending Tabs: Trendande Tabbar
-Most Popular: 'Mest populära'
+Most Popular: 'Populäraste'
 Playlists: 'Spellistor'
 User Playlists:
   Your Playlists: 'Dina spellistor'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Dina
     sparade videor är tomma. Klicka på sparknappen på hörnet av en video för att få
     den listad här
-  Playlist Message: Den här sidan är inte reflekterande av fullt fungerande spellistor.
-    Den listar bara videor som du har sparat eller favorited. När arbetet är klart
-    kommer alla videor som för närvarande här att migreras till en spellista för 'Favoriter'.
-  Search bar placeholder: Sök i Spellista
+  Playlist Message: Den här sidan representerar inte fullt fungerande spellistor.
+    Den listar bara videor som du har sparat eller satt som favorit. När arbetet är
+    färdigt kommer alla videor som för närvarande här här att flyttas till en spellista
+    för 'Favoriter'.
+  Search bar placeholder: Sök i Spellistor
   Empty Search Message: Det finns inga videor i denna spellista som matchar din sökning
 History:
   # On History Page
@@ -115,7 +121,7 @@ Settings:
   # On Settings Page
   Settings: 'Inställningar'
   General Settings:
-    General Settings: 'General'
+    General Settings: 'Allmänna inställningar'
     Check for Updates: 'Sök efter uppdateringar'
     Check for Latest Blog Posts: 'Sök efter senaste blogginlägg'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen
@@ -142,13 +148,14 @@ Settings:
     Region for Trending: 'Region för Trender'
         #! List countries
     View all Invidious instance information: Visa all Invidious instansinformation
-    System Default: Standard inställningar
-    Clear Default Instance: Rensa standrad instansen
+    System Default: Standardinställningar
+    Clear Default Instance: Rensa standardinstansen
     Set Current Instance as Default: Välj den nuvarande instansen som standard
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt
       vid start
-    No default instance has been set: Ingen standard instans är vald
-    The currently set default instance is {instance}: Den nuvarande aktiva instansen är {instance}
+    No default instance has been set: Ingen standardinstans är vald
+    The currently set default instance is {instance}: Den nuvarande aktiva instansen
+      är {instance}
     Current Invidious Instance: Aktiva Invidious Instansen
     External Link Handling:
       No Action: Ingen åtgärd
@@ -156,10 +163,10 @@ Settings:
       Open Link: Öppna länk
       External Link Handling: Hantering av extern länk
   Theme Settings:
-    Theme Settings: 'Tema inställningar'
+    Theme Settings: 'Temainställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
     Base Theme:
-      Base Theme: 'Grund Tema'
+      Base Theme: 'Grundtema'
       Black: 'Svart'
       Dark: 'Mörkt'
       Light: 'Ljust'
@@ -176,36 +183,42 @@ Settings:
       Blue: 'Blå'
       Light Blue: 'Ljusblå'
       Cyan: 'Cyan (Mintgrön)'
-      Teal: 'Teal (cyan-grön)'
+      Teal: 'Turkos (Cyangrön)'
       Green: 'Grön'
       Light Green: 'Ljusgrön'
       Lime: 'Limegrön'
       Yellow: 'Gul'
       Amber: 'Bärnsten'
-      Orange: 'Orange'
+      Orange: 'Brandgul'
       Deep Orange: 'Djup Orange'
       Dracula Cyan: 'Dracula Cyan (Mintgrön)'
       Dracula Green: 'Dracula Ljusgrön'
-      Dracula Orange: 'Dracula Orange'
+      Dracula Orange: 'Dracula Brandgul'
       Dracula Pink: 'Dracula Rosa'
       Dracula Purple: 'Dracula Lila'
       Dracula Red: 'Dracula Röd'
       Dracula Yellow: 'Dracula Gul'
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Pink: Catppuccin Mocha Rosa
       Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Red: Catppuccin Mocha Röd
       Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
       Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Yellow: Catppuccin Mocha Gul
       Catppuccin Mocha Green: Catppuccin Mocha Grönt
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Blue: Catppuccin Mocha Blå
+      Catppuccin Mocha Teal: Catppuccin Mocha Turkos
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
     Expand Side Bar by Default: Expandera sidpanelen som standard
     Disable Smooth Scrolling: Inaktivera mjuk rullning
     Hide Side Bar Labels: Göm text i sidpanelen
+    Hide FreeTube Header Logo: Dölj FreeTubelogga
   Player Settings:
     Player Settings: 'Spelarinställningar'
     Force Local Backend for Legacy Formats: 'Tvinga lokal resurser för äldre format'
@@ -219,9 +232,9 @@ Settings:
     Default Playback Rate: 'Standard uppspelningshastighet'
     Default Video Format:
       Default Video Format: 'Standard videoformat'
-      Dash Formats: 'DASH format'
+      Dash Formats: 'DASH-format'
       Legacy Formats: 'Äldre format'
-      Audio Formats: 'Ljud format'
+      Audio Formats: 'Ljudformat'
     Default Quality:
       Default Quality: 'Standardkvalitet'
       Auto: 'Auto'
@@ -235,13 +248,32 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Intervall till nästa video
-    Display Play Button In Video Player: Visa Spela knapp i videospelaren
+    Display Play Button In Video Player: Visa Spelaknapp i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
+    Screenshot:
+      File Name Label: Filnamnsformat
+      Enable: Aktivera skärmdump
+      Error:
+        Empty File Name: Tomt filnamn
+        Forbidden Characters: Förbjudna symboler
+      Ask Path: Fråga om nerladdnigsmapp
+      Folder Label: Skärmdumpsmapp
+      Quality Label: Skärmdumpskvalité
+      Format Label: Skärmdumpsformat
+      File Name Tooltip: Du kan använda variabler nedanför. %Y 4 siffror. %M Månad
+        2 siffror. %D Dag 2 siffror. %H Hour 2 siffror. %N Minut 2 siffror. %S Sekund
+        2 siffror. %T Millisekund 3 siffror. %s Videosekund. %t Videomillisekund 3
+        siffror. %i Video-ID.
+      Folder Button: Välj mapp
+    Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
+    Max Video Playback Rate: Maximal uppspelningshastighet
+    Video Playback Rate Interval: Uppspelningshastighetsintervall
+    Allow DASH AV1 formats: Tillåt DASH AV1-format
   Privacy Settings:
-    Privacy Settings: 'Integritets inställningar'
+    Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
-    Save Watched Progress: 'Spara sedd framsteg'
+    Save Watched Progress: 'Lagra tidigare sett'
     Clear Search Cache: 'Rensa sökcache'
     Are you sure you want to clear out your search cache?: 'Vill du verkligen rensa
       din sökcache?'
@@ -255,12 +287,13 @@ Settings:
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
   Subscription Settings:
-    Subscription Settings: 'Prenumerations inställningar'
+    Subscription Settings: 'Prenumerationsinställningar'
     Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Manage Subscriptions: 'Hantera prenumerationer'
+    Fetch Automatically: Hämta flöde automatiskt
   Data Settings:
-    Data Settings: 'Data inställningar'
+    Data Settings: 'Datainställningar'
     Select Import Type: 'Välj import-typen'
     Select Export Type: 'Välj export-typen'
     Import Subscriptions: 'Importera prenumerationer'
@@ -296,6 +329,13 @@ Settings:
     How do I import my subscriptions?: 'Hur importerar jag mina prenumerationer?'
     Check for Legacy Subscriptions: Sök efter äldre prenumerationer
     Manage Subscriptions: Hantera prenumerationer
+    History File: Historikfil
+    Subscription File: Prenumerationsfil
+    Playlist File: Spellistefil
+    Export Playlists: Exportera spellistor
+    All playlists has been successfully imported: Alla spellistor har importerats
+    All playlists has been successfully exported: Alla spellistor har exporterats
+    Import Playlists: Importera spellistor
   Advanced Settings:
     Advanced Settings: 'Avancerade inställningar'
     Enable Debug Mode (Prints data to the console): 'Aktivera felsökningsläge (Skriver
@@ -332,9 +372,18 @@ Settings:
     Hide Video Likes And Dislikes: Dölj video gillar/ogillar
     Hide Channel Subscribers: Dölj kanalprenumeranter
     Hide Video Views: Dölj videovisningar
-    Distraction Free Settings: Inställningar för distraktioner
+    Distraction Free Settings: Distraktionsinställningar
     Hide Active Subscriptions: Dölj aktiva prenumerationer
-    Hide Playlists: Göm spellistor
+    Hide Playlists: Dölj spellistor
+    Hide Comments: Dölj kommentarer
+    Hide Chapters: Dölj kapitel
+    Hide Channels: Dölj videor från kanaler
+    Hide Video Description: Dölj videobeskrivning
+    Hide Sharing Actions: Dölj delningsalternativ
+    Hide Live Streams: Dölj liveströmningar
+    Hide Upcoming Premieres: Dölj permiärer
+    Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering
+    Hide Channels Placeholder: Kanalnamn eller ID
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -352,19 +401,52 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy-protokoll
     Enable Tor / Proxy: Aktivera Tor / Proxy
-    Proxy Settings: Proxy Inställningar
+    Proxy Settings: Proxyinställningar
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering
       (Standard är https://sponsor.ajay.app)
-    Enable SponsorBlock: Använd Sponsorblockering
+    Enable SponsorBlock: Använd Sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Inställningar för Sponsorblockering
+    Skip Options:
+      Skip Option: Hoppa över-alternativ
+      Show In Seek Bar: Visa i tidslinjen
+      Do Nothing: Gör ingenting
+      Auto Skip: Hoppa över automatiskt
+    Category Color: Kategorifärg
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
     External Player: Extern spelare
     External Player Settings: Inställningar för extern spelare
     Custom External Player Arguments: Anpassade externa spelargument
     Custom External Player Executable: Anpassad extern spelare körbar
+  Parental Control Settings:
+    Hide Unsubscribe Button: Dölj Avprenumereraknappen
+    Parental Control Settings: Föräldrakontrollinställningar
+    Show Family Friendly Only: Visa endast barnvänligt innehåll
+    Hide Search Bar: Dölj sökfält
+  Password Dialog:
+    Password: Lösenord
+    Enter Password To Unlock: Ange lösenord för att låsa upp inställningar
+    Password Incorrect: Fel lösenord
+    Unlock: Lås upp
+  Download Settings:
+    Ask Download Path: Välj nerladdningsmapp varje gång
+    Download Settings: Nerladdningsinställningar
+    Choose Path: Välj mapp
+    Download in app: Ladda ner i appen
+    Download Behavior: Nerladdningsalternativ
+    Open in web browser: Öppna i webbläsare
+  Password Settings:
+    Remove Password: Ta bort lösenord
+    Password Settings: Lösenordsinställningar
+    Set Password: Välj lösenord
+    Set Password To Prevent Access: Ange lösenord för att förhindra tillgång till
+      inställningar
+  Experimental Settings:
+    Experimental Settings: Experimentella inställningar
+    Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
+      om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
 About:
   #On About page
   About: 'Om'
@@ -399,7 +481,7 @@ About:
   Donate: Donera
   these people and projects: dessa människor och projekt
   FreeTube is made possible by: FreeTube möjliggörs av
-  Credits: Krediter
+  Credits: Erkännande
   Translate: Översätta
   room rules: Rumsregler
   Please read the: Vänligen läs
@@ -415,7 +497,7 @@ About:
   FAQ: Frågor och svar
   FreeTube Wiki: FreeTube Wiki
   Help: Hjälp
-  GitHub releases: GitHub släpp
+  GitHub releases: GitHub-versioner
   Downloads / Changelog: Nedladdningar / Ändringslogg
   View License: Visa licens
   Licensed under the AGPLv3: Licensierad under AGPLv3
@@ -440,7 +522,8 @@ Profile:
   Your profile name cannot be empty: 'Ditt profilnamn får inte vara tomt'
   Profile has been created: 'Profil har skapats'
   Profile has been updated: 'Profilen har uppdaterats'
-  Your default profile has been set to {profile}: 'Din standardprofil har ställts in på {profile}'
+  Your default profile has been set to {profile}: 'Din standardprofil har ställts
+    in på {profile}'
   Removed {profile} from your profiles: 'Borttagen {profile} från dina profiler'
   Your default profile has been changed to your primary profile: 'Din standardprofil
     har ändrats till din primära profil'
@@ -461,8 +544,8 @@ Profile:
     du säker på att du ta bort de markerade kanalerna?  Detta kommer inte att radera
     kanalen från någon annan profil.'
 #On Channel Page
-  Profile Filter: Profil-filter
-  Profile Settings: Profil inställningar
+  Profile Filter: Profilfilter
+  Profile Settings: Profilinställningar
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -470,8 +553,8 @@ Channel:
   Unsubscribe: 'Avsluta prenumeration'
   Channel has been removed from your subscriptions: 'Kanalen har tagits bort från
     dina prenumerationer'
-  Removed subscription from {count} other channel(s): 'Borttagen prenumeration från {count} annan
-    kanal(er)'
+  Removed subscription from {count} other channel(s): 'Borttagen prenumeration från
+    {count} annan kanal(er)'
   Added channel to your subscriptions: 'Kanal tillagd i dina prenumerationer'
   Search Channel: 'Sök i kanal'
   Your search results have returned 0 results: 'Din sökning gav inget resultat'
@@ -496,6 +579,14 @@ Channel:
     About: 'Om'
     Channel Description: 'Kanalbeskrivning'
     Featured Channels: 'Utvalda kanaler'
+    Tags:
+      Tags: Taggar
+      Search for: Sök efter "{tag}"
+    Details: Detaljer
+  This channel does not exist: Denna kanalen finns inte
+  This channel does not allow searching: Denna kanalen tillåter inte sökning
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Denna
+    kanalen är ålderbegränsad och kan inte ses i FreeTube.
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -602,6 +693,7 @@ Video:
       opening playlists: öppnar spellistor
       setting a playback rate: ställer in en uppspelningshastighet
       starting video at offset: startar video vid offset
+      looping playlists: loopande spellistor
     UnsupportedActionTemplate: '{externalPlayer} stöder inte :{action}'
     OpeningTemplate: Öppnar {videoOrPlaylist} i {externalPlayer}...
     playlist: spellista
@@ -755,8 +847,8 @@ Hashtags have not yet been implemented, try again later: Hashtaggar har inte imp
 Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas
   i programmet
 Default Invidious instance has been cleared: Standard Invidious-instans har rensats
-Default Invidious instance has been set to {instance}: Standard Invidious-instans har ställts
-  in på {instance}
+Default Invidious instance has been set to {instance}: Standard Invidious-instans
+  har ställts in på {instance}
 External link opening has been disabled in the general settings: Öppning av externa
   länkar har inaktiverats i de allmänna inställningarna
 Search Bar:
@@ -773,3 +865,5 @@ Channels:
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
   Count: '{number} kanal(er) hittade.'
   Empty: Din kanallista är tom.
+Preferences: Preferenser
+Ok: Okej
