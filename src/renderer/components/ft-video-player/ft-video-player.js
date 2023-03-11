@@ -30,6 +30,7 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
 
 // videojs-http-streaming spits out a warning every time you access videojs.Vhs.BANDWIDTH_VARIANCE
 // so we'll get the value once here, to stop it spamming the console
+// https://github.com/videojs/http-streaming/blob/main/src/config.js#L8-L10
 const VHS_BANDWIDTH_VARIANCE = videojs.Vhs.BANDWIDTH_VARIANCE
 
 export default defineComponent({
@@ -378,12 +379,13 @@ export default defineComponent({
         }
 
         // regardless of what DASH qualities you enable or disable in the qualitLevels plugin
-        // the first segments videojs-http-streamming request are chosen based on the available bandwidth, which is set to 0.5MB/s by default
+        // the first segments videojs-http-streaming requests are chosen based on the available bandwidth, which is set to 0.5MB/s by default
         // overriding that to be the same as the quality we requested, makes videojs-http-streamming pick the correct quality
         const playerBandwidthOption = {}
 
         if (this.useDash && this.defaultQuality !== 'auto') {
-          playerBandwidthOption.bandwidth = this.selectedBitrate * VHS_BANDWIDTH_VARIANCE + 1
+          // https://github.com/videojs/http-streaming#bandwidth
+          playerBandwidthOption.bandwidth = this.selectedBitrate * VHS_BANDWIDTH_VARIANCE * 10 + 1
         }
 
         this.player = videojs(this.$refs.video, {
