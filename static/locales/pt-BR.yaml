@@ -562,6 +562,7 @@ Channel:
       Tags: Etiquetas
     Details: Detalhes
     Location: Localização
+    Joined: Inscrito
   Added channel to your subscriptions: Canal adicionado às suas inscrições
   Removed subscription from {count} other channel(s): Inscrição removida de outros
     {count} canais
@@ -569,11 +570,12 @@ Channel:
   This channel does not exist: Este canal não existe
   This channel does not allow searching: Este canal não permite a busca
   This channel is age resticted and currently cannot be viewed in FreeTube.: Este
-    canal é resiliente à idade e atualmente não pode ser visto no FreeTube.
+    canal tem restrição de idade e atualmente não pode ser visualizado no FreeTube.
   Community:
     Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
+  Channel Tabs: Abas dos Canais
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
