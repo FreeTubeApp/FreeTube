@@ -96,7 +96,7 @@ Trending:
   Gaming: Spel
   Music: Musik
   Default: Standard
-  Trending Tabs: Trendande Tabbar
+  Trending Tabs: Populära flikar
 Most Popular: 'Populäraste'
 Playlists: 'Spellistor'
 User Playlists:
@@ -428,7 +428,7 @@ Settings:
     Custom External Player Executable: Anpassad extern spelare körbar
     Players:
       None:
-        Name: Ingen
+        Name: Inget
   Parental Control Settings:
     Hide Unsubscribe Button: Dölj Avprenumereraknappen
     Parental Control Settings: Föräldrakontrollinställningar
@@ -456,7 +456,7 @@ Settings:
     Experimental Settings: Experimentella inställningar
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
-    Replace HTTP Cache: Ersätt HTTP Cache
+    Replace HTTP Cache: Ersätt HTTP-chachen
 About:
   #On About page
   About: 'Om'
@@ -599,7 +599,7 @@ Channel:
   This channel does not allow searching: Denna kanalen tillåter inte sökning
   This channel is age resticted and currently cannot be viewed in FreeTube.: Denna
     kanalen är ålderbegränsad och kan inte ses i FreeTube.
-  Channel Tabs: Kanaltabbar
+  Channel Tabs: Kanalflikar
   Community:
     Community: Gemenskap
     This channel currently does not have any posts: Denna kanal har för närvarande
