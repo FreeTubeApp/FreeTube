@@ -754,7 +754,7 @@ export default defineComponent({
           } else {
             const mapping = keyMapping[key]
 
-            if (mapping && mapping instanceof Array) {
+            if (mapping && Array.isArray(mapping)) {
               mapping.forEach(item => {
                 historyObject[item.importKey] = item.predicate(element[key])
               })
@@ -765,7 +765,7 @@ export default defineComponent({
         if (Object.keys(historyObject).length < keyMapping.length - 1) {
           showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
         } else {
-          // YouTube history export does not have these data, setting some defaults.
+          // YouTube history export does not have this data, setting some defaults.
           historyObject.type = 'video'
           historyObject.published = historyObject.timeWatched ?? 1
           historyObject.description = ''
