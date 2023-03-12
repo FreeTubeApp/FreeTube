@@ -247,9 +247,11 @@ export default defineComponent({
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
+      this.videoSortBy = 'newest'
       this.latestLive = []
       this.liveSortBy = 'newest'
       this.latestPlaylists = []
+      this.playlistSortBy = 'newest'
       this.searchResults = []
       this.shownElementList = []
       this.apiUsed = ''
