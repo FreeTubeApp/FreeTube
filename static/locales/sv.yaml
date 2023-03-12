@@ -270,6 +270,8 @@ Settings:
     Max Video Playback Rate: Maximal uppspelningshastighet
     Video Playback Rate Interval: Uppspelningshastighetsintervall
     Allow DASH AV1 formats: Tillåt DASH AV1-format
+    Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
+    Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
   Privacy Settings:
     Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
@@ -286,6 +288,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Automatically Remove Video Meta Files: Ta automatiskt bort videons metafiler
+    Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast
+      tittade spellista
   Subscription Settings:
     Subscription Settings: 'Prenumerationsinställningar'
     Hide Videos on Watch: 'Dölj video under visning'
@@ -336,6 +340,8 @@ Settings:
     All playlists has been successfully imported: Alla spellistor har importerats
     All playlists has been successfully exported: Alla spellistor har exporterats
     Import Playlists: Importera spellistor
+    Playlist insufficient data: Otillräcklig data för "{playlist}" spellista, hoppar
+      över objekt
   Advanced Settings:
     Advanced Settings: 'Avancerade inställningar'
     Enable Debug Mode (Prints data to the console): 'Aktivera felsökningsläge (Skriver
@@ -450,6 +456,7 @@ Settings:
     Experimental Settings: Experimentella inställningar
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
+    Replace HTTP Cache: Ersätt HTTP Cache
 About:
   #On About page
   About: 'Om'
@@ -586,10 +593,17 @@ Channel:
       Tags: Taggar
       Search for: Sök efter "{tag}"
     Details: Detaljer
+    Joined: Gick med
+    Location: Plats
   This channel does not exist: Denna kanalen finns inte
   This channel does not allow searching: Denna kanalen tillåter inte sökning
   This channel is age resticted and currently cannot be viewed in FreeTube.: Denna
     kanalen är ålderbegränsad och kan inte ses i FreeTube.
+  Channel Tabs: Kanaltabbar
+  Community:
+    Community: Gemenskap
+    This channel currently does not have any posts: Denna kanal har för närvarande
+      inga inlägg
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -657,6 +671,7 @@ Video:
     Years: 'År'
     Ago: 'Sedan'
     Upcoming: 'Premiärer på'
+    In less than a minute: Mindre än en minut
   Published on: 'Publicerad den'
   Publicationtemplate: 'för {number} {unit} sedan'
 #& Videos
@@ -679,12 +694,14 @@ Video:
   Video has been saved: Videon har sparats
   Save Video: Spara video
   Sponsor Block category:
-    music offtopic: musik utanför ämnet
-    interaction: interaktion
-    self-promotion: självbefordran
-    outro: avslut
+    music offtopic: Musikfritt segment
+    interaction: Interaktion
+    self-promotion: Självbefordran
+    outro: Avslut
     intro: intro
     sponsor: sponsor
+    recap: Sammanfattning
+    filler: Utfyllnad
   Skipped segment: Skippat segment
   translated from English: översatt från Engelska
   External Player:
@@ -702,6 +719,23 @@ Video:
     playlist: spellista
     video: video
     OpenInTemplate: Öppna i {externalPlayer}
+  Stats:
+    Video statistics are not available for legacy videos: Videostatstik är inte tillgänglig
+      för föråldrade videor
+    Dropped / Total Frames: Missade / Totalt antal bildrutor
+    Bitrate: Bithastighet
+    Volume: Volym
+    Resolution: Upplösning
+    Player Dimensions: Spelardimensioner
+    Video ID: Video-ID
+    Bandwidth: Bandbredd
+    Mimetype: Mimetyp
+    Buffered: Buffrad
+  Premieres on: Har premiär den
+  Premieres: Premiärer
+  Upcoming: Kommande
+  Show Super Chat Comment: Visa Super Chat-kommentarer
+  Scroll to Bottom: Skrolla till botten
 Videos:
   #& Sort By
   Sort By:
@@ -746,6 +780,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'Inbyggd Youtube URL kopierad till urklipp'
   YouTube Channel URL copied to clipboard: URL till Youtubekanal kopieras till urklipp
   Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopierad till urklipp
+  Share Channel: Dela Kanal
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
@@ -770,6 +805,10 @@ Comments:
   Show More Replies: Visa fler svar
   From {channelName}: från {channelName}
   And others: och andra
+  Member: Medlem
+  View {replyCount} replies: Visa {replyCount} repliker
+  Pinned by: Nålad av
+  Hearted: Hjärtade
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
@@ -801,6 +840,8 @@ Tooltips:
     Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
       för standardmetoden för ditt prenumerationsflöde. RSS är snabbare och förhindrar
       IP-blockering, men saknarviss information som video varaktighet eller live status
+    Fetch Automatically: Om aktiverat så kommer FreeTube automatiskt hämta ditt prenumerationsflöde
+      när ett nytt fönster öppnas och när du byter profil.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp.
       DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
@@ -813,12 +854,20 @@ Tooltips:
       de äldre formaten som returneras av det i stället för de som returneras av Invidious.
       Hjälper när videorna som returneras av Invidious inte spelas upp på grund av
       landsbegränsningar.
+    Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
+      videon, MPV-stil.
+    Allow DASH AV1 formats: DASH AV1-format kan se bättre ut än DASH H.264-format.
+      DASH AV1-format kräver mer kraft för uppspelning! Det är inte tillgängligt för
+      alla videor, i de fall kommer spelaren använde DASh H.264-format istället.
+    Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
+      CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten.
+      Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa
+      till standardhastighet (1x såvida det inte ändrats i spelarinställningar).
   General Settings:
     Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor
       du vill ska visas. Inte alla länder som visas stöds faktiskt av YouTube.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för
-      API-anrop. Rensa den aktuella instansen om du vill se en lista över offentliga
-      instanser att välja mellan.
+      API-anrop.
     Thumbnail Preference: Alla miniatyrer i hela FreeTube kommer att ersättas med
       en bildruta av videon i stället för standardminiatyr.
     Fallback to Non-Preferred Backend on Failure: När ditt föredragna API har ett
@@ -827,6 +876,9 @@ Tooltips:
     Preferred API Backend: Välj den resurs som FreeTube använder för att få fram data.
       Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious
       server att ansluta till.
+    External Link Handling: "Välj standardförfarande när en länk klickas, som inte\
+      \ kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i\
+      \ din standardwebbläsare.\n"
   Privacy Settings:
     Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
       filer som skapades under uppspelning, när sidan stängs.
@@ -839,7 +891,13 @@ Tooltips:
       spelaren kan hittas via PATH-miljövariabeln. Om det behövs kan en anpassad sökväg
       ställas in här.
     External Player: Att välja en extern spelare visar en ikon för att öppna videon
-      (spellista om den stöds) i den externa spelaren på miniatyrbilden.
+      (spellista om den stöds) i den externa spelaren på miniatyrbilden. Varning,
+      Invidiousinställningar påverkar inte externa videospelare.
+    DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: Skriv in kanalnamn eller kanal-ID för att dölja alla videor, spellistor
+      och kanalen från att synas i sökfältet eller i populäraste kategorin. Kanalens
+      namn måste skrivas in i sin helhet och är skiftlägeskänsligt.
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar
@@ -870,3 +928,23 @@ Channels:
   Empty: Din kanallista är tom.
 Preferences: Preferenser
 Ok: Okej
+Screenshot Success: Sparade skärmdump som "{filePath}"
+Screenshot Error: Skärmdump misslyckades {felkod}
+Age Restricted:
+  Type:
+    Channel: Kanal
+    Video: Video
+  This {videoOrPlaylist} is age restricted: Denna {videoOrPlaylist} är åldersbegränsad
+Clipboard:
+  Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
+    utan en säker anslutning
+  Copy failed: Kopiera till urklipp misslyckades
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitellista synlig, nuvarande
+    kapitel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitellista dold, nuvarande
+    kapitel: {chapterName}'
+  Chapters: Kapitel
+Downloading has completed: '"{videoTitle}" har laddats ner'
+Starting download: Påbörjar nerladdning av "{videoTitle}"
+Downloading failed: Det uppstod ett problem med nerladdning av "{videoTitle}"
