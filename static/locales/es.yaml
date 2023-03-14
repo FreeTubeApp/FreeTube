@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Español (España)'
+Locale Name: 'español (España)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -452,9 +452,9 @@ Settings:
     Show Family Friendly Only: Mostrar solo lo apto para las familias
   Experimental Settings:
     Experimental Settings: Ajustes experimentales
-    Warning: Estas configuraciones son experimentales, pueden provocar fallos mientras
-      están activadas. Se recomienda hacer copias de seguridad. ¡Utilícelas bajo su
-      propio riesgo!
+    Warning: Estas configuraciones son experimentales, pueden causar fallos mientras
+      están habilitadas. Es muy recomendable hacer copias de seguridad. ¡Úselo bajo
+      su propio riesgo!
     Replace HTTP Cache: Reemplazar la caché HTTP
   Password Settings:
     Password Settings: Configuración de la contraseña
@@ -595,11 +595,26 @@ Channel:
     About: 'Acerca de'
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
+    Tags:
+      Tags: Etiquetas
+      Search for: Buscar por «{tag}»
+    Details: Detalles
+    Joined: Ingresó en
+    Location: Ubicación
   Added channel to your subscriptions: Canal añadido a tus suscripciones
   Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
     otros canales
   Channel has been removed from your subscriptions: El canal ha sido eliminado de
     tus suscripciones
+  This channel does not exist: Este canal no existe
+  This channel does not allow searching: Este canal no permite realizar búsquedas
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Este
+    canal tiene restricciones de edad y actualmente no puede verse en FreeTube.
+  Channel Tabs: Ficha del Canal
+  Community:
+    This channel currently does not have any posts: Este canal no tiene actualmente
+      ningún mensaje
+    Community: Comunidad
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'

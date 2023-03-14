@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Română'
+Locale Name: 'română'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -29,11 +29,11 @@ Close: 'Închideți'
 Back: 'Înapoi'
 Forward: 'Înainte'
 
-Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber} este acum disponibilă!  Click
-  pentru mai multe detalii'
+Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
+  este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este acum disponibil,
-  {blogTitle}. Click to view more'
+A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este acum
+  disponibil, {blogTitle}. Click to view more'
 
 # Search Bar
 Search / Go to URL: 'Căutare / Du-te la URL'
@@ -157,8 +157,8 @@ Settings:
     Current instance will be randomized on startup: Instanța curentă va fi aleatorie
       la pornire
     No default instance has been set: Nu a fost setată nicio instanță implicită
-    The currently set default instance is {instance}: Instanța implicită setată în prezent
-      este {instance}
+    The currently set default instance is {instance}: Instanța implicită setată în
+      prezent este {instance}
     Current Invidious Instance: Instanța actuală Invidious
     System Default: Prestabilită de sistem
   Theme Settings:
@@ -336,7 +336,8 @@ Settings:
       importate cu succes
     Import Playlists: Importați liste de redare
     Export Playlists: Exportați liste de redare
-    Playlist insufficient data: Date insuficiente pentru lista de redare "{playlist}", se omite
+    Playlist insufficient data: Date insuficiente pentru lista de redare "{playlist}",
+      se omite
     All playlists has been successfully exported: Toate listele de redare au fost
       exportate cu succes
   Advanced Settings:
@@ -499,8 +500,8 @@ Profile:
   Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
   Profile has been created: 'Profilul a fost creat'
   Profile has been updated: 'Profilul a fost actualizat'
-  Your default profile has been set to {profile}: 'Profilul dvs. implicit a fost setat la
-    {profile}'
+  Your default profile has been set to {profile}: 'Profilul dvs. implicit a fost setat
+    la {profile}'
   Removed {profile} from your profiles: 'Ai eliminat {profile} din profilurile tale'
   Your default profile has been changed to your primary profile: 'Profilul dvs. implicit
     a fost schimbat în profilul dvs. principal'
@@ -530,8 +531,8 @@ Channel:
   Unsubscribe: 'Dezabonați-vă'
   Channel has been removed from your subscriptions: 'Canalul a fost eliminat din abonamentele
     tale'
-  Removed subscription from {count} other channel(s): 'Abonament eliminat de pe {count} alt(e)
-    canal(e)'
+  Removed subscription from {count} other channel(s): 'Abonament eliminat de pe {count}
+    alt(e) canal(e)'
   Added channel to your subscriptions: 'Adăugat canal la abonamentele tale'
   Search Channel: 'Căutare canal'
   Your search results have returned 0 results: 'Rezultatele căutării tale au returnat
@@ -799,8 +800,8 @@ Are you sure you want to open this link?: Sunteți sigur că doriți să deschid
   link?
 Open New Window: Deschide fereastră nouă
 Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
-Default Invidious instance has been set to {instance}: Instanța implicită Invidious a fost
-  setată la {instance}
+Default Invidious instance has been set to {instance}: Instanța implicită Invidious
+  a fost setată la {instance}
 Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp.
   Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
   secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
@@ -873,7 +874,8 @@ Downloading failed: A existat o problemă la descărcarea "{videoTitle}"
 Downloading has completed: '"{videoTitle}" s-a terminat de descărcat'
 New Window: Fereastră nouă
 Age Restricted:
-  The currently set default instance is {instance}: Acest {instance} este restricționat datorită vârstei
+  The currently set default instance is {instance}: Acest {instance} este restricționat
+    datorită vârstei
   Type:
     Channel: Canal
     Video: Video

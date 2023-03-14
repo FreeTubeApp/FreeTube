@@ -505,9 +505,23 @@ Channel:
     About: '概要'
     Channel Description: 'チャンネルの説明'
     Featured Channels: '注目のチャンネル'
+    Tags:
+      Tags: タグ
+      Search for: 「{tag}」を検索
+    Details: 詳細
+    Joined: 登録済み
+    Location: 場所
   Added channel to your subscriptions: 登録にチャンネルを追加しました
   Channel has been removed from your subscriptions: 登録からチャンネルを削除しました
   Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
+  Community:
+    This channel currently does not have any posts: このチャンネルには現在投稿がありません
+    Community: コミュニティ
+  This channel does not exist: このチャンネルは存在しません
+  This channel does not allow searching: このチャンネルでは検索できません
+  This channel is age resticted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
+    FreeTube では視聴できません。
+  Channel Tabs: チャネル タブ
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'

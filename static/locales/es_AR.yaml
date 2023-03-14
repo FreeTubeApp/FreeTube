@@ -381,6 +381,9 @@ Channel:
     About: ''
     Channel Description: ''
     Featured Channels: ''
+    Tags:
+      Search for: Buscar por «{tag}»
+    Details: Detalles
 Video:
   Mark As Watched: ''
   Remove From History: ''
@@ -511,11 +514,11 @@ Canceled next video autoplay: ''
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está disponible,
-  {blogTitle}. Hacé clic para ver más'
+A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está
+  disponible, {blogTitle}. Hacé clic para ver más'
 Download From Site: Descargar desde el sitio
-Version {versionNumber} is now available!  Click for more details: La versión {versionNumber} ya está disponible.  Hacé
-  clic acá para más detalles.
+Version {versionNumber} is now available!  Click for more details: La versión {versionNumber}
+  ya está disponible.  Hacé clic acá para más detalles.
 More: Más
 Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?
 Open New Window: Abrir nueva ventana

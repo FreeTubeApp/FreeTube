@@ -4,6 +4,7 @@ on:
     types:
       - closed
       - converted_to_draft
+      - ready_for_review
 jobs:
   remove-merged-pr-labels:
     name: Remove merged pull request labels
@@ -23,7 +24,7 @@ jobs:
 
   remove-closed-pr-labels:
     name: Remove closed pull request labels
-    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft')
+    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft') && (github.event.action != 'ready_for_review')
     runs-on: ubuntu-latest
     steps:
       - uses: mondeja/remove-labels-gh-action@v1.1.1
@@ -47,3 +48,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
             PR: waiting for review
+            
+  remove-ready-pr-labels:
+    name: Remove labels when draft pr is marked ready for review
+    if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            PR: WIP

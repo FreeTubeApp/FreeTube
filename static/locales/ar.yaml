@@ -446,8 +446,8 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
     Experimental Settings: الإعدادات التجريبية
-    Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء التمكين. يوصى بشدة بعمل
-      نسخ احتياطية. استخدام على مسؤوليتك الخاصة!
+    Warning: هذه الإعدادات تجريبية ، فهي تسبب أعطال أثناء تمكينها. يوصى بشدة بعمل
+      نسخ احتياطية. استخدمها على مسؤوليتك الخاصة!
   Password Settings:
     Set Password To Prevent Access: تعيين كلمة مرور لمنع الوصول إلى الإعدادات
     Remove Password: إزالة كلمة المرور
@@ -585,10 +585,25 @@ Channel:
     About: 'حول'
     Channel Description: 'وصف القناة'
     Featured Channels: 'القنوات المميزة'
+    Tags:
+      Tags: الوسوم
+      Search for: ابحث عن "{علامة}"
+    Details: التفاصيل
+    Joined: انضم
+    Location: الموقع
   Added channel to your subscriptions: تم إضافة القناة إلى اشتراكاتك
   Removed subscription from {count} other channel(s): 'تمت إزالة الاشتراك من {count}
     قناة (قنوات) أخرى'
   Channel has been removed from your subscriptions: تمت إزالة القناة من اشتراكاتك
+  Channel Tabs: علامات تبويب القنوات
+  This channel does not exist: هذه القناة غير موجودة
+  This channel does not allow searching: هذه القناة لا تسمح بالبحث
+  This channel is age resticted and currently cannot be viewed in FreeTube.: هذه القناة
+    مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
+  Community:
+    Community: المجتمع
+    This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
+      أي مشاركات
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'

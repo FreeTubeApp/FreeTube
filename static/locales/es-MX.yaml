@@ -465,6 +465,9 @@ Channel:
     About: 'Acerca de'
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
+    Tags:
+      Search for: Buscar por «{tag}»
+    Details: Detalles
   Added channel to your subscriptions: Canal añadido a sus suscripciones
   Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
     otros canales

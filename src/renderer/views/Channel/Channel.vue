@@ -23,15 +23,22 @@
       >
         <div
           class="channelInfo"
+          :class="{ channelInfoHasError: errorMessage }"
         >
           <div
             class="thumbnailContainer"
           >
             <img
+              v-if="thumbnailUrl"
               class="channelThumbnail"
               :src="thumbnailUrl"
               alt=""
             >
+            <font-awesome-icon
+              v-else
+              class="channelThumbnail"
+              :icon="['fas', 'circle-user']"
+            />
             <div
               class="channelLineContainer"
             >
@@ -54,13 +61,14 @@
 
           <div class="channelInfoActionsContainer">
             <ft-share-button
+              v-if="!hideSharingActions && showShareMenu"
               :id="id"
               share-target-type="Channel"
               class="shareIcon"
             />
 
             <ft-button
-              v-if="!hideUnsubscribeButton"
+              v-if="!hideUnsubscribeButton && (!errorMessage || isSubscribed)"
               :label="subscribedText"
               background-color="var(--primary-color)"
               text-color="var(--text-with-main-color)"
@@ -106,6 +114,19 @@
               {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
             </div>
             <div
+              id="communityTab"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="communityPanel"
+              tabindex="-1"
+              :class="(currentTab==='community')?'selectedTab':''"
+              @click="changeTab('community')"
+              @keydown.left.right.enter.space="changeTab('community', $event)"
+            >
+              {{ $t("Channel.Community.Community").toUpperCase() }}
+            </div>
+            <div
               id="aboutTab"
               class="tab"
               role="tab"
@@ -121,6 +142,7 @@
           </div>
 
           <ft-input
+            v-if="showSearchBar"
             :placeholder="$t('Channel.Search Channel')"
             :show-clear-text-button="true"
             class="channelSearch"
@@ -138,14 +160,89 @@
         id="aboutPanel"
         class="aboutTab"
       >
-        <h2>
+        <h2
+          v-if="description"
+        >
           {{ $t("Channel.About.Channel Description") }}
         </h2>
         <div
+          v-if="description"
           class="aboutInfo"
-          v-html="channelDescription"
+          v-html="description"
         />
-        <br>
+        <h2
+          v-if="joined || views !== null || location"
+        >
+          {{ $t('Channel.About.Details') }}
+        </h2>
+        <table
+          v-if="joined || views !== null || location"
+          class="aboutDetails"
+        >
+          <tr
+            v-if="joined"
+          >
+            <th
+              scope="row"
+            >
+              {{ $t('Channel.About.Joined') }}
+            </th>
+            <td>{{ formattedJoined }}</td>
+          </tr>
+          <tr
+            v-if="views !== null"
+          >
+            <th
+              scope="row"
+            >
+              {{ $t('Video.Views') }}
+            </th>
+            <td>{{ formattedViews }}</td>
+          </tr>
+          <tr
+            v-if="location"
+          >
+            <th
+              scope="row"
+            >
+              {{ $t('Channel.About.Location') }}
+            </th>
+            <td>{{ location }}</td>
+          </tr>
+        </table>
+        <h2
+          v-if="tags.length > 0"
+        >
+          {{ $t('Channel.About.Tags.Tags') }}
+        </h2>
+        <ul
+          v-if="tags.length > 0"
+          class="aboutTags"
+        >
+          <li
+            v-for="tag in tags"
+            :key="tag"
+            class="aboutTag"
+          >
+            <router-link
+              v-if="!hideSearchBar"
+              class="aboutTagLink"
+              :title="$t('Channel.About.Tags.Search for', { tag })"
+              :to="{
+                path: `/search/${encodeURIComponent(tag)}`,
+                query: searchSettings
+              }"
+            >
+              {{ tag }}
+            </router-link>
+            <span
+              v-else
+              class="aboutTagLink"
+            >
+              {{ tag }}
+            </span>
+          </li>
+        </ul>
         <h2
           v-if="relatedChannels.length > 0"
         >
@@ -157,16 +254,16 @@
           <ft-channel-bubble
             v-for="(channel, index) in relatedChannels"
             :key="index"
-            :channel-name="channel.author || channel.channelName"
-            :channel-id="channel.channelId"
-            :channel-thumbnail="channel.authorThumbnails[channel.authorThumbnails.length - 1].url"
+            :channel-name="channel.name"
+            :channel-id="channel.id"
+            :channel-thumbnail="channel.thumbnailUrl"
             role="link"
-            @click="goToChannel(channel.channelId)"
+            @click="goToChannel(channel.id)"
           />
         </ft-flex-box>
       </div>
       <ft-select
-        v-show="currentTab === 'videos'"
+        v-show="currentTab === 'videos' && latestVideos.length > 0"
         class="sortSelect"
         :value="videoSelectValues[0]"
         :select-names="videoSelectNames"
@@ -175,7 +272,7 @@
         @change="videoSortBy = $event"
       />
       <ft-select
-        v-show="currentTab === 'playlists'"
+        v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
         class="sortSelect"
         :value="playlistSelectValues[0]"
         :select-names="playlistSelectNames"
@@ -216,6 +313,21 @@
         >
           <p class="message">
             {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-show="currentTab === 'community'"
+          id="communityPanel"
+          :data="latestCommunityPosts"
+          role="tabpanel"
+          aria-labelledby="communityTab"
+          display="list"
+        />
+        <ft-flex-box
+          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Community.This channel currently does not have any posts") }}
           </p>
         </ft-flex-box>
         <ft-element-list

@@ -442,8 +442,8 @@ Settings:
   Experimental Settings:
     Experimental Settings: הגדרות ניסיוניות
     Replace HTTP Cache: החלפת מטמון HTTP
-    Warning: אלו הגדרות ניסיוניות, הן עלולות לגרום לקריסת המערכת שהן פעילות. מומלץ
-      מאוד לגבות. השימוש הוא על אחריותך בלבד!
+    Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. ביצוע גיבויים
+      מומלץ מאוד. השימוש על אחריותך בלבד!
   Password Dialog:
     Password Incorrect: הסיסמה שגויה
     Unlock: שחרור
@@ -589,6 +589,20 @@ Channel:
     About: 'על אודות'
     Channel Description: 'תיאור הערוץ'
     Featured Channels: 'ערוצים מומלצים'
+    Tags:
+      Tags: תגיות
+      Search for: חיפוש אחר „{tag}”
+    Details: פרטים
+    Joined: הצטרפות
+    Location: מקום
+  This channel does not allow searching: הערוץ הזה לא מאפשר חיפוש
+  Channel Tabs: לשוניות ערוצים
+  This channel does not exist: הערוץ הזה לא קיים
+  This channel is age resticted and currently cannot be viewed in FreeTube.: הערוץ
+    מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
+  Community:
+    This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
+    Community: קהילה
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'

@@ -1,15 +1,14 @@
 import store from '../../store/index'
-import { stripHTML, toLocalePublicationString } from '../utils'
+import { isNullOrEmpty, stripHTML, toLocalePublicationString } from '../utils'
 import autolinker from 'autolinker'
 
 function getCurrentInstance() {
   return store.getters.getCurrentInvidiousInstance
 }
 
-export function invidiousAPICall({ resource, id = '', params = {} }) {
+export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   return new Promise((resolve, reject) => {
-    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + '?' + new URLSearchParams(params).toString()
-
+    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     fetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {
@@ -19,10 +18,37 @@ export function invidiousAPICall({ resource, id = '', params = {} }) {
         resolve(json)
       })
       .catch((error) => {
-        console.error('Invidious API error', requestUrl, error)
+        if (doLogError) {
+          console.error('Invidious API error', requestUrl, error)
+        }
         reject(error)
       })
   })
+}
+
+/**
+ * Gets the channel ID for a channel URL
+ * used to get the ID for channel usernames and handles
+ * @param {string} url
+ */
+export async function invidiousGetChannelId(url) {
+  try {
+    const response = await invidiousAPICall({
+      resource: 'resolveurl',
+      params: {
+        url
+      },
+      doLogError: false
+    })
+
+    if (response.pageType === 'WEB_PAGE_TYPE_CHANNEL') {
+      return response.ucid
+    } else {
+      return null
+    }
+  } catch {
+    return null
+  }
 }
 
 export async function invidiousGetChannelInfo(channelId) {
@@ -75,6 +101,10 @@ export async function invidiousGetCommentReplies({ id, replyToken }) {
 }
 
 export function youtubeImageUrlToInvidious(url, currentInstance = null) {
+  if (url == null) {
+    return null
+  }
+
   if (currentInstance === null) {
     currentInstance = getCurrentInstance()
   }
@@ -82,8 +112,10 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
   if (url.startsWith('//')) {
     url = 'https:' + url
   }
-
-  return url.replace('https://yt3.ggpht.com', `${currentInstance}/ggpht`)
+  const newUrl = `${currentInstance}/ggpht`
+  return url.replace('https://yt3.ggpht.com', newUrl)
+    .replace('https://yt3.googleusercontent.com', newUrl)
+    .replace(/https:\/\/i\d*\.ytimg\.com/, newUrl)
 }
 
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
@@ -102,6 +134,8 @@ function parseInvidiousCommentData(response) {
     comment.numReplies = comment.replies?.replyCount ?? 0
     comment.replyToken = comment.replies?.continuation ?? ''
     comment.isHearted = comment.creatorHeart !== undefined
+    comment.isMember = comment.isSponsor
+    comment.memberIconUrl = youtubeImageUrlToInvidious(comment.sponsorIconUrl)
     comment.replies = []
     comment.time = toLocalePublicationString({
       publishText: comment.publishedText
@@ -109,4 +143,92 @@ function parseInvidiousCommentData(response) {
 
     return comment
   })
+}
+
+export async function invidiousGetCommunityPosts(channelId) {
+  const payload = {
+    resource: 'channels',
+    id: channelId,
+    subResource: 'community'
+  }
+
+  const response = await invidiousAPICall(payload)
+  response.comments = response.comments.map(communityPost => parseInvidiousCommunityData(communityPost))
+  return response.comments
+}
+
+function parseInvidiousCommunityData(data) {
+  return {
+    postText: data.contentHtml,
+    postId: data.commentId,
+    authorThumbnails: data.authorThumbnails.map(thumbnail => {
+      thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+      return thumbnail
+    }),
+    publishedText: data.publishedText,
+    voteCount: data.likeCount,
+    postContent: parseInvidiousCommunityAttachments(data.attachment),
+    commentCount: data?.replyCount ?? 0, // https://github.com/iv-org/invidious/pull/3635/
+    author: data.author,
+    type: 'community'
+  }
+}
+
+function parseInvidiousCommunityAttachments(data) {
+  if (!data) {
+    return null
+  }
+
+  if (data.type === 'image') {
+    return {
+      type: data.type,
+      content: data.imageThumbnails.map(thumbnail => {
+        thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+        return thumbnail
+      })
+    }
+  }
+
+  if (data.type === 'video') {
+    data.videoThumbnails = data.videoThumbnails.map(thumbnail => {
+      thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+      return thumbnail
+    })
+    return {
+      type: data.type,
+      content: data
+    }
+  }
+
+  if (data.type === 'multiImage') {
+    const content = data.images.map(imageThumbnails => {
+      return imageThumbnails.map(thumbnail => {
+        thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+        return thumbnail
+      })
+    })
+    return {
+      type: 'multiImage',
+      content: content
+    }
+  }
+
+  // https://github.com/iv-org/invidious/pull/3635/files
+  if (data.type === 'poll') {
+    return {
+      type: 'poll',
+      totalVotes: data.totalVotes ?? 0,
+      content: data.choices.map(choice => {
+        return {
+          text: choice.text,
+          image: choice.image.map(thumbnail => {
+            thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+            return thumbnail
+          })
+        }
+      })
+    }
+  }
+
+  console.error('New Invidious Community Post Type: ' + data.type)
 }

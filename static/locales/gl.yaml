@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Galego'
+Locale Name: 'galego'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -457,9 +457,9 @@ Settings:
     Download Behavior: Comportamento da descarga
   Experimental Settings:
     Experimental Settings: Configuracións experimentais
-    Warning: Estas opcións da configuración son experimentais e provocan fallos mentres
-      están activadas. É moi recomendable facer copias de seguridade. Useas baixo
-      o seu propio risco!
+    Warning: Estas opcións de configuración son experimentais, poden causar fallos
+      mentres están activadas. É moi recomendable facer copias de seguridade. Use
+      baixo o seu propio risco!
     Replace HTTP Cache: Substitúe a caché HTTP
   Password Settings:
     Password Settings: Configuración do contrasinal
@@ -605,6 +605,21 @@ Channel:
     About: 'Sobre'
     Channel Description: 'Descrición da canle'
     Featured Channels: 'Canles destacadas'
+    Tags:
+      Tags: Etiquetas
+      Search for: Busca "{tag}"
+    Details: Detalles
+    Joined: Uniuse
+    Location: Localización
+  This channel does not exist: Esta canle non existe
+  This channel does not allow searching: Esta canle non permite buscas
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Esta
+    canle ten unha limitación de idade e actualmente non se pode ver en FreeTube.
+  Channel Tabs: Pestanas das canles
+  Community:
+    Community: Comunidade
+    This channel currently does not have any posts: Esta canle actualmente non ten
+      publicacións
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Eliminar do histórico'

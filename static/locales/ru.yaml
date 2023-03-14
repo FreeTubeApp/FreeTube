@@ -381,7 +381,7 @@ Settings:
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
-    Distraction Free Settings: Отвлекающие факторы
+    Distraction Free Settings: Настройки причин отвлечения внимания
     Hide Comment Likes: Скрыть лайки в комментариях
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
@@ -455,8 +455,8 @@ Settings:
   Experimental Settings:
     Experimental Settings: Пробные настройки
     Replace HTTP Cache: Заменить HTTP-кэш
-    Warning: Эти настройки являются пробными, они вызывают сбои при включении. Желательно
-      сделать резервные копии. Используйте на своё усмотрение!
+    Warning: Эти настройки являются пробными, они могут привести к вылетам приложения
+      при включении. Желательно сделать резервные копии. Используйте на своё усмотрение!
   Password Dialog:
     Password: Пароль
     Password Incorrect: Неверный пароль
@@ -553,10 +553,25 @@ Channel:
     About: 'О канале'
     Channel Description: 'Описание канала'
     Featured Channels: 'Избранные каналы'
+    Tags:
+      Tags: Метки
+      Search for: Поиск по «{tag}»
+    Details: Подробности
+    Joined: Присоединился
+    Location: Расположение
   Added channel to your subscriptions: Канал добавлен в ваши подписки
   Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их)
     канала(ов)
   Channel has been removed from your subscriptions: Канал был удалён из подписок
+  This channel does not exist: Этого канала не существует
+  This channel does not allow searching: Этот канал не позволяет выполнять поиск
+  Channel Tabs: Вкладки каналов
+  This channel is age resticted and currently cannot be viewed in FreeTube.: Этот
+    канал ограничен по возрасту и в настоящее время не может быть просмотрен во FreeTube.
+  Community:
+    Community: Сообщество
+    This channel currently does not have any posts: На этом канале в настоящее время
+      нет никаких записей
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
