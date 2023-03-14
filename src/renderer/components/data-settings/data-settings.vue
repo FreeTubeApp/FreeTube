@@ -18,10 +18,6 @@
         @click="importHistory"
       />
       <ft-button
-        :label="$t('Settings.Data Settings.Import YouTube History')"
-        @click="importYouTubeHistory"
-      />
-      <ft-button
         :label="$t('Settings.Data Settings.Export History')"
         @click="exportHistory"
       />

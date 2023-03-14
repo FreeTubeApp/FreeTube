@@ -673,13 +673,13 @@ export default defineComponent({
       await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), 'Subscriptions have been successfully exported')
     },
 
-    importYouTubeHistory: async function() {
+    importHistory: async function () {
       const options = {
         properties: ['openFile'],
         filters: [
           {
             name: this.$t('Settings.Data Settings.History File'),
-            extensions: ['json']
+            extensions: ['db', 'json']
           }
         ]
       }
@@ -697,8 +697,61 @@ export default defineComponent({
         return
       }
 
-      const historyData = JSON.parse(textDecode)
+      response.filePaths.forEach(filePath => {
+        if (filePath.endsWith('.db')) {
+          this.importFreeTubeSubscriptions(textDecode.split('\n'))
+        } else if (filePath.endsWith('.json')) {
+          this.importYouTubeHistory(JSON.parse(textDecode))
+        }
+      })
+    },
 
+    importFreeTubeHistory(textDecode) {
+      textDecode.pop()
+
+      textDecode.forEach((history) => {
+        const historyData = JSON.parse(history)
+        // We would technically already be done by the time the data is parsed,
+        // however we want to limit the possibility of malicious data being sent
+        // to the app, so we'll only grab the data we need here.
+        const requiredKeys = [
+          '_id',
+          'author',
+          'authorId',
+          'description',
+          'isLive',
+          'lengthSeconds',
+          'paid',
+          'published',
+          'timeWatched',
+          'title',
+          'type',
+          'videoId',
+          'viewCount',
+          'watchProgress'
+        ]
+
+        const historyObject = {}
+
+        Object.keys(historyData).forEach((key) => {
+          if (!requiredKeys.includes(key)) {
+            showToast(`Unknown data key: ${key}`)
+          } else {
+            historyObject[key] = historyData[key]
+          }
+        })
+
+        if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
+          showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
+        } else {
+          this.updateHistory(historyObject)
+        }
+      })
+
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
+    },
+
+    importYouTubeHistory(historyData) {
       const filterPredicate = item =>
         item.products.includes('YouTube') &&
         item.titleUrl != null && // removed video doesnt contain url...
@@ -746,9 +799,9 @@ export default defineComponent({
         'activityControls',
       ].concat(Object.keys(keyMapping))
 
-      const historyObject = {}
+      filteredHistoryData.forEach(element => {
+        const historyObject = {}
 
-      filteredHistoryData.forEach(async element => {
         Object.keys(element).forEach((key) => {
           if (!knownKeys.includes(key)) {
             showToast(`Unknown data key: ${key}`)
@@ -776,74 +829,6 @@ export default defineComponent({
           historyObject.isLive = false
           historyObject.paid = false
 
-          await this.updateHistory(historyObject)
-        }
-      })
-
-      showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
-    },
-
-    importHistory: async function () {
-      const options = {
-        properties: ['openFile'],
-        filters: [
-          {
-            name: this.$t('Settings.Data Settings.History File'),
-            extensions: ['db']
-          }
-        ]
-      }
-
-      const response = await showOpenDialog(options)
-      if (response.canceled || response.filePaths?.length === 0) {
-        return
-      }
-      let textDecode
-      try {
-        textDecode = await readFileFromDialog(response)
-      } catch (err) {
-        const message = this.$t('Settings.Data Settings.Unable to read file')
-        showToast(`${message}: ${err}`)
-        return
-      }
-      textDecode = textDecode.split('\n')
-      textDecode.pop()
-
-      textDecode.forEach((history) => {
-        const historyData = JSON.parse(history)
-        // We would technically already be done by the time the data is parsed,
-        // however we want to limit the possibility of malicious data being sent
-        // to the app, so we'll only grab the data we need here.
-        const requiredKeys = [
-          '_id',
-          'author',
-          'authorId',
-          'description',
-          'isLive',
-          'lengthSeconds',
-          'paid',
-          'published',
-          'timeWatched',
-          'title',
-          'type',
-          'videoId',
-          'viewCount',
-          'watchProgress'
-        ]
-
-        const historyObject = {}
-
-        Object.keys(historyData).forEach((key) => {
-          if (!requiredKeys.includes(key)) {
-            showToast(`Unknown data key: ${key}`)
-          } else {
-            historyObject[key] = historyData[key]
-          }
-        })
-
-        if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
-          showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
-        } else {
           this.updateHistory(historyObject)
         }
       })
