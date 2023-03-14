@@ -81,6 +81,8 @@ export default defineComponent({
     handleSortChange: function () {
       this.sortNewest = !this.sortNewest
       this.commentData = []
+      // nextPageToken is reset to ensure first page is get
+      this.nextPageToken = null
       this.getCommentData()
     },
 
