@@ -823,8 +823,7 @@ export default defineComponent({
           historyObject.type = 'video'
           historyObject.published = historyObject.timeWatched ?? 1
           historyObject.description = ''
-          historyObject.viewCount = 1
-          historyObject.lengthSeconds = 1
+          historyObject.lengthSeconds = null
           historyObject.watchProgress = 1
           historyObject.isLive = false
           historyObject.paid = false
