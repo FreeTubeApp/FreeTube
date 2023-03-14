@@ -101,6 +101,10 @@ export async function invidiousGetCommentReplies({ id, replyToken }) {
 }
 
 export function youtubeImageUrlToInvidious(url, currentInstance = null) {
+  if (url == null) {
+    return null
+  }
+
   if (currentInstance === null) {
     currentInstance = getCurrentInstance()
   }
@@ -130,6 +134,8 @@ function parseInvidiousCommentData(response) {
     comment.numReplies = comment.replies?.replyCount ?? 0
     comment.replyToken = comment.replies?.continuation ?? ''
     comment.isHearted = comment.creatorHeart !== undefined
+    comment.isMember = comment.isSponsor
+    comment.memberIconUrl = youtubeImageUrlToInvidious(comment.sponsorIconUrl)
     comment.replies = []
     comment.time = toLocalePublicationString({
       publishText: comment.publishedText
