@@ -519,6 +519,12 @@ export default defineComponent({
           if ('mediaSession' in navigator) {
             navigator.mediaSession.playbackState = 'none'
           }
+
+          if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
+            this.powerSaveBlocker = null
+          }
         })
 
         this.player.on('error', (error, message) => {
@@ -527,9 +533,15 @@ export default defineComponent({
           if ('mediaSession' in navigator) {
             navigator.mediaSession.playbackState = 'none'
           }
+
+          if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
+            this.powerSaveBlocker = null
+          }
         })
 
-        this.player.on('play', async function () {
+        this.player.on('play', async () => {
           if ('mediaSession' in navigator) {
             navigator.mediaSession.playbackState = 'playing'
           }
@@ -541,7 +553,7 @@ export default defineComponent({
           }
         })
 
-        this.player.on('pause', function () {
+        this.player.on('pause', () => {
           if ('mediaSession' in navigator) {
             navigator.mediaSession.playbackState = 'paused'
           }
