@@ -378,7 +378,7 @@ export default defineComponent({
           controlBarItems.splice(index, 1)
         }
 
-        // regardless of what DASH qualities you enable or disable in the qualitLevels plugin
+        // regardless of what DASH qualities you enable or disable in the qualityLevels plugin
         // the first segments videojs-http-streaming requests are chosen based on the available bandwidth, which is set to 0.5MB/s by default
         // overriding that to be the same as the quality we requested, makes videojs-http-streamming pick the correct quality
         const playerBandwidthOption = {}
