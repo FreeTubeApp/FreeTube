@@ -317,7 +317,7 @@ export default defineComponent({
     getPlaylistInformationInvidious: function () {
       this.isLoading = true
 
-      invidiousGetPlaylistInfo({ playlistId: this.playlistId }).then((result) => {
+      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
         this.playlistTitle = result.title
         this.channelName = result.author
         this.channelId = result.authorId
