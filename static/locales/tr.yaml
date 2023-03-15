@@ -590,16 +590,16 @@ Channel:
   Sort By: 'Sırala'
   Videos:
     Videos: 'Videolar'
-    This channel does not currently have any videos: 'Bu kanalda şu anda hiç video
-      yok'
+    This channel does not currently have any videos: 'Bu kanalda şu anda herhangi
+      bir video yok'
     Sort Types:
       Newest: 'En yeni'
       Oldest: 'En eski'
       Most Popular: 'En Popüler'
   Playlists:
     Playlists: 'Oynatma Listeleri'
-    This channel does not currently have any playlists: 'Bu kanalda şu anda hiç oynatma
-      listesi yok'
+    This channel does not currently have any playlists: 'Bu kanalda şu anda herhangi
+      bir oynatma listesi yok'
     Sort Types:
       Last Video Added: 'Son Eklenen Video'
       Newest: 'En yeni'
@@ -623,6 +623,10 @@ Channel:
     Community: Topluluk
     This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
       gönderi yok
+  Live:
+    Live: Canlı
+    This channel does not currently have any live streams: Bu kanalda şu anda herhangi
+      bir canlı yayın yok
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'
