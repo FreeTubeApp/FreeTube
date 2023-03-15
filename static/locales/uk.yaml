@@ -593,6 +593,10 @@ Channel:
   Community:
     Community: Спільнота
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
+  Live:
+    This channel does not currently have any live streams: Наразі на цьому каналі
+      немає прямих трансляцій
+    Live: Наживо
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
