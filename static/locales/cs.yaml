@@ -605,6 +605,10 @@ Channel:
     Community: Komunita
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
+  Live:
+    Live: Živě
+    This channel does not currently have any live streams: Tento kanál v současné
+      době nemá žádné živé přenosy
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
