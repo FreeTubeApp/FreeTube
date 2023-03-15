@@ -614,6 +614,13 @@ Channel:
   This channel does not allow searching: Ovaj kanal ne dozvoljava pretraživanje
   This channel is age resticted and currently cannot be viewed in FreeTube.: Ovaj
     kanal je dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
+  Live:
+    Live: Uživo
+    This channel does not currently have any live streams: Ovaj kanal trenutačno nema
+      prijenosa uživo
+  Community:
+    This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
+    Community: Zajednica
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
