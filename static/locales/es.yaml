@@ -615,6 +615,10 @@ Channel:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
     Community: Comunidad
+  Live:
+    Live: En directo
+    This channel does not currently have any live streams: Este canal no tiene actualmente
+      ninguna retransmisión en directo
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
