@@ -33,7 +33,7 @@ Version {versionNumber} is now available!  Click for more details: 'A versão {v
   está disponível! Clique aqui para mais informações'
 Download From Site: 'Descarregar do site'
 A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um
-  novo blogue, {blogTitle}. Clique aqui para ver mais.'
+  novo blogue, {blogTitle}. Clique aqui para ver mais'
 
 # Search Bar
 Search / Go to URL: 'Pesquisar/Ir para o URL'
@@ -69,7 +69,7 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Médio (4 - 20 minutos)
   Search Results: 'Resultados'
-  Fetching results. Please wait: 'A procurar. Por favor aguarde.'
+  Fetching results. Please wait: 'A procurar. Por favor aguarde'
   Fetch more results: 'Obter mais resultados'
 # Sidebar
   There are no more results for this search: Não existem mais resultados
@@ -84,7 +84,7 @@ Subscriptions:
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
-    evitar que a sua rede seja bloqueada.
+    evitar que a sua rede seja bloqueada
   Error Channels: Canais com erros
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
@@ -102,7 +102,7 @@ User Playlists:
   Your Playlists: 'As suas listas de reprodução'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
     lista está vazia. Carregue no botão Guardar no canto de um vídeo para o mostrar
-    aqui.
+    aqui
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
     vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
@@ -615,6 +615,10 @@ Channel:
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     Community: Comunidade
+  Live:
+    Live: Em directo
+    This channel does not currently have any live streams: Este canal não tem atualmente
+      nenhuma transmissão ao vivo
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'
@@ -709,7 +713,7 @@ Video:
     outro: Após
     intro: Introdução
     sponsor: Patrocinador
-    recap: Recap
+    recap: Recapitular
     filler: Preenchimento
   Skipped segment: Secção ignorada
   translated from English: traduzido do inglês
