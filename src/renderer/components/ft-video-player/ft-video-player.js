@@ -937,8 +937,7 @@ export default defineComponent({
       } else {
         const videoFormats = this.adaptiveFormats.filter(format => {
           return (format.mimeType || format.type).startsWith('video') &&
-            typeof format.height === 'number' &&
-            typeof format.width === 'number'
+            typeof format.height === 'number'
         })
 
         // Select the quality that is identical to the users chosen default quality if it's available
@@ -947,7 +946,7 @@ export default defineComponent({
         let formatsToTest = videoFormats.filter(format => {
           // For short videos (or vertical videos?)
           // Height > width (e.g. H: 1280, W: 720)
-          if (format.height > format.width) {
+          if (typeof format.width === 'number' && format.height > format.width) {
             return format.width === this.defaultQuality
           }
 
@@ -958,7 +957,7 @@ export default defineComponent({
           formatsToTest = videoFormats.filter(format => {
             // For short videos (or vertical videos?)
             // Height > width (e.g. H: 1280, W: 720)
-            if (format.height > format.width) {
+            if (typeof format.width === 'number' && format.height > format.width) {
               return format.width < this.defaultQuality
             }
 
@@ -968,7 +967,7 @@ export default defineComponent({
 
         formatsToTest.sort((a, b) => {
           if (a.height === b.height) {
-            return b.bitrate - a.bitrate
+            return b.fps - a.fps
           } else {
             return b.height - a.height
           }
