@@ -936,16 +936,34 @@ export default defineComponent({
         this.selectedMimeType = 'auto'
       } else {
         const videoFormats = this.adaptiveFormats.filter(format => {
-          return (format.mimeType || format.type).startsWith('video') && typeof format.height !== 'undefined'
+          return (format.mimeType || format.type).startsWith('video') &&
+            typeof format.height === 'number' &&
+            typeof format.width === 'number'
         })
 
         // Select the quality that is identical to the users chosen default quality if it's available
         // otherwise select the next lowest quality
 
-        let formatsToTest = videoFormats.filter(format => format.height === this.defaultQuality)
+        let formatsToTest = videoFormats.filter(format => {
+          // For short videos (or vertical videos?)
+          // Height > width (e.g. H: 1280, W: 720)
+          if (format.height > format.width) {
+            return format.width === this.defaultQuality
+          }
+
+          return format.height === this.defaultQuality
+        })
 
         if (formatsToTest.length === 0) {
-          formatsToTest = videoFormats.filter(format => format.height < this.defaultQuality)
+          formatsToTest = videoFormats.filter(format => {
+            // For short videos (or vertical videos?)
+            // Height > width (e.g. H: 1280, W: 720)
+            if (format.height > format.width) {
+              return format.width < this.defaultQuality
+            }
+
+            return format.height < this.defaultQuality
+          })
         }
 
         formatsToTest.sort((a, b) => {
