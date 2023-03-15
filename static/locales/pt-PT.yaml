@@ -568,6 +568,10 @@ Channel:
     Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
+  Live:
+    Live: Em directo
+    This channel does not currently have any live streams: Este canal não tem atualmente
+      nenhuma transmissão ao vivo
 Video:
   Mark As Watched: Marcar como visto
   Remove From History: Remover do histórico
