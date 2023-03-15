@@ -155,7 +155,10 @@ export default defineComponent({
     },
 
     defaultQuality: function () {
-      return parseInt(this.$store.getters.getDefaultQuality)
+      const valueFromStore = this.$store.getters.getDefaultQuality
+      if (valueFromStore === 'auto') { return valueFromStore }
+
+      return parseInt(valueFromStore)
     },
 
     defaultCaptionSettings: function () {
