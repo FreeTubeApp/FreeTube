@@ -588,6 +588,10 @@ Channel:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       publikacji
     Community: Społeczność
+  Live:
+    Live: Transmisje
+    This channel does not currently have any live streams: Ten kanał nie ma obecnie
+      żadnych transmisji
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
