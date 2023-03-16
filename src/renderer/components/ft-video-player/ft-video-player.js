@@ -962,6 +962,8 @@ export default defineComponent({
 
         formatsToTest.sort((a, b) => {
           if (a.height === b.height) {
+            // Higher bitrate for video formats doesn't always make it a better quality format
+            // Higher FPS is what makes the difference
             return b.fps - a.fps
           } else {
             return b.height - a.height
