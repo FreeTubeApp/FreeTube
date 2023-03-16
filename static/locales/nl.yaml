@@ -55,12 +55,14 @@ Search Filters:
     Videos: 'Video''s'
     Channels: 'Kanalen'
     #& Playlists
+    Movies: Films
   Duration:
     Duration: 'Tijdsduur'
     All Durations: 'Alle tijdsduren'
     Short (< 4 minutes): 'Kort (< 4 minuten)'
     Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
+    Medium (4 - 20 minutes): Gemiddeld (4 - 20 minuten)
   Search Results: 'Zoekresultaten'
   Fetching results. Please wait: 'Resultaten verzamelen. Even geduld aub'
   Fetch more results: 'Meer resultaten laden'
@@ -81,6 +83,9 @@ Subscriptions:
     te vermijden
   Load More Videos: Meer video's laden
   Error Channels: Kanalen met storingen
+  Disabled Automatic Fetching: U hebt het automatisch ophalen van abonnementen uitgeschakeld.
+    Vernieuw abonnementen om ze hier te zien.
+  Empty Channels: Je geabonneerde kanalen hebben momenteel geen video's.
 Trending:
   Trending: 'Actuele'
   Trending Tabs: Tendingtabbladen
@@ -165,6 +170,7 @@ Settings:
       Light: 'Licht'
       Dracula: 'Dracula'
       System Default: Standaardwaarde van systeem
+      Catppuccin Mocha: Catppuccin Mokka
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -190,12 +196,27 @@ Settings:
       Dracula Purple: 'Dracula-paars'
       Dracula Red: 'Dracula-rood'
       Dracula Yellow: 'Dracula-geel'
+      Catppuccin Mocha Green: Catppuccin Mokka Groen
+      Catppuccin Mocha Maroon: Catppuccin mokka kastanjebruin
+      Catppuccin Mocha Blue: Catppuccin Mokka Blauw
+      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+      Catppuccin Mocha Rosewater: Catppuccin Mokka Rozenwater
+      Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mokka Roze
+      Catppuccin Mocha Mauve: Catppuccin Mokka Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Roze
+      Catppuccin Mocha Peach: Catppuccin Mokka Perzik
+      Catppuccin Mocha Yellow: Catppuccin Mokka Geel
+      Catppuccin Mocha Sapphire: Catppuccin Mokka Saffier
+      Catppuccin Mocha Teal: Catppuccin Mokka Wintertaling
+      Catppuccin Mocha Sky: Catppuccin Mokka Hemel
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Schaal van interface
     Expand Side Bar by Default: Zijbalk standaard uitklappen
     Disable Smooth Scrolling: Vloeiend scrollen uitschakelen
     Hide Side Bar Labels: Labels op zijbalk verbergen
+    Hide FreeTube Header Logo: Verberg het FreeTube-koplogo
   Player Settings:
     Player Settings: 'Videospelerinstellingen'
     Force Local Backend for Legacy Formats: 'Lokale backend voor oudere formaten forceren'
@@ -891,4 +912,6 @@ Channels:
   Empty: Uw lijst van kanalen is thans leeg.
   Unsubscribe: Afmelden
   Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
+  Unsubscribe Prompt: Weet je zeker dat je je wilt afmelden voor "{channelName}"?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
+Preferences: Voorkeuren
