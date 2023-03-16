@@ -1230,6 +1230,10 @@ export default defineComponent({
 
     changeTab: function (tab, event) {
       if (event instanceof KeyboardEvent) {
+        if (event.altKey) {
+          return
+        }
+
         // use arrowkeys to navigate
         event.preventDefault()
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
