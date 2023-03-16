@@ -528,6 +528,9 @@ Channel:
   Community:
     Community: 社群
     This channel currently does not have any posts: 此頻道目前沒有任何貼文
+  Live:
+    Live: 直播
+    This channel does not currently have any live streams: 此頻道目前沒有任何直播
 Video:
   Open in YouTube: '在YouTube中開啟'
   Copy YouTube Link: '複製YouTube連結'
