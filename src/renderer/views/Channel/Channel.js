@@ -250,6 +250,7 @@ export default defineComponent({
       this.latestLive = []
       this.liveSortBy = 'newest'
       this.latestPlaylists = []
+      this.latestCommunityPosts = []
       this.searchResults = []
       this.shownElementList = []
       this.apiUsed = ''
