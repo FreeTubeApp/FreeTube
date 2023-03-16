@@ -586,10 +586,15 @@ export default defineComponent({
             // we need to alter the result object so the toDash function uses the filtered formats too
             result.streaming_data.adaptive_formats = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
 
-            this.adaptiveFormats = result.streaming_data.adaptive_formats.map(mapLocalFormat)
+            // When `this.proxyVideos` is true
+            // It's possible that the Invidious instance used only support only partial of the formats from Local API
+            // i.e. the value passed into `adaptiveFormats`
+            // e.g. Supports 720p60, but not 720p - https://[DOMAIN_NAME]/api/manifest/dash/id/v3wm83zoSSY?local=true
             if (this.proxyVideos) {
+              this.adaptiveFormats = await this.getAdaptiveFormatsInvidious()
               this.dashSrc = await this.createInvidiousDashManifest()
             } else {
+              this.adaptiveFormats = result.streaming_data.adaptive_formats.map(mapLocalFormat)
               this.dashSrc = await this.createLocalDashManifest(result)
             }
 
@@ -636,7 +641,7 @@ export default defineComponent({
       this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
       invidiousGetVideoInformation(this.videoId)
-        .then(result => {
+        .then(async result => {
           if (result.error) {
             throw new Error(result.error)
           }
@@ -668,14 +673,7 @@ export default defineComponent({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
-          this.adaptiveFormats = filterInvidiousFormats(result.adaptiveFormats, this.allowDashAv1Formats)
-            .map((format) => {
-              format.bitrate = parseInt(format.bitrate)
-              if (typeof format.resolution !== 'undefined') {
-                format.height = parseInt(format.resolution.replace('p', ''))
-              }
-              return format
-            })
+          this.adaptiveFormats = await this.getAdaptiveFormatsInvidious(result)
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.captionHybridList = result.captions.map(caption => {
@@ -1264,6 +1262,23 @@ export default defineComponent({
           qualityLabel: 'Auto'
         }
       ]
+    },
+
+    getAdaptiveFormatsInvidious: async function(existingInfoResult = null) {
+      let getInfoPromise = Promise.resolve(existingInfoResult)
+      if (existingInfoResult == null) {
+        getInfoPromise = invidiousGetVideoInformation(this.videoId)
+      }
+      const result = await getInfoPromise
+
+      return filterInvidiousFormats(result.adaptiveFormats, this.allowDashAv1Formats)
+        .map((format) => {
+          format.bitrate = parseInt(format.bitrate)
+          if (typeof format.resolution !== 'undefined') {
+            format.height = parseInt(format.resolution.replace('p', ''))
+          }
+          return format
+        })
     },
 
     createLocalStoryboardUrls: async function (storyboardInfo) {
