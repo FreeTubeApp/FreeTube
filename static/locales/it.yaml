@@ -400,7 +400,7 @@ Settings:
     Hide Active Subscriptions: Nascondi le iscrizioni attive
     Hide Playlists: Nascondi le playlist
     Hide Comments: Nascondi i commenti
-    Hide Live Streams: Nascondi i video in diretta
+    Hide Live Streams: Nascondi i video dal vivo
     Hide Sharing Actions: Nascondi le azioni di condivisione
     Hide Video Description: Nascondi la descrizione del video
     Hide Chapters: Nascondi i capitoli
@@ -549,7 +549,7 @@ Channel:
   Videos:
     Videos: 'Video'
     This channel does not currently have any videos: 'Questo canale attualmente non
-      ha nessun video'
+      ha alcun video'
     Sort Types:
       Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
@@ -557,7 +557,7 @@ Channel:
   Playlists:
     Playlists: 'Playlist'
     This channel does not currently have any playlists: 'Questo canale attualmente
-      non ha nessuna playlist'
+      non ha alcuna playlist'
     Sort Types:
       Last Video Added: 'Ultimo video aggiunto'
       Newest: 'Più nuovi'
@@ -587,6 +587,10 @@ Channel:
     This channel currently does not have any posts: Questo canale al momento non ha
       post
     Community: Comunità
+  Live:
+    Live: Dal vivo
+    This channel does not currently have any live streams: Questo canale attualmente
+      non ha alcun video dal vivo
 Video:
   Mark As Watched: 'Segna come già visto'
   Remove From History: 'Rimuovi dalla cronologia'
@@ -671,8 +675,8 @@ Video:
   Open Channel in Invidious: Apri il canale con Invidious
   Copy YouTube Channel Link: Copia link canale YouTube
   Open Channel in YouTube: Apri il canale con YouTube
-  Started streaming on: Stream iniziato il
-  Streamed on: Streaming il
+  Started streaming on: Trasmissione iniziata il
+  Streamed on: Trasmesso il
   Video has been removed from your saved list: Il video è stato rimosso dalla tua
     lista preferiti
   Video has been saved: Il video è stato salvato
@@ -884,9 +888,9 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Quando abilitate, le API locali useranno i formati compatibili
-      al posto di quelli di Invidious. Utile quando i video di Invidious non vengono
-      riprodotti a causa di restrizioni geografiche.
+      predefinita. Se abilitate, le API locali useranno i formati compatibili al posto
+      di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
+      a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
