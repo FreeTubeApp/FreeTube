@@ -599,7 +599,7 @@ export default defineComponent({
         const views = extractNumberFromString(about.views.text)
         this.views = isNaN(views) ? null : views
 
-        this.joined = new Date(about.joined.text.replace('Joined').trim())
+        this.joined = about.joined.text !== 'N/A' ? new Date(about.joined.text.replace('Joined').trim()) : 0
 
         this.location = about.country.text !== 'N/A' ? about.country.text : null
       } catch (err) {
@@ -756,7 +756,7 @@ export default defineComponent({
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
         this.description = autolinker.link(response.description)
         this.views = response.totalViews
-        this.joined = new Date(response.joined * 1000)
+        this.joined = response.joined > 0 ? new Date(response.joined * 1000) : 0
         this.relatedChannels = response.relatedChannels.map((channel) => {
           const thumbnailUrl = channel.authorThumbnails.at(-1).url
           return {
