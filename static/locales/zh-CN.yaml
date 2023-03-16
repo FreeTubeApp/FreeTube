@@ -517,6 +517,9 @@ Channel:
   Community:
     Community: 社区
     This channel currently does not have any posts: 此频道当前没有任何帖子
+  Live:
+    Live: 直播
+    This channel does not currently have any live streams: 此频道当前没有任何直播流
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
