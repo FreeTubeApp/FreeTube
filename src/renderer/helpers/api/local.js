@@ -1,4 +1,4 @@
-import { Innertube, ClientType, Misc, Utils } from 'youtubei.js'
+import { Innertube, ClientType, Misc, Utils, YT } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { join } from 'path'
 
@@ -203,19 +203,33 @@ export async function getLocalChannel(id) {
 }
 
 export async function getLocalChannelVideos(id) {
-  const channel = await getLocalChannel(id)
+  const innertube = await createInnertube()
 
-  if (channel.alert) {
-    return null
+  try {
+    const response = await innertube.actions.execute('/browse', {
+      browseId: id,
+      params: 'EgZ2aWRlb3PyBgQKAjoA'
+      // protobuf for the videos tab (this is the one that YouTube uses,
+      // it has some empty fields in the protobuf but it doesn't work if you remove them)
+    })
+
+    const videosTab = new YT.Channel(null, response)
+
+    // if the channel doesn't have a videos tab, YouTube returns the home tab instead
+    // so we need to check that we got the right tab
+    if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
+      return parseLocalChannelVideos(videosTab.videos, videosTab.header.author)
+    } else {
+      return []
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof Utils.ChannelError) {
+      return null
+    } else {
+      throw error
+    }
   }
-
-  if (!channel.has_videos) {
-    return []
-  }
-
-  const videosTab = await channel.getVideos()
-
-  return parseLocalChannelVideos(videosTab.videos, channel.header.author)
 }
 
 /**
