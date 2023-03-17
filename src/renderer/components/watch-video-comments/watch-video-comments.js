@@ -191,6 +191,16 @@ export default defineComponent({
         this.isLoading = false
         this.showComments = true
       } catch (err) {
+        if (err.message.includes('Comments page did not have any content')) {
+          // For videos without any comment (comment disabled?)
+          // e.g. https://youtu.be/8NBSwDEf8a8
+          this.commentData = []
+          this.nextPageToken = null
+          this.isLoading = false
+          this.showComments = true
+          return
+        }
+
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -248,11 +258,21 @@ export default defineComponent({
         this.nextPageToken = response.continuation
         this.isLoading = false
         this.showComments = true
-      }).catch((xhr) => {
-        console.error(xhr)
+      }).catch((err) => {
+        if (err.message.includes('Comments not found')) {
+          // For videos without any comment (comment disabled?)
+          // e.g. https://youtu.be/8NBSwDEf8a8
+          this.commentData = []
+          this.nextPageToken = null
+          this.isLoading = false
+          this.showComments = true
+          return
+        }
+
+        console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
-          copyToClipboard(xhr.responseText)
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
         })
         if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
           showToast(this.$t('Falling back to local API'))
