@@ -28,6 +28,11 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
   }
 }
 
+// videojs-http-streaming spits out a warning every time you access videojs.Vhs.BANDWIDTH_VARIANCE
+// so we'll get the value once here, to stop it spamming the console
+// https://github.com/videojs/http-streaming/blob/main/src/config.js#L8-L10
+const VHS_BANDWIDTH_VARIANCE = videojs.Vhs.BANDWIDTH_VARIANCE
+
 export default defineComponent({
   name: 'FtVideoPlayer',
   props: {
@@ -383,7 +388,9 @@ export default defineComponent({
 
         if (this.useDash && this.defaultQuality !== 'auto') {
           // https://github.com/videojs/http-streaming#bandwidth
-          playerBandwidthOption.bandwidth = Number.MAX_VALUE
+          // Cannot be too high to fix https://github.com/FreeTubeApp/FreeTube/issues/595
+          // (when default quality is low like 240p)
+          playerBandwidthOption.bandwidth = this.selectedBitrate * VHS_BANDWIDTH_VARIANCE + 1
         }
 
         this.player = videojs(this.$refs.video, {
