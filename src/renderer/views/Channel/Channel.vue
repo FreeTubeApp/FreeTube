@@ -278,6 +278,7 @@
       </div>
       <ft-select
         v-show="currentTab === 'videos' && latestVideos.length > 0"
+        key="videoSortBy"
         class="sortSelect"
         :value="videoShortLiveSelectValues[0]"
         :select-names="videoShortLiveSelectNames"
@@ -288,6 +289,7 @@
       <ft-select
         v-if="!hideLiveStreams"
         v-show="currentTab === 'live' && latestLive.length > 0"
+        key="liveSortBy"
         class="sortSelect"
         :value="videoShortLiveSelectValues[0]"
         :select-names="videoShortLiveSelectNames"
@@ -297,6 +299,7 @@
       />
       <ft-select
         v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
+        key="playlistSortBy"
         class="sortSelect"
         :value="playlistSelectValues[0]"
         :select-names="playlistSelectNames"
