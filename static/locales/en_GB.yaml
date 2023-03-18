@@ -595,6 +595,10 @@ Channel:
     This channel currently does not have any posts: This channel currently does not
       have any posts
     Community: Community
+  Live:
+    This channel does not currently have any live streams: This channel does not currently
+      have any live streams
+    Live: Live
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
