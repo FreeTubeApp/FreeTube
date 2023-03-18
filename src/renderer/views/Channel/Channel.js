@@ -1039,11 +1039,25 @@ export default defineComponent({
          * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
          */
         const channel = this.channelInstance
-        const communityTab = await channel.getCommunity()
+
+        /**
+         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default|import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
+         */
+        let communityTab = await channel.getCommunity()
         if (expectedId !== this.id) {
           return
         }
-        this.latestCommunityPosts = communityTab.posts.map(parseLocalCommunityPost)
+
+        // work around YouTube bug where it will return a bunch of responses with only continuations in them
+        // e.g. https://www.youtube.com/@TheLinuxEXP/community
+
+        let posts = communityTab.posts
+        while (posts.length === 0 && communityTab.has_continuation) {
+          communityTab = await communityTab.getContinuation()
+          posts = communityTab.posts
+        }
+
+        this.latestCommunityPosts = posts.map(parseLocalCommunityPost)
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
       } catch (err) {
         console.error(err)
@@ -1065,8 +1079,17 @@ export default defineComponent({
         /**
          * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
          */
-        const continuation = await this.communityContinuationData.getContinuation()
-        this.latestCommunityPosts = this.latestCommunityPosts.concat(continuation.posts.map(parseLocalCommunityPost))
+        let continuation = await this.communityContinuationData.getContinuation()
+
+        // work around YouTube bug where it will return a bunch of responses with only continuations in them
+        // e.g. https://www.youtube.com/@TheLinuxEXP/community
+        let posts = continuation.posts
+        while (posts.length === 0 && continuation.has_continuation) {
+          continuation = await continuation.getContinuation()
+          posts = continuation.posts
+        }
+
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(posts.map(parseLocalCommunityPost))
         this.communityContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
