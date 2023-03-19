@@ -88,8 +88,12 @@ export default defineComponent({
     } else {
       switch (this.backendPreference) {
         case 'local':
-          this.liveChatInstance = this.liveChat
-          this.startLiveChatLocal()
+          if (this.liveChat) {
+            this.liveChatInstance = this.liveChat
+            this.startLiveChatLocal()
+          } else {
+            this.showLiveChatUnavailable()
+          }
           break
         case 'invidious':
           if (this.backendFallback) {
@@ -114,9 +118,21 @@ export default defineComponent({
 
     getLiveChatLocal: async function () {
       const videoInfo = await getLocalVideoInfo(this.videoId)
-      this.liveChatInstance = videoInfo.getLiveChat()
 
-      this.startLiveChatLocal()
+      if (videoInfo.livechat) {
+        this.liveChatInstance = videoInfo.getLiveChat()
+
+        this.startLiveChatLocal()
+      } else {
+        this.showLiveChatUnavailable()
+      }
+    },
+
+    showLiveChatUnavailable: function () {
+      this.hasError = true
+      this.errorMessage = this.$t('Video["Live Chat is unavailable for this stream. It may have been disabled by the uploader."]')
+      this.isLoading = false
+      this.showEnableChat = false
     },
 
     startLiveChatLocal: function () {
