@@ -521,7 +521,10 @@ Channel:
   This channel does not allow searching: このチャンネルでは検索できません
   This channel is age resticted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
     FreeTube では視聴できません。
-  Channel Tabs: チャネル タブ
+  Channel Tabs: チャンネル タブ
+  Live:
+    This channel does not currently have any live streams: このチャンネルは現在、ライブ配信を行っていません
+    Live: ライブ配信
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
