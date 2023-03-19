@@ -558,6 +558,12 @@ Channel:
   This channel is age resticted and currently cannot be viewed in FreeTube.: Þessi
     rás er með aldurstakmark og er í augnablikinu ekki hægt að skoða í FreeTube.
   Channel Tabs: Rásaflipar
+  Live:
+    Live: Í beinni
+    This channel does not currently have any live streams: Þessi rás er í augnablikinu
+      ekki með nein bein streymi
+  Community:
+    Community: Samfélag
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr vinnsluferli'

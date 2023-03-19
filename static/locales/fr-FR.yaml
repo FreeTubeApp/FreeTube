@@ -606,6 +606,10 @@ Channel:
     Community: Communauté
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
+  Live:
+    Live: En direct
+    This channel does not currently have any live streams: Cette chaîne n’a actuellement
+      aucun flux en direct
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'
