@@ -98,6 +98,7 @@ export default defineComponent({
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
+      commentsEnabled: true,
     }
   },
   computed: {
@@ -616,6 +617,17 @@ export default defineComponent({
             await this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
           }
         }
+
+        // region No comment detection
+        // For videos without any comment (comment disabled?)
+        // e.g. https://youtu.be/8NBSwDEf8a8
+        //
+        // `comments_entry_point_header` is null probably when comment disabled
+        // e.g. https://youtu.be/8NBSwDEf8a8
+        // However videos with comments enabled but have no comment
+        // are different (which is not detected here)
+        this.commentsEnabled = result.comments_entry_point_header != null
+        // endregion No comment detection
 
         this.isLoading = false
         this.updateTitle()
