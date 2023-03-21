@@ -4,6 +4,9 @@
 .outside {
   margin: auto;
   width: 40%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .circle {
