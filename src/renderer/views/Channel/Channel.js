@@ -928,7 +928,9 @@ export default defineComponent({
           playlistsTab = await playlistsTab.applyContentTypeFilter(createdPlaylistsFilter)
         }
 
-        this.showPlaylistSortBy = playlistsTab.sort_filters.length > 1
+        // YouTube seems to allow the playlists tab to be sorted even if it only has one playlist
+        // as it doesn't make sense to sort a list with a single playlist in it, we'll hide the sort by element if there is a single playlist
+        this.showPlaylistSortBy = playlistsTab.sort_filters.length > 1 && playlistsTab.playlists.length > 1
 
         if (this.showPlaylistSortBy && this.playlistSortBy !== 'newest') {
           const index = this.playlistSelectValues.indexOf(this.playlistSortBy)
