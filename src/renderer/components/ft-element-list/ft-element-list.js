@@ -23,19 +23,13 @@ export default defineComponent({
       default: false
     }
   },
-  data: function () {
-    return {
-      displayValue: this.display
-    }
-  },
   computed: {
     listType: function () {
       return this.$store.getters.getListType
-    }
-  },
-  mounted: function () {
-    if (this.display === '') {
-      this.displayValue = this.listType
+    },
+
+    displayValue: function () {
+      return this.display === '' ? this.listType : this.display
     }
   }
 })
