@@ -581,7 +581,7 @@ Channel:
     абонаменти'
   Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count}
     друг(и) канал(и)'
-  Added channel to your subscriptions: 'Добавен канал към вашите абонаменти'
+  Added channel to your subscriptions: 'Каналът е добавен към вашите абонаменти'
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
   Sort By: 'Сортиране по'
@@ -620,6 +620,10 @@ Channel:
   This channel is age resticted and currently cannot be viewed in FreeTube.: Каналът
     е възрастово ограничен и в момента не може да бъде гледан във FreeTube.
   Channel Tabs: Раздели на каналите
+  Live:
+    Live: На живо
+    This channel does not currently have any live streams: В момента този канал няма
+      никакви потоци на живо
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
