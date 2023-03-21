@@ -1,3 +1,8 @@
+.card.hasError {
+  height: auto !important;
+  padding: 16px;
+}
+
 .relative {
   position: relative;
 }
@@ -10,6 +15,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.messageContainer.hasError {
+  flex-direction: column;
+  row-gap: 16px;
 }
 
 .message {
