@@ -996,7 +996,7 @@ export default defineComponent({
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
-      }).catch((err) => {
+      }).catch(async (err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -1004,7 +1004,10 @@ export default defineComponent({
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
-          this.getChannelLocal()
+          if (!this.channelInstance) {
+            this.channelInstance = await this.getChannelInstanceLocal(this.id)
+          }
+          this.getChannelPlaylistsLocal()
         } else {
           this.isLoading = false
         }
