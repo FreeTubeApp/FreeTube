@@ -119,9 +119,6 @@ export default defineComponent({
     },
 
     getTrendingInfoCache: function () {
-      // the ft-element-list component has a bug where it doesn't change despite the data changing
-      // so we need to use this hack to make vue completely get rid of it and rerender it
-      // we should find a better way to do it to avoid the trending page flashing
       this.shownResults = this.trendingCache[this.currentTab]
     },
     getTrendingInfoInvidious: function () {
