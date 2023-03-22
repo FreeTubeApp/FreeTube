@@ -277,6 +277,7 @@
         </ft-flex-box>
       </div>
       <ft-select
+        v-if="showVideoSortBy"
         v-show="currentTab === 'videos' && latestVideos.length > 0"
         class="sortSelect"
         :value="videoShortLiveSelectValues[0]"
@@ -286,7 +287,7 @@
         @change="videoSortBy = $event"
       />
       <ft-select
-        v-if="!hideLiveStreams"
+        v-if="!hideLiveStreams && showLiveSortBy"
         v-show="currentTab === 'live' && latestLive.length > 0"
         class="sortSelect"
         :value="videoShortLiveSelectValues[0]"
@@ -296,6 +297,7 @@
         @change="liveSortBy = $event"
       />
       <ft-select
+        v-if="showPlaylistSortBy"
         v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
         class="sortSelect"
         :value="playlistSelectValues[0]"

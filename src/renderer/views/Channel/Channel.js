@@ -71,6 +71,9 @@ export default defineComponent({
       videoSortBy: 'newest',
       liveSortBy: 'newest',
       playlistSortBy: 'newest',
+      showVideoSortBy: true,
+      showLiveSortBy: true,
+      showPlaylistSortBy: true,
       lastSearchQuery: '',
       relatedChannels: [],
       latestVideos: [],
@@ -261,6 +264,9 @@ export default defineComponent({
       this.searchContinuationData = null
       this.communityContinuationData = null
       this.showSearchBar = true
+      this.showVideoSortBy = true
+      this.showLiveSortBy = true
+      this.showPlaylistSortBy = true
 
       if (this.hideLiveStreams && currentTab === 'live') {
         currentTab = 'videos'
@@ -629,7 +635,9 @@ export default defineComponent({
         const channel = this.channelInstance
         let videosTab = await channel.getVideos()
 
-        if (this.videoSortBy !== 'newest') {
+        this.showVideoSortBy = videosTab.filters.length > 1
+
+        if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
           const index = this.videoShortLiveSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
@@ -685,7 +693,9 @@ export default defineComponent({
         const channel = this.channelInstance
         let liveTab = await channel.getLiveStreams()
 
-        if (this.liveSortBy !== 'newest') {
+        this.showLiveSortBy = liveTab.filters.length > 1
+
+        if (this.showLiveSortBy && this.liveSortBy !== 'newest') {
           const index = this.videoShortLiveSelectValues.indexOf(this.liveSortBy)
           liveTab = await liveTab.applyFilter(liveTab.filters[index])
         }
@@ -919,7 +929,11 @@ export default defineComponent({
           playlistsTab = await playlistsTab.applyContentTypeFilter(createdPlaylistsFilter)
         }
 
-        if (this.playlistSortBy !== 'newest' && playlistsTab.sort_filters.length > 0) {
+        // YouTube seems to allow the playlists tab to be sorted even if it only has one playlist
+        // as it doesn't make sense to sort a list with a single playlist in it, we'll hide the sort by element if there is a single playlist
+        this.showPlaylistSortBy = playlistsTab.sort_filters.length > 1 && playlistsTab.playlists.length > 1
+
+        if (this.showPlaylistSortBy && this.playlistSortBy !== 'newest') {
           const index = this.playlistSelectValues.indexOf(this.playlistSortBy)
           playlistsTab = await playlistsTab.applySort(playlistsTab.sort_filters[index])
         }
