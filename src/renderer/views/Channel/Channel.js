@@ -1132,7 +1132,9 @@ export default defineComponent({
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           // set local channel instance before calling community posts local
-          this.channelInstance = await this.getChannelInstanceLocal(this.id)
+          if (!this.channelInstance) {
+            this.channelInstance = await this.getChannelInstanceLocal(this.id)
+          }
           this.getCommunityPostsLocal()
         }
       })
