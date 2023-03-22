@@ -550,8 +550,10 @@ export default defineComponent({
       this.isLoading = true
       const expectedId = this.id
       try {
-        const channel = await this.getChannelInstanceLocal(expectedId)
-        if (channel.has_about) {
+        if (!this.channelInstance) {
+          this.channelInstance = await this.getChannelInstanceLocal(expectedId)
+        }
+        if (this.channelInstance.has_about) {
           this.getChannelAboutLocal()
         } else {
           this.description = ''
@@ -560,23 +562,23 @@ export default defineComponent({
           this.location = null
         }
 
-        if (channel.has_videos) {
+        if (this.channelInstance.has_videos) {
           this.getChannelVideosLocal()
         }
 
-        if (!this.hideLiveStreams && channel.has_live_streams) {
+        if (!this.hideLiveStreams && this.channelInstance.has_live_streams) {
           this.getChannelLiveLocal()
         }
 
-        if (channel.has_playlists) {
+        if (this.channelInstance.has_playlists) {
           this.getChannelPlaylistsLocal()
         }
 
-        if (channel.has_community) {
+        if (this.channelInstance.has_community) {
           this.getCommunityPostsLocal()
         }
 
-        this.showSearchBar = channel.has_search
+        this.showSearchBar = this.channelInstance.has_search
 
         this.isLoading = false
       } catch (err) {
