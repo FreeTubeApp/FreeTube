@@ -745,6 +745,8 @@ function runApp() {
             // Update app menu on related setting update
             case 'hideTrendingVideos':
             case 'hidePopularVideos':
+            case 'backendFallback':
+            case 'backendPreference':
             case 'hidePlaylists':
               await setMenu()
               break
@@ -1081,6 +1083,8 @@ function runApp() {
     const sidenavSettings = baseHandlers.settings._findSidenavSettings()
     const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
     const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
+    const backendFallback = (await sidenavSettings.backendFallback)?.value
+    const backendPreference = (await sidenavSettings.backendPreference)?.value
     const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [
@@ -1215,7 +1219,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          !hidePopularVideos && {
+          (!hidePopularVideos && (backendFallback || backendPreference === 'invidious')) && {
             label: 'Most Popular',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/popular', browserWindow)

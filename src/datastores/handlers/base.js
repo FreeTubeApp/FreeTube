@@ -35,6 +35,8 @@ class Settings {
     return {
       hideTrendingVideos: db.settings.findOne({ _id: 'hideTrendingVideos' }),
       hidePopularVideos: db.settings.findOne({ _id: 'hidePopularVideos' }),
+      backendFallback: db.settings.findOne({ _id: 'backendFallback' }),
+      backendPreference: db.settings.findOne({ _id: 'backendPreference' }),
       hidePlaylists: db.settings.findOne({ _id: 'hidePlaylists' }),
     }
   }
