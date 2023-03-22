@@ -622,7 +622,7 @@ Channel:
     Featured Channels: 'Προτεινόμενα κανάλια'
     Tags:
       Tags: Ετικέτες
-      Search for: Αναζήτηση για "{ετικέτα}"
+      Search for: Αναζήτηση για «{tag}»
     Details: Λεπτομέριες
     Location: Τοποθεσία
     Joined: Εγγράφηκαν
