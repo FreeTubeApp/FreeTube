@@ -87,7 +87,7 @@
       class="floatingTopButton"
       :size="12"
       theme="primary"
-      @click="getTrendingInfo"
+      @click="getTrendingInfo(true)"
     />
   </div>
 </template>
