@@ -221,7 +221,7 @@ function parseInvidiousCommunityAttachments(data) {
       content: data.choices.map(choice => {
         return {
           text: choice.text,
-          image: choice.image.map(thumbnail => {
+          image: choice.image?.map(thumbnail => {
             thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
             return thumbnail
           })
