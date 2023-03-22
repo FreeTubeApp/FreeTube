@@ -4,7 +4,7 @@
   >
     <ft-list-lazy-wrapper
       v-for="(result, index) in data"
-      :key="index"
+      :key="result.type === 'video' ? `${result.videoId}-${index}` : index"
       appearance="result"
       :data="result"
       :first-screen="index < 16"
