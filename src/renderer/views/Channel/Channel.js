@@ -862,6 +862,10 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        }
       })
     },
 
