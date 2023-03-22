@@ -98,15 +98,16 @@ export default defineComponent({
         return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
       })
 
-      this.shownResults = []
-      this.isLoading = true
-
       if (sameSearch.length > 0) {
+        // No loading effected needed here, only rendered result update
+
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
         // Before showing the results.
         setTimeout(this.replaceShownResults, 100, sameSearch[0])
       } else {
+        // Show loading effect coz there will be network request(s)
+        this.isLoading = true
         this.searchSettings = payload.searchSettings
 
         switch (this.backendPreference) {
@@ -294,6 +295,7 @@ export default defineComponent({
         this.searchPage = history.searchPage
       }
 
+      // This is kept in case there is some race condition
       this.isLoading = false
     }
   }
