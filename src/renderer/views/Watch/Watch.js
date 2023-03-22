@@ -1211,7 +1211,7 @@ export default defineComponent({
      * @param {VideoInfo} videoInfo
      */
     createLocalDashManifest: async function (videoInfo) {
-      const xmlData = videoInfo.toDash()
+      const xmlData = await videoInfo.toDash()
       const userData = await getUserDataPath()
       let fileLocation
       let uriSchema
