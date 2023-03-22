@@ -54,7 +54,7 @@ export default defineComponent({
 
       this.channelName = this.data.name
       this.id = this.data.id
-      if (this.hideChannelSubscriptions || this.data.subscribers === null) {
+      if (this.hideChannelSubscriptions || this.data.subscribers == null) {
         this.subscriberCount = null
       } else {
         this.subscriberCount = this.data.subscribers.replace(/ subscriber(s)?/, '')
