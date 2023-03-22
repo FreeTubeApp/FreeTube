@@ -115,7 +115,7 @@ export default defineComponent({
             this.performSearchLocal(payload)
             break
           case 'invidious':
-            this.performSearchInvidious(payload)
+            this.performSearchInvidious(payload, { resetSearchPage: true })
             break
         }
       }
@@ -197,7 +197,10 @@ export default defineComponent({
       }
     },
 
-    performSearchInvidious: function (payload) {
+    performSearchInvidious: function (payload, options = { resetSearchPage: false }) {
+      if (options.resetSearchPage) {
+        this.searchPage = 1
+      }
       if (this.searchPage === 1) {
         this.isLoading = true
       }
