@@ -370,7 +370,7 @@ function parseListItem(item) {
       let subscribers = null
       let videos = null
       let handle = null
-      if (channel.subscribers.text.startsWith('@')) {
+      if (channel.subscribers.text?.startsWith('@')) {
         handle = channel.subscribers.text
 
         if (channel.videos.text !== 'N/A') {
