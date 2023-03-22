@@ -608,7 +608,7 @@ Channel:
       aucune publication
   Live:
     Live: En direct
-    This channel does not currently have any live streams: Cette chaîne n’a actuellement
+    This channel does not currently have any live streams: Cette chaîne n'a actuellement
       aucun flux en direct
 Video:
   Mark As Watched: 'Marquer comme vu'
@@ -746,7 +746,7 @@ Video:
     Bandwidth: Bande passante
     Video ID: Identifiant vidéo
     Buffered: En mémoire tampon
-    Dropped / Total Frames: Images perdues / Nombre total d’images
+    Dropped / Total Frames: Images perdues / Nombre total d'images
   Premieres on: Avant-première le
   Premieres in: Première dans
   Premieres: Avant-première
