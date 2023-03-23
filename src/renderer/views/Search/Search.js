@@ -99,7 +99,7 @@ export default defineComponent({
       })
 
       if (sameSearch.length > 0) {
-        // No loading effected needed here, only rendered result update
+        // No loading effect needed here, only rendered result update
 
         // Replacing the data right away causes a strange error where the data
         // Shown is mixed from 2 different search results.  So we'll wait a moment
