@@ -572,6 +572,10 @@ Channel:
     Community: Сообщество
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
+  Live:
+    Live: Прямой показ
+    This channel does not currently have any live streams: На этом канале в настоящее
+      время нет прямых показов
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
@@ -714,6 +718,8 @@ Video:
   Show Super Chat Comment: Показать комментарий «Супер Чата»
   Scroll to Bottom: Прокрутите вниз
   Upcoming: Предстоящее
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Прямой
+    чат недоступен для этого показа. Возможно, он был отключён загрузчиком.
 Videos:
   #& Sort By
   Sort By:
