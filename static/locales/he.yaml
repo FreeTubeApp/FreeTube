@@ -634,15 +634,14 @@ Video:
   # As in a Live Video
   Live: 'שידור חי'
   Live Now: 'בשידור חי'
-  Live Chat: 'צ''אט'
-  Enable Live Chat: 'אפשר צ''אט'
-  Live Chat is currently not supported in this build.: 'הצ''אט כרגע לא נתמך בגרסה
-    זו.'
+  Live Chat: 'צ׳אט'
+  Enable Live Chat: 'הפעלת צ׳אט'
+  Live Chat is currently not supported in this build.: 'הצ׳אט כרגע לא נתמך בגרסה זו.'
   'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'הצ''אט מופעל.
-    ההודעות יופיעו פה כאשר יישלחו.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'הצ׳אט מופעל.
+    ההודעות תופענה פה כאשר תישלחנה.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'מנגנון
-    הצ''אט כרגע לא נתמך ע"י ה-API של Invidious. דרוש חיבור ישיר ל-YouTube.'
+    הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
   Published:
     Jan: 'בינו׳'
     Feb: 'בפבר׳'
@@ -745,6 +744,8 @@ Video:
   Scroll to Bottom: גלילה לתחתית
   Show Super Chat Comment: הצגת הערת סופר צ׳אט
   Upcoming: בקרוב
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': הצ׳אט
+    לא זמין לשידור הזה. יכול להיות שהוא הושבת על ידי המעלה.
 Videos:
   #& Sort By
   Sort By:
