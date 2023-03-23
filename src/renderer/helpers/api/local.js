@@ -459,8 +459,9 @@ function convertSearchFilters(filters) {
 /**
  * @param {(TextRun|EmojiRun)[]} runs
  * @param {number} emojiSize
+ * @param {{looseChannelNameDetection: boolean}} options
  */
-export function parseLocalTextRuns(runs, emojiSize = 16) {
+export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChannelNameDetection: false }) {
   if (!Array.isArray(runs)) {
     throw new Error('not an array of text runs')
   }
@@ -508,8 +509,10 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
             break
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
-            if (CHANNEL_HANDLE_REGEX.test(trimmedText)) {
-              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>`)
+            // In comments, mention can be `@Channel Name` (not handle, but name)
+            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && /^@/.test(trimmedText))) {
+              // Extra space at the end due to YT tend to include one space afterward into "channel run" `text` for "mentions"
+              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a> `)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
@@ -603,7 +606,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     isOwner: comment.author_is_channel_owner,
     isMember: comment.is_member,
     memberIconUrl: comment.is_member ? comment.sponsor_comment_badge.custom_badge[0].url : '',
-    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16)),
+    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
     time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
     likes: comment.vote_count,
     isHearted: comment.is_hearted,
