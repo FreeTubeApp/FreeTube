@@ -766,6 +766,8 @@ Video:
   Show Super Chat Comment: Показване на Super Chat коментар
   Scroll to Bottom: Превъртане в долната част
   Upcoming: Предстоящи
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чатът
+    на живо не е наличен за този поток. Възможно е да е бил деактивиран от качващия.
 Videos:
   #& Sort By
   Sort By:
