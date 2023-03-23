@@ -667,16 +667,16 @@ Video:
   # As in a Live Video
   Live: 'Ζωντανά'
   Live Now: 'Ζωντανά τώρα'
-  Live Chat: 'Ζωντανή συζήτηση'
-  Enable Live Chat: 'Ενεργοποίηση της Ζωντανής συζήτησης'
-  Live Chat is currently not supported in this build.: 'Η ζωντανή συζήτηση δεν υποστηρίζεται
+  Live Chat: 'Ζωντανή συνομιλία'
+  Enable Live Chat: 'Ενεργοποίηση Ζωντανής συνομιλίας'
+  Live Chat is currently not supported in this build.: 'Η ζωντανή συνομιλία δεν υποστηρίζεται
     προς το παρόν σε αυτήν την έκδοση.'
   'Chat is disabled or the Live Stream has ended.': 'Η συνομιλία είναι απενεργοποιημένη
     ή η ζωντανή ροή έχει τερματιστεί.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Η ζωντανή συζήτηση
+  Live chat is enabled.  Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία
     είναι ενεργοποιημένη.  Τα μηνύματα συνομιλίας θα εμφανίζονται εδώ μόλις σταλούν.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Η
-    ζωντανή συζήτηση δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
+    ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
     άμεση σύνδεση με το YouTube.'
   Published:
     Jan: 'Ιαν'
@@ -782,6 +782,9 @@ Video:
   Scroll to Bottom: Κύλιση προς τα Κάτω
   Premieres: Πρεμιέρες
   Upcoming: Επερχόμενο
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η\
+    \ Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί\
+    \ από τον χρήστη."
 Videos:
   #& Sort By
   Sort By:
