@@ -601,6 +601,7 @@ Video:
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Live Chat is unavailable for this stream. It may have been disabled by the uploader.'
   Show Super Chat Comment: Show Super Chat Comment
   Scroll to Bottom: Scroll to Bottom
   Download Video: Download Video

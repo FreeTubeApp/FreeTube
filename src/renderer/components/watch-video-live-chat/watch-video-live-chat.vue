@@ -1,6 +1,7 @@
 <template>
   <ft-card
-    class="relative"
+    class="card relative"
+    :class="{ hasError }"
   >
     <ft-loader
       v-if="isLoading"
@@ -8,6 +9,7 @@
     <div
       v-else-if="hasError"
       class="messageContainer"
+      :class="{ hasError }"
     >
       <p
         class="message"
