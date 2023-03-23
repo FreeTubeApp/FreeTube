@@ -28,6 +28,11 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
   }
 }
 
+// videojs-http-streaming spits out a warning every time you access videojs.Vhs.BANDWIDTH_VARIANCE
+// so we'll get the value once here, to stop it spamming the console
+// https://github.com/videojs/http-streaming/blob/main/src/config.js#L8-L10
+const VHS_BANDWIDTH_VARIANCE = videojs.Vhs.BANDWIDTH_VARIANCE
+
 export default defineComponent({
   name: 'FtVideoPlayer',
   props: {
@@ -150,7 +155,10 @@ export default defineComponent({
     },
 
     defaultQuality: function () {
-      return parseInt(this.$store.getters.getDefaultQuality)
+      const valueFromStore = this.$store.getters.getDefaultQuality
+      if (valueFromStore === 'auto') { return valueFromStore }
+
+      return parseInt(valueFromStore)
     },
 
     defaultCaptionSettings: function () {
@@ -320,6 +328,10 @@ export default defineComponent({
 
     this.dataSetup.playbackRates = this.playbackRates
 
+    if (this.format === 'dash') {
+      this.determineDefaultQualityDash()
+    }
+
     this.createFullWindowButton()
     this.createLoopButton()
     this.createToggleTheatreModeButton()
@@ -369,6 +381,18 @@ export default defineComponent({
           controlBarItems.splice(index, 1)
         }
 
+        // regardless of what DASH qualities you enable or disable in the qualityLevels plugin
+        // the first segments videojs-http-streaming requests are chosen based on the available bandwidth, which is set to 0.5MB/s by default
+        // overriding that to be the same as the quality we requested, makes videojs-http-streamming pick the correct quality
+        const playerBandwidthOption = {}
+
+        if (this.useDash && this.defaultQuality !== 'auto') {
+          // https://github.com/videojs/http-streaming#bandwidth
+          // Cannot be too high to fix https://github.com/FreeTubeApp/FreeTube/issues/595
+          // (when default quality is low like 240p)
+          playerBandwidthOption.bandwidth = this.selectedBitrate * VHS_BANDWIDTH_VARIANCE + 1
+        }
+
         this.player = videojs(this.$refs.video, {
           html5: {
             preloadTextTracks: false,
@@ -376,7 +400,8 @@ export default defineComponent({
               limitRenditionByPlayerDimensions: false,
               smoothQualityChange: false,
               allowSeeksWithinUnsafeLiveWindow: true,
-              handlePartialData: true
+              handlePartialData: true,
+              ...playerBandwidthOption
             }
           }
         })
@@ -396,6 +421,15 @@ export default defineComponent({
             tapTimeout: 300
           }
         })
+
+        // disable any quality the isn't the default one, as soon as it gets added
+        // we don't need to disable any qualities for auto
+        if (this.useDash && this.defaultQuality !== 'auto') {
+          const qualityLevels = this.player.qualityLevels()
+          qualityLevels.on('addqualitylevel', ({ qualityLevel }) => {
+            qualityLevel.enabled = qualityLevel.bitrate === this.selectedBitrate
+          })
+        }
 
         this.player.volume(this.volume)
         this.player.muted(this.muted)
@@ -907,92 +941,67 @@ export default defineComponent({
     },
 
     determineDefaultQualityDash: function () {
+      // TODO add settings and filtering for 60fps and HDR
+
       if (this.defaultQuality === 'auto') {
-        this.setDashQualityLevel('auto')
-      }
-
-      let formatsToTest
-
-      if (typeof this.activeAdaptiveFormats !== 'undefined' && this.activeAdaptiveFormats.length > 0) {
-        formatsToTest = this.activeAdaptiveFormats.filter((format) => {
-          return format.height === this.defaultQuality
-        })
-
-        if (formatsToTest.length === 0) {
-          formatsToTest = this.activeAdaptiveFormats.filter((format) => {
-            return format.height < this.defaultQuality
-          })
-        }
-
-        formatsToTest = formatsToTest.sort((a, b) => {
-          if (a.height === b.height) {
-            return b.bitrate - a.bitrate
-          } else {
-            return b.height - a.height
-          }
-        })
+        this.selectedResolution = 'auto'
+        this.selectedFPS = 'auto'
+        this.selectedBitrate = 'auto'
+        this.selectedMimeType = 'auto'
       } else {
-        formatsToTest = this.player.qualityLevels().levels_.filter((format) => {
+        const videoFormats = this.adaptiveFormats.filter(format => {
+          return (format.mimeType || format.type).startsWith('video') &&
+            typeof format.height === 'number'
+        })
+
+        // Select the quality that is identical to the users chosen default quality if it's available
+        // otherwise select the next lowest quality
+
+        let formatsToTest = videoFormats.filter(format => {
+          // For short videos (or vertical videos?)
+          // Height > width (e.g. H: 1280, W: 720)
+          if (typeof format.width === 'number' && format.height > format.width) {
+            return format.width === this.defaultQuality
+          }
+
           return format.height === this.defaultQuality
         })
 
         if (formatsToTest.length === 0) {
-          formatsToTest = this.player.qualityLevels().levels_.filter((format) => {
+          formatsToTest = videoFormats.filter(format => {
+            // For short videos (or vertical videos?)
+            // Height > width (e.g. H: 1280, W: 720)
+            if (typeof format.width === 'number' && format.height > format.width) {
+              return format.width < this.defaultQuality
+            }
+
             return format.height < this.defaultQuality
           })
         }
 
-        formatsToTest = formatsToTest.sort((a, b) => {
+        formatsToTest.sort((a, b) => {
           if (a.height === b.height) {
+            // Higher bitrate for video formats with HDR qualities
+            // `height` and `fps` are the same but `bitrate` would be higher
             return b.bitrate - a.bitrate
           } else {
             return b.height - a.height
           }
         })
+
+        const selectedFormat = formatsToTest[0]
+        this.selectedBitrate = selectedFormat.bitrate
+        this.selectedResolution = `${selectedFormat.width}x${selectedFormat.height}`
+        this.selectedFPS = selectedFormat.fps
+        this.selectedMimeType = selectedFormat.mimeType || selectedFormat.type
       }
-
-      // TODO: Test formats to determine if HDR / 60 FPS and skip them based on
-      // User settings
-      this.setDashQualityLevel(formatsToTest[0].bitrate)
-
-      // Old logic. Revert if needed
-      /* this.player.qualityLevels().levels_.sort((a, b) => {
-        if (a.height === b.height) {
-          return a.bitrate - b.bitrate
-        } else {
-          return a.height - b.height
-        }
-      }).forEach((ql, index, arr) => {
-        const height = ql.height
-        const width = ql.width
-        const quality = width < height ? width : height
-        let upperLevel = null
-
-        if (index < arr.length - 1) {
-          upperLevel = arr[index + 1]
-        }
-
-        if (this.defaultQuality === quality && upperLevel === null) {
-          this.setDashQualityLevel(height, true)
-        } else if (upperLevel !== null) {
-          const upperHeight = upperLevel.height
-          const upperWidth = upperLevel.width
-          const upperQuality = upperWidth < upperHeight ? upperWidth : upperHeight
-
-          if (this.defaultQuality >= quality && this.defaultQuality === upperQuality) {
-            this.setDashQualityLevel(height, true)
-          } else if (this.defaultQuality >= quality && this.defaultQuality < upperQuality) {
-            this.setDashQualityLevel(height)
-          }
-        } else if (index === 0 && quality > this.defaultQuality) {
-          this.setDashQualityLevel(height)
-        } else if (index === (arr.length - 1) && quality < this.defaultQuality) {
-          this.setDashQualityLevel(height)
-        }
-      }) */
     },
 
     setDashQualityLevel: function (bitrate) {
+      if (bitrate === this.selectedBitrate) {
+        return
+      }
+
       let adaptiveFormat = null
 
       if (bitrate !== 'auto') {
@@ -1003,24 +1012,39 @@ export default defineComponent({
 
       let qualityLabel = adaptiveFormat ? adaptiveFormat.qualityLabel : ''
 
-      this.player.qualityLevels().levels_.sort((a, b) => {
-        if (a.height === b.height) {
-          return a.bitrate - b.bitrate
-        } else {
-          return a.height - b.height
-        }
-      }).forEach((ql, index, arr) => {
-        if (bitrate === 'auto' || bitrate === ql.bitrate) {
+      const qualityLevels = Array.from(this.player.qualityLevels())
+      if (bitrate === 'auto') {
+        qualityLevels.forEach(ql => {
           ql.enabled = true
-          ql.enabled_(true)
-          if (bitrate !== 'auto' && qualityLabel === '') {
-            qualityLabel = ql.height + 'p'
+        })
+      } else {
+        const previousBitrate = this.selectedBitrate
+
+        // if it was previously set to a specific quality we can disable just that and enable just the new one
+        // if it was previously set to auto, it means all qualitylevels were enabled, so we need to disable them
+
+        if (previousBitrate !== 'auto') {
+          const qualityLevel = qualityLevels.find(ql => bitrate === ql.bitrate)
+          qualityLevel.enabled = true
+
+          if (qualityLabel === '') {
+            qualityLabel = qualityLevel.height + 'p'
           }
+
+          qualityLevels.find(ql => previousBitrate === ql.bitrate).enabled = false
         } else {
-          ql.enabled = false
-          ql.enabled_(false)
+          qualityLevels.forEach(ql => {
+            if (bitrate === ql.bitrate) {
+              ql.enabled = true
+              if (qualityLabel === '') {
+                qualityLabel = ql.height + 'p'
+              }
+            } else {
+              ql.enabled = false
+            }
+          })
         }
-      })
+      }
 
       const selectedQuality = bitrate === 'auto' ? 'auto' : qualityLabel
 
@@ -1526,6 +1550,8 @@ export default defineComponent({
       const adaptiveFormats = this.adaptiveFormats
       const activeAdaptiveFormats = this.activeAdaptiveFormats
       const setDashQualityLevel = this.setDashQualityLevel
+      const defaultQuality = this.defaultQuality
+      const defaultBitrate = this.selectedBitrate
 
       const VjsButton = videojs.getComponent('Button')
       class dashQualitySelector extends VjsButton {
@@ -1543,12 +1569,16 @@ export default defineComponent({
              <ul class="vjs-menu-content" role="menu">`
           const endingHtml = '</ul></div>'
 
-          let qualityHtml = `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false">
+          const defaultIsAuto = defaultQuality === 'auto'
+
+          let qualityHtml = `<li class="vjs-menu-item quality-item ${defaultIsAuto ? 'quality-selected' : ''}" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false">
             <span class="vjs-menu-item-text">Auto</span>
             <span class="vjs-control-text" aria-live="polite"></span>
           </li>`
 
-          levels.levels_.sort((a, b) => {
+          let currentQualityLabel
+
+          Array.from(levels).sort((a, b) => {
             if (b.height === a.height) {
               return b.bitrate - a.bitrate
             } else {
@@ -1579,7 +1609,13 @@ export default defineComponent({
               bitrate = quality.bitrate
             }
 
-            qualityHtml += `<li class="vjs-menu-item quality-item" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
+            const isSelected = !defaultIsAuto && bitrate === defaultBitrate
+
+            if (isSelected) {
+              currentQualityLabel = qualityLabel
+            }
+
+            qualityHtml += `<li class="vjs-menu-item quality-item ${isSelected ? 'quality-selected' : ''}" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" fps="${fps}" bitrate="${bitrate}">
               <span class="vjs-menu-item-text" fps="${fps}" bitrate="${bitrate}">${qualityLabel}</span>
               <span class="vjs-control-text" aria-live="polite"></span>
             </li>`
@@ -1602,13 +1638,14 @@ export default defineComponent({
           button.title = 'Select Quality'
           button.innerHTML = beginningHtml + qualityHtml + endingHtml
 
+          button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? 'auto' : currentQualityLabel
+
           return button.children[0]
         }
       }
 
       videojs.registerComponent('dashQualitySelector', dashQualitySelector)
       this.player.controlBar.addChild('dashQualitySelector', {}, this.player.controlBar.children_.length - 1)
-      this.determineDefaultQualityDash()
     },
 
     sortCaptions: function (captionList) {
