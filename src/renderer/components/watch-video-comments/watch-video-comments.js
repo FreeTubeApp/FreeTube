@@ -46,16 +46,16 @@ export default defineComponent({
     // Only enabled when value is valid
     if (/^-?\d+%$/.test(commentAutoLoadConditionValue)) {
       setTimeout(() => {
+        // Since there is a timeout here, it's possible the comment is being loaded/already loaded
+        if (!this.canPerformInitialCommentLoading) { return }
         // Using a timeout due to video player is shrink by default
         // Callback might be triggered on page load without a delay
         this.intersectionObserverForCommentAutoLoad = new IntersectionObserver(entries => {
           // Is it visible?
           if (entries[0].intersectionRatio > 0) {
             // Load comment when user enabled
-            if (this.commentData.length === 0 && !this.isLoading && !this.showComments) {
+            if (this.canPerformInitialCommentLoading) {
               this.getCommentData()
-              // No more use for this callback, comment only auto load once
-              this.intersectionObserverForCommentAutoLoad.disconnect()
             }
           }
         }, {
@@ -65,7 +65,7 @@ export default defineComponent({
 
         // Observe the dummy footer element
         this.intersectionObserverForCommentAutoLoad.observe(this.$refs.footer)
-      }, 2000)
+      }, 1000)
     }
     // endregion comment auto load
   },
@@ -105,7 +105,11 @@ export default defineComponent({
 
     currentSortValue: function () {
       return (this.sortNewest) ? 'newest' : 'top'
-    }
+    },
+
+    canPerformInitialCommentLoading: function() {
+      return this.commentData.length === 0 && !this.isLoading && !this.showComments
+    },
   },
 
   methods: {
@@ -122,6 +126,8 @@ export default defineComponent({
     },
 
     getCommentData: function () {
+      // Disable comment autoload once loading is ever attempted
+      this.disableCommentAutoLoad()
       this.isLoading = true
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
@@ -278,5 +284,10 @@ export default defineComponent({
           this.isLoading = false
         })
     },
+
+    disableCommentAutoLoad: function() {
+      this.intersectionObserverForCommentAutoLoad?.disconnect()
+      this.intersectionObserverForCommentAutoLoad = null
+    }
   }
 })

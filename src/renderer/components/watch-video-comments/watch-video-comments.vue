@@ -3,7 +3,7 @@
     class="card"
   >
     <h4
-      v-if="commentData.length === 0 && !isLoading"
+      v-if="canPerformInitialCommentLoading"
       class="getCommentsTitle"
       role="button"
       tabindex="0"
