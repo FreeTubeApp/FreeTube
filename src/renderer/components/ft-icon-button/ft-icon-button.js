@@ -74,8 +74,10 @@ export default defineComponent({
       window.addEventListener('resize', this.handleResize)
     }
   },
-  destroyed: function () {
-    window.removeEventListener('resize', this.handleResize)
+  beforeDestroy: function () {
+    if (this.dropdownModalOnMobile) {
+      window.removeEventListener('resize', this.handleResize)
+    }
   },
   methods: {
     sanitizeForHtmlId,

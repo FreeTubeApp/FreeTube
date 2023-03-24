@@ -37,7 +37,7 @@ export default defineComponent({
       return this.$store.getters.getHideChannelSubscriptions
     }
   },
-  mounted: function () {
+  created: function () {
     if (this.data.dataSource === 'local') {
       this.parseLocalData()
     } else {
