@@ -57,7 +57,18 @@ export default defineComponent({
       ],
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
-      screenshotDefaultPattern: '%Y%M%D-%H%N%S'
+      screenshotDefaultPattern: '%Y%M%D-%H%N%S',
+
+      commentAutoLoadConditionValues: [
+        // To be used in `IntersectionObserver#rootMargin`
+        'disabled',
+        '0%',
+        '-10%',
+        '-20%',
+        '-30%',
+        '-40%',
+        '-50%',
+      ],
     }
   },
   computed: {
@@ -195,6 +206,16 @@ export default defineComponent({
 
     screenshotFilenamePattern: function() {
       return this.$store.getters.getScreenshotFilenamePattern
+    },
+
+    commentAutoLoadConditionCurrentValue: function () {
+      return this.$store.getters.getCommentAutoLoadCondition
+    },
+
+    commentAutoLoadConditionNames: function () {
+      return this.commentAutoLoadConditionValues.map((value) => {
+        return this.$t(`Settings.Player Settings.Comment Auto Load Condition.Option Labels.${value}`)
+      })
     }
   },
   watch: {
@@ -295,6 +316,7 @@ export default defineComponent({
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
+      'updateCommentAutoLoadCondition',
     ])
   }
 })

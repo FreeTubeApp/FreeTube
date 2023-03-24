@@ -249,7 +249,17 @@
           :disabled="true"
         />
       </ft-flex-box>
+      <br>
     </div>
+    <ft-flex-box>
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Comment Auto Load Condition.Comment Auto Load Condition')"
+        :value="commentAutoLoadConditionCurrentValue"
+        :select-names="commentAutoLoadConditionNames"
+        :select-values="commentAutoLoadConditionValues"
+        @change="updateCommentAutoLoadCondition"
+      />
+    </ft-flex-box>
   </ft-settings-section>
 </template>
 

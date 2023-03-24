@@ -251,6 +251,15 @@
     <ft-loader
       v-if="isLoading"
     />
+    <div
+      key="footer"
+      ref="footer"
+    >
+      <!--
+        Dummy element to be observed by Intersection Observer
+        Key is required to ensure NO rerender
+      -->
+    </div>
   </ft-card>
 </template>
 

@@ -35,8 +35,39 @@ export default defineComponent({
       showComments: false,
       nextPageToken: null,
       commentData: [],
-      sortNewest: false
+      sortNewest: false,
+
+      intersectionObserverForCommentAutoLoad: null,
     }
+  },
+  mounted: function () {
+    // region comment auto load
+    const commentAutoLoadConditionValue = this.commentAutoLoadCondition
+    // Only enabled when value is valid
+    if (/^-?\d+%$/.test(commentAutoLoadConditionValue)) {
+      setTimeout(() => {
+        // Using a timeout due to video player is shrink by default
+        // Callback might be triggered on page load without a delay
+        this.intersectionObserverForCommentAutoLoad = new IntersectionObserver(entries => {
+          // Is it visible?
+          if (entries[0].intersectionRatio > 0) {
+            // Load comment when user enabled
+            if (this.commentData.length === 0 && !this.isLoading && !this.showComments) {
+              this.getCommentData()
+              // No more use for this callback, comment only auto load once
+              this.intersectionObserverForCommentAutoLoad.disconnect()
+            }
+          }
+        }, {
+          // Only when it intersects with N% above bottom
+          rootMargin: `0% 0% ${commentAutoLoadConditionValue} 0%`,
+        })
+
+        // Observe the dummy footer element
+        this.intersectionObserverForCommentAutoLoad.observe(this.$refs.footer)
+      }, 2000)
+    }
+    // endregion comment auto load
   },
   computed: {
     backendPreference: function () {
@@ -52,6 +83,10 @@ export default defineComponent({
     },
     hideCommentLikes: function () {
       return this.$store.getters.getHideCommentLikes
+    },
+
+    commentAutoLoadCondition: function () {
+      return this.$store.getters.getCommentAutoLoadCondition
     },
 
     sortNames: function () {
@@ -242,6 +277,6 @@ export default defineComponent({
           })
           this.isLoading = false
         })
-    }
+    },
   }
 })
