@@ -327,6 +327,11 @@ export default defineComponent({
       return this.$i18n.locale.replace('_', '-')
     },
   },
+  watch: {
+    historyIndex() {
+      this.checkIfWatched()
+    },
+  },
   mounted: function () {
     this.parseVideoData()
     this.checkIfWatched()
