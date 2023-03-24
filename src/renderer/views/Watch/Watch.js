@@ -1265,16 +1265,17 @@ export default defineComponent({
     },
 
     getAdaptiveFormatsInvidious: async function(existingInfoResult = null) {
-      let getInfoPromise = Promise.resolve(existingInfoResult)
-      if (existingInfoResult == null) {
-        getInfoPromise = invidiousGetVideoInformation(this.videoId)
+      let result
+      if (existingInfoResult) {
+        result = existingInfoResult
+      } else {
+        result = await invidiousGetVideoInformation(this.videoId)
       }
-      const result = await getInfoPromise
 
       return filterInvidiousFormats(result.adaptiveFormats, this.allowDashAv1Formats)
         .map((format) => {
           format.bitrate = parseInt(format.bitrate)
-          if (typeof format.resolution !== 'undefined') {
+          if (typeof format.resolution === 'string') {
             format.height = parseInt(format.resolution.replace('p', ''))
           }
           return format
