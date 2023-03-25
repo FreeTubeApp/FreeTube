@@ -396,164 +396,166 @@ export default defineComponent({
       this.$router.push({ path: `/channel/${id}` })
     },
 
-    getChannelInstanceLocal: async function (expectedId) {
-      const channel = await getLocalChannel(this.id)
-
-      let channelName
-      let channelThumbnailUrl
-
-      if (channel.alert) {
-        this.setErrorMessage(channel.alert)
-        return
-      } else if (channel.memo.has('ChannelAgeGate')) {
-        /** @type {import('youtubei.js/dist/src/parser/classes/ChannelAgeGate').default} */
-        const ageGate = channel.memo.get('ChannelAgeGate')[0]
-
-        channelName = ageGate.channel_title
-        channelThumbnailUrl = ageGate.avatar[0].url
-
-        this.channelName = channelName
-        this.thumbnailUrl = channelThumbnailUrl
-
-        document.title = `${channelName} - ${packageDetails.productName}`
-
-        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId: this.id })
-
-        this.setErrorMessage(this.$t('Channel["This channel is age resticted and currently cannot be viewed in FreeTube."]'), true)
-        return
-      }
-
-      this.errorMessage = ''
-      if (expectedId !== this.id) {
-        return
-      }
-
-      let channelId
-      let subscriberText = null
-      let tags = []
-
-      switch (channel.header.type) {
-        case 'C4TabbedHeader': {
-          // example: Linus Tech Tips
-          // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
-
-          /**
-           * @type {import('youtubei.js/dist/src/parser/classes/C4TabbedHeader').default}
-           */
-          const header = channel.header
-
-          channelId = header.author.id
-          channelName = header.author.name
-          channelThumbnailUrl = header.author.best_thumbnail.url
-          subscriberText = header.subscribers?.text
-          break
-        }
-        case 'CarouselHeader': {
-          // examples: Music and YouTube Gaming
-          // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
-          // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
-
-          /**
-           * @type {import('youtubei.js/dist/src/parser/classes/CarouselHeader').default}
-           */
-          const header = channel.header
-
-          /**
-           * @type {import('youtubei.js/dist/src/parser/classes/TopicChannelDetails').default}
-           */
-          const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
-          channelName = topicChannelDetails.title.text
-          subscriberText = topicChannelDetails.subtitle.text
-          channelThumbnailUrl = topicChannelDetails.avatar[0].url
-
-          if (channel.metadata.external_id) {
-            channelId = channel.metadata.external_id
-          } else {
-            channelId = topicChannelDetails.subscribe_button.channel_id
-          }
-          break
-        }
-        case 'InteractiveTabbedHeader': {
-          // example: Minecraft - Topic
-          // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
-
-          /**
-           * @type {import('youtubei.js/dist/src/parser/classes/InteractiveTabbedHeader').default}
-           */
-          const header = channel.header
-          channelName = header.title.text
-          channelId = this.id
-          channelThumbnailUrl = header.box_art.at(-1).url
-
-          const badges = header.badges.map(badge => badge.label).filter(tag => tag)
-          tags.push(...badges)
-          break
-        }
-      }
-
-      this.channelName = channelName
-      this.thumbnailUrl = channelThumbnailUrl
-      this.isFamilyFriendly = !!channel.metadata.is_family_safe
-
-      if (channel.metadata.tags) {
-        tags.push(...channel.metadata.tags)
-      }
-
-      // deduplicate tags
-      // a Set can only ever contain unique elements,
-      // so this is an easy way to get rid of duplicates
-      if (tags.length > 0) {
-        tags = Array.from(new Set(tags))
-      }
-      this.tags = tags
-
-      document.title = `${channelName} - ${packageDetails.productName}`
-
-      if (!this.hideChannelSubscriptions && subscriberText) {
-        const subCount = parseLocalSubscriberCount(subscriberText)
-
-        if (isNaN(subCount)) {
-          this.subCount = null
-        } else {
-          this.subCount = subCount
-        }
-      } else {
-        this.subCount = null
-      }
-
-      this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
-
-      if (channel.header.banner?.length > 0) {
-        this.bannerUrl = channel.header.banner[0].url
-      } else {
-        this.bannerUrl = null
-      }
-
-      this.relatedChannels = channel.channels.map(({ author }) => {
-        let thumbnailUrl = author.best_thumbnail.url
-
-        if (thumbnailUrl.startsWith('//')) {
-          thumbnailUrl = `https:${thumbnailUrl}`
-        }
-
-        return {
-          name: author.name,
-          id: author.id,
-          thumbnailUrl
-        }
-      })
-      return channel
-    },
-
     getChannelLocal: async function () {
       this.apiUsed = 'local'
       this.isLoading = true
       const expectedId = this.id
+
       try {
+        let channel
         if (!this.channelInstance) {
-          this.channelInstance = await this.getChannelInstanceLocal(expectedId)
+          channel = await getLocalChannel(this.id)
+        } else {
+          channel = this.channelInstance
         }
-        if (this.channelInstance.has_about) {
+
+        let channelName
+        let channelThumbnailUrl
+
+        if (channel.alert) {
+          this.setErrorMessage(channel.alert)
+          return
+        } else if (channel.memo.has('ChannelAgeGate')) {
+          /** @type {import('youtubei.js/dist/src/parser/classes/ChannelAgeGate').default} */
+          const ageGate = channel.memo.get('ChannelAgeGate')[0]
+
+          channelName = ageGate.channel_title
+          channelThumbnailUrl = ageGate.avatar[0].url
+
+          this.channelName = channelName
+          this.thumbnailUrl = channelThumbnailUrl
+
+          document.title = `${channelName} - ${packageDetails.productName}`
+
+          this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId: this.id })
+
+          this.setErrorMessage(this.$t('Channel["This channel is age resticted and currently cannot be viewed in FreeTube."]'), true)
+          return
+        }
+
+        this.errorMessage = ''
+        if (expectedId !== this.id) {
+          return
+        }
+
+        let channelId
+        let subscriberText = null
+        let tags = []
+
+        switch (channel.header.type) {
+          case 'C4TabbedHeader': {
+            // example: Linus Tech Tips
+            // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/C4TabbedHeader').default}
+             */
+            const header = channel.header
+
+            channelId = header.author.id
+            channelName = header.author.name
+            channelThumbnailUrl = header.author.best_thumbnail.url
+            subscriberText = header.subscribers?.text
+            break
+          }
+          case 'CarouselHeader': {
+            // examples: Music and YouTube Gaming
+            // https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ
+            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/CarouselHeader').default}
+             */
+            const header = channel.header
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/TopicChannelDetails').default}
+             */
+            const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
+            channelName = topicChannelDetails.title.text
+            subscriberText = topicChannelDetails.subtitle.text
+            channelThumbnailUrl = topicChannelDetails.avatar[0].url
+
+            if (channel.metadata.external_id) {
+              channelId = channel.metadata.external_id
+            } else {
+              channelId = topicChannelDetails.subscribe_button.channel_id
+            }
+            break
+          }
+          case 'InteractiveTabbedHeader': {
+            // example: Minecraft - Topic
+            // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
+
+            /**
+             * @type {import('youtubei.js/dist/src/parser/classes/InteractiveTabbedHeader').default}
+             */
+            const header = channel.header
+            channelName = header.title.text
+            channelId = this.id
+            channelThumbnailUrl = header.box_art.at(-1).url
+
+            const badges = header.badges.map(badge => badge.label).filter(tag => tag)
+            tags.push(...badges)
+            break
+          }
+        }
+
+        this.channelName = channelName
+        this.thumbnailUrl = channelThumbnailUrl
+        this.isFamilyFriendly = !!channel.metadata.is_family_safe
+
+        if (channel.metadata.tags) {
+          tags.push(...channel.metadata.tags)
+        }
+
+        // deduplicate tags
+        // a Set can only ever contain unique elements,
+        // so this is an easy way to get rid of duplicates
+        if (tags.length > 0) {
+          tags = Array.from(new Set(tags))
+        }
+        this.tags = tags
+
+        document.title = `${channelName} - ${packageDetails.productName}`
+
+        if (!this.hideChannelSubscriptions && subscriberText) {
+          const subCount = parseLocalSubscriberCount(subscriberText)
+
+          if (isNaN(subCount)) {
+            this.subCount = null
+          } else {
+            this.subCount = subCount
+          }
+        } else {
+          this.subCount = null
+        }
+
+        this.updateSubscriptionDetails({ channelThumbnailUrl, channelName, channelId })
+
+        if (channel.header.banner?.length > 0) {
+          this.bannerUrl = channel.header.banner[0].url
+        } else {
+          this.bannerUrl = null
+        }
+
+        this.relatedChannels = channel.channels.map(({ author }) => {
+          let thumbnailUrl = author.best_thumbnail.url
+
+          if (thumbnailUrl.startsWith('//')) {
+            thumbnailUrl = `https:${thumbnailUrl}`
+          }
+
+          return {
+            name: author.name,
+            id: author.id,
+            thumbnailUrl
+          }
+        })
+
+        this.channelInstance = channel
+
+        if (channel.has_about) {
           this.getChannelAboutLocal()
         } else {
           this.description = ''
@@ -562,23 +564,23 @@ export default defineComponent({
           this.location = null
         }
 
-        if (this.channelInstance.has_videos) {
+        if (channel.has_videos) {
           this.getChannelVideosLocal()
         }
 
-        if (!this.hideLiveStreams && this.channelInstance.has_live_streams) {
+        if (!this.hideLiveStreams && channel.has_live_streams) {
           this.getChannelLiveLocal()
         }
 
-        if (this.channelInstance.has_playlists) {
+        if (channel.has_playlists) {
           this.getChannelPlaylistsLocal()
         }
 
-        if (this.channelInstance.has_community) {
+        if (channel.has_community) {
           this.getCommunityPostsLocal()
         }
 
-        this.showSearchBar = this.channelInstance.has_search
+        this.showSearchBar = channel.has_search
 
         this.isLoading = false
       } catch (err) {
@@ -862,10 +864,6 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
-          showToast(this.$t('Falling back to Local API'))
-          this.getChannelLocal()
-        }
       })
     },
 
@@ -1009,7 +1007,7 @@ export default defineComponent({
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
           if (!this.channelInstance) {
-            this.channelInstance = await this.getChannelInstanceLocal(this.id)
+            this.channelInstance = await getLocalChannel(this.id)
           }
           this.getChannelPlaylistsLocal()
         } else {
@@ -1135,9 +1133,8 @@ export default defineComponent({
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
-          // set local channel instance before calling community posts local
           if (!this.channelInstance) {
-            this.channelInstance = await this.getChannelInstanceLocal(this.id)
+            this.channelInstance = await getLocalChannel(this.id)
           }
           this.getCommunityPostsLocal()
         }
