@@ -60,7 +60,34 @@ export default defineComponent({
 
     playlistVideoCount: function () {
       return this.playlistItems.length
-    }
+    },
+
+    shouldStopDueToPlaylistEnd: function () {
+      if (!this.videoIsLastInInPlaylistItems) { return false }
+
+      // Loop enabled = should not stop
+      return !this.loopEnabled
+    },
+
+    videoIsLastInInPlaylistItems: function() {
+      if (this.shuffleEnabled) {
+        return this.videoIndexInPlaylistItems === this.randomizedPlaylistItems.length - 1
+      } else {
+        return this.videoIndexInPlaylistItems === this.playlistItems.length - 1
+      }
+    },
+
+    videoIndexInPlaylistItems: function () {
+      if (this.shuffleEnabled) {
+        return this.randomizedPlaylistItems.findIndex((item) => {
+          return item === this.videoId
+        })
+      } else {
+        return this.playlistItems.findIndex((item) => {
+          return (item.id ?? item.videoId) === this.videoId
+        })
+      }
+    },
   },
   watch: {
     videoId: function (newId, oldId) {
