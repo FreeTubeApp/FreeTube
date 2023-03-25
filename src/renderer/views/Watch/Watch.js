@@ -383,7 +383,7 @@ export default defineComponent({
 
         this.videoChapters = chapters
 
-        if (!this.hideLiveChat && this.isLive && this.isLiveContent && result.livechat) {
+        if (!this.hideLiveChat && this.isLive && result.livechat) {
           this.liveChat = result.getLiveChat()
         } else {
           this.liveChat = null
@@ -396,7 +396,7 @@ export default defineComponent({
           result = bypassedResult
         }
 
-        if ((this.isLive && this.isLiveContent) && !this.isUpcoming) {
+        if (this.isLive && !this.isUpcoming) {
           try {
             const formats = await getFormatsFromHLSManifest(result.streaming_data.hls_manifest_url)
 
