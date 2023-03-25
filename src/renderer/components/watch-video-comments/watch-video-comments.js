@@ -36,38 +36,7 @@ export default defineComponent({
       nextPageToken: null,
       commentData: [],
       sortNewest: false,
-
-      intersectionObserverForCommentAutoLoad: null,
     }
-  },
-  mounted: function () {
-    // region comment auto load
-    const commentAutoLoadConditionValue = this.commentAutoLoadCondition
-    // Only enabled when value is valid
-    if (/^-?\d+%$/.test(commentAutoLoadConditionValue)) {
-      setTimeout(() => {
-        // Since there is a timeout here, it's possible the comment is being loaded/already loaded
-        if (!this.canPerformInitialCommentLoading) { return }
-        // Using a timeout due to video player is shrink by default
-        // Callback might be triggered on page load without a delay
-        this.intersectionObserverForCommentAutoLoad = new IntersectionObserver(entries => {
-          // Is it visible?
-          if (entries[0].intersectionRatio > 0) {
-            // Load comment when user enabled
-            if (this.canPerformInitialCommentLoading) {
-              this.getCommentData()
-            }
-          }
-        }, {
-          // Only when it intersects with N% above bottom
-          rootMargin: `0% 0% ${commentAutoLoadConditionValue} 0%`,
-        })
-
-        // Observe the dummy footer element
-        this.intersectionObserverForCommentAutoLoad.observe(this.$refs.footer)
-      }, 1000)
-    }
-    // endregion comment auto load
   },
   computed: {
     backendPreference: function () {
@@ -107,6 +76,30 @@ export default defineComponent({
       return (this.sortNewest) ? 'newest' : 'top'
     },
 
+    observeVisibilityOptions: function() {
+      const commentAutoLoadConditionValue = this.commentAutoLoadCondition
+      if (!/^-?\d+%$/.test(commentAutoLoadConditionValue)) { return false }
+
+      return {
+        callback: (isVisible, _entry) => {
+          // It's possible the comments are being loaded/already loaded
+          if (!this.canPerformInitialCommentLoading) { return }
+          if (!isVisible) { return }
+
+          this.getCommentData()
+        },
+        intersection: {
+          // Only when it intersects with N% above bottom
+          rootMargin: `0% 0% ${commentAutoLoadConditionValue} 0%`,
+        },
+        // The video player is minimized on startup for < about 1s
+        // `throttle` is needed to prevent unwanted autoload during that period
+        throttle: 1000,
+        // Autoload only once
+        once: true,
+      }
+    },
+
     canPerformInitialCommentLoading: function() {
       return this.commentData.length === 0 && !this.isLoading && !this.showComments
     },
@@ -127,7 +120,6 @@ export default defineComponent({
 
     getCommentData: function () {
       // Disable comment autoload once loading is ever attempted
-      this.disableCommentAutoLoad()
       this.isLoading = true
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
@@ -284,10 +276,5 @@ export default defineComponent({
           this.isLoading = false
         })
     },
-
-    disableCommentAutoLoad: function() {
-      this.intersectionObserverForCommentAutoLoad?.disconnect()
-      this.intersectionObserverForCommentAutoLoad = null
-    }
   }
 })

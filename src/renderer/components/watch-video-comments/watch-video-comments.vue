@@ -252,8 +252,7 @@
       v-if="isLoading"
     />
     <div
-      key="footer"
-      ref="footer"
+      v-observe-visibility="observeVisibilityOptions"
     >
       <!--
         Dummy element to be observed by Intersection Observer
