@@ -119,7 +119,6 @@ export default defineComponent({
     },
 
     getCommentData: function () {
-      // Disable comment autoload once loading is ever attempted
       this.isLoading = true
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
