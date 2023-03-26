@@ -282,14 +282,6 @@ Settings:
         Empty File Name: Empty File Name
     Comment Auto Load Condition:
       Comment Auto Load Condition: Comment Auto Load
-      Option Labels:
-        'disabled': Disabled
-        '0%': When 0% above window bottom
-        '-10%': When 10% above window bottom
-        '-20%': When 20% above window bottom
-        '-30%': When 30% above window bottom
-        '-40%': When 40% above window bottom
-        '-50%': When 50% above window bottom
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
