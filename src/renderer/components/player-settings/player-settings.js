@@ -197,12 +197,8 @@ export default defineComponent({
       return this.$store.getters.getScreenshotFilenamePattern
     },
 
-    commentAutoLoadConditionCurrentValue: function () {
-      return this.$store.getters.getCommentAutoLoadCondition
-    },
-
-    commentAutoLoadConditionEnabled: function () {
-      return /^-?\d+%$/.test(this.commentAutoLoadConditionCurrentValue)
+    commentAutoLoadEnabled: function () {
+      return this.$store.getters.getCommentAutoLoadEnabled
     },
   },
   watch: {
@@ -274,12 +270,6 @@ export default defineComponent({
       })
     },
 
-    updateCommentAutoLoadConditionEnabled: function(enabled) {
-      this.updateCommentAutoLoadCondition(
-        enabled ? '0%' : 'disabled'
-      )
-    },
-
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
@@ -309,7 +299,7 @@ export default defineComponent({
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
-      'updateCommentAutoLoadCondition',
+      'updateCommentAutoLoadEnabled',
     ])
   }
 })

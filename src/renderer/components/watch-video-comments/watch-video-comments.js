@@ -54,8 +54,8 @@ export default defineComponent({
       return this.$store.getters.getHideCommentLikes
     },
 
-    commentAutoLoadCondition: function () {
-      return this.$store.getters.getCommentAutoLoadCondition
+    commentAutoLoadEnabled: function () {
+      return this.$store.getters.getCommentAutoLoadEnabled
     },
 
     sortNames: function () {
@@ -77,8 +77,7 @@ export default defineComponent({
     },
 
     observeVisibilityOptions: function() {
-      const commentAutoLoadConditionValue = this.commentAutoLoadCondition
-      if (!/^-?\d+%$/.test(commentAutoLoadConditionValue)) { return false }
+      if (!this.commentAutoLoadEnabled) { return false }
 
       return {
         callback: (isVisible, _entry) => {
@@ -90,7 +89,7 @@ export default defineComponent({
         },
         intersection: {
           // Only when it intersects with N% above bottom
-          rootMargin: `0% 0% ${commentAutoLoadConditionValue} 0%`,
+          rootMargin: '0% 0% 0% 0%',
         },
         // The video player is minimized on startup for < about 1s
         // `throttle` is needed to prevent unwanted autoload during that period
