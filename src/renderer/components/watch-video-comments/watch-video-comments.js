@@ -81,11 +81,16 @@ export default defineComponent({
 
       return {
         callback: (isVisible, _entry) => {
-          // It's possible the comments are being loaded/already loaded
-          if (!this.canPerformInitialCommentLoading) { return }
+          // This is also fired when **hidden**
+          // No point doing anything if not visible
           if (!isVisible) { return }
-
-          this.getCommentData()
+          // It's possible the comments are being loaded/already loaded
+          if (this.canPerformInitialCommentLoading) {
+            this.getCommentData()
+          }
+          if (this.canPerformMoreCommentLoading) {
+            this.getMoreComments()
+          }
         },
         intersection: {
           // Only when it intersects with N% above bottom
@@ -94,13 +99,17 @@ export default defineComponent({
         // The video player is minimized on startup for < about 1s
         // `throttle` is needed to prevent unwanted autoload during that period
         throttle: 1000,
-        // Autoload only once
-        once: true,
+        // Callback responsible for loading multiple comment pages
+        once: false,
       }
     },
 
     canPerformInitialCommentLoading: function() {
       return this.commentData.length === 0 && !this.isLoading && !this.showComments
+    },
+
+    canPerformMoreCommentLoading: function() {
+      return this.commentData.length > 0 && !this.isLoading && this.showComments && this.nextPageToken
     },
   },
 

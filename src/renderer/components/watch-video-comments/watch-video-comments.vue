@@ -238,7 +238,7 @@
       </h3>
     </div>
     <h4
-      v-if="commentData.length > 0 && !isLoading && showComments && nextPageToken"
+      v-if="canPerformMoreCommentLoading"
       class="getMoreComments"
       role="button"
       tabindex="0"
