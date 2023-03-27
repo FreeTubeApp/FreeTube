@@ -115,10 +115,10 @@ User Playlists:
     leitinni þinni
 History:
   # On History Page
-  History: 'Vinnsluferill'
+  History: 'Áhorf'
   Watch History: 'Áhorfsferill'
-  Your history list is currently empty.: 'Listi með vinnsluferli er tómur í augnablikinu.'
-  Search bar placeholder: Leita í vinnsluferli
+  Your history list is currently empty.: 'Listi með áhorfsferli er tómur í augnablikinu.'
+  Search bar placeholder: Leita í áhorfsferli
   Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni
     þinni
 Settings:
@@ -284,7 +284,7 @@ Settings:
     Allow DASH AV1 formats: Leyfa DASH AV1 snið
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
-    Remember History: 'Muna vinnsluferil'
+    Remember History: 'Muna áhorfsferil'
     Save Watched Progress: 'Vista framvindu áhorfs'
     Clear Search Cache: 'Hreinsa skyndiminni leitar'
     Are you sure you want to clear out your search cache?: 'Ertu viss um að þú viljir
@@ -341,8 +341,8 @@ Settings:
     Export FreeTube: 'Flytja út FreeTube'
     Export YouTube: 'Flytja út YouTube'
     Export NewPipe: 'Flytja út NewPipe'
-    Import History: 'Flytja inn vinnsluferil'
-    Export History: 'Flytja út vinnsluferil'
+    Import History: 'Flytja inn áhorfsferil'
+    Export History: 'Flytja út áhorfsferil'
     Profile object has insufficient data, skipping item: 'Atriði notkunarsniðs er
       ekki með næg gögn, sleppi þessu'
     All subscriptions and profiles have been successfully imported: 'Innflutningur
@@ -354,10 +354,10 @@ Settings:
     Invalid subscriptions file: 'Ógild áskriftaskrá'
     This might take a while, please wait: 'Þetta getur tekið dálítinn tíma, sýndu
       smá þolinmæði'
-    Invalid history file: 'Ógild vinnsluferilskrá'
+    Invalid history file: 'Ógild áhorfsferilskrá'
     Subscriptions have been successfully exported: 'Úflutningur á áskriftum tókst'
-    History object has insufficient data, skipping item: 'Atriði vinnsluferils er
-      ekki með næg gögn, sleppi þessu'
+    History object has insufficient data, skipping item: 'Atriði áhorfsferils er ekki
+      með næg gögn, sleppi þessu'
     All watched history has been successfully imported: 'Allur áhorfsferillinn var
       fluttur inn'
     All watched history has been successfully exported: 'Allur áhorfsferillinn var
@@ -564,11 +564,12 @@ Channel:
       ekki með nein bein streymi
   Community:
     Community: Samfélag
+    This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
-  Remove From History: 'Fjarlægja úr vinnsluferli'
+  Remove From History: 'Fjarlægja úr áhorfsferli'
   Video has been marked as watched: 'Myndskeið hefur verið merkt sem skoðað'
-  Video has been removed from your history: 'Myndskeið hefur verið fjarlægt úr vinnsluferlinum
+  Video has been removed from your history: 'Myndskeið hefur verið fjarlægt úr áhorfsferlinum
     þínum'
   Save Video: 'Vista myndskeið'
   Video has been saved: 'Myndskeið hefur verið vistað'
@@ -707,6 +708,9 @@ Video:
   Show Super Chat Comment: Birta athugasemd Super Chat
   Scroll to Bottom: Skruna neðst
   Upcoming: Á næstunni
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Spjall
+    í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
+    gert það óvirkt.
 Videos:
   #& Sort By
   Sort By:

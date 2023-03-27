@@ -580,8 +580,8 @@ Channel:
     Location: Standort
     Joined: Beigetreten
   Added channel to your subscriptions: Der Kanal wurde deinen Abonnements hinzugefügt
-  Removed subscription from {count} other channel(s): Abonnement von {count} anderem/n
-    Kanal/Kanälen entfernt
+  Removed subscription from {count} other channel(s): Es wurden {count} andere/n Kanäle/n
+    deabonniert
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abonnements
     entfernt
   Channel Tabs: Kanal-Registerkarten
@@ -741,6 +741,8 @@ Video:
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
   Scroll to Bottom: Nach unten scrollen
   Upcoming: Demnächst
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
+    ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
 Videos:
   #& Sort By
   Sort By:

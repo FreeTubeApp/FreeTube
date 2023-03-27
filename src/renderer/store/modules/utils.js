@@ -626,6 +626,15 @@ const mutations = {
     state.trendingCache[page] = value
   },
 
+  clearTrendingCache(state) {
+    state.trendingCache = {
+      default: null,
+      music: null,
+      gaming: null,
+      movies: null
+    }
+  },
+
   setCachedPlaylist(state, value) {
     state.cachedPlaylist = value
   },

@@ -81,7 +81,12 @@ export default defineComponent({
       }
     },
 
-    getTrendingInfo: function () {
+    getTrendingInfo: function (refresh = false) {
+      if (refresh) {
+        this.trendingInstance = null
+        this.$store.commit('clearTrendingCache')
+      }
+
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getTrendingInfoInvidious()
       } else {
@@ -184,7 +189,7 @@ export default defineComponent({
         case 'r':
         case 'R':
           if (!this.isLoading) {
-            this.getTrendingInfo()
+            this.getTrendingInfo(true)
           }
           break
       }
