@@ -99,7 +99,7 @@ export default defineComponent({
     inHistory: function () {
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
-      return this.$router.currentRoute.name === 'history'
+      return this.$route.name === 'history'
     },
 
     invidiousUrl: function () {
@@ -152,15 +152,14 @@ export default defineComponent({
     },
 
     dropdownOptions: function () {
-      const options = []
-      options.push(
+      const options = [
         {
           label: this.watched
             ? this.$t('Video.Remove From History')
             : this.$t('Video.Mark As Watched'),
           value: 'history'
         }
-      )
+      ]
       if (!this.hideSharingActions) {
         options.push(
           {
@@ -295,9 +294,9 @@ export default defineComponent({
 
     displayTitle: function () {
       if (this.showDistractionFreeTitles) {
-        return toDistractionFreeTitle(this.data.title)
+        return toDistractionFreeTitle(this.title)
       } else {
-        return this.data.title
+        return this.title
       }
     },
 
@@ -332,7 +331,7 @@ export default defineComponent({
       this.checkIfWatched()
     },
   },
-  mounted: function () {
+  created: function () {
     this.parseVideoData()
     this.checkIfWatched()
   },

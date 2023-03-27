@@ -45,7 +45,7 @@ export default defineComponent({
       return this.$store.getters.getDefaultPlayback
     }
   },
-  mounted: function () {
+  created: function () {
     if (this.data.dataSource === 'local') {
       this.parseLocalData()
     } else {

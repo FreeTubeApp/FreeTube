@@ -64,7 +64,7 @@ export default defineComponent({
       return this.$store.getters.getListType
     }
   },
-  mounted: function () {
+  created: function () {
     this.parseVideoData()
   },
   methods: {
