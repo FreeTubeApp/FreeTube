@@ -1235,12 +1235,11 @@
     localforage "^1.9.0"
     util "^0.12.4"
 
-"@silvermine/videojs-quality-selector@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@silvermine/videojs-quality-selector/-/videojs-quality-selector-1.2.5.tgz#da48b6437bad5f8def2922cbf3d77c8c5e411a28"
-  integrity sha512-cielchUzL8r2EX01S7PfR54tTbxDZR53xIDJoUi9Wg6pM2X+ftdJD6XiIDVOjPlBoG94iuG9LJwUtjX5IhrWZQ==
+"@silvermine/videojs-quality-selector@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@silvermine/videojs-quality-selector/-/videojs-quality-selector-1.3.0.tgz#6527d73929edea60419b0a189d4babbc21cb2600"
+  integrity sha512-Ps63kVXHyod0vNEEtogkVtE+8I6ozMTcRowAPqKF1Ggjr0yl7d8L2fGCnHL919MV2tBRVxnGpYaMmVVcRq6Hjw==
   dependencies:
-    class.extend "0.9.1"
     underscore "1.13.1"
 
 "@sinclair/typebox@^0.24.1":
@@ -2651,11 +2650,6 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
-
-class.extend@0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/class.extend/-/class.extend-0.9.1.tgz#b4ee417c693740a44a92a6d64f1c9540641b097a"
-  integrity sha1-tO5BfGk3QKRKkqbWTxyVQGQbCXo=
 
 clean-css@^5.2.2:
   version "5.3.0"
