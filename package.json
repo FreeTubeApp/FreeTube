@@ -61,7 +61,7 @@
     "browserify-zlib": "^0.2.0",
     "electron-context-menu": "^3.6.1",
     "lodash.debounce": "^4.0.8",
-    "marked": "^4.2.12",
+    "marked": "^4.3.0",
     "nedb-promises": "^6.2.1",
     "process": "^0.11.10",
     "video.js": "7.21.4",
