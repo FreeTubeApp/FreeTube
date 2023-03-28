@@ -7,7 +7,7 @@ updates:
     labels:
       - "PR: waiting for review"
       - "PR: dependencies"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 15
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
