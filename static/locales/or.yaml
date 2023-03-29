@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'ଓଡ଼ିଆ'
 FreeTube: ''
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >
@@ -9,9 +9,9 @@ File: ''
 New Window: ''
 Preferences: ''
 Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
+Edit: 'ସମ୍ପାଦନା'
+Undo: 'ପୂର୍ଵଵତ୍'
+Redo: 'ପୁନଃକରଣ'
 Cut: ''
 Copy: ''
 Paste: ''
@@ -44,28 +44,29 @@ Search Bar:
 Search Filters:
   Search Filters: ''
   Sort By:
-    Sort By: ''
-    Most Relevant: ''
+    Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
+    Most Relevant: 'ସବୁଠୁ ପ୍ରାସଙ୍ଗିକ'
     Rating: ''
     Upload Date: ''
-    View Count: ''
+    View Count: 'ଦର୍ଶନ ଗଣନା'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'ସମୟ'
+    Any Time: 'ଯେକୌଣସି ସମୟରେ'
+    Last Hour: 'ଗତ ଘଣ୍ଟା'
+    Today: 'ଆଜି'
+    This Week: 'ଚଳିତ ସପ୍ତାହରେ'
+    This Month: 'ଚଳିତ ମାସରେ'
+    This Year: 'ଚଳିତ ଵର୍ଷରେ'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'ପ୍ରକାର'
+    All Types: 'ସମସ୍ତ ପ୍ରକାର'
+    Videos: 'ଵିଡ଼ିଓ'
+    Channels: 'ଚ୍ୟାନେଲ'
     #& Playlists
+    Movies: ଚଳଚ୍ଚିତ୍ର
   Duration:
-    Duration: ''
-    All Durations: ''
+    Duration: 'ଅଵଧି'
+    All Durations: 'ସମସ୍ତ ଅଵଧି'
     Short (< 4 minutes): ''
     Long (> 20 minutes): ''
   # On Search Page
@@ -76,7 +77,7 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
+  Subscriptions: 'ସଦସ୍ୟତା'
   # channels that were likely deleted
   Error Channels: ''
   Latest Subscriptions: ''
@@ -87,10 +88,10 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': ''
   Refresh Subscriptions: ''
   Load More Videos: ''
-More: ''
+More: 'ଅଧିକ'
 Channels:
-  Channels: ''
-  Title: ''
+  Channels: 'ଚ୍ୟାନେଲ'
+  Title: 'ଚ୍ୟାନେଲ ତାଲିକା'
   Search bar placeholder: ''
   Count: ''
   Empty: ''
@@ -99,10 +100,10 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
-  Music: ''
-  Gaming: ''
-  Movies: ''
+  Default: 'ଡିଫଲ୍ଟ'
+  Music: 'ସଙ୍ଗୀତ'
+  Gaming: 'ଖେଳ'
+  Movies: 'ଚଳଚ୍ଚିତ୍ର'
   Trending Tabs: ''
 Most Popular: ''
 Playlists: ''
@@ -142,7 +143,7 @@ Settings:
       List: ''
     Thumbnail Preference:
       Thumbnail Preference: ''
-      Default: ''
+      Default: 'ଡିଫଲ୍ଟ'
       Beginning: ''
       Middle: ''
       End: ''
@@ -169,8 +170,8 @@ Settings:
     Hide Side Bar Labels: ''
     Base Theme:
       Base Theme: ''
-      Black: ''
-      Dark: ''
+      Black: 'କଳା'
+      Dark: 'ଗାଢ଼'
       System Default: ''
       Light: ''
       Dracula: ''
