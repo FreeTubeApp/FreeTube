@@ -112,7 +112,7 @@
     "prettier": "^2.8.4",
     "rimraf": "^4.4.1",
     "sass": "^1.60.0",
-    "sass-loader": "^13.2.1",
+    "sass-loader": "^13.2.2",
     "stylelint": "^14.16.1",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^29.0.0",
