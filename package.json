@@ -87,7 +87,7 @@
     "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
-    "css-minimizer-webpack-plugin": "^4.2.2",
+    "css-minimizer-webpack-plugin": "^5.0.0",
     "electron": "^22.3.2",
     "electron-builder": "^23.6.0",
     "eslint": "^8.36.0",
