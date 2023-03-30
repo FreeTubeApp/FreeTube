@@ -5,7 +5,7 @@ FreeTube: ''
 'This part of the app is not ready yet. Come back later when progress has been made.': >
 
 # Webkit Menu Bar
-File: ''
+File: 'ଫାଇଲ୍'
 New Window: ''
 Preferences: ''
 Quit: ''
@@ -106,9 +106,9 @@ Trending:
   Movies: 'ଚଳଚ୍ଚିତ୍ର'
   Trending Tabs: ''
 Most Popular: ''
-Playlists: ''
+Playlists: 'ଚାଳନାତାଲିକା'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'ଆପଣଙ୍କ ଚାଳନାତାଲିକା'
   Playlist Message: ''
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
