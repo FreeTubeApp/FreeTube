@@ -679,7 +679,7 @@ export default defineComponent({
         filters: [
           {
             name: this.$t('Settings.Data Settings.History File'),
-            extensions: ['db']
+            extensions: ['db', 'json']
           }
         ]
       }
@@ -696,7 +696,17 @@ export default defineComponent({
         showToast(`${message}: ${err}`)
         return
       }
-      textDecode = textDecode.split('\n')
+
+      response.filePaths.forEach(filePath => {
+        if (filePath.endsWith('.db')) {
+          this.importFreeTubeSubscriptions(textDecode.split('\n'))
+        } else if (filePath.endsWith('.json')) {
+          this.importYouTubeHistory(JSON.parse(textDecode))
+        }
+      })
+    },
+
+    importFreeTubeHistory(textDecode) {
       textDecode.pop()
 
       textDecode.forEach((history) => {
@@ -734,6 +744,90 @@ export default defineComponent({
         if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
           showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
         } else {
+          this.updateHistory(historyObject)
+        }
+      })
+
+      showToast(this.$t('Settings.Data Settings.All watched history has been successfully imported'))
+    },
+
+    importYouTubeHistory(historyData) {
+      const filterPredicate = item =>
+        item.products.includes('YouTube') &&
+        item.titleUrl != null && // removed video doesnt contain url...
+        item.titleUrl.includes('www.youtube.com/watch?v') &&
+        item.details == null // dont import ads
+
+      const filteredHistoryData = historyData.filter(filterPredicate)
+
+      // remove 'Watched' and translated variants from start of title
+      // so we get the common string prefix for all the titles
+      const getCommonStart = (allTitles) => {
+        const watchedTitle = allTitles[0].split(' ')
+        allTitles.forEach((title) => {
+          const splitTitle = title.split(' ')
+          for (let wtIndex = 0; wtIndex <= watchedTitle.length; wtIndex++) {
+            if (!splitTitle.includes(watchedTitle[wtIndex])) {
+              watchedTitle.splice(wtIndex, watchedTitle.length - wtIndex)
+            }
+          }
+        })
+
+        return watchedTitle.join(' ')
+      }
+
+      const commonStart = getCommonStart(filteredHistoryData.map(e => e.title))
+      // We would technically already be done by the time the data is parsed,
+      // however we want to limit the possibility of malicious data being sent
+      // to the app, so we'll only grab the data we need here.
+
+      const keyMapping = {
+        title: [{ importKey: 'title', predicate: item => item.slice(commonStart.length) }], // Removes the "Watched " term on the title
+        titleUrl: [{ importKey: 'videoId', predicate: item => item.replaceAll(/https:\/\/www\.youtube\.com\/watch\?v=/gi, '') }], // Extracts the video ID
+        time: [{ importKey: 'timeWatched', predicate: item => new Date(item).valueOf() }],
+        subtitles: [
+          { importKey: 'author', predicate: item => item[0].name ?? '' },
+          { importKey: 'authorId', predicate: item => item[0].url?.replaceAll(/https:\/\/www\.youtube\.com\/channel\//gi, '') ?? '' },
+        ],
+      }
+
+      const knownKeys = [
+        'header',
+        'description',
+        'products',
+        'details',
+        'activityControls',
+      ].concat(Object.keys(keyMapping))
+
+      filteredHistoryData.forEach(element => {
+        const historyObject = {}
+
+        Object.keys(element).forEach((key) => {
+          if (!knownKeys.includes(key)) {
+            showToast(`Unknown data key: ${key}`)
+          } else {
+            const mapping = keyMapping[key]
+
+            if (mapping && Array.isArray(mapping)) {
+              mapping.forEach(item => {
+                historyObject[item.importKey] = item.predicate(element[key])
+              })
+            }
+          }
+        })
+
+        if (Object.keys(historyObject).length < keyMapping.length - 1) {
+          showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
+        } else {
+          // YouTube history export does not have this data, setting some defaults.
+          historyObject.type = 'video'
+          historyObject.published = historyObject.timeWatched ?? 1
+          historyObject.description = ''
+          historyObject.lengthSeconds = null
+          historyObject.watchProgress = 1
+          historyObject.isLive = false
+          historyObject.paid = false
+
           this.updateHistory(historyObject)
         }
       })
