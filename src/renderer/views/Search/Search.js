@@ -101,10 +101,7 @@ export default defineComponent({
       if (sameSearch.length > 0) {
         // No loading effect needed here, only rendered result update
 
-        // Replacing the data right away causes a strange error where the data
-        // Shown is mixed from 2 different search results.  So we'll wait a moment
-        // Before showing the results.
-        setTimeout(this.replaceShownResults, 100, sameSearch[0])
+        this.replaceShownResults(sameSearch[0])
       } else {
         // Show loading effect coz there will be network request(s)
         this.isLoading = true
