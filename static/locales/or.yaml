@@ -242,17 +242,17 @@ Settings:
       Legacy Formats: ''
       Audio Formats: 'ଅଡ଼ିଓ ଫର୍ମାଟ୍'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'ଡିଫଲ୍ଟ ଗୁଣବତ୍ତା'
+      Auto: 'ସ୍ୱତଃ'
+      144p: '୧୪୪p'
+      240p: '୨୪୦p'
+      360p: '୩୬୦p'
+      480p: '୪୮୦p'
+      720p: '୭୨୦p'
+      1080p: '୧୦୮୦p'
+      1440p: '୧୪୪୦p'
+      4k: '୪k'
+      8k: '୮k'
     Screenshot:
       Enable: ''
       Format Label: ''
@@ -265,9 +265,10 @@ Settings:
       Error:
         Forbidden Characters: ''
         Empty File Name: ''
+    Allow DASH AV1 formats: DASH AV1 ଫର୍ମାଟ୍‍କୁ ଅନୁମତି ଦେବା
   External Player Settings:
-    External Player Settings: ''
-    External Player: ''
+    External Player Settings: 'ବାହ୍ୟ ଚାଳକ ସେଟିଂ'
+    External Player: 'ବାହ୍ୟ ଚାଳକ'
     Ignore Unsupported Action Warnings: ''
     Custom External Player Executable: ''
     Custom External Player Arguments: ''
@@ -275,8 +276,8 @@ Settings:
       None:
         Name: ''
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
+    Privacy Settings: 'ଗୋପନୀୟତା ସେଟିଂ'
+    Remember History: 'ଇତିଵୃତ୍ତି ମନେରଖିବା'
     Save Watched Progress: ''
     Automatically Remove Video Meta Files: ''
     Clear Search Cache: ''
@@ -291,7 +292,7 @@ Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
-    Manage Subscriptions: ''
+    Manage Subscriptions: 'ସଦସ୍ୟତା ପରିଚାଳନା'
     Fetch Automatically: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
