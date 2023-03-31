@@ -511,8 +511,10 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
             const trimmedText = text.trim()
             // In comments, mention can be `@Channel Name` (not handle, but name)
             if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && /^@/.test(trimmedText))) {
-              // Extra space at the end due to YT tend to include one space afterward into "channel run" `text` for "mentions"
-              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a> `)
+              // Note that in regex `\s` must be used since the text contain non-default space (the half-width space char when we press spacebar)
+              const spacesBefore = (/^\s+/.exec(text) || [''])[0]
+              const spacesAfter = (/\s+$/.exec(text) || [''])[0]
+              parsedRuns.push(`${spacesBefore}<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>${spacesAfter}`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
