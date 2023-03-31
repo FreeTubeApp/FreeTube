@@ -256,9 +256,14 @@ export function filterInvidiousFormats(formats, allowAv1 = false) {
     }
   })
 
-  if (allowAv1 && av1Formats.length > 0) {
-    return [...audioFormats, ...av1Formats]
-  } else {
-    return [...audioFormats, ...h264Formats]
-  }
+  // Disabled AV1 as a workaround to https://github.com/FreeTubeApp/FreeTube/issues/3382
+  // Which is caused by Invidious API limitation on AV1 formats (see related issues)
+  // Commented code to be restored after Invidious issue fixed
+  //
+  // if (allowAv1 && av1Formats.length > 0) {
+  //   return [...audioFormats, ...av1Formats]
+  // } else {
+  //   return [...audioFormats, ...h264Formats]
+  // }
+  return [...audioFormats, ...h264Formats]
 }
