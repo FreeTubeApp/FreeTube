@@ -402,7 +402,12 @@ export default defineComponent({
       const expectedId = this.id
 
       try {
-        const channel = await getLocalChannel(this.id)
+        let channel
+        if (!this.channelInstance) {
+          channel = await getLocalChannel(this.id)
+        } else {
+          channel = this.channelInstance
+        }
 
         let channelName
         let channelThumbnailUrl
@@ -993,7 +998,7 @@ export default defineComponent({
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = response.playlists
         this.isElementListLoading = false
-      }).catch((err) => {
+      }).catch(async (err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -1001,7 +1006,10 @@ export default defineComponent({
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
-          this.getChannelLocal()
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
+          this.getChannelPlaylistsLocal()
         } else {
           this.isLoading = false
         }
@@ -1117,7 +1125,7 @@ export default defineComponent({
     getCommunityPostsInvidious: function() {
       invidiousGetCommunityPosts(this.id).then(posts => {
         this.latestCommunityPosts = posts
-      }).catch((err) => {
+      }).catch(async (err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -1125,6 +1133,9 @@ export default defineComponent({
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
           showToast(this.$t('Falling back to Local API'))
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
           this.getCommunityPostsLocal()
         }
       })
