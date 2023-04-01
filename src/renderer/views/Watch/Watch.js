@@ -587,7 +587,7 @@ export default defineComponent({
             result.streaming_data.adaptive_formats = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
 
             // When `this.proxyVideos` is true
-            // It's possible that the Invidious instance used only support only partial of the formats from Local API
+            // It's possible that the Invidious instance used, only supports a subset of the formats from Local API
             // i.e. the value passed into `adaptiveFormats`
             // e.g. Supports 720p60, but not 720p - https://[DOMAIN_NAME]/api/manifest/dash/id/v3wm83zoSSY?local=true
             if (this.proxyVideos) {
