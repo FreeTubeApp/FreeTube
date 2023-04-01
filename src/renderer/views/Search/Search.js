@@ -98,15 +98,13 @@ export default defineComponent({
         return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
       })
 
-      this.shownResults = []
-      this.isLoading = true
-
       if (sameSearch.length > 0) {
-        // Replacing the data right away causes a strange error where the data
-        // Shown is mixed from 2 different search results.  So we'll wait a moment
-        // Before showing the results.
-        setTimeout(this.replaceShownResults, 100, sameSearch[0])
+        // No loading effect needed here, only rendered result update
+
+        this.replaceShownResults(sameSearch[0])
       } else {
+        // Show loading effect coz there will be network request(s)
+        this.isLoading = true
         this.searchSettings = payload.searchSettings
 
         switch (this.backendPreference) {
@@ -114,7 +112,7 @@ export default defineComponent({
             this.performSearchLocal(payload)
             break
           case 'invidious':
-            this.performSearchInvidious(payload)
+            this.performSearchInvidious(payload, { resetSearchPage: true })
             break
         }
       }
@@ -196,7 +194,10 @@ export default defineComponent({
       }
     },
 
-    performSearchInvidious: function (payload) {
+    performSearchInvidious: function (payload, options = { resetSearchPage: false }) {
+      if (options.resetSearchPage) {
+        this.searchPage = 1
+      }
       if (this.searchPage === 1) {
         this.isLoading = true
       }
@@ -294,6 +295,7 @@ export default defineComponent({
         this.searchPage = history.searchPage
       }
 
+      // This is kept in case there is some race condition
       this.isLoading = false
     }
   }
