@@ -44,6 +44,8 @@ class ProcessLocalesPlugin {
                 delete data['Locale Name']
               }
 
+              this.removeEmptyValues(data)
+
               let filename = `${this.outputDir}/${locale}.json`
               let output = JSON.stringify(data)
 
@@ -91,6 +93,25 @@ class ProcessLocalesPlugin {
         [constants.BROTLI_PARAM_SIZE_HINT]: buffer.byteLength
       }
     })
+  }
+
+  /**
+   * vue-i18n doesn't fallback if the translation is an empty string
+   * so we want to get rid of them and also remove the empty objects that can get left behind
+   * if we've removed all the keys and values in them
+   * @param {object|string} data
+   */
+  removeEmptyValues(data) {
+    for (const key of Object.keys(data)) {
+      const value = data[key]
+      if (typeof value === 'object') {
+        this.removeEmptyValues(value)
+      }
+
+      if (!value || (typeof value === 'object' && Object.keys(value).length === 0)) {
+        delete data[key]
+      }
+    }
   }
 }
 
