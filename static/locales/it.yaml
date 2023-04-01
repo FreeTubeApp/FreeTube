@@ -400,7 +400,7 @@ Settings:
     Hide Active Subscriptions: Nascondi le iscrizioni attive
     Hide Playlists: Nascondi le playlist
     Hide Comments: Nascondi i commenti
-    Hide Live Streams: Nascondi i video dal vivo
+    Hide Live Streams: Nascondi i video Live
     Hide Sharing Actions: Nascondi le azioni di condivisione
     Hide Video Description: Nascondi la descrizione del video
     Hide Chapters: Nascondi i capitoli
@@ -588,9 +588,9 @@ Channel:
       post
     Community: Comunità
   Live:
-    Live: Dal vivo
+    Live: Live
     This channel does not currently have any live streams: Questo canale attualmente
-      non ha alcun video dal vivo
+      non ha alcun video Live
 Video:
   Mark As Watched: 'Segna come già visto'
   Remove From History: 'Rimuovi dalla cronologia'
@@ -608,19 +608,19 @@ Video:
   Watching: 'Sto guardando'
   Watched: 'Visto'
   # As in a Live Video
-  Live: 'Dal vivo'
-  Live Now: 'Adesso dal vivo'
-  Live Chat: 'Chat dal vivo'
-  Enable Live Chat: 'Abilita chat dal vivo'
-  Live Chat is currently not supported in this build.: 'La chat dal vivo al momento
-    non è supportata in questa versione.'
+  Live: 'Live'
+  Live Now: 'Live ora'
+  Live Chat: 'Live Chat'
+  Enable Live Chat: 'Abilita Live Chat'
+  Live Chat is currently not supported in this build.: 'La Live Chat al momento non
+    è supportata in questa versione.'
   'Chat is disabled or the Live Stream has ended.': 'La chat è disabilitata o la diretta
     è terminata.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'La chat dal vivo
-    è abilitata. I messaggi appariranno qui una volta inviati.'
+  Live chat is enabled.  Chat messages will appear here once sent.: 'La Live Chat
+    è abilitata.  I messaggi appariranno qui una volta inviati.'
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'La
-    chat dal vivo non è supportata attualmente con le API di Invidious. È necessaria
-    una connessione diretta a YouTube.'
+    Live Chat non è supportata attualmente con le API di Invidious. È necessaria una
+    connessione diretta a YouTube.'
   Published:
     Jan: 'Gen'
     Feb: 'Feb'
@@ -734,7 +734,7 @@ Video:
   Show Super Chat Comment: Mostra commento Super Chat
   Upcoming: In arrivo
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La
-    chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
+    Live Chat non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
 Videos:
   #& Sort By
