@@ -200,6 +200,10 @@ export default defineComponent({
     commentAutoLoadEnabled: function () {
       return this.$store.getters.getCommentAutoLoadEnabled
     },
+
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
   },
   watch: {
     screenshotFolder: function() {
