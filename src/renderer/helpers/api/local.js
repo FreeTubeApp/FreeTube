@@ -467,6 +467,8 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
   }
 
   const timestampRegex = /^(?:\d+:){1,2}\d+$/
+  const spacesBeforeRegex = /^\s+/
+  const spacesAfterRegex = /\s+$/
   const parsedRuns = []
 
   for (const run of runs) {
@@ -510,10 +512,10 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
             // In comments, mention can be `@Channel Name` (not handle, but name)
-            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && /^@/.test(trimmedText))) {
+            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && trimmedText.startsWith('@'))) {
               // Note that in regex `\s` must be used since the text contain non-default space (the half-width space char when we press spacebar)
-              const spacesBefore = (/^\s+/.exec(text) || [''])[0]
-              const spacesAfter = (/\s+$/.exec(text) || [''])[0]
+              const spacesBefore = (spacesBeforeRegex.exec(text) || [''])[0]
+              const spacesAfter = (spacesAfterRegex.exec(text) || [''])[0]
               parsedRuns.push(`${spacesBefore}<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>${spacesAfter}`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
