@@ -1,27 +1,14 @@
 # Put the name of your locale in the same language
 Locale Name: 'ଓଡ଼ିଆ'
-'This part of the app is not ready yet. Come back later when progress has been made.': >
-
-# Webkit Menu Bar
 File: 'ଫାଇଲ୍'
-Preferences: ''
 Edit: 'ସମ୍ପାଦନା'
 Undo: 'ପୂର୍ଵଵତ୍'
 Redo: 'ପୁନଃକରଣ'
-Copy: ''
 Delete: ''
-Reload: ''
 Toggle Developer Tools: ''
-Zoom in: ''
 Toggle fullscreen: ''
-Minimize: ''
 Back: ''
-Open New Window: ''
-
 Download From Site: ''
-Are you sure you want to open this link?: ''
-
-# Search Bar
 Search Bar:
   Clear Input: ''
   # In Filter Button
@@ -29,7 +16,6 @@ Search Filters:
   Sort By:
     Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
     Most Relevant: 'ସବୁଠୁ ପ୍ରାସଙ୍ଗିକ'
-    Upload Date: ''
     View Count: 'ଦର୍ଶନ ଗଣନା'
   Time:
     Time: 'ସମୟ'
@@ -49,76 +35,54 @@ Search Filters:
   Duration:
     Duration: 'ଅଵଧି'
     All Durations: 'ସମସ୍ତ ଅଵଧି'
-    Long (> 20 minutes): ''
-  # On Search Page
   Fetching results. Please wait: ''
-  There are no more results for this search: ''
-# Sidebar
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'ସଦସ୍ୟତା'
   # channels that were likely deleted
-  Latest Subscriptions: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  Empty Channels: ''
   Refresh Subscriptions: ''
 More: 'ଅଧିକ'
 Channels:
   Channels: 'ଚ୍ୟାନେଲ'
   Title: 'ଚ୍ୟାନେଲ ତାଲିକା'
-  Count: ''
   Unsubscribe: ''
-  Unsubscribe Prompt: ''
 Trending:
   Default: 'ଡିଫଲ୍ଟ'
   Music: 'ସଙ୍ଗୀତ'
   Gaming: 'ଖେଳ'
   Movies: 'ଚଳଚ୍ଚିତ୍ର'
-Most Popular: ''
 Playlists: 'ଚାଳନାତାଲିକା'
 User Playlists:
   Your Playlists: 'ଆପଣଙ୍କ ଚାଳନାତାଲିକା'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Search bar placeholder: ''
 History:
   # On History Page
-  Watch History: ''
   Empty Search Message: ''
 Settings:
   # On Settings Page
-  Settings: ''
   General Settings:
     General Settings: ''
-    Check for Latest Blog Posts: ''
     Enable Search Suggestions: ''
-    Locale Preference: ''
     Preferred API Backend:
       Preferred API Backend: ''
-      Invidious API: ''
     Video View Type:
       Grid: ''
     Thumbnail Preference:
-      Thumbnail Preference: ''
       Default: 'ଡିଫଲ୍ଟ'
-      Middle: ''
     Current Invidious Instance: ''
-    No default instance has been set: ''
     Set Current Instance as Default: ''
-    View all Invidious instance information: ''
     External Link Handling:
       External Link Handling: ''
-      Ask Before Opening Link: ''
       No Action: 'କିଛି କରନ୍ତୁନି'
   Theme Settings:
     Theme Settings: 'ଥିମ୍ ସେଟିଂ'
-    Expand Side Bar by Default: ''
     UI Scale: ''
     Base Theme:
       Base Theme: 'ଆଧାର ଥିମ୍'
       Black: 'କଳା'
       Dark: 'ଗାଢ଼'
       Light: 'ହାଲୁକା'
-      Catppuccin Mocha: ''
     Main Color Theme:
       Red: 'ନାଲି'
       Pink: 'ଗୋଲାପୀ'
@@ -126,38 +90,25 @@ Settings:
       Deep Purple: 'ଗାଢ଼ ବାଇଗଣୀ'
       Blue: 'ନୀଳ'
       Light Blue: 'ହାଲୁକା ନୀଳ'
-      Teal: ''
       Green: 'ସବୁଜ'
       Light Green: 'ହାଲୁକା ସବୁଜ'
       Lime: 'ଚୂନ'
       Yellow: 'ହଳଦିଆ'
       Orange: 'କମଳା'
       Deep Orange: 'ଗାଢ଼ କମଳା'
-      Dracula Green: ''
       Dracula Pink: ''
-      Dracula Red: ''
       Catppuccin Mocha Rosewater: ''
-      Catppuccin Mocha Pink: ''
       Catppuccin Mocha Red: ''
-      Catppuccin Mocha Peach: ''
       Catppuccin Mocha Green: ''
-      Catppuccin Mocha Sky: ''
       Catppuccin Mocha Blue: ''
-    Secondary Color Theme: ''
-        #* Main Color Theme
   Player Settings:
     Player Settings: 'ଚାଳକ ସେଟିଂ'
-    Play Next Video: ''
     Autoplay Videos: 'ଵିଡ଼ିଓ ସ୍ୱତଃଚାଳନ'
     Autoplay Playlists: 'ଚାଳନାତାଲିକା ସ୍ୱତଃଚାଳନ'
-    Scroll Volume Over Video Player: ''
     Display Play Button In Video Player: ''
-    Next Video Interval: ''
     Default Volume: ''
-    Max Video Playback Rate: ''
     Default Video Format:
       Default Video Format: ''
-      Legacy Formats: ''
       Audio Formats: 'ଅଡ଼ିଓ ଫର୍ମାଟ୍'
     Default Quality:
       Default Quality: 'ଡିଫଲ୍ଟ ଗୁଣବତ୍ତା'
@@ -172,272 +123,160 @@ Settings:
       4k: '୪k'
       8k: '୮k'
     Screenshot:
-      Format Label: ''
       Ask Path: ''
-      Folder Button: ''
       File Name Tooltip: ''
-      Error:
-        Empty File Name: ''
     Allow DASH AV1 formats: DASH AV1 ଫର୍ମାଟ୍‍କୁ ଅନୁମତି ଦେବା
   External Player Settings:
     External Player Settings: 'ବାହ୍ୟ ଚାଳକ ସେଟିଂ'
     External Player: 'ବାହ୍ୟ ଚାଳକ'
-    Custom External Player Executable: ''
     Players:
       None:
         Name: ''
   Privacy Settings:
     Privacy Settings: 'ଗୋପନୀୟତା ସେଟିଂ'
     Remember History: 'ଇତିଵୃତ୍ତି ମନେରଖିବା'
-    Automatically Remove Video Meta Files: ''
     Are you sure you want to clear out your search cache?: ''
-    Remove Watch History: ''
     Watch history has been cleared: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
   Subscription Settings:
     Hide Videos on Watch: ''
     Manage Subscriptions: 'ସଦସ୍ୟତା ପରିଚାଳନା'
   Distraction Free Settings:
-    Distraction Free Settings: ''
     Hide Video Likes And Dislikes: ''
-    Hide Comment Likes: ''
     Hide Trending Videos: ''
-    Hide Playlists: ''
     Hide Active Subscriptions: ''
     Hide Comments: 'ମନ୍ତଵ୍ୟ ଲୁଚାଇବା'
-    Hide Sharing Actions: ''
     Display Titles Without Excessive Capitalisation: ଅତ୍ୟଧିକ ବଡ଼ ଅକ୍ଷର ବିନା ଆଖ୍ୟା ପ୍ରଦର୍ଶନ
       କରିବା
   Data Settings:
-    Select Import Type: ''
     Import Subscriptions: ''
-    History File: ''
     Check for Legacy Subscriptions: ''
-    Export FreeTube: ''
     Export NewPipe: ''
-    Export History: ''
     Export Playlists: ''
-    All subscriptions and profiles have been successfully imported: ''
     One or more subscriptions were unable to be imported: ''
-    This might take a while, please wait: ''
     Subscriptions have been successfully exported: ''
-    All watched history has been successfully imported: ''
     Playlist insufficient data: ''
-    All playlists has been successfully exported: ''
     Unable to write file: ''
-    How do I import my subscriptions?: ''
   Proxy Settings:
     Proxy Settings: ''
-    Proxy Protocol: ''
     Proxy Port Number: ''
-    Test Proxy: ''
     Ip: ''
-    Region: ''
     Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings:
-    Enable SponsorBlock: ''
     Notify when sponsor segment is skipped: ''
     Skip Options:
-      Auto Skip: ''
       Prompt To Skip: ''
-    Category Color: ''
   Parental Control Settings:
     Hide Unsubscribe Button: ''
-    Hide Search Bar: ''
   Download Settings:
     Ask Download Path: ''
-    Download Behavior: ''
     Open in web browser: ''
-  Experimental Settings:
-    Warning: ''
 About:
   #On About page
   About: ''
-  Source code: ''
   View License: ''
-  GitHub releases: ''
   FreeTube Wiki: ''
-  Report a problem: ''
   Please check for duplicates before posting: ''
-  Blog: ''
   Mastodon: ''
-  Please read the: ''
   Translate: ''
-  FreeTube is made possible by: ''
   Donate: ''
 
 Profile:
-  Profile Select: ''
   All Channels: ''
-  Create New Profile: ''
   Color Picker: ''
-  Profile Preview: ''
   Update Profile: ''
-  Delete Profile: ''
   All subscriptions will also be deleted.: ''
-  Your profile name cannot be empty: ''
   Profile has been updated: ''
-  Removed {profile} from your profiles: ''
   '{profile} is now the active profile': ''
-  Other Channels: ''
   Select All: ''
-  Delete Selected: ''
   No channel(s) have been selected: ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel:
   Subscribers: ''
-  Unsubscribe: ''
   Removed subscription from {count} other channel(s): ''
-  Search Channel: ''
   Sort By: ''
   Videos:
-    This channel does not currently have any videos: ''
     Sort Types:
       Oldest: ''
   Playlists:
-    Playlists: ''
     Sort Types:
       Last Video Added: ''
-      Oldest: ''
   About:
     Channel Description: ''
 Video:
-  Mark As Watched: ''
   Video has been marked as watched: ''
-  Save Video: ''
   Video has been removed from your saved list: ''
-  Copy YouTube Link: ''
   Copy YouTube Embedded Player Link: ''
-  Copy Invidious Link: ''
   Copy YouTube Channel Link: ''
-  Copy Invidious Channel Link: ''
   Views: ''
-  Shuffle Playlist: ''
   Play Next Video: ''
-  Watching: ''
   Autoplay: ''
-  Premieres on: ''
   Live: ''
-  Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
   Download Video: ''
-  audio only: ''
   Audio:
     Medium: ''
-    Best: ''
   Published:
     Feb: ''
-    Apr: ''
     Jun: ''
-    Aug: ''
     Oct: ''
-    Dec: ''
     Seconds: ''
-    Minutes: ''
     Hours: ''
-    Days: ''
     Weeks: ''
-    Months: ''
     Years: ''
-    Upcoming: ''
   Published on: ''
-  Started streaming on: ''
   Publicationtemplate: ''
   Sponsor Block category:
-    sponsor: ''
     outro: ''
-    interaction: ''
     recap: ''
   External Player:
-    OpenInTemplate: ''
     playlist: ''
-    UnsupportedActionTemplate: ''
     Unsupported Actions:
       setting a playback rate: ''
-      opening specific video in a playlist (falling back to opening the video): ''
       shuffling playlists: ''
   Stats:
-    Video statistics are not available for legacy videos: ''
     Resolution: ''
-    Bitrate: ''
     Bandwidth: ''
-    Dropped / Total Frames: ''
 Videos:
   #& Sort By
   Sort By:
     Newest: ''
 Playlist:
   #& About
-  Playlist: ''
   Videos: ''
-  Views: ''
 Toggle Theatre Mode: ''
 Change Format:
-  Use Dash Formats: ''
   Use Audio Formats: ''
-  Audio formats are not available for this video: ''
 Share:
   Include Timestamp: ''
-  Open Link: ''
   Open Embed: ''
   # On Click
-  Invidious Embed URL copied to clipboard: ''
   YouTube URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
 Clipboard:
   Cannot access clipboard without a secure connection: ''
 
-Chapters:
-  'Chapters list visible, current chapter: {chapterName}': ''
 Mini Player: ''
 Comments:
-  Click to View Comments: ''
   There are no more comments for this video: ''
-  Hide Comments: ''
   Top comments: ''
-  View: ''
   Replies: ''
-  Reply: ''
   And others: ''
-  Load More Comments: ''
   Pinned by: ''
-Up Next: ''
-
-#Tooltips
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-    Invidious Instance: ''
     External Link Handling: |
   Player Settings:
-    Proxy Videos Through Invidious: ''
     Scroll Playback Rate Over Video Player: ''
   External Player Settings:
-    Custom External Player Executable: ''
     Custom External Player Arguments: ''
-  Subscription Settings:
-    Fetch Feeds from RSS: ''
   Privacy Settings:
     Remove Video Meta Files: ''
-Local API Error (Click to copy): ''
 Falling back to Invidious API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
 Unknown YouTube url type, cannot be opened in app: ''
-Loop is now disabled: ''
 Shuffle is now disabled: ''
-The playlist has been reversed: ''
 Playing Previous Video: ''
-Canceled next video autoplay: ''
-
 Default Invidious instance has been cleared: ''
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: ''
   Type:
     Video: ''
-Downloading has completed: ''
 Downloading failed: ''
-Screenshot Error: ''
-
 No: ''

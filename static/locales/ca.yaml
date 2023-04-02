@@ -309,15 +309,9 @@ Settings:
       s'han importat amb èxit
     Check for Legacy Subscriptions: Comprova les subscripcions antigues
   Advanced Settings:
-    Enable Debug Mode (Prints data to the console): ''
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
     Clear History:
       Clear History: ''
-      # On Click
-    Clear Subscriptions:
-      Clear Subscriptions: ''
       # On Click
   The app needs to restart for changes to take effect. Restart and apply change?: Cal
     reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
@@ -370,11 +364,7 @@ About:
   #On About page
   About: 'Sobre'
   #& About
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
-
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-  Check out our Firefox extension!: ''
 
   Latest FreeTube News: ''
 
@@ -632,20 +622,12 @@ Share:
   YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
     porta-retalls'
 Comments:
-  Comments: ''
   Getting comment replies, please wait: ''
-  Hide Comments: ''
-  # Context: View 10 Replies, View 1 Reply
   Hide: ''
-  Reply: ''
   Load More Comments: ''
-Local API Error (Click to copy): ''
 Falling back to Invidious API: ''
-Subscriptions have not yet been implemented: ''
 Loop is now enabled: ''
-Shuffle is now enabled: ''
 Playing Next Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
 Yes: 'Sí'

@@ -46,344 +46,200 @@ Search Filters:
     Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
-    View Count: ''
   Time:
     Any Time: ''
-    Today: ''
     This Month: ''
   Type:
-    Type: ''
     Videos: ''
   Duration:
-    Duration: ''
     Short (< 4 minutes): ''
-  Search Results: ''
   Fetch more results: ''
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  # channels that were likely deleted
   Latest Subscriptions: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Refresh Subscriptions: ''
-More: ''
 Trending:
   Default: ''
-  Gaming: ''
   Trending Tabs: ''
-Playlists: ''
 User Playlists:
   Playlist Message: ''
-  Empty Search Message: ''
 History:
   # On History Page
   History: ''
-  Your history list is currently empty.: ''
   Search bar placeholder: ""
 Settings:
   # On Settings Page
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
     Check for Updates: ''
-    Fallback to Non-Preferred Backend on Failure: ''
     Default Landing Page: ''
-    System Default: ''
     Preferred API Backend:
       Local API: ''
     Video View Type:
-      Video View Type: ''
       List: ''
     Thumbnail Preference:
-      Default: ''
       Middle: ''
-    Current Invidious Instance: ''
     No default instance has been set: ''
-    Set Current Instance as Default: ''
     View all Invidious instance information: ''
     External Link Handling:
-      External Link Handling: ''
       Ask Before Opening Link: ''
   Theme Settings:
-    Theme Settings: ''
     Expand Side Bar by Default: ''
-    UI Scale: ''
     Base Theme:
       Base Theme: ''
-      Dark: ''
       Light: ''
     Main Color Theme:
-      Main Color Theme: ''
       Pink: ''
-      Deep Purple: ''
       Blue: ''
-      Cyan: ''
       Green: ''
-      Lime: ''
       Amber: ''
-      Deep Orange: ''
       Dracula Green: ''
-      Dracula Pink: ''
       Dracula Red: ''
-    Secondary Color Theme: ''
-        #* Main Color Theme
   Player Settings:
     Force Local Backend for Legacy Formats: ''
-    Turn on Subtitles by Default: ''
     Proxy Videos Through Invidious: ''
-    Enable Theatre Mode by Default: ''
     Scroll Playback Rate Over Video Player: ''
-    Next Video Interval: ''
     Default Volume: ''
-    Max Video Playback Rate: ''
     Default Video Format:
       Default Video Format: ''
-      Legacy Formats: ''
     Default Quality:
       Default Quality: ''
-      144p: ''
       360p: ''
-      720p: ''
       1440p: ''
-      8k: ''
     Screenshot:
       Format Label: ''
-      Ask Path: ''
       Folder Button: ''
-      File Name Tooltip: ''
       Error:
         Empty File Name: ''
   External Player Settings:
-    External Player: ''
     Custom External Player Executable: ''
   Privacy Settings:
-    Privacy Settings: ''
     Save Watched Progress: ''
-    Clear Search Cache: ''
     Search cache has been cleared: ''
-    Are you sure you want to remove your entire watch history?: ''
     Remove All Subscriptions / Profiles: ''
   Subscription Settings:
-    Subscription Settings: ''
     Fetch Feeds from RSS: ''
   Distraction Free Settings:
-    Distraction Free Settings: ''
     Hide Video Likes And Dislikes: ''
-    Hide Comment Likes: ''
     Hide Trending Videos: ''
-    Hide Playlists: ''
     Hide Active Subscriptions: ''
   Data Settings:
-    Select Import Type: ''
     Import Subscriptions: ''
-    Import YouTube: ''
     Check for Legacy Subscriptions: ''
-    Export FreeTube: ''
     Export NewPipe: ''
-    Export History: ''
     Export Playlists: ''
-    All subscriptions and profiles have been successfully imported: ''
     One or more subscriptions were unable to be imported: ''
-    This might take a while, please wait: ''
     Subscriptions have been successfully exported: ''
-    All watched history has been successfully imported: ''
     Playlist insufficient data: ''
-    All playlists has been successfully exported: ''
     Unable to write file: ''
-    How do I import my subscriptions?: ''
   Proxy Settings:
     Proxy Settings: ''
-    Proxy Protocol: ''
     Proxy Port Number: ''
-    Test Proxy: ''
     Ip: ''
-    Region: ''
     Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings:
-    Enable SponsorBlock: ''
     Notify when sponsor segment is skipped: ''
     Skip Options:
-      Auto Skip: ''
       Prompt To Skip: ''
-    Category Color: ''
   Download Settings:
     Ask Download Path: ''
 About:
   #On About page
-  About: ''
   Source code: ''
-  View License: ''
   GitHub releases: ''
-  FreeTube Wiki: ''
   Report a problem: ''
-  Please check for duplicates before posting: ''
   Blog: ''
-  Mastodon: ''
   Please read the: ''
-  Translate: ''
   FreeTube is made possible by: ''
-  Donate: ''
-
 Profile:
   Profile Select: ''
-  All Channels: ''
   Create New Profile: ''
-  Color Picker: ''
   Profile Preview: ''
-  Update Profile: ''
   Delete Profile: ''
-  All subscriptions will also be deleted.: ''
   Your profile name cannot be empty: ''
-  Profile has been updated: ''
   Removed {profile} from your profiles: ''
-  '{profile} is now the active profile': ''
   Other Channels: ''
-  Select All: ''
   Delete Selected: ''
-  No channel(s) have been selected: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Subscribers: ''
   Unsubscribe: ''
-  Removed subscription from {count} other channel(s): ''
   Search Channel: ''
-  Sort By: ''
   Videos:
     This channel does not currently have any videos: ''
-    Sort Types:
-      Oldest: ''
   Playlists:
     Playlists: ''
     Sort Types:
-      Last Video Added: ''
       Oldest: ''
-  About:
-    Channel Description: ''
 Video:
   Mark As Watched: ''
-  Video has been marked as watched: ''
   Save Video: ''
-  Video has been removed from your saved list: ''
   Copy YouTube Link: ''
-  Copy YouTube Embedded Player Link: ''
   Copy Invidious Link: ''
-  Copy YouTube Channel Link: ''
   Copy Invidious Channel Link: ''
-  Views: ''
   Shuffle Playlist: ''
-  Play Next Video: ''
   Watching: ''
-  Autoplay: ''
   Premieres on: ''
-  Live Now: ''
   Enable Live Chat: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  video only: ''
   Audio:
     Low: ''
-    High: ''
   Published:
     Jan: ''
-    Mar: ''
     May: ''
-    Jul: ''
     Sep: ''
-    Nov: ''
     Second: ''
-    Minute: ''
     Hour: ''
-    Day: ''
     Week: ''
-    Month: ''
     Year: ''
-    Ago: ''
   Published on: ''
-  Started streaming on: ''
   Publicationtemplate: ''
   Sponsor Block category:
-    sponsor: ''
     outro: ''
-    interaction: ''
     recap: ''
   External Player:
-    OpenInTemplate: ''
     playlist: ''
-    UnsupportedActionTemplate: ''
     Unsupported Actions:
       setting a playback rate: ''
-      opening specific video in a playlist (falling back to opening the video): ''
       shuffling playlists: ''
   Stats:
-    Video statistics are not available for legacy videos: ''
     Resolution: ''
-    Bitrate: ''
     Bandwidth: ''
-    Dropped / Total Frames: ''
 Videos:
   #& Sort By
   Sort By:
     Newest: ''
 Playlist:
   #& About
-  Playlist: ''
   Videos: ''
-  Views: ''
 Toggle Theatre Mode: ''
 Change Format:
-  Use Dash Formats: ''
   Use Audio Formats: ''
-  Audio formats are not available for this video: ''
 Share:
   Include Timestamp: ''
-  Open Link: ''
   Open Embed: ''
   # On Click
-  Invidious Embed URL copied to clipboard: ''
   YouTube URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
-
 Comments:
   Comments: ''
-  Getting comment replies, please wait: ''
   Show Comments: ''
-  Sort by: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  Hide: ''
   Show More Replies: ''
-  From {channelName}: ''
   There are no comments available for this video: ''
-  No more comments available: ''
   Member: ''
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
     Thumbnail Preference: ''
-    Region for Trending: ''
   Player Settings:
     Force Local Backend for Legacy Formats: ''
-    Default Video Format: ''
   External Player Settings:
     External Player: ''
-    Ignore Warnings: ''
     DefaultCustomArgumentsTemplate: ''
-  Privacy Settings:
-    Remove Video Meta Files: ''
-
-# Toast Messages
 Invidious API Error (Click to copy): ''
-Falling back to the local API: ''
 Subscriptions have not yet been implemented: ''
-Hashtags have not yet been implemented, try again later: ''
 Loop is now enabled: ''
-Shuffle is now enabled: ''
 Playing Next Video: ''
-Playing Next Video Interval: ''
 Default Invidious instance has been set to {instance}: ''
-'The playlist has ended.  Enable loop to continue playing': ''
 Downloading has completed: ''
-Downloading failed: ''
 Screenshot Error: ''
 
-No: ''

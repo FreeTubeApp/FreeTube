@@ -44,27 +44,20 @@ Search Bar:
 Search Filters:
   Search Filters: 'فلٹرز تلاش کریں۔'
   Sort By:
-    Most Relevant: ''
     Upload Date: ''
   Time:
-    Time: ''
     Last Hour: ''
-    This Week: ''
     This Year: ''
   Type:
-    All Types: ''
     Channels: ''
     #& Playlists
   Duration:
-    All Durations: ''
     Long (> 20 minutes): ''
   # On Search Page
-  Fetching results. Please wait: ''
   There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں۔'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Error Channels: ''
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'یہ
     پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ شرح کو محدود کرنے سے بچنے کے لیے آر
     ایس ایس کو مجبور کرنا'
@@ -85,12 +78,9 @@ Channels:
   Unsubscribe: 'ان سبسکرائب کریں۔'
   Unsubscribed: '{channelName} کو آپ کی سبسکرپشنز سے ہٹا دیا گیا ہے۔'
 Trending:
-  Trending: ''
   Music: ''
-  Movies: ''
 Most Popular: ''
 User Playlists:
-  Your Playlists: ''
   Playlist Message: یہ صفحہ مکمل طور پر کام کرنے والی پلے لسٹس کا عکاس نہیں ہے۔ یہ
     صرف ان ویڈیوز کی فہرست بناتا ہے جنہیں آپ نے محفوظ کیا ہے یا پسند کیا ہے۔ جب کام
     ختم ہو جائے تو سب فی الحال یہاں موجود ویڈیوز کو 'پسندیدہ' پلے لسٹ میں منتقل کر
@@ -120,114 +110,70 @@ Settings:
       ناکامی پر'
     Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں۔'
     Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
-    System Default: ''
     Preferred API Backend:
       Local API: ''
     Video View Type:
-      Video View Type: ''
       List: ''
     Thumbnail Preference:
-      Default: ''
       Middle: ''
-    Current Invidious Instance: ''
     No default instance has been set: ''
-    Set Current Instance as Default: ''
     View all Invidious instance information: ''
     External Link Handling:
-      External Link Handling: ''
       Ask Before Opening Link: ''
   Theme Settings:
-    Theme Settings: ''
     Expand Side Bar by Default: ''
-    UI Scale: ''
     Base Theme:
       Base Theme: ''
-      Dark: ''
       Light: ''
-      Catppuccin Mocha: ''
     Main Color Theme:
       Red: ''
-      Purple: ''
       Indigo: ''
-      Light Blue: ''
       Teal: ''
-      Light Green: ''
       Yellow: ''
-      Orange: ''
       Dracula Cyan: ''
-      Dracula Orange: ''
       Dracula Purple: ''
-      Dracula Yellow: ''
       Catppuccin Mocha Flamingo: ''
-      Catppuccin Mocha Mauve: ''
       Catppuccin Mocha Maroon: ''
-      Catppuccin Mocha Yellow: ''
       Catppuccin Mocha Teal: ''
-      Catppuccin Mocha Sapphire: ''
       Catppuccin Mocha Lavender: ''
   Player Settings:
-    Player Settings: ''
     Play Next Video: ''
-    Autoplay Videos: ''
     Autoplay Playlists: ''
-    Scroll Volume Over Video Player: ''
     Display Play Button In Video Player: ''
-    Fast-Forward / Rewind Interval: ''
     Default Playback Rate: ''
-    Video Playback Rate Interval: ''
     Default Video Format:
       Dash Formats: ''
-      Audio Formats: ''
     Default Quality:
       Auto: ''
-      240p: ''
       480p: ''
-      1080p: ''
       4k: ''
     Screenshot:
-      Enable: ''
       Quality Label: ''
-      Folder Label: ''
       File Name Label: ''
       File Name Tooltip: 'آپ ذیل میں متغیرات استعمال کر سکتے ہیں۔ %Y سال کے 4 ہندسے۔
         %M مہینہ 2 ہندسے۔ %D دن کے 2 ہندسے۔ %H گھنٹے 2 ہندسے۔ %N منٹ 2 ہندسے۔ %S دوسرے
         2 ہندسے۔ %T ملی سیکنڈ 3 ہندسے۔ %s ویڈیو سیکنڈ۔ %t ویڈیو ملی سیکنڈ 3 ہندسے۔
         %i ویڈیو ID۔ آپ ذیلی فولڈر بنانے کے لیے "\" یا "/" بھی استعمال کر سکتے ہیں۔'
-      Error:
-        Empty File Name: ''
   External Player Settings:
     External Player: ''
-    Custom External Player Executable: ''
     Players:
       None:
         Name: ''
   Privacy Settings:
-    Remember History: ''
     Automatically Remove Video Meta Files: ''
-    Are you sure you want to clear out your search cache?: ''
     Remove Watch History: ''
-    Watch history has been cleared: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
   Subscription Settings:
-    Hide Videos on Watch: ''
     Manage Subscriptions: ''
   Distraction Free Settings:
-    Hide Video Views: ''
     Hide Channel Subscribers: ''
-    Hide Recommended Videos: ''
     Hide Popular Videos: ''
-    Hide Live Chat: ''
     Hide Video Description: ''
-    Hide Live Streams: ''
   Data Settings:
     Data Settings: ''
-    Select Export Type: ''
     Import FreeTube: ''
-    Import NewPipe: ''
     Export Subscriptions: ''
-    Export YouTube: ''
     Import History: ''
-    Import Playlists: ''
     Profile object has insufficient data, skipping item: 'پروفائل آبجیکٹ ناکافی ہے۔
       ڈیٹا، آئٹم کو چھوڑنا'
     All subscriptions and profiles have been successfully imported: 'تمام سبسکرپشنز
@@ -236,7 +182,6 @@ Settings:
       کامیابی سے درآمد کیا گیا۔'
     One or more subscriptions were unable to be imported: 'ایک یا زیادہ سبسکرپشنز
       درآمد کرنے کے قابل نہیں تھے'
-    This might take a while, please wait: ''
     Subscriptions have been successfully exported: 'سبسکرپشنز کامیابی سے ہو گئی ہیں۔
       برآمد'
     History object has insufficient data, skipping item: 'تاریخ کا اعتراض ناکافی ہے۔
@@ -251,55 +196,35 @@ Settings:
       سے درآمد کیا گیا۔'
     All playlists has been successfully exported: 'تمام پلے لسٹ ہو چکی ہیں۔ کامیابی
       سے برآمد'
-    Unable to write file: ''
     How do I import my subscriptions?: ''
   Proxy Settings:
-    Proxy Settings: ''
     Proxy Protocol: ''
-    Proxy Port Number: ''
     Test Proxy: ''
-    Ip: ''
     Region: ''
-    Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings:
     Enable SponsorBlock: ''
-    Notify when sponsor segment is skipped: ''
     Skip Options:
       Auto Skip: ''
-      Prompt To Skip: ''
     Category Color: ''
   Parental Control Settings:
-    Hide Unsubscribe Button: ''
     Hide Search Bar: ''
   Download Settings:
-    Ask Download Path: ''
     Download Behavior: ''
-    Open in web browser: ''
 About:
   #On About page
   Beta: ''
-  Licensed under the AGPLv3: ''
   Downloads / Changelog: ''
-  Help: ''
   FAQ: ''
-  GitHub issues: ''
   Please check for duplicates before posting: 'براہ کرم پوسٹ کرنے سے پہلے ڈپلیکیٹس
     کی جانچ کریں۔'
-  Blog: ''
   Mastodon: ''
-  Please read the: ''
   Translate: ''
-  FreeTube is made possible by: ''
   Donate: ''
 
 Profile:
-  Profile Select: ''
   All Channels: ''
-  Create New Profile: ''
   Color Picker: ''
-  Profile Preview: ''
   Update Profile: ''
-  Delete Profile: ''
   Are you sure you want to delete this profile?: 'کیا آپ واقعی اسے حذف کرنا چاہتے
     ہیں۔ پروفائل؟'
   All subscriptions will also be deleted.: 'تمام سبسکرپشنز بھی حذف کر دی جائیں گی۔'
@@ -307,11 +232,8 @@ Profile:
   Your profile name cannot be empty: 'آپ کا پروفائل نام خالی نہیں ہو سکتا'
   Profile has been created: 'پروفائل بن گیا ہے۔'
   Profile has been updated: 'پروفائل کو اپ ڈیٹ کر دیا گیا ہے۔'
-  Removed {profile} from your profiles: ''
   '{profile} is now the active profile': ''
-  Other Channels: ''
   Select All: ''
-  Delete Selected: ''
   No channel(s) have been selected: ''
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -323,118 +245,70 @@ Profile:
     دوسرے پروفائل سے۔'
 #On Channel Page
 Channel:
-  Subscribers: ''
   Unsubscribe: ''
-  Removed subscription from {count} other channel(s): ''
   Search Channel: ''
-  Sort By: ''
   Videos:
     This channel does not currently have any videos: ''
-    Sort Types:
-      Oldest: ''
   Playlists:
     Playlists: ''
     Sort Types:
-      Last Video Added: ''
       Oldest: ''
-  About:
-    Channel Description: ''
 Video:
   Mark As Watched: ''
-  Video has been marked as watched: ''
   Save Video: ''
-  Video has been removed from your saved list: ''
   Copy YouTube Link: ''
-  Copy YouTube Embedded Player Link: ''
   Copy Invidious Link: ''
-  Copy YouTube Channel Link: ''
   Copy Invidious Channel Link: ''
-  Views: ''
   Shuffle Playlist: ''
-  Play Next Video: ''
   Watching: ''
-  Autoplay: ''
   Premieres on: ''
-  Live Now: ''
   Enable Live Chat: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  video only: ''
   Audio:
     Low: ''
-    High: ''
   Published:
     Jan: ''
-    Mar: ''
     May: ''
-    Jul: ''
     Sep: ''
-    Nov: ''
     Second: ''
-    Minute: ''
     Hour: ''
-    Day: ''
     Week: ''
-    Month: ''
     Year: ''
-    Ago: ''
   Published on: ''
-  Started streaming on: ''
   Publicationtemplate: ''
   Sponsor Block category:
-    sponsor: ''
     outro: ''
-    interaction: ''
     recap: ''
   External Player:
-    OpenInTemplate: ''
     playlist: ''
-    UnsupportedActionTemplate: ''
     Unsupported Actions:
       setting a playback rate: ''
-      opening specific video in a playlist (falling back to opening the video): ''
       shuffling playlists: ''
   Stats:
-    Video statistics are not available for legacy videos: ''
     Resolution: ''
-    Bitrate: ''
     Bandwidth: ''
-    Dropped / Total Frames: ''
 Videos:
   #& Sort By
   Sort By:
     Newest: ''
 Playlist:
   #& About
-  Playlist: ''
   Videos: ''
-  Views: ''
 Toggle Theatre Mode: ''
 Change Format:
-  Use Dash Formats: ''
   Use Audio Formats: ''
-  Audio formats are not available for this video: ''
 Share:
   Include Timestamp: ''
-  Open Link: ''
   Open Embed: ''
   # On Click
-  Invidious Embed URL copied to clipboard: ''
   YouTube URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
-
 Comments:
   Comments: ''
-  Getting comment replies, please wait: ''
   Show Comments: ''
-  Sort by: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  Hide: ''
   Show More Replies: ''
-  From {channelName}: ''
   There are no comments available for this video: ''
-  No more comments available: ''
   Member: ''
 Tooltips:
   General Settings:
@@ -494,7 +368,6 @@ Tooltips:
       گئی میٹا فائلوں کو خود بخود حذف کر دیتا ہے، جب دیکھنے کا صفحہ بند ہوتا ہے۔'
 
 # Toast Messages
-Invidious API Error (Click to copy): ''
 Falling back to the local API: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'یہ
   ویڈیو غائب فارمیٹس کی وجہ سے دستیاب نہیں ہے۔ یہ ملک کی وجہ سے ہوسکتا ہے۔ غیر دستیابی'
@@ -531,4 +404,3 @@ Starting download: '"{videoTitle}" کا ڈاؤن لوڈ شروع ہو رہا ہ�
 Downloading failed: '"{videoTitle}" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
 Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ {error}'
 
-No: ''

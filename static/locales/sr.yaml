@@ -432,67 +432,44 @@ Video:
     није подржан у овој изградњи.'
   'Chat is disabled or the Live Stream has ended.': 'Ћаскање је угашено или директан
     пренос је завршен.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
   video only: ''
   Audio:
-    Low: ''
     High: ''
   Published:
-    Jan: ''
     Mar: ''
-    May: ''
     Jul: ''
-    Sep: ''
     Nov: ''
-    Second: ''
     Minute: ''
-    Hour: ''
     Day: ''
-    Week: ''
     Month: ''
-    Year: ''
     Ago: ''
-  Published on: ''
   Started streaming on: ''
 Videos:
   #& Sort By
-  Sort By:
-    Newest: ''
+{}
 Playlist:
   #& About
   View Full Playlist: ''
-  View: ''
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
 Change Format:
-  Change Media Formats: ''
   Use Legacy Formats: ''
-  Dash formats are not available for this video: ''
 Share:
   Share Video: ''
-  Copy Link: ''
   Copy Embed: ''
-  Invidious URL copied to clipboard: ''
   Invidious Channel URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
 Mini Player: ''
 Comments:
-  Click to View Comments: ''
   There are no more comments for this video: ''
-  Hide Comments: ''
   Top comments: ''
-  View: ''
   Replies: ''
-  There are no comments available for this video: ''
   No more comments available: ''
 Tooltips:
   General Settings:
-    Preferred API Backend: ''
     Thumbnail Preference: ''
-    Region for Trending: ''
   Player Settings:
     Proxy Videos Through Invidious: ''
   Subscription Settings:
@@ -501,14 +478,9 @@ Tooltips:
       ИП-а, али не пружа одређене информације попут трајања видеа или статуса уживо'
 
 # Toast Messages
-Invidious API Error (Click to copy): ''
 Falling back to the local API: ''
 Subscriptions have not yet been implemented: 'Праћења још увек нису примењени'
-Loop is now enabled: ''
 Shuffle is now enabled: ''
-Playing Next Video: ''
 Playing Next Video Interval: ''
-'The playlist has ended.  Enable loop to continue playing': ''
-
 No: ''
 Open New Window: Отбори нов прозор

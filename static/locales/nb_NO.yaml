@@ -302,7 +302,6 @@ Settings:
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Mellomtjener-adresse (Eksempel:
       SOCKS5://127.0.0.1:9050 )'
     Use Tor / Proxy for API calls: 'Bruk Tor / mellomtjener for API-kall'
-    See Public Instances: ''
     Clear History:
       Clear History: 'Tøm historikk'
       # On Click
@@ -462,13 +461,7 @@ About:
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Denne
     gemenslig frie programvaren er lisensiert AGPL-3.0.'
 
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
-
   'Looking for help? Check out our Wiki page.': ''
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
   FAQ: Ofte stilte spørsmål
   Downloads / Changelog: Nedlastninger / Endringslogg

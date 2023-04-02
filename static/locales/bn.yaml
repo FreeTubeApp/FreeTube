@@ -75,246 +75,148 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
   Latest Subscriptions: 'শেষ সদস্যতা'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Refresh Subscriptions: ''
 Trending:
   Trending: 'চলছে'
-Playlists: ''
 User Playlists:
   Playlist Message: ''
 History:
   # On History Page
   History: 'ইতিহাস'
-  Your history list is currently empty.: ''
 Settings:
   # On Settings Page
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    Check for Updates: ''
     Fallback to Non-Preferred Backend on Failure: ''
-    Default Landing Page: ''
     Preferred API Backend:
       Preferred API Backend: ''
-      Invidious API: ''
     Video View Type:
       Grid: ''
     Thumbnail Preference:
-      Thumbnail Preference: ''
       Beginning: ''
-      End: ''
     Region for Trending: ''
         #! List countries
   Theme Settings:
-    Match Top Bar with Main Color: ''
     Disable Smooth Scrolling: ''
     Base Theme:
-      Base Theme: ''
       Dark: ''
     Main Color Theme:
-      Main Color Theme: ''
       Pink: ''
-      Deep Purple: ''
       Blue: ''
-      Cyan: ''
       Green: ''
-      Lime: ''
       Amber: ''
-      Deep Orange: ''
   Player Settings:
     Player Settings: ''
-    Play Next Video: ''
     Autoplay Videos: ''
-    Autoplay Playlists: ''
     Default Volume: ''
     Default Video Format:
-      Default Video Format: ''
       Legacy Formats: ''
     Default Quality:
-      Default Quality: ''
       144p: ''
-      360p: ''
       720p: ''
-      1440p: ''
       8k: ''
   Privacy Settings:
-    Remember History: ''
     Clear Search Cache: ''
-    Search cache has been cleared: ''
     Are you sure you want to remove your entire watch history?: ''
-    Remove All Subscriptions / Profiles: ''
   Subscription Settings:
     Subscription Settings: ''
-    Fetch Feeds from RSS: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
-    Hide Video Likes And Dislikes: ''
     Hide Comment Likes: ''
-    Hide Trending Videos: ''
     Hide Live Chat: ''
   Data Settings:
-    Data Settings: ''
     Select Export Type: ''
-    Import FreeTube: ''
     Import NewPipe: ''
-    Export Subscriptions: ''
     Export YouTube: ''
-    Import History: ''
     Profile object has insufficient data, skipping item: ''
-    All subscriptions have been successfully imported: ''
     Invalid subscriptions file: ''
-    Invalid history file: ''
     History object has insufficient data, skipping item: ''
-    All watched history has been successfully exported: ''
     Unable to write file: ''
-    How do I import my subscriptions?: ''
   Proxy Settings:
     Proxy Settings: ''
-    Proxy Protocol: ''
     Proxy Port Number: ''
-    Test Proxy: ''
     Ip: ''
-    Region: ''
     Error getting network information. Is your proxy configured properly?: ''
 About:
   #On About page
-  Contact: ''
   Useful Links: ''
-  Beta: ''
   Email: 'ই-মেইল'
-  Report an Issue: ''
   FAQ: ''
-  Blog: ''
   Source Code: ''
-  Translate via Weblate: ''
-
 Profile:
   All Channels: ''
-  Create New Profile: ''
   Color Picker: ''
-  Profile Preview: ''
   Update Profile: ''
-  Delete Profile: ''
   All subscriptions will also be deleted.: ''
-  Your profile name cannot be empty: ''
   Profile has been updated: ''
-  Removed {profile} from your profiles: ''
   '{profile} is now the active profile': ''
-  Other Channels: ''
   Select All: ''
-  Delete Selected: ''
   No channel(s) have been selected: ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel:
   Subscribers: ''
-  Unsubscribe: ''
   Removed subscription from {count} other channel(s): ''
-  Search Channel: ''
   Sort By: ''
   Videos:
-    This channel does not currently have any videos: ''
     Sort Types:
       Oldest: ''
   Playlists:
-    Playlists: ''
     Sort Types:
       Last Video Added: ''
-      Oldest: ''
   About:
     Channel Description: ''
 Video:
-  Mark As Watched: ''
   Video has been marked as watched: ''
-  Save Video: ''
   Video has been removed from your saved list: ''
-  Copy YouTube Link: ''
   Copy YouTube Embedded Player Link: ''
-  Copy Invidious Link: ''
   Copy YouTube Channel Link: ''
-  Copy Invidious Channel Link: ''
   Views: ''
-  Shuffle Playlist: ''
   Play Next Video: ''
-  Watching: ''
   Autoplay: ''
-  Live: ''
   Live Chat: ''
-  Live Chat is currently not supported in this build.: ''
   Live chat is enabled.  Chat messages will appear here once sent.: ''
-  Download Video: ''
   audio only: ''
   Audio:
-    Medium: ''
     Best: ''
   Published:
-    Feb: ''
     Apr: ''
-    Jun: ''
     Aug: ''
-    Oct: ''
     Dec: ''
-    Seconds: ''
     Minutes: ''
-    Hours: ''
     Days: ''
-    Weeks: ''
     Months: ''
-    Years: ''
     Upcoming: ''
-  Streamed on: ''
   Publicationtemplate: ''
 #& Videos
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Playlist:
   #& About
   Videos: ''
-  Views: ''
 Toggle Theatre Mode: ''
 Change Format:
-  Use Dash Formats: ''
   Use Audio Formats: ''
-  Audio formats are not available for this video: ''
 Share:
   Include Timestamp: ''
-  Open Link: ''
   Open Embed: ''
   # On Click
-  Invidious Embed URL copied to clipboard: ''
   YouTube URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
-
 Comments:
   Comments: ''
-  Getting comment replies, please wait: ''
   Show Comments: ''
-  Sort by: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply
-  Hide: ''
   Reply: ''
-  Load More Comments: ''
 Up Next: ''
 
 #Tooltips
 Tooltips:
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
     Invidious Instance: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Default Video Format: ''
-Local API Error (Click to copy): ''
 Falling back to Invidious API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
 Loop is now disabled: ''
-Shuffle is now disabled: ''
 The playlist has been reversed: ''
-Playing Previous Video: ''
 Canceled next video autoplay: ''
-Yes: ''
 Open New Window: নতুন জানালা খুলো

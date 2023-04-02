@@ -290,10 +290,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Instellingen voor abonnementen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
-    Subscriptions Export Format:
-      Newpipe: ''
     Manage Subscriptions: 'Abonnementen beheren'
-    Export Subscriptions: ''
     Fetch Feeds from RSS: Verzamel feeds via RSS
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'

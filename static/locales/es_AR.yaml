@@ -251,24 +251,14 @@ Settings:
     Export NewPipe: 'Exportar NewPipe'
     Import History: 'Importar historial'
     Export History: 'Exportar historial'
-    All subscriptions and profiles have been successfully imported: ''
     Invalid subscriptions file: ''
-    Invalid history file: ''
     History object has insufficient data, skipping item: ''
-    All watched history has been successfully exported: ''
     Unable to write file: ''
-    How do I import my subscriptions?: ''
     Check for Legacy Subscriptions: Comprobar suscripciones de legado
   Advanced Settings:
-    Enable Debug Mode (Prints data to the console): ''
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
     Clear History:
       Clear History: ''
-      # On Click
-    Clear Subscriptions:
-      Clear Subscriptions: ''
       # On Click
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar suscripciones activas
@@ -289,11 +279,7 @@ Settings:
       una solicitud a
 About:
   #On About page
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
   Thank you very much to the People and Projects that make FreeTube possible!: ''
-
-  'Looking for help? Check out our Wiki page.': ''
 
   'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
 
@@ -303,102 +289,63 @@ About:
   Email: Correo electrónico
   Blog: Blog
 Profile:
-  Profile Manager: ''
   Edit Profile: ''
-  Custom Color: ''
   Create Profile: ''
-  Make Default Profile: ''
   Are you sure you want to delete this profile?: ''
-  Profile could not be found: ''
   Profile has been created: ''
-  Your default profile has been set to {profile}: ''
   Your default profile has been changed to your primary profile: ''
 Channel:
-  Subscriber: ''
   Subscribe: ''
-  Search Channel: ''
   Sort By: ''
   Videos:
-    This channel does not currently have any videos: ''
     Sort Types:
       Oldest: ''
   Playlists:
-    Playlists: ''
     Sort Types:
       Last Video Added: ''
-      Oldest: ''
   About:
     Channel Description: ''
     Tags:
       Search for: Buscar por «{tag}»
     Details: Detalles
 Video:
-  Remove From History: ''
   Video has been removed from your history: ''
-  Copy YouTube Link: ''
   Copy YouTube Embedded Player Link: ''
-  Copy Invidious Link: ''
   Views: ''
   # Context is "X People Watching"
-  Watched: ''
   Live: ''
-  Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
   Published:
     Jan: ''
-    Mar: ''
     May: ''
-    Jul: ''
     Sep: ''
-    Nov: ''
     Second: ''
-    Minute: ''
     Hour: ''
-    Day: ''
     Week: ''
-    Month: ''
     Year: ''
-    Ago: ''
   Published on: ''
   translated from English: traducido del inglés
   Stats:
     Mimetype: Tipo de medio
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Playlist:
   #& About
   Videos: ''
-  Views: ''
 Toggle Theatre Mode: ''
 Change Format:
-  Use Dash Formats: ''
   Use Audio Formats: ''
 Share:
-  Copy Link: ''
   Copy Embed: ''
-  Invidious URL copied to clipboard: ''
   YouTube URL copied to clipboard: ''
-Mini Player: ''
 Comments:
   Click to View Comments: ''
-  Show Comments: ''
   View: ''
-  Replies: ''
   There are no comments available for this video: ''
-Up Next: ''
-
-# Toast Messages
 Invidious API Error (Click to copy): ''
-Falling back to the local API: ''
 Loop is now disabled: ''
-Shuffle is now disabled: ''
 Playing Next Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
 Yes: 'Sí'

@@ -226,10 +226,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Nastavenia Odberov'
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
-    Subscriptions Export Format:
-      Newpipe: ''
     Manage Subscriptions: 'Spravovať odbery'
-    Export Subscriptions: ''
     Fetch Feeds from RSS: Natiahnuť kanály z RSS
   Advanced Settings:
     Enable Debug Mode (Prints data to the console): 'Povoliť režim ladenia (Zaplní
