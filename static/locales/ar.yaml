@@ -934,7 +934,6 @@ External link opening has been disabled in the general settings: تم تعطيل
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
 Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
 Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
-Download folder does not exist: ''
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
 Starting download: بدء تنزيل "{videoTitle}"
 Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"

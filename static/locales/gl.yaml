@@ -378,7 +378,6 @@ Settings:
       correctamente
     Export Playlists: Exportalas listas de reprodución
   Advanced Settings:
-    Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): 'Activar modo de depuración (escribe
       datos na consola)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Enderezo proxy (Exemplo:

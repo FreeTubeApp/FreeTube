@@ -29,11 +29,11 @@ Close: 'Затвори'
 Back: 'Назад'
 Forward: 'Напред'
 
-Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber} је сада достуна!  Кликните
-  за више детаља'
+Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
+  је сада достуна!  Кликните за више детаља'
 Download From Site: 'Преузми са сајта'
-A new blog is now available, {blogTitle}. Click to view more: 'Нови блог је сада доступан, {blogTitle}.
-  Кликни за приказ више'
+A new blog is now available, {blogTitle}. Click to view more: 'Нови блог је сада доступан,
+  {blogTitle}. Кликни за приказ више'
 
 # Search Bar
 Search / Go to URL: 'Претражи / иди на УРЛ'
@@ -339,8 +339,8 @@ Profile:
   Your profile name cannot be empty: 'Име профила не може да буде празно'
   Profile has been created: 'Профил је креиран'
   Profile has been updated: 'Профил је ажуриран'
-  Your default profile has been set to {profile}: 'Ваш подразумеван профил је постављен на
-    {profile}'
+  Your default profile has been set to {profile}: 'Ваш подразумеван профил је постављен
+    на {profile}'
   Removed {profile} from your profiles: 'Уклоњено {profile} од ваших профила'
   Your default profile has been changed to your primary profile: 'Ваш подразумевани
     профил је промењен на ваш примарни профил'
@@ -367,7 +367,8 @@ Channel:
   Subscribe: 'Прати'
   Unsubscribe: 'Не прати више'
   Channel has been removed from your subscriptions: 'Канал је уклоњен из праћања'
-  Removed subscription from {count} other channel(s): 'Праћење уклоњен из {count} остала канала'
+  Removed subscription from {count} other channel(s): 'Праћење уклоњен из {count}
+    остала канала'
   Added channel to your subscriptions: 'Канал додат у прећења'
   Search Channel: 'Тражи канал'
   Your search results have returned 0 results: 'Резултати претраге вратили су 0 резултата'
@@ -431,147 +432,83 @@ Video:
     није подржан у овој изградњи.'
   'Chat is disabled or the Live Stream has ended.': 'Ћаскање је угашено или директан
     пренос је завршен.'
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  Download Video: ''
   video only: ''
-  audio only: ''
   Audio:
     Low: ''
-    Medium: ''
     High: ''
-    Best: ''
   Published:
     Jan: ''
-    Feb: ''
     Mar: ''
-    Apr: ''
     May: ''
-    Jun: ''
     Jul: ''
-    Aug: ''
     Sep: ''
-    Oct: ''
     Nov: ''
-    Dec: ''
     Second: ''
-    Seconds: ''
     Minute: ''
-    Minutes: ''
     Hour: ''
-    Hours: ''
     Day: ''
-    Days: ''
     Week: ''
-    Weeks: ''
     Month: ''
-    Months: ''
     Year: ''
-    Years: ''
     Ago: ''
-    Upcoming: ''
   Published on: ''
-  Streamed on: ''
   Started streaming on: ''
-  Publicationtemplate: ''
-#& Videos
 Videos:
   #& Sort By
   Sort By:
     Newest: ''
-    Oldest: ''
-    #& Most Popular
-#& Playlists
 Playlist:
   #& About
   View Full Playlist: ''
-  Videos: ''
   View: ''
-  Views: ''
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
-Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: ''
-  Use Dash Formats: ''
   Use Legacy Formats: ''
-  Use Audio Formats: ''
   Dash formats are not available for this video: ''
-  Audio formats are not available for this video: ''
 Share:
   Share Video: ''
-  Include Timestamp: ''
   Copy Link: ''
-  Open Link: ''
   Copy Embed: ''
-  Open Embed: ''
-  # On Click
   Invidious URL copied to clipboard: ''
-  Invidious Embed URL copied to clipboard: ''
   Invidious Channel URL copied to clipboard: ''
-  YouTube URL copied to clipboard: ''
   YouTube Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
-
 Mini Player: ''
 Comments:
-  Comments: ''
   Click to View Comments: ''
-  Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
   Hide Comments: ''
-  Sort by: ''
   Top comments: ''
-  Newest first: ''
-  # Context: View 10 Replies, View 1 Reply
   View: ''
-  Hide: ''
   Replies: ''
-  Reply: ''
   There are no comments available for this video: ''
-  Load More Comments: ''
   No more comments available: ''
-Up Next: ''
-
-#Tooltips
 Tooltips:
   General Settings:
     Preferred API Backend: ''
-    Fallback to Non-Preferred Backend on Failure: ''
     Thumbnail Preference: ''
-    Invidious Instance: ''
     Region for Trending: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити РСС уместо свог
       подразумеваног метода за прикупљање вашег праћења. РСС је бржи и спречава блокирање
       ИП-а, али не пружа одређене информације попут трајања видеа или статуса уживо'
 
 # Toast Messages
-Local API Error (Click to copy): ''
 Invidious API Error (Click to copy): ''
-Falling back to Invidious API: ''
 Falling back to the local API: ''
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
 Subscriptions have not yet been implemented: 'Праћења још увек нису примењени'
-Loop is now disabled: ''
 Loop is now enabled: ''
-Shuffle is now disabled: ''
 Shuffle is now enabled: ''
-The playlist has been reversed: ''
 Playing Next Video: ''
-Playing Previous Video: ''
 Playing Next Video Interval: ''
-Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
-Yes: ''
 No: ''
 Open New Window: Отбори нов прозор

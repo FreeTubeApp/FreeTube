@@ -299,8 +299,6 @@ Settings:
     Subscription Settings: 'Impostazioni delle iscrizioni'
     Hide Videos on Watch: 'Nascondi i video successivi durante la riproduzione'
     Subscriptions Export Format:
-      Subscriptions Export Format: ''
-      #& Freetube
       Newpipe: 'Newpipe'
       OPML: 'OPML'
     Manage Subscriptions: 'Gestisci le iscrizioni'

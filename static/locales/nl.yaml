@@ -75,7 +75,6 @@ Subscriptions:
   Latest Subscriptions: 'Nieuwste abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
     heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
-  'Getting Subscriptions.  Please wait.': ''
   Refresh Subscriptions: Abonnementen vernieuwen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Even geduld aub.
   This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
@@ -292,14 +291,9 @@ Settings:
     Subscription Settings: 'Instellingen voor abonnementen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Subscriptions Export Format:
-      Subscriptions Export Format: ''
-      #& Freetube
       Newpipe: ''
-      OPML: ''
     Manage Subscriptions: 'Abonnementen beheren'
-    Import Subscriptions: ''
     Export Subscriptions: ''
-    How do I import my subscriptions?: ''
     Fetch Feeds from RSS: Verzamel feeds via RSS
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'

@@ -29,11 +29,11 @@ Close: 'Itxi'
 Back: 'Atzera'
 Forward: 'Aurrera'
 
-Version {versionNumber} is now available!  Click for more details: '{versionNumber} bertsioa erabilgarri! Klikatu
-  azalpen gehiagorako'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber}
+  bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
-A new blog is now available, {blogTitle}. Click to view more: 'Blog berri bat erabilgarri dago,
-  {blogTitle}. Klikatu gehiagorako'
+A new blog is now available, {blogTitle}. Click to view more: 'Blog berri bat erabilgarri
+  dago, {blogTitle}. Klikatu gehiagorako'
 
 # Search Bar
 Search / Go to URL: 'Bilatu / Helbidera joan'
@@ -140,13 +140,12 @@ Settings:
       Beginning: 'Hasiera'
       Middle: 'Erdian'
       End: 'Bukaera'
-    'Invidious Instance (Default is https://invidious.snopyta.org)': ''
     View all Invidious instance information: 'Invidious instantzia guztien informazioa
       ikusi'
     Region for Trending: 'Joeren eskualdea'
         #! List countries
-    The currently set default instance is {instance}: 'Une honetan ezarritako instantzia lehenetsia
-      {instance} da'
+    The currently set default instance is {instance}: 'Une honetan ezarritako instantzia
+      lehenetsia {instance} da'
     Current Invidious Instance: Oraingo Invidious instantzia
     External Link Handling:
       External Link Handling: Kanpo esteken kudeaketa
@@ -224,7 +223,6 @@ Settings:
     Proxy Videos Through Invidious: 'Invidious bitarteko Proxy bideoak'
     Autoplay Playlists: 'Erreprodukzio automatikoan diren erreprodukzio zerrendak'
     Enable Theatre Mode by Default: 'Gaitu Antzerki modua lehenespenez'
-    Playlist Next Video Interval: ''
     Default Volume: 'Lehenetsitako bolumena'
     Default Playback Rate: 'Lehenetsitako erreprodukzio tasa'
     Default Video Format:
@@ -452,8 +450,8 @@ Profile:
   Your profile name cannot be empty: 'Zure profilaren izena ezin da hutsik egon'
   Profile has been created: 'Profila ongi eratu da'
   Profile has been updated: 'Profila ongi eguneratu da'
-  Your default profile has been set to {profile}: 'Zure lehenetsitako profila {profile} gisa ezarri
-    da'
+  Your default profile has been set to {profile}: 'Zure lehenetsitako profila {profile}
+    gisa ezarri da'
   Removed {profile} from your profiles: '{profile} ezabatu berri da zure profiletatik'
   Your default profile has been changed to your primary profile: 'Profil lehenetsia
     zure profil nagusi gisa ezarri da'
@@ -482,8 +480,8 @@ Channel:
   Unsubscribe: 'Harpidetza kendu'
   Channel has been removed from your subscriptions: 'kanala zure harpidetzetatik kendu
     da'
-  Removed subscription from {count} other channel(s): 'Harpidetza beste {count} kanaletatik ezabatu
-    da'
+  Removed subscription from {count} other channel(s): 'Harpidetza beste {count} kanaletatik
+    ezabatu da'
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
   Search Channel: 'Kanala bilatu'
   Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
@@ -708,7 +706,6 @@ Comments:
   No more comments available: 'Iruzkin eskuragarri gehiagorik ez'
   Member: Kide
   Show More Replies: Erantzun gehiago erakutsi
-  From {channelName}: ''
   And others: eta bestelakoak
   Pinned by: Honengatik ainguratuta
 Up Next: 'Hurrengoa'
@@ -804,8 +801,8 @@ Search Bar:
   Clear Input: Sarrera garbitu
 Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
 Open New Window: Leiho berria ireki
-Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko instantzia
-  {instance} gisa ezarri da'
+Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko
+  instantzia {instance} gisa ezarri da'
 Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia
   ezabatu egin da
 External link opening has been disabled in the general settings: Kanpo estekak irekitzea
