@@ -123,6 +123,6 @@
     "vue-loader": "^15.10.0",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.13.1"
+    "webpack-dev-server": "^4.13.2"
   }
 }
