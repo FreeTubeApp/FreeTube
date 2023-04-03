@@ -104,7 +104,6 @@ Settings:
   External Player Settings:
     External Player Settings: ''
     Custom External Player Arguments: ''
-    Players: {}
   Privacy Settings:
     Save Watched Progress: ''
     Are you sure you want to clear out your search cache?: ''
@@ -260,7 +259,6 @@ Hashtags have not yet been implemented, try again later: ''
 Shuffle is now enabled: ''
 Playing Next Video Interval: ''
 'The playlist has ended.  Enable loop to continue playing': ''
-Age Restricted: {}
 External link opening has been disabled in the general settings: ''
 Screenshot Success: ''
 Ok: ''
