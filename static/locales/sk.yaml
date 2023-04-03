@@ -189,7 +189,6 @@ Settings:
     Player Settings: 'Nastavenia Prehrávača'
     Force Local Backend for Legacy Formats: 'Pre staré formáty predvolene používať
       lokálny backend'
-    Remember History: ''
     Play Next Video: 'Prehrať nasledujúce video'
     Turn on Subtitles by Default: 'Zapínať titulky predvolene'
     Autoplay Videos: 'Automaticky prehrávať nasledujúce video'
@@ -227,18 +226,9 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Nastavenia Odberov'
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
-    Subscriptions Export Format:
-      Subscriptions Export Format: ''
-      #& Freetube
-      Newpipe: ''
-      OPML: ''
     Manage Subscriptions: 'Spravovať odbery'
-    Import Subscriptions: ''
-    Export Subscriptions: ''
-    How do I import my subscriptions?: ''
     Fetch Feeds from RSS: Natiahnuť kanály z RSS
   Advanced Settings:
-    Advanced Settings: ''
     Enable Debug Mode (Prints data to the console): 'Povoliť režim ladenia (Zaplní
       konzolu údajmi)'
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Proxy adresa (príklad: SOCKS5://127.0.0.1:9050

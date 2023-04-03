@@ -30,11 +30,11 @@ Close: 'Tancar'
 Back: 'Enrere'
 Forward: 'Endavant'
 
-Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber} està disponible!
-  Fes clic per a més detalls'
+Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber}
+  està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
-A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al blog disponible,
-  {blogTitle}. Fes clic per saber-ne més'
+A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al
+  blog disponible, {blogTitle}. Fes clic per saber-ne més'
 
 # Search Bar
 Search / Go to URL: 'Cercar / Vés a l''enllaç'
@@ -148,8 +148,8 @@ Settings:
     System Default: Per defecte del sistema
     Clear Default Instance: Esborra la instància per defecte
     Current Invidious Instance: Instància actual d'Invidious
-    The currently set default instance is {instance}: La instància per defecte establerta actualment
-      és {instance}
+    The currently set default instance is {instance}: La instància per defecte establerta
+      actualment és {instance}
     No default instance has been set: No s'ha definit cap instància per defecte
     External Link Handling:
       Open Link: Obre l'enllaç
@@ -309,27 +309,10 @@ Settings:
       s'han importat amb èxit
     Check for Legacy Subscriptions: Comprova les subscripcions antigues
   Advanced Settings:
-    Advanced Settings: ''
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
     Clear History:
       Clear History: ''
       # On Click
-      Are you sure you want to delete your history?: ''
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: ''
-      # On Click
-      Are you sure you want to remove all subscriptions?: ''
-      #& Yes
-      #& No
-
   The app needs to restart for changes to take effect. Restart and apply change?: Cal
     reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
     els canvis?
@@ -381,21 +364,7 @@ About:
   #On About page
   About: 'Sobre'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
-
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
-
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-  'Looking for help? Check out our Wiki page.': ''
-
-  Check out our Firefox extension!: ''
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
   Latest FreeTube News: ''
 
@@ -444,8 +413,8 @@ Profile:
   Your profile name cannot be empty: 'El nom del perfil no pot estar buit'
   Profile has been created: 'S''ha creat el perfil'
   Profile has been updated: 'S''ha actualitzat el perfil'
-  Your default profile has been set to {profile}: 'El vostre perfil predeterminat s''ha establert
-    a {profile}'
+  Your default profile has been set to {profile}: 'El vostre perfil predeterminat
+    s''ha establert a {profile}'
   Removed {profile} from your profiles: 'S''ha eliminat {profile} dels teus perfils'
   Your default profile has been changed to your primary profile: 'El perfil per defecte
     s''ha canviat al perfil principal'
@@ -475,7 +444,8 @@ Channel:
   Unsubscribe: 'Des-subscriu-te'
   Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les
     teves subscripcions'
-  Removed subscription from {count} other channel(s): 'Elimina subscripció de altres {count} canals(s)'
+  Removed subscription from {count} other channel(s): 'Elimina subscripció de altres
+    {count} canals(s)'
   Added channel to your subscriptions: 'Afegeix canal a les teves subscripcions'
   Search Channel: 'Cerca Canal'
   Your search results have returned 0 results: 'Els resultats de la teva cerca han
@@ -651,37 +621,13 @@ Share:
   YouTube URL copied to clipboard: 'URL de YouTube copiada al porta-retalls'
   YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
     porta-retalls'
-Mini Player: ''
 Comments:
-  Comments: ''
-  Click to View Comments: ''
   Getting comment replies, please wait: ''
-  Show Comments: ''
-  Hide Comments: ''
-  # Context: View 10 Replies, View 1 Reply
-  View: ''
   Hide: ''
-  Replies: ''
-  Reply: ''
-  There are no comments available for this video: ''
   Load More Comments: ''
-Up Next: ''
-
-# Toast Messages
-Local API Error (Click to copy): ''
-Invidious API Error (Click to copy): ''
 Falling back to Invidious API: ''
-Falling back to the local API: ''
-Subscriptions have not yet been implemented: ''
-Loop is now disabled: ''
 Loop is now enabled: ''
-Shuffle is now disabled: ''
-Shuffle is now enabled: ''
-The playlist has been reversed: ''
 Playing Next Video: ''
-Playing Previous Video: ''
-Playing next video in 5 seconds.  Click to cancel: ''
-Canceled next video autoplay: ''
 'The playlist has ended.  Enable loop to continue playing': ''
 
 Yes: 'Sí'
