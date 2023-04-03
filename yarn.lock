@@ -3900,10 +3900,10 @@ eslint-plugin-jsonc@^2.7.0:
     jsonc-eslint-parser "^2.0.4"
     natural-compare "^1.4.0"
 
-eslint-plugin-n@^15.6.1:
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-n/-/eslint-plugin-n-15.6.1.tgz#f7e77f24abb92a550115cf11e29695da122c398c"
-  integrity sha512-R9xw9OtCRxxaxaszTQmQAlPgM+RdGjaL1akWuY/Fv9fRAi8Wj4CUKc6iYVG8QNRjRuo8/BqVYIpfqberJUEacA==
+eslint-plugin-n@^15.7.0:
+  version "15.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-n/-/eslint-plugin-n-15.7.0.tgz#e29221d8f5174f84d18f2eb94765f2eeea033b90"
+  integrity sha512-jDex9s7D/Qial8AGVIHq4W7NswpUD5DPDL2RH8Lzd9EloWUuvUkHfv4FRLMipH5q2UtyurorBkPeNi1wVWNh3Q==
   dependencies:
     builtins "^5.0.1"
     eslint-plugin-es "^4.1.0"
