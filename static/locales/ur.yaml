@@ -96,9 +96,7 @@ Settings:
       ناکامی پر'
     Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں۔'
     Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
-  Theme Settings:
-    Main Color Theme:
-      Catppuccin Mocha Flamingo: ''
+  Theme Settings: {}
   Player Settings:
     Screenshot:
       File Name Tooltip: 'آپ ذیل میں متغیرات استعمال کر سکتے ہیں۔ %Y سال کے 4 ہندسے۔
@@ -154,8 +152,6 @@ Profile:
 #On Channel Page
 Channel: {}
 Video:
-  Audio:
-    Low: ''
   Stats:
     Bandwidth: ''
 Tooltips:

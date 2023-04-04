@@ -222,39 +222,20 @@ Settings:
       Catppuccin Mocha Red: 'წითელი Catppuccin Mocha'
       Catppuccin Mocha Maroon: 'შინდისფერი Catppuccin Mocha'
       Catppuccin Mocha Peach: 'ატმისფერი Catppuccin Mocha'
-  Player Settings:
-    Default Quality:
-      144p: ''
+  Player Settings: {}
   Privacy Settings:
     Are you sure you want to remove your entire watch history?: ''
-  Data Settings:
-    Export FreeTube: ''
   Proxy Settings:
     Test Proxy: ''
-About:
-  #On About page
-  Downloads / Changelog: ''
 Profile:
   Make Default Profile: ''
 Channel:
-  Videos:
-    Videos: ''
   Playlists: {}
 Video:
   Loop Playlist: ''
-  Published:
-    Aug: ''
   Sponsor Block category:
     music offtopic: ''
   External Player: {}
-Playlist:
-  #& About
-  Last Updated On: ''
-
-# On Video Watch Page
-#* Published
-#& Views
 Comments:
   Replies: ''
 Tooltips: {}
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''

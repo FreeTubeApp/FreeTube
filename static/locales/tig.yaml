@@ -1,55 +1,34 @@
 # Put the name of your locale in the same language
-Are you sure you want to open this link?: ''
-
-# Search Bar
 Search Filters: {}
 Subscriptions:
     # On Subscriptions Page
   Latest Subscriptions: ''
-History:
-  # On History Page
-  Your history list is currently empty.: ''
 Settings:
   # On Settings Page
   General Settings:
     External Link Handling:
       External Link Handling: ''
-  Theme Settings:
-    Main Color Theme:
-      Amber: ''
+  Theme Settings: {}
   Player Settings:
     Enable Theatre Mode by Default: ''
-    Screenshot:
-      Folder Label: ''
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
-  Data Settings:
-    Import Playlists: ''
   Proxy Settings:
     City: ''
   SponsorBlock Settings: {}
-  Password Settings:
-    Remove Password: ''
 Profile:
   Edit Profile: ''
 Channel:
-  Channel has been removed from your subscriptions: ''
   Videos: {}
   Playlists: {}
   About: {}
 Video:
   Mark As Watched: ''
-  Live Now: ''
   Published:
     Minutes: ''
-  External Player:
-    UnsupportedActionTemplate: ''
 Change Format:
   Audio formats are not available for this video: ''
-Comments:
-  Hide: ''
 Tooltips:
   Subscription Settings:
     Fetch Automatically: ''
 Age Restricted: {}
-Yes: ''
