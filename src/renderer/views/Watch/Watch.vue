@@ -163,6 +163,7 @@
         v-if="watchingPlaylist"
         v-show="!isLoading"
         ref="watchVideoPlaylist"
+        :watch-view-loading="isLoading"
         :playlist-id="playlistId"
         :video-id="videoId"
         class="watchVideoSideBar watchVideoPlaylist"

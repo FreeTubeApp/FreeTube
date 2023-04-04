@@ -12,7 +12,7 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video-lazy': FtListVideoLazy
+    'ft-list-video-lazy': FtListVideoLazy,
   },
   props: {
     playlistId: {
@@ -22,7 +22,11 @@ export default defineComponent({
     videoId: {
       type: String,
       required: true
-    }
+    },
+    watchViewLoading: {
+      type: Boolean,
+      required: true
+    },
   },
   data: function () {
     return {
@@ -77,6 +81,31 @@ export default defineComponent({
         if ((newVideoIndex - 1) !== oldVideoIndex) {
           // User clicked a different video than expected. Re-shuffle the list
           this.shufflePlaylistItems()
+        }
+      }
+    },
+    watchViewLoading: function(newVal, oldVal) {
+      // This component is loaded/rendered before watch view loaded
+      if (oldVal && !newVal) {
+        // If loading true => false
+        // setTimeout to put this into event queue
+        // executed after render
+        // Scroll current item into view after render complete
+        const container = this.$refs.playlistItems
+        const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
+        if (container != null && currentVideoItem != null) {
+          // Using non `nearest` would cause whole window to be scrolled
+          currentVideoItem.scrollIntoView({
+            block: 'nearest',
+          })
+          // Since components are only rendered after scroll,
+          // the scroll position requires another adjustment
+          // Timeout value depends on how soon the components finish rendering
+          setTimeout(() => {
+            currentVideoItem.scrollIntoView({
+              block: 'nearest',
+            })
+          }, 500)
         }
       }
     }
