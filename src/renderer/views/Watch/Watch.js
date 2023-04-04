@@ -195,6 +195,7 @@ export default defineComponent({
       this.videoStoryboardSrc = ''
       this.captionHybridList = []
       this.downloadLinks = []
+      this.videoCurrentChapterIndex = 0
 
       this.checkIfPlaylist()
       this.checkIfTimestamp()
