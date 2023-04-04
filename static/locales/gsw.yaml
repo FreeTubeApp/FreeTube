@@ -43,215 +43,129 @@ Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufma
 # Search Bar
 Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Filters:
-  Sort By:
-    Most Relevant: ''
   Time:
     Time: ''
-    This Week: ''
   Type:
     All Types: ''
-  Duration:
-    All Durations: ''
   Fetching results. Please wait: ''
 Subscriptions:
     # On Subscriptions Page
-  Error Channels: ''
   'Getting Subscriptions. Please wait.': ''
 Channels:
-  Channels: ''
   Empty: ''
 Trending:
-  Trending: ''
   Movies: ''
 User Playlists:
-  Your Playlists: ''
   Search bar placeholder: ''
-History:
-  # On History Page
-  Empty Search Message: ''
 Settings:
   # On Settings Page
   General Settings:
     General Settings: ''
-    Enable Search Suggestions: ''
     Preferred API Backend:
       Preferred API Backend: ''
-    Video View Type:
-      Grid: ''
     Thumbnail Preference:
       Beginning: ''
-    The currently set default instance is {instance}: ''
     Clear Default Instance: ''
-    External Link Handling:
-      Open Link: ''
   Theme Settings:
     Match Top Bar with Main Color: ''
-    Hide Side Bar Labels: ''
     Base Theme:
       System Default: ''
     Main Color Theme:
-      Main Color Theme: ''
       Deep Purple: ''
-      Cyan: ''
       Lime: ''
-      Deep Orange: ''
       Dracula Pink: ''
-      Catppuccin Mocha Rosewater: ''
       Catppuccin Mocha Red: ''
-      Catppuccin Mocha Green: ''
       Catppuccin Mocha Blue: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
-    Scroll Playback Rate Over Video Player: ''
     Default Volume: ''
-    Default Video Format:
-      Default Video Format: ''
     Default Quality:
       Default Quality: ''
-      360p: ''
       1440p: ''
     Screenshot:
-      Format Label: ''
       Folder Button: ''
-      Error:
-        Empty File Name: ''
   External Player Settings:
     Custom External Player Executable: ''
   Privacy Settings:
-    Remember History: ''
     Are you sure you want to clear out your search cache?: ''
-    Watch history has been cleared: ''
   Subscription Settings:
     Hide Videos on Watch: ''
   Distraction Free Settings:
-    Hide Video Views: ''
     Hide Recommended Videos: ''
-    Hide Live Chat: ''
     Hide Live Streams: ''
   Data Settings:
-    Select Export Type: ''
     Import NewPipe: ''
-    Export YouTube: ''
     Import Playlists: ''
-    All subscriptions have been successfully imported: ''
     Invalid history file: ''
-    All watched history has been successfully exported: ''
     Unable to read file: ''
-    Manage Subscriptions: ''
   Proxy Settings:
     Proxy Host: ''
-    Your Info: ''
     City: ''
   SponsorBlock Settings:
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Skip Options:
       Show In Seek Bar: ''
-  Parental Control Settings:
-    Parental Control Settings: ''
   Download Settings:
     Download Settings: ''
-    Download in app: ''
 About:
   #On About page
   Source code: ''
-  GitHub releases: ''
   Report a problem: ''
-  Blog: ''
   Please read the: ''
-  FreeTube is made possible by: ''
 Profile:
   Profile Select: ''
-  Create New Profile: ''
   Profile Preview: ''
-  Delete Profile: ''
   Your profile name cannot be empty: ''
-  Removed {profile} from your profiles: ''
   Other Channels: ''
-  Delete Selected: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Unsubscribe: ''
   Search Channel: ''
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists:
     Playlists: ''
-    Sort Types:
-      Oldest: ''
 Video:
   Mark As Watched: ''
-  Save Video: ''
   Copy YouTube Link: ''
-  Copy Invidious Link: ''
   Copy Invidious Channel Link: ''
-  Shuffle Playlist: ''
   Watching: ''
-  Premieres on: ''
   Enable Live Chat: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
   Audio:
     Low: ''
   Published:
-    Jan: ''
     May: ''
-    Sep: ''
     Second: ''
-    Hour: ''
     Week: ''
-    Year: ''
   Published on: ''
-  Publicationtemplate: ''
   Sponsor Block category:
     outro: ''
-    recap: ''
   External Player:
     playlist: ''
     Unsupported Actions:
-      setting a playback rate: ''
       shuffling playlists: ''
   Stats:
-    Resolution: ''
     Bandwidth: ''
 Videos:
   #& Sort By
-  Sort By:
-    Newest: ''
+{}
 Playlist:
   #& About
   Videos: ''
-Toggle Theatre Mode: ''
 Change Format:
   Use Audio Formats: ''
 Share:
-  Include Timestamp: ''
   Open Embed: ''
   # On Click
-  YouTube URL copied to clipboard: ''
 Comments:
   Comments: ''
-  Show Comments: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  Show More Replies: ''
   There are no comments available for this video: ''
-  Member: ''
 Tooltips:
   General Settings:
     Thumbnail Preference: ''
-  Player Settings:
-    Force Local Backend for Legacy Formats: ''
   External Player Settings:
     External Player: ''
-    DefaultCustomArgumentsTemplate: ''
 Invidious API Error (Click to copy): ''
-Subscriptions have not yet been implemented: ''
 Loop is now enabled: ''
-Playing Next Video: ''
 Default Invidious instance has been set to {instance}: ''
-Age Restricted:
-  Type:
-    Channel: ''
+Age Restricted: {}
 Starting download: ''
-Yes: ''

@@ -222,163 +222,96 @@ Settings:
       Catppuccin Mocha Red: 'წითელი Catppuccin Mocha'
       Catppuccin Mocha Maroon: 'შინდისფერი Catppuccin Mocha'
       Catppuccin Mocha Peach: 'ატმისფერი Catppuccin Mocha'
-      Catppuccin Mocha Sky: ''
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
-    Turn on Subtitles by Default: ''
     Enable Theatre Mode by Default: ''
-    Next Video Interval: ''
     Max Video Playback Rate: ''
-    Default Video Format:
-      Legacy Formats: ''
     Default Quality:
       144p: ''
-      720p: ''
       8k: ''
     Screenshot:
-      Ask Path: ''
       File Name Tooltip: ''
-  External Player Settings:
-    External Player: ''
   Privacy Settings:
     Privacy Settings: ''
-    Clear Search Cache: ''
     Are you sure you want to remove your entire watch history?: ''
-  Subscription Settings:
-    Subscription Settings: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
-    Hide Comment Likes: ''
     Hide Playlists: ''
-    Hide Comments: ''
   Data Settings:
     Select Import Type: ''
-    Import YouTube: ''
     Export FreeTube: ''
-    Export History: ''
     All subscriptions and profiles have been successfully imported: ''
-    This might take a while, please wait: ''
     All watched history has been successfully imported: ''
-    All playlists has been successfully exported: ''
     How do I import my subscriptions?: ''
   Proxy Settings:
-    Proxy Protocol: ''
     Test Proxy: ''
-    Region: ''
   SponsorBlock Settings:
     Enable SponsorBlock: ''
-    Skip Options:
-      Auto Skip: ''
     Category Color: ''
-  Parental Control Settings:
-    Hide Search Bar: ''
   Download Settings:
     Download Behavior: ''
 About:
   #On About page
-  Beta: ''
   Downloads / Changelog: ''
-  FAQ: ''
   Website: ''
-  Chat on Matrix: ''
   Credits: ''
 Profile:
-  Profile Settings: ''
   Profile Manager: ''
-  Custom Color: ''
   Make Default Profile: ''
-  Profile could not be found: ''
   Your default profile has been set to {profile}: ''
-  Subscription List: ''
   Select None: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : ''
 Channel:
   Subscribe: ''
-  Added channel to your subscriptions: ''
   Videos:
     Videos: ''
-    Sort Types:
-      Most Popular: ''
   Playlists:
     Sort Types:
       Newest: ''
-  About:
-    Featured Channels: ''
 Video:
   Video has been removed from your history: ''
-  Open in YouTube: ''
   Open in Invidious: ''
-  Open Channel in Invidious: ''
   Loop Playlist: ''
-  Play Previous Video: ''
-  # Context is "X People Watching"
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  Live Chat: ''
   Live chat is enabled.  Chat messages will appear here once sent.: ''
-  audio only: ''
   Audio:
     Best: ''
   Published:
-    Apr: ''
     Aug: ''
-    Dec: ''
     Minutes: ''
-    Days: ''
     Months: ''
-    Upcoming: ''
   translated from English: ''
   Sponsor Block category:
-    intro: ''
     music offtopic: ''
   External Player:
-    video: ''
     Unsupported Actions:
       starting video at offset: ''
-      reversing playlists: ''
   Stats:
     Video ID: ''
-    Volume: ''
     Mimetype: ''
 Playlist:
   #& About
-  View Full Playlist: ''
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
-Change Format:
-  Use Legacy Formats: ''
 Share:
   Share Video: ''
-  Copy Embed: ''
   Invidious Channel URL copied to clipboard: ''
-Mini Player: ''
 Comments:
   There are no more comments for this video: ''
-  Top comments: ''
   Replies: ''
-  And others: ''
   Pinned by: ''
 Tooltips:
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
     External Link Handling: |
-  Player Settings:
-    Scroll Playback Rate Over Video Player: ''
   External Player Settings:
     Custom External Player Arguments: ''
-Local API Error (Click to copy): ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Loop is now disabled: ''
 The playlist has been reversed: ''
-Canceled next video autoplay: ''
 Age Restricted:
   This {videoOrPlaylist} is age restricted: ''
-Downloading has completed: ''
 Screenshot Error: ''
 

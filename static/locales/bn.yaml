@@ -75,144 +75,91 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
   Latest Subscriptions: 'শেষ সদস্যতা'
-  Refresh Subscriptions: ''
 Trending:
   Trending: 'চলছে'
-User Playlists:
-  Playlist Message: ''
 History:
   # On History Page
   History: 'ইতিহাস'
 Settings:
   # On Settings Page
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-    Preferred API Backend:
-      Preferred API Backend: ''
     Video View Type:
       Grid: ''
-    Thumbnail Preference:
-      Beginning: ''
     Region for Trending: ''
         #! List countries
   Theme Settings:
-    Disable Smooth Scrolling: ''
     Base Theme:
       Dark: ''
     Main Color Theme:
-      Pink: ''
       Blue: ''
-      Green: ''
       Amber: ''
   Player Settings:
-    Player Settings: ''
     Autoplay Videos: ''
-    Default Volume: ''
     Default Video Format:
       Legacy Formats: ''
     Default Quality:
-      144p: ''
       720p: ''
-      8k: ''
   Privacy Settings:
     Clear Search Cache: ''
-    Are you sure you want to remove your entire watch history?: ''
   Subscription Settings:
     Subscription Settings: ''
   Distraction Free Settings:
-    Distraction Free Settings: ''
     Hide Comment Likes: ''
-    Hide Live Chat: ''
   Data Settings:
     Select Export Type: ''
-    Import NewPipe: ''
     Export YouTube: ''
-    Profile object has insufficient data, skipping item: ''
     Invalid subscriptions file: ''
-    History object has insufficient data, skipping item: ''
     Unable to write file: ''
   Proxy Settings:
-    Proxy Settings: ''
     Proxy Port Number: ''
-    Ip: ''
     Error getting network information. Is your proxy configured properly?: ''
 About:
   #On About page
-  Useful Links: ''
   Email: 'ই-মেইল'
-  FAQ: ''
   Source Code: ''
 Profile:
-  All Channels: ''
   Color Picker: ''
-  Update Profile: ''
   All subscriptions will also be deleted.: ''
-  Profile has been updated: ''
   '{profile} is now the active profile': ''
-  Select All: ''
   No channel(s) have been selected: ''
 Channel:
-  Subscribers: ''
   Removed subscription from {count} other channel(s): ''
-  Sort By: ''
   Videos:
     Sort Types:
       Oldest: ''
-  Playlists:
-    Sort Types:
-      Last Video Added: ''
+  Playlists: {}
   About:
     Channel Description: ''
 Video:
-  Video has been marked as watched: ''
   Video has been removed from your saved list: ''
-  Copy YouTube Embedded Player Link: ''
   Copy YouTube Channel Link: ''
-  Views: ''
   Play Next Video: ''
-  Autoplay: ''
   Live Chat: ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
   audio only: ''
-  Audio:
-    Best: ''
   Published:
     Apr: ''
-    Aug: ''
     Dec: ''
-    Minutes: ''
     Days: ''
-    Months: ''
     Upcoming: ''
-  Publicationtemplate: ''
 Playlist:
   #& About
   Videos: ''
-Toggle Theatre Mode: ''
 Change Format:
   Use Audio Formats: ''
 Share:
-  Include Timestamp: ''
   Open Embed: ''
   # On Click
-  YouTube URL copied to clipboard: ''
 Comments:
   Comments: ''
-  Show Comments: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply
-  Reply: ''
 Up Next: ''
 
 #Tooltips
 Tooltips:
-  General Settings:
-    Invidious Instance: ''
   Player Settings:
     Default Video Format: ''
-Falling back to Invidious API: ''
 Loop is now disabled: ''
-The playlist has been reversed: ''
 Canceled next video autoplay: ''
 Open New Window: নতুন জানালা খুলো

@@ -340,7 +340,6 @@ Settings:
     All playlists has been successfully exported: Toate listele de redare au fost
       exportate cu succes
   Advanced Settings:
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
     Clear History:
       Clear History: ''
       # On Click
@@ -418,8 +417,6 @@ About:
   #On About page
   About: 'Despre'
   #& About
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
   Latest FreeTube News: ''
 
   Mastodon: Mastodon

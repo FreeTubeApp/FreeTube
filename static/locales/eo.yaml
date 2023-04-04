@@ -12,7 +12,6 @@ Copy: 'Kopii'
 Paste: 'Alglui'
 Delete: 'Forigi'
 Select all: 'Elekti ĉiujn'
-Actual size: ''
 Zoom in: 'Zomi'
 Zoom out: 'Malzomi'
 Toggle fullscreen: 'Baskuli tutekranon'
@@ -82,8 +81,6 @@ Settings:
     General Settings: 'Ĝeneralaj agordoj'
     Check for Updates: 'Kontroli por ĝisdatigi'
     Enable Search Suggestions: 'Ŝalti serĉproponoj'
-    Preferred API Backend:
-      Local API: ''
     Video View Type:
       Grid: 'Krado'
       List: 'Listo'
@@ -96,117 +93,75 @@ Settings:
     System Default: Operaciuma defaŭlto
   Theme Settings:
     Base Theme:
-      Black: ''
       Dark: 'Malluma'
       Light: 'Luma'
     Main Color Theme:
-      Purple: ''
       Light Blue: ''
-      Light Green: ''
       Orange: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
-    Default Playback Rate: ''
     Default Video Format:
       Audio Formats: ''
     Default Quality:
-      240p: ''
       1080p: ''
   Privacy Settings:
-    Privacy Settings: ''
     Are you sure you want to clear out your search cache?: ''
-    Watch history has been cleared: ''
   Subscription Settings:
     Hide Videos on Watch: ''
   Data Settings:
-    Select Import Type: ''
     Import YouTube: ''
-    Export YouTube: ''
     Profile object has insufficient data, skipping item: ''
-    Invalid subscriptions file: ''
     History object has insufficient data, skipping item: ''
-    Unable to write file: ''
   Advanced Settings:
     Enable Debug Mode (Prints data to the console): ''
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
     Clear Subscriptions:
       Clear Subscriptions: ''
       # On Click
 About:
   #On About page
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
-
   Check out our Firefox extension!: ''
 
   Blog: Blogo
   Website: Retejo
   Email: Retpoŝto
 Profile:
-  Create New Profile: ''
   Profile Preview: ''
-  Delete Profile: ''
   Your profile name cannot be empty: ''
-  Removed {profile} from your profiles: ''
   Other Channels: ''
-  Delete Selected: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Unsubscribe: ''
   Search Channel: ''
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists:
     Playlists: ''
-    Sort Types:
-      Oldest: ''
   About:
     Details: Detaloj
   Community:
     Community: Komunumo
 Video:
-  Video has been removed from your history: ''
   Copy YouTube Embedded Player Link: ''
-  Views: ''
   Play Next Video: ''
-  Autoplay: ''
-  # As in a Live Video
   Enable Live Chat: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
   Published:
     Apr: ''
-    Aug: ''
     Dec: ''
-    Minutes: ''
     Days: ''
-    Months: ''
     Upcoming: ''
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Playlist:
   #& About
   Views: ''
 Change Format:
-  Use Dash Formats: ''
   Audio formats are not available for this video: ''
 Share:
-  Open Link: ''
   Invidious Embed URL copied to clipboard: ''
 Comments:
-  Comments: ''
   Hide Comments: ''
   # Context: View 10 Replies, View 1 Reply
-  Reply: ''
 Local API Error (Click to copy): ''
-Subscriptions have not yet been implemented: ''
 Shuffle is now enabled: ''
-Playing next video in 5 seconds.  Click to cancel: ''
 No: ''
 More: Pli
 Search Bar:

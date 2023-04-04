@@ -347,7 +347,6 @@ Settings:
     Playlist File: 재생목록 파일
     History File: 시청기록 파일
   Advanced Settings:
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
     Clear History:
       Clear History: ''
       # On Click
@@ -419,8 +418,6 @@ About:
   #On About page
   About: '정보'
   #& About
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
   Latest FreeTube News: ''
 
   Donate: 기부

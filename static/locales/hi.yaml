@@ -167,109 +167,68 @@ Settings:
   Theme Settings:
     Theme Settings: 'थीम सेटिंग्स'
     Match Top Bar with Main Color: 'टॉप बार को मेन कलर से मैच करें'
-    Base Theme:
-      Base Theme: ''
     Main Color Theme:
       Main Color Theme: ''
-      Deep Purple: ''
       Cyan: ''
-      Lime: ''
       Deep Orange: ''
   Player Settings:
-    Play Next Video: ''
     Proxy Videos Through Invidious: 'इनविडियस के माध्यम से प्रॉक्सी वीडियो'
-    Default Playback Rate: ''
     Default Video Format:
       Audio Formats: ''
     Default Quality:
-      240p: ''
       1080p: ''
   Privacy Settings:
-    Privacy Settings: ''
     Are you sure you want to clear out your search cache?: ''
-    Watch history has been cleared: ''
   Subscription Settings:
     Hide Videos on Watch: ''
   Distraction Free Settings:
-    Hide Video Views: ''
     Hide Recommended Videos: ''
   Data Settings:
-    Data Settings: ''
     Import FreeTube: ''
-    Export Subscriptions: ''
     Import History: ''
-    All subscriptions have been successfully imported: ''
     Invalid history file: ''
-    All watched history has been successfully exported: ''
     How do I import my subscriptions?: ''
   Advanced Settings:
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
     Clear History:
       Clear History: ''
       # On Click
 About:
   #On About page
-  About: ''
-  #& About
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-  Latest FreeTube News: ''
 
   Email: ईमेल करें
 Profile:
-  Create New Profile: ''
   Profile Preview: ''
-  Delete Profile: ''
   Your profile name cannot be empty: ''
-  Removed {profile} from your profiles: ''
   Other Channels: ''
-  Delete Selected: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Unsubscribe: ''
   Search Channel: ''
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists:
     Playlists: ''
-    Sort Types:
-      Oldest: ''
 Video:
   Mark As Watched: ''
-  Open in YouTube: ''
   Open in Invidious: 'इनविडियस में खोलें'
   Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
   Open Channel in Invidious: 'इनविडियस में चैनल खोलें'
   Copy Invidious Channel Link: 'इनवीडियस चैनल लिंक कॉपी करें'
-  Shuffle Playlist: ''
   Watching: ''
-  Live: ''
   Live Chat is currently not supported in this build.: ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'लाइव
     चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन
     आवश्यक है।'
-  Audio:
-    Low: ''
   Published:
     Jan: ''
-    May: ''
     Sep: ''
-    Second: ''
     Hour: ''
-    Week: ''
     Year: ''
-  Published on: ''
 Videos:
   #& Sort By
   Sort By:
     Newest: ''
-Playlist:
-  #& About
-  View: ''
 Change Format:
   Change Media Formats: ''
-  Dash formats are not available for this video: ''
 Share:
   Copy Link: ''
   Invidious URL copied to clipboard: 'इनवीडियस URL क्लिपबोर्ड पर कापी किया गया'
@@ -277,12 +236,9 @@ Share:
     किया गया'
   Invidious Channel URL copied to clipboard: 'इनविडियस चैनल URL क्लिपबोर्ड पर कॉपी
     किया गया'
-Mini Player: ''
 Comments:
   There are no more comments for this video: ''
-  Top comments: ''
   Replies: ''
-  No more comments available: ''
 Tooltips:
   General Settings:
     Preferred API Backend: 'वह बैकएंड चुनें जिसका उपयोग FreeTube डेटा प्राप्त करने
@@ -305,9 +261,7 @@ Tooltips:
 Invidious API Error (Click to copy): 'कपटपूर्ण एपीआई त्रुटि (कॉपी करने के लिए क्लिक
   करें)'
 Falling back to Invidious API: 'Invidious API पर वापस आना'
-Loop is now disabled: ''
 The playlist has been reversed: ''
-Canceled next video autoplay: ''
 More: अधिक
 New Window: नई विंडो
 Open New Window: नई विंडो खोलें

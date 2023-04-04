@@ -10,199 +10,114 @@ File: 'ខ្មែរ'
 Quit: 'ខ្មែរ'
 Edit: 'ខ្មែរ'
 Undo: 'ខ្មែរ'
-Paste: ''
 Force Reload: ''
-Zoom out: ''
 Close: ''
-Version {versionNumber} is now available!  Click for more details: ''
 Search / Go to URL: ''
 Search Filters:
-  Sort By:
-    Most Relevant: ''
   Time:
     Time: ''
-    This Week: ''
   Type:
     All Types: ''
-  Duration:
-    All Durations: ''
   Fetching results. Please wait: ''
 Subscriptions:
     # On Subscriptions Page
-  Latest Subscriptions: ''
   Refresh Subscriptions: ''
 Trending:
-  Default: ''
   Trending Tabs: ''
-User Playlists:
-  Playlist Message: ''
 History:
   # On History Page
   History: ''
-  Search bar placeholder: ""
 Settings:
   # On Settings Page
   General Settings:
     Check for Updates: ''
-    Default Landing Page: ''
     Preferred API Backend:
       Local API: ''
-    Video View Type:
-      List: ''
     Thumbnail Preference:
       Middle: ''
-    No default instance has been set: ''
     View all Invidious instance information: ''
-    External Link Handling:
-      Ask Before Opening Link: ''
   Theme Settings:
     Expand Side Bar by Default: ''
     Base Theme:
-      Base Theme: ''
       Dracula: ''
     Main Color Theme:
-      Purple: ''
       Light Blue: ''
-      Light Green: ''
       Orange: ''
-      Dracula Orange: ''
       Dracula Yellow: ''
   Player Settings:
-    Play Next Video: ''
     Autoplay Playlists: ''
-    Display Play Button In Video Player: ''
     Default Playback Rate: ''
-    Default Video Format:
-      Dash Formats: ''
     Default Quality:
       Auto: ''
-      480p: ''
       4k: ''
-  External Player Settings:
-    Ignore Unsupported Action Warnings: ''
   Privacy Settings:
     Remember History: ''
-    Are you sure you want to clear out your search cache?: ''
     Watch history has been cleared: ''
-  Subscription Settings:
-    Hide Videos on Watch: ''
   Distraction Free Settings:
     Hide Video Views: ''
-    Hide Recommended Videos: ''
     Hide Live Chat: ''
   Data Settings:
-    Select Export Type: ''
     Import NewPipe: ''
-    Export YouTube: ''
     Import Playlists: ''
-    All subscriptions have been successfully imported: ''
     Invalid history file: ''
-    All watched history has been successfully exported: ''
     Unable to read file: ''
-    Manage Subscriptions: ''
   Proxy Settings:
     Proxy Host: ''
-    Your Info: ''
     City: ''
-  SponsorBlock Settings:
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
   Download Settings:
     Choose Path: ''
 About:
   #On About page
-  Licensed under the AGPLv3: ''
   Help: ''
-  GitHub issues: ''
   Email: ''
-  room rules: ''
   these people and projects: ''
 Profile:
-  Profile Filter: ''
   Edit Profile: ''
-  Create Profile: ''
   Are you sure you want to delete this profile?: ''
-  Profile has been created: ''
   Your default profile has been changed to your primary profile: ''
-  '{number} selected': ''
   Add Selected To Profile: ''
 Channel:
-  Subscriber: ''
   Channel has been removed from your subscriptions: ''
-  Your search results have returned 0 results: ''
   Videos:
     Sort Types:
       Newest: ''
-  Playlists:
-    This channel does not currently have any playlists: ''
   About:
     About: ''
 Video:
-  Remove From History: ''
   Video has been saved: ''
-  Open YouTube Embedded Player: ''
   Open Channel in YouTube: ''
-  View: ''
   Reverse Playlist: ''
-  Watched: ''
   Live: ''
-  Live Chat is currently not supported in this build.: ''
   Download Video: ''
-  Audio:
-    Medium: ''
   Published:
     Feb: ''
-    Jun: ''
     Oct: ''
-    Seconds: ''
     Hours: ''
-    Weeks: ''
     Years: ''
-  Streamed on: ''
   Skipped segment: ''
-  Sponsor Block category:
-    self-promotion: ''
   External Player:
     video: ''
     Unsupported Actions:
-      starting video at offset: ''
       reversing playlists: ''
   Stats:
-    Video ID: ''
     Volume: ''
-    Mimetype: ''
 Playlist:
   #& About
   View Full Playlist: ''
-  Last Updated On: ''
-
-# On Video Watch Page
-#* Published
-#& Views
 Change Format:
   Use Legacy Formats: ''
 Share:
-  Share Video: ''
   Copy Embed: ''
-  Invidious Channel URL copied to clipboard: ''
 Mini Player: ''
 Comments:
-  There are no more comments for this video: ''
   Top comments: ''
-  Replies: ''
   And others: ''
-  Pinned by: ''
 Tooltips:
   General Settings:
     Thumbnail Preference: ''
-  Player Settings:
-    Force Local Backend for Legacy Formats: ''
   External Player Settings:
     External Player: ''
-    DefaultCustomArgumentsTemplate: ''
 Invidious API Error (Click to copy): ''
-Subscriptions have not yet been implemented: ''
 Loop is now enabled: ''
-Playing Next Video: ''
 Default Invidious instance has been set to {instance}: ''
-Downloading has completed: ''
 No: ''

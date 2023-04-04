@@ -78,123 +78,73 @@ Subscriptions:
 Trending:
   Trending: 'Nagte-trend'
 Most Popular: 'Pinakasikat'
-History:
-  # On History Page
-  Watch History: ''
 Settings:
   # On Settings Page
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-    Preferred API Backend:
-      Preferred API Backend: ''
     Video View Type:
       Grid: ''
-    Thumbnail Preference:
-      Beginning: ''
     Region for Trending: ''
         #! List countries
   Theme Settings:
-    Base Theme:
-      Black: ''
     Main Color Theme:
       Red: ''
-      Indigo: ''
       Teal: ''
-      Yellow: ''
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
-    Turn on Subtitles by Default: ''
     Enable Theatre Mode by Default: ''
-    Default Video Format:
-      Dash Formats: ''
     Default Quality:
       Auto: ''
-      480p: ''
       4k: ''
   Privacy Settings:
-    Save Watched Progress: ''
     Remove Watch History: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
   Subscription Settings:
     Manage Subscriptions: ''
   Data Settings:
-    Import Subscriptions: ''
     Export Subscriptions: ''
-    Import History: ''
     All subscriptions have been successfully imported: ''
-    Subscriptions have been successfully exported: ''
     Unable to read file: ''
   Advanced Settings:
-    Advanced Settings: ''
     Use Tor / Proxy for API calls: ''
-    Clear History:
-      Are you sure you want to delete your history?: ''
-      #& Yes
-      #& No
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
-  'Looking for help? Check out our Wiki page.': ''
-
 Profile:
   Profile Select: ''
-  Edit Profile: ''
   Create Profile: ''
-  Are you sure you want to delete this profile?: ''
   Profile has been created: ''
-  Your default profile has been changed to your primary profile: ''
 Channel:
   Subscribe: ''
-  Sort By: ''
   Videos:
     Sort Types:
       Oldest: ''
-  Playlists:
-    Sort Types:
-      Last Video Added: ''
+  Playlists: {}
   About:
     Channel Description: ''
 Video:
-  Video has been marked as watched: ''
   Open YouTube Embedded Player: ''
-  View: ''
   Reverse Playlist: ''
-  Watched: ''
   Live Chat: ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
   Published:
     Mar: ''
-    Jul: ''
     Nov: ''
-    Minute: ''
     Day: ''
-    Month: ''
     Ago: ''
 Videos:
   #& Sort By
-  Sort By:
-    Newest: ''
+{}
 Playlist:
   #& About
   View: ''
-Change Format:
-  Change Media Formats: ''
 Share:
   Share Video: ''
-  Open Embed: ''
-  # On Click
   YouTube Embed URL copied to clipboard: ''
 Comments:
-  Getting comment replies, please wait: ''
   Hide: ''
-  Load More Comments: ''
 Falling back to Invidious API: ''
-Loop is now enabled: ''
 Playing Next Video: ''
-'The playlist has ended.  Enable loop to continue playing': ''
-
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
 New Window: bagong window

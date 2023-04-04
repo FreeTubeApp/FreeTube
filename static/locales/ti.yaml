@@ -21,244 +21,145 @@ Force Reload: 'ሓይሊ እንደገና ጽዓን'
 Toggle Developer Tools: 'መሳርሒታት'
 Actual size: 'ናይ ሓቂ መጠን'
 Toggle fullscreen: 'ምሉእ ኤለክትሮኒካዊ መሳርሒ'
-Back: ''
 Download From Site: ''
-Search Bar:
-  Clear Input: ''
-  # In Filter Button
 Search Filters:
   Sort By:
     Rating: ''
   Time:
-    Any Time: ''
     This Month: ''
-  Type:
-    Videos: ''
   Duration:
     All Durations: ''
-  Search Results: ''
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: ''
   # channels that were likely deleted
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Refresh Subscriptions: ''
 Channels:
-  Title: ''
   Unsubscribe: ''
 Trending:
-  Default: ''
   Trending Tabs: ''
-User Playlists:
-  Playlist Message: ''
 History:
   # On History Page
   History: ''
-  Search bar placeholder: ""
 Settings:
   # On Settings Page
   General Settings:
     Check for Updates: ''
-    Default Landing Page: ''
     Preferred API Backend:
       Local API: ''
-    Video View Type:
-      List: ''
     Thumbnail Preference:
       Middle: ''
-    No default instance has been set: ''
     View all Invidious instance information: ''
-    External Link Handling:
-      Ask Before Opening Link: ''
   Theme Settings:
     Expand Side Bar by Default: ''
-    Hide FreeTube Header Logo: ''
     Base Theme:
       System Default: ''
     Main Color Theme:
-      Main Color Theme: ''
       Deep Purple: ''
-      Cyan: ''
       Lime: ''
-      Deep Orange: ''
       Dracula Pink: ''
-      Catppuccin Mocha Rosewater: ''
       Catppuccin Mocha Red: ''
-      Catppuccin Mocha Green: ''
       Catppuccin Mocha Blue: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Proxy Videos Through Invidious: ''
-    Scroll Playback Rate Over Video Player: ''
     Next Video Interval: ''
-    Max Video Playback Rate: ''
     Default Video Format:
       Legacy Formats: ''
     Default Quality:
-      144p: ''
       720p: ''
-      8k: ''
     Screenshot:
       Quality Label: ''
-      File Name Label: ''
   External Player Settings:
     External Player Settings: ''
-    Custom External Player Arguments: ''
   Privacy Settings:
     Save Watched Progress: ''
-    Are you sure you want to clear out your search cache?: ''
     Watch history has been cleared: ''
-  Subscription Settings:
-    Hide Videos on Watch: ''
   Distraction Free Settings:
     Distraction Free Settings: ''
-    Hide Comment Likes: ''
     Hide Playlists: ''
-    Hide Comments: ''
     Hide Sharing Actions: ''
   Data Settings:
-    Data Settings: ''
     Subscription File: ''
-    Export Subscriptions: ''
     Import History: ''
-    Profile object has insufficient data, skipping item: ''
     Invalid subscriptions file: ''
-    History object has insufficient data, skipping item: ''
     All playlists has been successfully imported: ''
-    Unknown data key: ''
   Proxy Settings:
     Enable Tor / Proxy: ''
-    Clicking on Test Proxy will send a request to: ''
     Country: ''
   SponsorBlock Settings:
-    SponsorBlock Settings: ''
     Skip Options:
       Skip Option: ''
-      Do Nothing: ''
   Parental Control Settings:
     Show Family Friendly Only: ''
-  Download Settings:
-    Choose Path: ''
   Experimental Settings:
     Experimental Settings: ''
-  Password Dialog:
-    Enter Password To Unlock: ''
   Password Settings:
     Set Password To Prevent Access: ''
 About:
   #On About page
-  Beta: ''
   Downloads / Changelog: ''
-  FAQ: ''
   Website: ''
-  Chat on Matrix: ''
   Credits: ''
 Profile:
-  Profile Settings: ''
   Profile Manager: ''
-  Custom Color: ''
   Make Default Profile: ''
-  Profile could not be found: ''
   Your default profile has been set to {profile}: ''
-  Subscription List: ''
   Select None: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : ''
 Channel:
   Subscribe: ''
-  Added channel to your subscriptions: ''
   This channel does not exist: ''
   Videos:
-    Videos: ''
     Sort Types:
       Most Popular: ''
-  Playlists:
-    This channel does not currently have any playlists: ''
   About:
     About: ''
-    Details: ''
   Community:
     Community: ''
 Video:
-  Video has been marked as watched: ''
   Video has been removed from your saved list: ''
-  Copy YouTube Embedded Player Link: ''
   Copy YouTube Channel Link: ''
-  Views: ''
   Play Next Video: ''
-  Autoplay: ''
   Upcoming: ''
-  Enable Live Chat: ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
-  Download Video: ''
   Audio:
     Medium: ''
   Published:
-    Feb: ''
     Jun: ''
-    Oct: ''
     Seconds: ''
-    Hours: ''
     Weeks: ''
-    Years: ''
   Published on: ''
-  Publicationtemplate: ''
   Sponsor Block category:
     outro: ''
-    recap: ''
   External Player:
     playlist: ''
     Unsupported Actions:
-      setting a playback rate: ''
       shuffling playlists: ''
   Stats:
-    Resolution: ''
     Bandwidth: ''
 Videos:
   #& Sort By
-  Sort By:
-    Newest: ''
+{}
 Playlist:
   #& About
   Videos: ''
-Toggle Theatre Mode: ''
 Change Format:
   Use Audio Formats: ''
 Share:
-  Share Channel: ''
   Open Link: ''
-  Invidious Embed URL copied to clipboard: ''
   YouTube Channel URL copied to clipboard: ''
-Chapters:
-  'Chapters list visible, current chapter: {chapterName}': ''
 Comments:
   Click to View Comments: ''
-  Hide Comments: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  Show More Replies: ''
   There are no comments available for this video: ''
-  Member: ''
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-    External Link Handling: |
   Player Settings:
     Allow DASH AV1 formats: ''
-  External Player Settings:
-    Custom External Player Executable: ''
   Distraction Free Settings:
     Hide Channels: ''
-  Experimental Settings:
-    Replace HTTP Cache: ''
-
-# Toast Messages
 Falling back to the local API: ''
-Hashtags have not yet been implemented, try again later: ''
 Shuffle is now enabled: ''
-Playing Next Video Interval: ''
 'The playlist has ended.  Enable loop to continue playing': ''
-External link opening has been disabled in the general settings: ''
 Screenshot Success: ''
-Ok: ''

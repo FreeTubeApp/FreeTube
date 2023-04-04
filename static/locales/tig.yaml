@@ -1,248 +1,147 @@
 # Put the name of your locale in the same language
-File: ''
 Edit: ''
-Copy: ''
 Reload: ''
-Zoom in: ''
 Minimize: ''
-Open New Window: ''
-
 Are you sure you want to open this link?: ''
 
 # Search Bar
 Search Filters:
   Sort By:
-    Sort By: ''
     View Count: ''
-  Time:
-    Today: ''
   Type:
     Type: ''
-    Movies: ''
-    #& Playlists
   Duration:
     Medium (4 - 20 minutes): ''
-  Fetch more results: ''
 Subscriptions:
     # On Subscriptions Page
   Latest Subscriptions: ''
-  Empty Channels: ''
 More: ''
 Channels:
-  Count: ''
   Unsubscribe Prompt: ''
-Trending:
-  Gaming: ''
 Playlists: ''
-User Playlists:
-  Empty Search Message: ''
 History:
   # On History Page
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-    System Default: ''
     Video View Type:
       Video View Type: ''
-    Thumbnail Preference:
-      Default: ''
     Current Invidious Instance: ''
-    Set Current Instance as Default: ''
     External Link Handling:
       External Link Handling: ''
   Theme Settings:
-    Theme Settings: ''
     UI Scale: ''
     Base Theme:
-      Black: ''
       Dracula: ''
     Main Color Theme:
-      Pink: ''
       Blue: ''
-      Green: ''
       Amber: ''
-      Dracula Green: ''
       Dracula Red: ''
-      Catppuccin Mocha Pink: ''
       Catppuccin Mocha Peach: ''
-      Catppuccin Mocha Sky: ''
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
-    Turn on Subtitles by Default: ''
     Enable Theatre Mode by Default: ''
-    Display Play Button In Video Player: ''
     Default Volume: ''
-    Default Video Format:
-      Default Video Format: ''
     Default Quality:
       Default Quality: ''
-      360p: ''
       1440p: ''
     Screenshot:
-      Enable: ''
       Folder Label: ''
-      Error:
-        Forbidden Characters: ''
   External Player Settings:
     Ignore Unsupported Action Warnings: ''
   Privacy Settings:
-    Privacy Settings: ''
     Automatically Remove Video Meta Files: ''
-    Remove Watch History: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
-  Subscription Settings:
-    Manage Subscriptions: ''
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
-    Hide Trending Videos: ''
     Hide Active Subscriptions: ''
-    Hide Live Streams: ''
     Hide Channels: ''
   Data Settings:
-    Select Export Type: ''
     Playlist File: ''
-    Export YouTube: ''
     Import Playlists: ''
-    All subscriptions have been successfully imported: ''
     Invalid history file: ''
-    All watched history has been successfully exported: ''
     Unable to read file: ''
-    Manage Subscriptions: ''
   Proxy Settings:
     Proxy Host: ''
-    Your Info: ''
     City: ''
   SponsorBlock Settings:
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Skip Options:
       Show In Seek Bar: ''
-  Parental Control Settings:
-    Parental Control Settings: ''
   Download Settings:
     Download Settings: ''
-    Download in app: ''
   Experimental Settings:
     Replace HTTP Cache: ''
-  Password Dialog:
-    Unlock: ''
   Password Settings:
     Remove Password: ''
 About:
   #On About page
-  Licensed under the AGPLv3: ''
   Help: ''
-  GitHub issues: ''
   Email: ''
-  room rules: ''
   these people and projects: ''
 Profile:
-  Profile Filter: ''
   Edit Profile: ''
-  Create Profile: ''
   Are you sure you want to delete this profile?: ''
-  Profile has been created: ''
   Your default profile has been changed to your primary profile: ''
-  '{number} selected': ''
   Add Selected To Profile: ''
 Channel:
-  Subscriber: ''
   Channel has been removed from your subscriptions: ''
-  Your search results have returned 0 results: ''
   This channel is age resticted and currently cannot be viewed in FreeTube.: ''
-  Videos:
-    Sort Types:
-      Newest: ''
+  Videos: {}
   Live:
     This channel does not currently have any live streams: ''
-  Playlists:
-    Sort Types:
-      Newest: ''
+  Playlists: {}
   About:
     Tags:
       Tags: ''
-    Location: ''
 Video:
   Mark As Watched: ''
-  Save Video: ''
   Copy YouTube Link: ''
-  Copy Invidious Link: ''
   Copy Invidious Channel Link: ''
-  Shuffle Playlist: ''
   Watching: ''
-  Premieres on: ''
   Live Now: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   Show Super Chat Comment: ''
-  audio only: ''
   Audio:
     Best: ''
   Published:
-    Apr: ''
     Aug: ''
-    Dec: ''
     Minutes: ''
-    Days: ''
     Months: ''
-    Upcoming: ''
   Started streaming on: ''
   Sponsor Block category:
-    sponsor: ''
     interaction: ''
   External Player:
-    OpenInTemplate: ''
     UnsupportedActionTemplate: ''
-    Unsupported Actions:
-      opening specific video in a playlist (falling back to opening the video): ''
   Stats:
     Video statistics are not available for legacy videos: ''
-    Bitrate: ''
     Dropped / Total Frames: ''
 Playlist:
   #& About
-  Playlist: ''
   Views: ''
 Change Format:
-  Use Dash Formats: ''
   Audio formats are not available for this video: ''
 Share:
-  Include Timestamp: ''
   Open Embed: ''
   # On Click
-  YouTube URL copied to clipboard: ''
 Clipboard:
   Cannot access clipboard without a secure connection: ''
 
-Mini Player: ''
 Comments:
   There are no more comments for this video: ''
-  Top comments: ''
   Hide: ''
-  From {channelName}: ''
   No more comments available: ''
-Up Next: ''
-
-#Tooltips
 Tooltips:
   General Settings:
     Invidious Instance: ''
   Player Settings:
-    Proxy Videos Through Invidious: ''
     Skip by Scrolling Over Video Player: ''
-  External Player Settings:
-    Custom External Player Arguments: ''
   Subscription Settings:
     Fetch Automatically: ''
-Invidious API Error (Click to copy): ''
 Subscriptions have not yet been implemented: ''
-Loop is now enabled: ''
 Playing Next Video: ''
-Default Invidious instance has been set to {instance}: ''
 Age Restricted:
   Type:
     Channel: ''
-Starting download: ''
 Yes: ''

@@ -309,7 +309,6 @@ Settings:
       s'han importat amb èxit
     Check for Legacy Subscriptions: Comprova les subscripcions antigues
   Advanced Settings:
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
     Clear History:
       Clear History: ''
       # On Click
@@ -364,8 +363,6 @@ About:
   #On About page
   About: 'Sobre'
   #& About
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
   Latest FreeTube News: ''
 
   Blog: Blog
@@ -622,14 +619,9 @@ Share:
   YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
     porta-retalls'
 Comments:
-  Getting comment replies, please wait: ''
   Hide: ''
-  Load More Comments: ''
 Falling back to Invidious API: ''
-Loop is now enabled: ''
 Playing Next Video: ''
-'The playlist has ended.  Enable loop to continue playing': ''
-
 Yes: 'Sí'
 No: 'No'
 More: Més

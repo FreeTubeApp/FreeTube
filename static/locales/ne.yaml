@@ -100,155 +100,91 @@ User Playlists:
   Playlist Message: 'यो पृष्ठले पूरै काम गर्ने प्लेसूचीहरूको प्रतिबिम्बित गर्दैन।
     यसले तपाईंले बचत गर्नुभएका वा मन पराउनुभएका भिडियोहरू मात्र सूचीबद्ध गर्दछ। काम
     सकिएपछि हाल यहाँ रहेका सबै भिडियोहरू ''मन पराइएका'' प्लेसूचीमा स्थानान्तरण गरिनेछ।'
-History:
-  # On History Page
-  Your history list is currently empty.: ''
 Settings:
   # On Settings Page
   General Settings:
     Check for Updates: ''
-    Default Landing Page: ''
     Preferred API Backend:
       Local API: ''
-    Video View Type:
-      List: ''
     Thumbnail Preference:
       Middle: ''
-    No default instance has been set: ''
     View all Invidious instance information: ''
   Theme Settings:
-    Expand Side Bar by Default: ''
     Base Theme:
       Black: ''
     Main Color Theme:
-      Red: ''
       Indigo: ''
-      Teal: ''
       Yellow: ''
-    Secondary Color Theme: ''
-        #* Main Color Theme
   Player Settings:
     Turn on Subtitles by Default: ''
-    Enable Theatre Mode by Default: ''
     Fast-Forward / Rewind Interval: ''
-    Default Video Format:
-      Dash Formats: ''
     Default Quality:
       Auto: ''
-      480p: ''
       4k: ''
-  External Player Settings:
-    Ignore Unsupported Action Warnings: ''
   Privacy Settings:
     Remember History: ''
-    Are you sure you want to clear out your search cache?: ''
     Watch history has been cleared: ''
-  Subscription Settings:
-    Hide Videos on Watch: ''
   Distraction Free Settings:
     Hide Video Views: ''
-    Hide Recommended Videos: ''
     Hide Live Chat: ''
   Data Settings:
-    Select Export Type: ''
     Import NewPipe: ''
-    Export YouTube: ''
     Profile object has insufficient data, skipping item: ''
-    Invalid subscriptions file: ''
     History object has insufficient data, skipping item: ''
-    Unable to write file: ''
   Proxy Settings:
     Proxy Settings: ''
-    Proxy Port Number: ''
     Ip: ''
-    Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: ''
 About:
   #On About page
-  Licensed under the AGPLv3: ''
   Help: ''
-  GitHub issues: ''
   Email: ''
-  room rules: ''
   these people and projects: ''
 Profile:
-  Profile Filter: ''
   Edit Profile: ''
-  Create Profile: ''
   Are you sure you want to delete this profile?: ''
-  Profile has been created: ''
   Your default profile has been changed to your primary profile: ''
-  '{number} selected': ''
   Add Selected To Profile: ''
 Channel:
-  Subscriber: ''
   Channel has been removed from your subscriptions: ''
-  Your search results have returned 0 results: ''
   Videos:
     Sort Types:
       Newest: ''
-  Playlists:
-    This channel does not currently have any playlists: ''
   About:
     About: ''
 Video:
-  Remove From History: ''
   Video has been saved: ''
-  Open YouTube Embedded Player: ''
   Open Channel in YouTube: ''
-  View: ''
   Reverse Playlist: ''
-  Watched: ''
   Live Now: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   video only: ''
-  Audio:
-    High: ''
   Published:
     Mar: ''
-    Jul: ''
     Nov: ''
-    Minute: ''
     Day: ''
-    Month: ''
     Ago: ''
-  Started streaming on: ''
   Sponsor Block category:
     sponsor: ''
-    interaction: ''
   External Player:
     playlist: ''
     Unsupported Actions:
-      setting a playback rate: ''
       shuffling playlists: ''
 Playlist:
   #& About
-  Playlist: ''
   Views: ''
 Change Format:
-  Use Dash Formats: ''
   Audio formats are not available for this video: ''
 Share:
-  Open Link: ''
   Invidious Embed URL copied to clipboard: ''
-  YouTube Channel URL copied to clipboard: ''
-
 Comments:
   Getting comment replies, please wait: ''
-  Sort by: ''
   Hide: ''
-  There are no comments available for this video: ''
 Tooltips:
   General Settings:
     Preferred API Backend: ''
-    Region for Trending: ''
   External Player Settings:
     External Player: ''
-  Subscription Settings:
-    Fetch Feeds from RSS: ''
 Falling back to Invidious API: ''
-Unknown YouTube url type, cannot be opened in app: ''
 Shuffle is now disabled: ''
-Playing Previous Video: ''
 Default Invidious instance has been cleared: ''

@@ -12,125 +12,77 @@ Delete: 'বিলোপ কৰক'
 Select all: 'সকলোক বাছক'
 Reload: 'সতেজ কৰক'
 Force Reload: 'বলেৰে সতেজ কৰক'
-Zoom out: ''
 Close: ''
 Search Filters:
-  Search Filters: ''
   Sort By:
     Upload Date: ''
   Time:
-    Last Hour: ''
     This Year: ''
-  Type:
-    Channels: ''
-    #& Playlists
   Duration:
     Long (> 20 minutes): ''
   # On Search Page
-Subscriptions:
-    # On Subscriptions Page
-  Subscriptions: ''
 Trending:
   Trending: ''
-History:
-  # On History Page
-  History: ''
 Settings:
   # On Settings Page
   General Settings:
     General Settings: ''
-    Locale Preference: ''
     Video View Type:
       Video View Type: ''
-    Thumbnail Preference:
-      Default: ''
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
   Theme Settings:
-    Base Theme:
-      Base Theme: ''
     Main Color Theme:
       Main Color Theme: ''
-      Deep Purple: ''
       Cyan: ''
-      Lime: ''
       Deep Orange: ''
   Player Settings:
-    Remember History: ''
     Proxy Videos Through Invidious: ''
-    Default Playback Rate: ''
     Default Video Format:
       Audio Formats: ''
     Default Quality:
-      240p: ''
       1080p: ''
   Subscription Settings:
-    Subscription Settings: ''
     Subscriptions Export Format:
       OPML: ''
-    How do I import my subscriptions?: ''
   Advanced Settings:
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Clear History:
-      Clear History: ''
-      # On Click
 About:
   #On About page
   About: ''
   #& About
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
   Latest FreeTube News: ''
 
 #On Channel Page
 Channel:
-  Unsubscribe: ''
   Videos:
     Videos: ''
-    Sort Types:
-      Most Popular: ''
   Playlists:
     Sort Types:
       Newest: ''
-  About:
-    Featured Channels: ''
 Video:
   Video has been removed from your history: ''
-  Copy YouTube Embedded Player Link: ''
   Views: ''
   # Context is "X People Watching"
-  Live Now: ''
   'Chat is disabled or the Live Stream has ended.': ''
   Published:
-    Feb: ''
     Jun: ''
-    Oct: ''
     Seconds: ''
-    Days: ''
     Months: ''
-    Upcoming: ''
 Videos:
   #& Sort By
   Sort By:
     Oldest: ''
     #& Most Popular
 #& Playlists
-Playlist:
-  #& About
-  Views: ''
 Change Format:
   Use Dash Formats: ''
 Share:
-  Copy Link: ''
   Invidious URL copied to clipboard: ''
-Mini Player: ''
 Comments:
   Show Comments: ''
-  Replies: ''
 Up Next: ''
 
 # Toast Messages
-Falling back to the local API: ''
 Shuffle is now disabled: ''
-Playing next video in 5 seconds.  Click to cancel: ''
 No: ''
 Locale Name: অসমীয়া

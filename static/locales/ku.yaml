@@ -110,50 +110,31 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'گەڕانەوە بۆ سیستەمە ناخوازراوەکە
       لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
-    Preferred API Backend:
-      Local API: ''
     Video View Type:
       List: ''
-    Thumbnail Preference:
-      Middle: ''
   Theme Settings:
     Theme Settings: ''
-    Base Theme:
-      Dark: ''
     Main Color Theme:
       Pink: ''
-      Blue: ''
       Green: ''
-      Amber: ''
   Player Settings:
     Player Settings: ''
-    Autoplay Videos: ''
     Default Volume: ''
-    Default Video Format:
-      Legacy Formats: ''
     Default Quality:
       144p: ''
-      720p: ''
       8k: ''
   Privacy Settings:
-    Clear Search Cache: ''
     Are you sure you want to remove your entire watch history?: ''
-  Subscription Settings:
-    Subscription Settings: ''
   Data Settings:
     Data Settings: ''
-    Import FreeTube: ''
     Export FreeTube: ''
-    Export History: ''
     One or more subscriptions were unable to be imported: ''
-    Subscriptions have been successfully exported: ''
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
     Unable to write file: 'ناتواندریت فایلەکە بنوسرێت'
     Unknown data key: 'کلیلی داتای نەناسراو'
     How do I import my subscriptions?: 'چۆن بەشدارییەکانم داخڵ بکەم؟'
     Manage Subscriptions: بەشدارییەکانت رێکبخە
   Advanced Settings:
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
     Clear History:
       Clear History: ''
       # On Click
@@ -180,8 +161,6 @@ About:
   #On About page
   About: 'دەربارە'
   #& About
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
   Latest FreeTube News: ''
 
   Donate: دۆنەیشن
@@ -230,61 +209,36 @@ Profile:
   Your default profile has been set to {profile}: 'پرۆفایلە ئاساییەکەت دانراوە بۆ
     {profile}'
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
-  Other Channels: ''
   Delete Selected: ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel:
   Unsubscribe: ''
-  Search Channel: ''
   Videos:
     This channel does not currently have any videos: ''
   Playlists:
-    Playlists: ''
     Sort Types:
       Oldest: ''
 Video:
-  Mark As Watched: ''
   Open in YouTube: ''
-  Open in Invidious: ''
   Loop Playlist: ''
-  Play Previous Video: ''
-  # Context is "X People Watching"
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  Enable Live Chat: ''
   'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
   Published:
-    Apr: ''
     Aug: ''
-    Dec: ''
     Minutes: ''
-    Days: ''
     Months: ''
-    Upcoming: ''
 Videos:
   #& Sort By
   Sort By:
     Oldest: ''
     #& Most Popular
 #& Playlists
-Playlist:
-  #& About
-  Views: ''
 Change Format:
   Use Dash Formats: ''
-  Audio formats are not available for this video: ''
 Share:
   Open Link: ''
-  Invidious Embed URL copied to clipboard: ''
 Comments:
   Comments: ''
-  Show Comments: ''
   Replies: ''
-Up Next: ''
-
-# Toast Messages
 Falling back to the local API: ''
-Shuffle is now disabled: ''
 Playing Previous Video: ''
-Yes: ''

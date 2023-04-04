@@ -315,106 +315,64 @@ Settings:
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
       شد
   Proxy Settings:
-    Proxy Host: ''
     Your Info: ''
-    City: ''
   SponsorBlock Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
 About:
   #On About page
-  Source code: ''
   GitHub releases: ''
-  Report a problem: ''
   Blog: ''
-  Please read the: ''
   FreeTube is made possible by: ''
 Profile:
-  Profile Select: ''
   Create New Profile: ''
-  Profile Preview: ''
   Delete Profile: ''
-  Your profile name cannot be empty: ''
   Removed {profile} from your profiles: ''
-  Other Channels: ''
   Delete Selected: ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel:
   Unsubscribe: ''
-  Search Channel: ''
   Videos:
     This channel does not currently have any videos: ''
   Playlists:
-    Playlists: ''
     Sort Types:
       Oldest: ''
 Video:
-  Mark As Watched: ''
   Save Video: ''
-  Copy YouTube Link: ''
   Copy Invidious Link: ''
-  Copy Invidious Channel Link: ''
   Shuffle Playlist: ''
-  Watching: ''
   Live: ''
-  Live Chat is currently not supported in this build.: ''
   Download Video: ''
-  Audio:
-    Medium: ''
   Published:
     Feb: ''
-    Jun: ''
     Oct: ''
-    Seconds: ''
     Hours: ''
-    Weeks: ''
     Years: ''
-  Streamed on: ''
   Skipped segment: ''
-  Sponsor Block category:
-    self-promotion: ''
   External Player:
     video: ''
     Unsupported Actions:
-      starting video at offset: ''
       reversing playlists: ''
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Playlist:
   #& About
   View: ''
 Change Format:
-  Change Media Formats: ''
   Dash formats are not available for this video: ''
 Share:
-  Copy Link: ''
   Invidious URL copied to clipboard: ''
-  YouTube Embed URL copied to clipboard: ''
 Comments:
   Click to View Comments: ''
-  Hide Comments: ''
   View: ''
-  Reply: ''
 Up Next: ''
 
 #Tooltips
 Tooltips:
-  General Settings:
-    Invidious Instance: ''
   Player Settings:
     Default Video Format: ''
-  External Player Settings:
-    Custom External Player Arguments: ''
 Invidious API Error (Click to copy): ''
-Subscriptions have not yet been implemented: ''
 Loop is now enabled: ''
-Playing Next Video: ''
 Default Invidious instance has been set to {instance}: ''
-No: ''
 Search Bar:
   Clear Input: پاک کردن ورودی
 Are you sure you want to open this link?: آیا مطمئن هستید که میخواهید این لینک را
