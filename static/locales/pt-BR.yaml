@@ -76,7 +76,7 @@ Subscriptions:
   Refresh Subscriptions: Atualizar inscrições
   'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, espere.
   Load More Videos: Carregar mais vídeos
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
     de rede
   Error Channels: Canais com erros
@@ -605,9 +605,9 @@ Video:
     nessa versão.'
   'Chat is disabled or the Live Stream has ended.': 'O chat está desativado ou a transmissão
     ao vivo se encerrou.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat ao vivo
+  Live chat is enabled. Chat messages will appear here once sent.: 'Chat ao vivo
     habilitado. As mensagens irão aparecer uma vez enviadas.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'O
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'O
     chat ao vivo não é suportado pela API do Invidious. Uma conexão com o YouTube
     é necessária.'
   Published:
@@ -818,7 +818,7 @@ Playing Previous Video: 'Reproduzindo vídeo anterior'
 Playing next video in 5 seconds.  Click to cancel: 'O próximo vídeo será reproduzido
   em 5 segundos. Clique para cancelar.'
 Canceled next video autoplay: 'Auto-reprodução foi cancelada para o próximo vídeo'
-'The playlist has ended.  Enable loop to continue playing': 'A lista acabou. Habilite
+'The playlist has ended. Enable loop to continue playing': 'A lista acabou. Habilite
   o ciclo para continuar reproduzindo'
 
 Yes: 'Sim'

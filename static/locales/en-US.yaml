@@ -85,7 +85,7 @@ Subscriptions:
   # channels that were likely deleted
   Error Channels: Channels with Errors
   Latest Subscriptions: Latest Subscriptions
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. Start adding subscriptions to see them here.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
@@ -596,9 +596,9 @@ Video:
     supported in this build.
   'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream
     has ended.
-  Live chat is enabled.  Chat messages will appear here once sent.: Live chat is enabled.  Chat
+  Live chat is enabled. Chat messages will appear here once sent.: Live chat is enabled.  Chat
     messages will appear here once sent.
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Live Chat is unavailable for this stream. It may have been disabled by the uploader.'
@@ -852,7 +852,7 @@ Canceled next video autoplay: Canceled next video autoplay
 
 Default Invidious instance has been set to {instance}: Default Invidious instance has been set to {instance}
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
-'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
+'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 Age Restricted:
   This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted

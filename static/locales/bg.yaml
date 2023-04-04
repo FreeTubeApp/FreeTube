@@ -82,7 +82,7 @@ Subscriptions:
     с абонаменти е празен. Започнете да добавяте, за да ги видите тук.'
   'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
   Refresh Subscriptions: 'Опресняване на абонаментите'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Този
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този
     профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
     на ограниченията
   Load More Videos: Зареждане на още видеа
@@ -657,9 +657,9 @@ Video:
     в тази версия.'
   'Chat is disabled or the Live Stream has ended.': 'Чатът е деактивиран или предаването
     на живо е приключило.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Чатът на живо
+  Live chat is enabled. Chat messages will appear here once sent.: 'Чатът на живо
     е активиран. Съобщенията ще се появят тук когато бъдат изпратени.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Чатът
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чатът
     на живо не се поддържа от интерфейса на Invidious. Изисква се директна връзка
     с YouTube.'
   Published:
@@ -861,7 +861,7 @@ Playing Previous Video: 'Пускане на предишното видео'
 Playing next video in 5 seconds.  Click to cancel: 'Следващо видео започва след 5
   секунди. Щракнете за отказ.'
 Canceled next video autoplay: 'Следващото видео е отказано'
-'The playlist has ended.  Enable loop to continue playing': 'Плейлиста приключи. Включете
+'The playlist has ended. Enable loop to continue playing': 'Плейлиста приключи. Включете
   повторението за да продължи'
 
 Yes: 'Да'

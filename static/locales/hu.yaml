@@ -84,7 +84,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Feliratkozások megszerzése. Kis türelmet
     kérünk.'
   Refresh Subscriptions: 'Feliratkozások frissítése'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ez
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
   Load More Videos: További videók betöltése
@@ -641,9 +641,9 @@ Video:
     támogatott ebben az összeállításban.'
   'Chat is disabled or the Live Stream has ended.': 'Csevegés letiltva vagy az élő
     adatfolyam véget ért.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Élő csevegés
+  Live chat is enabled. Chat messages will appear here once sent.: 'Élő csevegés
     engedélyezve. A csevegőüzenetek itt jelennek meg, miután elküldték.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Az
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Az
     élő csevegést jelenleg nem támogatja az Invidious API. Közvetlen kapcsolat szükséges
     a YouTube-hoz.'
   Published:
@@ -839,7 +839,7 @@ Playing Previous Video: 'Előző videó lejátszása'
 Playing next video in 5 seconds.  Click to cancel: 'A következő videó lejátszása 5
   másodperc múlva. Kattintson a törléshez.'
 Canceled next video autoplay: 'Következő videó önműködő lejátszása megszakítva'
-'The playlist has ended.  Enable loop to continue playing': 'A lejátszási lista véget
+'The playlist has ended. Enable loop to continue playing': 'A lejátszási lista véget
   ért. Engedélyezze a folyamatos lejátszást a lejátszás folytatásához'
 
 Yes: 'Igen'

@@ -76,7 +76,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
   Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: لدى
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
   Error Channels: القنوات التي بها أخطاء
   Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات
@@ -633,9 +633,9 @@ Video:
     حالياً في هذا الإصدار.'
   'Chat is disabled or the Live Stream has ended.': 'المحادثة معطلة أو انتهى البث
     المباشر.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'تم تمكين المحادثة
+  Live chat is enabled. Chat messages will appear here once sent.: 'تم تمكين المحادثة
     المباشرة. ستظهر رسائل المحادثة هنا بمجرد إرسالها.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'المحادثة
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'المحادثة
     المباشرة غير مدعومة حالياً مع Invidious API. يلزم الاتصال المباشر بيوتيوب.'
   Published:
     Jan: 'يناير'
@@ -836,7 +836,7 @@ Playing Previous Video: 'جاري تشغيل الفيديو السابق'
 Playing next video in 5 seconds.  Click to cancel: 'سيتم تشغيل الفيديو التالي في 5
   ثوان. انقر للإلغاء.'
 Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي للفيديو التالي'
-'The playlist has ended.  Enable loop to continue playing': 'انتهت قائمة التشغيل.
+'The playlist has ended. Enable loop to continue playing': 'انتهت قائمة التشغيل.
   قم بتمكن التكرار لمواصلة التشغيل'
 
 Yes: 'نعم'

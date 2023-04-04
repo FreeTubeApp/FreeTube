@@ -77,7 +77,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
   Refresh Subscriptions: Abonnements aktualisieren
   Getting Subscriptions. Please wait.: Abonnements werden geladen. Bitte warten.
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dieses
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abonnements.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
   Load More Videos: Mehr Videos laden
@@ -618,9 +618,9 @@ Video:
     Version nicht unterstützt.
   'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
     der Livestream ist beendet.
-  Live chat is enabled.  Chat messages will appear here once sent.: Der Live-Chat
+  Live chat is enabled. Chat messages will appear here once sent.: Der Live-Chat
     ist aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': Live-Chat
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
     ist in der aktuellen Invidious-API nicht unterstützt.  Eine direkte Verbindung
     zu YouTube wird benötigt.
   Published:
@@ -839,7 +839,7 @@ Playing Previous Video: Spiele vorheriges Video
 Playing next video in 5 seconds.  Click to cancel: Spiele nächstes Video in 5 Sekunden.
   Klicke um abzubrechen.
 Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended.  Enable loop to continue playing': 'Ende der Wiedergabeliste
+'The playlist has ended. Enable loop to continue playing': 'Ende der Wiedergabeliste
   erreicht.  Aktiviere Wiederholung um weiter abzuspielen'
 
 Yes: Ja

@@ -77,7 +77,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
   Latest Subscriptions: 'Останні підписки'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Цей
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Цей
     профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження
     швидкості'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
@@ -600,9 +600,9 @@ Video:
     наразі не підтримується в цій збірці.'
   'Chat is disabled or the Live Stream has ended.': 'Чат вимкнено, а пряму трансляцію
     завершено.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення
+  Live chat is enabled. Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення
     чату з''являться тут після надсилання.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Чат
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
     в режимі реального часу наразі не підтримується API Invidious.  Потрібне пряме
     з''єднання з YouTube.'
   Download Video: 'Завантажити відео'
@@ -876,7 +876,7 @@ Playing Previous Video: 'Відтворення попереднього від�
 Playing next video in 5 seconds.  Click to cancel: 'Відтворення наступного відео за
   5 секунд. Клацніть, щоб скасувати операцію.'
 Canceled next video autoplay: 'Скасовано автовідтворення наступного відео'
-'The playlist has ended.  Enable loop to continue playing': 'Добірка завершилася.
+'The playlist has ended. Enable loop to continue playing': 'Добірка завершилася.
   Увімкніть цикл, щоб продовжити відтворення'
 
 Yes: 'Так'

@@ -157,7 +157,7 @@ export default defineComponent({
             showToast(this.$t('Playing Next Video'))
             this.shufflePlaylistItems()
           } else {
-            showToast(this.$t('The playlist has ended.  Enable loop to continue playing'))
+            showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
           }
         } else {
           this.$router.push(
@@ -183,7 +183,7 @@ export default defineComponent({
             )
             showToast(this.$t('Playing Next Video'))
           }
-          showToast(this.$t('The playlist has ended.  Enable loop to continue playing'))
+          showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
         } else {
           this.$router.push(
             {

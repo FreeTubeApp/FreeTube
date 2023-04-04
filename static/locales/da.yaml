@@ -82,7 +82,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Henter Abonnementer. Vent venligst.'
   Refresh Subscriptions: 'Genopfrisk Abonnementer'
   Load More Videos: Indlæs Flere Videoer
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profil har et stort antal abonnementer.  Tvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med Fejl
 Trending:
@@ -592,9 +592,9 @@ Video:
     i øjeblikket ikke i dette build.'
   'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Livestream
     er slut.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Direkte chat
+  Live chat is enabled. Chat messages will appear here once sent.: 'Direkte chat
     er aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Direkte
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direkte
     Chat understøttes i øjeblikket ikke med Invidious-APIen.  Direkte forbindelse
     til YouTube kræves.'
   Published:
@@ -775,7 +775,7 @@ Playing Previous Video: 'Afspiller Forrige Video'
 Playing next video in 5 seconds.  Click to cancel: 'Afspiller næste video om 5 sekunder.
   Klik for at afbryde.'
 Canceled next video autoplay: 'Afbrød næste videos autospilning'
-'The playlist has ended.  Enable loop to continue playing': 'Playlisten er slut.  Aktivér
+'The playlist has ended. Enable loop to continue playing': 'Playlisten er slut.  Aktivér
   gentagelse for at fortsætte afspilning'
 
 Yes: 'Ja'

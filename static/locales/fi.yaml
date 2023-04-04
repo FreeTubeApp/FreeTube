@@ -74,7 +74,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Haetaan tilauksia. Odota hetki.'
   Refresh Subscriptions: Päivitä tilaukset
   Getting Subscriptions. Please wait.: Haetaan tilauksia. Odota hetki.
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Tällä
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tällä
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
@@ -584,9 +584,9 @@ Video:
     tässä versiossa.'
   'Chat is disabled or the Live Stream has ended.': 'Keskustelu on poistettu käytöstä
     tai suora lähetys on päättynyt.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Live-keskustelu
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live-keskustelu
     on käytössä. Lähetetyt viestit näkyvät tässä.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live-keskustelua
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live-keskustelua
     ei tueta nykyisessä Invidious API:ssa. Suora yhteys Youtubeen vaaditaan.'
   Published:
     Jan: 'Tam'
@@ -790,7 +790,7 @@ Playing Previous Video: 'Edellisen videon toistaminen'
 Playing next video in 5 seconds.  Click to cancel: 'Seuraava video toistetaan 5 sekunnin
   kuluttua. Napsauta peruaksesi.'
 Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
-'The playlist has ended.  Enable loop to continue playing': 'Soittolista on pääättynyt.
+'The playlist has ended. Enable loop to continue playing': 'Soittolista on pääättynyt.
   Ota silmukka käyttöön jatkaaksesi toistoa'
 
 Yes: 'Kyllä'

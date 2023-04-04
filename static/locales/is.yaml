@@ -79,7 +79,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
   Latest Subscriptions: 'Síðustu áskriftir'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Þetta
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Þetta
     notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
     takmarkanir á magni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Listi
@@ -607,9 +607,9 @@ Video:
     í þessari byggingarútgáfu.'
   'Chat is disabled or the Live Stream has ended.': 'Spjall er óvirkt eða að beinu
     streymi er lokið.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Beint spjall
+  Live chat is enabled. Chat messages will appear here once sent.: 'Beint spjall
     er virkt. Skilaboð spjallsins munu birtast hér.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Spjall
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Spjall
     í beinni er ekki stutt í Invidious API-kerfisviðmótinu. Nauðsynlegt er að vera
     með beina tengingu við YouTube.'
   Download Video: 'Sækja myndskeið'
@@ -883,7 +883,7 @@ Playing Next Video Interval: 'Spila næsta myndskeið strax. Smelltu til að hæ
   við. | Spila næsta myndskeið eftir {nextVideoInterval} sekúndur. Smelltu til að
   hætta við.'
 Canceled next video autoplay: 'Hætti við sjálfvirka afspilun næsta myndskeiðs'
-'The playlist has ended.  Enable loop to continue playing': 'Spilunarlistinn er kominn
+'The playlist has ended. Enable loop to continue playing': 'Spilunarlistinn er kominn
   út á enda. Virkjaðu óendanlega endurtekningu til að halda afspilun áfram'
 
 Yes: 'Já'

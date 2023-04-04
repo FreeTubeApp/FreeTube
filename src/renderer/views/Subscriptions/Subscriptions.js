@@ -158,7 +158,7 @@ export default defineComponent({
       let useRss = this.useRssFeeds
       if (this.activeSubscriptionList.length >= 125 && !useRss) {
         showToast(
-          this.$t('Subscriptions["This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting"]'),
+          this.$t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
           10000
         )
         useRss = true

@@ -76,7 +76,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumeratos'
   Latest Subscriptions: 'Naujausios prenumeratos'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Šiame
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šiame
     profilyje yra daug prenumeratų.   Vengiant ribojimų RSS bus naudojamas priverstinai'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Jūsų
     prenumeratų sąrašas šiuo metu tuščias. Pridėkite prenumeratas, kad jas pamatytumėte
@@ -569,9 +569,9 @@ Video:
     diskusija kol kas nepalaikoma.'
   'Chat is disabled or the Live Stream has ended.': 'Pokalbiai yra išjungti arba tiesioginė
     transliacija baigta.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Tiesioginė diskusija
+  Live chat is enabled. Chat messages will appear here once sent.: 'Tiesioginė diskusija
     yra įgalinta.  Čia bus rodomi pokalbio pranešimai.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Tiesioginė
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Tiesioginė
     diskusija šiuo metu nepalaikoma naudojant Invidious API. Būtinas tiesioginis ryšys
     su YouTube.'
   Download Video: 'Atsisiųsti vaizdo įrašą'
@@ -831,7 +831,7 @@ Playing Next Video Interval: 'Greitai bus paleistas kitas vaizdo įrašas. Spust
   Spustelėkite, jei norite atšaukti. | Kitas vaizdo įrašas bus paleidžiamas po {nextVideoInterval}
   sek. Spustelėkite norėdami atšaukti.'
 Canceled next video autoplay: 'Atšauktas sekančio vaizdo įrašo automatinis paleidimas'
-'The playlist has ended.  Enable loop to continue playing': 'Grojaraštis baigėsi.  Įgalinkite
+'The playlist has ended. Enable loop to continue playing': 'Grojaraštis baigėsi.  Įgalinkite
   grojimą ciklu, kad galėtumėte žiūrėti toliau'
 
 Yes: 'Taip'

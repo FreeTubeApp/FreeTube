@@ -120,7 +120,7 @@ Video:
   Copy YouTube Channel Link: ''
   Play Next Video: ''
   Upcoming: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   Audio:
     Medium: ''
   Published:
@@ -161,5 +161,5 @@ Tooltips:
     Hide Channels: ''
 Falling back to the local API: ''
 Shuffle is now enabled: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+'The playlist has ended. Enable loop to continue playing': ''
 Screenshot Success: ''

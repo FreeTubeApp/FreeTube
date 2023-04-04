@@ -82,7 +82,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Laadin tellimusi, palun oota.'
   Refresh Subscriptions: 'Värskenda tellimusi'
   Load More Videos: Laadi veel videosid
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Sellel
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Sellel
     profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teeme
     RSS-voo päringud harvemini
   Error Channels: Vigadega kanalid
@@ -580,9 +580,9 @@ Video:
     versioonis toetatud.'
   'Chat is disabled or the Live Stream has ended.': 'Reaalajas vestlus kas ei ole
     toetatud või on otseetris edastus lõppenud.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Reaalajas vestlus
+  Live chat is enabled. Chat messages will appear here once sent.: 'Reaalajas vestlus
     on kasutusel. Sõnumid on nähtaval kohe pärast saatmist.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Kui
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Kui
     kasutad Invidious''e veebiteenuse-põhist API''t, siis reaalajas vestlus ei ole
     toetatud. Selleks on vajalik otseliidestus YouTube''ga.'
   Published:
@@ -781,7 +781,7 @@ Playing Previous Video: 'Esitan eelmist videot'
 Playing next video in 5 seconds.  Click to cancel: 'Esitan järgmist videot 5 sekundi
   pärast. Tühistamiseks klõpsi.'
 Canceled next video autoplay: 'Tühistasin järgmise video automaatse esituse'
-'The playlist has ended.  Enable loop to continue playing': 'Esitusloend on läbi.
+'The playlist has ended. Enable loop to continue playing': 'Esitusloend on läbi.
   Esituse jätkamiseks luba lugude kordamine'
 
 Yes: 'Jah'

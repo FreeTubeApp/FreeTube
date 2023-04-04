@@ -73,7 +73,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
   Refresh Subscriptions: 登録チャンネルの更新
   Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
   Error Channels: エラーが発生したチャンネル
@@ -544,8 +544,8 @@ Video:
   Enable Live Chat: 'ライブチャットの有効化'
   Live Chat is currently not supported in this build.: '現在、このビルドはライブチャットに未対応です。'
   'Chat is disabled or the Live Stream has ended.': 'チャットが無効化されているか、ライブ配信は終了しています。'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '現在、ライブチャットは
+  Live chat is enabled. Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
   Published:
     Jan: '1 月'
@@ -746,7 +746,7 @@ Playing Next Video: '次の動画の再生'
 Playing Previous Video: '前の動画を再生'
 Playing next video in 5 seconds.  Click to cancel: '5 秒後に次の動画を再生します。クリックするとキャンセルします。'
 Canceled next video autoplay: '次の動画の自動再生をキャンセルしました'
-'The playlist has ended.  Enable loop to continue playing': '再生リストの最後に到達しました。再生を続けるにはループを有効にします'
+'The playlist has ended. Enable loop to continue playing': '再生リストの最後に到達しました。再生を続けるにはループを有効にします'
 
 Yes: 'はい'
 No: 'いいえ'

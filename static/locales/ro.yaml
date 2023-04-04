@@ -82,7 +82,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Se obțin abonamentele. Vă rugăm să așteptați.'
   Refresh Subscriptions: 'Reîmprospătați abonamentele'
   Load More Videos: Încarcă mai mult
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Acest
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
     vitezei
   Error Channels: Canale cu erori
@@ -551,9 +551,9 @@ Video:
     în prezent acceptat în această versiune.'
   'Chat is disabled or the Live Stream has ended.': 'Chat-ul este dezactivat sau transmisia
     în direct s-a încheiat.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat-ul în direct
+  Live chat is enabled. Chat messages will appear here once sent.: 'Chat-ul în direct
     este activat.  Mesajele de chat vor apărea aici după ce sunt trimise.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat-ul
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat-ul
     în direct nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
     directă la YouTube.'
   Published:
@@ -747,7 +747,7 @@ The playlist has been reversed: 'Lista de redare a fost inversată'
 Playing Next Video: 'Se redă următorul videoclip'
 Playing Previous Video: 'Se redă videoclipul anterior'
 Canceled next video autoplay: 'S-a anulat redarea automată a următorului videoclip'
-'The playlist has ended.  Enable loop to continue playing': 'Lista de redare s-a încheiat.  Activați
+'The playlist has ended. Enable loop to continue playing': 'Lista de redare s-a încheiat.  Activați
   bucla pentru a continua redarea'
 
 Yes: 'Da'

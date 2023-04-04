@@ -73,7 +73,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '获取订阅中。 请稍等。'
   Refresh Subscriptions: 刷新订阅
   Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
     强制RSS已防止速率限制
   Load More Videos: 加载更多视频
   Error Channels: 有错误的频道
@@ -539,8 +539,8 @@ Video:
   Enable Live Chat: '允许在线聊天'
   Live Chat is currently not supported in this build.: '在线聊天在此版本中目前不被支持。'
   'Chat is disabled or the Live Stream has ended.': '聊天被禁用或者在线直播已结束。'
-  Live chat is enabled.  Chat messages will appear here once sent.: '在线聊天结束。 聊天信息一旦发送将出现在这里。'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '在线聊天目前不被Invidious
+  Live chat is enabled. Chat messages will appear here once sent.: '在线聊天结束。 聊天信息一旦发送将出现在这里。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '在线聊天目前不被Invidious
     API支持。 需要直接连接YouTube。'
   Published:
     Jan: '一月'
@@ -741,7 +741,7 @@ Playing Next Video: '将播放下一视频'
 Playing Previous Video: '将播放上一视频'
 Playing next video in 5 seconds.  Click to cancel: '下一视频将在5秒后播放。点击取消。'
 Canceled next video autoplay: '取消的自动播放下一视频'
-'The playlist has ended.  Enable loop to continue playing': '播放列表已结束。 允许循环播放以继续播放'
+'The playlist has ended. Enable loop to continue playing': '播放列表已结束。 允许循环播放以继续播放'
 
 Yes: '是'
 No: '否'

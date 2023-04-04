@@ -76,7 +76,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Obtención de suscripciones. Por favor espere.'
   Refresh Subscriptions: 'Actualizar suscripciones'
   Load More Videos: Cargar más videos
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscriptores.  Forzando RSS para evitar límites
 Trending:
   Trending: 'Tendencias'
@@ -315,7 +315,7 @@ Comments:
   Click to View Comments: ''
   There are no comments available for this video: ''
 Loop is now disabled: ''
-'The playlist has ended.  Enable loop to continue playing': ''
+'The playlist has ended. Enable loop to continue playing': ''
 
 Yes: 'Sí'
 No: 'No'

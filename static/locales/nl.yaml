@@ -77,7 +77,7 @@ Subscriptions:
     heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
   Refresh Subscriptions: Abonnementen vernieuwen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Even geduld aub.
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te vermijden
   Load More Videos: Meer video's laden
@@ -550,9 +550,9 @@ Video:
     nog niet ondersteund.'
   'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de livestream
     is beëindigd.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
     Chats zullen hier verschijnen.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Livechat
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechat
     wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
     met YouTube is nodig.'
   Published:
@@ -750,7 +750,7 @@ Playing Previous Video: 'Vorige Video Word Afgespeeld'
 Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
   Klik om te Annuleer.'
 Canceled next video autoplay: 'Automatisch afspelen is geannuleerd'
-'The playlist has ended.  Enable loop to continue playing': 'Het einde van de afspeellijst
+'The playlist has ended. Enable loop to continue playing': 'Het einde van de afspeellijst
   is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
 Yes: 'Ja'
