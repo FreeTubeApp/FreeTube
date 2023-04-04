@@ -2,15 +2,11 @@
 Search Filters: {}
 Settings:
   # On Settings Page
-  General Settings:
-    External Link Handling:
-      External Link Handling: ''
+  General Settings: {}
   Theme Settings: {}
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
   SponsorBlock Settings: {}
-Profile:
-  Edit Profile: ''
 Channel:
   Videos: {}
   Playlists: {}
@@ -18,7 +14,5 @@ Channel:
 Video:
   Published:
     Minutes: ''
-Tooltips:
-  Subscription Settings:
-    Fetch Automatically: ''
+Tooltips: {}
 Age Restricted: {}

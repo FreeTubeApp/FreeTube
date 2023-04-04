@@ -223,13 +223,9 @@ Settings:
       Catppuccin Mocha Maroon: 'შინდისფერი Catppuccin Mocha'
       Catppuccin Mocha Peach: 'ატმისფერი Catppuccin Mocha'
   Player Settings: {}
-  Proxy Settings:
-    Test Proxy: ''
 Channel:
   Playlists: {}
 Video:
   Loop Playlist: ''
   External Player: {}
-Comments:
-  Replies: ''
 Tooltips: {}
