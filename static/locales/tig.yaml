@@ -9,8 +9,6 @@ Channel:
   Videos: {}
   Playlists: {}
   About: {}
-Video:
-  Published:
-    Minutes: ''
+Video: {}
 Tooltips: {}
 Age Restricted: {}
