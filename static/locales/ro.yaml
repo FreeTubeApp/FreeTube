@@ -339,10 +339,7 @@ Settings:
       se omite
     All playlists has been successfully exported: Toate listele de redare au fost
       exportate cu succes
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   The app needs to restart for changes to take effect. Restart and apply change?: Aplicația
     trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați
     modificările?
@@ -417,8 +414,6 @@ About:
   #On About page
   About: 'Despre'
   #& About
-  Latest FreeTube News: ''
-
   Mastodon: Mastodon
   Email: E-mail
   Donate: Donează

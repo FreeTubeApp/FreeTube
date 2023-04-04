@@ -43,9 +43,6 @@ Search Bar:
   # In Filter Button
 Search Filters:
   Search Filters: 'فلٹرز تلاش کریں۔'
-  Type:
-    Channels: ''
-    #& Playlists
   There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں۔'
 # Sidebar
 Subscriptions:
@@ -99,31 +96,24 @@ Settings:
       ناکامی پر'
     Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں۔'
     Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
-    No default instance has been set: ''
   Theme Settings:
     Base Theme:
       Base Theme: ''
     Main Color Theme:
-      Teal: ''
       Catppuccin Mocha Flamingo: ''
   Player Settings:
-    Play Next Video: ''
     Default Video Format:
       Dash Formats: ''
     Screenshot:
-      Quality Label: ''
       File Name Tooltip: 'آپ ذیل میں متغیرات استعمال کر سکتے ہیں۔ %Y سال کے 4 ہندسے۔
         %M مہینہ 2 ہندسے۔ %D دن کے 2 ہندسے۔ %H گھنٹے 2 ہندسے۔ %N منٹ 2 ہندسے۔ %S دوسرے
         2 ہندسے۔ %T ملی سیکنڈ 3 ہندسے۔ %s ویڈیو سیکنڈ۔ %t ویڈیو ملی سیکنڈ 3 ہندسے۔
         %i ویڈیو ID۔ آپ ذیلی فولڈر بنانے کے لیے "\" یا "/" بھی استعمال کر سکتے ہیں۔'
   External Player Settings:
     Players: {}
-  Privacy Settings:
-    Remove Watch History: ''
   Distraction Free Settings:
     Hide Popular Videos: ''
   Data Settings:
-    Export Subscriptions: ''
     Profile object has insufficient data, skipping item: 'پروفائل آبجیکٹ ناکافی ہے۔
       ڈیٹا، آئٹم کو چھوڑنا'
     All subscriptions and profiles have been successfully imported: 'تمام سبسکرپشنز
@@ -146,18 +136,14 @@ Settings:
       سے درآمد کیا گیا۔'
     All playlists has been successfully exported: 'تمام پلے لسٹ ہو چکی ہیں۔ کامیابی
       سے برآمد'
-  Proxy Settings:
-    Region: ''
   SponsorBlock Settings: {}
   Parental Control Settings:
     Hide Search Bar: ''
 About:
   #On About page
-  FAQ: ''
   Please check for duplicates before posting: 'براہ کرم پوسٹ کرنے سے پہلے ڈپلیکیٹس
     کی جانچ کریں۔'
 Profile:
-  All Channels: ''
   Are you sure you want to delete this profile?: 'کیا آپ واقعی اسے حذف کرنا چاہتے
     ہیں۔ پروفائل؟'
   All subscriptions will also be deleted.: 'تمام سبسکرپشنز بھی حذف کر دی جائیں گی۔'
@@ -174,26 +160,16 @@ Profile:
     کیا آپ واقعی منتخب چینلز کو حذف کرنا چاہتے ہیں؟ اس سے چینل حذف نہیں ہوگا۔ کسی
     دوسرے پروفائل سے۔'
 #On Channel Page
-Channel:
-  Playlists:
-    Playlists: ''
+Channel: {}
 Video:
   Copy YouTube Link: ''
-  Watching: ''
   Audio:
     Low: ''
-  Published:
-    Second: ''
   Published on: ''
-  External Player:
-    playlist: ''
   Stats:
     Bandwidth: ''
-Change Format:
-  Use Audio Formats: ''
 Comments:
   Comments: ''
-  There are no comments available for this video: ''
 Tooltips:
   General Settings:
     Preferred API Backend: 'اس بیک اینڈ کا انتخاب کریں جسے FreeTube ڈیٹا حاصل کرنے

@@ -222,74 +222,46 @@ Settings:
       Catppuccin Mocha Red: 'წითელი Catppuccin Mocha'
       Catppuccin Mocha Maroon: 'შინდისფერი Catppuccin Mocha'
       Catppuccin Mocha Peach: 'ატმისფერი Catppuccin Mocha'
-    Secondary Color Theme: ''
-        #* Main Color Theme
   Player Settings:
     Enable Theatre Mode by Default: ''
-    Max Video Playback Rate: ''
     Default Quality:
       144p: ''
-      8k: ''
     Screenshot:
       File Name Tooltip: ''
   Privacy Settings:
-    Privacy Settings: ''
     Are you sure you want to remove your entire watch history?: ''
   Distraction Free Settings:
-    Distraction Free Settings: ''
     Hide Playlists: ''
   Data Settings:
-    Select Import Type: ''
     Export FreeTube: ''
-    All subscriptions and profiles have been successfully imported: ''
     All watched history has been successfully imported: ''
-    How do I import my subscriptions?: ''
   Proxy Settings:
     Test Proxy: ''
   SponsorBlock Settings:
-    Enable SponsorBlock: ''
     Category Color: ''
-  Download Settings:
-    Download Behavior: ''
 About:
   #On About page
   Downloads / Changelog: ''
-  Website: ''
   Credits: ''
 Profile:
-  Profile Manager: ''
   Make Default Profile: ''
-  Your default profile has been set to {profile}: ''
   Select None: ''
 Channel:
-  Subscribe: ''
   Videos:
     Videos: ''
-  Playlists:
-    Sort Types:
-      Newest: ''
+  Playlists: {}
 Video:
   Video has been removed from your history: ''
-  Open in Invidious: ''
   Loop Playlist: ''
-  Starting soon, please refresh the page to check again: ''
-  # As in a Live Video
   Live chat is enabled.  Chat messages will appear here once sent.: ''
-  Audio:
-    Best: ''
   Published:
     Aug: ''
-    Minutes: ''
     Months: ''
-  translated from English: ''
   Sponsor Block category:
     music offtopic: ''
-  External Player:
-    Unsupported Actions:
-      starting video at offset: ''
+  External Player: {}
   Stats:
     Video ID: ''
-    Mimetype: ''
 Playlist:
   #& About
   Last Updated On: ''
@@ -298,20 +270,12 @@ Playlist:
 #* Published
 #& Views
 Share:
-  Share Video: ''
   Invidious Channel URL copied to clipboard: ''
 Comments:
-  There are no more comments for this video: ''
   Replies: ''
-  Pinned by: ''
 Tooltips:
   General Settings:
     External Link Handling: |
-  External Player Settings:
-    Custom External Player Arguments: ''
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-The playlist has been reversed: ''
 Age Restricted:
   This {videoOrPlaylist} is age restricted: ''
-Screenshot Error: ''
-

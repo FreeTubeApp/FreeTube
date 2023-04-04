@@ -1,147 +1,91 @@
 # Put the name of your locale in the same language
-Edit: ''
 Reload: ''
-Minimize: ''
 Are you sure you want to open this link?: ''
 
 # Search Bar
 Search Filters:
-  Sort By:
-    View Count: ''
   Type:
     Type: ''
-  Duration:
-    Medium (4 - 20 minutes): ''
 Subscriptions:
     # On Subscriptions Page
   Latest Subscriptions: ''
-More: ''
 Channels:
   Unsubscribe Prompt: ''
-Playlists: ''
 History:
   # On History Page
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
     Video View Type:
       Video View Type: ''
-    Current Invidious Instance: ''
     External Link Handling:
       External Link Handling: ''
   Theme Settings:
-    UI Scale: ''
     Base Theme:
       Dracula: ''
     Main Color Theme:
-      Blue: ''
       Amber: ''
-      Dracula Red: ''
       Catppuccin Mocha Peach: ''
-    Secondary Color Theme: ''
-        #* Main Color Theme
   Player Settings:
     Enable Theatre Mode by Default: ''
-    Default Volume: ''
     Default Quality:
       Default Quality: ''
-      1440p: ''
     Screenshot:
       Folder Label: ''
-  External Player Settings:
-    Ignore Unsupported Action Warnings: ''
   Privacy Settings:
     Automatically Remove Video Meta Files: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
-    Hide Active Subscriptions: ''
     Hide Channels: ''
   Data Settings:
-    Playlist File: ''
     Import Playlists: ''
-    Invalid history file: ''
     Unable to read file: ''
   Proxy Settings:
-    Proxy Host: ''
     City: ''
-  SponsorBlock Settings:
-    Skip Options:
-      Show In Seek Bar: ''
+  SponsorBlock Settings: {}
   Download Settings:
     Download Settings: ''
-  Experimental Settings:
-    Replace HTTP Cache: ''
   Password Settings:
     Remove Password: ''
 About:
   #On About page
-  Help: ''
   Email: ''
-  these people and projects: ''
 Profile:
   Edit Profile: ''
-  Are you sure you want to delete this profile?: ''
   Your default profile has been changed to your primary profile: ''
-  Add Selected To Profile: ''
 Channel:
   Channel has been removed from your subscriptions: ''
-  This channel is age resticted and currently cannot be viewed in FreeTube.: ''
   Videos: {}
   Live:
     This channel does not currently have any live streams: ''
   Playlists: {}
-  About:
-    Tags:
-      Tags: ''
+  About: {}
 Video:
   Mark As Watched: ''
-  Copy YouTube Link: ''
   Copy Invidious Channel Link: ''
-  Watching: ''
   Live Now: ''
-  Show Super Chat Comment: ''
   Audio:
     Best: ''
   Published:
-    Aug: ''
     Minutes: ''
-    Months: ''
   Started streaming on: ''
-  Sponsor Block category:
-    interaction: ''
   External Player:
     UnsupportedActionTemplate: ''
   Stats:
-    Video statistics are not available for legacy videos: ''
     Dropped / Total Frames: ''
-Playlist:
-  #& About
-  Views: ''
 Change Format:
   Audio formats are not available for this video: ''
-Share:
-  Open Embed: ''
-  # On Click
 Clipboard:
   Cannot access clipboard without a secure connection: ''
 
 Comments:
-  There are no more comments for this video: ''
   Hide: ''
-  No more comments available: ''
 Tooltips:
   General Settings:
     Invidious Instance: ''
-  Player Settings:
-    Skip by Scrolling Over Video Player: ''
   Subscription Settings:
     Fetch Automatically: ''
-Subscriptions have not yet been implemented: ''
 Playing Next Video: ''
-Age Restricted:
-  Type:
-    Channel: ''
+Age Restricted: {}
 Yes: ''
