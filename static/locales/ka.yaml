@@ -223,45 +223,30 @@ Settings:
       Catppuccin Mocha Maroon: 'შინდისფერი Catppuccin Mocha'
       Catppuccin Mocha Peach: 'ატმისფერი Catppuccin Mocha'
   Player Settings:
-    Enable Theatre Mode by Default: ''
     Default Quality:
       144p: ''
-    Screenshot:
-      File Name Tooltip: ''
   Privacy Settings:
     Are you sure you want to remove your entire watch history?: ''
-  Distraction Free Settings:
-    Hide Playlists: ''
   Data Settings:
     Export FreeTube: ''
-    All watched history has been successfully imported: ''
   Proxy Settings:
     Test Proxy: ''
-  SponsorBlock Settings:
-    Category Color: ''
 About:
   #On About page
   Downloads / Changelog: ''
-  Credits: ''
 Profile:
   Make Default Profile: ''
-  Select None: ''
 Channel:
   Videos:
     Videos: ''
   Playlists: {}
 Video:
-  Video has been removed from your history: ''
   Loop Playlist: ''
-  Live chat is enabled.  Chat messages will appear here once sent.: ''
   Published:
     Aug: ''
-    Months: ''
   Sponsor Block category:
     music offtopic: ''
   External Player: {}
-  Stats:
-    Video ID: ''
 Playlist:
   #& About
   Last Updated On: ''
@@ -269,13 +254,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-Share:
-  Invidious Channel URL copied to clipboard: ''
 Comments:
   Replies: ''
-Tooltips:
-  General Settings:
-    External Link Handling: |
+Tooltips: {}
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: ''

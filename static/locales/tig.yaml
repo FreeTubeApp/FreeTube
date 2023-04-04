@@ -1,91 +1,55 @@
 # Put the name of your locale in the same language
-Reload: ''
 Are you sure you want to open this link?: ''
 
 # Search Bar
-Search Filters:
-  Type:
-    Type: ''
+Search Filters: {}
 Subscriptions:
     # On Subscriptions Page
   Latest Subscriptions: ''
-Channels:
-  Unsubscribe Prompt: ''
 History:
   # On History Page
   Your history list is currently empty.: ''
 Settings:
   # On Settings Page
   General Settings:
-    Video View Type:
-      Video View Type: ''
     External Link Handling:
       External Link Handling: ''
   Theme Settings:
-    Base Theme:
-      Dracula: ''
     Main Color Theme:
       Amber: ''
-      Catppuccin Mocha Peach: ''
   Player Settings:
     Enable Theatre Mode by Default: ''
-    Default Quality:
-      Default Quality: ''
     Screenshot:
       Folder Label: ''
-  Privacy Settings:
-    Automatically Remove Video Meta Files: ''
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
-    Hide Channels: ''
   Data Settings:
     Import Playlists: ''
-    Unable to read file: ''
   Proxy Settings:
     City: ''
   SponsorBlock Settings: {}
-  Download Settings:
-    Download Settings: ''
   Password Settings:
     Remove Password: ''
-About:
-  #On About page
-  Email: ''
 Profile:
   Edit Profile: ''
-  Your default profile has been changed to your primary profile: ''
 Channel:
   Channel has been removed from your subscriptions: ''
   Videos: {}
-  Live:
-    This channel does not currently have any live streams: ''
   Playlists: {}
   About: {}
 Video:
   Mark As Watched: ''
-  Copy Invidious Channel Link: ''
   Live Now: ''
-  Audio:
-    Best: ''
   Published:
     Minutes: ''
-  Started streaming on: ''
   External Player:
     UnsupportedActionTemplate: ''
-  Stats:
-    Dropped / Total Frames: ''
 Change Format:
   Audio formats are not available for this video: ''
-Clipboard:
-  Cannot access clipboard without a secure connection: ''
-
 Comments:
   Hide: ''
 Tooltips:
-  General Settings:
-    Invidious Instance: ''
   Subscription Settings:
     Fetch Automatically: ''
-Playing Next Video: ''
 Age Restricted: {}
 Yes: ''

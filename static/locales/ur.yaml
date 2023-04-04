@@ -97,13 +97,9 @@ Settings:
     Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں۔'
     Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
   Theme Settings:
-    Base Theme:
-      Base Theme: ''
     Main Color Theme:
       Catppuccin Mocha Flamingo: ''
   Player Settings:
-    Default Video Format:
-      Dash Formats: ''
     Screenshot:
       File Name Tooltip: 'آپ ذیل میں متغیرات استعمال کر سکتے ہیں۔ %Y سال کے 4 ہندسے۔
         %M مہینہ 2 ہندسے۔ %D دن کے 2 ہندسے۔ %H گھنٹے 2 ہندسے۔ %N منٹ 2 ہندسے۔ %S دوسرے
@@ -111,8 +107,6 @@ Settings:
         %i ویڈیو ID۔ آپ ذیلی فولڈر بنانے کے لیے "\" یا "/" بھی استعمال کر سکتے ہیں۔'
   External Player Settings:
     Players: {}
-  Distraction Free Settings:
-    Hide Popular Videos: ''
   Data Settings:
     Profile object has insufficient data, skipping item: 'پروفائل آبجیکٹ ناکافی ہے۔
       ڈیٹا، آئٹم کو چھوڑنا'
@@ -137,8 +131,6 @@ Settings:
     All playlists has been successfully exported: 'تمام پلے لسٹ ہو چکی ہیں۔ کامیابی
       سے برآمد'
   SponsorBlock Settings: {}
-  Parental Control Settings:
-    Hide Search Bar: ''
 About:
   #On About page
   Please check for duplicates before posting: 'براہ کرم پوسٹ کرنے سے پہلے ڈپلیکیٹس
@@ -162,14 +154,10 @@ Profile:
 #On Channel Page
 Channel: {}
 Video:
-  Copy YouTube Link: ''
   Audio:
     Low: ''
-  Published on: ''
   Stats:
     Bandwidth: ''
-Comments:
-  Comments: ''
 Tooltips:
   General Settings:
     Preferred API Backend: 'اس بیک اینڈ کا انتخاب کریں جسے FreeTube ڈیٹا حاصل کرنے
