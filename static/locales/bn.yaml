@@ -186,10 +186,6 @@ Video:
     Months: ''
     Upcoming: ''
   Publicationtemplate: ''
-#& Videos
-Videos:
-  #& Sort By
-{}
 Playlist:
   #& About
   Videos: ''

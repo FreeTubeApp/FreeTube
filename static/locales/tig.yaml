@@ -89,7 +89,6 @@ Settings:
         Forbidden Characters: ''
   External Player Settings:
     Ignore Unsupported Action Warnings: ''
-    Players: {}
   Privacy Settings:
     Privacy Settings: ''
     Automatically Remove Video Meta Files: ''
@@ -202,9 +201,6 @@ Video:
     Video statistics are not available for legacy videos: ''
     Bitrate: ''
     Dropped / Total Frames: ''
-Videos:
-  #& Sort By
-{}
 Playlist:
   #& About
   Playlist: ''

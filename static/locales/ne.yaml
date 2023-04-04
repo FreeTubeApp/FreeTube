@@ -222,9 +222,6 @@ Video:
     Unsupported Actions:
       setting a playback rate: ''
       shuffling playlists: ''
-Videos:
-  #& Sort By
-{}
 Playlist:
   #& About
   Playlist: ''
