@@ -4,8 +4,6 @@ Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
-  Distraction Free Settings:
-    Hide Video Likes And Dislikes: ''
   SponsorBlock Settings: {}
 Channel:
   Videos: {}

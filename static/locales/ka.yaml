@@ -226,6 +226,5 @@ Settings:
 Channel:
   Playlists: {}
 Video:
-  Loop Playlist: ''
   External Player: {}
 Tooltips: {}
