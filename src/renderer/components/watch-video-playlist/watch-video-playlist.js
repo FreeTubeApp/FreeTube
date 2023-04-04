@@ -94,17 +94,12 @@ export default defineComponent({
         const container = this.$refs.playlistItems
         const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
         if (container != null && currentVideoItem != null) {
-          // Using non `nearest` would cause whole window to be scrolled
-          currentVideoItem.scrollIntoView({
-            block: 'nearest',
-          })
+          container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
           // Since components are only rendered after scroll,
           // the scroll position requires another adjustment
           // Timeout value depends on how soon the components finish rendering
           setTimeout(() => {
-            currentVideoItem.scrollIntoView({
-              block: 'nearest',
-            })
+            container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
           }, 500)
         }
       }
