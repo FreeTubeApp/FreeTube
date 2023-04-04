@@ -1,20 +1,13 @@
 # Put the name of your locale in the same language
 Search Filters: {}
-Subscriptions:
-    # On Subscriptions Page
-  Latest Subscriptions: ''
 Settings:
   # On Settings Page
   General Settings:
     External Link Handling:
       External Link Handling: ''
   Theme Settings: {}
-  Player Settings:
-    Enable Theatre Mode by Default: ''
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
-  Proxy Settings:
-    City: ''
   SponsorBlock Settings: {}
 Profile:
   Edit Profile: ''
@@ -23,11 +16,8 @@ Channel:
   Playlists: {}
   About: {}
 Video:
-  Mark As Watched: ''
   Published:
     Minutes: ''
-Change Format:
-  Audio formats are not available for this video: ''
 Tooltips:
   Subscription Settings:
     Fetch Automatically: ''

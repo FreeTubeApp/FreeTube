@@ -151,9 +151,7 @@ Profile:
     دوسرے پروفائل سے۔'
 #On Channel Page
 Channel: {}
-Video:
-  Stats:
-    Bandwidth: ''
+Video: {}
 Tooltips:
   General Settings:
     Preferred API Backend: 'اس بیک اینڈ کا انتخاب کریں جسے FreeTube ڈیٹا حاصل کرنے

@@ -223,18 +223,12 @@ Settings:
       Catppuccin Mocha Maroon: 'შინდისფერი Catppuccin Mocha'
       Catppuccin Mocha Peach: 'ატმისფერი Catppuccin Mocha'
   Player Settings: {}
-  Privacy Settings:
-    Are you sure you want to remove your entire watch history?: ''
   Proxy Settings:
     Test Proxy: ''
-Profile:
-  Make Default Profile: ''
 Channel:
   Playlists: {}
 Video:
   Loop Playlist: ''
-  Sponsor Block category:
-    music offtopic: ''
   External Player: {}
 Comments:
   Replies: ''
