@@ -92,8 +92,7 @@ export default defineComponent({
           // It's possible the comments are being loaded/already loaded
           if (this.canPerformInitialCommentLoading) {
             this.getCommentData()
-          }
-          if (this.canPerformMoreCommentLoading) {
+          } else if (this.canPerformMoreCommentLoading) {
             this.getMoreComments()
           }
         },

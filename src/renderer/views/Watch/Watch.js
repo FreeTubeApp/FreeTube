@@ -192,6 +192,7 @@ export default defineComponent({
       this.videoId = this.$route.params.id
 
       this.firstLoad = true
+      this.videoPlayerReady = false
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
       this.captionHybridList = []
