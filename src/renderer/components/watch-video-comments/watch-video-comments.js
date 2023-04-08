@@ -27,7 +27,11 @@ export default defineComponent({
     channelThumbnail: {
       type: String,
       required: true
-    }
+    },
+    videoPlayerReady: {
+      type: Boolean,
+      required: true
+    },
   },
   data: function () {
     return {
@@ -78,6 +82,7 @@ export default defineComponent({
 
     observeVisibilityOptions: function() {
       if (!this.commentAutoLoadEnabled) { return false }
+      if (!this.videoPlayerReady) { return false }
 
       return {
         callback: (isVisible, _entry) => {
@@ -96,9 +101,6 @@ export default defineComponent({
           // Only when it intersects with N% above bottom
           rootMargin: '0% 0% 0% 0%',
         },
-        // The video player is minimized on startup for < about 1s
-        // `throttle` is needed to prevent unwanted autoload during that period
-        throttle: 1000,
         // Callback responsible for loading multiple comment pages
         once: false,
       }

@@ -55,6 +55,7 @@ export default defineComponent({
       isLoading: true,
       firstLoad: true,
       useTheatreMode: false,
+      videoPlayerReady: false,
       showDashPlayer: true,
       showLegacyPlayer: false,
       showYouTubeNoCookieEmbed: false,
@@ -98,7 +99,7 @@ export default defineComponent({
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      infoAreaSticky: true
+      infoAreaSticky: true,
     }
   },
   computed: {
@@ -182,7 +183,7 @@ export default defineComponent({
     },
     allowDashAv1Formats: function () {
       return this.$store.getters.getAllowDashAv1Formats
-    }
+    },
   },
   watch: {
     $route() {
@@ -926,6 +927,11 @@ export default defineComponent({
         lastViewedPlaylistId: this.$route.query?.playlistId,
       }
       this.updateLastViewedPlaylist(payload)
+    },
+
+    handleVideoReady: function () {
+      this.videoPlayerReady = true
+      this.checkIfWatched()
     },
 
     checkIfWatched: function () {
