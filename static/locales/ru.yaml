@@ -75,7 +75,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': 'Получение подписок. Пожалуйста, подождите.'
   Refresh Subscriptions: Обновить подписки
   Getting Subscriptions. Please wait.: Получение подписок, подождите.
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Эта
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Эта
     учётная запись имеет большое количество подписок. Принудительно используется RSS,
     чтобы избежать ограничения скорости
   Load More Videos: Загрузить больше видео
@@ -602,9 +602,9 @@ Video:
     в этой версии не поддерживается.'
   'Chat is disabled or the Live Stream has ended.': 'Чат отключен или прямая трансляция
     закончилась.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Чат трансляции
+  Live chat is enabled. Chat messages will appear here once sent.: 'Чат трансляции
     включен. Сообщения чата будут отображаться здесь после отправки.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Чат
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
     трансляции в настоящее время не поддерживается набором функций Invidious. Требуется
     прямое подключение к YouTube.'
   Published:
@@ -812,10 +812,8 @@ Shuffle is now disabled: 'Перемешивание теперь отключе
 Shuffle is now enabled: 'Перемешивание теперь включено'
 Playing Next Video: 'Воспроизведение следующего видео'
 Playing Previous Video: 'Воспроизведение предыдущего видео'
-Playing next video in 5 seconds.  Click to cancel: 'Воспроизведение следующего видео
-  через 5 секунд. Нажмите, чтобы отменить.'
 Canceled next video autoplay: 'Отменено автовоспроизведение следующего видео'
-'The playlist has ended.  Enable loop to continue playing': 'Подборка закончилась.
+'The playlist has ended. Enable loop to continue playing': 'Подборка закончилась.
   Включите повторение, чтобы продолжить воспроизведение'
 
 Yes: 'Да'

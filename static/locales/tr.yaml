@@ -81,7 +81,7 @@ Subscriptions:
     listeniz şu anda boş. Aboneliklerinizi görebilmek için abone olmaya başlayın.'
   'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
   Error Channels: Hatalı Kanallar
@@ -659,9 +659,9 @@ Video:
   Live Chat is currently not supported in this build.: 'Canlı Sohbet bu sürümde desteklenmiyor.'
   'Chat is disabled or the Live Stream has ended.': 'Sohbet devre dışı bırakıldı veya
     Canlı Yayın sona erdi.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Canlı Sohbet
+  Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet
     etkinleştirildi. Sohbet mesajları gönderildikten sonra burada görünecektir.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Canlı
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Canlı
     Sohbet şu anda Invidious API ile desteklenmemektedir. YouTube ile doğrudan bağlantı
     gerekli.'
   Published:
@@ -858,10 +858,8 @@ Shuffle is now enabled: 'Karıştır artık etkin'
 The playlist has been reversed: 'Çalma listesi tersine çevrildi'
 Playing Next Video: 'Sonraki Video Oynatılıyor'
 Playing Previous Video: 'Önceki Video Oynatılıyor'
-Playing next video in 5 seconds.  Click to cancel: 'Sonraki video 5 saniye içinde
-  oynatılacak. İptal etmek için tıklatın.'
 Canceled next video autoplay: 'Sonraki videoyu otomatik oynatma iptal edildi'
-'The playlist has ended.  Enable loop to continue playing': 'Çalma listesi sona erdi.  Çalmaya
+'The playlist has ended. Enable loop to continue playing': 'Çalma listesi sona erdi.  Çalmaya
   devam etmek için döngüyü etkinleştir'
 
 Yes: 'Evet'

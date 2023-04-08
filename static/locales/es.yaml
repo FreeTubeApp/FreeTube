@@ -76,7 +76,7 @@ Subscriptions:
     lista de suscripciones está vacía. Suscríbete a canales para verlos aquí.'
   'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
   Refresh Subscriptions: 'Recargar suscripciones'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Forzar RSS para evitar la limitación de velocidad
   Load More Videos: Cargar más vídeos
   Error Channels: Canales con errores
@@ -646,9 +646,9 @@ Video:
     soportado de momento en esta versión.'
   'Chat is disabled or the Live Stream has ended.': 'El chat está desactivado o la
     emisión ha acabado.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat en directo
+  Live chat is enabled. Chat messages will appear here once sent.: 'El chat en directo
     está activado. Los mensajes aparecerán aquí en cuanto se envíen.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Actualmente
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Actualmente
     el chat no funciona con la API de Invidious. Se requiere una conexión directa
     con YouTube.'
   Published:
@@ -855,10 +855,8 @@ Shuffle is now disabled: 'Reproducción aleatoria desactivada'
 Shuffle is now enabled: 'Reproducción aleatoria activada'
 Playing Next Video: 'Reproduciendo el vídeo siguiente'
 Playing Previous Video: 'Reproduciendo el vídeo anterior'
-Playing next video in 5 seconds.  Click to cancel: 'El video siguiente comenzará en
-  5 segundos. Click para cancelar.'
 Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cancelado'
-'The playlist has ended.  Enable loop to continue playing': 'Esta lista de reproducción
+'The playlist has ended. Enable loop to continue playing': 'Esta lista de reproducción
   ha finalizado. Activa la reproducción en bucle para continuar con ella'
 
 Yes: 'Sí'

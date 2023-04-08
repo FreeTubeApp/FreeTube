@@ -75,7 +75,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
   Latest Subscriptions: 'Задња праћења'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Овај
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Овај
     профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничење'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваша
     листа прећења је тренутно празна. Почните да додајете прећење да бисте их видели

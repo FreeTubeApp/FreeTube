@@ -82,7 +82,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Mengambil Langganan. Silakan tunggu.'
   Refresh Subscriptions: 'Segarkan Langganan'
   Load More Videos: Muat Lebih Banyak Video
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Profil
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Profil
     ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan
     akses
 Trending:
@@ -538,9 +538,9 @@ Video:
     dalam versi ini.'
   'Chat is disabled or the Live Stream has ended.': 'Obrolan dimatikan atau Siaran
     Langsung telah berakhir.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Obrolan langsung
+  Live chat is enabled. Chat messages will appear here once sent.: 'Obrolan langsung
     diaktifkan. Pesan akan muncul di sini saat terkirim.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Obrolan
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Obrolan
     Langsung belum didukung dengan API Invidious. Koneksi langsung dengan YouTube
     dibutuhkan.'
   Published:
@@ -724,10 +724,8 @@ Shuffle is now enabled: 'Acak sekarang diaktifkan'
 The playlist has been reversed: 'Daftar Putar telah dibalik'
 Playing Next Video: 'Memutar Video Berikutnya'
 Playing Previous Video: 'Memutar Video Sebelumnya'
-Playing next video in 5 seconds.  Click to cancel: 'Memutar video berikutnya dalam
-  5 detik. Klik untuk membatalkan.'
 Canceled next video autoplay: 'Putar-otomatis video berikutnya dibatalkan'
-'The playlist has ended.  Enable loop to continue playing': 'Daftar putar telah berakhir.
+'The playlist has ended. Enable loop to continue playing': 'Daftar putar telah berakhir.
   Aktifkan Putar-Ulang untuk melanjutkan pemutaran'
 
 Yes: 'Ya'

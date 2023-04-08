@@ -70,7 +70,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'دنبال کرده ها'
   Latest Subscriptions: 'اخرین دنبال کرده ها'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'این
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'این
     نمایه تعداد زیادی دنبال کرده دارد.   به اجبار باید از RSS استفاده کرد تا دچار
     محدودیت درخواست ها نشود.'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'چیزی

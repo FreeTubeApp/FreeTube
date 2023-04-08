@@ -35,7 +35,7 @@
       <p
         class="message"
       >
-        {{ $t("Video['Live chat is enabled.  Chat messages will appear here once sent.']") }}
+        {{ $t("Video['Live chat is enabled. Chat messages will appear here once sent.']") }}
       </p>
     </div>
     <div

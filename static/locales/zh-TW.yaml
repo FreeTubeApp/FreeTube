@@ -73,7 +73,7 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
@@ -550,8 +550,8 @@ Video:
   Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
   'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被停用或者直播已經結束。'
-  Live chat is enabled.  Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
+  Live chat is enabled. Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
   Published:
     Jan: '一月'
@@ -749,9 +749,8 @@ Shuffle is now disabled: '隨機播放現在被停用'
 Shuffle is now enabled: '隨機播放現在被停用'
 Playing Next Video: '將播放下一影片'
 Playing Previous Video: '將播放上一影片'
-Playing next video in 5 seconds.  Click to cancel: '下一部影片將在5秒後播放。點擊取消。'
 Canceled next video autoplay: '取消自動播放下一部影片'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已播放完畢。 開啟循環播放來繼續播放'
+'The playlist has ended. Enable loop to continue playing': '播放清單已播放完畢。 開啟循環播放來繼續播放'
 
 Yes: '是'
 No: '否'

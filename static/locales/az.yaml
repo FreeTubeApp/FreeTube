@@ -79,7 +79,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abunəliklər'
   Latest Subscriptions: 'Ən Son Abunəliklər'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Bu
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Bu
     profilin çoxlu sayda abunəsi var.Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
     zorlanır'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik

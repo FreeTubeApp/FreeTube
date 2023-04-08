@@ -75,7 +75,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सब्सक्रिप्शन'
   Latest Subscriptions: 'सबसे नए सब्सक्रिप्शन'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'यह
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यह
     प्रोफ़ाइल के पास बहुत सारे सब्सक्रिप्शनस है।  RSS को बलपूर्वक प्रयोग करके रेट
     लिमिटिंग से बचाएं'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपके
@@ -215,7 +215,7 @@ Video:
   Copy Invidious Channel Link: 'इनवीडियस चैनल लिंक कॉपी करें'
   Watching: ''
   Live Chat is currently not supported in this build.: ''
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'लाइव
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'लाइव
     चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन
     आवश्यक है।'
   Published:

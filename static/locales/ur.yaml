@@ -47,7 +47,7 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'یہ
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'یہ
     پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ شرح کو محدود کرنے سے بچنے کے لیے آر
     ایس ایس کو مجبور کرنا'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'آپ
@@ -232,7 +232,7 @@ Playing Next Video Interval: 'اگلی ویڈیو بغیر کسی وقت چلا�
 Canceled next video autoplay: 'اگلی ویڈیو آٹو پلے منسوخ کر دی گئی۔'
 Default Invidious instance has been cleared: 'ڈیفالٹ Invidious مثال کو صاف کر دیا
   گیا ہے۔'
-'The playlist has ended.  Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔
+'The playlist has ended. Enable loop to continue playing': 'پلے لسٹ ختم ہو گئی ہے۔
   فعال کھیل جاری رکھنے کے لیے لوپ'
 Age Restricted:
   Type:

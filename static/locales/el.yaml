@@ -78,7 +78,7 @@ Subscriptions:
     από εδώ.'
   'Getting Subscriptions. Please wait.': 'Ανάκτηση Εγγραφών/Συνδρομών. Παρακαλώ περιμένετε.'
   Refresh Subscriptions: 'Ανανέωση Εγγραφών/Συνδρομών'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Αυτό
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό
     το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Εγγραφών. Εξαναγκασμένη εναλλαγή σε λειτουργία
     RSS για αποφυγή περιορισμού των κλήσεων
   Load More Videos: Φόρτωση περισσότερων Βίντεο
@@ -673,9 +673,9 @@ Video:
     προς το παρόν σε αυτήν την έκδοση.'
   'Chat is disabled or the Live Stream has ended.': 'Η συνομιλία είναι απενεργοποιημένη
     ή η ζωντανή ροή έχει τερματιστεί.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία
+  Live chat is enabled. Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία
     είναι ενεργοποιημένη.  Τα μηνύματα συνομιλίας θα εμφανίζονται εδώ μόλις σταλούν.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Η
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Η
     ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
     άμεση σύνδεση με το YouTube.'
   Published:
@@ -880,10 +880,8 @@ Shuffle is now enabled: 'Η τυχαία αναπαραγωγή ενεργοπο
 The playlist has been reversed: 'Η λίστα αναπαραγωγής έχει αντιστραφεί'
 Playing Next Video: 'Αναπαραγωγή του επόμενου βίντεο'
 Playing Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
-Playing next video in 5 seconds.  Click to cancel: 'Αναπαραγωγή επόμενου βίντεο σε
-  5 δευτερόλεπτα. Κάντε κλικ για ακύρωση.'
 Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου βίντεο έχει ακυρωθεί'
-'The playlist has ended.  Enable loop to continue playing': 'Η λίστα αναπαραγωγής
+'The playlist has ended. Enable loop to continue playing': 'Η λίστα αναπαραγωγής
   έχει τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
 
 Yes: 'Ναι'

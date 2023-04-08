@@ -81,7 +81,7 @@ Subscriptions:
     بە.'
   Refresh Subscriptions: 'بەشداریکراوەکان تازە بکەرەوە'
   Load More Videos: ڤیدیۆی زیاتر بهێنە
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: .ئەم
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: .ئەم
     پرۆفایلە ژمارەیەکی زۆری هەیە لە سەبسکریپشن. بۆ دورکەوتنەوە لە سنوور دانان (رسس)
     بەکاردەهێندرێت
 Trending:
@@ -222,7 +222,7 @@ Video:
   Loop Playlist: ''
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': ''
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   Published:
     Aug: ''
     Minutes: ''

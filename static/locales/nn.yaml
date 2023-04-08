@@ -77,7 +77,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnement'
   Latest Subscriptions: 'Siste abonnement'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Denne
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Denne
     profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di
     abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for
@@ -584,9 +584,9 @@ Video:
     i den noverande versjonen.'
   'Chat is disabled or the Live Stream has ended.': 'Chatten er slått av eller direktesendinga
     er avslutta.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Direktechat er
+  Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
     slått på. Chatmeldingar vil bli vist her når dei er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Direktechat
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
     er førebels ikkje støtta av Invidious-API-et. Ei direkte tilkopling til YouTube
     er krevja.'
   Download Video: 'Last ned video'
@@ -836,10 +836,8 @@ Shuffle is now enabled: 'Tilfeldig avspeling er no aktivert'
 The playlist has been reversed: 'Spelelista har blitt snudd'
 Playing Next Video: 'Speler av neste video'
 Playing Previous Video: 'Speler av førre video'
-Playing next video in 5 seconds.  Click to cancel: 'Speler av neste video om 5 sekund.
-  Klikk for å avbryte.'
 Canceled next video autoplay: 'Avbryt automatisk avspeling av neste video'
-'The playlist has ended.  Enable loop to continue playing': 'Spelelista har nådd si
+'The playlist has ended. Enable loop to continue playing': 'Spelelista har nådd si
   ende. Klikk på "Gjenta" for å fortsette avspelinga'
 
 Yes: 'Ja'

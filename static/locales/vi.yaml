@@ -74,7 +74,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Đang lấy Đăng ký. Vui lòng chờ.
   Load More Videos: Load thêm video
   Refresh Subscriptions: Refresh đăng ký
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Kênh
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Kênh
     này có nhiều người đăng ký. Buộc RSS để tránh bị giới hạn
   Error Channels: Các kênh lỗi
 Trending:
@@ -535,9 +535,9 @@ Video:
     hỗ trợ trong bản build này.'
   'Chat is disabled or the Live Stream has ended.': 'Chat đã bị tắt hoặc Live Stream
     đã kết thúc.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Chat trực tiếp
+  Live chat is enabled. Chat messages will appear here once sent.: 'Chat trực tiếp
     đã bật. Thông điệp chat sẽ hiện ra ở đây khi gửi.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Chat
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat
     trực tiếp hiện tại không hỗ trợ với Invidious API. Một đường truyền trực tiếp
     đến Youtube là cần thiết.'
   Published:
@@ -725,10 +725,8 @@ Shuffle is now disabled: 'Xáo trộn hiện đã tắt'
 Shuffle is now enabled: 'Xáo trộn hiện đã bật'
 Playing Next Video: 'Phát video tiếp theo'
 Playing Previous Video: 'Phát video trước'
-Playing next video in 5 seconds.  Click to cancel: 'Phát video tiếp theo trong 5 giây.
-  Nhấn để bỏ.'
 Canceled next video autoplay: 'Bỏ tự động phát video tiếp theo'
-'The playlist has ended.  Enable loop to continue playing': 'Danh sách phát đã kết
+'The playlist has ended. Enable loop to continue playing': 'Danh sách phát đã kết
   thúc. Bật lặp lại để tiếp tục phát'
 
 Yes: 'Có'

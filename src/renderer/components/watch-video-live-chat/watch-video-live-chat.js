@@ -100,7 +100,7 @@ export default defineComponent({
             this.getLiveChatLocal()
           } else {
             this.hasError = true
-            this.errorMessage = this.$t('Video["Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required."]')
+            this.errorMessage = this.$t('Video["Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required."]')
             this.showEnableChat = true
             this.isLoading = false
           }

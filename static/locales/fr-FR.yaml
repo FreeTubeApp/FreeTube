@@ -78,7 +78,7 @@ Subscriptions:
     veuillez patienter.'
   Getting Subscriptions. Please wait.: Obtention des abonnements. Veuillez patienter.
   Refresh Subscriptions: Actualiser les abonnements
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ce
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ce
     profil comporte un grand nombre d'abonnements.  Le flux RSS outrepassera la limite
     fixée
   Load More Videos: Charger plus de vidéos
@@ -635,9 +635,9 @@ Video:
     actuellement pas pris en charge dans cette version.'
   'Chat is disabled or the Live Stream has ended.': 'Le tchat est désactivé ou la
     diffusion en direct est terminée.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Le tchat en direct
+  Live chat is enabled. Chat messages will appear here once sent.: 'Le tchat en direct
     est activé. Les messages de tchat apparaîtront ici une fois envoyés.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Le
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Le
     tchat en direct n''est actuellement pas pris en charge avec l''API Invidious.
     Une connexion directe à YouTube est requise.'
   Published:
@@ -848,10 +848,8 @@ Shuffle is now disabled: 'Mode aléatoire désactivé'
 Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lecture de la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
-Playing next video in 5 seconds.  Click to cancel: 'Lecture de la vidéo suivante dans
-  5 secondes. Cliquer pour annuler.'
 Canceled next video autoplay: 'Annuler la lecture automatique'
-'The playlist has ended.  Enable loop to continue playing': 'Fin de la liste de lecture.
+'The playlist has ended. Enable loop to continue playing': 'Fin de la liste de lecture.
   Activer la lecture en boucle pour continuer'
 
 Yes: 'Oui'

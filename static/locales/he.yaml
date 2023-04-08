@@ -81,7 +81,7 @@ Subscriptions:
     המנויים שלכם כרגע ריקה. תתחילו להוסיף הרשמות כדי לראות אותן כאן.'
   'Getting Subscriptions. Please wait.': 'אוסף מנויים. אנא המתן.'
   Refresh Subscriptions: 'רענון מנויים'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
   Error Channels: ערוצים עם שגיאות
@@ -638,9 +638,9 @@ Video:
   Enable Live Chat: 'הפעלת צ׳אט'
   Live Chat is currently not supported in this build.: 'הצ׳אט כרגע לא נתמך בגרסה זו.'
   'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'הצ׳אט מופעל.
+  Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל.
     ההודעות תופענה פה כאשר תישלחנה.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'מנגנון
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון
     הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
   Published:
     Jan: 'בינו׳'
@@ -832,10 +832,8 @@ Shuffle is now enabled: 'ערבוב מופעל'
 The playlist has been reversed: 'רשימת נגינה זו התהפכה'
 Playing Next Video: 'הסרטון הבא מתנגן'
 Playing Previous Video: 'הסרטון הקודם מתנגן'
-Playing next video in 5 seconds.  Click to cancel: 'הסרטון הבא יתנגן תוך 5 שניות.
-  יבוטל בלחיצה.'
 Canceled next video autoplay: 'ניגון הסרטון הבא אוטומטית בוטל'
-'The playlist has ended.  Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש
+'The playlist has ended. Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש
   להפעיל לולאה כדי להמשיך לנגן'
 
 Yes: 'כן'

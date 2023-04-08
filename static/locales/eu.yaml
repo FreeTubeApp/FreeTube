@@ -75,7 +75,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Harpidetzak'
   Latest Subscriptions: 'Azken harpidetzak'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Honako
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako
     profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
     harpidetzen zerrenda hutsik da. Has zaitez harpidetzak gehitzen hemen ikusteko'
@@ -548,9 +548,9 @@ Video:
     onartzen konpilazio honetan.'
   'Chat is disabled or the Live Stream has ended.': 'Txata desgaituta dago edo zuzeneko
     igorpena amaitu da.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Zuzeneko txata
+  Live chat is enabled. Chat messages will appear here once sent.: 'Zuzeneko txata
     gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Zuzeneko
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Zuzeneko
     txata ez da onartzen Invidious APIarekin. Beharrezkoa da  YouTube-ra zuzenean
     konektatzea.'
   Download Video: 'Bideoa deskargatu'
@@ -792,7 +792,7 @@ Playing Next Video Interval: 'Denbora gutxi barru hurrengo bideoa erreproduzituk
   Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen.
   Klikatu deuseztatzeko.'
 Canceled next video autoplay: 'Hurrengo bideoa automatikoki erreproduzituko da'
-'The playlist has ended.  Enable loop to continue playing': 'Erreprodukzio zerrenda
+'The playlist has ended. Enable loop to continue playing': 'Erreprodukzio zerrenda
   bukatu da. Etengabeko erreprodukzioa aktibatu erreproduzitzen jarraitzeko'
 
 Yes: 'Bai'

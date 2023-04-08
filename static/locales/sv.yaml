@@ -82,7 +82,7 @@ Subscriptions:
     till prenumerationer för att se dem här.'
   'Getting Subscriptions. Please wait.': 'Hämtar prenumerationer. Snälla vänta.'
   Refresh Subscriptions: 'Uppdatera prenumerationer'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Den
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Den
     här profilen har ett stort antal prenumerationer.  Tvinga RSS för att undvika
     ränta begränsa
   Load More Videos: Se mer
@@ -637,9 +637,9 @@ Video:
     inte i denna version.'
   'Chat is disabled or the Live Stream has ended.': 'Chatten är inaktiverad eller
     så har Live strömmen avslutats.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Livechatt är
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är
     aktiverat. Meddelanden visas här när de har skickats.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Livechatt
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechatt
     stöds för närvarande inte med Invidious API. En direktanslutning till YouTube
     krävs.'
   Published:
@@ -827,10 +827,8 @@ Shuffle is now enabled: 'Blandning är nu aktiverad'
 The playlist has been reversed: 'Spellistan är omvänd'
 Playing Next Video: 'Spelar video'
 Playing Previous Video: 'Spelar föregående video'
-Playing next video in 5 seconds.  Click to cancel: 'Spelar upp nästa video på 5 sekunder.
-  Klicka för att avbryta.'
 Canceled next video autoplay: 'Avbröts nästa autoplay'
-'The playlist has ended.  Enable loop to continue playing': 'Spellistan har avslutats.  Aktivera
+'The playlist has ended. Enable loop to continue playing': 'Spellistan har avslutats.  Aktivera
   loop för att fortsätta spela'
 
 Yes: 'Ja'

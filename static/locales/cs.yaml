@@ -78,7 +78,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
   Latest Subscriptions: 'Nejnovější odběry'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Tento
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Tento
     profil má velký počet odběrů.  Vynucení RSS, aby se zabránilo omezení rychlosti'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaše
     odběry jsou prázdné. Přidejte odběry, zobrazí zde.'
@@ -646,9 +646,9 @@ Video:
     programu podporován.'
   'Chat is disabled or the Live Stream has ended.': 'Chat je zakázán nebo živý přenos
     byl ukončen.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Živý chat je
+  Live chat is enabled. Chat messages will appear here once sent.: 'Živý chat je
     povolen.  Po odeslání se zde zobrazí zprávy chatu.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Živý
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Živý
     chat momentálně není podporován s Invidious API. Je vyžadováno přímé připojení
     k YouTube.'
   Download Video: 'Stáhnout Video'
@@ -909,10 +909,8 @@ Shuffle is now enabled: 'Zamíchání je zapnuto'
 The playlist has been reversed: 'Playlist byl obrácen'
 Playing Next Video: 'Přehrávání dalšího videa'
 Playing Previous Video: 'Přehrát předchozí video'
-Playing next video in 5 seconds.  Click to cancel: 'Přehrání dalšího videa za 5 sekund.
-  Kliknutím zrušíte.'
 Canceled next video autoplay: 'Automatické přehrávání dalšího videa bylo zrušeno'
-'The playlist has ended.  Enable loop to continue playing': 'Seznam skladeb skončil.  Chcete-li
+'The playlist has ended. Enable loop to continue playing': 'Seznam skladeb skončil.  Chcete-li
   pokračovat v přehrávání, povolte smyčku'
 
 Yes: 'Ano'

@@ -76,7 +76,7 @@ Subscriptions:
     neke pretplate.'
   'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
   Refresh Subscriptions: 'Aktualiziraj pretplate'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ovaj
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
   Load More Videos: Učitaj još videa
@@ -646,9 +646,9 @@ Video:
     nije podržan u ovoj verziji.'
   'Chat is disabled or the Live Stream has ended.': 'Razgovor je deaktiviran ili je
     prijenos uživo završio.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Razgovor uživo
+  Live chat is enabled. Chat messages will appear here once sent.: 'Razgovor uživo
     je aktiviran. Poruke razgovora pojavit će se ovdje nakon slanja.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Razgovor
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Razgovor
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
@@ -852,10 +852,8 @@ Shuffle is now disabled: 'Slučajni redoslijed je sada deaktiviran'
 Shuffle is now enabled: 'Slučajni redoslijed je sada aktiviran'
 Playing Next Video: 'Reprodukcija sljedećeg videa'
 Playing Previous Video: 'Reprodukcija prethodnog videa'
-Playing next video in 5 seconds.  Click to cancel: 'Reprodukcija sljedećeg videa za
-  5 sekundi. Pritisni za prekid.'
 Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je prekinuta'
-'The playlist has ended.  Enable loop to continue playing': 'Dosegnut je kraj zbirke.
+'The playlist has ended. Enable loop to continue playing': 'Dosegnut je kraj zbirke.
   Aktiviraj ponavljanje za nastavljanje reprodukcije'
 
 Yes: 'Da'
