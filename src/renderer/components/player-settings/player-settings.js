@@ -208,6 +208,11 @@ export default defineComponent({
   watch: {
     screenshotFolder: function() {
       this.getScreenshotFolderPlaceholder()
+    },
+    hideComments: function(newValue) {
+      if (newValue) {
+        this.updateCommentAutoLoadEnabled(false)
+      }
     }
   },
   mounted: function() {
