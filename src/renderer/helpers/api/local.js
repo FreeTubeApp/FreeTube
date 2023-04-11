@@ -685,7 +685,7 @@ export function parseLocalCommunityPost(post) {
   }
 
   return {
-    postText: post.content.text === 'N/A' ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
+    postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
     publishedText: post.published.text,
