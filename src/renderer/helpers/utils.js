@@ -158,6 +158,7 @@ export async function getFormatsFromHLSManifest(manifestUrl) {
 
   const formats = []
   let currentHeight = 0
+  let currentFPS = 0
 
   for (const line of lines) {
     if (line.startsWith('#')) {
@@ -165,14 +166,17 @@ export async function getFormatsFromHLSManifest(manifestUrl) {
         continue
       }
 
-      const height = line
-        .split(',')
-        .find(part => part.startsWith('RESOLUTION'))
+      const parts = line.split(',')
+      const height = parts.find(part => part.startsWith('RESOLUTION'))
         .split('x')[1]
+      const fps = parts.find(part => part.startsWith('FRAME-RATE'))
+        .split('=')[1]
       currentHeight = parseInt(height)
+      currentFPS = parseInt(fps)
     } else {
       formats.push({
         height: currentHeight,
+        fps: currentFPS,
         url: line.trim()
       })
     }
