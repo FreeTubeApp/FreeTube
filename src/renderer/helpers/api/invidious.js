@@ -159,7 +159,9 @@ export async function invidiousGetCommunityPosts(channelId) {
 
 function parseInvidiousCommunityData(data) {
   return {
-    postText: data.contentHtml,
+    // use #/ to support channel YT links.
+    // ex post: https://www.youtube.com/post/UgkxMpGt1SVlHwA1afwqDr2DZLn-hmJJQqKo
+    postText: data.contentHtml.replaceAll('href="/', 'href="#/'),
     postId: data.commentId,
     authorThumbnails: data.authorThumbnails.map(thumbnail => {
       thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
@@ -179,6 +181,15 @@ function parseInvidiousCommunityAttachments(data) {
     return null
   }
 
+  // I've only seen this appear when a video was made private.
+  // This is not currently supported on local api.
+  if (data.error) {
+    return {
+      type: 'error',
+      message: data.error
+    }
+  }
+
   if (data.type === 'image') {
     return {
       type: data.type,
@@ -190,7 +201,7 @@ function parseInvidiousCommunityAttachments(data) {
   }
 
   if (data.type === 'video') {
-    data.videoThumbnails = data.videoThumbnails.map(thumbnail => {
+    data.videoThumbnails = data.videoThumbnails?.map(thumbnail => {
       thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
       return thumbnail
     })

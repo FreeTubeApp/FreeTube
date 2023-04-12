@@ -679,13 +679,13 @@ export function parseLocalSubscriberCount(text) {
  * @param {import('youtubei.js/dist/src/parser/classes/BackstagePost').default} post
  */
 export function parseLocalCommunityPost(post) {
-  let replyCount = post.action_buttons.reply_button?.text ?? null
+  let replyCount = post.action_buttons?.reply_button?.text ?? null
   if (replyCount !== null) {
     replyCount = parseLocalSubscriberCount(post?.action_buttons.reply_button.text)
   }
 
   return {
-    postText: post.content.text === 'N/A' ? '' : post.content.text,
+    postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
     postId: post.id,
     authorThumbnails: post.author.thumbnails,
     publishedText: post.published.text,
