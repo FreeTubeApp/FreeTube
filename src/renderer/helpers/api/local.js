@@ -459,13 +459,16 @@ function convertSearchFilters(filters) {
 /**
  * @param {(TextRun|EmojiRun)[]} runs
  * @param {number} emojiSize
+ * @param {{looseChannelNameDetection: boolean}} options
  */
-export function parseLocalTextRuns(runs, emojiSize = 16) {
+export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChannelNameDetection: false }) {
   if (!Array.isArray(runs)) {
     throw new Error('not an array of text runs')
   }
 
   const timestampRegex = /^(?:\d+:){1,2}\d+$/
+  const spacesBeforeRegex = /^\s+/
+  const spacesAfterRegex = /\s+$/
   const parsedRuns = []
 
   for (const run of runs) {
@@ -508,8 +511,12 @@ export function parseLocalTextRuns(runs, emojiSize = 16) {
             break
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
-            if (CHANNEL_HANDLE_REGEX.test(trimmedText)) {
-              parsedRuns.push(`<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>`)
+            // In comments, mention can be `@Channel Name` (not handle, but name)
+            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || (options.looseChannelNameDetection && trimmedText.startsWith('@'))) {
+              // Note that in regex `\s` must be used since the text contain non-default space (the half-width space char when we press spacebar)
+              const spacesBefore = (spacesBeforeRegex.exec(text) || [''])[0]
+              const spacesAfter = (spacesAfterRegex.exec(text) || [''])[0]
+              parsedRuns.push(`${spacesBefore}<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>${spacesAfter}`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
@@ -603,7 +610,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     isOwner: comment.author_is_channel_owner,
     isMember: comment.is_member,
     memberIconUrl: comment.is_member ? comment.sponsor_comment_badge.custom_badge[0].url : '',
-    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16)),
+    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
     time: toLocalePublicationString({ publishText: comment.published.text.replace('(edited)', '').trim() }),
     likes: comment.vote_count,
     isHearted: comment.is_hearted,
