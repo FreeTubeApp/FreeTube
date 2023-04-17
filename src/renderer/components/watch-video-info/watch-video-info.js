@@ -264,7 +264,7 @@ export default defineComponent({
     },
 
     publishedString() {
-      if (this.isLiveContent && this.isLive) {
+      if (this.isLive) {
         return this.$t('Video.Started streaming on')
       } else if (this.isLiveContent && !this.isLive) {
         return this.$t('Video.Streamed on')
