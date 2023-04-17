@@ -110,7 +110,7 @@
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.7",
     "rimraf": "^5.0.0",
-    "sass": "^1.61.0",
+    "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "stylelint": "^14.16.1",
     "stylelint-config-sass-guidelines": "^9.0.1",
