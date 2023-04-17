@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
@@ -98,9 +98,9 @@ export default defineComponent({
           // Since components are only rendered after scroll,
           // the scroll position requires another adjustment
           // Timeout value depends on how soon the components finish rendering
-          setTimeout(() => {
+          nextTick(() => {
             container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
-          }, 500)
+          })
         }
       }
     }
