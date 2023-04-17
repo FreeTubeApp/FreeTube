@@ -408,6 +408,7 @@ export default defineComponent({
               .map((format) => {
                 return {
                   url: format.url,
+                  fps: format.fps,
                   type: 'application/x-mpegURL',
                   label: 'Dash',
                   qualityLabel: `${format.height}p`

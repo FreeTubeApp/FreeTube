@@ -97,7 +97,6 @@ export default defineComponent({
       selectedMimeType: '',
       selectedFPS: 0,
       using60Fps: false,
-      maxFramerate: 0,
       activeSourceList: [],
       activeAdaptiveFormats: [],
       playerStats: null,
@@ -337,7 +336,6 @@ export default defineComponent({
     this.createToggleTheatreModeButton()
     this.createScreenshotButton()
     this.determineFormatType()
-    this.determineMaxFramerate()
 
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('play', () => this.player.play())
@@ -847,25 +845,6 @@ export default defineComponent({
       }
     },
 
-    determineMaxFramerate: async function() {
-      if (this.dashSrc.length === 0) {
-        this.maxFramerate = 60
-        return
-      }
-
-      try {
-        const data = await fs.readFile(this.dashSrc[0].url)
-
-        if (data.includes('frameRate="60"')) {
-          this.maxFramerate = 60
-        } else {
-          this.maxFramerate = 30
-        }
-      } catch {
-        this.maxFramerate = 60
-      }
-    },
-
     determineDefaultQualityLegacy: function () {
       if (this.useDash) {
         return
@@ -1210,17 +1189,24 @@ export default defineComponent({
     },
 
     framebyframe: function (step) {
+      if (this.format === 'audio') {
+        return
+      }
+
       this.player.pause()
-      const quality = this.useDash ? this.player.qualityLevels()[this.player.qualityLevels().selectedIndex] : {}
-      let fps = 30
-      // Non-Dash formats are 30fps only
-      if (this.maxFramerate === 60 && quality.height >= 480) {
-        for (let i = 0; i < this.adaptiveFormats.length; i++) {
-          if (this.adaptiveFormats[i].bitrate === quality.bitrate) {
-            fps = this.adaptiveFormats[i].fps ? this.adaptiveFormats[i].fps : 30
-            break
-          }
-        }
+
+      let fps
+      if (this.useDash) {
+        const qualityLevels = this.player.qualityLevels()
+        fps = qualityLevels[qualityLevels.selectedIndex].frameRate
+      } else {
+        // legacy formats
+        const currentPlayerSourceUrl = this.player.currentSource().src
+        fps = this.sourceList.find(source => source.url === currentPlayerSourceUrl)?.fps
+      }
+
+      if (isNaN(fps)) {
+        fps = 30
       }
 
       // The 3 lines below were taken from the videojs-framebyframe node module by Helena Rasche
