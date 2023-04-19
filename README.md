@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://docs.freetubeapp.io/images/logoColor.png" width=500 align="center">
+ <img alt="" src="https://docs.freetubeapp.io/images/logoColor.png" width=500 align="center">
 </p>
 
 FreeTube is an open source desktop YouTube player built with privacy in mind.
@@ -8,8 +8,8 @@ Available for Windows, Mac & Linux thanks to Electron.
 
 <p align="center"><a href="https://github.com/FreeTubeApp/FreeTube/releases">Download FreeTube</a></p>
 <p align="center">
-  <a href="https://github.com/FreeTubeApp/FreeTube/actions/workflows/build.yml" alt='Build status'>
-    <img src="https://github.com/FreeTubeApp/FreeTube/actions/workflows/build.yml/badge.svg?branch=development" />
+  <a href="https://github.com/FreeTubeApp/FreeTube/actions/workflows/build.yml">
+    <img alt='Build status' src="https://github.com/FreeTubeApp/FreeTube/actions/workflows/build.yml/badge.svg?branch=development" />
   </a>
   <a href="https://hosted.weblate.org/engage/free-tube/">
     <img src="https://hosted.weblate.org/widgets/free-tube/-/svg-badge.svg" alt="Translation status" />
@@ -29,8 +29,8 @@ prevent duplicates!</b>
 <img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
 
 ## How does it work?
-FreeTube uses a built in extractor to grab and serve data / videos.  The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used.  FreeTube does not use any official APIs to obtain data.  While YouTube can still see your video requests, it can no
-longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.  Using a VPN or Tor is highly recommended
+FreeTube uses a built in extractor to grab and serve data / videos. The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used. FreeTube does not use any official APIs to obtain data. While YouTube can still see your video requests, it can no
+longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out. Using a VPN or Tor is highly recommended
 to hide your IP while using FreeTube.
 
 ## Features
@@ -55,6 +55,8 @@ to hide your IP while using FreeTube.
 * Keyboard shortcuts
 * Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
+* View channel community posts
+* View most age restricted videos
 
 ### Browser Extension
 FreeTube is supported by the [Privacy Redirect](https://github.com/SimonBrazell/privacy-redirect) and [LibRedirect](https://github.com/libredirect/libredirect) extensions, which will allow you to open YouTube links into FreeTube. You must enable the option within the advanced settings of the extension for it to work.
@@ -79,7 +81,7 @@ Builds are automatically created from changes to our development branch via [Git
 The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
 
 ### Unofficial Downloads
-These builds are maintained by the community.  While they should be safe, download at your own risk.  There may be issues with using these versus the official builds.  Any issues specific with these builds should be sent to their respective maintainer.
+These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer.
 
 * Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 
@@ -92,6 +94,10 @@ These builds are maintained by the community.  While they should be safe, downlo
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
+
+* Snap: [Download](https://snapcraft.io/freetube-snap) and [Source Code](https://github.com/CapeCrusader321/Freetube-Snap)
+
+* FreeTubeCordova (FreeTube port for android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
 
 ## Contributing
 If you like to get your hands dirty and want to contribute, we would love to
@@ -123,7 +129,7 @@ If you enjoy using FreeTube, you're welcome to leave a donation using the follow
 
 * Monero Address: `48WyAPdjwc6VokeXACxSZCFeKEXBiYPV6GjfvBsfg4CrUJ95LLCQSfpM9pvNKy5GE5H4hNaw99P8RZyzmaU9kb1pD7kzhCB`
 
-While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs.
+While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs. If you are using the invidious api then we recommend that you donate to the instance that you use. You can also donate to the [Invidious team](https://invidious.io/donate/) or the [local api developer](https://github.com/sponsors/LuanRT)
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  
