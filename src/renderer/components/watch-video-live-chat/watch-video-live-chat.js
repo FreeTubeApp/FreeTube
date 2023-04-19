@@ -85,6 +85,7 @@ export default defineComponent({
     if (!process.env.IS_ELECTRON) {
       this.hasError = true
       this.errorMessage = this.$t('Video["Live Chat is currently not supported in this build."]')
+      this.isLoading = false
     } else {
       switch (this.backendPreference) {
         case 'local':
