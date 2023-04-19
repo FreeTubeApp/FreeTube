@@ -87,7 +87,7 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
-* FreeTubeCordova (FreeTube port for android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
+* FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
 
 * makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
 
