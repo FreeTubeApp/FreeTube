@@ -87,17 +87,17 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
 
+* FreeTubeCordova (FreeTube port for android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
+
 * makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
 
 * PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) and [Source Code](https://github.com/rddim/FreeTubePortable)
 
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
-* Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
-
 * Snap: [Download](https://snapcraft.io/freetube-snap) and [Source Code](https://github.com/CapeCrusader321/Freetube-Snap)
 
-* FreeTubeCordova (FreeTube port for android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
+* Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
 ## Contributing
 If you like to get your hands dirty and want to contribute, we would love to
