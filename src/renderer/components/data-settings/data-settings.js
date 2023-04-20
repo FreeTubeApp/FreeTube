@@ -140,18 +140,18 @@ export default defineComponent({
         textDecode = this.convertOldFreeTubeFormatToNew(textDecode)
       }
 
+      const requiredKeys = [
+        '_id',
+        'name',
+        'bgColor',
+        'textColor',
+        'subscriptions'
+      ]
+
       textDecode.forEach((profileData) => {
         // We would technically already be done by the time the data is parsed,
         // however we want to limit the possibility of malicious data being sent
         // to the app, so we'll only grab the data we need here.
-
-        const requiredKeys = [
-          '_id',
-          'name',
-          'bgColor',
-          'textColor',
-          'subscriptions'
-        ]
 
         const profileObject = {}
         Object.keys(profileData).forEach((key) => {
@@ -226,8 +226,9 @@ export default defineComponent({
       this.setProgressBarPercentage(0)
       let count = 0
 
+      const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^\n",]*|(?:\n|$))/g
+
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
-        const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^\n",]*|(?:\n|$))/g
         return [...yt.matchAll(splitCSVRegex)].map(s => {
           let newVal = s[1]
           if (newVal.startsWith('"')) {
@@ -709,27 +710,28 @@ export default defineComponent({
     importFreeTubeHistory(textDecode) {
       textDecode.pop()
 
+      const requiredKeys = [
+        '_id',
+        'author',
+        'authorId',
+        'description',
+        'isLive',
+        'lengthSeconds',
+        'paid',
+        'published',
+        'timeWatched',
+        'title',
+        'type',
+        'videoId',
+        'viewCount',
+        'watchProgress'
+      ]
+
       textDecode.forEach((history) => {
         const historyData = JSON.parse(history)
         // We would technically already be done by the time the data is parsed,
         // however we want to limit the possibility of malicious data being sent
         // to the app, so we'll only grab the data we need here.
-        const requiredKeys = [
-          '_id',
-          'author',
-          'authorId',
-          'description',
-          'isLive',
-          'lengthSeconds',
-          'paid',
-          'published',
-          'timeWatched',
-          'title',
-          'type',
-          'videoId',
-          'viewCount',
-          'watchProgress'
-        ]
 
         const historyObject = {}
 
@@ -880,33 +882,34 @@ export default defineComponent({
       }
       const playlists = JSON.parse(data)
 
+      const requiredKeys = [
+        'playlistName',
+        'videos'
+      ]
+
+      const optionalKeys = [
+        '_id',
+        'protected',
+        'removeOnWatched'
+      ]
+
+      const requiredVideoKeys = [
+        'videoId',
+        'title',
+        'author',
+        'authorId',
+        'published',
+        'lengthSeconds',
+        'timeAdded',
+        'isLive',
+        'paid',
+        'type'
+      ]
+
       playlists.forEach(async (playlistData) => {
         // We would technically already be done by the time the data is parsed,
         // however we want to limit the possibility of malicious data being sent
         // to the app, so we'll only grab the data we need here.
-        const requiredKeys = [
-          'playlistName',
-          'videos'
-        ]
-
-        const optionalKeys = [
-          '_id',
-          'protected',
-          'removeOnWatched'
-        ]
-
-        const requiredVideoKeys = [
-          'videoId',
-          'title',
-          'author',
-          'authorId',
-          'published',
-          'lengthSeconds',
-          'timeAdded',
-          'isLive',
-          'paid',
-          'type'
-        ]
 
         const playlistObject = {}
 
@@ -947,11 +950,11 @@ export default defineComponent({
 
           if (existingPlaylist !== undefined) {
             playlistObject.videos.forEach((video) => {
-              const existingVideo = existingPlaylist.videos.find((x) => {
+              const videoExists = existingPlaylist.videos.some((x) => {
                 return x.videoId === video.videoId
               })
 
-              if (existingVideo === undefined) {
+              if (!videoExists) {
                 const payload = {
                   playlistName: existingPlaylist.playlistName,
                   videoData: video
