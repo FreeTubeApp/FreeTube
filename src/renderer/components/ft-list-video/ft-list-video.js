@@ -499,7 +499,10 @@ export default defineComponent({
 
       if (historyIndex !== -1) {
         this.watched = true
-        this.watchProgress = this.historyCache[historyIndex].watchProgress
+        if (this.saveWatchedProgress) {
+          // For UX consistency, no progress reading if writing disabled
+          this.watchProgress = this.historyCache[historyIndex].watchProgress
+        }
 
         if (this.historyCache[historyIndex].published !== '') {
           const videoPublished = this.historyCache[historyIndex].published

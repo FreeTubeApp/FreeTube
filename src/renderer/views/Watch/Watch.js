@@ -944,7 +944,8 @@ export default defineComponent({
           } else {
             this.$refs.videoPlayer.player.currentTime(this.timestamp)
           }
-        } else if (historyIndex !== -1) {
+        } else if (this.saveWatchedProgress && historyIndex !== -1) {
+          // For UX consistency, no progress reading if writing disabled
           const watchProgress = this.historyCache[historyIndex].watchProgress
 
           if (watchProgress < (this.videoLengthSeconds - 10)) {
