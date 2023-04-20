@@ -1,4 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
+import debounce from 'lodash.debounce'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
@@ -26,7 +27,6 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
-      filterPlaylistTimeout: null,
     }
   },
   computed: {
@@ -70,6 +70,8 @@ export default defineComponent({
     }
 
     this.activeData = this.fullData
+
+    this.filterPlaylistDebounce = debounce(this.filterPlaylist, 1000)
   },
   methods: {
     increaseLimit: function () {
@@ -82,12 +84,6 @@ export default defineComponent({
       }
     },
     filterPlaylistAsync: function() {
-      // Clear previous delayed task if exists
-      if (this.filterPlaylistTimeout != null) {
-        clearTimeout(this.filterPlaylistTimeout)
-        this.filterPlaylistTimeout = null
-      }
-
       if (this.query === '') {
         // When query is empty it can be assumed that the user is clearing the query
         // No need to wait
@@ -95,7 +91,7 @@ export default defineComponent({
       } else {
         // Updating list on every char input could be wasting resources on rendering
         // So run it with delay (to be cancelled when more input received within time)
-        this.filterPlaylistTimeout = setTimeout(this.filterPlaylist, 1000)
+        this.filterPlaylistDebounce()
       }
     },
     filterPlaylist: function() {

@@ -1,4 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
+import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -24,7 +25,6 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
-      filterHistoryTimeout: null,
     }
   },
   computed: {
@@ -67,6 +67,8 @@ export default defineComponent({
     } else {
       this.showLoadMoreButton = false
     }
+
+    this.filterHistoryDebounce = debounce(this.filterHistory, 1000)
   },
   methods: {
     increaseLimit: function () {
@@ -79,12 +81,6 @@ export default defineComponent({
       }
     },
     filterHistoryAsync: function() {
-      // Clear previous delayed task if exists
-      if (this.filterHistoryTimeout != null) {
-        clearTimeout(this.filterHistoryTimeout)
-        this.filterHistoryTimeout = null
-      }
-
       if (this.query === '') {
         // When query is empty it can be assumed that the user is clearing the query
         // No need to wait
@@ -92,12 +88,10 @@ export default defineComponent({
       } else {
         // Updating list on every char input could be wasting resources on rendering
         // So run it with delay (to be cancelled when more input received within time)
-        this.filterHistoryTimeout = setTimeout(this.filterHistory, 1000)
+        this.filterHistoryDebounce()
       }
     },
     filterHistory: function() {
-      this.filterHistoryTimeout = null
-
       if (this.query === '') {
         this.activeData = this.fullData
         if (this.activeData.length < this.historyCache.length) {
@@ -133,6 +127,6 @@ export default defineComponent({
           window.scrollTo(0, scrollPos)
         })
       })
-    }
+    },
   }
 })
