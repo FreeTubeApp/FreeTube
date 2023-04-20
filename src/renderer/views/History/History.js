@@ -23,7 +23,8 @@ export default defineComponent({
       searchDataLimit: 100,
       showLoadMoreButton: false,
       query: '',
-      activeData: []
+      activeData: [],
+      filterHistoryTimeout: null,
     }
   },
   computed: {
@@ -42,7 +43,7 @@ export default defineComponent({
   watch: {
     query() {
       this.searchDataLimit = 100
-      this.filterHistory()
+      this.filterHistoryAsync()
     },
     activeData() {
       this.refreshPage()
@@ -77,7 +78,26 @@ export default defineComponent({
         sessionStorage.setItem('historyLimit', this.dataLimit)
       }
     },
-    filterHistory: function(query) {
+    filterHistoryAsync: function() {
+      // Clear previous delayed task if exists
+      if (this.filterHistoryTimeout != null) {
+        clearTimeout(this.filterHistoryTimeout)
+        this.filterHistoryTimeout = null
+      }
+
+      if (this.query === '') {
+        // When query is empty it can be assumed that the user is clearing the query
+        // No need to wait
+        this.filterHistory()
+      } else {
+        // Updating list on every char input could be wasting resources on rendering
+        // So run it with delay (to be cancelled when more input received within time)
+        this.filterHistoryTimeout = setTimeout(this.filterHistory, 1000)
+      }
+    },
+    filterHistory: function() {
+      this.filterHistoryTimeout = null
+
       if (this.query === '') {
         this.activeData = this.fullData
         if (this.activeData.length < this.historyCache.length) {

@@ -25,7 +25,8 @@ export default defineComponent({
       searchDataLimit: 100,
       showLoadMoreButton: false,
       query: '',
-      activeData: []
+      activeData: [],
+      filterPlaylistTimeout: null,
     }
   },
   computed: {
@@ -45,7 +46,7 @@ export default defineComponent({
   watch: {
     query() {
       this.searchDataLimit = 100
-      this.filterPlaylist()
+      this.filterPlaylistAsync()
     },
     activeData() {
       this.refreshPage()
@@ -78,6 +79,23 @@ export default defineComponent({
       } else {
         this.dataLimit += 100
         sessionStorage.setItem('favoritesLimit', this.dataLimit)
+      }
+    },
+    filterPlaylistAsync: function() {
+      // Clear previous delayed task if exists
+      if (this.filterPlaylistTimeout != null) {
+        clearTimeout(this.filterPlaylistTimeout)
+        this.filterPlaylistTimeout = null
+      }
+
+      if (this.query === '') {
+        // When query is empty it can be assumed that the user is clearing the query
+        // No need to wait
+        this.filterPlaylist()
+      } else {
+        // Updating list on every char input could be wasting resources on rendering
+        // So run it with delay (to be cancelled when more input received within time)
+        this.filterPlaylistTimeout = setTimeout(this.filterPlaylist, 1000)
       }
     },
     filterPlaylist: function() {
