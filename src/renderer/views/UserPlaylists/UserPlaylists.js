@@ -71,7 +71,7 @@ export default defineComponent({
 
     this.activeData = this.fullData
 
-    this.filterPlaylistDebounce = debounce(this.filterPlaylist, 1000)
+    this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
   },
   methods: {
     increaseLimit: function () {

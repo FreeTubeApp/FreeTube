@@ -68,7 +68,7 @@ export default defineComponent({
       this.showLoadMoreButton = false
     }
 
-    this.filterHistoryDebounce = debounce(this.filterHistory, 1000)
+    this.filterHistoryDebounce = debounce(this.filterHistory, 500)
   },
   methods: {
     increaseLimit: function () {
