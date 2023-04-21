@@ -368,7 +368,7 @@ export default defineComponent({
               })
             }
           } else {
-            chapters = this.extractChaptersFromDescription(this.videoDescription)
+            chapters = this.extractChaptersFromDescription(result.basic_info.short_description)
           }
 
           if (chapters.length > 0) {
