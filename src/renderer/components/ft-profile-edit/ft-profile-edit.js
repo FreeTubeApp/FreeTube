@@ -35,7 +35,6 @@ export default defineComponent({
       profileName: '',
       profileBgColor: '',
       profileTextColor: '',
-      profileSubscriptions: [],
       deletePromptValues: [
         'yes',
         'no'
@@ -51,9 +50,6 @@ export default defineComponent({
     },
     profileInitial: function () {
       return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
-    },
-    profileList: function () {
-      return this.$store.getters.getProfileList
     },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile

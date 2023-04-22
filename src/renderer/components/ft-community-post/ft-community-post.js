@@ -22,14 +22,6 @@ export default defineComponent({
       type: Object,
       required: true
     },
-    playlistId: {
-      type: String,
-      default: null
-    },
-    forceListType: {
-      type: String,
-      default: null
-    },
     appearance: {
       type: String,
       required: true

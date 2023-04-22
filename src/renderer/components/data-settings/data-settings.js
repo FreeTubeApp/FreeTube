@@ -29,7 +29,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      showImportSubscriptionsPrompt: false,
       showExportSubscriptionsPrompt: false,
       subscriptionsPromptValues: [
         'freetube',
@@ -41,20 +40,11 @@ export default defineComponent({
     }
   },
   computed: {
-    rememberHistory: function () {
-      return this.$store.getters.getRememberHistory
-    },
-    saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
-    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
-    },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
     },
     profileList: function () {
       return this.$store.getters.getProfileList

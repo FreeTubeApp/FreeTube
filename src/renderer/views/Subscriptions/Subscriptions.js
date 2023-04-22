@@ -54,10 +54,6 @@ export default defineComponent({
       return this.$store.getters.getUseRssFeeds
     },
 
-    profileList: function () {
-      return this.$store.getters.getProfileList
-    },
-
     activeVideoList: function () {
       if (this.videoList.length < this.dataLimit) {
         return this.videoList
