@@ -209,8 +209,9 @@ export default defineComponent({
               }
             )
             showToast(this.$t('Playing Next Video'))
+          } else {
+            showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
           }
-          showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
         } else {
           this.$router.push(
             {
