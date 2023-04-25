@@ -4,8 +4,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
-import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
-import { showToast } from '../../helpers/utils'
+import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
 
@@ -16,7 +15,7 @@ export default defineComponent({
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-input': FtInput,
-    'ft-prompt': FtPrompt
+    'ft-subscribe-button': FtSubscribeButton
   },
   data: function () {
     return {
@@ -121,45 +120,6 @@ export default defineComponent({
       })
     },
 
-    handleUnsubscribeButtonClick: function(channel) {
-      this.channelToUnsubscribe = channel
-      this.showUnsubscribePrompt = true
-    },
-
-    handleUnsubscribePromptClick: function(value) {
-      this.showUnsubscribePrompt = false
-      if (value !== 'yes') {
-        this.channelToUnsubscribe = null
-        return
-      }
-      this.unsubscribeChannel()
-    },
-
-    unsubscribeChannel: function () {
-      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
-      let index = currentProfile.subscriptions.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      currentProfile.subscriptions.splice(index, 1)
-
-      this.updateProfile(currentProfile)
-      showToast(this.$t('Channels.Unsubscribed', { channelName: this.channelToUnsubscribe.name }))
-
-      index = this.subscribedChannels.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      this.subscribedChannels.splice(index, 1)
-
-      index = this.filteredChannels.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      if (index !== -1) {
-        this.filteredChannels.splice(index, 1)
-      }
-
-      this.channelToUnsubscribe = null
-    },
-
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
       const hostname = new URL(originalURL).hostname
@@ -207,8 +167,7 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateProfile',
-      'updateSubscriptionDetails',
+      'updateSubscriptionDetails'
     ])
   }
 })

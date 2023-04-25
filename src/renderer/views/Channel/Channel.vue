@@ -67,13 +67,12 @@
               class="shareIcon"
             />
 
-            <ft-button
+            <ft-subscribe-button
               v-if="!hideUnsubscribeButton && (!errorMessage || isSubscribed)"
-              :label="subscribedText"
-              background-color="var(--primary-color)"
-              text-color="var(--text-with-main-color)"
-              class="subscribeButton"
-              @click="handleSubscription"
+              class="subscribeButtons"
+              :channel-id="id"
+              :channel-name="channelName"
+              :channel-thumbnail="thumbnailUrl"
             />
           </div>
         </div>

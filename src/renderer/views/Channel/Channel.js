@@ -10,9 +10,9 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
+import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 
 import autolinker from 'autolinker'
-import { MAIN_PROFILE_ID } from '../../../constants'
 import { copyToClipboard, extractNumberFromString, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
 import packageDetails from '../../../../package.json'
 import {
@@ -44,7 +44,8 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-age-restricted': FtAgeRestricted,
-    'ft-share-button': FtShareButton
+    'ft-share-button': FtShareButton,
+    'ft-subscribe-button': FtSubscribeButton
   },
   data: function () {
     return {
@@ -142,14 +143,6 @@ export default defineComponent({
 
     isSubscribed: function () {
       return this.subscriptionInfo !== null
-    },
-
-    subscribedText: function () {
-      if (this.isSubscribed) {
-        return this.$t('Channel.Unsubscribe').toUpperCase()
-      } else {
-        return this.$t('Channel.Subscribe').toUpperCase()
-      }
     },
 
     videoShortLiveSelectNames: function () {
@@ -1139,72 +1132,6 @@ export default defineComponent({
           this.getCommunityPostsLocal()
         }
       })
-    },
-
-    handleSubscription: function () {
-      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
-      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
-
-      if (this.isSubscribed) {
-        currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
-          return channel.id !== this.id
-        })
-
-        this.updateProfile(currentProfile)
-        showToast(this.$t('Channel.Channel has been removed from your subscriptions'))
-
-        if (this.activeProfile._id === MAIN_PROFILE_ID) {
-          // Check if a subscription exists in a different profile.
-          // Remove from there as well.
-          let duplicateSubscriptions = 0
-
-          this.profileList.forEach((profile) => {
-            if (profile._id === MAIN_PROFILE_ID) {
-              return
-            }
-            const parsedProfile = JSON.parse(JSON.stringify(profile))
-            const index = parsedProfile.subscriptions.findIndex((channel) => {
-              return channel.id === this.id
-            })
-
-            if (index !== -1) {
-              duplicateSubscriptions++
-
-              parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
-                return x.id !== this.id
-              })
-
-              this.updateProfile(parsedProfile)
-            }
-          })
-
-          if (duplicateSubscriptions > 0) {
-            const message = this.$t('Channel.Removed subscription from {count} other channel(s)', { count: duplicateSubscriptions })
-            showToast(message)
-          }
-        }
-      } else {
-        const subscription = {
-          id: this.id,
-          name: this.channelName,
-          thumbnail: this.thumbnailUrl
-        }
-        currentProfile.subscriptions.push(subscription)
-
-        this.updateProfile(currentProfile)
-        showToast(this.$t('Channel.Added channel to your subscriptions'))
-
-        if (this.activeProfile._id !== MAIN_PROFILE_ID) {
-          const index = primaryProfile.subscriptions.findIndex((channel) => {
-            return channel.id === this.id
-          })
-
-          if (index === -1) {
-            primaryProfile.subscriptions.push(subscription)
-            this.updateProfile(primaryProfile)
-          }
-        }
-      }
     },
 
     setErrorMessage: function (errorMessage, responseHasNameAndThumbnail = false) {
