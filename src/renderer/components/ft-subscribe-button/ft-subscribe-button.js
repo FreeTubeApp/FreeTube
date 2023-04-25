@@ -1,4 +1,5 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
+
 import { mapActions } from 'vuex'
 
 import FtButton from '../../components/ft-button/ft-button.vue'
@@ -6,7 +7,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtSubscribeButton',
   components: {
     'ft-button': FtButton

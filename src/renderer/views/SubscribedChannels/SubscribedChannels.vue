@@ -57,7 +57,6 @@
                 :channel-id="channel.id"
                 :channel-name="channel.name"
                 :channel-thumbnail="channel.thumbnail"
-                :is-subscribed="true"
               />
             </div>
           </div>
