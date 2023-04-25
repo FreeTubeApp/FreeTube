@@ -10,6 +10,14 @@ import {
   toLocalePublicationString
 } from '../utils'
 
+const TRACKING_PARAM_NAMES = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+]
+
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
  * an instance that can decode the streaming URLs, which is slower to create
@@ -530,15 +538,20 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
             const url = new URL(endpoint.payload.url)
             if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
               // remove utm tracking parameters
-              const realURL = new URL(url.searchParams.get('q'))
+              const realURLStr = url.searchParams.get('q')
+              const realURL = new URL(realURLStr)
+              let anyUrlChanged = false
 
-              realURL.searchParams.delete('utm_source')
-              realURL.searchParams.delete('utm_medium')
-              realURL.searchParams.delete('utm_campaign')
-              realURL.searchParams.delete('utm_term')
-              realURL.searchParams.delete('utm_content')
+              TRACKING_PARAM_NAMES.forEach((paramName) => {
+                if (!realURL.searchParams.has(paramName)) { return }
 
-              parsedRuns.push(realURL.toString())
+                realURL.searchParams.delete(paramName)
+                anyUrlChanged = true
+              })
+
+              // `searchParams.delete` changes query string unnecessarily
+              // Using original unless there is any change
+              parsedRuns.push(anyUrlChanged ? realURL.toString() : realURLStr)
             } else {
               // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
               parsedRuns.push(endpoint.payload.url)
