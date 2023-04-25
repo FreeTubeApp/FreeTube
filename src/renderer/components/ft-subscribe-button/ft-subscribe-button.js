@@ -117,6 +117,23 @@ export default defineComponent({
       }
     },
 
+    unsubscribe: function(profile, channelId) {
+      const parsedProfile = JSON.parse(JSON.stringify(profile))
+      const index = parsedProfile.subscriptions.findIndex((channel) => {
+        return channel.id === channelId
+      })
+
+      if (index !== -1) {
+        parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
+          return x.id !== channelId
+        })
+
+        this.updateProfile(parsedProfile)
+        return 1
+      }
+      return 0
+    },
+
     ...mapActions([
       'updateProfile'
     ])
