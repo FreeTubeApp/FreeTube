@@ -298,11 +298,7 @@ function runApp() {
         if (imageCache.has(url)) {
           const cached = imageCache.get(url)
 
-          // eslint-disable-next-line n/no-callback-literal
-          callback({
-            mimeType: cached.mimeType,
-            data: cached.data
-          })
+          callback(cached)
           return
         }
 

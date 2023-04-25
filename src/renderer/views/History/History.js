@@ -87,11 +87,12 @@ export default defineComponent({
           this.showLoadMoreButton = false
         }
       } else {
+        const lowerCaseQuery = this.query.toLowerCase()
         const filteredQuery = this.historyCache.filter((video) => {
           if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
             return false
           } else {
-            return video.title.toLowerCase().includes(this.query.toLowerCase()) || video.author.toLowerCase().includes(this.query.toLowerCase())
+            return video.title.toLowerCase().includes(lowerCaseQuery) || video.author.toLowerCase().includes(lowerCaseQuery)
           }
         }).sort((a, b) => {
           return b.timeWatched - a.timeWatched
