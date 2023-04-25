@@ -1123,8 +1123,18 @@ export default defineComponent({
     },
 
     getCommunityPostsInvidious: function() {
-      invidiousGetCommunityPosts(this.id).then(posts => {
-        this.latestCommunityPosts = posts
+      let more = false
+      if (this.communityContinuationData) {
+        more = true
+      }
+
+      invidiousGetCommunityPosts(this.id, this.communityContinuationData).then(({ posts, continuation }) => {
+        if (more) {
+          this.latestCommunityPosts.push(...posts)
+        } else {
+          this.latestCommunityPosts = posts
+        }
+        this.communityContinuationData = continuation
       }).catch(async (err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -1267,8 +1277,7 @@ export default defineComponent({
               this.getCommunityPostsLocalMore()
               break
             case 'invidious':
-              // not supported by invidious yet...
-              // this.getCommunityPostsInvidiousMore()
+              this.getCommunityPostsInvidious()
               break
           }
           break
