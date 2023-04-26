@@ -108,7 +108,6 @@
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
         :playlist-id="playlistId"
-        :watching-playlist="watchingPlaylist"
         :get-playlist-index="getPlaylistIndex"
         :get-playlist-reverse="getPlaylistReverse"
         :get-playlist-shuffle="getPlaylistShuffle"
@@ -130,7 +129,6 @@
       />
       <watch-video-description
         v-if="!isLoading && !hideVideoDescription"
-        :published="videoPublished"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
         class="watchVideo"

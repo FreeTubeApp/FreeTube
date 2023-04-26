@@ -30,11 +30,9 @@ export default defineComponent({
       isLoading: false,
       dataAvailable: false,
       proxyTestUrl: 'https://ipwho.is/',
-      proxyId: '',
       proxyCountry: '',
       proxyRegion: '',
       proxyCity: '',
-      proxyHost: '',
       protocolNames: [
         'HTTP',
         'HTTPS',

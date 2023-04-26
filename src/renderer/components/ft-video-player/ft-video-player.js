@@ -52,10 +52,6 @@ export default defineComponent({
       type: Array,
       default: null
     },
-    hlsSrc: {
-      type: Array,
-      default: null
-    },
     captionHybridList: {
       type: Array,
       default: () => { return [] }
@@ -83,7 +79,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      id: '',
       powerSaveBlocker: null,
       volume: 1,
       muted: false,
@@ -167,10 +162,6 @@ export default defineComponent({
         console.error(e)
         return {}
       }
-    },
-
-    defaultVideoFormat: function () {
-      return this.$store.getters.getDefaultVideoFormat
     },
 
     autoplayVideos: function () {

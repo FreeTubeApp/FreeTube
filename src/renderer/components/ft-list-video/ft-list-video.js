@@ -69,7 +69,6 @@ export default defineComponent({
       watchProgress: 0,
       publishedText: '',
       isLive: false,
-      isFavorited: false,
       isUpcoming: false,
       isPremium: false,
       hideViews: false
@@ -238,14 +237,6 @@ export default defineComponent({
         default:
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
-    },
-
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
-    },
-
-    hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
     },
 
     hideVideoViews: function () {

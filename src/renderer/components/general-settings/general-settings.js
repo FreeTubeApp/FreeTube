@@ -22,8 +22,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      instanceNames: [],
-      instanceValues: [],
       backendValues: [
         'invidious',
         'local'

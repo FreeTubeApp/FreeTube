@@ -37,10 +37,6 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    listType: function () {
-      return this.$store.getters.getListType
-    },
-
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },

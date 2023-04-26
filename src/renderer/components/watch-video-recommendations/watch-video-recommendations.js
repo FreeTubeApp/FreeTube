@@ -22,9 +22,6 @@ export default defineComponent({
     }
   },
   computed: {
-    listType: function () {
-      return this.$store.getters.getListType
-    },
     playNextVideo: function () {
       return this.$store.getters.getPlayNextVideo
     },

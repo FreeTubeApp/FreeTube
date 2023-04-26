@@ -22,7 +22,6 @@ export default defineComponent({
       subscriberCount: 0,
       videoCount: '',
       handle: null,
-      uploadedTime: '',
       description: ''
     }
   },

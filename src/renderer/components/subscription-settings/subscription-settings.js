@@ -9,11 +9,6 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch
   },
-  data: function () {
-    return {
-      title: 'Subscription Settings'
-    }
-  },
   computed: {
     hideWatchedSubs: function () {
       return this.$store.getters.getHideWatchedSubs

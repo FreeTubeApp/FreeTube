@@ -24,9 +24,6 @@ export default defineComponent({
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
-    defaultProfile: function () {
-      return this.$store.getters.getDefaultProfile
-    },
     activeProfileInitial: function () {
       // use Array.from, so that emojis don't get split up into individual character codes
       return this.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''

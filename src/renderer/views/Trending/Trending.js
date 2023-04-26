@@ -33,9 +33,6 @@ export default defineComponent({
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
-    },
     region: function () {
       return this.$store.getters.getRegion.toUpperCase()
     },

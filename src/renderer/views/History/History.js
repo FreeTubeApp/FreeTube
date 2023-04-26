@@ -22,7 +22,6 @@ export default defineComponent({
       dataLimit: 100,
       searchDataLimit: 100,
       showLoadMoreButton: false,
-      hasQuery: false,
       query: '',
       activeData: []
     }
