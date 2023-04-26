@@ -216,13 +216,13 @@ export default defineComponent({
       this.setProgressBarPercentage(0)
       let count = 0
 
-      const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")*[^"]*)*"|[^\n",]*|(?:\n|$))/g
+      const splitCSVRegex = /(?:,|\n|^)("(?:(?:"")|[^"])*"|[^\n",]*|(?:\n|$))/g
 
       const ytsubs = youtubeSubscriptions.slice(1).map(yt => {
         return [...yt.matchAll(splitCSVRegex)].map(s => {
           let newVal = s[1]
           if (newVal.startsWith('"')) {
-            newVal = newVal.substring(1, newVal.length - 2).replace('""', '"')
+            newVal = newVal.substring(1, newVal.length - 2).replaceAll('""', '"')
           }
           return newVal
         })
