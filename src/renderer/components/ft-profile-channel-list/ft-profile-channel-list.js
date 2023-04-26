@@ -33,7 +33,6 @@ export default defineComponent({
       showDeletePrompt: false,
       subscriptions: [],
       selectedLength: 0,
-      componentKey: 0,
       deletePromptValues: [
         'yes',
         'no'

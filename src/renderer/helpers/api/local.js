@@ -527,7 +527,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
             break
           case 'WEB_PAGE_TYPE_UNKNOWN':
           default: {
-            const url = new URL(endpoint.payload.url)
+            const url = new URL(endpoint.payload?.content?.confirmDialogRenderer?.confirmButton?.buttonRenderer?.command?.urlEndpoint?.url || endpoint.payload.url)
             if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
               // remove utm tracking parameters
               const realURL = new URL(url.searchParams.get('q'))

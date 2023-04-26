@@ -77,10 +77,6 @@ export default defineComponent({
       type: Array,
       required: true
     },
-    watchingPlaylist: {
-      type: Boolean,
-      required: true
-    },
     playlistId: {
       type: String,
       default: null
@@ -101,10 +97,6 @@ export default defineComponent({
       type: Function,
       required: true
     },
-    theatrePossible: {
-      type: Boolean,
-      required: true
-    },
     lengthSeconds: {
       type: Number,
       required: true
@@ -114,16 +106,7 @@ export default defineComponent({
       required: true
     }
   },
-  data: function () {
-    return {
-      formatTypeLabel: 'VIDEO FORMATS'
-    }
-  },
   computed: {
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
-    },
-
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
     },
@@ -142,14 +125,6 @@ export default defineComponent({
 
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
-    },
-
-    hideRecommendedVideos: function () {
-      return this.$store.getters.getHideRecommendedVideos
-    },
-
-    hideLiveChat: function () {
-      return this.$store.getters.getHideLiveChat
     },
 
     hideVideoLikesAndDislikes: function () {
@@ -237,14 +212,14 @@ export default defineComponent({
       return formatNumber(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
     },
 
-    dateString() {
+    dateString: function () {
       const date = new Date(this.published)
       const localeDateString = new Intl.DateTimeFormat([this.currentLocale, 'en'], { dateStyle: 'medium' }).format(date)
       // replace spaces with no break spaces to make the date act as a single entity while wrapping
       return `${localeDateString}`.replaceAll(' ', '\u00A0')
     },
 
-    publishedString() {
+    publishedString: function () {
       if (this.isLive) {
         return this.$t('Video.Started streaming on')
       } else if (this.isLiveContent && !this.isLive) {

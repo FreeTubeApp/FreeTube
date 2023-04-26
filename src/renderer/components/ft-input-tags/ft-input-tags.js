@@ -33,9 +33,10 @@ export default defineComponent({
   methods: {
     updateTags: function (text, e) {
       // text entered add tag and update tag list
-      if (!this.tagList.includes(text.trim())) {
+      const trimmedText = text.trim()
+      if (!this.tagList.includes(trimmedText)) {
         const newList = this.tagList.slice(0)
-        newList.push(text.trim())
+        newList.push(trimmedText)
         this.$emit('change', newList)
       }
       // clear input box

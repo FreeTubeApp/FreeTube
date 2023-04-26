@@ -267,8 +267,9 @@ export default defineComponent({
         return
       }
       // get list of items that match input
+      const lowerCaseInputData = this.inputData.toLowerCase()
       const visList = this.dataList.filter(x => {
-        if (x.toLowerCase().indexOf(this.inputData.toLowerCase()) !== -1) {
+        if (x.toLowerCase().indexOf(lowerCaseInputData) !== -1) {
           return true
         } else {
           return false

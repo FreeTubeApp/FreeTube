@@ -119,10 +119,6 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    sessionSearchHistory: function () {
-      return this.$store.getters.getSessionSearchHistory
-    },
-
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },

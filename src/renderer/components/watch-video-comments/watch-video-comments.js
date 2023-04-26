@@ -47,9 +47,6 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
-    },
     hideCommentLikes: function () {
       return this.$store.getters.getHideCommentLikes
     },

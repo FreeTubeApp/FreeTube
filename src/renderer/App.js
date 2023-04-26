@@ -51,9 +51,6 @@ export default defineComponent({
     }
   },
   computed: {
-    isOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
-    },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
@@ -65,12 +62,6 @@ export default defineComponent({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
-    },
-    searchSettings: function () {
-      return this.$store.getters.getSearchSettings
-    },
-    profileList: function () {
-      return this.$store.getters.getProfileList
     },
     windowTitle: function () {
       if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
@@ -85,9 +76,6 @@ export default defineComponent({
       } else {
         return null
       }
-    },
-    defaultProfile: function () {
-      return this.$store.getters.getDefaultProfile
     },
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer

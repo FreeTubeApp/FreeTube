@@ -10,10 +10,6 @@ export default defineComponent({
     'ft-timestamp-catcher': FtTimestampCatcher
   },
   props: {
-    published: {
-      type: Number,
-      required: true
-    },
     description: {
       type: String,
       required: true

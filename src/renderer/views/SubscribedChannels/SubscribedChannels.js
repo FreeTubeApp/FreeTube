@@ -122,16 +122,20 @@ export default defineComponent({
 
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
-      const hostname = new URL(originalURL).hostname
+      // Sometimes relative protocol URLs are passed in
+      if (originalURL.startsWith('//')) {
+        newURL = `https:${originalURL}`
+      }
+      const hostname = new URL(newURL).hostname
       if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = youtubeImageUrlToInvidious(originalURL, this.currentInvidiousInstance)
+          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstance)
         }
       } else {
         if (this.backendPreference === 'local') { // IV to YT
-          newURL = originalURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
+          newURL = newURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
         } else { // IV to IV
-          newURL = invidiousImageUrlToInvidious(originalURL, this.currentInvidiousInstance)
+          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstance)
         }
       }
 

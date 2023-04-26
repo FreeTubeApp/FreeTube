@@ -59,9 +59,6 @@ export default defineComponent({
     hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
-    },
     hideChapters: function () {
       return this.$store.getters.getHideChapters
     },

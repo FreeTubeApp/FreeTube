@@ -54,10 +54,6 @@ export default defineComponent({
       return this.$store.getters.getUseRssFeeds
     },
 
-    profileList: function () {
-      return this.$store.getters.getProfileList
-    },
-
     activeVideoList: function () {
       if (this.videoList.length < this.dataLimit) {
         return this.videoList
@@ -249,11 +245,11 @@ export default defineComponent({
             return x.id === video.authorId
           })
 
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
-
           if (this.hideWatchedSubs) {
+            const historyIndex = this.historyCache.findIndex((x) => {
+              return x.videoId === video.videoId
+            })
+
             return channelIndex !== -1 && historyIndex === -1
           } else {
             return channelIndex !== -1

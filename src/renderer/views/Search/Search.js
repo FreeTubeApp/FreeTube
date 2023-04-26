@@ -21,7 +21,6 @@ export default defineComponent({
       query: '',
       searchPage: 1,
       nextPageRef: null,
-      lastSearchQuery: '',
       searchSettings: {},
       shownResults: []
     }
@@ -37,14 +36,6 @@ export default defineComponent({
 
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
-    },
-
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
-    },
-
-    hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
     },
 
     showFamilyFriendlyOnly: function() {

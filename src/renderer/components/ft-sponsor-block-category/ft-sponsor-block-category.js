@@ -17,8 +17,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      categoryColor: '',
-      skipOption: '',
       skipValues: [
         'autoSkip',
         // 'promptToSkip',
