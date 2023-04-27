@@ -55,6 +55,7 @@ export default defineComponent({
       isLoading: true,
       firstLoad: true,
       useTheatreMode: false,
+      videoPlayerReady: false,
       showDashPlayer: true,
       showLegacyPlayer: false,
       hidePlayer: false,
@@ -96,7 +97,7 @@ export default defineComponent({
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      infoAreaSticky: true
+      infoAreaSticky: true,
     }
   },
   computed: {
@@ -180,7 +181,7 @@ export default defineComponent({
     },
     allowDashAv1Formats: function () {
       return this.$store.getters.getAllowDashAv1Formats
-    }
+    },
   },
   watch: {
     $route() {
@@ -189,6 +190,7 @@ export default defineComponent({
       this.videoId = this.$route.params.id
 
       this.firstLoad = true
+      this.videoPlayerReady = false
       this.activeFormat = this.defaultVideoFormat
       this.videoStoryboardSrc = ''
       this.captionHybridList = []
@@ -926,6 +928,11 @@ export default defineComponent({
         lastViewedPlaylistId: this.$route.query?.playlistId,
       }
       this.updateLastViewedPlaylist(payload)
+    },
+
+    handleVideoReady: function () {
+      this.videoPlayerReady = true
+      this.checkIfWatched()
     },
 
     checkIfWatched: function () {

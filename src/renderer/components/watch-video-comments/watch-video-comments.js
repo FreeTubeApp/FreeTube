@@ -27,7 +27,11 @@ export default defineComponent({
     channelThumbnail: {
       type: String,
       required: true
-    }
+    },
+    videoPlayerReady: {
+      type: Boolean,
+      required: true
+    },
   },
   data: function () {
     return {
@@ -35,7 +39,7 @@ export default defineComponent({
       showComments: false,
       nextPageToken: null,
       commentData: [],
-      sortNewest: false
+      sortNewest: false,
     }
   },
   computed: {
@@ -49,6 +53,10 @@ export default defineComponent({
 
     hideCommentLikes: function () {
       return this.$store.getters.getHideCommentLikes
+    },
+
+    commentAutoLoadEnabled: function () {
+      return this.$store.getters.getCommentAutoLoadEnabled
     },
 
     sortNames: function () {
@@ -67,7 +75,40 @@ export default defineComponent({
 
     currentSortValue: function () {
       return (this.sortNewest) ? 'newest' : 'top'
-    }
+    },
+
+    observeVisibilityOptions: function() {
+      if (!this.commentAutoLoadEnabled) { return false }
+      if (!this.videoPlayerReady) { return false }
+
+      return {
+        callback: (isVisible, _entry) => {
+          // This is also fired when **hidden**
+          // No point doing anything if not visible
+          if (!isVisible) { return }
+          // It's possible the comments are being loaded/already loaded
+          if (this.canPerformInitialCommentLoading) {
+            this.getCommentData()
+          } else if (this.canPerformMoreCommentLoading) {
+            this.getMoreComments()
+          }
+        },
+        intersection: {
+          // Only when it intersects with N% above bottom
+          rootMargin: '0% 0% 0% 0%',
+        },
+        // Callback responsible for loading multiple comment pages
+        once: false,
+      }
+    },
+
+    canPerformInitialCommentLoading: function() {
+      return this.commentData.length === 0 && !this.isLoading && !this.showComments
+    },
+
+    canPerformMoreCommentLoading: function() {
+      return this.commentData.length > 0 && !this.isLoading && this.showComments && this.nextPageToken
+    },
   },
 
   methods: {
@@ -239,6 +280,6 @@ export default defineComponent({
           })
           this.isLoading = false
         })
-    }
+    },
   }
 })

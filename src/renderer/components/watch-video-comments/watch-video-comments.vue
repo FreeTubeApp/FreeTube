@@ -3,7 +3,7 @@
     class="card"
   >
     <h4
-      v-if="commentData.length === 0 && !isLoading"
+      v-if="canPerformInitialCommentLoading"
       class="getCommentsTitle"
       role="button"
       tabindex="0"
@@ -238,7 +238,7 @@
       </h3>
     </div>
     <h4
-      v-if="commentData.length > 0 && !isLoading && showComments && nextPageToken"
+      v-if="canPerformMoreCommentLoading"
       class="getMoreComments"
       role="button"
       tabindex="0"
@@ -251,6 +251,13 @@
     <ft-loader
       v-if="isLoading"
     />
+    <div
+      v-observe-visibility="observeVisibilityOptions"
+    >
+      <!--
+        Dummy element to be observed by Intersection Observer
+      -->
+    </div>
   </ft-card>
 </template>
 

@@ -31,7 +31,7 @@
           :chapters="videoChapters"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
-          @ready="checkIfWatched"
+          @ready="handleVideoReady"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
@@ -142,6 +142,7 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
+        :video-player-ready="videoPlayerReady"
         @timestamp-event="changeTimestamp"
       />
     </div>

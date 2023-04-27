@@ -57,7 +57,7 @@ export default defineComponent({
       ],
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
-      screenshotDefaultPattern: '%Y%M%D-%H%N%S'
+      screenshotDefaultPattern: '%Y%M%D-%H%N%S',
     }
   },
   computed: {
@@ -195,11 +195,24 @@ export default defineComponent({
 
     screenshotFilenamePattern: function() {
       return this.$store.getters.getScreenshotFilenamePattern
-    }
+    },
+
+    commentAutoLoadEnabled: function () {
+      return this.$store.getters.getCommentAutoLoadEnabled
+    },
+
+    hideComments: function () {
+      return this.$store.getters.getHideComments
+    },
   },
   watch: {
     screenshotFolder: function() {
       this.getScreenshotFolderPlaceholder()
+    },
+    hideComments: function(newValue) {
+      if (newValue) {
+        this.updateCommentAutoLoadEnabled(false)
+      }
     }
   },
   mounted: function() {
@@ -295,6 +308,7 @@ export default defineComponent({
       'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
+      'updateCommentAutoLoadEnabled',
     ])
   }
 })

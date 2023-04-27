@@ -281,6 +281,7 @@ const state = {
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',
   allowDashAv1Formats: false,
+  commentAutoLoadEnabled: false,
 }
 
 const stateWithSideEffects = {
