@@ -1092,6 +1092,11 @@ export default defineComponent({
         return
       }
 
+      if (this.watchingPlaylist && this.$refs.watchVideoPlaylist.shouldStopDueToPlaylistEnd) {
+        // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
+        this.$refs.watchVideoPlaylist.playNextVideo()
+        return
+      }
       const nextVideoInterval = this.defaultInterval
       this.playNextTimeout = setTimeout(() => {
         const player = this.$refs.videoPlayer.player
