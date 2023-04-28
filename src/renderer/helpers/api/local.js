@@ -540,18 +540,18 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
               // remove utm tracking parameters
               const realURLStr = url.searchParams.get('q')
               const realURL = new URL(realURLStr)
-              let anyUrlChanged = false
+              let urlChanged = false
 
               TRACKING_PARAM_NAMES.forEach((paramName) => {
                 if (!realURL.searchParams.has(paramName)) { return }
 
                 realURL.searchParams.delete(paramName)
-                anyUrlChanged = true
+                urlChanged = true
               })
 
               // `searchParams.delete` changes query string unnecessarily
               // Using original unless there is any change
-              parsedRuns.push(anyUrlChanged ? realURL.toString() : realURLStr)
+              parsedRuns.push(urlChanged ? realURL.toString() : realURLStr)
             } else {
               // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
               parsedRuns.push(endpoint.payload.url)
