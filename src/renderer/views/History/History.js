@@ -81,15 +81,9 @@ export default defineComponent({
       }
     },
     filterHistoryAsync: function() {
-      if (this.query === '') {
-        // When query is empty it can be assumed that the user is clearing the query
-        // No need to wait
-        this.filterHistory()
-      } else {
-        // Updating list on every char input could be wasting resources on rendering
-        // So run it with delay (to be cancelled when more input received within time)
-        this.filterHistoryDebounce()
-      }
+      // Updating list on every char input could be wasting resources on rendering
+      // So run it with delay (to be cancelled when more input received within time)
+      this.filterHistoryDebounce()
     },
     filterHistory: function() {
       if (this.query === '') {
