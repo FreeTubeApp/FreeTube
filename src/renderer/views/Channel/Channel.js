@@ -412,7 +412,7 @@ export default defineComponent({
           this.setErrorMessage(channel.alert)
           return
         } else if (channel.memo.has('ChannelAgeGate')) {
-          /** @type {import('youtubei.js/dist/src/parser/classes/ChannelAgeGate').default} */
+          /** @type {import('youtubei.js').YTNodes.ChannelAgeGate} */
           const ageGate = channel.memo.get('ChannelAgeGate')[0]
 
           channelName = ageGate.channel_title
@@ -444,7 +444,7 @@ export default defineComponent({
             // https://www.youtube.com/channel/UCXuqSBlHAE6Xw-yeJA0Tunw
 
             /**
-             * @type {import('youtubei.js/dist/src/parser/classes/C4TabbedHeader').default}
+             * @type {import('youtubei.js').YTNodes.C4TabbedHeader}
              */
             const header = channel.header
 
@@ -460,12 +460,12 @@ export default defineComponent({
             // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
 
             /**
-             * @type {import('youtubei.js/dist/src/parser/classes/CarouselHeader').default}
+             * @type {import('youtubei.js').YTNodes.CarouselHeader}
              */
             const header = channel.header
 
             /**
-             * @type {import('youtubei.js/dist/src/parser/classes/TopicChannelDetails').default}
+             * @type {import('youtubei.js').YTNodes.TopicChannelDetails}
              */
             const topicChannelDetails = header.contents.find(node => node.type === 'TopicChannelDetails')
             channelName = topicChannelDetails.title.text
@@ -484,7 +484,7 @@ export default defineComponent({
             // https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg
 
             /**
-             * @type {import('youtubei.js/dist/src/parser/classes/InteractiveTabbedHeader').default}
+             * @type {import('youtubei.js').YTNodes.InteractiveTabbedHeader}
              */
             const header = channel.header
             channelName = header.title.text
@@ -597,19 +597,19 @@ export default defineComponent({
     getChannelAboutLocal: async function () {
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+         * @type {import('youtubei.js').YT.Channel}
         */
         const channel = this.channelInstance
         const about = await channel.getAbout()
 
-        this.description = about.description.text !== 'N/A' ? autolinker.link(about.description.text) : ''
+        this.description = about.description.isEmpty() ? '' : autolinker.link(about.description.text)
 
-        const views = extractNumberFromString(about.views.text)
+        const views = extractNumberFromString(about.view_count.text)
         this.views = isNaN(views) ? null : views
 
-        this.joined = about.joined.text !== 'N/A' ? new Date(about.joined.text.replace('Joined').trim()) : 0
+        this.joined = about.joined_date.isEmpty() ? 0 : new Date(about.joined_date.text.replace('Joined').trim())
 
-        this.location = about.country.text !== 'N/A' ? about.country.text : null
+        this.location = about.country.isEmpty() ? null : about.country.text
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -631,7 +631,7 @@ export default defineComponent({
 
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+         * @type {import('youtubei.js').YT.Channel}
         */
         const channel = this.channelInstance
         let videosTab = await channel.getVideos()
@@ -668,7 +668,7 @@ export default defineComponent({
     channelLocalNextPage: async function () {
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation|import('youtubei.js/dist/src/parser/youtube/Channel').FilteredChannelList}
+         * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
          */
         const continuation = await this.videoContinuationData.getContinuation()
 
@@ -689,7 +689,7 @@ export default defineComponent({
 
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+         * @type {import('youtubei.js').YT.Channel}
         */
         const channel = this.channelInstance
         let liveTab = await channel.getLiveStreams()
@@ -726,7 +726,7 @@ export default defineComponent({
     getChannelLiveLocalMore: async function () {
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation|import('youtubei.js/dist/src/parser/youtube/Channel').FilteredChannelList}
+         * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
          */
         const continuation = await this.liveContinuationData.getContinuation()
 
@@ -909,7 +909,7 @@ export default defineComponent({
 
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+         * @type {import('youtubei.js').YT.Channel}
          */
         const channel = this.channelInstance
         let playlistsTab = await channel.getPlaylists()
@@ -919,7 +919,7 @@ export default defineComponent({
 
         if (playlistsTab.content_type_filters.length > 1) {
           /**
-           * @type {import('youtubei.js/dist/src/parser/classes/ChannelSubMenu').default}
+           * @type {import('youtubei.js').YTNodes.ChannelSubMenu}
            */
           const menu = playlistsTab.current_tab.content.sub_menu
           const createdPlaylistsFilter = menu.content_type_sub_menu_items.find(contentType => {
@@ -964,7 +964,7 @@ export default defineComponent({
     getChannelPlaylistsLocalMore: async function () {
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
          */
         const continuation = await this.playlistContinuationData.getContinuation()
 
@@ -1054,12 +1054,12 @@ export default defineComponent({
 
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default}
+         * @type {import('youtubei.js').YT.Channel}
          */
         const channel = this.channelInstance
 
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').default|import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
+         * @type {import('youtubei.js').YT.Channel|import('youtubei.js').YT.ChannelListContinuation}
          */
         let communityTab = await channel.getCommunity()
         if (expectedId !== this.id) {
@@ -1095,7 +1095,7 @@ export default defineComponent({
     getCommunityPostsLocalMore: async function () {
       try {
         /**
-         * @type {import('youtubei.js/dist/src/parser/youtube/Channel').ChannelListContinuation}
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
          */
         let continuation = await this.communityContinuationData.getContinuation()
 

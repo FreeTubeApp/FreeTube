@@ -200,12 +200,12 @@ export default defineComponent({
     },
 
     /**
-     * @param {import('youtubei.js/dist/src/parser/classes/livechat/items/LiveChatTextMessage').default} comment
+     * @param {import('youtubei.js').YTNodes.LiveChatTextMessage} comment
      */
     parseLiveChatComment: function (comment) {
       /**
        * can also be undefined if there is no badge
-       * @type {import('youtubei.js/dist/src/parser/classes/LiveChatAuthorBadge').default}
+       * @type {import('youtubei.js').YTNodes.LiveChatAuthorBadge}
        */
       const badge = comment.author.badges.find(badge => badge.type === 'LiveChatAuthorBadge' && badge.custom_thumbnail)
 
@@ -231,7 +231,7 @@ export default defineComponent({
     },
 
     /**
-     * @param {import('youtubei.js/dist/src/parser/classes/livechat/items/LiveChatPaidMessage').default} superChat
+     * @param {import('youtubei.js').YTNodes.LiveChatPaidMessage} superChat
      */
     parseLiveChatSuperChat: function (superChat) {
       const parsedComment = {

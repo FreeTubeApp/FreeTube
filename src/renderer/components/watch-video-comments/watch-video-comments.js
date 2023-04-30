@@ -170,7 +170,7 @@ export default defineComponent({
 
     getCommentDataLocal: async function (more) {
       try {
-        /** @type {import('youtubei.js/dist/src/parser/youtube/Comments').default} */
+        /** @type {import('youtubei.js').YT.Comments} */
         let comments
         if (more) {
           comments = await this.nextPageToken.getContinuation()
@@ -210,7 +210,7 @@ export default defineComponent({
 
       try {
         const comment = this.commentData[index]
-        /** @type {import('youtubei.js/dist/src/parser/classes/comments/CommentThread').default} */
+        /** @type {import('youtubei.js').YTNodes.CommentThread} */
         const commentThread = comment.replyToken
 
         if (comment.replies.length > 0) {
