@@ -199,7 +199,7 @@ export async function getLocalChannelVideos(id) {
 
   try {
     const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
-      browseId: id,
+      browse_id: id,
       params: 'EgZ2aWRlb3PyBgQKAjoA'
       // protobuf for the videos tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
