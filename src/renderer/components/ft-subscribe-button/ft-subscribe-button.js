@@ -124,6 +124,8 @@ export default defineComponent({
       })
 
       if (index !== -1) {
+        // use filter instead of splice incase the subscription appears multiple times
+        // https://github.com/FreeTubeApp/FreeTube/pull/3468#discussion_r1179290877
         parsedProfile.subscriptions = parsedProfile.subscriptions.filter((x) => {
           return x.id !== channelId
         })
