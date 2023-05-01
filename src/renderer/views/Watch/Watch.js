@@ -268,8 +268,7 @@ export default defineComponent({
 
         if (playabilityStatus.status === 'UNPLAYABLE') {
           /**
-           * @typedef {import('youtubei.js/dist/src/parser/classes/PlayerErrorMessage').default} PlayerErrorMessage
-           * @type {PlayerErrorMessage}
+           * @type {import ('youtubei.js').YTNodes.PlayerErrorMessage}
            */
           const errorScreen = playabilityStatus.error_screen
           throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
@@ -1217,10 +1216,7 @@ export default defineComponent({
     },
 
     /**
-     * @typedef {import('youtubei.js/dist/src/parser/youtube/VideoInfo').default} VideoInfo
-     */
-    /**
-     * @param {VideoInfo} videoInfo
+     * @param {import('youtubei.js').YT.VideoInfo} videoInfo
      */
     createLocalDashManifest: async function (videoInfo) {
       const xmlData = await videoInfo.toDash()
