@@ -1123,10 +1123,7 @@ export default defineComponent({
     },
 
     getCommunityPostsInvidious: function() {
-      let more = false
-      if (this.communityContinuationData) {
-        more = true
-      }
+      const more = !isNullOrEmpty(this.communityContinuationData)
 
       invidiousGetCommunityPosts(this.id, this.communityContinuationData).then(({ posts, continuation }) => {
         if (more) {
