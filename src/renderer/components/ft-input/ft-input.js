@@ -176,11 +176,8 @@ export default defineComponent({
             case 'playlist':
             case 'search':
             case 'channel':
-              isYoutubeLink = true
-              break
             case 'hashtag':
-              // TODO: Implement a hashtag related view
-              // isYoutubeLink is already `false`
+              isYoutubeLink = true
               break
 
             case 'invalid_url':

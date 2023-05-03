@@ -868,6 +868,11 @@ Downloading failed: 'There was an issue downloading "{videoTitle}"'
 Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
 
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: This hashtag does not currently
+      have any videos
+  You can only view hashtag pages through the local api: You can only view hashtag pages through the local api
 Yes: Yes
 No: No
 Ok: Ok

@@ -65,8 +65,7 @@ export default defineComponent({
       descriptionText = descriptionText.replaceAll(/&redirect-token.+?(?=")/g, '')
       descriptionText = descriptionText.replaceAll(/&redir_token.+?(?=")/g, '')
       descriptionText = descriptionText.replaceAll('href="/', 'href="https://www.youtube.com/')
-      // TODO: Implement hashtag support
-      descriptionText = descriptionText.replaceAll('href="/hashtag/', 'href="freetube://')
+      descriptionText = descriptionText.replaceAll('href="/hashtag/', 'href="https://wwww.youtube.com/hashtag/')
       descriptionText = descriptionText.replaceAll('yt.www.watch.player.seekTo', 'changeDuration')
 
       return descriptionText

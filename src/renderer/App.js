@@ -64,7 +64,8 @@ export default defineComponent({
       return this.$store.getters.getCheckForBlogPosts
     },
     windowTitle: function () {
-      if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
+      const routeTitle = this.$route.meta.title
+      if (routeTitle !== 'Channel' && routeTitle !== 'Watch' && routeTitle !== 'Hashtag') {
         let title =
         this.$route.meta.path === '/home'
           ? packageDetails.productName
@@ -407,13 +408,11 @@ export default defineComponent({
           }
 
           case 'hashtag': {
-            // TODO: Implement a hashtag related view
-            let message = 'Hashtags have not yet been implemented, try again later'
-            if (this.$te(message) && this.$t(message) !== '') {
-              message = this.$t(message)
-            }
-
-            showToast(message)
+            const { hashtag } = result
+            openInternalPath({
+              path: `/hashtag/${encodeURIComponent(hashtag)}`,
+              doCreateNewWindow
+            })
             break
           }
 
