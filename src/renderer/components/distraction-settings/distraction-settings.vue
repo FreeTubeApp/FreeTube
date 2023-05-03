@@ -121,10 +121,10 @@
           @change="updateShowDistractionFreeTitles"
         />
         <ft-toggle-switch
-            :label="$t('Settings.Distraction Free Settings.Hide Channel Community')"
-            :compact="true"
-            :default-value="hideChannelCommunity"
-            @change="updateHideChannelCommunity"
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Community')"
+          :compact="true"
+          :default-value="hideChannelCommunity"
+          @change="updateHideChannelCommunity"
         />
       </div>
     </div>
