@@ -115,6 +115,7 @@
               {{ $t("Channel.Live.Live").toUpperCase() }}
             </div>
             <div
+              v-if="!hideChannelPlaylists"
               id="playlistsTab"
               class="tab"
               role="tab"
@@ -128,6 +129,7 @@
               {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
             </div>
             <div
+              v-if="!hideChannelCommunity"
               id="communityTab"
               class="tab"
               role="tab"
@@ -258,12 +260,12 @@
           </li>
         </ul>
         <h2
-          v-if="relatedChannels.length > 0"
+          v-if="relatedChannels.length > 0 && !hideFeaturedChannels"
         >
           {{ $t("Channel.About.Featured Channels") }}
         </h2>
         <ft-flex-box
-          v-if="relatedChannels.length > 0"
+          v-if="relatedChannels.length > 0 && !hideFeaturedChannels"
         >
           <ft-channel-bubble
             v-for="(channel, index) in relatedChannels"
@@ -297,7 +299,7 @@
         @change="liveSortBy = $event"
       />
       <ft-select
-        v-if="showPlaylistSortBy"
+        v-if="!hideChannelPlaylists && showPlaylistSortBy"
         v-show="currentTab === 'playlists' && latestPlaylists.length > 0"
         class="sortSelect"
         :value="playlistSelectValues[0]"
@@ -343,21 +345,21 @@
           </p>
         </ft-flex-box>
         <ft-element-list
-          v-show="currentTab === 'playlists'"
+          v-if="!hideChannelPlaylists && currentTab === 'playlists'"
           id="playlistPanel"
           :data="latestPlaylists"
           role="tabpanel"
           aria-labelledby="playlistsTab"
         />
         <ft-flex-box
-          v-if="currentTab === 'playlists' && latestPlaylists.length === 0"
+          v-if="!hideChannelPlaylists && currentTab === 'playlists' && latestPlaylists.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
           </p>
         </ft-flex-box>
         <ft-element-list
-          v-show="currentTab === 'community'"
+          v-if="!hideChannelCommunity && currentTab === 'community'"
           id="communityPanel"
           :data="latestCommunityPosts"
           role="tabpanel"
@@ -365,7 +367,7 @@
           display="list"
         />
         <ft-flex-box
-          v-if="currentTab === 'community' && latestCommunityPosts.length === 0"
+          v-if="!hideChannelCommunity && currentTab === 'community' && latestCommunityPosts.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Community.This channel currently does not have any posts") }}

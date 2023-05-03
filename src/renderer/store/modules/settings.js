@@ -192,9 +192,13 @@ const state = {
   expandSideBar: false,
   forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
+  hideChannelCommunity: false,
+  hideChannelPlaylists: false,
+
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,
+  hideFeaturedChannels: false,
   channelsHidden: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,

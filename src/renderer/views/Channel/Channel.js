@@ -213,6 +213,18 @@ export default defineComponent({
       return this.$store.getters.getHideLiveStreams
     },
 
+    hideFeaturedChannels: function() {
+      return this.$store.getters.getHideFeaturedChannels
+    },
+
+    hideChannelPlaylists: function() {
+      return this.$store.getters.getHideChannelPlaylists
+    },
+
+    hideChannelCommunity: function() {
+      return this.$store.getters.getHideChannelCommunity
+    },
+
     tabInfoValues: function () {
       const values = [
         'videos',
@@ -225,6 +237,16 @@ export default defineComponent({
       // remove tabs from the array based on user settings
       if (this.hideLiveStreams) {
         const index = values.indexOf('live')
+        values.splice(index, 1)
+      }
+
+      if (this.hideChannelPlaylists) {
+        const index = values.indexOf('playlists')
+        values.splice(index, 1)
+      }
+
+      if (this.hideChannelCommunity) {
+        const index = values.indexOf('community')
         values.splice(index, 1)
       }
 
@@ -265,6 +287,14 @@ export default defineComponent({
       this.showPlaylistSortBy = true
 
       if (this.hideLiveStreams && currentTab === 'live') {
+        currentTab = 'videos'
+      }
+
+      if (this.hideChannelPlaylists && currentTab === 'playlists') {
+        currentTab = 'videos'
+      }
+
+      if (this.hideChannelCommunity && currentTab === 'community') {
         currentTab = 'videos'
       }
 
@@ -345,6 +375,14 @@ export default defineComponent({
     let currentTab = this.$route.params.currentTab ?? 'videos'
 
     if (this.hideLiveStreams && currentTab === 'live') {
+      currentTab = 'videos'
+    }
+
+    if (this.hideChannelPlaylists && currentTab === 'playlists') {
+      currentTab = 'videos'
+    }
+
+    if (this.hideChannelCommunity && currentTab === 'community') {
       currentTab = 'videos'
     }
 
@@ -568,11 +606,11 @@ export default defineComponent({
           this.getChannelLiveLocal()
         }
 
-        if (channel.has_playlists) {
+        if (!this.hideChannelPlaylists && channel.has_playlists) {
           this.getChannelPlaylistsLocal()
         }
 
-        if (channel.has_community) {
+        if (!this.hideChannelCommunity && channel.has_community) {
           this.getCommunityPostsLocal()
         }
 
@@ -798,11 +836,11 @@ export default defineComponent({
           this.channelInvidiousLive()
         }
 
-        if (response.tabs.includes('playlists')) {
+        if (!this.hideChannelPlaylists && response.tabs.includes('playlists')) {
           this.getPlaylistsInvidious()
         }
 
-        if (response.tabs.includes('community')) {
+        if (!this.hideChannelCommunity && response.tabs.includes('community')) {
           this.getCommunityPostsInvidious()
         }
 
