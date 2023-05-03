@@ -612,7 +612,11 @@ const mutations = {
 
     if (sameSearch !== -1) {
       state.sessionSearchHistory[sameSearch].data = payload.data
-      state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
+      if (payload.nextPageRef) {
+        state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
+      } else if (payload.searchPage) {
+        state.sessionSearchHistory[sameSearch].searchPage = payload.searchPage
+      }
     } else {
       state.sessionSearchHistory.push(payload)
     }
