@@ -268,7 +268,7 @@ export default defineComponent({
       const replyToken = this.commentData[index].replyToken
       invidiousGetCommentReplies({ id: this.id, replyToken: replyToken })
         .then(({ commentData, continuation }) => {
-          this.commentData[index].replies = commentData
+          this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
           this.commentData[index].showReplies = true
           this.commentData[index].replyToken = continuation
           this.isLoading = false
