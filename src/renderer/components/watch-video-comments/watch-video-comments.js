@@ -6,7 +6,7 @@ import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timesta
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
-
+import { getPipedComments, getPipedCommentsMore } from '../../helpers/api/piped'
 export default defineComponent({
   name: 'WatchVideoComments',
   components: {
@@ -44,7 +44,8 @@ export default defineComponent({
   },
   computed: {
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      return 'piped'
+      // return this.$store.getters.getBackendPreference
     },
 
     backendFallback: function () {
@@ -126,7 +127,9 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      if (this.backendPreference === 'piped') {
+        this.getCommentDataPiped()
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
       } else {
         this.getCommentDataLocal()
@@ -137,7 +140,9 @@ export default defineComponent({
       if (this.commentData.length === 0 || this.nextPageToken === null || typeof this.nextPageToken === 'undefined') {
         showToast(this.$t('Comments.There are no more comments for this video'))
       } else {
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        if (this.backendPreference === 'piped') {
+          this.getCommentDataPipedMore(this.nextPageToken)
+        } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           this.getCommentDataInvidious()
         } else {
           this.getCommentDataLocal(true)
@@ -154,7 +159,9 @@ export default defineComponent({
     },
 
     getCommentReplies: function (index) {
-      if (process.env.IS_ELECTRON) {
+      if (this.commentData[index].dataType === 'piped') {
+        this.getCommentDataPipedMore(this.commentData[index].replyToken, index)
+      } else if (process.env.IS_ELECTRON) {
         switch (this.commentData[index].dataType) {
           case 'local':
             this.getCommentRepliesLocal(index)
@@ -236,6 +243,30 @@ export default defineComponent({
           this.isLoading = false
         }
       }
+    },
+
+    getCommentDataPiped: async function () {
+      const { comments, continuation } = await getPipedComments(this.id)
+      this.commentData = comments
+      this.nextPageToken = continuation
+      this.isLoading = false
+      this.showComments = true
+    },
+
+    getCommentDataPipedMore: async function(token, index = null) {
+      const { comments, continuation } = await getPipedCommentsMore({
+        videoId: this.id,
+        continuation: token
+      })
+      if (index !== null) {
+        this.commentData[index].replies = this.commentData[index].replies.concat(comments)
+        this.commentData[index].showReplies = true
+        this.commentData[index].replyToken = continuation
+      } else {
+        this.commentData = this.commentData.concat(comments)
+        this.nextPageToken = continuation
+      }
+      this.isLoading = false
     },
 
     getCommentDataInvidious: function () {
