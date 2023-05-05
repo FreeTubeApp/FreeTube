@@ -31,7 +31,7 @@
             <p
               class="message"
             >
-              {{ $t("Hashtag.You can only view hashtag pages through the local api") }}
+              {{ $t("Hashtag.You can only view hashtag pages through the Local API") }}
             </p>
           </ft-flex-box>
         </div>

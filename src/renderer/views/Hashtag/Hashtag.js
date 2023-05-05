@@ -6,6 +6,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { isNullOrEmpty } from '../../helpers/utils'
+
 export default defineComponent({
   name: 'Hashtag',
   components: {
@@ -46,9 +47,9 @@ export default defineComponent({
       this.getHashtag()
     }
   },
-  mounted: async function() {
+  mounted: function() {
     this.isLoading = true
-    await this.getHashtag()
+    this.getHashtag()
   },
   methods: {
     getHashtag: async function() {
