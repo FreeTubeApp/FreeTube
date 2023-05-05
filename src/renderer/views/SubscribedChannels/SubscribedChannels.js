@@ -1,6 +1,5 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtButton from '../../components/ft-button/ft-button.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
@@ -11,7 +10,6 @@ import { getLocalChannel } from '../../helpers/api/local'
 export default defineComponent({
   name: 'SubscribedChannels',
   components: {
-    'ft-button': FtButton,
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-input': FtInput,
@@ -28,12 +26,6 @@ export default defineComponent({
       },
       thumbnailSize: 176,
       ytBaseURL: 'https://yt3.ggpht.com',
-      showUnsubscribePrompt: false,
-      unsubscribePromptValues: [
-        'yes',
-        'no'
-      ],
-      channelToUnsubscribe: null,
       errorCount: 0
     }
   },
@@ -72,13 +64,6 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    },
-
-    unsubscribePromptNames: function () {
-      return [
-        this.$t('Yes'),
-        this.$t('No')
-      ]
     }
   },
   watch: {

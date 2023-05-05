@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -36,7 +35,6 @@ export default defineComponent({
   name: 'Channel',
   components: {
     'ft-card': FtCard,
-    'ft-button': FtButton,
     'ft-input': FtInput,
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox,
@@ -121,10 +119,6 @@ export default defineComponent({
 
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
-    },
-
-    profileList: function () {
-      return this.$store.getters.getProfileList
     },
 
     activeProfile: function () {
@@ -1338,7 +1332,6 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateProfile',
       'updateSubscriptionDetails'
     ])
   }

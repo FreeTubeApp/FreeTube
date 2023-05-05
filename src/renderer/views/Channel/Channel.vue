@@ -69,7 +69,6 @@
 
             <ft-subscribe-button
               v-if="!hideUnsubscribeButton && (!errorMessage || isSubscribed)"
-              class="subscribeButtons"
               :channel-id="id"
               :channel-name="channelName"
               :channel-thumbnail="thumbnailUrl"

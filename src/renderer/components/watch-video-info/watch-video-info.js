@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../ft-card/ft-card.vue'
-import FtButton from '../ft-button/ft-button.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
@@ -11,7 +10,6 @@ export default defineComponent({
   name: 'WatchVideoInfo',
   components: {
     'ft-card': FtCard,
-    'ft-button': FtButton,
     'ft-icon-button': FtIconButton,
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton
@@ -117,14 +115,6 @@ export default defineComponent({
 
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
-    },
-
-    profileList: function () {
-      return this.$store.getters.getProfileList
-    },
-
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
     },
 
     hideVideoLikesAndDislikes: function () {
@@ -368,7 +358,6 @@ export default defineComponent({
 
     ...mapActions([
       'openInExternalPlayer',
-      'updateProfile',
       'addVideo',
       'removeVideo',
       'downloadMedia'
