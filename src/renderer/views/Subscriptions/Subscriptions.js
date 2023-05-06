@@ -357,7 +357,13 @@ export default defineComponent({
 
         invidiousAPICall(subscriptionsPayload).then(async (result) => {
           resolve(await Promise.all(result.videos.map((video) => {
-            video.publishedDate = new Date(video.published * 1000)
+            if (video.liveNow) {
+              video.publishedDate = new Date().getTime()
+            } else if (video.isUpcoming) {
+              video.publishedDate = new Date(video.premiereTimestamp * 1000)
+            } else {
+              video.publishedDate = new Date(video.published * 1000)
+            }
             return video
           })))
         }).catch((err) => {
