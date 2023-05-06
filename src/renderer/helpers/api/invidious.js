@@ -145,16 +145,21 @@ function parseInvidiousCommentData(response) {
   })
 }
 
-export async function invidiousGetCommunityPosts(channelId) {
+export async function invidiousGetCommunityPosts(channelId, continuation = null) {
   const payload = {
     resource: 'channels',
     id: channelId,
-    subResource: 'community'
+    subResource: 'community',
+    params: {}
+  }
+
+  if (continuation) {
+    payload.params.continuation = continuation
   }
 
   const response = await invidiousAPICall(payload)
   response.comments = response.comments.map(communityPost => parseInvidiousCommunityData(communityPost))
-  return response.comments
+  return { posts: response.comments, continuation: response.continuation ?? null }
 }
 
 function parseInvidiousCommunityData(data) {
