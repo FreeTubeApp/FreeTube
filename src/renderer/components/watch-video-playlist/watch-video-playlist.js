@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
@@ -38,7 +38,7 @@ export default defineComponent({
       channelId: '',
       playlistTitle: '',
       playlistItems: [],
-      randomizedPlaylistItems: []
+      randomizedPlaylistItems: [],
     }
   },
   computed: {
@@ -87,23 +87,21 @@ export default defineComponent({
     watchViewLoading: function(newVal, oldVal) {
       // This component is loaded/rendered before watch view loaded
       if (oldVal && !newVal) {
-        // If loading true => false
-        // setTimeout to put this into event queue
-        // executed after render
-        // Scroll current item into view after render complete
-        const container = this.$refs.playlistItems
-        const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
-        if (container != null && currentVideoItem != null) {
-          container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
-          // Since components are only rendered after scroll,
-          // the scroll position requires another adjustment
-          // Timeout value depends on how soon the components finish rendering
-          setTimeout(() => {
-            container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
-          }, 500)
-        }
+        // Scroll after watch view loaded, otherwise doesn't work
+        // Mainly for Local API
+        // nextTick(() => this.scrollToCurrentVideo())
+        this.scrollToCurrentVideo()
       }
-    }
+    },
+    isLoading: function(newVal, oldVal) {
+      // This component is loaded/rendered before watch view loaded
+      if (oldVal && !newVal) {
+        // Scroll after this component loaded, otherwise doesn't work
+        // Mainly for Invidious API
+        // `nextTick` is required (tested via reloading)
+        nextTick(() => this.scrollToCurrentVideo())
+      }
+    },
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
@@ -382,6 +380,15 @@ export default defineComponent({
       })
 
       this.randomizedPlaylistItems = items
+    },
+
+    scrollToCurrentVideo: function () {
+      const container = this.$refs.playlistItems
+      const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
+      if (container != null && currentVideoItem != null) {
+        // Watch view can be ready sooner than this component
+        container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
+      }
     },
 
     ...mapMutations([

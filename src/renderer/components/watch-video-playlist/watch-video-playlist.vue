@@ -119,6 +119,7 @@
             :playlist-loop="loopEnabled"
             appearance="watchPlaylistItem"
             force-list-type="list"
+            :initial-visible-state="index < ((currentVideoIndex - 1) + 4) && index > ((currentVideoIndex - 1) - 4)"
             @pause-player="$emit('pause-player')"
           />
         </div>
