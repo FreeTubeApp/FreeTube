@@ -66,7 +66,6 @@ export default defineComponent({
       }
 
       const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
-      const primaryProfile = JSON.parse(JSON.stringify(this.profileList[0]))
 
       if (this.isSubscribed) {
         currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
@@ -105,6 +104,10 @@ export default defineComponent({
         showToast(this.$t('Channel.Added channel to your subscriptions'))
 
         if (this.activeProfile._id !== MAIN_PROFILE_ID) {
+          const primaryProfile = JSON.parse(JSON.stringify(this.profileList.find(prof => {
+            return prof._id === MAIN_PROFILE_ID
+          })))
+
           const index = primaryProfile.subscriptions.findIndex((channel) => {
             return channel.id === this.channelId
           })
