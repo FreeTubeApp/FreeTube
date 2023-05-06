@@ -75,7 +75,7 @@ export async function getLocalPlaylist(id) {
 
 /**
  * @param {string} location
- * @param {string} tab
+ * @param {'default'|'music'|'gaming'|'movies'} tab
  * @param {import('youtubei.js').Mixins.TabbedFeed|null} instance
  */
 export async function getLocalTrending(location, tab, instance) {
@@ -88,9 +88,24 @@ export async function getLocalTrending(location, tab, instance) {
   const tabIndex = ['default', 'music', 'gaming', 'movies'].indexOf(tab)
   const resultsInstance = await instance.getTabByName(instance.tabs[tabIndex])
 
-  const results = resultsInstance.videos
-    .filter((video) => video.type === 'Video')
-    .map(parseLocalListVideo)
+  let results
+
+  // the default tab can have duplicate videos so we need to deduplicate them
+  if (tab === 'default') {
+    const alreadySeenIds = []
+    results = []
+
+    resultsInstance.videos.forEach(video => {
+      if (video.type === 'Video' && !alreadySeenIds.includes(video.id)) {
+        alreadySeenIds.push(video.id)
+        results.push(parseLocalListVideo(video))
+      }
+    })
+  } else {
+    results = resultsInstance.videos
+      .filter((video) => video.type === 'Video')
+      .map(parseLocalListVideo)
+  }
 
   return {
     results,
