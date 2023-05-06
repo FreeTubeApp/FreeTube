@@ -1,4 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
+import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -23,7 +24,7 @@ export default defineComponent({
       searchDataLimit: 100,
       showLoadMoreButton: false,
       query: '',
-      activeData: []
+      activeData: [],
     }
   },
   computed: {
@@ -42,7 +43,7 @@ export default defineComponent({
   watch: {
     query() {
       this.searchDataLimit = 100
-      this.filterHistory()
+      this.filterHistoryAsync()
     },
     activeData() {
       this.refreshPage()
@@ -66,6 +67,8 @@ export default defineComponent({
     } else {
       this.showLoadMoreButton = false
     }
+
+    this.filterHistoryDebounce = debounce(this.filterHistory, 500)
   },
   methods: {
     increaseLimit: function () {
@@ -77,7 +80,12 @@ export default defineComponent({
         sessionStorage.setItem('historyLimit', this.dataLimit)
       }
     },
-    filterHistory: function(query) {
+    filterHistoryAsync: function() {
+      // Updating list on every char input could be wasting resources on rendering
+      // So run it with delay (to be cancelled when more input received within time)
+      this.filterHistoryDebounce()
+    },
+    filterHistory: function() {
       if (this.query === '') {
         this.activeData = this.fullData
         if (this.activeData.length < this.historyCache.length) {
@@ -113,6 +121,6 @@ export default defineComponent({
           window.scrollTo(0, scrollPos)
         })
       })
-    }
+    },
   }
 })
