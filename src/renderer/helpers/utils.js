@@ -9,6 +9,8 @@ import router from '../router/index'
 // https://support.google.com/youtube/answer/11585688#change_handle
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
+export const HASHTAG_REGEX = /^#\w*$/
+
 export function calculatePublishedDate(publishedText) {
   const date = new Date()
   if (publishedText === 'Live') {

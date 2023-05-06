@@ -6,7 +6,7 @@
     />
     <div v-else>
       <ft-card>
-        <h1>{{ hashtag }}</h1>
+        <h3>{{ hashtag }}</h3>
       </ft-card>
       <ft-card>
         <div
