@@ -129,7 +129,8 @@ export default defineComponent({
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: this.nextPageRef
+          nextPageRef: this.nextPageRef,
+          apiUsed: this.apiUsed
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
