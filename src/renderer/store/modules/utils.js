@@ -6,7 +6,6 @@ import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
 import {
   CHANNEL_HANDLE_REGEX,
-  HASHTAG_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
   openExternalLink,
@@ -293,10 +292,6 @@ const actions = {
 
     if (CHANNEL_HANDLE_REGEX.test(urlStr)) {
       urlStr = `https://www.youtube.com/${urlStr}`
-    }
-
-    if (HASHTAG_REGEX.test(urlStr)) {
-      urlStr = `https://www.youtube.com/hashtag/${urlStr.substring(1)}`
     }
 
     const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
