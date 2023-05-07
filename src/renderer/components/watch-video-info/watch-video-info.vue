@@ -30,13 +30,12 @@
             >
               {{ channelName }}
             </router-link>
-            <ft-button
+            <ft-subscribe-button
               v-if="!hideUnsubscribeButton"
-              :label="subscribedText"
-              class="subscribeButton"
-              background-color="var(--primary-color)"
-              text-color="var(--text-with-main-color)"
-              @click="handleSubscription"
+              :channel-id="channelId"
+              :channel-name="channelName"
+              :channel-thumbnail="channelThumbnail"
+              :subscription-count-text="subscriptionCountText"
             />
           </div>
         </div>

@@ -62,7 +62,7 @@
 }
 
 .unsubscribeContainer .btn {
-  padding: 5px 10px;
+  height: 80%;
 }
 
 @media only screen and (max-width: 680px) {
