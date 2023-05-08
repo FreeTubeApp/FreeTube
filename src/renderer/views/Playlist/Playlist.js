@@ -9,7 +9,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-
+import { getPipedPlaylist, pipedImageToYouTube } from '../../helpers/api/piped'
 export default defineComponent({
   name: 'Playlist',
   components: {
@@ -45,7 +45,8 @@ export default defineComponent({
   },
   computed: {
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      return 'piped'
+      // return this.$store.getters.getBackendPreference
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
@@ -76,6 +77,9 @@ export default defineComponent({
           break
         case 'invidious':
           this.getPlaylistInvidious()
+          break
+        case 'piped':
+          this.getPlaylistPiped()
           break
       }
     },
@@ -160,6 +164,21 @@ export default defineComponent({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    getPlaylistPiped: async function () {
+      this.isLoading = true
+      const { playlist, videos } = await getPipedPlaylist(this.playlistId)
+      this.infoData = playlist
+
+      this.playlistItems = this.playlistItems.concat(videos)
+
+      this.updateSubscriptionDetails({
+        channelThumbnailUrl: pipedImageToYouTube(playlist.channelThumbnail),
+        channelName: playlist.channelName,
+        channelId: playlist.channelId
+      })
+      this.isLoading = false
     },
 
     getNextPage: function () {
