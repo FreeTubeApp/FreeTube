@@ -169,113 +169,16 @@
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
     >
-      <div
+      <channel-about
         v-if="currentTab === 'about'"
         id="aboutPanel"
-        class="aboutTab"
-      >
-        <h2
-          v-if="description"
-        >
-          {{ $t("Channel.About.Channel Description") }}
-        </h2>
-        <div
-          v-if="description"
-          class="aboutInfo"
-          v-html="description"
-        />
-        <h2
-          v-if="joined || views !== null || location"
-        >
-          {{ $t('Channel.About.Details') }}
-        </h2>
-        <table
-          v-if="joined || views !== null || location"
-          class="aboutDetails"
-        >
-          <tr
-            v-if="joined"
-          >
-            <th
-              scope="row"
-            >
-              {{ $t('Channel.About.Joined') }}
-            </th>
-            <td>{{ formattedJoined }}</td>
-          </tr>
-          <tr
-            v-if="views !== null"
-          >
-            <th
-              scope="row"
-            >
-              {{ $t('Video.Views') }}
-            </th>
-            <td>{{ formattedViews }}</td>
-          </tr>
-          <tr
-            v-if="location"
-          >
-            <th
-              scope="row"
-            >
-              {{ $t('Channel.About.Location') }}
-            </th>
-            <td>{{ location }}</td>
-          </tr>
-        </table>
-        <h2
-          v-if="tags.length > 0"
-        >
-          {{ $t('Channel.About.Tags.Tags') }}
-        </h2>
-        <ul
-          v-if="tags.length > 0"
-          class="aboutTags"
-        >
-          <li
-            v-for="tag in tags"
-            :key="tag"
-            class="aboutTag"
-          >
-            <router-link
-              v-if="!hideSearchBar"
-              class="aboutTagLink"
-              :title="$t('Channel.About.Tags.Search for', { tag })"
-              :to="{
-                path: `/search/${encodeURIComponent(tag)}`,
-                query: searchSettings
-              }"
-            >
-              {{ tag }}
-            </router-link>
-            <span
-              v-else
-              class="aboutTagLink"
-            >
-              {{ tag }}
-            </span>
-          </li>
-        </ul>
-        <h2
-          v-if="relatedChannels.length > 0 && !hideFeaturedChannels"
-        >
-          {{ $t("Channel.About.Featured Channels") }}
-        </h2>
-        <ft-flex-box
-          v-if="relatedChannels.length > 0 && !hideFeaturedChannels"
-        >
-          <ft-channel-bubble
-            v-for="(channel, index) in relatedChannels"
-            :key="index"
-            :channel-name="channel.name"
-            :channel-id="channel.id"
-            :channel-thumbnail="channel.thumbnailUrl"
-            role="link"
-            @click="goToChannel(channel.id)"
-          />
-        </ft-flex-box>
-      </div>
+        :description="description"
+        :joined="joined"
+        :views="views"
+        :location="location"
+        :tags="tags"
+        :related-channels="relatedChannels"
+      />
       <ft-select
         v-if="showVideoSortBy"
         v-show="currentTab === 'videos' && latestVideos.length > 0"

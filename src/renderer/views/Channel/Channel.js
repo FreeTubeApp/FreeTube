@@ -4,12 +4,12 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import FtShareButton from '../../components/ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
+import ChannelAbout from '../../components/channel-about/channel-about.vue'
 
 import autolinker from 'autolinker'
 import { copyToClipboard, extractNumberFromString, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
@@ -38,12 +38,12 @@ export default defineComponent({
     'ft-input': FtInput,
     'ft-select': FtSelect,
     'ft-flex-box': FtFlexBox,
-    'ft-channel-bubble': FtChannelBubble,
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-age-restricted': FtAgeRestricted,
     'ft-share-button': FtShareButton,
-    'ft-subscribe-button': FtSubscribeButton
+    'ft-subscribe-button': FtSubscribeButton,
+    'channel-about': ChannelAbout
   },
   data: function () {
     return {
@@ -117,10 +117,6 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
-    },
-
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
@@ -156,14 +152,6 @@ export default defineComponent({
       return formatNumber(this.subCount)
     },
 
-    formattedViews: function () {
-      return formatNumber(this.views)
-    },
-
-    formattedJoined: function () {
-      return new Intl.DateTimeFormat([this.currentLocale, 'en'], { dateStyle: 'long' }).format(this.joined)
-    },
-
     showFetchMoreButton: function () {
       switch (this.currentTab) {
         case 'videos':
@@ -184,24 +172,12 @@ export default defineComponent({
       return this.$store.getters.getHideChannelSubscriptions
     },
 
-    searchSettings: function () {
-      return this.$store.getters.getSearchSettings
-    },
-
-    hideSearchBar: function () {
-      return this.$store.getters.getHideSearchBar
-    },
-
     hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
 
     hideLiveStreams: function () {
       return this.$store.getters.getHideLiveStreams
-    },
-
-    hideFeaturedChannels: function() {
-      return this.$store.getters.getHideFeaturedChannels
     },
 
     hideChannelPlaylists: function() {
@@ -411,10 +387,6 @@ export default defineComponent({
       } else {
         this.$router.replace({ path: `/channel/${id}` })
       }
-    },
-
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
     },
 
     getChannelLocal: async function () {
