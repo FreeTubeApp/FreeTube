@@ -97,7 +97,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-unicorn": "^46.0.0",
+    "eslint-plugin-unicorn": "^47.0.0",
     "eslint-plugin-vue": "^9.11.1",
     "eslint-plugin-vuejs-accessibility": "^2.1.0",
     "html-webpack-plugin": "^5.5.1",
