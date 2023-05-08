@@ -48,9 +48,6 @@ export default defineComponent({
       this.searchDataLimit = 100
       this.filterPlaylistAsync()
     },
-    activeData() {
-      this.refreshPage()
-    },
     fullData() {
       this.activeData = this.fullData
       this.filterPlaylist()
@@ -63,13 +60,13 @@ export default defineComponent({
       this.dataLimit = limit
     }
 
+    this.activeData = this.fullData
+
     if (this.activeData.length < this.favoritesPlaylist.videos.length) {
       this.showLoadMoreButton = true
     } else {
       this.showLoadMoreButton = false
     }
-
-    this.activeData = this.fullData
 
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
   },
@@ -115,15 +112,5 @@ export default defineComponent({
         this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       }
     },
-    refreshPage: function() {
-      const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-      this.isLoading = true
-      nextTick(() => {
-        this.isLoading = false
-        nextTick(() => {
-          window.scrollTo(0, scrollPos)
-        })
-      })
-    }
   }
 })

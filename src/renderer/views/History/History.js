@@ -45,9 +45,6 @@ export default defineComponent({
       this.searchDataLimit = 100
       this.filterHistoryAsync()
     },
-    activeData() {
-      this.refreshPage()
-    },
     fullData() {
       this.activeData = this.fullData
       this.filterHistory()
@@ -111,16 +108,6 @@ export default defineComponent({
         }
         this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       }
-    },
-    refreshPage: function() {
-      const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-      this.isLoading = true
-      nextTick(() => {
-        this.isLoading = false
-        nextTick(() => {
-          window.scrollTo(0, scrollPos)
-        })
-      })
     },
   }
 })
