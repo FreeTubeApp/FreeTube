@@ -98,13 +98,18 @@ export async function getPipedPlaylistMore({ playlistId, continuation }) {
 }
 
 export function getPipedUrlInfo(url) {
-  const regex = /^(?<baseUrl>.*)\/(?<imageProtocol>vi|ytc)\/(?<resource>[^?]*).*host=(?<host>[^&]*)/
-  return url.match(regex).groups
+  const regex = /^(?<baseUrl>(https?:\/\/)[^/]*)\/((?<imageProtocol>vi|ytc)\/)?(?<resource>[^?]*).*host=(?<host>[^&]*)/
+  return url.match(regex)?.groups
 }
 
 export function pipedImageToYouTube(url) {
-  const { host, imageProtocol, resource } = getPipedUrlInfo(url)
-  return `https://${host}/${imageProtocol}/${resource}`
+  const urlInfo = getPipedUrlInfo(url)
+  let newUrl = `https://${urlInfo.host}/`
+  if (!isNullOrEmpty(urlInfo.imageProtocol)) {
+    newUrl += `${urlInfo.imageProtocol}/`
+  }
+  newUrl += urlInfo.resource
+  return newUrl
 }
 
 function parsePipedPlaylist(playlistId, result, parsedVideos) {
