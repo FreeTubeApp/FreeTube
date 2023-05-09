@@ -398,9 +398,11 @@ export default defineComponent({
           if (this.fallbackPreference === 'invidious') {
             showToast(this.$t('Falling back to Invidious API'))
             this.getPlaylistInformationInvidious()
-          } else {
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
             showToast(this.$t('Falling back to Piped API'))
             this.getPlaylistInformationLocal()
+          } else {
+            this.isLoading = false
           }
         } else {
           this.isLoading = false
