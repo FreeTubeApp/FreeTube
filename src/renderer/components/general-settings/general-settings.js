@@ -251,6 +251,13 @@ export default defineComponent({
 
     handleFallbackApiBackend: function (backend) {
       this.updateFallbackPreference(backend)
+      if (this.backendPreference === backend) {
+        if (backend === 'invidious') {
+          this.handlePreferredApiBackend('local')
+        } else {
+          this.handlePreferredApiBackend('invidious')
+        }
+      }
     },
 
     ...mapMutations([
