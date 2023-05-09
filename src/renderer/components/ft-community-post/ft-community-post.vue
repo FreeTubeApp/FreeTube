@@ -104,11 +104,6 @@
         class="thumbs-up-icon"
         :icon="['fas', 'thumbs-up']"
       /> {{ voteCount }}</span>
-      <span class="dislikeCount"><font-awesome-icon
-        class="thumbs-down-icon"
-        :icon="['fas', 'thumbs-down']"
-        flip="horizontal"
-      /></span>
       <span class="commentCount">
         <font-awesome-icon
           class="comment-count-icon"
