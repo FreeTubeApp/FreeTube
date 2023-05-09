@@ -58,12 +58,16 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    backendFallback: function () {
-      return this.$store.getters.getBackendFallback
+    backendPreference: function () {
+      let preference = this.$store.getters.getBackendPreference
+      if (preference === 'piped') {
+        preference = this.$store.getters.getFallbackPreference
+      }
+      return preference
     },
 
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback && this.$store.getters.getBackendPreference !== 'piped'
     },
 
     expandSideBar: function () {

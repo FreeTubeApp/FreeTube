@@ -44,12 +44,15 @@ export default defineComponent({
   },
   computed: {
     backendPreference: function () {
-      return 'piped'
-      // return this.$store.getters.getBackendPreference
+      let preference = this.$store.getters.getBackendPreference
+      if (preference === 'piped') {
+        preference = this.$store.getters.getFallbackPreference
+      }
+      return preference
     },
 
     backendFallback: function () {
-      return this.$store.getters.getBackendFallback
+      return this.$store.getters.getBackendFallback && this.$store.getters.getBackendPreference !== 'piped'
     },
 
     hideCommentLikes: function () {

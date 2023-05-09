@@ -9,7 +9,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { extractNumberFromString } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { getPipedPlaylist, pipedImageToYouTube } from '../../helpers/api/piped'
+import { getPipedPlaylist, getPipedPlaylistMore, pipedImageToYouTube } from '../../helpers/api/piped'
 export default defineComponent({
   name: 'Playlist',
   components: {
@@ -168,9 +168,9 @@ export default defineComponent({
 
     getPlaylistPiped: async function () {
       this.isLoading = true
-      const { playlist, videos } = await getPipedPlaylist(this.playlistId)
+      const { playlist, videos, nextpage } = await getPipedPlaylist(this.playlistId)
       this.infoData = playlist
-
+      this.continuationData = nextpage
       this.playlistItems = this.playlistItems.concat(videos)
 
       this.updateSubscriptionDetails({
@@ -188,6 +188,9 @@ export default defineComponent({
           break
         case 'invidious':
           console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
+          break
+        case 'piped':
+          this.getNextPagePiped()
           break
       }
     },
@@ -207,6 +210,22 @@ export default defineComponent({
 
         this.isLoadingMore = false
       })
+    },
+
+    getNextPagePiped: async function() {
+      this.isLoadingMore = true
+      const { videos, nextpage } = await getPipedPlaylistMore({
+        playlistId: this.playlistId,
+        continuation: this.continuationData
+      })
+
+      this.playlistItems = this.playlistItems.concat(videos)
+      if (nextpage) {
+        this.continuationData = nextpage
+      } else {
+        this.continuationData = null
+      }
+      this.isLoadingMore = false
     },
 
     ...mapActions([

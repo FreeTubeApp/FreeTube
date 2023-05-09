@@ -8,8 +8,10 @@ import {
   openExternalLink,
   showToast,
   toLocalePublicationString,
-  toDistractionFreeTitle
+  toDistractionFreeTitle,
+  isNullOrEmpty
 } from '../../helpers/utils'
+import { getPipedUrlInfo } from '../../helpers/api/piped'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -89,6 +91,10 @@ export default defineComponent({
 
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
 
     currentInvidiousInstance: function () {
@@ -220,23 +226,44 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      let baseUrl
-      if (this.backendPreference === 'invidious') {
-        baseUrl = this.currentInvidiousInstance
-      } else {
-        baseUrl = 'https://i.ytimg.com'
+      let baseUrl = ''
+      let baseData = ''
+      let backendPreference = this.backendPreference
+      if (backendPreference === 'piped') {
+        if (this.data.thumbnail) {
+          baseData = getPipedUrlInfo(this.data.thumbnail)
+          baseUrl = baseData.baseUrl
+        } else {
+          backendPreference = this.fallbackPreference
+        }
       }
+      if (isNullOrEmpty(baseData)) {
+        if (backendPreference === 'invidious') {
+          baseUrl = this.currentInvidiousInstance
+        } else {
+          baseUrl = 'https://i.ytimg.com'
+        }
+      }
+
+      let imageUrl = ''
 
       switch (this.thumbnailPreference) {
         case 'start':
-          return `${baseUrl}/vi/${this.id}/mq1.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mq1.jpg`
+          break
         case 'middle':
-          return `${baseUrl}/vi/${this.id}/mq2.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mq2.jpg`
+          break
         case 'end':
-          return `${baseUrl}/vi/${this.id}/mq3.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mq3.jpg`
+          break
         default:
-          return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
+          imageUrl = `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
+      if (!isNullOrEmpty(baseData)) {
+        imageUrl += `?host=${baseData.host}`
+      }
+      return imageUrl
     },
 
     hideVideoViews: function () {
