@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import { copyToClipboard, formatNumber, isNullOrEmpty, openExternalLink } from '../../helpers/utils'
-import { getPipedUrlInfo } from '../../helpers/api/piped'
+import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -34,14 +33,6 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
-    },
-
-    fallbackPreference: function () {
-      return this.$store.getters.getFallbackPreference
-    },
-
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -55,44 +46,16 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      let baseUrl = ''
-      let baseData = ''
-      let backendPreference = this.backendPreference
-      if (backendPreference === 'piped') {
-        if (this.data.thumbnail) {
-          baseData = getPipedUrlInfo(this.data.thumbnail)
-          baseUrl = baseData.baseUrl
-        } else {
-          backendPreference = this.fallbackPreference
-        }
-      }
-      if (isNullOrEmpty(baseData)) {
-        if (backendPreference === 'invidious') {
-          baseUrl = this.currentInvidiousInstance
-        } else {
-          baseUrl = 'https://i.ytimg.com'
-        }
-      }
-
-      let imageUrl = ''
-
       switch (this.thumbnailPreference) {
         case 'start':
-          imageUrl = `${baseUrl}/vi/${this.id}/mq1.jpg`
-          break
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq1.jpg`
         case 'middle':
-          imageUrl = `${baseUrl}/vi/${this.id}/mq2.jpg`
-          break
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq2.jpg`
         case 'end':
-          imageUrl = `${baseUrl}/vi/${this.id}/mq3.jpg`
-          break
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq3.jpg`
         default:
-          imageUrl = `${baseUrl}/vi/${this.id}/mqdefault.jpg`
+          return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
       }
-      if (!isNullOrEmpty(baseData)) {
-        imageUrl += `?host=${baseData.host}`
-      }
-      return imageUrl
     }
   },
   mounted: function () {
