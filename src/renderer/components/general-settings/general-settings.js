@@ -24,7 +24,8 @@ export default defineComponent({
     return {
       backendValues: [
         'invidious',
-        'local'
+        'local',
+        'piped'
       ],
       defaultPageNames: [
         'Subscriptions',
@@ -58,6 +59,9 @@ export default defineComponent({
     }
   },
   computed: {
+    currentPipedInstance: function () {
+      return this.$store.getters.getCurrentPipedInstance
+    },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -66,6 +70,9 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -103,6 +110,12 @@ export default defineComponent({
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
+    pipedInstancesList: function () {
+      return this.$store.getters.getPipedInstancesList
+    },
+    defaultPipedInstance: function () {
+      return this.$store.getters.getDefaultPipedInstance
+    },
 
     localeOptions: function () {
       return [
@@ -121,7 +134,8 @@ export default defineComponent({
     backendNames: function () {
       return [
         this.$t('Settings.General Settings.Preferred API Backend.Invidious API'),
-        this.$t('Settings.General Settings.Preferred API Backend.Local API')
+        this.$t('Settings.General Settings.Preferred API Backend.Local API'),
+        this.$t('Settings.General Settings.Preferred API Backend.Piped API')
       ]
     },
 
@@ -156,23 +170,36 @@ export default defineComponent({
   mounted: function () {
     this.setCurrentInvidiousInstanceBounce =
       debounce(this.setCurrentInvidiousInstance, 500)
+
+    this.setCurrentPipedInstanceBounce =
+      debounce(this.setCurrentPipedInstance, 500)
   },
   beforeDestroy: function () {
+    // FIXME: If we call an action from here, there's no guarantee it will finish
+    // before the component is destroyed, which could bring up some problems
+    // Since I can't see any way to await it (because lifecycle hooks must be
+    // synchronous), unfortunately, we have to copy/paste the logic
+    // from the `setRandomCurrentInvidiousInstance` action onto here
     if (this.currentInvidiousInstance === '') {
-      // FIXME: If we call an action from here, there's no guarantee it will finish
-      // before the component is destroyed, which could bring up some problems
-      // Since I can't see any way to await it (because lifecycle hooks must be
-      // synchronous), unfortunately, we have to copy/paste the logic
-      // from the `setRandomCurrentInvidiousInstance` action onto here
       const instanceList = this.invidiousInstancesList
       const randomIndex = Math.floor(Math.random() * instanceList.length)
       this.setCurrentInvidiousInstance(instanceList[randomIndex])
+    }
+
+    if (this.setCurrentPipedInstance === '') {
+      const instanceList = this.pipedInstanceList
+      const randomIndex = Math.floor(Math.random() * instanceList.length)
+      this.setCurrentPipedInstance(instanceList[randomIndex])
     }
   },
   methods: {
     handleInvidiousInstanceInput: function (input) {
       const instance = input.replace(/\/$/, '')
       this.setCurrentInvidiousInstanceBounce(instance)
+    },
+
+    handlePipedInstanceInput: function (input) {
+      this.setCurrentPipedInstanceBounce(input)
     },
 
     handleSetDefaultInstanceClick: function () {
@@ -183,21 +210,52 @@ export default defineComponent({
       showToast(message)
     },
 
+    handleSetDefaultPipedInstanceClick: function () {
+      const instance = this.currentPipedInstance
+      this.updateDefaultPipedInstance(instance)
+
+      const message = this.$t('Default Piped instance has been set to {instance}', { instance })
+      showToast(message)
+    },
+
     handleClearDefaultInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
       showToast(this.$t('Default Invidious instance has been cleared'))
     },
 
+    handleClearDefaultPipedInstanceClick: function () {
+      this.updateDefaultPipedInstance('')
+      showToast(this.$t('Default Piped instance has been cleared'))
+    },
+
     handlePreferredApiBackend: function (backend) {
       this.updateBackendPreference(backend)
+      if (backend === 'piped') {
+        if (!this.backendFallback) {
+          this.updateBackendFallback(true)
+        }
+      }
 
-      if (backend === 'local') {
+      if (this.fallbackPreference === backend) {
+        if (backend === 'invidious') {
+          this.updateFallbackPreference('local')
+        } else {
+          this.updateFallbackPreference('invidious')
+        }
+      }
+
+      if (backend === 'local' || backend === 'piped') {
         this.updateForceLocalBackendForLegacy(false)
       }
     },
 
+    handleFallbackApiBackend: function (backend) {
+      this.updateFallbackPreference(backend)
+    },
+
     ...mapMutations([
-      'setCurrentInvidiousInstance'
+      'setCurrentInvidiousInstance',
+      'setCurrentPipedInstance'
     ]),
 
     ...mapActions([
@@ -207,7 +265,9 @@ export default defineComponent({
       'updateCheckForBlogPosts',
       'updateBarColor',
       'updateBackendPreference',
+      'updateFallbackPreference',
       'updateDefaultInvidiousInstance',
+      'updateDefaultPipedInstance',
       'updateLandingPage',
       'updateRegion',
       'updateListType',

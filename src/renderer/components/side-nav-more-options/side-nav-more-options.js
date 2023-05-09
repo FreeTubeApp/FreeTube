@@ -8,11 +8,18 @@ export default defineComponent({
     }
   },
   computed: {
-    backendFallback: function () {
-      return this.$store.getters.getBackendFallback
-    },
     backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+      let preference = this.$store.getters.getBackendPreference
+      if (preference === 'piped') {
+        preference = this.$store.getters.getFallbackPreference
+      }
+      return preference
+    },
+    fallbackPreference: function() {
+      return this.$store.getters.getFallbackPreference
+    },
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback && this.$store.getters.getBackendPreference !== 'piped'
     },
     hidePopularVideos: function () {
       return this.$store.getters.getHidePopularVideos

@@ -71,7 +71,7 @@
         </p>
       </router-link>
       <router-link
-        v-if="!hidePopularVideos && (backendFallback || backendPreference === 'invidious')"
+        v-if="!hidePopularVideos && ((backendFallback && fallbackPreference === 'invidious') || backendPreference === 'invidious')"
         class="navOption"
         :title="$t('Most Popular')"
         :aria-label="hideLabelsSideBar ? $t('Most Popular') : null"

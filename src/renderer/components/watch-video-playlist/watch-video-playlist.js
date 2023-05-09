@@ -6,6 +6,7 @@ import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { getPipedPlaylist, getPipedPlaylistMore } from '../../helpers/api/piped'
 
 export default defineComponent({
   name: 'WatchVideoPlaylist',
@@ -40,6 +41,10 @@ export default defineComponent({
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
 
     backendFallback: function () {
@@ -282,7 +287,24 @@ export default defineComponent({
       this.channelName = cachedPlaylist.channelName
       this.channelId = cachedPlaylist.channelId
 
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
+      if (this.backendPreference === 'piped') {
+        const items = cachedPlaylist.items
+        let nextpage = cachedPlaylist.continuationData
+        do {
+          const moreInfo = await getPipedPlaylistMore({
+            playlistId: cachedPlaylist.playlistId,
+            nextpage
+          })
+
+          items.push(moreInfo.videos)
+
+          if (!moreInfo.nextpage) {
+            nextpage = null
+          }
+        } while (nextpage != null)
+
+        this.playlistItems = items
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
         const items = cachedPlaylist.items
@@ -334,8 +356,52 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendPreference === 'local' && this.backendFallback) {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getPlaylistInformationInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getPlaylistInformationInvidious()
+          } else {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getPlaylistInformationPiped()
+          }
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getPlaylistInformationPiped: async function() {
+      this.isLoading = true
+      try {
+        const playlistInfo = await getPipedPlaylist(this.playlistId)
+        this.playlistTitle = playlistInfo.playlist.title
+        this.channelName = playlistInfo.playlist.channelName
+        this.channelId = playlistInfo.playlist.channelId
+        let nextpage = playlistInfo.nextpage
+        const videos = playlistInfo.videos
+        while (nextpage != null) {
+          const playlistContInfo = await getPipedPlaylistMore({
+            playlistId: this.playlistId,
+            continuation: nextpage
+          })
+          nextpage = playlistContInfo.nextpage
+          videos.push(...playlistContInfo.videos)
+        }
+        this.playlistItems = videos
+        this.isLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Piped API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'piped' && this.backendFallback) {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getPlaylistInformationInvidious()
+          } else {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getPlaylistInformationLocal()
+          }
         } else {
           this.isLoading = false
         }
@@ -358,9 +424,16 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-          showToast(this.$t('Falling back to Local API'))
-          this.getPlaylistInformationLocal()
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to Local API'))
+            this.getPlaylistInformationLocal()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getPlaylistInformationPiped()
+          } else {
+            this.isLoading = false
+          }
         } else {
           this.isLoading = false
           // TODO: Show toast with error message

@@ -73,12 +73,27 @@ function parsePipedComments(comments) {
 }
 
 export async function getPipedPlaylist(playlistId) {
-  const pList = await pipedRequest({ resource: 'playlists', id: playlistId })
-  console.error(pList)
-  const parsedVideos = parsePipedVideos(pList.relatedStreams)
+  const playlistInfo = await pipedRequest({ resource: 'playlists', id: playlistId })
+  const parsedVideos = parsePipedVideos(playlistInfo.relatedStreams)
   return {
-    playlist: parsePipedPlaylist(playlistId, pList, parsedVideos),
+    nextpage: playlistInfo.nextpage,
+    playlist: parsePipedPlaylist(playlistId, playlistInfo, parsedVideos),
     videos: parsedVideos
+  }
+}
+
+export async function getPipedPlaylistMore({ playlistId, continuation }) {
+  const playlistInfo = await pipedRequest({
+    resource: 'nextpage/playlists',
+    id: playlistId,
+    params: {
+      nextpage: continuation
+    }
+  })
+
+  return {
+    nextpage: playlistInfo.nextpage,
+    videos: parsePipedVideos(playlistInfo.relatedStreams)
   }
 }
 

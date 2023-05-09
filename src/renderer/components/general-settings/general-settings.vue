@@ -13,6 +13,7 @@
         <ft-toggle-switch
           :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
           :default-value="backendFallback"
+          :disabled="backendPreference === 'piped'"
           :compact="true"
           :tooltip="$t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
           @change="updateBackendFallback"
@@ -41,6 +42,15 @@
         :select-values="backendValues"
         :tooltip="$t('Tooltips.General Settings.Preferred API Backend')"
         @change="handlePreferredApiBackend"
+      />
+      <ft-select
+        v-if="backendFallback"
+        :placeholder="$t('Settings.General Settings.Preferred API Backend.Fallback API Backend')"
+        :value="fallbackPreference"
+        :select-names="backendNames"
+        :select-values="backendValues"
+        :tooltip="$t('Tooltips.General Settings.Fallback API Backend')"
+        @change="handleFallbackApiBackend"
       />
       <ft-select
         v-if="false"
@@ -90,7 +100,7 @@
       />
     </div>
     <div
-      v-if="backendPreference === 'invidious' || backendFallback"
+      v-if="backendPreference === 'invidious' || fallbackPreference === 'invidious'"
     >
       <ft-flex-box class="settingsFlexStart460px">
         <ft-input
@@ -134,6 +144,54 @@
         <ft-button
           :label="$t('Settings.General Settings.Clear Default Instance')"
           @click="handleClearDefaultInstanceClick"
+        />
+      </ft-flex-box>
+    </div>
+    <div
+      v-if="backendPreference === 'piped' || fallbackPreference === 'piped'"
+    >
+      <ft-flex-box class="settingsFlexStart460px">
+        <ft-input
+          :placeholder="$t('Settings.General Settings.Current Piped Instance')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="currentPipedInstance"
+          :data-list="pipedInstancesList"
+          :tooltip="$t('Tooltips.General Settings.Piped Instance')"
+          @input="handlePipedInstanceInput"
+        />
+      </ft-flex-box>
+      <ft-flex-box>
+        <div>
+          <a
+            href="https://github.com/TeamPiped/Piped/wiki/Instances"
+          >
+            {{ $t('Settings.General Settings.View all Piped instance information') }}
+          </a>
+        </div>
+      </ft-flex-box>
+      <p
+        v-if="defaultPipedInstance !== ''"
+        class="center"
+      >
+        {{ $t('Settings.General Settings.The currently set default instance is {instance}', { instance: defaultPipedInstance }) }}
+      </p>
+      <template v-else>
+        <p class="center">
+          {{ $t('Settings.General Settings.No default instance has been set') }}
+        </p>
+        <p class="center">
+          {{ $t('Settings.General Settings.Current instance will be randomized on startup') }}
+        </p>
+      </template>
+      <ft-flex-box>
+        <ft-button
+          :label="$t('Settings.General Settings.Set Current Instance as Default')"
+          @click="handleSetDefaultPipedInstanceClick"
+        />
+        <ft-button
+          :label="$t('Settings.General Settings.Clear Default Instance')"
+          @click="handleClearDefaultPipedInstanceClick"
         />
       </ft-flex-box>
     </div>

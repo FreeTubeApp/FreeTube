@@ -145,8 +145,10 @@ Settings:
     System Default: System Default
     Preferred API Backend:
       Preferred API Backend: Preferred API Backend
+      Fallback API Backend: Fallback API Backend
       Local API: Local API
       Invidious API: Invidious API
+      Piped API: Piped API
     Video View Type:
       Video View Type: Video View Type
       Grid: Grid
@@ -158,12 +160,14 @@ Settings:
       Middle: Middle
       End: End
     Current Invidious Instance: Current Invidious Instance
+    Current Piped Instance: Current Piped Instance
     The currently set default instance is {instance}: The currently set default instance is {instance}
     No default instance has been set: No default instance has been set
     Current instance will be randomized on startup: Current instance will be randomized on startup
     Set Current Instance as Default: Set Current Instance as Default
     Clear Default Instance: Clear Default Instance
     View all Invidious instance information: View all Invidious instance information
+    View all Piped instance information: View all Piped instance information
     Region for Trending: Region for Trending
     #! List countries
     External Link Handling:
@@ -777,13 +781,16 @@ Tooltips:
   General Settings:
     Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
       local API is a built-in extractor. The Invidious API requires an Invidious server
-      to connect to.
+      to connect to. The Piped API requires a Piped server to connect to.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
+    Fallback API Backend: Choose the fallback backend that FreeTube uses when there is a problem with the preferred API.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
+      calls.
+    Piped Instance: The Piped instance that FreeTube will connect to for API
       calls.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed. Not all countries displayed are actually
@@ -839,6 +846,7 @@ Tooltips:
 Local API Error (Click to copy): Local API Error (Click to copy)
 Invidious API Error (Click to copy): Invidious API Error (Click to copy)
 Falling back to Invidious API: Falling back to Invidious API
+Falling back to Piped API: Falling back to Piped API
 Falling back to the local API: Falling back to the local API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen due to country
