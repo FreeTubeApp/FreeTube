@@ -44,15 +44,15 @@ export default defineComponent({
   },
   computed: {
     backendPreference: function () {
-      let preference = this.$store.getters.getBackendPreference
-      if (preference === 'piped') {
-        preference = this.$store.getters.getFallbackPreference
-      }
-      return preference
+      return this.$store.getters.getBackendPreference
+    },
+
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
 
     backendFallback: function () {
-      return this.$store.getters.getBackendFallback && this.$store.getters.getBackendPreference !== 'piped'
+      return this.$store.getters.getBackendFallback
     },
 
     hideCommentLikes: function () {
@@ -207,8 +207,13 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getCommentDataPiped()
+          }
         } else {
           this.isLoading = false
         }
@@ -240,8 +245,13 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to Invidious API'))
-          this.getCommentDataInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getCommentDataPiped()
+          }
         } else {
           this.isLoading = false
         }
@@ -249,27 +259,65 @@ export default defineComponent({
     },
 
     getCommentDataPiped: async function () {
-      const { comments, continuation } = await getPipedComments(this.id)
-      this.commentData = comments
-      this.nextPageToken = continuation
-      this.isLoading = false
-      this.showComments = true
+      try {
+        const { comments, continuation } = await getPipedComments(this.id)
+        this.commentData = comments
+        this.nextPageToken = continuation
+        this.isLoading = false
+        this.showComments = true
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Piped API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendFallback && this.backendPreference === 'piped') {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to local API'))
+            this.getCommentDataLocal()
+          }
+        } else {
+          this.isLoading = false
+        }
+      }
     },
 
     getCommentDataPipedMore: async function(token, index = null) {
-      const { comments, continuation } = await getPipedCommentsMore({
-        videoId: this.id,
-        continuation: token
-      })
-      if (index !== null) {
-        this.commentData[index].replies = this.commentData[index].replies.concat(comments)
-        this.commentData[index].showReplies = true
-        this.commentData[index].replyToken = continuation
-      } else {
-        this.commentData = this.commentData.concat(comments)
-        this.nextPageToken = continuation
+      try {
+        const { comments, continuation } = await getPipedCommentsMore({
+          videoId: this.id,
+          continuation: token
+        })
+        if (index !== null) {
+          this.commentData[index].replies = this.commentData[index].replies.concat(comments)
+          this.commentData[index].showReplies = true
+          this.commentData[index].replyToken = continuation
+        } else {
+          this.commentData = this.commentData.concat(comments)
+          this.nextPageToken = continuation
+        }
+        this.isLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Piped API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendFallback && this.backendPreference === 'piped') {
+          if (this.fallbackPreference === 'invidious') {
+            showToast(this.$t('Falling back to Invidious API'))
+            this.getCommentDataInvidious()
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to local API'))
+            this.getCommentDataLocal()
+          }
+        } else {
+          this.isLoading = false
+        }
       }
-      this.isLoading = false
     },
 
     getCommentDataInvidious: function () {
@@ -288,9 +336,14 @@ export default defineComponent({
         showToast(`${errorMessage}: ${xhr.responseText}`, 10000, () => {
           copyToClipboard(xhr.responseText)
         })
-        if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
-          showToast(this.$t('Falling back to local API'))
-          this.getCommentDataLocal()
+        if (this.backendFallback && this.backendPreference === 'invidious') {
+          if (this.fallbackPreference === 'piped') {
+            showToast(this.$t('Falling back to Piped API'))
+            this.getCommentDataPiped()
+          } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            showToast(this.$t('Falling back to local API'))
+            this.getCommentDataLocal()
+          }
         } else {
           this.isLoading = false
         }

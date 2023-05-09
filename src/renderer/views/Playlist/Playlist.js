@@ -45,8 +45,10 @@ export default defineComponent({
   },
   computed: {
     backendPreference: function () {
-      return 'piped'
-      // return this.$store.getters.getBackendPreference
+      return this.$store.getters.getBackendPreference
+    },
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
@@ -117,8 +119,13 @@ export default defineComponent({
       }).catch((err) => {
         console.error(err)
         if (this.backendPreference === 'local' && this.backendFallback) {
-          console.warn('Falling back to Invidious API')
-          this.getPlaylistInvidious()
+          if (this.fallbackPreference === 'invidious') {
+            console.warn('Falling back to Invidious API')
+            this.getPlaylistInvidious()
+          } else {
+            console.warn('Falling back to Piped API')
+            this.getPlaylistPiped()
+          }
         } else {
           this.isLoading = false
         }
@@ -156,9 +163,16 @@ export default defineComponent({
         this.isLoading = false
       }).catch((err) => {
         console.error(err)
-        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-          console.warn('Error getting data with Invidious, falling back to local backend')
-          this.getPlaylistLocal()
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            console.warn('Error getting data with Invidious, falling back to local backend')
+            this.getPlaylistLocal()
+          } else if (this.fallbackPreference === 'piped') {
+            console.warn('Error getting data with Invidious, falling back to Piped backend')
+            this.getPlaylistPiped()
+          } else {
+            this.isLoading = false
+          }
         } else {
           this.isLoading = false
           // TODO: Show toast with error message
@@ -167,18 +181,36 @@ export default defineComponent({
     },
 
     getPlaylistPiped: async function () {
-      this.isLoading = true
-      const { playlist, videos, nextpage } = await getPipedPlaylist(this.playlistId)
-      this.infoData = playlist
-      this.continuationData = nextpage
-      this.playlistItems = this.playlistItems.concat(videos)
+      try {
+        this.isLoading = true
+        const { playlist, videos, nextpage } = await getPipedPlaylist(this.playlistId)
+        this.infoData = playlist
+        this.continuationData = nextpage
+        this.playlistItems = this.playlistItems.concat(videos)
 
-      this.updateSubscriptionDetails({
-        channelThumbnailUrl: pipedImageToYouTube(playlist.channelThumbnail),
-        channelName: playlist.channelName,
-        channelId: playlist.channelId
-      })
-      this.isLoading = false
+        this.updateSubscriptionDetails({
+          channelThumbnailUrl: pipedImageToYouTube(playlist.channelThumbnail),
+          channelName: playlist.channelName,
+          channelId: playlist.channelId
+        })
+        this.isLoading = false
+      } catch (err) {
+        console.error(err)
+        if (this.backendPreference === 'invidious' && this.backendFallback) {
+          if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
+            console.warn('Error getting data with Piped, falling back to local backend')
+            this.getPlaylistLocal()
+          } else if (this.fallbackPreference === 'invidious') {
+            console.warn('Error getting data with Piped, falling back to Invidious backend')
+            this.getPlaylistPiped()
+          } else {
+            this.isLoading = false
+          }
+        } else {
+          this.isLoading = false
+          // TODO: Show toast with error message
+        }
+      }
     },
 
     getNextPage: function () {
