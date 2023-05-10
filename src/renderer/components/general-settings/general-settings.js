@@ -2,10 +2,8 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtSelect from '../ft-select/ft-select.vue'
-import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtInstanceSelector from '../ft-instance-selector/ft-instance-selector.vue'
 
 import debounce from 'lodash.debounce'
 import { showToast } from '../../helpers/utils'
@@ -15,10 +13,8 @@ export default defineComponent({
   components: {
     'ft-settings-section': FtSettingsSection,
     'ft-select': FtSelect,
-    'ft-input': FtInput,
     'ft-toggle-switch': FtToggleSwitch,
-    'ft-flex-box': FtFlexBox,
-    'ft-button': FtButton
+    'ft-instance-selector': FtInstanceSelector
   },
   data: function () {
     return {
@@ -202,7 +198,7 @@ export default defineComponent({
       this.setCurrentPipedInstanceBounce(input)
     },
 
-    handleSetDefaultInstanceClick: function () {
+    handleSetDefaultInvidiousInstanceClick: function () {
       const instance = this.currentInvidiousInstance
       this.updateDefaultInvidiousInstance(instance)
 
@@ -218,7 +214,7 @@ export default defineComponent({
       showToast(message)
     },
 
-    handleClearDefaultInstanceClick: function () {
+    handleClearDefaultInvidiousInstanceClick: function () {
       this.updateDefaultInvidiousInstance('')
       showToast(this.$t('Default Invidious instance has been cleared'))
     },
