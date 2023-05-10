@@ -22,9 +22,16 @@ import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
 videojs.Vhs.xhr.beforeRequest = (options) => {
-  if (options.headers?.Range && new URL(options.uri).hostname.endsWith('.googlevideo.com')) {
-    options.uri += `&range=${options.headers.Range.split('=')[1]}`
-    delete options.headers.Range
+  // pass in the optional base so it doesn't error for `dashFiles/videoId.xml` (DASH manifest in dev mode)
+  if (new URL(options.uri, window.location.origin).hostname.endsWith('.googlevideo.com')) {
+    // The official clients use POST requests with this body for the DASH requests, so we should do that too
+    options.method = 'POST'
+    options.body = 'x\x00' // protobuf: { 15: 0 } (no idea what it means but this is what YouTube uses)
+
+    if (options.headers?.Range) {
+      options.uri += `&range=${options.headers.Range.split('=')[1]}`
+      delete options.headers.Range
+    }
   }
 }
 
