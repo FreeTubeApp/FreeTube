@@ -399,7 +399,7 @@ export default defineComponent({
             showToast(this.$t('Falling back to Invidious API'))
             this.getPlaylistInformationInvidious()
           } else if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
-            showToast(this.$t('Falling back to Piped API'))
+            showToast(this.$t('Falling back to Local API'))
             this.getPlaylistInformationLocal()
           } else {
             this.isLoading = false
