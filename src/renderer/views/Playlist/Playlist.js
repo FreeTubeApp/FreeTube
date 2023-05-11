@@ -202,7 +202,7 @@ export default defineComponent({
             this.getPlaylistLocal()
           } else if (this.fallbackPreference === 'invidious') {
             console.warn('Error getting data with Piped, falling back to Invidious backend')
-            this.getPlaylistPiped()
+            this.getPlaylistInvidious()
           } else {
             this.isLoading = false
           }
