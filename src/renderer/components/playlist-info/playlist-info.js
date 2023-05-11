@@ -22,7 +22,7 @@ export default defineComponent({
       channelName: '',
       channelId: '',
       videoCount: 0,
-      viewCount: 0,
+      viewCount: null,
       lastUpdated: '',
       description: '',
       infoSource: ''
@@ -70,8 +70,10 @@ export default defineComponent({
     this.infoSource = this.data.infoSource
 
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
-      this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
+    if (this.data.viewCount != null) {
+      // youtube displays 'No views' instead of 0 views for NaN viewCounts
+      const views = isNaN(this.data.viewCount) ? 0 : this.data.viewCount
+      this.viewCount = this.hideViews ? null : formatNumber(views)
     }
 
     if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
