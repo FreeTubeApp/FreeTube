@@ -1,4 +1,4 @@
-import { defineComponent, nextTick } from 'vue'
+import { defineComponent } from 'vue'
 import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -44,9 +44,6 @@ export default defineComponent({
     query() {
       this.searchDataLimit = 100
       this.filterHistoryAsync()
-    },
-    activeData() {
-      this.refreshPage()
     },
     fullData() {
       this.activeData = this.fullData
@@ -111,16 +108,6 @@ export default defineComponent({
         }
         this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       }
-    },
-    refreshPage: function() {
-      const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-      this.isLoading = true
-      nextTick(() => {
-        this.isLoading = false
-        nextTick(() => {
-          window.scrollTo(0, scrollPos)
-        })
-      })
     },
   }
 })
