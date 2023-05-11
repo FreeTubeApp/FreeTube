@@ -22,7 +22,7 @@
         {{ title }}
       </h2>
       <p>
-        {{ videoCount }} {{ $t("Playlist.Videos") }} <span v-if="!hideViews && infoSource !== 'piped'">- {{ viewCount }} {{ $t("Playlist.Views") }} </span>
+        {{ videoCount }} {{ $t("Playlist.Videos") }} <span v-if="viewCount != null">- {{ viewCount }} {{ $t("Playlist.Views") }} </span>
         <span v-if="infoSource === 'local'"> - </span>
         <span v-if="infoSource === 'invidious'"> - {{ $t("Playlist.Last Updated On") }}</span>
         {{ lastUpdated }}
