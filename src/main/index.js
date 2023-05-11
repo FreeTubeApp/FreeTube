@@ -975,7 +975,7 @@ function runApp() {
 
   // ************************************************* //
 
-  app.once('window-all-closed', () => {
+  app.on('window-all-closed', () => {
     // Clear cache and storage if it's the last window
     session.defaultSession.clearCache()
     session.defaultSession.clearStorageData({
@@ -991,11 +991,15 @@ function runApp() {
       ]
     })
 
+    // For MacOS the app would still "run in background"
+    // and create new window on event `activate`
     if (process.platform !== 'darwin') {
       app.quit()
     }
   })
 
+  // MacOS event
+  // https://www.electronjs.org/docs/latest/api/app#event-activate-macos
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
