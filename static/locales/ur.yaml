@@ -84,7 +84,7 @@ History:
   Search bar placeholder: "تاریخ میں تلاش کریں۔"
 Settings:
   # On Settings Page
-  Settings:
+  Settings: ''
   The app needs to restart for changes to take effect. Restart and apply change?: 'دی
     تبدیلیاں اثر انداز ہونے کے لیے ایپ کو دوبارہ شروع کرنے کی ضرورت ہے۔ دوبارہ شروع
     کریں اور تبدیلی کا اطلاق کریں؟'
@@ -244,4 +244,3 @@ Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر ل
 Starting download: '"{videoTitle}" کا ڈاؤن لوڈ شروع ہو رہا ہے'
 Downloading failed: '"{videoTitle}" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
 Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ {error}'
-

@@ -141,9 +141,6 @@ Video:
       shuffling playlists: ''
   Stats:
     Bandwidth: ''
-Videos:
-  #& Sort By
-{}
 Playlist:
   #& About
   Videos: ''
@@ -166,4 +163,3 @@ Invidious API Error (Click to copy): ''
 Loop is now enabled: ''
 Default Invidious instance has been set to {instance}: ''
 Screenshot Error: ''
-

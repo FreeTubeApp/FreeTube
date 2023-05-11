@@ -22,9 +22,18 @@ module.exports = {
     {
       files: ['*.json'],
       parser: 'jsonc-eslint-parser',
+      extends: ['plugin:jsonc/base'],
       rules: {
         'no-tabs': 'off',
         'comma-spacing': 'off'
+      }
+    },
+    {
+      files: ['*.yaml', '*.yml'],
+      parser: 'yaml-eslint-parser',
+      extends: ['plugin:yml/recommended'],
+      rules: {
+        'yml/no-irregular-whitespace': 'off'
       }
     }
   ],

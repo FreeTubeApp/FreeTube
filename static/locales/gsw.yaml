@@ -143,9 +143,6 @@ Video:
       shuffling playlists: ''
   Stats:
     Bandwidth: ''
-Videos:
-  #& Sort By
-{}
 Playlist:
   #& About
   Videos: ''

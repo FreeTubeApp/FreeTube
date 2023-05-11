@@ -40,6 +40,7 @@
     "lint-style:css": "stylelint \"**/*.css\"",
     "lint-style-fix:scss": "stylelint --fix \"**/*.scss\"",
     "lint-style-fix:css": "stylelint --fix \"**/*.css\"",
+    "lint-yml": "eslint --ext .yml,.yaml ./",
     "pack": "run-p pack:main pack:renderer",
     "pack:main": "webpack --mode=production --node-env=production --config _scripts/webpack.main.config.js",
     "pack:renderer": "webpack --mode=production --node-env=production --config _scripts/webpack.renderer.config.js",
@@ -93,13 +94,14 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsonc": "^2.7.0",
+    "eslint-plugin-jsonc": "^2.8.0",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^47.0.0",
     "eslint-plugin-vue": "^9.11.1",
     "eslint-plugin-vuejs-accessibility": "^2.1.0",
+    "eslint-plugin-yml": "^1.7.0",
     "html-webpack-plugin": "^5.5.1",
     "js-yaml": "^4.1.0",
     "json-minimizer-webpack-plugin": "^4.0.0",
@@ -122,6 +124,7 @@
     "vue-loader": "^15.10.0",
     "webpack": "^5.82.0",
     "webpack-cli": "^5.1.0",
-    "webpack-dev-server": "^4.15.0"
+    "webpack-dev-server": "^4.15.0",
+    "yaml-eslint-parser": "^1.2.2"
   }
 }
