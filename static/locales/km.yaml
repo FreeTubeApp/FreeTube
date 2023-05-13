@@ -15,8 +15,6 @@ Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
-  Proxy Settings:
-    City: ''
 Channel:
   Videos: {}
 Tooltips:
