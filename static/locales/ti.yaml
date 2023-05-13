@@ -31,7 +31,5 @@ Settings:
 Channel:
   Videos: {}
 Video:
-  Sponsor Block category:
-    outro: ''
   External Player: {}
 Tooltips: {}
