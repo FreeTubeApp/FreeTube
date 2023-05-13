@@ -351,9 +351,6 @@ Video:
     video: ''
     Unsupported Actions:
       reversing playlists: ''
-Videos:
-  #& Sort By
-{}
 Playlist:
   #& About
   View: ''
