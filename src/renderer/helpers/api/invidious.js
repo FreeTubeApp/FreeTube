@@ -246,6 +246,13 @@ function parseInvidiousCommunityAttachments(data) {
     }
   }
 
+  if (data.type === 'playlist') {
+    return {
+      type: data.type,
+      content: data
+    }
+  }
+
   console.error('New Invidious Community Post Type: ' + data.type)
 }
 
