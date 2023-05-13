@@ -432,13 +432,9 @@ Video:
     није подржан у овој изградњи.'
   'Chat is disabled or the Live Stream has ended.': 'Ћаскање је угашено или директан
     пренос је завршен.'
-  Audio:
-    High: ''
   Published:
     Jul: ''
-    Minute: ''
     Month: ''
-  Started streaming on: ''
 Playlist:
   #& About
   Last Updated On: ''
@@ -447,14 +443,10 @@ Playlist:
 #* Published
 #& Views
 Share:
-  Share Video: ''
   Invidious Channel URL copied to clipboard: ''
 Comments:
-  There are no more comments for this video: ''
   Replies: ''
 Tooltips:
-  General Settings:
-    Thumbnail Preference: ''
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити РСС уместо свог
       подразумеваног метода за прикупљање вашег праћења. РСС је бржи и спречава блокирање
@@ -462,5 +454,4 @@ Tooltips:
 
 # Toast Messages
 Subscriptions have not yet been implemented: 'Праћења још увек нису примењени'
-Playing Next Video Interval: ''
 Open New Window: Отбори нов прозор

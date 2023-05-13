@@ -84,7 +84,6 @@ History:
   Search bar placeholder: "تاریخ میں تلاش کریں۔"
 Settings:
   # On Settings Page
-  Settings: ''
   The app needs to restart for changes to take effect. Restart and apply change?: 'دی
     تبدیلیاں اثر انداز ہونے کے لیے ایپ کو دوبارہ شروع کرنے کی ضرورت ہے۔ دوبارہ شروع
     کریں اور تبدیلی کا اطلاق کریں؟'

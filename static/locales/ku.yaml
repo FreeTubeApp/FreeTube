@@ -110,34 +110,23 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'گەڕانەوە بۆ سیستەمە ناخوازراوەکە
       لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
-    Video View Type:
-      List: ''
   Theme Settings:
     Theme Settings: ''
     Main Color Theme:
-      Pink: ''
       Green: ''
   Player Settings:
-    Player Settings: ''
     Default Volume: ''
     Default Quality:
-      144p: ''
       8k: ''
-  Privacy Settings:
-    Are you sure you want to remove your entire watch history?: ''
   Data Settings:
     Data Settings: ''
-    Export FreeTube: ''
     One or more subscriptions were unable to be imported: ''
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
     Unable to write file: 'ناتواندریت فایلەکە بنوسرێت'
     Unknown data key: 'کلیلی داتای نەناسراو'
     How do I import my subscriptions?: 'چۆن بەشدارییەکانم داخڵ بکەم؟'
     Manage Subscriptions: بەشدارییەکانت رێکبخە
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: کێشە لە
       وەرگرتنی زانیاری نێتۆرک. ئایە پرۆکسێکەت بە رێکوپێکی رێکخراوە؟
@@ -161,8 +150,6 @@ About:
   #On About page
   About: 'دەربارە'
   #& About
-  Latest FreeTube News: ''
-
   Donate: دۆنەیشن
   these people and projects: ئەم کەسانە و پڕۆژانە
   FreeTube is made possible by: فریتوب بونی هەیە بەهۆی
@@ -209,36 +196,24 @@ Profile:
   Your default profile has been set to {profile}: 'پرۆفایلە ئاساییەکەت دانراوە بۆ
     {profile}'
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
-  Delete Selected: ''
 Channel:
   Unsubscribe: ''
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists:
     Sort Types:
       Oldest: ''
 Video:
-  Open in YouTube: ''
   Loop Playlist: ''
-  Starting soon, please refresh the page to check again: ''
-  # As in a Live Video
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   Published:
-    Aug: ''
     Minutes: ''
-    Months: ''
 Videos:
   #& Sort By
   Sort By:
     Oldest: ''
     #& Most Popular
 #& Playlists
-Change Format:
-  Use Dash Formats: ''
 Share:
   Open Link: ''
 Comments:
-  Comments: ''
   Replies: ''
-Falling back to the local API: ''
 Playing Previous Video: ''

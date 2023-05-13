@@ -43,126 +43,74 @@ Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufma
 # Search Bar
 Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Filters:
-  Time:
-    Time: ''
   Type:
     All Types: ''
-  Fetching results. Please wait: ''
 Subscriptions:
     # On Subscriptions Page
   'Getting Subscriptions. Please wait.': ''
-Channels:
-  Empty: ''
 Trending:
   Movies: ''
-User Playlists:
-  Search bar placeholder: ''
 Settings:
   # On Settings Page
   General Settings:
     General Settings: ''
-    Preferred API Backend:
-      Preferred API Backend: ''
     Thumbnail Preference:
       Beginning: ''
-    Clear Default Instance: ''
   Theme Settings:
     Match Top Bar with Main Color: ''
-    Base Theme:
-      System Default: ''
     Main Color Theme:
       Deep Purple: ''
-      Lime: ''
       Dracula Pink: ''
-      Catppuccin Mocha Red: ''
       Catppuccin Mocha Blue: ''
   Player Settings:
-    Proxy Videos Through Invidious: ''
     Default Volume: ''
     Default Quality:
-      Default Quality: ''
       1440p: ''
-    Screenshot:
-      Folder Button: ''
   External Player Settings:
     Custom External Player Executable: ''
-  Privacy Settings:
-    Are you sure you want to clear out your search cache?: ''
   Subscription Settings:
     Hide Videos on Watch: ''
   Distraction Free Settings:
-    Hide Recommended Videos: ''
     Hide Live Streams: ''
   Data Settings:
-    Import NewPipe: ''
     Import Playlists: ''
-    Invalid history file: ''
     Unable to read file: ''
   Proxy Settings:
-    Proxy Host: ''
     City: ''
-  SponsorBlock Settings:
-    Skip Options:
-      Show In Seek Bar: ''
+  SponsorBlock Settings: {}
   Download Settings:
     Download Settings: ''
 About:
   #On About page
-  Source code: ''
   Report a problem: ''
-  Please read the: ''
 Profile:
   Profile Select: ''
-  Profile Preview: ''
   Your profile name cannot be empty: ''
-  Other Channels: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Search Channel: ''
   Playlists:
     Playlists: ''
 Video:
-  Mark As Watched: ''
   Copy YouTube Link: ''
-  Copy Invidious Channel Link: ''
   Watching: ''
-  Enable Live Chat: ''
   Audio:
     Low: ''
   Published:
-    May: ''
     Second: ''
-    Week: ''
   Published on: ''
-  Sponsor Block category:
-    outro: ''
   External Player:
     playlist: ''
-    Unsupported Actions:
-      shuffling playlists: ''
   Stats:
     Bandwidth: ''
-Playlist:
-  #& About
-  Videos: ''
 Change Format:
   Use Audio Formats: ''
-Share:
-  Open Embed: ''
-  # On Click
 Comments:
   Comments: ''
-  Newest first: ''
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   There are no comments available for this video: ''
 Tooltips:
-  General Settings:
-    Thumbnail Preference: ''
   External Player Settings:
     External Player: ''
-Invidious API Error (Click to copy): ''
 Loop is now enabled: ''
-Default Invidious instance has been set to {instance}: ''
 Age Restricted: {}
 Starting download: ''

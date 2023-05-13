@@ -83,83 +83,54 @@ History:
 Settings:
   # On Settings Page
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
     Video View Type:
       Grid: ''
-    Region for Trending: ''
-        #! List countries
   Theme Settings:
     Base Theme:
       Dark: ''
     Main Color Theme:
-      Blue: ''
       Amber: ''
   Player Settings:
-    Autoplay Videos: ''
     Default Video Format:
       Legacy Formats: ''
-    Default Quality:
-      720p: ''
   Privacy Settings:
     Clear Search Cache: ''
-  Subscription Settings:
-    Subscription Settings: ''
   Distraction Free Settings:
     Hide Comment Likes: ''
   Data Settings:
-    Select Export Type: ''
     Export YouTube: ''
-    Invalid subscriptions file: ''
     Unable to write file: ''
   Proxy Settings:
-    Proxy Port Number: ''
     Error getting network information. Is your proxy configured properly?: ''
 About:
   #On About page
   Email: 'ই-মেইল'
-  Source Code: ''
 Profile:
   Color Picker: ''
-  All subscriptions will also be deleted.: ''
   '{profile} is now the active profile': ''
-  No channel(s) have been selected: ''
 Channel:
   Removed subscription from {count} other channel(s): ''
-  Videos:
-    Sort Types:
-      Oldest: ''
+  Videos: {}
   Playlists: {}
   About:
     Channel Description: ''
 Video:
-  Video has been removed from your saved list: ''
   Copy YouTube Channel Link: ''
-  Play Next Video: ''
   Live Chat: ''
-  audio only: ''
   Published:
     Apr: ''
-    Dec: ''
     Days: ''
-    Upcoming: ''
 Playlist:
   #& About
   Videos: ''
-Change Format:
-  Use Audio Formats: ''
 Share:
   Open Embed: ''
   # On Click
 Comments:
-  Comments: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply
-Up Next: ''
-
-#Tooltips
 Tooltips:
   Player Settings:
     Default Video Format: ''
-Loop is now disabled: ''
 Canceled next video autoplay: ''
 Open New Window: নতুন জানালা খুলো

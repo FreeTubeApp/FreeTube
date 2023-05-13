@@ -162,96 +162,59 @@ Settings:
       External Link Handling: 'Xarici Keçid Hazırlama'
       Open Link: 'Linki Açın'
   Theme Settings:
-    Hide Side Bar Labels: ''
     Main Color Theme:
       Red: ''
-      Teal: ''
       Dracula Cyan: ''
   Player Settings:
-    Player Settings: ''
     Scroll Volume Over Video Player: ''
-    Video Playback Rate Interval: ''
     Default Quality:
       240p: ''
     Screenshot:
-      Enable: ''
       Error:
         Forbidden Characters: ''
   Privacy Settings:
-    Remember History: ''
     Watch history has been cleared: ''
   Distraction Free Settings:
-    Hide Video Views: ''
     Hide Live Chat: ''
   Data Settings:
-    Import NewPipe: ''
     Import Playlists: ''
-    Invalid history file: ''
     Unable to read file: ''
   Proxy Settings:
-    Proxy Host: ''
     City: ''
-  SponsorBlock Settings:
-    Skip Options:
-      Show In Seek Bar: ''
+  SponsorBlock Settings: {}
 About:
   #On About page
   Beta: ''
-  FAQ: ''
   Chat on Matrix: ''
 Profile:
-  Profile Settings: ''
   Custom Color: ''
-  Profile could not be found: ''
   Subscription List: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : ''
 Channel:
   Added channel to your subscriptions: ''
-  Videos:
-    Sort Types:
-      Most Popular: ''
+  Videos: {}
   Playlists: {}
   About:
     Featured Channels: ''
 Video:
-  Open in YouTube: ''
   Open Channel in Invidious: ''
-  Play Previous Video: ''
-  # Context is "X People Watching"
   Live Chat: ''
-  audio only: ''
   Published:
     Apr: ''
-    Dec: ''
     Days: ''
-    Upcoming: ''
   Sponsor Block category:
     intro: ''
   External Player:
-    video: ''
     Unsupported Actions:
       reversing playlists: ''
-  Stats:
-    Volume: ''
 Playlist:
   #& About
   View Full Playlist: ''
-Change Format:
-  Use Legacy Formats: ''
 Share:
   Copy Embed: ''
-Mini Player: ''
 Comments:
   Top comments: ''
-  And others: ''
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-  Player Settings:
-    Scroll Playback Rate Over Video Player: ''
 Local API Error (Click to copy): ''
-Loop is now disabled: ''
 Canceled next video autoplay: ''
-Screenshot Success: ''

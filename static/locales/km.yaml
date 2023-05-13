@@ -10,114 +10,66 @@ File: 'ខ្មែរ'
 Quit: 'ខ្មែរ'
 Edit: 'ខ្មែរ'
 Undo: 'ខ្មែរ'
-Force Reload: ''
 Close: ''
-Search / Go to URL: ''
 Search Filters:
   Time:
     Time: ''
-  Type:
-    All Types: ''
   Fetching results. Please wait: ''
-Subscriptions:
-    # On Subscriptions Page
-  Refresh Subscriptions: ''
 Trending:
   Trending Tabs: ''
-History:
-  # On History Page
-  History: ''
 Settings:
   # On Settings Page
   General Settings:
     Check for Updates: ''
-    Preferred API Backend:
-      Local API: ''
     Thumbnail Preference:
       Middle: ''
-    View all Invidious instance information: ''
   Theme Settings:
     Expand Side Bar by Default: ''
-    Base Theme:
-      Dracula: ''
     Main Color Theme:
       Light Blue: ''
-      Orange: ''
       Dracula Yellow: ''
   Player Settings:
-    Autoplay Playlists: ''
     Default Playback Rate: ''
     Default Quality:
-      Auto: ''
       4k: ''
   Privacy Settings:
-    Remember History: ''
     Watch history has been cleared: ''
   Distraction Free Settings:
-    Hide Video Views: ''
     Hide Live Chat: ''
   Data Settings:
-    Import NewPipe: ''
     Import Playlists: ''
-    Invalid history file: ''
     Unable to read file: ''
   Proxy Settings:
-    Proxy Host: ''
     City: ''
-  Download Settings:
-    Choose Path: ''
 About:
   #On About page
   Help: ''
-  Email: ''
   these people and projects: ''
 Profile:
-  Edit Profile: ''
   Are you sure you want to delete this profile?: ''
-  Your default profile has been changed to your primary profile: ''
   Add Selected To Profile: ''
 Channel:
-  Channel has been removed from your subscriptions: ''
   Videos:
     Sort Types:
       Newest: ''
-  About:
-    About: ''
 Video:
   Video has been saved: ''
-  Open Channel in YouTube: ''
   Reverse Playlist: ''
-  Live: ''
   Download Video: ''
   Published:
-    Feb: ''
     Oct: ''
-    Hours: ''
     Years: ''
-  Skipped segment: ''
   External Player:
     video: ''
-    Unsupported Actions:
-      reversing playlists: ''
   Stats:
     Volume: ''
-Playlist:
-  #& About
-  View Full Playlist: ''
 Change Format:
   Use Legacy Formats: ''
-Share:
-  Copy Embed: ''
 Mini Player: ''
 Comments:
-  Top comments: ''
   And others: ''
 Tooltips:
-  General Settings:
-    Thumbnail Preference: ''
   External Player Settings:
     External Player: ''
-Invidious API Error (Click to copy): ''
 Loop is now enabled: ''
-Default Invidious instance has been set to {instance}: ''
 No: ''

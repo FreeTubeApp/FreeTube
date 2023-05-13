@@ -12,77 +12,48 @@ Delete: 'বিলোপ কৰক'
 Select all: 'সকলোক বাছক'
 Reload: 'সতেজ কৰক'
 Force Reload: 'বলেৰে সতেজ কৰক'
-Close: ''
 Search Filters:
   Sort By:
     Upload Date: ''
-  Time:
-    This Year: ''
   Duration:
     Long (> 20 minutes): ''
   # On Search Page
-Trending:
-  Trending: ''
 Settings:
   # On Settings Page
   General Settings:
     General Settings: ''
-    Video View Type:
-      Video View Type: ''
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
   Theme Settings:
     Main Color Theme:
-      Main Color Theme: ''
       Cyan: ''
-      Deep Orange: ''
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format:
-      Audio Formats: ''
     Default Quality:
       1080p: ''
-  Subscription Settings:
-    Subscriptions Export Format:
-      OPML: ''
+  Subscription Settings: {}
   Advanced Settings:
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
 About:
   #On About page
-  About: ''
-  #& About
   Latest FreeTube News: ''
 
 #On Channel Page
 Channel:
-  Videos:
-    Videos: ''
   Playlists:
     Sort Types:
       Newest: ''
 Video:
-  Video has been removed from your history: ''
   Views: ''
   # Context is "X People Watching"
-  'Chat is disabled or the Live Stream has ended.': ''
   Published:
     Jun: ''
-    Seconds: ''
     Months: ''
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Change Format:
   Use Dash Formats: ''
-Share:
-  Invidious URL copied to clipboard: ''
 Comments:
   Show Comments: ''
-Up Next: ''
-
-# Toast Messages
 Shuffle is now disabled: ''
-No: ''
 Locale Name: অসমীয়া

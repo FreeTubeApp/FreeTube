@@ -156,67 +156,39 @@ Settings:
       Dracula Red: 'Dracula Ruber'
       Dracula Yellow: 'Dracula Flavum'
   Player Settings:
-    Autoplay Playlists: ''
     Default Quality:
       Default Quality: ''
-      1440p: ''
   Privacy Settings:
     Search cache has been cleared: ''
-  Subscription Settings:
-    Fetch Feeds from RSS: ''
   Data Settings:
     Import NewPipe: ''
-    All subscriptions and profiles have been successfully imported: ''
     All watched history has been successfully imported: ''
   Advanced Settings:
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
     Clear Subscriptions:
       Are you sure you want to remove all subscriptions?: ''
       #& Yes
       #& No
 
-About:
-  #On About page
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
 Profile:
   Custom Color: ''
-  Profile could not be found: ''
   Subscription List: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : ''
 Channel:
   Added channel to your subscriptions: ''
-  Videos:
-    Sort Types:
-      Most Popular: ''
+  Videos: {}
   Playlists: {}
   About:
     Featured Channels: ''
 Video:
-  Copy YouTube Embedded Player Link: ''
   Play Next Video: ''
-  Enable Live Chat: ''
   Published:
     Apr: ''
-    Dec: ''
     Days: ''
-    Upcoming: ''
 Playlist:
   #& About
   Views: ''
-Change Format:
-  Audio formats are not available for this video: ''
 Share:
   Invidious Embed URL copied to clipboard: ''
-Comments:
-  Hide Comments: ''
-  # Context: View 10 Replies, View 1 Reply
 Local API Error (Click to copy): ''
-Shuffle is now enabled: ''
 No: 'nullum'
 More: plus
 Open New Window: aperiere fenestram novum

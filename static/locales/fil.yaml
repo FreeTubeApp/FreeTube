@@ -81,67 +81,44 @@ Most Popular: 'Pinakasikat'
 Settings:
   # On Settings Page
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
     Video View Type:
       Grid: ''
-    Region for Trending: ''
-        #! List countries
   Theme Settings:
     Main Color Theme:
       Red: ''
-      Teal: ''
     Secondary Color Theme: ''
         #* Main Color Theme
   Player Settings:
-    Enable Theatre Mode by Default: ''
     Default Quality:
       Auto: ''
-      4k: ''
   Privacy Settings:
     Remove Watch History: ''
-  Subscription Settings:
-    Manage Subscriptions: ''
   Data Settings:
     Export Subscriptions: ''
-    All subscriptions have been successfully imported: ''
     Unable to read file: ''
-  Advanced Settings:
-    Use Tor / Proxy for API calls: ''
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
 Profile:
-  Profile Select: ''
   Create Profile: ''
-  Profile has been created: ''
 Channel:
   Subscribe: ''
-  Videos:
-    Sort Types:
-      Oldest: ''
+  Videos: {}
   Playlists: {}
   About:
     Channel Description: ''
 Video:
-  Open YouTube Embedded Player: ''
   Reverse Playlist: ''
-  Live Chat: ''
   Published:
     Mar: ''
-    Nov: ''
     Day: ''
-    Ago: ''
 Playlist:
   #& About
   View: ''
 Share:
-  Share Video: ''
   YouTube Embed URL copied to clipboard: ''
-Comments:
-  Hide: ''
 Falling back to Invidious API: ''
-Playing Next Video: ''
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
 New Window: bagong window

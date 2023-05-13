@@ -346,10 +346,7 @@ Settings:
     Subscription File: 구독 정보 파일
     Playlist File: 재생목록 파일
     History File: 시청기록 파일
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 네트워크 정보를
       가져오는 중 오류가 발생했습니다. 프록시가 올바르게 구성되어 있습니까?
@@ -418,8 +415,6 @@ About:
   #On About page
   About: '정보'
   #& About
-  Latest FreeTube News: ''
-
   Donate: 기부
   these people and projects: 이 사람들과 프로젝트
   FreeTube is made possible by: FreeTube는 가능합니다

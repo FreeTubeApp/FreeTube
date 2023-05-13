@@ -251,12 +251,8 @@ Settings:
     Export NewPipe: 'Exportar NewPipe'
     Import History: 'Importar historial'
     Export History: 'Exportar historial'
-    History object has insufficient data, skipping item: ''
     Check for Legacy Subscriptions: Comprobar suscripciones de legado
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar suscripciones activas
     Hide Live Chat: Ocultar chat en vivo
@@ -276,45 +272,32 @@ Settings:
       una solicitud a
 About:
   #On About page
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
   Website: Sitio web
   Email: Correo electrónico
   Blog: Blog
 Profile:
-  Create Profile: ''
   Profile has been created: ''
 Channel:
-  Subscribe: ''
   Videos:
     Sort Types:
       Oldest: ''
   Playlists: {}
   About:
-    Channel Description: ''
     Tags:
       Search for: Buscar por «{tag}»
     Details: Detalles
 Video:
-  Copy YouTube Embedded Player Link: ''
   Live: ''
   Published:
-    Jan: ''
     Sep: ''
-    Hour: ''
     Year: ''
   translated from English: traducido del inglés
   Stats:
     Mimetype: Tipo de medio
-Toggle Theatre Mode: ''
 Share:
   Copy Embed: ''
 Comments:
-  Click to View Comments: ''
   There are no comments available for this video: ''
-Loop is now disabled: ''
 'The playlist has ended. Enable loop to continue playing': ''
 
 Yes: 'Sí'

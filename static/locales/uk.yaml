@@ -372,10 +372,7 @@ Settings:
     Playlist File: Файл добірки
     Subscription File: Файл підписки
     History File: Файл історії
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Помилка
       отримання відомостей про мережу. Чи правильно налаштовано ваш проксі?
@@ -446,8 +443,6 @@ About:
   #On About page
   About: 'Про'
   #& About
-  Latest FreeTube News: ''
-
   Donate: Підтримати
   these people and projects: цим людям та проєктам
   FreeTube is made possible by: FreeTube доступний завдяки
@@ -553,8 +548,8 @@ Channel:
     Location: Розташування
   This channel does not exist: Цей канал не існує
   This channel does not allow searching: Цей канал не дозволяє здійснювати пошук
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Цей канал
-    має вікові обмеження і наразі не може бути переглянутий на FreeTube.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Цей
+    канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
   Community:
     Community: Спільнота
@@ -874,8 +869,8 @@ The playlist has been reversed: 'Добірку обернено'
 Playing Next Video: 'Відтворення наступного відео'
 Playing Previous Video: 'Відтворення попереднього відео'
 Canceled next video autoplay: 'Скасовано автовідтворення наступного відео'
-'The playlist has ended. Enable loop to continue playing': 'Добірка завершилася.
-  Увімкніть цикл, щоб продовжити відтворення'
+'The playlist has ended. Enable loop to continue playing': 'Добірка завершилася. Увімкніть
+  цикл, щоб продовжити відтворення'
 
 Yes: 'Так'
 No: 'Ні'

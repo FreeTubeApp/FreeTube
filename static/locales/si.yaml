@@ -32,7 +32,6 @@ Search / Go to URL: 'සොයන්න / ඒ.ස.නි.(URL) වෙත යන�
 Search Filters:
   Search Filters: 'පෙරහන් සොයන්න'
   Time:
-    Last Hour: ''
     Today: 'අද'
     This Week: 'මෙම සතිය'
     This Month: 'මෙම මාසය'
@@ -70,75 +69,49 @@ Settings:
     Preferred API Backend:
       Local API: 'ස්ථානීය යෙ.ක්‍ර. අ.මු. (API)'
       Invidious API: 'ඉන්වීඩියස් යෙ.ක්‍ර. අ.මු. (API)'
-    Thumbnail Preference:
-      End: ''
   Theme Settings:
     Base Theme:
       Base Theme: ''
       Black: 'කළු'
       Dark: 'අඳුරු'
     Main Color Theme:
-      Blue: ''
       Amber: ''
   Player Settings:
-    Autoplay Videos: ''
     Default Video Format:
       Legacy Formats: ''
-    Default Quality:
-      720p: ''
   Privacy Settings:
     Clear Search Cache: ''
-  Subscription Settings:
-    Subscription Settings: ''
   Distraction Free Settings:
     Hide Comment Likes: ''
   Data Settings:
-    Import Subscriptions: ''
     Import History: ''
-    Invalid history file: ''
     How do I import my subscriptions?: ''
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
 About:
   #On About page
   'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
 
 Profile:
-  Create New Profile: ''
   Delete Profile: ''
-  Removed {profile} from your profiles: ''
   Delete Selected: ''
 Channel:
-  Unsubscribe: ''
   Videos:
     This channel does not currently have any videos: ''
-  Playlists:
-    Sort Types:
-      Oldest: ''
+  Playlists: {}
 Video:
   Open in YouTube: ''
-  Loop Playlist: ''
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   Published:
     Apr: ''
-    Dec: ''
     Days: ''
-    Upcoming: ''
 Playlist:
   #& About
   Views: ''
-Change Format:
-  Audio formats are not available for this video: ''
 Share:
   Invidious Embed URL copied to clipboard: ''
 Comments:
-  Show Comments: ''
   Reply: ''
-Falling back to the local API: ''
 Playing Next Video: ''
 More: තව
 Open New Window: නව කවුළුව විවෘත කරන්න

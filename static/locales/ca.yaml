@@ -308,10 +308,7 @@ Settings:
     All playlists has been successfully imported: Totes les llistes de reproducció
       s'han importat amb èxit
     Check for Legacy Subscriptions: Comprova les subscripcions antigues
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   The app needs to restart for changes to take effect. Restart and apply change?: Cal
     reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
     els canvis?
@@ -363,8 +360,6 @@ About:
   #On About page
   About: 'Sobre'
   #& About
-  Latest FreeTube News: ''
-
   Blog: Blog
   Website: Lloc web
   Email: Correu-e
@@ -618,10 +613,7 @@ Share:
   YouTube URL copied to clipboard: 'URL de YouTube copiada al porta-retalls'
   YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
     porta-retalls'
-Comments:
-  Hide: ''
 Falling back to Invidious API: ''
-Playing Next Video: ''
 Yes: 'Sí'
 No: 'No'
 More: Més

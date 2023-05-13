@@ -346,10 +346,7 @@ Settings:
     Subscription File: Tellimuse fail
     History File: Ajaloo fail
     Playlist File: Esitusloendi fail
-  Advanced Settings:
-    Clear History:
-      Clear History: ''
-      # On Click
+  Advanced Settings: {}
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -444,8 +441,6 @@ About:
   #On About page
   About: 'Teave'
   #& About
-  Latest FreeTube News: ''
-
   Email: E-post
   Donate: Toeta meid
   these people and projects: tänu nendele inimestele ja projektidele
@@ -779,8 +774,8 @@ The playlist has been reversed: 'Esitusloendi järjekord on nüüd teistpidi'
 Playing Next Video: 'Esitan järgmist videot'
 Playing Previous Video: 'Esitan eelmist videot'
 Canceled next video autoplay: 'Tühistasin järgmise video automaatse esituse'
-'The playlist has ended. Enable loop to continue playing': 'Esitusloend on läbi.
-  Esituse jätkamiseks luba lugude kordamine'
+'The playlist has ended. Enable loop to continue playing': 'Esitusloend on läbi. Esituse
+  jätkamiseks luba lugude kordamine'
 
 Yes: 'Jah'
 No: 'Ei'

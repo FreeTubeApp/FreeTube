@@ -103,88 +103,53 @@ User Playlists:
 Settings:
   # On Settings Page
   General Settings:
-    Check for Updates: ''
     Preferred API Backend:
       Local API: ''
-    Thumbnail Preference:
-      Middle: ''
     View all Invidious instance information: ''
   Theme Settings:
-    Base Theme:
-      Black: ''
     Main Color Theme:
       Indigo: ''
-      Yellow: ''
   Player Settings:
     Turn on Subtitles by Default: ''
-    Fast-Forward / Rewind Interval: ''
     Default Quality:
       Auto: ''
-      4k: ''
   Privacy Settings:
     Remember History: ''
-    Watch history has been cleared: ''
   Distraction Free Settings:
     Hide Video Views: ''
-    Hide Live Chat: ''
   Data Settings:
     Import NewPipe: ''
-    Profile object has insufficient data, skipping item: ''
     History object has insufficient data, skipping item: ''
   Proxy Settings:
-    Proxy Settings: ''
     Ip: ''
-  SponsorBlock Settings:
-    Notify when sponsor segment is skipped: ''
 About:
   #On About page
   Help: ''
-  Email: ''
   these people and projects: ''
 Profile:
-  Edit Profile: ''
   Are you sure you want to delete this profile?: ''
-  Your default profile has been changed to your primary profile: ''
   Add Selected To Profile: ''
 Channel:
-  Channel has been removed from your subscriptions: ''
   Videos:
     Sort Types:
       Newest: ''
-  About:
-    About: ''
 Video:
   Video has been saved: ''
-  Open Channel in YouTube: ''
   Reverse Playlist: ''
-  Live Now: ''
   video only: ''
   Published:
-    Mar: ''
     Nov: ''
-    Day: ''
     Ago: ''
-  Sponsor Block category:
-    sponsor: ''
   External Player:
     playlist: ''
-    Unsupported Actions:
-      shuffling playlists: ''
 Playlist:
   #& About
   Views: ''
-Change Format:
-  Audio formats are not available for this video: ''
 Share:
   Invidious Embed URL copied to clipboard: ''
 Comments:
-  Getting comment replies, please wait: ''
   Hide: ''
 Tooltips:
-  General Settings:
-    Preferred API Backend: ''
   External Player Settings:
     External Player: ''
-Falling back to Invidious API: ''
 Shuffle is now disabled: ''
-Default Invidious instance has been cleared: ''

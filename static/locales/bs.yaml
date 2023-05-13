@@ -131,72 +131,43 @@ Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
     Main Color Theme:
-      Main Color Theme: ''
       Cyan: ''
-      Deep Orange: ''
   Player Settings:
     Autoplay Playlists: ''
     Default Quality:
-      Default Quality: ''
       1440p: ''
-  Privacy Settings:
-    Search cache has been cleared: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
-  Distraction Free Settings:
-    Hide Trending Videos: ''
   Data Settings:
     Import YouTube: ''
-    Export History: ''
     Subscriptions have been successfully exported: ''
   Advanced Settings:
-    Advanced Settings: ''
     Clear History:
       Are you sure you want to delete your history?: ''
       #& Yes
       #& No
-About:
-  #On About page
-  'Looking for help? Check out our Wiki page.': ''
-
 Profile:
   Edit Profile: ''
-  Are you sure you want to delete this profile?: ''
   Your default profile has been changed to your primary profile: ''
-  Add Selected To Profile: ''
 Channel:
   Channel has been removed from your subscriptions: ''
-  Videos:
-    Sort Types:
-      Newest: ''
+  Videos: {}
   About:
     About: ''
 Video:
-  Copy YouTube Link: ''
   Copy Invidious Channel Link: ''
-  Watching: ''
   Live Chat is currently not supported in this build.: ''
-  Audio:
-    Medium: ''
   Published:
     Jun: ''
-    Seconds: ''
     Weeks: ''
-  Streamed on: ''
 Playlist:
   #& About
   Views: ''
-Change Format:
-  Audio formats are not available for this video: ''
 Share:
   Invidious Embed URL copied to clipboard: ''
 Comments:
-  Getting comment replies, please wait: ''
   Hide: ''
-Tooltips:
-  General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
+Tooltips: {}
 Local API Error (Click to copy): ''
-Shuffle is now disabled: ''
 Yes: ''
 No: 'Ne'

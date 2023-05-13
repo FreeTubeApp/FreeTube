@@ -18,93 +18,58 @@ Delete: 'ᱢᱮᱴᱟᱣ'
 Select all: 'ᱡᱷᱚᱛᱚ ᱪᱚᱭᱚᱱ ᱢᱮᱸ'
 Reload: 'ᱨᱤᱞᱚᱰ'
 Force Reload: 'ᱡᱚᱵᱚᱨ ᱨᱤᱞᱚᱰ'
-Close: ''
 Search Filters:
   Sort By:
     Sort By: ''
-  Time:
-    Today: ''
   Duration:
     Duration: ''
-Subscriptions:
-    # On Subscriptions Page
-  Latest Subscriptions: ''
 Playlists: ''
 Settings:
   # On Settings Page
   General Settings:
-    Check for Updates: ''
     Preferred API Backend:
       Invidious API: ''
-    Thumbnail Preference:
-      End: ''
   Theme Settings:
     Base Theme:
       Base Theme: ''
     Main Color Theme:
-      Deep Purple: ''
       Lime: ''
   Player Settings:
-    Play Next Video: ''
     Default Video Format:
       Default Video Format: ''
-    Default Quality:
-      360p: ''
   Privacy Settings:
     Remember History: ''
-    Remove All Subscriptions / Profiles: ''
   Distraction Free Settings:
     Hide Video Likes And Dislikes: ''
   Data Settings:
-    Select Import Type: ''
     Export FreeTube: ''
-    One or more subscriptions were unable to be imported: ''
     Unable to read file: ''
-  Advanced Settings:
-    Use Tor / Proxy for API calls: ''
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
 Profile:
-  Profile Select: ''
   Create Profile: ''
-  Profile has been created: ''
   '{number} selected': ''
 Channel:
-  Subscriber: ''
   Your search results have returned 0 results: ''
   Videos: {}
-  Playlists:
-    This channel does not currently have any playlists: ''
 Video:
   Remove From History: ''
-  Copy Invidious Link: ''
   Shuffle Playlist: ''
-  Live: ''
   Download Video: ''
   Published:
-    Feb: ''
     Oct: ''
-    Hours: ''
     Years: ''
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Change Format:
   Use Dash Formats: ''
 Share:
-  Open Link: ''
   YouTube Channel URL copied to clipboard: ''
 
 Comments:
-  Sort by: ''
   Load More Comments: ''
-Tooltips:
-  Player Settings:
-    Force Local Backend for Legacy Formats: ''
+Tooltips: {}
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''
-Playing Previous Video: ''

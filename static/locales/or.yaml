@@ -4,11 +4,7 @@ File: 'ଫାଇଲ୍'
 Edit: 'ସମ୍ପାଦନା'
 Undo: 'ପୂର୍ଵଵତ୍'
 Redo: 'ପୁନଃକରଣ'
-Toggle Developer Tools: ''
 Back: ''
-Search Bar:
-  Clear Input: ''
-  # In Filter Button
 Search Filters:
   Sort By:
     Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
@@ -36,7 +32,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'ସଦସ୍ୟତା'
   # channels that were likely deleted
-  Refresh Subscriptions: ''
 More: 'ଅଧିକ'
 Channels:
   Channels: 'ଚ୍ୟାନେଲ'
@@ -49,18 +44,12 @@ Trending:
 Playlists: 'ଚାଳନାତାଲିକା'
 User Playlists:
   Your Playlists: 'ଆପଣଙ୍କ ଚାଳନାତାଲିକା'
-History:
-  # On History Page
-  Empty Search Message: ''
 Settings:
   # On Settings Page
   General Settings:
     Enable Search Suggestions: ''
-    Video View Type:
-      Grid: ''
     Thumbnail Preference:
       Default: 'ଡିଫଲ୍ଟ'
-    Set Current Instance as Default: ''
     External Link Handling:
       No Action: 'କିଛି କରନ୍ତୁନି'
   Theme Settings:
@@ -83,13 +72,11 @@ Settings:
       Yellow: 'ହଳଦିଆ'
       Orange: 'କମଳା'
       Deep Orange: 'ଗାଢ଼ କମଳା'
-      Catppuccin Mocha Rosewater: ''
       Catppuccin Mocha Green: ''
   Player Settings:
     Player Settings: 'ଚାଳକ ସେଟିଂ'
     Autoplay Videos: 'ଵିଡ଼ିଓ ସ୍ୱତଃଚାଳନ'
     Autoplay Playlists: 'ଚାଳନାତାଲିକା ସ୍ୱତଃଚାଳନ'
-    Default Volume: ''
     Default Video Format:
       Audio Formats: 'ଅଡ଼ିଓ ଫର୍ମାଟ୍'
     Default Quality:
@@ -104,8 +91,6 @@ Settings:
       1440p: '୧୪୪୦p'
       4k: '୪k'
       8k: '୮k'
-    Screenshot:
-      File Name Tooltip: ''
     Allow DASH AV1 formats: DASH AV1 ଫର୍ମାଟ୍‍କୁ ଅନୁମତି ଦେବା
   External Player Settings:
     External Player Settings: 'ବାହ୍ୟ ଚାଳକ ସେଟିଂ'
@@ -114,88 +99,58 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'ଗୋପନୀୟତା ସେଟିଂ'
     Remember History: 'ଇତିଵୃତ୍ତି ମନେରଖିବା'
-    Watch history has been cleared: ''
   Subscription Settings:
     Manage Subscriptions: 'ସଦସ୍ୟତା ପରିଚାଳନା'
   Distraction Free Settings:
-    Hide Trending Videos: ''
     Hide Comments: 'ମନ୍ତଵ୍ୟ ଲୁଚାଇବା'
     Display Titles Without Excessive Capitalisation: ଅତ୍ୟଧିକ ବଡ଼ ଅକ୍ଷର ବିନା ଆଖ୍ୟା ପ୍ରଦର୍ଶନ
       କରିବା
   Data Settings:
-    Check for Legacy Subscriptions: ''
     Export Playlists: ''
-    Subscriptions have been successfully exported: ''
     Unable to write file: ''
   Proxy Settings:
-    Proxy Port Number: ''
     Error getting network information. Is your proxy configured properly?: ''
-  SponsorBlock Settings:
-    Skip Options:
-      Prompt To Skip: ''
+  SponsorBlock Settings: {}
   Download Settings:
     Ask Download Path: ''
 About:
   #On About page
-  About: ''
   FreeTube Wiki: ''
-  Mastodon: ''
   Donate: ''
 
 Profile:
-  Color Picker: ''
   All subscriptions will also be deleted.: ''
-  '{profile} is now the active profile': ''
   No channel(s) have been selected: ''
 Channel:
-  Removed subscription from {count} other channel(s): ''
   Videos:
     Sort Types:
       Oldest: ''
   Playlists: {}
-  About:
-    Channel Description: ''
 Video:
   Video has been removed from your saved list: ''
-  Copy YouTube Channel Link: ''
   Play Next Video: ''
-  Live: ''
   Download Video: ''
   Published:
-    Feb: ''
     Oct: ''
-    Hours: ''
     Years: ''
-  Publicationtemplate: ''
   Sponsor Block category:
     recap: ''
-  External Player:
-    Unsupported Actions:
-      setting a playback rate: ''
+  External Player: {}
   Stats:
     Resolution: ''
 Videos:
   #& Sort By
-  Sort By:
-    Newest: ''
+{}
 Toggle Theatre Mode: ''
 Share:
-  Include Timestamp: ''
   YouTube URL copied to clipboard: ''
-Mini Player: ''
 Comments:
   Top comments: ''
-  And others: ''
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-  Player Settings:
-    Scroll Playback Rate Over Video Player: ''
   Privacy Settings:
     Remove Video Meta Files: ''
-Unknown YouTube url type, cannot be opened in app: ''
 Playing Previous Video: ''
-Age Restricted:
-  Type:
-    Video: ''
+Age Restricted: {}
 No: ''

@@ -96,42 +96,29 @@ Settings:
       Dark: 'Malluma'
       Light: 'Luma'
     Main Color Theme:
-      Light Blue: ''
       Orange: ''
   Player Settings:
-    Proxy Videos Through Invidious: ''
     Default Video Format:
       Audio Formats: ''
-    Default Quality:
-      1080p: ''
   Privacy Settings:
     Are you sure you want to clear out your search cache?: ''
-  Subscription Settings:
-    Hide Videos on Watch: ''
   Data Settings:
     Import YouTube: ''
-    Profile object has insufficient data, skipping item: ''
     History object has insufficient data, skipping item: ''
   Advanced Settings:
-    Enable Debug Mode (Prints data to the console): ''
     Clear Subscriptions:
       Clear Subscriptions: ''
       # On Click
 About:
   #On About page
-  Check out our Firefox extension!: ''
-
   Blog: Blogo
   Website: Retejo
   Email: Retpoŝto
 Profile:
-  Profile Preview: ''
   Your profile name cannot be empty: ''
-  Other Channels: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Search Channel: ''
   Playlists:
     Playlists: ''
   About:
@@ -139,26 +126,16 @@ Channel:
   Community:
     Community: Komunumo
 Video:
-  Copy YouTube Embedded Player Link: ''
   Play Next Video: ''
-  Enable Live Chat: ''
   Published:
     Apr: ''
-    Dec: ''
     Days: ''
-    Upcoming: ''
 Playlist:
   #& About
   Views: ''
-Change Format:
-  Audio formats are not available for this video: ''
 Share:
   Invidious Embed URL copied to clipboard: ''
-Comments:
-  Hide Comments: ''
-  # Context: View 10 Replies, View 1 Reply
 Local API Error (Click to copy): ''
-Shuffle is now enabled: ''
 No: ''
 More: Pli
 Search Bar:

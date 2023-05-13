@@ -314,61 +314,38 @@ Settings:
       شدند
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
       شد
-  Proxy Settings:
-    Your Info: ''
   SponsorBlock Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
 About:
   #On About page
-  GitHub releases: ''
   Blog: ''
-  FreeTube is made possible by: ''
 Profile:
   Create New Profile: ''
-  Delete Profile: ''
   Removed {profile} from your profiles: ''
-  Delete Selected: ''
 Channel:
   Unsubscribe: ''
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists:
     Sort Types:
       Oldest: ''
 Video:
-  Save Video: ''
   Copy Invidious Link: ''
-  Shuffle Playlist: ''
   Live: ''
-  Download Video: ''
   Published:
     Feb: ''
-    Oct: ''
     Hours: ''
-    Years: ''
   Skipped segment: ''
   External Player:
-    video: ''
     Unsupported Actions:
       reversing playlists: ''
-Playlist:
-  #& About
-  View: ''
 Change Format:
   Dash formats are not available for this video: ''
-Share:
-  Invidious URL copied to clipboard: ''
 Comments:
   Click to View Comments: ''
-  View: ''
 Up Next: ''
 
 #Tooltips
-Tooltips:
-  Player Settings:
-    Default Video Format: ''
+Tooltips: {}
 Invidious API Error (Click to copy): ''
-Loop is now enabled: ''
 Default Invidious instance has been set to {instance}: ''
 Search Bar:
   Clear Input: پاک کردن ورودی

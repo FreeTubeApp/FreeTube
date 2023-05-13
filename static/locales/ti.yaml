@@ -21,142 +21,82 @@ Force Reload: 'ሓይሊ እንደገና ጽዓን'
 Toggle Developer Tools: 'መሳርሒታት'
 Actual size: 'ናይ ሓቂ መጠን'
 Toggle fullscreen: 'ምሉእ ኤለክትሮኒካዊ መሳርሒ'
-Download From Site: ''
 Search Filters:
   Sort By:
     Rating: ''
-  Time:
-    This Month: ''
   Duration:
     All Durations: ''
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
-  # channels that were likely deleted
   Refresh Subscriptions: ''
-Channels:
-  Unsubscribe: ''
 Trending:
   Trending Tabs: ''
-History:
-  # On History Page
-  History: ''
 Settings:
   # On Settings Page
   General Settings:
     Check for Updates: ''
-    Preferred API Backend:
-      Local API: ''
     Thumbnail Preference:
       Middle: ''
-    View all Invidious instance information: ''
   Theme Settings:
     Expand Side Bar by Default: ''
-    Base Theme:
-      System Default: ''
     Main Color Theme:
       Deep Purple: ''
-      Lime: ''
       Dracula Pink: ''
-      Catppuccin Mocha Red: ''
       Catppuccin Mocha Blue: ''
   Player Settings:
-    Proxy Videos Through Invidious: ''
     Next Video Interval: ''
-    Default Video Format:
-      Legacy Formats: ''
     Default Quality:
       720p: ''
-    Screenshot:
-      Quality Label: ''
   External Player Settings:
     External Player Settings: ''
   Privacy Settings:
-    Save Watched Progress: ''
     Watch history has been cleared: ''
   Distraction Free Settings:
-    Distraction Free Settings: ''
     Hide Playlists: ''
-    Hide Sharing Actions: ''
   Data Settings:
     Subscription File: ''
-    Import History: ''
     Invalid subscriptions file: ''
-    All playlists has been successfully imported: ''
   Proxy Settings:
     Enable Tor / Proxy: ''
-    Country: ''
   SponsorBlock Settings:
     Skip Options:
       Skip Option: ''
-  Parental Control Settings:
-    Show Family Friendly Only: ''
   Experimental Settings:
     Experimental Settings: ''
-  Password Settings:
-    Set Password To Prevent Access: ''
 About:
   #On About page
   Downloads / Changelog: ''
-  Website: ''
   Credits: ''
 Profile:
-  Profile Manager: ''
   Make Default Profile: ''
-  Your default profile has been set to {profile}: ''
   Select None: ''
 Channel:
-  Subscribe: ''
   This channel does not exist: ''
-  Videos:
-    Sort Types:
-      Most Popular: ''
+  Videos: {}
   About:
     About: ''
-  Community:
-    Community: ''
 Video:
   Video has been removed from your saved list: ''
-  Copy YouTube Channel Link: ''
   Play Next Video: ''
-  Upcoming: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
-  Audio:
-    Medium: ''
   Published:
     Jun: ''
-    Seconds: ''
     Weeks: ''
-  Published on: ''
   Sponsor Block category:
     outro: ''
   External Player:
-    playlist: ''
     Unsupported Actions:
       shuffling playlists: ''
-  Stats:
-    Bandwidth: ''
 Playlist:
   #& About
   Videos: ''
-Change Format:
-  Use Audio Formats: ''
 Share:
   Open Link: ''
-  YouTube Channel URL copied to clipboard: ''
 Comments:
   Click to View Comments: ''
-  View {replyCount} replies: ''
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   There are no comments available for this video: ''
 Tooltips:
-  General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
   Player Settings:
     Allow DASH AV1 formats: ''
-  Distraction Free Settings:
-    Hide Channels: ''
 Falling back to the local API: ''
-Shuffle is now enabled: ''
 'The playlist has ended. Enable loop to continue playing': ''
-Screenshot Success: ''

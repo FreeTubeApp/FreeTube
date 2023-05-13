@@ -46,120 +46,73 @@ Search Filters:
     Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
-  Time:
-    This Month: ''
   Duration:
     Short (< 4 minutes): ''
-Subscriptions:
-    # On Subscriptions Page
-  Latest Subscriptions: ''
 Trending:
   Default: ''
-User Playlists:
-  Playlist Message: ''
 History:
   # On History Page
   Search bar placeholder: ""
 Settings:
   # On Settings Page
   General Settings:
-    Default Landing Page: ''
     Video View Type:
       List: ''
-    No default instance has been set: ''
     External Link Handling:
       Ask Before Opening Link: ''
   Theme Settings:
-    Base Theme:
-      Base Theme: ''
     Main Color Theme:
       Pink: ''
-      Green: ''
       Dracula Green: ''
   Player Settings:
-    Force Local Backend for Legacy Formats: ''
     Scroll Playback Rate Over Video Player: ''
-    Default Video Format:
-      Default Video Format: ''
     Default Quality:
       360p: ''
     Screenshot:
-      Format Label: ''
       Error:
         Empty File Name: ''
   Privacy Settings:
-    Save Watched Progress: ''
     Remove All Subscriptions / Profiles: ''
   Distraction Free Settings:
-    Hide Video Likes And Dislikes: ''
     Hide Active Subscriptions: ''
   Data Settings:
-    Check for Legacy Subscriptions: ''
     Export Playlists: ''
-    Subscriptions have been successfully exported: ''
     Unable to write file: ''
   Proxy Settings:
-    Proxy Port Number: ''
     Error getting network information. Is your proxy configured properly?: ''
-  SponsorBlock Settings:
-    Skip Options:
-      Prompt To Skip: ''
+  SponsorBlock Settings: {}
 About:
   #On About page
   Source code: ''
-  Report a problem: ''
   Please read the: ''
 Profile:
-  Profile Select: ''
   Profile Preview: ''
-  Your profile name cannot be empty: ''
   Other Channels: ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel:
   Search Channel: ''
-  Playlists:
-    Playlists: ''
 Video:
   Mark As Watched: ''
-  Copy YouTube Link: ''
   Copy Invidious Channel Link: ''
-  Watching: ''
   Enable Live Chat: ''
-  Audio:
-    Low: ''
   Published:
     May: ''
-    Second: ''
     Week: ''
-  Published on: ''
   Sponsor Block category:
     outro: ''
   External Player:
-    playlist: ''
     Unsupported Actions:
       shuffling playlists: ''
-  Stats:
-    Bandwidth: ''
 Playlist:
   #& About
   Videos: ''
-Change Format:
-  Use Audio Formats: ''
 Share:
   Open Embed: ''
   # On Click
 Comments:
-  Comments: ''
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  There are no comments available for this video: ''
 Tooltips:
   General Settings:
     Thumbnail Preference: ''
-  External Player Settings:
-    External Player: ''
 Invidious API Error (Click to copy): ''
-Loop is now enabled: ''
 Default Invidious instance has been set to {instance}: ''
-Screenshot Error: ''

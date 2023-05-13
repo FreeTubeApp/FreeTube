@@ -168,76 +168,54 @@ Settings:
     Theme Settings: 'थीम सेटिंग्स'
     Match Top Bar with Main Color: 'टॉप बार को मेन कलर से मैच करें'
     Main Color Theme:
-      Main Color Theme: ''
       Cyan: ''
-      Deep Orange: ''
   Player Settings:
     Proxy Videos Through Invidious: 'इनविडियस के माध्यम से प्रॉक्सी वीडियो'
-    Default Video Format:
-      Audio Formats: ''
     Default Quality:
       1080p: ''
-  Privacy Settings:
-    Are you sure you want to clear out your search cache?: ''
   Subscription Settings:
     Hide Videos on Watch: ''
-  Distraction Free Settings:
-    Hide Recommended Videos: ''
   Data Settings:
     Import FreeTube: ''
-    Import History: ''
     Invalid history file: ''
-    How do I import my subscriptions?: ''
   Advanced Settings:
     Clear History:
       Clear History: ''
       # On Click
 About:
   #On About page
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
   Email: ईमेल करें
 Profile:
-  Profile Preview: ''
   Your profile name cannot be empty: ''
-  Other Channels: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Search Channel: ''
   Playlists:
     Playlists: ''
 Video:
-  Mark As Watched: ''
   Open in Invidious: 'इनविडियस में खोलें'
   Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
   Open Channel in Invidious: 'इनविडियस में चैनल खोलें'
   Copy Invidious Channel Link: 'इनवीडियस चैनल लिंक कॉपी करें'
-  Watching: ''
   Live Chat is currently not supported in this build.: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'लाइव
     चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन
     आवश्यक है।'
   Published:
-    Jan: ''
     Sep: ''
-    Hour: ''
     Year: ''
 Videos:
   #& Sort By
-  Sort By:
-    Newest: ''
+{}
 Change Format:
   Change Media Formats: ''
 Share:
-  Copy Link: ''
   Invidious URL copied to clipboard: 'इनवीडियस URL क्लिपबोर्ड पर कापी किया गया'
   Invidious Embed URL copied to clipboard: 'इनवीडियस एम्बेड URL क्लिपबोर्ड पर कापी
     किया गया'
   Invidious Channel URL copied to clipboard: 'इनविडियस चैनल URL क्लिपबोर्ड पर कॉपी
     किया गया'
 Comments:
-  There are no more comments for this video: ''
   Replies: ''
 Tooltips:
   General Settings:
@@ -261,7 +239,6 @@ Tooltips:
 Invidious API Error (Click to copy): 'कपटपूर्ण एपीआई त्रुटि (कॉपी करने के लिए क्लिक
   करें)'
 Falling back to Invidious API: 'Invidious API पर वापस आना'
-The playlist has been reversed: ''
 More: अधिक
 New Window: नई विंडो
 Open New Window: नई विंडो खोलें
