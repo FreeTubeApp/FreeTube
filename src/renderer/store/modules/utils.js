@@ -612,7 +612,13 @@ const mutations = {
 
     if (sameSearch !== -1) {
       state.sessionSearchHistory[sameSearch].data = payload.data
-      state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
+      if (payload.nextPageRef) {
+        // Local API
+        state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
+      } else if (payload.searchPage) {
+        // Invidious API
+        state.sessionSearchHistory[sameSearch].searchPage = payload.searchPage
+      }
     } else {
       state.sessionSearchHistory.push(payload)
     }

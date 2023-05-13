@@ -91,7 +91,6 @@ export default defineComponent({
 
       if (sameSearch.length > 0) {
         // No loading effect needed here, only rendered result update
-
         this.replaceShownResults(sameSearch[0])
       } else {
         // Show loading effect coz there will be network request(s)
@@ -130,7 +129,8 @@ export default defineComponent({
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: this.nextPageRef
+          nextPageRef: this.nextPageRef,
+          apiUsed: this.apiUsed
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
@@ -166,7 +166,8 @@ export default defineComponent({
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          nextPageRef: this.nextPageRef
+          nextPageRef: this.nextPageRef,
+          apiUsed: this.apiUsed
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
@@ -223,14 +224,16 @@ export default defineComponent({
           this.shownResults = returnData
         }
 
-        this.searchPage++
         this.isLoading = false
+
+        this.searchPage++
 
         const historyPayload = {
           query: payload.query,
           data: this.shownResults,
           searchSettings: this.searchSettings,
-          searchPage: this.searchPage
+          searchPage: this.searchPage,
+          apiUsed: this.apiUsed
         }
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
@@ -277,6 +280,7 @@ export default defineComponent({
       this.shownResults = history.data
       this.searchSettings = history.searchSettings
       this.amountOfResults = history.amountOfResults
+      this.apiUsed = history.apiUsed
 
       if (typeof (history.nextPageRef) !== 'undefined') {
         this.nextPageRef = history.nextPageRef
