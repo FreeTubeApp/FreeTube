@@ -45,24 +45,16 @@ Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Filters: {}
 Settings:
   # On Settings Page
-  General Settings:
-    General Settings: ''
   Theme Settings:
     Main Color Theme:
       Dracula Pink: ''
-  External Player Settings:
-    Custom External Player Executable: ''
   Data Settings:
     Unable to read file: ''
   SponsorBlock Settings: {}
-Profile:
-  Profile Select: ''
 Channel: {}
 Video:
   Copy YouTube Link: ''
-  Published on: ''
 Comments:
   Comments: ''
 Tooltips: {}
 Age Restricted: {}
-Starting download: ''

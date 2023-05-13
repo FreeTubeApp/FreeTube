@@ -11,26 +11,18 @@ Quit: 'ខ្មែរ'
 Edit: 'ខ្មែរ'
 Undo: 'ខ្មែរ'
 Search Filters: {}
-Trending:
-  Trending Tabs: ''
 Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings:
     Main Color Theme:
       Light Blue: ''
-  Privacy Settings:
-    Watch history has been cleared: ''
   Proxy Settings:
     City: ''
-Profile:
-  Add Selected To Profile: ''
 Channel:
   Videos: {}
 Video:
   Download Video: ''
-  Stats:
-    Volume: ''
 Tooltips:
   External Player Settings:
     External Player: ''

@@ -22,32 +22,23 @@ Toggle Developer Tools: 'መሳርሒታት'
 Actual size: 'ናይ ሓቂ መጠን'
 Toggle fullscreen: 'ምሉእ ኤለክትሮኒካዊ መሳርሒ'
 Search Filters: {}
-Trending:
-  Trending Tabs: ''
 Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings:
     Main Color Theme:
       Deep Purple: ''
-  Player Settings:
-    Default Quality:
-      720p: ''
+  Player Settings: {}
   Data Settings:
     Subscription File: ''
   SponsorBlock Settings: {}
-  Experimental Settings:
-    Experimental Settings: ''
 Profile:
   Select None: ''
 Channel:
   Videos: {}
 Video:
-  Play Next Video: ''
   Sponsor Block category:
     outro: ''
   External Player: {}
-Comments:
-  Click to View Comments: ''
 Tooltips: {}
 'The playlist has ended. Enable loop to continue playing': ''

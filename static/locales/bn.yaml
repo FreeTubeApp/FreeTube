@@ -84,9 +84,7 @@ Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
-  Player Settings:
-    Default Video Format:
-      Legacy Formats: ''
+  Player Settings: {}
   Data Settings:
     Unable to write file: ''
 About:
@@ -95,12 +93,8 @@ About:
 Channel:
   Videos: {}
   Playlists: {}
-  About:
-    Channel Description: ''
 Video:
   Published:
     Days: ''
-Tooltips:
-  Player Settings:
-    Default Video Format: ''
+Tooltips: {}
 Open New Window: নতুন জানালা খুলো

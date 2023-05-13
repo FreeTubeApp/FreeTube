@@ -82,9 +82,7 @@ Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
-  Player Settings:
-    Default Quality:
-      Auto: ''
+  Player Settings: {}
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
@@ -92,8 +90,6 @@ About:
 Channel:
   Videos: {}
   Playlists: {}
-Video:
-  Reverse Playlist: ''
 Share:
   YouTube Embed URL copied to clipboard: ''
 Download From Site: I-download mula sa website
