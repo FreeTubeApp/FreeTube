@@ -83,10 +83,6 @@ Settings:
   General Settings: {}
   Theme Settings: {}
   Player Settings: {}
-About:
-  #On About page
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
 Channel:
   Videos: {}
   Playlists: {}

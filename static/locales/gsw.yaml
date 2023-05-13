@@ -45,15 +45,11 @@ Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Filters: {}
 Settings:
   # On Settings Page
-  Theme Settings:
-    Main Color Theme:
-      Dracula Pink: ''
+  Theme Settings: {}
   Data Settings:
     Unable to read file: ''
   SponsorBlock Settings: {}
 Channel: {}
-Video:
-  Copy YouTube Link: ''
 Comments:
   Comments: ''
 Tooltips: {}

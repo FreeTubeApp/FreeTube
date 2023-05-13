@@ -317,7 +317,6 @@ Settings:
 Channel:
   Playlists: {}
 Video:
-  Live: ''
   External Player: {}
 Tooltips: {}
 Invidious API Error (Click to copy): ''

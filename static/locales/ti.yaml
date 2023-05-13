@@ -25,15 +25,11 @@ Search Filters: {}
 Settings:
   # On Settings Page
   General Settings: {}
-  Theme Settings:
-    Main Color Theme:
-      Deep Purple: ''
+  Theme Settings: {}
   Player Settings: {}
   Data Settings:
     Subscription File: ''
   SponsorBlock Settings: {}
-Profile:
-  Select None: ''
 Channel:
   Videos: {}
 Video:
@@ -41,4 +37,3 @@ Video:
     outro: ''
   External Player: {}
 Tooltips: {}
-'The playlist has ended. Enable loop to continue playing': ''

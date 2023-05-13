@@ -14,15 +14,11 @@ Search Filters: {}
 Settings:
   # On Settings Page
   General Settings: {}
-  Theme Settings:
-    Main Color Theme:
-      Light Blue: ''
+  Theme Settings: {}
   Proxy Settings:
     City: ''
 Channel:
   Videos: {}
-Video:
-  Download Video: ''
 Tooltips:
   External Player Settings:
     External Player: ''

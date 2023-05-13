@@ -85,16 +85,12 @@ Settings:
   General Settings: {}
   Theme Settings: {}
   Player Settings: {}
-  Data Settings:
-    Unable to write file: ''
 About:
   #On About page
   Email: 'ই-মেইল'
 Channel:
   Videos: {}
   Playlists: {}
-Video:
-  Published:
-    Days: ''
+Video: {}
 Tooltips: {}
 Open New Window: নতুন জানালা খুলো
