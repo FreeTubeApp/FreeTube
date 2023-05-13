@@ -340,8 +340,6 @@ function parseShortDuration(accessibilityLabel, videoId) {
   return duration
 }
 
-global.parseShortDuration = parseShortDuration
-
 /**
  * @typedef {import('youtubei.js').YTNodes.Playlist} Playlist
  * @typedef {import('youtubei.js').YTNodes.GridPlaylist} GridPlaylist
