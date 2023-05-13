@@ -42,75 +42,45 @@ Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufma
 
 # Search Bar
 Search / Go to URL: 'Sueche / Gang zu de URL'
-Search Filters:
-  Type:
-    All Types: ''
+Search Filters: {}
 Subscriptions:
     # On Subscriptions Page
   'Getting Subscriptions. Please wait.': ''
-Trending:
-  Movies: ''
 Settings:
   # On Settings Page
   General Settings:
     General Settings: ''
-    Thumbnail Preference:
-      Beginning: ''
   Theme Settings:
     Match Top Bar with Main Color: ''
     Main Color Theme:
-      Deep Purple: ''
       Dracula Pink: ''
-      Catppuccin Mocha Blue: ''
   Player Settings:
     Default Volume: ''
-    Default Quality:
-      1440p: ''
   External Player Settings:
     Custom External Player Executable: ''
-  Subscription Settings:
-    Hide Videos on Watch: ''
   Distraction Free Settings:
     Hide Live Streams: ''
   Data Settings:
-    Import Playlists: ''
     Unable to read file: ''
-  Proxy Settings:
-    City: ''
   SponsorBlock Settings: {}
   Download Settings:
     Download Settings: ''
-About:
-  #On About page
-  Report a problem: ''
 Profile:
   Profile Select: ''
-  Your profile name cannot be empty: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
-Channel:
-  Playlists:
-    Playlists: ''
+Channel: {}
 Video:
   Copy YouTube Link: ''
-  Watching: ''
   Audio:
     Low: ''
-  Published:
-    Second: ''
   Published on: ''
-  External Player:
-    playlist: ''
   Stats:
     Bandwidth: ''
-Change Format:
-  Use Audio Formats: ''
 Comments:
   Comments: ''
-  There are no comments available for this video: ''
 Tooltips:
   External Player Settings:
     External Player: ''
-Loop is now enabled: ''
 Age Restricted: {}
 Starting download: ''

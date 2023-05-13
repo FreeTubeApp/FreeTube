@@ -111,15 +111,12 @@ Settings:
       لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
   Theme Settings:
-    Theme Settings: ''
     Main Color Theme:
       Green: ''
   Player Settings:
-    Default Volume: ''
     Default Quality:
       8k: ''
   Data Settings:
-    Data Settings: ''
     One or more subscriptions were unable to be imported: ''
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
     Unable to write file: 'ناتواندریت فایلەکە بنوسرێت'
@@ -197,23 +194,16 @@ Profile:
     {profile}'
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
 Channel:
-  Unsubscribe: ''
   Playlists:
     Sort Types:
       Oldest: ''
 Video:
-  Loop Playlist: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
-  Published:
-    Minutes: ''
 Videos:
   #& Sort By
   Sort By:
     Oldest: ''
     #& Most Popular
 #& Playlists
-Share:
-  Open Link: ''
 Comments:
   Replies: ''
-Playing Previous Video: ''

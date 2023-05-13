@@ -82,55 +82,35 @@ History:
   History: 'ইতিহাস'
 Settings:
   # On Settings Page
-  General Settings:
-    Video View Type:
-      Grid: ''
+  General Settings: {}
   Theme Settings:
     Base Theme:
       Dark: ''
-    Main Color Theme:
-      Amber: ''
   Player Settings:
     Default Video Format:
       Legacy Formats: ''
-  Privacy Settings:
-    Clear Search Cache: ''
   Distraction Free Settings:
     Hide Comment Likes: ''
   Data Settings:
-    Export YouTube: ''
     Unable to write file: ''
-  Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: ''
 About:
   #On About page
   Email: 'ই-মেইল'
 Profile:
-  Color Picker: ''
   '{profile} is now the active profile': ''
 Channel:
-  Removed subscription from {count} other channel(s): ''
   Videos: {}
   Playlists: {}
   About:
     Channel Description: ''
 Video:
-  Copy YouTube Channel Link: ''
   Live Chat: ''
   Published:
-    Apr: ''
     Days: ''
-Playlist:
-  #& About
-  Videos: ''
 Share:
   Open Embed: ''
   # On Click
-Comments:
-  Newest first: ''
-  # Context: View 10 Replies, View 1 Reply
 Tooltips:
   Player Settings:
     Default Video Format: ''
-Canceled next video autoplay: ''
 Open New Window: নতুন জানালা খুলো

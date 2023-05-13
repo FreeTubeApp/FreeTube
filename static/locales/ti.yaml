@@ -22,81 +22,53 @@ Toggle Developer Tools: 'መሳርሒታት'
 Actual size: 'ናይ ሓቂ መጠን'
 Toggle fullscreen: 'ምሉእ ኤለክትሮኒካዊ መሳርሒ'
 Search Filters:
-  Sort By:
-    Rating: ''
   Duration:
     All Durations: ''
-Subscriptions:
-    # On Subscriptions Page
-  Refresh Subscriptions: ''
 Trending:
   Trending Tabs: ''
 Settings:
   # On Settings Page
   General Settings:
-    Check for Updates: ''
     Thumbnail Preference:
       Middle: ''
   Theme Settings:
-    Expand Side Bar by Default: ''
     Main Color Theme:
       Deep Purple: ''
-      Dracula Pink: ''
       Catppuccin Mocha Blue: ''
   Player Settings:
-    Next Video Interval: ''
     Default Quality:
       720p: ''
-  External Player Settings:
-    External Player Settings: ''
   Privacy Settings:
     Watch history has been cleared: ''
-  Distraction Free Settings:
-    Hide Playlists: ''
   Data Settings:
     Subscription File: ''
-    Invalid subscriptions file: ''
   Proxy Settings:
     Enable Tor / Proxy: ''
-  SponsorBlock Settings:
-    Skip Options:
-      Skip Option: ''
+  SponsorBlock Settings: {}
   Experimental Settings:
     Experimental Settings: ''
 About:
   #On About page
-  Downloads / Changelog: ''
   Credits: ''
 Profile:
-  Make Default Profile: ''
   Select None: ''
 Channel:
-  This channel does not exist: ''
   Videos: {}
   About:
     About: ''
 Video:
-  Video has been removed from your saved list: ''
   Play Next Video: ''
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   Published:
     Jun: ''
-    Weeks: ''
   Sponsor Block category:
     outro: ''
-  External Player:
-    Unsupported Actions:
-      shuffling playlists: ''
+  External Player: {}
 Playlist:
   #& About
   Videos: ''
-Share:
-  Open Link: ''
 Comments:
   Click to View Comments: ''
-  There are no comments available for this video: ''
 Tooltips:
   Player Settings:
     Allow DASH AV1 formats: ''
-Falling back to the local API: ''
 'The playlist has ended. Enable loop to continue playing': ''

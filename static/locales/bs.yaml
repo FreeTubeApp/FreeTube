@@ -130,44 +130,27 @@ Settings:
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
-    Main Color Theme:
-      Cyan: ''
   Player Settings:
     Autoplay Playlists: ''
-    Default Quality:
-      1440p: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
   Data Settings:
-    Import YouTube: ''
     Subscriptions have been successfully exported: ''
-  Advanced Settings:
-    Clear History:
-      Are you sure you want to delete your history?: ''
-      #& Yes
-      #& No
+  Advanced Settings: {}
 Profile:
   Edit Profile: ''
-  Your default profile has been changed to your primary profile: ''
 Channel:
   Channel has been removed from your subscriptions: ''
   Videos: {}
-  About:
-    About: ''
 Video:
   Copy Invidious Channel Link: ''
-  Live Chat is currently not supported in this build.: ''
   Published:
     Jun: ''
-    Weeks: ''
 Playlist:
   #& About
   Views: ''
-Share:
-  Invidious Embed URL copied to clipboard: ''
 Comments:
   Hide: ''
 Tooltips: {}
-Local API Error (Click to copy): ''
 Yes: ''
 No: 'Ne'

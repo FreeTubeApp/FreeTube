@@ -80,45 +80,29 @@ Trending:
 Most Popular: 'Pinakasikat'
 Settings:
   # On Settings Page
-  General Settings:
-    Video View Type:
-      Grid: ''
+  General Settings: {}
   Theme Settings:
     Main Color Theme:
       Red: ''
-    Secondary Color Theme: ''
-        #* Main Color Theme
   Player Settings:
     Default Quality:
       Auto: ''
-  Privacy Settings:
-    Remove Watch History: ''
   Data Settings:
     Export Subscriptions: ''
-    Unable to read file: ''
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
-Profile:
-  Create Profile: ''
 Channel:
   Subscribe: ''
   Videos: {}
   Playlists: {}
-  About:
-    Channel Description: ''
 Video:
   Reverse Playlist: ''
   Published:
-    Mar: ''
     Day: ''
-Playlist:
-  #& About
-  View: ''
 Share:
   YouTube Embed URL copied to clipboard: ''
-Falling back to Invidious API: ''
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
 New Window: bagong window

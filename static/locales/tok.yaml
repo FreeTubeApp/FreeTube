@@ -46,73 +46,45 @@ Search Filters:
     Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
-  Duration:
-    Short (< 4 minutes): ''
 Trending:
   Default: ''
-History:
-  # On History Page
-  Search bar placeholder: ""
 Settings:
   # On Settings Page
   General Settings:
     Video View Type:
       List: ''
-    External Link Handling:
-      Ask Before Opening Link: ''
   Theme Settings:
     Main Color Theme:
       Pink: ''
-      Dracula Green: ''
   Player Settings:
     Scroll Playback Rate Over Video Player: ''
-    Default Quality:
-      360p: ''
     Screenshot:
       Error:
         Empty File Name: ''
-  Privacy Settings:
-    Remove All Subscriptions / Profiles: ''
   Distraction Free Settings:
     Hide Active Subscriptions: ''
   Data Settings:
-    Export Playlists: ''
     Unable to write file: ''
-  Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings: {}
 About:
   #On About page
   Source code: ''
-  Please read the: ''
 Profile:
   Profile Preview: ''
-  Other Channels: ''
 Channel:
   Search Channel: ''
 Video:
-  Mark As Watched: ''
   Copy Invidious Channel Link: ''
-  Enable Live Chat: ''
   Published:
     May: ''
-    Week: ''
   Sponsor Block category:
     outro: ''
-  External Player:
-    Unsupported Actions:
-      shuffling playlists: ''
+  External Player: {}
 Playlist:
   #& About
   Videos: ''
-Share:
-  Open Embed: ''
-  # On Click
 Comments:
   Newest first: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-Tooltips:
-  General Settings:
-    Thumbnail Preference: ''
+Tooltips: {}
 Invidious API Error (Click to copy): ''
-Default Invidious instance has been set to {instance}: ''

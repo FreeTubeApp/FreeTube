@@ -314,39 +314,26 @@ Settings:
       شدند
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
       شد
-  SponsorBlock Settings:
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
 About:
   #On About page
   Blog: ''
 Profile:
-  Create New Profile: ''
   Removed {profile} from your profiles: ''
 Channel:
-  Unsubscribe: ''
   Playlists:
     Sort Types:
       Oldest: ''
 Video:
-  Copy Invidious Link: ''
   Live: ''
   Published:
-    Feb: ''
     Hours: ''
-  Skipped segment: ''
   External Player:
     Unsupported Actions:
       reversing playlists: ''
-Change Format:
-  Dash formats are not available for this video: ''
 Comments:
   Click to View Comments: ''
-Up Next: ''
-
-#Tooltips
 Tooltips: {}
 Invidious API Error (Click to copy): ''
-Default Invidious instance has been set to {instance}: ''
 Search Bar:
   Clear Input: پاک کردن ورودی
 Are you sure you want to open this link?: آیا مطمئن هستید که میخواهید این لینک را

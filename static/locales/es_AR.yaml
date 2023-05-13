@@ -275,8 +275,6 @@ About:
   Website: Sitio web
   Email: Correo electrónico
   Blog: Blog
-Profile:
-  Profile has been created: ''
 Channel:
   Videos:
     Sort Types:
@@ -287,19 +285,13 @@ Channel:
       Search for: Buscar por «{tag}»
     Details: Detalles
 Video:
-  Live: ''
   Published:
     Sep: ''
-    Year: ''
   translated from English: traducido del inglés
   Stats:
     Mimetype: Tipo de medio
-Share:
-  Copy Embed: ''
 Comments:
   There are no comments available for this video: ''
-'The playlist has ended. Enable loop to continue playing': ''
-
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está

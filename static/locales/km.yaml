@@ -10,66 +10,43 @@ File: 'ខ្មែរ'
 Quit: 'ខ្មែរ'
 Edit: 'ខ្មែរ'
 Undo: 'ខ្មែរ'
-Close: ''
 Search Filters:
   Time:
     Time: ''
-  Fetching results. Please wait: ''
 Trending:
   Trending Tabs: ''
 Settings:
   # On Settings Page
   General Settings:
-    Check for Updates: ''
     Thumbnail Preference:
       Middle: ''
   Theme Settings:
-    Expand Side Bar by Default: ''
     Main Color Theme:
       Light Blue: ''
-      Dracula Yellow: ''
   Player Settings:
     Default Playback Rate: ''
-    Default Quality:
-      4k: ''
   Privacy Settings:
     Watch history has been cleared: ''
-  Distraction Free Settings:
-    Hide Live Chat: ''
   Data Settings:
     Import Playlists: ''
-    Unable to read file: ''
   Proxy Settings:
     City: ''
 About:
   #On About page
-  Help: ''
   these people and projects: ''
 Profile:
-  Are you sure you want to delete this profile?: ''
   Add Selected To Profile: ''
 Channel:
-  Videos:
-    Sort Types:
-      Newest: ''
+  Videos: {}
 Video:
   Video has been saved: ''
-  Reverse Playlist: ''
   Download Video: ''
   Published:
-    Oct: ''
     Years: ''
-  External Player:
-    video: ''
   Stats:
     Volume: ''
-Change Format:
-  Use Legacy Formats: ''
 Mini Player: ''
-Comments:
-  And others: ''
 Tooltips:
   External Player Settings:
     External Player: ''
-Loop is now enabled: ''
 No: ''
