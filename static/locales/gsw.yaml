@@ -43,44 +43,26 @@ Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufma
 # Search Bar
 Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Filters: {}
-Subscriptions:
-    # On Subscriptions Page
-  'Getting Subscriptions. Please wait.': ''
 Settings:
   # On Settings Page
   General Settings:
     General Settings: ''
   Theme Settings:
-    Match Top Bar with Main Color: ''
     Main Color Theme:
       Dracula Pink: ''
-  Player Settings:
-    Default Volume: ''
   External Player Settings:
     Custom External Player Executable: ''
-  Distraction Free Settings:
-    Hide Live Streams: ''
   Data Settings:
     Unable to read file: ''
   SponsorBlock Settings: {}
-  Download Settings:
-    Download Settings: ''
 Profile:
   Profile Select: ''
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel: {}
 Video:
   Copy YouTube Link: ''
-  Audio:
-    Low: ''
   Published on: ''
-  Stats:
-    Bandwidth: ''
 Comments:
   Comments: ''
-Tooltips:
-  External Player Settings:
-    External Player: ''
+Tooltips: {}
 Age Restricted: {}
 Starting download: ''

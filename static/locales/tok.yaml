@@ -46,45 +46,29 @@ Search Filters:
     Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
-Trending:
-  Default: ''
 Settings:
   # On Settings Page
   General Settings:
     Video View Type:
       List: ''
-  Theme Settings:
-    Main Color Theme:
-      Pink: ''
+  Theme Settings: {}
   Player Settings:
     Scroll Playback Rate Over Video Player: ''
-    Screenshot:
-      Error:
-        Empty File Name: ''
+    Screenshot: {}
   Distraction Free Settings:
     Hide Active Subscriptions: ''
-  Data Settings:
-    Unable to write file: ''
   SponsorBlock Settings: {}
 About:
   #On About page
   Source code: ''
-Profile:
-  Profile Preview: ''
 Channel:
   Search Channel: ''
 Video:
-  Copy Invidious Channel Link: ''
   Published:
     May: ''
-  Sponsor Block category:
-    outro: ''
   External Player: {}
 Playlist:
   #& About
   Videos: ''
-Comments:
-  Newest first: ''
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
 Tooltips: {}
 Invidious API Error (Click to copy): ''

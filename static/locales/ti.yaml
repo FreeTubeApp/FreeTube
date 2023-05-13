@@ -21,54 +21,33 @@ Force Reload: 'ሓይሊ እንደገና ጽዓን'
 Toggle Developer Tools: 'መሳርሒታት'
 Actual size: 'ናይ ሓቂ መጠን'
 Toggle fullscreen: 'ምሉእ ኤለክትሮኒካዊ መሳርሒ'
-Search Filters:
-  Duration:
-    All Durations: ''
+Search Filters: {}
 Trending:
   Trending Tabs: ''
 Settings:
   # On Settings Page
-  General Settings:
-    Thumbnail Preference:
-      Middle: ''
+  General Settings: {}
   Theme Settings:
     Main Color Theme:
       Deep Purple: ''
-      Catppuccin Mocha Blue: ''
   Player Settings:
     Default Quality:
       720p: ''
-  Privacy Settings:
-    Watch history has been cleared: ''
   Data Settings:
     Subscription File: ''
-  Proxy Settings:
-    Enable Tor / Proxy: ''
   SponsorBlock Settings: {}
   Experimental Settings:
     Experimental Settings: ''
-About:
-  #On About page
-  Credits: ''
 Profile:
   Select None: ''
 Channel:
   Videos: {}
-  About:
-    About: ''
 Video:
   Play Next Video: ''
-  Published:
-    Jun: ''
   Sponsor Block category:
     outro: ''
   External Player: {}
-Playlist:
-  #& About
-  Videos: ''
 Comments:
   Click to View Comments: ''
-Tooltips:
-  Player Settings:
-    Allow DASH AV1 formats: ''
+Tooltips: {}
 'The playlist has ended. Enable loop to continue playing': ''

@@ -83,33 +83,23 @@ History:
 Settings:
   # On Settings Page
   General Settings: {}
-  Theme Settings:
-    Base Theme:
-      Dark: ''
+  Theme Settings: {}
   Player Settings:
     Default Video Format:
       Legacy Formats: ''
-  Distraction Free Settings:
-    Hide Comment Likes: ''
   Data Settings:
     Unable to write file: ''
 About:
   #On About page
   Email: 'ই-মেইল'
-Profile:
-  '{profile} is now the active profile': ''
 Channel:
   Videos: {}
   Playlists: {}
   About:
     Channel Description: ''
 Video:
-  Live Chat: ''
   Published:
     Days: ''
-Share:
-  Open Embed: ''
-  # On Click
 Tooltips:
   Player Settings:
     Default Video Format: ''

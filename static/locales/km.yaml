@@ -10,43 +10,27 @@ File: 'ខ្មែរ'
 Quit: 'ខ្មែរ'
 Edit: 'ខ្មែរ'
 Undo: 'ខ្មែរ'
-Search Filters:
-  Time:
-    Time: ''
+Search Filters: {}
 Trending:
   Trending Tabs: ''
 Settings:
   # On Settings Page
-  General Settings:
-    Thumbnail Preference:
-      Middle: ''
+  General Settings: {}
   Theme Settings:
     Main Color Theme:
       Light Blue: ''
-  Player Settings:
-    Default Playback Rate: ''
   Privacy Settings:
     Watch history has been cleared: ''
-  Data Settings:
-    Import Playlists: ''
   Proxy Settings:
     City: ''
-About:
-  #On About page
-  these people and projects: ''
 Profile:
   Add Selected To Profile: ''
 Channel:
   Videos: {}
 Video:
-  Video has been saved: ''
   Download Video: ''
-  Published:
-    Years: ''
   Stats:
     Volume: ''
-Mini Player: ''
 Tooltips:
   External Player Settings:
     External Player: ''
-No: ''

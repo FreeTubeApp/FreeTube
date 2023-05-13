@@ -314,24 +314,15 @@ Settings:
       شدند
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
       شد
-About:
-  #On About page
-  Blog: ''
 Profile:
   Removed {profile} from your profiles: ''
 Channel:
-  Playlists:
-    Sort Types:
-      Oldest: ''
+  Playlists: {}
 Video:
   Live: ''
-  Published:
-    Hours: ''
   External Player:
     Unsupported Actions:
       reversing playlists: ''
-Comments:
-  Click to View Comments: ''
 Tooltips: {}
 Invidious API Error (Click to copy): ''
 Search Bar:

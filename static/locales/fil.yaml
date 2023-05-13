@@ -81,26 +81,19 @@ Most Popular: 'Pinakasikat'
 Settings:
   # On Settings Page
   General Settings: {}
-  Theme Settings:
-    Main Color Theme:
-      Red: ''
+  Theme Settings: {}
   Player Settings:
     Default Quality:
       Auto: ''
-  Data Settings:
-    Export Subscriptions: ''
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
 Channel:
-  Subscribe: ''
   Videos: {}
   Playlists: {}
 Video:
   Reverse Playlist: ''
-  Published:
-    Day: ''
 Share:
   YouTube Embed URL copied to clipboard: ''
 Download From Site: I-download mula sa website

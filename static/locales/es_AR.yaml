@@ -276,22 +276,16 @@ About:
   Email: Correo electrónico
   Blog: Blog
 Channel:
-  Videos:
-    Sort Types:
-      Oldest: ''
+  Videos: {}
   Playlists: {}
   About:
     Tags:
       Search for: Buscar por «{tag}»
     Details: Detalles
 Video:
-  Published:
-    Sep: ''
   translated from English: traducido del inglés
   Stats:
     Mimetype: Tipo de medio
-Comments:
-  There are no comments available for this video: ''
 Yes: 'Sí'
 No: 'No'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está

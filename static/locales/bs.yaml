@@ -130,27 +130,18 @@ Settings:
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
-  Player Settings:
-    Autoplay Playlists: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
-  Data Settings:
-    Subscriptions have been successfully exported: ''
   Advanced Settings: {}
 Profile:
   Edit Profile: ''
 Channel:
-  Channel has been removed from your subscriptions: ''
   Videos: {}
 Video:
   Copy Invidious Channel Link: ''
-  Published:
-    Jun: ''
 Playlist:
   #& About
   Views: ''
-Comments:
-  Hide: ''
 Tooltips: {}
 Yes: ''
 No: 'Ne'

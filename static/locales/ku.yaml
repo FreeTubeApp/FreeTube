@@ -110,14 +110,11 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'گەڕانەوە بۆ سیستەمە ناخوازراوەکە
       لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
-  Theme Settings:
-    Main Color Theme:
-      Green: ''
+  Theme Settings: {}
   Player Settings:
     Default Quality:
       8k: ''
   Data Settings:
-    One or more subscriptions were unable to be imported: ''
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
     Unable to write file: 'ناتواندریت فایلەکە بنوسرێت'
     Unknown data key: 'کلیلی داتای نەناسراو'
@@ -194,16 +191,11 @@ Profile:
     {profile}'
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
 Channel:
-  Playlists:
-    Sort Types:
-      Oldest: ''
+  Playlists: {}
 Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
 Videos:
   #& Sort By
-  Sort By:
-    Oldest: ''
-    #& Most Popular
-#& Playlists
+{}
 Comments:
   Replies: ''
