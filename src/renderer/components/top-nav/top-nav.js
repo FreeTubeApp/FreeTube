@@ -6,7 +6,7 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
-import { openInternalPath, showToast } from '../../helpers/utils'
+import { openInternalPath } from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -164,13 +164,12 @@ export default defineComponent({
           }
 
           case 'hashtag': {
-            // TODO: Implement a hashtag related view
-            let message = 'Hashtags have not yet been implemented, try again later'
-            if (this.$t(message) && this.$t(message) !== '') {
-              message = this.$t(message)
-            }
+            const { hashtag } = result
+            openInternalPath({
+              path: `/hashtag/${encodeURIComponent(hashtag)}`,
+              doCreateNewWindow
+            })
 
-            showToast(message)
             break
           }
 

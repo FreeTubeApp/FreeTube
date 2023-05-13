@@ -502,7 +502,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
     } else {
       const { text, bold, italics, strikethrough, endpoint } = run
 
-      if (endpoint && !text.startsWith('#')) {
+      if (endpoint) {
         switch (endpoint.metadata.page_type) {
           case 'WEB_PAGE_TYPE_WATCH':
             if (timestampRegex.test(text)) {
@@ -526,6 +526,9 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
           }
           case 'WEB_PAGE_TYPE_PLAYLIST':
             parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
+            break
+          case 'WEB_PAGE_TYPE_BROWSE':
+            parsedRuns.push(`<a href="https://www.youtube.com${endpoint.metadata.url}">${text}</a>`)
             break
           case 'WEB_PAGE_TYPE_UNKNOWN':
           default: {
@@ -747,4 +750,9 @@ function parseLocalAttachment(attachment) {
     console.error(attachment)
     console.error('unknown type')
   }
+}
+
+export async function getHashtagLocal(hashtag) {
+  const innertube = await createInnertube()
+  return await innertube.getHashtag(hashtag)
 }

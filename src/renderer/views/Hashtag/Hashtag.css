@@ -1,0 +1,19 @@
+.getNextPage {
+  background-color: var(--search-bar-color);
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.getNextPage:hover, .getNextPage:focus {
+  background-color: var(--side-nav-hover-color);
+}
+.card {
+  box-sizing: border-box;
+  margin: 0 auto 20px;
+  position: relative;
+  width: 85%;
+}

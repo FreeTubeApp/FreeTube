@@ -317,10 +317,12 @@ const actions = {
     const channelPattern =
       /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|live|streams|playlists|about|community|channels))?\/?$/
 
+    const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
+
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results\/?$/],
-      ['hashtag', /^\/hashtag\/([^#&/?]+)$/],
+      ['hashtag', hashtagPattern],
       ['channel', channelPattern]
     ])
 
@@ -381,8 +383,12 @@ const actions = {
       }
 
       case 'hashtag': {
+        const match = url.pathname.match(hashtagPattern)
+        const hashtag = match.groups.tag
+
         return {
-          urlType: 'hashtag'
+          urlType: 'hashtag',
+          hashtag
         }
       }
       /*

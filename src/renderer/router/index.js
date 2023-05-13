@@ -14,6 +14,7 @@ import Search from '../views/Search/Search.vue'
 import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
+import Hashtag from '../views/Hashtag/Hashtag.vue'
 
 class CustomRouter extends Router {
   push(location) {
@@ -165,6 +166,13 @@ const router = new CustomRouter({
         title: 'Watch'
       },
       component: Watch
+    },
+    {
+      path: '/hashtag/:hashtag',
+      meta: {
+        title: 'Hashtag'
+      },
+      component: Hashtag
     }
   ],
   scrollBehavior(to, from, savedPosition) {
