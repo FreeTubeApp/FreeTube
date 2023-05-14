@@ -145,14 +145,18 @@ export default defineComponent({
 
         const actions = liveChatContinuation.actions.filter(action => action.type === 'AddChatItemAction')
 
-        for (const { item } of actions) {
-          switch (item.type) {
-            case 'LiveChatTextMessage':
-              this.parseLiveChatComment(item)
-              break
-            case 'LiveChatPaidMessage':
-              this.parseLiveChatSuperChat(item)
+        try {
+          for (const { item } of actions) {
+            switch (item.type) {
+              case 'LiveChatTextMessage':
+                this.parseLiveChatComment(item)
+                break
+              case 'LiveChatPaidMessage':
+                this.parseLiveChatSuperChat(item)
+            }
           }
+        } catch (error) {
+          console.error(error)
         }
 
         this.isLoading = false
@@ -166,18 +170,22 @@ export default defineComponent({
       })
 
       this.liveChatInstance.on('chat-update', action => {
-        if (this.hasEnded) {
-          return
-        }
-        if (action.type === 'AddChatItemAction') {
-          switch (action.item.type) {
-            case 'LiveChatTextMessage':
-              this.parseLiveChatComment(action.item)
-              break
-            case 'LiveChatPaidMessage':
-              this.parseLiveChatSuperChat(action.item)
-              break
+        try {
+          if (this.hasEnded) {
+            return
           }
+          if (action.type === 'AddChatItemAction') {
+            switch (action.item.type) {
+              case 'LiveChatTextMessage':
+                this.parseLiveChatComment(action.item)
+                break
+              case 'LiveChatPaidMessage':
+                this.parseLiveChatSuperChat(action.item)
+                break
+            }
+          }
+        } catch (error) {
+          console.error(error)
         }
       })
 
