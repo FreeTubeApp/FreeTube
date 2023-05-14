@@ -525,6 +525,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
             break
           }
           case 'WEB_PAGE_TYPE_PLAYLIST':
+          case 'WEB_PAGE_TYPE_SHORTS':
             parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             break
           case 'WEB_PAGE_TYPE_BROWSE':
