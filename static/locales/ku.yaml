@@ -194,8 +194,5 @@ Channel:
   Playlists: {}
 Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
-Videos:
-  #& Sort By
-{}
 Comments:
   Replies: ''
