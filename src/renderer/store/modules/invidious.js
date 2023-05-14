@@ -44,9 +44,7 @@ const actions = {
       if (await pathExists(`${fileLocation}${fileName}`)) {
         console.warn('reading static file for invidious instances')
         const fileData = await fs.readFile(`${fileLocation}${fileName}`)
-        instances = JSON.parse(fileData).map((entry) => {
-          return entry.url
-        })
+        instances = JSON.parse(fileData)
       }
     }
     commit('setInvidiousInstancesList', instances)
