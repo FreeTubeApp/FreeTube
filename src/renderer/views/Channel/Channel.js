@@ -24,6 +24,7 @@ import {
 import {
   getLocalChannel,
   getLocalChannelId,
+  parseLocalChannelShorts,
   parseLocalChannelVideos,
   parseLocalCommunityPost,
   parseLocalListPlaylist,
@@ -51,6 +52,7 @@ export default defineComponent({
       isElementListLoading: false,
       currentTab: 'videos',
       id: '',
+      /** @type {import('youtubei.js').YT.Channel|null} */
       channelInstance: null,
       channelName: '',
       bannerUrl: '',
@@ -58,6 +60,7 @@ export default defineComponent({
       subCount: 0,
       searchPage: 2,
       videoContinuationData: null,
+      shortContinuationData: null,
       liveContinuationData: null,
       playlistContinuationData: null,
       searchContinuationData: null,
@@ -68,14 +71,17 @@ export default defineComponent({
       joined: 0,
       location: null,
       videoSortBy: 'newest',
+      shortSortBy: 'newest',
       liveSortBy: 'newest',
       playlistSortBy: 'newest',
       showVideoSortBy: true,
+      showShortSortBy: true,
       showLiveSortBy: true,
       showPlaylistSortBy: true,
       lastSearchQuery: '',
       relatedChannels: [],
       latestVideos: [],
+      latestShorts: [],
       latestLive: [],
       latestPlaylists: [],
       latestCommunityPosts: [],
@@ -156,6 +162,8 @@ export default defineComponent({
       switch (this.currentTab) {
         case 'videos':
           return !isNullOrEmpty(this.videoContinuationData)
+        case 'shorts':
+          return !isNullOrEmpty(this.shortContinuationData)
         case 'live':
           return !isNullOrEmpty(this.liveContinuationData)
         case 'playlists':
@@ -191,6 +199,7 @@ export default defineComponent({
     tabInfoValues: function () {
       const values = [
         'videos',
+        'shorts',
         'live',
         'playlists',
         'community',
@@ -231,8 +240,12 @@ export default defineComponent({
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
+      this.latestShorts = []
       this.latestLive = []
+      this.videoSortBy = 'newest'
+      this.shortSortBy = 'newest'
       this.liveSortBy = 'newest'
+      this.playlistSortBy = 'newest'
       this.latestPlaylists = []
       this.latestCommunityPosts = []
       this.searchResults = []
@@ -240,12 +253,14 @@ export default defineComponent({
       this.apiUsed = ''
       this.channelInstance = ''
       this.videoContinuationData = null
+      this.shortContinuationData = null
       this.liveContinuationData = null
       this.playlistContinuationData = null
       this.searchContinuationData = null
       this.communityContinuationData = null
       this.showSearchBar = true
       this.showVideoSortBy = true
+      this.showShortSortBy = true
       this.showLiveSortBy = true
       this.showPlaylistSortBy = true
 
@@ -291,6 +306,21 @@ export default defineComponent({
           break
         default:
           this.getChannelVideosLocal()
+      }
+    },
+
+    shortSortBy() {
+      this.isElementListLoading = true
+      this.latestShorts = []
+      switch (this.apiUsed) {
+        case 'local':
+          this.getChannelShortsLocal()
+          break
+        case 'invidious':
+          this.channelInvidiousShorts(true)
+          break
+        default:
+          this.getChannelShortsLocal()
       }
     },
 
@@ -561,6 +591,10 @@ export default defineComponent({
           this.getChannelVideosLocal()
         }
 
+        if (channel.has_shorts) {
+          this.getChannelShortsLocal()
+        }
+
         if (!this.hideLiveStreams && channel.has_live_streams) {
           this.getChannelLiveLocal()
         }
@@ -671,6 +705,64 @@ export default defineComponent({
 
         this.latestVideos = this.latestVideos.concat(parseLocalChannelVideos(continuation.videos, this.channelInstance.header.author))
         this.videoContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    getChannelShortsLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+         */
+        const channel = this.channelInstance
+        let shortsTab = await channel.getShorts()
+
+        this.showShortSortBy = shortsTab.filters.length > 1
+
+        if (this.showShortSortBy && this.shortSortBy !== 'newest') {
+          const index = this.videoShortLiveSelectValues.indexOf(this.shortSortBy)
+          shortsTab = await shortsTab.applyFilter(shortsTab.filters[index])
+        }
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestShorts = parseLocalChannelShorts(shortsTab.videos, channel.header.author)
+        this.shortContinuationData = shortsTab.has_continuation ? shortsTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getChannelInfoInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getChannelShortsLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js').YT.ChannelListContinuation|import('youtubei.js').YT.FilteredChannelList}
+         */
+        const continuation = await this.shortContinuationData.getContinuation()
+
+        this.latestShorts.push(...parseLocalChannelShorts(continuation.videos, this.channelInstance.header.author))
+        this.shortContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -791,6 +883,10 @@ export default defineComponent({
           this.channelInvidiousVideos()
         }
 
+        if (response.tabs.includes('shorts')) {
+          this.channelInvidiousShorts()
+        }
+
         if (!this.hideLiveStreams && response.tabs.includes('streams')) {
           this.channelInvidiousLive()
         }
@@ -850,6 +946,55 @@ export default defineComponent({
           this.latestVideos = response.videos
         }
         this.videoContinuationData = response.continuation || null
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      })
+    },
+
+    channelInvidiousShorts: function (sortByChanged) {
+      const payload = {
+        resource: 'channels',
+        id: this.id,
+        subResource: 'shorts',
+        params: {
+          sort_by: this.shortSortBy,
+        }
+      }
+
+      if (sortByChanged) {
+        this.shortContinuationData = null
+      }
+
+      let more = false
+      if (this.shortContinuationData) {
+        payload.params.continuation = this.shortContinuationData
+        more = true
+      }
+
+      if (!more) {
+        this.isElementListLoading = true
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        // workaround for Invidious sending incorrect information
+        // https://github.com/iv-org/invidious/issues/3801
+        response.videos.forEach(video => {
+          video.isUpcoming = false
+          delete video.publishedText
+          delete video.premiereTimestamp
+        })
+
+        if (more) {
+          this.latestShorts.push(...response.videos)
+        } else {
+          this.latestShorts = response.videos
+        }
+        this.shortContinuationData = response.continuation || null
         this.isElementListLoading = false
       }).catch((err) => {
         console.error(err)
@@ -1162,6 +1307,16 @@ export default defineComponent({
               break
             case 'invidious':
               this.channelInvidiousVideos()
+              break
+          }
+          break
+        case 'shorts':
+          switch (this.apiUsed) {
+            case 'local':
+              this.getChannelShortsLocalMore()
+              break
+            case 'invidious':
+              this.channelInvidiousShorts()
               break
           }
           break
