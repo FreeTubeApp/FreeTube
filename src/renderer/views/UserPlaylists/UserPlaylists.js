@@ -34,9 +34,23 @@ export default defineComponent({
       return this.$store.getters.getFavorites
     },
 
+    allPlaylists: function () {
+      return this.$store.getters.getAllPlaylists.map((playlist) => {
+        playlist.title = playlist.playlistName
+        playlist.type = 'playlist'
+        playlist.thumbnail = ''
+        playlist.channelName = ''
+        playlist.channelId = ''
+        playlist.playlistId = ''
+        playlist.description = playlist.description ? playlist.description : ''
+        playlist.videoCount = playlist.videos.length
+        return playlist
+      })
+    },
+
     fullData: function () {
-      const data = [].concat(this.favoritesPlaylist.videos).reverse()
-      if (this.favoritesPlaylist.videos.length < this.dataLimit) {
+      const data = this.allPlaylists
+      if (this.allPlaylists.length < this.dataLimit) {
         return data
       } else {
         return data.slice(0, this.dataLimit)
@@ -62,7 +76,7 @@ export default defineComponent({
 
     this.activeData = this.fullData
 
-    if (this.activeData.length < this.favoritesPlaylist.videos.length) {
+    if (this.activeData.length < this.allPlaylists.length) {
       this.showLoadMoreButton = true
     } else {
       this.showLoadMoreButton = false
@@ -86,31 +100,31 @@ export default defineComponent({
       this.filterPlaylistDebounce()
     },
     filterPlaylist: function() {
-      if (this.query === '') {
-        this.activeData = this.fullData
-        if (this.activeData.length < this.favoritesPlaylist.videos.length) {
-          this.showLoadMoreButton = true
-        } else {
-          this.showLoadMoreButton = false
-        }
-      } else {
-        const lowerCaseQuery = this.query.toLowerCase()
-        const filteredQuery = this.favoritesPlaylist.videos.filter((video) => {
-          if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
-            return false
-          } else {
-            return video.title.toLowerCase().includes(lowerCaseQuery) || video.author.toLowerCase().includes(lowerCaseQuery)
-          }
-        }).sort((a, b) => {
-          return b.timeAdded - a.timeAdded
-        })
-        if (filteredQuery.length <= this.searchDataLimit) {
-          this.showLoadMoreButton = false
-        } else {
-          this.showLoadMoreButton = true
-        }
-        this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
-      }
+      // if (this.query === '') {
+      //   this.activeData = this.fullData
+      //   if (this.activeData.length < this.allPlaylists.length) {
+      //     this.showLoadMoreButton = true
+      //   } else {
+      //     this.showLoadMoreButton = false
+      //   }
+      // } else {
+      //   const lowerCaseQuery = this.query.toLowerCase()
+      //   const filteredQuery = this.favoritesPlaylist.videos.filter((video) => {
+      //     if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
+      //       return false
+      //     } else {
+      //       return video.title.toLowerCase().includes(lowerCaseQuery) || video.author.toLowerCase().includes(lowerCaseQuery)
+      //     }
+      //   }).sort((a, b) => {
+      //     return b.timeAdded - a.timeAdded
+      //   })
+      //   if (filteredQuery.length <= this.searchDataLimit) {
+      //     this.showLoadMoreButton = false
+      //   } else {
+      //     this.showLoadMoreButton = true
+      //   }
+      //   this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
+      // }
     },
   }
 })

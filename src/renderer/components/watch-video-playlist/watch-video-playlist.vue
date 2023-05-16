@@ -15,15 +15,16 @@
         </router-link>
       </h3>
       <router-link
+        v-if="channelName !== ''"
         class="channelName"
         :to="`/channel/${channelId}`"
       >
-        {{ channelName }}
+        {{ channelName }} -
       </router-link>
       <span
         class="playlistIndex"
       >
-        - {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        {{ currentVideoIndex }} / {{ playlistVideoCount }}
         <progress
           v-if="!shuffleEnabled && !reversePlaylist"
           class="playlistProgressBar"

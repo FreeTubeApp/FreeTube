@@ -1,35 +1,73 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtInput from '../ft-input/ft-input.vue'
 
 export default defineComponent({
   name: 'PlaylistInfo',
   components: {
-    'ft-share-button': FtShareButton
+    'ft-share-button': FtShareButton,
+    'ft-flex-box': FtFlexBox,
+    'ft-icon-button': FtIconButton,
+    'ft-input': FtInput,
   },
   props: {
-    data: {
-      type: Object,
-      required: true
-    }
+    id: {
+      type: String,
+      required: true,
+    },
+    firstVideoId: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    channelThumbnail: {
+      type: String,
+      required: true,
+    },
+    channelName: {
+      type: String,
+      required: true,
+    },
+    channelId: {
+      type: String,
+      required: true,
+    },
+    videoCount: {
+      type: Number,
+      required: true,
+    },
+    viewCount: {
+      type: Number,
+      required: true,
+    },
+    lastUpdated: {
+      type: String,
+      default: undefined,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    infoSource: {
+      type: String,
+      required: true,
+    },
   },
   data: function () {
     return {
-      id: '',
-      firstVideoId: '',
-      title: '',
-      channelThumbnail: '',
-      channelName: '',
-      channelId: '',
-      videoCount: 0,
-      viewCount: 0,
-      lastUpdated: '',
-      description: '',
-      infoSource: ''
+      editMode: false,
+      newTitle: '',
+      newDescription: '',
     }
   },
   computed: {
-    hideSharingActions: function() {
+    hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
 
@@ -47,6 +85,14 @@ export default defineComponent({
 
     hideViews: function () {
       return this.$store.getters.getHideVideoViews
+    },
+
+    userPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
+    selectedPlaylist: function () {
+      return this.userPlaylists.find((playlist) => playlist._id === this.id)
     },
 
     thumbnail: function () {
@@ -67,49 +113,49 @@ export default defineComponent({
         default:
           return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
-    }
+    },
   },
   mounted: function () {
-    this.id = this.data.id
-    this.firstVideoId = this.data.firstVideoId
-    this.title = this.data.title
-    this.channelName = this.data.channelName
-    this.channelThumbnail = this.data.channelThumbnail
-    this.channelId = this.data.channelId
-    this.uploadedTime = this.data.uploaded_at
-    this.description = this.data.description
-    this.infoSource = this.data.infoSource
+    this.newTitle = this.title
+    this.newDescription = this.description
 
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
-      this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
-    }
-
-    if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
-      this.videoCount = formatNumber(this.data.videoCount)
-    }
-
-    this.lastUpdated = this.data.lastUpdated
+    // if (
+    //   typeof this.data.viewCount !== 'undefined' &&
+    //   !isNaN(this.data.viewCount)
+    // ) {
+    //   this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
+    // }
+    //
+    // if (
+    //   typeof this.data.videoCount !== 'undefined' &&
+    //   !isNaN(this.data.videoCount)
+    // ) {
+    //   this.videoCount = formatNumber(this.data.videoCount)
+    // }
+    //
+    // this.lastUpdated = this.data.lastUpdated
   },
   methods: {
-    sharePlaylist: function (method) {
-      const youtubeUrl = `https://youtube.com/playlist?list=${this.id}`
-      const invidiousUrl = `${this.currentInvidiousInstance}/playlist?list=${this.id}`
-
-      switch (method) {
-        case 'copyYoutube':
-          copyToClipboard(youtubeUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
-          break
-        case 'openYoutube':
-          openExternalLink(youtubeUrl)
-          break
-        case 'copyInvidious':
-          copyToClipboard(invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
-          break
-        case 'openInvidious':
-          openExternalLink(invidiousUrl)
-          break
+    savePlaylistInfo: function () {
+      const playlist = {
+        playlistName: this.newTitle,
+        protected: this.selectedPlaylist.protected,
+        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        description: this.newDescription,
+        videos: this.selectedPlaylist.videos,
+        _id: this.id,
       }
-    }
-  }
+      this.updatePlaylist(playlist)
+      this.cancelEditMode()
+    },
+
+    cancelEditMode: function () {
+      this.newTitle = this.title
+      this.newDescription = this.description
+      this.editMode = false
+    },
+
+    ...mapActions(['updatePlaylist']),
+  },
 })

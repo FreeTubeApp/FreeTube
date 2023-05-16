@@ -36,11 +36,20 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: false,
-      playlistId: null,
-      infoData: {},
+      playlistId: '',
+      playlistTitle: '',
+      playlistDescription: '',
+      firstVideoId: '',
+      viewCount: 0,
+      videoCount: 0,
+      lastUpdated: undefined,
+      channelName: '',
+      channelThumbnail: '',
+      channelId: '',
+      infoSource: 'local',
       playlistItems: [],
       continuationData: null,
-      isLoadingMore: false
+      isLoadingMore: false,
     }
   },
   computed: {
@@ -55,20 +64,32 @@ export default defineComponent({
     },
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
-    }
+    },
+    userPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+    selectedPlaylist: function () {
+      return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
+    },
   },
   watch: {
     $route () {
       // react to route changes...
-      this.getPlaylist()
+      this.getPlaylistInfo()
     }
   },
   mounted: function () {
-    this.getPlaylist()
+    this.getPlaylistInfo()
   },
   methods: {
-    getPlaylist: function () {
+    getPlaylistInfo: function () {
+      this.isLoading = true
       this.playlistId = this.$route.params.id
+
+      if (this.selectedPlaylist != null) {
+        this.parseUserPlaylist(this.selectedPlaylist)
+        return
+      }
 
       switch (this.backendPreference) {
         case 'local':
@@ -80,8 +101,6 @@ export default defineComponent({
       }
     },
     getPlaylistLocal: function () {
-      this.isLoading = true
-
       getLocalPlaylist(this.playlistId).then((result) => {
         this.infoData = {
           id: this.playlistId,
@@ -97,10 +116,22 @@ export default defineComponent({
           infoSource: 'local'
         }
 
+        this.playlistId = result.id
+        this.playlistTitle = result.title
+        this.playlistDescription = result.info.description ?? ''
+        this.firstVideoId = result.items[0].id
+        this.viewCount = extractNumberFromString(result.info.views)
+        this.videoCount = extractNumberFromString(result.info.total_items)
+        this.lastUpdated = result.info.last_updated ?? ''
+        this.channelName = result.info.author?.name ?? ''
+        this.channelThumbnail = result.info.author?.best_thumbnail?.url ?? ''
+        this.channelId = result.info.author?.id
+        this.infoSource = 'local'
+
         this.updateSubscriptionDetails({
-          channelThumbnailUrl: this.infoData.channelThumbnail,
-          channelName: this.infoData.channelName,
-          channelId: this.infoData.channelId
+          channelThumbnailUrl: this.channelThumbnail,
+          channelName: this.channelName,
+          channelId: this.channelId
         })
 
         this.playlistItems = result.items.map(parseLocalPlaylistVideo)
@@ -122,8 +153,6 @@ export default defineComponent({
     },
 
     getPlaylistInvidious: function () {
-      this.isLoading = true
-
       invidiousGetPlaylistInfo(this.playlistId).then((result) => {
         this.infoData = {
           id: result.playlistId,
@@ -138,14 +167,25 @@ export default defineComponent({
           infoSource: 'invidious'
         }
 
+        this.id = result.playlistId
+        this.title = result.title
+        this.description = result.description
+        this.firstVideoId = result.videos[0].videoId
+        this.viewCount = result.viewCount
+        this.videoCount = result.videoCount
+        this.channelName = result.author
+        this.channelThumbnail = youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance)
+        this.channelId = result.authorId
+        this.infoSource = 'invidious'
+
         this.updateSubscriptionDetails({
           channelThumbnailUrl: result.authorThumbnails[2].url,
-          channelName: this.infoData.channelName,
-          channelId: this.infoData.channelId
+          channelName: this.channelName,
+          channelId: this.channelId
         })
 
         const dateString = new Date(result.updated * 1000)
-        this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
+        this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
 
         this.playlistItems = this.playlistItems.concat(result.videos)
 
@@ -160,6 +200,29 @@ export default defineComponent({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    parseUserPlaylist: function (playlist) {
+      this.playlistId = playlist._id
+      this.playlistTitle = playlist.title
+      this.playlistDescription = playlist.description
+
+      if (playlist.videos.length > 0) {
+        this.firstVideoId = playlist.videos[0].videoId
+      } else {
+        this.firstVideoId = ''
+      }
+      this.viewCount = 0
+      this.videoCount = playlist.videoCount
+      this.lastUpdated = undefined
+      this.channelName = playlist.author ? playlist.author.name : ''
+      this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
+      this.channelId = playlist.author ? playlist.author.channelID : ''
+      this.infoSource = 'user'
+
+      this.playlistItems = playlist.videos
+
+      this.isLoading = false
     },
 
     getNextPage: function () {

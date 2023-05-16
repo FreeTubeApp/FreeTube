@@ -10,11 +10,6 @@
     >
       <h3>
         {{ $t("User Playlists.Your Playlists") }}
-        <ft-tooltip
-          class="selectTooltip"
-          position="bottom"
-          :tooltip="$t('User Playlists.Playlist Message')"
-        />
       </h3>
       <ft-input
         v-show="fullData.length > 0"

@@ -70,3 +70,7 @@
     max-width: 35vw;
   }
 }
+
+.message {
+  color: var(--tertiary-text-color);
+}

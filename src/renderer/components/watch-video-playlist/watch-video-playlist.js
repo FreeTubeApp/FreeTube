@@ -50,6 +50,14 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
+    userPlaylists: function () {
+      return this.$store.getters.getAllPlaylists
+    },
+
+    selectedPlaylist: function () {
+      return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
+    },
+
     currentVideoIndex: function () {
       const index = this.playlistItems.findIndex((item) => {
         if (typeof item.videoId !== 'undefined') {
@@ -135,6 +143,8 @@ export default defineComponent({
 
     if (cachedPlaylist?.id === this.playlistId) {
       this.loadCachedPlaylistInformation(cachedPlaylist)
+    } else if (this.selectedPlaylist != null) {
+      this.parseUserPlaylist(this.selectedPlaylist)
     } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {
@@ -388,6 +398,18 @@ export default defineComponent({
           // TODO: Show toast with error message
         }
       })
+    },
+
+    parseUserPlaylist: function (playlist) {
+      this.playlistTitle = playlist.title
+      this.videoCount = playlist.videoCount
+      this.channelName = playlist.author ? playlist.author.name : ''
+      this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
+      this.channelId = playlist.author ? playlist.author.channelID : ''
+
+      this.playlistItems = playlist.videos
+
+      this.isLoading = false
     },
 
     shufflePlaylistItems: function () {

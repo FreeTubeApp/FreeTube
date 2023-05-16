@@ -45,7 +45,9 @@ export default defineComponent({
     }
   },
   created: function () {
-    if (this.data.dataSource === 'local') {
+    if (this.data._id != null) {
+      this.parseUserData()
+    } else if (this.data.dataSource === 'local') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -84,6 +86,17 @@ export default defineComponent({
       this.channelName = this.data.channelName
       this.channelId = this.data.channelId
       this.playlistId = this.data.playlistId
+      this.videoCount = this.data.videoCount
+    },
+
+    parseUserData: function () {
+      this.title = this.data.title
+      if (this.data.videos.length > 0) {
+        this.thumbnail = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
+      } else {
+        this.thumbnail = 'https://i.ytimg.com/vi/aaaaaa/mqdefault.jpg'
+      }
+      this.channelName = ''
       this.videoCount = this.data.videoCount
     },
 

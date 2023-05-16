@@ -7,7 +7,17 @@
 
     <playlist-info
       v-if="!isLoading"
-      :data="infoData"
+      :id="playlistId"
+      :first-video-id="firstVideoId"
+      :title="playlistTitle"
+      :channel-name="channelName"
+      :channel-thumbnail="channelThumbnail"
+      :channel-id="channelId"
+      :last-updated="lastUpdated"
+      :description="playlistDescription"
+      :video-count="videoCount"
+      :view-count="viewCount"
+      :info-source="infoSource"
       class="playlistInfo"
     />
 
@@ -15,40 +25,51 @@
       v-if="!isLoading"
       class="playlistItems"
     >
-      <div
-        v-for="(item, index) in playlistItems"
-        :key="index"
-        class="playlistItem"
+      <span
+        v-if="playlistItems.length > 0"
       >
-        <p
-          class="videoIndex"
+        <div
+          v-for="(item, index) in playlistItems"
+          :key="index"
+          class="playlistItem"
         >
-          {{ index + 1 }}
-        </p>
-        <ft-list-video-lazy
-          :data="item"
-          :playlist-id="playlistId"
-          :playlist-index="index"
-          appearance="result"
-          force-list-type="list"
-        />
-      </div>
+          <p
+            class="videoIndex"
+          >
+            {{ index + 1 }}
+          </p>
+          <ft-list-video-lazy
+            :data="item"
+            :playlist-id="playlistId"
+            :playlist-index="index"
+            appearance="result"
+            force-list-type="list"
+          />
+        </div>
+        <ft-flex-box
+          v-if="continuationData !== null && !isLoadingMore"
+        >
+          <ft-button
+            :label="$t('Subscriptions.Load More Videos')"
+            background-color="var(--primary-color)"
+            text-color="var(--text-with-main-color)"
+            @click="getNextPage"
+          />
+        </ft-flex-box>
+        <div
+          v-if="isLoadingMore"
+          class="loadNextPageWrapper"
+        >
+          <ft-loader />
+        </div>
+      </span>
       <ft-flex-box
-        v-if="continuationData !== null && !isLoadingMore"
+        v-else
       >
-        <ft-button
-          :label="$t('Subscriptions.Load More Videos')"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="getNextPage"
-        />
+        <p class="message">
+          This playlist currently has no videos.
+        </p>
       </ft-flex-box>
-      <div
-        v-if="isLoadingMore"
-        class="loadNextPageWrapper"
-      >
-        <ft-loader />
-      </div>
     </ft-card>
   </div>
 </template>
