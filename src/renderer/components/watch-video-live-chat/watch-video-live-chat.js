@@ -212,7 +212,7 @@ export default defineComponent({
       const parsedComment = {
         message: autolinker.link(parseLocalTextRuns(comment.message.runs, 20)),
         author: {
-          name: comment.author.name.text,
+          name: comment.author.name,
           thumbnailUrl: comment.author.thumbnails.at(-1).url,
           isOwner: comment.author.id === this.channelId,
           isModerator: comment.author.is_moderator,
@@ -222,7 +222,7 @@ export default defineComponent({
 
       if (badge) {
         parsedComment.badge = {
-          url: badge.custom_thumbnail.at(-1).url,
+          url: badge.custom_thumbnail.at(-1)?.url,
           tooltip: badge.tooltip ?? ''
         }
       }
