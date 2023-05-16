@@ -17,7 +17,7 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-button': FtButton,
     'ft-element-list': FtElementList,
-    'ft-input': FtInput
+    'ft-input': FtInput,
   },
   data: function () {
     return {
@@ -35,14 +35,14 @@ export default defineComponent({
     },
 
     allPlaylists: function () {
-      return this.$store.getters.getAllPlaylists.map((playlist) => {
+      const playlists = this.$store.getters.getAllPlaylists
+      return [].concat(playlists).map((playlist) => {
         playlist.title = playlist.playlistName
         playlist.type = 'playlist'
         playlist.thumbnail = ''
         playlist.channelName = ''
         playlist.channelId = ''
         playlist.playlistId = ''
-        playlist.description = playlist.description ? playlist.description : ''
         playlist.videoCount = playlist.videos.length
         return playlist
       })
@@ -55,7 +55,7 @@ export default defineComponent({
       } else {
         return data.slice(0, this.dataLimit)
       }
-    }
+    },
   },
   watch: {
     query() {

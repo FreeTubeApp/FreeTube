@@ -347,11 +347,32 @@ export default defineComponent({
       }
     },
 
-    toggleSave: function () {
+    addToPlaylist: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      this.$emit('add-to-playlist', videoData)
+    },
+
+    toggleFavorite: function () {
       if (this.inFavoritesPlaylist) {
-        this.removeFromPlaylist()
+        this.removeFromFavorites()
+        showToast(this.$t('Video.Video has been removed from your saved list'))
       } else {
-        this.addToPlaylist()
+        this.addToFavorites()
+        showToast(this.$t('Video.Video has been saved'))
       }
     },
 
@@ -536,7 +557,7 @@ export default defineComponent({
       this.watchProgress = 0
     },
 
-    addToPlaylist: function () {
+    addToFavorites: function () {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -553,24 +574,39 @@ export default defineComponent({
       }
 
       const payload = {
-        playlistName: 'Favorites',
+        _id: 'favorites',
         videoData: videoData
       }
 
       this.addVideo(payload)
-
-      showToast(this.$t('Video.Video has been saved'))
     },
 
-    removeFromPlaylist: function () {
+    removeFromFavorites: function () {
       const payload = {
         playlistName: 'Favorites',
         videoId: this.id
       }
 
       this.removeVideo(payload)
+    },
 
-      showToast(this.$t('Video.Video has been removed from your saved list'))
+    togglePlaylistPrompt: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+
+      this.showAddToPlaylistPrompt(videoData)
     },
 
     ...mapActions([
@@ -578,7 +614,8 @@ export default defineComponent({
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'showAddToPlaylistPrompt',
     ])
   }
 })

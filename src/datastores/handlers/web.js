@@ -85,8 +85,8 @@ class Playlists {
     return baseHandlers.playlists.upsert(playlist)
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
-    return baseHandlers.playlists.upsertVideoByPlaylistName(playlistName, videoData)
+  static upsertVideoByPlaylistId(_id, videoData) {
+    return baseHandlers.playlists.upsertVideoByPlaylistId(_id, videoData)
   }
 
   static upsertVideoIdsByPlaylistId(_id, videoIds) {
@@ -97,16 +97,16 @@ class Playlists {
     return baseHandlers.playlists.delete(_id)
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
-    return baseHandlers.playlists.deleteVideoIdByPlaylistName(playlistName, videoId)
+  static deleteVideoIdByPlaylistId(_id, videoId) {
+    return baseHandlers.playlists.deleteVideoIdByPlaylistId(_id, videoId)
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
-    return baseHandlers.playlists.deleteVideoIdsByPlaylistName(playlistName, videoIds)
+  static deleteVideoIdsByPlaylistId(_id, videoIds) {
+    return baseHandlers.playlists.deleteVideoIdsByPlaylistId(_id, videoIds)
   }
 
-  static deleteAllVideosByPlaylistName(playlistName) {
-    return baseHandlers.playlists.deleteAllVideosByPlaylistName(playlistName)
+  static deleteAllVideosByPlaylistId(_id) {
+    return baseHandlers.playlists.deleteAllVideosByPlaylistId(_id)
   }
 
   static deleteMultiple(ids) {

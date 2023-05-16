@@ -897,7 +897,7 @@ function runApp() {
         case DBActions.GENERAL.FIND:
           return await baseHandlers.playlists.find()
 
-        case DBActions.GENERAL.UPSERT:
+        case DBActions.PLAYLISTS.UPSERT:
           await baseHandlers.playlists.upsert(data)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
@@ -907,7 +907,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
-          await baseHandlers.playlists.upsertVideoByPlaylistName(data.playlistName, data.videoData)
+          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.videoData)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -928,7 +928,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistName(data.playlistName, data.videoId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.videoId)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -937,13 +937,13 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
-          await baseHandlers.playlists.deleteVideoIdsByPlaylistName(data.playlistName, data.videoIds)
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.videoIds)
           // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null
 
         case DBActions.PLAYLISTS.DELETE_ALL_VIDEOS:
-          await baseHandlers.playlists.deleteAllVideosByPlaylistName(data)
+          await baseHandlers.playlists.deleteAllVideosByPlaylistId(data)
           // TODO: Syncing (implement only when it starts being used)
           // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
           return null

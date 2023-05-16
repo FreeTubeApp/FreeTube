@@ -41,7 +41,6 @@ $watched-transition-duration: 0.5s;
     .watched &,
     .watched#{&} {
       color: var(--tertiary-text-color);
-      transition-duration: $watched-transition-duration;
     }
     .watched:hover &,
     .watched:hover#{&} {
@@ -51,239 +50,176 @@ $watched-transition-duration: 0.5s;
   }
 }
 
+
 .ft-list-item {
   padding: 6px;
 
-  &.watched {
-    @include low-contrast-when-watched(var(--primary-text-color));
-
+  &:hover {
     background-color: var(--bg-color);
+    @include low-contrast-when-watched(var(--primary-text-color));
 
     .thumbnailImage {
       opacity: 0.3;
-      transition: opacity $watched-transition-duration;
     }
+  }
+  &.selected {
+    background-color: var(--bg-color);
+    @include low-contrast-when-watched(var(--primary-text-color));
 
-    &:hover .thumbnailImage,
-    &:focus .thumbnailImage {
-      opacity: 1;
+    .thumbnailImage {
+      opacity: 0.3;
       transition-duration: $watched-transition-duration;
     }
   }
-
   .videoThumbnail {
-    display: grid;
-
-    .thumbnailLink,
-    .videoWatched,
-    .videoDuration,
-    .externalPlayerIcon,
-    .favoritesIcon,
-    .playlistIcon,
-    .watchedProgressBar,
-    .videoCountContainer,
-    .background,
-    .inner {
-      grid-column: 1;
-      grid-row: 1;
-    }
+    position: relative;
 
     .thumbnailLink {
       display: flex;
     }
-
-    .thumbnailImage {
-      @include is-sidebar-item {
-        height: 75px;
-      }
-
-      @include is-recommendation {
-        height: auto;
-        width: 163px;
-      }
-    }
-
     .videoWatched {
-      align-self: flex-start;
-      background-color: var(--bg-color);
-      color: var(--primary-text-color);
-      justify-self: left;
-      opacity: $thumbnail-overlay-opacity;
+      position: absolute;
+      top: 0;
       padding: 2px;
+      opacity: $thumbnail-overlay-opacity;
+      color: var(--primary-text-color);
+      background-color: var(--bg-color);
       pointer-events: none;
     }
-
     .videoDuration {
-      align-self: flex-end;
-      background-color: var(--card-bg-color);
-      border-radius: 5px;
-      color: var(--primary-text-color);
-      font-size: 15px;
-      justify-self: right;
-      line-height: 1.2;
-      margin: 0 4px 4px 0;
-      opacity: $thumbnail-overlay-opacity;
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
       padding: 3px 4px;
+      line-height: 1.2;
+      font-size: 15px;
+      border-radius: 5px;
+      margin: 0;
+      opacity: $thumbnail-overlay-opacity;
+      color: var(--primary-text-color);
+      background-color: var(--card-bg-color);
       pointer-events: none;
-
-      @include is-watch-playlist-item {
-        font-size: 12px;
-      }
 
       &.live {
         background-color: #f22;
         color: #fff;
       }
+      @include is-watch-playlist-item {
+        font-size: 12px;
+      }
     }
-
     .externalPlayerIcon {
-      align-self: flex-end;
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
       font-size: 17px;
-      justify-self: left;
-      margin-bottom: 4px;
-      margin-left: 4px;
       opacity: $thumbnail-overlay-opacity;
     }
-
     .favoritesIcon {
+      position: absolute;
+      top: 3px;
+      right: 3px;
       font-size: 17px;
-      justify-self: right;
-      margin-right: 3px;
-      margin-top: 3px;
       opacity: $thumbnail-overlay-opacity;
     }
-
     .playlistIcon {
+      position: absolute;
+      top: 40px;
+      right: 3px;
       font-size: 17px;
-      justify-self: right;
-      margin-right: 3px;
-      margin-top: 3px;
       opacity: $thumbnail-overlay-opacity;
     }
-
     .watchedProgressBar {
-      align-self: flex-end;
-      background-color: var(--primary-color);
       height: 2px;
-      justify-self: stretch;
+      position: absolute;
+      bottom: 0;
+      background-color: var(--primary-color);
       z-index: 2;
     }
-
     .videoCountContainer {
-      align-self: stretch;
-      display: grid;
-      font-size: 20px;
-      justify-self: right;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
       width: 60px;
+      font-size: 20px;
 
+      .background,
+      .inner {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
       .background {
         background-color: var(--bg-color);
         opacity: 0.9;
       }
-
       .inner {
-        align-items: center;
-        color: var(--primary-text-color);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        z-index: 1;
+        align-items: center;
+        color: var(--primary-text-color);
       }
     }
   }
-
   .channelThumbnail {
     display: flex;
     justify-content: center;
 
     .channelImage {
-      border-radius: 50%;
       height: 130px;
+      border-radius: 50%;
     }
   }
-
   .info {
-    align-content: flex-start;
-    display: grid;
     flex: 1;
-    grid-template:
-      'title optionsExternalButton' auto
-      'infoLine optionsExternalButton' auto
-      'description description' auto / 1fr auto;
+    position: relative;
 
     .optionsButton {
-      grid-area: optionsExternalButton;
+      float: right; // ohhhh man, float was finally the right choice for something;
     }
-
     .externalPlayerButton {
-      grid-area: optionsExternalButton;
+      float: right;
     }
-
     .title {
-      @include low-contrast-when-watched(var(--primary-text-color));
-
       font-size: 20px;
-      grid-area: title;
+      @include low-contrast-when-watched(var(--primary-text-color));
       text-decoration: none;
-      word-break: break-word;
       word-wrap: break-word;
+      word-break: break-word;
 
       @include is-sidebar-item {
         font-size: 15px;
       }
     }
-
     .infoLine {
-      font-size: 14px;
-      grid-area: infoLine;
       margin-top: 5px;
+      font-size: 14px;
 
       @include is-sidebar-item {
         font-size: 12px;
       }
-
       & {
         @include low-contrast-when-watched(var(--secondary-text-color));
       }
-
       .channelName {
         @include low-contrast-when-watched(var(--secondary-text-color));
       }
     }
-
     .description {
-      @include low-contrast-when-watched(var(--secondary-text-color));
-
       font-size: 14px;
-      grid-area: description;
       max-height: 50px;
       overflow-y: hidden;
+      @include low-contrast-when-watched(var(--secondary-text-color));
     }
   }
-
-  &.list {
-    align-items: flex-start;
-    display: flex;
-
-    @include is-sidebar-item {
-      .videoThumbnail {
-        margin-right: 10px;
-      }
-    }
-
-    .videoThumbnail,
-    .channelThumbnail {
-      margin-right: 20px;
-    }
-
-    .channelThumbnail {
-      width: 231px;
-    }
-  }
-
   &.grid {
     display: flex;
     flex-direction: column;
+    min-width: 245px;
     min-height: 230px;
     padding-bottom: 20px;
 
@@ -295,20 +231,24 @@ $watched-transition-duration: 0.5s;
         width: 100%;
       }
     }
-
     .title {
-      font-size: 18px;
+      font-size: 22px;
     }
-
     .infoLine {
-      font-size: 13px;
       margin-top: 8px;
+      font-size: 13px;
     }
   }
 }
 
 .videoWatched,
-.live,
-.upcoming {
+.live {
   text-transform: uppercase;
+}
+
+.selectedIcon {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  font-size: 50px;
 }

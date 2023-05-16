@@ -65,6 +65,7 @@ const SyncEvents = {
   },
 
   PLAYLISTS: {
+    UPSERT: 'sync-playlists-upsert',
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     DELETE_VIDEO: 'sync-playlists-delete-video'
   }

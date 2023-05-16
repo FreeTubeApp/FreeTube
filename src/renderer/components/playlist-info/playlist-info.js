@@ -147,13 +147,17 @@ export default defineComponent({
         _id: this.id,
       }
       this.updatePlaylist(playlist)
-      this.cancelEditMode()
+      this.exitEditMode()
     },
 
-    cancelEditMode: function () {
+    enterEditMode: function () {
       this.newTitle = this.title
       this.newDescription = this.description
-      this.editMode = false
+      this.editMode = true
+    },
+
+    exitEditMode: function () {
+      this.newTitle = this.title
     },
 
     ...mapActions(['updatePlaylist']),

@@ -109,12 +109,12 @@ class Playlists {
   }
 
   static upsert(playlist) {
-    return db.profiles.update({ _id: playlist._id }, playlist, { upsert: true })
+    return db.playlists.update({ _id: playlist._id }, playlist, { upsert: true })
   }
 
-  static upsertVideoByPlaylistName(playlistName, videoData) {
+  static upsertVideoByPlaylistId(_id, videoData) {
     return db.playlists.update(
-      { playlistName },
+      { _id },
       { $push: { videos: videoData } },
       { upsert: true }
     )
@@ -132,25 +132,25 @@ class Playlists {
     return db.playlists.remove({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistName(playlistName, videoId) {
+  static deleteVideoIdByPlaylistId(_id, videoId) {
     return db.playlists.update(
-      { playlistName },
+      { _id },
       { $pull: { videos: { videoId } } },
       { upsert: true }
     )
   }
 
-  static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
+  static deleteVideoIdsByPlaylistId(_id, videoIds) {
     return db.playlists.update(
-      { playlistName },
+      { _id },
       { $pull: { videos: { $in: videoIds } } },
       { upsert: true }
     )
   }
 
-  static deleteAllVideosByPlaylistName(playlistName) {
+  static deleteAllVideosByPlaylistId(_id) {
     return db.playlists.update(
-      { playlistName },
+      { _id },
       { $set: { videos: [] } },
       { upsert: true }
     )

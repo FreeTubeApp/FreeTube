@@ -28,7 +28,9 @@ const state = {
   },
   cachedPlaylist: null,
   showProgressBar: false,
+  showAddToPlaylistPrompt: false,
   progressBarPercentage: 0,
+  playlistAddVideoObject: [],
   regionNames: [],
   regionValues: [],
   recentBlogPosts: [],
@@ -71,6 +73,14 @@ const getters = {
 
   getSearchSettings () {
     return state.searchSettings
+  },
+
+  getShowAddToPlaylistPrompt () {
+    return state.showAddToPlaylistPrompt
+  },
+
+  getPlaylistAddVideoObject () {
+    return state.playlistAddVideoObject
   },
 
   getShowProgressBar () {
@@ -234,6 +244,15 @@ const actions = {
 
       resolve(parsedString)
     })
+  },
+
+  showAddToPlaylistPrompt ({ commit }, videoArray) {
+    commit('setShowAddToPlaylistPrompt', true)
+    commit('setPlaylistAddVideoObject', videoArray)
+  },
+
+  hideAddToPlaylistPrompt ({ commit }) {
+    commit('setShowAddToPlaylistPrompt', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -631,6 +650,14 @@ const mutations = {
     } else {
       state.sessionSearchHistory.push(payload)
     }
+  },
+
+  setShowAddToPlaylistPrompt (state, payload) {
+    state.showAddToPlaylistPrompt = payload
+  },
+
+  setPlaylistAddVideoObject (state, payload) {
+    state.playlistAddVideoObject = payload
   },
 
   setPopularCache (state, value) {

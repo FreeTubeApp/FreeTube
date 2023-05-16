@@ -76,7 +76,10 @@ export default defineComponent({
     $route () {
       // react to route changes...
       this.getPlaylistInfo()
-    }
+    },
+    selectedPlaylist () {
+      this.getPlaylistInfo()
+    },
   },
   mounted: function () {
     this.getPlaylistInfo()
@@ -204,8 +207,8 @@ export default defineComponent({
 
     parseUserPlaylist: function (playlist) {
       this.playlistId = playlist._id
-      this.playlistTitle = playlist.title
-      this.playlistDescription = playlist.description
+      this.playlistTitle = playlist.title ? playlist.title : playlist.playlistName
+      this.playlistDescription = playlist.description ? playlist.description : ''
 
       if (playlist.videos.length > 0) {
         this.firstVideoId = playlist.videos[0].videoId
@@ -213,7 +216,7 @@ export default defineComponent({
         this.firstVideoId = ''
       }
       this.viewCount = 0
-      this.videoCount = playlist.videoCount
+      this.videoCount = playlist.videoCount ? playlist.videoCount : playlist.videos.length
       this.lastUpdated = undefined
       this.channelName = playlist.author ? playlist.author.name : ''
       this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''

@@ -97,7 +97,7 @@
           title="Cancel"
           icon="times"
           theme="primary"
-          @click="cancelEditMode"
+          @click="exitEditMode"
         />
       </ft-flex-box>
       <ft-flex-box
@@ -118,7 +118,7 @@
           title="Edit Playlist"
           icon="edit"
           theme="primary"
-          @click="editMode = !editMode"
+          @click="enterEditMode"
         />
         <ft-icon-button
           v-if="infoSource === 'user'"
