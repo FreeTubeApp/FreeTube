@@ -79,9 +79,7 @@ const actions = {
 
   async grabAllPlaylists({ commit, dispatch, state }) {
     try {
-      const payload = await DBPlaylistHandlers.find()
-      console.log('grabAllPlaylists >>')
-      console.log({ payload })
+      const payload = (await DBPlaylistHandlers.find()).filter((e) => e != null)
       if (payload.length === 0) {
         dispatch('addPlaylists', state.defaultPlaylists)
       } else {
@@ -93,8 +91,8 @@ const actions = {
         })
 
         if (findFavorites.length === 0) {
-          dispatch('addPlaylist', state.playlists[0])
-          payload.push(state.playlists[0])
+          dispatch('addPlaylist', state.defaultPlaylists.find((e) => e._id === 'favorites'))
+          payload.push(state.defaultPlaylists[0])
         } else {
           const favoritesPlaylist = findFavorites[0]
 
@@ -107,14 +105,14 @@ const actions = {
         }
 
         if (findWatchLater.length === 0) {
-          dispatch('addPlaylist', state.playlists[1])
-          payload.push(state.playlists[1])
+          dispatch('addPlaylist', state.defaultPlaylists.find((e) => e._id === 'watchLater'))
+          payload.push(state.defaultPlaylists[1])
         } else {
-          const watchLaterPlaylist = findFavorites[0]
+          const watchLaterPlaylist = findWatchLater[0]
 
-          if (watchLaterPlaylist._id !== 'favorites') {
+          if (watchLaterPlaylist._id !== 'watchLater') {
             const oldId = watchLaterPlaylist._id
-            watchLaterPlaylist._id = 'favorites'
+            watchLaterPlaylist._id = 'watchLater'
             dispatch('addPlaylist', watchLaterPlaylist)
             dispatch('removePlaylist', oldId)
           }
@@ -231,15 +229,15 @@ const mutations = {
   },
 
   removeVideo(state, payload) {
-    const playlist = state.playlists.findIndex(playlist => playlist._id === payload._id)
-    if (playlist !== -1) {
-      state.playlists[playlist].videos = state.playlists[playlist].videos.filter(video => video.videoId !== payload.videoId)
+    const playlist = state.playlists.find(playlist => playlist._id === payload._id)
+    if (playlist) {
+      playlist.videos = playlist.videos.filter(video => video.videoId !== payload.videoId)
     }
   },
 
   removeVideos(state, payload) {
-    const playlist = state.playlists.findIndex(playlist => playlist._id === payload.playlistId)
-    if (playlist !== -1) {
+    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    if (playlist) {
       playlist.videos = playlist.videos.filter(video => payload.videoId.indexOf(video) === -1)
     }
   },
