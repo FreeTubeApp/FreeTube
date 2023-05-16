@@ -111,7 +111,7 @@
         :default-instance="defaultPipedInstance"
         @input="handlePipedInstanceInput"
         @setDefaultInstance="handleSetDefaultPipedInstanceClick"
-        @cclearDefaultInstance="handleClearDefaultPipedInstanceClick"
+        @clearDefaultInstance="handleClearDefaultPipedInstanceClick"
       />
       <br
         v-if="(backendFallback && fallbackPreference === 'invidious')"
@@ -147,7 +147,7 @@
         :default-instance="defaultPipedInstance"
         @input="handlePipedInstanceInput"
         @setDefaultInstance="handleSetDefaultPipedInstanceClick"
-        @cclearDefaultInstance="handleClearDefaultPipedInstanceClick"
+        @clearDefaultInstance="handleClearDefaultPipedInstanceClick"
       />
     </template>
   </ft-settings-section>

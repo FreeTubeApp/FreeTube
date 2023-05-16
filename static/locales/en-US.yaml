@@ -867,7 +867,8 @@ Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
-
+Default Piped instance has been set to {instance}: Default Piped instance has been set to {instance}
+Default Piped instance has been cleared: Default Piped instance has been cleared
 Default Invidious instance has been set to {instance}: Default Invidious instance has been set to {instance}
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
