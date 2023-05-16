@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -7,6 +8,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
+import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
 export default defineComponent({
   name: 'UserPlaylists',
@@ -17,6 +19,7 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-button': FtButton,
     'ft-element-list': FtElementList,
+    'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
   },
   data: function () {
@@ -30,6 +33,10 @@ export default defineComponent({
     }
   },
   computed: {
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     favoritesPlaylist: function () {
       return this.$store.getters.getFavorites
     },
@@ -45,6 +52,19 @@ export default defineComponent({
         playlist.playlistId = ''
         playlist.videoCount = playlist.videos.length
         return playlist
+      }).sort((a, b) => {
+        // Sort by favorites, watch later, then alphabetically
+        if (a._id === 'favorites') {
+          return -1
+        } else if (b._id === 'favorites') {
+          return 1
+        } else if (a._id === 'watchLater') {
+          return -1
+        } else if (b._id === 'watchLater') {
+          return 1
+        }
+
+        return a.title.localeCompare(b.title, this.locale)
       })
     },
 
@@ -126,5 +146,16 @@ export default defineComponent({
       //   this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
       // }
     },
+
+    createNewPlaylist: function () {
+      this.showCreatePlaylistPrompt({
+        title: '',
+        videos: []
+      })
+    },
+
+    ...mapActions([
+      'showCreatePlaylistPrompt'
+    ])
   }
 })

@@ -23,6 +23,10 @@
         @click="addSelectedToPlaylists"
       />
       <ft-button
+        label="Create New Playlist"
+        @click="createNewPlaylist"
+      />
+      <ft-button
         label="Cancel"
         @click="handleAddToPlaylistPrompt(null)"
       />

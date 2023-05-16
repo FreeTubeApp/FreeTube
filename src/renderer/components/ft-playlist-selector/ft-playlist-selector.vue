@@ -3,6 +3,8 @@
     class="ft-list-video ft-list-item grid"
     :class="{ selected: selected }"
     @click="toggleSelection"
+    @keydown.enter.prevent="toggleSelection"
+    @keydown.space.prevent="toggleSelection"
   >
     <div
       class="videoThumbnail"

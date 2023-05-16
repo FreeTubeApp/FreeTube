@@ -4,6 +4,7 @@ import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
+import FtPrompt from '../ft-prompt/ft-prompt.vue'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -12,6 +13,7 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
+    'ft-prompt': FtPrompt,
   },
   props: {
     id: {
@@ -42,6 +44,10 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    videos: {
+      type: Array,
+      required: true
+    },
     viewCount: {
       type: Number,
       required: true,
@@ -62,8 +68,14 @@ export default defineComponent({
   data: function () {
     return {
       editMode: false,
+      showDeletePlaylistPrompt: false,
+      showRemoveVideosOnWatchPrompt: false,
       newTitle: '',
       newDescription: '',
+      deletePlaylistPromptValues: [
+        'yes',
+        'no'
+      ],
     }
   },
   computed: {
@@ -73,6 +85,10 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
+    },
+
+    historyCache: function () {
+      return this.$store.getters.getHistoryCache
     },
 
     thumbnailPreference: function () {
@@ -93,6 +109,13 @@ export default defineComponent({
 
     selectedPlaylist: function () {
       return this.userPlaylists.find((playlist) => playlist._id === this.id)
+    },
+
+    deletePlaylistPromptNames: function () {
+      return [
+        this.$t('Yes'),
+        this.$t('No')
+      ]
     },
 
     thumbnail: function () {
@@ -118,25 +141,15 @@ export default defineComponent({
   mounted: function () {
     this.newTitle = this.title
     this.newDescription = this.description
-
-    // Causes errors if not put inside of a check
-    // if (
-    //   typeof this.data.viewCount !== 'undefined' &&
-    //   !isNaN(this.data.viewCount)
-    // ) {
-    //   this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
-    // }
-    //
-    // if (
-    //   typeof this.data.videoCount !== 'undefined' &&
-    //   !isNaN(this.data.videoCount)
-    // ) {
-    //   this.videoCount = formatNumber(this.data.videoCount)
-    // }
-    //
-    // this.lastUpdated = this.data.lastUpdated
   },
   methods: {
+    copyPlaylist: function () {
+      this.showCreatePlaylistPrompt({
+        title: this.title,
+        videos: this.videos
+      })
+    },
+
     savePlaylistInfo: function () {
       const playlist = {
         playlistName: this.newTitle,
@@ -146,8 +159,19 @@ export default defineComponent({
         videos: this.selectedPlaylist.videos,
         _id: this.id,
       }
-      this.updatePlaylist(playlist)
-      this.exitEditMode()
+      try {
+        this.updatePlaylist(playlist)
+        this.showToast({
+          message: 'Playlist has been updated.'
+        })
+      } catch (e) {
+        this.showToast({
+          message: 'There was an issue with updating this playlist.'
+        })
+        console.error(e)
+      } finally {
+        this.exitEditMode()
+      }
     },
 
     enterEditMode: function () {
@@ -160,6 +184,73 @@ export default defineComponent({
       this.newTitle = this.title
     },
 
-    ...mapActions(['updatePlaylist']),
+    handleRemoveVideosOnWatchPromptAnswer: function (option) {
+      console.log(this.selectedPlaylist.videos)
+      if (option === 'yes') {
+        const videosToWatch = this.selectedPlaylist.videos.filter((video) => {
+          const watchedIndex = this.historyCache.findIndex((history) => {
+            return history.videoId === video.videoId
+          })
+
+          return watchedIndex === -1
+        })
+
+        const videosRemoved = this.selectedPlaylist.videos.length - videosToWatch.length
+
+        if (videosRemoved === 0) {
+          this.showToast({
+            message: 'There were no videos to remove.'
+          })
+          this.showRemoveVideosOnWatchPrompt = false
+          return
+        }
+
+        const playlist = {
+          playlistName: this.title,
+          protected: this.selectedPlaylist.protected,
+          removeOnWatched: this.selectedPlaylist.removeOnWatched,
+          description: this.description,
+          videos: videosToWatch,
+          _id: this.id
+        }
+        try {
+          this.updatePlaylist(playlist)
+          this.showToast({
+            message: `${videosRemoved} video(s) have been removed.`
+          })
+        } catch (e) {
+          this.showToast({
+            message: 'There was an issue with updating this playlist.'
+          })
+          console.error(e)
+        }
+      }
+      this.showRemoveVideosOnWatchPrompt = false
+    },
+
+    handleDeletePlaylistPromptAnswer: function (option) {
+      if (this.selectedPlaylist.protected) {
+        this.showToast({
+          message: 'This playlist is protected and cannot be removed.'
+        })
+      } else if (option === 'yes') {
+        this.removePlaylist(this.id)
+        this.$router.push(
+          {
+            path: '/userPlaylists'
+          }
+        )
+        this.showToast({
+          message: `${this.title} has been deleted.`
+        })
+      }
+      this.showDeletePlaylistPrompt = false
+    },
+
+    ...mapActions([
+      'showCreatePlaylistPrompt',
+      'updatePlaylist',
+      'removePlaylist',
+    ]),
   },
 })

@@ -11,6 +11,13 @@
       <h3>
         {{ $t("User Playlists.Your Playlists") }}
       </h3>
+      <ft-icon-button
+        title="Add New Playlist"
+        icon="plus"
+        theme="primary"
+        class="newPlaylistButton"
+        @click="createNewPlaylist"
+      />
       <ft-input
         v-show="fullData.length > 0"
         ref="searchBar"

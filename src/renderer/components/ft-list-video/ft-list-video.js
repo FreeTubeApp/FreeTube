@@ -25,6 +25,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    playlistType: {
+      type: String,
+      default: null
+    },
     playlistIndex: {
       type: Number,
       default: null
@@ -99,6 +103,10 @@ export default defineComponent({
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
       return this.$route.name === 'history'
+    },
+
+    inUserPlaylist: function () {
+      return this.$router.currentRoute.path.includes('playlist') && this.playlistType === 'user'
     },
 
     invidiousUrl: function () {
@@ -588,6 +596,26 @@ export default defineComponent({
       }
 
       this.removeVideo(payload)
+    },
+
+    removeVideoFromPlaylist: function () {
+      const payload = {
+        _id: this.playlistId,
+        videoId: this.id
+      }
+
+      try {
+        this.removeVideo(payload)
+        this.$emit('refresh-playlist')
+        this.showToast({
+          message: 'Video has been removed'
+        })
+      } catch (e) {
+        this.showToast({
+          message: 'There was a problem with removing this video'
+        })
+        console.error(e)
+      }
     },
 
     togglePlaylistPrompt: function () {

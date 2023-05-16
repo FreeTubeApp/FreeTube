@@ -16,6 +16,7 @@
       :last-updated="lastUpdated"
       :description="playlistDescription"
       :video-count="videoCount"
+      :videos="playlistItems"
       :view-count="viewCount"
       :info-source="infoSource"
       class="playlistInfo"
@@ -41,9 +42,12 @@
           <ft-list-video-lazy
             :data="item"
             :playlist-id="playlistId"
+            :playlist-type="infoSource"
             :playlist-index="index"
             appearance="result"
             force-list-type="list"
+            @move-video-up="moveVideoUp"
+            @move-video-down="moveVideoDown"
           />
         </div>
         <ft-flex-box

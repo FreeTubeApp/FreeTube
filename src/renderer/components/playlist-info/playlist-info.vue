@@ -103,16 +103,12 @@
       <ft-flex-box
         v-else
       >
-        <!--        <ft-icon-button-->
-        <!--          title="Play All"-->
-        <!--          icon="play"-->
-        <!--          theme="primary"-->
-        <!--        />-->
-        <!--        <ft-icon-button-->
-        <!--          title="Copy Playlist"-->
-        <!--          icon="copy"-->
-        <!--          theme="primary"-->
-        <!--        />-->
+        <ft-icon-button
+          title="Copy Playlist"
+          icon="copy"
+          theme="primary"
+          @click="copyPlaylist"
+        />
         <ft-icon-button
           v-if="infoSource === 'user'"
           title="Edit Playlist"
@@ -125,12 +121,14 @@
           title="Remove Watched Videos"
           icon="eye-slash"
           theme="primary"
+          @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
           v-if="infoSource === 'user'"
           title="Delete Playlist"
           icon="trash"
           theme="primary"
+          @click="showDeletePlaylistPrompt = true"
         />
       </ft-flex-box>
 
@@ -139,6 +137,20 @@
         :id="id"
         :dropdown-position-y="description ? 'top' : 'bottom'"
         share-target-type="Playlist"
+      />
+      <ft-prompt
+        v-if="showDeletePlaylistPrompt"
+        label="Are you sure you want to delete this playlist? This cannot be undone."
+        :option-names="deletePlaylistPromptNames"
+        :option-values="deletePlaylistPromptValues"
+        @click="handleDeletePlaylistPromptAnswer"
+      />
+      <ft-prompt
+        v-if="showRemoveVideosOnWatchPrompt"
+        label="Are you sure you want to remove all watched videos from this playlist? This cannot be undone."
+        :option-names="deletePlaylistPromptNames"
+        :option-values="deletePlaylistPromptValues"
+        @click="handleRemoveVideosOnWatchPromptAnswer"
       />
     </div>
   </div>
