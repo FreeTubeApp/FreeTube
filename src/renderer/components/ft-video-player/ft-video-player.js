@@ -42,10 +42,6 @@ const VHS_BANDWIDTH_VARIANCE = videojs.Vhs.BANDWIDTH_VARIANCE
 
 export default defineComponent({
   name: 'FtVideoPlayer',
-  beforeRouteLeave: function (_to, _from, next) {
-    window.removeEventListener('beforeunload', this.stopPowerSaveBlocker)
-    next()
-  },
   props: {
     format: {
       type: String,
@@ -364,6 +360,7 @@ export default defineComponent({
     }
 
     this.stopPowerSaveBlocker()
+    window.removeEventListener('beforeunload', this.stopPowerSaveBlocker)
   },
   methods: {
     initializePlayer: async function () {
