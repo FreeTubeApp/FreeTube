@@ -40,6 +40,7 @@ const actions = {
       // {Time now in unix time}-{0-9999}
       payload._id = generateRandomPlaylistId()
     }
+    payload.lastUpdatedAt = Date.now()
 
     try {
       await DBPlaylistHandlers.create(payload)
