@@ -30,7 +30,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       shuffleEnabled: false,
       loopEnabled: false,
       reversePlaylist: false,
@@ -50,12 +50,14 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    userPlaylists: function () {
-      return this.$store.getters.getAllPlaylists
+    userPlaylistsReady: function () {
+      return this.$store.getters.getPlaylistsReady
     },
+    selectedUserPlaylist: function () {
+      if (this.playlistId == null) { return null }
+      if (this.playlistId === '') { return null }
 
-    selectedPlaylist: function () {
-      return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
+      return this.$store.getters.getPlaylist(this.playlistId)
     },
 
     currentVideoIndex: function () {
@@ -102,6 +104,9 @@ export default defineComponent({
     },
   },
   watch: {
+    userPlaylistsReady: function() {
+      this.getPlaylistInfoWithDelay()
+    },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
       if (this.shuffleEnabled) {
@@ -140,15 +145,10 @@ export default defineComponent({
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
-
     if (cachedPlaylist?.id === this.playlistId) {
       this.loadCachedPlaylistInformation(cachedPlaylist)
-    } else if (this.selectedPlaylist != null) {
-      this.parseUserPlaylist(this.selectedPlaylist)
-    } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-      this.getPlaylistInformationInvidious()
     } else {
-      this.getPlaylistInformationLocal()
+      this.getPlaylistInfoWithDelay()
     }
 
     if ('mediaSession' in navigator) {
@@ -163,6 +163,19 @@ export default defineComponent({
     }
   },
   methods: {
+    getPlaylistInfoWithDelay: function () {
+      this.isLoading = true
+      if (!this.userPlaylistsReady) { return }
+
+      if (this.selectedUserPlaylist != null) {
+        this.parseUserPlaylist(this.selectedUserPlaylist)
+      } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getPlaylistInformationInvidious()
+      } else {
+        this.getPlaylistInformationLocal()
+      }
+    },
+
     toggleLoop: function () {
       if (this.loopEnabled) {
         this.loopEnabled = false
@@ -403,9 +416,9 @@ export default defineComponent({
     parseUserPlaylist: function (playlist) {
       this.playlistTitle = playlist.title
       this.videoCount = playlist.videoCount
-      this.channelName = playlist.author ? playlist.author.name : ''
-      this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
-      this.channelId = playlist.author ? playlist.author.channelID : ''
+      this.channelName = ''
+      this.channelThumbnail = ''
+      this.channelId = ''
 
       this.playlistItems = playlist.videos
 

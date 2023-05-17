@@ -5,6 +5,10 @@ function generateRandomPlaylistId() {
 }
 
 const state = {
+  // Playlist loading takes time on app load (new windows)
+  // This is necessary to let components to know when to start data loading
+  // which depends on playlist data being ready
+  playlistsReady: false,
   playlists: [],
   defaultPlaylists: [
     {
@@ -27,9 +31,12 @@ const state = {
 }
 
 const getters = {
+  getPlaylistsReady: () => state.playlistsReady,
   getAllPlaylists: () => state.playlists,
   getFavorites: () => state.playlists.find(playlist => playlist._id === 'favorites'),
-  getPlaylist: (playlistId) => state.playlists.find(playlist => playlist._id === playlistId),
+  getPlaylist: (state) => (playlistId) => {
+    return state.playlists.find(playlist => playlist._id === playlistId)
+  },
   getWatchLater: () => state.playlists.find(playlist => playlist._id === 'watchLater')
 }
 
@@ -159,6 +166,7 @@ const actions = {
         }
 
         commit('setAllPlaylists', payload)
+        commit('setPlaylistsReady', true)
       }
     } catch (errMessage) {
       console.error(errMessage)
@@ -288,7 +296,11 @@ const mutations = {
 
   setAllPlaylists(state, payload) {
     state.playlists = payload
-  }
+  },
+
+  setPlaylistsReady(state, payload) {
+    state.playlistsReady = payload
+  },
 }
 
 export default {

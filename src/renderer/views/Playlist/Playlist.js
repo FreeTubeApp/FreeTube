@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
+import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
@@ -35,7 +36,7 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isLoading: false,
+      isLoading: true,
       playlistTitle: '',
       playlistDescription: '',
       firstVideoId: '',
@@ -49,6 +50,7 @@ export default defineComponent({
       playlistItems: [],
       continuationData: null,
       isLoadingMore: false,
+      getPlaylistInfoDebounce: function() {},
     }
   },
   computed: {
@@ -67,14 +69,14 @@ export default defineComponent({
     playlistId: function() {
       return this.$route.params.id
     },
-    userPlaylists: function () {
-      return this.$store.getters.getAllPlaylists
+    userPlaylistsReady: function () {
+      return this.$store.getters.getPlaylistsReady
     },
     selectedUserPlaylist: function () {
       if (this.playlistId == null) { return null }
       if (this.playlistId === '') { return null }
 
-      return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
+      return this.$store.getters.getPlaylist(this.playlistId)
     },
     selectedUserPlaylistLastUpdatedAt: function () {
       return this.selectedUserPlaylist?.lastUpdatedAt
@@ -90,15 +92,19 @@ export default defineComponent({
   watch: {
     $route () {
       // react to route changes...
-      this.getPlaylistInfo()
+      this.getPlaylistInfoDebounce()
+    },
+    userPlaylistsReady () {
+      // Fetch from local store when playlist data ready
+      this.getPlaylistInfoDebounce()
     },
     selectedUserPlaylist () {
       // Fetch from local store when current user playlist changed
-      this.getPlaylistInfo()
+      this.getPlaylistInfoDebounce()
     },
     selectedUserPlaylistLastUpdatedAt () {
       // Re-fetch from local store when current user playlist updated
-      this.getPlaylistInfo()
+      this.getPlaylistInfoDebounce()
     },
     // selectedUserPlaylistVideos () {
     //   if (this.isLoading) {
@@ -109,11 +115,14 @@ export default defineComponent({
     // },
   },
   mounted: function () {
-    this.getPlaylistInfo()
+    this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
+    this.getPlaylistInfoDebounce()
   },
   methods: {
     getPlaylistInfo: function () {
       this.isLoading = true
+      // `selectedUserPlaylist` result accuracy relies on data being ready
+      if (!this.userPlaylistsReady) { return }
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)

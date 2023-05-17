@@ -106,12 +106,8 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
-    userPlaylists: function () {
-      return this.$store.getters.getAllPlaylists
-    },
-
-    selectedPlaylist: function () {
-      return this.userPlaylists.find((playlist) => playlist._id === this.id)
+    selectedUserPlaylist: function () {
+      return this.$store.getters.getPlaylist(this.id)
     },
 
     deletePlaylistPromptNames: function () {
@@ -147,7 +143,7 @@ export default defineComponent({
       if (this.editMode) { return false }
 
       // Cannot delete protected playlist
-      return !this.selectedPlaylist.protected
+      return !this.selectedUserPlaylist.protected
     },
 
     sharePlaylistButtonVisible: function() {
@@ -173,10 +169,10 @@ export default defineComponent({
     savePlaylistInfo: function () {
       const playlist = {
         playlistName: this.newTitle,
-        protected: this.selectedPlaylist.protected,
-        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        protected: this.selectedUserPlaylist.protected,
+        removeOnWatched: this.selectedUserPlaylist.removeOnWatched,
         description: this.newDescription,
-        videos: this.selectedPlaylist.videos,
+        videos: this.selectedUserPlaylist.videos,
         _id: this.id,
       }
       try {
@@ -202,7 +198,7 @@ export default defineComponent({
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {
       if (option === 'yes') {
-        const videosToWatch = this.selectedPlaylist.videos.filter((video) => {
+        const videosToWatch = this.selectedUserPlaylist.videos.filter((video) => {
           const watchedIndex = this.historyCache.findIndex((history) => {
             return history.videoId === video.videoId
           })
@@ -210,7 +206,7 @@ export default defineComponent({
           return watchedIndex === -1
         })
 
-        const videosRemoved = this.selectedPlaylist.videos.length - videosToWatch.length
+        const videosRemoved = this.selectedUserPlaylist.videos.length - videosToWatch.length
 
         if (videosRemoved === 0) {
           showToast('There were no videos to remove.')
@@ -220,8 +216,8 @@ export default defineComponent({
 
         const playlist = {
           playlistName: this.title,
-          protected: this.selectedPlaylist.protected,
-          removeOnWatched: this.selectedPlaylist.removeOnWatched,
+          protected: this.selectedUserPlaylist.protected,
+          removeOnWatched: this.selectedUserPlaylist.removeOnWatched,
           description: this.description,
           videos: videosToWatch,
           _id: this.id
@@ -239,7 +235,7 @@ export default defineComponent({
 
     handleDeletePlaylistPromptAnswer: function (option) {
       if (option === 'yes') {
-        if (this.selectedPlaylist.protected) {
+        if (this.selectedUserPlaylist.protected) {
           showToast('This playlist is protected and cannot be removed.')
         } else {
           this.removePlaylist(this.id)
