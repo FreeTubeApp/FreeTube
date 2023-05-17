@@ -149,6 +149,14 @@ export default defineComponent({
       // Cannot delete protected playlist
       return !this.selectedPlaylist.protected
     },
+
+    sharePlaylistButtonVisible: function() {
+      // Only online playlists can be shared
+      if (this.infoSource === 'user') { return false }
+
+      // Cannot delete protected playlist
+      return !this.hideSharingActions
+    },
   },
   mounted: function () {
     this.newTitle = this.title

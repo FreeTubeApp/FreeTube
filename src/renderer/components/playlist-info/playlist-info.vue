@@ -125,7 +125,7 @@
           @click="showDeletePlaylistPrompt = true"
         />
         <ft-share-button
-          v-if="!hideSharingActions"
+          v-if="sharePlaylistButtonVisible"
           :id="id"
           :dropdown-position-y="description ? 'top' : 'bottom'"
           share-target-type="Playlist"
