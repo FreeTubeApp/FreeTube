@@ -111,9 +111,7 @@ Settings:
       لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
   Theme Settings: {}
-  Player Settings:
-    Default Quality:
-      8k: ''
+  Player Settings: {}
   Data Settings:
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
     Unable to write file: 'ناتواندریت فایلەکە بنوسرێت'
@@ -192,7 +190,5 @@ Profile:
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
 Channel:
   Playlists: {}
-Video:
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
 Comments:
   Replies: ''

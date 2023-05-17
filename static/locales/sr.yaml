@@ -433,19 +433,9 @@ Video:
   'Chat is disabled or the Live Stream has ended.': 'Ћаскање је угашено или директан
     пренос је завршен.'
   Published:
-    Jul: ''
     Month: ''
-Playlist:
-  #& About
-  Last Updated On: ''
-
-# On Video Watch Page
-#* Published
-#& Views
 Share:
   Invidious Channel URL copied to clipboard: ''
-Comments:
-  Replies: ''
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити РСС уместо свог

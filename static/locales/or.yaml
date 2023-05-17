@@ -4,7 +4,6 @@ File: 'ଫାଇଲ୍'
 Edit: 'ସମ୍ପାଦନା'
 Undo: 'ପୂର୍ଵଵତ୍'
 Redo: 'ପୁନଃକରଣ'
-Back: ''
 Search Filters:
   Sort By:
     Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
@@ -47,7 +46,6 @@ User Playlists:
 Settings:
   # On Settings Page
   General Settings:
-    Enable Search Suggestions: ''
     Thumbnail Preference:
       Default: 'ଡିଫଲ୍ଟ'
     External Link Handling:
@@ -72,7 +70,6 @@ Settings:
       Yellow: 'ହଳଦିଆ'
       Orange: 'କମଳା'
       Deep Orange: 'ଗାଢ଼ କମଳା'
-      Catppuccin Mocha Green: ''
   Player Settings:
     Player Settings: 'ଚାଳକ ସେଟିଂ'
     Autoplay Videos: 'ଵିଡ଼ିଓ ସ୍ୱତଃଚାଳନ'
@@ -106,48 +103,31 @@ Settings:
     Display Titles Without Excessive Capitalisation: ଅତ୍ୟଧିକ ବଡ଼ ଅକ୍ଷର ବିନା ଆଖ୍ୟା ପ୍ରଦର୍ଶନ
       କରିବା
   Data Settings:
-    Export Playlists: ''
     Unable to write file: ''
-  Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: ''
   SponsorBlock Settings: {}
   Download Settings:
     Ask Download Path: ''
 About:
   #On About page
-  FreeTube Wiki: ''
   Donate: ''
 
 Profile:
-  All subscriptions will also be deleted.: ''
   No channel(s) have been selected: ''
 Channel:
-  Videos:
-    Sort Types:
-      Oldest: ''
+  Videos: {}
   Playlists: {}
 Video:
   Video has been removed from your saved list: ''
-  Play Next Video: ''
   Download Video: ''
   Published:
-    Oct: ''
     Years: ''
-  Sponsor Block category:
-    recap: ''
   External Player: {}
   Stats:
     Resolution: ''
-Toggle Theatre Mode: ''
 Share:
   YouTube URL copied to clipboard: ''
-Comments:
-  Top comments: ''
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-  Privacy Settings:
-    Remove Video Meta Files: ''
 Playing Previous Video: ''
 Age Restricted: {}
-No: ''

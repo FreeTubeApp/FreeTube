@@ -103,53 +103,32 @@ User Playlists:
 Settings:
   # On Settings Page
   General Settings:
-    Preferred API Backend:
-      Local API: ''
     View all Invidious instance information: ''
-  Theme Settings:
-    Main Color Theme:
-      Indigo: ''
+  Theme Settings: {}
   Player Settings:
     Turn on Subtitles by Default: ''
-    Default Quality:
-      Auto: ''
   Privacy Settings:
     Remember History: ''
-  Distraction Free Settings:
-    Hide Video Views: ''
   Data Settings:
     Import NewPipe: ''
-    History object has insufficient data, skipping item: ''
   Proxy Settings:
     Ip: ''
 About:
   #On About page
-  Help: ''
   these people and projects: ''
 Profile:
-  Are you sure you want to delete this profile?: ''
   Add Selected To Profile: ''
 Channel:
-  Videos:
-    Sort Types:
-      Newest: ''
+  Videos: {}
 Video:
   Video has been saved: ''
-  Reverse Playlist: ''
   video only: ''
   Published:
-    Nov: ''
     Ago: ''
-  External Player:
-    playlist: ''
 Playlist:
   #& About
   Views: ''
-Share:
-  Invidious Embed URL copied to clipboard: ''
 Comments:
   Hide: ''
-Tooltips:
-  External Player Settings:
-    External Player: ''
+Tooltips: {}
 Shuffle is now disabled: ''

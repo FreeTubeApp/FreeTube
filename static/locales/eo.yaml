@@ -95,16 +95,11 @@ Settings:
     Base Theme:
       Dark: 'Malluma'
       Light: 'Luma'
-    Main Color Theme:
-      Orange: ''
   Player Settings:
     Default Video Format:
       Audio Formats: ''
-  Privacy Settings:
-    Are you sure you want to clear out your search cache?: ''
   Data Settings:
     Import YouTube: ''
-    History object has insufficient data, skipping item: ''
   Advanced Settings:
     Clear Subscriptions:
       Clear Subscriptions: ''
@@ -115,28 +110,20 @@ About:
   Website: Retejo
   Email: Retpoŝto
 Profile:
-  Your profile name cannot be empty: ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
 Channel:
-  Playlists:
-    Playlists: ''
   About:
     Details: Detaloj
   Community:
     Community: Komunumo
 Video:
-  Play Next Video: ''
   Published:
     Apr: ''
-    Days: ''
 Playlist:
   #& About
   Views: ''
-Share:
-  Invidious Embed URL copied to clipboard: ''
 Local API Error (Click to copy): ''
-No: ''
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon

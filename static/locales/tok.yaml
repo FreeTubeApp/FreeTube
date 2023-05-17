@@ -48,27 +48,18 @@ Search Filters:
     Rating: 'pona'
 Settings:
   # On Settings Page
-  General Settings:
-    Video View Type:
-      List: ''
+  General Settings: {}
   Theme Settings: {}
   Player Settings:
     Scroll Playback Rate Over Video Player: ''
     Screenshot: {}
-  Distraction Free Settings:
-    Hide Active Subscriptions: ''
   SponsorBlock Settings: {}
 About:
   #On About page
   Source code: ''
-Channel:
-  Search Channel: ''
 Video:
   Published:
     May: ''
   External Player: {}
-Playlist:
-  #& About
-  Videos: ''
 Tooltips: {}
 Invidious API Error (Click to copy): ''

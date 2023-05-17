@@ -163,58 +163,38 @@ Settings:
       Open Link: 'Linki Açın'
   Theme Settings:
     Main Color Theme:
-      Red: ''
       Dracula Cyan: ''
   Player Settings:
-    Scroll Volume Over Video Player: ''
     Default Quality:
       240p: ''
-    Screenshot:
-      Error:
-        Forbidden Characters: ''
+    Screenshot: {}
   Privacy Settings:
     Watch history has been cleared: ''
-  Distraction Free Settings:
-    Hide Live Chat: ''
   Data Settings:
     Import Playlists: ''
-    Unable to read file: ''
   Proxy Settings:
     City: ''
   SponsorBlock Settings: {}
 About:
   #On About page
-  Beta: ''
   Chat on Matrix: ''
 Profile:
-  Custom Color: ''
   Subscription List: ''
 Channel:
-  Added channel to your subscriptions: ''
   Videos: {}
   Playlists: {}
   About:
     Featured Channels: ''
 Video:
-  Open Channel in Invidious: ''
   Live Chat: ''
   Published:
-    Apr: ''
     Days: ''
-  Sponsor Block category:
-    intro: ''
   External Player:
     Unsupported Actions:
       reversing playlists: ''
-Playlist:
-  #& About
-  View Full Playlist: ''
 Share:
   Copy Embed: ''
-Comments:
-  Top comments: ''
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-Local API Error (Click to copy): ''
 Canceled next video autoplay: ''
