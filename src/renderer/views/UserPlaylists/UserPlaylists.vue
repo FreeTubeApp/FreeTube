@@ -13,7 +13,7 @@
       </h3>
       <ft-icon-button
         title="Add New Playlist"
-        icon="plus"
+        :icon="['fas', 'plus']"
         theme="primary"
         class="newPlaylistButton"
         @click="createNewPlaylist"

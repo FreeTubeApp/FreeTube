@@ -89,13 +89,13 @@
       >
         <ft-icon-button
           title="Save Changes"
-          icon="save"
+          :icon="['fas', 'save']"
           theme="primary"
           @click="savePlaylistInfo"
         />
         <ft-icon-button
           title="Cancel"
-          icon="times"
+          :icon="['fas', 'times']"
           theme="primary"
           @click="exitEditMode"
         />
@@ -105,28 +105,28 @@
       >
         <ft-icon-button
           title="Copy Playlist"
-          icon="copy"
+          :icon="['fas', 'copy']"
           theme="primary"
           @click="copyPlaylist"
         />
         <ft-icon-button
           v-if="infoSource === 'user'"
           title="Edit Playlist"
-          icon="edit"
+          :icon="['fas', 'edit']"
           theme="primary"
           @click="enterEditMode"
         />
         <ft-icon-button
           v-if="infoSource === 'user'"
           title="Remove Watched Videos"
-          icon="eye-slash"
+          :icon="['fas', 'eye-slash']"
           theme="primary"
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
           v-if="infoSource === 'user'"
           title="Delete Playlist"
-          icon="trash"
+          :icon="['fas', 'trash']"
           theme="primary"
           @click="showDeletePlaylistPrompt = true"
         />

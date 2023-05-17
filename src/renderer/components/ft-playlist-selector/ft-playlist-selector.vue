@@ -12,7 +12,7 @@
       <font-awesome-icon
         v-if="selected"
         class="selectedIcon"
-        icon="check"
+        :icon="['fas', 'check']"
       />
       <img
         alt=""
@@ -25,7 +25,7 @@
         <div class="background" />
         <div class="inner">
           <div>{{ videoCount }}</div>
-          <div><font-awesome-icon icon="list" /></div>
+          <div><font-awesome-icon :icon="['fas', 'list']" /></div>
         </div>
       </div>
     </div>

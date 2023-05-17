@@ -57,7 +57,7 @@
       <ft-icon-button
         v-if="!isLive"
         title="Add to playlist"
-        icon="plus"
+        :icon="['fas', 'plus']"
         class="playlistIcon"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -66,7 +66,7 @@
       <ft-icon-button
         v-if="inUserPlaylist"
         title="Remove from playlist"
-        icon="trash"
+        :icon="['fas', 'trash']"
         class="trashIcon"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -75,7 +75,7 @@
       <ft-icon-button
         v-if="inUserPlaylist"
         title="Move video up"
-        icon="arrow-up"
+        :icon="['fas', 'arrow-up']"
         class="upArrowIcon"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
@@ -84,7 +84,7 @@
       <ft-icon-button
         v-if="inUserPlaylist"
         title="Move video down"
-        icon="arrow-down"
+        :icon="['fas', 'arrow-down']"
         class="downArrowIcon"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"
