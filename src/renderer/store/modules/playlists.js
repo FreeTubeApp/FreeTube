@@ -1,5 +1,9 @@
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
+function generateRandomPlaylistId() {
+  return `${Date.now()}-${Math.floor(Math.random() * 10000)}`
+}
+
 const state = {
   playlists: [],
   defaultPlaylists: [
@@ -31,6 +35,12 @@ const getters = {
 
 const actions = {
   async addPlaylist({ commit }, payload) {
+    // In case internal id is forgotten, generate one (instead of relying on caller and have a chance to cause data corruption)
+    if (payload._id == null) {
+      // {Time now in unix time}-{0-9999}
+      payload._id = generateRandomPlaylistId()
+    }
+
     try {
       await DBPlaylistHandlers.create(payload)
       commit('addPlaylist', payload)
@@ -83,6 +93,17 @@ const actions = {
       if (payload.length === 0) {
         dispatch('addPlaylists', state.defaultPlaylists)
       } else {
+        payload.forEach((playlist) => {
+          // Assign generated playlist ID in case DB data corrupted
+          // Especially during dev
+          if (playlist._id == null) {
+            // {Time now in unix time}-{0-9999}
+            playlist._id = generateRandomPlaylistId()
+          }
+          // Save updated playlist object
+          commit('upsertPlaylistToList', playlist)
+        })
+
         const findFavorites = payload.filter((playlist) => {
           return playlist.playlistName === 'Favorites' || playlist._id === 'favorites'
         })
