@@ -180,7 +180,7 @@ export default defineComponent({
     },
 
     exitEditMode: function () {
-      this.newTitle = this.title
+      this.editMode = false
     },
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {
