@@ -118,7 +118,7 @@
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
-          v-if="!editMode && infoSource === 'user'"
+          v-if="deletePlaylistButtonVisible"
           title="Delete Playlist"
           :icon="['fas', 'trash']"
           theme="primary"

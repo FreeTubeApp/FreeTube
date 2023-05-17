@@ -140,6 +140,15 @@ export default defineComponent({
           return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
     },
+
+    deletePlaylistButtonVisible: function() {
+      if (this.infoSource !== 'user') { return false }
+      // Cannot delete during edit
+      if (this.editMode) { return false }
+
+      // Cannot delete protected playlist
+      return !this.selectedPlaylist.protected
+    },
   },
   mounted: function () {
     this.newTitle = this.title
