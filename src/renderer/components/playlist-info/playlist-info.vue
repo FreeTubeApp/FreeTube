@@ -37,13 +37,11 @@
         <span v-if="!hideViews && infoSource !== 'user'">
           - {{ viewCount }} {{ $t("Playlist.Views") }}
         </span>
-        <span v-if="infoSource !== 'user'">
-          <span>- </span>
-          <span v-if="infoSource !== 'local'">
-            {{ $t("Playlist.Last Updated On") }}
-          </span>
-          {{ lastUpdated }}
+        <span>- </span>
+        <span v-if="infoSource !== 'local'">
+          {{ $t("Playlist.Last Updated On") }}
         </span>
+        {{ lastUpdated }}
       </p>
     </div>
 

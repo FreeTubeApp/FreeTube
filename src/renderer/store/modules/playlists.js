@@ -59,6 +59,9 @@ const actions = {
   },
 
   async updatePlaylist({ commit }, playlist) {
+    // Caller no need to assign last updated time
+    playlist.lastUpdatedAt = Date.now()
+
     try {
       await DBPlaylistHandlers.upsert(playlist)
       commit('upsertPlaylistToList', playlist)
@@ -94,14 +97,25 @@ const actions = {
         dispatch('addPlaylists', state.defaultPlaylists)
       } else {
         payload.forEach((playlist) => {
+          let anythingUpdated = false
           // Assign generated playlist ID in case DB data corrupted
           // Especially during dev
           if (playlist._id == null) {
             // {Time now in unix time}-{0-9999}
             playlist._id = generateRandomPlaylistId()
+            anythingUpdated = true
+          }
+          // Assign current time as last updated time in case DB data corrupted
+          // Especially during dev
+          if (playlist.lastUpdatedAt == null) {
+            // Time now in unix time, in ms
+            playlist.lastUpdatedAt = Date.now()
+            anythingUpdated = true
           }
           // Save updated playlist object
-          commit('upsertPlaylistToList', playlist)
+          if (anythingUpdated) {
+            commit('upsertPlaylistToList', playlist)
+          }
         })
 
         const findFavorites = payload.filter((playlist) => {

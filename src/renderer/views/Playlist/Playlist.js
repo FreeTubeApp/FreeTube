@@ -68,12 +68,17 @@ export default defineComponent({
     userPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
-    selectedPlaylist: function () {
+    selectedUserPlaylist: function () {
+      if (this.playlistId == null) { return null }
+
       return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
     },
-    selectedVideos: function () {
-      if (typeof (this.selectedPlaylist) !== 'undefined') {
-        return this.selectedPlaylist.videos
+    selectedUserPlaylistLastUpdatedAt: function () {
+      return this.selectedUserPlaylist?.lastUpdatedAt
+    },
+    selectedUserPlaylistVideos: function () {
+      if (typeof (this.selectedUserPlaylist) !== 'undefined') {
+        return this.selectedUserPlaylist.videos
       } else {
         return []
       }
@@ -84,14 +89,15 @@ export default defineComponent({
       // react to route changes...
       this.getPlaylistInfo()
     },
-    // selectedPlaylist () {
-    //   if (this.isLoading) {
-    //     // Ignores first time load of page
-    //     return
-    //   }
-    //   this.refreshPage()
-    // },
-    // selectedVideos () {
+    selectedUserPlaylist () {
+      // Fetch from local store when current user playlist changed
+      this.getPlaylistInfo()
+    },
+    selectedUserPlaylistLastUpdatedAt () {
+      // Re-fetch from local store when current user playlist updated
+      this.getPlaylistInfo()
+    },
+    // selectedUserPlaylistVideos () {
     //   if (this.isLoading) {
     //     // Ignores first time load of page
     //     return
@@ -107,8 +113,8 @@ export default defineComponent({
       this.isLoading = true
       this.playlistId = this.$route.params.id
 
-      if (this.selectedPlaylist != null) {
-        this.parseUserPlaylist(this.selectedPlaylist)
+      if (this.selectedUserPlaylist != null) {
+        this.parseUserPlaylist(this.selectedUserPlaylist)
         return
       }
 
@@ -233,7 +239,8 @@ export default defineComponent({
       }
       this.viewCount = 0
       this.videoCount = playlist.videoCount ? playlist.videoCount : playlist.videos.length
-      this.lastUpdated = undefined
+      const dateString = new Date(playlist.lastUpdatedAt)
+      this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
       this.channelName = playlist.author ? playlist.author.name : ''
       this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
       this.channelId = playlist.author ? playlist.author.channelID : ''
@@ -290,8 +297,8 @@ export default defineComponent({
 
       const playlist = {
         playlistName: this.playlistTitle,
-        protected: this.selectedPlaylist.protected,
-        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        protected: this.selectedUserPlaylist.protected,
+        removeOnWatched: this.selectedUserPlaylist.removeOnWatched,
         description: this.playlistDescription,
         videos: playlistItems,
         _id: this.playlistId
@@ -323,8 +330,8 @@ export default defineComponent({
 
       const playlist = {
         playlistName: this.playlistTitle,
-        protected: this.selectedPlaylist.protected,
-        removeOnWatched: this.selectedPlaylist.removeOnWatched,
+        protected: this.selectedUserPlaylist.protected,
+        removeOnWatched: this.selectedUserPlaylist.removeOnWatched,
         description: this.playlistDescription,
         videos: playlistItems,
         _id: this.playlistId
