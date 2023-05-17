@@ -83,61 +83,57 @@
         </h3>
       </router-link>
 
-      <br>
-      <ft-flex-box
-        v-if="editMode"
-      >
+      <div class="playlistOptions">
         <ft-icon-button
+          v-if="editMode"
           title="Save Changes"
           :icon="['fas', 'save']"
           theme="primary"
           @click="savePlaylistInfo"
         />
         <ft-icon-button
+          v-if="editMode"
           title="Cancel"
           :icon="['fas', 'times']"
           theme="primary"
           @click="exitEditMode"
         />
-      </ft-flex-box>
-      <ft-flex-box
-        v-else
-      >
         <ft-icon-button
+          v-if="!editMode"
           title="Copy Playlist"
           :icon="['fas', 'copy']"
           theme="primary"
           @click="copyPlaylist"
         />
         <ft-icon-button
-          v-if="infoSource === 'user'"
+          v-if="!editMode && infoSource === 'user'"
           title="Edit Playlist"
           :icon="['fas', 'edit']"
           theme="primary"
           @click="enterEditMode"
         />
         <ft-icon-button
-          v-if="infoSource === 'user'"
+          v-if="!editMode && infoSource === 'user'"
           title="Remove Watched Videos"
           :icon="['fas', 'eye-slash']"
           theme="primary"
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
-          v-if="infoSource === 'user'"
+          v-if="!editMode && infoSource === 'user'"
           title="Delete Playlist"
           :icon="['fas', 'trash']"
           theme="primary"
           @click="showDeletePlaylistPrompt = true"
         />
-      </ft-flex-box>
+        <ft-share-button
+          v-if="!hideSharingActions"
+          :id="id"
+          :dropdown-position-y="description ? 'top' : 'bottom'"
+          share-target-type="Playlist"
+        />
+      </div>
 
-      <ft-share-button
-        v-if="!hideSharingActions"
-        :id="id"
-        :dropdown-position-y="description ? 'top' : 'bottom'"
-        share-target-type="Playlist"
-      />
       <ft-prompt
         v-if="showDeletePlaylistPrompt"
         label="Are you sure you want to delete this playlist? This cannot be undone."

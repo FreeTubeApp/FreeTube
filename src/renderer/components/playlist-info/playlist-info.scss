@@ -58,5 +58,12 @@
 .channelShareWrapper {
   column-gap: 8px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto minmax(min-content, 1fr);
+}
+
+.playlistOptions {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  justify-content: flex-end;
 }
