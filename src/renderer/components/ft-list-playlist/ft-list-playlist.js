@@ -97,6 +97,8 @@ export default defineComponent({
         this.thumbnail = 'https://i.ytimg.com/vi/aaaaaa/mqdefault.jpg'
       }
       this.channelName = ''
+      this.channelId = ''
+      this.playlistId = this.data._id
       this.videoCount = this.data.videoCount
     },
 
