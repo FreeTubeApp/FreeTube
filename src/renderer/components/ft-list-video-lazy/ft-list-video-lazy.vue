@@ -9,6 +9,7 @@
       v-if="visible"
       :data="data"
       :playlist-id="playlistId"
+      :playlist-type="playlistType"
       :playlist-index="playlistIndex"
       :playlist-reverse="playlistReverse"
       :playlist-shuffle="playlistShuffle"

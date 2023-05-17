@@ -15,6 +15,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    playlistType: {
+      type: String,
+      default: null
+    },
     playlistIndex: {
       type: Number,
       default: null

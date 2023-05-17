@@ -36,7 +36,6 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: false,
-      playlistId: '',
       playlistTitle: '',
       playlistDescription: '',
       firstVideoId: '',
@@ -65,11 +64,15 @@ export default defineComponent({
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
+    playlistId: function() {
+      return this.$route.params.id
+    },
     userPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
     selectedUserPlaylist: function () {
       if (this.playlistId == null) { return null }
+      if (this.playlistId === '') { return null }
 
       return this.userPlaylists.find(playlist => playlist._id === this.playlistId)
     },
@@ -111,7 +114,6 @@ export default defineComponent({
   methods: {
     getPlaylistInfo: function () {
       this.isLoading = true
-      this.playlistId = this.$route.params.id
 
       if (this.selectedUserPlaylist != null) {
         this.parseUserPlaylist(this.selectedUserPlaylist)
@@ -228,7 +230,6 @@ export default defineComponent({
     },
 
     parseUserPlaylist: function (playlist) {
-      this.playlistId = playlist._id
       this.playlistTitle = playlist.title ? playlist.title : playlist.playlistName
       this.playlistDescription = playlist.description ? playlist.description : ''
 
