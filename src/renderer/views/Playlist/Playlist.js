@@ -138,7 +138,7 @@ export default defineComponent({
         }
 
         this.playlistId = result.id
-        this.playlistTitle = result.title
+        this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
         this.viewCount = extractNumberFromString(result.info.views)
