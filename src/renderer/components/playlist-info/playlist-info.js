@@ -221,16 +221,18 @@ export default defineComponent({
     },
 
     handleDeletePlaylistPromptAnswer: function (option) {
-      if (this.selectedPlaylist.protected) {
-        showToast('This playlist is protected and cannot be removed.')
-      } else if (option === 'yes') {
-        this.removePlaylist(this.id)
-        this.$router.push(
-          {
-            path: '/userPlaylists'
-          }
-        )
-        showToast(`${this.title} has been deleted.`)
+      if (option === 'yes') {
+        if (this.selectedPlaylist.protected) {
+          showToast('This playlist is protected and cannot be removed.')
+        } else {
+          this.removePlaylist(this.id)
+          this.$router.push(
+            {
+              path: '/userPlaylists'
+            }
+          )
+          showToast(`${this.title} has been deleted.`)
+        }
       }
       this.showDeletePlaylistPrompt = false
     },
