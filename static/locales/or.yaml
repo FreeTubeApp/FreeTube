@@ -108,7 +108,5 @@ Channel:
   Playlists: {}
 Video:
   External Player: {}
-  Stats:
-    Resolution: ''
 Tooltips: {}
 Age Restricted: {}

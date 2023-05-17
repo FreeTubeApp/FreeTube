@@ -168,8 +168,6 @@ Settings:
 Channel:
   Videos: {}
   Playlists: {}
-  About:
-    Featured Channels: ''
 Video:
   External Player: {}
 Tooltips: {}
