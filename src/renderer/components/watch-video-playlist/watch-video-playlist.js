@@ -414,7 +414,7 @@ export default defineComponent({
     },
 
     parseUserPlaylist: function (playlist) {
-      this.playlistTitle = playlist.title
+      this.playlistTitle = playlist.playlistName
       this.videoCount = playlist.videoCount
       this.channelName = ''
       this.channelThumbnail = ''

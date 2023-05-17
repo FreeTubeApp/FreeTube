@@ -239,8 +239,8 @@ export default defineComponent({
     },
 
     parseUserPlaylist: function (playlist) {
-      this.playlistTitle = playlist.title ? playlist.title : playlist.playlistName
-      this.playlistDescription = playlist.description ? playlist.description : ''
+      this.playlistTitle = playlist.playlistName
+      this.playlistDescription = playlist.description ?? ''
 
       if (playlist.videos.length > 0) {
         this.firstVideoId = playlist.videos[0].videoId
