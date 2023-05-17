@@ -268,6 +268,8 @@ Settings:
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
     Allow DASH AV1 formats: לאפשר תצורות DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: טעינת תגובות אוטומטית
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -387,6 +389,9 @@ Settings:
     Hide Channels Placeholder: שם או מזהה ערוץ
     Display Titles Without Excessive Capitalisation: להציג כותרות בלי הגזמה באותיות
       גדולות
+    Hide Featured Channels: הסתרת ערוצים מומלצים
+    Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
+    Hide Channel Community: הסתרת קהילת הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -638,8 +643,8 @@ Video:
   Enable Live Chat: 'הפעלת צ׳אט'
   Live Chat is currently not supported in this build.: 'הצ׳אט כרגע לא נתמך בגרסה זו.'
   'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל.
-    ההודעות תופענה פה כאשר תישלחנה.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל. ההודעות
+    תופענה פה כאשר תישלחנה.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון
     הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
   Published:
@@ -850,9 +855,9 @@ Tooltips:
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.
-    External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן\
-      \ לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת\
-      \ המחדל שלך.\n"
+    External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן
+      לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל
+      שלך.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
       המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
@@ -949,3 +954,8 @@ Clipboard:
     חיבור מאובטח
 Preferences: העדפות
 Ok: אישור
+Hashtag:
+  This hashtag does not currently have any videos: לתגית ההקבץ הזו אין סרטונים כרגע
+  You can only view hashtag pages through the Local API: אפשר לצפות בעמודי תגית הקבץ
+    דרך ה־API המקומי בלבד
+  Hashtag: תגית הקבץ
