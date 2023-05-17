@@ -241,9 +241,9 @@ export default defineComponent({
       this.videoCount = playlist.videoCount ? playlist.videoCount : playlist.videos.length
       const dateString = new Date(playlist.lastUpdatedAt)
       this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
-      this.channelName = playlist.author ? playlist.author.name : ''
-      this.channelThumbnail = playlist.author ? playlist.author.bestAvatar.url : ''
-      this.channelId = playlist.author ? playlist.author.channelID : ''
+      this.channelName = ''
+      this.channelThumbnail = ''
+      this.channelId = ''
       this.infoSource = 'user'
 
       this.playlistItems = playlist.videos
