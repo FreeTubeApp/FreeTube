@@ -84,20 +84,20 @@ export default defineComponent({
       // react to route changes...
       this.getPlaylistInfo()
     },
-    selectedPlaylist () {
-      if (this.isLoading) {
-        // Ignores first time load of page
-        return
-      }
-      this.refreshPage()
-    },
-    selectedVideos () {
-      if (this.isLoading) {
-        // Ignores first time load of page
-        return
-      }
-      this.refreshPage()
-    },
+    // selectedPlaylist () {
+    //   if (this.isLoading) {
+    //     // Ignores first time load of page
+    //     return
+    //   }
+    //   this.refreshPage()
+    // },
+    // selectedVideos () {
+    //   if (this.isLoading) {
+    //     // Ignores first time load of page
+    //     return
+    //   }
+    //   this.refreshPage()
+    // },
   },
   mounted: function () {
     this.getPlaylistInfo()
