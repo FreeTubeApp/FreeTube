@@ -5,6 +5,9 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'
+import {
+  showToast,
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtCreatePlaylistPrompt',
@@ -60,23 +63,15 @@ export default Vue.extend({
       })
 
       if (this.playlistName === '') {
-        this.showToast({
-          message: 'Playlist name cannot be empty. Please input a name.'
-        })
+        showToast('Playlist name cannot be empty. Please input a name.')
       } else if (nameExists !== -1) {
-        this.showToast({
-          message: 'There is already a playlist with this name. Please pick a different name.'
-        })
+        showToast('There is already a playlist with this name. Please pick a different name.')
       } else {
         try {
           this.addPlaylist(playlistObject)
-          this.showToast({
-            message: `Playlist ${this.playlistName} has been successfully created.`
-          })
+          showToast(`Playlist ${this.playlistName} has been successfully created.`)
         } catch (e) {
-          this.showToast({
-            message: 'There was an issue with creating the playlist.'
-          })
+          showToast('There was an issue with creating the playlist.')
           console.error(e)
         } finally {
           this.hideCreatePlaylistPrompt()

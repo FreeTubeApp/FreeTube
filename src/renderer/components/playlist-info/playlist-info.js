@@ -5,6 +5,9 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import {
+  showToast,
+} from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -161,13 +164,9 @@ export default defineComponent({
       }
       try {
         this.updatePlaylist(playlist)
-        this.showToast({
-          message: 'Playlist has been updated.'
-        })
+        showToast('Playlist has been updated.')
       } catch (e) {
-        this.showToast({
-          message: 'There was an issue with updating this playlist.'
-        })
+        showToast('There was an issue with updating this playlist.')
         console.error(e)
       } finally {
         this.exitEditMode()
@@ -185,7 +184,6 @@ export default defineComponent({
     },
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {
-      console.log(this.selectedPlaylist.videos)
       if (option === 'yes') {
         const videosToWatch = this.selectedPlaylist.videos.filter((video) => {
           const watchedIndex = this.historyCache.findIndex((history) => {
@@ -198,9 +196,7 @@ export default defineComponent({
         const videosRemoved = this.selectedPlaylist.videos.length - videosToWatch.length
 
         if (videosRemoved === 0) {
-          this.showToast({
-            message: 'There were no videos to remove.'
-          })
+          showToast('There were no videos to remove.')
           this.showRemoveVideosOnWatchPrompt = false
           return
         }
@@ -215,13 +211,9 @@ export default defineComponent({
         }
         try {
           this.updatePlaylist(playlist)
-          this.showToast({
-            message: `${videosRemoved} video(s) have been removed.`
-          })
+          showToast(`${videosRemoved} video(s) have been removed.`)
         } catch (e) {
-          this.showToast({
-            message: 'There was an issue with updating this playlist.'
-          })
+          showToast('There was an issue with updating this playlist.')
           console.error(e)
         }
       }
@@ -230,9 +222,7 @@ export default defineComponent({
 
     handleDeletePlaylistPromptAnswer: function (option) {
       if (this.selectedPlaylist.protected) {
-        this.showToast({
-          message: 'This playlist is protected and cannot be removed.'
-        })
+        showToast('This playlist is protected and cannot be removed.')
       } else if (option === 'yes') {
         this.removePlaylist(this.id)
         this.$router.push(
@@ -240,9 +230,7 @@ export default defineComponent({
             path: '/userPlaylists'
           }
         )
-        this.showToast({
-          message: `${this.title} has been deleted.`
-        })
+        showToast(`${this.title} has been deleted.`)
       }
       this.showDeletePlaylistPrompt = false
     },

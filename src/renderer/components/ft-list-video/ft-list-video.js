@@ -607,13 +607,9 @@ export default defineComponent({
       try {
         this.removeVideo(payload)
         this.$emit('refresh-playlist')
-        this.showToast({
-          message: 'Video has been removed'
-        })
+        showToast('Video has been removed')
       } catch (e) {
-        this.showToast({
-          message: 'There was a problem with removing this video'
-        })
+        showToast('There was a problem with removing this video')
         console.error(e)
       }
     },

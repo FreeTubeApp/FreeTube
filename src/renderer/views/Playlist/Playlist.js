@@ -279,9 +279,7 @@ export default defineComponent({
       })
 
       if (videoIndex === 0) {
-        showToast({
-          message: 'This video cannot be moved up.'
-        })
+        showToast('This video cannot be moved up.')
         return
       }
 
@@ -302,9 +300,7 @@ export default defineComponent({
         this.updatePlaylist(playlist)
         this.playlistItems = playlistItems
       } catch (e) {
-        showToast({
-          message: 'There was an issue with updating this playlist.'
-        })
+        showToast('There was an issue with updating this playlist.')
         console.error(e)
       }
     },
@@ -316,9 +312,7 @@ export default defineComponent({
       })
 
       if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
-        showToast({
-          message: 'This video cannot be moved down.'
-        })
+        showToast('This video cannot be moved down.')
         return
       }
 
@@ -339,9 +333,7 @@ export default defineComponent({
         this.updatePlaylist(playlist)
         this.playlistItems = playlistItems
       } catch (e) {
-        showToast({
-          message: 'There was an issue with updating this playlist.'
-        })
+        showToast('There was an issue with updating this playlist.')
         console.error(e)
       }
     },

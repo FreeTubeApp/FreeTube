@@ -4,6 +4,9 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'
+import {
+  showToast,
+} from '../../helpers/utils'
 
 export default Vue.extend({
   name: 'FtPlaylistAddVideoPrompt',
@@ -100,9 +103,7 @@ export default Vue.extend({
         }
       })
 
-      this.showToast({
-        message: `Video has been added to ${addedPlaylists} playlist(s).`
-      })
+      showToast(`Video has been added to ${addedPlaylists} playlist(s).`)
       this.handleAddToPlaylistPrompt(null)
     },
 
