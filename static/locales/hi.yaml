@@ -169,17 +169,12 @@ Settings:
     Match Top Bar with Main Color: 'टॉप बार को मेन कलर से मैच करें'
   Player Settings:
     Proxy Videos Through Invidious: 'इनविडियस के माध्यम से प्रॉक्सी वीडियो'
-  Subscription Settings:
-    Hide Videos on Watch: ''
   Data Settings:
     Invalid history file: ''
   Advanced Settings: {}
 About:
   #On About page
   Email: ईमेल करें
-Profile:
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel: {}
 Video:
   Open in Invidious: 'इनविडियस में खोलें'
@@ -189,8 +184,6 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'लाइव
     चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन
     आवश्यक है।'
-  Published:
-    Year: ''
 Share:
   Invidious URL copied to clipboard: 'इनवीडियस URL क्लिपबोर्ड पर कापी किया गया'
   Invidious Embed URL copied to clipboard: 'इनवीडियस एम्बेड URL क्लिपबोर्ड पर कापी

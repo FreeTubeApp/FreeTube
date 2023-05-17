@@ -156,23 +156,16 @@ Settings:
       Dracula Red: 'Dracula Ruber'
       Dracula Yellow: 'Dracula Flavum'
   Player Settings: {}
-  Privacy Settings:
-    Search cache has been cleared: ''
   Data Settings:
     All watched history has been successfully imported: ''
   Advanced Settings: {}
-Profile:
-  Custom Color: ''
 Channel:
   Added channel to your subscriptions: ''
   Videos: {}
   Playlists: {}
 Video:
-  Play Next Video: ''
   Published:
     Days: ''
-Share:
-  Invidious Embed URL copied to clipboard: ''
 No: 'nullum'
 More: plus
 Open New Window: aperiere fenestram novum

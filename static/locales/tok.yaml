@@ -51,15 +51,12 @@ Settings:
   General Settings: {}
   Theme Settings: {}
   Player Settings:
-    Scroll Playback Rate Over Video Player: ''
     Screenshot: {}
   SponsorBlock Settings: {}
 About:
   #On About page
   Source code: ''
 Video:
-  Published:
-    May: ''
   External Player: {}
 Tooltips: {}
 Invidious API Error (Click to copy): ''

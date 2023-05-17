@@ -18,37 +18,25 @@ Delete: 'ᱢᱮᱴᱟᱣ'
 Select all: 'ᱡᱷᱚᱛᱚ ᱪᱚᱭᱚᱱ ᱢᱮᱸ'
 Reload: 'ᱨᱤᱞᱚᱰ'
 Force Reload: 'ᱡᱚᱵᱚᱨ ᱨᱤᱞᱚᱰ'
-Search Filters:
-  Duration:
-    Duration: ''
+Search Filters: {}
 Settings:
   # On Settings Page
   General Settings:
     Preferred API Backend:
       Invidious API: ''
-  Theme Settings:
-    Main Color Theme:
-      Lime: ''
+  Theme Settings: {}
   Player Settings: {}
   Privacy Settings:
     Remember History: ''
-  Data Settings:
-    Export FreeTube: ''
 About:
   #On About page
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
 
-Profile:
-  '{number} selected': ''
 Channel:
   Videos: {}
 Video:
   Remove From History: ''
-  Download Video: ''
   Published:
     Years: ''
-Share:
-  YouTube Channel URL copied to clipboard: ''
-
 Tooltips: {}
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''

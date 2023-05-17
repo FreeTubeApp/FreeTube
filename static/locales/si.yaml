@@ -73,27 +73,18 @@ Settings:
     Base Theme:
       Black: 'කළු'
       Dark: 'අඳුරු'
-  Player Settings:
-    Default Video Format:
-      Legacy Formats: ''
+  Player Settings: {}
   Distraction Free Settings:
     Hide Comment Likes: ''
-  Data Settings:
-    How do I import my subscriptions?: ''
   Advanced Settings: {}
 Profile:
   Delete Profile: ''
 Channel:
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists: {}
 Video:
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  Published:
-    Days: ''
 Share:
   Invidious Embed URL copied to clipboard: ''
-Playing Next Video: ''
 More: තව
 Open New Window: නව කවුළුව විවෘත කරන්න

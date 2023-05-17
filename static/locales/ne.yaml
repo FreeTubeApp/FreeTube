@@ -102,33 +102,20 @@ User Playlists:
     सकिएपछि हाल यहाँ रहेका सबै भिडियोहरू ''मन पराइएका'' प्लेसूचीमा स्थानान्तरण गरिनेछ।'
 Settings:
   # On Settings Page
-  General Settings:
-    View all Invidious instance information: ''
   Theme Settings: {}
   Player Settings:
     Turn on Subtitles by Default: ''
-  Privacy Settings:
-    Remember History: ''
   Data Settings:
     Import NewPipe: ''
-  Proxy Settings:
-    Ip: ''
 About:
   #On About page
   these people and projects: ''
-Profile:
-  Add Selected To Profile: ''
 Channel:
   Videos: {}
 Video:
   Video has been saved: ''
-  video only: ''
   Published:
     Ago: ''
-Playlist:
-  #& About
-  Views: ''
 Comments:
   Hide: ''
 Tooltips: {}
-Shuffle is now disabled: ''

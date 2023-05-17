@@ -95,35 +95,24 @@ Settings:
     Base Theme:
       Dark: 'Malluma'
       Light: 'Luma'
-  Player Settings:
-    Default Video Format:
-      Audio Formats: ''
+  Player Settings: {}
   Data Settings:
     Import YouTube: ''
-  Advanced Settings:
-    Clear Subscriptions:
-      Clear Subscriptions: ''
-      # On Click
+  Advanced Settings: {}
 About:
   #On About page
   Blog: Blogo
   Website: Retejo
   Email: Retpoŝto
-Profile:
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
-#On Channel Page
 Channel:
   About:
     Details: Detaloj
   Community:
     Community: Komunumo
-Video:
-  Published:
-    Apr: ''
+Video: {}
 Playlist:
   #& About
   Views: ''
-Local API Error (Click to copy): ''
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon

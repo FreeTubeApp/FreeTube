@@ -12,28 +12,19 @@ Delete: 'বিলোপ কৰক'
 Select all: 'সকলোক বাছক'
 Reload: 'সতেজ কৰক'
 Force Reload: 'বলেৰে সতেজ কৰক'
-Search Filters:
-  Duration:
-    Long (> 20 minutes): ''
-  # On Search Page
+Search Filters: {}
 Settings:
   # On Settings Page
   General Settings:
     'Invidious Instance (Default is https://invidious.snopyta.org)': ''
   Theme Settings: {}
-  Player Settings:
-    Proxy Videos Through Invidious: ''
   Subscription Settings: {}
   Advanced Settings:
     'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
 Channel:
-  Playlists:
-    Sort Types:
-      Newest: ''
+  Playlists: {}
 Video:
   Published:
     Jun: ''
-Change Format:
-  Use Dash Formats: ''
 Shuffle is now disabled: ''
 Locale Name: অসমীয়া

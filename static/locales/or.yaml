@@ -102,32 +102,20 @@ Settings:
     Hide Comments: 'ମନ୍ତଵ୍ୟ ଲୁଚାଇବା'
     Display Titles Without Excessive Capitalisation: ଅତ୍ୟଧିକ ବଡ଼ ଅକ୍ଷର ବିନା ଆଖ୍ୟା ପ୍ରଦର୍ଶନ
       କରିବା
-  Data Settings:
-    Unable to write file: ''
   SponsorBlock Settings: {}
   Download Settings:
     Ask Download Path: ''
-About:
-  #On About page
-  Donate: ''
-
 Profile:
   No channel(s) have been selected: ''
 Channel:
   Videos: {}
   Playlists: {}
 Video:
-  Video has been removed from your saved list: ''
   Download Video: ''
-  Published:
-    Years: ''
   External Player: {}
   Stats:
     Resolution: ''
-Share:
-  YouTube URL copied to clipboard: ''
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: ''
-Playing Previous Video: ''
 Age Restricted: {}

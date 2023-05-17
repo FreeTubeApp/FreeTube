@@ -161,40 +161,27 @@ Settings:
     External Link Handling:
       External Link Handling: 'Xarici Keçid Hazırlama'
       Open Link: 'Linki Açın'
-  Theme Settings:
-    Main Color Theme:
-      Dracula Cyan: ''
+  Theme Settings: {}
   Player Settings:
     Default Quality:
       240p: ''
     Screenshot: {}
-  Privacy Settings:
-    Watch history has been cleared: ''
   Data Settings:
     Import Playlists: ''
-  Proxy Settings:
-    City: ''
   SponsorBlock Settings: {}
 About:
   #On About page
   Chat on Matrix: ''
-Profile:
-  Subscription List: ''
 Channel:
   Videos: {}
   Playlists: {}
   About:
     Featured Channels: ''
 Video:
-  Live Chat: ''
   Published:
     Days: ''
-  External Player:
-    Unsupported Actions:
-      reversing playlists: ''
+  External Player: {}
 Share:
   Copy Embed: ''
-Tooltips:
-  General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
+Tooltips: {}
 Canceled next video autoplay: ''
