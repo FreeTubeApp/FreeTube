@@ -21,22 +21,14 @@ Force Reload: 'ᱡᱚᱵᱚᱨ ᱨᱤᱞᱚᱰ'
 Search Filters: {}
 Settings:
   # On Settings Page
-  General Settings:
-    Preferred API Backend:
-      Invidious API: ''
+  General Settings: {}
   Theme Settings: {}
   Player Settings: {}
   Privacy Settings:
     Remember History: ''
-About:
-  #On About page
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
 Channel:
   Videos: {}
 Video:
   Remove From History: ''
-  Published:
-    Years: ''
 Tooltips: {}
 This video is unavailable because of missing formats. This can happen due to country unavailability.: ''

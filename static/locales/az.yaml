@@ -163,25 +163,17 @@ Settings:
       Open Link: 'Linki Açın'
   Theme Settings: {}
   Player Settings:
-    Default Quality:
-      240p: ''
     Screenshot: {}
   Data Settings:
     Import Playlists: ''
   SponsorBlock Settings: {}
-About:
-  #On About page
-  Chat on Matrix: ''
 Channel:
   Videos: {}
   Playlists: {}
   About:
     Featured Channels: ''
 Video:
-  Published:
-    Days: ''
   External Player: {}
 Share:
   Copy Embed: ''
 Tooltips: {}
-Canceled next video autoplay: ''

@@ -96,8 +96,6 @@ Settings:
       Dark: 'Malluma'
       Light: 'Luma'
   Player Settings: {}
-  Data Settings:
-    Import YouTube: ''
   Advanced Settings: {}
 About:
   #On About page
@@ -110,9 +108,6 @@ Channel:
   Community:
     Community: Komunumo
 Video: {}
-Playlist:
-  #& About
-  Views: ''
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon

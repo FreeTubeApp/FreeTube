@@ -103,19 +103,14 @@ Settings:
     Display Titles Without Excessive Capitalisation: ଅତ୍ୟଧିକ ବଡ଼ ଅକ୍ଷର ବିନା ଆଖ୍ୟା ପ୍ରଦର୍ଶନ
       କରିବା
   SponsorBlock Settings: {}
-  Download Settings:
-    Ask Download Path: ''
 Profile:
   No channel(s) have been selected: ''
 Channel:
   Videos: {}
   Playlists: {}
 Video:
-  Download Video: ''
   External Player: {}
   Stats:
     Resolution: ''
-Tooltips:
-  General Settings:
-    Fallback to Non-Preferred Backend on Failure: ''
+Tooltips: {}
 Age Restricted: {}

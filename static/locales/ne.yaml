@@ -103,19 +103,12 @@ User Playlists:
 Settings:
   # On Settings Page
   Theme Settings: {}
-  Player Settings:
-    Turn on Subtitles by Default: ''
   Data Settings:
     Import NewPipe: ''
-About:
-  #On About page
-  these people and projects: ''
 Channel:
   Videos: {}
 Video:
   Video has been saved: ''
-  Published:
-    Ago: ''
 Comments:
   Hide: ''
 Tooltips: {}

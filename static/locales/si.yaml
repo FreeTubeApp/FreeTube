@@ -74,16 +74,11 @@ Settings:
       Black: 'කළු'
       Dark: 'අඳුරු'
   Player Settings: {}
-  Distraction Free Settings:
-    Hide Comment Likes: ''
   Advanced Settings: {}
 Profile:
   Delete Profile: ''
 Channel:
   Playlists: {}
-Video:
-  Starting soon, please refresh the page to check again: ''
-  # As in a Live Video
 Share:
   Invidious Embed URL copied to clipboard: ''
 More: තව
