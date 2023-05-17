@@ -96,7 +96,7 @@ export default Vue.extend({
         if (findVideo === -1) {
           const payload = {
             _id: playlist._id,
-            videoData: this.playlistAddVideoObject
+            videoData: this.playlistAddVideoObject,
           }
           this.addVideo(payload)
           addedPlaylists++

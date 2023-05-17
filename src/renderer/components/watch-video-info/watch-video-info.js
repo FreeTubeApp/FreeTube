@@ -336,8 +336,8 @@ export default defineComponent({
       }
 
       const payload = {
-        playlistName: 'Favorites',
-        videoData: videoData
+        _id: 'favorites',
+        videoData: videoData,
       }
 
       this.addVideo(payload)
@@ -347,8 +347,8 @@ export default defineComponent({
 
     removeFromPlaylist: function () {
       const payload = {
-        playlistName: 'Favorites',
-        videoId: this.id
+        _id: 'favorites',
+        videoId: this.id,
       }
 
       this.removeVideo(payload)

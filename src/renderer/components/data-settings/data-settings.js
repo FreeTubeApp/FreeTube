@@ -947,7 +947,7 @@ export default defineComponent({
               if (!videoExists) {
                 const payload = {
                   playlistName: existingPlaylist.playlistName,
-                  videoData: video
+                  videoData: video,
                 }
 
                 this.addVideo(payload)
