@@ -137,7 +137,6 @@ export default defineComponent({
           infoSource: 'local'
         }
 
-        this.playlistId = result.id
         this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
@@ -188,7 +187,6 @@ export default defineComponent({
           infoSource: 'invidious'
         }
 
-        this.playlistId = result.playlistId
         this.playlistTitle = result.title
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
