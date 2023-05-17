@@ -132,11 +132,12 @@ const actions = {
         } else {
           const favoritesPlaylist = findFavorites[0]
 
-          if (favoritesPlaylist._id !== 'favorites') {
+          if (favoritesPlaylist._id !== 'favorites' || !favoritesPlaylist.protected) {
             const oldId = favoritesPlaylist._id
             favoritesPlaylist._id = 'favorites'
-            dispatch('addPlaylist', favoritesPlaylist)
+            favoritesPlaylist.protected = true
             dispatch('removePlaylist', oldId)
+            dispatch('addPlaylist', favoritesPlaylist)
           }
         }
 
@@ -150,8 +151,9 @@ const actions = {
           if (watchLaterPlaylist._id !== 'watchLater') {
             const oldId = watchLaterPlaylist._id
             watchLaterPlaylist._id = 'watchLater'
-            dispatch('addPlaylist', watchLaterPlaylist)
+            watchLaterPlaylist.protected = true
             dispatch('removePlaylist', oldId)
+            dispatch('addPlaylist', watchLaterPlaylist)
           }
         }
 
