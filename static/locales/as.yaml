@@ -17,8 +17,6 @@ Settings:
   # On Settings Page
   Theme Settings: {}
   Subscription Settings: {}
-  Advanced Settings:
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
 Channel:
   Playlists: {}
 Video: {}

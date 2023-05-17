@@ -164,8 +164,6 @@ Settings:
   Theme Settings: {}
   Player Settings:
     Screenshot: {}
-  Data Settings:
-    Import Playlists: ''
   SponsorBlock Settings: {}
 Channel:
   Videos: {}
@@ -174,6 +172,4 @@ Channel:
     Featured Channels: ''
 Video:
   External Player: {}
-Share:
-  Copy Embed: ''
 Tooltips: {}

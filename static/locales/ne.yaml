@@ -103,12 +103,8 @@ User Playlists:
 Settings:
   # On Settings Page
   Theme Settings: {}
-  Data Settings:
-    Import NewPipe: ''
 Channel:
   Videos: {}
 Video:
   Video has been saved: ''
-Comments:
-  Hide: ''
 Tooltips: {}
