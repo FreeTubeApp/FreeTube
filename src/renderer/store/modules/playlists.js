@@ -126,8 +126,9 @@ const actions = {
         })
 
         if (findFavorites.length === 0) {
-          dispatch('addPlaylist', state.defaultPlaylists.find((e) => e._id === 'favorites'))
-          payload.push(state.defaultPlaylists[0])
+          const favoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
+          dispatch('addPlaylist', favoritesPlaylist)
+          payload.push(favoritesPlaylist)
         } else {
           const favoritesPlaylist = findFavorites[0]
 
@@ -140,8 +141,9 @@ const actions = {
         }
 
         if (findWatchLater.length === 0) {
-          dispatch('addPlaylist', state.defaultPlaylists.find((e) => e._id === 'watchLater'))
-          payload.push(state.defaultPlaylists[1])
+          const watchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
+          dispatch('addPlaylist', watchLaterPlaylist)
+          payload.push(watchLaterPlaylist)
         } else {
           const watchLaterPlaylist = findWatchLater[0]
 
