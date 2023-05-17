@@ -24,11 +24,11 @@ export default defineComponent({
     if (!this.isLoading && to.path.startsWith('/watch') && to.query.playlistId === this.playlistId) {
       this.setCachedPlaylist({
         id: this.playlistId,
-        title: this.infoData.title,
-        channelName: this.infoData.channelName,
-        channelId: this.infoData.channelId,
+        title: this.playlistTitle,
+        channelName: this.channelName,
+        channelId: this.channelId,
         items: this.playlistItems,
-        continuationData: this.continuationData
+        continuationData: this.continuationData,
       })
     }
     next()
