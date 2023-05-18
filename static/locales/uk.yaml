@@ -280,6 +280,8 @@ Settings:
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
     Allow DASH AV1 formats: Дозволити формат DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Автозавантаження коментарів
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -326,6 +328,10 @@ Settings:
     Hide Channels Placeholder: Назва або ID каналу
     Display Titles Without Excessive Capitalisation: Показувати заголовки без надмірно
       великих літер
+    Hide Featured Channels: Сховати пропоновані канали
+    Hide Channel Playlists: Сховати добірки з каналів
+    Hide Channel Community: Сховати спільноту каналу
+    Hide Channel Shorts: Сховати Shorts каналу
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -558,6 +564,9 @@ Channel:
     This channel does not currently have any live streams: Наразі на цьому каналі
       немає прямих трансляцій
     Live: Наживо
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: На цьому каналі немає Shorts
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
@@ -795,9 +804,9 @@ Tooltips:
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
       країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
       YouTube.'
-    External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,\
-      \ яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання\
-      \ у вашому типовому переглядачі.\n"
+    External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,
+      яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання
+      у вашому типовому переглядачі.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Працює, лише якщо API Invidious використовується
       типовим. Якщо увімкнено, локальний API буде запущено і використовуватиме застарілі
@@ -929,3 +938,8 @@ Chapters:
     поточний розділ: {chapterName}'
 Preferences: Налаштування
 Ok: Гаразд
+Hashtag:
+  Hashtag: Хештег
+  You can only view hashtag pages through the Local API: Ви можете переглядати сторінки
+    з хештегами лише через локальний API
+  This hashtag does not currently have any videos: За цим хештегом наразі немає відео
