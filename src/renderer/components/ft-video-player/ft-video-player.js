@@ -911,15 +911,9 @@ export default defineComponent({
         this.player.playbackRate(playbackRate)
 
         // need to call play to restore the player state, even if we want to pause afterwards
-
-        if (isPaused) {
-          this.player.play()
-            .then(() => {
-              this.player.pause()
-            })
-        } else {
-          this.player.play()
-        }
+        this.player.play().then(() => {
+          if (isPaused) { this.player.pause() }
+        })
       })
 
       this.player.src(newSources)
