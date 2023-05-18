@@ -8,10 +8,19 @@
     <p class="center">
       {{ selectedPlaylistsCount }} Selected
     </p>
+    <ft-input
+      v-show="allPlaylists.length > 0"
+      ref="searchBar"
+      placeholder="Search in Playlist"
+      :show-clear-text-button="true"
+      :show-action-button="false"
+      @input="(input) => updateQueryDebounce(input)"
+      @clear="updateQueryDebounce('')"
+    />
     <ft-flex-box>
       <ft-playlist-selector
-        v-for="(playlist, index) in allPlaylists"
-        :key="index"
+        v-for="(playlist, index) in activePlaylists"
+        :key="`${playlist._id}-${index}`"
         :data="playlist"
         :index="index"
         @selected="countSelected"

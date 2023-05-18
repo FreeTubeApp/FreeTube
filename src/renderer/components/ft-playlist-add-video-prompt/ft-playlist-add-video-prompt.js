@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'
+import FtInput from '../../components/ft-input/ft-input.vue'
 import {
   showToast,
 } from '../../helpers/utils'
@@ -11,10 +13,11 @@ import {
 export default Vue.extend({
   name: 'FtPlaylistAddVideoPrompt',
   components: {
-    FtFlexBox,
-    FtPrompt,
-    FtButton,
-    FtPlaylistSelector,
+    'ft-flex-box': FtFlexBox,
+    'ft-prompt': FtPrompt,
+    'ft-button': FtButton,
+    'ft-playlist-selector': FtPlaylistSelector,
+    'ft-input': FtInput,
   },
   data: function () {
     return {
@@ -22,7 +25,9 @@ export default Vue.extend({
         'save',
         'cancel'
       ],
-      selectedPlaylists: []
+      selectedPlaylists: [],
+      query: '',
+      updateQueryDebounce: function() {},
     }
   },
   computed: {
@@ -66,10 +71,28 @@ export default Vue.extend({
         'Save',
         'Cancel'
       ]
-    }
+    },
+
+    processedQuery: function() {
+      return this.query.trim().toLowerCase()
+    },
+    activePlaylists: function() {
+      // Very rare that a playlist name only has 1 char
+      if (this.processedQuery.length === 0) { return this.allPlaylists }
+
+      return this.allPlaylists.filter((playlist) => {
+        if (typeof (playlist.playlistName) !== 'string') { return false }
+
+        return playlist.playlistName.toLowerCase().includes(this.processedQuery)
+      }).sort((a, b) => {
+        // Latest updated first
+        return b.lastUpdatedAt - a.lastUpdatedAt
+      })
+    },
   },
   mounted: function () {
     // this.parseUserData()
+    this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },
   methods: {
     handleAddToPlaylistPrompt: function (option) {
@@ -112,6 +135,10 @@ export default Vue.extend({
         title: '',
         videos: []
       })
+    },
+
+    updateQuery: function(query) {
+      this.query = query
     },
 
     ...mapActions([
