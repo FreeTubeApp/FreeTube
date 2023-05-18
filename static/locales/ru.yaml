@@ -271,6 +271,8 @@ Settings:
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Allow DASH AV1 formats: Разрешить форматы DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Самозагрузка комментариев
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -398,6 +400,10 @@ Settings:
     Hide Channels: Скрыть видео с каналов
     Display Titles Without Excessive Capitalisation: Отображать заголовки без чрезмерного
       использования заглавных букв
+    Hide Featured Channels: Скрыть избранные каналы
+    Hide Channel Playlists: Скрыть подборки канала
+    Hide Channel Community: Скрыть сообщество канала
+    Hide Channel Shorts: Скрыть короткие видео канала
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -576,6 +582,10 @@ Channel:
     Live: Прямой показ
     This channel does not currently have any live streams: На этом канале в настоящее
       время нет прямых показов
+  Shorts:
+    Shorts: Короткие видео
+    This channel does not currently have any shorts: На этом канале пока что нет коротких
+      видео
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
@@ -884,9 +894,9 @@ Tooltips:
       функций Invidious требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
       трендовые видео. Не все отображаемые страны поддерживаются YouTube.
-    External Link Handling: "Выберите действие при нажатии на ссылку, которая не может\
-      \ быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере\
-      \ по умолчанию.\n"
+    External Link Handling: "Выберите действие при нажатии на ссылку, которая не может
+      быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере
+      по умолчанию.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
@@ -993,3 +1003,9 @@ Chapters:
     текущий раздел: {chapterName}'
 Preferences: Настройки
 Ok: Хорошо
+Hashtag:
+  Hashtag: Распределительная метка
+  This hashtag does not currently have any videos: Этой распределительной метки пока
+    нет ни у одного видео
+  You can only view hashtag pages through the Local API: Ты можешь видеть страницы
+    с распределительными метками только через локальный набор функций
