@@ -48,34 +48,36 @@ export default Vue.extend({
     },
 
     createNewPlaylist: function () {
-      const videosObject = this.videoImportLength > 0 ? this.newPlaylistVideoObject.videos : []
-
-      const playlistObject = {
-        playlistName: this.playlistName,
-        protected: false,
-        removeOnWatched: false,
-        description: '',
-        videos: videosObject
+      if (this.playlistName === '') {
+        showToast('Playlist name cannot be empty. Please input a name.')
+        return
       }
 
       const nameExists = this.allPlaylists.findIndex((playlist) => {
         return playlist.playlistName.toLowerCase() === this.playlistName.toLowerCase()
       })
-
-      if (this.playlistName === '') {
-        showToast('Playlist name cannot be empty. Please input a name.')
-      } else if (nameExists !== -1) {
+      if (nameExists !== -1) {
         showToast('There is already a playlist with this name. Please pick a different name.')
-      } else {
-        try {
-          this.addPlaylist(playlistObject)
-          showToast(`Playlist ${this.playlistName} has been successfully created.`)
-        } catch (e) {
-          showToast('There was an issue with creating the playlist.')
-          console.error(e)
-        } finally {
-          this.hideCreatePlaylistPrompt()
-        }
+        return
+      }
+
+      const videosObject = this.videoImportLength > 0 ? this.newPlaylistVideoObject.videos : []
+      const playlistObject = {
+        playlistName: this.playlistName,
+        protected: false,
+        removeOnWatched: false,
+        description: '',
+        videos: videosObject,
+      }
+
+      try {
+        this.addPlaylist(playlistObject)
+        showToast(`Playlist ${this.playlistName} has been successfully created.`)
+      } catch (e) {
+        showToast('There was an issue with creating the playlist.')
+        console.error(e)
+      } finally {
+        this.hideCreatePlaylistPrompt()
       }
     },
 
