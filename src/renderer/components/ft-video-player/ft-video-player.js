@@ -134,13 +134,13 @@ export default defineComponent({
             'screenshotButton',
             'playbackRateMenuButton',
             'loopButton',
+            'audioTrackButton',
             'chaptersButton',
             'descriptionsButton',
             'subsCapsButton',
             'pictureInPictureToggle',
             'toggleTheatreModeButton',
             'fullWindowButton',
-            'audioTrackButton',
             'qualitySelector',
             'fullscreenToggle'
           ]
