@@ -250,22 +250,22 @@ Settings:
     Fast-Forward / Rewind Interval: Avanzamento veloce o riavvolgimento video
     Next Video Interval: Prossimo intervallo video
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
-      lettore
+      lettore video
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
     Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
       lettore video
     Video Playback Rate Interval: Intervallo di riproduzione video
     Max Video Playback Rate: Velocità massima di riproduzione video
     Screenshot:
-      Folder Label: Cartella cattura schermata
+      Folder Label: Cartella screenshot
       Folder Button: Seleziona cartella
       File Name Label: Modello nome del file
       Error:
         Forbidden Characters: Caratteri non accettati
         Empty File Name: Nome file vuoto
-      Quality Label: Qualità cattura schermata
-      Enable: Abilita cattura schermata
-      Format Label: Formato cattura schermata
+      Quality Label: Qualità screenshot
+      Enable: Abilita screenshot
+      Format Label: Formato screenshot
       Ask Path: Chiedi cartella di salvataggio
       File Name Tooltip: Puoi usare le seguenti variabili. %Y Anno 4 cifre. %M Mese
         2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuto 2 cifre. %S Secondo
@@ -377,7 +377,7 @@ Settings:
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
-    Playlist insufficient data: Dati insufficienti per la playlist «{playlist}», elemento
+    Playlist insufficient data: Dati insufficienti per la playlist "{playlist}", elemento
       saltato
     All playlists has been successfully imported: Tutte le playlist sono state importate
       con successo
@@ -410,7 +410,7 @@ Settings:
       eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
     Hide Channel Playlists: Nascondi le playlist dei canali
-    Hide Channel Community: Nascondi la community del canale
+    Hide Channel Community: Nascondi la comunità del canale
     Hide Channel Shorts: Nascondi i video brevi del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
     deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
@@ -570,7 +570,7 @@ Channel:
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali in evidenza'
     Tags:
-      Search for: Cerca «{tag}»
+      Search for: Cerca "{tag}"
       Tags: Etichette
     Details: Dettagli
     Joined: Iscrizione
@@ -605,7 +605,7 @@ Video:
   Video has been removed from your history: 'Il video è stato rimosso dalla cronologia'
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
-  Open YouTube Embedded Player: 'Apri con lettore YouTube incorporato'
+  Open YouTube Embedded Player: 'Apri il player incorporato di YouTube'
   Copy YouTube Embedded Player Link: 'Copia link del lettore YouTube incorporato'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
@@ -786,7 +786,7 @@ Share:
   YouTube URL copied to clipboard: 'Collegamento a YouTube copiato negli appunti'
   YouTube Embed URL copied to clipboard: 'Collegamento a YouTube da incorporare copiato
     negli appunti'
-  Include Timestamp: Includi marca temporale
+  Include Timestamp: Includi indicazione temporale
   YouTube Channel URL copied to clipboard: Collegamento al canale YouTube copiato
     negli appunti
   Invidious Channel URL copied to clipboard: Collegamento al canale Invidous copiato
@@ -921,7 +921,7 @@ Tooltips:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
       blocco dell'IP, ma non forniscono determinate informazioni come la durata del
-      video o lo stato della diretta
+      video o lo stato della diretta dal vivo
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
       dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
   General Settings:
@@ -987,8 +987,8 @@ Are you sure you want to open this link?: Sei sicuro di voler aprire questo link
 Downloading has completed: 'Il download di "{videoTitle}" è terminato'
 Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
-Screenshot Success: Cattura schermata salvato come «{filePath}»
-Screenshot Error: Cattura schermata fallito. {error}
+Screenshot Success: Screenshot salvato come "{filePath}"
+Screenshot Error: Screenshot non riuscito. {error}
 Age Restricted:
   The currently set default instance is {instance}: Questo {instance} è limitato dall'età
   Type:
@@ -1004,7 +1004,7 @@ Channels:
   Search bar placeholder: Cerca canali
   Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
-  Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «{channelName}»?
+  Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
   Unsubscribe: Annulla l'iscrizione
 Clipboard:
   Cannot access clipboard without a secure connection: Impossibile accedere agli appunti
