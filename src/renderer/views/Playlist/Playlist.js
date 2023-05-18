@@ -106,13 +106,10 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    // selectedUserPlaylistVideos () {
-    //   if (this.isLoading) {
-    //     // Ignores first time load of page
-    //     return
-    //   }
-    //   this.refreshPage()
-    // },
+    selectedUserPlaylistVideos () {
+      // Re-fetch from local store when current user playlist videos updated
+      this.getPlaylistInfoDebounce()
+    },
   },
   mounted: function () {
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
@@ -353,22 +350,6 @@ export default defineComponent({
         showToast('There was an issue with updating this playlist.')
         console.error(e)
       }
-    },
-
-    refreshPage: function () {
-      this.getPlaylistInfo()
-      // The list of videos within a playlist do not refresh properly if a video
-      // is removed, so the timeout forces the view to refresh. This is kinda hacky
-      // and has to do with a quirk of Vue. I don't really like this solution but this
-      // was the only way I could get it to update properly
-      const yOffset = window.scrollY
-      this.isLoading = true
-      window.setTimeout(() => {
-        this.isLoading = false
-        window.setTimeout(() => {
-          window.scrollTo(0, yOffset)
-        }, 100)
-      }, 100)
     },
 
     ...mapActions([
