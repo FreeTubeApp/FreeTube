@@ -160,7 +160,7 @@ Settings:
       No Action: Nessuna azione
       Ask Before Opening Link: Chiedi prima di aprire il link
       Open Link: Apri link
-      External Link Handling: Gestione dei collegamenti esterni
+      External Link Handling: Gestione dei link esterni
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -412,9 +412,9 @@ Settings:
     Hide Channel Playlists: Nascondi le playlist dei canali
     Hide Channel Community: Nascondi la comunità del canale
     Hide Channel Shorts: Nascondi i video brevi del canale
-  The app needs to restart for changes to take effect. Restart and apply change?: L'applicazione
-    deve essere riavviata per applicare i cambiamenti. Riavvio e applico i cambiamenti
-    subito?
+  The app needs to restart for changes to take effect. Restart and apply change?: L'app
+    deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
+    la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
     Enable Tor / Proxy: Attiva Tor o Proxy
@@ -435,8 +435,8 @@ Settings:
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene
       saltato
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Collegamento alle
-      API di SponsorBlock (l'impostazione predefinita è https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL dell'API di
+      SponsorBlock (l'impostazione predefinita è https://sponsor.ajay.app)
     Enable SponsorBlock: Abilita SponsorBlock
     SponsorBlock Settings: Impostazioni di SponsorBlock
     Skip Options:
@@ -605,7 +605,7 @@ Video:
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
   Open YouTube Embedded Player: 'Apri il player incorporato di YouTube'
-  Copy YouTube Embedded Player Link: 'Copia link del lettore YouTube incorporato'
+  Copy YouTube Embedded Player Link: 'Copia link del lettore incorporato di YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
   View: 'Vista'
@@ -780,17 +780,16 @@ Share:
   Copy Embed: 'Copia codice da incorporare'
   Open Embed: 'Apri codice da incorporare'
   # On Click
-  Invidious URL copied to clipboard: 'Collegamento a Invidious copiato negli appunti'
-  Invidious Embed URL copied to clipboard: 'Collegamento a Invidious da incorporare
-    copiato negli appunti'
-  YouTube URL copied to clipboard: 'Collegamento a YouTube copiato negli appunti'
-  YouTube Embed URL copied to clipboard: 'Collegamento a YouTube da incorporare copiato
+  Invidious URL copied to clipboard: 'URL di Invidious copiato negli appunti'
+  Invidious Embed URL copied to clipboard: 'URL di incorporamento di Invidious copiato
+    negli appunti'
+  YouTube URL copied to clipboard: 'URL di YouTube copiato negli appunti'
+  YouTube Embed URL copied to clipboard: 'URL di incorporamento di YouTube copiato
     negli appunti'
   Include Timestamp: Includi indicazione temporale
-  YouTube Channel URL copied to clipboard: Collegamento al canale YouTube copiato
-    negli appunti
-  Invidious Channel URL copied to clipboard: Collegamento al canale Invidous copiato
-    negli appunti
+  YouTube Channel URL copied to clipboard: URL del canale YouTube copiato negli appunti
+  Invidious Channel URL copied to clipboard: URL del canale Invidious copiato negli
+    appunti
   Share Channel: Condividi canale
 Mini Player: 'Mini visualizzatore'
 Comments:
@@ -937,9 +936,9 @@ Tooltips:
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
       sono ufficialmente supportate da YouTube.
-    External Link Handling: "Scegli il comportamento predefinito quando si clicca
-      su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita
-      FreeTube aprirà il link nel browser predefinito.\n"
+    External Link Handling: "Scegli il comportamento predefinito quando si fa clic
+      su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita,
+      FreeTube aprirà il link cliccato nel browser predefinito.\n"
   External Player Settings:
     Ignore Warnings: Non notifica gli avvisi quando il lettore esterno selezionato
       non supporta l'azione richiesta (ad esempio invertire la playlist, etc.).
@@ -977,11 +976,11 @@ Default Invidious instance has been set to {instance}: L'istanza predefinita di 
   è stata impostata a {instance}
 Hashtags have not yet been implemented, try again later: Gli hashtag non sono ancora
   stati implementati, riprova più tardi
-Unknown YouTube url type, cannot be opened in app: Tipo di link YouTube sconosciuto,
-  non può essere aperto nell'applicazione
+Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconosciuto,
+  non può essere aperto nell'app
 Search Bar:
   Clear Input: Pulisci ricerca
-External link opening has been disabled in the general settings: L'apertura dei collegamenti
+External link opening has been disabled in the general settings: L'apertura dei link
   esterni è stata disabilitata nelle impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Downloading has completed: 'Il download di "{videoTitle}" è terminato'
