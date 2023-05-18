@@ -11,6 +11,8 @@
   padding: 10px;
   position: sticky;
   top: 96px;
+  /* This is needed to make prompt always above video entries */
+  z-index: 1;
   width: 30%;
 }
 
