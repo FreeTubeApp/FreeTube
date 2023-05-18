@@ -112,7 +112,7 @@ History:
   History: 'Cronologia'
   Watch History: 'Cronologia delle visualizzazioni'
   Your history list is currently empty.: 'La tua cronologia è attualmente vuota.'
-  Search bar placeholder: Cerca nella Cronologia
+  Search bar placeholder: Cerca nella cronologia
   Empty Search Message: Non ci sono video nella tua cronologia che corrispondono alla
     tua ricerca
 Settings:
@@ -120,13 +120,13 @@ Settings:
   Settings: 'Impostazioni'
   General Settings:
     General Settings: 'Impostazioni generali'
-    Fallback to Non-Preferred Backend on Failure: 'Ritorna al riproduttore non preferito
+    Fallback to Non-Preferred Backend on Failure: 'Ritorna al backend non preferito
       in caso di errore'
     Enable Search Suggestions: 'Abilita suggerimenti di ricerca'
     Default Landing Page: 'Pagina iniziale predefinita'
     Locale Preference: 'Lingua predefinita'
     Preferred API Backend:
-      Preferred API Backend: 'Riproduttore API preferito'
+      Preferred API Backend: 'Backend API preferito'
       Local API: 'API locali'
       Invidious API: 'API di Invidious'
     Video View Type:
@@ -220,8 +220,7 @@ Settings:
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Impostazioni del riproduttore video'
-    Force Local Backend for Legacy Formats: 'Forza riproduttore locale per formati
-      compatibili'
+    Force Local Backend for Legacy Formats: 'Forza backend locale per formati compatibili'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -343,7 +342,7 @@ Settings:
     Unable to read file: Impossibile leggere il file
     All watched history has been successfully exported: La cronologia delle visualizzazioni
       è stata esportata con successo
-    All watched history has been successfully imported: La cronologia di visualizzazione
+    All watched history has been successfully imported: La cronologia delle visualizzazioni
       è stata importata con successo
     History object has insufficient data, skipping item: La cronologia ha dati insufficienti,
       non verrà elaborata
@@ -932,8 +931,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
       problema, FreeTube userà automaticamente le API secondarie come riserva (se
       abilitate).
-    Preferred API Backend: Scegli il riproduttore utilizzato da FreeTube per ottenere
-      i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
+    Preferred API Backend: Scegli il backend utilizzato da FreeTube per ottenere i
+      dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
       un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
       di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
