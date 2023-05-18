@@ -148,13 +148,13 @@ Settings:
     View all Invidious instance information: Visualizza tutti i dati dell'istanza
       Invidious
     Clear Default Instance: Cancella istanza predefinita
-    Set Current Instance as Default: Imposta l'istanza attuale come predefinita
-    Current instance will be randomized on startup: L'istanza attuale sarà sostituita
+    Set Current Instance as Default: Imposta l'attuale istanza come predefinita
+    Current instance will be randomized on startup: L'attuale istanza sarà sostituita
       all'avvio da una generata casualmente
     No default instance has been set: Non è stata impostata alcuna istanza predefinita
-    The currently set default instance is {instance}: L'istanza predefinita attualmente
-      impostata è {instance}
-    Current Invidious Instance: Istanza attuale di Invidious
+    The currently set default instance is {instance}: Attualmente l'istanza impostata
+      come predefinita è {instance}
+    Current Invidious Instance: Attuale istanza di Invidious
     System Default: Predefinito del sistema
     External Link Handling:
       No Action: Nessuna azione
@@ -219,8 +219,8 @@ Settings:
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
-    Player Settings: 'Impostazioni del riproduttore video'
-    Force Local Backend for Legacy Formats: 'Forza backend locale per formati compatibili'
+    Player Settings: 'Impostazioni del lettore'
+    Force Local Backend for Legacy Formats: 'Forza backend locale per formati obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
@@ -232,7 +232,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati compatibili'
+      Legacy Formats: 'Formati obsoleti'
       Audio Formats: 'Formati audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
@@ -272,7 +272,7 @@ Settings:
         2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi
         del video 3 cifre. %i ID video. Puoi anche usare \ o / per creare sottocartelle.
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
-    Skip by Scrolling Over Video Player: Salta scorrendo il lettore video
+    Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
     Allow DASH AV1 formats: Consenti formati DASH AV1
     Comment Auto Load:
       Comment Auto Load: Carica automaticamente i commenti
@@ -280,14 +280,14 @@ Settings:
     Privacy Settings: 'Impostazioni della privacy'
     Remember History: 'Salva la cronologia'
     Save Watched Progress: 'Salva i progressi raggiunti'
-    Clear Search Cache: 'Cancella la cronologia della ricerca'
-    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler cancellare
-      la cronologia della ricerca?'
-    Search cache has been cleared: 'La cronologia della ricerca è stata cancellata'
-    Remove Watch History: 'Cancella la cronologia delle visualizzazioni'
+    Clear Search Cache: 'Svuota la cache della ricerca'
+    Are you sure you want to clear out your search cache?: 'Sei sicuro di voler svuotare
+      la cache della ricerca?'
+    Search cache has been cleared: 'La cache della ricerca è stata svuotata'
+    Remove Watch History: 'Rimuovi la cronologia delle visualizzazioni'
     Are you sure you want to remove your entire watch history?: 'Sei sicuro di voler
-      cancellare la cronologia delle visualizzazioni?'
-    Watch history has been cleared: 'La cronologia delle visualizzazioni è stata cancellata'
+      rimuovere l''intera cronologia delle visualizzazioni?'
+    Watch history has been cleared: 'La cronologia delle visualizzazioni è stata svuotata'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Sei
       sicuro di volere eliminare tutte le iscrizioni e i profili? L'operazione non
       può essere annullata.
@@ -373,7 +373,7 @@ Settings:
     Select Export Type: Seleziona il tipo di esportazione
     Select Import Type: Seleziona il tipo di importazione
     Data Settings: Impostazioni dei dati
-    Check for Legacy Subscriptions: Controlla le iscrizioni compatibili
+    Check for Legacy Subscriptions: Controlla le iscrizioni obsolete
     Manage Subscriptions: Gestisci i profili
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
@@ -406,8 +406,8 @@ Settings:
     Hide Upcoming Premieres: Nascondi le prossime Première
     Hide Channels: Nascondi i video dai canali
     Hide Channels Placeholder: Nome o ID del canale
-    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole
-      eccessive
+    Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
+      uso eccessivo di maiuscole
     Hide Featured Channels: Nascondi i canali in evidenza
     Hide Channel Playlists: Nascondi le playlist dei canali
     Hide Channel Community: Nascondi la comunità del canale
@@ -447,9 +447,8 @@ Settings:
       Do Nothing: Non fare nulla
     Category Color: Colore della categoria
   External Player Settings:
-    Custom External Player Arguments: Impostazioni personalizzate del lettore esterno
-    Custom External Player Executable: File eseguibile del lettore personalizzato
-      esterno
+    Custom External Player Arguments: Argomenti del lettore esterno personalizzato
+    Custom External Player Executable: File eseguibile del lettore esterno personalizzato
     Ignore Unsupported Action Warnings: Ignora avvisi per azioni non supportate
     External Player: Lettore esterno
     External Player Settings: Impostazioni del lettore esterno
@@ -690,16 +689,17 @@ Video:
   Save Video: Salva il video
   External Player:
     Unsupported Actions:
-      looping playlists: ripetendo la playlist
-      shuffling playlists: mescolando l'ordine della playlist
-      reversing playlists: invertendo l'ordine della playlist
-      opening specific video in a playlist (falling back to opening the video): aprendo
-        un video specifico in una playlist (tornando all'apertura del video)
-      setting a playback rate: impostando la velocità di riproduzione
-      opening playlists: aprendo la playlist
-      starting video at offset: avviando il video con uno sfasamento
+      looping playlists: riproduzione continua delle playlist
+      shuffling playlists: riproduzione casuale delle playlist
+      reversing playlists: invertire le playlist
+      opening specific video in a playlist (falling back to opening the video): apertura
+        di un video specifico in una playlist (in caso di errore vai all'apertura
+        del video)
+      setting a playback rate: impostare una velocità di riproduzione
+      opening playlists: apertura delle playlist
+      starting video at offset: avviare il video da un determinato punto
     UnsupportedActionTemplate: '{externalPlayer} non supporta: {action}'
-    OpeningTemplate: Apertura del {videoOrPlaylist} con {externalPlayer}…
+    OpeningTemplate: Apertura di {videoOrPlaylist} con {externalPlayer}...
     playlist: playlist
     video: video
     OpenInTemplate: Apri con {externalPlayer}
@@ -725,7 +725,7 @@ Video:
     video id: ID video (YouTube)
     player resolution: Finestra di visualizzazione
     Video statistics are not available for legacy videos: Le statistiche sui video
-      non sono disponibili per i video compatibili
+      non sono disponibili per i video obsoleti
     Video ID: ID video
     Resolution: Risoluzione
     Player Dimensions: Dimensioni del lettore
@@ -766,7 +766,7 @@ Toggle Theatre Mode: 'Attiva modalità cinema'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
-  Use Legacy Formats: 'Usa i formati compatibili'
+  Use Legacy Formats: 'Usa i formati obsoleti'
   Use Audio Formats: 'Usa i formati audio'
   Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
@@ -896,11 +896,11 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Force Local Backend for Legacy Formats: Funziona solo quando Invidious è l'API
-      predefinita. Se abilitate, le API locali useranno i formati compatibili al posto
+      predefinita. Se abilitate, le API locali useranno i formati obsoleti al posto
       di quelli di Invidious. Utile quando i video di Invidious non vengono riprodotti
       a causa di restrizioni geografiche.
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono
+      I formati DASH possono riprodurre qualità maggiore. I formati obsoleti sono
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
       solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
