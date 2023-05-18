@@ -76,16 +76,20 @@ export default defineComponent({
         return data.slice(0, this.dataLimit)
       }
     },
+
+    lowerCaseQuery: function() {
+      return this.query.toLowerCase()
+    },
   },
   watch: {
-    query() {
+    lowerCaseQuery() {
       this.searchDataLimit = 100
       this.filterPlaylistAsync()
     },
     fullData() {
       this.activeData = this.fullData
       this.filterPlaylist()
-    }
+    },
   },
   mounted: function () {
     const limit = sessionStorage.getItem('favoritesLimit')
@@ -120,31 +124,21 @@ export default defineComponent({
       this.filterPlaylistDebounce()
     },
     filterPlaylist: function() {
-      // if (this.query === '') {
-      //   this.activeData = this.fullData
-      //   if (this.activeData.length < this.allPlaylists.length) {
-      //     this.showLoadMoreButton = true
-      //   } else {
-      //     this.showLoadMoreButton = false
-      //   }
-      // } else {
-      //   const lowerCaseQuery = this.query.toLowerCase()
-      //   const filteredQuery = this.favoritesPlaylist.videos.filter((video) => {
-      //     if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
-      //       return false
-      //     } else {
-      //       return video.title.toLowerCase().includes(lowerCaseQuery) || video.author.toLowerCase().includes(lowerCaseQuery)
-      //     }
-      //   }).sort((a, b) => {
-      //     return b.timeAdded - a.timeAdded
-      //   })
-      //   if (filteredQuery.length <= this.searchDataLimit) {
-      //     this.showLoadMoreButton = false
-      //   } else {
-      //     this.showLoadMoreButton = true
-      //   }
-      //   this.activeData = filteredQuery.length < this.searchDataLimit ? filteredQuery : filteredQuery.slice(0, this.searchDataLimit)
-      // }
+      if (this.lowerCaseQuery === '') {
+        this.activeData = this.fullData
+        this.showLoadMoreButton = this.allPlaylists.length > this.activeData.length
+      } else {
+        const filteredPlaylists = this.allPlaylists.filter((playlist) => {
+          if (typeof (playlist.playlistName) !== 'string') { return false }
+
+          return playlist.playlistName.toLowerCase().includes(this.lowerCaseQuery)
+        }).sort((a, b) => {
+          // Latest updated first
+          return b.lastUpdatedAt - a.lastUpdatedAt
+        })
+        this.showLoadMoreButton = filteredPlaylists.length > this.searchDataLimit
+        this.activeData = filteredPlaylists.length < this.searchDataLimit ? filteredPlaylists : filteredPlaylists.slice(0, this.searchDataLimit)
+      }
     },
 
     createNewPlaylist: function () {
