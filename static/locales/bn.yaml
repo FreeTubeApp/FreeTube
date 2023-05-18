@@ -85,6 +85,8 @@ Settings:
   General Settings: {}
   Theme Settings: {}
   Player Settings: {}
+  Distraction Free Settings:
+    Hide Channel Shorts: ''
 About:
   #On About page
   Email: 'ই-মেইল'
