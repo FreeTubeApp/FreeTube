@@ -31,7 +31,7 @@
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="index"
+          :key="`${item.videoId}-${index}`"
           class="playlistItem"
         >
           <p

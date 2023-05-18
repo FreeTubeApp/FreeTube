@@ -17,6 +17,8 @@
       :force-list-type="forceListType"
       :appearance="appearance"
       @pause-player="$emit('pause-player')"
+      @move-video-up="(id) => $emit('move-video-up', id)"
+      @move-video-down="(id) => $emit('move-video-down', id)"
     />
   </div>
 </template>

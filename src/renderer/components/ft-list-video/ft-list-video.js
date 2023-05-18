@@ -355,24 +355,24 @@ export default defineComponent({
       }
     },
 
-    addToPlaylist: function () {
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        published: '',
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.data.lengthSeconds,
-        timeAdded: new Date().getTime(),
-        isLive: false,
-        paid: false,
-        type: 'video'
-      }
-
-      this.$emit('add-to-playlist', videoData)
-    },
+    // addToPlaylist: function () {
+    //   const videoData = {
+    //     videoId: this.id,
+    //     title: this.title,
+    //     author: this.channelName,
+    //     authorId: this.channelId,
+    //     published: '',
+    //     description: this.description,
+    //     viewCount: this.viewCount,
+    //     lengthSeconds: this.data.lengthSeconds,
+    //     timeAdded: new Date().getTime(),
+    //     isLive: false,
+    //     paid: false,
+    //     type: 'video'
+    //   }
+    //
+    //   this.$emit('add-to-playlist', videoData)
+    // },
 
     toggleFavorite: function () {
       if (this.inFavoritesPlaylist) {
@@ -606,7 +606,6 @@ export default defineComponent({
 
       try {
         this.removeVideo(payload)
-        this.$emit('refresh-playlist')
         showToast('Video has been removed')
       } catch (e) {
         showToast('There was a problem with removing this video')

@@ -44,52 +44,54 @@
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
         @click="handleExternalPlayer"
       />
-      <ft-icon-button
-        v-if="!isUpcoming"
-        :title="$t('Video.Save Video')"
-        :icon="['fas', 'star']"
-        class="favoritesIcon"
-        :theme="favoriteIconTheme"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="toggleFavorite"
-      />
-      <ft-icon-button
-        v-if="!isLive"
-        title="Add to playlist"
-        :icon="['fas', 'plus']"
-        class="playlistIcon"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="togglePlaylistPrompt"
-      />
-      <ft-icon-button
-        v-if="inUserPlaylist"
-        title="Remove from playlist"
-        :icon="['fas', 'trash']"
-        class="trashIcon"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="removeVideoFromPlaylist"
-      />
-      <ft-icon-button
-        v-if="inUserPlaylist"
-        title="Move video up"
-        :icon="['fas', 'arrow-up']"
-        class="upArrowIcon"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="$emit('move-video-up', id)"
-      />
-      <ft-icon-button
-        v-if="inUserPlaylist"
-        title="Move video down"
-        :icon="['fas', 'arrow-down']"
-        class="downArrowIcon"
-        :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-        :size="appearance === `watchPlaylistItem` ? 14 : 18"
-        @click="$emit('move-video-down', id)"
-      />
+      <span class="playlistIcons">
+        <ft-icon-button
+          v-if="!isUpcoming"
+          :title="$t('Video.Save Video')"
+          :icon="['fas', 'star']"
+          class="favoritesIcon"
+          :theme="favoriteIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleFavorite"
+        />
+        <ft-icon-button
+          v-if="!isLive"
+          title="Add to playlist"
+          :icon="['fas', 'plus']"
+          class="playlistIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist"
+          title="Remove from playlist"
+          :icon="['fas', 'trash']"
+          class="trashIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="removeVideoFromPlaylist"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist"
+          title="Move video up"
+          :icon="['fas', 'arrow-up']"
+          class="upArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-up', id)"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist"
+          title="Move video down"
+          :icon="['fas', 'arrow-down']"
+          class="downArrowIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="$emit('move-video-down', id)"
+        />
+      </span>
       <div
         v-if="addWatchedStyle"
         class="videoWatched"
