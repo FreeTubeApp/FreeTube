@@ -167,6 +167,11 @@ export default defineComponent({
     },
 
     savePlaylistInfo: function () {
+      if (this.newTitle === '') {
+        showToast('Playlist name cannot be empty. Please input a name.')
+        return
+      }
+
       const playlist = {
         playlistName: this.newTitle,
         protected: this.selectedUserPlaylist.protected,
