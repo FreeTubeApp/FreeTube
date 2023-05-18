@@ -57,6 +57,14 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    canMoveVideoUp: {
+      type: Boolean,
+      default: false,
+    },
+    canMoveVideoDown: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function () {
     return {

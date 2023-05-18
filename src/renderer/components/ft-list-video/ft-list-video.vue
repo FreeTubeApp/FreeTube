@@ -74,7 +74,7 @@
           @click="removeVideoFromPlaylist"
         />
         <ft-icon-button
-          v-if="inUserPlaylist"
+          v-if="inUserPlaylist && canMoveVideoUp"
           title="Move video up"
           :icon="['fas', 'arrow-up']"
           class="upArrowIcon"
@@ -83,7 +83,7 @@
           @click="$emit('move-video-up', id)"
         />
         <ft-icon-button
-          v-if="inUserPlaylist"
+          v-if="inUserPlaylist && canMoveVideoDown"
           title="Move video down"
           :icon="['fas', 'arrow-down']"
           class="downArrowIcon"
