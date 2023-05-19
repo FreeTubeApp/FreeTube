@@ -392,6 +392,7 @@ Settings:
     Hide Featured Channels: הסתרת ערוצים מומלצים
     Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
     Hide Channel Community: הסתרת קהילת הערוץ
+    Hide Channel Shorts: הסתרת ה־Shorts של הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -612,6 +613,9 @@ Channel:
     Live: חי
     This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים
       כרגע
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
