@@ -38,12 +38,19 @@ export default defineComponent({
     appearance: {
       type: String,
       required: true
-    }
+    },
+    initialVisibleState: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function () {
     return {
       visible: false
     }
+  },
+  created() {
+    this.visible = this.initialVisibleState
   },
   methods: {
     onVisibilityChanged: function (visible) {
