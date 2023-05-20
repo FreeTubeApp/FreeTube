@@ -83,31 +83,39 @@ export default defineComponent({
       return this.selectedUserPlaylist?.lastUpdatedAt
     },
     selectedUserPlaylistVideos: function () {
-      if (typeof (this.selectedUserPlaylist) !== 'undefined') {
+      if (this.selectedUserPlaylist != null) {
         return this.selectedUserPlaylist.videos
       } else {
         return []
       }
     },
+    selectedUserPlaylistVideoCount: function() {
+      return this.selectedUserPlaylistVideos.length
+    }
   },
   watch: {
     $route () {
       // react to route changes...
       this.getPlaylistInfoDebounce()
     },
-    userPlaylistsReady () {
+    userPlaylistsReady (val, oldVal) {
       // Fetch from local store when playlist data ready
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylist () {
+    selectedUserPlaylist (val, oldVal) {
       // Fetch from local store when current user playlist changed
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistLastUpdatedAt () {
+    selectedUserPlaylistLastUpdatedAt (val, oldVal) {
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistVideos () {
+    selectedUserPlaylistVideoCount (val, oldVal) {
+      // Monitoring `selectedUserPlaylistVideos` makes this function called
+      // Even when the same array object is returned
+      // So length is monitored instead
+      // Assuming in user playlist video cannot be swapped without length change
+
       // Re-fetch from local store when current user playlist videos updated
       this.getPlaylistInfoDebounce()
     },
