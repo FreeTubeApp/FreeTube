@@ -254,6 +254,8 @@ Settings:
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
     Allow DASH AV1 formats: 允許 DASH AV1 格式
+    Comment Auto Load:
+      Comment Auto Load: 留言自動載入
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -364,6 +366,10 @@ Settings:
     Hide Channels Placeholder: 頻道名稱或 ID
     Hide Channels: 隱藏頻道中的影片
     Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫的標題
+    Hide Featured Channels: 隱藏精選頻道
+    Hide Channel Playlists: 隱藏頻道播放清單
+    Hide Channel Community: 隱藏頻道社群
+    Hide Channel Shorts: 隱藏頻道短片
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -531,6 +537,9 @@ Channel:
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
+  Shorts:
+    Shorts: 短片
+    This channel does not currently have any shorts: 此頻道目前沒有任何短片
 Video:
   Open in YouTube: '在YouTube中開啟'
   Copy YouTube Link: '複製YouTube連結'
@@ -878,3 +887,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 章節清單已隱藏，目前章節：{chapterName}
 Preferences: 偏好設定
 Ok: 確定
+Hashtag:
+  Hashtag: 主題標籤
+  This hashtag does not currently have any videos: 此標籤目前沒有任何影片
+  You can only view hashtag pages through the Local API: 您僅能透過本機 API 檢視主題標籤頁面

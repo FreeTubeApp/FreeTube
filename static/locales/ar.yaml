@@ -264,6 +264,8 @@ Settings:
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
     Allow DASH AV1 formats: السماح بتنسيقات DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: تحميل التلقائي للتعليقات
   Privacy Settings:
     Privacy Settings: 'إعدادات الخصوصية'
     Remember History: 'تذّكر سجلّ المشاهدة'
@@ -391,6 +393,10 @@ Settings:
     Hide Channels Placeholder: اسم القناة أو معرفها
     Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
       بشكل مفرط
+    Hide Featured Channels: إخفاء القنوات المميزة
+    Hide Channel Playlists: إخفاء قوائم تشغيل القناة
+    Hide Channel Community: إخفاء مجتمع القناة
+    Hide Channel Shorts: إخفاء Shorts القناة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -598,8 +604,8 @@ Channel:
   Channel Tabs: علامات تبويب القنوات
   This channel does not exist: هذه القناة غير موجودة
   This channel does not allow searching: هذه القناة لا تسمح بالبحث
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه القناة
-    مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه
+    القناة مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
   Community:
     Community: المجتمع
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
@@ -608,6 +614,10 @@ Channel:
     Live: مباشر
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر
       على هذه القناة
+  Shorts:
+    Shorts: القصيرة
+    This channel does not currently have any shorts: هذه القناة ليس لديها حاليا أي
+      أفلام قصيرة (shorts)
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
@@ -834,8 +844,8 @@ Shuffle is now enabled: 'تم تمكين التبديل العشوائي'
 Playing Next Video: 'جاري تشغيل الفيديو التالي'
 Playing Previous Video: 'جاري تشغيل الفيديو السابق'
 Canceled next video autoplay: 'تم إلغاء التشغيل التلقائي للفيديو التالي'
-'The playlist has ended. Enable loop to continue playing': 'انتهت قائمة التشغيل.
-  قم بتمكن التكرار لمواصلة التشغيل'
+'The playlist has ended. Enable loop to continue playing': 'انتهت قائمة التشغيل. قم
+  بتمكن التكرار لمواصلة التشغيل'
 
 Yes: 'نعم'
 No: 'لا'
@@ -858,9 +868,9 @@ Tooltips:
       التراجع.
     Region for Trending: الانتشار المحلي (Trend) يسمح لك بأن تشاهد الفيديوهات الأكثر
       انتشارا حسب الدولة. ليست كل الدول المعروضة في هذه القائمة مدعومة من طرف يوتيوب.
-    External Link Handling: "اختر السلوك الافتراضي عند النقر فوق رابط، لا يمكن فتحه\
-      \ في FreeTube.\nبشكل افتراضي، سيفتح FreeTube الرابط الذي تم النقر عليه في المتصفح\
-      \ الافتراضي.\n"
+    External Link Handling: "اختر السلوك الافتراضي عند النقر فوق رابط، لا يمكن فتحه
+      في FreeTube.\nبشكل افتراضي، سيفتح FreeTube الرابط الذي تم النقر عليه في المتصفح
+      الافتراضي.\n"
   Player Settings:
     Proxy Videos Through Invidious: سيتم الاتصال ب Invidious لتقديم مقاطع الفيديو
       بدلاً من إجراء اتصال مباشر مع يوتيوب. يلغي تفضيل الواجهة البرمجية.
@@ -963,3 +973,9 @@ Chapters:
     الفصل الحالي: {sectionName}'
 Preferences: التفضيلات
 Ok: موافق
+Hashtag:
+  This hashtag does not currently have any videos: هذا الهاشتاج ليس لديه حاليا أي
+    مقاطع فيديو
+  Hashtag: هاشتاج
+  You can only view hashtag pages through the Local API: يمكنك فقط عرض صفحات الهاشتاج
+    من خلال واجهة برمجة التطبيقات (API) المحلية

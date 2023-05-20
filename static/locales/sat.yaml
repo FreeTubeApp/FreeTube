@@ -18,58 +18,12 @@ Delete: 'ᱢᱮᱴᱟᱣ'
 Select all: 'ᱡᱷᱚᱛᱚ ᱪᱚᱭᱚᱱ ᱢᱮᱸ'
 Reload: 'ᱨᱤᱞᱚᱰ'
 Force Reload: 'ᱡᱚᱵᱚᱨ ᱨᱤᱞᱚᱰ'
-Search Filters:
-  Sort By:
-    Sort By: ''
-  Duration:
-    Duration: ''
-Playlists: ''
+Search Filters: {}
 Settings:
   # On Settings Page
-  General Settings:
-    Preferred API Backend:
-      Invidious API: ''
-  Theme Settings:
-    Base Theme:
-      Base Theme: ''
-    Main Color Theme:
-      Lime: ''
-  Player Settings:
-    Default Video Format:
-      Default Video Format: ''
-  Privacy Settings:
-    Remember History: ''
-  Distraction Free Settings:
-    Hide Video Likes And Dislikes: ''
-  Data Settings:
-    Export FreeTube: ''
-    Unable to read file: ''
-About:
-  #On About page
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
-Profile:
-  Create Profile: ''
-  '{number} selected': ''
+  General Settings: {}
+  Theme Settings: {}
+  Player Settings: {}
 Channel:
-  Your search results have returned 0 results: ''
   Videos: {}
-Video:
-  Remove From History: ''
-  Shuffle Playlist: ''
-  Download Video: ''
-  Published:
-    Oct: ''
-    Years: ''
-Videos:
-  #& Sort By
-{}
-Change Format:
-  Use Dash Formats: ''
-Share:
-  YouTube Channel URL copied to clipboard: ''
-
-Comments:
-  Load More Comments: ''
 Tooltips: {}
-This video is unavailable because of missing formats. This can happen due to country unavailability.: ''

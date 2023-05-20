@@ -155,40 +155,12 @@ Settings:
       Dracula Purple: 'Dracula Purpura'
       Dracula Red: 'Dracula Ruber'
       Dracula Yellow: 'Dracula Flavum'
-  Player Settings:
-    Default Quality:
-      Default Quality: ''
-  Privacy Settings:
-    Search cache has been cleared: ''
-  Data Settings:
-    Import NewPipe: ''
-    All watched history has been successfully imported: ''
-  Advanced Settings:
-    Clear Subscriptions:
-      Are you sure you want to remove all subscriptions?: ''
-      #& Yes
-      #& No
-
-Profile:
-  Custom Color: ''
-  Subscription List: ''
+  Player Settings: {}
+  Advanced Settings: {}
 Channel:
-  Added channel to your subscriptions: ''
   Videos: {}
   Playlists: {}
-  About:
-    Featured Channels: ''
-Video:
-  Play Next Video: ''
-  Published:
-    Apr: ''
-    Days: ''
-Playlist:
-  #& About
-  Views: ''
-Share:
-  Invidious Embed URL copied to clipboard: ''
-Local API Error (Click to copy): ''
+Video: {}
 No: 'nullum'
 More: plus
 Open New Window: aperiere fenestram novum

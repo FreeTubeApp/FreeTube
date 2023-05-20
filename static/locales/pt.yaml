@@ -273,6 +273,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Saltar ao rolar por cima do leitor de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Comentário Carga automática
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Memorizar histórico'
@@ -427,6 +429,10 @@ Settings:
     Hide Channels Placeholder: Nome ou ID do canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem maiúsculas
       em excesso
+    Hide Featured Channels: Ocultar canais em destaque
+    Hide Channel Playlists: Ocultar listas de reprodução de canais
+    Hide Channel Community: Ocultar canal Comunidade
+    Hide Channel Shorts: Esconder as curtas do canal
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -619,6 +625,10 @@ Channel:
     Live: Em directo
     This channel does not currently have any live streams: Este canal não tem atualmente
       nenhuma transmissão ao vivo
+  Shorts:
+    Shorts: Curtas
+    This channel does not currently have any shorts: Este canal não tem atualmente
+      nenhum canal curto
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'
@@ -937,9 +947,9 @@ Tooltips:
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube.
       A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
       para fazer a ligação.
-    External Link Handling: "Escolha o comportamento padrão quando uma ligação, que\
-      \ não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá\
-      \ a ligação no seu navegador de Internet.\n"
+    External Link Handling: "Escolha o comportamento padrão quando uma ligação, que
+      não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá
+      a ligação no seu navegador de Internet.\n"
   Experimental Settings:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Levará ao aumento da utilização de RAM.
@@ -987,3 +997,9 @@ Clipboard:
     de transferência sem uma ligação segura
 Preferences: Preferências
 Ok: Ok
+Hashtag:
+  Hashtag: Marcador
+  This hashtag does not currently have any videos: Esta hashtag não tem atualmente
+    quaisquer vídeos
+  You can only view hashtag pages through the Local API: Só é possível ver páginas
+    de hashtag através da API local

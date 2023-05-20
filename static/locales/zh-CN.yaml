@@ -252,6 +252,8 @@ Settings:
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
     Allow DASH AV1 formats: 允许 DASH AV1 格式
+    Comment Auto Load:
+      Comment Auto Load: 自动加载评论
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -362,6 +364,10 @@ Settings:
     Hide Channels: 隐藏频道中的视频
     Hide Channels Placeholder: 频道名称或 ID
     Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
+    Hide Featured Channels: 隐藏精选频道
+    Hide Channel Playlists: 隐藏频道播放列表
+    Hide Channel Community: 隐藏频道社区
+    Hide Channel Shorts: 隐藏频道短视频
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -520,6 +526,9 @@ Channel:
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流
+  Shorts:
+    This channel does not currently have any shorts: 此频道目前没有任何短视频
+    Shorts: 短视频
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
@@ -867,3 +876,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
 Preferences: 选项
 Ok: 好
+Hashtag:
+  Hashtag: 标签
+  You can only view hashtag pages through the Local API: 你只能通过本地 API 浏览标签页面
+  This hashtag does not currently have any videos: 此标签下当前没有任何短视频

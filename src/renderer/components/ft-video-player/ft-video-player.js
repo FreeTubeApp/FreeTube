@@ -82,6 +82,10 @@ export default defineComponent({
     chapters: {
       type: Array,
       default: () => { return [] }
+    },
+    audioTracks: {
+      type: Array,
+      default: () => ([])
     }
   },
   data: function () {
@@ -89,6 +93,7 @@ export default defineComponent({
       powerSaveBlocker: null,
       volume: 1,
       muted: false,
+      /** @type {(import('video.js').VideoJsPlayer|null)} */
       player: null,
       useDash: false,
       useHls: false,
@@ -129,6 +134,7 @@ export default defineComponent({
             'screenshotButton',
             'playbackRateMenuButton',
             'loopButton',
+            'audioTrackButton',
             'chaptersButton',
             'descriptionsButton',
             'subsCapsButton',
@@ -309,6 +315,24 @@ export default defineComponent({
       this.toggleScreenshotButton()
     }
   },
+  created: function () {
+    this.dataSetup.playbackRates = this.playbackRates
+
+    if (this.format === 'audio') {
+      // hide the PIP button for the audio formats
+      const controlBarItems = this.dataSetup.controlBar.children
+      const index = controlBarItems.indexOf('pictureInPictureToggle')
+      controlBarItems.splice(index, 1)
+    }
+
+    if (this.format === 'legacy' || this.audioTracks.length === 0) {
+      // hide the audio track selector for the legacy formats
+      // and Invidious(it doesn't give us the information for multiple audio tracks yet)
+      const controlBarItems = this.dataSetup.controlBar.children
+      const index = controlBarItems.indexOf('audioTrackButton')
+      controlBarItems.splice(index, 1)
+    }
+  },
   mounted: function () {
     const volume = sessionStorage.getItem('volume')
     const muted = sessionStorage.getItem('muted')
@@ -322,8 +346,6 @@ export default defineComponent({
       // otherwise 'false' will be returned as true as well
       this.muted = (muted === 'true')
     }
-
-    this.dataSetup.playbackRates = this.playbackRates
 
     if (this.format === 'dash') {
       this.determineDefaultQualityDash()
@@ -368,13 +390,6 @@ export default defineComponent({
         if (!this.useDash) {
           qualitySelector(videojs, { showQualitySelectionLabelInControlBar: true })
           await this.determineDefaultQualityLegacy()
-        }
-
-        if (this.format === 'audio') {
-          // hide the PIP button for the audio formats
-          const controlBarItems = this.dataSetup.controlBar.children
-          const index = controlBarItems.indexOf('pictureInPictureToggle')
-          controlBarItems.splice(index, 1)
         }
 
         // regardless of what DASH qualities you enable or disable in the qualityLevels plugin
@@ -424,6 +439,36 @@ export default defineComponent({
           const qualityLevels = this.player.qualityLevels()
           qualityLevels.on('addqualitylevel', ({ qualityLevel }) => {
             qualityLevel.enabled = qualityLevel.bitrate === this.selectedBitrate
+          })
+        }
+
+        // for the DASH formats, videojs-http-streaming takes care of the audio track management for us,
+        // thanks to the values in the DASH manifest
+        // so we only need a custom implementation for the audio only formats
+        if (this.format === 'audio' && this.audioTracks.length > 0) {
+          /** @type {import('../../views/Watch/Watch.js').AudioTrack[]} */
+          const audioTracks = this.audioTracks
+
+          const audioTrackList = this.player.audioTracks()
+          audioTracks.forEach(({ id, kind, label, language, isDefault: enabled }) => {
+            audioTrackList.addTrack(new videojs.AudioTrack({
+              id, kind, label, language, enabled,
+            }))
+          })
+
+          audioTrackList.on('change', () => {
+            let trackId
+            // doesn't support foreach so we need to use an indexed for loop here
+            for (let i = 0; i < audioTrackList.length; i++) {
+              const track = audioTrackList[i]
+
+              if (track.enabled) {
+                trackId = track.id
+                break
+              }
+            }
+
+            this.changeAudioTrack(trackId)
           })
         }
 
@@ -833,6 +878,45 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    /**
+     * @param {string} trackId
+     */
+    changeAudioTrack: function (trackId) {
+      // changing the player sources resets it, so we need to store the values that get reset,
+      // before we change the sources and restore them afterwards
+      const isPaused = this.player.paused()
+      const currentTime = this.player.currentTime()
+      const playbackRate = this.player.playbackRate()
+      const selectedQualityIndex = this.player.currentSources().findIndex(quality => quality.selected)
+
+      const newSourceList = this.audioTracks.find(audioTrack => audioTrack.id === trackId).sourceList
+
+      // video.js doesn't pick up changes to the sources in the HTML after it's initial load
+      // updating the sources of an existing player requires calling player.src() instead
+      // which accepts a different object that what use for the html sources
+
+      const newSources = newSourceList.map((source, index) => {
+        return {
+          src: source.url,
+          type: source.type,
+          label: source.qualityLabel,
+          selected: index === selectedQualityIndex
+        }
+      })
+
+      this.player.one('canplay', () => {
+        this.player.currentTime(currentTime)
+        this.player.playbackRate(playbackRate)
+
+        // need to call play to restore the player state, even if we want to pause afterwards
+        this.player.play().then(() => {
+          if (isPaused) { this.player.pause() }
+        })
+      })
+
+      this.player.src(newSources)
     },
 
     determineFormatType: function () {

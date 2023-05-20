@@ -88,11 +88,13 @@
       </p>
       <div
         v-if="!isLoading"
+        ref="playlistItems"
         class="playlistItems"
       >
         <div
           v-for="(item, index) in playlistItems"
           :key="index"
+          :ref="currentVideoIndex === (index + 1) ? 'currentVideoItem' : null"
           class="playlistItem"
         >
           <div class="videoIndexContainer">
@@ -117,6 +119,7 @@
             :playlist-loop="loopEnabled"
             appearance="watchPlaylistItem"
             force-list-type="list"
+            :initial-visible-state="index < ((currentVideoIndex - 1) + 4) && index > ((currentVideoIndex - 1) - 4)"
             @pause-player="$emit('pause-player')"
           />
         </div>

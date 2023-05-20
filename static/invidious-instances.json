@@ -1,25 +1,98 @@
 [
-    { "url": "https://vid.puffyan.us" },
-    { "url": "https://inv.riverside.rocks" },
-    { "url": "https://watch.thekitty.zone" },
-    { "url": "https://y.com.sb" },
-    { "url": "https://invidious.nerdvpn.de" },
-    { "url": "https://invidious.tiekoetter.com" },
-    { "url": "https://yt.artemislena.eu" },
-    { "url": "https://invidious.flokinet.to" },
-    { "url": "https://inv.bp.projectsegfau.lt" },
-    { "url": "https://inv.odyssey346.dev" },
-    { "url": "https://invidious.sethforprivacy.com" },
-    { "url": "https://invidious.projectsegfau.lt" },
-    { "url": "https://invidious.baczek.me" },
-    { "url": "https://yt.funami.tech" },
-    { "url": "https://iv.ggtyler.dev" },
-    { "url": "https://invidious.lunar.icu" },
-    { "url": "https://invidious.privacydev.net" },
-    { "url": "https://vid.priv.au" },
-    { "url": "https://invidious.0011.lt" },
-    { "url": "https://iv.melmac.space" },
-    { "url": "https://invidious.esmailelbob.xyz" },
-    { "url": "https://invidious.vpsburti.com" },
-    { "url": "https://invidious.snopyta.org" }
+  {
+    "url": "https://vid.puffyan.us",
+    "cors": true
+  },
+  {
+    "url": "https://inv.riverside.rocks",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.nerdvpn.de",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.tiekoetter.com",
+    "cors": true
+  },
+  {
+    "url": "https://inv.bp.projectsegfau.lt",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.flokinet.to",
+    "cors": true
+  },
+  {
+    "url": "https://yt.artemislena.eu",
+    "cors": true
+  },
+  {
+    "url": "https://inv.pistasjis.net",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.sethforprivacy.com",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.projectsegfau.lt",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.baczek.me",
+    "cors": true
+  },
+  {
+    "url": "https://yt.funami.tech",
+    "cors": true
+  },
+  {
+    "url": "https://iv.ggtyler.dev",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.lunar.icu",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.privacydev.net",
+    "cors": true
+  },
+  {
+    "url": "https://vid.priv.au",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.0011.lt",
+    "cors": true
+  },
+  {
+    "url": "https://inv.zzls.xyz",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.slipfox.xyz",
+    "cors": true
+  },
+  {
+    "url": "https://yt.floss.media",
+    "cors": false
+  },
+  {
+    "url": "https://invidious.nogafa.org",
+    "cors": true
+  },
+  {
+    "url": "https://iv.melmac.space",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.esmailelbob.xyz",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.snopyta.org",
+    "cors": true
+  }
 ]
