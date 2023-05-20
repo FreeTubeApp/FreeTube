@@ -31,6 +31,7 @@
     "dev": "run-s rebuild:electron dev-runner",
     "dev:web": "node _scripts/dev-runner.js --web",
     "dev-runner": "node _scripts/dev-runner.js",
+    "get-instances": "node _scripts/getInstances.js",
     "lint-all": "run-p lint lint-json lint-style",
     "lint-fix": "eslint --fix --ext .js,.vue ./",
     "lint": "eslint --ext .js,.vue ./",
