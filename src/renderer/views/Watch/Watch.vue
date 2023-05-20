@@ -21,6 +21,7 @@
           ref="videoPlayer"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
+          :audio-tracks="audioTracks"
           :adaptive-formats="adaptiveFormats"
           :caption-hybrid-list="captionHybridList"
           :storyboard-src="videoStoryboardSrc"
