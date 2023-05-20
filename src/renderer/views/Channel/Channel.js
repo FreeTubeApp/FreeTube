@@ -184,6 +184,10 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
+    hideChannelShorts: function () {
+      return this.$store.getters.getHideChannelShorts
+    },
+
     hideLiveStreams: function () {
       return this.$store.getters.getHideLiveStreams
     },
@@ -207,6 +211,11 @@ export default defineComponent({
       ]
 
       // remove tabs from the array based on user settings
+      if (this.hideChannelShorts) {
+        const index = values.indexOf('shorts')
+        values.splice(index, 1)
+      }
+
       if (this.hideLiveStreams) {
         const index = values.indexOf('live')
         values.splice(index, 1)
@@ -263,6 +272,10 @@ export default defineComponent({
       this.showShortSortBy = true
       this.showLiveSortBy = true
       this.showPlaylistSortBy = true
+
+      if (this.hideChannelShorts && currentTab === 'shorts') {
+        currentTab = 'videos'
+      }
 
       if (this.hideLiveStreams && currentTab === 'live') {
         currentTab = 'videos'
@@ -366,6 +379,10 @@ export default defineComponent({
     this.id = this.$route.params.id
 
     let currentTab = this.$route.params.currentTab ?? 'videos'
+
+    if (this.hideChannelShorts && currentTab === 'shorts') {
+      currentTab = 'videos'
+    }
 
     if (this.hideLiveStreams && currentTab === 'live') {
       currentTab = 'videos'
@@ -591,7 +608,7 @@ export default defineComponent({
           this.getChannelVideosLocal()
         }
 
-        if (channel.has_shorts) {
+        if (!this.hideChannelShorts && channel.has_shorts) {
           this.getChannelShortsLocal()
         }
 
@@ -883,7 +900,7 @@ export default defineComponent({
           this.channelInvidiousVideos()
         }
 
-        if (response.tabs.includes('shorts')) {
+        if (!this.hideChannelShorts && response.tabs.includes('shorts')) {
           this.channelInvidiousShorts()
         }
 
