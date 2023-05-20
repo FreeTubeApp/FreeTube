@@ -55,6 +55,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    canRemoveFromPlaylist: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function () {
     return {

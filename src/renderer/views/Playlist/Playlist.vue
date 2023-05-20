@@ -20,6 +20,8 @@
       :view-count="viewCount"
       :info-source="infoSource"
       class="playlistInfo"
+      @enter-edit-mode="playlistInEditMode = true"
+      @exit-edit-mode="playlistInEditMode = false"
     />
 
     <ft-card
@@ -46,8 +48,9 @@
             :playlist-index="index"
             appearance="result"
             force-list-type="list"
-            :can-move-video-up="index > 0"
-            :can-move-video-down="index < playlistItems.length - 1"
+            :can-move-video-up="playlistInEditMode && index > 0"
+            :can-move-video-down="playlistInEditMode && index < playlistItems.length - 1"
+            :can-remove-from-playlist="playlistInEditMode"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
           />

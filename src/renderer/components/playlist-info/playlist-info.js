@@ -195,10 +195,14 @@ export default defineComponent({
       this.newTitle = this.title
       this.newDescription = this.description
       this.editMode = true
+
+      this.$emit('enter-edit-mode')
     },
 
     exitEditMode: function () {
       this.editMode = false
+
+      this.$emit('exit-edit-mode')
     },
 
     handleRemoveVideosOnWatchPromptAnswer: function (option) {

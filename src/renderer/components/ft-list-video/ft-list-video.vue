@@ -65,7 +65,7 @@
           @click="togglePlaylistPrompt"
         />
         <ft-icon-button
-          v-if="inUserPlaylist"
+          v-if="inUserPlaylist && canRemoveFromPlaylist"
           title="Remove from playlist"
           :icon="['fas', 'trash']"
           class="trashIcon"

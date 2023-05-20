@@ -51,6 +51,7 @@ export default defineComponent({
       continuationData: null,
       isLoadingMore: false,
       getPlaylistInfoDebounce: function() {},
+      playlistInEditMode: false,
     }
   },
   computed: {

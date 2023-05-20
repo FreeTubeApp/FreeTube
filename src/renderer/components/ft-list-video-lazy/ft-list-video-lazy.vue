@@ -18,6 +18,7 @@
       :appearance="appearance"
       :can-move-video-up="canMoveVideoUp"
       :can-move-video-down="canMoveVideoDown"
+      :can-remove-from-playlist="canRemoveFromPlaylist"
       @pause-player="$emit('pause-player')"
       @move-video-up="(id) => $emit('move-video-up', id)"
       @move-video-down="(id) => $emit('move-video-down', id)"
