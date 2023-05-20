@@ -6,7 +6,7 @@
       Select a Playlist to add your video(s) to
     </h2>
     <p class="center">
-      {{ selectedPlaylistsCount }} Selected
+      {{ selectedPlaylistIdSetCount }} Selected
     </p>
     <ft-input
       v-show="allPlaylists.length > 0"
@@ -23,7 +23,7 @@
         :key="`${playlist._id}-${index}`"
         :data="playlist"
         :index="index"
-        @selected="countSelected"
+        @selected="countSelected(playlist._id)"
       />
     </ft-flex-box>
     <ft-flex-box>

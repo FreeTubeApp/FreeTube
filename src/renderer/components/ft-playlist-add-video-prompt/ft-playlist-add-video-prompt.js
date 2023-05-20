@@ -25,7 +25,7 @@ export default Vue.extend({
         'save',
         'cancel'
       ],
-      selectedPlaylists: [],
+      selectedPlaylistIdSet: new Set(),
       query: '',
       updateQueryDebounce: function() {},
     }
@@ -57,8 +57,8 @@ export default Vue.extend({
         return a.title.localeCompare(b.title, this.locale)
       })
     },
-    selectedPlaylistsCount: function () {
-      return this.selectedPlaylists.length
+    selectedPlaylistIdSetCount: function () {
+      return this.selectedPlaylistIdSet.size
     },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
@@ -99,20 +99,21 @@ export default Vue.extend({
       this.hideAddToPlaylistPrompt()
     },
 
-    countSelected: function (index) {
-      const indexOfVideo = this.selectedPlaylists.indexOf(index)
-      if (indexOfVideo !== -1) {
-        this.selectedPlaylists.splice(indexOfVideo, 1)
+    countSelected: function (playlistId) {
+      if (this.selectedPlaylistIdSet.has(playlistId)) {
+        this.selectedPlaylistIdSet.delete(playlistId)
       } else {
-        this.selectedPlaylists.push(index)
+        this.selectedPlaylistIdSet.add(playlistId)
       }
     },
 
     addSelectedToPlaylists: function () {
       let addedPlaylists = 0
-      this.selectedPlaylists.forEach((index) => {
-        const playlist = this.allPlaylists[index]
-        const videoId = this.playlistAddVideoObject.videoId
+      const videoId = this.playlistAddVideoObject.videoId
+      this.selectedPlaylistIdSet.forEach((selectedPlaylistId) => {
+        const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
+        if (playlist == null) { return }
+
         const findVideo = playlist.videos.findIndex((video) => {
           return video.videoId === videoId
         })
