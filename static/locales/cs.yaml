@@ -277,6 +277,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Přeskočení posouváním na přehrávači videa
     Allow DASH AV1 formats: Povolit formáty DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Automatické načtení komentářů
   Privacy Settings:
     Privacy Settings: 'Nastavení soukromí'
     Remember History: 'Zapamatovat historii'
@@ -323,6 +325,10 @@ Settings:
     Hide Channels Placeholder: Název nebo ID kanálu
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
       použití velkých písmen
+    Hide Featured Channels: Skrýt doporučené kanály
+    Hide Channel Playlists: Skrýt playlisty kanálu
+    Hide Channel Community: Skrýt komunitu kanálu
+    Hide Channel Shorts: Skrýt Shorts kanálu
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -609,6 +615,9 @@ Channel:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
       době nemá žádné živé přenosy
+  Shorts:
+    This channel does not currently have any shorts: Tento kanál nemá žádné shorts
+    Shorts: Shorts
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
@@ -646,8 +655,8 @@ Video:
     programu podporován.'
   'Chat is disabled or the Live Stream has ended.': 'Chat je zakázán nebo živý přenos
     byl ukončen.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Živý chat je
-    povolen.  Po odeslání se zde zobrazí zprávy chatu.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Živý chat je povolen.  Po
+    odeslání se zde zobrazí zprávy chatu.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Živý
     chat momentálně není podporován s Invidious API. Je vyžadováno přímé připojení
     k YouTube.'
@@ -840,9 +849,9 @@ Tooltips:
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si
       přejete zobrazovat videa v trendech. Ne všechny zobrazené země jsou ale službou
       YouTube opravdu podporovány.'
-    External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze\
-      \ otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem\
-      \ výchozím prohlížeči.\n"
+    External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze
+      otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
+      prohlížeči.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Funguje pouze v případě, že je výchozím
       nastavením API Invidious. Je-li povoleno, spustí se místní API a použije starší
@@ -964,3 +973,8 @@ Chapters:
   Chapters: Kapitoly
 Preferences: Předvolby
 Ok: Ok
+Hashtag:
+  You can only view hashtag pages through the Local API: Stránky hashtagů lze momentálně
+    procházet pouze s lokálním API
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Tento hashtag nemá žádná videa

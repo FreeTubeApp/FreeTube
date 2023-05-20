@@ -31,6 +31,22 @@ import {
 } from '../../helpers/api/local'
 import { filterInvidiousFormats, invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
+/**
+ * @typedef {object} AudioSource
+ * @property {string} url
+ * @property {string} type
+ * @property {string} label
+ * @property {string} qualityLabel
+ *
+ * @typedef {object} AudioTrack
+ * @property {string} id
+ * @property {('main'|'translation'|'descriptions'|'alternative')} kind - https://videojs.com/guides/audio-tracks/#kind
+ * @property {string} label
+ * @property {string} language
+ * @property {boolean} isDefault
+ * @property {AudioSource[]} sourceList
+ */
+
 export default defineComponent({
   name: 'Watch',
   components: {
@@ -88,6 +104,10 @@ export default defineComponent({
       activeSourceList: [],
       videoSourceList: [],
       audioSourceList: [],
+      /**
+       * @type {AudioTrack[]}
+       */
+      audioTracks: [],
       adaptiveFormats: [],
       captionHybridList: [], // [] -> Promise[] -> string[] (URIs)
       recommendedVideos: [],
@@ -196,6 +216,7 @@ export default defineComponent({
       this.captionHybridList = []
       this.downloadLinks = []
       this.videoCurrentChapterIndex = 0
+      this.audioTracks = []
 
       this.checkIfPlaylist()
       this.checkIfTimestamp()
@@ -557,32 +578,68 @@ export default defineComponent({
           }
 
           if (result.streaming_data?.adaptive_formats.length > 0) {
-            this.audioSourceList = result.streaming_data.adaptive_formats.filter((format) => {
+            const audioFormats = result.streaming_data.adaptive_formats.filter((format) => {
               return format.has_audio
-            }).sort((a, b) => {
-              return a.bitrate - b.bitrate
-            }).map((format, index) => {
-              const label = (x) => {
-                switch (x) {
-                  case 0:
-                    return this.$t('Video.Audio.Low')
-                  case 1:
-                    return this.$t('Video.Audio.Medium')
-                  case 2:
-                    return this.$t('Video.Audio.High')
-                  case 3:
-                    return this.$t('Video.Audio.Best')
-                  default:
-                    return format.bitrate
+            })
+
+            const hasMultipleAudioTracks = audioFormats.some(format => format.audio_track)
+
+            if (hasMultipleAudioTracks) {
+              /** @type {string[]} */
+              const ids = []
+
+              /** @type {AudioTrack[]} */
+              const audioTracks = []
+
+              /** @type {import('youtubei.js').Misc.Format[][]} */
+              const sourceLists = []
+
+              audioFormats.forEach(format => {
+                const index = ids.indexOf(format.audio_track.id)
+                if (index === -1) {
+                  ids.push(format.audio_track.id)
+
+                  let kind
+
+                  if (format.audio_track.audio_is_default) {
+                    kind = 'main'
+                  } else if (format.is_dubbed) {
+                    kind = 'translation'
+                  } else if (format.is_descriptive) {
+                    kind = 'descriptions'
+                  } else {
+                    kind = 'alternative'
+                  }
+
+                  audioTracks.push({
+                    id: format.audio_track.id,
+                    kind,
+                    label: format.audio_track.display_name,
+                    language: format.language,
+                    isDefault: format.audio_track.audio_is_default,
+                    sourceList: []
+                  })
+
+                  sourceLists.push([
+                    format
+                  ])
+                } else {
+                  sourceLists[index].push(format)
                 }
+              })
+
+              for (let i = 0; i < audioTracks.length; i++) {
+                audioTracks[i].sourceList = this.createLocalAudioSourceList(sourceLists[i])
               }
-              return {
-                url: format.url,
-                type: format.mime_type,
-                label: 'Audio',
-                qualityLabel: label(index)
-              }
-            }).reverse()
+
+              this.audioTracks = audioTracks
+
+              this.audioSourceList = this.audioTracks.find(track => track.isDefault).sourceList
+            } else {
+              this.audioTracks = []
+
+              this.audioSourceList = this.createLocalAudioSourceList(audioFormats)
+            }
 
             // we need to alter the result object so the toDash function uses the filtered formats too
             result.streaming_data.adaptive_formats = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
@@ -626,6 +683,8 @@ export default defineComponent({
         console.error(err)
         if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
           showToast(this.$t('Falling back to Invidious API'))
+          // Invidious doesn't support multiple audio tracks, so we need to clear this to prevent the player getting confused
+          this.audioTracks = []
           this.getVideoInformationInvidious()
         } else {
           this.isLoading = false
@@ -879,6 +938,42 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    /**
+     * @param {import('youtubei.js').Misc.Format[]} audioFormats
+     * @returns {AudioSource[]}
+     */
+    createLocalAudioSourceList: function (audioFormats) {
+      return audioFormats.sort((a, b) => {
+        return a.bitrate - b.bitrate
+      }).map((format, index) => {
+        let label
+
+        switch (index) {
+          case 0:
+            label = this.$t('Video.Audio.Low')
+            break
+          case 1:
+            label = this.$t('Video.Audio.Medium')
+            break
+          case 2:
+            label = this.$t('Video.Audio.High')
+            break
+          case 3:
+            label = this.$t('Video.Audio.Best')
+            break
+          default:
+            label = format.bitrate.toString()
+        }
+
+        return {
+          url: format.url,
+          type: format.mime_type,
+          label: 'Audio',
+          qualityLabel: label
+        }
+      }).reverse()
     },
 
     addToHistory: function (watchProgress) {

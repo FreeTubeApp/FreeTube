@@ -99,6 +99,19 @@
               {{ $t("Channel.Videos.Videos").toUpperCase() }}
             </div>
             <div
+              id="shortsTab"
+              class="tab"
+              :class="(currentTab==='shorts')?'selectedTab':''"
+              role="tab"
+              aria-selected="true"
+              aria-controls="shortPanel"
+              tabindex="0"
+              @click="changeTab('shorts')"
+              @keydown.left.right.enter.space="changeTab('shorts', $event)"
+            >
+              {{ $t("Channel.Shorts.Shorts").toUpperCase() }}
+            </div>
+            <div
               v-if="!hideLiveStreams"
               id="liveTab"
               class="tab"
@@ -190,6 +203,16 @@
         @change="videoSortBy = $event"
       />
       <ft-select
+        v-if="showShortSortBy"
+        v-show="currentTab === 'shorts' && latestShorts.length > 0"
+        class="sortSelect"
+        :value="videoShortLiveSelectValues[0]"
+        :select-names="videoShortLiveSelectNames"
+        :select-values="videoShortLiveSelectValues"
+        :placeholder="$t('Search Filters.Sort By.Sort By')"
+        @change="shortSortBy = $event"
+      />
+      <ft-select
         v-if="!hideLiveStreams && showLiveSortBy"
         v-show="currentTab === 'live' && latestLive.length > 0"
         class="sortSelect"
@@ -228,6 +251,20 @@
         >
           <p class="message">
             {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-if="currentTab === 'shorts'"
+          id="shortPanel"
+          :data="latestShorts"
+          role="tabpanel"
+          aria-labelledby="shortsTab"
+        />
+        <ft-flex-box
+          v-if="currentTab === 'shorts' && latestShorts.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Shorts.This channel does not currently have any shorts") }}
           </p>
         </ft-flex-box>
         <ft-element-list

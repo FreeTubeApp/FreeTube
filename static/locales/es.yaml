@@ -273,6 +273,8 @@ Settings:
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Cargar los comentarios automáticamente
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Recordar historial'
@@ -397,6 +399,10 @@ Settings:
     Hide Channels Placeholder: Nombre o ID del canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
       mayúsculas
+    Hide Featured Channels: Ocultar los canales recomendados
+    Hide Channel Playlists: Ocultar las listas de reproducción de los canales
+    Hide Channel Community: Ocultar los canal de la comunidad
+    Hide Channel Shorts: Ocultar los canales de vídeos cortos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -619,6 +625,10 @@ Channel:
     Live: En directo
     This channel does not currently have any live streams: Este canal no tiene actualmente
       ninguna retransmisión en directo
+  Shorts:
+    Shorts: Cortos
+    This channel does not currently have any shorts: Este canal no tiene actualmente
+      ningún vídeo corto
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -914,9 +924,9 @@ Tooltips:
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
       datos. La API local es un extractor incorporado. La API de Invidious requiere
       de un servidor Invidious al cual conectarse.
-    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic\
-      \ en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube\
-      \ abrirá el enlace en el que se hizo clic en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic
+      en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá
+      el enlace en el que se hizo clic en su navegador predeterminado.\n"
   Privacy Settings:
     Remove Video Meta Files: Cuando se active, FreeTube eliminará automáticamente
       meta-archivos creados durante la reproducción del vídeo una vez se cierre la
@@ -996,3 +1006,9 @@ Chapters:
   Chapters: Capítulos
 Preferences: Preferencias
 Ok: De acuerdo
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Este hashtag no tiene actualmente
+    ningún vídeo
+  You can only view hashtag pages through the Local API: Sólo puedes ver las páginas
+    de los hashtags a través de la API local

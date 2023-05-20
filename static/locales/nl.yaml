@@ -269,6 +269,9 @@ Settings:
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
         video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
         te maken.'
+    Comment Auto Load:
+      Comment Auto Load: Commentaar Automatisch Laden
+    Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
@@ -422,6 +425,9 @@ Settings:
       negeren
     External Player: Externe videospeler
     External Player Settings: Instellingen externe mediaspeler
+    Players:
+      None:
+        Name: Geen
   Download Settings:
     Choose Path: Pad kiezen
     Download Settings: Downloadinstellingen
@@ -843,9 +849,9 @@ Tooltips:
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
       video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
       door YouTube.
-    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet\
-      \ kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte\
-      \ link openen in je standaardbrowser.\n"
+    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet
+      kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
+      link openen in je standaardbrowser.\n"
   Privacy Settings:
     Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
       die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina

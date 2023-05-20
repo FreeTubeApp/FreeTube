@@ -279,6 +279,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
     Allow DASH AV1 formats: Разрешаване на форматите DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Атоматично зареждане на коментари
   Privacy Settings:
     Privacy Settings: 'Настройки за поверителност'
     Remember History: 'Запазване на историята'
@@ -401,6 +403,10 @@ Settings:
     Hide Channels Placeholder: Име или идентификатор на канала
     Display Titles Without Excessive Capitalisation: Показване на заглавията без излишни
       главни букви
+    Hide Featured Channels: Скриване на препоръчаните канали
+    Hide Channel Playlists: Скриване на плейлистите на каналите
+    Hide Channel Community: Скриване на общността на каналите
+    Hide Channel Shorts: Скриване на късите видеа на канала
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -624,6 +630,10 @@ Channel:
     Live: На живо
     This channel does not currently have any live streams: В момента този канал няма
       никакви потоци на живо
+  Shorts:
+    This channel does not currently have any shorts: В момента този канал няма никакви
+      къси видеа
+    Shorts: Къси видеа
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
@@ -765,7 +775,7 @@ Video:
   Premieres: Премиерa
   Show Super Chat Comment: Показване на Super Chat коментар
   Scroll to Bottom: Превъртане в долната част
-  Upcoming: Предстоящи
+  Upcoming: Предстои
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чатът
     на живо не е наличен за този поток. Възможно е да е бил деактивиран от качващия.
 Videos:
@@ -908,9 +918,9 @@ Tooltips:
     Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
       Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
       сървър, към който да се свърже.
-    External Link Handling: "Избор на поведението по подразбиране, когато щракнете\
-      \ върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране\
-      \ FreeTube ще отвори връзката в браузъра по подразбиране.\n"
+    External Link Handling: "Избор на поведението по подразбиране, когато щракнете
+      върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране
+      FreeTube ще отвори връзката в браузъра по подразбиране.\n"
   Privacy Settings:
     Remove Video Meta Files: Когато страницата за гледане бъде затворена, FreeTube
       автоматично ще изтрива метафайловете, създадени по време на възпроизвеждане
@@ -989,3 +999,8 @@ Chapters:
     текуща глава: {chapterName}'
 Preferences: Предпочитания
 Ok: Добре
+Hashtag:
+  Hashtag: Хаштаг
+  This hashtag does not currently have any videos: В момента този хаштаг няма видеа
+  You can only view hashtag pages through the Local API: Можете да разглеждате страници
+    с хаштагове само чрез локалния вътрешен интерфейс

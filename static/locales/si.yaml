@@ -71,47 +71,11 @@ Settings:
       Invidious API: 'ඉන්වීඩියස් යෙ.ක්‍ර. අ.මු. (API)'
   Theme Settings:
     Base Theme:
-      Base Theme: ''
       Black: 'කළු'
       Dark: 'අඳුරු'
-    Main Color Theme:
-      Amber: ''
-  Player Settings:
-    Default Video Format:
-      Legacy Formats: ''
-  Privacy Settings:
-    Clear Search Cache: ''
-  Distraction Free Settings:
-    Hide Comment Likes: ''
-  Data Settings:
-    Import History: ''
-    How do I import my subscriptions?: ''
+  Player Settings: {}
   Advanced Settings: {}
-About:
-  #On About page
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-Profile:
-  Delete Profile: ''
-  Delete Selected: ''
 Channel:
-  Videos:
-    This channel does not currently have any videos: ''
   Playlists: {}
-Video:
-  Open in YouTube: ''
-  Starting soon, please refresh the page to check again: ''
-  # As in a Live Video
-  Published:
-    Apr: ''
-    Days: ''
-Playlist:
-  #& About
-  Views: ''
-Share:
-  Invidious Embed URL copied to clipboard: ''
-Comments:
-  Reply: ''
-Playing Next Video: ''
 More: තව
 Open New Window: නව කවුළුව විවෘත කරන්න

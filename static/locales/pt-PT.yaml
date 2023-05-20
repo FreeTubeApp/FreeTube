@@ -277,6 +277,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Saltar por percorrer o leitor de vídeo
     Allow DASH AV1 formats: Permitir formatos DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Comentário Carga automática
   Privacy Settings:
     Privacy Settings: Definições de privacidade
     Remember History: Memorizar histórico
@@ -330,6 +332,10 @@ Settings:
     Hide Channels Placeholder: Nome ou identificação do canal
     Display Titles Without Excessive Capitalisation: Mostrar Títulos sem Capitalização
       Excessiva
+    Hide Featured Channels: Ocultar canais em destaque
+    Hide Channel Playlists: Ocultar listas de reprodução de canais
+    Hide Channel Community: Ocultar canal Comunidade
+    Hide Channel Shorts: Esconder as curtas do canal
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -572,6 +578,10 @@ Channel:
     Live: Em directo
     This channel does not currently have any live streams: Este canal não tem atualmente
       nenhuma transmissão ao vivo
+  Shorts:
+    Shorts: Curtas
+    This channel does not currently have any shorts: Este canal não tem atualmente
+      nenhum canal curto
 Video:
   Mark As Watched: Marcar como visto
   Remove From History: Remover do histórico
@@ -607,8 +617,8 @@ Video:
     permitida nesta versão.
   'Chat is disabled or the Live Stream has ended.': A conversa ou a emissão em direto
     já terminou.
-  Live chat is enabled. Chat messages will appear here once sent.: A conversa em
-    direto está ativada. As mensagens vão aparecer aqui.
+  Live chat is enabled. Chat messages will appear here once sent.: A conversa em direto
+    está ativada. As mensagens vão aparecer aqui.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': A
     conversação em direto não se encontra a funcionar com a API Invividious. É necessária
     uma ligação direta ao YouTube.
@@ -801,9 +811,9 @@ Tooltips:
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
       os vídeos na secção das tendências. Nem todos os países mostrados funcionam
       corretamente.
-    External Link Handling: "Escolha o comportamento padrão quando uma ligação, que\
-      \ não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá\
-      \ a ligação no seu navegador de Internet.\n"
+    External Link Handling: "Escolha o comportamento padrão quando uma ligação, que
+      não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá
+      a ligação no seu navegador de Internet.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
       é o seu sistema usado. Quando ativada, a API local será executada para usar
@@ -935,3 +945,9 @@ Clipboard:
   Cannot access clipboard without a secure connection: Não é possível aceder à área
     de transferência sem uma ligação segura
 Ok: Ok
+Hashtag:
+  Hashtag: Marcador
+  You can only view hashtag pages through the Local API: Só é possível ver páginas
+    de hashtag através da API local
+  This hashtag does not currently have any videos: Esta hashtag não tem atualmente
+    quaisquer vídeos

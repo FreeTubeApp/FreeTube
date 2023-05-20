@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
@@ -12,7 +12,7 @@ export default defineComponent({
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
-    'ft-list-video-lazy': FtListVideoLazy
+    'ft-list-video-lazy': FtListVideoLazy,
   },
   props: {
     playlistId: {
@@ -22,7 +22,11 @@ export default defineComponent({
     videoId: {
       type: String,
       required: true
-    }
+    },
+    watchViewLoading: {
+      type: Boolean,
+      required: true
+    },
   },
   data: function () {
     return {
@@ -34,7 +38,7 @@ export default defineComponent({
       channelId: '',
       playlistTitle: '',
       playlistItems: [],
-      randomizedPlaylistItems: []
+      randomizedPlaylistItems: [],
     }
   },
   computed: {
@@ -106,7 +110,25 @@ export default defineComponent({
           this.shufflePlaylistItems()
         }
       }
-    }
+    },
+    watchViewLoading: function(newVal, oldVal) {
+      // This component is loaded/rendered before watch view loaded
+      if (oldVal && !newVal) {
+        // Scroll after watch view loaded, otherwise doesn't work
+        // Mainly for Local API
+        // nextTick(() => this.scrollToCurrentVideo())
+        this.scrollToCurrentVideo()
+      }
+    },
+    isLoading: function(newVal, oldVal) {
+      // This component is loaded/rendered before watch view loaded
+      if (oldVal && !newVal) {
+        // Scroll after this component loaded, otherwise doesn't work
+        // Mainly for Invidious API
+        // `nextTick` is required (tested via reloading)
+        nextTick(() => this.scrollToCurrentVideo())
+      }
+    },
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
@@ -386,6 +408,15 @@ export default defineComponent({
       })
 
       this.randomizedPlaylistItems = items
+    },
+
+    scrollToCurrentVideo: function () {
+      const container = this.$refs.playlistItems
+      const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
+      if (container != null && currentVideoItem != null) {
+        // Watch view can be ready sooner than this component
+        container.scrollTop = currentVideoItem.offsetTop - container.offsetTop
+      }
     },
 
     ...mapMutations([

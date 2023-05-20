@@ -405,6 +405,7 @@ Settings:
     Hide Channels Placeholder: Kanalname oder Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       anzeigen
+    Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -618,8 +619,8 @@ Video:
     Version nicht unterstützt.
   'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
     der Livestream ist beendet.
-  Live chat is enabled. Chat messages will appear here once sent.: Der Live-Chat
-    ist aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
+  Live chat is enabled. Chat messages will appear here once sent.: Der Live-Chat ist
+    aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
     ist in der aktuellen Invidious-API nicht unterstützt.  Eine direkte Verbindung
     zu YouTube wird benötigt.
@@ -905,9 +906,9 @@ Tooltips:
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
       unterstützt.
-    External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt\
-      \ wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube\
-      \ den angeklickten Link in deinem Standardbrowser öffnen.\n"
+    External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
+      wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
+      den angeklickten Link in deinem Standardbrowser öffnen.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standardmethode
       nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
