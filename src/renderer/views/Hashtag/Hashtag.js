@@ -6,6 +6,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { isNullOrEmpty } from '../../helpers/utils'
+import { getHashtagInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'Hashtag',
@@ -21,6 +22,7 @@ export default defineComponent({
       hashtagContinuationData: null,
       videos: [],
       apiUsed: 'local',
+      pageNumber: 1,
       isLoading: true
     }
   },
@@ -34,7 +36,7 @@ export default defineComponent({
     },
 
     showFetchMoreButton() {
-      return !isNullOrEmpty(this.hashtagContinuationData)
+      return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === 'invidious'
     }
   },
   watch: {
@@ -44,6 +46,7 @@ export default defineComponent({
       this.hashtagContinuationData = null
       this.videos = []
       this.apiUsed = 'local'
+      this.pageNumber = 1
       this.getHashtag()
     }
   },
@@ -57,14 +60,18 @@ export default defineComponent({
       if (this.backendFallback || this.backendPreference === 'local') {
         await this.getLocalHashtag(hashtag)
       } else {
-        this.getInvidiousHashtag(hashtag)
+        await this.getInvidiousHashtag(hashtag)
       }
       document.title = `${this.hashtag} - ${packageDetails.productName}`
     },
-    getInvidiousHashtag: function(hashtag) {
+
+    getInvidiousHashtag: async function(hashtag, page) {
+      const videos = await getHashtagInvidious(hashtag, page)
       this.hashtag = '#' + hashtag
-      this.apiUsed = 'Invidious'
       this.isLoading = false
+      this.apiUsed = 'invidious'
+      this.videos = this.videos.concat(videos)
+      this.pageNumber += 1
     },
 
     getLocalHashtag: async function(hashtag) {
@@ -94,6 +101,9 @@ export default defineComponent({
     handleFetchMore: function() {
       if (this.apiUsed === 'local') {
         this.getLocalHashtagMore()
+      } else if (this.apiUsed === 'invidious') {
+        console.error('inv more')
+        this.getInvidiousHashtag(this.hashtag.substring(1), this.pageNumber)
       }
     }
   }

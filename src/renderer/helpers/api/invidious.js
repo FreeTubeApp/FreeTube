@@ -290,3 +290,15 @@ export function filterInvidiousFormats(formats, allowAv1 = false) {
   // }
   return [...audioFormats, ...h264Formats]
 }
+
+export async function getHashtagInvidious(hashtag, page) {
+  const payload = {
+    resource: 'hashtag',
+    id: hashtag,
+    params: {
+      page
+    }
+  }
+  const response = await invidiousAPICall(payload)
+  return response.results
+}
