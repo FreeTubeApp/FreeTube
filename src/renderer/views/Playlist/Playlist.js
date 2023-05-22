@@ -91,26 +91,26 @@ export default defineComponent({
     },
     selectedUserPlaylistVideoCount: function() {
       return this.selectedUserPlaylistVideos.length
-    }
+    },
   },
   watch: {
     $route () {
       // react to route changes...
       this.getPlaylistInfoDebounce()
     },
-    userPlaylistsReady (val, oldVal) {
+    userPlaylistsReady () {
       // Fetch from local store when playlist data ready
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylist (val, oldVal) {
+    selectedUserPlaylist () {
       // Fetch from local store when current user playlist changed
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistLastUpdatedAt (val, oldVal) {
+    selectedUserPlaylistLastUpdatedAt () {
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistVideoCount (val, oldVal) {
+    selectedUserPlaylistVideoCount () {
       // Monitoring `selectedUserPlaylistVideos` makes this function called
       // Even when the same array object is returned
       // So length is monitored instead
