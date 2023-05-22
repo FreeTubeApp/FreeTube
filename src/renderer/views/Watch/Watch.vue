@@ -144,6 +144,7 @@
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
         :video-player-ready="videoPlayerReady"
+        :force-state="commentsEnabled ? null : 'noComment'"
         @timestamp-event="changeTimestamp"
       />
     </div>
