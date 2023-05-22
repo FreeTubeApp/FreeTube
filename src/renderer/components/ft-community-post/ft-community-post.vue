@@ -25,7 +25,10 @@
         {{ publishedText }}
       </p>
     </div>
-    <p v-html="postText" />
+    <p
+      class="postText"
+      v-html="postText"
+    />
     <tiny-slider
       v-if="type === 'multiImage' && postContent.content.length > 0"
       v-bind="tinySliderOptions"
@@ -114,5 +117,5 @@
 </template>
 
 <script src="./ft-community-post.js" />
-<style src="./ft-community-post.scss" lang="scss" />
+<style scoped src="./ft-community-post.scss" lang="scss" />
 <style src="./slider-style.css" lang="css" />
