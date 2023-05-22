@@ -66,6 +66,11 @@
   }
 }
 
+.postText {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
 .bottomSection {
   color: var(--tertiary-text-color);
   display: block;

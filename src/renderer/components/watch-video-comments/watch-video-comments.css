@@ -17,14 +17,16 @@
   color: var(--title-color);
 }
 
-.commentsTitle,
-.getMoreComments {
-  padding-bottom: 1em;
+.noCommentMsg {
   padding-top: 1em;
+  padding-bottom: 1em;
+
+  text-align: center;
 }
 
-.center {
-  text-align: center;
+.commentsTitle {
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 
 .commentSort {
@@ -34,10 +36,6 @@
 .comment {
   padding: 15px;
   position: relative;
-}
-
-.comment:last-child {
-  padding-bottom: 0;
 }
 
 .hideComments {
@@ -166,6 +164,8 @@
 }
 
 .getMoreComments {
+  padding-bottom: 1em;
+
   text-align: center;
   text-decoration: underline;
   cursor: pointer;

@@ -282,6 +282,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
     Allow DASH AV1 formats: Autoriser les formats DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Chargement automatique des commentaires
   Subscription Settings:
     Subscription Settings: 'Paramètres des abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
@@ -416,6 +418,7 @@ Settings:
     Hide Channels Placeholder: Nom ou identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
       excessives
+    Hide Channel Playlists: Masquer les listes de lecture des chaînes
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -610,6 +613,10 @@ Channel:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement
       aucun flux en direct
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: Cette chaîne n'a actuellement
+      aucun shorts
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'
@@ -956,9 +963,9 @@ Tooltips:
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
       vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
       en charge par YouTube.
-    External Link Handling: "Choisissez le comportement par défaut quand on clique\
-      \ sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira\
-      \ le lien dans votre navigateur par défaut.\n"
+    External Link Handling: "Choisissez le comportement par défaut quand on clique
+      sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira
+      le lien dans votre navigateur par défaut.\n"
   Privacy Settings:
     Remove Video Meta Files: Lorsqu'il est activé, FreeTube supprime automatiquement
       les MétaFichiers créés pendant la lecture de la vidéo, dès que la page de la

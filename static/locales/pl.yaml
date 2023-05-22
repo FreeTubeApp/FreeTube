@@ -274,6 +274,8 @@ Settings:
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
     Allow DASH AV1 formats: Zezwól na format AV1 DASH
+    Comment Auto Load:
+      Comment Auto Load: Ładuj komentarze automatycznie
   Subscription Settings:
     Subscription Settings: 'Ustawienia subskrypcji'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
@@ -404,6 +406,10 @@ Settings:
     Hide Channels Placeholder: Nazwa albo ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły bez nadmiernych
       wielkich liter
+    Hide Channel Community: Schowaj społeczność kanału
+    Hide Channel Shorts: Schowaj filmy Short kanału
+    Hide Featured Channels: Schowaj polecane kanały
+    Hide Channel Playlists: Schowaj playlisty kanału
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -591,6 +597,10 @@ Channel:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
       żadnych transmisji
+  Shorts:
+    Shorts: Filmy Short
+    This channel does not currently have any shorts: Ten kanał nie ma obecnie żadnych
+      filmów Short
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -616,8 +626,8 @@ Video:
     wspierany w tej kompilacji.'
   'Chat is disabled or the Live Stream has ended.': 'Czat jest wyłączony, lub transmisja
     na żywo zakończyła się.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Czat na żywo
-    jest włączony. Wiadomości z czatu pojawią się tutaj po wysłaniu.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Czat na żywo jest
+    włączony. Wiadomości z czatu pojawią się tutaj po wysłaniu.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Czat
     na żywo nie wspiera obecnie API Invidious. Konieczne jest połączenie bezpośrednie
     z YouTube.'
@@ -906,9 +916,9 @@ Tooltips:
       API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
       z filmu zamiast miniaturki domyślnej.
-    External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może\
-      \ zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy\
-      \ kliknięty link w domyślnej przeglądarce.\n"
+    External Link Handling: "Wybierz domyślne zachowanie kiedy link, który nie może
+      zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy kliknięty
+      link w domyślnej przeglądarce.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: Działa tylko, kiedy API Invidious jest
       ustawiony jako domyślny. Gdy opcja jest włączona, do odtwarzania starych formatów
@@ -1009,3 +1019,9 @@ Chapters:
     rozdział: {chapterName}'
 Preferences: Preferencje
 Ok: Ok
+Hashtag:
+  You can only view hashtag pages through the Local API: Strony hashtagów są dostępne
+    jedynie poprzez lokalne API
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Nie ma na razie żadnych filmów
+    z takim hashtagiem

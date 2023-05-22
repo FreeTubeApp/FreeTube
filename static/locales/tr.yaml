@@ -274,6 +274,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
     Allow DASH AV1 formats: DASH AV1 biçimlerine izin ver
+    Comment Auto Load:
+      Comment Auto Load: Yorumları Otomatik Yükle
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -399,6 +401,10 @@ Settings:
     Hide Channels: Kanallardan Videoları Gizle
     Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
       Görüntüle
+    Hide Featured Channels: Öne Çıkan Kanalları Gizle
+    Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
+    Hide Channel Community: Kanal Topluluğunu Gizle
+    Hide Channel Shorts: Kanal Kısa Videolarını Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -627,6 +633,10 @@ Channel:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
       bir canlı yayın yok
+  Shorts:
+    Shorts: Kısa Videolar
+    This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video
+      yok
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'
@@ -659,8 +669,8 @@ Video:
   Live Chat is currently not supported in this build.: 'Canlı Sohbet bu sürümde desteklenmiyor.'
   'Chat is disabled or the Live Stream has ended.': 'Sohbet devre dışı bırakıldı veya
     Canlı Yayın sona erdi.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet
-    etkinleştirildi. Sohbet mesajları gönderildikten sonra burada görünecektir.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet etkinleştirildi.
+    Sohbet mesajları gönderildikten sonra burada görünecektir.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Canlı
     Sohbet şu anda Invidious API ile desteklenmemektedir. YouTube ile doğrudan bağlantı
     gerekli.'
@@ -910,9 +920,9 @@ Tooltips:
     Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını
       görüntülemek istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları
       YouTube tarafından desteklenmemektedir.
-    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı\
-      \ davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı\
-      \ tarayıcınızda açacaktır.\n"
+    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
+      davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
+      açacaktır.\n"
   Privacy Settings:
     Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
       oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
@@ -991,3 +1001,9 @@ Chapters:
     bölüm: {chapterName}'
 Preferences: Tercihler
 Ok: Tamam
+Hashtag:
+  Hashtag: Hashtag
+  You can only view hashtag pages through the Local API: Hashtag sayfalarını yalnızca
+    Yerel API aracılığıyla görüntüleyebilirsiniz
+  This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi
+    bir videosu yok

@@ -230,6 +230,7 @@ export default defineComponent({
       this.searchState.showOptions = true
       const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
       if (isArrow) {
+        event.preventDefault()
         if (event.key === 'ArrowDown') {
           this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
         } else if (event.key === 'ArrowUp') {
