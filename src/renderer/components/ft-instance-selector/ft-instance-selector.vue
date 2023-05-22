@@ -9,7 +9,7 @@
         :show-label="true"
         :value="currentInstance"
         :data-list="instanceList"
-        :tooltip="$t('Tooltips.General Settings.Piped Instance')"
+        :tooltip="tooltip"
         @input="handleInstanceInput"
       />
     </ft-flex-box>
