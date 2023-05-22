@@ -19,16 +19,20 @@ export async function pipedRequest({ resource, id = '', params = {}, doLogError 
       if (doLogError) {
         console.error('Piped API error', requestUrl, error)
       }
-      return error
+      return { isError: true, error }
     })
 }
 
 export async function getPipedComments(videoId) {
   const commentInfo = await pipedRequest({ resource: 'comments', id: videoId })
-  commentInfo.comments = parsePipedComments(commentInfo.comments)
-  return {
-    comments: commentInfo.comments,
-    continuation: commentInfo.nextpage
+  if (commentInfo.isError) {
+    throw commentInfo.error
+  } else {
+    commentInfo.comments = parsePipedComments(commentInfo.comments)
+    return {
+      comments: commentInfo.comments,
+      continuation: commentInfo.nextpage
+    }
   }
 }
 
@@ -40,10 +44,15 @@ export async function getPipedCommentsMore({ videoId, continuation }) {
       nextpage: continuation
     }
   })
-  commentInfo.comments = parsePipedComments(commentInfo.comments)
-  return {
-    comments: commentInfo.comments,
-    continuation: commentInfo.nextpage
+
+  if (commentInfo.isError) {
+    throw commentInfo.error
+  } else {
+    commentInfo.comments = parsePipedComments(commentInfo.comments)
+    return {
+      comments: commentInfo.comments,
+      continuation: commentInfo.nextpage
+    }
   }
 }
 function parsePipedComments(comments) {
@@ -74,11 +83,15 @@ function parsePipedComments(comments) {
 
 export async function getPipedPlaylist(playlistId) {
   const playlistInfo = await pipedRequest({ resource: 'playlists', id: playlistId })
-  const parsedVideos = parsePipedVideos(playlistInfo.relatedStreams)
-  return {
-    nextpage: playlistInfo.nextpage,
-    playlist: parsePipedPlaylist(playlistId, playlistInfo, parsedVideos),
-    videos: parsedVideos
+  if (playlistInfo.isError) {
+    throw playlistInfo.error
+  } else {
+    const parsedVideos = parsePipedVideos(playlistInfo.relatedStreams)
+    return {
+      nextpage: playlistInfo.nextpage,
+      playlist: parsePipedPlaylist(playlistId, playlistInfo, parsedVideos),
+      videos: parsedVideos
+    }
   }
 }
 
@@ -91,9 +104,13 @@ export async function getPipedPlaylistMore({ playlistId, continuation }) {
     }
   })
 
-  return {
-    nextpage: playlistInfo.nextpage,
-    videos: parsePipedVideos(playlistInfo.relatedStreams)
+  if (playlistInfo.isError) {
+    throw playlistInfo.error
+  } else {
+    return {
+      nextpage: playlistInfo.nextpage,
+      videos: parsePipedVideos(playlistInfo.relatedStreams)
+    }
   }
 }
 
