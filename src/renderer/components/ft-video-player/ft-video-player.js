@@ -1319,13 +1319,16 @@ export default defineComponent({
     },
 
     toggleCaptions: function () {
-      const tracks = this.player.textTracks().tracks_
+      // skip videojs-http-streaming's segment-metadata track
+      // https://github.com/videojs/http-streaming#segment-metadata
+      const trackIndex = this.useDash ? 1 : 0
 
-      if (tracks.length > 1) {
-        if (tracks[1].mode === 'showing') {
-          tracks[1].mode = 'disabled'
+      const tracks = this.player.textTracks()
+      if (tracks.length > trackIndex) {
+        if (tracks[trackIndex].mode === 'showing') {
+          tracks[trackIndex].mode = 'disabled'
         } else {
-          tracks[1].mode = 'showing'
+          tracks[trackIndex].mode = 'showing'
         }
       }
     },
