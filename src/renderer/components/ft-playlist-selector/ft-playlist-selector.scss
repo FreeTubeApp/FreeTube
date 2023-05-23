@@ -222,6 +222,8 @@ $watched-transition-duration: 0.5s;
 
       .thumbnailImage {
         width: 100%;
+        // Ensure placeholder image displayed at same aspect ratio as most other images
+        aspect-ratio: 16/9;
       }
     }
     .title {
