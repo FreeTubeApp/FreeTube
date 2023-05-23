@@ -28,12 +28,14 @@
       v-if="!isLoading"
       class="playlistItems"
     >
-      <span
+      <transition-group
         v-if="playlistItems.length > 0"
+        name="playlistItem"
+        tag="span"
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="`${item.videoId}-${index}`"
+          :key="`${item.videoId}`"
           class="playlistItem"
         >
           <p
@@ -71,7 +73,7 @@
         >
           <ft-loader />
         </div>
-      </span>
+      </transition-group>
       <ft-flex-box
         v-else
       >

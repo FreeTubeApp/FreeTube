@@ -32,6 +32,16 @@
   align-items: center;
 }
 
+.playlistItem-move ,
+.playlistItem-enter-active,
+.playlistItem-leave-active {
+  transition: all 0.2s ease;
+}
+.playlistItem-enter, .playlistItem-leave-to {
+  opacity: 0;
+  transform: translateX(10%);
+}
+
 .videoIndex {
   color: var(--tertiary-text-color);
 }
