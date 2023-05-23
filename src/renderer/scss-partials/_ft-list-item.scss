@@ -170,6 +170,16 @@ $watched-transition-duration: 0.5s;
       font-size: 17px;
     }
 
+    // Show add to playlist buttons on hover only
+    .addToPlaylistIcon {
+      display: none;
+    }
+    &:hover {
+      .addToPlaylistIcon {
+        display: inherit;
+      }
+    }
+
     .watchedProgressBar {
       align-self: flex-end;
       background-color: var(--primary-color);
