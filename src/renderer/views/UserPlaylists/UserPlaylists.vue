@@ -8,25 +8,27 @@
       v-show="!isLoading"
       class="card"
     >
-      <h3>
-        {{ $t("User Playlists.Your Playlists") }}
-      </h3>
-      <ft-icon-button
-        title="Add New Playlist"
-        :icon="['fas', 'plus']"
-        theme="primary"
-        class="newPlaylistButton"
-        @click="createNewPlaylist"
-      />
-      <ft-input
-        v-show="fullData.length > 0"
-        ref="searchBar"
-        :placeholder="$t('User Playlists.Search bar placeholder')"
-        :show-clear-text-button="true"
-        :show-action-button="false"
-        @input="(input) => query = input"
-        @clear="query = ''"
-      />
+      <div class="heading">
+        <h3 class="headingText">
+          {{ $t("User Playlists.Your Playlists") }}
+        </h3>
+        <ft-icon-button
+          title="Add New Playlist"
+          :icon="['fas', 'plus']"
+          theme="primary"
+          class="newPlaylistButton"
+          @click="createNewPlaylist"
+        />
+        <ft-input
+          v-show="fullData.length > 0"
+          ref="searchBar"
+          :placeholder="$t('User Playlists.Search bar placeholder')"
+          :show-clear-text-button="true"
+          :show-action-button="false"
+          @input="(input) => query = input"
+          @clear="query = ''"
+        />
+      </div>
       <ft-flex-box
         v-show="fullData.length === 0"
       >

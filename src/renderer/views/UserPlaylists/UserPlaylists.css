@@ -6,14 +6,18 @@
   margin-bottom: 60px;
 }
 
-.message {
-  color: var(--tertiary-text-color);
+.headingText {
+  display: inline-block;
 }
 
 .newPlaylistButton {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  margin-left: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.message {
+  color: var(--tertiary-text-color);
 }
 
 @media only screen and (max-width: 680px) {
