@@ -64,6 +64,12 @@
           :default-value="hideChannelPlaylists"
           @change="updateHideChannelPlaylists"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Shorts')"
+          :compact="true"
+          :default-value="hideChannelShorts"
+          @change="updateHideChannelShorts"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
