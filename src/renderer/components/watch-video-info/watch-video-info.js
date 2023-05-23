@@ -125,6 +125,10 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
+    showPlaylists: function () {
+      return !this.$store.getters.getHidePlaylists
+    },
+
     favoritesPlaylist: function () {
       return this.$store.getters.getFavorites
     },
@@ -356,11 +360,31 @@ export default defineComponent({
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
+    togglePlaylistPrompt: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: '',
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+        timeAdded: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video',
+      }
+
+      this.showAddToPlaylistPrompt(videoData)
+    },
+
     ...mapActions([
       'openInExternalPlayer',
       'addVideo',
       'removeVideo',
-      'downloadMedia'
+      'downloadMedia',
+      'showAddToPlaylistPrompt',
     ])
   }
 })

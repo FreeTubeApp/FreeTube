@@ -90,6 +90,14 @@
           @click="toggleSave"
         />
         <ft-icon-button
+          v-if="showPlaylists && !isUpcoming"
+          title="Add to playlist"
+          :icon="['fas', 'plus']"
+          class="option"
+          theme="base"
+          @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
           v-if="externalPlayer !== ''"
           :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
           :icon="['fas', 'external-link-alt']"
