@@ -129,22 +129,6 @@ export default defineComponent({
       return !this.$store.getters.getHidePlaylists
     },
 
-    favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
-    },
-
-    inFavoritesPlaylist: function () {
-      const index = this.favoritesPlaylist.videos.findIndex((video) => {
-        return video.videoId === this.id
-      })
-
-      return index !== -1
-    },
-
-    favoriteIconTheme: function () {
-      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
-    },
-
     downloadLinkOptions: function () {
       return this.downloadLinks.map((download) => {
         return {
@@ -275,14 +259,6 @@ export default defineComponent({
       })
     },
 
-    toggleSave: function () {
-      if (this.inFavoritesPlaylist) {
-        this.removeFromPlaylist()
-      } else {
-        this.addToPlaylist()
-      }
-    },
-
     handleFormatChange: function (format) {
       switch (format) {
         case 'dash':
@@ -321,43 +297,6 @@ export default defineComponent({
         return ''
       }
       return group[1]
-    },
-
-    addToPlaylist: function () {
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        published: '',
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.lengthSeconds,
-        timeAdded: new Date().getTime(),
-        isLive: false,
-        paid: false,
-        type: 'video'
-      }
-
-      const payload = {
-        _id: 'favorites',
-        videoData: videoData,
-      }
-
-      this.addVideo(payload)
-
-      showToast(this.$t('Video.Video has been saved'))
-    },
-
-    removeFromPlaylist: function () {
-      const payload = {
-        _id: 'favorites',
-        videoId: this.id,
-      }
-
-      this.removeVideo(payload)
-
-      showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
     togglePlaylistPrompt: function () {

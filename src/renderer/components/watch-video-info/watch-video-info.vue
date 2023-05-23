@@ -82,14 +82,6 @@
       -->
       <div class="videoOptions">
         <ft-icon-button
-          v-if="!isUpcoming"
-          :title="$t('Video.Save Video')"
-          :icon="['fas', 'star']"
-          class="option"
-          :theme="favoriteIconTheme"
-          @click="toggleSave"
-        />
-        <ft-icon-button
           v-if="showPlaylists && !isUpcoming"
           title="Add to playlist"
           :icon="['fas', 'plus']"
