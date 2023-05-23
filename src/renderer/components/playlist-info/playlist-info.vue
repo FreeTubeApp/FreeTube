@@ -97,7 +97,7 @@
           @click="exitEditMode"
         />
         <ft-icon-button
-          v-if="!editMode"
+          v-if="showPlaylists && !editMode"
           title="Copy Playlist"
           :icon="['fas', 'copy']"
           theme="primary"

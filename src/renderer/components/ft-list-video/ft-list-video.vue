@@ -46,7 +46,7 @@
       />
       <span class="playlistIcons">
         <ft-icon-button
-          v-if="!isUpcoming"
+          v-if="showPlaylists && !isUpcoming"
           :title="$t('Video.Save Video')"
           :icon="['fas', 'star']"
           class="favoritesIcon"
@@ -56,7 +56,7 @@
           @click="toggleFavorite"
         />
         <ft-icon-button
-          v-if="!isLive"
+          v-if="showPlaylists && !isLive"
           title="Add to playlist"
           :icon="['fas', 'plus']"
           class="playlistIcon"

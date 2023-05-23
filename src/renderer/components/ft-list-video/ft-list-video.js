@@ -111,6 +111,10 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    showPlaylists: function () {
+      return !this.$store.getters.getHidePlaylists
+    },
+
     inHistory: function () {
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
