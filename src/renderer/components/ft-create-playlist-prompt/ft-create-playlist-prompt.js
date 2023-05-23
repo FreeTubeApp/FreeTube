@@ -54,7 +54,7 @@ export default Vue.extend({
       }
 
       const nameExists = this.allPlaylists.findIndex((playlist) => {
-        return playlist.playlistName.toLowerCase() === this.playlistName.toLowerCase()
+        return playlist.playlistName === this.playlistName
       })
       if (nameExists !== -1) {
         showToast('There is already a playlist with this name. Please pick a different name.')
