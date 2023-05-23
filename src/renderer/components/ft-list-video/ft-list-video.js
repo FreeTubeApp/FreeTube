@@ -271,22 +271,6 @@ export default defineComponent({
       return this.watched && !this.inHistory
     },
 
-    favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
-    },
-
-    inFavoritesPlaylist: function () {
-      const index = this.favoritesPlaylist.videos.findIndex((video) => {
-        return video.videoId === this.id
-      })
-
-      return index !== -1
-    },
-
-    favoriteIconTheme: function () {
-      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
-    },
-
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
@@ -368,35 +352,6 @@ export default defineComponent({
 
       if (this.saveWatchedProgress && !this.watched) {
         this.markAsWatched()
-      }
-    },
-
-    // addToPlaylist: function () {
-    //   const videoData = {
-    //     videoId: this.id,
-    //     title: this.title,
-    //     author: this.channelName,
-    //     authorId: this.channelId,
-    //     published: '',
-    //     description: this.description,
-    //     viewCount: this.viewCount,
-    //     lengthSeconds: this.data.lengthSeconds,
-    //     timeAdded: new Date().getTime(),
-    //     isLive: false,
-    //     paid: false,
-    //     type: 'video'
-    //   }
-    //
-    //   this.$emit('add-to-playlist', videoData)
-    // },
-
-    toggleFavorite: function () {
-      if (this.inFavoritesPlaylist) {
-        this.removeFromFavorites()
-        showToast(this.$t('Video.Video has been removed from your saved list'))
-      } else {
-        this.addToFavorites()
-        showToast(this.$t('Video.Video has been saved'))
       }
     },
 
@@ -579,39 +534,6 @@ export default defineComponent({
 
       this.watched = false
       this.watchProgress = 0
-    },
-
-    addToFavorites: function () {
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        published: '',
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.data.lengthSeconds,
-        timeAdded: new Date().getTime(),
-        isLive: false,
-        paid: false,
-        type: 'video'
-      }
-
-      const payload = {
-        _id: 'favorites',
-        videoData: videoData,
-      }
-
-      this.addVideo(payload)
-    },
-
-    removeFromFavorites: function () {
-      const payload = {
-        _id: 'favorites',
-        videoId: this.id,
-      }
-
-      this.removeVideo(payload)
     },
 
     removeVideoFromPlaylist: function () {
