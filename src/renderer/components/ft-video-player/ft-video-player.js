@@ -361,6 +361,8 @@ export default defineComponent({
       navigator.mediaSession.setActionHandler('play', () => this.player.play())
       navigator.mediaSession.setActionHandler('pause', () => this.player.pause())
     }
+
+    window.addEventListener('beforeunload', this.stopPowerSaveBlocker)
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
@@ -379,10 +381,8 @@ export default defineComponent({
       navigator.mediaSession.playbackState = 'none'
     }
 
-    if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
-    }
+    this.stopPowerSaveBlocker()
+    window.removeEventListener('beforeunload', this.stopPowerSaveBlocker)
   },
   methods: {
     initializePlayer: async function () {
@@ -595,11 +595,7 @@ export default defineComponent({
             navigator.mediaSession.playbackState = 'none'
           }
 
-          if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
-            const { ipcRenderer } = require('electron')
-            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
-            this.powerSaveBlocker = null
-          }
+          this.stopPowerSaveBlocker()
         })
 
         this.player.on('error', (error, message) => {
@@ -609,11 +605,7 @@ export default defineComponent({
             navigator.mediaSession.playbackState = 'none'
           }
 
-          if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
-            const { ipcRenderer } = require('electron')
-            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
-            this.powerSaveBlocker = null
-          }
+          this.stopPowerSaveBlocker()
         })
 
         this.player.on('play', async () => {
@@ -633,11 +625,7 @@ export default defineComponent({
             navigator.mediaSession.playbackState = 'paused'
           }
 
-          if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
-            const { ipcRenderer } = require('electron')
-            ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
-            this.powerSaveBlocker = null
-          }
+          this.stopPowerSaveBlocker()
         })
 
         this.player.on(this.statsModalEventName, () => {
@@ -2113,6 +2101,14 @@ export default defineComponent({
             this.takeScreenshot()
             break
         }
+      }
+    },
+
+    stopPowerSaveBlocker: function() {
+      if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)
+        this.powerSaveBlocker = null
       }
     },
 
