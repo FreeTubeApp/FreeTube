@@ -86,42 +86,43 @@
           v-if="editMode"
           title="Save Changes"
           :icon="['fas', 'save']"
-          theme="primary"
+          theme="secondary"
           @click="savePlaylistInfo"
         />
         <ft-icon-button
           v-if="editMode"
           title="Cancel"
           :icon="['fas', 'times']"
-          theme="primary"
+          theme="secondary"
           @click="exitEditMode"
         />
+
         <ft-icon-button
           v-if="showPlaylists && !editMode"
           title="Copy Playlist"
           :icon="['fas', 'copy']"
-          theme="primary"
+          theme="secondary"
           @click="copyPlaylist"
         />
         <ft-icon-button
           v-if="!editMode && infoSource === 'user'"
           title="Edit Playlist"
           :icon="['fas', 'edit']"
-          theme="primary"
+          theme="secondary"
           @click="enterEditMode"
         />
         <ft-icon-button
           v-if="!editMode && infoSource === 'user'"
           title="Remove Watched Videos"
           :icon="['fas', 'eye-slash']"
-          theme="primary"
+          theme="secondary"
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
           title="Delete Playlist"
           :icon="['fas', 'trash']"
-          theme="primary"
+          theme="secondary"
           @click="showDeletePlaylistPrompt = true"
         />
         <ft-share-button

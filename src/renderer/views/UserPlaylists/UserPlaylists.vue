@@ -15,7 +15,7 @@
         <ft-icon-button
           title="Add New Playlist"
           :icon="['fas', 'plus']"
-          theme="primary"
+          theme="secondary"
           class="newPlaylistButton"
           @click="createNewPlaylist"
         />
