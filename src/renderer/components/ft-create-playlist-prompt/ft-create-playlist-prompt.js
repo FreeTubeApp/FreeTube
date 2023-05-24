@@ -65,12 +65,7 @@ export default Vue.extend({
         if (vobj.timeAdded == null) {
           vobj.timeAdded = new Date().getTime()
         }
-        return Object.assign(vobj, {
-          published: '',
-          isLive: false,
-          paid: false,
-          type: 'video',
-        })
+        return vobj
       })
       const playlistObject = {
         playlistName: this.playlistName,
