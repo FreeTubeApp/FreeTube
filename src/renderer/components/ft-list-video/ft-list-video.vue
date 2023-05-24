@@ -55,15 +55,6 @@
           @click="togglePlaylistPrompt"
         />
         <ft-icon-button
-          v-if="inUserPlaylist && canRemoveFromPlaylist"
-          title="Remove from playlist"
-          :icon="['fas', 'trash']"
-          class="trashIcon"
-          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-          :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="removeVideoFromPlaylist"
-        />
-        <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
           title="Move video up"
           :icon="['fas', 'arrow-up']"
@@ -80,6 +71,15 @@
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="$emit('move-video-down', id)"
+        />
+        <ft-icon-button
+          v-if="inUserPlaylist && canRemoveFromPlaylist"
+          title="Remove from playlist"
+          :icon="['fas', 'trash']"
+          class="trashIcon"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="removeVideoFromPlaylist"
         />
       </span>
       <div
