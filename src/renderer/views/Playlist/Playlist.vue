@@ -50,9 +50,9 @@
             :playlist-index="index"
             appearance="result"
             force-list-type="list"
-            :can-move-video-up="playlistInEditMode && index > 0"
-            :can-move-video-down="playlistInEditMode && index < playlistItems.length - 1"
-            :can-remove-from-playlist="playlistInEditMode"
+            :can-move-video-up="index > 0"
+            :can-move-video-down="index < playlistItems.length - 1"
+            :can-remove-from-playlist="true"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
           />

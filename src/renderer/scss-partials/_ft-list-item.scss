@@ -167,12 +167,18 @@ $watched-transition-duration: 0.5s;
       font-size: 17px;
     }
 
-    // Show add to playlist buttons on hover only
-    .addToPlaylistIcon {
+    // Show some buttons on hover only
+    .addToPlaylistIcon ,
+    .trashIcon ,
+    .upArrowIcon ,
+    .downArrowIcon {
       display: none;
     }
     &:hover {
-      .addToPlaylistIcon {
+      .addToPlaylistIcon ,
+      .trashIcon ,
+      .upArrowIcon ,
+      .downArrowIcon {
         display: inherit;
       }
     }

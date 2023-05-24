@@ -148,14 +148,6 @@
         @click="handleRemoveVideosOnWatchPromptAnswer"
       />
     </div>
-
-    <ft-flex-box
-      v-if="editMode"
-    >
-      <p class="message">
-        Video order updates & removals are saved immediately and cannot be cancelled.
-      </p>
-    </ft-flex-box>
   </div>
 </template>
 
