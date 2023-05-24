@@ -61,7 +61,7 @@
           class="upArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="$emit('move-video-up', id)"
+          @click="$emit('move-video-up')"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoDown"
@@ -70,7 +70,7 @@
           class="downArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="$emit('move-video-down', id)"
+          @click="$emit('move-video-down')"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canRemoveFromPlaylist"
@@ -79,7 +79,7 @@
           class="trashIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="removeVideoFromPlaylist"
+          @click="$emit('remove-from-playlist')"
         />
       </span>
       <div

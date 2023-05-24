@@ -295,10 +295,10 @@ export default defineComponent({
       })
     },
 
-    moveVideoUp: function (videoId) {
+    moveVideoUp: function (videoId, timeAdded) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
-        return video.videoId === videoId
+        return video.videoId === videoId && video.timeAdded === timeAdded
       })
 
       if (videoIndex === 0) {
@@ -328,10 +328,10 @@ export default defineComponent({
       }
     },
 
-    moveVideoDown: function (videoId) {
+    moveVideoDown: function (videoId, timeAdded) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
-        return video.videoId === videoId
+        return video.videoId === videoId && video.timeAdded === timeAdded
       })
 
       if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
@@ -361,9 +361,26 @@ export default defineComponent({
       }
     },
 
+    removeVideoFromPlaylist: function (videoId, timeAdded) {
+      const payload = {
+        _id: this.playlistId,
+        videoId: videoId,
+        timeAdded: timeAdded,
+      }
+
+      try {
+        this.removeVideo(payload)
+        showToast('Video has been removed')
+      } catch (e) {
+        showToast('There was a problem with removing this video')
+        console.error(e)
+      }
+    },
+
     ...mapActions([
       'updateSubscriptionDetails',
       'updatePlaylist',
+      'removeVideo',
     ]),
 
     ...mapMutations([

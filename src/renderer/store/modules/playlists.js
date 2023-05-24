@@ -120,6 +120,13 @@ const actions = {
             playlist.lastUpdatedAt = Date.now()
             anythingUpdated = true
           }
+          // Ensure all videos has `timeAdded` property
+          playlist.videos.forEach((v) => {
+            if (v.timeAdded != null) { return }
+
+            v.timeAdded = new Date().getTime()
+            anythingUpdated = true
+          })
           // Save updated playlist object
           if (anythingUpdated) {
             commit('upsertPlaylistToList', playlist)
@@ -279,7 +286,7 @@ const mutations = {
   removeVideo(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video.videoId !== payload.videoId)
+      playlist.videos = playlist.videos.filter(video => video.videoId !== payload.videoId || video.timeAdded !== payload.timeAdded)
     }
   },
 

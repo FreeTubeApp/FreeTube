@@ -536,21 +536,6 @@ export default defineComponent({
       this.watchProgress = 0
     },
 
-    removeVideoFromPlaylist: function () {
-      const payload = {
-        _id: this.playlistId,
-        videoId: this.id,
-      }
-
-      try {
-        this.removeVideo(payload)
-        showToast('Video has been removed')
-      } catch (e) {
-        showToast('There was a problem with removing this video')
-        console.error(e)
-      }
-    },
-
     togglePlaylistPrompt: function () {
       const videoData = {
         videoId: this.id,
@@ -575,7 +560,6 @@ export default defineComponent({
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo',
       'showAddToPlaylistPrompt',
     ])
   }

@@ -35,7 +35,7 @@
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="`${item.videoId}`"
+          :key="`${item.videoId}-${item.timeAdded}`"
           class="playlistItem"
         >
           <p
@@ -53,8 +53,9 @@
             :can-move-video-up="index > 0"
             :can-move-video-down="index < playlistItems.length - 1"
             :can-remove-from-playlist="true"
-            @move-video-up="moveVideoUp"
-            @move-video-down="moveVideoDown"
+            @move-video-up="moveVideoUp(item.videoId, item.timeAdded)"
+            @move-video-down="moveVideoDown(item.videoId, item.timeAdded)"
+            @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.timeAdded)"
           />
         </div>
         <ft-flex-box

@@ -114,17 +114,12 @@ export default Vue.extend({
         const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
         if (playlist == null) { return }
 
-        const findVideo = playlist.videos.findIndex((video) => {
-          return video.videoId === videoId
-        })
-        if (findVideo === -1) {
-          const payload = {
-            _id: playlist._id,
-            videoData: this.playlistAddVideoObject,
-          }
-          this.addVideo(payload)
-          addedPlaylists++
+        const payload = {
+          _id: playlist._id,
+          videoData: this.playlistAddVideoObject,
         }
+        this.addVideo(payload)
+        addedPlaylists++
       })
 
       showToast(`Video has been added to ${addedPlaylists} playlist(s).`)
