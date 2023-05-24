@@ -98,18 +98,18 @@
         />
 
         <ft-icon-button
-          v-if="showPlaylists && !editMode"
-          title="Copy Playlist"
-          :icon="['fas', 'copy']"
-          theme="secondary"
-          @click="copyPlaylist"
-        />
-        <ft-icon-button
           v-if="!editMode && infoSource === 'user'"
           title="Edit Playlist"
           :icon="['fas', 'edit']"
           theme="secondary"
           @click="enterEditMode"
+        />
+        <ft-icon-button
+          v-if="showPlaylists && !editMode"
+          title="Copy Playlist"
+          :icon="['fas', 'copy']"
+          theme="secondary"
+          @click="copyPlaylist"
         />
         <ft-icon-button
           v-if="!editMode && infoSource === 'user'"
