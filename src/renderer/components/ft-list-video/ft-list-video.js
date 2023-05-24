@@ -549,10 +549,10 @@ export default defineComponent({
         timeAdded: new Date().getTime(),
         isLive: false,
         paid: false,
-        type: 'video'
+        type: 'video',
       }
 
-      this.showAddToPlaylistPrompt(videoData)
+      this.showAddToPlaylistPromptForManyVideos([videoData])
     },
 
     ...mapActions([
@@ -560,7 +560,7 @@ export default defineComponent({
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'showAddToPlaylistPrompt',
+      'showAddToPlaylistPromptForManyVideos',
     ])
   }
 })

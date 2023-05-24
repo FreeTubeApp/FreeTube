@@ -315,7 +315,7 @@ export default defineComponent({
         type: 'video',
       }
 
-      this.showAddToPlaylistPrompt(videoData)
+      this.showAddToPlaylistPromptForManyVideos([videoData])
     },
 
     ...mapActions([
@@ -323,7 +323,7 @@ export default defineComponent({
       'addVideo',
       'removeVideo',
       'downloadMedia',
-      'showAddToPlaylistPrompt',
+      'showAddToPlaylistPromptForManyVideos',
     ])
   }
 })

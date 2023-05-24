@@ -105,11 +105,11 @@
           @click="enterEditMode"
         />
         <ft-icon-button
-          v-if="showPlaylists && !editMode"
+          v-if="videoCount > 0 && showPlaylists && !editMode"
           title="Copy Playlist"
           :icon="['fas', 'copy']"
           theme="secondary"
-          @click="copyPlaylist"
+          @click="toggleCopyVideosPrompt"
         />
         <ft-icon-button
           v-if="!editMode && infoSource === 'user'"

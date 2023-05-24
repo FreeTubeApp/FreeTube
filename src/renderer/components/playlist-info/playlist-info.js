@@ -163,11 +163,8 @@ export default defineComponent({
     this.newDescription = this.description
   },
   methods: {
-    copyPlaylist: function () {
-      this.showCreatePlaylistPrompt({
-        title: this.title,
-        videos: this.videos
-      })
+    toggleCopyVideosPrompt: function () {
+      this.showAddToPlaylistPromptForManyVideos(this.videos)
     },
 
     savePlaylistInfo: function () {
@@ -264,7 +261,7 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'showCreatePlaylistPrompt',
+      'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',
       'removePlaylist',
     ]),

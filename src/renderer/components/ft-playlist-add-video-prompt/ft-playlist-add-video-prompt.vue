@@ -1,12 +1,12 @@
 <template>
   <ft-prompt
-    @click="handleAddToPlaylistPrompt"
+    @click="hide"
   >
     <h2 class="center">
-      Select a Playlist to add your video(s) to
+      Select a Playlist to add your {{ toBeAddedToPlaylistVideoCount }} video(s) to
     </h2>
     <p class="center">
-      {{ selectedPlaylistIdSetCount }} Selected
+      {{ selectedPlaylistCount }} Selected
     </p>
     <ft-input
       v-show="allPlaylists.length > 0"
@@ -37,7 +37,7 @@
       />
       <ft-button
         label="Cancel"
-        @click="handleAddToPlaylistPrompt(null)"
+        @click="hide"
       />
     </ft-flex-box>
   </ft-prompt>

@@ -21,11 +21,7 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      playlistAddVideoPromptValues: [
-        'save',
-        'cancel'
-      ],
-      selectedPlaylistIdSet: new Set(),
+      selectedPlaylistIdList: [],
       query: '',
       updateQueryDebounce: function() {},
     }
@@ -57,20 +53,17 @@ export default Vue.extend({
         return a.title.localeCompare(b.title, this.locale)
       })
     },
-    selectedPlaylistIdSetCount: function () {
-      return this.selectedPlaylistIdSet.size
+    selectedPlaylistCount: function () {
+      return this.selectedPlaylistIdList.length
+    },
+    toBeAddedToPlaylistVideoCount: function () {
+      return this.toBeAddedToPlaylistVideoList.length
     },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
     },
-    playlistAddVideoObject: function () {
-      return this.$store.getters.getPlaylistAddVideoObject
-    },
-    playlistAddVideoPromptNames: function () {
-      return [
-        'Save',
-        'Cancel'
-      ]
+    toBeAddedToPlaylistVideoList: function () {
+      return this.$store.getters.getToBeAddedToPlaylistVideoList
     },
 
     processedQuery: function() {
@@ -95,35 +88,38 @@ export default Vue.extend({
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
   },
   methods: {
-    handleAddToPlaylistPrompt: function (option) {
+    hide: function () {
       this.hideAddToPlaylistPrompt()
     },
 
     countSelected: function (playlistId) {
-      if (this.selectedPlaylistIdSet.has(playlistId)) {
-        this.selectedPlaylistIdSet.delete(playlistId)
+      const index = this.selectedPlaylistIdList.indexOf(playlistId)
+      if (index !== -1) {
+        this.selectedPlaylistIdList.splice(index, 1)
       } else {
-        this.selectedPlaylistIdSet.add(playlistId)
+        this.selectedPlaylistIdList.push(playlistId)
       }
     },
 
     addSelectedToPlaylists: function () {
-      let addedPlaylists = 0
-      const videoId = this.playlistAddVideoObject.videoId
-      this.selectedPlaylistIdSet.forEach((selectedPlaylistId) => {
+      const addedPlaylistIds = new Set()
+
+      this.selectedPlaylistIdList.forEach((selectedPlaylistId) => {
         const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
         if (playlist == null) { return }
 
-        const payload = {
-          _id: playlist._id,
-          videoData: this.playlistAddVideoObject,
-        }
-        this.addVideo(payload)
-        addedPlaylists++
+        this.toBeAddedToPlaylistVideoList.forEach((videoObject) => {
+          const payload = {
+            _id: playlist._id,
+            videoData: videoObject,
+          }
+          this.addVideo(payload)
+          addedPlaylistIds.add(playlist._id)
+        })
       })
 
-      showToast(`Video has been added to ${addedPlaylists} playlist(s).`)
-      this.handleAddToPlaylistPrompt(null)
+      showToast(`${this.toBeAddedToPlaylistVideoCount} video(s) added to ${addedPlaylistIds.size} playlist(s).`)
+      this.hide()
     },
 
     createNewPlaylist: function () {

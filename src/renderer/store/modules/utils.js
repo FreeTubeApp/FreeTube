@@ -31,7 +31,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   progressBarPercentage: 0,
-  playlistAddVideoObject: [],
+  toBeAddedToPlaylistVideoList: [],
   newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
@@ -85,8 +85,8 @@ const getters = {
     return state.showCreatePlaylistPrompt
   },
 
-  getPlaylistAddVideoObject () {
-    return state.playlistAddVideoObject
+  getToBeAddedToPlaylistVideoList () {
+    return state.toBeAddedToPlaylistVideoList
   },
 
   getNewPlaylistVideoObject () {
@@ -256,9 +256,9 @@ const actions = {
     })
   },
 
-  showAddToPlaylistPrompt ({ commit }, videoArray) {
+  showAddToPlaylistPromptForManyVideos ({ commit }, videoObjectArray) {
     commit('setShowAddToPlaylistPrompt', true)
-    commit('setPlaylistAddVideoObject', videoArray)
+    commit('setToBeAddedToPlaylistVideoList', videoObjectArray)
   },
 
   hideAddToPlaylistPrompt ({ commit }) {
@@ -679,8 +679,8 @@ const mutations = {
     state.showCreatePlaylistPrompt = payload
   },
 
-  setPlaylistAddVideoObject (state, payload) {
-    state.playlistAddVideoObject = payload
+  setToBeAddedToPlaylistVideoList (state, payload) {
+    state.toBeAddedToPlaylistVideoList = payload
   },
 
   setNewPlaylistVideoObject (state, payload) {
