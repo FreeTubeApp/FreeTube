@@ -65,6 +65,9 @@ export default Vue.extend({
     toBeAddedToPlaylistVideoList: function () {
       return this.$store.getters.getToBeAddedToPlaylistVideoList
     },
+    newPlaylistDefaultProperties: function () {
+      return this.$store.getters.getNewPlaylistDefaultProperties
+    },
 
     processedQuery: function() {
       return this.query.trim().toLowerCase()
@@ -124,8 +127,8 @@ export default Vue.extend({
 
     createNewPlaylist: function () {
       this.showCreatePlaylistPrompt({
-        title: '',
-        videos: []
+        title: this.newPlaylistDefaultProperties.title || '',
+        videos: [],
       })
     },
 

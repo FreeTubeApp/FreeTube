@@ -315,7 +315,7 @@ export default defineComponent({
         type: 'video',
       }
 
-      this.showAddToPlaylistPromptForManyVideos([videoData])
+      this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
     },
 
     ...mapActions([

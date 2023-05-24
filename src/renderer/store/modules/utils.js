@@ -32,6 +32,7 @@ const state = {
   showCreatePlaylistPrompt: false,
   progressBarPercentage: 0,
   toBeAddedToPlaylistVideoList: [],
+  newPlaylistDefaultProperties: {},
   newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
@@ -87,6 +88,10 @@ const getters = {
 
   getToBeAddedToPlaylistVideoList () {
     return state.toBeAddedToPlaylistVideoList
+  },
+
+  getNewPlaylistDefaultProperties () {
+    return state.newPlaylistDefaultProperties
   },
 
   getNewPlaylistVideoObject () {
@@ -256,13 +261,18 @@ const actions = {
     })
   },
 
-  showAddToPlaylistPromptForManyVideos ({ commit }, videoObjectArray) {
+  showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
     commit('setShowAddToPlaylistPrompt', true)
     commit('setToBeAddedToPlaylistVideoList', videoObjectArray)
+    if (newPlaylistDefaultProperties != null) {
+      commit('setNewPlaylistDefaultProperties', newPlaylistDefaultProperties)
+    }
   },
 
   hideAddToPlaylistPrompt ({ commit }) {
     commit('setShowAddToPlaylistPrompt', false)
+    // The default value properties are only valid until prompt is closed
+    commit('resetNewPlaylistDefaultProperties')
   },
 
   showCreatePlaylistPrompt ({ commit }, videoArray) {
@@ -681,6 +691,13 @@ const mutations = {
 
   setToBeAddedToPlaylistVideoList (state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
+  },
+
+  setNewPlaylistDefaultProperties (state, payload) {
+    state.newPlaylistDefaultProperties = payload
+  },
+  resetNewPlaylistDefaultProperties (state) {
+    state.newPlaylistDefaultProperties = {}
   },
 
   setNewPlaylistVideoObject (state, payload) {

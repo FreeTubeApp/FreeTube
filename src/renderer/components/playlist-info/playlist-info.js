@@ -164,7 +164,10 @@ export default defineComponent({
   },
   methods: {
     toggleCopyVideosPrompt: function () {
-      this.showAddToPlaylistPromptForManyVideos(this.videos)
+      this.showAddToPlaylistPromptForManyVideos({
+        videos: this.videos,
+        newPlaylistDefaultProperties: { title: this.title },
+      })
     },
 
     savePlaylistInfo: function () {
