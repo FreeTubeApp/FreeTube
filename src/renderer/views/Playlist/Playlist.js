@@ -254,7 +254,7 @@ export default defineComponent({
         this.firstVideoId = ''
       }
       this.viewCount = 0
-      this.videoCount = playlist.videoCount ? playlist.videoCount : playlist.videos.length
+      this.videoCount = playlist.videos.length
       const dateString = new Date(playlist.lastUpdatedAt)
       this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
       this.channelName = ''
