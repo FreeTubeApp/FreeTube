@@ -874,12 +874,13 @@ export default defineComponent({
 
       const requiredKeys = [
         'playlistName',
-        'videos'
+        'videos',
       ]
 
       const optionalKeys = [
         '_id',
         'protected',
+        'description',
       ]
 
       const requiredVideoKeys = [
@@ -895,7 +896,7 @@ export default defineComponent({
         'type'
       ]
 
-      playlists.forEach(async (playlistData) => {
+      playlists.forEach((playlistData) => {
         // We would technically already be done by the time the data is parsed,
         // however we want to limit the possibility of malicious data being sent
         // to the app, so we'll only grab the data we need here.
@@ -909,9 +910,10 @@ export default defineComponent({
           } else if (key === 'videos') {
             const videoArray = []
             playlistData.videos.forEach((video) => {
+              const videoPropertyKeys = Object.keys(video)
               let hasAllKeys = true
               requiredVideoKeys.forEach((videoKey) => {
-                if (!Object.keys(video).includes(videoKey)) {
+                if (!videoPropertyKeys.includes(videoKey)) {
                   hasAllKeys = false
                 }
               })
@@ -944,8 +946,9 @@ export default defineComponent({
               })
 
               if (!videoExists) {
+                video.timeAdded = new Date().getTime()
                 const payload = {
-                  playlistName: existingPlaylist.playlistName,
+                  _id: existingPlaylist._id,
                   videoData: video,
                 }
 
