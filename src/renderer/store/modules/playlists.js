@@ -4,6 +4,10 @@ function generateRandomPlaylistId() {
   return `${Date.now()}-${Math.floor(Math.random() * 10000)}`
 }
 
+function generateRandomPlaylistName() {
+  return `Playlist ${new Date().toISOString()}-${Math.floor(Math.random() * 10000)}`
+}
+
 const state = {
   // Playlist loading takes time on app load (new windows)
   // This is necessary to let components to know when to start data loading
@@ -107,14 +111,18 @@ const actions = {
         payload.forEach((playlist) => {
           let anythingUpdated = false
           // Assign generated playlist ID in case DB data corrupted
-          // Especially during dev
           if (playlist._id == null) {
             // {Time now in unix time}-{0-9999}
             playlist._id = generateRandomPlaylistId()
             anythingUpdated = true
           }
+          // Ensure all videos has `playlistName` property
+          if (playlist.playlistName == null) {
+            // Time now in unix time, in ms
+            playlist.playlistName = generateRandomPlaylistName()
+            anythingUpdated = true
+          }
           // Assign current time as last updated time in case DB data corrupted
-          // Especially during dev
           if (playlist.lastUpdatedAt == null) {
             // Time now in unix time, in ms
             playlist.lastUpdatedAt = Date.now()
@@ -129,6 +137,7 @@ const actions = {
           })
           // Save updated playlist object
           if (anythingUpdated) {
+            DBPlaylistHandlers.upsert(playlist)
             commit('upsertPlaylistToList', playlist)
           }
         })
