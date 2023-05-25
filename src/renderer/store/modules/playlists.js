@@ -17,18 +17,18 @@ const state = {
   defaultPlaylists: [
     {
       playlistName: 'Favorites',
-      protected: true,
+      protected: false,
       description: 'Your favorite videos',
       videos: [],
       _id: 'favorites',
     },
     {
       playlistName: 'Watch Later',
-      protected: true,
+      protected: false,
       description: 'Videos to watch later',
       videos: [],
       _id: 'watchLater',
-    }
+    },
   ],
 }
 
@@ -147,9 +147,8 @@ const actions = {
         })
 
         const defaultFavoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
-        if (findFavorites.length === 0) {
-          dispatch('addPlaylist', defaultFavoritesPlaylist)
-        } else {
+        if (findFavorites.length > 0) {
+          // Update existing matching playlist only if it exists
           const favoritesPlaylist = findFavorites[0]
 
           if (favoritesPlaylist._id !== defaultFavoritesPlaylist._id || favoritesPlaylist.protected !== defaultFavoritesPlaylist.protected) {
@@ -167,9 +166,8 @@ const actions = {
         }
 
         const defaultWatchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
-        if (findWatchLater.length === 0) {
-          dispatch('addPlaylist', defaultWatchLaterPlaylist)
-        } else {
+        if (findWatchLater.length > 0) {
+          // Update existing matching playlist only if it exists
           const watchLaterPlaylist = findWatchLater[0]
 
           if (watchLaterPlaylist._id !== defaultWatchLaterPlaylist._id || watchLaterPlaylist.protected !== defaultWatchLaterPlaylist.protected) {
