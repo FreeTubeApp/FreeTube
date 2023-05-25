@@ -136,7 +136,6 @@ const actions = {
           // Save updated playlist object
           if (anythingUpdated) {
             DBPlaylistHandlers.upsert(playlist)
-            commit('upsertPlaylistToList', playlist)
           }
         })
 
