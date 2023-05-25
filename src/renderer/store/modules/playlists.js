@@ -147,35 +147,43 @@ const actions = {
           return playlist.playlistName === 'Watch Later' || playlist._id === 'watchLater'
         })
 
+        const defaultFavoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
         if (findFavorites.length === 0) {
-          const favoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
-          dispatch('addPlaylist', favoritesPlaylist)
-          payload.push(favoritesPlaylist)
+          dispatch('addPlaylist', defaultFavoritesPlaylist)
         } else {
           const favoritesPlaylist = findFavorites[0]
 
-          if (favoritesPlaylist._id !== 'favorites' || !favoritesPlaylist.protected) {
+          if (favoritesPlaylist._id !== defaultFavoritesPlaylist._id || favoritesPlaylist.protected !== defaultFavoritesPlaylist.protected) {
             const oldId = favoritesPlaylist._id
-            favoritesPlaylist._id = 'favorites'
-            favoritesPlaylist.protected = true
-            dispatch('removePlaylist', oldId)
-            dispatch('addPlaylist', favoritesPlaylist)
+            favoritesPlaylist._id = defaultFavoritesPlaylist._id
+            favoritesPlaylist.protected = defaultFavoritesPlaylist.protected
+            if (oldId === defaultFavoritesPlaylist._id) {
+              // Update playlist if ID already the same
+              DBPlaylistHandlers.upsert(favoritesPlaylist)
+            } else {
+              dispatch('removePlaylist', oldId)
+              dispatch('addPlaylist', favoritesPlaylist)
+            }
           }
         }
 
+        const defaultWatchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
         if (findWatchLater.length === 0) {
-          const watchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
-          dispatch('addPlaylist', watchLaterPlaylist)
-          payload.push(watchLaterPlaylist)
+          dispatch('addPlaylist', defaultWatchLaterPlaylist)
         } else {
           const watchLaterPlaylist = findWatchLater[0]
 
-          if (watchLaterPlaylist._id !== 'watchLater') {
+          if (watchLaterPlaylist._id !== defaultWatchLaterPlaylist._id || watchLaterPlaylist.protected !== defaultWatchLaterPlaylist.protected) {
             const oldId = watchLaterPlaylist._id
-            watchLaterPlaylist._id = 'watchLater'
-            watchLaterPlaylist.protected = true
-            dispatch('removePlaylist', oldId)
-            dispatch('addPlaylist', watchLaterPlaylist)
+            watchLaterPlaylist._id = defaultWatchLaterPlaylist._id
+            watchLaterPlaylist.protected = defaultWatchLaterPlaylist.protected
+            if (oldId === defaultWatchLaterPlaylist._id) {
+              // Update playlist if ID already the same
+              DBPlaylistHandlers.upsert(watchLaterPlaylist)
+            } else {
+              dispatch('removePlaylist', oldId)
+              dispatch('addPlaylist', watchLaterPlaylist)
+            }
           }
         }
 
