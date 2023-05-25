@@ -70,7 +70,6 @@ export default Vue.extend({
       const playlistObject = {
         playlistName: this.playlistName,
         protected: false,
-        removeOnWatched: false,
         description: '',
         videos: videosObject,
       }

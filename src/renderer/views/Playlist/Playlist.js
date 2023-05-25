@@ -314,7 +314,6 @@ export default defineComponent({
       const playlist = {
         playlistName: this.playlistTitle,
         protected: this.selectedUserPlaylist.protected,
-        removeOnWatched: this.selectedUserPlaylist.removeOnWatched,
         description: this.playlistDescription,
         videos: playlistItems,
         _id: this.playlistId
@@ -347,7 +346,6 @@ export default defineComponent({
       const playlist = {
         playlistName: this.playlistTitle,
         protected: this.selectedUserPlaylist.protected,
-        removeOnWatched: this.selectedUserPlaylist.removeOnWatched,
         description: this.playlistDescription,
         videos: playlistItems,
         _id: this.playlistId

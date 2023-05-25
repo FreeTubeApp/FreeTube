@@ -880,7 +880,6 @@ export default defineComponent({
       const optionalKeys = [
         '_id',
         'protected',
-        'removeOnWatched'
       ]
 
       const requiredVideoKeys = [

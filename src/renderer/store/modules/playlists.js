@@ -18,7 +18,6 @@ const state = {
     {
       playlistName: 'Favorites',
       protected: true,
-      removeOnWatched: false,
       description: 'Your favorite videos',
       videos: [],
       _id: 'favorites',
@@ -26,7 +25,6 @@ const state = {
     {
       playlistName: 'Watch Later',
       protected: true,
-      removeOnWatched: true,
       description: 'Videos to watch later',
       videos: [],
       _id: 'watchLater',
