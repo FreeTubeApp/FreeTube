@@ -878,12 +878,12 @@ export default defineComponent({
       ]
 
       const optionalKeys = [
-        '_id',
         'protected',
         'description',
       ]
 
       const ignoredKeys = [
+        '_id',
         'title',
         'type',
         'protected',
