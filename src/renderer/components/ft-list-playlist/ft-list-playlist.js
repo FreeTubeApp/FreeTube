@@ -42,7 +42,14 @@ export default defineComponent({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
-    }
+    },
+
+    titleForDisplay: function () {
+      if (typeof this.title !== 'string') { return '' }
+      if (this.title.length <= 255) { return this.title }
+
+      return `${this.title.substring(0, 255)}...`
+    },
   },
   created: function () {
     if (this.data._id != null) {

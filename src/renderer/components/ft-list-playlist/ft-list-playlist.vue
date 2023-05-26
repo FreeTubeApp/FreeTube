@@ -32,7 +32,7 @@
         class="title"
         :to="`/playlist/${playlistId}`"
       >
-        {{ title }}
+        {{ titleForDisplay }}
       </router-link>
       <div class="infoLine">
         <router-link
