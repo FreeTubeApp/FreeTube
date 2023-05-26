@@ -49,6 +49,14 @@ const actions = {
       // {Time now in unix time}-{0-9999}
       payload._id = generateRandomPlaylistId()
     }
+    // Ensure playlist name trimmed
+    if (typeof payload.playlistName === 'string') {
+      payload.playlistName = payload.playlistName.trim()
+    }
+    // Ensure playlist description trimmed
+    if (typeof payload.description === 'string') {
+      payload.description = payload.description.trim()
+    }
     payload.lastUpdatedAt = Date.now()
 
     try {
@@ -69,6 +77,14 @@ const actions = {
   },
 
   async updatePlaylist({ commit }, playlist) {
+    // Ensure playlist name trimmed
+    if (typeof playlist.playlistName === 'string') {
+      playlist.playlistName = playlist.playlistName.trim()
+    }
+    // Ensure playlist description trimmed
+    if (typeof playlist.description === 'string') {
+      playlist.description = playlist.description.trim()
+    }
     // Caller no need to assign last updated time
     playlist.lastUpdatedAt = Date.now()
 
