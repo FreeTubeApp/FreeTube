@@ -878,7 +878,6 @@ export default defineComponent({
       ]
 
       const optionalKeys = [
-        'protected',
         'description',
       ]
 
