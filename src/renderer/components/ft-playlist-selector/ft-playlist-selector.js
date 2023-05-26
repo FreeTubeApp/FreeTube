@@ -33,7 +33,14 @@ export default Vue.extend({
   computed: {
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    }
+    },
+
+    titleForDisplay: function () {
+      if (typeof this.title !== 'string') { return '' }
+      if (this.title.length <= 255) { return this.title }
+
+      return `${this.title.substring(0, 255)}...`
+    },
   },
   mounted: function () {
     this.parseUserData()

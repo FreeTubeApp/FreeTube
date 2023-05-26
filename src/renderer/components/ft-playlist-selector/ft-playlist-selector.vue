@@ -33,7 +33,7 @@
       <span
         class="title"
       >
-        {{ title }}
+        {{ titleForDisplay }}
       </span>
     </div>
   </div>
