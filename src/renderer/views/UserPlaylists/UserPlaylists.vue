@@ -13,7 +13,7 @@
           {{ $t("User Playlists.Your Playlists") }}
         </h3>
         <ft-icon-button
-          title="Add New Playlist"
+          title="Create New Playlist"
           :icon="['fas', 'plus']"
           theme="secondary"
           class="newPlaylistButton"
