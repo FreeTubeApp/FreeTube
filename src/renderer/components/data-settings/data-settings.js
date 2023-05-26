@@ -883,6 +883,20 @@ export default defineComponent({
         'description',
       ]
 
+      const ignoredKeys = [
+        'title',
+        'type',
+        'protected',
+        'lastUpdatedAt',
+        'removeOnWatched',
+
+        'thumbnail',
+        'channelName',
+        'channelId',
+        'playlistId',
+        'videoCount',
+      ]
+
       const requiredVideoKeys = [
         'videoId',
         'title',
@@ -893,7 +907,7 @@ export default defineComponent({
         'timeAdded',
         'isLive',
         'paid',
-        'type'
+        'type',
       ]
 
       playlists.forEach((playlistData) => {
@@ -904,7 +918,7 @@ export default defineComponent({
         const playlistObject = {}
 
         Object.keys(playlistData).forEach((key) => {
-          if (!requiredKeys.includes(key) && !optionalKeys.includes(key)) {
+          if ([requiredKeys, optionalKeys, ignoredKeys].every((ks) => !ks.includes(key))) {
             const message = `${this.$t('Settings.Data Settings.Unknown data key')}: ${key}`
             showToast(message)
           } else if (key === 'videos') {
@@ -924,17 +938,17 @@ export default defineComponent({
             })
 
             playlistObject[key] = videoArray
+          } else if (ignoredKeys.includes(key)) {
+            // Do nothing for keys to be ignored
           } else {
             playlistObject[key] = playlistData[key]
           }
         })
 
-        const objectKeys = Object.keys(playlistObject)
+        const playlistObjectKeys = Object.keys(playlistObject)
+        const playlistObjectHasAllRequiredKeys = requiredKeys.every((k) => playlistObjectKeys.includes(k))
 
-        if ((objectKeys.length < requiredKeys.length) || playlistObject.videos.length === 0) {
-          const message = this.$t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
-          showToast(message)
-        } else {
+        if (playlistObjectHasAllRequiredKeys) {
           const existingPlaylist = this.allPlaylists.find((playlist) => {
             return playlist.playlistName === playlistObject.playlistName
           })
@@ -958,6 +972,9 @@ export default defineComponent({
           } else {
             this.addPlaylist(playlistObject)
           }
+        } else {
+          const message = this.$t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
+          showToast(message)
         }
       })
 
