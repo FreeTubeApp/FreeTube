@@ -11,25 +11,16 @@
           class="elementList"
         >
           <ft-element-list
-            v-if="backendFallback || backendPreference === 'local' && videos.length > 0"
+            v-if="videos.length > 0"
             :data="videos"
           />
           <ft-flex-box
-            v-else-if="backendFallback || backendPreference === 'local' && videos.length === 0"
+            v-else-if="videos.length === 0"
           >
             <p
               class="message"
             >
               {{ $t("Hashtag.This hashtag does not currently have any videos") }}
-            </p>
-          </ft-flex-box>
-          <ft-flex-box
-            v-else
-          >
-            <p
-              class="message"
-            >
-              {{ $t("Hashtag.You can only view hashtag pages through the Local API") }}
             </p>
           </ft-flex-box>
         </div>
