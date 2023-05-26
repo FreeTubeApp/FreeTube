@@ -924,14 +924,9 @@ export default defineComponent({
             const videoArray = []
             playlistData.videos.forEach((video) => {
               const videoPropertyKeys = Object.keys(video)
-              let hasAllKeys = true
-              requiredVideoKeys.forEach((videoKey) => {
-                if (!videoPropertyKeys.includes(videoKey)) {
-                  hasAllKeys = false
-                }
-              })
+              const videoObjectHasAllRequiredKeys = requiredVideoKeys.every((k) => videoPropertyKeys.includes(k))
 
-              if (hasAllKeys) {
+              if (videoObjectHasAllRequiredKeys) {
                 videoArray.push(video)
               }
             })
