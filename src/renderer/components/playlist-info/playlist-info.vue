@@ -99,7 +99,7 @@
 
         <ft-icon-button
           v-if="!editMode && infoSource === 'user'"
-          title="Edit Playlist"
+          title="Edit Playlist Info"
           :icon="['fas', 'edit']"
           theme="secondary"
           @click="enterEditMode"
