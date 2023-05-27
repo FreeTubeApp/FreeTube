@@ -262,6 +262,50 @@ const actions = {
   },
 
   showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
+    let videoDataValid = true
+    if (!Array.isArray(videoObjectArray)) {
+      videoDataValid = false
+    }
+    let missingKeys = []
+
+    if (videoDataValid) {
+      const requiredVideoKeys = [
+        'videoId',
+        'title',
+        'author',
+        'authorId',
+        'published',
+        'lengthSeconds',
+        'timeAdded',
+        'isLive',
+        'paid',
+        'type',
+      ]
+      // Using `every` to loop and `return false` to break
+      videoObjectArray.every((video) => {
+        const videoPropertyKeys = Object.keys(video)
+        const missingKeysHere = requiredVideoKeys.filter(x => !videoPropertyKeys.includes(x))
+        if (missingKeysHere.length > 0) {
+          videoDataValid = false
+          missingKeys = missingKeysHere
+          return false
+        }
+        // Return true to continue loop
+        return true
+      })
+    }
+
+    if (!videoDataValid) {
+      // Print error and abort
+      const errorMsgText = 'Incorrect videos data passed when opening playlist prompt'
+      console.error(errorMsgText)
+      console.error({
+        videoObjectArray,
+        missingKeys,
+      })
+      throw new Error(errorMsgText)
+    }
+
     commit('setShowAddToPlaylistPrompt', true)
     commit('setToBeAddedToPlaylistVideoList', videoObjectArray)
     if (newPlaylistDefaultProperties != null) {
