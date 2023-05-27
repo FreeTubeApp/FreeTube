@@ -12,7 +12,8 @@
   position: sticky;
   top: 96px;
   /* This is needed to make prompt always above video entries */
-  z-index: 1;
+  /* High value used to avoid further issues */
+  z-index: 100;
   width: 30%;
 }
 
