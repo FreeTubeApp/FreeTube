@@ -87,4 +87,4 @@
 </template>
 
 <script src="./Playlist.js" />
-<style scoped src="./Playlist.css" />
+<style scoped src="./Playlist.scss" lang="scss" />
