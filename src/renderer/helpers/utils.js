@@ -9,35 +9,35 @@ import router from '../router/index'
 // https://support.google.com/youtube/answer/11585688#change_handle
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
+const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+/**
+ * @param {string} publishedText
+ */
 export function calculatePublishedDate(publishedText) {
   const date = new Date()
   if (publishedText === 'Live') {
     return publishedText
   }
 
-  const textSplit = publishedText.split(' ')
+  const match = publishedText.match(PUBLISHED_TEXT_REGEX)
 
-  if (textSplit[0].toLowerCase() === 'streamed') {
-    textSplit.shift()
-  }
-
-  const timeFrame = textSplit[1]
-  const timeAmount = parseInt(textSplit[0])
+  const timeFrame = match[2]
+  const timeAmount = parseInt(match[1])
   let timeSpan = null
 
-  if (timeFrame.indexOf('second') > -1) {
+  if (timeFrame.startsWith('second') || timeFrame === 's') {
     timeSpan = timeAmount * 1000
-  } else if (timeFrame.indexOf('minute') > -1) {
+  } else if (timeFrame.startsWith('minute') || timeFrame === 'm') {
     timeSpan = timeAmount * 60000
-  } else if (timeFrame.indexOf('hour') > -1) {
+  } else if (timeFrame.startsWith('hour') || timeFrame === 'h') {
     timeSpan = timeAmount * 3600000
-  } else if (timeFrame.indexOf('day') > -1) {
+  } else if (timeFrame.startsWith('day') || timeFrame === 'd') {
     timeSpan = timeAmount * 86400000
-  } else if (timeFrame.indexOf('week') > -1) {
+  } else if (timeFrame.startsWith('week') || timeFrame === 'w') {
     timeSpan = timeAmount * 604800000
-  } else if (timeFrame.indexOf('month') > -1) {
+  } else if (timeFrame.startsWith('month') || timeFrame === 'mo') {
     timeSpan = timeAmount * 2592000000
-  } else if (timeFrame.indexOf('year') > -1) {
+  } else if (timeFrame.startsWith('year') || timeFrame === 'y') {
     timeSpan = timeAmount * 31556952000
   }
 
@@ -53,33 +53,36 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   } else if (isRSS) {
     return publishText
   }
-  const strings = publishText.split(' ')
-  // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
-  if (strings[0].toLowerCase() === 'streamed') {
-    strings.shift()
-  }
-  const singular = (strings[0] === '1')
+
+  const match = publishText.match(PUBLISHED_TEXT_REGEX)
+  const singular = (match[1] === '1')
   let translationKey = ''
-  switch (strings[1].substring(0, 2)) {
+  switch (match[2].substring(0, 2)) {
     case 'se':
+    case 's':
       translationKey = 'Video.Published.Second'
       break
     case 'mi':
+    case 'm':
       translationKey = 'Video.Published.Minute'
       break
     case 'ho':
+    case 'h':
       translationKey = 'Video.Published.Hour'
       break
     case 'da':
+    case 'd':
       translationKey = 'Video.Published.Day'
       break
     case 'we':
+    case 'w':
       translationKey = 'Video.Published.Week'
       break
     case 'mo':
       translationKey = 'Video.Published.Month'
       break
     case 'ye':
+    case 'y':
       translationKey = 'Video.Published.Year'
       break
     default:
@@ -90,7 +93,7 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   }
 
   const unit = i18n.t(translationKey)
-  return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
+  return i18n.t('Video.Publicationtemplate', { number: match[1], unit })
 }
 
 export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
