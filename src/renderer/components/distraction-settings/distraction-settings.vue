@@ -40,7 +40,7 @@
     <h4
       class="groupTitle"
     >
-      {{ $t('Settings.Distraction Free Settings.Sections.Channel Pages') }}
+      {{ $t('Settings.Distraction Free Settings.Sections.Channel Page') }}
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
@@ -75,7 +75,7 @@
     <h4
       class="groupTitle"
     >
-      {{ $t('Settings.Distraction Free Settings.Sections.Watch Pages') }}
+      {{ $t('Settings.Distraction Free Settings.Sections.Watch Page') }}
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
