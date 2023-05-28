@@ -6,7 +6,7 @@ FreeTube: 'FreeTube'
   Zati hau ez dago prest oraindik. Itzuli aurrerago aurrerapenak egin direnean.
 
 # Webkit Menu Bar
-File: 'Artxibategia'
+File: 'Fitxategia'
 Quit: 'Irten'
 Edit: 'Editatu'
 Undo: 'Desegin'
@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Bideoak'
     Channels: 'Kanalak'
     #& Playlists
+    Movies: Filmeak
   Duration:
     Duration: 'Iraupena'
     All Durations: 'Edozein iraupen'
     Short (< 4 minutes): 'Laburra (<4 minutu)'
     Long (> 20 minutes): 'Luzea (> 20 minutu)'
   # On Search Page
+    Medium (4 - 20 minutes): Tartekoa (4 - 20 minutu)
   Search Results: 'Emaitzak bilatu'
   Fetching results. Please wait: 'Emaitzak ekartzen. Itxaron faborez'
   Fetch more results: 'Emaitza gehiago ekarri'
@@ -221,8 +223,8 @@ Settings:
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
     Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
     Proxy Videos Through Invidious: 'Invidious bitarteko Proxy bideoak'
-    Autoplay Playlists: 'Erreprodukzio automatikoan diren erreprodukzio zerrendak'
-    Enable Theatre Mode by Default: 'Gaitu Antzerki modua lehenespenez'
+    Autoplay Playlists: 'Automatikoki erreproduzitu erreprodukzio-zerrendak'
+    Enable Theatre Mode by Default: 'Gaitu antzerki modua lehenespenez'
     Default Volume: 'Lehenetsitako bolumena'
     Default Playback Rate: 'Lehenetsitako erreprodukzio tasa'
     Default Video Format:
@@ -726,9 +728,9 @@ Tooltips:
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun
       herrialdeko joerako bideoak hautatzeko. Youtube-k ez ditu onartzen bistaratzen
       diren herrialde guztiak.'
-    External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin\
-      \ den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako\
-      \ nabigatazailean irekiko du klikatutako esteka.\n"
+    External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin
+      den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako
+      nabigatazailean irekiko du klikatutako esteka.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Soilik funtzionatzen du Individious-en
       APIa zure lehenetsitakoa denean. Aukera dagoenean, tokiko APIa eta azken honek
@@ -831,3 +833,4 @@ Age Restricted:
   Type:
     Channel: Kanala
     Video: Bideoa
+Preferences: Hobespenak
