@@ -2,82 +2,13 @@
   <ft-settings-section
     :title="$t('Settings.Distraction Free Settings.Distraction Free Settings')"
   >
+    <h4
+      class="groupTitle"
+    >
+      {{ $t('Settings.Distraction Free Settings.Sections.Side Bar') }}
+    </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Video Views')"
-          :compact="true"
-          :default-value="hideVideoViews"
-          @change="updateHideVideoViews"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
-          :compact="true"
-          :default-value="hideVideoLikesAndDislikes"
-          @change="updateHideVideoLikesAndDislikes"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
-          :compact="true"
-          :default-value="hideChannelSubscriptions"
-          @change="updateHideChannelSubscriptions"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Comment Likes')"
-          :compact="true"
-          :default-value="hideCommentLikes"
-          @change="updateHideCommentLikes"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
-          :compact="true"
-          :default-value="hideActiveSubscriptions"
-          @change="updateHideActiveSubscriptions"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Video Description')"
-          :compact="true"
-          :default-value="hideVideoDescription"
-          @change="updateHideVideoDescription"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
-          :compact="true"
-          :default-value="hideSharingActions"
-          @change="updateHideSharingActions"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Chapters')"
-          :compact="true"
-          :default-value="hideChapters"
-          @change="updateHideChapters"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Featured Channels')"
-          :compact="true"
-          :default-value="hideFeaturedChannels"
-          @change="updateHideFeaturedChannels"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Channel Playlists')"
-          :compact="true"
-          :default-value="hideChannelPlaylists"
-          @change="updateHideChannelPlaylists"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Channel Shorts')"
-          :compact="true"
-          :default-value="hideChannelShorts"
-          @change="updateHideChannelShorts"
-        />
-      </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Recommended Videos')"
-          :compact="true"
-          :default-value="hideRecommendedVideos"
-          @change="handleHideRecommendedVideos"
-        />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Trending Videos')"
           :compact="true"
@@ -90,6 +21,8 @@
           :default-value="hidePopularVideos"
           @change="updateHidePopularVideos"
         />
+      </div>
+      <div class="switchColumn">
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Playlists')"
           :compact="true"
@@ -97,11 +30,128 @@
           @change="updateHidePlaylists"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
+          :compact="true"
+          :default-value="hideActiveSubscriptions"
+          @change="updateHideActiveSubscriptions"
+        />
+      </div>
+    </div>
+    <h4
+      class="groupTitle"
+    >
+      {{ $t('Settings.Distraction Free Settings.Sections.Channel Page') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Shorts')"
+          :compact="true"
+          :default-value="hideChannelShorts"
+          @change="updateHideChannelShorts"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Playlists')"
+          :compact="true"
+          :default-value="hideChannelPlaylists"
+          @change="updateHideChannelPlaylists"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Community')"
+          :compact="true"
+          :default-value="hideChannelCommunity"
+          @change="updateHideChannelCommunity"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Featured Channels')"
+          :compact="true"
+          :default-value="hideFeaturedChannels"
+          @change="updateHideFeaturedChannels"
+        />
+      </div>
+    </div>
+    <h4
+      class="groupTitle"
+    >
+      {{ $t('Settings.Distraction Free Settings.Sections.Watch Page') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
+          :compact="true"
+          :default-value="hideVideoLikesAndDislikes"
+          @change="updateHideVideoLikesAndDislikes"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Chapters')"
+          :compact="true"
+          :default-value="hideChapters"
+          @change="updateHideChapters"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Video Description')"
+          :compact="true"
+          :default-value="hideVideoDescription"
+          @change="updateHideVideoDescription"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Comment Likes')"
+          :compact="true"
+          :default-value="hideCommentLikes"
+          @change="updateHideCommentLikes"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Live Chat')"
           :compact="true"
           :default-value="hideLiveChat"
           @change="updateHideLiveChat"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Recommended Videos')"
+          :compact="true"
+          :default-value="hideRecommendedVideos"
+          @change="handleHideRecommendedVideos"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Comments')"
+          :compact="true"
+          :default-value="hideComments"
+          @change="updateHideComments"
+        />
+      </div>
+    </div>
+    <h4
+      class="groupTitle"
+    >
+      {{ $t('Settings.Distraction Free Settings.Sections.General') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Video Views')"
+          :compact="true"
+          :default-value="hideVideoViews"
+          @change="updateHideVideoViews"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
+          :compact="true"
+          :default-value="hideChannelSubscriptions"
+          @change="updateHideChannelSubscriptions"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
+          :compact="true"
+          :default-value="hideSharingActions"
+          @change="updateHideSharingActions"
+        />
+      </div>
+      <div class="switchColumn">
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
           :compact="true"
@@ -115,22 +165,10 @@
           @change="updateHideUpcomingPremieres"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Comments')"
-          :compact="true"
-          :default-value="hideComments"
-          @change="updateHideComments"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
           :compact="true"
           :default-value="showDistractionFreeTitles"
           @change="updateShowDistractionFreeTitles"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Channel Community')"
-          :compact="true"
-          :default-value="hideChannelCommunity"
-          @change="updateHideChannelCommunity"
         />
       </div>
     </div>

@@ -317,6 +317,11 @@ Settings:
     Fetch Automatically: Fetch Feed Automatically
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
+    Sections:
+      Side Bar: Side Bar
+      Channel Page: Channel Page
+      Watch Page: Watch Page
+      General: General
     Hide Video Views: Hide Video Views
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Channel Subscribers: Hide Channel Subscribers
