@@ -548,7 +548,6 @@ export default defineComponent({
         lengthSeconds: this.data.lengthSeconds,
         timeAdded: new Date().getTime(),
         isLive: false,
-        type: 'video',
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })

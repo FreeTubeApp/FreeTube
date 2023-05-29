@@ -905,7 +905,6 @@ export default defineComponent({
         'lengthSeconds',
         'timeAdded',
         'isLive',
-        'type',
       ]
 
       playlists.forEach((playlistData) => {
