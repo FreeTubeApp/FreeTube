@@ -176,7 +176,10 @@ const actions = {
               DBPlaylistHandlers.upsert(favoritesPlaylist)
             } else {
               dispatch('removePlaylist', oldId)
-              dispatch('addPlaylist', favoritesPlaylist)
+              // DO NOT use dispatch('addPlaylist', ...)
+              // Which causes duplicate displayed playlist in window (But DB is fine)
+              // Due to the object is already in `payload`
+              DBPlaylistHandlers.create(favoritesPlaylist)
             }
           }
         }
@@ -195,7 +198,10 @@ const actions = {
               DBPlaylistHandlers.upsert(watchLaterPlaylist)
             } else {
               dispatch('removePlaylist', oldId)
-              dispatch('addPlaylist', watchLaterPlaylist)
+              // DO NOT use dispatch('addPlaylist', ...)
+              // Which causes duplicate displayed playlist in window (But DB is fine)
+              // Due to the object is already in `payload`
+              DBPlaylistHandlers.create(watchLaterPlaylist)
             }
           }
         }
