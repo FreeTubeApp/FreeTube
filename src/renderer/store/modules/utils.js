@@ -275,8 +275,11 @@ const actions = {
         'author',
         'authorId',
         'lengthSeconds',
-        'timeAdded',
         'isLive',
+
+        // `timeAdded` should be generated when videos are added
+        // Not when a prompt is displayed
+        // 'timeAdded',
       ]
       // Using `every` to loop and `return false` to break
       videoObjectArray.every((video) => {

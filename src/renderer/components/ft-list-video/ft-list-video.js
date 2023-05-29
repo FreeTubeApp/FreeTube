@@ -545,7 +545,6 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
-        timeAdded: new Date().getTime(),
         isLive: false,
       }
 
