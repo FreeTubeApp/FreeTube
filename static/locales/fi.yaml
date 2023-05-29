@@ -266,6 +266,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Siirry koko näytön kokoiseen näytön kiertoon
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
     Allow DASH AV1 formats: Salli DASH AV1 -formaatit
+    Comment Auto Load:
+      Comment Auto Load: Kommenttien automaattinen lataus
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
     Hide Videos on Watch: 'Piilota katsotut videot'
@@ -393,6 +395,10 @@ Settings:
     Hide Channels Placeholder: Kanavan nimi tai tunnus
     Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista
       isoja kirjaimia
+    Hide Featured Channels: Piilota esillä olevat kanavat
+    Hide Channel Playlists: Piilota kanavan soittolistat
+    Hide Channel Community: Piilota kanava yhteisö
+    Hide Channel Shorts: Piilota kanavan lyhytelokuvat
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -504,7 +510,7 @@ About:
   Please read the: Lue
   View License: Katso lisenssi
   Please check for duplicates before posting: Tarkista kopioiden varalta ennen julkaisua
-  Website: Verkkosivu
+  Website: Verkkosivusto
   Mastodon: Mastodon:ista
   Translate: Käännös
   Credits: Kiitokset
@@ -855,9 +861,9 @@ Tooltips:
       alkuperäisen pikkukuvan sijaan.
     Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
       Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
-    External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi\
-      \ avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun\
-      \ linkin oletusselaimessasi.\n"
+    External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi
+      avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun
+      linkin oletusselaimessasi.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
       sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
