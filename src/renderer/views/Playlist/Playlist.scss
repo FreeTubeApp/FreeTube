@@ -44,8 +44,7 @@
   // But the transition related classes are all on container elements
   // So `:deep` is used
   :deep(.playlistIcons) {
-    //display: none;
-    background-color: red;
+    display: none;
   }
 }
 .playlistItem-enter, .playlistItem-leave-to {
