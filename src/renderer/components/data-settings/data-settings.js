@@ -690,7 +690,7 @@ export default defineComponent({
 
       response.filePaths.forEach(filePath => {
         if (filePath.endsWith('.db')) {
-          this.importFreeTubeSubscriptions(textDecode.split('\n'))
+          this.importFreeTubeHistory(textDecode.split('\n'))
         } else if (filePath.endsWith('.json')) {
           this.importYouTubeHistory(JSON.parse(textDecode))
         }
