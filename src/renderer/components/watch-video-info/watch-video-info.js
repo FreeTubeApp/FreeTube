@@ -308,7 +308,6 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.lengthSeconds,
-        isLive: false,
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })

@@ -903,7 +903,6 @@ export default defineComponent({
         'authorId',
         'lengthSeconds',
         'timeAdded',
-        'isLive',
       ]
 
       playlists.forEach((playlistData) => {

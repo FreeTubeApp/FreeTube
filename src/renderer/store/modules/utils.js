@@ -275,7 +275,6 @@ const actions = {
         'author',
         'authorId',
         'lengthSeconds',
-        'isLive',
 
         // `timeAdded` should be generated when videos are added
         // Not when a prompt is displayed
