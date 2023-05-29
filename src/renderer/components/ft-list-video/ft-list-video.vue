@@ -45,7 +45,7 @@
         @click="handleExternalPlayer"
       />
       <ft-icon-button
-        v-if="!isLive"
+        v-if="!isUpcoming"
         :title="$t('Video.Save Video')"
         :icon="['fas', 'star']"
         class="favoritesIcon"
