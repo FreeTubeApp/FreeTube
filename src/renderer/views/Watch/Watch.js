@@ -1001,7 +1001,6 @@ export default defineComponent({
         watchProgress: watchProgress,
         timeWatched: new Date().getTime(),
         isLive: false,
-        paid: false,
         type: 'video'
       }
 

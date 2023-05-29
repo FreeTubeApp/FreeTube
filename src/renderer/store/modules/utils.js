@@ -278,7 +278,6 @@ const actions = {
         'lengthSeconds',
         'timeAdded',
         'isLive',
-        'paid',
         'type',
       ]
       // Using `every` to loop and `return false` to break

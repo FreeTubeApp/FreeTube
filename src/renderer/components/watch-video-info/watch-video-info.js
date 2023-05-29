@@ -311,7 +311,6 @@ export default defineComponent({
         lengthSeconds: this.lengthSeconds,
         timeAdded: new Date().getTime(),
         isLive: false,
-        paid: false,
         type: 'video',
       }
 
