@@ -273,6 +273,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoplayer
     Allow DASH AV1 formats: DASH AV1-Formate zulassen
+    Comment Auto Load:
+      Comment Auto Load: Kommentare automatisch laden
   Subscription Settings:
     Subscription Settings: Abonnement-Einstellungen
     Hide Videos on Watch: Verstecke Videos bei Wiedergabe
@@ -406,6 +408,9 @@ Settings:
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
+    Hide Channel Community: Kanal-Gemeinschaft ausblenden
+    Hide Channel Shorts: Shorts des jeweiligen Kanals ausblenden
+    Hide Featured Channels: Hervorgehobene Kanäle ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -598,6 +603,10 @@ Channel:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
       keine Live-Streams
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: Dieser Kanal hat derzeit keine
+      Shorts
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
@@ -793,10 +802,10 @@ Share:
   Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
     kopiert
   Share Channel: Kanal teilen
-Mini Player: Mini-Abspieler
+Mini Player: Mini-Wiedergabefenster
 Comments:
   Comments: Kommentare
-  Click to View Comments: Klicke, um Kommentare anzuzeigen
+  Click to View Comments: Hier klicken, um Kommentare anzuzeigen
   Getting comment replies, please wait: Kommentare werden geladen, bitte warten
   Show Comments: Zeige Kommentare
   Hide Comments: Verstecke Kommentare
@@ -1017,3 +1026,7 @@ Chapters:
     aktuelles Kapitel: {chapterName}'
 Preferences: Einstellungen
 Ok: OK
+Hashtag:
+  Hashtag: Schlagwort
+  This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
+    derzeit keine Videos gefunden werden
