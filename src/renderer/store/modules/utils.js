@@ -274,7 +274,6 @@ const actions = {
         'title',
         'author',
         'authorId',
-        'published',
         'lengthSeconds',
         'timeAdded',
         'isLive',
