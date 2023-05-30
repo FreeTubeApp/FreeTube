@@ -8,9 +8,9 @@
         : $t('Chapters.Chapters list hidden, current chapter: {chapterName}', null, { chapterName: currentTitle })
       "
       :aria-pressed="showChapters"
-      @click="showChapters = !showChapters"
-      @keydown.space.stop.prevent="showChapters = !showChapters"
-      @keydown.enter.stop.prevent="showChapters = !showChapters"
+      @click="toggleShowChapters"
+      @keydown.space.stop.prevent="toggleShowChapters"
+      @keydown.enter.stop.prevent="toggleShowChapters"
     >
       {{ $t("Chapters.Chapters") }}
 
@@ -36,6 +36,7 @@
       <div
         v-for="(chapter, index) in chapters"
         :key="index"
+        :ref="index === currentIndex ? 'currentChaptersItem' : null"
         class="chapter"
         role="button"
         tabindex="0"
