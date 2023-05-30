@@ -406,7 +406,7 @@ Settings:
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на плейлистите на каналите
     Hide Channel Community: Скриване на общността на каналите
-    Hide Channel Shorts: Скриване на късите видеа на канала
+    Hide Channel Shorts: Скриване кратките видеа на канала
     Sections:
       Channel Page: Страница на канала
       Side Bar: Странична лента
@@ -637,8 +637,8 @@ Channel:
       никакви потоци на живо
   Shorts:
     This channel does not currently have any shorts: В момента този канал няма никакви
-      къси видеа
-    Shorts: Къси видеа
+      кратки видеа
+    Shorts: Кратки видеа
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
