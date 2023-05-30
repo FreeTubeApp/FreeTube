@@ -407,6 +407,11 @@ Settings:
     Hide Channel Playlists: Скриване на плейлистите на каналите
     Hide Channel Community: Скриване на общността на каналите
     Hide Channel Shorts: Скриване на късите видеа на канала
+    Sections:
+      Channel Page: Страница на канала
+      Side Bar: Странична лента
+      Watch Page: Страница за гледане
+      General: Общи
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
