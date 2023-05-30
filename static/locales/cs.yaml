@@ -329,6 +329,11 @@ Settings:
     Hide Channel Playlists: Skrýt playlisty kanálu
     Hide Channel Community: Skrýt komunitu kanálu
     Hide Channel Shorts: Skrýt Shorts kanálu
+    Sections:
+      Side Bar: Postranní lišta
+      Channel Page: Stránka kanálu
+      Watch Page: Stránka sledování
+      General: Obecné
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
