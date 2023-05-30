@@ -125,10 +125,23 @@ export default defineComponent({
       return this.$router.currentRoute.path.includes('playlist') && this.playlistType === 'user'
     },
 
+    selectedUserPlaylist: function () {
+      if (this.playlistIdFinal == null) { return null }
+      if (this.playlistIdFinal === '') { return null }
+
+      return this.$store.getters.getPlaylist(this.playlistIdFinal)
+    },
+
+    playlistSharable() {
+      // `playlistId` can be undefined
+      // User playlist ID should not be shared
+      return this.playlistIdFinal && this.playlistIdFinal.length !== 0 && this.selectedUserPlaylist == null
+    },
+
     invidiousUrl: function () {
       let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
       // `playlistId` can be undefined
-      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+      if (this.playlistSharable) {
         // `index` seems can be ignored
         videoUrl += `&list=${this.playlistIdFinal}`
       }
@@ -141,8 +154,7 @@ export default defineComponent({
 
     youtubeUrl: function () {
       let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
-      // `playlistId` can be undefined
-      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+      if (this.playlistSharable) {
         // `index` seems can be ignored
         videoUrl += `&list=${this.playlistIdFinal}`
       }
@@ -150,8 +162,7 @@ export default defineComponent({
     },
 
     youtubeShareUrl: function () {
-      // `playlistId` can be undefined
-      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+      if (this.playlistSharable) {
         // `index` seems can be ignored
         return `https://youtu.be/${this.id}?list=${this.playlistIdFinal}`
       }
