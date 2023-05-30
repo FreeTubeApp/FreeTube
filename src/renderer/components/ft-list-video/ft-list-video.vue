@@ -46,7 +46,7 @@
       />
       <span class="playlistIcons">
         <ft-icon-button
-          v-if="showPlaylists && !isLive"
+          v-if="showPlaylists && !isUpcoming"
           title="Add to playlist"
           :icon="['fas', 'plus']"
           class="playlistIcon addToPlaylistIcon"
