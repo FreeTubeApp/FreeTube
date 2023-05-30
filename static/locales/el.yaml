@@ -280,6 +280,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
     Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Αυτόματη Φόρτωση Σχολίων
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -406,6 +408,15 @@ Settings:
     Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
     Display Titles Without Excessive Capitalisation: Εμφάνιση Τίτλων Χωρίς Υπερβολική
       Χρήση Κεφαλαίων
+    Sections:
+      Side Bar: Πλαϊνή Μπάρα
+      Channel Page: Σελίδα Καναλιού
+      Watch Page: Σελίδα Παρακολούθησης
+      General: Γενικά
+    Hide Featured Channels: Απόκρυψη Προτεινόμενων Καναλιών
+    Hide Channel Playlists: Απόκρυψη Λιστών Αναπαραγωγής Καναλιών
+    Hide Channel Community: Απόκρυψη Κοινότητας Καναλιού
+    Hide Channel Shorts: Απόκρυψη Shorts Καναλιού
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -640,6 +651,10 @@ Channel:
     Live: Ζωντανά
     This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
       προς το παρόν ζωντανές ροές
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς
+      το παρόν κανένα shorts
 Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
@@ -782,9 +797,9 @@ Video:
   Scroll to Bottom: Κύλιση προς τα Κάτω
   Premieres: Πρεμιέρες
   Upcoming: Επερχόμενο
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η\
-    \ Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί\
-    \ από τον χρήστη."
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
+    Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
+    από τον χρήστη."
 Videos:
   #& Sort By
   Sort By:
@@ -881,8 +896,8 @@ The playlist has been reversed: 'Η λίστα αναπαραγωγής έχει
 Playing Next Video: 'Αναπαραγωγή του επόμενου βίντεο'
 Playing Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
 Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου βίντεο έχει ακυρωθεί'
-'The playlist has ended. Enable loop to continue playing': 'Η λίστα αναπαραγωγής
-  έχει τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
+'The playlist has ended. Enable loop to continue playing': 'Η λίστα αναπαραγωγής έχει
+  τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
 
 Yes: 'Ναι'
 No: 'Όχι'
@@ -941,10 +956,10 @@ Tooltips:
       απαιτεί έναν Invidious server για να συνδεθεί.
     Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
       για κλήσεις διεπαφής.
-    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ\
-      \ σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,\
-      \ το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα\
-      \ περιήγησης.\n"
+    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ
+      σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,
+      το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα
+      περιήγησης.\n"
   Privacy Settings:
     Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
       τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
@@ -1027,3 +1042,7 @@ Age Restricted:
 Ok: Εντάξει
 Preferences: Προτιμήσεις
 Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
+    παρόν κανένα βίντεο
