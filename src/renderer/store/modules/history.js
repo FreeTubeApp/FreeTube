@@ -56,10 +56,10 @@ const actions = {
     }
   },
 
-  async updateLastViewedPlaylist({ commit }, { videoId, lastViewedPlaylistId }) {
+  async updateLastViewedPlaylist({ commit }, { videoId, lastViewedPlaylistId, lastViewedPlaylistType }) {
     try {
-      await DBHistoryHandlers.updateLastViewedPlaylist(videoId, lastViewedPlaylistId)
-      commit('updateRecordLastViewedPlaylistIdInHistoryCache', { videoId, lastViewedPlaylistId })
+      await DBHistoryHandlers.updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType)
+      commit('updateRecordLastViewedPlaylistIdInHistoryCache', { videoId, lastViewedPlaylistId, lastViewedPlaylistType })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -104,13 +104,14 @@ const mutations = {
     state.historyCache.splice(i, 1, targetRecord)
   },
 
-  updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId }) {
+  updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId, lastViewedPlaylistType }) {
     const i = state.historyCache.findIndex((currentRecord) => {
       return currentRecord.videoId === videoId
     })
 
     const targetRecord = Object.assign({}, state.historyCache[i])
     targetRecord.lastViewedPlaylistId = lastViewedPlaylistId
+    targetRecord.lastViewedPlaylistType = lastViewedPlaylistType
     state.historyCache.splice(i, 1, targetRecord)
   },
 

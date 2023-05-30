@@ -789,7 +789,7 @@ function runApp() {
           return null
 
         case DBActions.HISTORY.UPDATE_PLAYLIST:
-          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId)
+          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId, data.lastViewedPlaylistType)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,

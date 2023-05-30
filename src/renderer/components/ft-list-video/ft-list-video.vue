@@ -16,7 +16,7 @@
         tabindex="-1"
         :to="{
           path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
+          query: watchPageLinkQuery,
         }"
       >
         <img

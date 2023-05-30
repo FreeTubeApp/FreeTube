@@ -114,6 +114,7 @@ export default defineComponent({
       downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
+      playlistType: '',
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
@@ -202,6 +203,13 @@ export default defineComponent({
     },
     allowDashAv1Formats: function () {
       return this.$store.getters.getAllowDashAv1Formats
+    },
+
+    selectedUserPlaylist: function () {
+      if (this.playlistId == null) { return null }
+      if (this.playlistId === '') { return null }
+
+      return this.$store.getters.getPlaylist(this.playlistId)
     },
   },
   watch: {
@@ -1030,7 +1038,8 @@ export default defineComponent({
       const payload = {
         videoId: this.videoId,
         // Whether there is a playlist ID or not, save it
-        lastViewedPlaylistId: this.$route.query?.playlistId,
+        lastViewedPlaylistId: this.playlistId,
+        lastViewedPlaylistType: this.playlistType,
       }
       this.updateLastViewedPlaylist(payload)
     },
@@ -1080,17 +1089,45 @@ export default defineComponent({
     },
 
     checkIfPlaylist: function () {
-      if (typeof (this.$route.query) !== 'undefined') {
-        this.playlistId = this.$route.query.playlistId
-
-        if (typeof (this.playlistId) !== 'undefined') {
-          this.watchingPlaylist = true
-        } else {
-          this.watchingPlaylist = false
-        }
-      } else {
+      if (this.$route.query == null) {
         this.watchingPlaylist = false
+        return
       }
+
+      this.playlistId = this.$route.query.playlistId
+
+      if (this.playlistId == null || this.playlistId.length === 0) {
+        this.playlistType = ''
+        this.watchingPlaylist = false
+        return
+      }
+
+      // `playlistId` present
+      if (this.selectedUserPlaylist != null) {
+        // If playlist ID matches a user playlist, it must be user playlist
+        // (Assuming FT never generates an ID same as a remote playlist)
+        this.playlistType = 'user'
+        this.watchingPlaylist = true
+        return
+      }
+
+      // Still possible to be a user playlist from history
+      // (but user playlist could be already removed)
+      this.playlistType = this.$route.query.playlistType
+      if (this.playlistType !== 'user') {
+        // Remote playlist
+        this.watchingPlaylist = true
+        return
+      }
+
+      // At this point `playlistType === 'user'`
+      // But the playlist might be already removed
+      if (this.selectedUserPlaylist == null) {
+        // Clear playlist data so that watch history will be properly updated
+        this.playlistId = ''
+        this.playlistType = ''
+      }
+      this.watchingPlaylist = this.selectedUserPlaylist != null
     },
 
     checkIfTimestamp: function () {

@@ -305,9 +305,12 @@ export default defineComponent({
       })
     },
 
-    playlistIdFinal: function () {
+    playlistIdTypePairFinal() {
       if (this.playlistId) {
-        return this.playlistId
+        return {
+          playlistId: this.playlistId,
+          playlistType: null,
+        }
       }
 
       // Get playlist ID from history ONLY if option enabled
@@ -318,7 +321,25 @@ export default defineComponent({
         return undefined
       }
 
-      return this.historyCache[historyIndex].lastViewedPlaylistId
+      return {
+        playlistId: this.historyCache[historyIndex].lastViewedPlaylistId,
+        playlistType: this.historyCache[historyIndex].lastViewedPlaylistType,
+      }
+    },
+
+    playlistIdFinal: function () {
+      return this.playlistIdTypePairFinal?.playlistId
+    },
+
+    playlistTypeFinal: function () {
+      return this.playlistIdTypePairFinal?.playlistType
+    },
+
+    watchPageLinkQuery() {
+      const query = {}
+      if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }
+      if (this.playlistTypeFinal) { query.playlistType = this.playlistTypeFinal }
+      return query
     },
 
     currentLocale: function () {
