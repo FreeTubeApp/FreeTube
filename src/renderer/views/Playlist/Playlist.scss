@@ -43,7 +43,7 @@
   // The class for icon container is mainly styled in `_ft-list-item.scss`
   // But the transition related classes are all on container elements
   // So `:deep` is used
-  :deep(.playlistIcons) {
+  :deep(.ft-list-item .videoThumbnail .playlistIcons) {
     display: none;
   }
 }
