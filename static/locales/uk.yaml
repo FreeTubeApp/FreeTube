@@ -332,6 +332,11 @@ Settings:
     Hide Channel Playlists: Сховати добірки з каналів
     Hide Channel Community: Сховати спільноту каналу
     Hide Channel Shorts: Сховати Shorts каналу
+    Sections:
+      Side Bar: Бічна панель
+      Channel Page: Сторінка каналу
+      Watch Page: Сторінка перегляду
+      General: Загальні
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
