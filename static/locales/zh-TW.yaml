@@ -370,6 +370,11 @@ Settings:
     Hide Channel Playlists: 隱藏頻道播放清單
     Hide Channel Community: 隱藏頻道社群
     Hide Channel Shorts: 隱藏頻道短片
+    Sections:
+      Side Bar: 側邊欄
+      Watch Page: 觀看頁面
+      General: 一般
+      Channel Page: 頻道頁面
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
