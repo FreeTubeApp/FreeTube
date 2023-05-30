@@ -412,6 +412,11 @@ Settings:
     Hide Channel Playlists: Nascondi le playlist dei canali
     Hide Channel Community: Nascondi la comunità del canale
     Hide Channel Shorts: Nascondi i video brevi del canale
+    Sections:
+      General: Generale
+      Watch Page: Guarda la pagina
+      Side Bar: Barra laterale
+      Channel Page: Pagina del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
