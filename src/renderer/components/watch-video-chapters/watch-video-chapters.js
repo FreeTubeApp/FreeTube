@@ -85,7 +85,6 @@ export default defineComponent({
       // Must wait until rendering done after value change
       nextTick(() => {
         if (container != null && currentChaptersItem != null) {
-          // Watch view can be ready sooner than this component
           container.scrollTop = currentChaptersItem.offsetTop - container.offsetTop
         }
       })
