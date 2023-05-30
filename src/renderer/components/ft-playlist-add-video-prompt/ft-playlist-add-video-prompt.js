@@ -107,6 +107,11 @@ export default Vue.extend({
     addSelectedToPlaylists: function () {
       const addedPlaylistIds = new Set()
 
+      if (this.selectedPlaylistIdList.length === 0) {
+        showToast('You haven\'t selected any playlist yet.')
+        return
+      }
+
       this.selectedPlaylistIdList.forEach((selectedPlaylistId) => {
         const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
         if (playlist == null) { return }
