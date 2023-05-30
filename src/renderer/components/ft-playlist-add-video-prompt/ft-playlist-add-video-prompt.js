@@ -39,14 +39,10 @@ export default Vue.extend({
         playlist.videoCount = playlist.videos.length
         return playlist
       }).sort((a, b) => {
-        // Sort by favorites, watch later, then alphabetically
-        if (a._id === 'favorites') {
+        // Sort by `lastUpdatedAt`, then alphabetically
+        if (a.lastUpdatedAt > b.lastUpdatedAt) {
           return -1
-        } else if (b._id === 'favorites') {
-          return 1
-        } else if (a._id === 'watchLater') {
-          return -1
-        } else if (b._id === 'watchLater') {
+        } else if (b.lastUpdatedAt > a.lastUpdatedAt) {
           return 1
         }
 
