@@ -22,6 +22,7 @@ export default defineComponent({
       showSearchCachePrompt: false,
       showRemoveHistoryPrompt: false,
       showRemoveSubscriptionsPrompt: false,
+      showRemovePlaylistsPrompt: false,
       promptValues: [
         'yes',
         'no'
@@ -119,6 +120,13 @@ export default defineComponent({
       }
     },
 
+    handleRemovePlaylists: function (option) {
+      this.showRemovePlaylistsPrompt = false
+      if (option !== 'yes') { return }
+
+      this.removeAllPlaylists()
+    },
+
     ...mapActions([
       'updateRememberHistory',
       'updateRemoveVideoMetaFiles',
@@ -130,7 +138,8 @@ export default defineComponent({
       'removeProfile',
       'updateActiveProfile',
       'updateAllSubscriptionsList',
-      'updateProfileSubscriptions'
+      'updateProfileSubscriptions',
+      'removeAllPlaylists',
     ])
   }
 })

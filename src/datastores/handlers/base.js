@@ -161,7 +161,7 @@ class Playlists {
   }
 
   static deleteAll() {
-    return db.playlists.remove({ protected: { $ne: true } })
+    return db.playlists.removeMany()
   }
 }
 

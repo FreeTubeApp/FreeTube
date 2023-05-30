@@ -307,7 +307,7 @@ const mutations = {
   },
 
   removeAllPlaylists(state) {
-    state.playlists = state.playlists.filter(playlist => playlist.protected !== true)
+    state.playlists = []
   },
 
   removeAllVideos(state, playlistId) {
