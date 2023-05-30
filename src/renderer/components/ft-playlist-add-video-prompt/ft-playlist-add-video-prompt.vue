@@ -28,12 +28,12 @@
     </ft-flex-box>
     <ft-flex-box>
       <ft-button
-        label="Save"
-        @click="addSelectedToPlaylists"
-      />
-      <ft-button
         label="Create New Playlist"
         @click="createNewPlaylist"
+      />
+      <ft-button
+        label="Save"
+        @click="addSelectedToPlaylists"
       />
       <ft-button
         label="Cancel"
