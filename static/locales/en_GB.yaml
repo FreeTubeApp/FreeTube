@@ -411,6 +411,11 @@ Settings:
     Hide Channel Playlists: Hide channel playlists
     Hide Channel Community: Hide channel community
     Hide Channel Shorts: Hide channel shorts
+    Sections:
+      Side Bar: Side Bar
+      General: General
+      Channel Page: Channel Page
+      Watch Page: Watch Page
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
