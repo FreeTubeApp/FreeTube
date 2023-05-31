@@ -46,6 +46,11 @@
   :deep(.ft-list-item .videoThumbnail .playlistIcons) {
     display: none;
   }
+  // Prevent link click
+  :deep(.ft-list-item .videoThumbnail .thumbnailLink) {
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+    pointer-events: none;
+  }
 }
 .playlistItem-enter, .playlistItem-leave-to {
   opacity: 0;
