@@ -133,13 +133,14 @@ function parsePipedPlaylist(playlistId, result, parsedVideos) {
   return {
     id: playlistId,
     title: result.name,
-    description: '',
+    description: result.description,
     firstVideoId: parsedVideos[0].videoId,
     viewCount: null,
     videoCount: result.videos,
     channelName: result.uploader,
     channelThumbnail: result.uploaderAvatar,
     channelId: result.uploaderUrl.replace('/channel/', ''),
+    firstVideoThumbnail: parsedVideos[0].thumbnail,
     infoSource: 'piped'
   }
 }

@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, isNullOrEmpty, openExternalLink } from '../../helpers/utils'
+import { getPipedUrlInfo } from '../../helpers/api/piped'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -25,6 +26,7 @@ export default defineComponent({
       viewCount: null,
       lastUpdated: '',
       description: '',
+      firstVideoThumbnail: null,
       infoSource: ''
     }
   },
@@ -45,28 +47,54 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
+    fallbackPreference: function () {
+      return this.$store.getters.getFallbackPreference
+    },
+
     hideViews: function () {
       return this.$store.getters.getHideVideoViews
     },
 
     thumbnail: function () {
-      let baseUrl
-      if (this.backendPreference === 'invidious') {
-        baseUrl = this.currentInvidiousInstance
-      } else {
-        baseUrl = 'https://i.ytimg.com'
+      let baseUrl = ''
+      let baseData = ''
+      let backendPreference = this.backendPreference
+      if (this.data.infoSource === 'piped' && backendPreference === 'piped') {
+        if (this.data.firstVideoThumbnail) {
+          baseData = getPipedUrlInfo(this.data.firstVideoThumbnail)
+          baseUrl = baseData.baseUrl
+        } else {
+          backendPreference = this.fallbackPreference
+        }
       }
+
+      if (isNullOrEmpty(baseData)) {
+        if (backendPreference === 'invidious') {
+          baseUrl = this.currentInvidiousInstance
+        } else {
+          baseUrl = 'https://i.ytimg.com'
+        }
+      }
+
+      let imageUrl = ''
 
       switch (this.thumbnailPreference) {
         case 'start':
-          return `${baseUrl}/vi/${this.firstVideoId}/mq1.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mq1.jpg`
+          break
         case 'middle':
-          return `${baseUrl}/vi/${this.firstVideoId}/mq2.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mq2.jpg`
+          break
         case 'end':
-          return `${baseUrl}/vi/${this.firstVideoId}/mq3.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mq3.jpg`
+          break
         default:
-          return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
+          imageUrl = `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
+      if (!isNullOrEmpty(baseData)) {
+        imageUrl += `?host=${baseData.host}`
+      }
+      return imageUrl
     }
   },
   mounted: function () {

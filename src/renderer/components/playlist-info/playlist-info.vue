@@ -30,6 +30,12 @@
     </div>
 
     <p
+      v-if="infoSource === 'piped'"
+      class="playlistDescription"
+      v-html="description"
+    />
+    <p
+      v-else
       class="playlistDescription"
       v-text="description"
     />
