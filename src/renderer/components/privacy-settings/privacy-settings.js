@@ -125,6 +125,7 @@ export default defineComponent({
       if (option !== 'yes') { return }
 
       this.removeAllPlaylists()
+      showToast('All playlists have been removed')
     },
 
     ...mapActions([
