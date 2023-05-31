@@ -28,39 +28,41 @@
       v-if="!isLoading"
       class="playlistItems"
     >
-      <transition-group
+      <span
         v-if="playlistItems.length > 0"
-        name="playlistItem"
-        tag="span"
       >
-        <div
-          v-for="(item, index) in playlistItems"
-          :key="`${item.videoId}-${item.timeAdded || index}`"
-          class="playlistItem"
+        <transition-group
+          name="playlistItem"
+          tag="span"
         >
-          <p
-            class="videoIndex"
+          <div
+            v-for="(item, index) in playlistItems"
+            :key="`${item.videoId}-${item.timeAdded || index}`"
+            class="playlistItem"
           >
-            {{ index + 1 }}
-          </p>
-          <ft-list-video-lazy
-            :data="item"
-            :playlist-id="playlistId"
-            :playlist-type="infoSource"
-            :playlist-index="index"
-            appearance="result"
-            force-list-type="list"
-            :can-move-video-up="index > 0"
-            :can-move-video-down="index < playlistItems.length - 1"
-            :can-remove-from-playlist="true"
-            @move-video-up="moveVideoUp(item.videoId, item.timeAdded)"
-            @move-video-down="moveVideoDown(item.videoId, item.timeAdded)"
-            @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.timeAdded)"
-          />
-        </div>
+            <p
+              class="videoIndex"
+            >
+              {{ index + 1 }}
+            </p>
+            <ft-list-video-lazy
+              :data="item"
+              :playlist-id="playlistId"
+              :playlist-type="infoSource"
+              :playlist-index="index"
+              appearance="result"
+              force-list-type="list"
+              :can-move-video-up="index > 0"
+              :can-move-video-down="index < playlistItems.length - 1"
+              :can-remove-from-playlist="true"
+              @move-video-up="moveVideoUp(item.videoId, item.timeAdded)"
+              @move-video-down="moveVideoDown(item.videoId, item.timeAdded)"
+              @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.timeAdded)"
+            />
+          </div>
+        </transition-group>
         <ft-flex-box
           v-if="continuationData !== null && !isLoadingMore"
-          key="loadMoreButtonBox"
         >
           <ft-button
             :label="$t('Subscriptions.Load More Videos')"
@@ -71,12 +73,11 @@
         </ft-flex-box>
         <div
           v-if="isLoadingMore"
-          key="loadNextPageWrapper"
           class="loadNextPageWrapper"
         >
           <ft-loader />
         </div>
-      </transition-group>
+      </span>
       <ft-flex-box
         v-else
       >
