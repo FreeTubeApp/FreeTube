@@ -60,6 +60,7 @@
         </div>
         <ft-flex-box
           v-if="continuationData !== null && !isLoadingMore"
+          key="loadMoreButtonBox"
         >
           <ft-button
             :label="$t('Subscriptions.Load More Videos')"
@@ -70,6 +71,7 @@
         </ft-flex-box>
         <div
           v-if="isLoadingMore"
+          key="loadNextPageWrapper"
           class="loadNextPageWrapper"
         >
           <ft-loader />
