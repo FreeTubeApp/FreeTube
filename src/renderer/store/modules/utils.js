@@ -315,7 +315,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|live|streams|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|playlists|about|community|channels))?\/?$/
 
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
@@ -427,6 +427,9 @@ const actions = {
 
         let subPath = null
         switch (match.groups.tab) {
+          case 'shorts':
+            subPath = 'shorts'
+            break
           case 'live':
           case 'streams':
             subPath = 'live'

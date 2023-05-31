@@ -406,7 +406,12 @@ Settings:
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на плейлистите на каналите
     Hide Channel Community: Скриване на общността на каналите
-    Hide Channel Shorts: Скриване на късите видеа на канала
+    Hide Channel Shorts: Скриване кратките видеа на канала
+    Sections:
+      Channel Page: Страница на канала
+      Side Bar: Странична лента
+      Watch Page: Страница за гледане
+      General: Общи
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -632,8 +637,8 @@ Channel:
       никакви потоци на живо
   Shorts:
     This channel does not currently have any shorts: В момента този канал няма никакви
-      къси видеа
-    Shorts: Къси видеа
+      кратки видеа
+    Shorts: Кратки видеа
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
@@ -1002,5 +1007,3 @@ Ok: Добре
 Hashtag:
   Hashtag: Хаштаг
   This hashtag does not currently have any videos: В момента този хаштаг няма видеа
-  You can only view hashtag pages through the Local API: Можете да разглеждате страници
-    с хаштагове само чрез локалния вътрешен интерфейс

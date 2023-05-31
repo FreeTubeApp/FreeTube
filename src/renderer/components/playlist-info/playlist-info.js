@@ -41,20 +41,31 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
+
     hideViews: function () {
       return this.$store.getters.getHideVideoViews
     },
 
     thumbnail: function () {
+      let baseUrl
+      if (this.backendPreference === 'invidious') {
+        baseUrl = this.currentInvidiousInstance
+      } else {
+        baseUrl = 'https://i.ytimg.com'
+      }
+
       switch (this.thumbnailPreference) {
         case 'start':
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq1.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mq1.jpg`
         case 'middle':
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq2.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mq2.jpg`
         case 'end':
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq3.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mq3.jpg`
         default:
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
     }
   },

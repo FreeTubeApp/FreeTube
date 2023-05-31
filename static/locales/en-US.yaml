@@ -321,6 +321,11 @@ Settings:
     Fetch Automatically: Fetch Feed Automatically
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
+    Sections:
+      Side Bar: Side Bar
+      Channel Page: Channel Page
+      Watch Page: Watch Page
+      General: General
     Hide Video Views: Hide Video Views
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Channel Subscribers: Hide Channel Subscribers
@@ -889,7 +894,6 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
-  You can only view hashtag pages through the Local API: You can only view hashtag pages through the Local API
 Yes: Yes
 No: No
 Ok: Ok

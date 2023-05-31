@@ -405,6 +405,11 @@ Settings:
     Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
     Hide Channel Community: Kanal Topluluğunu Gizle
     Hide Channel Shorts: Kanal Kısa Videolarını Gizle
+    Sections:
+      Side Bar: Kenar Çubuğu
+      Channel Page: Kanal Sayfası
+      Watch Page: İzleme Sayfası
+      General: Genel
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -1003,7 +1008,5 @@ Preferences: Tercihler
 Ok: Tamam
 Hashtag:
   Hashtag: Hashtag
-  You can only view hashtag pages through the Local API: Hashtag sayfalarını yalnızca
-    Yerel API aracılığıyla görüntüleyebilirsiniz
   This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi
     bir videosu yok

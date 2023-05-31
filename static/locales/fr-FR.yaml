@@ -419,6 +419,9 @@ Settings:
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
       excessives
     Hide Channel Playlists: Masquer les listes de lecture des chaînes
+    Hide Featured Channels: Masquer les chaînes en vedette
+    Hide Channel Community: Masquer la communauté de la chaîne
+    Hide Channel Shorts: Masquer les shorts de la chaîne
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -1048,3 +1051,7 @@ Chapters:
     chapitre actuel : {chapterName}'
 Preferences: Préférences
 Ok: OK
+Hashtag:
+  Hashtag: Mot-clé
+  This hashtag does not currently have any videos: Ce mot-clé n'a actuellement aucune
+    vidéo

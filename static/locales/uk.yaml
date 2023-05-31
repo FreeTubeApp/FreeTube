@@ -332,6 +332,11 @@ Settings:
     Hide Channel Playlists: Сховати добірки з каналів
     Hide Channel Community: Сховати спільноту каналу
     Hide Channel Shorts: Сховати Shorts каналу
+    Sections:
+      Side Bar: Бічна панель
+      Channel Page: Сторінка каналу
+      Watch Page: Сторінка перегляду
+      General: Загальні
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -940,6 +945,4 @@ Preferences: Налаштування
 Ok: Гаразд
 Hashtag:
   Hashtag: Хештег
-  You can only view hashtag pages through the Local API: Ви можете переглядати сторінки
-    з хештегами лише через локальний API
   This hashtag does not currently have any videos: За цим хештегом наразі немає відео

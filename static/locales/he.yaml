@@ -393,6 +393,11 @@ Settings:
     Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
     Hide Channel Community: הסתרת קהילת הערוץ
     Hide Channel Shorts: הסתרת ה־Shorts של הערוץ
+    Sections:
+      Watch Page: עמוד הצפייה
+      Channel Page: עמוד ערוץ
+      Side Bar: סרגל צד
+      General: כללי
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -960,6 +965,4 @@ Preferences: העדפות
 Ok: אישור
 Hashtag:
   This hashtag does not currently have any videos: לתגית ההקבץ הזו אין סרטונים כרגע
-  You can only view hashtag pages through the Local API: אפשר לצפות בעמודי תגית הקבץ
-    דרך ה־API המקומי בלבד
   Hashtag: תגית הקבץ

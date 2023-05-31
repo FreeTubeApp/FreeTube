@@ -272,6 +272,8 @@ Settings:
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
     Allow DASH AV1 formats: Allow DASH AV1 formats
+    Comment Auto Load:
+      Comment Auto Load: Comment auto load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -405,6 +407,15 @@ Settings:
     Hide Channels Placeholder: Channel name or ID
     Display Titles Without Excessive Capitalisation: Display Titles Without Excessive
       Capitalisation
+    Hide Featured Channels: Hide featured channels
+    Hide Channel Playlists: Hide channel playlists
+    Hide Channel Community: Hide channel community
+    Hide Channel Shorts: Hide channel shorts
+    Sections:
+      Side Bar: Side Bar
+      General: General
+      Channel Page: Channel Page
+      Watch Page: Watch Page
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -599,6 +610,10 @@ Channel:
     This channel does not currently have any live streams: This channel does not currently
       have any live streams
     Live: Live
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: This channel does not currently
+      have any shorts
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -632,8 +647,8 @@ Video:
     supported in this build.'
   'Chat is disabled or the Live Stream has ended.': 'Chat is disabled or the Live
     Stream has ended.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat is
-    enabled.  Chat messages will appear here once sent.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat is enabled.  Chat
+    messages will appear here once sent.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.'
@@ -881,9 +896,9 @@ Tooltips:
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
-    External Link Handling: "Choose the default behaviour when a link, which cannot\
-      \ be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked\
-      \ link in your default browser.\n"
+    External Link Handling: "Choose the default behaviour when a link, which cannot
+      be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked
+      link in your default browser.\n"
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening
       the video (playlist if supported) in the external player, on the thumbnail.
@@ -955,3 +970,7 @@ Clipboard:
     a secure connection
 Preferences: Preferences
 Ok: OK
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: This hashtag does not currently
+    have any videos

@@ -81,7 +81,7 @@ Builds are automatically created from changes to our development branch via [Git
 The first build with a green check mark is the latest build.  You will need to have a GitHub account to download these builds.
 
 ### Unofficial Downloads
-These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer.
+These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer. <b>Make sure u always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!</b>
 
 * Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 

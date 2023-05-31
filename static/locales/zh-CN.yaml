@@ -368,6 +368,11 @@ Settings:
     Hide Channel Playlists: 隐藏频道播放列表
     Hide Channel Community: 隐藏频道社区
     Hide Channel Shorts: 隐藏频道短视频
+    Sections:
+      Side Bar: 侧边栏
+      Channel Page: 频道页
+      Watch Page: 观看页
+      General: 常规
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -878,5 +883,4 @@ Preferences: 选项
 Ok: 好
 Hashtag:
   Hashtag: 标签
-  You can only view hashtag pages through the Local API: 你只能通过本地 API 浏览标签页面
   This hashtag does not currently have any videos: 此标签下当前没有任何短视频
