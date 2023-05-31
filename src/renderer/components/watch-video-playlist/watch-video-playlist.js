@@ -312,7 +312,7 @@ export default defineComponent({
       if (this.backendPreference === 'piped') {
         const items = cachedPlaylist.items
         let nextpage = cachedPlaylist.continuationData
-        do {
+        while (nextpage != null) {
           const moreInfo = await getPipedPlaylistMore({
             playlistId: cachedPlaylist.playlistId,
             nextpage
@@ -323,7 +323,7 @@ export default defineComponent({
           if (!moreInfo.nextpage) {
             nextpage = null
           }
-        } while (nextpage != null)
+        }
 
         this.playlistItems = items
       } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
