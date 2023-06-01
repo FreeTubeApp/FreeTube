@@ -411,6 +411,11 @@ Settings:
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
     Hide Channel Shorts: Shorts des jeweiligen Kanals ausblenden
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
+    Sections:
+      Side Bar: Seitenleiste
+      Channel Page: Kanalseite
+      General: Allgemein
+      Watch Page: Seite beobachten
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
