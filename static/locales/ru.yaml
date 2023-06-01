@@ -584,9 +584,9 @@ Channel:
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
   Live:
-    Live: Прямой показ
+    Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее
-      время нет прямых показов
+      время нет прямых трансляций
   Shorts:
     Shorts: Короткие видео
     This channel does not currently have any shorts: На этом канале пока что нет коротких
@@ -610,18 +610,18 @@ Video:
   Watched: 'Просмотрено'
   # As in a Live Video
   Live: 'Трансляция'
-  Live Now: 'Прямой эфир'
+  Live Now: 'Трансляция'
   Live Chat: 'Чат трансляции'
   Enable Live Chat: 'Включить чат трансляции'
   Live Chat is currently not supported in this build.: 'В настоящее время чат трансляции
     в этой версии не поддерживается.'
-  'Chat is disabled or the Live Stream has ended.': 'Чат отключен или прямая трансляция
-    закончилась.'
+  'Chat is disabled or the Live Stream has ended.': 'Чат отключён или прямая трансляция
+    завершена.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чат трансляции
-    включен. Сообщения чата будут отображаться здесь после отправки.'
+    включён. Сообщения чата будут отображаться здесь после отправки.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
-    трансляции в настоящее время не поддерживается набором функций Invidious. Требуется
-    прямое подключение к YouTube.'
+    трансляции в настоящее время не поддерживается Invidious API. Требуется прямое
+    подключение к YouTube.'
   Published:
     Jan: 'Янв'
     Feb: 'Фев'
@@ -733,8 +733,8 @@ Video:
   Show Super Chat Comment: Показать комментарий «Супер Чата»
   Scroll to Bottom: Прокрутите вниз
   Upcoming: Предстоящее
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Прямой
-    чат недоступен для этого показа. Возможно, он был отключён загрузчиком.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
+    прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
 Videos:
   #& Sort By
   Sort By:
@@ -905,8 +905,8 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
-      блокировку IP, но не предоставляет определенную информацию, такую как продолжительность
-      видео или сведения о том, транслируется ли видео в настоящем времени
+      блокировку IP, но не предоставляет определённую информацию, такую как продолжительность
+      видео или сведения о том, транслируется ли видео в настоящем времени.
     Fetch Automatically: Если эта функция включена, FreeTube автоматически будет получать
       ленту ваших подписок как при открытии нового окна, так при переключении профиля.
   Player Settings:
