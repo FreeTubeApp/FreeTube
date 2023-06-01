@@ -429,7 +429,7 @@ Settings:
     Enable Tor / Proxy: Включить Tor/Прокси
     Proxy Settings: Прокси
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Уведомлять о пропущенном отрезке спонсора
+    Notify when sponsor segment is skipped: Уведомлять о пропущенном сегменте
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
@@ -438,7 +438,7 @@ Settings:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
       Auto Skip: Автопропуск
-      Show In Seek Bar: Показать на панели
+      Show In Seek Bar: Показать сегмент
       Do Nothing: Ничего не делать
     Category Color: Цвет категории
   External Player Settings:
@@ -684,13 +684,13 @@ Video:
   translated from English: переведён с английского
   Sponsor Block category:
     music offtopic: Сегмент без музыки
-    interaction: Напоминание о подписке (взаимодействие)
+    interaction: Напоминание
     self-promotion: Самореклама
     outro: Концовка
     intro: Вступление
-    sponsor: Покровитель
+    sponsor: Спонсор
     recap: Краткое содержание
-    filler: Наполнитель
+    filler: Отвлечение
   Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
