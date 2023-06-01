@@ -265,7 +265,7 @@ Settings:
       File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M
         Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды
         2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео
-        3 цифры. %i Идентификатор видео. Вы также можете использовать "\" или "/"
+        3 цифры. %i Идентификатор видео. Вы также можете использовать «\» или «/»
         для создания подпапок.
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
@@ -416,7 +416,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка
       при получении информации о сети. Правильно ли настроен ваш прокси-сервер?
     Your Info: Ваша информация
-    Clicking on Test Proxy will send a request to: Нажмите "Протестировать прокси",
+    Clicking on Test Proxy will send a request to: Нажмите «Протестировать прокси»,
       чтобы отправить запрос на
     Test Proxy: Протестировать прокси
     Proxy Port Number: Порт прокси-сервера
@@ -951,7 +951,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский
-      кэш изображений в памяти. Приведет к увеличению использования оперативной памяти.
+      кэш изображений в памяти. Приведёт к увеличению использования оперативной памяти.
   Distraction Free Settings:
     Hide Channels: Введите название канала или его идентификатор, чтобы скрыть все
       видео, подборки и сам канал от показа в поиске или трендах. Введённое название
@@ -995,7 +995,7 @@ Channels:
   Search bar placeholder: Поиск каналов
   Unsubscribe: Отписаться
   Unsubscribed: '{channelName} был удалён из ваших подписок'
-  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "{channelName}"?
+  Unsubscribe Prompt: Вы уверены, что хотите отписаться от «{channelName}»?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена
   Cannot access clipboard without a secure connection: Невозможно получить доступ
