@@ -422,6 +422,11 @@ Settings:
     Hide Featured Channels: Masquer les chaînes en vedette
     Hide Channel Community: Masquer la communauté de la chaîne
     Hide Channel Shorts: Masquer les shorts de la chaîne
+    Sections:
+      Channel Page: Page de la chaîne
+      Side Bar: Barre latérale
+      Watch Page: Page de lecture
+      General: Général
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
