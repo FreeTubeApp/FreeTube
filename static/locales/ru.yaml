@@ -244,9 +244,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
     Scroll Volume Over Video Player: Прокрутка громкости поверх видеопроигрывателя
-    Next Video Interval: Промежуток к переходу на следующее видео
+    Next Video Interval: Шаг перехода на следующее видео
     Display Play Button In Video Player: Отображать кнопку воспроизведения в видеопроигрывателе
-    Fast-Forward / Rewind Interval: Промежуток перемотки вперёд/назад
+    Fast-Forward / Rewind Interval: Шаг перемотки вперёд/назад
     Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх
       видеопроигрывателя
     Max Video Playback Rate: Предельная скорость воспроизведения
