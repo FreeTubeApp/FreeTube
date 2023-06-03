@@ -490,6 +490,14 @@ const customActions = {
 
     ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
       switch (event) {
+        case SyncEvents.GENERAL.CREATE:
+          commit('addPlaylists', data)
+          break
+
+        case SyncEvents.GENERAL.DELETE:
+          commit('removePlaylist', data)
+          break
+
         case SyncEvents.PLAYLISTS.UPSERT:
           commit('upsertPlaylistToList', data)
           break

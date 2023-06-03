@@ -890,8 +890,11 @@ function runApp() {
       switch (action) {
         case DBActions.GENERAL.CREATE:
           await baseHandlers.playlists.create(data)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.CREATE, data }
+          )
           return null
 
         case DBActions.GENERAL.FIND:
@@ -923,8 +926,11 @@ function runApp() {
 
         case DBActions.GENERAL.DELETE:
           await baseHandlers.playlists.delete(data)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:

@@ -60,7 +60,7 @@ const actions = {
     payload.lastUpdatedAt = Date.now()
 
     try {
-      await DBPlaylistHandlers.create(payload)
+      await DBPlaylistHandlers.create([payload])
       commit('addPlaylist', payload)
     } catch (errMessage) {
       console.error(errMessage)
