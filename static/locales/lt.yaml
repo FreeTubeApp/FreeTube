@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Vaizdo įrašai'
     Channels: 'Kanalai'
     #& Playlists
+    Movies: Filmai
   Duration:
     Duration: 'Trukmė'
     All Durations: 'Visos trukmės'
     Short (< 4 minutes): 'Trumpas (< 4 minutės)'
     Long (> 20 minutes): 'Ilgas (> 20 minutės)'
   # On Search Page
+    Medium (4 - 20 minutes): Vidutinis (4 - 20 minučių)
   Search Results: 'Paieškos rezultatai'
   Fetching results. Please wait: 'Rezultatai kraunami. Prašome luktelėti'
   Fetch more results: 'Įkelti daugiau rezultatų'
@@ -278,6 +280,10 @@ Settings:
     Video Playback Rate Interval: Vaizdo įrašų atkūrimo dažnio intervalas
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
     Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
+    Skip by Scrolling Over Video Player: Praleiskite slinkdami per vaizdo grotuvą
+    Comment Auto Load:
+      Comment Auto Load: Komentuoti Automatinis įkėlimas
+    Allow DASH AV1 formats: Leisti DASH AV1 formatus
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -756,9 +762,9 @@ Tooltips:
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
       populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
       šalių.'
-    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,\
-      \ kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“\
-      \ atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
+    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,
+      kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“
+      atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Veikia tik tada, kai numatytasis nustatymas
       yra „Invidious“ API. Kai įgalinta, vietinė API veiks ir naudos senus, o ne „Invidious“
