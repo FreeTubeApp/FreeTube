@@ -93,7 +93,7 @@
     "electron-builder": "^23.6.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsonc": "^2.8.0",
     "eslint-plugin-n": "^15.7.0",
