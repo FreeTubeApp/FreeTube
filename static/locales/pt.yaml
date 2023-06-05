@@ -433,6 +433,11 @@ Settings:
     Hide Channel Playlists: Ocultar listas de reprodução de canais
     Hide Channel Community: Ocultar canal Comunidade
     Hide Channel Shorts: Esconder as curtas do canal
+    Sections:
+      Side Bar: Barra lateral
+      Channel Page: Página do canal
+      Watch Page: Ver página
+      General: Geral
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
