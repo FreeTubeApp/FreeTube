@@ -23,6 +23,7 @@
         :key="`${playlist._id}-${index}`"
         :data="playlist"
         :index="index"
+        :selected="selectedPlaylistIdList.includes(playlist._id)"
         @selected="countSelected(playlist._id)"
       />
     </ft-flex-box>

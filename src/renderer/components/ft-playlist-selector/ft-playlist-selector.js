@@ -10,24 +10,26 @@ export default Vue.extend({
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
     index: {
       type: Number,
-      required: true
+      required: true,
     },
     appearance: {
       type: String,
-      default: 'grid'
-    }
+      default: 'grid',
+    },
+    selected: {
+      type: Boolean,
+      required: true,
+    },
   },
   data: function () {
     return {
       title: '',
       thumbnail: '',
-      playlistId: '',
       videoCount: 0,
-      selected: false
     }
   },
   computed: {
@@ -53,12 +55,10 @@ export default Vue.extend({
       } else {
         this.thumbnail = 'https://i.ytimg.com/vi/aaaaaa/mqdefault.jpg'
       }
-      this.playlistLink = this.data._id
-      this.videoCount = this.data.videoCount ? this.data.videoCount : this.data.videos.length
+      this.videoCount = this.data.videos.length
     },
 
     toggleSelection: function () {
-      this.selected = !this.selected
       this.$emit('selected', this.index)
     },
 
