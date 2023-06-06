@@ -57,6 +57,7 @@ const actions = {
     if (typeof payload.description === 'string') {
       payload.description = payload.description.trim()
     }
+    payload.createdAt = Date.now()
     payload.lastUpdatedAt = Date.now()
 
     try {
@@ -134,6 +135,12 @@ const actions = {
           if (playlist.playlistName == null) {
             // Time now in unix time, in ms
             playlist.playlistName = generateRandomPlaylistName()
+            anythingUpdated = true
+          }
+          // Assign current time as created time in case DB data corrupted
+          if (playlist.createdAt == null) {
+            // Time now in unix time, in ms
+            playlist.createdAt = Date.now()
             anythingUpdated = true
           }
           // Assign current time as last updated time in case DB data corrupted

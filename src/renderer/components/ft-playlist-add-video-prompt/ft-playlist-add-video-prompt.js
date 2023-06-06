@@ -22,8 +22,10 @@ export default Vue.extend({
   data: function () {
     return {
       selectedPlaylistIdList: [],
+      createdSincePromptShownPlaylistIdList: [],
       query: '',
       updateQueryDebounce: function() {},
+      lastShownAt: Date.now(),
     }
   },
   computed: {
@@ -48,6 +50,9 @@ export default Vue.extend({
 
         return a.title.localeCompare(b.title, this.locale)
       })
+    },
+    allPlaylistsLength() {
+      return this.allPlaylists.length
     },
     selectedPlaylistCount: function () {
       return this.selectedPlaylistIdList.length
@@ -79,6 +84,26 @@ export default Vue.extend({
       }).sort((a, b) => {
         // Latest updated first
         return b.lastUpdatedAt - a.lastUpdatedAt
+      })
+    },
+  },
+  watch: {
+    allPlaylistsLength(val, oldVal) {
+      // When playlist length changed, a playlist removed or added
+      // Only cares about playlist added
+      if (val < oldVal) { return }
+
+      this.allPlaylists.forEach((playlist) => {
+        // Old playlists don't have `createdAt`
+        if (playlist.createdAt == null) { return }
+        // Only playlists created after this prompt shown should be considered
+        if (playlist.createdAt < this.lastShownAt) { return }
+        // Only playlists not auto added to selected yet should be considered
+        if (this.createdSincePromptShownPlaylistIdList.includes(playlist._id)) { return }
+
+        // Add newly created playlists to selected ONCE
+        this.createdSincePromptShownPlaylistIdList.push(playlist._id)
+        this.selectedPlaylistIdList.push(playlist._id)
       })
     },
   },
