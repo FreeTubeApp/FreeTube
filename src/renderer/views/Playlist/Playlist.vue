@@ -19,6 +19,7 @@
       :videos="playlistItems"
       :view-count="viewCount"
       :info-source="infoSource"
+      :more-video-data-available="moreVideoDataAvailable"
       class="playlistInfo"
       @enter-edit-mode="playlistInEditMode = true"
       @exit-edit-mode="playlistInEditMode = false"
@@ -62,7 +63,7 @@
           </div>
         </transition-group>
         <ft-flex-box
-          v-if="continuationData !== null && !isLoadingMore"
+          v-if="moreVideoDataAvailable && !isLoadingMore"
         >
           <ft-button
             :label="$t('Subscriptions.Load More Videos')"

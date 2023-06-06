@@ -92,6 +92,10 @@ export default defineComponent({
     selectedUserPlaylistVideoCount: function() {
       return this.selectedUserPlaylistVideos.length
     },
+
+    moreVideoDataAvailable() {
+      return this.continuationData !== null
+    },
   },
   watch: {
     $route () {

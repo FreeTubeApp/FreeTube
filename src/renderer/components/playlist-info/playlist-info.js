@@ -67,6 +67,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    moreVideoDataAvailable: {
+      type: Boolean,
+      required: true,
+    },
   },
   data: function () {
     return {
@@ -163,7 +167,14 @@ export default defineComponent({
     this.newDescription = this.description
   },
   methods: {
-    toggleCopyVideosPrompt: function () {
+    toggleCopyVideosPrompt: function (force = false) {
+      if (this.moreVideoDataAvailable && !force) {
+        showToast('Some videos in the playlist are not loaded yet. Click here to copy anyway.', 5000, () => {
+          this.toggleCopyVideosPrompt(true)
+        })
+        return
+      }
+
       this.showAddToPlaylistPromptForManyVideos({
         videos: this.videos,
         newPlaylistDefaultProperties: { title: this.title },
