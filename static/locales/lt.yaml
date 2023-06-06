@@ -310,6 +310,8 @@ Settings:
     Remove All Subscriptions / Profiles: 'Pašalinti visas prenumeratas / profilius'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ar
       tikrai norite pašalinti visas prenumeratas ir profilius? To nebus galima atšaukti.'
+    Save Watched Videos With Last Viewed Playlist: Išsaugokite Žiūrėtus Vaizdo Įrašus
+      Naudodami Paskutinį Žiūrėtą Grojaraštį
   Subscription Settings:
     Subscription Settings: 'Prenumeratų nustatymai'
     Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
@@ -334,6 +336,19 @@ Settings:
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
     Hide Chapters: Slėpti skirsnius
     Hide Upcoming Premieres: Slėpti būsimas premjeras
+    Sections:
+      General: Generolas
+      Side Bar: Šoninė juosta
+      Channel Page: Kanalas Puslapis
+      Watch Page: Žiūrėti Puslapis
+    Display Titles Without Excessive Capitalisation: Rodyti Pavadinimus Be Per Daug
+      Didžiųjų Raidžių
+    Hide Channels: Slėpti Vaizdo Įrašus Iš Kanalai
+    Hide Channels Placeholder: Kanalo pavadinimas arba ID
+    Hide Featured Channels: Slėpti Teminiai kanalai
+    Hide Channel Playlists: Slėpti Kanalo Grojaraščiai
+    Hide Channel Community: Slėpti Kanalo Bendruomenę
+    Hide Channel Shorts: Slėpti Kanalo Šortus
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkti importavimo tipą'
@@ -427,9 +442,13 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Pakeisti HTTP talpyklą
     Experimental Settings: Eksperimentiniai nustatymai
-    Warning: Šie nustatymai yra eksperimentiniai, juos įjungus gali būti sutrikimų.
+    Warning: Šie nustatymus yra eksperimentiniai, juos įjungus gali būti sutrikimų.
       Labai rekomenduojama iš anksto pasidaryti atsargines kopijas. Naudokite savo
       rizika!
+  Password Dialog:
+    Password Incorrect: Slaptažodis Neteisingas
+    Password: Slaptažodis
+    Enter Password To Unlock: Įveskite slaptažodį į atrakintumėte nustatymus
 About:
   #On About page
   About: 'Apie'
