@@ -30,14 +30,17 @@
     <ft-flex-box>
       <ft-button
         label="Create New Playlist"
+        tabindex="1"
         @click="createNewPlaylist"
       />
       <ft-button
         label="Save"
+        tabindex="2"
         @click="addSelectedToPlaylists"
       />
       <ft-button
         label="Cancel"
+        tabindex="3"
         @click="hide"
       />
     </ft-flex-box>
