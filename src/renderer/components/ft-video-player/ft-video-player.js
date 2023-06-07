@@ -309,6 +309,10 @@ export default defineComponent({
 
     screenshotFolder: function() {
       return this.$store.getters.getScreenshotFolderPath
+    },
+
+    proxyVideos: function () {
+      return this.$store.getters.getProxyVideos
     }
   },
   watch: {
