@@ -17,6 +17,8 @@ import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { pathExists } from '../../helpers/filesystem'
 import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
+import { getProxyUrl } from '../../helpers/api/invidious'
+import store from '../../store'
 
 // YouTube now throttles if you use the `Range` header for the DASH formats, instead of the range query parameter
 // videojs-http-streaming calls this hook everytime it makes a request,
@@ -33,8 +35,11 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
       delete options.headers.Range
     }
   }
+  if (store.getters.getProxyVideos) {
+    const { uri } = options
+    options.uri = getProxyUrl(uri)
+  }
 }
-
 // videojs-http-streaming spits out a warning every time you access videojs.Vhs.BANDWIDTH_VARIANCE
 // so we'll get the value once here, to stop it spamming the console
 // https://github.com/videojs/http-streaming/blob/main/src/config.js#L8-L10
@@ -1224,7 +1229,15 @@ export default defineComponent({
 
       this.useDash = false
       this.useHls = false
-      this.activeSourceList = this.sourceList
+      this.activeSourceList = (this.proxyVideos || !process.env.IS_ELECTRON)
+        // use map here to return slightly different list without modifying original
+        ? this.sourceList.map((source) => {
+          return {
+            ...source,
+            url: getProxyUrl(source.url)
+          }
+        })
+        : this.sourceList
 
       setTimeout(this.initializePlayer, 100)
     },
