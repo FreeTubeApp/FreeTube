@@ -108,8 +108,9 @@ export default Vue.extend({
     },
   },
   mounted: function () {
-    // this.parseUserData()
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
+    // User might want to search first if they have many playlists
+    this.$refs.searchBar.focus()
   },
   methods: {
     hide: function () {
