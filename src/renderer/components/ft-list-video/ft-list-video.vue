@@ -13,7 +13,7 @@
     >
       <router-link
         class="thumbnailLink"
-        tabindex="-1"
+        tabindex="0"
         :to="{
           path: `/watch/${id}`,
           query: watchPageLinkQuery,

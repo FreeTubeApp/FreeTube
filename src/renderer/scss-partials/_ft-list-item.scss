@@ -171,7 +171,8 @@ $watched-transition-duration: 0.5s;
     .addToPlaylistIcon {
       display: none;
     }
-    &:hover {
+    // `:focus-within` means any child element is focused
+    &:hover, &:focus-within {
       .addToPlaylistIcon {
         display: inherit;
       }
