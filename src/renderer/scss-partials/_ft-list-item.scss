@@ -168,17 +168,11 @@ $watched-transition-duration: 0.5s;
     }
 
     // Show some buttons on hover only
-    .addToPlaylistIcon ,
-    .trashIcon ,
-    .upArrowIcon ,
-    .downArrowIcon {
+    .addToPlaylistIcon {
       display: none;
     }
     &:hover {
-      .addToPlaylistIcon ,
-      .trashIcon ,
-      .upArrowIcon ,
-      .downArrowIcon {
+      .addToPlaylistIcon {
         display: inherit;
       }
     }
