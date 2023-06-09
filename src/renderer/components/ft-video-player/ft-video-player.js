@@ -24,6 +24,10 @@ import store from '../../store'
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
 videojs.Vhs.xhr.beforeRequest = (options) => {
+  if (store.getters.getProxyVideos) {
+    const { uri } = options
+    options.uri = getProxyUrl(uri)
+  }
   // pass in the optional base so it doesn't error for `dashFiles/videoId.xml` (DASH manifest in dev mode)
   if (new URL(options.uri, window.location.origin).hostname.endsWith('.googlevideo.com')) {
     // The official clients use POST requests with this body for the DASH requests, so we should do that too
@@ -34,10 +38,6 @@ videojs.Vhs.xhr.beforeRequest = (options) => {
       options.uri += `&range=${options.headers.Range.split('=')[1]}`
       delete options.headers.Range
     }
-  }
-  if (store.getters.getProxyVideos) {
-    const { uri } = options
-    options.uri = getProxyUrl(uri)
   }
 }
 // videojs-http-streaming spits out a warning every time you access videojs.Vhs.BANDWIDTH_VARIANCE
