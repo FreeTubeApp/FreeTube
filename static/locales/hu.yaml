@@ -411,6 +411,11 @@ Settings:
     Hide Channel Playlists: Csatorna lejátszási listák elrejtése
     Hide Channel Community: Csatornaközösség elrejtése
     Hide Channel Shorts: Csatorna rövidfilmek elrejtése
+    Sections:
+      Side Bar: Oldalsáv
+      Channel Page: Csatornalap
+      Watch Page: Nézőlap
+      General: Általános
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -659,8 +664,8 @@ Video:
   Watching: 'Megtekintő'
   Watched: 'Megtekintett'
   Autoplay: 'Önműködő lejátszás'
-  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik. Kérjük,
-    frissítse az oldalt az ellenőrzéshez'
+  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, kérjük,
+    frissítse a lapot az ellenőrzéshez'
   # As in a Live Video
   Live: 'Élő'
   Live Now: 'Élő most'
@@ -926,7 +931,7 @@ Tooltips:
       használja helyette.
   Privacy Settings:
     Remove Video Meta Files: Ha engedélyezve van, a SzabadCső önműködően törli a videolejátszás
-      során létrehozott metafájlokat, amikor a videómegtekintő oldal bezárul.
+      során létrehozott metafájlokat, amikor a nézőlap bezár.
   External Player Settings:
     Custom External Player Executable: Alapértelmezés szerint a SzabadCső feltételezi,
       hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
