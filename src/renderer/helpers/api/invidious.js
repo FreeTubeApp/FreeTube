@@ -119,7 +119,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
 }
 
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
-  return url.replace(/^.+(ggpht.+)/, currentInstance)
+  return url.replace(/(\/ggpht\/)/, `${currentInstance}/ggpht/`)
 }
 
 function parseInvidiousCommentData(response) {
@@ -128,7 +128,7 @@ function parseInvidiousCommentData(response) {
     comment.authorLink = comment.authorId
     comment.authorThumb = youtubeImageUrlToInvidious(comment.authorThumbnails[1].url)
     comment.likes = comment.likeCount
-    comment.text = autolinker.link(stripHTML(comment.content))
+    comment.text = autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstance())))
     comment.dataType = 'invidious'
     comment.isOwner = comment.authorIsChannelOwner
     comment.numReplies = comment.replies?.replyCount ?? 0
