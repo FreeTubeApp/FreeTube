@@ -879,6 +879,7 @@ export default defineComponent({
 
       const optionalKeys = [
         'description',
+        'createdAt',
       ]
 
       const ignoredKeys = [
