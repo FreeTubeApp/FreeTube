@@ -53,6 +53,7 @@
               :playlist-index="index"
               appearance="result"
               force-list-type="list"
+              :always-show-add-to-playlist-button="true"
               :can-move-video-up="index > 0"
               :can-move-video-down="index < playlistItems.length - 1"
               :can-remove-from-playlist="true"

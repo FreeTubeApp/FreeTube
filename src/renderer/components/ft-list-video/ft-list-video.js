@@ -57,6 +57,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    alwaysShowAddToPlaylistButton: {
+      type: Boolean,
+      default: false,
+    },
     canMoveVideoUp: {
       type: Boolean,
       default: false,

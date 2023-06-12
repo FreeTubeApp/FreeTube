@@ -16,6 +16,7 @@
       :playlist-loop="playlistLoop"
       :force-list-type="forceListType"
       :appearance="appearance"
+      :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
       :can-move-video-up="canMoveVideoUp"
       :can-move-video-down="canMoveVideoDown"
       :can-remove-from-playlist="canRemoveFromPlaylist"

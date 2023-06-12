@@ -168,7 +168,7 @@ $watched-transition-duration: 0.5s;
     }
 
     // Show some buttons on hover only
-    .addToPlaylistIcon {
+    .addToPlaylistIcon:not(.alwaysVisible) {
       display: none;
     }
     // `:focus-within` means any child element is focused

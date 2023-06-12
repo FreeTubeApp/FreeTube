@@ -50,6 +50,7 @@
           title="Add to playlist"
           :icon="['fas', 'plus']"
           class="playlistIcon addToPlaylistIcon"
+          :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
