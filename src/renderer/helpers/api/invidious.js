@@ -6,6 +6,16 @@ function getCurrentInstance() {
   return store.getters.getCurrentInvidiousInstance
 }
 
+export function getProxyUrl(uri) {
+  const url = new URL(uri)
+  const { origin } = url
+  if (!url.searchParams.has('host') && origin !== getCurrentInstance()) {
+    // invidious requires host param to be filled with the origin of the stream
+    url.searchParams.append('host', origin.replace('https://', ''))
+  }
+  return url.toString().replace(origin, getCurrentInstance())
+}
+
 export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
   return new Promise((resolve, reject) => {
     const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
