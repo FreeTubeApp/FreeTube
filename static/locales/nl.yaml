@@ -907,6 +907,6 @@ Channels:
   Empty: Uw lijst van kanalen is thans leeg.
   Unsubscribe: Afmelden
   Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
-  Unsubscribe Prompt: Weet je zeker dat je je wilt afmelden voor "{channelName}"?
+  Unsubscribe Prompt: Weet je zeker dat je wilt afmelden voor "{channelName}"?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
