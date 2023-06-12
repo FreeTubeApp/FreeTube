@@ -119,7 +119,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
 }
 
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
-  return url.replace(/(\/ggpht\/)/, `${currentInstance}/ggpht/`)
+  return url.replaceAll(/(\/ggpht\/)/g, `${currentInstance}/ggpht/`)
 }
 
 function parseInvidiousCommentData(response) {
