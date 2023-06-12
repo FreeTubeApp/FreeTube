@@ -126,7 +126,7 @@ export default defineComponent({
     },
 
     inUserPlaylist: function () {
-      return this.$router.currentRoute.path.includes('playlist') && this.playlistType === 'user'
+      return this.playlistType === 'user'
     },
 
     selectedUserPlaylist: function () {
