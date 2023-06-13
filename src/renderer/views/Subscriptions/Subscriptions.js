@@ -11,7 +11,10 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { getLocalChannelVideos } from '../../helpers/api/local'
+import {
+  getLocalChannelLiveStreams,
+  getLocalChannelVideos,
+} from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'Subscriptions',
@@ -268,12 +271,15 @@ export default defineComponent({
 
     getChannelVideosLocalScraper: async function (channel, failedAttempts = 0) {
       try {
-        const videos = await getLocalChannelVideos(channel.id)
+        const videos = []
+        const normalVideos = await getLocalChannelVideos(channel.id)
+        const liveStreams = await getLocalChannelLiveStreams(channel.id)
 
-        if (videos === null) {
+        if (normalVideos == null || liveStreams == null) {
           this.errorChannels.push(channel)
           return []
         }
+        videos.push(...normalVideos, ...liveStreams)
 
         videos.map(video => {
           if (video.liveNow) {
