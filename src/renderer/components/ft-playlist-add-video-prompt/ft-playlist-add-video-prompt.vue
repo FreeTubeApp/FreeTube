@@ -14,6 +14,7 @@
       placeholder="Search in Playlist"
       :show-clear-text-button="true"
       :show-action-button="false"
+      :input-tabindex="localToGlobalTabindex(0)"
       @input="(input) => updateQueryDebounce(input)"
       @clear="updateQueryDebounce('')"
     />
@@ -21,6 +22,7 @@
       <ft-playlist-selector
         v-for="(playlist, index) in activePlaylists"
         :key="`${playlist._id}-${index}`"
+        :tabindex="localToGlobalTabindex(index + 1)"
         :data="playlist"
         :index="index"
         :selected="selectedPlaylistIdList.includes(playlist._id)"
@@ -30,17 +32,17 @@
     <ft-flex-box>
       <ft-button
         label="Create New Playlist"
-        tabindex="1"
+        :tabindex="localToGlobalTabindex((activePlaylists.length + 1) + 1)"
         @click="createNewPlaylist"
       />
       <ft-button
         label="Save"
-        tabindex="2"
+        :tabindex="localToGlobalTabindex((activePlaylists.length + 1) + 2)"
         @click="addSelectedToPlaylists"
       />
       <ft-button
         label="Cancel"
-        tabindex="3"
+        :tabindex="localToGlobalTabindex((activePlaylists.length + 1) + 3)"
         @click="hide"
       />
     </ft-flex-box>
