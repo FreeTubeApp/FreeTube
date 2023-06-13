@@ -13,7 +13,7 @@ import { calculatePublishedDate, copyToClipboard, showToast } from '../../helper
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import {
   getLocalChannelLiveStreams,
-  getLocalChannelVideos,
+  getLocalChannelWithVideos,
 } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -272,14 +272,17 @@ export default defineComponent({
     getChannelVideosLocalScraper: async function (channel, failedAttempts = 0) {
       try {
         const videos = []
-        const normalVideos = await getLocalChannelVideos(channel.id)
-        const liveStreams = this.hideLiveStreams ? [] : await getLocalChannelLiveStreams(channel.id)
-
-        if (normalVideos == null || liveStreams == null) {
+        const { channel: localChannel, videos: normalVideos } = await getLocalChannelWithVideos(channel.id)
+        if (localChannel == null) {
           this.errorChannels.push(channel)
           return []
         }
-        videos.push(...normalVideos, ...liveStreams)
+        if (localChannel.has_videos) {
+          videos.push(...normalVideos)
+        }
+        if (!this.hideLiveStreams && localChannel.has_live_streams) {
+          videos.push(...await getLocalChannelLiveStreams(channel.id))
+        }
 
         videos.map(video => {
           if (video.liveNow) {

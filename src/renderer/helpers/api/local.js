@@ -217,6 +217,42 @@ export async function getLocalChannel(id) {
   return result
 }
 
+export async function getLocalChannelWithVideos(id) {
+  const innertube = await createInnertube()
+
+  try {
+    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
+      browse_id: id,
+      params: 'EgZ2aWRlb3PyBgQKAjoA'
+      // protobuf for the videos tab (this is the one that YouTube uses,
+      // it has some empty fields in the protobuf but it doesn't work if you remove them)
+    }))
+
+    const videosTab = new YT.Channel(null, response)
+
+    // if the channel doesn't have a videos tab, YouTube returns the home tab instead
+    // so we need to check that we got the right tab
+    if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
+      return {
+        channel: videosTab,
+        videos: parseLocalChannelVideos(videosTab.videos, videosTab.header.author),
+      }
+    } else {
+      return {
+        channel: videosTab,
+        videos: [],
+      }
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof Utils.ChannelError) {
+      return {}
+    } else {
+      throw error
+    }
+  }
+}
+
 export async function getLocalChannelVideos(id) {
   const innertube = await createInnertube()
 
