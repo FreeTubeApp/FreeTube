@@ -273,7 +273,7 @@ export default defineComponent({
       try {
         const videos = []
         const normalVideos = await getLocalChannelVideos(channel.id)
-        const liveStreams = await getLocalChannelLiveStreams(channel.id)
+        const liveStreams = this.hideLiveStreams ? [] : await getLocalChannelLiveStreams(channel.id)
 
         if (normalVideos == null || liveStreams == null) {
           this.errorChannels.push(channel)
