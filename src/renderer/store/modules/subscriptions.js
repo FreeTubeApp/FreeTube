@@ -1,39 +1,71 @@
 import { MAIN_PROFILE_ID } from '../../../constants'
 
-const state = {
-  allSubscriptionsList: [],
-  profileSubscriptions: {
-    activeProfile: MAIN_PROFILE_ID,
+const defaultState = {
+  subscriptionsCacheForAllSubscriptionsProfile: {
     videoList: [],
-    errorChannels: []
-  }
+  },
+  subscriptionsCacheForActiveProfile: {
+    videoList: [],
+    profileID: '',
+    errorChannels: [],
+  },
+}
+
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj))
+}
+
+const state = {
+  subscriptionsCacheForAllSubscriptionsProfile: deepCopy(defaultState.subscriptionsCacheForAllSubscriptionsProfile),
+  subscriptionsCacheForActiveProfile: deepCopy(defaultState.subscriptionsCacheForActiveProfile),
 }
 
 const getters = {
-  getAllSubscriptionsList: () => {
-    return state.allSubscriptionsList
+  getSubscriptionsCacheForAllSubscriptionsProfile: () => {
+    return state.subscriptionsCacheForAllSubscriptionsProfile
   },
-  getProfileSubscriptions: () => {
-    return state.profileSubscriptions
-  }
+  getSubscriptionsCacheForProfile: (state) => (profileId) => {
+    if (state.subscriptionsCacheForActiveProfile.profileID !== profileId) { return null }
+
+    return state.subscriptionsCacheForActiveProfile
+  },
 }
 
 const actions = {
-  updateAllSubscriptionsList ({ commit }, subscriptions) {
-    commit('setAllSubscriptionsList', subscriptions)
+  updateSubscriptionsCacheForActiveProfile: ({ commit }, payload) => {
+    if (payload.profileID === MAIN_PROFILE_ID) {
+      commit('updateSubscriptionsCacheForAllSubscriptionsProfile', {
+        videoList: payload.videoList,
+      })
+    } else {
+      // When cache for a non default profile (the one for all subscriptions) updated
+      // The cache for all subscriptions could be stale at that point
+      commit('clearSubscriptionsCacheForAllSubscriptionsProfile')
+    }
+
+    commit('updateSubscriptionsCacheForActiveProfile', payload)
   },
-  updateProfileSubscriptions ({ commit }, subscriptions) {
-    commit('setProfileSubscriptions', subscriptions)
-  }
+  clearSubscriptionsCache: ({ commit }) => {
+    commit('clearSubscriptionsCacheForAllSubscriptionsProfile')
+    commit('clearSubscriptionsCacheForActiveProfile')
+  },
 }
 
 const mutations = {
-  setAllSubscriptionsList (state, allSubscriptionsList) {
-    state.allSubscriptionsList = allSubscriptionsList
+  updateSubscriptionsCacheForAllSubscriptionsProfile (state, { videoList }) {
+    state.subscriptionsCacheForAllSubscriptionsProfile.videoList = videoList
   },
-  setProfileSubscriptions (state, profileSubscriptions) {
-    state.profileSubscriptions = profileSubscriptions
-  }
+  updateSubscriptionsCacheForActiveProfile (state, { profileID, videoList, errorChannels }) {
+    state.subscriptionsCacheForActiveProfile.profileID = profileID
+    state.subscriptionsCacheForActiveProfile.videoList = videoList
+    state.subscriptionsCacheForActiveProfile.errorChannels = errorChannels
+  },
+  clearSubscriptionsCacheForAllSubscriptionsProfile (state) {
+    state.subscriptionsCacheForAllSubscriptionsProfile = deepCopy(defaultState.subscriptionsCacheForAllSubscriptionsProfile)
+  },
+  clearSubscriptionsCacheForActiveProfile (state) {
+    state.subscriptionsCacheForActiveProfile = deepCopy(defaultState.subscriptionsCacheForActiveProfile)
+  },
 }
 
 export default {
