@@ -406,7 +406,7 @@ export function createWebURL(path) {
 
 // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
-  return value.replaceAll(/(<(?!br|\/?[bis]>)([^>]+)>)/gi, '')
+  return value.replaceAll(/(<(?!br|\/?[bis]|img>)([^>]+)>)/gi, '')
 }
 
 /**
