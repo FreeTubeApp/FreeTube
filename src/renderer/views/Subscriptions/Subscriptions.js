@@ -30,7 +30,7 @@ export default defineComponent({
       dataLimit: 100,
       videoList: [],
       errorChannels: [],
-      attemptedFetch: false
+      attemptedFetch: false,
     }
   },
   computed: {
@@ -65,13 +65,24 @@ export default defineComponent({
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
-
-    profileSubscriptions: function () {
-      return this.$store.getters.getProfileSubscriptions
+    activeProfileId: function () {
+      return this.activeProfile._id
     },
 
-    allSubscriptionsList: function () {
-      return this.$store.getters.getAllSubscriptionsList
+    subscriptionsCacheForAllSubscriptionsProfile: function () {
+      return this.$store.getters.getSubscriptionsCacheForAllSubscriptionsProfile
+    },
+    videoCacheForAllSubscriptionsProfilePresent: function () {
+      return this.subscriptionsCacheForAllSubscriptionsProfile.videoList.length > 0
+    },
+
+    subscriptionsCacheForActiveProfile: function () {
+      return this.$store.getters.getSubscriptionsCacheForProfile(this.activeProfile._id)
+    },
+    videoCacheForActiveProfilePresent: function () {
+      if (this.subscriptionsCacheForActiveProfile == null) { return false }
+
+      return this.subscriptionsCacheForActiveProfile.videoList.length > 0
     },
 
     historyCache: function () {
@@ -92,12 +103,13 @@ export default defineComponent({
 
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
-    }
+    },
   },
   watch: {
     activeProfile: async function (_) {
-      this.getProfileSubscriptions()
-    }
+      this.isLoading = true
+      this.loadVideosFromCacheSometimes()
+    },
   },
   mounted: async function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
@@ -108,43 +120,70 @@ export default defineComponent({
       this.dataLimit = dataLimit
     }
 
-    if (this.profileSubscriptions.videoList.length !== 0) {
-      if (this.profileSubscriptions.activeProfile === this.activeProfile._id) {
-        const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
-        if (this.hideWatchedSubs) {
-          this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
-            const historyIndex = this.historyCache.findIndex((x) => {
-              return x.videoId === video.videoId
-            })
-
-            return historyIndex === -1
-          }))
-        } else {
-          this.videoList = subscriptionList.videoList
-          this.errorChannels = subscriptionList.errorChannels
-        }
-      } else {
-        this.getProfileSubscriptions()
-      }
-
-      this.isLoading = false
-    } else if (this.fetchSubscriptionsAutomatically) {
-      setTimeout(async () => {
-        this.getSubscriptions()
-      }, 300)
-    } else {
-      this.isLoading = false
-    }
+    this.loadVideosFromCacheSometimes()
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    loadVideosFromCacheSometimes() {
+      // Called on view visible (initial view rendering, tab switching, etc.)
+      if (this.videoCacheForActiveProfilePresent) {
+        this.loadVideosFromCacheForActiveProfile()
+        return
+      }
+
+      if (this.videoCacheForAllSubscriptionsProfilePresent) {
+        this.loadVideosFromCacheForAllSubscriptionsProfile()
+        return
+      }
+
+      this.maybeLoadVideosForSubscriptionsFromRemote()
+    },
+
+    async loadVideosFromCacheForActiveProfile() {
+      const subscriptionList = JSON.parse(JSON.stringify(this.subscriptionsCacheForActiveProfile))
+      this.errorChannels = subscriptionList.errorChannels
+      if (this.hideWatchedSubs) {
+        this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
+          const historyIndex = this.historyCache.findIndex((x) => {
+            return x.videoId === video.videoId
+          })
+
+          return historyIndex === -1
+        }))
+      } else {
+        this.videoList = subscriptionList.videoList
+      }
+      this.isLoading = false
+    },
+
+    async loadVideosFromCacheForAllSubscriptionsProfile() {
+      const cachedVideosFromAllSubscriptions = this.subscriptionsCacheForAllSubscriptionsProfile.videoList
+      // Load videos from cached videos for all subscriptions
+      this.videoList = await Promise.all(cachedVideosFromAllSubscriptions.filter((video) => {
+        const channelIndex = this.activeSubscriptionList.findIndex((subscribedChannel) => {
+          return subscribedChannel.id === video.authorId
+        })
+
+        if (this.hideWatchedSubs) {
+          const historyIndex = this.historyCache.findIndex((x) => {
+            return x.videoId === video.videoId
+          })
+
+          return channelIndex !== -1 && historyIndex === -1
+        } else {
+          return channelIndex !== -1
+        }
+      }))
+      this.isLoading = false
+    },
+
     goToChannel: function (id) {
       this.$router.push({ path: `/channel/${id}` })
     },
 
-    getSubscriptions: function () {
+    loadVideosForSubscriptionsFromRemote: function () {
       if (this.activeSubscriptionList.length === 0) {
         this.isLoading = false
         this.videoList = []
@@ -209,11 +248,6 @@ export default defineComponent({
               return item.premiereDate == null
             })
           }
-          const profileSubscriptions = {
-            activeProfile: this.activeProfile._id,
-            videoList: videoList,
-            errorChannels: this.errorChannels
-          }
 
           this.videoList = await Promise.all(videoList.filter((video) => {
             if (this.hideWatchedSubs) {
@@ -226,43 +260,25 @@ export default defineComponent({
               return true
             }
           }))
-          this.updateProfileSubscriptions(profileSubscriptions)
+          this.updateSubscriptionsCacheForActiveProfile({
+            profileID: this.activeProfileId,
+            videoList: videoList,
+            errorChannels: this.errorChannels,
+          })
           this.isLoading = false
           this.updateShowProgressBar(false)
-
-          if (this.activeProfile === MAIN_PROFILE_ID) {
-            this.updateAllSubscriptionsList(profileSubscriptions.videoList)
-          }
         }
       })
     },
 
-    getProfileSubscriptions: async function () {
-      if (this.allSubscriptionsList.length !== 0) {
-        this.isLoading = true
-        this.videoList = await Promise.all(this.allSubscriptionsList.filter((video) => {
-          const channelIndex = this.activeSubscriptionList.findIndex((x) => {
-            return x.id === video.authorId
-          })
-
-          if (this.hideWatchedSubs) {
-            const historyIndex = this.historyCache.findIndex((x) => {
-              return x.videoId === video.videoId
-            })
-
-            return channelIndex !== -1 && historyIndex === -1
-          } else {
-            return channelIndex !== -1
-          }
-        }))
-        this.isLoading = false
-      } else if (this.fetchSubscriptionsAutomatically) {
-        this.getSubscriptions()
-      } else if (this.activeProfile._id === this.profileSubscriptions.activeProfile) {
-        this.videoList = this.profileSubscriptions.videoList
+    maybeLoadVideosForSubscriptionsFromRemote: async function () {
+      if (this.fetchSubscriptionsAutomatically) {
+        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
+        this.loadVideosForSubscriptionsFromRemote()
       } else {
         this.videoList = []
         this.attemptedFetch = false
+        this.isLoading = false
       }
     },
 
@@ -483,7 +499,7 @@ export default defineComponent({
         case 'r':
         case 'R':
           if (!this.isLoading) {
-            this.getSubscriptions()
+            this.loadVideosForSubscriptionsFromRemote()
           }
           break
       }
@@ -491,8 +507,7 @@ export default defineComponent({
 
     ...mapActions([
       'updateShowProgressBar',
-      'updateProfileSubscriptions',
-      'updateAllSubscriptionsList'
+      'updateSubscriptionsCacheForActiveProfile',
     ]),
 
     ...mapMutations([
