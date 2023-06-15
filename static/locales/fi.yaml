@@ -399,6 +399,11 @@ Settings:
     Hide Channel Playlists: Piilota kanavan soittolistat
     Hide Channel Community: Piilota kanava yhteisö
     Hide Channel Shorts: Piilota kanavan lyhytelokuvat
+    Sections:
+      Side Bar: Sivupalkki
+      Channel Page: Kanavan sivu
+      Watch Page: Katso sivu
+      General: Yleiset
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -569,6 +574,10 @@ Channel:
     This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
       mitään
     Community: Yhteisö
+  Live:
+    Live: Livenä
+    This channel does not currently have any live streams: Tällä kanavalla ei ole
+      tällä hetkellä yhtään suoraa lähetystä
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
@@ -708,6 +717,8 @@ Video:
   Show Super Chat Comment: Näytä Super Chat -kommentti
   Scroll to Bottom: Vieritä alaspäin
   Upcoming: Tuleva
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
+    ei ole käytettävissä tässä suoratoistossa. Lataaja on saattanut poistaa sen käytöstä.
 Videos:
   #& Sort By
   Sort By:
@@ -964,3 +975,7 @@ Chapters:
     nykyinen luku: {chapterName}'
 Preferences: Asetukset
 Ok: OK
+Hashtag:
+  Hashtag: Avainsana
+  This hashtag does not currently have any videos: Tällä avainsanalla ei ole tällä
+    hetkellä yhtään videota
