@@ -1,14 +1,5 @@
-import { MAIN_PROFILE_ID } from '../../../constants'
-
-const defaultState = {
-  subscriptionsCacheForAllSubscriptionsProfile: {
-    videoList: [],
-  },
-  subscriptionsCacheForActiveProfile: {
-    videoList: [],
-    profileID: '',
-    errorChannels: [],
-  },
+const defaultCacheEntryValueForForOneChannel = {
+  videos: null,
 }
 
 function deepCopy(obj) {
@@ -16,55 +7,34 @@ function deepCopy(obj) {
 }
 
 const state = {
-  subscriptionsCacheForAllSubscriptionsProfile: deepCopy(defaultState.subscriptionsCacheForAllSubscriptionsProfile),
-  subscriptionsCacheForActiveProfile: deepCopy(defaultState.subscriptionsCacheForActiveProfile),
+  subscriptionsCachePerChannel: {},
 }
 
 const getters = {
-  getSubscriptionsCacheForAllSubscriptionsProfile: () => {
-    return state.subscriptionsCacheForAllSubscriptionsProfile
-  },
-  getSubscriptionsCacheForProfile: (state) => (profileId) => {
-    if (state.subscriptionsCacheForActiveProfile.profileID !== profileId) { return null }
-
-    return state.subscriptionsCacheForActiveProfile
+  getSubscriptionsCacheEntriesForOneChannel: (state) => (channelId) => {
+    return state.subscriptionsCachePerChannel[channelId]
   },
 }
 
 const actions = {
-  updateSubscriptionsCacheForActiveProfile: ({ commit }, payload) => {
-    if (payload.profileID === MAIN_PROFILE_ID) {
-      commit('updateSubscriptionsCacheForAllSubscriptionsProfile', {
-        videoList: payload.videoList,
-      })
-    } else {
-      // When cache for a non default profile (the one for all subscriptions) updated
-      // The cache for all subscriptions could be stale at that point
-      commit('clearSubscriptionsCacheForAllSubscriptionsProfile')
-    }
-
-    commit('updateSubscriptionsCacheForActiveProfile', payload)
-  },
   clearSubscriptionsCache: ({ commit }) => {
-    commit('clearSubscriptionsCacheForAllSubscriptionsProfile')
-    commit('clearSubscriptionsCacheForActiveProfile')
+    commit('clearSubscriptionsCachePerChannel')
+  },
+
+  updateSubscriptionsCacheForOneChannel: ({ commit }, payload) => {
+    commit('updateSubscriptionsCacheForOneChannel', payload)
   },
 }
 
 const mutations = {
-  updateSubscriptionsCacheForAllSubscriptionsProfile (state, { videoList }) {
-    state.subscriptionsCacheForAllSubscriptionsProfile.videoList = videoList
+  updateSubscriptionsCacheForOneChannel(state, { channelId, videos }) {
+    const existingObject = state.subscriptionsCachePerChannel[channelId]
+    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    if (videos != null) { newObject.videos = videos }
+    state.subscriptionsCachePerChannel[channelId] = newObject
   },
-  updateSubscriptionsCacheForActiveProfile (state, { profileID, videoList, errorChannels }) {
-    state.subscriptionsCacheForActiveProfile.profileID = profileID
-    state.subscriptionsCacheForActiveProfile.videoList = videoList
-    state.subscriptionsCacheForActiveProfile.errorChannels = errorChannels
-  },
-  clearSubscriptionsCacheForAllSubscriptionsProfile (state) {
-    state.subscriptionsCacheForAllSubscriptionsProfile = deepCopy(defaultState.subscriptionsCacheForAllSubscriptionsProfile)
-  },
-  clearSubscriptionsCacheForActiveProfile (state) {
-    state.subscriptionsCacheForActiveProfile = deepCopy(defaultState.subscriptionsCacheForActiveProfile)
+  clearSubscriptionsCachePerChannel(state) {
+    state.subscriptionsCachePerChannel = {}
   },
 }
 

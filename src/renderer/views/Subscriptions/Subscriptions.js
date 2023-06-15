@@ -69,20 +69,23 @@ export default defineComponent({
       return this.activeProfile._id
     },
 
-    subscriptionsCacheForAllSubscriptionsProfile: function () {
-      return this.$store.getters.getSubscriptionsCacheForAllSubscriptionsProfile
-    },
-    videoCacheForAllSubscriptionsProfilePresent: function () {
-      return this.subscriptionsCacheForAllSubscriptionsProfile.videoList.length > 0
-    },
+    cacheEntriesForAllActiveProfileChannels() {
+      const entries = []
+      this.activeSubscriptionList.forEach((channel) => {
+        const cacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
+        if (cacheEntry == null) { return }
 
-    subscriptionsCacheForActiveProfile: function () {
-      return this.$store.getters.getSubscriptionsCacheForProfile(this.activeProfile._id)
+        entries.push(cacheEntry)
+      })
+      return entries
     },
-    videoCacheForActiveProfilePresent: function () {
-      if (this.subscriptionsCacheForActiveProfile == null) { return false }
+    videoCacheForAllActiveProfileChannelsPresent() {
+      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return false }
+      if (this.cacheEntriesForAllActiveProfileChannels.length < this.activeSubscriptionList.length) { return false }
 
-      return this.subscriptionsCacheForActiveProfile.videoList.length > 0
+      return this.cacheEntriesForAllActiveProfileChannels.every((cacheEntry) => {
+        return cacheEntry.videos != null
+      })
     },
 
     historyCache: function () {
@@ -127,55 +130,23 @@ export default defineComponent({
   },
   methods: {
     loadVideosFromCacheSometimes() {
-      // Called on view visible (initial view rendering, tab switching, etc.)
-      if (this.videoCacheForActiveProfilePresent) {
-        this.loadVideosFromCacheForActiveProfile()
-        return
-      }
-
-      if (this.videoCacheForAllSubscriptionsProfilePresent) {
-        this.loadVideosFromCacheForAllSubscriptionsProfile()
+      // This method is called on view visible
+      if (this.videoCacheForAllActiveProfileChannelsPresent) {
+        this.loadVideosFromCacheForAllActiveProfileChannels()
         return
       }
 
       this.maybeLoadVideosForSubscriptionsFromRemote()
     },
 
-    async loadVideosFromCacheForActiveProfile() {
-      const subscriptionList = JSON.parse(JSON.stringify(this.subscriptionsCacheForActiveProfile))
-      this.errorChannels = subscriptionList.errorChannels
-      if (this.hideWatchedSubs) {
-        this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
+    async loadVideosFromCacheForAllActiveProfileChannels() {
+      const videoList = []
+      this.activeSubscriptionList.forEach((channel) => {
+        const channelCacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
 
-          return historyIndex === -1
-        }))
-      } else {
-        this.videoList = subscriptionList.videoList
-      }
-      this.isLoading = false
-    },
-
-    async loadVideosFromCacheForAllSubscriptionsProfile() {
-      const cachedVideosFromAllSubscriptions = this.subscriptionsCacheForAllSubscriptionsProfile.videoList
-      // Load videos from cached videos for all subscriptions
-      this.videoList = await Promise.all(cachedVideosFromAllSubscriptions.filter((video) => {
-        const channelIndex = this.activeSubscriptionList.findIndex((subscribedChannel) => {
-          return subscribedChannel.id === video.authorId
-        })
-
-        if (this.hideWatchedSubs) {
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
-
-          return channelIndex !== -1 && historyIndex === -1
-        } else {
-          return channelIndex !== -1
-        }
-      }))
+        videoList.push(...channelCacheEntry.videos)
+      })
+      this.updateVideoListAfterProcessing(videoList)
       this.isLoading = false
     },
 
@@ -183,30 +154,48 @@ export default defineComponent({
       this.$router.push({ path: `/channel/${id}` })
     },
 
-    loadVideosForSubscriptionsFromRemote: function () {
+    loadVideosForSubscriptionsFromRemote: async function (allowUseOfChannelCache = false) {
       if (this.activeSubscriptionList.length === 0) {
         this.isLoading = false
         this.videoList = []
         return
       }
 
+      let channelsToLoadFromRemote = [...this.activeSubscriptionList]
+      const videoList = []
+      let channelCount = 0
+      this.isLoading = true
+
+      if (allowUseOfChannelCache) {
+        const channelIdsLoadedFromCache = []
+        channelsToLoadFromRemote.forEach((channel) => {
+          const channelCacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
+          if (channelCacheEntry == null) { return }
+          if (channelCacheEntry.videos == null) { return }
+
+          videoList.push(...channelCacheEntry.videos)
+          channelCount++
+
+          channelIdsLoadedFromCache.push(channel.id)
+        })
+        // Remove all channels already loaded from cache
+        channelsToLoadFromRemote = channelsToLoadFromRemote.filter((c) => !channelIdsLoadedFromCache.includes(c.id))
+      }
+
       let useRss = this.useRssFeeds
-      if (this.activeSubscriptionList.length >= 125 && !useRss) {
+      if (channelsToLoadFromRemote.length >= 125 && !useRss) {
         showToast(
           this.$t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
           10000
         )
         useRss = true
       }
-      this.isLoading = true
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
       this.attemptedFetch = true
 
-      let videoList = []
-      let channelCount = 0
       this.errorChannels = []
-      this.activeSubscriptionList.forEach(async (channel) => {
+      const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let videos = []
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           if (useRss) {
@@ -222,51 +211,54 @@ export default defineComponent({
           }
         }
 
-        videoList = videoList.concat(videos)
         channelCount++
-        const percentageComplete = (channelCount / this.activeSubscriptionList.length) * 100
+        const percentageComplete = (channelCount / channelsToLoadFromRemote.length) * 100
         this.setProgressBarPercentage(percentageComplete)
+        this.updateSubscriptionsCacheForOneChannel({
+          channelId: channel.id,
+          videos: videos,
+        })
+        return videos
+      }))).flatMap((o) => o)
+      videoList.push(...videoListFromRemote)
 
-        if (channelCount === this.activeSubscriptionList.length) {
-          videoList = await Promise.all(videoList.sort((a, b) => {
-            return b.publishedDate - a.publishedDate
-          }))
-          if (this.hideLiveStreams) {
-            videoList = videoList.filter(item => {
-              return (!item.liveNow && !item.isUpcoming)
-            })
+      this.updateVideoListAfterProcessing(videoList)
+      this.isLoading = false
+      this.updateShowProgressBar(false)
+    },
+
+    updateVideoListAfterProcessing(videoList) {
+      // Filtering and sorting based in preference
+      videoList.sort((a, b) => {
+        return b.publishedDate - a.publishedDate
+      })
+      if (this.hideLiveStreams) {
+        videoList = videoList.filter(item => {
+          return (!item.liveNow && !item.isUpcoming)
+        })
+      }
+      if (this.hideUpcomingPremieres) {
+        videoList = videoList.filter(item => {
+          if (item.isRSS) {
+            // viewCount is our only method of detecting premieres in RSS
+            // data without sending an additional request.
+            // If we ever get a better flag, use it here instead.
+            return item.viewCount !== '0'
           }
-          if (this.hideUpcomingPremieres) {
-            videoList = videoList.filter(item => {
-              if (item.isRSS) {
-                // viewCount is our only method of detecting premieres in RSS
-                // data without sending an additional request.
-                // If we ever get a better flag, use it here instead.
-                return item.viewCount !== '0'
-              }
-              // Observed for premieres in Local API Subscriptions.
-              return item.premiereDate == null
-            })
-          }
+          // Observed for premieres in Local API Subscriptions.
+          return item.premiereDate == null
+        })
+      }
 
-          this.videoList = await Promise.all(videoList.filter((video) => {
-            if (this.hideWatchedSubs) {
-              const historyIndex = this.historyCache.findIndex((x) => {
-                return x.videoId === video.videoId
-              })
-
-              return historyIndex === -1
-            } else {
-              return true
-            }
-          }))
-          this.updateSubscriptionsCacheForActiveProfile({
-            profileID: this.activeProfileId,
-            videoList: videoList,
-            errorChannels: this.errorChannels,
+      this.videoList = videoList.filter((video) => {
+        if (this.hideWatchedSubs) {
+          const historyIndex = this.historyCache.findIndex((x) => {
+            return x.videoId === video.videoId
           })
-          this.isLoading = false
-          this.updateShowProgressBar(false)
+
+          return historyIndex === -1
+        } else {
+          return true
         }
       })
     },
@@ -274,7 +266,8 @@ export default defineComponent({
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
       if (this.fetchSubscriptionsAutomatically) {
         // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-        this.loadVideosForSubscriptionsFromRemote()
+        // Also we disallow the use of local cache to avoid users expecting fresh data but getting potentially stale results
+        await this.loadVideosForSubscriptionsFromRemote(false)
       } else {
         this.videoList = []
         this.attemptedFetch = false
@@ -507,7 +500,7 @@ export default defineComponent({
 
     ...mapActions([
       'updateShowProgressBar',
-      'updateSubscriptionsCacheForActiveProfile',
+      'updateSubscriptionsCacheForOneChannel',
     ]),
 
     ...mapMutations([
