@@ -844,7 +844,7 @@ Search Bar:
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
-Hashtags have not yet been implemented, try again later: 哈希标签功能尚未实现，请稍后再试
+Hashtags have not yet been implemented, try again later: 话题标签功能尚未实现，请稍后再试
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
@@ -882,5 +882,5 @@ Chapters:
 Preferences: 选项
 Ok: 好
 Hashtag:
-  Hashtag: 标签
-  This hashtag does not currently have any videos: 此标签下当前没有任何短视频
+  Hashtag: 话题标签
+  This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频
