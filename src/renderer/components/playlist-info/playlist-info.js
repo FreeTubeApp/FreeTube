@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -211,6 +211,11 @@ export default defineComponent({
       this.editMode = true
 
       this.$emit('enter-edit-mode')
+
+      nextTick(() => {
+        // Some elements only present after rendering update
+        this.$refs.playlistTitleInput.focus()
+      })
     },
 
     exitEditMode: function () {

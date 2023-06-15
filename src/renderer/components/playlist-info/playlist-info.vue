@@ -20,7 +20,9 @@
     <div class="playlistStats">
       <ft-input
         v-if="editMode"
+        ref="playlistTitleInput"
         placeholder="Playlist Name"
+        :input-tabindex="0"
         :show-action-button="false"
         :show-label="false"
         :value="newTitle"
@@ -48,6 +50,7 @@
     <ft-input
       v-if="editMode"
       placeholder="Playlist Description"
+      :input-tabindex="0"
       :show-action-button="false"
       :show-label="false"
       :value="newDescription"
