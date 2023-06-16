@@ -154,33 +154,17 @@ export default defineComponent({
       this.$router.push({ path: `/channel/${id}` })
     },
 
-    loadVideosForSubscriptionsFromRemote: async function (allowUseOfChannelCache = false) {
+    loadVideosForSubscriptionsFromRemote: async function () {
       if (this.activeSubscriptionList.length === 0) {
         this.isLoading = false
         this.videoList = []
         return
       }
 
-      let channelsToLoadFromRemote = [...this.activeSubscriptionList]
+      const channelsToLoadFromRemote = this.activeSubscriptionList
       const videoList = []
       let channelCount = 0
       this.isLoading = true
-
-      if (allowUseOfChannelCache) {
-        const channelIdsLoadedFromCache = []
-        channelsToLoadFromRemote.forEach((channel) => {
-          const channelCacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
-          if (channelCacheEntry == null) { return }
-          if (channelCacheEntry.videos == null) { return }
-
-          videoList.push(...channelCacheEntry.videos)
-          channelCount++
-
-          channelIdsLoadedFromCache.push(channel.id)
-        })
-        // Remove all channels already loaded from cache
-        channelsToLoadFromRemote = channelsToLoadFromRemote.filter((c) => !channelIdsLoadedFromCache.includes(c.id))
-      }
 
       let useRss = this.useRssFeeds
       if (channelsToLoadFromRemote.length >= 125 && !useRss) {
@@ -266,8 +250,7 @@ export default defineComponent({
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
       if (this.fetchSubscriptionsAutomatically) {
         // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-        // Also we disallow the use of local cache to avoid users expecting fresh data but getting potentially stale results
-        await this.loadVideosForSubscriptionsFromRemote(false)
+        await this.loadVideosForSubscriptionsFromRemote()
       } else {
         this.videoList = []
         this.attemptedFetch = false
