@@ -26,6 +26,7 @@ export default Vue.extend({
       query: '',
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
+      lastActiveElement: null,
     }
   },
   computed: {
@@ -115,9 +116,16 @@ export default Vue.extend({
     },
   },
   mounted: function () {
+    this.lastActiveElement = document.activeElement
+
     this.updateQueryDebounce = debounce(this.updateQuery, 500)
     // User might want to search first if they have many playlists
     this.$refs.searchBar.focus()
+  },
+  destroyed() {
+    if (this.lastActiveElement != null) {
+      this.lastActiveElement.focus()
+    }
   },
   methods: {
     hide: function () {

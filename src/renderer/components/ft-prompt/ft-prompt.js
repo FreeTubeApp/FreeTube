@@ -39,7 +39,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      promptButtons: []
+      promptButtons: [],
+      lastActiveElement: null,
     }
   },
   computed: {
@@ -51,6 +52,8 @@ export default defineComponent({
     document.removeEventListener('keydown', this.closeEventFunction, true)
   },
   mounted: function () {
+    this.lastActiveElement = document.activeElement
+
     document.addEventListener('keydown', this.closeEventFunction, true)
     document.querySelector('.prompt').addEventListener('keydown', this.arrowKeys, true)
     this.promptButtons = Array.from(
@@ -59,6 +62,11 @@ export default defineComponent({
       return e.id && e.id.startsWith('prompt')
     })
     this.focusItem(0)
+  },
+  destroyed() {
+    if (this.lastActiveElement != null) {
+      this.lastActiveElement.focus()
+    }
   },
   methods: {
     hide: function() {

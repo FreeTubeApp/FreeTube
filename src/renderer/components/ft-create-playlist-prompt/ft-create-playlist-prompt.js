@@ -25,7 +25,8 @@ export default Vue.extend({
         'save',
         'cancel'
       ],
-      selectedPlaylists: []
+      selectedPlaylists: [],
+      lastActiveElement: null,
     }
   },
   computed: {
@@ -47,9 +48,16 @@ export default Vue.extend({
     },
   },
   mounted: function () {
+    this.lastActiveElement = document.activeElement
+
     this.playlistName = this.newPlaylistVideoObject.title
     // Faster to input required playlist name
     this.$refs.playlistNameInput.focus()
+  },
+  destroyed() {
+    if (this.lastActiveElement != null) {
+      this.lastActiveElement.focus()
+    }
   },
   methods: {
     handleCreatePlaylistPrompt: function (option) {
