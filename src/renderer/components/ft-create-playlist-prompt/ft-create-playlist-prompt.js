@@ -39,13 +39,6 @@ export default Vue.extend({
     videoImportLength: function () {
       return this.newPlaylistVideoObject.videos.length
     },
-
-    tabindexOffset() {
-      // To avoid tabbing into content outside the prompt
-      // Assigning an offset here
-      // Hardcoding one first but might switch to some kind of calculation later
-      return 2 * 100 * 100
-    },
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
@@ -100,10 +93,6 @@ export default Vue.extend({
       } finally {
         this.hideCreatePlaylistPrompt()
       }
-    },
-
-    localToGlobalTabindex(localTabindex) {
-      return this.tabindexOffset + localTabindex
     },
 
     ...mapActions([

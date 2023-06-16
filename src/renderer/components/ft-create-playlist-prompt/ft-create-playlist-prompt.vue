@@ -9,7 +9,7 @@
       <ft-input
         ref="playlistNameInput"
         placeholder="Playlist Name"
-        :input-tabindex="localToGlobalTabindex(0)"
+        :input-tabindex="0"
         :show-action-button="false"
         :show-label="false"
         :value="playlistName"
@@ -27,12 +27,12 @@
     <ft-flex-box>
       <ft-button
         label="Create"
-        :tabindex="localToGlobalTabindex(1)"
+        :tabindex="0"
         @click="createNewPlaylist"
       />
       <ft-button
         label="Cancel"
-        :tabindex="localToGlobalTabindex(2)"
+        :tabindex="0"
         @click="handleCreatePlaylistPrompt(null)"
       />
     </ft-flex-box>

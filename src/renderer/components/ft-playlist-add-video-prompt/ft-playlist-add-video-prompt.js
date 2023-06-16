@@ -87,13 +87,6 @@ export default Vue.extend({
         return b.lastUpdatedAt - a.lastUpdatedAt
       })
     },
-
-    tabindexOffset() {
-      // To avoid tabbing into content outside the prompt
-      // Assigning an offset here
-      // Hardcoding one first but might switch to some kind of calculation later
-      return 100 * 100
-    },
   },
   watch: {
     allPlaylistsLength(val, oldVal) {
@@ -180,10 +173,6 @@ export default Vue.extend({
 
     updateQuery: function(query) {
       this.query = query
-    },
-
-    localToGlobalTabindex(localTabindex) {
-      return this.tabindexOffset + localTabindex
     },
 
     ...mapActions([
