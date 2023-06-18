@@ -79,12 +79,14 @@ export default defineComponent({
           return false
         }
       } else if (data.type === 'channel') {
-        if (this.channelsHidden.includes(data.channelID) || this.channelsHidden.includes(data.name)) {
+        if (this.channelsHidden.includes(data.id) || this.channelsHidden.includes(data.name) ||
+              this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
           // hide channels by author
           return false
         }
       } else if (data.type === 'playlist') {
-        if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
+        if (this.channelsHidden.includes(data.channelId) || this.channelsHidden.includes(data.channelName) ||
+              this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
           // hide playlists by author
           return false
         }
