@@ -206,7 +206,7 @@ export default defineComponent({
                 return item.viewCount !== '0'
               }
               // Observed for premieres in Local API Subscriptions.
-              return item.durationText !== 'PREMIERE'
+              return item.premiereDate == null
             })
           }
           const profileSubscriptions = {
