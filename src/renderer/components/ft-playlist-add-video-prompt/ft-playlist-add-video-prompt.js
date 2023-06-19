@@ -106,6 +106,10 @@ export default Vue.extend({
         this.createdSincePromptShownPlaylistIdList.push(playlist._id)
         this.selectedPlaylistIdList.push(playlist._id)
       })
+
+      // Focus back to search input
+      // Allow search and easier deselecting new created playlist
+      this.$refs.searchBar.focus()
     },
   },
   mounted: function () {
