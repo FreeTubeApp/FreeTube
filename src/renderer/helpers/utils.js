@@ -646,3 +646,16 @@ export function getTodayDateStrLocalTimezone() {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
   return timeNowStr.split('T')[0]
 }
+
+/**
+ * Escapes HTML tags to avoid XSS
+ * @param {string} untrusted
+ * @returns {string}
+ */
+export function escapeHTML(untrusted) {
+  return untrusted.replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('\'', '&apos;')
+}
