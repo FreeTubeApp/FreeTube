@@ -338,11 +338,7 @@ export default defineComponent({
   methods: {
     getDeArrowTitle: async function() {
       const data = await this.getDeArrowDataEntry()
-      if (data != null && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
-        return data.titles[0].title
-      }
-
-      return null
+      return data.title
     },
 
     getDeArrowDataEntry: async function() {
@@ -354,9 +350,11 @@ export default defineComponent({
 
       const videoId = this.id
       const data = await deArrowData(this.id)
-      const cacheData = { videoId, titles: [] }
+      const cacheData = { videoId, title: null }
       if (Array.isArray(data?.titles)) {
-        cacheData.titles = data.titles
+        if (data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
+          cacheData.title = data.titles[0].title
+        }
       }
 
       // Save data to cache whether data available or not to prevent duplicate requests
