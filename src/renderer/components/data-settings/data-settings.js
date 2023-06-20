@@ -9,6 +9,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   copyToClipboard,
+  escapeHTML,
   getTodayDateStrLocalTimezone,
   readFileFromDialog,
   showOpenDialog,
@@ -591,12 +592,7 @@ export default defineComponent({
       let opmlData = '<opml version="1.1"><body><outline text="YouTube Subscriptions" title="YouTube Subscriptions">'
 
       this.profileList[0].subscriptions.forEach((channel) => {
-        const escapedName = channel.name
-          .replaceAll('&', '&amp;')
-          .replaceAll('<', '&lt;')
-          .replaceAll('>', '&gt;')
-          .replaceAll('"', '&quot;')
-          .replaceAll('\'', '&apos;')
+        const escapedName = escapeHTML(channel.name)
 
         const channelOpmlString = `<outline text="${escapedName}" title="${escapedName}" type="rss" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}"/>`
         opmlData += channelOpmlString

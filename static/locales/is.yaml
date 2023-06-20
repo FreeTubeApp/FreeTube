@@ -282,6 +282,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
     Allow DASH AV1 formats: Leyfa DASH AV1 snið
+    Comment Auto Load:
+      Comment Auto Load: Hlaða sjálfkrafa inn athugasemdum
   Privacy Settings:
     Privacy Settings: 'Stillingar gagnaleyndar'
     Remember History: 'Muna áhorfsferil'
@@ -328,6 +330,15 @@ Settings:
     Hide Channels: Fela myndskeið úr rásum
     Hide Channels Placeholder: Heiti eða auðkenni rásar
     Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
+    Sections:
+      Side Bar: Hliðarspjald
+      Channel Page: Rásasíða
+      Watch Page: Áhorfssíða
+      General: Almennt
+    Hide Channel Shorts: Fela stuttmyndir rása
+    Hide Channel Playlists: Fela spilunarlista rása
+    Hide Channel Community: Fela samfélag rása
+    Hide Featured Channels: Fela rásir í deiglunni
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -565,6 +576,10 @@ Channel:
   Community:
     Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
+  Shorts:
+    Shorts: Stuttmyndir
+    This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
+      með neinar stuttmyndir
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
@@ -607,8 +622,8 @@ Video:
     í þessari byggingarútgáfu.'
   'Chat is disabled or the Live Stream has ended.': 'Spjall er óvirkt eða að beinu
     streymi er lokið.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Beint spjall
-    er virkt. Skilaboð spjallsins munu birtast hér.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Beint spjall er
+    virkt. Skilaboð spjallsins munu birtast hér.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Spjall
     í beinni er ekki stutt í Invidious API-kerfisviðmótinu. Nauðsynlegt er að vera
     með beina tengingu við YouTube.'
@@ -803,9 +818,9 @@ Tooltips:
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
       að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
       öll löndin sem birtast raunverulega studd af YouTube.'
-    External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem\
-      \ ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi\
-      \ tengil í sjálfgefna vafranum þínum.\n"
+    External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem
+      ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil
+      í sjálfgefna vafranum þínum.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Virkar bara þegar Invidious API-kerfisviðmótið
       er sjálfgefið hjá þér. Þegar þetta er virkt, mun staðværa API-kerfisviðmótið
@@ -934,3 +949,7 @@ Chapters:
     núverandi kafli: {chapterName}'
 Preferences: Kjörstillingar
 Ok: Í lagi
+Hashtag:
+  Hashtag: Myllumerki
+  This hashtag does not currently have any videos: Þetta myllumerki er í augnablikinu
+    ekki með nein myndskeið

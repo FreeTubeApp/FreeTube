@@ -61,12 +61,14 @@ Search Filters:
     Videos: 'Vaizdo įrašai'
     Channels: 'Kanalai'
     #& Playlists
+    Movies: Filmai
   Duration:
     Duration: 'Trukmė'
     All Durations: 'Visos trukmės'
     Short (< 4 minutes): 'Trumpas (< 4 minutės)'
     Long (> 20 minutes): 'Ilgas (> 20 minutės)'
   # On Search Page
+    Medium (4 - 20 minutes): Vidutinis (4 - 20 minučių)
   Search Results: 'Paieškos rezultatai'
   Fetching results. Please wait: 'Rezultatai kraunami. Prašome luktelėti'
   Fetch more results: 'Įkelti daugiau rezultatų'
@@ -278,6 +280,10 @@ Settings:
     Video Playback Rate Interval: Vaizdo įrašų atkūrimo dažnio intervalas
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
     Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
+    Skip by Scrolling Over Video Player: Praleiskite slinkdami per vaizdo grotuvą
+    Comment Auto Load:
+      Comment Auto Load: Komentuoti Automatinis įkėlimas
+    Allow DASH AV1 formats: Leisti DASH AV1 formatus
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
@@ -304,6 +310,8 @@ Settings:
     Remove All Subscriptions / Profiles: 'Pašalinti visas prenumeratas / profilius'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ar
       tikrai norite pašalinti visas prenumeratas ir profilius? To nebus galima atšaukti.'
+    Save Watched Videos With Last Viewed Playlist: Išsaugokite Žiūrėtus Vaizdo Įrašus
+      Naudodami Paskutinį Žiūrėtą Grojaraštį
   Subscription Settings:
     Subscription Settings: 'Prenumeratų nustatymai'
     Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
@@ -328,6 +336,19 @@ Settings:
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
     Hide Chapters: Slėpti skirsnius
     Hide Upcoming Premieres: Slėpti būsimas premjeras
+    Sections:
+      General: Generolas
+      Side Bar: Šoninė juosta
+      Channel Page: Kanalas Puslapis
+      Watch Page: Žiūrėti Puslapis
+    Display Titles Without Excessive Capitalisation: Rodyti Pavadinimus Be Per Daug
+      Didžiųjų Raidžių
+    Hide Channels: Slėpti Vaizdo Įrašus Iš Kanalai
+    Hide Channels Placeholder: Kanalo pavadinimas arba ID
+    Hide Featured Channels: Slėpti Teminiai kanalai
+    Hide Channel Playlists: Slėpti Kanalo Grojaraščiai
+    Hide Channel Community: Slėpti Kanalo Bendruomenę
+    Hide Channel Shorts: Slėpti Kanalo Šortus
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
     Select Import Type: 'Pasirinkti importavimo tipą'
@@ -421,9 +442,13 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Pakeisti HTTP talpyklą
     Experimental Settings: Eksperimentiniai nustatymai
-    Warning: Šie nustatymai yra eksperimentiniai, juos įjungus gali būti sutrikimų.
+    Warning: Šie nustatymus yra eksperimentiniai, juos įjungus gali būti sutrikimų.
       Labai rekomenduojama iš anksto pasidaryti atsargines kopijas. Naudokite savo
       rizika!
+  Password Dialog:
+    Password Incorrect: Slaptažodis Neteisingas
+    Password: Slaptažodis
+    Enter Password To Unlock: Įveskite slaptažodį į atrakintumėte nustatymus
 About:
   #On About page
   About: 'Apie'
@@ -756,9 +781,9 @@ Tooltips:
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
       populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
       šalių.'
-    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,\
-      \ kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“\
-      \ atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
+    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,
+      kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“
+      atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Veikia tik tada, kai numatytasis nustatymas
       yra „Invidious“ API. Kai įgalinta, vietinė API veiks ir naudos senus, o ne „Invidious“

@@ -410,6 +410,11 @@ Settings:
     Hide Channel Shorts: Schowaj filmy Short kanału
     Hide Featured Channels: Schowaj polecane kanały
     Hide Channel Playlists: Schowaj playlisty kanału
+    Sections:
+      Side Bar: Pasek boczny
+      Channel Page: Strona kanału
+      General: Ogólne
+      Watch Page: Strona odtwarzacza
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -942,7 +947,7 @@ Tooltips:
       DASH.
   Privacy Settings:
     Remove Video Meta Files: Po włączeniu FreeTube automatycznie usunie pliki metadanych
-      utworzone podczas odtwarzania filmu, gdy strona odtwarzania zostanie zamknięta.
+      utworzone podczas odtwarzania filmu, gdy strona odtwarzacza zostanie zamknięta.
   External Player Settings:
     Ignore Warnings: Nie pokazuj ostrzeżeń o nieobsługiwanych akcjach przez zewnętrzny
       odtwarzacz (n.p. odwracanie playlist, itp.).

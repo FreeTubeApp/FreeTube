@@ -272,6 +272,7 @@ Settings:
     Comment Auto Load:
       Comment Auto Load: Commentaar Automatisch Laden
     Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
+    Allow DASH AV1 formats: DASH-AV1-bestandstypes toestaan
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
@@ -295,6 +296,7 @@ Settings:
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Manage Subscriptions: 'Abonnementen beheren'
     Fetch Feeds from RSS: Verzamel feeds via RSS
+    Fetch Automatically: Haal feed automatisch op
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -368,6 +370,9 @@ Settings:
       item word overgeslagen
     All playlists has been successfully exported: Alle speellijsten zijn met succes
       geëxporteerd
+    Subscription File: Abonnementenbestand
+    History File: Geschiedenisbestand
+    Playlist File: Afspeellijstbestand
   Distraction Free Settings:
     Hide Live Chat: Livechat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -384,6 +389,11 @@ Settings:
     Hide Video Description: Verberg de beschrijving van de video
     Hide Comments: Verberg de reacties
     Hide Live Streams: Verberg rechtstreekse uitzendingen
+    Display Titles Without Excessive Capitalisation: Toon titels zonder overmatig
+      hoofdlettergebruik
+    Sections:
+      Side Bar: Zijbalk
+      General: Algemeen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten en verandering toepassen?
@@ -440,6 +450,10 @@ Settings:
     Parental Control Settings: Instellingen voor ouderlijk toezicht
     Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
     Hide Search Bar: Zoekbalk verbergen
+  Experimental Settings:
+    Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken.
+      Het is raadzaam backups te maken. Gebruiken op eigen risico!
+    Experimental Settings: Experimentele instellingen
 About:
   #On About page
   About: 'Over'
@@ -907,6 +921,6 @@ Channels:
   Empty: Uw lijst van kanalen is thans leeg.
   Unsubscribe: Afmelden
   Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
-  Unsubscribe Prompt: Weet je zeker dat je je wilt afmelden voor "{channelName}"?
+  Unsubscribe Prompt: Weet je zeker dat je wilt afmelden voor "{channelName}"?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
