@@ -336,35 +336,32 @@ export default defineComponent({
     this.checkIfWatched()
   },
   methods: {
-    getTitle: async function(origTitle) {
-      if (this.useDeArrowTitles) {
-        const videoId = this.id
-        if (!this.deArrowCache) {
-          const data = await deArrowData(this.id)
-          if (data) {
-            const cacheData = { videoId, titles: data.titles }
-            data.videoId = videoId
-            this.$store.commit('addVideoToDeArrowCache', cacheData)
-
-            if (data.titles.length > 0 && data.titles[0].locked) {
-              return data.titles[0].title
-            }
-          } else {
-            this.$store.commit('addVideoToDeArrowCache', { videoId, titles: [] })
-          }
-        } else {
-          const data = this.deArrowCache
-          if (data && data.titles.length > 0 && data.titles[0].locked) {
-            return data.titles[0].title
-          }
-        }
+    getDeArrowTitle: async function() {
+      const data = await this.getDeArrowDataEntry()
+      if (data != null && data.titles.length > 0 && data.titles[0].locked) {
+        return data.titles[0].title
       }
+      
+      return null
+    },
+    
+    getDeArrowDataEntry: async function() {
+      // Read from local cache or remote
+      // Write to cache if read from remote
+      if (!this.useDeArrowTitles) { return null }
+      
+      if (this.deArrowCache) { return this.deArrowCache }
 
-      if (this.showDistractionFreeTitles) {
-        return toDistractionFreeTitle(this.title)
-      } else {
-        return origTitle
+      const videoId = this.id
+      const data = await deArrowData(this.id)
+      const cacheData = { videoId, titles: [] }
+      if (Array.isArray(data.titles)) {
+        cacheData.titles = data.titles
       }
+      
+      // Save data to cache whether data available or not to prevent duplicate requests
+      this.$store.commit('addVideoToDeArrowCache', cacheData)
+      return cacheData
     },
 
     handleExternalPlayer: function () {
@@ -439,7 +436,7 @@ export default defineComponent({
 
     parseVideoData: async function () {
       this.id = this.data.videoId
-      this.title = await this.getTitle(this.data.title)
+      this.title = (await this.getDeArrowTitle()) ?? this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author
