@@ -27,6 +27,7 @@ const state = {
     movies: null
   },
   cachedPlaylist: null,
+  deArrowCache: [],
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -55,6 +56,10 @@ const getters = {
 
   getSessionSearchHistory () {
     return state.sessionSearchHistory
+  },
+
+  getDeArrowCache () {
+    return state.deArrowCache
   },
 
   getPopularCache () {
@@ -469,6 +474,10 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
+  clearDeArrowCache ({ commit }) {
+    commit('setDeArrowCache', [])
+  },
+
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
     let fileData
@@ -612,6 +621,20 @@ const mutations = {
 
   setSessionSearchHistory (state, history) {
     state.sessionSearchHistory = history
+  },
+
+  setDeArrowCache (state, cache) {
+    state.deArrowCache = cache
+  },
+
+  addVideoToDeArrowCache (state, payload) {
+    const sameVideo = state.deArrowCache.findIndex((video) => {
+      return video.videoId === payload.videoId
+    })
+
+    if (sameVideo !== -1) {
+      state.deArrowCache[sameVideo.videoId] = payload
+    }
   },
 
   addToSessionSearchHistory (state, payload) {

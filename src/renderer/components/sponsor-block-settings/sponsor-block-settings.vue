@@ -19,6 +19,13 @@
           @change="handleUpdateSponsorBlockShowSkippedToast"
         />
       </ft-flex-box>
+      <ft-flex-box class="settingsFlexStart500px">
+        <ft-toggle-switch
+          :label="$t('Settings.SponsorBlock Settings.DeArrowTitles')"
+          :default-value="deArrowTitles"
+          @change="handleUpdateDeArrowTitles"
+        />
+      </ft-flex-box>
       <ft-flex-box>
         <ft-input
           :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"

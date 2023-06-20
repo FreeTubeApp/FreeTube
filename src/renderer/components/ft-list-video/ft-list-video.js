@@ -10,6 +10,7 @@ import {
   toLocalePublicationString,
   toDistractionFreeTitle
 } from '../../helpers/utils'
+import { deArrow } from '../../helpers/sponsorblock'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -316,6 +317,14 @@ export default defineComponent({
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
+
+    deArrowTitles: function () {
+      return this.$store.getters.getDeArrowTitles
+    },
+
+    deArrowCache: function () {
+      return this.$store.getters.getDeArrowCache
+    }
   },
   watch: {
     historyIndex() {
@@ -327,6 +336,37 @@ export default defineComponent({
     this.checkIfWatched()
   },
   methods: {
+    getTitle: async function() {
+      if (this.deArrowTitles) {
+        const videoId = this.id
+        const cached = this.deArrowCache.findIndex(video => video.videoId === videoId)
+        if (cached === -1) {
+          const data = await deArrow(this.id)
+          if (data) {
+            data.videoId = videoId
+            this.$store.commit('addVideoToDeArrowCache', data)
+
+            if (data.titles.length > 0 && data.titles[0].locked) {
+              this.title = data.titles[0].title
+            }
+          } else {
+            this.$store.commit('addVideoToDeArrowCache', { videoId })
+          }
+        } else {
+          const data = this.deArrowCache[cached]
+          if (data && data.titles.length > 0 && data.titles[0].locked) {
+            this.title = data.titles[0].title
+          }
+        }
+      }
+
+      if (this.showDistractionFreeTitles) {
+        return toDistractionFreeTitle(this.title)
+      } else {
+        return this.title
+      }
+    },
+
     handleExternalPlayer: function () {
       this.$emit('pause-player')
 
@@ -397,9 +437,10 @@ export default defineComponent({
       }
     },
 
-    parseVideoData: function () {
+    parseVideoData: async function () {
       this.id = this.data.videoId
       this.title = this.data.title
+      await this.getTitle()
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author

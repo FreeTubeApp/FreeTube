@@ -410,6 +410,7 @@ Settings:
     Enable SponsorBlock: Enable SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
+    DeArrowTitles: DeArrow Titles
     Skip Options:
       Skip Option: Skip Option
       Auto Skip: Auto Skip
