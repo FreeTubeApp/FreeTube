@@ -12,6 +12,7 @@
       class="videoThumbnail"
     >
       <router-link
+        ref="thumbnailLink"
         class="thumbnailLink"
         tabindex="0"
         :to="{

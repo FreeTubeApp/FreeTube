@@ -91,7 +91,8 @@ export default defineComponent({
       isLive: false,
       isUpcoming: false,
       isPremium: false,
-      hideViews: false
+      hideViews: false,
+      addToPlaylistPromptCloseCallback: null,
     }
   },
   computed: {
@@ -360,10 +361,21 @@ export default defineComponent({
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
+
+    showAddToPlaylistPrompt: function () {
+      return this.$store.getters.getShowAddToPlaylistPrompt
+    },
   },
   watch: {
     historyIndex() {
       this.checkIfWatched()
+    },
+    showAddToPlaylistPrompt(value) {
+      if (value) { return }
+      // Execute on prompt close
+
+      if (this.addToPlaylistPromptCloseCallback == null) { return }
+      this.addToPlaylistPromptCloseCallback()
     },
   },
   created: function () {
@@ -584,6 +596,16 @@ export default defineComponent({
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
+
+      // Focus when prompt closed
+      this.addToPlaylistPromptCloseCallback = () => {
+        // Run once only
+        this.addToPlaylistPromptCloseCallback = null
+
+        // `thumbnailLink` is a `router-link`
+        // `focus()` can only be called on the actual element
+        this.$refs.thumbnailLink.$el.focus()
+      }
     },
 
     ...mapActions([
