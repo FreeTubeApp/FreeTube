@@ -1399,21 +1399,13 @@ export default defineComponent({
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
           const tabNode = document.getElementById(`${tab}Tab`)
-          event.target.setAttribute('tabindex', '-1')
-          tabNode.setAttribute('tabindex', 0)
           tabNode.focus({ focusVisible: true })
           return
         }
       }
 
-      // `currentTabNode` can be `null` on 2nd+ search
-      const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
-      document.querySelector('.tabs > .tab[tabindex="0"]')?.setAttribute('tabindex', '-1')
-      newTabNode?.setAttribute('tabindex', '0')
-      currentTabNode?.setAttribute('aria-selected', 'false')
-      newTabNode?.setAttribute('aria-selected', 'true')
       this.currentTab = tab
       newTabNode?.focus({ focusVisible: true })
     },
