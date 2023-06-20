@@ -10,7 +10,7 @@ import {
   toLocalePublicationString,
   toDistractionFreeTitle
 } from '../../helpers/utils'
-import { deArrow } from '../../helpers/sponsorblock'
+import { deArrowData } from '../../helpers/sponsorblock'
 
 export default defineComponent({
   name: 'FtListVideo',
@@ -318,12 +318,12 @@ export default defineComponent({
       return this.$i18n.locale.replace('_', '-')
     },
 
-    deArrowTitles: function () {
-      return this.$store.getters.getDeArrowTitles
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
     },
 
     deArrowCache: function () {
-      return this.$store.getters.getDeArrowCache
+      return this.$store.getters.getDeArrowCache(this.id)
     }
   },
   watch: {
@@ -336,26 +336,26 @@ export default defineComponent({
     this.checkIfWatched()
   },
   methods: {
-    getTitle: async function() {
-      if (this.deArrowTitles) {
+    getTitle: async function(origTitle) {
+      if (this.useDeArrowTitles) {
         const videoId = this.id
-        const cached = this.deArrowCache.findIndex(video => video.videoId === videoId)
-        if (cached === -1) {
-          const data = await deArrow(this.id)
+        if (!this.deArrowCache) {
+          const data = await deArrowData(this.id)
           if (data) {
+            const cacheData = { videoId, titles: data.titles }
             data.videoId = videoId
-            this.$store.commit('addVideoToDeArrowCache', data)
+            this.$store.commit('addVideoToDeArrowCache', cacheData)
 
             if (data.titles.length > 0 && data.titles[0].locked) {
-              this.title = data.titles[0].title
+              return data.titles[0].title
             }
           } else {
-            this.$store.commit('addVideoToDeArrowCache', { videoId })
+            this.$store.commit('addVideoToDeArrowCache', { videoId, titles: [] })
           }
         } else {
-          const data = this.deArrowCache[cached]
+          const data = this.deArrowCache
           if (data && data.titles.length > 0 && data.titles[0].locked) {
-            this.title = data.titles[0].title
+            return data.titles[0].title
           }
         }
       }
@@ -363,7 +363,7 @@ export default defineComponent({
       if (this.showDistractionFreeTitles) {
         return toDistractionFreeTitle(this.title)
       } else {
-        return this.title
+        return origTitle
       }
     },
 
@@ -439,8 +439,7 @@ export default defineComponent({
 
     parseVideoData: async function () {
       this.id = this.data.videoId
-      this.title = this.data.title
-      await this.getTitle()
+      this.title = await this.getTitle(this.data.title)
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author

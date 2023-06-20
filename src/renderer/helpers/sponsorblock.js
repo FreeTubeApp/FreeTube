@@ -32,7 +32,7 @@ export async function sponsorBlockSkipSegments(videoId, categories) {
   }
 }
 
-export async function deArrow(videoId) {
+export async function deArrowData(videoId) {
   const videoIdHashPrefix = (await getVideoHash(videoId)).substring(0, 4)
   const requestUrl = `${store.getters.getSponsorBlockUrl}/api/branding/${videoIdHashPrefix}`
 

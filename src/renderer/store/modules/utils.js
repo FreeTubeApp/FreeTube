@@ -27,7 +27,7 @@ const state = {
     movies: null
   },
   cachedPlaylist: null,
-  deArrowCache: [],
+  deArrowCache: {},
   showProgressBar: false,
   progressBarPercentage: 0,
   regionNames: [],
@@ -58,8 +58,8 @@ const getters = {
     return state.sessionSearchHistory
   },
 
-  getDeArrowCache () {
-    return state.deArrowCache
+  getDeArrowCache: (state) => (videoId) => {
+    return state.deArrowCache[videoId]
   },
 
   getPopularCache () {
@@ -628,12 +628,10 @@ const mutations = {
   },
 
   addVideoToDeArrowCache (state, payload) {
-    const sameVideo = state.deArrowCache.findIndex((video) => {
-      return video.videoId === payload.videoId
-    })
+    const sameVideo = state.deArrowCache[payload.videoId]
 
-    if (sameVideo !== -1) {
-      state.deArrowCache[sameVideo.videoId] = payload
+    if (!sameVideo) {
+      state.deArrowCache[payload.videoId] = payload
     }
   },
 

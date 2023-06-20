@@ -21,9 +21,9 @@
       </ft-flex-box>
       <ft-flex-box class="settingsFlexStart500px">
         <ft-toggle-switch
-          :label="$t('Settings.SponsorBlock Settings.DeArrowTitles')"
-          :default-value="deArrowTitles"
-          @change="handleUpdateDeArrowTitles"
+          :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
+          :default-value="useDeArrowTitles"
+          @change="handleUpdateUseDeArrowTitles"
         />
       </ft-flex-box>
       <ft-flex-box>

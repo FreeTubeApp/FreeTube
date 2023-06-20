@@ -40,8 +40,8 @@ export default defineComponent({
       return this.$store.getters.getSponsorBlockShowSkippedToast
     },
 
-    deArrowTitles: function () {
-      return this.$store.getters.getDeArrowTitles
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
     }
   },
   methods: {
@@ -49,8 +49,8 @@ export default defineComponent({
       this.updateUseSponsorBlock(value)
     },
 
-    handleUpdateDeArrowTitles: function (value) {
-      this.updateDeArrowTitles(value)
+    handleUpdateUseDeArrowTitles: function (value) {
+      this.updateUseDeArrowTitles(value)
     },
 
     handleUpdateSponsorBlockUrl: function (value) {
@@ -67,7 +67,7 @@ export default defineComponent({
       'updateUseSponsorBlock',
       'updateSponsorBlockUrl',
       'updateSponsorBlockShowSkippedToast',
-      'updateDeArrowTitles'
+      'updateUseDeArrowTitles'
     ])
   }
 })
