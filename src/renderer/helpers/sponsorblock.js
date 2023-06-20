@@ -41,7 +41,7 @@ export async function deArrowData(videoId) {
 
     // 404 means that there are no segments registered for the video
     if (response.status === 404) {
-      return []
+      return undefined
     }
 
     const json = await response.json()

@@ -341,24 +341,24 @@ export default defineComponent({
       if (data != null && data.titles.length > 0 && data.titles[0].locked) {
         return data.titles[0].title
       }
-      
+
       return null
     },
-    
+
     getDeArrowDataEntry: async function() {
       // Read from local cache or remote
       // Write to cache if read from remote
       if (!this.useDeArrowTitles) { return null }
-      
+
       if (this.deArrowCache) { return this.deArrowCache }
 
       const videoId = this.id
       const data = await deArrowData(this.id)
       const cacheData = { videoId, titles: [] }
-      if (Array.isArray(data.titles)) {
+      if (Array.isArray(data?.titles)) {
         cacheData.titles = data.titles
       }
-      
+
       // Save data to cache whether data available or not to prevent duplicate requests
       this.$store.commit('addVideoToDeArrowCache', cacheData)
       return cacheData
