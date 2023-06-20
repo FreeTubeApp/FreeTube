@@ -338,7 +338,7 @@ export default defineComponent({
   methods: {
     getDeArrowTitle: async function() {
       const data = await this.getDeArrowDataEntry()
-      if (data != null && data.titles.length > 0 && data.titles[0].locked) {
+      if (data != null && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
         return data.titles[0].title
       }
 
