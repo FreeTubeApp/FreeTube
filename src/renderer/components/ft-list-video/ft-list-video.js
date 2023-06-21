@@ -427,7 +427,7 @@ export default defineComponent({
 
     parseVideoData: async function () {
       this.id = this.data.videoId
-      this.title = (await this.getDeArrowDataEntry()?.title) ?? this.data.title
+      this.title = (await this.getDeArrowDataEntry())?.title ?? this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author
