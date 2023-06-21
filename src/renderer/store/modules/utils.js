@@ -474,10 +474,6 @@ const actions = {
     commit('setSessionSearchHistory', [])
   },
 
-  clearDeArrowCache ({ commit }) {
-    commit('setDeArrowCache', {})
-  },
-
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
     const fileName = 'external-player-map.json'
     let fileData
