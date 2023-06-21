@@ -336,11 +336,6 @@ export default defineComponent({
     this.checkIfWatched()
   },
   methods: {
-    getDeArrowTitle: async function() {
-      const data = await this.getDeArrowDataEntry()
-      return data.title
-    },
-
     getDeArrowDataEntry: async function() {
       // Read from local cache or remote
       // Write to cache if read from remote
@@ -351,10 +346,8 @@ export default defineComponent({
       const videoId = this.id
       const data = await deArrowData(this.id)
       const cacheData = { videoId, title: null }
-      if (Array.isArray(data?.titles)) {
-        if (data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
-          cacheData.title = data.titles[0].title
-        }
+      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
+        cacheData.title = data.titles[0].title
       }
 
       // Save data to cache whether data available or not to prevent duplicate requests
@@ -434,7 +427,7 @@ export default defineComponent({
 
     parseVideoData: async function () {
       this.id = this.data.videoId
-      this.title = (await this.getDeArrowTitle()) ?? this.data.title
+      this.title = (await this.getDeArrowDataEntry()?.title) ?? this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author

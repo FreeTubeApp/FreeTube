@@ -475,7 +475,7 @@ const actions = {
   },
 
   clearDeArrowCache ({ commit }) {
-    commit('setDeArrowCache', [])
+    commit('setDeArrowCache', {})
   },
 
   async getExternalPlayerCmdArgumentsData ({ commit }, payload) {
