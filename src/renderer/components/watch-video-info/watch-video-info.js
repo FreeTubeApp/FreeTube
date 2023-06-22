@@ -35,16 +35,16 @@ export default defineComponent({
       type: String,
       required: true
     },
+    channelSubCountText: {
+      type: String,
+      required: true
+    },
     published: {
       type: Number,
       required: true
     },
     viewCount: {
       type: Number,
-      required: true
-    },
-    subscriptionCountText: {
-      type: String,
       required: true
     },
     likeCount: {
@@ -105,11 +105,11 @@ export default defineComponent({
     }
   },
   computed: {
-    hideSharingActions: function() {
+    hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },
 
-    hideUnsubscribeButton: function() {
+    hideUnsubscribeButton: function () {
       return this.$store.getters.getHideUnsubscribeButton
     },
 

@@ -49,7 +49,7 @@
               </h1>
 
               <p
-                v-if="subCount !== null"
+                v-if="subCount !== null && !hideChannelSubscriptions"
                 class="channelSubCount"
               >
                 {{ formattedSubCount }}
