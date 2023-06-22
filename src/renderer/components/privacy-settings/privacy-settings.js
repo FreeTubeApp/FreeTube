@@ -53,7 +53,11 @@ export default defineComponent({
         this.$t('Yes'),
         this.$t('No')
       ]
-    }
+    },
+
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
   },
   methods: {
     handleSearchCache: function (option) {

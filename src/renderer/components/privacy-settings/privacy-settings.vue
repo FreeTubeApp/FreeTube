@@ -54,6 +54,7 @@
         @click="showRemoveHistoryPrompt = true"
       />
       <ft-button
+        v-if="!hideUnsubscribeButton"
         :label="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
         text-color="var(--text-with-main-color)"
         background-color="var(--primary-color)"
@@ -75,7 +76,7 @@
       @click="handleRemoveHistory"
     />
     <ft-prompt
-      v-if="showRemoveSubscriptionsPrompt"
+      v-if="showRemoveSubscriptionsPrompt && !hideUnsubscribeButton"
       :label="removeSubscriptionsPromptMessage"
       :option-names="promptNames"
       :option-values="promptValues"
