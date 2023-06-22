@@ -35,7 +35,7 @@
               :channel-id="channelId"
               :channel-name="channelName"
               :channel-thumbnail="channelThumbnail"
-              :subscription-count-text="channelSubCountText"
+              :subscription-count-text="subscriptionCountText"
             />
           </div>
         </div>

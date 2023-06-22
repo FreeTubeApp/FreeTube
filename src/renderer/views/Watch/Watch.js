@@ -97,7 +97,7 @@ export default defineComponent({
       channelName: '',
       channelThumbnail: '',
       channelId: '',
-      channelSubCountText: '',
+      channelSubscriptionCountText: '',
       videoPublished: 0,
       videoStoryboardSrc: '',
       dashSrc: [],
@@ -360,9 +360,9 @@ export default defineComponent({
         const subCount = parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text)
 
         if (!isNaN(subCount)) {
-          this.channelSubCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
+          this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
         } else {
-          this.channelSubCountText = ''
+          this.channelSubscriptionCountText = ''
         }
 
         let chapters = []
@@ -712,7 +712,7 @@ export default defineComponent({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
-          this.channelSubCountText = result.subCountText || 'FT-0'
+          this.channelSubscriptionCountText = result.subCountText || 'FT-0'
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
