@@ -53,7 +53,7 @@ export default defineComponent({
 
       this.channelName = this.data.name
       this.id = this.data.id
-      this.subscriberCount = this.data.subscribers !== null ? this.data.subscribers.replace(/ subscriber(s)?/, '') : ''
+      this.subscriberCount = this.data.subscribers != null ? this.data.subscribers.replace(/ subscriber(s)?/, '') : ''
 
       if (this.data.videos === null) {
         this.videoCount = 0
