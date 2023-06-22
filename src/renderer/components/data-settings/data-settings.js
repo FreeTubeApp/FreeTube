@@ -947,11 +947,12 @@ export default defineComponent({
           if (existingPlaylist !== undefined) {
             playlistObject.videos.forEach((video) => {
               const videoExists = existingPlaylist.videos.some((x) => {
-                return x.videoId === video.videoId
+                // Allow duplicate (by videoId) videos to be added
+                return x.videoId === video.videoId && x.timeAdded === video.timeAdded
               })
 
               if (!videoExists) {
-                video.timeAdded = new Date().getTime()
+                // Keep original `timeAdded` value
                 const payload = {
                   _id: existingPlaylist._id,
                   videoData: video,
