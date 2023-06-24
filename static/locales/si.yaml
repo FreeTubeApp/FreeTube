@@ -65,7 +65,7 @@ Settings:
   Settings: 'සැකසුම්'
   General Settings:
     General Settings: 'සාමාන්‍ය සැකසුම්'
-    Check for Updates: 'යාවත්කාල සඳහා පරීක්ෂා කරන්න'
+    Check for Updates: 'යාවත්කාල බලන්න'
     Preferred API Backend:
       Local API: 'ස්ථානීය යෙ.ක්‍ර. අ.මු. (API)'
       Invidious API: 'ඉන්වීඩියස් යෙ.ක්‍ර. අ.මු. (API)'
