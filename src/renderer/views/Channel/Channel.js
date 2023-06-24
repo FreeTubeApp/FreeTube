@@ -245,7 +245,6 @@ export default defineComponent({
       }
 
       this.id = this.$route.params.id
-      let currentTab = this.$route.params.currentTab ?? 'videos'
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
@@ -273,20 +272,10 @@ export default defineComponent({
       this.showLiveSortBy = true
       this.showPlaylistSortBy = true
 
-      if (this.hideChannelShorts && currentTab === 'shorts') {
-        currentTab = 'videos'
-      }
+      let currentTab = this.$route.params.currentTab ?? 'videos'
 
-      if (this.hideLiveStreams && currentTab === 'live') {
-        currentTab = 'videos'
-      }
-
-      if (this.hideChannelPlaylists && currentTab === 'playlists') {
-        currentTab = 'videos'
-      }
-
-      if (this.hideChannelCommunity && currentTab === 'community') {
-        currentTab = 'videos'
+      if (!this.tabInfoValues.includes(currentTab)) {
+        currentTab = this.tabInfoValues[0]
       }
 
       this.currentTab = currentTab
@@ -380,20 +369,8 @@ export default defineComponent({
 
     let currentTab = this.$route.params.currentTab ?? 'videos'
 
-    if (this.hideChannelShorts && currentTab === 'shorts') {
-      currentTab = 'videos'
-    }
-
-    if (this.hideLiveStreams && currentTab === 'live') {
-      currentTab = 'videos'
-    }
-
-    if (this.hideChannelPlaylists && currentTab === 'playlists') {
-      currentTab = 'videos'
-    }
-
-    if (this.hideChannelCommunity && currentTab === 'community') {
-      currentTab = 'videos'
+    if (!this.tabInfoValues.includes(currentTab)) {
+      currentTab = this.tabInfoValues[0]
     }
 
     this.currentTab = currentTab
