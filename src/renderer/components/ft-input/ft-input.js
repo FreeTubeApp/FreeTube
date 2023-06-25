@@ -286,7 +286,7 @@ export default defineComponent({
     },
 
     blur() {
-      this.$refs.input.focus()
+      this.$refs.input.blur()
     },
 
     ...mapActions([
