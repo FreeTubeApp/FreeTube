@@ -103,7 +103,7 @@ export default defineComponent({
 
         this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
         setTimeout(() => {
-          this.$refs[this.currentTab].focus()
+          this.$refs[this.currentTab]?.focus()
         })
       } catch (err) {
         console.error(err)
@@ -149,7 +149,7 @@ export default defineComponent({
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
         setTimeout(() => {
-          this.$refs[this.currentTab].focus()
+          this.$refs[this.currentTab]?.focus()
         })
       }).catch((err) => {
         console.error(err)
