@@ -42,10 +42,6 @@ export default defineComponent({
       return this.$store.getters.getEnableSearchSuggestions
     },
 
-    searchInput: function () {
-      return this.$refs.searchInput.$refs.input
-    },
-
     searchSettings: function () {
       return this.$store.getters.getSearchSettings
     },
@@ -114,7 +110,7 @@ export default defineComponent({
         this.$refs.searchContainer.blur()
         this.showSearchContainer = false
       } else {
-        this.searchInput.blur()
+        this.$refs.searchInput.blur()
       }
 
       clearLocalSearchSuggestionsSession()
@@ -209,7 +205,7 @@ export default defineComponent({
 
     focusSearch: function () {
       if (!this.hideSearchBar) {
-        this.searchInput.focus()
+        this.$refs.searchInput.focus()
       }
     },
 
