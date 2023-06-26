@@ -8,22 +8,23 @@
         :default-value="useSponsorBlock"
         @change="handleUpdateSponsorBlock"
       />
+      <ft-toggle-switch
+        :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
+        :default-value="useDeArrowTitles"
+        @change="handleUpdateUseDeArrowTitles"
+      />
     </ft-flex-box>
     <div
-      v-if="useSponsorBlock"
+      v-if="useSponsorBlock || useDeArrowTitles"
     >
-      <ft-flex-box class="settingsFlexStart500px">
+      <ft-flex-box
+        v-if="useSponsorBlock"
+        class="settingsFlexStart500px"
+      >
         <ft-toggle-switch
           :label="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
           :default-value="sponsorBlockShowSkippedToast"
           @change="handleUpdateSponsorBlockShowSkippedToast"
-        />
-      </ft-flex-box>
-      <ft-flex-box class="settingsFlexStart500px">
-        <ft-toggle-switch
-          :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
-          :default-value="useDeArrowTitles"
-          @change="handleUpdateUseDeArrowTitles"
         />
       </ft-flex-box>
       <ft-flex-box>
@@ -35,7 +36,9 @@
           @input="handleUpdateSponsorBlockUrl"
         />
       </ft-flex-box>
-      <ft-flex-box>
+      <ft-flex-box
+        v-if="useSponsorBlock"
+      >
         <ft-sponsor-block-category
           v-for="category in categories"
           :key="category"
