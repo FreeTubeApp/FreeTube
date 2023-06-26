@@ -406,18 +406,37 @@ function handleSearchResponse(response) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.PlaylistVideo} video
+ * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem} video
  */
 export function parseLocalPlaylistVideo(video) {
-  return {
-    videoId: video.id,
-    title: video.title.text,
-    author: video.author.name,
-    authorId: video.author.id,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
-    liveNow: video.is_live,
-    isUpcoming: video.is_upcoming,
-    premiereDate: video.upcoming
+  if (video.type === 'ReelItem') {
+    /** @type {import('youtubei.js').YTNodes.ReelItem} */
+    const short = video
+
+    // unfortunately the only place with the duration is the accesibility string
+    const duration = parseShortDuration(video.accessibility_label, short.id)
+
+    return {
+      type: 'video',
+      videoId: short.id,
+      title: short.title.text,
+      viewCount: parseLocalSubscriberCount(short.views.text),
+      lengthSeconds: isNaN(duration) ? '' : duration
+    }
+  } else {
+    /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
+    const video_ = video
+
+    return {
+      videoId: video_.id,
+      title: video_.title.text,
+      author: video_.author.name,
+      authorId: video_.author.id,
+      lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
+      liveNow: video_.is_live,
+      isUpcoming: video_.is_upcoming,
+      premiereDate: video_.upcoming
+    }
   }
 }
 
