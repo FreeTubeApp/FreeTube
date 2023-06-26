@@ -563,7 +563,7 @@ export default defineComponent({
 
         document.title = `${channelName} - ${packageDetails.productName}`
 
-        if (!this.hideChannelSubscriptions && subscriberText) {
+        if (subscriberText) {
           const subCount = parseLocalSubscriberCount(subscriberText)
 
           if (isNaN(subCount)) {
@@ -868,11 +868,7 @@ export default defineComponent({
         document.title = `${this.channelName} - ${packageDetails.productName}`
         this.id = channelId
         this.isFamilyFriendly = response.isFamilyFriendly
-        if (this.hideChannelSubscriptions) {
-          this.subCount = null
-        } else {
-          this.subCount = response.subCount
-        }
+        this.subCount = response.subCount
         const thumbnail = response.authorThumbnails[3].url
         this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })

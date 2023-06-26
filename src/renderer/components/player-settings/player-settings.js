@@ -8,7 +8,6 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { ipcRenderer } from 'electron'
 import { IpcChannels } from '../../../constants'
 import path from 'path'
 import { getPicturesPath } from '../../helpers/utils'
@@ -61,6 +60,10 @@ export default defineComponent({
     }
   },
   computed: {
+    usingElectron: function () {
+      return process.env.IS_ELECTRON
+    },
+
     backendPreference: function () {
       let preference = this.$store.getters.getBackendPreference
       if (preference === 'piped') {
@@ -230,7 +233,11 @@ export default defineComponent({
     },
 
     getScreenshotEmptyFolderPlaceholder: async function() {
-      return path.join(await getPicturesPath(), 'Freetube')
+      if (process.env.IS_ELECTRON) {
+        return path.join(await getPicturesPath(), 'Freetube')
+      } else {
+        return ''
+      }
     },
 
     getScreenshotFolderPlaceholder: function() {
@@ -238,21 +245,26 @@ export default defineComponent({
         this.screenshotFolderPlaceholder = this.screenshotFolder
         return
       }
-      this.getScreenshotEmptyFolderPlaceholder().then((res) => {
-        this.screenshotFolderPlaceholder = res
-      })
+      if (process.env.IS_ELECTRON) {
+        this.getScreenshotEmptyFolderPlaceholder().then((res) => {
+          this.screenshotFolderPlaceholder = res
+        })
+      }
     },
 
     chooseScreenshotFolder: async function() {
       // only use with electron
-      const folder = await ipcRenderer.invoke(
-        IpcChannels.SHOW_OPEN_DIALOG,
-        { properties: ['openDirectory'] }
-      )
+      if (process.env.IS_ELECTRON) {
+        const { ipcRenderer } = require('electron')
+        const folder = await ipcRenderer.invoke(
+          IpcChannels.SHOW_OPEN_DIALOG,
+          { properties: ['openDirectory'] }
+        )
 
-      if (!folder.canceled) {
-        await this.updateScreenshotFolderPath(folder.filePaths[0])
-        this.getScreenshotFolderPlaceholder()
+        if (!folder.canceled) {
+          await this.updateScreenshotFolderPath(folder.filePaths[0])
+          this.getScreenshotFolderPlaceholder()
+        }
       }
     },
 

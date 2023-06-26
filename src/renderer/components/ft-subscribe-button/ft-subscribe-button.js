@@ -50,9 +50,13 @@ export default defineComponent({
       return this.subscriptionInfo !== null
     },
 
+    hideChannelSubscriptions: function () {
+      return this.$store.getters.getHideChannelSubscriptions
+    },
+
     subscribedText: function () {
       let subscribedValue = (this.isSubscribed ? this.$t('Channel.Unsubscribe') : this.$t('Channel.Subscribe')).toUpperCase()
-      if (this.subscriptionCountText !== '') {
+      if (this.subscriptionCountText !== '' && !this.hideChannelSubscriptions) {
         subscribedValue += ' ' + this.subscriptionCountText
       }
       return subscribedValue

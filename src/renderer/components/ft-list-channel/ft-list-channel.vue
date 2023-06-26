@@ -26,7 +26,7 @@
       </router-link>
       <div class="infoLine">
         <span
-          v-if="subscriberCount !== null"
+          v-if="subscriberCount !== null && !hideChannelSubscriptions"
           class="subscriberCount"
         >
           {{ subscriberCount }} subscribers -

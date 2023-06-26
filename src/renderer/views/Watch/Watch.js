@@ -361,18 +361,10 @@ export default defineComponent({
         this.isUpcoming = !!result.basic_info.is_upcoming
         this.isLiveContent = !!result.basic_info.is_live_content
 
-        if (!this.hideChannelSubscriptions) {
-          const subCount = parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text)
+        const subCount = parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text)
 
-          if (!isNaN(subCount)) {
-            if (subCount >= 10000) {
-              this.channelSubscriptionCountText = formatNumber(subCount, { notation: 'compact' })
-            } else {
-              this.channelSubscriptionCountText = formatNumber(subCount)
-            }
-          } else {
-            this.channelSubscriptionCountText = ''
-          }
+        if (!isNaN(subCount)) {
+          this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
         } else {
           this.channelSubscriptionCountText = ''
         }
@@ -724,6 +716,7 @@ export default defineComponent({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
+          this.channelSubscriptionCountText = result.subCountText || 'FT-0'
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
@@ -731,11 +724,7 @@ export default defineComponent({
             this.videoLikeCount = result.likeCount
             this.videoDislikeCount = result.dislikeCount
           }
-          if (this.hideChannelSubscriptions) {
-            this.channelSubscriptionCountText = ''
-          } else {
-            this.channelSubscriptionCountText = result.subCountText || 'FT-0'
-          }
+
           this.channelId = result.authorId
           this.channelName = result.author
           const channelThumb = result.authorThumbnails[1]
