@@ -285,6 +285,10 @@ export default defineComponent({
       this.$refs.input.focus()
     },
 
+    blur() {
+      this.$refs.input.blur()
+    },
+
     ...mapActions([
       'getYoutubeUrlInfo'
     ])
