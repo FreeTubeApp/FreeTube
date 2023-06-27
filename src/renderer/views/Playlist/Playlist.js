@@ -88,6 +88,7 @@ export default defineComponent({
           title: result.info.title,
           description: result.info.description ?? '',
           firstVideoId: result.items[0].id,
+          playlistThumbnail: result.info.thumbnails[0].url,
           viewCount: extractNumberFromString(result.info.views),
           videoCount: extractNumberFromString(result.info.total_items),
           lastUpdated: result.info.last_updated ?? '',
