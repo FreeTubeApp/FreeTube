@@ -27,6 +27,8 @@ export default Vue.extend({
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
       lastActiveElement: null,
+      interactionsLocked: false,
+      preventOpenCreatePlaylistPromptOnce: false,
     }
   },
   computed: {
@@ -87,6 +89,14 @@ export default Vue.extend({
         return b.lastUpdatedAt - a.lastUpdatedAt
       })
     },
+
+    createPlaylistPromptShown: function () {
+      return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+
+    tabindex() {
+      return this.interactionsLocked ? -1 : 0
+    }
   },
   watch: {
     allPlaylistsLength(val, oldVal) {
@@ -110,6 +120,17 @@ export default Vue.extend({
       // Focus back to search input
       // Allow search and easier deselecting new created playlist
       this.$refs.searchBar.focus()
+    },
+
+    createPlaylistPromptShown(value) {
+      // Lock interactions when create playlist prompt opened
+      this.interactionsLocked = value
+
+      if (!value) {
+        // create playlist prompt closing
+        // Solution/Workaround for strange click event
+        this.preventOpenCreatePlaylistPromptOnce = true
+      }
     },
   },
   mounted: function () {
@@ -168,7 +189,14 @@ export default Vue.extend({
       this.hide()
     },
 
-    createNewPlaylist: function () {
+    openCreatePlaylistPrompt: function () {
+      // Solution/Workaround for strange click event
+      // Prevents prompt from reopening right after close
+      if (this.preventOpenCreatePlaylistPromptOnce) {
+        this.preventOpenCreatePlaylistPromptOnce = false
+        return
+      }
+
       this.showCreatePlaylistPrompt({
         title: this.newPlaylistDefaultProperties.title || '',
         videos: [],

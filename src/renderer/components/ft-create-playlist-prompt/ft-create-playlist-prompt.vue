@@ -1,6 +1,6 @@
 <template>
   <ft-prompt
-    @click="handleCreatePlaylistPrompt"
+    @click="hideCreatePlaylistPrompt"
   >
     <h2 class="center">
       New Playlist Name
@@ -33,7 +33,7 @@
       <ft-button
         label="Cancel"
         :tabindex="0"
-        @click="handleCreatePlaylistPrompt(null)"
+        @click="hideCreatePlaylistPrompt"
       />
     </ft-flex-box>
   </ft-prompt>

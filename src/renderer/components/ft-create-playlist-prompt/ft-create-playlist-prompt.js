@@ -21,11 +21,6 @@ export default Vue.extend({
   data: function () {
     return {
       playlistName: '',
-      playlistAddVideoPromptValues: [
-        'save',
-        'cancel'
-      ],
-      selectedPlaylists: [],
       lastActiveElement: null,
     }
   },
@@ -53,10 +48,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    handleCreatePlaylistPrompt: function (option) {
-      this.hideCreatePlaylistPrompt()
-    },
-
     createNewPlaylist: function () {
       if (this.playlistName === '') {
         showToast('Playlist name cannot be empty. Please input a name.')
@@ -96,9 +87,8 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'showToast',
       'addPlaylist',
-      'hideCreatePlaylistPrompt'
+      'hideCreatePlaylistPrompt',
     ])
   }
 })
