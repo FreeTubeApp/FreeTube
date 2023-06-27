@@ -299,10 +299,10 @@ export default defineComponent({
       })
     },
 
-    moveVideoUp: function (videoId, timeAdded) {
+    moveVideoUp: function (videoId, uniqueId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
-        return video.videoId === videoId && video.timeAdded === timeAdded
+        return video.videoId === videoId && video.uniqueId === uniqueId
       })
 
       if (videoIndex === 0) {
@@ -331,10 +331,10 @@ export default defineComponent({
       }
     },
 
-    moveVideoDown: function (videoId, timeAdded) {
+    moveVideoDown: function (videoId, uniqueId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
-        return video.videoId === videoId && video.timeAdded === timeAdded
+        return video.videoId === videoId && video.uniqueId === uniqueId
       })
 
       if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
@@ -363,11 +363,11 @@ export default defineComponent({
       }
     },
 
-    removeVideoFromPlaylist: function (videoId, timeAdded) {
+    removeVideoFromPlaylist: function (videoId, uniqueId) {
       const payload = {
         _id: this.playlistId,
         videoId: videoId,
-        timeAdded: timeAdded,
+        uniqueId: uniqueId,
       }
 
       try {

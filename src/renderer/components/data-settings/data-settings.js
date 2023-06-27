@@ -904,6 +904,9 @@ export default defineComponent({
         'authorId',
         'lengthSeconds',
         'timeAdded',
+
+        // `uniqueId` should be optional for backward compatibility
+        // 'uniqueId',
       ]
 
       playlists.forEach((playlistData) => {
@@ -946,10 +949,21 @@ export default defineComponent({
 
           if (existingPlaylist !== undefined) {
             playlistObject.videos.forEach((video) => {
-              const videoExists = existingPlaylist.videos.some((x) => {
-                // Allow duplicate (by videoId) videos to be added
-                return x.videoId === video.videoId && x.timeAdded === video.timeAdded
-              })
+              let videoExists = false
+              if (video.uniqueId != null) {
+                // Find by `uniqueId` if present
+                videoExists = existingPlaylist.videos.some((x) => {
+                  // Allow duplicate (by videoId) videos to be added
+                  return x.videoId === video.videoId && x.uniqueId === video.uniqueId
+                })
+              } else {
+                // Older playlist exports have no `uniqueId` but have `timeAdded`
+                // Which might be duplicate for copied playlists with duplicate `videoId`
+                videoExists = existingPlaylist.videos.some((x) => {
+                  // Allow duplicate (by videoId) videos to be added
+                  return x.videoId === video.videoId && x.timeAdded === video.timeAdded
+                })
+              }
 
               if (!videoExists) {
                 // Keep original `timeAdded` value

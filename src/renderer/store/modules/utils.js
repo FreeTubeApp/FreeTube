@@ -279,6 +279,9 @@ const actions = {
         // `timeAdded` should be generated when videos are added
         // Not when a prompt is displayed
         // 'timeAdded',
+
+        // `uniqueId` should be generated anyway
+        // 'uniqueId',
       ]
       // Using `every` to loop and `return false` to break
       videoObjectArray.every((video) => {

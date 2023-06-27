@@ -1,3 +1,4 @@
+import crypto from 'crypto'
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
 function generateRandomPlaylistId() {
@@ -6,6 +7,10 @@ function generateRandomPlaylistId() {
 
 function generateRandomPlaylistName() {
   return `Playlist ${new Date().toISOString()}-${Math.floor(Math.random() * 10000)}`
+}
+
+function generateRandomUniqueId() {
+  return crypto.randomUUID()
 }
 
 const state = {
@@ -59,6 +64,17 @@ const actions = {
     }
     payload.createdAt = Date.now()
     payload.lastUpdatedAt = Date.now()
+    // Ensure all videos has required attributes
+    if (Array.isArray(payload.videos)) {
+      payload.videos.forEach(videoData => {
+        if (videoData.timeAdded == null) {
+          videoData.timeAdded = new Date().getTime()
+        }
+        if (videoData.uniqueId == null) {
+          videoData.uniqueId = generateRandomUniqueId()
+        }
+      })
+    }
 
     try {
       await DBPlaylistHandlers.create([payload])
@@ -100,6 +116,12 @@ const actions = {
   async addVideo({ commit }, payload) {
     try {
       const { _id, videoData } = payload
+      if (videoData.timeAdded == null) {
+        videoData.timeAdded = new Date().getTime()
+      }
+      if (videoData.uniqueId == null) {
+        videoData.uniqueId = generateRandomUniqueId()
+      }
       await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, videoData)
       commit('addVideo', payload)
     } catch (errMessage) {
@@ -149,12 +171,17 @@ const actions = {
             playlist.lastUpdatedAt = Date.now()
             anythingUpdated = true
           }
-          // Ensure all videos has `timeAdded` property
           playlist.videos.forEach((v) => {
-            if (v.timeAdded != null) { return }
+            // Ensure all videos has `timeAdded` property
+            if (v.timeAdded == null) {
+              v.timeAdded = new Date().getTime()
+              anythingUpdated = true
+            }
 
-            v.timeAdded = new Date().getTime()
-            anythingUpdated = true
+            // Ensure all videos has `uniqueId` property
+            if (v.uniqueId == null) {
+              v.uniqueId = generateRandomUniqueId()
+            }
           })
           // Save updated playlist object
           if (anythingUpdated) {
@@ -327,7 +354,7 @@ const mutations = {
   removeVideo(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video.videoId !== payload.videoId || video.timeAdded !== payload.timeAdded)
+      playlist.videos = playlist.videos.filter(video => video.videoId !== payload.videoId || video.uniqueId !== payload.uniqueId)
     }
   },
 

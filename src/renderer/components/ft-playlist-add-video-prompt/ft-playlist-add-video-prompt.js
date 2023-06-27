@@ -175,10 +175,7 @@ export default Vue.extend({
           const payload = {
             _id: playlist._id,
             // Avoid `do not mutate vuex store state outside mutation handlers`
-            videoData: Object.assign({}, videoObject, {
-              // Part of unique ID for duplicate videos
-              timeAdded: new Date().getTime(),
-            }),
+            videoData: videoObject,
           }
           this.addVideo(payload)
           addedPlaylistIds.add(playlist._id)

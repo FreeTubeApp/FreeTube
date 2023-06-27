@@ -62,12 +62,7 @@ export default Vue.extend({
         return
       }
 
-      const videosObject = (this.videoImportLength > 0 ? this.newPlaylistVideoObject.videos : []).map((vobj) => {
-        if (vobj.timeAdded == null) {
-          vobj.timeAdded = new Date().getTime()
-        }
-        return vobj
-      })
+      const videosObject = (this.videoImportLength > 0 ? this.newPlaylistVideoObject.videos : [])
       const playlistObject = {
         playlistName: this.playlistName,
         protected: false,
