@@ -353,6 +353,8 @@ function parseShortDuration(accessibilityLabel, videoId) {
 export function parseLocalListPlaylist(playlist, author = undefined) {
   let channelName
   let channelId = null
+  /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
+  const thumbnailRenderer = playlist.thumbnail_renderer
 
   if (playlist.author) {
     if (playlist.author instanceof Misc.Text) {
@@ -374,7 +376,7 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
     type: 'playlist',
     dataSource: 'local',
     title: playlist.title.text,
-    thumbnail: playlist.thumbnails[0].url,
+    thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
     channelName,
     channelId,
     playlistId: playlist.id,
