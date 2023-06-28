@@ -55,7 +55,7 @@ export default defineComponent({
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
       } else {
-        return this.playlistThumbnail
+        return this.data.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {
