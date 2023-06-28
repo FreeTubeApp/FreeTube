@@ -8,7 +8,6 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
-import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
