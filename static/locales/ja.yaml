@@ -91,7 +91,8 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
+  Playlist Message:
+    このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
 History:
@@ -253,6 +254,8 @@ Settings:
     Enter Fullscreen on Display Rotate: 横画面時にフルスクリーンにする
     Skip by Scrolling Over Video Player: 動画プレーヤーでスクロールしてスキップ可能にする
     Allow DASH AV1 formats: DASH AV1形式を許可する
+    Comment Auto Load:
+      Comment Auto Load: コメント自動読み込み
   Subscription Settings:
     Subscription Settings: '登録チャンネルの設定'
     Hide Videos on Watch: '視聴済み動画の非表示'
@@ -364,6 +367,15 @@ Settings:
     Hide Channels: チャンネルから動画を非表示
     Hide Channels Placeholder: チャネル名または ID
     Display Titles Without Excessive Capitalisation: 英語の大文字化を控えたタイトル表示
+    Hide Channel Playlists: チャンネル再生リストの非表示
+    Hide Channel Community: チャンネル コミュニティの非表示
+    Sections:
+      Side Bar: サイドバー
+      Channel Page: チャンネル ページ
+      Watch Page: ウォッチリスト
+      General: 一般
+    Hide Featured Channels: おすすめチャンネルの非表示
+    Hide Channel Shorts: ショート動画チャンネルの非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -525,6 +537,9 @@ Channel:
   Live:
     This channel does not currently have any live streams: このチャンネルは現在、ライブ配信を行っていません
     Live: ライブ配信
+  Shorts:
+    Shorts: ショート動画
+    This channel does not currently have any shorts: このチャンネルには現在ショート動画がありません
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -817,8 +832,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
-    External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube\
-      \ はクリックしたリンクをデフォルトのブラウザで開きます。\n"
+    External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
+      はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   Privacy Settings:
     Remove Video Meta Files: 有効にすると、FreeTube は動画再生中に作成したメタファイルを、再生ページを閉じるときに自動的に削除します。
   External Player Settings:
@@ -833,7 +848,8 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル名またはチャンネル ID を入力すると、すべてのビデオ、再生リスト、およびチャンネル自体が検索や人気に表示されなくなります。入力するチャンネル名は完全に一致することが必要で、大文字と小文字を区別します。
+    Hide Channels: チャンネル名またはチャンネル ID
+      を入力すると、すべてのビデオ、再生リスト、およびチャンネル自体が検索や人気に表示されなくなります。入力するチャンネル名は完全に一致することが必要で、大文字と小文字を区別します。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
@@ -878,3 +894,6 @@ Chapters:
     {chapterName}'
 Preferences: 環境設定
 Ok: OK
+Hashtag:
+  Hashtag: ハッシュタグ
+  This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
