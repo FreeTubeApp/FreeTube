@@ -679,8 +679,7 @@ Tooltips:
       na predvolenú rýchlosť prehrávania (1x, pokiaľ nebola zmenená v nastaveniach).
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si trendové videá z krajiny,
-      ktoré chcete zobraziť. Nie všetky zobrazené krajiny sú v skutočnosti podporované
-      službou YouTube.
+      ktoré chcete zobraziť.
     Invidious Instance: Invidious inštancia, ku ktorej sa FreeTube pripojí pre volania
       API.
     Thumbnail Preference: Všetky miniatúry v rámci služby FreeTube budú nahradené

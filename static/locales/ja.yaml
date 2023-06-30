@@ -816,7 +816,7 @@ Tooltips:
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
-    Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
+    Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube\
       \ はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   Privacy Settings:

@@ -809,7 +809,7 @@ Tooltips:
       peale video esitamist kogu metateabe.
   General Settings:
     Region for Trending: Piirkond, mille alusel kuvame hetkel menukad ehk populaarsust
-      koguvad videod. Kõik siinloetletud riigid ei pruugi olla YouTube'is toetatud.
+      koguvad videod.
     Thumbnail Preference: Vaikimisi pisipildi asemel kuvab FreeTube kaadrit videost.
     Fallback to Non-Preferred Backend on Failure: Kui sinu eelistatud APi ei toimi,
       siis kui vähegi võimalik, FreeTube üritab kasutada alternatiivi.

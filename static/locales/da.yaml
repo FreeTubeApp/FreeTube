@@ -804,8 +804,7 @@ Tooltips:
       til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
   General Settings:
     Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
-      på trend du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
-      af YouTube.
+      på trend du ønsker at få vist.
     Preferred API Backend: Vælg den server som FreeTube bruger til at anskaffe data.
       Den lokale API er et indbygget dekomprimeringsværktøj. Invidious-API'en kræver
       en Invidious-server at forbinde til.

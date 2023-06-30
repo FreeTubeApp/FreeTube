@@ -756,8 +756,7 @@ Tooltips:
     Invidious Instance: La dirección de Invidious a la que FreeTube se conectará para
       solicitudes de la API.
     Region for Trending: La región de tendencias le permitirá elegir las tendencias
-      del país que deseé ver mostradas. No todos los países mostrados están soportados
-      por YouTube.
+      del país que deseé ver mostradas.
     Thumbnail Preference: Todas las miniaturas a través de FreeTube serán reemplazadas
       con un fotograma del video en vez de su miniatura por defecto.
     External Link Handling: "Elija el comportamiento previsto para cuando un link,\
