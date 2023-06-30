@@ -95,12 +95,12 @@ console.log(unusedYouTubeLanguageNames.sort())
 rmSync(`${STATIC_DIRECTORY}/geolocations`, { recursive: true })
 mkdirSync(`${STATIC_DIRECTORY}/geolocations`)
 
-processGeolocations('en-US', initialResponse)
+processGeolocations('en-US', 'en', initialResponse)
 
 for (const { youTube, freeTube } of languagesToScrape) {
   const response = await scrapeLanguage(youTube)
 
-  processGeolocations(freeTube, response)
+  processGeolocations(freeTube, youTube, response)
 }
 
 
@@ -115,7 +115,7 @@ async function scrapeLanguage(youTubeLanguageCode) {
   return await session.actions.execute('/account/account_menu')
 }
 
-function processGeolocations(freeTubeLanguageCode, response) {
+function processGeolocations(freeTubeLanguage, youTubeLanguage, response) {
   const geolocations = response.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[1].multiPageMenuSectionRenderer.items[3].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
     .map(({ compactLinkRenderer }) => {
       return {
@@ -124,5 +124,25 @@ function processGeolocations(freeTubeLanguageCode, response) {
       }
     })
 
-  writeFileSync(`${STATIC_DIRECTORY}/geolocations/${freeTubeLanguageCode}.json`, JSON.stringify(geolocations))
+  const normalisedFreeTubeLanguage = freeTubeLanguage.replace('_', '-')
+
+  // give Intl.Collator 4 locales, in the hopes that it supports one of them
+  // deduplicate the list so it doesn't have to do duplicate work
+  const localeSet = new Set()
+  localeSet.add(normalisedFreeTubeLanguage)
+  localeSet.add(youTubeLanguage)
+  localeSet.add(normalisedFreeTubeLanguage.split('-')[0])
+  localeSet.add(youTubeLanguage.split('-')[0])
+
+  const locales = Array.from(localeSet)
+
+  // only sort if node supports sorting the language, otherwise hope that YouTube's sorting was correct
+  // node 20.3.1 doesn't support sorting `eu`
+  if (Intl.Collator.supportedLocalesOf(locales).length > 0) {
+    const collator = new Intl.Collator(locales)
+
+    geolocations.sort((a, b) => collator.compare(a.name, b.name))
+  }
+
+  writeFileSync(`${STATIC_DIRECTORY}/geolocations/${freeTubeLanguage}.json`, JSON.stringify(geolocations))
 }
