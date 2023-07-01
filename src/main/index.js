@@ -11,6 +11,8 @@ import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
 
+import packageDetails from '../../package.json'
+
 if (process.argv.includes('--version')) {
   app.exit()
 } else {
@@ -262,6 +264,12 @@ function runApp() {
         proxyRules: `${proxyProtocol}://${proxyHostname}:${proxyPort}`
       })
     }
+
+    const fixedUserAgent = session.defaultSession.getUserAgent()
+      .split(' ')
+      .filter(part => !part.includes('Electron') && !part.includes(packageDetails.productName))
+      .join(' ')
+    session.defaultSession.setUserAgent(fixedUserAgent)
 
     // Set CONSENT cookie on reasonable domains
     const consentCookieDomains = [
