@@ -32,9 +32,10 @@ const TRACKING_PARAM_NAMES = [
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
  * @param {string} options.clientType use an alterate client
+ * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @returns the Innertube instance
  */
-async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined }) {
+async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined, generateSessionLocally: true }) {
   let cache
   if (options.withPlayer) {
     const userData = await getUserDataPath()
@@ -50,7 +51,7 @@ async function createInnertube(options = { withPlayer: false, location: undefine
     // use browser fetch
     fetch: (input, init) => fetch(input, init),
     cache,
-    generate_session_locally: true
+    generate_session_locally: !!options.generateSessionLocally
   })
 }
 
@@ -140,14 +141,14 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
   let player
 
   if (attemptBypass) {
-    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED })
+    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
     player = innertube.actions.session.player
 
     // the second request that getInfo makes 404s with the bypass, so we use getBasicInfo instead
     // that's fine as we have most of the information from the original getInfo request
     info = await innertube.getBasicInfo(id, 'TV_EMBEDDED')
   } else {
-    const innertube = await createInnertube({ withPlayer: true })
+    const innertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
     player = innertube.actions.session.player
 
     info = await innertube.getInfo(id)
