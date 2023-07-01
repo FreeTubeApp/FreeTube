@@ -272,13 +272,7 @@ export default defineComponent({
       this.showLiveSortBy = true
       this.showPlaylistSortBy = true
 
-      let currentTab = this.$route.params.currentTab ?? 'videos'
-
-      if (!this.tabInfoValues.includes(currentTab)) {
-        currentTab = this.tabInfoValues[0]
-      }
-
-      this.currentTab = currentTab
+      this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
 
       if (this.id === '@@@') {
         this.showShareMenu = false
@@ -367,13 +361,7 @@ export default defineComponent({
 
     this.id = this.$route.params.id
 
-    let currentTab = this.$route.params.currentTab ?? 'videos'
-
-    if (!this.tabInfoValues.includes(currentTab)) {
-      currentTab = this.tabInfoValues[0]
-    }
-
-    this.currentTab = currentTab
+    this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
 
     if (this.id === '@@@') {
       this.showShareMenu = false
@@ -411,6 +399,14 @@ export default defineComponent({
       } else {
         this.$router.replace({ path: `/channel/${id}` })
       }
+    },
+
+    currentOrFirstTab: function (currentTab) {
+      if (this.tabInfoValues.includes(currentTab)) {
+        return currentTab
+      }
+
+      return this.tabInfoValues[0]
     },
 
     getChannelLocal: async function () {
