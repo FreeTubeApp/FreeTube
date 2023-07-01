@@ -716,8 +716,7 @@ Tooltips:
       때, 선호하지 않는 API를 대체 방법으로 사용하려고 자동으로 시도합니다.'
     Thumbnail Preference: 'FreeTube 전체의 모든 썸네일은 기본 썸네일 대신 비디오 프레임으로 대체됩니다.'
     Invidious Instance: 'FreeTube가 API 호출을 위해 연결할 Invidious 인스턴스입니다.'
-    Region for Trending: '트렌드 지역을 통해 표시하고 싶은 국가의 트렌드 비디오를 선택할 수 있습니다. 표시된 모든 국가가 실제로
-      YouTube에서 지원되는 것은 아닙니다.'
+    Region for Trending: '트렌드 지역을 통해 표시하고 싶은 국가의 트렌드 비디오를 선택할 수 있습니다.'
     External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는\
       \ 기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:

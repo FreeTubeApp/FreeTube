@@ -861,8 +861,7 @@ Tooltips:
       De lokale API is een ingebouwde inhoudsverzamelaar. De Invidious API moet worden
       verbonden met een Invidious server.
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
-      video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
-      door YouTube.
+      video's je wil zien.
     External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet
       kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
       link openen in je standaardbrowser.\n"

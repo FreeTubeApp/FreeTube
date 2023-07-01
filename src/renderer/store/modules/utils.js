@@ -245,15 +245,12 @@ const actions = {
     // Exclude __dirname from path if not in electron
     const fileLocation = `${process.env.IS_ELECTRON ? process.env.NODE_ENV === 'development' ? '.' : __dirname : ''}/static/geolocations/`
     if (process.env.IS_ELECTRON) {
-      localePathExists = await pathExists(`${fileLocation}${locale}`)
+      localePathExists = await pathExists(`${fileLocation}${locale}.json`)
     } else {
       localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
     }
-    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}/countries.json`
-    const fileData = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
-
-    const countries = fileData.map((entry) => { return { id: entry.id, name: entry.name, code: entry.alpha2 } })
-    countries.sort((a, b) => { return a.id - b.id })
+    const pathName = `${fileLocation}${localePathExists ? locale : 'en-US'}.json`
+    const countries = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(pathName)) : await (await fetch(createWebURL(pathName))).json()
 
     const regionNames = countries.map((entry) => { return entry.name })
     const regionValues = countries.map((entry) => { return entry.code })
