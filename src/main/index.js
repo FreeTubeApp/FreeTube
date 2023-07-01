@@ -293,6 +293,10 @@ function runApp() {
       requestHeaders.Referer = 'https://www.youtube.com/'
       requestHeaders.Origin = 'https://www.youtube.com'
 
+      if (url.startsWith('https://www.youtube.com/youtubei/')) {
+        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+      }
+
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
