@@ -78,13 +78,14 @@
       </router-link>
       <div class="infoLine">
         <router-link
+          v-if="channelId !== null"
           class="channelName"
           :to="`/channel/${channelId}`"
         >
           <span>{{ channelName }}</span>
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount"> • {{ parsedViewCount }} </span>
+          <span class="viewCount"><template v-if="channelId !== null"> •</template> {{ parsedViewCount }} </span>
           <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
           <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
         </template>

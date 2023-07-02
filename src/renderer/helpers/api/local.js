@@ -31,10 +31,11 @@ const TRACKING_PARAM_NAMES = [
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
- * @param {string} options.clientType use an alterate client
+ * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
+ * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @returns the Innertube instance
  */
-async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined }) {
+async function createInnertube(options = { withPlayer: false, location: undefined, safetyMode: false, clientType: undefined, generateSessionLocally: true }) {
   let cache
   if (options.withPlayer) {
     const userData = await getUserDataPath()
@@ -50,7 +51,7 @@ async function createInnertube(options = { withPlayer: false, location: undefine
     // use browser fetch
     fetch: (input, init) => fetch(input, init),
     cache,
-    generate_session_locally: true
+    generate_session_locally: !!options.generateSessionLocally
   })
 }
 
@@ -140,17 +141,32 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
   let player
 
   if (attemptBypass) {
-    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED })
+    const innertube = await createInnertube({ withPlayer: true, clientType: ClientType.TV_EMBEDDED, generateSessionLocally: false })
     player = innertube.actions.session.player
 
     // the second request that getInfo makes 404s with the bypass, so we use getBasicInfo instead
     // that's fine as we have most of the information from the original getInfo request
     info = await innertube.getBasicInfo(id, 'TV_EMBEDDED')
   } else {
-    const innertube = await createInnertube({ withPlayer: true })
+    const innertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
     player = innertube.actions.session.player
 
     info = await innertube.getInfo(id)
+
+    // // the android streaming formats don't seem to be throttled at the moment so we use those if they are availabe
+    try {
+      const androidInnertube = await createInnertube({ clientType: ClientType.ANDROID, generateSessionLocally: false })
+      const androidInfo = await androidInnertube.getBasicInfo(id, 'ANDROID')
+
+      if (androidInfo.playability_status.status === 'OK') {
+        info.streaming_data = androidInfo.streaming_data
+      } else {
+        console.error('Failed to fetch android formats', JSON.parse(JSON.stringify(androidInfo.playability_status)))
+      }
+    } catch (error) {
+      console.error('Failed to fetch android formats')
+      console.error(error)
+    }
   }
 
   if (info.streaming_data) {
@@ -353,6 +369,8 @@ function parseShortDuration(accessibilityLabel, videoId) {
 export function parseLocalListPlaylist(playlist, author = undefined) {
   let channelName
   let channelId = null
+  /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
+  const thumbnailRenderer = playlist.thumbnail_renderer
 
   if (playlist.author) {
     if (playlist.author instanceof Misc.Text) {
@@ -374,7 +392,7 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
     type: 'playlist',
     dataSource: 'local',
     title: playlist.title.text,
-    thumbnail: playlist.thumbnails[0].url,
+    thumbnail: thumbnailRenderer ? thumbnailRenderer.thumbnail[0].url : playlist.thumbnails[0].url,
     channelName,
     channelId,
     playlistId: playlist.id,
@@ -406,18 +424,37 @@ function handleSearchResponse(response) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.PlaylistVideo} video
+ * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem} video
  */
 export function parseLocalPlaylistVideo(video) {
-  return {
-    videoId: video.id,
-    title: video.title.text,
-    author: video.author.name,
-    authorId: video.author.id,
-    lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
-    liveNow: video.is_live,
-    isUpcoming: video.is_upcoming,
-    premiereDate: video.upcoming
+  if (video.type === 'ReelItem') {
+    /** @type {import('youtubei.js').YTNodes.ReelItem} */
+    const short = video
+
+    // unfortunately the only place with the duration is the accesibility string
+    const duration = parseShortDuration(video.accessibility_label, short.id)
+
+    return {
+      type: 'video',
+      videoId: short.id,
+      title: short.title.text,
+      viewCount: parseLocalSubscriberCount(short.views.text),
+      lengthSeconds: isNaN(duration) ? '' : duration
+    }
+  } else {
+    /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
+    const video_ = video
+
+    return {
+      videoId: video_.id,
+      title: video_.title.text,
+      author: video_.author.name,
+      authorId: video_.author.id,
+      lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
+      liveNow: video_.is_live,
+      isUpcoming: video_.is_upcoming,
+      premiereDate: video_.upcoming
+    }
   }
 }
 

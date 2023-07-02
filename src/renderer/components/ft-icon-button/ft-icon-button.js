@@ -94,8 +94,8 @@ export default defineComponent({
           // wait until the dropdown is visible
           // then focus it so we can hide it automatically when it loses focus
           setTimeout(() => {
-            this.$refs.dropdown.focus()
-          }, 0)
+            this.$refs.dropdown?.focus()
+          })
         }
       } else {
         this.$emit('click')

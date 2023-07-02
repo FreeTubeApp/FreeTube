@@ -816,8 +816,7 @@ Tooltips:
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
       beiðnir í API-kerfisviðmót.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
-      að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við. Ekki eru
-      öll löndin sem birtast raunverulega studd af YouTube.'
+      að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við.'
     External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem
       ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil
       í sjálfgefna vafranum þínum.\n"

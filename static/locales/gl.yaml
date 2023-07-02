@@ -843,8 +843,7 @@ Tooltips:
     Invidious Instance: 'A instancia de Invidious á que se conectará FreeTube para
       as chamadas da aplicacion.'
     Region for Trending: 'A rexión das tendencias permíteche escoller os vídeos máis
-      populares nun Estado. Non tódolos Estados que se amosan están soportados por
-      YouTube.'
+      populares nun Estado.'
     External Link Handling: "Escolla o comportamento predeterminado cando se fai clic\
       \ nunha ligazón, que non se pode abrir en FreeTube.\nDe forma predeterminada,\
       \ FreeTube abrirá a ligazón na que premeches no teu navegador predeterminado.\n"

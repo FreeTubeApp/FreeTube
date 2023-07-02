@@ -814,8 +814,7 @@ Tooltips:
     Invidious Instance: O servidor Invidious ao qual o FreeTube se irá ligar para
       fazer chamadas através da API.
     Region for Trending: A região de tendências permite-lhe escolher de que país virão
-      os vídeos na secção das tendências. Nem todos os países mostrados funcionam
-      corretamente.
+      os vídeos na secção das tendências.
     External Link Handling: "Escolha o comportamento padrão quando uma ligação, que
       não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá
       a ligação no seu navegador de Internet.\n"

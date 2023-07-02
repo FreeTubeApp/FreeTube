@@ -18,6 +18,7 @@ export default defineComponent({
     return {
       id: '',
       firstVideoId: '',
+      playlistThumbnail: '',
       title: '',
       channelThumbnail: '',
       channelName: '',
@@ -56,6 +57,10 @@ export default defineComponent({
     },
 
     thumbnail: function () {
+      if (this.backendPreference === 'local') {
+        return this.data.playlistThumbnail
+      }
+
       let baseUrl = ''
       let baseData = ''
       let backendPreference = this.backendPreference

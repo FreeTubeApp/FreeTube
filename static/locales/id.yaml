@@ -757,8 +757,7 @@ Tooltips:
       pemutaran default (1x kecuali telah diubah dalam pengaturan).
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang
-      ngetren dari negara tersebut untuk ditampilkan. Tidak semua daftar negara didukung
-      oleh YouTube.
+      ngetren dari negara tersebut untuk ditampilkan.
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk
       panggilan API.
     Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti

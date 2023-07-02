@@ -45,7 +45,7 @@ const actions = {
       const filePath = `${fileLocation}${fileName}`
       if (!process.env.IS_ELECTRON || await pathExists(filePath)) {
         console.warn('reading static file for invidious instances')
-        const fileData = process.env.IS_ELECTRON ? JSON.parse(await fs.readFile(filePath)) : await (await fetch(createWebURL(filePath))).text()
+        const fileData = process.env.IS_ELECTRON ? await fs.readFile(filePath, 'utf8') : await (await fetch(createWebURL(filePath))).text()
         instances = JSON.parse(fileData).filter(e => {
           return process.env.IS_ELECTRON || e.cors
         }).map(e => {

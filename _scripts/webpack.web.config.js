@@ -170,7 +170,7 @@ config.plugins.push(
   processLocalesPlugin,
   new webpack.DefinePlugin({
     'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
-    'process.env.GEOLOCATION_NAMES': JSON.stringify(fs.readdirSync(path.join(__dirname, '..', 'static', 'geolocations')))
+    'process.env.GEOLOCATION_NAMES': JSON.stringify(fs.readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', '')))
   }),
   new CopyWebpackPlugin({
       patterns: [

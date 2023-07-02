@@ -55,12 +55,14 @@ Search Filters:
     Videos: 'ویدیو ها'
     Channels: 'کانال ها'
     #& Playlists
+    Movies: فیلم‌ها
   Duration:
     Duration: 'طول مدت'
     All Durations: 'طول مدت همه'
     Short (< 4 minutes): 'کوتاه(>۴ دقیقه)'
     Long (> 20 minutes): 'طولانی(<۲۰ دقیقه)'
   # On Search Page
+    Medium (4 - 20 minutes): متوسط (۴-۲۰ دقیقه)
   Search Results: 'نتایج جست و جو'
   Fetching results. Please wait: 'دریافت نتایج.لطفا صبر کنید'
   Fetch more results: 'دریافت نتایج بیشتر'
@@ -78,6 +80,7 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'درحال گرفتن دنبال کرده ها.لطفا صبر کنید.'
   Refresh Subscriptions: 'تازه سازی دنبال کرده ها'
   Load More Videos: 'بارگیری ویدیو های بیشتر'
+  Error Channels: کانالهای خطادار
 More: 'بیشتر'
 Trending:
   Trending: 'پربازدید ها'
@@ -325,3 +328,9 @@ Are you sure you want to open this link?: آیا مطمئن هستید که می
   باز کنید؟
 About:
   Email: پست الکترونیکی
+New Window: پنجره جدید
+Preferences: ترجیحات
+Version {versionNumber} is now available!  Click for more details: نسخه {versionNumber}
+  موجود است!  برای جزئیات بیشتر کلیک کنید
+A new blog is now available, {blogTitle}. Click to view more: یک بلاگ جدید در دسترس
+  است، {blogTitle}. برای مشاهده بیشتر کلیک کنید

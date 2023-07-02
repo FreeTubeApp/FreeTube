@@ -60,8 +60,8 @@ export default defineComponent({
     return {
       id: '',
       title: '',
-      channelName: '',
-      channelId: '',
+      channelName: null,
+      channelId: null,
       viewCount: 0,
       parsedViewCount: '',
       uploadedTime: '',
@@ -196,30 +196,34 @@ export default defineComponent({
           {
             label: this.$t('Video.Open in Invidious'),
             value: 'openInvidious'
-          },
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Copy YouTube Channel Link'),
-            value: 'copyYoutubeChannel'
-          },
-          {
-            label: this.$t('Video.Copy Invidious Channel Link'),
-            value: 'copyInvidiousChannel'
-          },
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Open Channel in YouTube'),
-            value: 'openYoutubeChannel'
-          },
-          {
-            label: this.$t('Video.Open Channel in Invidious'),
-            value: 'openInvidiousChannel'
           }
         )
+        if (this.channelId !== null) {
+          options.push(
+            {
+              type: 'divider'
+            },
+            {
+              label: this.$t('Video.Copy YouTube Channel Link'),
+              value: 'copyYoutubeChannel'
+            },
+            {
+              label: this.$t('Video.Copy Invidious Channel Link'),
+              value: 'copyInvidiousChannel'
+            },
+            {
+              type: 'divider'
+            },
+            {
+              label: this.$t('Video.Open Channel in YouTube'),
+              value: 'openYoutubeChannel'
+            },
+            {
+              label: this.$t('Video.Open Channel in Invidious'),
+              value: 'openInvidiousChannel'
+            }
+          )
+        }
       }
 
       return options
@@ -429,8 +433,8 @@ export default defineComponent({
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
-      this.channelName = this.data.author
-      this.channelId = this.data.authorId
+      this.channelName = this.data.author ?? null
+      this.channelId = this.data.authorId ?? null
       this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
