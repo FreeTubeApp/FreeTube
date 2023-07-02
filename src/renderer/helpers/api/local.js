@@ -164,7 +164,7 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
       // https://github.com/TeamPiped/Piped/issues/2487
       if (androidInfo.basic_info.id !== id) {
         console.error(`Failed to fetch android formats. Wrong video ID in response: ${androidInfo.basic_info.id}, expected: ${id}`)
-      } else if (androidInfo.playability_status.status === 'OK') {
+      } else if (androidInfo.playability_status.status !== 'OK') {
         console.error('Failed to fetch android formats', JSON.stringify(androidInfo.playability_status))
       } else {
         info.streaming_data = androidInfo.streaming_data
