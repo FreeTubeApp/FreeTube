@@ -726,8 +726,7 @@ Tooltips:
     Invidious Instance: 'API deientzat Individious-eko instantzia, zeinetara Freetube
       konektatuko den.'
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun
-      herrialdeko joerako bideoak hautatzeko. Youtube-k ez ditu onartzen bistaratzen
-      diren herrialde guztiak.'
+      herrialdeko joerako bideoak hautatzeko.'
     External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin
       den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako
       nabigatazailean irekiko du klikatutako esteka.\n"

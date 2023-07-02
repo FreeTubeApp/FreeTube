@@ -923,8 +923,7 @@ Tooltips:
       Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
       sunucusu gerektirir.
     Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını
-      görüntülemek istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları
-      YouTube tarafından desteklenmemektedir.
+      görüntülemek istediğinizi seçmenize olanak tanır.
     External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
       davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
       açacaktır.\n"

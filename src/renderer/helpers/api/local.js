@@ -31,7 +31,7 @@ const TRACKING_PARAM_NAMES = [
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
- * @param {string} options.clientType use an alterate client
+ * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @returns the Innertube instance
  */
@@ -152,6 +152,21 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
     player = innertube.actions.session.player
 
     info = await innertube.getInfo(id)
+
+    // // the android streaming formats don't seem to be throttled at the moment so we use those if they are availabe
+    try {
+      const androidInnertube = await createInnertube({ clientType: ClientType.ANDROID, generateSessionLocally: false })
+      const androidInfo = await androidInnertube.getBasicInfo(id, 'ANDROID')
+
+      if (androidInfo.playability_status.status === 'OK') {
+        info.streaming_data = androidInfo.streaming_data
+      } else {
+        console.error('Failed to fetch android formats', JSON.parse(JSON.stringify(androidInfo.playability_status)))
+      }
+    } catch (error) {
+      console.error('Failed to fetch android formats')
+      console.error(error)
+    }
   }
 
   if (info.streaming_data) {

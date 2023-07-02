@@ -814,8 +814,7 @@ Tooltips:
       \ pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube\
       \ va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
     Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
-      în tendințe din fiecare țară doriți să fie afișate. Nu toate țările afișate
-      sunt suportate de YouTube.
+      în tendințe din fiecare țară doriți să fie afișate.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
       API.
     Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru

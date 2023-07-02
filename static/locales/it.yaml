@@ -939,8 +939,7 @@ Tooltips:
       dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
       un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
-      di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
-      sono ufficialmente supportate da YouTube.
+      di cui si vogliono vedere i video di tendenza.
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic
       su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita,
       FreeTube aprirà il link cliccato nel browser predefinito.\n"

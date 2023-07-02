@@ -884,8 +884,7 @@ Tooltips:
       az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API
       használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A népszerűk körzetével kiválaszthatja, mely ország népszerű
-      videóit szeretné megjeleníteni. Nem minden megjelenített országot támogat a
-      YouTube.
+      videóit szeretné megjeleníteni.
     Invidious Instance: Invidious-példány, amelyhez a SzabadCső csatlakozni fog az
       API-hívásokhoz.
     Thumbnail Preference: A SzabadCső összes miniatűrökét az alapértelmezett miniatűr

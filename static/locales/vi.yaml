@@ -813,8 +813,7 @@ Tooltips:
     Invidious Instance: Phiên bản Invidious mà FreeTube sẽ kết nối với để gọi các
       lệnh API.
     Region for Trending: Xu hướng khu vực cho phép bạn chọn các video thịnh hành của
-      quốc gia mà bạn muốn hiển thị. Không phải tất cả các quốc gia được hiển thị
-      đều được YouTube hỗ trợ.
+      quốc gia mà bạn muốn hiển thị.
   Player Settings:
     Force Local Backend for Legacy Formats: Chỉ hoạt động khi API Invidious là mặc
       định của bạn. Khi được bật lên, API cục bộ sẽ chạy và sử dụng các định dạng

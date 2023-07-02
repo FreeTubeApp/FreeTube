@@ -969,8 +969,7 @@ Tooltips:
       les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
       un serveur Invidious pour se connecter.
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
-      vous souhaitez afficher. Attention, certains pays affichés ne sont pas pris
-      en charge par YouTube.
+      vous souhaitez afficher.
     External Link Handling: "Choisissez le comportement par défaut quand on clique
       sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira
       le lien dans votre navigateur par défaut.\n"

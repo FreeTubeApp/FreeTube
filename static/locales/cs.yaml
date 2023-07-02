@@ -852,8 +852,7 @@ Tooltips:
     Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem
       volání API.'
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si
-      přejete zobrazovat videa v trendech. Ne všechny zobrazené země jsou ale službou
-      YouTube opravdu podporovány.'
+      přejete zobrazovat videa v trendech.'
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"

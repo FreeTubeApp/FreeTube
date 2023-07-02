@@ -884,8 +884,7 @@ Tooltips:
       videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
-      videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube.
+      videos you want to have displayed.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with

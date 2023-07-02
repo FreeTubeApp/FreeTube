@@ -915,8 +915,7 @@ Tooltips:
       danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia
       z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego
-      chciałbyś zobaczyć filmy zdobywające popularność. Nie wszystkie wymienione kraje
-      są obsługiwane przez YouTube.
+      chciałbyś zobaczyć filmy zdobywające popularność.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
       API.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką

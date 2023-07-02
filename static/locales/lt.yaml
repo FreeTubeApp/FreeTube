@@ -779,8 +779,7 @@ Tooltips:
     Invidious Instance: 'Invidious perdavimo šaltinis, prie kurio FreeTube prisijungs,
       kad gautų API pasikreipimus.'
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
-      populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
-      šalių.'
+      populiarius vaizdo įrašus norite rodyti.'
     External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,
       kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“
       atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"

@@ -91,7 +91,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: 
+  Playlist Message:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -831,7 +831,7 @@ Tooltips:
     Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
-    Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。YouTube は、すべての国に対応していません。
+    Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
   Privacy Settings:
@@ -848,7 +848,7 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル名またはチャンネル ID 
+    Hide Channels: チャンネル名またはチャンネル ID
       を入力すると、すべてのビデオ、再生リスト、およびチャンネル自体が検索や人気に表示されなくなります。入力するチャンネル名は完全に一致することが必要で、大文字と小文字を区別します。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
   秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
