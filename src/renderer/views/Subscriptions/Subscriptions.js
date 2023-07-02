@@ -8,7 +8,6 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
-import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
@@ -30,7 +29,7 @@ export default defineComponent({
       dataLimit: 100,
       videoList: [],
       errorChannels: [],
-      attemptedFetch: false
+      attemptedFetch: false,
     }
   },
   computed: {
@@ -65,13 +64,27 @@ export default defineComponent({
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
-
-    profileSubscriptions: function () {
-      return this.$store.getters.getProfileSubscriptions
+    activeProfileId: function () {
+      return this.activeProfile._id
     },
 
-    allSubscriptionsList: function () {
-      return this.$store.getters.getAllSubscriptionsList
+    cacheEntriesForAllActiveProfileChannels() {
+      const entries = []
+      this.activeSubscriptionList.forEach((channel) => {
+        const cacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
+        if (cacheEntry == null) { return }
+
+        entries.push(cacheEntry)
+      })
+      return entries
+    },
+    videoCacheForAllActiveProfileChannelsPresent() {
+      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return false }
+      if (this.cacheEntriesForAllActiveProfileChannels.length < this.activeSubscriptionList.length) { return false }
+
+      return this.cacheEntriesForAllActiveProfileChannels.every((cacheEntry) => {
+        return cacheEntry.videos != null
+      })
     },
 
     historyCache: function () {
@@ -92,12 +105,13 @@ export default defineComponent({
 
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
-    }
+    },
   },
   watch: {
     activeProfile: async function (_) {
-      this.getProfileSubscriptions()
-    }
+      this.isLoading = true
+      this.loadVideosFromCacheSometimes()
+    },
   },
   mounted: async function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
@@ -108,66 +122,63 @@ export default defineComponent({
       this.dataLimit = dataLimit
     }
 
-    if (this.profileSubscriptions.videoList.length !== 0) {
-      if (this.profileSubscriptions.activeProfile === this.activeProfile._id) {
-        const subscriptionList = JSON.parse(JSON.stringify(this.profileSubscriptions))
-        if (this.hideWatchedSubs) {
-          this.videoList = await Promise.all(subscriptionList.videoList.filter((video) => {
-            const historyIndex = this.historyCache.findIndex((x) => {
-              return x.videoId === video.videoId
-            })
-
-            return historyIndex === -1
-          }))
-        } else {
-          this.videoList = subscriptionList.videoList
-          this.errorChannels = subscriptionList.errorChannels
-        }
-      } else {
-        this.getProfileSubscriptions()
-      }
-
-      this.isLoading = false
-    } else if (this.fetchSubscriptionsAutomatically) {
-      setTimeout(async () => {
-        this.getSubscriptions()
-      }, 300)
-    } else {
-      this.isLoading = false
-    }
+    this.loadVideosFromCacheSometimes()
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    loadVideosFromCacheSometimes() {
+      // This method is called on view visible
+      if (this.videoCacheForAllActiveProfileChannelsPresent) {
+        this.loadVideosFromCacheForAllActiveProfileChannels()
+        return
+      }
+
+      this.maybeLoadVideosForSubscriptionsFromRemote()
+    },
+
+    async loadVideosFromCacheForAllActiveProfileChannels() {
+      const videoList = []
+      this.activeSubscriptionList.forEach((channel) => {
+        const channelCacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
+
+        videoList.push(...channelCacheEntry.videos)
+      })
+      this.updateVideoListAfterProcessing(videoList)
+      this.isLoading = false
+    },
+
     goToChannel: function (id) {
       this.$router.push({ path: `/channel/${id}` })
     },
 
-    getSubscriptions: function () {
+    loadVideosForSubscriptionsFromRemote: async function () {
       if (this.activeSubscriptionList.length === 0) {
         this.isLoading = false
         this.videoList = []
         return
       }
 
+      const channelsToLoadFromRemote = this.activeSubscriptionList
+      const videoList = []
+      let channelCount = 0
+      this.isLoading = true
+
       let useRss = this.useRssFeeds
-      if (this.activeSubscriptionList.length >= 125 && !useRss) {
+      if (channelsToLoadFromRemote.length >= 125 && !useRss) {
         showToast(
           this.$t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
           10000
         )
         useRss = true
       }
-      this.isLoading = true
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
       this.attemptedFetch = true
 
-      let videoList = []
-      let channelCount = 0
       this.errorChannels = []
-      this.activeSubscriptionList.forEach(async (channel) => {
+      const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
         let videos = []
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           if (useRss) {
@@ -183,86 +194,66 @@ export default defineComponent({
           }
         }
 
-        videoList = videoList.concat(videos)
         channelCount++
-        const percentageComplete = (channelCount / this.activeSubscriptionList.length) * 100
+        const percentageComplete = (channelCount / channelsToLoadFromRemote.length) * 100
         this.setProgressBarPercentage(percentageComplete)
+        this.updateSubscriptionsCacheForOneChannel({
+          channelId: channel.id,
+          videos: videos,
+        })
+        return videos
+      }))).flatMap((o) => o)
+      videoList.push(...videoListFromRemote)
 
-        if (channelCount === this.activeSubscriptionList.length) {
-          videoList = await Promise.all(videoList.sort((a, b) => {
-            return b.publishedDate - a.publishedDate
-          }))
-          if (this.hideLiveStreams) {
-            videoList = videoList.filter(item => {
-              return (!item.liveNow && !item.isUpcoming)
-            })
-          }
-          if (this.hideUpcomingPremieres) {
-            videoList = videoList.filter(item => {
-              if (item.isRSS) {
-                // viewCount is our only method of detecting premieres in RSS
-                // data without sending an additional request.
-                // If we ever get a better flag, use it here instead.
-                return item.viewCount !== '0'
-              }
-              // Observed for premieres in Local API Subscriptions.
-              return item.durationText !== 'PREMIERE'
-            })
-          }
-          const profileSubscriptions = {
-            activeProfile: this.activeProfile._id,
-            videoList: videoList,
-            errorChannels: this.errorChannels
-          }
+      this.updateVideoListAfterProcessing(videoList)
+      this.isLoading = false
+      this.updateShowProgressBar(false)
+    },
 
-          this.videoList = await Promise.all(videoList.filter((video) => {
-            if (this.hideWatchedSubs) {
-              const historyIndex = this.historyCache.findIndex((x) => {
-                return x.videoId === video.videoId
-              })
-
-              return historyIndex === -1
-            } else {
-              return true
-            }
-          }))
-          this.updateProfileSubscriptions(profileSubscriptions)
-          this.isLoading = false
-          this.updateShowProgressBar(false)
-
-          if (this.activeProfile === MAIN_PROFILE_ID) {
-            this.updateAllSubscriptionsList(profileSubscriptions.videoList)
+    updateVideoListAfterProcessing(videoList) {
+      // Filtering and sorting based in preference
+      videoList.sort((a, b) => {
+        return b.publishedDate - a.publishedDate
+      })
+      if (this.hideLiveStreams) {
+        videoList = videoList.filter(item => {
+          return (!item.liveNow && !item.isUpcoming)
+        })
+      }
+      if (this.hideUpcomingPremieres) {
+        videoList = videoList.filter(item => {
+          if (item.isRSS) {
+            // viewCount is our only method of detecting premieres in RSS
+            // data without sending an additional request.
+            // If we ever get a better flag, use it here instead.
+            return item.viewCount !== '0'
           }
+          // Observed for premieres in Local API Subscriptions.
+          return item.premiereDate == null
+        })
+      }
+
+      this.videoList = videoList.filter((video) => {
+        if (this.hideWatchedSubs) {
+          const historyIndex = this.historyCache.findIndex((x) => {
+            return x.videoId === video.videoId
+          })
+
+          return historyIndex === -1
+        } else {
+          return true
         }
       })
     },
 
-    getProfileSubscriptions: async function () {
-      if (this.allSubscriptionsList.length !== 0) {
-        this.isLoading = true
-        this.videoList = await Promise.all(this.allSubscriptionsList.filter((video) => {
-          const channelIndex = this.activeSubscriptionList.findIndex((x) => {
-            return x.id === video.authorId
-          })
-
-          if (this.hideWatchedSubs) {
-            const historyIndex = this.historyCache.findIndex((x) => {
-              return x.videoId === video.videoId
-            })
-
-            return channelIndex !== -1 && historyIndex === -1
-          } else {
-            return channelIndex !== -1
-          }
-        }))
-        this.isLoading = false
-      } else if (this.fetchSubscriptionsAutomatically) {
-        this.getSubscriptions()
-      } else if (this.activeProfile._id === this.profileSubscriptions.activeProfile) {
-        this.videoList = this.profileSubscriptions.videoList
+    maybeLoadVideosForSubscriptionsFromRemote: async function () {
+      if (this.fetchSubscriptionsAutomatically) {
+        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
+        await this.loadVideosForSubscriptionsFromRemote()
       } else {
         this.videoList = []
         this.attemptedFetch = false
+        this.isLoading = false
       }
     },
 
@@ -483,7 +474,7 @@ export default defineComponent({
         case 'r':
         case 'R':
           if (!this.isLoading) {
-            this.getSubscriptions()
+            this.loadVideosForSubscriptionsFromRemote()
           }
           break
       }
@@ -491,8 +482,7 @@ export default defineComponent({
 
     ...mapActions([
       'updateShowProgressBar',
-      'updateProfileSubscriptions',
-      'updateAllSubscriptionsList'
+      'updateSubscriptionsCacheForOneChannel',
     ]),
 
     ...mapMutations([

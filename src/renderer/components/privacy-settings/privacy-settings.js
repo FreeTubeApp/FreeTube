@@ -110,12 +110,7 @@ export default defineComponent({
           }
         })
 
-        this.updateAllSubscriptionsList([])
-        this.updateProfileSubscriptions({
-          activeProfile: MAIN_PROFILE_ID,
-          videoList: [],
-          errorChannels: []
-        })
+        this.clearSubscriptionsCache()
       }
     },
 
@@ -129,8 +124,7 @@ export default defineComponent({
       'updateProfile',
       'removeProfile',
       'updateActiveProfile',
-      'updateAllSubscriptionsList',
-      'updateProfileSubscriptions'
+      'clearSubscriptionsCache',
     ])
   }
 })
