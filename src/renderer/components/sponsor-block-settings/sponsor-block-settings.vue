@@ -11,6 +11,7 @@
       <ft-toggle-switch
         :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
         :default-value="useDeArrowTitles"
+        :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
         @change="handleUpdateUseDeArrowTitles"
       />
     </ft-flex-box>
