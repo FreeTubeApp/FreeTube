@@ -158,10 +158,16 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
       const androidInnertube = await createInnertube({ clientType: ClientType.ANDROID, generateSessionLocally: false })
       const androidInfo = await androidInnertube.getBasicInfo(id, 'ANDROID')
 
-      if (androidInfo.playability_status.status === 'OK') {
-        info.streaming_data = androidInfo.streaming_data
+      // Sometimes when YouTube detects a third party client or has applied an IP-ratelimit,
+      // they replace the response with a different video id
+      // https://github.com/TeamNewPipe/NewPipe/issues/8713
+      // https://github.com/TeamPiped/Piped/issues/2487
+      if (androidInfo.basic_info.id !== id) {
+        console.error(`Failed to fetch android formats. Wrong video ID in response: ${androidInfo.basic_info.id}, expected: ${id}`)
+      } else if (androidInfo.playability_status.status === 'OK') {
+        console.error('Failed to fetch android formats', JSON.stringify(androidInfo.playability_status))
       } else {
-        console.error('Failed to fetch android formats', JSON.parse(JSON.stringify(androidInfo.playability_status)))
+        info.streaming_data = androidInfo.streaming_data
       }
     } catch (error) {
       console.error('Failed to fetch android formats')
