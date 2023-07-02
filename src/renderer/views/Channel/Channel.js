@@ -92,7 +92,12 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoShortLiveSelectValues: [
+      videoLiveSelectValues: [
+        'newest',
+        'popular',
+        'oldest'
+      ],
+      shortSelectValues: [
         'newest',
         'popular'
       ],
@@ -137,7 +142,15 @@ export default defineComponent({
       return this.subscriptionInfo !== null
     },
 
-    videoShortLiveSelectNames: function () {
+    videoLiveSelectNames: function () {
+      return [
+        this.$t('Channel.Videos.Sort Types.Newest'),
+        this.$t('Channel.Videos.Sort Types.Most Popular'),
+        this.$t('Channel.Videos.Sort Types.Oldest')
+      ]
+    },
+
+    shortSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular')
@@ -687,7 +700,7 @@ export default defineComponent({
         this.showVideoSortBy = videosTab.filters.length > 1
 
         if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoShortLiveSelectValues.indexOf(this.videoSortBy)
+          const index = this.videoLiveSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
 
@@ -745,7 +758,7 @@ export default defineComponent({
         this.showShortSortBy = shortsTab.filters.length > 1
 
         if (this.showShortSortBy && this.shortSortBy !== 'newest') {
-          const index = this.videoShortLiveSelectValues.indexOf(this.shortSortBy)
+          const index = this.shortSelectValues.indexOf(this.shortSortBy)
           shortsTab = await shortsTab.applyFilter(shortsTab.filters[index])
         }
 
@@ -803,7 +816,7 @@ export default defineComponent({
         this.showLiveSortBy = liveTab.filters.length > 1
 
         if (this.showLiveSortBy && this.liveSortBy !== 'newest') {
-          const index = this.videoShortLiveSelectValues.indexOf(this.liveSortBy)
+          const index = this.videoLiveSelectValues.indexOf(this.liveSortBy)
           liveTab = await liveTab.applyFilter(liveTab.filters[index])
         }
 
@@ -1395,21 +1408,13 @@ export default defineComponent({
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
           const tabNode = document.getElementById(`${tab}Tab`)
-          event.target.setAttribute('tabindex', '-1')
-          tabNode.setAttribute('tabindex', 0)
           tabNode.focus({ focusVisible: true })
           return
         }
       }
 
-      // `currentTabNode` can be `null` on 2nd+ search
-      const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
-      document.querySelector('.tabs > .tab[tabindex="0"]')?.setAttribute('tabindex', '-1')
-      newTabNode?.setAttribute('tabindex', '0')
-      currentTabNode?.setAttribute('aria-selected', 'false')
-      newTabNode?.setAttribute('aria-selected', 'true')
       this.currentTab = tab
       newTabNode?.focus({ focusVisible: true })
     },

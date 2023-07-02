@@ -2,6 +2,7 @@
   <div class="select">
     <select
       :id="sanitizedId ?? sanitizedPlaceholder"
+      ref="select"
       :describe-by-id="describeById"
       class="select-text"
       :class="{disabled: disabled}"

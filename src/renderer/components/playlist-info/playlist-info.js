@@ -17,6 +17,7 @@ export default defineComponent({
     return {
       id: '',
       firstVideoId: '',
+      playlistThumbnail: '',
       title: '',
       channelThumbnail: '',
       channelName: '',
@@ -54,7 +55,7 @@ export default defineComponent({
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
       } else {
-        baseUrl = 'https://i.ytimg.com'
+        return this.data.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {

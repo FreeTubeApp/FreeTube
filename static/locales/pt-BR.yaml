@@ -923,8 +923,7 @@ Tooltips:
       os formatos DASH H.264.
   General Settings:
     Region for Trending: A região de tendências lhe permite de escolher quais vídeos
-      de tendências do país você quer exibir. Nem todos os países exibidos são realmente
-      suportados pelo YouTube.
+      de tendências do país você quer exibir.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
       chamadas de API.
     Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um

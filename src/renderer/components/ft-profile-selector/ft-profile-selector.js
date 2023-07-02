@@ -42,7 +42,7 @@ export default defineComponent({
         // wait until the profile list is visible
         // then focus it so we can hide it automatically when it loses focus
         setTimeout(() => {
-          this.$refs.profileList.$el.focus()
+          this.$refs.profileList?.$el?.focus()
         })
       }
     },

@@ -795,8 +795,7 @@ Tooltips:
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Region for Trending: The region of trends allows you to pick which country's trending
-      videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube.
+      videos you want to have displayed.
     External Link Handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.

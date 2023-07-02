@@ -8,7 +8,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Вийти'
-Edit: 'Редагувати'
+Edit: 'Змінити'
 Undo: 'Повернути'
 Redo: 'Повторити'
 Cut: 'Вирізати'
@@ -18,13 +18,13 @@ Delete: 'Видалити'
 Select all: 'Вибрати все'
 Reload: 'Перезавантажити'
 Force Reload: 'Примусове перезавантаження'
-Toggle Developer Tools: 'Переключити інструменти розробника'
+Toggle Developer Tools: 'Перемкнути інструменти розробника'
 Actual size: 'Фактичний розмір'
 Zoom in: 'Збільшити'
 Zoom out: 'Зменшити'
-Toggle fullscreen: 'Переключити повноекранний режим'
+Toggle fullscreen: 'Перемкнути повноекранний режим'
 Window: 'Вікно'
-Minimize: 'Мінімізувати'
+Minimize: 'Згорнути'
 Close: 'Закрити'
 Back: 'Назад'
 Forward: 'Вперед'
@@ -41,10 +41,10 @@ Search / Go to URL: 'Пошук / Перейти по URL'
 Search Filters:
   Search Filters: 'Фільтри пошуку'
   Sort By:
-    Sort By: 'Сортувати за'
-    Most Relevant: 'Найбільш релевантні'
+    Sort By: 'Впорядковувати за'
+    Most Relevant: 'Найвідповідніші'
     Rating: 'Рейтинг'
-    Upload Date: 'Дата публікації'
+    Upload Date: 'Дата вивантаження'
     View Count: 'Кількість переглядів'
   Time:
     Time: 'Час'
@@ -531,7 +531,7 @@ Channel:
   Added channel to your subscriptions: 'Додано канал до підписок'
   Search Channel: 'Шукати на каналі'
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
-  Sort By: 'Сортувати за'
+  Sort By: 'Впорядковувати за'
   Videos:
     Videos: 'Відео'
     This channel does not currently have any videos: 'Наразі на цьому каналі немає
@@ -773,7 +773,7 @@ Comments:
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
   Show Comments: 'Показати коментарі'
   Hide Comments: 'Сховати коментарі'
-  Sort by: 'Сортувати за'
+  Sort by: 'Впорядковувати за'
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply
@@ -807,8 +807,7 @@ Tooltips:
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
       викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
-      країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
-      YouTube.'
+      країни, які ви хочете бачити.'
     External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,
       яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання
       у вашому типовому переглядачі.\n"
