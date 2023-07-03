@@ -21,9 +21,6 @@ export default defineComponent({
       currentTab: 'videos'
     }
   },
-  mounted: function () {
-    console.log('mounted')
-  },
   methods: {
     changeTab: function (tab) {
       if (tab === this.currentTab) {
