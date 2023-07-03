@@ -1,0 +1,31 @@
+.card {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.message {
+  color: var(--tertiary-text-color);
+}
+
+.floatingTopButton {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+}
+
+.channelBubble {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 350px) {
+  .floatingTopButton {
+    position: absolute
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    width: 90%;
+  }
+}

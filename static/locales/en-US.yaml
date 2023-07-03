@@ -93,6 +93,10 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
+  Tabs:
+    Videos: Videos
+    Live: Live
+    Shorts: Shorts
 More: More
 Channels:
   Channels: Channels

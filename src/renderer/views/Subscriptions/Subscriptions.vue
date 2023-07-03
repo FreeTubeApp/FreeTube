@@ -1,75 +1,62 @@
 <template>
   <div>
-    <ft-loader
-      v-if="isLoading"
-      :fullscreen="true"
-    />
-    <ft-card
-      v-else
-      class="card"
-    >
-      <div
-        v-if="errorChannels.length !== 0"
-      >
-        <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
-        <div>
-          <ft-channel-bubble
-            v-for="(channel, index) in errorChannels"
-            :key="index"
-            :channel-name="channel.name"
-            :channel-id="channel.id"
-            :channel-thumbnail="channel.thumbnail"
-            class="channelBubble"
-            @click="goToChannel(channel.id)"
-          />
-        </div>
-      </div>
+    <ft-card class="card">
       <h3>{{ $t("Subscriptions.Subscriptions") }}</h3>
       <ft-flex-box
-        v-if="activeVideoList.length === 0"
+        class="subscriptionTabs"
+        role="tablist"
+        :aria-label="$t('Trending.Trending Tabs')"
       >
-        <p
-          v-if="activeSubscriptionList.length === 0"
-          class="message"
+        <div
+          ref="videos"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'videos')"
+          aria-controls="trendingPanel"
+          :tabindex="currentTab === 'videos' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'videos' }"
+          @click="changeTab('videos')"
+          @keydown.space.enter.prevent="changeTab('videos')"
+          @keydown.left="focusTab($event, 'shorts')"
+          @keydown.right="focusTab($event, 'live')"
         >
-          {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
-        </p>
-        <p
-          v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
-          class="message"
+          {{ $t("Subscriptions.Tabs.Videos").toUpperCase() }}
+        </div>
+        <div
+          ref="live"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'live')"
+          aria-controls="trendingPanel"
+          :tabindex="currentTab === 'live' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'live' }"
+          @click="changeTab('live')"
+          @keydown.space.enter.prevent="changeTab('live')"
+          @keydown.left="focusTab($event, 'videos')"
+          @keydown.right="focusTab($event, 'shorts')"
         >
-          {{ $t("Subscriptions.Disabled Automatic Fetching") }}
-        </p>
-        <p
-          v-else
-          class="message"
+          {{ $t("Subscriptions.Tabs.Live").toUpperCase() }}
+        </div>
+        <div
+          ref="shorts"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'shorts')"
+          aria-controls="trendingPanel"
+          :tabindex="currentTab === 'shorts' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'shorts' }"
+          @click="changeTab('shorts')"
+          @keydown.space.enter.prevent="changeTab('shorts')"
+          @keydown.left="focusTab($event, 'live')"
+          @keydown.right="focusTab($event, 'videos')"
         >
-          {{ $t("Subscriptions.Empty Channels") }}
-        </p>
+          {{ $t("Subscriptions.Tabs.Shorts").toUpperCase() }}
+        </div>
       </ft-flex-box>
-      <ft-element-list
-        v-else
-        :data="activeVideoList"
-      />
-      <ft-flex-box>
-        <ft-button
-          v-if="videoList.length > dataLimit"
-          :label="$t('Subscriptions.Load More Videos')"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="increaseLimit"
-        />
-      </ft-flex-box>
+      <subscriptions-videos v-if="currentTab === 'videos'" />
+      <subscriptions-live v-if="currentTab === 'live'" />
+      <subscriptions-shorts v-if="currentTab === 'shorts'" />
     </ft-card>
-    <ft-icon-button
-      v-if="!isLoading"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :title="$t('Subscriptions.Refresh Subscriptions')"
-      :size="12"
-      theme="primary"
-      @click="loadVideosForSubscriptionsFromRemote"
-    />
   </div>
 </template>
 
