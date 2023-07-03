@@ -381,7 +381,7 @@ export default defineComponent({
       })
     },
 
-    getChannelVideosInvidiousRSS: async function (channel, failedAttempts = 0) {
+    getChannelLiveInvidiousRSS: async function (channel, failedAttempts = 0) {
       const playlistId = channel.id.replace('UC', 'UULV')
       const feedUrl = `${this.currentInvidiousInstance}/feed/playlist/${playlistId}`
 
