@@ -448,6 +448,7 @@ Settings:
       Do Nothing: Nincs művelet
       Prompt To Skip: Kihagyás kérése
     Category Color: Kategória színe
+    UseDeArrowTitles: DeArrow-videocímek használata
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveleti figyelmeztetések figyelmen
       kívül hagyva
@@ -951,6 +952,9 @@ Tooltips:
       az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
       a keresésben vagy a népszerűségben. A megadott csatornanévnek teljes egyezésnek
       kell lennie, és megkülönbözteti a kis- és nagybetűket.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Cserélje le a videocímeket a DeArrow által beküldött, felhasználó
+      által beküldött címekre.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
   a törléshez. | A következő videó lejátszása {nextVideoInterval} másodperc múlva
   történik. Kattintson a törléshez. | A következő videó lejátszása {nextVideoInterval}
