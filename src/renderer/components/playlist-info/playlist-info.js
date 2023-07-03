@@ -130,11 +130,13 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      let baseUrl
+      if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
+        return this.playlistThumbnail
+      }
+
+      let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
-      } else {
-        return this.data.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {

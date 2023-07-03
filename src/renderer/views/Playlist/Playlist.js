@@ -40,6 +40,7 @@ export default defineComponent({
       playlistTitle: '',
       playlistDescription: '',
       firstVideoId: '',
+      playlistThumbnail: '',
       viewCount: 0,
       videoCount: 0,
       lastUpdated: undefined,
