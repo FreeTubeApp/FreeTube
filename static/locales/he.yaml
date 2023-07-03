@@ -720,7 +720,7 @@ Video:
     recap: סיכום
   External Player:
     video: סרטון
-    playlist: פלייליסט
+    playlist: רשימת נגינה
     OpenInTemplate: פתיחה בתוך {externalPlayer}
     OpeningTemplate: '{videoOrPlaylist} נפתח ב־{externalPlayer}…'
     UnsupportedActionTemplate: 'ב־{externalPlayer} אין תמיכה בפעולה: {action}'
@@ -778,7 +778,7 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: פלייליסט
+  Playlist: רשימת נגינה
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
   Change Media Formats: 'שינוי תצורות הסרטונים'
@@ -865,6 +865,8 @@ Tooltips:
     External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן
       לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל
       שלך.\n"
+    Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
+      מעניין אותך לראות.
   Player Settings:
     Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
       המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
