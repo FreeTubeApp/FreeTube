@@ -67,6 +67,10 @@ export default defineComponent({
         if (this.hideUpcomingPremieres &&
             // Observed for premieres in Local API Channels.
             (data.premiereDate != null ||
+              // Invidious API
+              // `premiereTimestamp` only available on premiered videos
+              // https://docs.invidious.io/api/common_types/#videoobject
+              data.premiereTimestamp != null ||
              // viewCount is our only method of detecting premieres in RSS
              // data without sending an additional request.
              // If we ever get a better flag, use it here instead.
