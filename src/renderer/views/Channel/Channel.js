@@ -92,7 +92,12 @@ export default defineComponent({
       errorMessage: '',
       showSearchBar: true,
       showShareMenu: true,
-      videoShortLiveSelectValues: [
+      videoLiveSelectValues: [
+        'newest',
+        'popular',
+        'oldest'
+      ],
+      shortSelectValues: [
         'newest',
         'popular'
       ],
@@ -137,7 +142,15 @@ export default defineComponent({
       return this.subscriptionInfo !== null
     },
 
-    videoShortLiveSelectNames: function () {
+    videoLiveSelectNames: function () {
+      return [
+        this.$t('Channel.Videos.Sort Types.Newest'),
+        this.$t('Channel.Videos.Sort Types.Most Popular'),
+        this.$t('Channel.Videos.Sort Types.Oldest')
+      ]
+    },
+
+    shortSelectNames: function () {
       return [
         this.$t('Channel.Videos.Sort Types.Newest'),
         this.$t('Channel.Videos.Sort Types.Most Popular')
@@ -245,7 +258,6 @@ export default defineComponent({
       }
 
       this.id = this.$route.params.id
-      let currentTab = this.$route.params.currentTab ?? 'videos'
       this.searchPage = 2
       this.relatedChannels = []
       this.latestVideos = []
@@ -273,23 +285,7 @@ export default defineComponent({
       this.showLiveSortBy = true
       this.showPlaylistSortBy = true
 
-      if (this.hideChannelShorts && currentTab === 'shorts') {
-        currentTab = 'videos'
-      }
-
-      if (this.hideLiveStreams && currentTab === 'live') {
-        currentTab = 'videos'
-      }
-
-      if (this.hideChannelPlaylists && currentTab === 'playlists') {
-        currentTab = 'videos'
-      }
-
-      if (this.hideChannelCommunity && currentTab === 'community') {
-        currentTab = 'videos'
-      }
-
-      this.currentTab = currentTab
+      this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
 
       if (this.id === '@@@') {
         this.showShareMenu = false
@@ -378,25 +374,7 @@ export default defineComponent({
 
     this.id = this.$route.params.id
 
-    let currentTab = this.$route.params.currentTab ?? 'videos'
-
-    if (this.hideChannelShorts && currentTab === 'shorts') {
-      currentTab = 'videos'
-    }
-
-    if (this.hideLiveStreams && currentTab === 'live') {
-      currentTab = 'videos'
-    }
-
-    if (this.hideChannelPlaylists && currentTab === 'playlists') {
-      currentTab = 'videos'
-    }
-
-    if (this.hideChannelCommunity && currentTab === 'community') {
-      currentTab = 'videos'
-    }
-
-    this.currentTab = currentTab
+    this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
 
     if (this.id === '@@@') {
       this.showShareMenu = false
@@ -434,6 +412,14 @@ export default defineComponent({
       } else {
         this.$router.replace({ path: `/channel/${id}` })
       }
+    },
+
+    currentOrFirstTab: function (currentTab) {
+      if (this.tabInfoValues.includes(currentTab)) {
+        return currentTab
+      }
+
+      return this.tabInfoValues[0]
     },
 
     getChannelLocal: async function () {
@@ -559,7 +545,7 @@ export default defineComponent({
 
         document.title = `${channelName} - ${packageDetails.productName}`
 
-        if (!this.hideChannelSubscriptions && subscriberText) {
+        if (subscriberText) {
           const subCount = parseLocalSubscriberCount(subscriberText)
 
           if (isNaN(subCount)) {
@@ -687,7 +673,7 @@ export default defineComponent({
         this.showVideoSortBy = videosTab.filters.length > 1
 
         if (this.showVideoSortBy && this.videoSortBy !== 'newest') {
-          const index = this.videoShortLiveSelectValues.indexOf(this.videoSortBy)
+          const index = this.videoLiveSelectValues.indexOf(this.videoSortBy)
           videosTab = await videosTab.applyFilter(videosTab.filters[index])
         }
 
@@ -745,7 +731,7 @@ export default defineComponent({
         this.showShortSortBy = shortsTab.filters.length > 1
 
         if (this.showShortSortBy && this.shortSortBy !== 'newest') {
-          const index = this.videoShortLiveSelectValues.indexOf(this.shortSortBy)
+          const index = this.shortSelectValues.indexOf(this.shortSortBy)
           shortsTab = await shortsTab.applyFilter(shortsTab.filters[index])
         }
 
@@ -803,7 +789,7 @@ export default defineComponent({
         this.showLiveSortBy = liveTab.filters.length > 1
 
         if (this.showLiveSortBy && this.liveSortBy !== 'newest') {
-          const index = this.videoShortLiveSelectValues.indexOf(this.liveSortBy)
+          const index = this.videoLiveSelectValues.indexOf(this.liveSortBy)
           liveTab = await liveTab.applyFilter(liveTab.filters[index])
         }
 
@@ -864,11 +850,7 @@ export default defineComponent({
         document.title = `${this.channelName} - ${packageDetails.productName}`
         this.id = channelId
         this.isFamilyFriendly = response.isFamilyFriendly
-        if (this.hideChannelSubscriptions) {
-          this.subCount = null
-        } else {
-          this.subCount = response.subCount
-        }
+        this.subCount = response.subCount
         const thumbnail = response.authorThumbnails[3].url
         this.thumbnailUrl = youtubeImageUrlToInvidious(thumbnail, this.currentInvidiousInstance)
         this.updateSubscriptionDetails({ channelThumbnailUrl: thumbnail, channelName: channelName, channelId: channelId })
@@ -1399,21 +1381,13 @@ export default defineComponent({
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
           const tabNode = document.getElementById(`${tab}Tab`)
-          event.target.setAttribute('tabindex', '-1')
-          tabNode.setAttribute('tabindex', 0)
           tabNode.focus({ focusVisible: true })
           return
         }
       }
 
-      // `currentTabNode` can be `null` on 2nd+ search
-      const currentTabNode = document.querySelector('.tabs > .tab[aria-selected="true"]')
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
-      document.querySelector('.tabs > .tab[tabindex="0"]')?.setAttribute('tabindex', '-1')
-      newTabNode?.setAttribute('tabindex', '0')
-      currentTabNode?.setAttribute('aria-selected', 'false')
-      newTabNode?.setAttribute('aria-selected', 'true')
       this.currentTab = tab
       newTabNode?.focus({ focusVisible: true })
     },

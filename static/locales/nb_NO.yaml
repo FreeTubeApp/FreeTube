@@ -814,7 +814,7 @@ Tooltips:
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en tilbakefallsmetode
       dersom det er aktivert.
     Region for Trending: Trendregionen lar deg enkelt velge hvilkets lands populære
-      videoer du ønsker å vise. Ikke alle land som vises støttes av YouTube.
+      videoer du ønsker å vise.
     Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.

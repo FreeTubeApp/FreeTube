@@ -1,5 +1,6 @@
 import fs from 'fs/promises'
 import { pathExists } from '../../helpers/filesystem'
+import { createWebURL } from '../../helpers/utils'
 
 const state = {
   currentInvidiousInstance: '',
@@ -41,9 +42,10 @@ const actions = {
       const fileName = 'invidious-instances.json'
       /* eslint-disable-next-line n/no-path-concat */
       const fileLocation = process.env.NODE_ENV === 'development' ? './static/' : `${__dirname}/static/`
-      if (await pathExists(`${fileLocation}${fileName}`)) {
+      const filePath = `${fileLocation}${fileName}`
+      if (!process.env.IS_ELECTRON || await pathExists(filePath)) {
         console.warn('reading static file for invidious instances')
-        const fileData = await fs.readFile(`${fileLocation}${fileName}`)
+        const fileData = process.env.IS_ELECTRON ? await fs.readFile(filePath, 'utf8') : await (await fetch(createWebURL(filePath))).text()
         instances = JSON.parse(fileData).filter(e => {
           return process.env.IS_ELECTRON || e.cors
         }).map(e => {

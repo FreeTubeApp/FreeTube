@@ -406,7 +406,7 @@ export function createWebURL(path) {
 
 // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
-  return value.replaceAll(/(<(?!br|\/?[bis]>)([^>]+)>)/gi, '')
+  return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
 }
 
 /**
@@ -645,4 +645,17 @@ export function getTodayDateStrLocalTimezone() {
   // e.g. 2011-10-05T14:48:00.000Z
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
   return timeNowStr.split('T')[0]
+}
+
+/**
+ * Escapes HTML tags to avoid XSS
+ * @param {string} untrusted
+ * @returns {string}
+ */
+export function escapeHTML(untrusted) {
+  return untrusted.replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('\'', '&apos;')
 }

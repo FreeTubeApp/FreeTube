@@ -409,9 +409,14 @@ Settings:
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
       uso eccessivo di maiuscole
     Hide Featured Channels: Nascondi i canali in evidenza
-    Hide Channel Playlists: Nascondi le playlist dei canali
+    Hide Channel Playlists: Nascondi le playlist del canale
     Hide Channel Community: Nascondi la comunità del canale
     Hide Channel Shorts: Nascondi i video brevi del canale
+    Sections:
+      General: Generale
+      Watch Page: Pagina di visualizzazione
+      Side Bar: Barra laterale
+      Channel Page: Pagina del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -934,8 +939,7 @@ Tooltips:
       dati. Le API locali sono integrate nel programma. Le API Invidious richiedono
       un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione
-      di cui si vogliono vedere i video di tendenza. Non tutte le nazioni mostrate
-      sono ufficialmente supportate da YouTube.
+      di cui si vogliono vedere i video di tendenza.
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic
       su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita,
       FreeTube aprirà il link cliccato nel browser predefinito.\n"

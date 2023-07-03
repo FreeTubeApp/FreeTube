@@ -244,9 +244,9 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
     Scroll Volume Over Video Player: Прокрутка громкости поверх видеопроигрывателя
-    Next Video Interval: Промежуток к переходу на следующее видео
+    Next Video Interval: Шаг перехода на следующее видео
     Display Play Button In Video Player: Отображать кнопку воспроизведения в видеопроигрывателе
-    Fast-Forward / Rewind Interval: Промежуток перемотки вперёд/назад
+    Fast-Forward / Rewind Interval: Шаг перемотки вперёд/назад
     Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх
       видеопроигрывателя
     Max Video Playback Rate: Предельная скорость воспроизведения
@@ -265,7 +265,7 @@ Settings:
       File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M
         Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды
         2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео
-        3 цифры. %i Идентификатор видео. Вы также можете использовать "\" или "/"
+        3 цифры. %i Идентификатор видео. Вы также можете использовать «\» или «/»
         для создания подпапок.
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте
       дисплея
@@ -383,7 +383,7 @@ Settings:
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть видео в тренде
     Hide Recommended Videos: Скрыть рекомендуемые видео
-    Distraction Free Settings: Настройки причин отвлечения внимания
+    Distraction Free Settings: Отвлекающие части интерфейса
     Hide Comment Likes: Скрыть лайки в комментариях
     Hide Channel Subscribers: Скрыть подписчиков канала
     Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
@@ -404,6 +404,11 @@ Settings:
     Hide Channel Playlists: Скрыть подборки канала
     Hide Channel Community: Скрыть сообщество канала
     Hide Channel Shorts: Скрыть короткие видео канала
+    Sections:
+      Side Bar: Боковая полоса
+      Channel Page: Страница канала
+      Watch Page: Страница просмотра
+      General: Основные
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -411,7 +416,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка
       при получении информации о сети. Правильно ли настроен ваш прокси-сервер?
     Your Info: Ваша информация
-    Clicking on Test Proxy will send a request to: Нажмите "Протестировать прокси",
+    Clicking on Test Proxy will send a request to: Нажмите «Протестировать прокси»,
       чтобы отправить запрос на
     Test Proxy: Протестировать прокси
     Proxy Port Number: Порт прокси-сервера
@@ -424,7 +429,7 @@ Settings:
     Enable Tor / Proxy: Включить Tor/Прокси
     Proxy Settings: Прокси
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Уведомлять о пропущенном отрезке спонсора
+    Notify when sponsor segment is skipped: Уведомлять о пропущенном сегменте
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
@@ -433,7 +438,7 @@ Settings:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
       Auto Skip: Автопропуск
-      Show In Seek Bar: Показать на панели
+      Show In Seek Bar: Показать сегмент
       Do Nothing: Ничего не делать
     Category Color: Цвет категории
   External Player Settings:
@@ -579,9 +584,9 @@ Channel:
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
   Live:
-    Live: Прямой показ
+    Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее
-      время нет прямых показов
+      время нет прямых трансляций
   Shorts:
     Shorts: Короткие видео
     This channel does not currently have any shorts: На этом канале пока что нет коротких
@@ -605,18 +610,18 @@ Video:
   Watched: 'Просмотрено'
   # As in a Live Video
   Live: 'Трансляция'
-  Live Now: 'Прямой эфир'
+  Live Now: 'Трансляция'
   Live Chat: 'Чат трансляции'
   Enable Live Chat: 'Включить чат трансляции'
   Live Chat is currently not supported in this build.: 'В настоящее время чат трансляции
     в этой версии не поддерживается.'
-  'Chat is disabled or the Live Stream has ended.': 'Чат отключен или прямая трансляция
-    закончилась.'
+  'Chat is disabled or the Live Stream has ended.': 'Чат отключён или прямая трансляция
+    завершена.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чат трансляции
-    включен. Сообщения чата будут отображаться здесь после отправки.'
+    включён. Сообщения чата будут отображаться здесь после отправки.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
-    трансляции в настоящее время не поддерживается набором функций Invidious. Требуется
-    прямое подключение к YouTube.'
+    трансляции в настоящее время не поддерживается Invidious API. Требуется прямое
+    подключение к YouTube.'
   Published:
     Jan: 'Янв'
     Feb: 'Фев'
@@ -679,13 +684,13 @@ Video:
   translated from English: переведён с английского
   Sponsor Block category:
     music offtopic: Сегмент без музыки
-    interaction: Напоминание о подписке (взаимодействие)
+    interaction: Напоминание
     self-promotion: Самореклама
     outro: Концовка
     intro: Вступление
-    sponsor: Покровитель
+    sponsor: Спонсор
     recap: Краткое содержание
-    filler: Наполнитель
+    filler: Отвлечение
   Skipped segment: Пропущенный сегмент
   External Player:
     Unsupported Actions:
@@ -728,8 +733,8 @@ Video:
   Show Super Chat Comment: Показать комментарий «Супер Чата»
   Scroll to Bottom: Прокрутите вниз
   Upcoming: Предстоящее
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Прямой
-    чат недоступен для этого показа. Возможно, он был отключён загрузчиком.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
+    прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
 Videos:
   #& Sort By
   Sort By:
@@ -893,14 +898,14 @@ Tooltips:
       получения данных. Локальный набор функций — это встроенный экстрактор. Набор
       функций Invidious требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться
-      трендовые видео. Не все отображаемые страны поддерживаются YouTube.
+      трендовые видео.
     External Link Handling: "Выберите действие при нажатии на ссылку, которая не может
       быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере
       по умолчанию.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу
       ленту подписок с помощью RSS, а не как обычно. RSS работает быстрее и предотвращает
-      блокировку IP, но не предоставляет определенную информацию, такую как продолжительность
+      блокировку IP, но не предоставляет определённую информацию, такую как продолжительность
       видео или сведения о том, транслируется ли видео в настоящем времени
     Fetch Automatically: Если эта функция включена, FreeTube автоматически будет получать
       ленту ваших подписок как при открытии нового окна, так при переключении профиля.
@@ -914,7 +919,7 @@ Tooltips:
     Force Local Backend for Legacy Formats: Работает, только если по умолчанию используется
       набор функций Invidious. Если эта настройка включена, локальный набор функций
       будет работать и использовать устаревшие форматы вместо форматов Invidious.
-      Помогает, когда видео, возвращенные Invidious, не воспроизводятся из-за ограничений
+      Помогает, когда видео, возвращённые Invidious, не воспроизводятся из-за ограничений
       страны.
     Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео,
       нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите
@@ -936,7 +941,7 @@ Tooltips:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки,
       разделенные точкой с запятой (';'), которые вы хотите передать внешнему проигрывателю.
     Ignore Warnings: Скрыть предупреждения, когда текущий внешний проигрыватель не
-      поддерживает текущее действие (например, обратный порядок подборок и др.).
+      поддерживает текущее действие (например, обратный порядок подборок и другие).
     Custom External Player Executable: По умолчанию FreeTube будет считать, что выбранный
       внешний проигрыватель можно найти через переменную окружения PATH. При необходимости
       здесь можно задать собственный путь.
@@ -946,7 +951,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский
-      кэш изображений в памяти. Приведет к увеличению использования оперативной памяти.
+      кэш изображений в памяти. Приведёт к увеличению использования оперативной памяти.
   Distraction Free Settings:
     Hide Channels: Введите название канала или его идентификатор, чтобы скрыть все
       видео, подборки и сам канал от показа в поиске или трендах. Введённое название
@@ -990,7 +995,7 @@ Channels:
   Search bar placeholder: Поиск каналов
   Unsubscribe: Отписаться
   Unsubscribed: '{channelName} был удалён из ваших подписок'
-  Unsubscribe Prompt: Вы уверены, что хотите отписаться от "{channelName}"?
+  Unsubscribe Prompt: Вы уверены, что хотите отписаться от «{channelName}»?
 Clipboard:
   Copy failed: Не удалось скопировать в буфер обмена
   Cannot access clipboard without a secure connection: Невозможно получить доступ

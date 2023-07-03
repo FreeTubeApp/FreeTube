@@ -406,7 +406,12 @@ Settings:
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на плейлистите на каналите
     Hide Channel Community: Скриване на общността на каналите
-    Hide Channel Shorts: Скриване на късите видеа на канала
+    Hide Channel Shorts: Скриване кратките видеа на канала
+    Sections:
+      Channel Page: Страница на канала
+      Side Bar: Странична лента
+      Watch Page: Страница за гледане
+      General: Общи
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -632,8 +637,8 @@ Channel:
       никакви потоци на живо
   Shorts:
     This channel does not currently have any shorts: В момента този канал няма никакви
-      къси видеа
-    Shorts: Къси видеа
+      кратки видеа
+    Shorts: Кратки видеа
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
@@ -907,8 +912,7 @@ Tooltips:
       вместо тях.
   General Settings:
     Region for Trending: Регионът на набиращите популярност дава възможност да се
-      избере страната, за която това се отнася. Не всички страни показани тук се поддържат
-      от YouTube.
+      избере страната, за която това се отнася.
     Invidious Instance: Сървър на Invidious, към който FreeTube ще се свързва.
     Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър
       от клипа вместо тези по подразбиране.

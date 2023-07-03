@@ -27,6 +27,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    playlistThumbnail: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -130,7 +134,7 @@ export default defineComponent({
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
       } else {
-        baseUrl = 'https://i.ytimg.com'
+        return this.data.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {

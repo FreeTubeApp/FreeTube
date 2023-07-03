@@ -169,14 +169,16 @@
       />
     </ft-flex-box>
     <br>
-    <ft-flex-box>
+    <ft-flex-box
+      v-if="usingElectron"
+    >
       <ft-toggle-switch
         :label="$t('Settings.Player Settings.Screenshot.Enable')"
         :default-value="enableScreenshot"
         @change="updateEnableScreenshot"
       />
     </ft-flex-box>
-    <div v-if="enableScreenshot">
+    <div v-if="usingElectron && enableScreenshot">
       <ft-flex-box>
         <ft-select
           :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"
@@ -204,7 +206,7 @@
         />
       </ft-flex-box>
       <ft-flex-box
-        v-if="!screenshotAskPath"
+        v-if="usingElectron && !screenshotAskPath"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFolderLabel">
@@ -223,7 +225,10 @@
           @click="chooseScreenshotFolder"
         />
       </ft-flex-box>
-      <ft-flex-box class="screenshotFolderContainer">
+      <ft-flex-box
+        v-if="usingElectron"
+        class="screenshotFolderContainer"
+      >
         <p class="screenshotFilenamePatternTitle">
           {{ $t('Settings.Player Settings.Screenshot.File Name Label') }}
           <ft-tooltip

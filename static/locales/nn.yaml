@@ -767,7 +767,7 @@ Tooltips:
       bilete av videoen i staden for standardminiatyrbiletet'
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.'
     Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar
-      du ynskjer å vise. Ikkje alle land som visast støttast av YouTube.'
+      du ynskjer å vise.'
     External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke,\
       \ som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i\
       \ din standardnettlesar.\n"

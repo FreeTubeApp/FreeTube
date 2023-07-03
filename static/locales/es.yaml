@@ -403,6 +403,11 @@ Settings:
     Hide Channel Playlists: Ocultar las listas de reproducción de los canales
     Hide Channel Community: Ocultar los canal de la comunidad
     Hide Channel Shorts: Ocultar los canales de vídeos cortos
+    Sections:
+      Side Bar: Barra lateral
+      Channel Page: Página del canal
+      Watch Page: Ver la página
+      General: General
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -914,7 +919,7 @@ Tooltips:
       los formatos DASH H.264 en su lugar.
   General Settings:
     Region for Trending: La región de las tendencias permite ver los vídeos más populares
-      en un país determinado. YouTube no admite todos los países mostrados.
+      en un país determinado.
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
       conectará para las llamadas a la API.
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un

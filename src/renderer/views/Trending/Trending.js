@@ -103,7 +103,7 @@ export default defineComponent({
 
         this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
         setTimeout(() => {
-          this.$refs[this.currentTab].focus()
+          this.$refs[this.currentTab]?.focus()
         })
       } catch (err) {
         console.error(err)
@@ -149,7 +149,7 @@ export default defineComponent({
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
         setTimeout(() => {
-          this.$refs[this.currentTab].focus()
+          this.$refs[this.currentTab]?.focus()
         })
       }).catch((err) => {
         console.error(err)
@@ -167,11 +167,18 @@ export default defineComponent({
       })
     },
 
-    // This function should always be at the bottom of this file
+    /**
+     * This function `keyboardShortcutHandler` should always be at the bottom of this file
+     * @param {KeyboardEvent} event the keyboard event
+     */
     keyboardShortcutHandler: function (event) {
       if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
         return
       }
+      // Avoid handling events due to user holding a key (not released)
+      // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
+      if (event.repeat) { return }
+
       switch (event.key) {
         case 'r':
         case 'R':

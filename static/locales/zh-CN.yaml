@@ -368,6 +368,11 @@ Settings:
     Hide Channel Playlists: 隐藏频道播放列表
     Hide Channel Community: 隐藏频道社区
     Hide Channel Shorts: 隐藏频道短视频
+    Sections:
+      Side Bar: 侧边栏
+      Channel Page: 频道页
+      Watch Page: 观看页
+      General: 常规
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -818,7 +823,7 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 当您的首选API有问题时，FreeTube将自动尝试使用您的非首选API
       作为后备方案。
     Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
-    Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
+    Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。
     External Link Handling: "选择单击一个无法在 FreeTube 中打开的链接时触发的默认操作。\n默认情况下，FreeTube 将在您的默认浏览器中打开所点击链接。\n"
   External Player Settings:
     External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。警告，Invidious 设置不影响外部播放器。
@@ -839,7 +844,7 @@ Search Bar:
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
-Hashtags have not yet been implemented, try again later: 哈希标签功能尚未实现，请稍后再试
+Hashtags have not yet been implemented, try again later: 话题标签功能尚未实现，请稍后再试
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
@@ -877,5 +882,5 @@ Chapters:
 Preferences: 选项
 Ok: 好
 Hashtag:
-  Hashtag: 标签
-  This hashtag does not currently have any videos: 此标签下当前没有任何短视频
+  Hashtag: 话题标签
+  This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频

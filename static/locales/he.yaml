@@ -393,6 +393,11 @@ Settings:
     Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
     Hide Channel Community: הסתרת קהילת הערוץ
     Hide Channel Shorts: הסתרת ה־Shorts של הערוץ
+    Sections:
+      Watch Page: עמוד הצפייה
+      Channel Page: עמוד ערוץ
+      Side Bar: סרגל צד
+      General: כללי
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -854,8 +859,6 @@ Tooltips:
       האפשרות פעילה.
     Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
-    Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
-      אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.

@@ -48,13 +48,7 @@ export default defineComponent({
     },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
-    }
-  },
-  methods: {
-    onVisibilityChanged: function (visible) {
-      this.visible = visible
     },
-
     /**
      *  Show or Hide results in the list
      *
@@ -70,10 +64,9 @@ export default defineComponent({
           // hide livestreams
           return false
         }
-
         if (this.hideUpcomingPremieres &&
             // Observed for premieres in Local API Channels.
-            (data.durationText === 'PREMIERE' ||
+            (data.premiereDate != null ||
              // viewCount is our only method of detecting premieres in RSS
              // data without sending an additional request.
              // If we ever get a better flag, use it here instead.
@@ -97,6 +90,11 @@ export default defineComponent({
         }
       }
       return true
+    }
+  },
+  methods: {
+    onVisibilityChanged: function (visible) {
+      this.visible = visible
     }
 
   }

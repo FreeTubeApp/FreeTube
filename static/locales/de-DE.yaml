@@ -411,6 +411,11 @@ Settings:
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
     Hide Channel Shorts: Shorts des jeweiligen Kanals ausblenden
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
+    Sections:
+      Side Bar: Seitenleiste
+      Channel Page: Kanalseite
+      General: Allgemein
+      Watch Page: Seite beobachten
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -913,8 +918,7 @@ Tooltips:
       nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious-API
       dagegen verwendet einen externen Server.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
-      die Trends angezeigt werden sollen. Nicht alle Optionen werden auch von YouTube
-      unterstützt.
+      die Trends angezeigt werden sollen.
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
       wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
       den angeklickten Link in deinem Standardbrowser öffnen.\n"

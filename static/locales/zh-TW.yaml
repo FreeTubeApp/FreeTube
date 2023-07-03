@@ -370,6 +370,11 @@ Settings:
     Hide Channel Playlists: 隱藏頻道播放清單
     Hide Channel Community: 隱藏頻道社群
     Hide Channel Shorts: 隱藏頻道短片
+    Sections:
+      Side Bar: 側邊欄
+      Watch Page: 觀看頁面
+      General: 一般
+      Channel Page: 頻道頁面
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -830,7 +835,7 @@ Tooltips:
       API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
-    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
+    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。

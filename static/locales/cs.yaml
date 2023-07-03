@@ -329,6 +329,11 @@ Settings:
     Hide Channel Playlists: Skrýt playlisty kanálu
     Hide Channel Community: Skrýt komunitu kanálu
     Hide Channel Shorts: Skrýt Shorts kanálu
+    Sections:
+      Side Bar: Postranní lišta
+      Channel Page: Stránka kanálu
+      Watch Page: Stránka sledování
+      General: Obecné
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -847,8 +852,7 @@ Tooltips:
     Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem
       volání API.'
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si
-      přejete zobrazovat videa v trendech. Ne všechny zobrazené země jsou ale službou
-      YouTube opravdu podporovány.'
+      přejete zobrazovat videa v trendech.'
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze
       otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím
       prohlížeči.\n"
@@ -949,7 +953,7 @@ Age Restricted:
   This {videoOrPlaylist} is age restricted: Toto {videoOrPlaylist} je omezeno věkem
   Type:
     Channel: kanál
-    Video: video
+    Video: Video
 Channels:
   Channels: Kanály
   Title: Seznam kanálů

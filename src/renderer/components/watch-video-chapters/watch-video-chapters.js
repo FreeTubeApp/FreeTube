@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 
 export default defineComponent({
@@ -23,8 +23,12 @@ export default defineComponent({
     }
   },
   computed: {
+    currentChapter: function () {
+      return this.chapters[this.currentIndex]
+    },
+
     currentTitle: function () {
-      return this.chapters[this.currentIndex].title
+      return this.currentChapter.title
     },
 
     compact: function () {
@@ -67,6 +71,23 @@ export default defineComponent({
       }
 
       chapterElements[newIndex].focus()
-    }
+    },
+
+    toggleShowChapters() {
+      this.showChapters = !this.showChapters
+
+      if (this.showChapters) { this.scrollToCurrentChapter() }
+    },
+
+    scrollToCurrentChapter() {
+      const container = this.$refs.chaptersWrapper
+      const currentChaptersItem = (this.$refs.currentChaptersItem || [])[0]
+      // Must wait until rendering done after value change
+      nextTick(() => {
+        if (container != null && currentChaptersItem != null) {
+          container.scrollTop = currentChaptersItem.offsetTop - container.offsetTop
+        }
+      })
+    },
   }
 })

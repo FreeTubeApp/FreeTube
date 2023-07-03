@@ -9,6 +9,7 @@
       v-if="!isLoading"
       :id="playlistId"
       :first-video-id="firstVideoId"
+      :playlist-thumbnail="playlistThumbnail"
       :title="playlistTitle"
       :channel-name="channelName"
       :channel-thumbnail="channelThumbnail"

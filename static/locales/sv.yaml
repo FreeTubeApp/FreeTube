@@ -863,7 +863,7 @@ Tooltips:
       till standardhastighet (1x såvida det inte ändrats i spelarinställningar).
   General Settings:
     Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor
-      du vill ska visas. Inte alla länder som visas stöds faktiskt av YouTube.
+      du vill ska visas.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för
       API-anrop.
     Thumbnail Preference: Alla miniatyrer i hela FreeTube kommer att ersättas med

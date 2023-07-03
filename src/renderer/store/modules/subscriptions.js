@@ -1,39 +1,41 @@
-import { MAIN_PROFILE_ID } from '../../../constants'
+const defaultCacheEntryValueForForOneChannel = {
+  videos: null,
+}
+
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj))
+}
 
 const state = {
-  allSubscriptionsList: [],
-  profileSubscriptions: {
-    activeProfile: MAIN_PROFILE_ID,
-    videoList: [],
-    errorChannels: []
-  }
+  subscriptionsCachePerChannel: {},
 }
 
 const getters = {
-  getAllSubscriptionsList: () => {
-    return state.allSubscriptionsList
+  getSubscriptionsCacheEntriesForOneChannel: (state) => (channelId) => {
+    return state.subscriptionsCachePerChannel[channelId]
   },
-  getProfileSubscriptions: () => {
-    return state.profileSubscriptions
-  }
 }
 
 const actions = {
-  updateAllSubscriptionsList ({ commit }, subscriptions) {
-    commit('setAllSubscriptionsList', subscriptions)
+  clearSubscriptionsCache: ({ commit }) => {
+    commit('clearSubscriptionsCachePerChannel')
   },
-  updateProfileSubscriptions ({ commit }, subscriptions) {
-    commit('setProfileSubscriptions', subscriptions)
-  }
+
+  updateSubscriptionsCacheForOneChannel: ({ commit }, payload) => {
+    commit('updateSubscriptionsCacheForOneChannel', payload)
+  },
 }
 
 const mutations = {
-  setAllSubscriptionsList (state, allSubscriptionsList) {
-    state.allSubscriptionsList = allSubscriptionsList
+  updateSubscriptionsCacheForOneChannel(state, { channelId, videos }) {
+    const existingObject = state.subscriptionsCachePerChannel[channelId]
+    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    if (videos != null) { newObject.videos = videos }
+    state.subscriptionsCachePerChannel[channelId] = newObject
   },
-  setProfileSubscriptions (state, profileSubscriptions) {
-    state.profileSubscriptions = profileSubscriptions
-  }
+  clearSubscriptionsCachePerChannel(state) {
+    state.subscriptionsCachePerChannel = {}
+  },
 }
 
 export default {

@@ -411,6 +411,11 @@ Settings:
     Hide Channel Playlists: Hide channel playlists
     Hide Channel Community: Hide channel community
     Hide Channel Shorts: Hide channel shorts
+    Sections:
+      Side Bar: Side Bar
+      General: General
+      Channel Page: Channel Page
+      Watch Page: Watch Page
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -879,8 +884,7 @@ Tooltips:
       videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
-      videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube.
+      videos you want to have displayed.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with

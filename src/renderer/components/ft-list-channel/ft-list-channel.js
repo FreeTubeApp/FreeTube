@@ -53,11 +53,8 @@ export default defineComponent({
 
       this.channelName = this.data.name
       this.id = this.data.id
-      if (this.hideChannelSubscriptions || this.data.subscribers == null) {
-        this.subscriberCount = null
-      } else {
-        this.subscriberCount = this.data.subscribers.replace(/ subscriber(s)?/, '')
-      }
+      this.subscriberCount = this.data.subscribers != null ? this.data.subscribers.replace(/ subscriber(s)?/, '') : null
+
       if (this.data.videos === null) {
         this.videoCount = 0
       } else {
@@ -79,11 +76,7 @@ export default defineComponent({
 
       this.channelName = this.data.author
       this.id = this.data.authorId
-      if (this.hideChannelSubscriptions) {
-        this.subscriberCount = null
-      } else {
-        this.subscriberCount = formatNumber(this.data.subCount)
-      }
+      this.subscriberCount = formatNumber(this.data.subCount)
       this.videoCount = formatNumber(this.data.videoCount)
       this.description = this.data.description
     }
