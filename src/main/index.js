@@ -11,6 +11,8 @@ import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
 
+import packageDetails from '../../package.json'
+
 if (process.argv.includes('--version')) {
   app.exit()
 } else {
@@ -263,6 +265,12 @@ function runApp() {
       })
     }
 
+    const fixedUserAgent = session.defaultSession.getUserAgent()
+      .split(' ')
+      .filter(part => !part.includes('Electron') && !part.includes(packageDetails.productName))
+      .join(' ')
+    session.defaultSession.setUserAgent(fixedUserAgent)
+
     // Set CONSENT cookie on reasonable domains
     const consentCookieDomains = [
       'https://www.youtube.com',
@@ -279,10 +287,19 @@ function runApp() {
 
     // make InnerTube requests work with the fetch function
     // InnerTube rejects requests if the referer isn't YouTube or empty
-    const innertubeRequestFilter = { urls: ['https://www.youtube.com/youtubei/*'] }
+    const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
 
-    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeRequestFilter, ({ requestHeaders }, callback) => {
-      requestHeaders.referer = 'https://www.youtube.com'
+    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeAndMediaRequestFilter, ({ requestHeaders, url }, callback) => {
+      requestHeaders.Referer = 'https://www.youtube.com/'
+      requestHeaders.Origin = 'https://www.youtube.com'
+
+      if (url.startsWith('https://www.youtube.com/youtubei/')) {
+        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+      } else {
+        // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
+        delete requestHeaders['Content-Type']
+      }
+
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
