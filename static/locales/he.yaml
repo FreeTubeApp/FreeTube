@@ -438,6 +438,7 @@ Settings:
       Do Nothing: לא לעשות כלום
       Prompt To Skip: לשאול אם לדלג
     Category Color: צבע קטגוריה
+    UseDeArrowTitles: להשתמש בכותרות סרטונים דרך DeArrow
   Download Settings:
     Download Settings: הגדרות הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
@@ -914,6 +915,8 @@ Tooltips:
     Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה
       ואת הערוץ עצמו כך שלא יופיע בחיפוש או במובילים. שם הערוץ שמילאת צריך להיות תואם
       במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
+  SponsorBlock Settings:
+    UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
 More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
