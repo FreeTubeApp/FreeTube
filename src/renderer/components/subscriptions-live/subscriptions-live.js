@@ -213,6 +213,28 @@ export default defineComponent({
     updateVideoListAfterProcessing(videoList) {
       // Filtering and sorting based in preference
       videoList.sort((a, b) => {
+        if (b.liveNow) {
+          return 1
+        }
+
+        if (a.liveNow) {
+          return -1
+        }
+
+        if (b.premiereDate && a.premiereDate) {
+          return b.premiereDate - a.premiereDate
+        }
+
+        if (b.premiereDate && !a.premiereDate) {
+          return 1
+        }
+
+        if (!b.premiereDate && a.premiereDate) {
+          return -1
+        }
+
+        const aDate = a.publishedText || a.publishedDate || a.premiereDate
+        const bDate = b.publishedText || b.publishedDate || b.premiereDate
         if (typeof a.publishedDate === 'undefined' || b.publishedDate === 'undefined') {
           return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
         } else {
@@ -264,14 +286,19 @@ export default defineComponent({
     getChannelLiveLocal: async function (channel, failedAttempts = 0) {
       try {
         const channelInstance = await getLocalChannel(channel.id)
-        const liveTab = await channelInstance.getLiveStreams()
 
-        if (liveTab.videos === null) {
-          this.errorChannels.push(channel)
+        if (channelInstance.has_live_streams) {
+          const liveTab = await channelInstance.getLiveStreams()
+
+          if (liveTab.videos === null) {
+            this.errorChannels.push(channel)
+            return []
+          }
+
+          return parseLocalChannelVideos(liveTab.videos, channelInstance.header.author)
+        } else {
           return []
         }
-
-        return parseLocalChannelVideos(liveTab.videos, channelInstance.header.author)
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -304,7 +331,6 @@ export default defineComponent({
         const response = await fetch(feedUrl)
 
         if (response.status === 404) {
-          this.errorChannels.push(channel)
           return []
         }
 
@@ -389,7 +415,6 @@ export default defineComponent({
         const response = await fetch(feedUrl)
 
         if (response.status === 500) {
-          this.errorChannels.push(channel)
           return []
         }
 
@@ -406,7 +431,7 @@ export default defineComponent({
           case 1:
             if (process.env.IS_ELECTRON && this.backendFallback) {
               showToast(this.$t('Falling back to the local API'))
-              return this.getChannelLiveLocal(channel, failedAttempts + 1)
+              return this.getChannelLiveLocalRSS(channel, failedAttempts + 1)
             } else {
               return []
             }
@@ -419,18 +444,21 @@ export default defineComponent({
     },
 
     async parseYouTubeRSSFeed(rssString, channelId) {
-      const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
+      try {
+        const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
+        const channelName = xmlDom.querySelector('author > name').textContent
+        const entries = xmlDom.querySelectorAll('entry')
 
-      const channelName = xmlDom.querySelector('author > name').textContent
-      const entries = xmlDom.querySelectorAll('entry')
+        const promises = []
 
-      const promises = []
+        for (const entry of entries) {
+          promises.push(this.parseRSSEntry(entry, channelId, channelName))
+        }
 
-      for (const entry of entries) {
-        promises.push(this.parseRSSEntry(entry, channelId, channelName))
+        return await Promise.all(promises)
+      } catch (e) {
+        return []
       }
-
-      return await Promise.all(promises)
     },
 
     async parseRSSEntry(entry, channelId, channelName) {

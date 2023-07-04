@@ -243,7 +243,6 @@ export default defineComponent({
         const response = await fetch(feedUrl)
 
         if (response.status === 404) {
-          this.errorChannels.push(channel)
           return []
         }
 
@@ -276,7 +275,6 @@ export default defineComponent({
         const response = await fetch(feedUrl)
 
         if (response.status === 500) {
-          this.errorChannels.push(channel)
           return []
         }
 
@@ -302,18 +300,21 @@ export default defineComponent({
     },
 
     async parseYouTubeRSSFeed(rssString, channelId) {
-      const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
+      try {
+        const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
+        const channelName = xmlDom.querySelector('author > name').textContent
+        const entries = xmlDom.querySelectorAll('entry')
 
-      const channelName = xmlDom.querySelector('author > name').textContent
-      const entries = xmlDom.querySelectorAll('entry')
+        const promises = []
 
-      const promises = []
+        for (const entry of entries) {
+          promises.push(this.parseRSSEntry(entry, channelId, channelName))
+        }
 
-      for (const entry of entries) {
-        promises.push(this.parseRSSEntry(entry, channelId, channelName))
+        return await Promise.all(promises)
+      } catch (e) {
+        return []
       }
-
-      return await Promise.all(promises)
     },
 
     async parseRSSEntry(entry, channelId, channelName) {
