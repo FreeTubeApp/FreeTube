@@ -403,6 +403,7 @@ Settings:
       Prompt To Skip: 提示略過
       Do Nothing: 不要做任何事
     Category Color: 分類色彩
+    UseDeArrowTitles: 使用 DeArrow 影片標題
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -850,6 +851,8 @@ Tooltips:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
   Distraction Free Settings:
     Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋或趨勢中。輸入的頻道名稱必須完全符合，且區分大小寫。
+  SponsorBlock Settings:
+    UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
