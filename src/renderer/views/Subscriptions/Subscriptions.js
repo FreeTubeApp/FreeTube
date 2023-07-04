@@ -21,6 +21,17 @@ export default defineComponent({
       currentTab: 'videos'
     }
   },
+  watch: {
+    currentTab(value) {
+      // Save last used tab, restore when view mounted again
+      sessionStorage.setItem('Subscriptions/currentTab', value)
+    },
+  },
+  mounted: async function () {
+    // Restore currentTab
+    const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
+    if (lastCurrentTabId !== null) { this.changeTab(lastCurrentTabId) }
+  },
   methods: {
     changeTab: function (tab) {
       if (tab === this.currentTab) {
