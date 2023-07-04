@@ -38,11 +38,19 @@ export default defineComponent({
     },
     sponsorBlockShowSkippedToast: function () {
       return this.$store.getters.getSponsorBlockShowSkippedToast
+    },
+
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
     }
   },
   methods: {
     handleUpdateSponsorBlock: function (value) {
       this.updateUseSponsorBlock(value)
+    },
+
+    handleUpdateUseDeArrowTitles: function (value) {
+      this.updateUseDeArrowTitles(value)
     },
 
     handleUpdateSponsorBlockUrl: function (value) {
@@ -58,7 +66,8 @@ export default defineComponent({
     ...mapActions([
       'updateUseSponsorBlock',
       'updateSponsorBlockUrl',
-      'updateSponsorBlockShowSkippedToast'
+      'updateSponsorBlockShowSkippedToast',
+      'updateUseDeArrowTitles'
     ])
   }
 })

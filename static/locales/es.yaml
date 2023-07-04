@@ -440,6 +440,7 @@ Settings:
       Skip Option: Omitir opción
       Auto Skip: Salto automático
       Prompt To Skip: Solicitar que se omita
+    UseDeArrowTitles: Utilizar los títulos para el vídeo de DeArrow
   External Player Settings:
     Custom External Player Arguments: Argumentos adicionales del reproductor
     Custom External Player Executable: Ruta alternativa del ejecutable del reproductor
@@ -958,6 +959,9 @@ Tooltips:
       listas de reproducción y el propio canal y evitar que aparezcan en las búsquedas
       o en las tendencias. El nombre del canal introducido debe coincidir completamente
       y distingue entre mayúsculas y minúsculas.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
+      los usuarios desde DeArrow.
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se
   puede abrir en la aplicación

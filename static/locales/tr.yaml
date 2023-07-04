@@ -442,6 +442,7 @@ Settings:
       Prompt To Skip: Atlamak İçin Sor
       Do Nothing: Hiçbir Şey Yapma
     Category Color: Kategori Rengi
+    UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -950,6 +951,9 @@ Tooltips:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama
       veya öne çıkanlarda görünmesini engellemek için bir kanal adı veya kanal kimliği
       girin. Girilen kanal adı tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
+      değiştir.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
