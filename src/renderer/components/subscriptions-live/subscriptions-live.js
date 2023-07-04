@@ -10,7 +10,7 @@ import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubbl
 
 import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { getLocalChannel, parseLocalChannelVideos } from '../../helpers/api/local'
+import { getLocalChannelLiveStreams } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'SubscriptionsLive',
@@ -283,20 +283,14 @@ export default defineComponent({
 
     getChannelLiveLocal: async function (channel, failedAttempts = 0) {
       try {
-        const channelInstance = await getLocalChannel(channel.id)
+        const entries = await getLocalChannelLiveStreams(channel.id)
 
-        if (channelInstance.has_live_streams) {
-          const liveTab = await channelInstance.getLiveStreams()
-
-          if (liveTab.videos === null) {
-            this.errorChannels.push(channel)
-            return []
-          }
-
-          return parseLocalChannelVideos(liveTab.videos, channelInstance.header.author)
-        } else {
+        if (entries === null) {
+          this.errorChannels.push(channel)
           return []
         }
+
+        return entries
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -367,7 +361,7 @@ export default defineComponent({
         }
 
         invidiousAPICall(subscriptionsPayload).then(async (result) => {
-          resolve(await Promise.all(result.videos.map((video) => {
+          resolve(await Promise.all(result.videos.filter(e => e.type === 'video').map((video) => {
             if (video.liveNow) {
               video.publishedDate = new Date().getTime()
             } else if (video.isUpcoming) {

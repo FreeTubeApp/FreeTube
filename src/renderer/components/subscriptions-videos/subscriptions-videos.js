@@ -303,7 +303,8 @@ export default defineComponent({
     },
 
     getChannelVideosLocalRSS: async function (channel, failedAttempts = 0) {
-      const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`
+      const playlistId = channel.id.replace('UC', 'UULF')
+      const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`
 
       try {
         const response = await fetch(feedUrl)
@@ -386,7 +387,8 @@ export default defineComponent({
     },
 
     getChannelVideosInvidiousRSS: async function (channel, failedAttempts = 0) {
-      const feedUrl = `${this.currentInvidiousInstance}/feed/channel/${channel.id}`
+      const playlistId = channel.id.replace('UC', 'UULF')
+      const feedUrl = `${this.currentInvidiousInstance}/feed/playlist/${playlistId}`
 
       try {
         const response = await fetch(feedUrl)
