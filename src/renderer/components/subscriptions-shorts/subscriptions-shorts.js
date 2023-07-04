@@ -8,8 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
-import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
-import { invidiousAPICall } from '../../helpers/api/invidious'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SubscriptionsShorts',

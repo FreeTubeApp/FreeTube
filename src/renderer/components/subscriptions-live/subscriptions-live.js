@@ -233,8 +233,6 @@ export default defineComponent({
           return -1
         }
 
-        const aDate = a.publishedText || a.publishedDate || a.premiereDate
-        const bDate = b.publishedText || b.publishedDate || b.premiereDate
         if (typeof a.publishedDate === 'undefined' || b.publishedDate === 'undefined') {
           return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
         } else {
