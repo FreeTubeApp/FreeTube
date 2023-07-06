@@ -451,6 +451,7 @@ Settings:
       Prompt To Skip: Chiedi di saltare
       Do Nothing: Non fare nulla
     Category Color: Colore della categoria
+    UseDeArrowTitles: Usa i titoli dei video DeArrow
   External Player Settings:
     Custom External Player Arguments: Argomenti del lettore esterno personalizzato
     Custom External Player Executable: File eseguibile del lettore esterno personalizzato
@@ -968,6 +969,9 @@ Tooltips:
       le playlist e il canale stesso dalla visualizzazione nelle ricerche o nelle
       tendenze. Il nome del canale inserito deve essere una corrispondenza completa
       e fa distinzione tra maiuscole e minuscole.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
+      da DeArrow.
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Clicca
   per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi.
   Clicca per annullare. | Riproduzione del video successivo tra {nextVideoInterval}

@@ -433,6 +433,7 @@ Settings:
       Skip Option: تخطي الخِيار
       Show In Seek Bar: إظهار في الشريط
       Do Nothing: لا تفعل شيئا
+    UseDeArrowTitles: استخدام عناوين فيديو DeArrow
   External Player Settings:
     External Player: المشغل الخارجي
     Custom External Player Arguments: وسيطات المشغل الخارجي المخصصة
@@ -926,6 +927,8 @@ Tooltips:
     Hide Channels: أدخل اسم القناة أو رقم تعريف القناة لإخفاء كل الفيديوهات وقوائم
       التشغيل والقناة نفسها من الظهور في "بحث Google" أو "المحتوى الرائج". يجب أن
       يكون اسم القناة الذي تم إدخاله مطابقا تماما وحساسا لحالة الأحرف.
+  SponsorBlock Settings:
+    UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
   الفيديو غير متاح الآن لعدم وجود ملفات فيديو . هذا قد يكون بسبب أن الفيديو غير متاح
   في بلدك.

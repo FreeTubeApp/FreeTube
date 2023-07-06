@@ -286,6 +286,7 @@ const state = {
   settingsPassword: '',
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
+  useDeArrowTitles: false,
 }
 
 const stateWithSideEffects = {

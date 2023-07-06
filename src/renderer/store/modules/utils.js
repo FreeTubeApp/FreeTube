@@ -27,6 +27,7 @@ const state = {
     movies: null
   },
   cachedPlaylist: null,
+  deArrowCache: {},
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
@@ -60,6 +61,10 @@ const getters = {
 
   getSessionSearchHistory () {
     return state.sessionSearchHistory
+  },
+
+  getDeArrowCache: (state) => (videoId) => {
+    return state.deArrowCache[videoId]
   },
 
   getPopularCache () {
@@ -659,21 +664,14 @@ const actions = {
           showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
         }
       }
-      if (cmdArgs.supportsYtdlProtocol) {
-        args.push(`${cmdArgs.playlistUrl}ytdl://${payload.playlistId}`)
-      } else {
-        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
-      }
+
+      args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
     } else {
       if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
         showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
       }
       if (payload.videoId != null) {
-        if (cmdArgs.supportsYtdlProtocol) {
-          args.push(`${cmdArgs.videoUrl}ytdl://${payload.videoId}`)
-        } else {
-          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
-        }
+        args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
       }
     }
 
@@ -703,6 +701,18 @@ const mutations = {
 
   setSessionSearchHistory (state, history) {
     state.sessionSearchHistory = history
+  },
+
+  setDeArrowCache (state, cache) {
+    state.deArrowCache = cache
+  },
+
+  addVideoToDeArrowCache (state, payload) {
+    const sameVideo = state.deArrowCache[payload.videoId]
+
+    if (!sameVideo) {
+      state.deArrowCache[payload.videoId] = payload
+    }
   },
 
   addToSessionSearchHistory (state, payload) {
