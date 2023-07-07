@@ -27,7 +27,7 @@ export default defineComponent({
       sessionStorage.setItem('Subscriptions/currentTab', value)
     },
   },
-  mounted: async function () {
+  created: async function () {
     // Restore currentTab
     const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
     if (lastCurrentTabId !== null) { this.changeTab(lastCurrentTabId) }

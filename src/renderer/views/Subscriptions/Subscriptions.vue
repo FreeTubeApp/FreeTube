@@ -23,21 +23,6 @@
           {{ $t("Subscriptions.Tabs.Videos").toUpperCase() }}
         </div>
         <div
-          ref="live"
-          class="tab"
-          role="tab"
-          :aria-selected="String(currentTab === 'live')"
-          aria-controls="trendingPanel"
-          :tabindex="currentTab === 'live' ? 0 : -1"
-          :class="{ selectedTab: currentTab === 'live' }"
-          @click="changeTab('live')"
-          @keydown.space.enter.prevent="changeTab('live')"
-          @keydown.left="focusTab($event, 'videos')"
-          @keydown.right="focusTab($event, 'shorts')"
-        >
-          {{ $t("Subscriptions.Tabs.Live").toUpperCase() }}
-        </div>
-        <div
           ref="shorts"
           class="tab"
           role="tab"
@@ -52,10 +37,25 @@
         >
           {{ $t("Subscriptions.Tabs.Shorts").toUpperCase() }}
         </div>
+        <div
+          ref="live"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'live')"
+          aria-controls="trendingPanel"
+          :tabindex="currentTab === 'live' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'live' }"
+          @click="changeTab('live')"
+          @keydown.space.enter.prevent="changeTab('live')"
+          @keydown.left="focusTab($event, 'videos')"
+          @keydown.right="focusTab($event, 'shorts')"
+        >
+          {{ $t("Subscriptions.Tabs.Live").toUpperCase() }}
+        </div>
       </ft-flex-box>
       <subscriptions-videos v-if="currentTab === 'videos'" />
-      <subscriptions-live v-if="currentTab === 'live'" />
       <subscriptions-shorts v-if="currentTab === 'shorts'" />
+      <subscriptions-live v-if="currentTab === 'live'" />
     </ft-card>
   </div>
 </template>

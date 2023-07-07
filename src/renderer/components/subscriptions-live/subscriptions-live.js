@@ -213,14 +213,6 @@ export default defineComponent({
     updateVideoListAfterProcessing(videoList) {
       // Filtering and sorting based in preference
       videoList.sort((a, b) => {
-        if (b.liveNow) {
-          return 1
-        }
-
-        if (a.liveNow) {
-          return -1
-        }
-
         if (b.premiereDate && a.premiereDate) {
           return b.premiereDate - a.premiereDate
         }
@@ -230,6 +222,14 @@ export default defineComponent({
         }
 
         if (!b.premiereDate && a.premiereDate) {
+          return -1
+        }
+        
+        if (b.liveNow) {
+          return 1
+        }
+
+        if (a.liveNow) {
           return -1
         }
 
