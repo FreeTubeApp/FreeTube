@@ -224,7 +224,7 @@ export default defineComponent({
         if (!b.premiereDate && a.premiereDate) {
           return -1
         }
-        
+
         if (b.liveNow) {
           return 1
         }
