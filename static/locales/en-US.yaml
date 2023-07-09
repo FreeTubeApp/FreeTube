@@ -39,6 +39,13 @@ A new blog is now available, {blogTitle}. Click to view more: A new blog is now 
   Click to view more
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videos
+  Shorts: Shorts
+  Live: Live
+
 # Search Bar
 Search / Go to URL: Search / Go to URL
 Search Bar:
@@ -93,10 +100,6 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
-  Tabs:
-    Videos: Videos
-    Live: Live
-    Shorts: Shorts
 More: More
 Channels:
   Channels: Channels
@@ -348,7 +351,7 @@ Settings:
     Hide Featured Channels: Hide Featured Channels
     Hide Channel Playlists: Hide Channel Playlists
     Hide Channel Community: Hide Channel Community
-    Hide Channel Shorts: Hide Channel Shorts
+    Hide Shorts: Hide Shorts
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -545,7 +548,6 @@ Channel:
       Oldest: Oldest
       Most Popular: Most Popular
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: This channel does not currently have any shorts
   Live:
     Live: Live

@@ -197,8 +197,8 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    hideChannelShorts: function () {
-      return this.$store.getters.getHideChannelShorts
+    hideShorts: function () {
+      return this.$store.getters.getHideShorts
     },
 
     hideLiveStreams: function () {
@@ -224,7 +224,7 @@ export default defineComponent({
       ]
 
       // remove tabs from the array based on user settings
-      if (this.hideChannelShorts) {
+      if (this.hideShorts) {
         const index = values.indexOf('shorts')
         values.splice(index, 1)
       }
@@ -594,7 +594,7 @@ export default defineComponent({
           this.getChannelVideosLocal()
         }
 
-        if (!this.hideChannelShorts && channel.has_shorts) {
+        if (!this.hideShorts && channel.has_shorts) {
           this.getChannelShortsLocal()
         }
 
@@ -882,7 +882,7 @@ export default defineComponent({
           this.channelInvidiousVideos()
         }
 
-        if (!this.hideChannelShorts && response.tabs.includes('shorts')) {
+        if (!this.hideShorts && response.tabs.includes('shorts')) {
           this.channelInvidiousShorts()
         }
 

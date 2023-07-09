@@ -27,6 +27,14 @@ export default defineComponent({
       sessionStorage.setItem('Subscriptions/currentTab', value)
     },
   },
+  computed: {
+    hideShorts: function() {
+      return this.$store.getters.getHideShorts
+    },
+    hideLiveStreams: function() {
+      return this.$store.getters.getHideLiveStreams
+    }
+  },
   created: async function () {
     // Restore currentTab
     const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
@@ -38,7 +46,11 @@ export default defineComponent({
         return
       }
 
-      this.currentTab = tab
+      if ((tab === 'shorts' && this.hideShorts) || (tab === 'live' && this.hideLiveStreams)) {
+        this.currentTab = 'videos'
+      } else {
+        this.currentTab = tab
+      }
     },
 
     /**

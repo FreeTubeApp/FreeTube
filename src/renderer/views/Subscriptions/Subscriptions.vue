@@ -20,9 +20,10 @@
           @keydown.left="focusTab($event, 'shorts')"
           @keydown.right="focusTab($event, 'live')"
         >
-          {{ $t("Subscriptions.Tabs.Videos").toUpperCase() }}
+          {{ $t("Global.Videos").toUpperCase() }}
         </div>
         <div
+          v-if="!hideShorts"
           ref="shorts"
           class="tab"
           role="tab"
@@ -35,9 +36,10 @@
           @keydown.left="focusTab($event, 'live')"
           @keydown.right="focusTab($event, 'videos')"
         >
-          {{ $t("Subscriptions.Tabs.Shorts").toUpperCase() }}
+          {{ $t("Global.Shorts").toUpperCase() }}
         </div>
         <div
+          v-if="!hideLiveStreams"
           ref="live"
           class="tab"
           role="tab"
@@ -50,7 +52,7 @@
           @keydown.left="focusTab($event, 'videos')"
           @keydown.right="focusTab($event, 'shorts')"
         >
-          {{ $t("Subscriptions.Tabs.Live").toUpperCase() }}
+          {{ $t("Global.Live").toUpperCase() }}
         </div>
       </ft-flex-box>
       <subscriptions-videos v-if="currentTab === 'videos'" />

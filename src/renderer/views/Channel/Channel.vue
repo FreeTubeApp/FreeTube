@@ -99,7 +99,7 @@
               {{ $t("Channel.Videos.Videos").toUpperCase() }}
             </div>
             <div
-              v-if="!hideChannelShorts"
+              v-if="!hideShorts"
               id="shortsTab"
               class="tab"
               :class="(currentTab==='shorts')?'selectedTab':''"
@@ -110,7 +110,7 @@
               @click="changeTab('shorts')"
               @keydown.left.right.enter.space="changeTab('shorts', $event)"
             >
-              {{ $t("Channel.Shorts.Shorts").toUpperCase() }}
+              {{ $t("Global.Shorts").toUpperCase() }}
             </div>
             <div
               v-if="!hideLiveStreams"
@@ -204,7 +204,7 @@
         @change="videoSortBy = $event"
       />
       <ft-select
-        v-if="!hideChannelShorts && showShortSortBy"
+        v-if="!hideShorts && showShortSortBy"
         v-show="currentTab === 'shorts' && latestShorts.length > 0"
         class="sortSelect"
         :value="shortSelectValues[0]"
@@ -255,14 +255,14 @@
           </p>
         </ft-flex-box>
         <ft-element-list
-          v-if="!hideChannelShorts && currentTab === 'shorts'"
+          v-if="!hideShorts && currentTab === 'shorts'"
           id="shortPanel"
           :data="latestShorts"
           role="tabpanel"
           aria-labelledby="shortsTab"
         />
         <ft-flex-box
-          v-if="!hideChannelShorts && currentTab === 'shorts' && latestShorts.length === 0"
+          v-if="!hideShorts && currentTab === 'shorts' && latestShorts.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Shorts.This channel does not currently have any shorts") }}
