@@ -67,6 +67,10 @@ export default defineComponent({
         if (this.hideUpcomingPremieres &&
             // Observed for premieres in Local API Channels.
             (data.premiereDate != null ||
+              // Invidious API
+              // `premiereTimestamp` only available on premiered videos
+              // https://docs.invidious.io/api/common_types/#videoobject
+              data.premiereTimestamp != null ||
              // viewCount is our only method of detecting premieres in RSS
              // data without sending an additional request.
              // If we ever get a better flag, use it here instead.
@@ -79,12 +83,30 @@ export default defineComponent({
           return false
         }
       } else if (data.type === 'channel') {
-        if (this.channelsHidden.includes(data.channelID) || this.channelsHidden.includes(data.name)) {
+        const attrsToCheck = [
+          // Local API
+          data.id,
+          data.name,
+          // Invidious API
+          // https://docs.invidious.io/api/common_types/#channelobject
+          data.author,
+          data.authorId,
+        ]
+        if (attrsToCheck.some(a => a != null && this.channelsHidden.includes(a))) {
           // hide channels by author
           return false
         }
       } else if (data.type === 'playlist') {
-        if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
+        const attrsToCheck = [
+          // Local API
+          data.channelId,
+          data.channelName,
+          // Invidious API
+          // https://docs.invidious.io/api/common_types/#playlistobject
+          data.author,
+          data.authorId,
+        ]
+        if (attrsToCheck.some(a => a != null && this.channelsHidden.includes(a))) {
           // hide playlists by author
           return false
         }
