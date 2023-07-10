@@ -922,6 +922,9 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
       en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Ersätt videotitlar med titlar som användare har skickat in från
+      DeArrow.
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar
@@ -972,3 +975,7 @@ Chapters:
 Downloading has completed: '"{videoTitle}" har laddats ner'
 Starting download: Påbörjar nerladdning av "{videoTitle}"
 Downloading failed: Det uppstod ett problem med nerladdning av "{videoTitle}"
+Hashtag:
+  Hashtag: Hashtaggar
+  This hashtag does not currently have any videos: Den här hashtaggen har för närvarande
+    inga videor
