@@ -33,6 +33,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    useChannelsHiddenPreference: {
+      type: Boolean,
+      default: true,
+    },
   },
   data: function () {
     return {
@@ -44,6 +48,9 @@ export default defineComponent({
       return this.$store.getters.getHideLiveStreams
     },
     channelsHidden: function() {
+      // Some component users like channel view will have this disabled
+      if (!this.useChannelsHiddenPreference) { return [] }
+
       return JSON.parse(this.$store.getters.getChannelsHidden)
     },
     hideUpcomingPremieres: function () {

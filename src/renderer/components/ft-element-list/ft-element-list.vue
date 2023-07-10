@@ -10,6 +10,7 @@
       :first-screen="index < 16"
       :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
+      :use-channels-hidden-preference="useChannelsHiddenPreference"
     />
   </ft-auto-grid>
 </template>
