@@ -272,6 +272,8 @@ Settings:
     Allow DASH AV1 formats: Tillåt DASH AV1-format
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
     Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
+    Comment Auto Load:
+      Comment Auto Load: Autoladda kommenterer
   Privacy Settings:
     Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
@@ -390,6 +392,15 @@ Settings:
     Hide Upcoming Premieres: Dölj permiärer
     Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering
     Hide Channels Placeholder: Kanalnamn eller ID
+    Hide Featured Channels: Dölj Utvalda kanaler
+    Hide Channel Shorts: Dölj Kanal Shorts
+    Sections:
+      Side Bar: Sidofält
+      General: Allmänt
+      Channel Page: Kanal sida
+      Watch Page: Titta sida
+    Hide Channel Community: Dölj Kanal gemenskap
+    Hide Channel Playlists: Dölj Kanal spellistor
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -419,7 +430,9 @@ Settings:
       Show In Seek Bar: Visa i tidslinjen
       Do Nothing: Gör ingenting
       Auto Skip: Hoppa över automatiskt
+      Prompt To Skip: Prompt för att hoppa över
     Category Color: Kategorifärg
+    UseDeArrowTitles: Använd DeArrow-videotitlar
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
     External Player: Extern spelare
@@ -604,6 +617,14 @@ Channel:
     Community: Gemenskap
     This channel currently does not have any posts: Denna kanal har för närvarande
       inga inlägg
+  Shorts:
+    Shorts: Shorts
+    This channel does not currently have any shorts: Den här kanalen har för närvarande
+      inga shorts
+  Live:
+    Live: Live
+    This channel does not currently have any live streams: Den här kanalen har för
+      närvarande inga liveströmmar
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -637,8 +658,8 @@ Video:
     inte i denna version.'
   'Chat is disabled or the Live Stream has ended.': 'Chatten är inaktiverad eller
     så har Live strömmen avslutats.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är
-    aktiverat. Meddelanden visas här när de har skickats.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverat.
+    Meddelanden visas här när de har skickats.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechatt
     stöds för närvarande inte med Invidious API. En direktanslutning till YouTube
     krävs.'
@@ -736,6 +757,8 @@ Video:
   Upcoming: Kommande
   Show Super Chat Comment: Visa Super Chat-kommentarer
   Scroll to Bottom: Skrolla till botten
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt
+    är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
 Videos:
   #& Sort By
   Sort By:
@@ -874,9 +897,9 @@ Tooltips:
     Preferred API Backend: Välj den resurs som FreeTube använder för att få fram data.
       Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious
       server att ansluta till.
-    External Link Handling: "Välj standardförfarande när en länk klickas, som inte\
-      \ kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i\
-      \ din standardwebbläsare.\n"
+    External Link Handling: "Välj standardförfarande när en länk klickas, som inte
+      kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din
+      standardwebbläsare.\n"
   Privacy Settings:
     Remove Video Meta Files: Om vald, kommer FreeTube automatiskt att kasta metadata
       filer som skapades under uppspelning, när sidan stängs.
@@ -896,6 +919,9 @@ Tooltips:
     Hide Channels: Skriv in kanalnamn eller kanal-ID för att dölja alla videor, spellistor
       och kanalen från att synas i sökfältet eller i populäraste kategorin. Kanalens
       namn måste skrivas in i sin helhet och är skiftlägeskänsligt.
+  Experimental Settings:
+    Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
+      en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar
