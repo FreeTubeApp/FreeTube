@@ -152,27 +152,6 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
     player = innertube.actions.session.player
 
     info = await innertube.getInfo(id)
-
-    // // the android streaming formats don't seem to be throttled at the moment so we use those if they are availabe
-    try {
-      const androidInnertube = await createInnertube({ clientType: ClientType.ANDROID, generateSessionLocally: false })
-      const androidInfo = await androidInnertube.getBasicInfo(id, 'ANDROID')
-
-      // Sometimes when YouTube detects a third party client or has applied an IP-ratelimit,
-      // they replace the response with a different video id
-      // https://github.com/TeamNewPipe/NewPipe/issues/8713
-      // https://github.com/TeamPiped/Piped/issues/2487
-      if (androidInfo.basic_info.id !== id) {
-        console.error(`Failed to fetch android formats. Wrong video ID in response: ${androidInfo.basic_info.id}, expected: ${id}`)
-      } else if (androidInfo.playability_status.status !== 'OK') {
-        console.error('Failed to fetch android formats', JSON.stringify(androidInfo.playability_status))
-      } else {
-        info.streaming_data = androidInfo.streaming_data
-      }
-    } catch (error) {
-      console.error('Failed to fetch android formats')
-      console.error(error)
-    }
   }
 
   if (info.streaming_data) {
@@ -188,17 +167,24 @@ export async function getLocalComments(id, sortByNewest = false) {
   return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
 }
 
+// I know `type & type` is typescript syntax and not valid jsdoc but I couldn't get @extends or @augments to work
+
+/**
+ * @typedef {object} _LocalFormat
+ * @property {string} freeTubeUrl deciphered streaming URL, stored in a custom property so the DASH manifest generation doesn't break
+ *
+ * @typedef {Misc.Format & _LocalFormat} LocalFormat
+ */
+
 /**
  * @param {Misc.Format[]} formats
  * @param {import('youtubei.js').Player} player
  */
 function decipherFormats(formats, player) {
   for (const format of formats) {
-    format.url = format.decipher(player)
-
-    // set these to undefined so that toDash doesn't try to decipher them again, throwing an error
-    format.cipher = undefined
-    format.signature_cipher = undefined
+    // toDash deciphers the format again, so if we overwrite the original URL,
+    // it breaks because the n param would get deciphered twice and then be incorrect
+    format.freeTubeUrl = format.decipher(player)
   }
 }
 
@@ -705,7 +691,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
 }
 
 /**
- * @param {Misc.Format} format
+ * @param {LocalFormat} format
  */
 export function mapLocalFormat(format) {
   return {
@@ -716,7 +702,7 @@ export function mapLocalFormat(format) {
     mimeType: format.mime_type,
     height: format.height,
     width: format.width,
-    url: format.url
+    url: format.freeTubeUrl
   }
 }
 

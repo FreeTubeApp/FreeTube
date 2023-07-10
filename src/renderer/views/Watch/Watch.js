@@ -505,6 +505,7 @@ export default defineComponent({
             }
             this.adaptiveFormats = this.videoSourceList
 
+            /** @type {import('../../helpers/api/local').LocalFormat[]} */
             const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
@@ -521,7 +522,7 @@ export default defineComponent({
               }
 
               return {
-                url: format.url,
+                url: format.freeTubeUrl,
                 label: label
               }
             })
@@ -942,7 +943,7 @@ export default defineComponent({
     },
 
     /**
-     * @param {import('youtubei.js').Misc.Format[]} audioFormats
+     * @param {import('../../helpers/api/local').LocalFormat[]} audioFormats
      * @returns {AudioSource[]}
      */
     createLocalAudioSourceList: function (audioFormats) {
@@ -969,7 +970,7 @@ export default defineComponent({
         }
 
         return {
-          url: format.url,
+          url: format.freeTubeUrl,
           type: format.mime_type,
           label: 'Audio',
           qualityLabel: label
