@@ -42,6 +42,7 @@
       <ft-element-list
         v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
+        :use-channels-hidden-preference="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

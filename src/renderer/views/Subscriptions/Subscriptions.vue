@@ -50,6 +50,7 @@
       <ft-element-list
         v-else
         :data="activeVideoList"
+        :use-channels-hidden-preference="false"
       />
       <ft-flex-box>
         <ft-button
