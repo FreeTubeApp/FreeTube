@@ -29,8 +29,9 @@ export default defineComponent({
       return this.$store.getters.getActiveProfile
     },
     activeSubscriptions: function () {
-      const profile = JSON.parse(JSON.stringify(this.activeProfile))
-      return profile.subscriptions.sort((a, b) => {
+      const subscriptions = JSON.parse(JSON.stringify(this.activeProfile.subscriptions))
+
+      subscriptions.sort((a, b) => {
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
         if (nameA < nameB) {
@@ -40,13 +41,15 @@ export default defineComponent({
           return 1
         }
         return 0
-      }).map((channel) => {
-        if (this.backendPreference === 'invidious') {
-          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
-        }
-
-        return channel
       })
+
+      if (this.backendPreference === 'invidious') {
+        subscriptions.forEach((channel) => {
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
+        })
+      }
+
+      return subscriptions
     },
     hidePopularVideos: function () {
       return this.$store.getters.getHidePopularVideos
