@@ -829,7 +829,7 @@ Tooltips:
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists and the channel itself from appearing in search, trending and recommended.
+    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel name entered must be a complete match and is case sensitive.
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default

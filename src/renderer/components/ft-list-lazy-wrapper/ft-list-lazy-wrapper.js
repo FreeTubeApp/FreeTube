@@ -59,7 +59,7 @@ export default defineComponent({
       if (!data.type) {
         return false
       }
-      if (data.type === 'video') {
+      if (data.type === 'video' || data.type === 'shortVideo') {
         if (this.hideLiveStreams && (data.liveNow || data.lengthSeconds == null)) {
           // hide livestreams
           return false
