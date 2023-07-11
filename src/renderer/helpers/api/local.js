@@ -437,11 +437,47 @@ export function parseLocalPlaylistVideo(video) {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
     const video_ = video
 
+    let viewCount = null
+
+    // the accessiblity label contains the full view count
+    // the video info only contains the short view count
+    if (video_.accessibility_label) {
+      const match = video_.accessibility_label.match(/([\d,.]+|no) views?$/i)
+
+      if (match) {
+        const count = match[1]
+
+        // as it's rare that a video has no views,
+        // checking the length allows us to avoid running toLowerCase unless we have to
+        if (count.length === 2 && count.toLowerCase() === 'no') {
+          viewCount = 0
+        } else {
+          const views = extractNumberFromString(count)
+
+          if (!isNaN(views)) {
+            viewCount = views
+          }
+        }
+      }
+    }
+
+    let publishedText = null
+
+    // normal videos have 3 text runs with the last one containing the published date
+    // live videos have 2 text runs with the number of people watching
+    // upcoming either videos don't have any info text or the number of people waiting,
+    // but we have the premiere date for those, so we don't need the published date
+    if (video_.video_info.runs && video_.video_info.runs.length === 3) {
+      publishedText = video_.video_info.runs[2].text
+    }
+
     return {
       videoId: video_.id,
       title: video_.title.text,
       author: video_.author.name,
       authorId: video_.author.id,
+      viewCount,
+      publishedText,
       lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
       liveNow: video_.is_live,
       isUpcoming: video_.is_upcoming,
