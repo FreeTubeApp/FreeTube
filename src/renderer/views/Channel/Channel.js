@@ -104,7 +104,9 @@ export default defineComponent({
       playlistSelectValues: [
         'newest',
         'last'
-      ]
+      ],
+
+      autoRefreshOnSortByChangeEnabled: false,
     }
   },
   computed: {
@@ -257,6 +259,9 @@ export default defineComponent({
         return
       }
 
+      // Disable auto refresh on sort value change during state reset
+      this.autoRefreshOnSortByChangeEnabled = false
+
       this.id = this.$route.params.id
       this.searchPage = 2
       this.relatedChannels = []
@@ -296,14 +301,20 @@ export default defineComponent({
       this.showShareMenu = true
       this.errorMessage = ''
 
+      // Re-enable auto refresh on sort value change AFTER update done
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getChannelInfoInvidious()
+        this.autoRefreshOnSortByChangeEnabled = true
       } else {
-        this.getChannelLocal()
+        this.getChannelLocal().finally(() => {
+          this.autoRefreshOnSortByChangeEnabled = true
+        })
       }
     },
 
     videoSortBy () {
+      if (!this.autoRefreshOnSortByChangeEnabled) { return }
+
       this.isElementListLoading = true
       this.latestVideos = []
       switch (this.apiUsed) {
@@ -319,6 +330,8 @@ export default defineComponent({
     },
 
     shortSortBy() {
+      if (!this.autoRefreshOnSortByChangeEnabled) { return }
+
       this.isElementListLoading = true
       this.latestShorts = []
       switch (this.apiUsed) {
@@ -334,6 +347,8 @@ export default defineComponent({
     },
 
     liveSortBy () {
+      if (!this.autoRefreshOnSortByChangeEnabled) { return }
+
       this.isElementListLoading = true
       this.latestLive = []
       switch (this.apiUsed) {
@@ -349,6 +364,8 @@ export default defineComponent({
     },
 
     playlistSortBy () {
+      if (!this.autoRefreshOnSortByChangeEnabled) { return }
+
       this.isElementListLoading = true
       this.latestPlaylists = []
       this.playlistContinuationData = null
@@ -382,10 +399,14 @@ export default defineComponent({
       return
     }
 
+    // Enable auto refresh on sort value change AFTER initial update done
     if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getChannelInfoInvidious()
+      this.autoRefreshOnSortByChangeEnabled = true
     } else {
-      this.getChannelLocal()
+      this.getChannelLocal().finally(() => {
+        this.autoRefreshOnSortByChangeEnabled = true
+      })
     }
   },
   methods: {
