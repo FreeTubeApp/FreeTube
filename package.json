@@ -112,7 +112,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.25",
     "postcss-scss": "^4.0.6",
-    "prettier": "^3.0.0",
+    "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",
