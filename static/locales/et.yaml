@@ -274,6 +274,8 @@ Settings:
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Allow DASH AV1 formats: Luba DASH AV1 vormingud
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
+    Comment Auto Load:
+      Comment Auto Load: Kommentaaride automaatne laadimine
   Privacy Settings:
     Privacy Settings: 'Privaatsuse seadistused'
     Remember History: 'Jäta ajalugu meelde'
@@ -369,6 +371,15 @@ Settings:
     Hide Channels Placeholder: Kanali nimi või tunnus
     Display Titles Without Excessive Capitalisation: Näita pealkirju ilma liigsete
       suurtähtedeta
+    Sections:
+      General: Üldist
+      Side Bar: Külgpaan
+      Channel Page: Kanali vaade
+      Watch Page: Videovaade
+    Hide Featured Channels: Peaida soovitatud kanalid
+    Hide Channel Playlists: Peida kanali esitusloendid
+    Hide Channel Shorts: Peida kanali lühivideod
+    Hide Channel Community: Peida kanali kogukond
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -389,10 +400,10 @@ Settings:
     rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Anna teada, kui toetajate vaade jääb vahele
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock'i API
-      URL (vaikimisi https://sponsor.ajay.app)
-    Enable SponsorBlock: Kasuta SponsorBlock'i
-    SponsorBlock Settings: SponsorBlock seadistused
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Sponsorite blokeerija
+      API URL (vaikimisi https://sponsor.ajay.app)
+    Enable SponsorBlock: Kasuta sponsorite blokeerijat
+    SponsorBlock Settings: Sponsorite blokeerija seadistused
     Skip Options:
       Auto Skip: Automaatne vahelejätmine
       Show In Seek Bar: Näita otsinguribal
@@ -400,6 +411,7 @@ Settings:
       Skip Option: Jäta valik vahele
       Do Nothing: Ära tee midagi
     Category Color: Kategooria värv
+    UseDeArrowTitles: Laadi video pealkirjad DeArrow teenusest
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Välise meediamängija seadistused
@@ -424,7 +436,7 @@ Settings:
   Experimental Settings:
     Experimental Settings: Katselised seadistused
     Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada
-      rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete vatundamist. Jätka
+      rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete varundamist. Jätka
       omal vastutusel!
     Replace HTTP Cache: Asenda HTTP vahemälu
   Password Dialog:
@@ -542,6 +554,28 @@ Channel:
     About: 'Kanali teave'
     Channel Description: 'Kanali kirjeldus'
     Featured Channels: 'Soovitatud kanalid'
+    Details: Üksikasjad
+    Location: Asukoht
+    Tags:
+      Search for: Otsi silti „{tag}“
+      Tags: Sildid
+    Joined: Liitunud
+  This channel does not allow searching: See kanal ei luba otsingu kasutamist
+  Channel Tabs: Kanali kaardid
+  Shorts:
+    Shorts: Lühivideod
+    This channel does not currently have any shorts: Sellel kanalil pole lühiklippe
+  Live:
+    Live: Otseeeter
+    This channel does not currently have any live streams: Sellel kanalil pole hetkel
+      ühtegi otseeetrit
+  Community:
+    Community: Kogukond
+    This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
+  This channel does not exist: Sellist kanalit ei leidu
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
+    kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
+    vaadata.
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
@@ -568,7 +602,7 @@ Video:
     värskenda uuesti kontrollimiseks lehte'
   # As in a Live Video
   Live: 'Otse eetris'
-  Live Now: 'Otse eetris'
+  Live Now: 'Hetkel otseeetris'
   Live Chat: 'Vestlus reaalajas'
   Enable Live Chat: 'Luba reaalajas vestlust'
   Live Chat is currently not supported in this build.: 'Reaalajas vestlus ei ole selles
@@ -682,6 +716,8 @@ Video:
   Show Super Chat Comment: Näita Super Chat'i kommentaare
   Scroll to Bottom: Keri alla
   Upcoming: Tulemas
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Otsevestlus
+    pole selle videovoo puhul saadaval. Võib-olla on üleslaadija vestluse keelanud.
 Videos:
   #& Sort By
   Sort By:
@@ -794,9 +830,9 @@ Tooltips:
       järjekorra pööramine) ei toeta siis ära näita hoiatusi.
     Custom External Player Arguments: Semikoolonitega (;) eraldatud käsurea argumendid,
       mida sa soovid välisele meediamängijale saata.
-    External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video\
-      \ (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e\
-      \ seadistused ei mõjuta välise meediamängija kasutamist."
+    External Player: "Seadistades välise meediamängija kuvame pisipildil ikooni video
+      (või esitusloendi) esitamiseks välises meediamängijas. Hoiatus: Invidious'e
+      seadistused ei mõjuta välise meediamängija kasutamist."
     DefaultCustomArgumentsTemplate: "(Vaikimisi: '{defaultCustomArguments}')"
   Subscription Settings:
     Fetch Feeds from RSS: Selle valiku kasutamisel FreeTube pruugib tellimuste andmete
@@ -818,8 +854,8 @@ Tooltips:
       kasutamist.
     Invidious Instance: Invidious'e teenuse server, mida FreeTube kasutab API kutse
       tegemisel.
-    External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa\
-      \ avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
+    External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa
+      avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
   Player Settings:
     Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul
       parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 720p ja seetõttu kasutavad
@@ -850,6 +886,9 @@ Tooltips:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
       http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks
       saab olema suurem mälukasutus.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Asenda video nimi kasutajate poolt DeArrow teenusesse lisatud
+      nimega (pealkirjaga).
 Playing Next Video Interval: Kohe esitan järgmist videot. Tühistamiseks klõpsi. |
   {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
   | {nextVideoInterval} sekundi möödumisel esitan järgmist videot. Tühistamiseks klõpsi.
@@ -894,3 +933,7 @@ Chapters:
     praegune peatükk: {chapterName}'
 Ok: Sobib
 Preferences: Eelistused
+Hashtag:
+  Hashtag: Teemaviide
+  This hashtag does not currently have any videos: Selle teemaviite ehk haaksõna alusel
+    ei leidu hetkel ühtegi videot
