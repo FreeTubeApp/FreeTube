@@ -906,8 +906,9 @@ Tooltips:
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
   Distraction Free Settings:
     Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
-      a samotného kanálu před zobrazením ve vyhledávání nebo trendech. Zadaný název
-      kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
+      a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších
+      a doporučených. Zadaný název kanálu se musí zcela shodovat a rozlišují se v
+      něm velká a malá písmena.
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
