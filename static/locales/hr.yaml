@@ -439,6 +439,7 @@ Settings:
       Prompt To Skip: Poziv za preskakanje
       Do Nothing: Ne čini ništa
     Category Color: Boja kategorije
+    UseDeArrowTitles: Koristi DeArrow Video naslove
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
@@ -948,8 +949,10 @@ Tooltips:
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
   Distraction Free Settings:
     Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
-      kao i sam kanal u pretrazi ili u trendovima. Upisano ime kanala se mora potpuno
-      poklapati i razlikuje velika i mala slova.
+      kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
+      ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
