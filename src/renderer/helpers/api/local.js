@@ -411,7 +411,8 @@ function handleSearchResponse(response) {
 
   return {
     results,
-    continuationData: response.has_continuation ? response : null
+    // check the length of the results, as there can be continuations for things that we've filtered out, which we don't want
+    continuationData: response.has_continuation && results.length > 0 ? response : null
   }
 }
 

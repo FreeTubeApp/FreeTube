@@ -114,10 +114,6 @@ export default defineComponent({
       try {
         const { results, continuationData } = await getLocalSearchResults(payload.query, payload.searchSettings, this.showFamilyFriendlyOnly)
 
-        if (results.length === 0) {
-          return
-        }
-
         this.apiUsed = 'local'
 
         this.shownResults = results
