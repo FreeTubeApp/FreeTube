@@ -950,8 +950,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Adja meg a csatorna nevét vagy csatornaazonosítóját, hogy elrejtse
       az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
-      a keresésben vagy a népszerűségben. A megadott csatornanévnek teljes egyezésnek
-      kell lennie, és megkülönbözteti a kis- és nagybetűket.
+      a keresésben, illetve a felkapott, legnépszerűbb és legajánlottabb. A megadott
+      csatornanévnek teljes egyezésnek kell lennie, és megkülönbözteti a kis- és nagybetűket.
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow által beküldött, felhasználó
       által beküldött címekre.
