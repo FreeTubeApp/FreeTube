@@ -948,9 +948,10 @@ Tooltips:
       ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
       neden olacaktır.
   Distraction Free Settings:
-    Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama
-      veya öne çıkanlarda görünmesini engellemek için bir kanal adı veya kanal kimliği
-      girin. Girilen kanal adı tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
+    Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama,
+      öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
+      bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
+      ve büyük/küçük harfe duyarlıdır.
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.
