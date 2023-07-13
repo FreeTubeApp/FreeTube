@@ -106,15 +106,18 @@
   .watchVideoSidebar,
   .theatrePlaylist {
     margin: 0 8px 16px;
-    :deep(.videoThumbnail) {
-      margin-top: auto;
-      margin-bottom: auto;
-    }
   }
 
   .watchVideoSidebar,
   .watchVideoPlaylist {
     height: 500px;
+  }
+
+  .watchVideoPlaylist {
+    :deep(.videoThumbnail) {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
     @media (max-width: 768px) {
       height: auto;
     }
