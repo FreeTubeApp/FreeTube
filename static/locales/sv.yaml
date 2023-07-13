@@ -916,9 +916,9 @@ Tooltips:
       Invidiousinställningar påverkar inte externa videospelare.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: Skriv in kanalnamn eller kanal-ID för att dölja alla videor, spellistor
-      och kanalen från att synas i sökfältet eller i populäraste kategorin. Kanalens
-      namn måste skrivas in i sin helhet och är skiftlägeskänsligt.
+    Hide Channels: Ange ett kanalnamn eller kanal-ID för att dölja alla videor, spellistor
+      och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
+      Det angivna kanalnamnet måste vara en fullständig matchning och är skiftlägeskänsligt.
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
       en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
