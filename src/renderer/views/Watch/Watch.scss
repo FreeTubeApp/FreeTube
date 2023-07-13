@@ -106,6 +106,10 @@
   .watchVideoSidebar,
   .theatrePlaylist {
     margin: 0 8px 16px;
+    :deep(.videoThumbnail) {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
   }
 
   .watchVideoSidebar,
