@@ -36,6 +36,7 @@
         v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
         :show-video-with-last-viewed-playlist="true"
+        :use-channels-hidden-preference="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

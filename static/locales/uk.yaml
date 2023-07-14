@@ -413,6 +413,7 @@ Settings:
       Prompt To Skip: Запит на пропуск
       Do Nothing: Нічого не робити
     Category Color: Колір категорії
+    UseDeArrowTitles: Використовувати назви для відео DeArrow
   External Player Settings:
     Custom External Player Arguments: Власні аргументи зовнішнього програвача
     Custom External Player Executable: Власний виконуваний зовнішній програвач
@@ -864,8 +865,10 @@ Tooltips:
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
   Distraction Free Settings:
     Hide Channels: Введіть назву або ID каналу, щоб сховати всі відео, списки відтворення
-      та сам канал від появи в пошуку або в тренді. Введена назва каналу повинна повністю
-      збігатися і чутлива до регістру.
+      та сам канал від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введена
+      назва каналу повинна повністю збігатися і чутлива до регістру.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Замінити назви відео на надіслані користувачем назви з DeArrow.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'

@@ -448,6 +448,7 @@ Settings:
       Prompt To Skip: Zapytaj, czy pominąć
       Do Nothing: Nic nie rób
     Category Color: Kolor segmentu
+    UseDeArrowTitles: Użyj tytułów filmów z DeArrow
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego
@@ -965,8 +966,12 @@ Tooltips:
       to większe użycie pamięci RAM.
   Distraction Free Settings:
     Hide Channels: Wprowadź nazwę albo ID kanału, aby schować wszystkie filmy i playlisty
-      tego kanału, oraz sam kanał z wyszukiwań, oraz z zakładki „Na czasie”. Nazwa
-      kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
+      tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne”
+      oraz z polecanych. Nazwa kanału musi być dokładnym dopasowaniem, z uwzględnieniem
+      wielkości liter.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
+      DeArrow.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby
   przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij
   aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij

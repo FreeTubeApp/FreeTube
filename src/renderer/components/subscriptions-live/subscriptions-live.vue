@@ -44,6 +44,7 @@
     <ft-element-list
       v-if="!isLoading && activeVideoList.length > 0"
       :data="activeVideoList"
+      :use-channels-hidden-preference="false"
     />
     <ft-flex-box
       v-if="!isLoading && videoList.length > dataLimit"

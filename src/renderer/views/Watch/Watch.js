@@ -403,6 +403,17 @@ export default defineComponent({
           this.liveChat = null
         }
 
+        // region No comment detection
+        // For videos without any comment (comment disabled?)
+        // e.g. https://youtu.be/8NBSwDEf8a8
+        //
+        // `comments_entry_point_header` is null probably when comment disabled
+        // e.g. https://youtu.be/8NBSwDEf8a8
+        // However videos with comments enabled but have no comment
+        // are different (which is not detected here)
+        this.commentsEnabled = result.comments_entry_point_header != null
+        // endregion No comment detection
+
         // the bypassed result is missing some of the info that we extract in the code above
         // so we only overwrite the result here
         // we need the bypassed result for the streaming data and the subtitles
@@ -505,6 +516,7 @@ export default defineComponent({
             }
             this.adaptiveFormats = this.videoSourceList
 
+            /** @type {import('../../helpers/api/local').LocalFormat[]} */
             const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
@@ -521,7 +533,7 @@ export default defineComponent({
               }
 
               return {
-                url: format.url,
+                url: format.freeTubeUrl,
                 label: label
               }
             })
@@ -665,17 +677,6 @@ export default defineComponent({
             await this.createLocalStoryboardUrls(result.storyboards.boards.at(-1))
           }
         }
-
-        // region No comment detection
-        // For videos without any comment (comment disabled?)
-        // e.g. https://youtu.be/8NBSwDEf8a8
-        //
-        // `comments_entry_point_header` is null probably when comment disabled
-        // e.g. https://youtu.be/8NBSwDEf8a8
-        // However videos with comments enabled but have no comment
-        // are different (which is not detected here)
-        this.commentsEnabled = result.comments_entry_point_header != null
-        // endregion No comment detection
 
         this.isLoading = false
         this.updateTitle()
@@ -942,7 +943,7 @@ export default defineComponent({
     },
 
     /**
-     * @param {import('youtubei.js').Misc.Format[]} audioFormats
+     * @param {import('../../helpers/api/local').LocalFormat[]} audioFormats
      * @returns {AudioSource[]}
      */
     createLocalAudioSourceList: function (audioFormats) {
@@ -969,7 +970,7 @@ export default defineComponent({
         }
 
         return {
-          url: format.url,
+          url: format.freeTubeUrl,
           type: format.mime_type,
           label: 'Audio',
           qualityLabel: label

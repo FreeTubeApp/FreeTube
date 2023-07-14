@@ -206,7 +206,12 @@ export default defineComponent({
             return item.viewCount !== '0'
           }
           // Observed for premieres in Local API Subscriptions.
-          return item.premiereDate == null
+          return (item.premiereDate == null ||
+            // Invidious API
+            // `premiereTimestamp` only available on premiered videos
+            // https://docs.invidious.io/api/common_types/#videoobject
+            item.premiereTimestamp == null
+          )
         })
       }
 

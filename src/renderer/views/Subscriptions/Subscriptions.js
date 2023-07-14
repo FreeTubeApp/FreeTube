@@ -21,12 +21,6 @@ export default defineComponent({
       currentTab: 'videos'
     }
   },
-  watch: {
-    currentTab(value) {
-      // Save last used tab, restore when view mounted again
-      sessionStorage.setItem('Subscriptions/currentTab', value)
-    },
-  },
   computed: {
     hideShorts: function() {
       return this.$store.getters.getHideShorts
@@ -34,6 +28,12 @@ export default defineComponent({
     hideLiveStreams: function() {
       return this.$store.getters.getHideLiveStreams
     }
+  },
+  watch: {
+    currentTab(value) {
+      // Save last used tab, restore when view mounted again
+      sessionStorage.setItem('Subscriptions/currentTab', value)
+    },
   },
   created: async function () {
     // Restore currentTab

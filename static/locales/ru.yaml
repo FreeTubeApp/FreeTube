@@ -441,6 +441,7 @@ Settings:
       Show In Seek Bar: Показать сегмент
       Do Nothing: Ничего не делать
     Category Color: Цвет категории
+    UseDeArrowTitles: Использовать заголовки видео «DeArrow»
   External Player Settings:
     Custom External Player Arguments: Аргументы внешнего проигрывателя
     Custom External Player Executable: Исполняемый файл внешнего проигрывателя
@@ -956,6 +957,9 @@ Tooltips:
     Hide Channels: Введите название канала или его идентификатор, чтобы скрыть все
       видео, подборки и сам канал от показа в поиске или трендах. Введённое название
       канала должно полностью совпадать и учитывать регистр.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Заменить пользовательски-размещённые заголовки на заголовки,
+      предоставляемые «DeArrow».
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите
   для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите

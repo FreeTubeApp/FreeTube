@@ -111,7 +111,8 @@ export default defineComponent({
         return Number.parseInt(b.width) - Number.parseInt(a.width)
       })
 
-      return imageArrayCopy.at(0)?.url ?? ''
+      // Remove cropping directives when applicable
+      return imageArrayCopy.at(0)?.url?.replace(/-c-fcrop64=.*/i, '') ?? ''
     }
   }
 })

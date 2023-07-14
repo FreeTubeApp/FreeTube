@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'Videoer'
     Channels: 'Kanaler'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Længde'
     All Durations: 'Alle Længder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4-20 minutter)
   Search Results: 'Søgeresultater'
   Fetching results. Please wait: 'Skaffer resultater. Vent venligst'
   Fetch more results: 'Skaf flere resultater'
@@ -83,8 +85,11 @@ Subscriptions:
   Refresh Subscriptions: 'Genopfrisk Abonnementer'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
-    profil har et stort antal abonnementer.  Tvinger RSS for at undgå adgangsbegrænsning
+    profil har et stort antal abonnementer.  Gennemtvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med Fejl
+  Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
+  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnementer.
+    Opdater abonnementer for at se dem her.
 Trending:
   Trending: 'Trender'
   Music: Musik
@@ -263,6 +268,7 @@ Settings:
     Video Playback Rate Interval: Videoafspilningshastighed Interval
     Scroll Playback Rate Over Video Player: Scroll-afspilningshastighed i Videoafspiller
     Scroll Volume Over Video Player: Scroll-lydstyrke i Videoafspiller
+    Skip by Scrolling Over Video Player: Spring over ved at scrolle over videoafspilleren
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
@@ -592,8 +598,8 @@ Video:
     i øjeblikket ikke i dette build.'
   'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Livestream
     er slut.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Direkte chat
-    er aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Direkte chat er
+    aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direkte
     Chat understøttes i øjeblikket ikke med Invidious-APIen.  Direkte forbindelse
     til YouTube kræves.'
@@ -815,9 +821,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
       problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
       reservemetode, når det er aktiveret.
-    External Link Handling: "Vælg standardopførslen for når du klikker på et link,\
-      \ der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,\
-      \ du klikker på, i din standardbrowser.\n"
+    External Link Handling: "Vælg standardopførslen for når du klikker på et link,
+      der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,
+      du klikker på, i din standardbrowser.\n"
   External Player Settings:
     Custom External Player Executable: Som standard antager FreeTube at den valgte
       eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
@@ -871,3 +877,4 @@ Screenshot Success: Gemte skærmbillede som "{filePath}"
 Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. |
   Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
+Preferences: Præferencer

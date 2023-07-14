@@ -1,11 +1,11 @@
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin.
+  Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin kun olemme edistyneet.
 
 # Webkit Menu Bar
 File: 'Tiedosto'
-Quit: 'Poistu'
+Quit: 'Lopeta'
 Edit: 'Muokkaa'
 Undo: 'Kumoa'
 Redo: 'Tee uudelleen'
@@ -15,12 +15,12 @@ Paste: 'Liitä'
 Delete: 'Poista'
 Select all: 'Valitse kaikki'
 Reload: 'Lataa uudelleen'
-Force Reload: 'Pakota uudelleenlataus'
-Toggle Developer Tools: 'Kehittäjän työkalut'
+Force Reload: 'Pakota Uudelleenlataus'
+Toggle Developer Tools: 'Vaihda Kehittäjän Työkaluihin'
 Actual size: 'Todellinen koko'
 Zoom in: 'Lähennä'
 Zoom out: 'Loitonna'
-Toggle fullscreen: 'Koko näytön tila'
+Toggle fullscreen: 'Vaihda koko näyttöön'
 Window: 'Ikkuna'
 Minimize: 'Pienennä'
 Close: 'Sulje'
@@ -214,9 +214,9 @@ Settings:
     Force Local Backend for Legacy Formats: 'Pakota paikallinen taustaohjelma vanhoille
       formaateille'
     Remember History: 'Muista historia'
-    Play Next Video: 'Toista seuraava video'
+    Play Next Video: 'Toista Seuraava Video'
     Turn on Subtitles by Default: 'Ota tekstitys käyttöön oletusarvoisesti'
-    Autoplay Videos: 'Toista seuraava video'
+    Autoplay Videos: 'Toista Automaattisesti Videot'
     Proxy Videos Through Invidious: 'Välitä videot Invidiousin kautta'
     Autoplay Playlists: 'Toista soittolistat automaattisesti'
     Enable Theatre Mode by Default: 'Ota teatteritila käyttöön oletusarvoisesti'
@@ -391,7 +391,7 @@ Settings:
     Hide Sharing Actions: Piilota jakamistoiminnot
     Hide Chapters: Piilota kappaleet
     Hide Channels: Piilota videot kanavilta
-    Hide Upcoming Premieres: Piilota tulevat ensiesitykset
+    Hide Upcoming Premieres: Piilota Tulevat Ensiesitykset
     Hide Channels Placeholder: Kanavan nimi tai tunnus
     Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista
       isoja kirjaimia
@@ -436,6 +436,7 @@ Settings:
       Do Nothing: Älä tee mitään
       Prompt To Skip: Ehdota ohittamista
     Category Color: Luokan väri
+    UseDeArrowTitles: Käytä DeArrow Video Otsikoita
   External Player Settings:
     Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
     Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava
@@ -460,9 +461,9 @@ Settings:
     Hide Search Bar: Piilota hakupalkki
   Experimental Settings:
     Experimental Settings: Kokeelliset asetukset
-    Warning: Nämä asetukset ovat kokeellisia ja ne aiheuttavat kaatumisia, kun ne
-      ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa. Käytä omalla
-      vastuullasi!
+    Warning: Nämä asetukset ovat kokeellisia ja ne voivat aiheuttavat kaatumisia,
+      kun ne ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa.
+      Käytä omalla vastuullasi!
     Replace HTTP Cache: Korvaa HTTP-välimuisti
   Password Dialog:
     Password: Salasana
@@ -578,6 +579,10 @@ Channel:
     Live: Livenä
     This channel does not currently have any live streams: Tällä kanavalla ei ole
       tällä hetkellä yhtään suoraa lähetystä
+  Shorts:
+    Shorts: Lyhyet
+    This channel does not currently have any shorts: Tällä kanavalla ei juuri nyt
+      ole lyhyitä
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
@@ -643,7 +648,7 @@ Video:
   Mark As Watched: Merkitse katsotuksi
   Autoplay: Automaattinen toisto
   Play Previous Video: Toista edellinen video
-  Play Next Video: Toista seuraava video
+  Play Next Video: Toista Seuraava Video
   Reverse Playlist: Käänteinen soittolista
   Shuffle Playlist: Sekoita soittolistaa
   Loop Playlist: Kierrätä soittolistaa
@@ -715,7 +720,7 @@ Video:
   Premieres on: Julkaistaan
   Premieres: Ensilähetykset
   Show Super Chat Comment: Näytä Super Chat -kommentti
-  Scroll to Bottom: Vieritä alaspäin
+  Scroll to Bottom: Vieritä Alaspäin
   Upcoming: Tuleva
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
     ei ole käytettävissä tässä suoratoistossa. Lataaja on saattanut poistaa sen käytöstä.
@@ -778,8 +783,8 @@ Comments:
   Reply: 'Vastaa'
   There are no comments available for this video: 'Tähän videoon ei ole yhtään kommenttia'
   Load More Comments: 'Lataa lisää kommentteja'
-  There are no more comments for this video: Ei enempää kommentteja
-  No more comments available: Ei enempää kommentteja
+  There are no more comments for this video: Ei ole enempää kommentteja tälle videolle
+  No more comments available: Eiole enempää kommentteja
   Newest first: Uusimmat ensin
   Top comments: Suosituimmat kommentit
   Sort by: Lajitteluperuste
@@ -847,7 +852,7 @@ Profile:
   Add Selected To Profile: Lisää valitut profiiliin
   Delete Selected: Poista valitut
   Select None: Älä valitse mitään
-  Select All: Valitse kaikki
+  Select All: Valitse Kaikki
   '{number} selected': '{number} valittu'
   Other Channels: Muut kanavat
   Subscription List: Tilauslista
@@ -895,11 +900,12 @@ Tooltips:
       toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
       määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa)
       painettuna ja paina hiiren vasenta näppäintä.
-    Skip by Scrolling Over Video Player: Käytä vierityspyörää videon selaamiseen MPV-tyyliin.
-    Allow DASH AV1 formats: DASH AV1 -formaatit saattavat näyttää paremmalta kuin
-      DASH H.264 -formaatit. DASH AV1 -formaatit vaativat enemmän tehoa toistamiseen!
-      Ne eivät ole käytettävissä kaikissa videoissa, ja näissä tapauksissa soitin
-      käyttää sen sijaan DASH H.264 -formaatteja.
+    Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen,
+      MPV-tyyliin.
+    Allow DASH AV1 formats: DASH AV1 formaatit saattavat näyttää paremmalta kuin DASH
+      H.264 formaatit. DASH AV1 formaatit vaativat enemmän tehoa toistamiseen! Ne
+      eivät ole käytettävissä kaikissa videoissa ja näissä tapauksissa soitin käyttää
+      sen sijaan DASH H.264 formaatteja.
   Privacy Settings:
     Remove Video Meta Files: Kun tämä on kytkettynä päälle, FreeTube poistaa automaattisesti
       meta-tiedostot jotka luotiin videon toiston aikana, katselusivu suljettaessa.
@@ -922,8 +928,9 @@ Tooltips:
       käyttöä.
   Distraction Free Settings:
     Hide Channels: Anna kanavan nimi tai kanavatunnus piilottaaksesi kaikki videot,
-      soittolistat ja itse kanavan näkymästä haussa tai trendaamisessa. Annetun kanavan
-      nimen on vastattava täydellisesti ja kirjainkoolla on merkitystä.
+      soittolistat ja itse kanavan näkymästä haussa, trendaamisessa, suosituimmissa
+      ja suositelluissa. Annetun kanavan nimen on oltava täysin oikein ja kirjainkoolla
+      on merkitystä.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
@@ -946,7 +953,7 @@ Downloading failed: Videon "{videoTitle}" lataamisessa havaittiin ongelma
 Downloading has completed: Videon "{videoTitle}" lataus on valmis
 Starting download: Aloitetaan lataamaan "{videoTitle}"
 Screenshot Success: Kuvakaappaus tallennettu nimellä ”{filePath}”
-New Window: Uusi ikkuna
+New Window: Uusi Ikkuna
 Age Restricted:
   This {videoOrPlaylist} is age restricted: Tämä {videoOrPlaylist} on ikärajoitettu
   Type:

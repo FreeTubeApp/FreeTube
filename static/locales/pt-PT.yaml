@@ -420,6 +420,7 @@ Settings:
       Prompt To Skip: Perguntar se quero ignorar
       Do Nothing: Nada fazer
     Category Color: Cor da categoria
+    UseDeArrowTitles: Utilizar títulos de vídeo DeArrow
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -873,6 +874,9 @@ Tooltips:
       os vídeos, listas de reprodução e o próprio canal de aparecer em busca ou em
       tendências. O nome do canal introduzido tem de ser uma correspondência completa
       e é sensível a maiúsculas e minúsculas.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
+      a partir do DeArrow.
 Local API Error (Click to copy): API local encontrou um erro (clique para copiar)
 Invidious API Error (Click to copy): API Invidious encontrou um erro (clique para
   copiar)

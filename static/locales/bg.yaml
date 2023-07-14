@@ -102,11 +102,11 @@ Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: Няма
-    запазени видеоклипове. За запазване щракнете в ъгъла на видеоклипа
+    запазени видеа. За запазване щракнете в ъгъла на видеото
   Playlist Message: Тази страница не отразява напълно работещи плейлисти. В него са
-    изброени само видеоклипове, които сте запазили или избрали за любими. Когато работата
-    приключи, всички видеоклипове, които в момента са тук, ще бъдат мигрирани в плейлист
-    „Любими“.
+    изброени само видеа, които сте запазили или избрали за предпочитани. Когато работата
+    приключи, всички видеа, които в момента са тук, ще бъдат преместени в плейлист
+    „Предпочитани“.
   Search bar placeholder: Търсене в плейлиста
   Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето
     ви
@@ -445,6 +445,7 @@ Settings:
       Prompt To Skip: Подкана за пропускане
       Do Nothing: Не правете нищо
     Category Color: Категория Цвят
+    UseDeArrowTitles: Използване на DeArrow за заглавия на видео
   External Player Settings:
     Custom External Player Arguments: Персонализирани аргументи за външен плейър
     Custom External Player Executable: Персонализирано изпълнение на външен плейър
@@ -725,8 +726,8 @@ Video:
   Open Channel in YouTube: Отваряне на канала в YouTube
   Started streaming on: Начало на предаването
   Streamed on: На живо на
-  Video has been removed from your saved list: Видеоклипът е премахнат от вашия запазен
-    списък
+  Video has been removed from your saved list: Видеото е премахнато от вашия списък
+    със запазени
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
   translated from English: преведено от английски
@@ -765,7 +766,7 @@ Video:
     buffered: Буферирани
     out of: от
     Resolution: Резолюция
-    Video ID: Идентификатор на видеоклипа
+    Video ID: Идентификатор на видеото
     Player Dimensions: Размери на плейъра
     Bitrate: Побитова скорост
     Bandwidth: Пропускателна способност
@@ -774,7 +775,7 @@ Video:
     Mimetype: MIME тип
     Buffered: Буферирани
     Video statistics are not available for legacy videos: Статистиката не е налична
-      за наследени видеоклипове
+      за наследени видеа
   Premieres on: Премиера на
   Premieres in: Премиери в
   Premieres: Премиерa
@@ -898,7 +899,7 @@ Tooltips:
       избран Invidious интерфейс. Когато е активиран, локалният интерфейс ще използва
       старите формати вместо тези на Invidious. Това помага когато видеата, получавани
       от Invidious не вървят поради регионални ограничения.
-    Scroll Playback Rate Over Video Player: Докато курсорът е върху видеоклипа, натиснете
+    Scroll Playback Rate Over Video Player: Докато курсорът е върху видеото, натиснете
       и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката
       напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете
       и задръжте клавиша Control (Command Key за Mac) и щракнете с левия бутон на
@@ -951,6 +952,9 @@ Tooltips:
       плейлисти и самия канал от показване в търсенето или набиращите популярност.
       Въведеното име трябва да съвпада напълно и е чувствително към главни и малки
       букви.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Заменя заглавията на видеата с подадени от потребителите заглавия
+      от DeArrow.
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
   | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.

@@ -401,6 +401,7 @@ Settings:
       Do Nothing: 什么也不做
       Skip Option: 跳过选项
     Category Color: 类别颜色
+    UseDeArrowTitles: 使用 DeArrow 视频标题
   External Player Settings:
     Custom External Player Arguments: 定制外部播放器的参数
     Custom External Player Executable: 自定义外部播放器的可执行文件
@@ -836,7 +837,9 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
   Distraction Free Settings:
-    Hide Channels: 输入频道名称或频道 ID 以隐藏所有视频、播放列表和频道本身，使其不出现在搜索结果或热门中。 输入的频道名称必须完全匹配，并且区分大小写。
+    Hide Channels: 输入频道名称或频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道名称必须完全匹配，并且区分大小写。
+  SponsorBlock Settings:
+    UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:

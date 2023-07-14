@@ -244,6 +244,7 @@
           v-show="currentTab === 'videos'"
           id="videoPanel"
           :data="latestVideos"
+          :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="videosTab"
         />
@@ -258,6 +259,7 @@
           v-if="!hideShorts && currentTab === 'shorts'"
           id="shortPanel"
           :data="latestShorts"
+          :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="shortsTab"
         />
@@ -273,6 +275,7 @@
           v-show="currentTab === 'live'"
           id="livePanel"
           :data="latestLive"
+          :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="liveTab"
         />
@@ -287,6 +290,7 @@
           v-if="!hideChannelPlaylists && currentTab === 'playlists'"
           id="playlistPanel"
           :data="latestPlaylists"
+          :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="playlistsTab"
         />
@@ -301,6 +305,7 @@
           v-if="!hideChannelCommunity && currentTab === 'community'"
           id="communityPanel"
           :data="latestCommunityPosts"
+          :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="communityTab"
           display="list"
@@ -315,6 +320,7 @@
         <ft-element-list
           v-show="currentTab === 'search'"
           :data="searchResults"
+          :use-channels-hidden-preference="false"
         />
         <ft-flex-box
           v-if="currentTab === 'search' && searchResults.length === 0"

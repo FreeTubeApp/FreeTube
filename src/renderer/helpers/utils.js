@@ -197,10 +197,10 @@ export function showToast(message, time = null, action = null) {
    * a toast with the error is shown. If the copy is successful and
    * there is a success message, a toast with that message is shown.
    * @param {string} content the content to be copied to the clipboard
-   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
-   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   * @param {null|string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {null|string} messageOnError the message to be displayed as a toast when the copy fails (optional)
    */
-export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null }) {
+export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null } = {}) {
   if (navigator.clipboard !== undefined && window.isSecureContext) {
     try {
       await navigator.clipboard.writeText(content)
