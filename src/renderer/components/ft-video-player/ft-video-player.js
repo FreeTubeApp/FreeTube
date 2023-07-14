@@ -16,7 +16,12 @@ import { IpcChannels } from '../../../constants'
 import { sponsorBlockSkipSegments } from '../../helpers/sponsorblock'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
 import { pathExists } from '../../helpers/filesystem'
-import { getPicturesPath, showSaveDialog, showToast } from '../../helpers/utils'
+import {
+  copyToClipboard,
+  getPicturesPath,
+  showSaveDialog,
+  showToast,
+} from '../../helpers/utils'
 import { getProxyUrl } from '../../helpers/api/invidious'
 import store from '../../store'
 
@@ -367,7 +372,7 @@ export default defineComponent({
     this.determineFormatType()
 
     if ('mediaSession' in navigator) {
-      navigator.mediaSession.setActionHandler('play', () => this.player.play())
+      navigator.mediaSession.setActionHandler('play', () => this.playVideo())
       navigator.mediaSession.setActionHandler('pause', () => this.player.pause())
     }
 
@@ -531,7 +536,8 @@ export default defineComponent({
         if (this.autoplayVideos) {
           // Calling play() won't happen right away, so a quick timeout will make it function properly.
           setTimeout(() => {
-            this.player.play()
+            // `this.player` can be destroyed before this runs
+            this.playVideo()
           }, 200)
         }
 
@@ -869,7 +875,7 @@ export default defineComponent({
           this.player.playbackRate(this.defaultPlayback)
         } else {
           if (this.player.paused() || !this.player.hasStarted()) {
-            this.player.play()
+            this.playVideo()
           } else {
             this.player.pause()
           }
@@ -908,7 +914,7 @@ export default defineComponent({
         this.player.playbackRate(playbackRate)
 
         // need to call play to restore the player state, even if we want to pause afterwards
-        this.player.play().then(() => {
+        this.playVideo(() => {
           if (isPaused) { this.player.pause() }
         })
       })
@@ -1248,7 +1254,7 @@ export default defineComponent({
 
     togglePlayPause: function () {
       if (this.player.paused()) {
-        this.player.play()
+        this.playVideo()
       } else {
         this.player.pause()
       }
@@ -1571,7 +1577,7 @@ export default defineComponent({
 
         const response = await showSaveDialog(options)
         if (wasPlaying) {
-          this.player.play()
+          this.playVideo()
         }
         if (response.canceled || response.filePath === '') {
           canvas.remove()
@@ -1948,6 +1954,34 @@ export default defineComponent({
         (direction === 'previous' ? currentChapter > 0 : this.chapters.length - 1 !== currentChapter) &&
         ((process.platform !== 'darwin' && event.ctrlKey) ||
           (process.platform === 'darwin' && event.metaKey))
+    },
+
+    playVideo(thenFunc = null) {
+      // It can be called in `setTimeout` & user can navigate to other pages before it runs
+      // Which makes `this.player` become `null`
+      if (this.player == null) { return }
+
+      let promise = this.player.play()
+      if (typeof thenFunc === 'function') {
+        promise = promise.then(thenFunc)
+      }
+      promise
+        .catch(err => {
+          if (err.message.includes('The play() request was interrupted by a new load request.')) {
+            // Ignoring expected exception
+            // This is thrown when `play()` called but user already viewing another page
+            // console.debug('Ignoring expected error')
+            // console.debug(err)
+            return
+          }
+
+          // Unexpected errors should be reported
+          console.error(err)
+          const errorMessage = this.$t('play() request Error (Click to copy)')
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
+          })
+        })
     },
 
     // This function should always be at the bottom of this file
