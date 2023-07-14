@@ -113,6 +113,16 @@
     height: 500px;
   }
 
+  .watchVideoPlaylist {
+    :deep(.videoThumbnail) {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    @media (max-width: 768px) {
+      height: auto;
+    }
+  }
+
   .watchVideoRecommendations,
   .theatreRecommendations {
     margin: 0 0 16px;
