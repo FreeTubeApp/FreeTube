@@ -62,6 +62,8 @@ export default defineComponent({
       videoContinuationData: null,
       shortContinuationData: null,
       liveContinuationData: null,
+      releaseContinuationData: null,
+      podcastContinuationData: null,
       playlistContinuationData: null,
       searchContinuationData: null,
       communityContinuationData: null,
@@ -83,6 +85,8 @@ export default defineComponent({
       latestVideos: [],
       latestShorts: [],
       latestLive: [],
+      latestReleases: [],
+      latestPodcasts: [],
       latestPlaylists: [],
       latestCommunityPosts: [],
       searchResults: [],
@@ -107,6 +111,26 @@ export default defineComponent({
       ],
 
       autoRefreshOnSortByChangeEnabled: false,
+      supportedChannelTabs: [
+        'videos',
+        'shorts',
+        'live',
+        'releases',
+        'podcasts',
+        'playlists',
+        'community',
+        'about'
+      ],
+      channelTabs: [
+        'videos',
+        'shorts',
+        'live',
+        'releases',
+        'podcasts',
+        'playlists',
+        'community',
+        'about'
+      ]
     }
   },
   computed: {
@@ -181,6 +205,10 @@ export default defineComponent({
           return !isNullOrEmpty(this.shortContinuationData)
         case 'live':
           return !isNullOrEmpty(this.liveContinuationData)
+        case 'releases':
+          return !isNullOrEmpty(this.releaseContinuationData)
+        case 'podcasts':
+          return !isNullOrEmpty(this.podcastContinuationData)
         case 'playlists':
           return !isNullOrEmpty(this.playlistContinuationData)
         case 'community':
@@ -207,6 +235,14 @@ export default defineComponent({
       return this.$store.getters.getHideLiveStreams
     },
 
+    hideChannelPodcasts: function() {
+      return this.$store.getters.getHideChannelPodcasts
+    },
+
+    hideChannelReleases: function() {
+      return this.$store.getters.getHideChannelReleases
+    },
+
     hideChannelPlaylists: function() {
       return this.$store.getters.getHideChannelPlaylists
     },
@@ -216,35 +252,39 @@ export default defineComponent({
     },
 
     tabInfoValues: function () {
-      const values = [
-        'videos',
-        'shorts',
-        'live',
-        'playlists',
-        'community',
-        'about'
-      ]
+      const values = [...this.channelTabs]
 
+      const indexToRemove = []
       // remove tabs from the array based on user settings
       if (this.hideChannelShorts) {
-        const index = values.indexOf('shorts')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('shorts'))
       }
 
       if (this.hideLiveStreams) {
-        const index = values.indexOf('live')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('live'))
       }
 
       if (this.hideChannelPlaylists) {
-        const index = values.indexOf('playlists')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('playlists'))
       }
 
       if (this.hideChannelCommunity) {
-        const index = values.indexOf('community')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('community'))
       }
+
+      if (this.hideChannelPodcasts) {
+        indexToRemove.push(values.indexOf('podcasts'))
+      }
+
+      if (this.hideChannelReleases) {
+        indexToRemove.push(values.indexOf('releases'))
+      }
+
+      indexToRemove.forEach(index => {
+        if (index !== -1) {
+          values.splice(index, 1)
+        }
+      })
 
       return values
     }
@@ -273,6 +313,8 @@ export default defineComponent({
       this.liveSortBy = 'newest'
       this.playlistSortBy = 'newest'
       this.latestPlaylists = []
+      this.latestPodcasts = []
+      this.latestReleases = []
       this.latestCommunityPosts = []
       this.searchResults = []
       this.shownElementList = []
@@ -282,6 +324,8 @@ export default defineComponent({
       this.shortContinuationData = null
       this.liveContinuationData = null
       this.playlistContinuationData = null
+      this.podcastContinuationData = null
+      this.releaseContinuationData = null
       this.searchContinuationData = null
       this.communityContinuationData = null
       this.showSearchBar = true
@@ -611,6 +655,12 @@ export default defineComponent({
           this.location = null
         }
 
+        const lowerTabs = channel.tabs.map(tab => tab.toLowerCase())
+        this.channelTabs = this.supportedChannelTabs.filter(tab => {
+          return lowerTabs.includes(tab)
+        })
+        this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
+
         if (channel.has_videos) {
           this.getChannelVideosLocal()
         }
@@ -621,6 +671,14 @@ export default defineComponent({
 
         if (!this.hideLiveStreams && channel.has_live_streams) {
           this.getChannelLiveLocal()
+        }
+
+        if (!this.hideChannelPodcasts && channel.has_podcasts) {
+          this.getChannelPodcastsLocal()
+        }
+
+        if (!this.hideChannelReleases && channel.has_releases) {
+          this.getChannelReleasesLocal()
         }
 
         if (!this.hideChannelPlaylists && channel.has_playlists) {
@@ -898,6 +956,18 @@ export default defineComponent({
 
         // some channels only have a few tabs
         // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
+
+        const tabs = response.tabs.map(tab => {
+          if (tab === 'streams') {
+            return 'live'
+          }
+          return tab
+        })
+
+        this.channelTabs = this.supportedChannelTabs.filter(tab => {
+          return tabs.includes(tab) && tab !== 'podcasts' && tab !== 'releases'
+        })
+        this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
 
         if (response.tabs.includes('videos')) {
           this.channelInvidiousVideos()
@@ -1211,6 +1281,100 @@ export default defineComponent({
       })
     },
 
+    getChannelReleasesLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+        */
+        const channel = this.channelInstance
+        const releaseTab = await channel.getReleases()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        this.isLoading = false
+      }
+    },
+
+    getChannelReleasesLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
+         */
+        const continuation = await this.releaseContinuationData.getContinuation()
+
+        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        this.latestReleases = this.latestReleases.concat(parsedReleases)
+        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    getChannelPodcastsLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+        */
+        const channel = this.channelInstance
+        const podcastTab = await channel.getPodcasts()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestPodcasts = podcastTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.podcastContinuationData = podcastTab.has_continuation ? podcastTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        this.isLoading = false
+      }
+    },
+
+    getChannelPodcastsLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
+         */
+        const continuation = await this.podcastContinuationData.getContinuation()
+
+        const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        this.latestPodcasts = this.latestPodcasts.concat(parsedPodcasts)
+        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
     getCommunityPostsLocal: async function () {
       const expectedId = this.id
 
@@ -1349,6 +1513,12 @@ export default defineComponent({
               this.channelInvidiousLive()
               break
           }
+          break
+        case 'releases':
+          this.getChannelReleasesLocalMore()
+          break
+        case 'podcasts':
+          this.getChannelPodcastsLocalMore()
           break
         case 'playlists':
           switch (this.apiUsed) {

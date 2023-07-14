@@ -345,6 +345,8 @@ Settings:
     Hide Channel Playlists: Hide Channel Playlists
     Hide Channel Community: Hide Channel Community
     Hide Channel Shorts: Hide Channel Shorts
+    Hide Channel Podcasts: Hide Channel Podcasts
+    Hide Channel Releases: Hide Channel Releases
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -555,6 +557,12 @@ Channel:
       Last Video Added: Last Video Added
       Newest: Newest
       Oldest: Oldest
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: This channel does not currently have any podcasts
+  Releases:
+    Releases: Releases
+    This channel does not currently have any releases: This channel does not currently have any releases
   About:
     About: About
     Channel Description: Channel Description
