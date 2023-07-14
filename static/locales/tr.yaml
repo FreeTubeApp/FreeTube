@@ -29,6 +29,13 @@ Close: 'Kapat'
 Back: 'Geri'
 Forward: 'İleri'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videolar'
+  Shorts: Kısa Videolar
+  Live: Canlı
+
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -640,7 +647,6 @@ Channel:
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
       bir canlı yayın yok
   Shorts:
-    Shorts: Kısa Videolar
     This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video
       yok
 Video:

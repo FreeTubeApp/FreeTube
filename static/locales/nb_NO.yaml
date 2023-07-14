@@ -29,6 +29,13 @@ Close: 'Lukk'
 Back: 'Tilbake'
 Forward: 'Framover'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoer'
+  Shorts: Kortvideoer
+  Live: Direkte
+
 # Search Bar
 Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
@@ -545,7 +552,6 @@ Channel:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
   Shorts:
     This channel does not currently have any shorts: Denne kanalen har ingen kortvideoer
-    Shorts: Kortvideoer
   Live:
     Live: Direkte
     This channel does not currently have any live streams: Denne kanalen har ikke

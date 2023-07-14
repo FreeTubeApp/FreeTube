@@ -29,6 +29,13 @@ Close: 'Zatvori'
 Back: 'Natrag'
 Forward: 'Naprijed'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Kratka videa
+  Live: Uživo
+
 # Search Bar
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
@@ -636,7 +643,6 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
-    Shorts: Kratka videa
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'

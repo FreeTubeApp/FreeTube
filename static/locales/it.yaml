@@ -30,6 +30,13 @@ Close: 'Chiudi'
 Back: 'Indietro'
 Forward: 'Avanti'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+  Shorts: Video brevi
+  Live: Dal vivo
+
 # Search Bar
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
@@ -600,7 +607,6 @@ Channel:
     This channel does not currently have any live streams: Questo canale attualmente
       non ha alcun video dal vivo
   Shorts:
-    Shorts: Video brevi
     This channel does not currently have any shorts: Questo canale attualmente non
       ha video brevi
 Video:

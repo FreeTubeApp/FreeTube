@@ -28,6 +28,13 @@ Close: 'Zamknij'
 Back: 'Wstecz'
 Forward: 'Naprzód'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Filmy'
+  Shorts: Filmy Short
+  Live: Transmisje
+
 # Search Bar
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
@@ -604,7 +611,6 @@ Channel:
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
       żadnych transmisji
   Shorts:
-    Shorts: Filmy Short
     This channel does not currently have any shorts: Ten kanał nie ma obecnie żadnych
       filmów Short
 Video:

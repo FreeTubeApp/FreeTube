@@ -27,6 +27,13 @@ Close: '关闭'
 Back: '后退'
 Forward: '前进'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '视频'
+  Shorts: 短视频
+  Live: 直播
+
 # Search Bar
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
@@ -534,7 +541,6 @@ Channel:
     This channel does not currently have any live streams: 此频道当前没有任何直播流
   Shorts:
     This channel does not currently have any shorts: 此频道目前没有任何短视频
-    Shorts: 短视频
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'

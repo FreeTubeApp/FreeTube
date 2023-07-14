@@ -28,6 +28,11 @@ Close: 'Đóng'
 Back: 'Quay lại'
 Forward: 'Tiến tới'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+
 # Search Bar
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button

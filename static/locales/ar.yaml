@@ -29,6 +29,13 @@ Close: 'إغلاق'
 Back: 'رجوع'
 Forward: 'إلى الأمام'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'الفيديوهات'
+  Shorts: القصيرة
+  Live: مباشر
+
 # Search Bar
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
@@ -621,7 +628,6 @@ Channel:
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر
       على هذه القناة
   Shorts:
-    Shorts: القصيرة
     This channel does not currently have any shorts: هذه القناة ليس لديها حاليا أي
       أفلام قصيرة (shorts)
 Video:

@@ -30,6 +30,13 @@ Close: 'Κλείσιμο'
 Back: 'Μετάβαση πίσω'
 Forward: 'Μετάβαση μπροστά'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Βίντεο'
+  Shorts: Shorts
+  Live: Ζωντανά
+
 # Search Bar
 Search / Go to URL: 'Αναζήτηση/Μετάβαση στη URL'
   # In Filter Button
@@ -653,7 +660,6 @@ Channel:
     This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
       προς το παρόν ζωντανές ροές
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς
       το παρόν κανένα shorts
 Video:

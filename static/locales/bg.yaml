@@ -30,6 +30,13 @@ Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'видеа'
+  Shorts: Кратки видеа
+  Live: На живо
+
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
   е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
@@ -639,7 +646,6 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: В момента този канал няма никакви
       кратки видеа
-    Shorts: Кратки видеа
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'

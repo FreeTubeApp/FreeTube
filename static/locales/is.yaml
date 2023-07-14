@@ -30,6 +30,13 @@ Close: 'Loka'
 Back: 'Til baka'
 Forward: 'Áfram'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Myndskeið'
+  Shorts: Stuttmyndir
+  Live: Í beinni
+
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -577,7 +584,6 @@ Channel:
     Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
   Shorts:
-    Shorts: Stuttmyndir
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
 Video:
