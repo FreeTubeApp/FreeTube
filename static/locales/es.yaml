@@ -955,10 +955,10 @@ Tooltips:
       una caché para la imagen en la memoria personalizada. Esto aumentará el uso
       de la memoria RAM.
   Distraction Free Settings:
-    Hide Channels: Introduzca un nombre o ID de canal para ocultar todos los vídeos,
-      listas de reproducción y el propio canal y evitar que aparezcan en las búsquedas
-      o en las tendencias. El nombre del canal introducido debe coincidir completamente
-      y distingue entre mayúsculas y minúsculas.
+    Hide Channels: Ingresa un nombre del canal o un ID del canal para ocultar todos
+      los videos, listas de reproducción y el propio canal para que no aparezcan en
+      la búsqueda, tendencias, más populares y recomendados. El nombre del canal ingresado
+      debe ser una coincidencia completa y distinguir entre mayúsculas y minúsculas.
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
