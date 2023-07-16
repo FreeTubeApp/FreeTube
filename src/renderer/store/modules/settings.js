@@ -194,7 +194,7 @@ const state = {
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
   hideChannelPlaylists: false,
-  hideShorts: false,
+  hideChannelShorts: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,

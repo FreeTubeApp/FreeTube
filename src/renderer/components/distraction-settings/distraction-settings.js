@@ -65,8 +65,8 @@ export default defineComponent({
     hideFeaturedChannels: function() {
       return this.$store.getters.getHideFeaturedChannels
     },
-    hideShorts: function() {
-      return this.$store.getters.getHideShorts
+    hideChannelShorts: function() {
+      return this.$store.getters.getHideChannelShorts
     },
     hideChannelPlaylists: function() {
       return this.$store.getters.getHideChannelPlaylists
@@ -115,7 +115,7 @@ export default defineComponent({
       'updateChannelsHidden',
       'updateShowDistractionFreeTitles',
       'updateHideFeaturedChannels',
-      'updateHideShorts',
+      'updateHideChannelShorts',
       'updateHideChannelPlaylists',
       'updateHideChannelCommunity'
     ])

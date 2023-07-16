@@ -21,14 +21,6 @@ export default defineComponent({
       currentTab: 'videos'
     }
   },
-  computed: {
-    hideShorts: function() {
-      return this.$store.getters.getHideShorts
-    },
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
-    }
-  },
   watch: {
     currentTab(value) {
       // Save last used tab, restore when view mounted again
@@ -46,7 +38,7 @@ export default defineComponent({
         return
       }
 
-      if ((tab === 'shorts' && this.hideShorts) || (tab === 'live' && this.hideLiveStreams)) {
+      if ((tab === 'shorts' && this.hideChannelShorts) || (tab === 'live' && this.hideLiveStreams)) {
         this.currentTab = 'videos'
       } else {
         this.currentTab = tab

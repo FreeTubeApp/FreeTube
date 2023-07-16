@@ -45,16 +45,16 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Shorts')"
+          :compact="true"
+          :default-value="hideChannelShorts"
+          @change="updateHideChannelShorts"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Channel Playlists')"
           :compact="true"
           :default-value="hideChannelPlaylists"
           @change="updateHideChannelPlaylists"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Featured Channels')"
-          :compact="true"
-          :default-value="hideFeaturedChannels"
-          @change="updateHideFeaturedChannels"
         />
       </div>
       <div class="switchColumn">
@@ -63,6 +63,12 @@
           :compact="true"
           :default-value="hideChannelCommunity"
           @change="updateHideChannelCommunity"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Featured Channels')"
+          :compact="true"
+          :default-value="hideFeaturedChannels"
+          @change="updateHideFeaturedChannels"
         />
       </div>
     </div>
@@ -144,12 +150,6 @@
           :default-value="hideSharingActions"
           @change="updateHideSharingActions"
         />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
-          :compact="true"
-          :default-value="hideUpcomingPremieres"
-          @change="updateHideUpcomingPremieres"
-        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -159,10 +159,10 @@
           @change="updateHideLiveStreams"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Shorts')"
+          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
           :compact="true"
-          :default-value="hideShorts"
-          @change="updateHideShorts"
+          :default-value="hideUpcomingPremieres"
+          @change="updateHideUpcomingPremieres"
         />
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"

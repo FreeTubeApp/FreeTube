@@ -23,7 +23,6 @@
           {{ $t("Global.Videos").toUpperCase() }}
         </div>
         <div
-          v-if="!hideShorts"
           ref="shorts"
           class="tab"
           role="tab"
@@ -39,7 +38,6 @@
           {{ $t("Global.Shorts").toUpperCase() }}
         </div>
         <div
-          v-if="!hideLiveStreams"
           ref="live"
           class="tab"
           role="tab"
