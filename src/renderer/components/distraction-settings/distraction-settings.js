@@ -74,6 +74,15 @@ export default defineComponent({
     hideChannelCommunity: function() {
       return this.$store.getters.getHideChannelCommunity
     },
+    hideSubscriptionsVideos: function() {
+      return this.$store.getters.getHideSubscriptionsVideos
+    },
+    hideSubscriptionsShorts: function() {
+      return this.$store.getters.getHideSubscriptionsShorts
+    },
+    hideSubscriptionsLive: function() {
+      return this.$store.getters.getHideSubscriptionsLive
+    },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
@@ -117,7 +126,10 @@ export default defineComponent({
       'updateHideFeaturedChannels',
       'updateHideChannelShorts',
       'updateHideChannelPlaylists',
-      'updateHideChannelCommunity'
+      'updateHideChannelCommunity',
+      'updateHideSubscriptionsVideos',
+      'updateHideSubscriptionsShorts',
+      'updateHideSubscriptionsLive'
     ])
   }
 })

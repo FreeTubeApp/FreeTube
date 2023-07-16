@@ -8,6 +8,7 @@
         :aria-label="$t('Trending.Trending Tabs')"
       >
         <div
+          v-if="!hideSubscriptionsVideos"
           ref="videos"
           class="tab"
           role="tab"
@@ -23,6 +24,7 @@
           {{ $t("Global.Videos").toUpperCase() }}
         </div>
         <div
+          v-if="!hideSubscriptionsShorts"
           ref="shorts"
           class="tab"
           role="tab"
@@ -38,6 +40,7 @@
           {{ $t("Global.Shorts").toUpperCase() }}
         </div>
         <div
+          v-if="!hideSubscriptionsLive"
           ref="live"
           class="tab"
           role="tab"
@@ -56,6 +59,9 @@
       <subscriptions-videos v-if="currentTab === 'videos'" />
       <subscriptions-shorts v-if="currentTab === 'shorts'" />
       <subscriptions-live v-if="currentTab === 'live'" />
+      <p v-if="currentTab === null">
+        {{ $t("Subscriptions['All subscription tabs are hidden. To see content here, please unhide some tabs in the Channel Page section in Distraction Free Settings.']") }}
+      </p>
     </ft-card>
   </div>
 </template>

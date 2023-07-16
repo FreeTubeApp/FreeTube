@@ -21,16 +21,62 @@ export default defineComponent({
       currentTab: 'videos'
     }
   },
+  computed: {
+    hideSubscriptionsVideos: function () {
+      return this.$store.getters.getHideSubscriptionsVideos
+    },
+    hideSubscriptionsShorts: function () {
+      return this.$store.getters.getHideSubscriptionsShorts
+    },
+    hideSubscriptionsLive: function () {
+      return this.$store.getters.getHideSubscriptionsLive
+    },
+    visibleTabs: function () {
+      const tabs = []
+
+      if (!this.hideSubscriptionsVideos) {
+        tabs.push('videos')
+      }
+
+      if (!this.hideSubscriptionsShorts) {
+        tabs.push('shorts')
+      }
+
+      if (!this.hideSubscriptionsLive) {
+        tabs.push('live')
+      }
+
+      return tabs
+    }
+  },
   watch: {
     currentTab(value) {
-      // Save last used tab, restore when view mounted again
-      sessionStorage.setItem('Subscriptions/currentTab', value)
+      if (value !== null) {
+        // Save last used tab, restore when view mounted again
+        sessionStorage.setItem('Subscriptions/currentTab', value)
+      } else {
+        sessionStorage.removeItem('Subscriptions/currentTab')
+      }
     },
+    /**
+     * @param {string[]} newValue
+     */
+    visibleTabs: function (newValue) {
+      if (newValue.length === 0) {
+        this.currentTab = null
+      } else if (!newValue.includes(this.currentTab)) {
+        this.currentTab = newValue[0]
+      }
+    }
   },
   created: async function () {
-    // Restore currentTab
-    const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
-    if (lastCurrentTabId !== null) { this.changeTab(lastCurrentTabId) }
+    if (this.visibleTabs.length === 0) {
+      this.currentTab = null
+    } else {
+      // Restore currentTab
+      const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
+      if (lastCurrentTabId !== null) { this.changeTab(lastCurrentTabId) }
+    }
   },
   methods: {
     changeTab: function (tab) {
@@ -38,7 +84,11 @@ export default defineComponent({
         return
       }
 
-      this.currentTab = tab
+      if (this.visibleTabs.includes(tab)) {
+        this.currentTab = tab
+      } else {
+        this.currentTab = null
+      }
     },
 
     /**
