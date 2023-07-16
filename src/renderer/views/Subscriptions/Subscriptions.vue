@@ -5,7 +5,7 @@
       <ft-flex-box
         class="subscriptionTabs"
         role="tablist"
-        :aria-label="$t('Trending.Trending Tabs')"
+        :aria-label="$t('Subscriptions.Subscriptions Tabs')"
       >
         <div
           v-if="!hideSubscriptionsVideos"
@@ -13,7 +13,7 @@
           class="tab"
           role="tab"
           :aria-selected="String(currentTab === 'videos')"
-          aria-controls="trendingPanel"
+          aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'videos' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'videos' }"
           @click="changeTab('videos')"
@@ -29,7 +29,7 @@
           class="tab"
           role="tab"
           :aria-selected="String(currentTab === 'shorts')"
-          aria-controls="trendingPanel"
+          aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'shorts' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'shorts' }"
           @click="changeTab('shorts')"
@@ -45,7 +45,7 @@
           class="tab"
           role="tab"
           :aria-selected="String(currentTab === 'live')"
-          aria-controls="trendingPanel"
+          aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'live' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'live' }"
           @click="changeTab('live')"
@@ -56,9 +56,21 @@
           {{ $t("Global.Live").toUpperCase() }}
         </div>
       </ft-flex-box>
-      <subscriptions-videos v-if="currentTab === 'videos'" />
-      <subscriptions-shorts v-if="currentTab === 'shorts'" />
-      <subscriptions-live v-if="currentTab === 'live'" />
+      <subscriptions-videos
+        v-if="currentTab === 'videos'"
+        id="subscriptionsPanel"
+        role="tabpanel"
+      />
+      <subscriptions-shorts
+        v-if="currentTab === 'shorts'"
+        id="subscriptionsPanel"
+        role="tabpanel"
+      />
+      <subscriptions-live
+        v-if="currentTab === 'live'"
+        id="subscriptionsPanel"
+        role="tabpanel"
+      />
       <p v-if="currentTab === null">
         {{ $t("Subscriptions['All subscription tabs are hidden. To see content here, please unhide some tabs in the Channel Page section in Distraction Free Settings.']") }}
       </p>
