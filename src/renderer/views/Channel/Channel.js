@@ -965,8 +965,9 @@ export default defineComponent({
         })
 
         this.channelTabs = this.supportedChannelTabs.filter(tab => {
-          return tabs.includes(tab) && tab !== 'podcasts' && tab !== 'releases'
+          return tabs.includes(tab)
         })
+
         this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
 
         if (response.tabs.includes('videos')) {
@@ -979,6 +980,14 @@ export default defineComponent({
 
         if (!this.hideLiveStreams && response.tabs.includes('streams')) {
           this.channelInvidiousLive()
+        }
+
+        if (!this.hideChannelPodcasts && response.tabs.includes('podcasts')) {
+          this.channelInvidiousPodcasts()
+        }
+
+        if (!this.hideChannelReleases && response.tabs.includes('releases')) {
+          this.channelInvidiousReleases()
         }
 
         if (!this.hideChannelPlaylists && response.tabs.includes('playlists')) {
@@ -1008,8 +1017,9 @@ export default defineComponent({
 
     channelInvidiousVideos: function (sortByChanged) {
       const payload = {
-        resource: 'channels/videos',
+        resource: 'channels',
         id: this.id,
+        subResource: 'videos',
         params: {
           sort_by: this.videoSortBy,
         }
@@ -1215,7 +1225,8 @@ export default defineComponent({
     getPlaylistsInvidious: function () {
       this.isElementListLoading = true
       const payload = {
-        resource: 'channels/playlists',
+        resource: 'channels',
+        subResource: 'playlists',
         id: this.id,
         params: {
           sort_by: this.playlistSortBy
@@ -1251,7 +1262,8 @@ export default defineComponent({
       }
 
       const payload = {
-        resource: 'channels/playlists',
+        resource: 'channels',
+        subResource: 'playlists',
         id: this.id,
         params: {
           sort_by: this.playlistSortBy
@@ -1305,7 +1317,12 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        this.isLoading = false
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getChannelReleasesInvidious()
+        } else {
+          this.isLoading = false
+        }
       }
     },
 
@@ -1326,6 +1343,67 @@ export default defineComponent({
           copyToClipboard(err)
         })
       }
+    },
+
+    channelInvidiousReleases: function() {
+      this.isElementListLoading = true
+      const payload = {
+        resource: 'channels',
+        subResource: 'releases',
+        id: this.id,
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.releaseContinuationData = response.continuation || null
+        this.latestReleases = response.playlists
+        this.isElementListLoading = false
+      }).catch(async (err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
+          this.getChannelReleasesLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    channelInvidiousReleasesMore: function () {
+      if (this.releaseContinuationData === null) {
+        console.warn('There are no more podcasts available for this channel')
+        return
+      }
+
+      const payload = {
+        resource: 'channels',
+        subResource: 'releases',
+        id: this.id
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.releaseContinuationData = response.continuation || null
+        this.latestReleases = this.latestReleases.concat(response.playlists)
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
     },
 
     getChannelPodcastsLocal: async function () {
@@ -1352,7 +1430,12 @@ export default defineComponent({
         showToast(`${errorMessage}: ${err}`, 10000, () => {
           copyToClipboard(err)
         })
-        this.isLoading = false
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getChannelPodcastsInvidious()
+        } else {
+          this.isLoading = false
+        }
       }
     },
 
@@ -1373,6 +1456,67 @@ export default defineComponent({
           copyToClipboard(err)
         })
       }
+    },
+
+    channelInvidiousPodcasts: function() {
+      this.isElementListLoading = true
+      const payload = {
+        resource: 'channels',
+        subResource: 'podcasts',
+        id: this.id,
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.podcastContinuationData = response.continuation || null
+        this.latestPodcasts = response.playlists
+        this.isElementListLoading = false
+      }).catch(async (err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
+          this.getChannelPodcastsLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    channelInvidiousPodcastsMore: function () {
+      if (this.podcastContinuationData === null) {
+        console.warn('There are no more podcasts available for this channel')
+        return
+      }
+
+      const payload = {
+        resource: 'channels',
+        subResource: 'podcasts',
+        id: this.id
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.podcastContinuationData = response.continuation || null
+        this.latestPodcasts = this.latestPodcasts.concat(response.playlists)
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
     },
 
     getCommunityPostsLocal: async function () {
@@ -1657,8 +1801,9 @@ export default defineComponent({
 
     searchChannelInvidious: function () {
       const payload = {
-        resource: 'channels/search',
+        resource: 'channels',
         id: this.id,
+        subResource: 'search',
         params: {
           q: this.lastSearchQuery,
           page: this.searchPage
