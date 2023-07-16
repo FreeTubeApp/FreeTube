@@ -8,9 +8,10 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
-import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../../helpers/api/local'
+import { addPublishedDatesInvidious, addPublishedDatesLocal, parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
 
 export default defineComponent({
   name: 'SubscriptionsLive',
@@ -43,10 +44,6 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    },
-
-    hideWatchedSubs: function () {
-      return this.$store.getters.getHideWatchedSubs
     },
 
     useRssFeeds: function () {
@@ -87,20 +84,8 @@ export default defineComponent({
       })
     },
 
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
-    },
-
     activeSubscriptionList: function () {
       return this.activeProfile.subscriptions
-    },
-
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
-    },
-
-    hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
     },
 
     fetchSubscriptionsAutomatically: function() {
@@ -145,7 +130,7 @@ export default defineComponent({
 
         videoList.push(...channelCacheEntry.videos)
       })
-      this.updateVideoListAfterProcessing(videoList)
+      this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
     },
 
@@ -205,74 +190,9 @@ export default defineComponent({
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
 
-      this.updateVideoListAfterProcessing(videoList)
+      this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
       this.updateShowProgressBar(false)
-    },
-
-    updateVideoListAfterProcessing(videoList) {
-      // Filtering and sorting based in preference
-      videoList.sort((a, b) => {
-        if (b.premiereDate && a.premiereDate) {
-          return b.premiereDate - a.premiereDate
-        }
-
-        if (b.premiereDate && !a.premiereDate) {
-          return 1
-        }
-
-        if (!b.premiereDate && a.premiereDate) {
-          return -1
-        }
-
-        if (b.liveNow) {
-          return 1
-        }
-
-        if (a.liveNow) {
-          return -1
-        }
-
-        if (typeof a.publishedDate === 'undefined' || b.publishedDate === 'undefined') {
-          return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
-        } else {
-          return b.publishedDate - a.publishedDate
-        }
-      })
-      if (this.hideLiveStreams) {
-        videoList = videoList.filter(item => {
-          return (!item.liveNow && !item.isUpcoming)
-        })
-      }
-      if (this.hideUpcomingPremieres) {
-        videoList = videoList.filter(item => {
-          if (item.isRSS) {
-            // viewCount is our only method of detecting premieres in RSS
-            // data without sending an additional request.
-            // If we ever get a better flag, use it here instead.
-            return item.viewCount !== '0'
-          }
-          // Observed for premieres in Local API Subscriptions.
-          return (item.premiereDate == null ||
-            // Invidious API
-            // `premiereTimestamp` only available on premiered videos
-            // https://docs.invidious.io/api/common_types/#videoobject
-            item.premiereTimestamp == null
-          )
-        })
-      }
-
-      this.videoList = videoList.filter((video) => {
-        if (this.hideWatchedSubs) {
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
-
-          return historyIndex === -1
-        } else {
-          return true
-        }
-      })
     },
 
     maybeLoadVideosForSubscriptionsFromRemote: async function () {
@@ -294,6 +214,8 @@ export default defineComponent({
           this.errorChannels.push(channel)
           return []
         }
+
+        addPublishedDatesLocal(entries)
 
         return entries
       } catch (err) {
@@ -331,7 +253,7 @@ export default defineComponent({
           return []
         }
 
-        return await this.parseYouTubeRSSFeed(await response.text(), channel.id)
+        return await parseYouTubeRSSFeed(await response.text(), channel.id)
       } catch (error) {
         console.error(error)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -365,17 +287,12 @@ export default defineComponent({
           params: {}
         }
 
-        invidiousAPICall(subscriptionsPayload).then(async (result) => {
-          resolve(await Promise.all(result.videos.filter(e => e.type === 'video').map((video) => {
-            if (video.liveNow) {
-              video.publishedDate = new Date().getTime()
-            } else if (video.isUpcoming) {
-              video.publishedDate = new Date(video.premiereTimestamp * 1000)
-            } else {
-              video.publishedDate = new Date(video.published * 1000)
-            }
-            return video
-          })))
+        invidiousAPICall(subscriptionsPayload).then((result) => {
+          const videos = result.videos.filter(e => e.type === 'video')
+
+          addPublishedDatesInvidious(videos)
+
+          resolve(videos)
         }).catch((err) => {
           console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -415,7 +332,7 @@ export default defineComponent({
           return []
         }
 
-        return await this.parseYouTubeRSSFeed(await response.text(), channel.id)
+        return await parseYouTubeRSSFeed(await response.text(), channel.id)
       } catch (error) {
         console.error(error)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -437,41 +354,6 @@ export default defineComponent({
           default:
             return []
         }
-      }
-    },
-
-    async parseYouTubeRSSFeed(rssString, channelId) {
-      try {
-        const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
-        const channelName = xmlDom.querySelector('author > name').textContent
-        const entries = xmlDom.querySelectorAll('entry')
-
-        const promises = []
-
-        for (const entry of entries) {
-          promises.push(this.parseRSSEntry(entry, channelId, channelName))
-        }
-
-        return await Promise.all(promises)
-      } catch (e) {
-        return []
-      }
-    },
-
-    async parseRSSEntry(entry, channelId, channelName) {
-      const published = new Date(entry.querySelector('published').textContent)
-      return {
-        authorId: channelId,
-        author: channelName,
-        // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
-        videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
-        title: entry.querySelector('title').textContent,
-        publishedDate: published,
-        publishedText: published.toLocaleString(),
-        viewCount: entry.getElementsByTagName('media:statistics')[0]?.getAttribute('views') || null,
-        type: 'video',
-        lengthSeconds: '0:00',
-        isRSS: true
       }
     },
 
