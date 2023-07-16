@@ -38,11 +38,7 @@ export default defineComponent({
         return
       }
 
-      if ((tab === 'shorts' && this.hideChannelShorts) || (tab === 'live' && this.hideLiveStreams)) {
-        this.currentTab = 'videos'
-      } else {
-        this.currentTab = tab
-      }
+      this.currentTab = tab
     },
 
     /**
