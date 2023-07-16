@@ -211,7 +211,7 @@ export default defineComponent({
         this.apiUsed = 'invidious'
 
         const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
         })
 
         if (this.searchPage !== 1) {

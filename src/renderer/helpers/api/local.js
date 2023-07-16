@@ -405,7 +405,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
     })
     .map((item) => parseListItem(item))
 
@@ -549,6 +549,18 @@ function parseListItem(item) {
         videos,
         handle,
         descriptionShort: channel.description_snippet.text
+      }
+    }
+    case 'HashtagTile': {
+      /** @type {import('youtubei.js').YTNodes.HashtagTile} */
+      const hashtag = item
+
+      return {
+        type: 'hashtag',
+        title: hashtag.hashtag,
+        videoCount: parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
+        channelCount: parseLocalSubscriberCount(hashtag.hashtag_channel_count.text),
+        url: hashtag.endpoint.metadata.url ?? `hashtag/${encodeURIComponent(hashtag.hashtag.substring(1))}`
       }
     }
     case 'Playlist': {
@@ -813,6 +825,7 @@ export function filterLocalFormats(formats, allowAv1 = false) {
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
+  if (typeof (text) === 'undefined' || text === null) { return null }
   const match = text
     .replace(',', '.')
     .toUpperCase()

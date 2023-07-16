@@ -1,0 +1,11 @@
+@use '../../scss-partials/_ft-list-item';
+
+.handle {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hashtagImage {
+  color: var(--primary-text-color);
+  font-size: 150px;
+}
