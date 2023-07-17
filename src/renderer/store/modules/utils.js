@@ -523,7 +523,12 @@ const actions = {
 
     if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
-        args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+        if (cmdArgs.startOffset.endsWith('=')) {
+          args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+        } else {
+          // special handling for SMPlayer and similar
+          args.push(cmdArgs.startOffset, payload.watchProgress)
+        }
       } else if (!ignoreWarnings) {
         showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
       }
