@@ -880,8 +880,9 @@ Tooltips:
       hiire ratast.
   Distraction Free Settings:
     Hide Channels: Sisesta kanali nimi või kanali ID, et kõik videod, esitusloendid
-      ja kanal ise ei oleks nähtav otsingus ega populaarsust koguvate videote vaates.
-      Sisestatud kanali nimi peab vastama täielikult ja on tõstutundlik.
+      ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote
+      ja populaarsust koguvate videote vaates. Sisestatud kanali nimi peab otsingule
+      vastama täielikult ja on tõstutundlik.
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
       http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks
