@@ -91,7 +91,7 @@
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "electron": "^22.3.17",
-    "electron-builder": "^23.6.0",
+    "electron-builder": "^24.4.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
