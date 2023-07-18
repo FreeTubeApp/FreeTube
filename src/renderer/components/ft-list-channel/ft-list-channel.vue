@@ -29,7 +29,9 @@
           v-if="subscriberCount !== null && !hideChannelSubscriptions"
           class="subscriberCount"
         >
-          {{ subscriberCount }} subscribers -
+          {{ parsedSubscriberCount }}
+          <template v-if="subscriberCount === 1">{{ $t("Channel.Subscriber") }}</template>
+          <template v-else>{{ $t("Channel.Subscribers") }}</template> -
         </span>
         <router-link
           v-if="handle !== null"
@@ -42,7 +44,9 @@
           v-else
           class="videoCount"
         >
-          {{ videoCount }} videos
+          {{ parsedVideoCount }}
+          <template v-if="videoCount === 1">{{ $t("Channel.Videos.Video") }}</template>
+          <template v-else>{{ $t("Channel.Videos.Videos") }}</template>
         </span>
       </div>
       <p
