@@ -654,41 +654,48 @@ export default defineComponent({
           this.joined = 0
           this.location = null
         }
-
-        const lowerTabs = channel.tabs.map(tab => tab.toLowerCase())
-        this.channelTabs = this.supportedChannelTabs.filter(tab => {
-          return lowerTabs.includes(tab)
-        })
-        this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
+        const tabs = ['about']
 
         if (channel.has_videos) {
+          tabs.push('videos')
           this.getChannelVideosLocal()
         }
 
         if (!this.hideChannelShorts && channel.has_shorts) {
+          tabs.push('shorts')
           this.getChannelShortsLocal()
         }
 
         if (!this.hideLiveStreams && channel.has_live_streams) {
+          tabs.push('live')
           this.getChannelLiveLocal()
         }
 
         if (!this.hideChannelPodcasts && channel.has_podcasts) {
+          tabs.push('podcasts')
           this.getChannelPodcastsLocal()
         }
 
         if (!this.hideChannelReleases && channel.has_releases) {
+          tabs.push('releases')
           this.getChannelReleasesLocal()
         }
 
         if (!this.hideChannelPlaylists && channel.has_playlists) {
+          tabs.push('playlists')
           this.getChannelPlaylistsLocal()
         }
 
         if (!this.hideChannelCommunity && channel.has_community) {
+          tabs.push('community')
           this.getCommunityPostsLocal()
         }
 
+        this.channelTabs = this.supportedChannelTabs.filter(tab => {
+          return tabs.includes(tab)
+        })
+
+        this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
         this.showSearchBar = channel.has_search
 
         this.isLoading = false
