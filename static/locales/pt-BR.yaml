@@ -959,9 +959,10 @@ Tooltips:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
-    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, listas
-      de reprodução e o próprio canal dos resultados da busca ou nas tendências. O
-      nome do canal digitado deve coincidir exatamente, observando maiúsculas e minúsculas.
+    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, as
+      listas de reprodução e o próprio canal dos resultados da busca, tendências,
+      mais populares e recomendados. O nome do canal digitado deve coincidir exatamente,
+      observando maiúsculas e minúsculas.
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário
       a partir do DeArrow.
