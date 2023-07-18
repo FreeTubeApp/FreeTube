@@ -339,7 +339,7 @@
           aria-labelledby="releasesTab"
         />
         <ft-flex-box
-          v-if="!hideChannelPodcasts && currentTab === 'releases' && latestPodcasts.length === 0"
+          v-if="!hideChannelReleases && currentTab === 'releases' && latestReleases.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Releases.This channel does not currently have any releases") }}
