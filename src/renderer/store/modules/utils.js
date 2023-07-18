@@ -524,9 +524,12 @@ const actions = {
     if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
         if (cmdArgs.startOffset.endsWith('=')) {
+          // For players using `=` in arguments
+          // e.g. vlc --start-time=xxxxx
           args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
         } else {
-          // special handling for SMPlayer and similar
+          // For players using space in arguments
+          // e.g. smplayer -start xxxxx
           args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
         }
       } else if (!ignoreWarnings) {
