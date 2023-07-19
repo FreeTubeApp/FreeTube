@@ -363,8 +363,7 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
   let channelId = null
   /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
   const thumbnailRenderer = playlist.thumbnail_renderer
-
-  if (playlist.author) {
+  if (playlist.author && playlist.author.id !== 'N/A') {
     if (playlist.author instanceof Misc.Text) {
       channelName = playlist.author.text
 
