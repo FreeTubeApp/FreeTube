@@ -42,7 +42,7 @@
       <input
         :id="id"
         ref="input"
-        v-model="inputData"
+        :value="inputDataDisplayed"
         :list="idDataList"
         class="ft-input"
         :type="inputType"

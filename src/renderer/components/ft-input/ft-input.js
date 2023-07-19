@@ -73,7 +73,8 @@ export default defineComponent({
       searchState: {
         showOptions: false,
         selectedOption: -1,
-        isPointerInList: false
+        isPointerInList: false,
+        keyboardSelectedOptionIndex: -1,
       },
       visibleDataList: this.dataList,
       // This button should be invisible on app start
@@ -98,7 +99,23 @@ export default defineComponent({
 
     inputDataPresent: function () {
       return this.inputData.length > 0
-    }
+    },
+    inputDataDisplayed() {
+      if (!this.isSearch) { return this.inputData }
+
+      const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
+      if (selectedOptionValue != null && selectedOptionValue !== '') {
+        return selectedOptionValue
+      }
+
+      return this.inputData
+    },
+
+    searchStateKeyboardSelectedOptionValue() {
+      if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
+
+      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+    },
   },
   watch: {
     dataList(val, oldVal) {
@@ -133,6 +150,8 @@ export default defineComponent({
     },
 
     handleInput: function (val) {
+      this.inputData = val
+
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
@@ -229,25 +248,29 @@ export default defineComponent({
 
       this.searchState.showOptions = true
       const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
-      if (isArrow) {
-        event.preventDefault()
-        if (event.key === 'ArrowDown') {
-          this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
-        } else if (event.key === 'ArrowUp') {
-          if (this.searchState.selectedOption < 1) {
-            this.searchState.selectedOption = this.visibleDataList.length - 1
-          } else {
-            this.searchState.selectedOption--
-          }
-        }
-        if (this.searchState.selectedOption < 0) {
-          this.searchState.selectedOption = this.visibleDataList.length
-        } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
-          this.searchState.selectedOption = 0
-        }
-      } else {
+      if (!isArrow) {
         this.searchState.selectedOption = -1
+        this.searchState.keyboardSelectedOptionIndex = -1
+        return
       }
+
+      event.preventDefault()
+      if (event.key === 'ArrowDown') {
+        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+      } else if (event.key === 'ArrowUp') {
+        if (this.searchState.selectedOption < 1) {
+          this.searchState.selectedOption = this.visibleDataList.length - 1
+        } else {
+          this.searchState.selectedOption--
+        }
+      }
+      if (this.searchState.selectedOption < 0) {
+        this.searchState.selectedOption = this.visibleDataList.length
+      } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
+        this.searchState.selectedOption = 0
+      }
+      // Update displayed value
+      this.searchState.keyboardSelectedOptionIndex = this.searchState.selectedOption
     },
 
     handleInputBlur: function () {
