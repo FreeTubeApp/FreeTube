@@ -29,7 +29,7 @@ export default defineComponent({
       return this.$store.getters.getHideSubscriptionsShorts
     },
     hideSubscriptionsLive: function () {
-      return this.$store.getters.getHideSubscriptionsLive
+      return this.$store.getters.getHideLiveStreams || this.$store.getters.getHideSubscriptionsLive
     },
     visibleTabs: function () {
       const tabs = []

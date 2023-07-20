@@ -61,8 +61,10 @@
         <ft-toggle-switch
           :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
           :compact="true"
-          :default-value="hideSubscriptionsLive"
-          @change="updateHideSubscriptionsLive"
+          :disabled="hideLiveStreams"
+          :default-value="hideLiveStreams || hideSubscriptionsLive"
+          :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
+          v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
         />
       </div>
     </div>
