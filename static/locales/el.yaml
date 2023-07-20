@@ -417,6 +417,8 @@ Settings:
     Hide Channel Playlists: Απόκρυψη Λιστών Αναπαραγωγής Καναλιών
     Hide Channel Community: Απόκρυψη Κοινότητας Καναλιού
     Hide Channel Shorts: Απόκρυψη Shorts Καναλιού
+    Hide Channel Releases: Απόκρυψη Kυκλοφοριών Kαναλιού
+    Hide Channel Podcasts: Απόκρυψη Podcasts Καναλιού
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -656,6 +658,14 @@ Channel:
     Shorts: Shorts
     This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς
       το παρόν κανένα shorts
+  Releases:
+    Releases: Κυκλοφορίες
+    This channel does not currently have any releases: Αυτό το κανάλι δεν έχει προς
+      το παρόν κυκλοφορίες
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Αυτό το κανάλι δεν έχει αυτήν
+      τη στιγμή podcasts
 Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
