@@ -415,6 +415,8 @@ Settings:
       Channel Page: Página del canal
       Watch Page: Ver la página
       General: General
+    Hide Channel Releases: Ocultar las nuevas publicaciones de los canales
+    Hide Channel Podcasts: Ocultar los canales de podcasts
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -641,6 +643,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Este canal no tiene actualmente
       ningún vídeo corto
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Este canal actualmente no tiene
+      podcasts
+  Releases:
+    Releases: Publicaciones
+    This channel does not currently have any releases: Este canal no tiene actualmente
+      ninguna publicación
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'

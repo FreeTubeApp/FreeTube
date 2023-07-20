@@ -417,6 +417,8 @@ Settings:
       Channel Page: Kanal Sayfası
       Watch Page: İzleme Sayfası
       General: Genel
+    Hide Channel Releases: Kanal Yayınlarını Gizle
+    Hide Channel Podcasts: Kanal Podcast'lerini Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -649,6 +651,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video
       yok
+  Podcasts:
+    Podcasts: Podcast'ler
+    This channel does not currently have any podcasts: Bu kanalda şu anda herhangi
+      bir podcast yok
+  Releases:
+    This channel does not currently have any releases: Bu kanalda şu anda herhangi
+      bir yayın yok
+    Releases: Yayınlar
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'

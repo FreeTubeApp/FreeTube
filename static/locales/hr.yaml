@@ -415,6 +415,8 @@ Settings:
       General: Opće
       Side Bar: Bočna traka
       Channel Page: Stranica kanala
+    Hide Channel Podcasts: Sakrij kanal podcastova
+    Hide Channel Releases: Sakrij kanal izdanja
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -643,6 +645,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
+  Releases:
+    Releases: Izdanja
+    This channel does not currently have any releases: Ovaj kanal trenutačno nema
+      izdanja
+  Podcasts:
+    Podcasts: Podcasti
+    This channel does not currently have any podcasts: Ovaj kanal trenutačno nema
+      podcastova
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
