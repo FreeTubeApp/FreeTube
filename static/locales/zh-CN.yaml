@@ -373,6 +373,8 @@ Settings:
       Channel Page: 频道页
       Watch Page: 观看页
       General: 常规
+    Hide Channel Podcasts: 隐藏频道播客
+    Hide Channel Releases: 隐藏频道发布
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -535,6 +537,12 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: 此频道目前没有任何短视频
     Shorts: 短视频
+  Podcasts:
+    This channel does not currently have any podcasts: 此频道当前无任何播客节目
+    Podcasts: 播客
+  Releases:
+    Releases: 发布
+    This channel does not currently have any releases: 此频道当前无任何发布
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
