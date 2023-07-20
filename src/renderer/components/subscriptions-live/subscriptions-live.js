@@ -1,12 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
-import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
-import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
+import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
@@ -16,18 +10,11 @@ import { addPublishedDatesInvidious, addPublishedDatesLocal, parseYouTubeRSSFeed
 export default defineComponent({
   name: 'SubscriptionsLive',
   components: {
-    'ft-loader': FtLoader,
-    'ft-card': FtCard,
-    'ft-button': FtButton,
-    'ft-icon-button': FtIconButton,
-    'ft-flex-box': FtFlexBox,
-    'ft-element-list': FtElementList,
-    'ft-channel-bubble': FtChannelBubble
+    'subscriptions-tab-ui': SubscriptionsTabUI
   },
   data: function () {
     return {
       isLoading: false,
-      dataLimit: 100,
       videoList: [],
       errorChannels: [],
       attemptedFetch: false,
@@ -48,14 +35,6 @@ export default defineComponent({
 
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
-    },
-
-    activeVideoList: function () {
-      if (this.videoList.length < this.dataLimit) {
-        return this.videoList
-      } else {
-        return this.videoList.slice(0, this.dataLimit)
-      }
     },
 
     activeProfile: function () {
@@ -99,18 +78,9 @@ export default defineComponent({
     },
   },
   mounted: async function () {
-    document.addEventListener('keydown', this.keyboardShortcutHandler)
-
     this.isLoading = true
-    const dataLimit = sessionStorage.getItem('subscriptionLimit')
-    if (dataLimit !== null) {
-      this.dataLimit = dataLimit
-    }
 
     this.loadVideosFromCacheSometimes()
-  },
-  beforeDestroy: function () {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
     loadVideosFromCacheSometimes() {
@@ -132,10 +102,6 @@ export default defineComponent({
       })
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
-    },
-
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
     },
 
     loadVideosForSubscriptionsFromRemote: async function () {
@@ -354,33 +320,6 @@ export default defineComponent({
           default:
             return []
         }
-      }
-    },
-
-    increaseLimit: function () {
-      this.dataLimit += 100
-      sessionStorage.setItem('subscriptionLimit', this.dataLimit)
-    },
-
-    /**
-     * This function `keyboardShortcutHandler` should always be at the bottom of this file
-     * @param {KeyboardEvent} event the keyboard event
-     */
-    keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
-        return
-      }
-      // Avoid handling events due to user holding a key (not released)
-      // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
-      if (event.repeat) { return }
-
-      switch (event.key) {
-        case 'r':
-        case 'R':
-          if (!this.isLoading) {
-            this.loadVideosForSubscriptionsFromRemote()
-          }
-          break
       }
     },
 
