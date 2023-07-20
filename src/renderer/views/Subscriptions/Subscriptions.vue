@@ -72,7 +72,10 @@
         role="tabpanel"
       />
       <p v-if="currentTab === null">
-        {{ $t("Subscriptions['All subscription tabs are hidden. To see content here, please unhide some tabs in the Channel Page section in Distraction Free Settings.']") }}
+        {{ $t("Subscriptions.All Subscription Tabs Hidden", {
+          subsection: $t('Settings.Distraction Free Settings.Sections.Subscriptions Page'),
+          settingsSection: $t('Settings.Distraction Free Settings.Distraction Free Settings')
+        }) }}
       </p>
     </ft-card>
   </div>
