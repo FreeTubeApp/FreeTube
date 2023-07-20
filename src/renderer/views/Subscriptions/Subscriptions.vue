@@ -18,8 +18,7 @@
           :class="{ selectedTab: currentTab === 'videos' }"
           @click="changeTab('videos')"
           @keydown.space.enter.prevent="changeTab('videos')"
-          @keydown.left="focusTab($event, 'shorts')"
-          @keydown.right="focusTab($event, 'live')"
+          @keydown.left.right="focusTab($event, 'videos')"
         >
           {{ $t("Global.Videos").toUpperCase() }}
         </div>
@@ -34,8 +33,7 @@
           :class="{ selectedTab: currentTab === 'shorts' }"
           @click="changeTab('shorts')"
           @keydown.space.enter.prevent="changeTab('shorts')"
-          @keydown.left="focusTab($event, 'live')"
-          @keydown.right="focusTab($event, 'videos')"
+          @keydown.left.right="focusTab($event, 'shorts')"
         >
           {{ $t("Global.Shorts").toUpperCase() }}
         </div>
@@ -50,8 +48,7 @@
           :class="{ selectedTab: currentTab === 'live' }"
           @click="changeTab('live')"
           @keydown.space.enter.prevent="changeTab('live')"
-          @keydown.left="focusTab($event, 'videos')"
-          @keydown.right="focusTab($event, 'shorts')"
+          @keydown.left.right="focusTab($event, 'live')"
         >
           {{ $t("Global.Live").toUpperCase() }}
         </div>

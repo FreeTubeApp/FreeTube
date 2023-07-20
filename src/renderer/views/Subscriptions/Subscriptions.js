@@ -93,12 +93,34 @@ export default defineComponent({
 
     /**
      * @param {KeyboardEvent} event
-     * @param {string} tab
+     * @param {string} currentTab
      */
-    focusTab: function (event, tab) {
+    focusTab: function (event, currentTab) {
       if (!event.altKey) {
         event.preventDefault()
-        this.$refs[tab].focus()
+
+        const visibleTabs = this.visibleTabs
+
+        if (visibleTabs.length === 1) {
+          this.$emit('showOutlines')
+          return
+        }
+
+        let index = visibleTabs.indexOf(currentTab)
+
+        if (event.key === 'ArrowLeft') {
+          index--
+        } else {
+          index++
+        }
+
+        if (index < 0) {
+          index = visibleTabs.length - 1
+        } else if (index > visibleTabs.length - 1) {
+          index = 0
+        }
+
+        this.$refs[visibleTabs[index]].focus()
         this.$emit('showOutlines')
       }
     }
