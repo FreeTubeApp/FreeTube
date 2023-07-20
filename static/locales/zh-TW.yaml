@@ -375,6 +375,8 @@ Settings:
       Watch Page: 觀看頁面
       General: 一般
       Channel Page: 頻道頁面
+    Hide Channel Podcasts: 隱藏頻道 Podcast
+    Hide Channel Releases: 隱藏頻道發布
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -546,6 +548,12 @@ Channel:
   Shorts:
     Shorts: 短片
     This channel does not currently have any shorts: 此頻道目前沒有任何短片
+  Podcasts:
+    This channel does not currently have any podcasts: 此頻道目前沒有 podcast
+    Podcasts: Podcast
+  Releases:
+    Releases: 發布
+    This channel does not currently have any releases: 此頻道目前沒有任何發布
 Video:
   Open in YouTube: '在YouTube中開啟'
   Copy YouTube Link: '複製YouTube連結'
