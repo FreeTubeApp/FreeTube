@@ -398,6 +398,8 @@ Settings:
       Channel Page: עמוד ערוץ
       Side Bar: סרגל צד
       General: כללי
+    Hide Channel Podcasts: הסתרת הסכתים של הערוץ
+    Hide Channel Releases: הסתרת שחרורים של הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -622,6 +624,12 @@ Channel:
   Shorts:
     Shorts: Shorts
     This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
+  Podcasts:
+    Podcasts: הסכתים
+    This channel does not currently have any podcasts: בערוץ הזה אין הסכתים כרגע
+  Releases:
+    Releases: שחרורים
+    This channel does not currently have any releases: בערוץ הזה אין שחרורים כרגע
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
