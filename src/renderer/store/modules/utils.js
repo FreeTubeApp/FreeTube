@@ -317,7 +317,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|playlists|about|community|channels))?\/?$/
 
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
@@ -439,6 +439,12 @@ const actions = {
           case 'playlists':
             subPath = 'playlists'
             break
+          case 'podcasts':
+            subPath = 'podcasts'
+            break
+          case 'releases':
+            subPath = 'releases'
+            break
           case 'channels':
           case 'about':
             subPath = 'about'
@@ -523,7 +529,15 @@ const actions = {
 
     if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
-        args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+        if (cmdArgs.startOffset.endsWith('=')) {
+          // For players using `=` in arguments
+          // e.g. vlc --start-time=xxxxx
+          args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
+        } else {
+          // For players using space in arguments
+          // e.g. smplayer -start xxxxx
+          args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
+        }
       } else if (!ignoreWarnings) {
         showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
       }

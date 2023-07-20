@@ -424,6 +424,8 @@ Settings:
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
+    Hide Channel Podcasts: Nascondi i podcast del canale
+    Hide Channel Releases: Nascondi i rilasci del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -498,7 +500,7 @@ Settings:
     Remove Password: Rimuovi password
 About:
   #On About page
-  About: 'Informazioni'
+  About: 'Informazioni su'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
     software è rilasciato con licenza gratuita AGPL-3.0.'
@@ -578,7 +580,7 @@ Channel:
       Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
   About:
-    About: 'Informazioni'
+    About: 'Informazioni su'
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali in evidenza'
     Tags:
@@ -609,6 +611,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Questo canale attualmente non
       ha video brevi
+  Podcasts:
+    Podcasts: Podcast
+    This channel does not currently have any podcasts: Questo canale non ha attualmente
+      alcun podcast
+  Releases:
+    Releases: Rilasci
+    This channel does not currently have any releases: Questo canale non ha attualmente
+      alcun rilascio
 Video:
   Mark As Watched: 'Segna come già visto'
   Remove From History: 'Rimuovi dalla cronologia'

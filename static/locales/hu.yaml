@@ -423,6 +423,8 @@ Settings:
       Channel Page: Csatornalap
       Watch Page: Nézőlap
       General: Általános
+    Hide Channel Podcasts: Csatornapodcastok elrejtése
+    Hide Channel Releases: Csatornakiadások elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -649,6 +651,14 @@ Channel:
       rövidfilmek
   This channel does not exist: Nem létezik ez a csatorna
   This channel does not allow searching: Keresés nem engedélyezett ezen a csatornán
+  Releases:
+    Releases: Kiadások
+    This channel does not currently have any releases: Ennek a csatornának jelenleg
+      nincsenek kiadásai
+  Podcasts:
+    Podcasts: Podcastok
+    This channel does not currently have any podcasts: Ez a csatorna jelenleg nem
+      rendelkezik podcastokkal
 Video:
   Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'

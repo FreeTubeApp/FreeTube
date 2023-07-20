@@ -348,6 +348,8 @@ Settings:
       Channel Page: Página do canal
       Watch Page: Ver página
       General: Geral
+    Hide Channel Releases: Ocultar as libertações do canal
+    Hide Channel Podcasts: Ocultar podcasts do canal
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -594,6 +596,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Este canal não tem atualmente
       nenhum canal curto
+  Releases:
+    Releases: Lançamentos
+    This channel does not currently have any releases: Este canal não tem atualmente
+      nenhum lançamento
+  Podcasts:
+    This channel does not currently have any podcasts: Este canal não tem atualmente
+      podcasts
+    Podcasts: Podcasts
 Video:
   Mark As Watched: Marcar como visto
   Remove From History: Remover do histórico
@@ -876,10 +886,10 @@ Tooltips:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Levará ao aumento da utilização de RAM.
   Distraction Free Settings:
-    Hide Channels: Introduza o nome de um canal ou ID do canal para esconder todos
-      os vídeos, listas de reprodução e o próprio canal de aparecer em busca ou em
-      tendências. O nome do canal introduzido tem de ser uma correspondência completa
-      e é sensível a maiúsculas e minúsculas.
+    Hide Channels: Introduza um nome de canal ou um ID de canal para ocultar todos
+      os vídeos, listas de reprodução e o próprio canal de aparecerem na pesquisa,
+      tendências, mais populares e recomendados. O nome do canal introduzido tem de
+      corresponder na totalidade e é sensível a maiúsculas e minúsculas.
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.

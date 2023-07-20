@@ -71,6 +71,12 @@ export default defineComponent({
     hideChannelPlaylists: function() {
       return this.$store.getters.getHideChannelPlaylists
     },
+    hideChannelPodcasts: function() {
+      return this.$store.getters.getHideChannelPodcasts
+    },
+    hideChannelReleases: function() {
+      return this.$store.getters.getHideChannelReleases
+    },
     hideChannelCommunity: function() {
       return this.$store.getters.getHideChannelCommunity
     },
@@ -127,6 +133,8 @@ export default defineComponent({
       'updateHideChannelShorts',
       'updateHideChannelPlaylists',
       'updateHideChannelCommunity',
+      'updateHideChannelPodcasts',
+      'updateHideChannelReleases',
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive'

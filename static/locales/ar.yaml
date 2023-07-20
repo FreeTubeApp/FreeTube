@@ -409,6 +409,8 @@ Settings:
       Channel Page: صفحة القناة
       Watch Page: صفحة المشاهدة
       General: عام
+    Hide Channel Podcasts: إخفاء بودكاست القناة
+    Hide Channel Releases: إخفاء إصدارات القناة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -630,6 +632,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: هذه القناة ليس لديها حاليا أي
       أفلام قصيرة (shorts)
+  Podcasts:
+    Podcasts: البودكاست
+    This channel does not currently have any podcasts: لا تحتوي هذه القناة حاليا على
+      أي بودكاست
+  Releases:
+    Releases: الاصدارات
+    This channel does not currently have any releases: هذه القناة ليس لديها أي إصدارات
+      حاليا
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'

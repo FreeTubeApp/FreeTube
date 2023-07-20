@@ -405,6 +405,8 @@ Settings:
       Channel Page: עמוד ערוץ
       Side Bar: סרגל צד
       General: כללי
+    Hide Channel Podcasts: הסתרת הסכתים של הערוץ
+    Hide Channel Releases: הסתרת שחרורים של הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -628,6 +630,12 @@ Channel:
       כרגע
   Shorts:
     This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
+  Podcasts:
+    Podcasts: הסכתים
+    This channel does not currently have any podcasts: בערוץ הזה אין הסכתים כרגע
+  Releases:
+    Releases: שחרורים
+    This channel does not currently have any releases: בערוץ הזה אין שחרורים כרגע
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
@@ -919,8 +927,8 @@ Tooltips:
       אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
   Distraction Free Settings:
     Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה
-      ואת הערוץ עצמו כך שלא יופיע בחיפוש או במובילים. שם הערוץ שמילאת צריך להיות תואם
-      במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
+      ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם
+      הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
 More: עוד

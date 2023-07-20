@@ -86,6 +86,7 @@
             :aria-label="$t('Channel.Channel Tabs')"
           >
             <div
+              v-if="tabInfoValues.includes('videos')"
               id="videosTab"
               class="tab"
               :class="(currentTab==='videos')?'selectedTab':''"
@@ -99,7 +100,7 @@
               {{ $t("Channel.Videos.Videos").toUpperCase() }}
             </div>
             <div
-              v-if="!hideChannelShorts"
+              v-if="tabInfoValues.includes('shorts') && !hideChannelShorts"
               id="shortsTab"
               class="tab"
               :class="(currentTab==='shorts')?'selectedTab':''"
@@ -113,7 +114,7 @@
               {{ $t("Global.Shorts").toUpperCase() }}
             </div>
             <div
-              v-if="!hideLiveStreams"
+              v-if="tabInfoValues.includes('live') && !hideLiveStreams"
               id="liveTab"
               class="tab"
               :class="(currentTab==='live')?'selectedTab':''"
@@ -127,7 +128,35 @@
               {{ $t("Channel.Live.Live").toUpperCase() }}
             </div>
             <div
-              v-if="!hideChannelPlaylists"
+              v-if="tabInfoValues.includes('releases') && !hideChannelReleases"
+              id="releasesTab"
+              class="tab"
+              role="tab"
+              :aria-selected="String(currentTab === 'releases')"
+              aria-controls="releasePanel"
+              :tabindex="currentTab === 'releases' ? 0 : -1"
+              :class="(currentTab==='releases')?'selectedTab':''"
+              @click="changeTab('releases')"
+              @keydown.left.right.enter.space="changeTab('releases', $event)"
+            >
+              {{ $t("Channel.Releases.Releases").toUpperCase() }}
+            </div>
+            <div
+              v-if="tabInfoValues.includes('podcasts') && !hideChannelPodcasts"
+              id="podcastsTab"
+              class="tab"
+              role="tab"
+              :aria-selected="String(currentTab === 'podcasts')"
+              aria-controls="podcastPanel"
+              :tabindex="currentTab === 'podcasts' ? 0 : -1"
+              :class="(currentTab==='podcasts')?'selectedTab':''"
+              @click="changeTab('podcasts')"
+              @keydown.left.right.enter.space="changeTab('podcasts', $event)"
+            >
+              {{ $t("Channel.Podcasts.Podcasts").toUpperCase() }}
+            </div>
+            <div
+              v-if="tabInfoValues.includes('playlists') && !hideChannelPlaylists"
               id="playlistsTab"
               class="tab"
               role="tab"
@@ -141,7 +170,7 @@
               {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
             </div>
             <div
-              v-if="!hideChannelCommunity"
+              v-if="tabInfoValues.includes('community') && !hideChannelCommunity"
               id="communityTab"
               class="tab"
               role="tab"
@@ -284,6 +313,36 @@
         >
           <p class="message">
             {{ $t("Channel.Live.This channel does not currently have any live streams") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-if="!hideChannelPodcasts && currentTab === 'podcasts'"
+          id="podcastPanel"
+          :data="latestPodcasts"
+          :use-channels-hidden-preference="false"
+          role="tabpanel"
+          aria-labelledby="podcastsTab"
+        />
+        <ft-flex-box
+          v-if="!hideChannelPodcasts && currentTab === 'podcasts' && latestPodcasts.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Podcasts.This channel does not currently have any podcasts") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
+          v-if="!hideChannelReleases && currentTab === 'releases'"
+          id="releasePanel"
+          :data="latestReleases"
+          :use-channels-hidden-preference="false"
+          role="tabpanel"
+          aria-labelledby="releasesTab"
+        />
+        <ft-flex-box
+          v-if="!hideChannelReleases && currentTab === 'releases' && latestReleases.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Releases.This channel does not currently have any releases") }}
           </p>
         </ft-flex-box>
         <ft-element-list

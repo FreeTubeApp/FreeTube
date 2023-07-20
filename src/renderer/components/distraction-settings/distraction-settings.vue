@@ -85,6 +85,12 @@
           :default-value="hideChannelPlaylists"
           @change="updateHideChannelPlaylists"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Podcasts')"
+          :compact="true"
+          :default-value="hideChannelPodcasts"
+          @change="updateHideChannelPodcasts"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -98,6 +104,12 @@
           :compact="true"
           :default-value="hideFeaturedChannels"
           @change="updateHideFeaturedChannels"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Releases')"
+          :compact="true"
+          :default-value="hideChannelReleases"
+          @change="updateHideChannelReleases"
         />
       </div>
     </div>
