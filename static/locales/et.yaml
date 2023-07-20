@@ -380,6 +380,8 @@ Settings:
     Hide Channel Playlists: Peida kanali esitusloendid
     Hide Channel Shorts: Peida kanali lühivideod
     Hide Channel Community: Peida kanali kogukond
+    Hide Channel Podcasts: Peida kanali taskuhäälingud
+    Hide Channel Releases: Peida kanali väljalasked
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -564,7 +566,7 @@ Channel:
   Channel Tabs: Kanali kaardid
   Shorts:
     Shorts: Lühivideod
-    This channel does not currently have any shorts: Sellel kanalil pole lühiklippe
+    This channel does not currently have any shorts: Sellel kanalil pole lühivideosid
   Live:
     Live: Otseeeter
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
@@ -576,6 +578,14 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
     vaadata.
+  Podcasts:
+    Podcasts: Taskuhäälingud
+    This channel does not currently have any podcasts: Sellel kanalil hetkel pole
+      taskuhäälinguid
+  Releases:
+    This channel does not currently have any releases: Sellel kanalil pole hetkel
+      ühtegi väljalaset
+    Releases: Väljalasked
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
