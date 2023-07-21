@@ -86,6 +86,9 @@ Subscriptions:
   Error Channels: 有错误的频道
   Disabled Automatic Fetching: 你仅用了自动订阅获取。刷新订阅在此处看到它们。
   Empty Channels: 你订阅的频道当前没有任何视频。
+  Subscriptions Tabs: 订阅标签页
+  All Subscription Tabs Hidden: 所有的订阅标签页均被隐藏。要在此查看内容，请在 "{subsection}" 部分取消隐藏某些标签页，此部分位于
+    "{settingsSection}"。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -380,8 +383,12 @@ Settings:
       Channel Page: 频道页
       Watch Page: 观看页
       General: 常规
+      Subscriptions Page: 订阅页
     Hide Channel Podcasts: 隐藏频道播客
     Hide Channel Releases: 隐藏频道发布
+    Hide Subscriptions Shorts: 隐藏订阅短视频
+    Hide Subscriptions Videos: 隐藏订阅视频
+    Hide Subscriptions Live: 隐藏订阅直播
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -852,6 +859,8 @@ Tooltips:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
   Distraction Free Settings:
     Hide Channels: 输入频道名称或频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道名称必须完全匹配，并且区分大小写。
+    Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}"
+      位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
   SponsorBlock Settings:
     UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
 More: 更多
