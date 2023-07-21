@@ -77,9 +77,10 @@
         <li
           v-for="(list, index) in visibleDataList"
           :key="index"
-          :class="searchState.selectedOption == index ? 'hover': ''"
+          :class="searchState.selectedOption === index ? 'hover': ''"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
+          @mouseleave="searchState.selectedOption = -1"
         >
           {{ list }}
         </li>
