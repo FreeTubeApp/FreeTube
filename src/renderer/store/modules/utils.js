@@ -529,7 +529,10 @@ const actions = {
 
     if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
-        if (cmdArgs.startOffset.endsWith('=')) {
+        if (cmdArgs.defaultExecutable.startsWith('mpc')) {
+          // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
+          args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
+        } else if (cmdArgs.startOffset.endsWith('=')) {
           // For players using `=` in arguments
           // e.g. vlc --start-time=xxxxx
           args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
