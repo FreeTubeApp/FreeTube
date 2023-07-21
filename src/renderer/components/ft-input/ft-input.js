@@ -145,6 +145,8 @@ export default defineComponent({
       if (!this.inputDataPresent) { return }
 
       this.searchState.showOptions = false
+      this.searchState.selectedOption = -1
+      this.searchState.keyboardSelectedOptionIndex = -1
       this.$emit('input', this.inputData)
       this.$emit('click', this.inputData, { event: e })
     },
