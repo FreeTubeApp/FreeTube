@@ -357,7 +357,7 @@ export default defineComponent({
         this.isUpcoming = !!result.basic_info.is_upcoming
         this.isLiveContent = !!result.basic_info.is_live_content
 
-        const subCount = parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text)
+        const subCount = !result.secondary_info.owner.subscriber_count.isEmpty() ? parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text) : NaN
 
         if (!isNaN(subCount)) {
           this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
@@ -713,7 +713,7 @@ export default defineComponent({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
-          this.channelSubscriptionCountText = result.subCountText || 'FT-0'
+          this.channelSubscriptionCountText = isNaN(result.subCountText) ? '' : result.subCountText
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
