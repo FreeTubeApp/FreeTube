@@ -77,6 +77,24 @@
             "playlistLoop": "--loop-playlist"
         }
     },
+    {
+      "name": "PotPlayer",
+      "nameTranslationKey": "Settings.External Player Settings.Players.PotPlayer.Name",
+      "value": "potplayer",
+      "cmdArguments": {
+          "defaultExecutable": "potplayermini64",
+          "defaultCustomArguments": null,
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": null,
+          "startOffset": "/seek=",
+          "playbackRate": null,
+          "playlistIndex": null,
+          "playlistReverse": null,
+          "playlistShuffle": null,
+          "playlistLoop": null
+      }
+  },
       {
         "name": "SMPlayer",
         "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
