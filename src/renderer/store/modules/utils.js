@@ -586,7 +586,7 @@ const actions = {
       }
 
       // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
-      if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistId !== '') {
+      if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
         args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
       } else {
         args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
