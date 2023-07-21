@@ -97,6 +97,8 @@ Subscriptions:
     підписки, щоб вони з'явились тут.
   Empty Channels: Канали, на які ви підписалися, наразі не містять відео.
   Subscriptions Tabs: Вкладки підписок
+  All Subscription Tabs Hidden: Усі вкладки підписки сховані. Щоб побачити вміст,
+    будь ласка, відкрийте деякі вкладки в розділі "{subsection}" в "{settingsSection}".
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -345,6 +347,12 @@ Settings:
       Channel Page: Сторінка каналу
       Watch Page: Сторінка перегляду
       General: Загальні
+      Subscriptions Page: Сторінка підписок
+    Hide Subscriptions Videos: Сховати відео з підписок
+    Hide Channel Podcasts: Сховати канали подкастів
+    Hide Channel Releases: Сховати канали випусків
+    Hide Subscriptions Shorts: Сховати Shorts із підписок
+    Hide Subscriptions Live: Сховати трансляції з підписок
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -580,6 +588,14 @@ Channel:
     Live: Наживо
   Shorts:
     This channel does not currently have any shorts: На цьому каналі немає Shorts
+  Podcasts:
+    Podcasts: Подкасти
+    This channel does not currently have any podcasts: На цьому каналі наразі немає
+      подкастів
+  Releases:
+    This channel does not currently have any releases: Наразі на цьому каналі немає
+      випусків
+    Releases: Випуски
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
@@ -874,6 +890,8 @@ Tooltips:
     Hide Channels: Введіть назву або ID каналу, щоб сховати всі відео, списки відтворення
       та сам канал від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введена
       назва каналу повинна повністю збігатися і чутлива до регістру.
+    Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням
+      "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Замінити назви відео на надіслані користувачем назви з DeArrow.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
