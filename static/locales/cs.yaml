@@ -29,6 +29,13 @@ Close: 'Zavřít'
 Back: 'Zpět'
 Forward: 'Dopředu'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Shorts
+  Live: Živě
+
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -623,7 +630,6 @@ Channel:
       době nemá žádné živé přenosy
   Shorts:
     This channel does not currently have any shorts: Tento kanál nemá žádné shorts
-    Shorts: Shorts
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'

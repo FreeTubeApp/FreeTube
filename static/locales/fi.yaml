@@ -27,6 +27,13 @@ Close: 'Sulje'
 Back: 'Takaisin'
 Forward: 'Eteenpäin'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videot'
+  Shorts: Lyhyet
+  Live: Livenä
+
 # Search Bar
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
@@ -580,7 +587,6 @@ Channel:
     This channel does not currently have any live streams: Tällä kanavalla ei ole
       tällä hetkellä yhtään suoraa lähetystä
   Shorts:
-    Shorts: Lyhyet
     This channel does not currently have any shorts: Tällä kanavalla ei juuri nyt
       ole lyhyitä
 Video:

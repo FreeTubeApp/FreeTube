@@ -29,6 +29,11 @@ Close: 'Luk'
 Back: 'Tilbage'
 Forward: 'Fremad'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videoer
+
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'

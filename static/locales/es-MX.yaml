@@ -27,6 +27,11 @@ Close: 'Cerrar'
 Back: 'Volver'
 Forward: 'Adelante'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videos'
+
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button

@@ -29,6 +29,13 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'סרטונים'
+  Shorts: Shorts
+  Live: חי
+
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -622,7 +629,6 @@ Channel:
     This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים
       כרגע
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
   Podcasts:
     Podcasts: הסכתים

@@ -39,6 +39,13 @@ A new blog is now available, {blogTitle}. Click to view more: A new blog is now 
   Click to view more
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videos
+  Shorts: Shorts
+  Live: Live
+
 # Search Bar
 Search / Go to URL: Search / Go to URL
 Search Bar:
@@ -93,6 +100,8 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
+  Subscriptions Tabs: Subscriptions Tabs
+  All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
 More: More
 Channels:
   Channels: Channels
@@ -319,6 +328,7 @@ Settings:
     Distraction Free Settings: Distraction Free Settings
     Sections:
       Side Bar: Side Bar
+      Subscriptions Page: Subscriptions Page
       Channel Page: Channel Page
       Watch Page: Watch Page
       General: General
@@ -347,6 +357,9 @@ Settings:
     Hide Channel Shorts: Hide Channel Shorts
     Hide Channel Podcasts: Hide Channel Podcasts
     Hide Channel Releases: Hide Channel Releases
+    Hide Subscriptions Videos: Hide Subscriptions Videos
+    Hide Subscriptions Shorts: Hide Subscriptions Shorts
+    Hide Subscriptions Live: Hide Subscriptions Live
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -543,7 +556,6 @@ Channel:
       Oldest: Oldest
       Most Popular: Most Popular
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: This channel does not currently have any shorts
   Live:
     Live: Live
@@ -839,6 +851,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Enter a channel name or channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel name entered must be a complete match and is case sensitive.
+    Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,

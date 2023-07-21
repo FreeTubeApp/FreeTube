@@ -111,7 +111,7 @@
               @click="changeTab('shorts')"
               @keydown.left.right.enter.space="changeTab('shorts', $event)"
             >
-              {{ $t("Channel.Shorts.Shorts").toUpperCase() }}
+              {{ $t("Global.Shorts").toUpperCase() }}
             </div>
             <div
               v-if="tabInfoValues.includes('live') && !hideLiveStreams"

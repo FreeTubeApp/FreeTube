@@ -1,76 +1,80 @@
 <template>
   <div>
-    <ft-loader
-      v-if="isLoading"
-      :fullscreen="true"
-    />
-    <ft-card
-      v-else
-      class="card"
-    >
-      <div
-        v-if="errorChannels.length !== 0"
-      >
-        <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
-        <div>
-          <ft-channel-bubble
-            v-for="(channel, index) in errorChannels"
-            :key="index"
-            :channel-name="channel.name"
-            :channel-id="channel.id"
-            :channel-thumbnail="channel.thumbnail"
-            class="channelBubble"
-            @click="goToChannel(channel.id)"
-          />
-        </div>
-      </div>
+    <ft-card class="card">
       <h3>{{ $t("Subscriptions.Subscriptions") }}</h3>
       <ft-flex-box
-        v-if="activeVideoList.length === 0"
+        class="subscriptionTabs"
+        role="tablist"
+        :aria-label="$t('Subscriptions.Subscriptions Tabs')"
       >
-        <p
-          v-if="activeSubscriptionList.length === 0"
-          class="message"
+        <div
+          v-if="!hideSubscriptionsVideos"
+          ref="videos"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'videos')"
+          aria-controls="subscriptionsPanel"
+          :tabindex="currentTab === 'videos' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'videos' }"
+          @click="changeTab('videos')"
+          @keydown.space.enter.prevent="changeTab('videos')"
+          @keydown.left.right="focusTab($event, 'videos')"
         >
-          {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
-        </p>
-        <p
-          v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
-          class="message"
+          {{ $t("Global.Videos").toUpperCase() }}
+        </div>
+        <div
+          v-if="!hideSubscriptionsShorts"
+          ref="shorts"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'shorts')"
+          aria-controls="subscriptionsPanel"
+          :tabindex="currentTab === 'shorts' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'shorts' }"
+          @click="changeTab('shorts')"
+          @keydown.space.enter.prevent="changeTab('shorts')"
+          @keydown.left.right="focusTab($event, 'shorts')"
         >
-          {{ $t("Subscriptions.Disabled Automatic Fetching") }}
-        </p>
-        <p
-          v-else
-          class="message"
+          {{ $t("Global.Shorts").toUpperCase() }}
+        </div>
+        <div
+          v-if="!hideSubscriptionsLive"
+          ref="live"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'live')"
+          aria-controls="subscriptionsPanel"
+          :tabindex="currentTab === 'live' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'live' }"
+          @click="changeTab('live')"
+          @keydown.space.enter.prevent="changeTab('live')"
+          @keydown.left.right="focusTab($event, 'live')"
         >
-          {{ $t("Subscriptions.Empty Channels") }}
-        </p>
+          {{ $t("Global.Live").toUpperCase() }}
+        </div>
       </ft-flex-box>
-      <ft-element-list
-        v-else
-        :data="activeVideoList"
-        :use-channels-hidden-preference="false"
+      <subscriptions-videos
+        v-if="currentTab === 'videos'"
+        id="subscriptionsPanel"
+        role="tabpanel"
       />
-      <ft-flex-box>
-        <ft-button
-          v-if="videoList.length > dataLimit"
-          :label="$t('Subscriptions.Load More Videos')"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="increaseLimit"
-        />
-      </ft-flex-box>
+      <subscriptions-shorts
+        v-if="currentTab === 'shorts'"
+        id="subscriptionsPanel"
+        role="tabpanel"
+      />
+      <subscriptions-live
+        v-if="currentTab === 'live'"
+        id="subscriptionsPanel"
+        role="tabpanel"
+      />
+      <p v-if="currentTab === null">
+        {{ $t("Subscriptions.All Subscription Tabs Hidden", {
+          subsection: $t('Settings.Distraction Free Settings.Sections.Subscriptions Page'),
+          settingsSection: $t('Settings.Distraction Free Settings.Distraction Free Settings')
+        }) }}
+      </p>
     </ft-card>
-    <ft-icon-button
-      v-if="!isLoading"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :title="$t('Subscriptions.Refresh Subscriptions')"
-      :size="12"
-      theme="primary"
-      @click="loadVideosForSubscriptionsFromRemote"
-    />
   </div>
 </template>
 

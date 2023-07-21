@@ -29,6 +29,13 @@ Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videos
+  Shorts: Shorts
+  Live: Live
+
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
 Download From Site: 'Download From Site'
@@ -611,7 +618,6 @@ Channel:
       have any live streams
     Live: Live
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: This channel does not currently
       have any shorts
 Video:

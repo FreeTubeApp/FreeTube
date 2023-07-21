@@ -29,6 +29,13 @@ Close: 'Закрити'
 Back: 'Назад'
 Forward: 'Вперед'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Відео'
+  Shorts: Shorts
+  Live: Наживо
+
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber} ! Натисніть щоб побачити деталі'
 Download From Site: 'Завантажити з сайту'
@@ -571,7 +578,6 @@ Channel:
       немає прямих трансляцій
     Live: Наживо
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: На цьому каналі немає Shorts
 Video:
   Mark As Watched: 'Позначити переглянутим'

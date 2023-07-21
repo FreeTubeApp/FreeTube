@@ -40,6 +40,37 @@
     <h4
       class="groupTitle"
     >
+      {{ $t('Settings.Distraction Free Settings.Sections.Subscriptions Page') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Videos')"
+          :compact="true"
+          :default-value="hideSubscriptionsVideos"
+          @change="updateHideSubscriptionsVideos"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
+          :compact="true"
+          :default-value="hideSubscriptionsShorts"
+          @change="updateHideSubscriptionsShorts"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
+          :compact="true"
+          :disabled="hideLiveStreams"
+          :default-value="hideLiveStreams || hideSubscriptionsLive"
+          :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
+          v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
+        />
+      </div>
+    </div>
+    <h4
+      class="groupTitle"
+    >
       {{ $t('Settings.Distraction Free Settings.Sections.Channel Page') }}
     </h4>
     <div class="switchColumnGrid">

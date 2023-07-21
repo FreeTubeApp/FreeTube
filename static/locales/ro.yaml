@@ -29,6 +29,11 @@ Close: 'Închideți'
 Back: 'Înapoi'
 Forward: 'Înainte'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoclipuri'
+
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'

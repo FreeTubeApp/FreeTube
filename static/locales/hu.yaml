@@ -30,6 +30,13 @@ Close: 'Bezárás'
 Back: 'Vissza'
 Forward: 'Előre'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videók'
+  Shorts: Rövidfilmek
+  Live: Élő
+
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
   verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
@@ -640,7 +647,6 @@ Channel:
       bejegyzések
     Community: Közösség
   Shorts:
-    Shorts: Rövidfilmek
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
       rövidfilmek
   This channel does not exist: Nem létezik ez a csatorna

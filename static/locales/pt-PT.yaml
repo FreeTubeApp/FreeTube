@@ -30,6 +30,13 @@ Close: Fechar
 Back: Recuar
 Forward: Avançar
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Vídeos
+  Shorts: Curtas
+  Live: Em directo
+
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível!  Clique para mais detalhes
 Download From Site: Descarregar do site
@@ -587,7 +594,6 @@ Channel:
     This channel does not currently have any live streams: Este canal não tem atualmente
       nenhuma transmissão ao vivo
   Shorts:
-    Shorts: Curtas
     This channel does not currently have any shorts: Este canal não tem atualmente
       nenhum canal curto
   Releases:

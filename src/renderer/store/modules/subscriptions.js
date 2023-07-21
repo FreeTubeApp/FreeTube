@@ -7,35 +7,91 @@ function deepCopy(obj) {
 }
 
 const state = {
-  subscriptionsCachePerChannel: {},
+  videoCache: {},
+  liveCache: {},
+  shortsCache: {}
 }
 
 const getters = {
-  getSubscriptionsCacheEntriesForOneChannel: (state) => (channelId) => {
-    return state.subscriptionsCachePerChannel[channelId]
+  getVideoCache: (state) => {
+    return state.videoCache
   },
+
+  getVideoCacheByChannel: (state) => (channelId) => {
+    return state.videoCache[channelId]
+  },
+
+  getShortsCache: (state) => {
+    return state.shortsCache
+  },
+
+  getShortsCacheByChannel: (state) => (channelId) => {
+    return state.shortsCache[channelId]
+  },
+
+  getLiveCache: (state) => {
+    return state.liveCache
+  },
+
+  getLiveCacheByChannel: (state) => (channelId) => {
+    return state.liveCache[channelId]
+  }
 }
 
 const actions = {
-  clearSubscriptionsCache: ({ commit }) => {
-    commit('clearSubscriptionsCachePerChannel')
+  clearSubscriptionVideosCache: ({ commit }) => {
+    commit('clearVideoCache')
   },
 
-  updateSubscriptionsCacheForOneChannel: ({ commit }, payload) => {
-    commit('updateSubscriptionsCacheForOneChannel', payload)
+  updateSubscriptionVideosCacheByChannel: ({ commit }, payload) => {
+    commit('updateVideoCacheByChannel', payload)
   },
+
+  clearSubscriptionShortsCache: ({ commit }) => {
+    commit('clearShortsCache')
+  },
+
+  updateSubscriptionShortsCacheByChannel: ({ commit }, payload) => {
+    commit('updateShortsCacheByChannel', payload)
+  },
+
+  clearSubscriptionLiveCache: ({ commit }) => {
+    commit('clearLiveCache')
+  },
+
+  updateSubscriptionLiveCacheByChannel: ({ commit }, payload) => {
+    commit('updateLiveCacheByChannel', payload)
+  }
 }
 
 const mutations = {
-  updateSubscriptionsCacheForOneChannel(state, { channelId, videos }) {
-    const existingObject = state.subscriptionsCachePerChannel[channelId]
+  updateVideoCacheByChannel(state, { channelId, videos }) {
+    const existingObject = state.videoCache[channelId]
     const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
     if (videos != null) { newObject.videos = videos }
-    state.subscriptionsCachePerChannel[channelId] = newObject
+    state.videoCache[channelId] = newObject
   },
-  clearSubscriptionsCachePerChannel(state) {
-    state.subscriptionsCachePerChannel = {}
+  clearVideoCache(state) {
+    state.videoCache = {}
   },
+  updateShortsCacheByChannel(state, { channelId, videos }) {
+    const existingObject = state.shortsCache[channelId]
+    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    if (videos != null) { newObject.videos = videos }
+    state.shortsCache[channelId] = newObject
+  },
+  clearShortsCache(state) {
+    state.shortsCache = {}
+  },
+  updateLiveCacheByChannel(state, { channelId, videos }) {
+    const existingObject = state.liveCache[channelId]
+    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    if (videos != null) { newObject.videos = videos }
+    state.liveCache[channelId] = newObject
+  },
+  clearLiveCache(state) {
+    state.liveCache = {}
+  }
 }
 
 export default {

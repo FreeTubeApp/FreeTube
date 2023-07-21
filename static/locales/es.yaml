@@ -30,6 +30,13 @@ Close: 'Cerrar'
 Back: 'Atrás'
 Forward: 'Adelante'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vídeos'
+  Shorts: Cortos
+  Live: En directo
+
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
@@ -634,7 +641,6 @@ Channel:
     This channel does not currently have any live streams: Este canal no tiene actualmente
       ninguna retransmisión en directo
   Shorts:
-    Shorts: Cortos
     This channel does not currently have any shorts: Este canal no tiene actualmente
       ningún vídeo corto
   Podcasts:

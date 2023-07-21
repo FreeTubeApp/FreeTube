@@ -29,6 +29,13 @@ Close: 'Sulge'
 Back: 'Tagasi'
 Forward: 'Edasi'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videod'
+  Shorts: Lühivideod
+  Live: Otseeeter
+
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -565,7 +572,6 @@ Channel:
   This channel does not allow searching: See kanal ei luba otsingu kasutamist
   Channel Tabs: Kanali kaardid
   Shorts:
-    Shorts: Lühivideod
     This channel does not currently have any shorts: Sellel kanalil pole lühivideosid
   Live:
     Live: Otseeeter

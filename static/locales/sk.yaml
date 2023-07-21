@@ -28,6 +28,11 @@ Close: 'Zavrieť'
 Back: 'Späť'
 Forward: 'Vpred'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videá'
+
 # Search Bar
 Search / Go to URL: 'Hľadať / Ísť na adresu URL'
   # In Filter Button
