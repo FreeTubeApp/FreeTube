@@ -91,6 +91,10 @@ Subscriptions:
     Actualice las suscripciones para verlas aquí.
   Empty Channels: Los canales a los que está suscrito no tienen actualmente ningún
     vídeo.
+  Subscriptions Tabs: Pestañas de suscripciones
+  All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
+    Para ver el contenido, por favor, desoculta algunas pestañas en la sección "{subsection}"
+    en "{settingsSection}".
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -415,8 +419,12 @@ Settings:
       Channel Page: Página del canal
       Watch Page: Ver la página
       General: General
+      Subscriptions Page: Página de suscripciones
     Hide Channel Releases: Ocultar las nuevas publicaciones de los canales
     Hide Channel Podcasts: Ocultar los canales de podcasts
+    Hide Subscriptions Shorts: Ocultar las suscripciones para los vídeos cortos
+    Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
+    Hide Subscriptions Live: Ocultar las suscripciones de los directos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -975,6 +983,8 @@ Tooltips:
       los videos, listas de reproducción y el propio canal para que no aparezcan en
       la búsqueda, tendencias, más populares y recomendados. El nombre del canal ingresado
       debe ser una coincidencia completa y distinguir entre mayúsculas y minúsculas.
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
+      "{appWideSetting}" de toda la aplicación, en la sección "{subsection}" de "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
