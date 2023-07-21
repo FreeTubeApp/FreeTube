@@ -99,6 +99,10 @@ Subscriptions:
   Disabled Automatic Fetching: Az önműködő feliratkozási kérés letiltva. Frissítse
     a feliratkozást a megtekintéséhez.
   Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
+  All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni
+    tartalom megtekintéséhez, kérjük, jelenítse meg néhány lap elrejtését a(z) „{settingsSection}”
+    „{subsection}” szakaszában.
+  Subscriptions Tabs: Feliratkozások lapok
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
@@ -423,8 +427,12 @@ Settings:
       Channel Page: Csatornalap
       Watch Page: Nézőlap
       General: Általános
+      Subscriptions Page: Feliratkozások oldal
     Hide Channel Podcasts: Csatornapodcastok elrejtése
     Hide Channel Releases: Csatornakiadások elrejtése
+    Hide Subscriptions Shorts: Feliratkozások rövidfilmek elrejtése
+    Hide Subscriptions Videos: Feliratkozási videók elrejtése
+    Hide Subscriptions Live: Feliratkozások élők elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -968,6 +976,8 @@ Tooltips:
       az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
       a keresésben, illetve a felkapott, legnépszerűbb és legajánlottabb. A megadott
       csatornanévnek teljes egyezésnek kell lennie, és megkülönbözteti a kis- és nagybetűket.
+    Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}”
+      beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow által beküldött, felhasználó
       által beküldött címekre.
