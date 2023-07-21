@@ -95,6 +95,10 @@ Subscriptions:
   Disabled Automatic Fetching: Otomatik abonelik getirmeyi devre dışı bıraktınız.
     Abonelikleri burada görmek için yenileyin.
   Empty Channels: Abone olduğunuz kanallarda şu anda herhangi bir video yok.
+  Subscriptions Tabs: Abonelikler Sekmeleri
+  All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği
+    görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı
+    sekmelerin gizliliğini kaldırın.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -417,8 +421,12 @@ Settings:
       Channel Page: Kanal Sayfası
       Watch Page: İzleme Sayfası
       General: Genel
+      Subscriptions Page: Abonelikler Sayfası
     Hide Channel Releases: Kanal Yayınlarını Gizle
     Hide Channel Podcasts: Kanal Podcast'lerini Gizle
+    Hide Subscriptions Videos: Abonelik Videolarını Gizle
+    Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
+    Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -968,6 +976,9 @@ Tooltips:
       öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
       bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
       ve büyük/küçük harfe duyarlıdır.
+    Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
+      kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
+      kılınıyor
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.
