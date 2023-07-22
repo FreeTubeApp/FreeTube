@@ -422,8 +422,10 @@ Settings:
       Channel Page: Strona kanału
       General: Ogólne
       Watch Page: Strona odtwarzacza
+      Subscriptions Page: Strona subskrypcji
     Hide Channel Releases: Schowaj wydawnictwa kanału
     Hide Channel Podcasts: Schowaj podkasty kanału
+    Hide Subscriptions Videos: Schowaj filmy z subskrypcji
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
