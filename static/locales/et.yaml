@@ -96,6 +96,9 @@ Subscriptions:
   Disabled Automatic Fetching: Sa oled lülitanud välja automaatse tellimuste laadimise.
     Uuendatud teabe nägemiseks laadi vaade uuesti.
   Empty Channels: Sinu tellitud kanalites hetkel pole ühtegi videot.
+  Subscriptions Tabs: Tellimuste vahekaardid
+  All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu
+    nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -383,12 +386,16 @@ Settings:
       Side Bar: Külgpaan
       Channel Page: Kanali vaade
       Watch Page: Videovaade
+      Subscriptions Page: Tellimuste vaade
     Hide Featured Channels: Peaida soovitatud kanalid
     Hide Channel Playlists: Peida kanali esitusloendid
     Hide Channel Shorts: Peida kanali lühivideod
     Hide Channel Community: Peida kanali kogukond
     Hide Channel Podcasts: Peida kanali taskuhäälingud
     Hide Channel Releases: Peida kanali väljalasked
+    Hide Subscriptions Videos: Peida tellimuste videod
+    Hide Subscriptions Shorts: Peida tellimuste lühivideod
+    Hide Subscriptions Live: Peida tellimuste otse-eetrid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -899,6 +906,8 @@ Tooltips:
       ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote
       ja populaarsust koguvate videote vaates. Sisestatud kanali nimi peab otsingule
       vastama täielikult ja on tõstutundlik.
+    Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“
+      seadistus „{subsection}“/„{settingsSection}“
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
       http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks
