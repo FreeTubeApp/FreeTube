@@ -24,41 +24,41 @@
         }
     },
     {
-      "name": "MPC-BE",
-      "nameTranslationKey": "Settings.External Player Settings.Players.MPC-BE.Name",
-      "value": "mpc-be",
-      "cmdArguments": {
-          "defaultExecutable": "mpc-be64",
-          "defaultCustomArguments": null,
-          "supportsYtdlProtocol": true,
-          "videoUrl": "",
-          "playlistUrl": "",
-          "startOffset": "/start",
-          "playbackRate": null,
-          "playlistIndex": null,
-          "playlistReverse": null,
-          "playlistShuffle": null,
-          "playlistLoop": null
-      }
-  },
+        "name": "MPC-BE",
+        "nameTranslationKey": "Settings.External Player Settings.Players.MPC-BE.Name",
+        "value": "mpc-be",
+        "cmdArguments": {
+            "defaultExecutable": "mpc-be64",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "/start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
     {
-      "name": "MPC-HC",
-      "nameTranslationKey": "Settings.External Player Settings.Players.MPC-HC.Name",
-      "value": "mpc-hc",
-      "cmdArguments": {
-          "defaultExecutable": "mpc-hc64",
-          "defaultCustomArguments": null,
-          "supportsYtdlProtocol": true,
-          "videoUrl": "",
-          "playlistUrl": "",
-          "startOffset": "/start",
-          "playbackRate": null,
-          "playlistIndex": null,
-          "playlistReverse": null,
-          "playlistShuffle": null,
-          "playlistLoop": null
-      }
-  },
+        "name": "MPC-HC",
+        "nameTranslationKey": "Settings.External Player Settings.Players.MPC-HC.Name",
+        "value": "mpc-hc",
+        "cmdArguments": {
+            "defaultExecutable": "mpc-hc64",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "/start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
     {
         "name": "mpv",
         "nameTranslationKey": "Settings.External Player Settings.Players.mpv.Name",
@@ -78,24 +78,24 @@
         }
     },
     {
-      "name": "PotPlayer",
-      "nameTranslationKey": "Settings.External Player Settings.Players.PotPlayer.Name",
-      "value": "potplayer",
-      "cmdArguments": {
-          "defaultExecutable": "potplayermini64",
-          "defaultCustomArguments": null,
-          "supportsYtdlProtocol": false,
-          "videoUrl": "",
-          "playlistUrl": null,
-          "startOffset": "/seek=",
-          "playbackRate": null,
-          "playlistIndex": null,
-          "playlistReverse": null,
-          "playlistShuffle": null,
-          "playlistLoop": null
-      }
-  },
-      {
+        "name": "PotPlayer",
+        "nameTranslationKey": "Settings.External Player Settings.Players.PotPlayer.Name",
+        "value": "potplayer",
+        "cmdArguments": {
+            "defaultExecutable": "potplayermini64",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": false,
+            "videoUrl": "",
+            "playlistUrl": null,
+            "startOffset": "/seek=",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
+    {
         "name": "SMPlayer",
         "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
         "value": "smplayer",
@@ -114,21 +114,21 @@
         }
     },
     {
-      "name": "VLC",
-      "nameTranslationKey": "Settings.External Player Settings.Players.VLC.Name",
-      "value": "vlc",
-      "cmdArguments": {
-          "defaultExecutable": "vlc",
-          "defaultCustomArguments": null,
-          "supportsYtdlProtocol": false,
-          "videoUrl": "",
-          "playlistUrl": null,
-          "startOffset": "--start-time=",
-          "playbackRate": "--rate=",
-          "playlistIndex": null,
-          "playlistReverse": null,
-          "playlistShuffle": "--random",
-          "playlistLoop": "--loop"
-      }
-  }
+        "name": "VLC",
+        "nameTranslationKey": "Settings.External Player Settings.Players.VLC.Name",
+        "value": "vlc",
+        "cmdArguments": {
+            "defaultExecutable": "vlc",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": false,
+            "videoUrl": "",
+            "playlistUrl": null,
+            "startOffset": "--start-time=",
+            "playbackRate": "--rate=",
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": "--random",
+            "playlistLoop": "--loop"
+        }
+    }
 ]
