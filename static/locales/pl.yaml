@@ -91,6 +91,9 @@ Subscriptions:
   Disabled Automatic Fetching: Wyłączyłeś automatyczne pobieranie subskrypcji. Odśwież
     subskrypcje, by je zobaczyć.
   Empty Channels: Twoje subskrypcje nie mają obecnie żadnych filmów.
+  All Subscription Tabs Hidden: Wszystkie karty subskrypcji są pochowane. Aby je zobaczyć,
+    proszę odznaczyć ich ukrycie w podgrupie „{subsection}” grupy „{settingsSection}”.
+  Subscriptions Tabs: Karty subskrypcji
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -426,6 +429,8 @@ Settings:
     Hide Channel Releases: Schowaj wydawnictwa kanału
     Hide Channel Podcasts: Schowaj podkasty kanału
     Hide Subscriptions Videos: Schowaj filmy z subskrypcji
+    Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
+    Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -694,7 +699,7 @@ Video:
   Reverse Playlist: Odwróć playlistę
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
-  Starting soon, please refresh the page to check again: Wkrótce się zacznie, proszę
+  Starting soon, please refresh the page to check again: Wkrótce się zacznie. Proszę
     odświeżyć stronę, aby ponownie sprawdzić
   Audio:
     Best: Najlepsza
@@ -986,6 +991,8 @@ Tooltips:
       tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne”
       oraz z polecanych. Nazwa kanału musi być dokładnym dopasowaniem, z uwzględnieniem
       wielkości liter.
+    Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}”
+      z podgrupy „{subsection}” grupy „{settingsSection}”
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
       DeArrow.
