@@ -94,6 +94,9 @@ Subscriptions:
   Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
     Aggiorna gli abbonamenti per vederli qui.
   Empty Channels: I canali a cui sei iscritto attualmente non hanno alcun video.
+  Subscriptions Tabs: Schede iscrizioni
+  All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
+    i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -424,8 +427,12 @@ Settings:
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
+      Subscriptions Page: Pagina delle iscrizioni
     Hide Channel Podcasts: Nascondi i podcast del canale
     Hide Channel Releases: Nascondi i rilasci del canale
+    Hide Subscriptions Live: Nascondi le iscrizioni Dal vivo
+    Hide Subscriptions Videos: Nascondi i video delle iscrizioni
+    Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -985,6 +992,8 @@ Tooltips:
       video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze,
       più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
       completa e fa distinzione tra maiuscole e minuscole.
+    Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
+      "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
       da DeArrow.
