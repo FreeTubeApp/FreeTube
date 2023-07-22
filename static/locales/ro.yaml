@@ -34,6 +34,8 @@ Forward: 'Înainte'
 Global:
   Videos: 'Videoclipuri'
 
+  Shorts: Shorts
+  Live: Live
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -65,12 +67,14 @@ Search Filters:
     Videos: 'Videoclipuri'
     Channels: 'Canale'
     #& Playlists
+    Movies: Filme
   Duration:
     Duration: 'Durata'
     All Durations: 'Toate duratele'
     Short (< 4 minutes): 'Scurt (< 4 minute)'
     Long (> 20 minutes): 'Lung (> 20 minute)'
   # On Search Page
+    Medium (4 - 20 minutes): Mediu (4 - 20 minute)
   Search Results: 'Rezultatele căutării'
   Fetching results. Please wait: 'Se obțin rezultatele. Vă rugăm să așteptați'
   Fetch more results: 'Obțineți mai multe rezultate'
@@ -94,6 +98,7 @@ Subscriptions:
   Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
   Disabled Automatic Fetching: Ai dezactivat obținerea automată de abonamente. Reîmprospătează
     abonamentele pentru a le vedea aici.
+  Subscriptions Tabs: Filele Abonamente
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
@@ -221,6 +226,7 @@ Settings:
     Disable Smooth Scrolling: Dezactivați derularea lină
     Expand Side Bar by Default: Extindeți bara laterală în mod implicit
     Hide Side Bar Labels: Ascunde etichetele din bara laterală
+    Hide FreeTube Header Logo: Ascundeți logo-ul FreeTube Header
   Player Settings:
     Player Settings: 'Setări player'
     Force Local Backend for Legacy Formats: 'Forțați backend-ul local pentru formatele
@@ -274,6 +280,11 @@ Settings:
     Max Video Playback Rate: Viteza maximă de redare
     Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
       de scroll
+    Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
+    Comment Auto Load:
+      Comment Auto Load: Comentariu Încărcare automată
+    Skip by Scrolling Over Video Player: Omiteți derulând peste player-ul video
+    Allow DASH AV1 formats: Permiteți formatele DASH AV1
   Privacy Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
@@ -815,9 +826,9 @@ Tooltips:
       a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care
       aceasta a fost modificată în setări).
   General Settings:
-    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic\
-      \ pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube\
-      \ va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
+    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic
+      pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube
+      va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
     Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
       în tendințe din fiecare țară doriți să fie afișate.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
@@ -853,3 +864,4 @@ Channels:
   Unsubscribe Prompt: Ești sigur că dorești să te dezabonezi de la "{channelName}"?
 Screenshot Success: Capturi de ecran salvate ca "{filePath}"
 Screenshot Error: Captura de ecran a eșuat
+Preferences: Preferințe
