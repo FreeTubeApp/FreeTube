@@ -6,6 +6,42 @@
         "cmdArguments": null
     },
     {
+        "name": "mpv",
+        "nameTranslationKey": "Settings.External Player Settings.Players.mpv.Name",
+        "value": "mpv",
+        "cmdArguments": {
+            "defaultExecutable": "mpv",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "--start=",
+            "playbackRate": "--speed=",
+            "playlistIndex": "--playlist-start=",
+            "playlistReverse": null,
+            "playlistShuffle": "--shuffle",
+            "playlistLoop": "--loop-playlist"
+        }
+    },
+    {
+        "name": "VLC",
+        "nameTranslationKey": "Settings.External Player Settings.Players.VLC.Name",
+        "value": "vlc",
+        "cmdArguments": {
+            "defaultExecutable": "vlc",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": false,
+            "videoUrl": "",
+            "playlistUrl": null,
+            "startOffset": "--start-time=",
+            "playbackRate": "--rate=",
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": "--random",
+            "playlistLoop": "--loop"
+        }
+    },
+    {
         "name": "iina",
         "nameTranslationKey": "Settings.External Player Settings.Players.iina.Name",
         "value": "iina",
@@ -21,6 +57,24 @@
             "playlistReverse": null,
             "playlistShuffle": "--mpv-shuffle",
             "playlistLoop": "--mpv-loop-playlist"
+        }
+    },
+      {
+        "name": "SMPlayer",
+        "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
+        "value": "smplayer",
+        "cmdArguments": {
+            "defaultExecutable": "smplayer",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "-start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
         }
     },
     {
@@ -60,24 +114,6 @@
         }
     },
     {
-        "name": "mpv",
-        "nameTranslationKey": "Settings.External Player Settings.Players.mpv.Name",
-        "value": "mpv",
-        "cmdArguments": {
-            "defaultExecutable": "mpv",
-            "defaultCustomArguments": null,
-            "supportsYtdlProtocol": true,
-            "videoUrl": "",
-            "playlistUrl": "",
-            "startOffset": "--start=",
-            "playbackRate": "--speed=",
-            "playlistIndex": "--playlist-start=",
-            "playlistReverse": null,
-            "playlistShuffle": "--shuffle",
-            "playlistLoop": "--loop-playlist"
-        }
-    },
-    {
         "name": "PotPlayer",
         "nameTranslationKey": "Settings.External Player Settings.Players.PotPlayer.Name",
         "value": "potplayer",
@@ -93,42 +129,6 @@
             "playlistReverse": null,
             "playlistShuffle": null,
             "playlistLoop": null
-        }
-    },
-    {
-        "name": "SMPlayer",
-        "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
-        "value": "smplayer",
-        "cmdArguments": {
-            "defaultExecutable": "smplayer",
-            "defaultCustomArguments": null,
-            "supportsYtdlProtocol": true,
-            "videoUrl": "",
-            "playlistUrl": "",
-            "startOffset": "-start",
-            "playbackRate": null,
-            "playlistIndex": null,
-            "playlistReverse": null,
-            "playlistShuffle": null,
-            "playlistLoop": null
-        }
-    },
-    {
-        "name": "VLC",
-        "nameTranslationKey": "Settings.External Player Settings.Players.VLC.Name",
-        "value": "vlc",
-        "cmdArguments": {
-            "defaultExecutable": "vlc",
-            "defaultCustomArguments": null,
-            "supportsYtdlProtocol": false,
-            "videoUrl": "",
-            "playlistUrl": null,
-            "startOffset": "--start-time=",
-            "playbackRate": "--rate=",
-            "playlistIndex": null,
-            "playlistReverse": null,
-            "playlistShuffle": "--random",
-            "playlistLoop": "--loop"
         }
     }
 ]
