@@ -90,6 +90,9 @@ Subscriptions:
   Disabled Automatic Fetching: Вы отключили автоматическое получение подписок. Обновите
     подписки, чтобы отобразить результат.
   Empty Channels: Ваши подписанные каналы в настоящее время не содержат видео.
+  Subscriptions Tabs: Вкладки подписок
+  All Subscription Tabs Hidden: Все вкладки подписок скрыты. Чтобы увидеть содержимое
+    здесь, пожалуйста, раскройте некоторые вкладки в разделе «{subsection}» в «{settingsSection}».
 Trending:
   Trending: 'Тренды'
   Trending Tabs: Тренды
@@ -416,6 +419,7 @@ Settings:
       Channel Page: Страница канала
       Watch Page: Страница просмотра
       General: Основные
+      Subscriptions Page: Страница подписок
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
