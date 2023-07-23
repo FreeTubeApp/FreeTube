@@ -94,6 +94,10 @@ Subscriptions:
     abonnements. Actualisez les abonnements pour les voir ici.
   Empty Channels: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement
     aucune vidéo.
+  Subscriptions Tabs: Onglets Abonnements
+  All Subscription Tabs Hidden: Tous les onglets d'abonnement sont cachés. Pour voir
+    le contenu ici, veuillez désactiver certains onglets dans la section "{subsection}"
+    dans "{settingsSection}".
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -434,6 +438,12 @@ Settings:
       Side Bar: Barre latérale
       Watch Page: Page de lecture
       General: Général
+      Subscriptions Page: Page Abonnements
+    Hide Channel Podcasts: Cacher les podcasts de la chaîne
+    Hide Channel Releases: Cacher les publications de la chaîne
+    Hide Subscriptions Videos: Masquer les vidéos des abonnements
+    Hide Subscriptions Shorts: Masquer les shorts des abonnements
+    Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -632,6 +642,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Cette chaîne n'a actuellement
       aucun shorts
+  Releases:
+    Releases: Publications
+    This channel does not currently have any releases: Cette chaîne n'a actuellement
+      aucune publication
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Cette chaîne n'a pas encore
+      de podcasts
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'
@@ -1008,6 +1026,9 @@ Tooltips:
       dans les recherches, dans les catégories "Tendances", "Plus populaires" et "Recommandés".
       Le nom de la chaîne entré doit correspondre exactement et est sensible à la
       casse.
+    Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre "{appWideSetting}"
+      applicable à l'ensemble de l'application, dans la section "{subsection}" de
+      la section "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacez les titres des vidéos par des titres proposés par
       les utilisateurs de DeArrow.
