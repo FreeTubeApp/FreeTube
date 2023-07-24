@@ -93,6 +93,10 @@ Subscriptions:
   Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση συνδρομής.
     Ανανεώστε τις συνδρομές για να τις δείτε εδώ.
   Empty Channels: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν βίντεο.
+  Subscriptions Tabs: Καρτέλες Συνδρομών
+  All Subscription Tabs Hidden: Όλες οι καρτέλες συνδρομής είναι κρυφές. Για να δείτε
+    περιεχόμενο εδώ, αποκρύψτε ορισμένες καρτέλες στην ενότητα "{subsection}" στο
+    "{settingsSection}".
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -420,12 +424,16 @@ Settings:
       Channel Page: Σελίδα Καναλιού
       Watch Page: Σελίδα Παρακολούθησης
       General: Γενικά
+      Subscriptions Page: Σελίδα Συνδρομών
     Hide Featured Channels: Απόκρυψη Προτεινόμενων Καναλιών
     Hide Channel Playlists: Απόκρυψη Λιστών Αναπαραγωγής Καναλιών
     Hide Channel Community: Απόκρυψη Κοινότητας Καναλιού
     Hide Channel Shorts: Απόκρυψη Shorts Καναλιού
     Hide Channel Releases: Απόκρυψη Kυκλοφοριών Kαναλιού
     Hide Channel Podcasts: Απόκρυψη Podcasts Καναλιού
+    Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
+    Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
+    Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -1006,6 +1014,8 @@ Tooltips:
       να μην εμφανίζονται στην αναζήτηση, στις τάσεις, στα πιο δημοφιλή και προτεινόμενα.
       Το όνομα του καναλιού που καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει
       διάκριση πεζών-κεφαλαίων.
+    Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}"
+      σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν
       από τους χρήστες από το DeArrow.
