@@ -426,6 +426,17 @@ Settings:
     Parental Control Settings: Setările controlului parental
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
+  Password Dialog:
+    Password Incorrect: Parolă incorectă
+    Unlock: Deblocați
+    Password: Parolă
+    Enter Password To Unlock: Introduceți parola pentru a debloca setările
+  Password Settings:
+    Remove Password: Eliminați parola
+    Password Settings: Setări parolă
+    Set Password To Prevent Access: Setați o parolă pentru a împiedica accesul la
+      setări
+    Set Password: Setați parola
 About:
   #On About page
   About: 'Despre'
@@ -534,6 +545,16 @@ Channel:
     About: 'Despre'
     Channel Description: 'Descrierea canalului'
     Featured Channels: 'Canale recomandate'
+    Joined: S-a alăturat pe
+    Location: Locație
+  Community:
+    Community: Comunitate
+    This channel currently does not have any posts: Acest canal nu are momentan nicio
+      postare
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Acest
+    canal are restricții de vârstă și momentan nu poate fi vizionat în FreeTube.
+  This channel does not exist: Acest canal nu există
+  This channel does not allow searching: Acest canal nu permite căutarea
 Video:
   Mark As Watched: 'Marcați ca vizionat'
   Remove From History: 'Eliminați din istoric'
@@ -602,6 +623,7 @@ Video:
     Ago: 'În urmă'
     Upcoming: 'În premieră la'
     Less than a minute: Mai putin de un minut
+    In less than a minute: În mai puțin de un minut
   Published on: 'Publicat pe'
   Publicationtemplate: 'acum {number} {unit}'
 #& Videos
@@ -671,6 +693,7 @@ Video:
     Mimetype: Mimetype
   Premieres on: Premieră pe
   Premieres in: Are premiera în
+  Scroll to Bottom: Derulați până jos
 Videos:
   #& Sort By
   Sort By:
@@ -717,6 +740,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL-ul canalului YouTube copiat în clipboard
   Invidious Channel URL copied to clipboard: URL-ul Invidious al canalului a fost
     copiat în clipboard
+  Share Channel: Distribuie canalul
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentarii'
@@ -865,3 +889,13 @@ Channels:
 Screenshot Success: Capturi de ecran salvate ca "{filePath}"
 Screenshot Error: Captura de ecran a eșuat
 Preferences: Preferințe
+Chapters:
+  Chapters: Capitole
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de capitole vizibilă,
+    capitolul curent: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capitole ascunsă,
+    capitolul curent: {chapterName}'
+Clipboard:
+  Cannot access clipboard without a secure connection: Nu se poate accesa clipboard-ul
+    fără o conexiune securizată
+  Copy failed: Copierea în clipboard a eșuat
