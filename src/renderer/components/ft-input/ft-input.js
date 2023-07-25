@@ -266,25 +266,20 @@ export default defineComponent({
           this.handleInput(`${selectedOptionValue}${event.key}`)
           return
         }
-        this.searchState.selectedOption = -1
-        this.searchState.keyboardSelectedOptionIndex = -1
         return
       }
 
       event.preventDefault()
       if (event.key === 'ArrowDown') {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
+        this.searchState.selectedOption++
       } else if (event.key === 'ArrowUp') {
-        if (this.searchState.selectedOption < 1) {
-          this.searchState.selectedOption = this.visibleDataList.length - 1
-        } else {
-          this.searchState.selectedOption--
-        }
+        this.searchState.selectedOption--
       }
-      if (this.searchState.selectedOption < 0) {
-        this.searchState.selectedOption = this.visibleDataList.length
+      // Allow deselecting suggestion
+      if (this.searchState.selectedOption < -1) {
+        this.searchState.selectedOption = this.visibleDataList.length - 1
       } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
-        this.searchState.selectedOption = 0
+        this.searchState.selectedOption = -1
       }
       // Update displayed value
       this.searchState.keyboardSelectedOptionIndex = this.searchState.selectedOption
@@ -300,21 +295,19 @@ export default defineComponent({
 
     updateVisibleDataList: function () {
       if (this.dataList.length === 0) { return }
+      // Reset selected option before it's updated
+      this.searchState.selectedOption = -1
+      this.searchState.keyboardSelectedOptionIndex = -1
       if (this.inputData === '') {
         this.visibleDataList = this.dataList
         return
       }
       // get list of items that match input
       const lowerCaseInputData = this.inputData.toLowerCase()
-      const visList = this.dataList.filter(x => {
-        if (x.toLowerCase().indexOf(lowerCaseInputData) !== -1) {
-          return true
-        } else {
-          return false
-        }
-      })
 
-      this.visibleDataList = visList
+      this.visibleDataList = this.dataList.filter(x => {
+        return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
+      })
     },
 
     updateInputData: function(text) {
