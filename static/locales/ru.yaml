@@ -420,6 +420,9 @@ Settings:
       Watch Page: Страница просмотра
       General: Основные
       Subscriptions Page: Страница подписок
+    Hide Channel Releases: Скрыть выпуски канала
+    Hide Subscriptions Videos: Скрыть видео из подписок
+    Hide Subscriptions Live: Скрыть трансляции из подписок
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -602,6 +605,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: На этом канале пока что нет коротких
       видео
+  Podcasts:
+    Podcasts: Звукопередачи
+    This channel does not currently have any podcasts: На этом канале пока нет ни
+      одной звукопередачи
+  Releases:
+    Releases: Выпуски
+    This channel does not currently have any releases: На этом канале пока нет ни
+      одного выпуска
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
