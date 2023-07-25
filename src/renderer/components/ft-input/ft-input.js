@@ -1,6 +1,10 @@
 import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { mapActions } from 'vuex'
+import {
+  IsKeyboardEventKeyPrintableChar,
+  isNullOrEmpty,
+} from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtInput',
@@ -233,6 +237,9 @@ export default defineComponent({
       this.handleClick()
     },
 
+    /**
+     * @param {KeyboardEvent} event
+     */
     handleKeyDown: function (event) {
       if (event.key === 'Enter') {
         // Update Input box value if enter key was pressed and option selected
@@ -251,6 +258,14 @@ export default defineComponent({
       this.searchState.showOptions = true
       const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
       if (!isArrow) {
+        const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
+        // Keyboard selected & is char
+        if (!isNullOrEmpty(selectedOptionValue) && IsKeyboardEventKeyPrintableChar(event.key)) {
+          // Update input based on KB selected suggestion value instead of current input value
+          event.preventDefault()
+          this.handleInput(`${selectedOptionValue}${event.key}`)
+          return
+        }
         this.searchState.selectedOption = -1
         this.searchState.keyboardSelectedOptionIndex = -1
         return
