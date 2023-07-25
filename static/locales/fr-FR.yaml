@@ -96,8 +96,8 @@ Subscriptions:
     aucune vidéo.
   Subscriptions Tabs: Onglets Abonnements
   All Subscription Tabs Hidden: Tous les onglets d'abonnement sont cachés. Pour voir
-    le contenu ici, veuillez désactiver certains onglets dans la section "{subsection}"
-    dans "{settingsSection}".
+    le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} »
+    dans « {settingsSection} ».
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -439,8 +439,8 @@ Settings:
       Watch Page: Page de lecture
       General: Général
       Subscriptions Page: Page Abonnements
-    Hide Channel Podcasts: Cacher les podcasts de la chaîne
-    Hide Channel Releases: Cacher les publications de la chaîne
+    Hide Channel Podcasts: Masquer les podcasts de la chaîne
+    Hide Channel Releases: Masquer les publications de la chaîne
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
@@ -1023,12 +1023,12 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un nom de chaîne ou un identifiant de chaîne pour empêcher
       toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître
-      dans les recherches, dans les catégories "Tendances", "Plus populaires" et "Recommandés".
+      dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés.
       Le nom de la chaîne entré doit correspondre exactement et est sensible à la
       casse.
-    Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre "{appWideSetting}"
-      applicable à l'ensemble de l'application, dans la section "{subsection}" de
-      la section "{settingsSection}"
+    Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} »
+      applicable à l'ensemble de l'application, dans la section « {subsection} » de
+      la section « {settingsSection} »
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacez les titres des vidéos par des titres proposés par
       les utilisateurs de DeArrow.
