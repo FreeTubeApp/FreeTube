@@ -96,7 +96,7 @@ Subscriptions:
   Empty Channels: I canali a cui sei iscritto attualmente non hanno alcun video.
   Subscriptions Tabs: Schede iscrizioni
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
-    i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
+    i contenuti qui, scopri le schede nella sezione «{subsection}» in «{settingsSection}».
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -993,7 +993,7 @@ Tooltips:
       più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
       completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
-      "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
+      «{appWideSetting}» a livello di app, nella sezione «{subsection}» di «{settingsSection}»
   SponsorBlock Settings:
     UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
       da DeArrow.
@@ -1036,7 +1036,7 @@ Channels:
   Search bar placeholder: Cerca canali
   Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
-  Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
+  Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «{channelName}»?
   Unsubscribe: Annulla l'iscrizione
 Clipboard:
   Cannot access clipboard without a secure connection: Impossibile accedere agli appunti
