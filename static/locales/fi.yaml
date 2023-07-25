@@ -589,6 +589,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Tällä kanavalla ei juuri nyt
       ole lyhyitä
+  Podcasts:
+    Podcasts: Podcastit
+    This channel does not currently have any podcasts: Tällä kanavalla ei ole yhtäkään
+      podcastia
+  Releases:
+    Releases: Julkaisut
+    This channel does not currently have any releases: Tällä kanavalla ei ole yhtäkään
+      julkaisua
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
