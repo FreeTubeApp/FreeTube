@@ -1035,10 +1035,9 @@ export default defineComponent({
         invidiousAPICall(subscriptionsPayload).then((response) => {
           resolve(response)
         }).catch((err) => {
-          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-            copyToClipboard(err.responseJSON.error)
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
 
           if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
@@ -1056,7 +1055,7 @@ export default defineComponent({
         const channel = await getLocalChannel(channelId)
 
         if (channel.alert) {
-          return undefined
+          return []
         }
 
         return {
