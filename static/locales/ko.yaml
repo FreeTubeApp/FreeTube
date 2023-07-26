@@ -29,6 +29,11 @@ Close: '닫기'
 Back: '뒤로가기'
 Forward: '앞으로가기'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '비디오'
+
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'

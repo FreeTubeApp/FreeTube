@@ -27,6 +27,13 @@ Close: '關閉'
 Back: '返回'
 Forward: '前進'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '影片'
+  Shorts: 短片
+  Live: 直播
+
 # Search Bar
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
@@ -79,6 +86,8 @@ Subscriptions:
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
   Empty Channels: 您訂閱的頻道目前沒有任何影片。
+  Subscriptions Tabs: 訂閱分頁
+  All Subscription Tabs Hidden: 所有訂閱分頁均已隱藏。要檢視此處的內容，請取消隱藏「{settingsSection}」中「{subsection}」區塊中的一些分頁。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -375,6 +384,12 @@ Settings:
       Watch Page: 觀看頁面
       General: 一般
       Channel Page: 頻道頁面
+      Subscriptions Page: 訂閱頁面
+    Hide Channel Podcasts: 隱藏頻道 Podcast
+    Hide Channel Releases: 隱藏頻道發布
+    Hide Subscriptions Shorts: 隱藏訂閱短片
+    Hide Subscriptions Videos: 隱藏訂閱影片
+    Hide Subscriptions Live: 隱藏訂閱直播
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -544,8 +559,13 @@ Channel:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
   Shorts:
-    Shorts: 短片
     This channel does not currently have any shorts: 此頻道目前沒有任何短片
+  Podcasts:
+    This channel does not currently have any podcasts: 此頻道目前沒有 podcast
+    Podcasts: Podcast
+  Releases:
+    Releases: 發布
+    This channel does not currently have any releases: 此頻道目前沒有任何發布
 Video:
   Open in YouTube: '在YouTube中開啟'
   Copy YouTube Link: '複製YouTube連結'
@@ -850,7 +870,8 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
   Distraction Free Settings:
-    Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋或趨勢中。輸入的頻道名稱必須完全符合，且區分大小寫。
+    Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道名稱必須完全符合，且區分大小寫。
+    Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|

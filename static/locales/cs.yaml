@@ -29,6 +29,13 @@ Close: 'Zavřít'
 Back: 'Zpět'
 Forward: 'Dopředu'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Shorts
+  Live: Živě
+
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -89,6 +96,10 @@ Subscriptions:
   Empty Channels: Vaše odebírané kanály momentálně nemají žádná videa.
   Disabled Automatic Fetching: Máte zakázané automatické získávání odběrů. Obnovte
     odběry, abyste je zde mohli vidět.
+  Subscriptions Tabs: Karty s odběry
+  All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li
+    zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“
+    v „{settingsSection}“.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -334,6 +345,12 @@ Settings:
       Channel Page: Stránka kanálu
       Watch Page: Stránka sledování
       General: Obecné
+      Subscriptions Page: Stránka s odběry
+    Hide Channel Podcasts: Skrýt podcasty kanálu
+    Hide Channel Releases: Skrýt vydání kanálu
+    Hide Subscriptions Shorts: Skrýt Shorts odběrů
+    Hide Subscriptions Videos: Skrýt videa odběrů
+    Hide Subscriptions Live: Skrýt živá vysílání odběrů
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -436,6 +453,7 @@ Settings:
       Prompt To Skip: Zeptat se na přeskočení
       Show In Seek Bar: Zobrazit v liště
     Category Color: Barva kategorie
+    UseDeArrowTitles: Použít názvy videí z DeArrow
   External Player Settings:
     Custom External Player Arguments: Argumenty vlastního externího přehrávače
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
@@ -622,7 +640,14 @@ Channel:
       době nemá žádné živé přenosy
   Shorts:
     This channel does not currently have any shorts: Tento kanál nemá žádné shorts
-    Shorts: Shorts
+  Releases:
+    Releases: Vydání
+    This channel does not currently have any releases: Tento kanál momentálně nemá
+      žádná vydání
+  Podcasts:
+    This channel does not currently have any podcasts: Tento kanál momentálně nemá
+      žádné podcasty
+    Podcasts: Podcasty
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
@@ -905,8 +930,13 @@ Tooltips:
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
   Distraction Free Settings:
     Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
-      a samotného kanálu před zobrazením ve vyhledávání nebo trendech. Zadaný název
-      kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
+      a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších
+      a doporučených. Zadaný název kanálu se musí zcela shodovat a rozlišují se v
+      něm velká a malá písmena.
+    Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace
+      „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
+  SponsorBlock Settings:
+    UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknutím zkopírujete)'
 Falling back to Invidious API: 'Přepínám na Invidious API'

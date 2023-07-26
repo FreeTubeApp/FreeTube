@@ -91,6 +91,7 @@ body:
         - .exe
         - Flathub
         - MPR
+        - Nix
         - .pacman
         - Portable
         - PortableApps

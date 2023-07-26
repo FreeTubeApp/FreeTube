@@ -43,10 +43,27 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    useChannelsHiddenPreference: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: function () {
     return {
       visible: false
+    }
+  },
+  computed: {
+    channelsHidden() {
+      // Some component users like channel view will have this disabled
+      if (!this.useChannelsHiddenPreference) { return [] }
+
+      return JSON.parse(this.$store.getters.getChannelsHidden)
+    },
+
+    shouldBeVisible() {
+      return !(this.channelsHidden.includes(this.data.authorId) ||
+        this.channelsHidden.includes(this.data.author))
     }
   },
   created() {
@@ -54,7 +71,7 @@ export default defineComponent({
   },
   methods: {
     onVisibilityChanged: function (visible) {
-      if (visible) {
+      if (visible && this.shouldBeVisible) {
         this.visible = visible
       }
     }

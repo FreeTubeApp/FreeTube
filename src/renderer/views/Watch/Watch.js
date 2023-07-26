@@ -361,7 +361,7 @@ export default defineComponent({
         this.isUpcoming = !!result.basic_info.is_upcoming
         this.isLiveContent = !!result.basic_info.is_live_content
 
-        const subCount = parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text)
+        const subCount = !result.secondary_info.owner.subscriber_count.isEmpty() ? parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text) : NaN
 
         if (!isNaN(subCount)) {
           this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
@@ -406,6 +406,17 @@ export default defineComponent({
         } else {
           this.liveChat = null
         }
+
+        // region No comment detection
+        // For videos without any comment (comment disabled?)
+        // e.g. https://youtu.be/8NBSwDEf8a8
+        //
+        // `comments_entry_point_header` is null probably when comment disabled
+        // e.g. https://youtu.be/8NBSwDEf8a8
+        // However videos with comments enabled but have no comment
+        // are different (which is not detected here)
+        this.commentsEnabled = result.comments_entry_point_header != null
+        // endregion No comment detection
 
         // the bypassed result is missing some of the info that we extract in the code above
         // so we only overwrite the result here
@@ -509,6 +520,7 @@ export default defineComponent({
             }
             this.adaptiveFormats = this.videoSourceList
 
+            /** @type {import('../../helpers/api/local').LocalFormat[]} */
             const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
@@ -525,7 +537,7 @@ export default defineComponent({
               }
 
               return {
-                url: format.url,
+                url: format.freeTubeUrl,
                 label: label
               }
             })
@@ -670,17 +682,6 @@ export default defineComponent({
           }
         }
 
-        // region No comment detection
-        // For videos without any comment (comment disabled?)
-        // e.g. https://youtu.be/8NBSwDEf8a8
-        //
-        // `comments_entry_point_header` is null probably when comment disabled
-        // e.g. https://youtu.be/8NBSwDEf8a8
-        // However videos with comments enabled but have no comment
-        // are different (which is not detected here)
-        this.commentsEnabled = result.comments_entry_point_header != null
-        // endregion No comment detection
-
         this.isLoading = false
         this.updateTitle()
       } catch (err) {
@@ -716,7 +717,7 @@ export default defineComponent({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
-          this.channelSubscriptionCountText = result.subCountText || 'FT-0'
+          this.channelSubscriptionCountText = isNaN(result.subCountText) ? '' : result.subCountText
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
@@ -946,7 +947,7 @@ export default defineComponent({
     },
 
     /**
-     * @param {import('youtubei.js').Misc.Format[]} audioFormats
+     * @param {import('../../helpers/api/local').LocalFormat[]} audioFormats
      * @returns {AudioSource[]}
      */
     createLocalAudioSourceList: function (audioFormats) {
@@ -973,7 +974,7 @@ export default defineComponent({
         }
 
         return {
-          url: format.url,
+          url: format.freeTubeUrl,
           type: format.mime_type,
           label: 'Audio',
           qualityLabel: label

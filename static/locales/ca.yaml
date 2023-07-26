@@ -30,6 +30,11 @@ Close: 'Tancar'
 Back: 'Enrere'
 Forward: 'Endavant'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vídeos'
+
 Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber}
   està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'

@@ -71,14 +71,36 @@ export default defineComponent({
     hideChannelPlaylists: function() {
       return this.$store.getters.getHideChannelPlaylists
     },
+    hideChannelPodcasts: function() {
+      return this.$store.getters.getHideChannelPodcasts
+    },
+    hideChannelReleases: function() {
+      return this.$store.getters.getHideChannelReleases
+    },
     hideChannelCommunity: function() {
       return this.$store.getters.getHideChannelCommunity
+    },
+    hideSubscriptionsVideos: function() {
+      return this.$store.getters.getHideSubscriptionsVideos
+    },
+    hideSubscriptionsShorts: function() {
+      return this.$store.getters.getHideSubscriptionsShorts
+    },
+    hideSubscriptionsLive: function() {
+      return this.$store.getters.getHideSubscriptionsLive
     },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
+    },
+    hideSubscriptionsLiveTooltip: function () {
+      return this.$t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {
+        appWideSetting: this.$t('Settings.Distraction Free Settings.Hide Live Streams'),
+        subsection: this.$t('Settings.Distraction Free Settings.Sections.General'),
+        settingsSection: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
+      })
     }
   },
   methods: {
@@ -117,7 +139,12 @@ export default defineComponent({
       'updateHideFeaturedChannels',
       'updateHideChannelShorts',
       'updateHideChannelPlaylists',
-      'updateHideChannelCommunity'
+      'updateHideChannelCommunity',
+      'updateHideChannelPodcasts',
+      'updateHideChannelReleases',
+      'updateHideSubscriptionsVideos',
+      'updateHideSubscriptionsShorts',
+      'updateHideSubscriptionsLive'
     ])
   }
 })

@@ -29,6 +29,13 @@ Close: 'Zatvori'
 Back: 'Natrag'
 Forward: 'Naprijed'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Kratka videa
+  Live: Uživo
+
 # Search Bar
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
@@ -408,6 +415,8 @@ Settings:
       General: Opće
       Side Bar: Bočna traka
       Channel Page: Stranica kanala
+    Hide Channel Podcasts: Sakrij kanal podcastova
+    Hide Channel Releases: Sakrij kanal izdanja
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -439,6 +448,7 @@ Settings:
       Prompt To Skip: Poziv za preskakanje
       Do Nothing: Ne čini ništa
     Category Color: Boja kategorije
+    UseDeArrowTitles: Koristi DeArrow Video naslove
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
@@ -635,7 +645,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
-    Shorts: Kratka videa
+  Releases:
+    Releases: Izdanja
+    This channel does not currently have any releases: Ovaj kanal trenutačno nema
+      izdanja
+  Podcasts:
+    Podcasts: Podcasti
+    This channel does not currently have any podcasts: Ovaj kanal trenutačno nema
+      podcastova
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
@@ -948,8 +965,10 @@ Tooltips:
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
   Distraction Free Settings:
     Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
-      kao i sam kanal u pretrazi ili u trendovima. Upisano ime kanala se mora potpuno
-      poklapati i razlikuje velika i mala slova.
+      kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
+      ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.

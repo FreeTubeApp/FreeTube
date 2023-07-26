@@ -30,6 +30,13 @@ Close: 'Κλείσιμο'
 Back: 'Μετάβαση πίσω'
 Forward: 'Μετάβαση μπροστά'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Βίντεο'
+  Shorts: Shorts
+  Live: Ζωντανά
+
 # Search Bar
 Search / Go to URL: 'Αναζήτηση/Μετάβαση στη URL'
   # In Filter Button
@@ -86,6 +93,10 @@ Subscriptions:
   Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση συνδρομής.
     Ανανεώστε τις συνδρομές για να τις δείτε εδώ.
   Empty Channels: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν βίντεο.
+  Subscriptions Tabs: Καρτέλες Συνδρομών
+  All Subscription Tabs Hidden: Όλες οι καρτέλες συνδρομής είναι κρυφές. Για να δείτε
+    περιεχόμενο εδώ, αποκρύψτε ορισμένες καρτέλες στην ενότητα "{subsection}" στο
+    "{settingsSection}".
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -413,10 +424,16 @@ Settings:
       Channel Page: Σελίδα Καναλιού
       Watch Page: Σελίδα Παρακολούθησης
       General: Γενικά
+      Subscriptions Page: Σελίδα Συνδρομών
     Hide Featured Channels: Απόκρυψη Προτεινόμενων Καναλιών
     Hide Channel Playlists: Απόκρυψη Λιστών Αναπαραγωγής Καναλιών
     Hide Channel Community: Απόκρυψη Κοινότητας Καναλιού
     Hide Channel Shorts: Απόκρυψη Shorts Καναλιού
+    Hide Channel Releases: Απόκρυψη Kυκλοφοριών Kαναλιού
+    Hide Channel Podcasts: Απόκρυψη Podcasts Καναλιού
+    Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
+    Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
+    Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -461,6 +478,7 @@ Settings:
       Show In Seek Bar: Εμφάνιση Στη Γραμμή Αναζήτησης
       Prompt To Skip: Προτροπή Για Παράλειψη
     Category Color: Χρώμα Κατηγορίας
+    UseDeArrowTitles: Χρήση Τίτλων Βίντεο DeArrow
   Download Settings:
     Download Settings: Λήψη ρυθμίσεων
     Ask Download Path: Ζητήστε τη διαδρομή λήψης
@@ -652,9 +670,16 @@ Channel:
     This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
       προς το παρόν ζωντανές ροές
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς
       το παρόν κανένα shorts
+  Releases:
+    Releases: Κυκλοφορίες
+    This channel does not currently have any releases: Αυτό το κανάλι δεν έχει προς
+      το παρόν κυκλοφορίες
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Αυτό το κανάλι δεν έχει αυτήν
+      τη στιγμή podcasts
 Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
@@ -986,8 +1011,14 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Εισαγάγετε ένα όνομα καναλιού ή ένα αναγνωριστικό καναλιού για
       να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι ώστε
-      να μην εμφανίζονται στην αναζήτηση ή στις τάσεις. Το όνομα του καναλιού που
-      καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει διάκριση πεζών-κεφαλαίων.
+      να μην εμφανίζονται στην αναζήτηση, στις τάσεις, στα πιο δημοφιλή και προτεινόμενα.
+      Το όνομα του καναλιού που καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει
+      διάκριση πεζών-κεφαλαίων.
+    Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}"
+      σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
+  SponsorBlock Settings:
+    UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν
+      από τους χρήστες από το DeArrow.
 Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
   | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
   ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
