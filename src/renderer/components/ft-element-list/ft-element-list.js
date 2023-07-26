@@ -21,7 +21,11 @@ export default defineComponent({
     showVideoWithLastViewedPlaylist: {
       type: Boolean,
       default: false
-    }
+    },
+    useChannelsHiddenPreference: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     listType: function () {

@@ -152,27 +152,6 @@ export async function getLocalVideoInfo(id, attemptBypass = false) {
     player = innertube.actions.session.player
 
     info = await innertube.getInfo(id)
-
-    // // the android streaming formats don't seem to be throttled at the moment so we use those if they are availabe
-    try {
-      const androidInnertube = await createInnertube({ clientType: ClientType.ANDROID, generateSessionLocally: false })
-      const androidInfo = await androidInnertube.getBasicInfo(id, 'ANDROID')
-
-      // Sometimes when YouTube detects a third party client or has applied an IP-ratelimit,
-      // they replace the response with a different video id
-      // https://github.com/TeamNewPipe/NewPipe/issues/8713
-      // https://github.com/TeamPiped/Piped/issues/2487
-      if (androidInfo.basic_info.id !== id) {
-        console.error(`Failed to fetch android formats. Wrong video ID in response: ${androidInfo.basic_info.id}, expected: ${id}`)
-      } else if (androidInfo.playability_status.status !== 'OK') {
-        console.error('Failed to fetch android formats', JSON.stringify(androidInfo.playability_status))
-      } else {
-        info.streaming_data = androidInfo.streaming_data
-      }
-    } catch (error) {
-      console.error('Failed to fetch android formats')
-      console.error(error)
-    }
   }
 
   if (info.streaming_data) {
@@ -188,17 +167,24 @@ export async function getLocalComments(id, sortByNewest = false) {
   return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
 }
 
+// I know `type & type` is typescript syntax and not valid jsdoc but I couldn't get @extends or @augments to work
+
+/**
+ * @typedef {object} _LocalFormat
+ * @property {string} freeTubeUrl deciphered streaming URL, stored in a custom property so the DASH manifest generation doesn't break
+ *
+ * @typedef {Misc.Format & _LocalFormat} LocalFormat
+ */
+
 /**
  * @param {Misc.Format[]} formats
  * @param {import('youtubei.js').Player} player
  */
 function decipherFormats(formats, player) {
   for (const format of formats) {
-    format.url = format.decipher(player)
-
-    // set these to undefined so that toDash doesn't try to decipher them again, throwing an error
-    format.cipher = undefined
-    format.signature_cipher = undefined
+    // toDash deciphers the format again, so if we overwrite the original URL,
+    // it breaks because the n param would get deciphered twice and then be incorrect
+    format.freeTubeUrl = format.decipher(player)
   }
 }
 
@@ -257,6 +243,36 @@ export async function getLocalChannelVideos(id) {
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
       return parseLocalChannelVideos(videosTab.videos, videosTab.header.author)
+    } else {
+      return []
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof Utils.ChannelError) {
+      return null
+    } else {
+      throw error
+    }
+  }
+}
+
+export async function getLocalChannelLiveStreams(id) {
+  const innertube = await createInnertube()
+
+  try {
+    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
+      browse_id: id,
+      params: 'EgdzdHJlYW1z8gYECgJ6AA%3D%3D'
+      // protobuf for the live tab (this is the one that YouTube uses,
+      // it has some empty fields in the protobuf but it doesn't work if you remove them)
+    }))
+
+    const liveStreamsTab = new YT.Channel(null, response)
+
+    // if the channel doesn't have a live tab, YouTube returns the home tab instead
+    // so we need to check that we got the right tab
+    if (liveStreamsTab.current_tab?.endpoint.metadata.url?.endsWith('/streams')) {
+      return parseLocalChannelVideos(liveStreamsTab.videos, liveStreamsTab.header.author)
     } else {
       return []
     }
@@ -377,8 +393,7 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
   let channelId = null
   /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
   const thumbnailRenderer = playlist.thumbnail_renderer
-
-  if (playlist.author) {
+  if (playlist.author && playlist.author.id !== 'N/A') {
     if (playlist.author instanceof Misc.Text) {
       channelName = playlist.author.text
 
@@ -425,7 +440,8 @@ function handleSearchResponse(response) {
 
   return {
     results,
-    continuationData: response.has_continuation ? response : null
+    // check the length of the results, as there can be continuations for things that we've filtered out, which we don't want
+    continuationData: response.has_continuation && results.length > 0 ? response : null
   }
 }
 
@@ -451,11 +467,47 @@ export function parseLocalPlaylistVideo(video) {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
     const video_ = video
 
+    let viewCount = null
+
+    // the accessiblity label contains the full view count
+    // the video info only contains the short view count
+    if (video_.accessibility_label) {
+      const match = video_.accessibility_label.match(/([\d,.]+|no) views?$/i)
+
+      if (match) {
+        const count = match[1]
+
+        // as it's rare that a video has no views,
+        // checking the length allows us to avoid running toLowerCase unless we have to
+        if (count.length === 2 && count.toLowerCase() === 'no') {
+          viewCount = 0
+        } else {
+          const views = extractNumberFromString(count)
+
+          if (!isNaN(views)) {
+            viewCount = views
+          }
+        }
+      }
+    }
+
+    let publishedText = null
+
+    // normal videos have 3 text runs with the last one containing the published date
+    // live videos have 2 text runs with the number of people watching
+    // upcoming either videos don't have any info text or the number of people waiting,
+    // but we have the premiere date for those, so we don't need the published date
+    if (video_.video_info.runs && video_.video_info.runs.length === 3) {
+      publishedText = video_.video_info.runs[2].text
+    }
+
     return {
       videoId: video_.id,
       title: video_.title.text,
       author: video_.author.name,
       authorId: video_.author.id,
+      viewCount,
+      publishedText,
       lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
       liveNow: video_.is_live,
       isUpcoming: video_.is_upcoming,
@@ -705,7 +757,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
 }
 
 /**
- * @param {Misc.Format} format
+ * @param {LocalFormat} format
  */
 export function mapLocalFormat(format) {
   return {
@@ -716,7 +768,7 @@ export function mapLocalFormat(format) {
     mimeType: format.mime_type,
     height: format.height,
     width: format.width,
-    url: format.url
+    url: format.freeTubeUrl
   }
 }
 

@@ -29,6 +29,11 @@ Close: 'Itxi'
 Back: 'Atzera'
 Forward: 'Aurrera'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Bideoak'
+
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'

@@ -22,6 +22,7 @@
       :data="video"
       appearance="recommendation"
       force-list-type="list"
+      :use-channels-hidden-preference="true"
     />
   </ft-card>
 </template>

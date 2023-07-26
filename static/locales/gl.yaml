@@ -30,6 +30,11 @@ Close: 'Pechar'
 Back: 'Atrás'
 Forward: 'Adiante'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vídeos'
+
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
 Download From Site: 'Descargar do sitio'

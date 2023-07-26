@@ -58,5 +58,23 @@
             "playlistShuffle": "--mpv-shuffle",
             "playlistLoop": "--mpv-loop-playlist"
         }
+    },
+      {
+        "name": "SMPlayer",
+        "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
+        "value": "smplayer",
+        "cmdArguments": {
+            "defaultExecutable": "smplayer",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "-start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
     }
 ]

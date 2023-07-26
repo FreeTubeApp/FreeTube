@@ -30,6 +30,11 @@ Close: 'Tutup'
 Back: 'Kembali'
 Forward: 'Maju'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'

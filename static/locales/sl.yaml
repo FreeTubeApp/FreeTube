@@ -30,6 +30,11 @@ Close: 'Zapri'
 Back: 'Nazaj'
 Forward: 'Naprej'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoposnetki'
+
 Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica
   {versionNumber}!·  Za več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'

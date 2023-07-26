@@ -30,6 +30,13 @@ Close: 'Chiudi'
 Back: 'Indietro'
 Forward: 'Avanti'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+  Shorts: Video brevi
+  Live: Dal vivo
+
 # Search Bar
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
@@ -87,6 +94,9 @@ Subscriptions:
   Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
     Aggiorna gli abbonamenti per vederli qui.
   Empty Channels: I canali a cui sei iscritto attualmente non hanno alcun video.
+  Subscriptions Tabs: Schede iscrizioni
+  All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
+    i contenuti qui, scopri le schede nella sezione «{subsection}» in «{settingsSection}».
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -417,6 +427,12 @@ Settings:
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
+      Subscriptions Page: Pagina delle iscrizioni
+    Hide Channel Podcasts: Nascondi i podcast del canale
+    Hide Channel Releases: Nascondi i rilasci del canale
+    Hide Subscriptions Live: Nascondi le iscrizioni Dal vivo
+    Hide Subscriptions Videos: Nascondi i video delle iscrizioni
+    Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -491,7 +507,7 @@ Settings:
     Remove Password: Rimuovi password
 About:
   #On About page
-  About: 'Informazioni'
+  About: 'Informazioni su'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
     software è rilasciato con licenza gratuita AGPL-3.0.'
@@ -571,7 +587,7 @@ Channel:
       Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
   About:
-    About: 'Informazioni'
+    About: 'Informazioni su'
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali in evidenza'
     Tags:
@@ -600,9 +616,16 @@ Channel:
     This channel does not currently have any live streams: Questo canale attualmente
       non ha alcun video dal vivo
   Shorts:
-    Shorts: Video brevi
     This channel does not currently have any shorts: Questo canale attualmente non
       ha video brevi
+  Podcasts:
+    Podcasts: Podcast
+    This channel does not currently have any podcasts: Questo canale non ha attualmente
+      alcun podcast
+  Releases:
+    Releases: Rilasci
+    This channel does not currently have any releases: Questo canale non ha attualmente
+      alcun rilascio
 Video:
   Mark As Watched: 'Segna come già visto'
   Remove From History: 'Rimuovi dalla cronologia'
@@ -965,10 +988,12 @@ Tooltips:
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
       della RAM.
   Distraction Free Settings:
-    Hide Channels: Inserisci il nome o l'ID di un canale per nascondere tutti i video,
-      le playlist e il canale stesso dalla visualizzazione nelle ricerche o nelle
-      tendenze. Il nome del canale inserito deve essere una corrispondenza completa
-      e fa distinzione tra maiuscole e minuscole.
+    Hide Channels: Inserisci il nome o l'ID di un canale per impedire che tutti i
+      video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze,
+      più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
+      completa e fa distinzione tra maiuscole e minuscole.
+    Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
+      «{appWideSetting}» a livello di app, nella sezione «{subsection}» di «{settingsSection}»
   SponsorBlock Settings:
     UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
       da DeArrow.
@@ -1011,7 +1036,7 @@ Channels:
   Search bar placeholder: Cerca canali
   Count: '{number} canale/i trovato/i.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
-  Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
+  Unsubscribe Prompt: Sei sicuro/sicura di voler annullare l'iscrizione a «{channelName}»?
   Unsubscribe: Annulla l'iscrizione
 Clipboard:
   Cannot access clipboard without a secure connection: Impossibile accedere agli appunti

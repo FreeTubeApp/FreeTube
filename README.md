@@ -91,6 +91,8 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
 
+* Nix Packages: [Download](https://search.nixos.org/packages?query=freetube)
+
 * PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) and [Source Code](https://github.com/rddim/FreeTubePortable)
 
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)

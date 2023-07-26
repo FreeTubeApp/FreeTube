@@ -30,6 +30,11 @@ Close: 'Lukk'
 Back: 'Tilbake'
 Forward: 'Framover'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoar'
+
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
   er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
