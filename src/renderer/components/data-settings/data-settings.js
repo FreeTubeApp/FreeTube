@@ -421,7 +421,7 @@ export default defineComponent({
       }
 
       const newPipeSubscriptions = newPipeData.subscriptions.filter((channel, index) => {
-        return channel.service_id === 0
+        return new URL(channel.url).hostname === 'www.youtube.com'
       })
 
       const subscriptions = []
