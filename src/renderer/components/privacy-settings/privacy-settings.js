@@ -110,7 +110,9 @@ export default defineComponent({
           }
         })
 
-        this.clearSubscriptionsCache()
+        this.clearSubscriptionVideosCache()
+        this.clearSubscriptionShortsCache()
+        this.clearSubscriptionLiveCache()
       }
     },
 
@@ -124,7 +126,9 @@ export default defineComponent({
       'updateProfile',
       'removeProfile',
       'updateActiveProfile',
-      'clearSubscriptionsCache',
+      'clearSubscriptionVideosCache',
+      'clearSubscriptionShortsCache',
+      'clearSubscriptionLiveCache',
     ])
   }
 })
