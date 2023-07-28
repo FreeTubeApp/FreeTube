@@ -585,7 +585,12 @@ const actions = {
         }
       }
 
-      args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
+      if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
+        args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
+      } else {
+        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      }
     } else {
       if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
         showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
