@@ -6,9 +6,7 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { copyToClipboard, showToast } from '../../helpers/utils'
-import {
-  isNullOrEmpty,
-} from '../../helpers/strings'
+import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({

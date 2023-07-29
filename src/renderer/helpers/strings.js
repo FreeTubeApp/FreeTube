@@ -12,7 +12,7 @@ export function isNullOrEmpty(_string) {
  * @param {string} eventKey the string from KeyboardEvent.key to process
  * @returns {boolean} whether the string from KeyboardEvent.key is a printable char or not
  */
-export function IsKeyboardEventKeyPrintableChar(eventKey) {
+export function isKeyboardEventKeyPrintableChar(eventKey) {
   // Most printable chars are all strings with length 1 (except Unicode)
   // https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values
   // https://www.w3.org/TR/DOM-Level-3-Events-key/
