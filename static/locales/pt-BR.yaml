@@ -421,6 +421,10 @@ Settings:
     Hide Channel Playlists: Ocultar listas de reprodução de canais
     Hide Channel Community: Ocultar comunidade do canal
     Hide Channel Shorts: Ocultar Shorts do Canal
+    Hide Channel Podcasts: Ocultar podcasts do canal
+    Hide Channel Releases: Ocultar lançamentos do canal
+    Hide Subscriptions Videos: Ocultar vídeos de inscrições
+    Hide Subscriptions Shorts: Ocultar Shorts de Inscrições
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -602,6 +606,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Este canal não tem atualmente
       nenhum short
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Este canal não possui podcasts
+      no momento
+  Releases:
+    Releases: Lançamentos
+    This channel does not currently have any releases: Este canal não tem nenhum lançamento
+      no momento
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
