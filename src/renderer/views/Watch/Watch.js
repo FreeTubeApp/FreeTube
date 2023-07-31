@@ -256,9 +256,6 @@ export default defineComponent({
     changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
-    toggleTheatreMode: function () {
-      this.useTheatreMode = !this.useTheatreMode
-    },
 
     getVideoInformationLocal: async function () {
       if (this.firstLoad) {
@@ -1110,6 +1107,20 @@ export default defineComponent({
             this.getVideoInformationInvidious()
           }
         })
+    },
+
+    handleFormatChange: function (format) {
+      switch (format) {
+        case 'dash':
+          this.enableDashFormat()
+          break
+        case 'legacy':
+          this.enableLegacyFormat()
+          break
+        case 'audio':
+          this.enableAudioFormat()
+          break
+      }
     },
 
     enableDashFormat: function () {
