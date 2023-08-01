@@ -35,33 +35,27 @@ const getters = {
 
   getLiveCacheByChannel: (state) => (channelId) => {
     return state.liveCache[channelId]
-  }
+  },
 }
 
 const actions = {
-  clearSubscriptionVideosCache: ({ commit }) => {
-    commit('clearVideoCache')
-  },
-
   updateSubscriptionVideosCacheByChannel: ({ commit }, payload) => {
     commit('updateVideoCacheByChannel', payload)
-  },
-
-  clearSubscriptionShortsCache: ({ commit }) => {
-    commit('clearShortsCache')
   },
 
   updateSubscriptionShortsCacheByChannel: ({ commit }, payload) => {
     commit('updateShortsCacheByChannel', payload)
   },
 
-  clearSubscriptionLiveCache: ({ commit }) => {
-    commit('clearLiveCache')
-  },
-
   updateSubscriptionLiveCacheByChannel: ({ commit }, payload) => {
     commit('updateLiveCacheByChannel', payload)
-  }
+  },
+
+  clearSubscriptionsCache: ({ commit }, payload) => {
+    commit('clearVideoCache', payload)
+    commit('clearShortsCache', payload)
+    commit('clearLiveCache', payload)
+  },
 }
 
 const mutations = {
@@ -91,7 +85,7 @@ const mutations = {
   },
   clearLiveCache(state) {
     state.liveCache = {}
-  }
+  },
 }
 
 export default {
