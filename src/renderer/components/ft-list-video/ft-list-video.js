@@ -436,7 +436,13 @@ export default defineComponent({
 
       this.channelName = this.data.author ?? null
       this.channelId = this.data.authorId ?? null
-      this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
+
+      if (this.data.isRSS && this.historyIndex !== -1) {
+        this.duration = formatDurationAsTimestamp(this.historyCache[this.historyIndex].lengthSeconds)
+      } else {
+        this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
+      }
+
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
