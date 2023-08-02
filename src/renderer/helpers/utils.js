@@ -5,8 +5,6 @@ import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
 
-import { isNullOrEmpty } from './strings'
-
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
