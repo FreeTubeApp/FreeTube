@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { mapActions } from 'vuex'
+import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
 export default defineComponent({
   name: 'FtInput',
@@ -73,7 +74,8 @@ export default defineComponent({
       searchState: {
         showOptions: false,
         selectedOption: -1,
-        isPointerInList: false
+        isPointerInList: false,
+        keyboardSelectedOptionIndex: -1,
       },
       visibleDataList: this.dataList,
       // This button should be invisible on app start
@@ -98,7 +100,23 @@ export default defineComponent({
 
     inputDataPresent: function () {
       return this.inputData.length > 0
-    }
+    },
+    inputDataDisplayed() {
+      if (!this.isSearch) { return this.inputData }
+
+      const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
+      if (selectedOptionValue != null && selectedOptionValue !== '') {
+        return selectedOptionValue
+      }
+
+      return this.inputData
+    },
+
+    searchStateKeyboardSelectedOptionValue() {
+      if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
+
+      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+    },
   },
   watch: {
     dataList(val, oldVal) {
@@ -128,11 +146,15 @@ export default defineComponent({
       if (!this.inputDataPresent) { return }
 
       this.searchState.showOptions = false
+      this.searchState.selectedOption = -1
+      this.searchState.keyboardSelectedOptionIndex = -1
       this.$emit('input', this.inputData)
       this.$emit('click', this.inputData, { event: e })
     },
 
     handleInput: function (val) {
+      this.inputData = val
+
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
@@ -212,6 +234,9 @@ export default defineComponent({
       this.handleClick()
     },
 
+    /**
+     * @param {KeyboardEvent} event
+     */
     handleKeyDown: function (event) {
       if (event.key === 'Enter') {
         // Update Input box value if enter key was pressed and option selected
@@ -229,25 +254,32 @@ export default defineComponent({
 
       this.searchState.showOptions = true
       const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
-      if (isArrow) {
-        event.preventDefault()
-        if (event.key === 'ArrowDown') {
-          this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
-        } else if (event.key === 'ArrowUp') {
-          if (this.searchState.selectedOption < 1) {
-            this.searchState.selectedOption = this.visibleDataList.length - 1
-          } else {
-            this.searchState.selectedOption--
-          }
+      if (!isArrow) {
+        const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
+        // Keyboard selected & is char
+        if (!isNullOrEmpty(selectedOptionValue) && isKeyboardEventKeyPrintableChar(event.key)) {
+          // Update input based on KB selected suggestion value instead of current input value
+          event.preventDefault()
+          this.handleInput(`${selectedOptionValue}${event.key}`)
+          return
         }
-        if (this.searchState.selectedOption < 0) {
-          this.searchState.selectedOption = this.visibleDataList.length
-        } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
-          this.searchState.selectedOption = 0
-        }
-      } else {
+        return
+      }
+
+      event.preventDefault()
+      if (event.key === 'ArrowDown') {
+        this.searchState.selectedOption++
+      } else if (event.key === 'ArrowUp') {
+        this.searchState.selectedOption--
+      }
+      // Allow deselecting suggestion
+      if (this.searchState.selectedOption < -1) {
+        this.searchState.selectedOption = this.visibleDataList.length - 1
+      } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
         this.searchState.selectedOption = -1
       }
+      // Update displayed value
+      this.searchState.keyboardSelectedOptionIndex = this.searchState.selectedOption
     },
 
     handleInputBlur: function () {
@@ -260,21 +292,19 @@ export default defineComponent({
 
     updateVisibleDataList: function () {
       if (this.dataList.length === 0) { return }
+      // Reset selected option before it's updated
+      this.searchState.selectedOption = -1
+      this.searchState.keyboardSelectedOptionIndex = -1
       if (this.inputData === '') {
         this.visibleDataList = this.dataList
         return
       }
       // get list of items that match input
       const lowerCaseInputData = this.inputData.toLowerCase()
-      const visList = this.dataList.filter(x => {
-        if (x.toLowerCase().indexOf(lowerCaseInputData) !== -1) {
-          return true
-        } else {
-          return false
-        }
-      })
 
-      this.visibleDataList = visList
+      this.visibleDataList = this.dataList.filter(x => {
+        return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
+      })
     },
 
     updateInputData: function(text) {
