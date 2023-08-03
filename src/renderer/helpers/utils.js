@@ -189,7 +189,13 @@ export async function getFormatsFromHLSManifest(manifestUrl) {
 }
 
 export function showToast(message, time = null, action = null) {
-  FtToastEvents.$emit('toast-open', message, time, action)
+  FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
+    detail: {
+      message,
+      time,
+      action
+    }
+  }))
 }
 
 /**
