@@ -169,11 +169,22 @@ class Playlists {
   }
 }
 
+function compactAllDatastores() {
+  return Promise.allSettled([
+    Settings.persist(),
+    History.persist(),
+    Profiles.persist(),
+    Playlists.persist()
+  ])
+}
+
 const baseHandlers = {
   settings: Settings,
   history: History,
   profiles: Profiles,
-  playlists: Playlists
+  playlists: Playlists,
+
+  compactAllDatastores
 }
 
 export default baseHandlers
