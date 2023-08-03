@@ -25,6 +25,13 @@ import {
 import { getProxyUrl } from '../../helpers/api/invidious'
 import store from '../../store'
 
+const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
+  // This is thrown when `play()` called but user already viewing another page
+  'The play() request was interrupted by a new load request.',
+  // This is thrown when `pause()` called before video started playing on load
+  'The play() request was interrupted by a call to pause()',
+]
+
 // YouTube now throttles if you use the `Range` header for the DASH formats, instead of the range query parameter
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
@@ -1979,9 +1986,8 @@ export default defineComponent({
       }
       promise
         .catch(err => {
-          if (err.message.includes('The play() request was interrupted by a new load request.')) {
+          if (EXPECTED_PLAY_RELATED_ERROR_MESSAGES.some(msg => err.message.includes(msg))) {
             // Ignoring expected exception
-            // This is thrown when `play()` called but user already viewing another page
             // console.debug('Ignoring expected error')
             // console.debug(err)
             return
