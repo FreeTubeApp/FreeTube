@@ -289,10 +289,17 @@ export default defineComponent({
     },
 
     displayTitle: function () {
-      if (this.showDistractionFreeTitles) {
-        return toDistractionFreeTitle(this.title)
+      let title
+      if (this.useDeArrowTitles && this.deArrowCache?.title) {
+        title = this.deArrowCache.title
       } else {
-        return this.title
+        title = this.title
+      }
+
+      if (this.showDistractionFreeTitles) {
+        return toDistractionFreeTitle(title)
+      } else {
+        return title
       }
     },
 
@@ -327,7 +334,7 @@ export default defineComponent({
     },
 
     deArrowCache: function () {
-      return this.$store.getters.getDeArrowCache(this.id)
+      return this.$store.getters.getDeArrowCache[this.id]
     }
   },
   watch: {
@@ -338,15 +345,13 @@ export default defineComponent({
   created: function () {
     this.parseVideoData()
     this.checkIfWatched()
+
+    if (this.useDeArrowTitles && !this.deArrowCache) {
+      this.fetchDeArrowData()
+    }
   },
   methods: {
-    getDeArrowDataEntry: async function() {
-      // Read from local cache or remote
-      // Write to cache if read from remote
-      if (!this.useDeArrowTitles) { return null }
-
-      if (this.deArrowCache) { return this.deArrowCache }
-
+    fetchDeArrowData: async function() {
       const videoId = this.id
       const data = await deArrowData(this.id)
       const cacheData = { videoId, title: null }
@@ -356,7 +361,6 @@ export default defineComponent({
 
       // Save data to cache whether data available or not to prevent duplicate requests
       this.$store.commit('addVideoToDeArrowCache', cacheData)
-      return cacheData
     },
 
     handleExternalPlayer: function () {
@@ -429,9 +433,9 @@ export default defineComponent({
       }
     },
 
-    parseVideoData: async function () {
+    parseVideoData: function () {
       this.id = this.data.videoId
-      this.title = (await this.getDeArrowDataEntry())?.title ?? this.data.title
+      this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
       this.channelName = this.data.author ?? null
