@@ -46,8 +46,8 @@
 .channelThumbnail {
   width: 100px;
   height: 100px;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
   object-fit: cover;
 }
 
