@@ -99,7 +99,7 @@ class Profiles {
   }
 
   static persist() {
-    return db.history.compactDatafileAsync()
+    return db.profiles.compactDatafileAsync()
   }
 }
 
