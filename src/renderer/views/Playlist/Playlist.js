@@ -151,6 +151,17 @@ export default defineComponent({
     },
     getPlaylistLocal: function () {
       getLocalPlaylist(this.playlistId).then((result) => {
+        let channelName
+
+        if (result.info.author) {
+          channelName = result.info.author.name
+        } else {
+          const subtitle = result.info.subtitle.toString()
+
+          const index = subtitle.lastIndexOf('•')
+          channelName = subtitle.substring(0, index).trim()
+        }
+
         this.infoData = {
           id: this.playlistId,
           title: result.info.title,
@@ -160,7 +171,7 @@ export default defineComponent({
           viewCount: extractNumberFromString(result.info.views),
           videoCount: extractNumberFromString(result.info.total_items),
           lastUpdated: result.info.last_updated ?? '',
-          channelName: result.info.author?.name ?? '',
+          channelName,
           channelThumbnail: result.info.author?.best_thumbnail?.url ?? '',
           channelId: result.info.author?.id,
           infoSource: 'local'
@@ -173,7 +184,7 @@ export default defineComponent({
         this.viewCount = extractNumberFromString(result.info.views)
         this.videoCount = extractNumberFromString(result.info.total_items)
         this.lastUpdated = result.info.last_updated ?? ''
-        this.channelName = result.info.author?.name ?? ''
+        this.channelName = channelName ?? ''
         this.channelThumbnail = result.info.author?.best_thumbnail?.url ?? ''
         this.channelId = result.info.author?.id
         this.infoSource = 'local'

@@ -45,7 +45,7 @@ export default defineComponent({
     },
     channelId: {
       type: String,
-      required: true,
+      default: null,
     },
     videoCount: {
       type: Number,

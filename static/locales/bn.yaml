@@ -60,12 +60,14 @@ Search Filters:
     Videos: 'ভিডিও'
     Channels: 'চ্যানেল'
     #& Playlists
+    Movies: চলচিত্র
   Duration:
     Duration: 'সময়কাল'
     All Durations: 'সকল দৈর্ঘ্যের'
     Short (< 4 minutes): 'ছোট (<৪ মিনিট)'
     Long (> 20 minutes): 'লম্বা (> ২০ মিনিট)'
   # On Search Page
+    Medium (4 - 20 minutes): মধ্যম (৪ - ২০ মিনিট)
   Search Results: 'অনুসন্ধান ফলাফল'
   Fetching results. Please wait: 'ফলাফল আনা হচ্ছে, একটু অপেক্ষা করো'
   Fetch more results: 'আরো ফলাফল আনো'
@@ -75,6 +77,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
   Latest Subscriptions: 'শেষ সদস্যতা'
+  Error Channels: ত্রুটিপূর্ণ চ্যানেল
 Trending:
   Trending: 'চলছে'
 History:
@@ -94,3 +97,18 @@ Channel:
 Video: {}
 Tooltips: {}
 Open New Window: নতুন জানালা খুলো
+New Window: নতুন জানালা
+Search Bar:
+  Clear Input: ইনপুট পরিষ্কার করো
+Global:
+  Videos: ভিডিও
+  Shorts: খাটো
+  Live: সরাসরি
+External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে
+  বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
+Are you sure you want to open this link?: তুমি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
+Preferences: পছন্দসমূহ
+Age Restricted:
+  Type:
+    Channel: চ্যানেল
+    Video: ভিডিও

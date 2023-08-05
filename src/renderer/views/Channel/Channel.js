@@ -12,7 +12,8 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 
 import autolinker from 'autolinker'
-import { copyToClipboard, extractNumberFromString, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
+import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
   invidiousAPICall,

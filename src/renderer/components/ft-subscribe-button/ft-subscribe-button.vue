@@ -9,4 +9,4 @@
 </template>
 
 <script src="./ft-subscribe-button.js" />
-<style scoped src="./ft-subscribe-button.scss" lang="scss" />
+<style src="./ft-subscribe-button.css" />

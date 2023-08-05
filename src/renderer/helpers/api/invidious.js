@@ -1,5 +1,6 @@
 import store from '../../store/index'
-import { isNullOrEmpty, stripHTML, toLocalePublicationString } from '../utils'
+import { stripHTML, toLocalePublicationString } from '../utils'
+import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 
 function getCurrentInstance() {

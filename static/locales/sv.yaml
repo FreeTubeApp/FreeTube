@@ -97,6 +97,9 @@ Subscriptions:
   Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning.
     Uppdatera prenumerationerna för att se dem här.
   Empty Channels: Dina prenumererade kanaler har inga filmer.
+  Subscriptions Tabs: Prenumerations Flik
+  All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll
+    här, vänligen avdölj några flikar i avsnittet "{subsection}" i "{settingsSection}".
 Trending:
   Trending: 'Populärt'
   Movies: Filmer
@@ -406,8 +409,14 @@ Settings:
       General: Allmänt
       Channel Page: Kanal sida
       Watch Page: Titta sida
+      Subscriptions Page: Prenumerationssida
     Hide Channel Community: Dölj Kanal gemenskap
     Hide Channel Playlists: Dölj Kanal spellistor
+    Hide Channel Podcasts: Dölj kanal podcasts
+    Hide Channel Releases: Dölj kanal släpp
+    Hide Subscriptions Videos: Dölj prenumerationsvideor
+    Hide Subscriptions Shorts: Dölj prenumerationsshorts
+    Hide Subscriptions Live: Dölj prenumerations Live-sändningar
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -631,6 +640,14 @@ Channel:
     Live: Live
     This channel does not currently have any live streams: Den här kanalen har för
       närvarande inga liveströmmar
+  Releases:
+    Releases: Släpp
+    This channel does not currently have any releases: Den här kanalen har för närvarande
+      inga släpp
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Den här kanalen har för närvarande
+      inga podcasts
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -925,6 +942,8 @@ Tooltips:
     Hide Channels: Ange ett kanalnamn eller kanal-ID för att dölja alla videor, spellistor
       och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
       Det angivna kanalnamnet måste vara en fullständig matchning och är skiftlägeskänsligt.
+    Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande
+      "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
       en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.

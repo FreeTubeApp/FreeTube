@@ -5,7 +5,8 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
-import { copyToClipboard, isNullOrEmpty, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({

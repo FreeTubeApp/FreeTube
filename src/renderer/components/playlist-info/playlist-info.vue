@@ -68,7 +68,7 @@
       class="channelShareWrapper"
     >
       <router-link
-        v-if="infoSource !== 'user'"
+        v-if="infoSource !== 'user' && channelId"
         class="playlistChannel"
         :to="`/channel/${channelId}`"
       >
@@ -83,6 +83,16 @@
           {{ channelName }}
         </h3>
       </router-link>
+      <div
+        v-else
+        class="playlistChannel"
+      >
+        <h3
+          class="channelName"
+        >
+          {{ channelName }}
+        </h3>
+      </div>
 
       <div class="playlistOptions">
         <ft-icon-button

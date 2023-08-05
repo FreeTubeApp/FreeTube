@@ -63,8 +63,8 @@
   height: 30px;
   cursor: pointer;
   background-color: var(--primary-color);
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
 }
 
 .superChatContent {
@@ -124,8 +124,8 @@
   margin-top: 25px;
   margin-bottom: 10px;
   background-color: var(--primary-color);
-  border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
   position: relative;
 }
 
@@ -215,8 +215,8 @@
   left: 45%;
   bottom: 20px;
   cursor: pointer;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
   text-align: center;
   transition: background 0.2s ease-out;
 }

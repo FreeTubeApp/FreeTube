@@ -25,6 +25,13 @@ import {
 import { getProxyUrl } from '../../helpers/api/invidious'
 import store from '../../store'
 
+const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
+  // This is thrown when `play()` called but user already viewing another page
+  'The play() request was interrupted by a new load request.',
+  // This is thrown when `pause()` called before video started playing on load
+  'The play() request was interrupted by a call to pause()',
+]
+
 // YouTube now throttles if you use the `Range` header for the DASH formats, instead of the range query parameter
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
@@ -93,9 +100,21 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
+    currentChapterIndex: {
+      type: Number,
+      default: 0
+    },
     audioTracks: {
       type: Array,
       default: () => ([])
+    },
+    theatrePossible: {
+      type: Boolean,
+      default: false
+    },
+    useTheatreMode: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -1424,11 +1443,11 @@ export default defineComponent({
     },
 
     createToggleTheatreModeButton: function() {
-      if (!this.$parent.theatrePossible) {
+      if (!this.theatrePossible) {
         return
       }
 
-      const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
+      const theatreModeActive = this.useTheatreMode ? ' vjs-icon-theatre-active' : ''
 
       const toggleTheatreMode = this.toggleTheatreMode
 
@@ -1458,14 +1477,14 @@ export default defineComponent({
     toggleTheatreMode: function() {
       if (!this.player.isFullscreen_) {
         const toggleTheatreModeButton = document.getElementById('toggleTheatreModeButton')
-        if (!this.$parent.useTheatreMode) {
+        if (!this.useTheatreMode) {
           toggleTheatreModeButton.classList.add('vjs-icon-theatre-active')
         } else {
           toggleTheatreModeButton.classList.remove('vjs-icon-theatre-active')
         }
       }
 
-      this.$parent.toggleTheatreMode()
+      this.$emit('toggle-theatre-mode')
     },
 
     createScreenshotButton: function () {
@@ -1949,7 +1968,7 @@ export default defineComponent({
      * @returns {boolean}
      */
     canChapterJump: function (event, direction) {
-      const currentChapter = this.$parent.videoCurrentChapterIndex
+      const currentChapter = this.currentChapterIndex
       return this.chapters.length > 0 &&
         (direction === 'previous' ? currentChapter > 0 : this.chapters.length - 1 !== currentChapter) &&
         ((process.platform !== 'darwin' && event.ctrlKey) ||
@@ -1967,9 +1986,8 @@ export default defineComponent({
       }
       promise
         .catch(err => {
-          if (err.message.includes('The play() request was interrupted by a new load request.')) {
+          if (EXPECTED_PLAY_RELATED_ERROR_MESSAGES.some(msg => err.message.includes(msg))) {
             // Ignoring expected exception
-            // This is thrown when `play()` called but user already viewing another page
             // console.debug('Ignoring expected error')
             // console.debug(err)
             return
@@ -2075,7 +2093,7 @@ export default defineComponent({
             event.preventDefault()
             if (this.canChapterJump(event, 'previous')) {
               // Jump to the previous chapter
-              this.player.currentTime(this.chapters[this.$parent.videoCurrentChapterIndex - 1].startSeconds)
+              this.player.currentTime(this.chapters[this.currentChapterIndex - 1].startSeconds)
             } else {
               // Rewind by the time-skip interval (in seconds)
               this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
@@ -2085,7 +2103,7 @@ export default defineComponent({
             event.preventDefault()
             if (this.canChapterJump(event, 'next')) {
               // Jump to the next chapter
-              this.player.currentTime(this.chapters[this.$parent.videoCurrentChapterIndex + 1].startSeconds)
+              this.player.currentTime(this.chapters[this.currentChapterIndex + 1].startSeconds)
             } else {
               // Fast-Forward by the time-skip interval (in seconds)
               this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
