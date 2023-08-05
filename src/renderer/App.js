@@ -10,7 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
-import { IpcChannels } from '../constants'
+import { Injectables, IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
@@ -29,6 +29,11 @@ export default defineComponent({
     FtButton,
     FtToast,
     FtProgressBar
+  },
+  provide: function () {
+    return {
+      [Injectables.SHOW_OUTLINES]: this.showOutlines
+    }
   },
   data: function () {
     return {
@@ -493,6 +498,15 @@ export default defineComponent({
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
+    },
+
+    /**
+     * provided to all child components, see `provide` near the top of this file
+     * after injecting it, they can show outlines during keyboard navigation
+     * e.g. cycling through tabs with the arrow keys
+     */
+    showOutlines: function () {
+      this.hideOutlines = false
     },
 
     ...mapMutations([

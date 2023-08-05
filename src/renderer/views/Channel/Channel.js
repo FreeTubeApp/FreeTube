@@ -32,6 +32,7 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
+import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -46,6 +47,9 @@ export default defineComponent({
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -1724,7 +1728,8 @@ export default defineComponent({
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
           const tabNode = document.getElementById(`${tab}Tab`)
-          tabNode.focus({ focusVisible: true })
+          tabNode.focus()
+          this.showOutlines()
           return
         }
       }
@@ -1732,7 +1737,8 @@ export default defineComponent({
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
-      newTabNode?.focus({ focusVisible: true })
+      newTabNode?.focus()
+      this.showOutlines()
     },
 
     newSearch: function (query) {
