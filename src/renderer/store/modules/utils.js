@@ -363,17 +363,16 @@ const actions = {
         if (url.searchParams.has('search_query')) {
           // https://www.youtube.com/results?search_query={QUERY}
           searchQuery = url.searchParams.get('search_query')
+          url.searchParams.delete('search_query')
         }
         if (url.searchParams.has('q')) {
           // https://redirect.invidious.io/search?q={QUERY}
           searchQuery = url.searchParams.get('q')
+          url.searchParams.delete('q')
         }
         if (searchQuery == null) {
           throw new Error('Search: "search_query" field not found')
         }
-
-        url.searchParams.delete('search_query')
-        url.searchParams.delete('q')
 
         const searchSettings = state.searchSettings
         const query = {
