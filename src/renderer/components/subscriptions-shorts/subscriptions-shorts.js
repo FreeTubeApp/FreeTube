@@ -157,6 +157,17 @@ export default defineComponent({
         const response = await fetch(feedUrl)
 
         if (response.status === 404) {
+          // playlists don't exist if the channel was terminated but also if it doesn't have the tab,
+          // so we need to check the channel feed too before deciding it errored, as that only 404s if the channel was terminated
+
+          const response2 = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`, {
+            method: 'HEAD'
+          })
+
+          if (response2.status === 404) {
+            this.errorChannels.push(channel)
+          }
+
           return []
         }
 
