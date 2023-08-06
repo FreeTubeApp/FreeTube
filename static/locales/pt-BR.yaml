@@ -90,6 +90,9 @@ Subscriptions:
   Disabled Automatic Fetching: Você desativou a busca automática de assinaturas. Atualize-as
     para vê-las aqui.
   Empty Channels: No momento, seus canais inscritos não têm vídeos.
+  Subscriptions Tabs: Abas de inscrição
+  All Subscription Tabs Hidden: Todos as abas de inscrição estão ocultas. Para ver
+    o conteúdo aqui, exiba algumas abas na seção "{subsection}" em "{settingsSection}".
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -417,6 +420,7 @@ Settings:
       Channel Page: Página do canal
       Watch Page: Página de Visualização
       General: Geral
+      Subscriptions Page: Página de inscrições
     Hide Featured Channels: Ocultar canais em destaque
     Hide Channel Playlists: Ocultar listas de reprodução de canais
     Hide Channel Community: Ocultar comunidade do canal
@@ -425,6 +429,7 @@ Settings:
     Hide Channel Releases: Ocultar lançamentos do canal
     Hide Subscriptions Videos: Ocultar vídeos de inscrições
     Hide Subscriptions Shorts: Ocultar Shorts de Inscrições
+    Hide Subscriptions Live: Ocultar inscrições de transmissões ao vivo
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -981,6 +986,8 @@ Tooltips:
       listas de reprodução e o próprio canal dos resultados da busca, tendências,
       mais populares e recomendados. O nome do canal digitado deve coincidir exatamente,
       observando maiúsculas e minúsculas.
+    Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
+      aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário
       a partir do DeArrow.
