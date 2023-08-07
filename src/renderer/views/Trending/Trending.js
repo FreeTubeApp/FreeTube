@@ -8,6 +8,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Trending',
@@ -17,6 +18,9 @@ export default defineComponent({
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton,
     'ft-flex-box': FtFlexBox
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -74,7 +78,7 @@ export default defineComponent({
       if (!event.altKey) {
         event.preventDefault()
         this.$refs[tab].focus()
-        this.$emit('showOutlines')
+        this.showOutlines()
       }
     },
 

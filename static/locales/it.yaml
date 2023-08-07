@@ -507,7 +507,7 @@ Settings:
     Remove Password: Rimuovi password
 About:
   #On About page
-  About: 'Informazioni su'
+  About: 'Informazioni'
   #& About
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Questo
     software è rilasciato con licenza gratuita AGPL-3.0.'
@@ -587,7 +587,7 @@ Channel:
       Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
   About:
-    About: 'Informazioni su'
+    About: 'Informazioni'
     Channel Description: 'Descrizione canale'
     Featured Channels: 'Canali in evidenza'
     Tags:
@@ -640,7 +640,7 @@ Video:
   View: 'Vista'
   Views: 'Visualizzazioni'
   # Context is "X People Watching"
-  Watching: 'Sto guardando'
+  Watching: 'Stanno guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
