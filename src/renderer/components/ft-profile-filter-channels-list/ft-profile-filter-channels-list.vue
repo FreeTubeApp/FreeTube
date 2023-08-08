@@ -24,6 +24,7 @@
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
           :show-selected="true"
+          role="button"
           @click="handleChannelClick(index)"
         />
       </ft-flex-box>

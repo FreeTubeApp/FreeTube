@@ -14,6 +14,7 @@
         role="tablist"
         :aria-label="$t('Trending.Trending Tabs')"
       >
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="default"
           class="tab"
@@ -29,6 +30,7 @@
         >
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="music"
           class="tab"
@@ -44,6 +46,7 @@
         >
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="gaming"
           class="tab"
@@ -59,6 +62,7 @@
         >
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="movies"
           class="tab"
