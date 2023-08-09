@@ -916,7 +916,7 @@ function parseLocalAttachment(attachment) {
   } else if (attachment.type === 'Poll') {
     return {
       type: 'poll',
-      totalVotes: attachment.total_votes ?? 0,
+      totalVotes: parseLocalTotalVotes(attachment.total_votes.text) ?? 0,
       content: attachment.choices.map(choice => {
         return {
           text: choice.text.text,
@@ -924,10 +924,36 @@ function parseLocalAttachment(attachment) {
         }
       })
     }
+  } else if (attachment.type === 'Quiz') {
+    return {
+      type: 'quiz',
+      totalVotes: parseLocalTotalVotes(attachment.total_votes.text) ?? 0,
+      content: Object.values(attachment.choices).map(choice => {
+        return {
+          text: choice.text.text,
+          isCorrect: choice.isCorrect,
+          image: choice.image
+        }
+      })
+    }
   } else {
-    console.error(attachment)
-    console.error('unknown type')
+    console.error(`Unknown Local community post type: ${attachment.type}`)
   }
+}
+
+// This will parse votes for both polls and quizzes
+function parseLocalTotalVotes(voteString) {
+  if (voteString.includes('M ')) {
+    if (voteString.includes('.')) {
+      voteString = voteString.replace('.', '').replace('M ', '00000 ')
+    } else {
+      voteString = voteString.replace('M ', '000000 ')
+    }
+  } else if (voteString.includes('K ')) {
+    voteString = voteString.replace('K ', '000 ')
+  }
+
+  return Number(voteString.replace(/ votes| answered/s, ''))
 }
 
 export async function getHashtagLocal(hashtag) {
