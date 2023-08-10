@@ -30,8 +30,11 @@ const config = {
     rules: [
       {
         test: /\.[tj]s$/,
-        use: 'babel-loader',
+        loader: 'esbuild-loader',
         exclude: /node_modules/,
+        options: {
+          target: 'es2020'
+        }
       },
       {
         test: /\.vue$/,

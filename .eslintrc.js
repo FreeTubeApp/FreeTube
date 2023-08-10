@@ -13,7 +13,7 @@ module.exports = {
 
   // https://eslint.vuejs.org/user-guide/#faq
   parserOptions: {
-    parser: '@babel/eslint-parser',
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 2022,
     sourceType: 'module',
   },

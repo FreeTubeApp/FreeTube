@@ -6,7 +6,8 @@
     "module": "es6",
     "target": "ESNext",
     "allowJs": true,
-    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
     "useDefineForClassFields": true,
     "sourceMap": true,
     "lib": ["ESNext", "DOM"],
@@ -16,8 +17,5 @@
     "isolatedModules": true,
     "esModuleInterop": true
   },
-  "exclude": ["src/main"],
-  "references": [
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["src"]
 }
