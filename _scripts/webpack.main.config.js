@@ -15,11 +15,14 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.[tj]s$/,
         use: 'babel-loader',
         exclude: /node_modules/,
-      },
+      }
     ],
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {

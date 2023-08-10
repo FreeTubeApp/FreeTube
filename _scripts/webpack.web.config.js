@@ -29,7 +29,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.[tj]s$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
@@ -155,7 +155,7 @@ const config = {
       'fs/promises': path.resolve(__dirname, '_empty.js'),
       path: require.resolve('path-browserify'),
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue', '.ts']
   },
   target: 'web',
 }

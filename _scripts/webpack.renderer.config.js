@@ -35,7 +35,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\[tj]s$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },
@@ -141,7 +141,7 @@ const config = {
       // https://caniuse.com/mdn-api_domparser
       '@xmldom/xmldom$': path.resolve(__dirname, '_domParser.js')
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue', '.ts']
   },
   target: 'electron-renderer',
 }
