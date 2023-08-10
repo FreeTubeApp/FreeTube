@@ -42,7 +42,7 @@ module.exports = {
       extends: ['plugin:@typescript-eslint/recommended-type-checked'],
       plugins: ['@typescript-eslint'],
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.node.json'],
+        project: true,
         tsconfigRootDir: __dirname,
       }
     }
