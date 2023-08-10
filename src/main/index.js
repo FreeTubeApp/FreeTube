@@ -993,27 +993,32 @@ function runApp() {
   // ************************************************* //
 
   app.on('window-all-closed', () => {
-    // Clear cache and storage if it's the last window
-    session.defaultSession.clearCache()
-    session.defaultSession.clearStorageData({
-      storages: [
-        'appcache',
-        'cookies',
-        'filesystem',
-        'indexdb',
-        'shadercache',
-        'websql',
-        'serviceworkers',
-        'cachestorage'
-      ]
+    // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
+    cleanUpResources().finally(() => {
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
-
-    // For MacOS the app would still "run in background"
-    // and create new window on event `activate`
-    if (process.platform !== 'darwin') {
-      app.quit()
-    }
   })
+
+  function cleanUpResources() {
+    return Promise.allSettled([
+      baseHandlers.compactAllDatastores(),
+      session.defaultSession.clearCache(),
+      session.defaultSession.clearStorageData({
+        storages: [
+          'appcache',
+          'cookies',
+          'filesystem',
+          'indexdb',
+          'shadercache',
+          'websql',
+          'serviceworkers',
+          'cachestorage'
+        ]
+      })
+    ])
+  }
 
   // MacOS event
   // https://www.electronjs.org/docs/latest/api/app#event-activate-macos
