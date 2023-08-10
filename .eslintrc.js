@@ -35,6 +35,10 @@ module.exports = {
       rules: {
         'yml/no-irregular-whitespace': 'off'
       }
+    },
+    {
+      files: ['*.ts'],
+      extends: ['plugin:@typescript-eslint/recommended'],
     }
   ],
 
