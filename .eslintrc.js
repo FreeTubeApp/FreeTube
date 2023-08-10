@@ -15,7 +15,7 @@ module.exports = {
   parserOptions: {
     parser: '@babel/eslint-parser',
     ecmaVersion: 2022,
-    sourceType: 'module'
+    sourceType: 'module',
   },
 
   overrides: [
@@ -38,7 +38,13 @@ module.exports = {
     },
     {
       files: ['*.ts'],
-      extends: ['plugin:@typescript-eslint/recommended'],
+      parser: '@typescript-eslint/parser',
+      extends: ['plugin:@typescript-eslint/recommended-type-checked'],
+      plugins: ['@typescript-eslint'],
+      parserOptions: {
+        project: ['./tsconfig.json', './tsconfig.node.json'],
+        tsconfigRootDir: __dirname,
+      }
     }
   ],
 
