@@ -37,7 +37,11 @@
     <div
       v-if="data.type === 'quiz'"
       class="reveal-answer option"
+      tabindex="0"
+      role="button"
       @click="revealAnswer = !revealAnswer"
+      @keydown.enter.prevent="revealAnswer = !revealAnswer"
+      @keydown.space.prevent="revealAnswer = !revealAnswer"
     >
       <div
         v-if="!revealAnswer"

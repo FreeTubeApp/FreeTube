@@ -52,6 +52,6 @@
   cursor: pointer;
 }
 
-.reveal-answer:hover > .option-text {
+.reveal-answer:hover > .option-text, .reveal-answer:focus > .option-text {
   background-color: var(--side-nav-hover-color)
 }
