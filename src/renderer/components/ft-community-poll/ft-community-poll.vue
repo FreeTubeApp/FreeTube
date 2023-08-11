@@ -4,7 +4,7 @@
       class="vote-count"
     >
       <!-- Format the votes to be split by commas ie. 1000 -> 1,000 -->
-      {{ `${formattedVotes} ${$t('Channel.Community.votes')}` }}
+      {{ $t('Channel.Community.votes', {votes: formattedVotes}) }}
     </div>
     <div
       v-for="(choice, index) in data.content"

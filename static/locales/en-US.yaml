@@ -588,7 +588,7 @@ Channel:
   Community:
     Community: Community
     This channel currently does not have any posts: This channel currently does not have any posts
-    votes: votes
+    votes: '{votes} votes'
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
 Video:
