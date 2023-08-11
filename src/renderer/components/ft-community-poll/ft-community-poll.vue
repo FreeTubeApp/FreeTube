@@ -4,29 +4,28 @@
       class="vote-count"
     >
       <!-- Format the votes to be split by commas ie. 1000 -> 1,000 -->
-      {{ `${data.totalVotes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} votes` }}
+      {{ `${data.totalVotes} ${$t('Channel.Community.votes')}` }}
     </div>
     <div
       v-for="(choice, index) in data.content"
       :key="index"
     >
       <div
-        v-if="data.type == 'quiz'"
+        v-if="data.type === 'quiz'"
         class="option quiz-option"
-        @click="active = index"
       >
         <span class="empty-circle">
-          <span :class="active === index ? 'filled-circle' : ''" />
+          <span :class="revealAnswer && choice.isCorrect ? 'filled-circle' : ''" />
         </span>
         <div
           class="option-text"
-          :class="active === index ? getQuizOptionClass(index) : ''"
+          :class="revealAnswer && choice.isCorrect ? 'correct-option' : ''"
         >
           {{ choice.text }}
         </div>
       </div>
       <div
-        v-if="data.type == 'poll'"
+        v-else
         class="option poll-option"
       >
         <span class="empty-circle" />
@@ -35,8 +34,16 @@
         </div>
       </div>
     </div>
+    <div v-if="data.type === 'quiz'" class="reveal-answer option" @click="revealAnswer = !revealAnswer">
+      <div v-if="!revealAnswer" class="option-text">
+        <font-awesome-icon :icon="['fas', 'eye']" /> {{ $t('Channel.Community.Reveal Answers') }}
+      </div>
+      <div v-else class="option-text">
+        <font-awesome-icon :icon="['fas', 'eye-slash']" /> {{ $t('Channel.Community.Hide Answers') }}
+      </div>
+    </div>
   </div>
 </template>
 
 <script src="./ft-community-poll.js" />
-<style scoped src="./ft-community-poll.scss" lang="scss" />
+<style scoped src="./ft-community-poll.css" />

@@ -10,12 +10,12 @@ export default defineComponent({
   },
   data: function () {
     return {
-      active: -1
+      revealAnswer: false
     }
   },
   methods: {
     getQuizOptionClass(index) {
-      return `${this.data.content[index].isCorrect ? 'correct' : 'incorrect'}-option`
+      return this.data.content[index].isCorrect ? 'correct-option' : ''
     }
   }
 })

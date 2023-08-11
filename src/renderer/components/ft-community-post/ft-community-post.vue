@@ -60,12 +60,7 @@
       />
     </div>
     <div
-      v-if="type === 'poll'"
-    >
-      <ft-community-poll :data="postContent" />
-    </div>
-    <div
-      v-if="type === 'quiz'"
+      v-if="type === 'poll' || type === 'quiz'"
     >
       <ft-community-poll :data="postContent" />
     </div>

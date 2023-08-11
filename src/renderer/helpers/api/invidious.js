@@ -282,6 +282,7 @@ function parseInvidiousCommunityAttachments(data) {
   }
 
   console.error(`Unknown Invidious community post type: ${data.type}`)
+  console.error(data)
 }
 
 /**

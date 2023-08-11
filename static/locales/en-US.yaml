@@ -588,6 +588,9 @@ Channel:
   Community:
     Community: Community
     This channel currently does not have any posts: This channel currently does not have any posts
+    votes: votes
+    Reveal Answers: Reveal Answers
+    Hide Answers: Hide Answers
 Video:
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
