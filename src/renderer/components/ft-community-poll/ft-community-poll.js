@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { formatNumber } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtCommunityPoll',
@@ -13,9 +14,9 @@ export default defineComponent({
       revealAnswer: false
     }
   },
-  methods: {
-    getQuizOptionClass(index) {
-      return this.data.content[index].isCorrect ? 'correct-option' : ''
-    }
+  computed: {
+    formattedVotes: function () {
+      return formatNumber(this.data.totalVotes)
+    },
   }
 })
