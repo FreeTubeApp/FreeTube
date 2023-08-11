@@ -34,11 +34,21 @@
         </div>
       </div>
     </div>
-    <div v-if="data.type === 'quiz'" class="reveal-answer option" @click="revealAnswer = !revealAnswer">
-      <div v-if="!revealAnswer" class="option-text">
+    <div
+      v-if="data.type === 'quiz'"
+      class="reveal-answer option"
+      @click="revealAnswer = !revealAnswer"
+    >
+      <div
+        v-if="!revealAnswer"
+        class="option-text"
+      >
         <font-awesome-icon :icon="['fas', 'eye']" /> {{ $t('Channel.Community.Reveal Answers') }}
       </div>
-      <div v-else class="option-text">
+      <div
+        v-else
+        class="option-text"
+      >
         <font-awesome-icon :icon="['fas', 'eye-slash']" /> {{ $t('Channel.Community.Hide Answers') }}
       </div>
     </div>
