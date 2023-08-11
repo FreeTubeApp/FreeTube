@@ -1137,10 +1137,8 @@ export default defineComponent({
 
     ...mapActions([
       'updateProfile',
-      'compactProfiles',
       'updateShowProgressBar',
       'updateHistory',
-      'compactHistory',
       'addPlaylist',
       'addVideo'
     ]),

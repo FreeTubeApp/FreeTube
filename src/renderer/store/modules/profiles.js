@@ -142,10 +142,6 @@ const actions = {
     }
   },
 
-  compactProfiles(_) {
-    DBProfileHandlers.persist()
-  },
-
   updateActiveProfile({ commit }, id) {
     commit('setActiveProfile', id)
   }
