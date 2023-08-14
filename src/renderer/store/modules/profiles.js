@@ -100,11 +100,12 @@ const actions = {
       }) ?? null
       if (channel === null) { continue }
       let updated = false
-      if (channel.name !== channelName || (channel.thumbnail !== thumbnail && thumbnail !== null)) {
-        if (thumbnail !== null) {
-          channel.thumbnail = thumbnail
-        }
+      if (channel.name !== channelName && channelName != null) {
         channel.name = channelName
+        updated = true
+      }
+      if (channel.thumbnail !== thumbnail && thumbnail != null) {
+        channel.thumbnail = thumbnail
         updated = true
       }
       if (updated) {

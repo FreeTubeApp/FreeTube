@@ -64,48 +64,38 @@ export default defineComponent({
         this.$t('Yes'),
         this.$t('No')
       ]
-    }
+    },
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
   },
   watch: {
     profile: function () {
-      this.subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
-      }).map((channel) => {
+      const subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
+      })
+      subscriptions.forEach((channel) => {
         if (this.backendPreference === 'invidious') {
           channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
-        return channel
       })
+
+      this.subscriptions = subscriptions
     }
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      this.subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
-      }).map((channel) => {
+      const subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
+      })
+      subscriptions.forEach((channel) => {
         if (this.backendPreference === 'invidious') {
           channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
-        return channel
       })
+      this.subscriptions = subscriptions
     }
   },
   methods: {

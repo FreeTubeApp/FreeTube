@@ -46,7 +46,10 @@ export default defineComponent({
     },
     selectedText: function () {
       return this.$t('Profile.{number} selected', { number: this.selectedLength })
-    }
+    },
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
   },
   watch: {
     profile: 'updateChannelList',
@@ -55,15 +58,7 @@ export default defineComponent({
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
       this.channels = JSON.parse(JSON.stringify(this.profileList[this.filteredProfileIndex].subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       }).filter((channel) => {
         const index = this.profile.subscriptions.findIndex((sub) => {
           return sub.id === channel.id

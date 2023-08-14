@@ -28,19 +28,14 @@ export default defineComponent({
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
     activeSubscriptions: function () {
       const subscriptions = JSON.parse(JSON.stringify(this.activeProfile.subscriptions))
 
       subscriptions.sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
 
       if (this.backendPreference === 'invidious') {
