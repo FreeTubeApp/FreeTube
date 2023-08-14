@@ -443,7 +443,7 @@ Settings:
     Choose Path: Vali asukoht
     Download Behavior: Tegevus allalaadimisel
     Open in web browser: Ava veebibrauseris
-    Download in app: Lae alla rakenduses
+    Download in app: Laadi alla rakenduses
   Parental Control Settings:
     Parental Control Settings: Vanemliku järelevalve seadistused
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
@@ -538,6 +538,7 @@ Profile:
 #On Channel Page
   Profile Filter: Sirvi profiile
   Profile Settings: Profiili seadistused
+  Toggle Profile List: Lülita profiilide loend sisse/välja
 Channel:
   Subscriber: 'Tellija'
   Subscribers: 'Tellijad'
