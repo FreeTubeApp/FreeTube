@@ -7,6 +7,7 @@
         role="tablist"
         :aria-label="$t('Subscriptions.Subscriptions Tabs')"
       >
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           v-if="!hideSubscriptionsVideos"
           ref="videos"
@@ -22,6 +23,7 @@
         >
           {{ $t("Global.Videos").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           v-if="!hideSubscriptionsShorts"
           ref="shorts"
@@ -37,6 +39,7 @@
         >
           {{ $t("Global.Shorts").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           v-if="!hideSubscriptionsLive"
           ref="live"
