@@ -88,12 +88,12 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
-    blurThumbnails: function () {
-      return this.$store.getters.getBlurThumbnails
+    thumbnailDisplayMode: function () {
+      return this.$store.getters.getThumbnailDisplayMode
     },
 
     blurStyle: function () {
-      return this.blurThumbnails ? 'blur(20px)' : 'none'
+      return this.thumbnailDisplayMode === 'blurred' ? 'blur(20px)' : 'none'
     },
 
     backendPreference: function () {
@@ -234,7 +234,7 @@ export default defineComponent({
 
     thumbnail: function () {
       let baseUrl
-      if (this.backendPreference === 'invidious') {
+      if (this.backendPreference === 'invidious' && this.thumbnailDisplayMode !== 'not-loaded') {
         baseUrl = this.currentInvidiousInstance
       } else {
         baseUrl = 'https://i.ytimg.com'
