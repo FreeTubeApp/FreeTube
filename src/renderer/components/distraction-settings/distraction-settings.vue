@@ -194,7 +194,7 @@
           @change="updateHideSharingActions"
         />
         <ft-select
-          :placeholder="$t('Settings.Distraction Free Settings.Thumbnail Display Mode')"
+          :placeholder="$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Thumbnail Display Mode')"
           :value="thumbnailDisplayMode"
           :select-names="thumbnailDisplayModeNames"
           :select-values="thumbnailDisplayModeValues"
