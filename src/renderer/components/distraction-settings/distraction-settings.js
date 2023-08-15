@@ -19,7 +19,7 @@ export default defineComponent({
     return {
       thumbnailDisplayModeValues: [
         'default',
-        'not-loaded',
+        'hidden',
         'blurred'
       ]
     }
@@ -109,7 +109,7 @@ export default defineComponent({
     thumbnailDisplayModeNames: function () {
       return [
         this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Default'),
-        this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Not Loaded'),
+        this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Hidden'),
         this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Blurred')
       ]
     },
