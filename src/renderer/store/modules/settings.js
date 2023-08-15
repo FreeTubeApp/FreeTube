@@ -166,6 +166,7 @@ const state = {
   backendFallback: process.env.IS_ELECTRON,
   backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
   barColor: false,
+  blurThumbnails: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
   baseTheme: 'system',

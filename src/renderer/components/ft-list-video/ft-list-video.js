@@ -88,6 +88,14 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
+
+    blurStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : 'none'
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },

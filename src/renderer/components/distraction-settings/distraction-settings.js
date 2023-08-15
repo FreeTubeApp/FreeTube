@@ -92,6 +92,9 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
     },
@@ -144,7 +147,8 @@ export default defineComponent({
       'updateHideChannelReleases',
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
-      'updateHideSubscriptionsLive'
+      'updateHideSubscriptionsLive',
+      'updateBlurThumbnails'
     ])
   }
 })
