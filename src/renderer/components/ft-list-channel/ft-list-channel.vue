@@ -10,10 +10,12 @@
     <div class="channelThumbnail">
       <router-link
         :to="`/channel/${id}`"
+        tabindex="-1"
       >
         <img
           :src="thumbnail"
           class="channelImage"
+          alt=""
         >
       </router-link>
     </div>

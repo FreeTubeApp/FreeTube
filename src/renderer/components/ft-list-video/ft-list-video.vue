@@ -23,6 +23,7 @@
         <img
           :src="thumbnail"
           class="thumbnailImage"
+          alt=""
         >
       </router-link>
       <div

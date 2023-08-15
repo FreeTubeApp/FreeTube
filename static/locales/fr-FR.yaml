@@ -70,7 +70,7 @@ Search Filters:
     Medium (4 - 20 minutes): Moyenne (4 - 20 minutes)
   Search Results: 'Résultats de la recherche'
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
-  Fetch more results: 'Montrer plus de résultats'
+  Fetch more results: 'Afficher plus de résultats'
 # Sidebar
   There are no more results for this search: Il n'y a plus de résultats pour cette
     recherche
@@ -655,10 +655,10 @@ Video:
   Remove From History: 'Retirer de l''historique'
   Video has been marked as watched: 'La vidéo a été marqué comme Vu'
   Video has been removed from your history: 'La vidéo a été retiré de votre historique'
-  Open in YouTube: 'Ouvrir sur Youtube'
-  Copy YouTube Link: 'Copier le lien Youtube'
+  Open in YouTube: 'Ouvrir sur YouTube'
+  Copy YouTube Link: 'Copier le lien YouTube'
   Open YouTube Embedded Player: 'Ouvrir sur Youtube-NoCookie'
-  Copy YouTube Embedded Player Link: 'Copier le lien Youtube-NoCookie'
+  Copy YouTube Embedded Player Link: 'Copier le lien YouTube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
   View: 'Vue'
@@ -836,8 +836,8 @@ Share:
   Invidious URL copied to clipboard: 'URL Individious copié dans le presse-papier'
   Invidious Embed URL copied to clipboard: 'URL d''intégration Individious copié dans
     le presse-papier'
-  YouTube URL copied to clipboard: 'URL Youtube copié dans le presse-papiers'
-  YouTube Embed URL copied to clipboard: 'URL d''intégration Youtube copié dans le
+  YouTube URL copied to clipboard: 'URL YouTube copié dans le presse-papiers'
+  YouTube Embed URL copied to clipboard: 'URL d''intégration YouTube copié dans le
     presse-papiers'
   Include Timestamp: Inclure l'horodatage
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans

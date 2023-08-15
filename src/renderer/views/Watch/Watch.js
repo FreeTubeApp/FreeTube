@@ -80,6 +80,7 @@ export default defineComponent({
       liveChat: null,
       isLiveContent: false,
       isUpcoming: false,
+      isPostLiveDvr: false,
       upcomingTimestamp: null,
       upcomingTimeLeft: null,
       activeFormat: 'legacy',
@@ -361,6 +362,7 @@ export default defineComponent({
         this.isLive = !!result.basic_info.is_live
         this.isUpcoming = !!result.basic_info.is_upcoming
         this.isLiveContent = !!result.basic_info.is_live_content
+        this.isPostLiveDvr = !!result.basic_info.is_post_live_dvr
 
         const subCount = !result.secondary_info.owner.subscriber_count.isEmpty() ? parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text) : NaN
 
@@ -426,7 +428,7 @@ export default defineComponent({
           result = bypassedResult
         }
 
-        if (this.isLive && !this.isUpcoming) {
+        if ((this.isLive || this.isPostLiveDvr) && !this.isUpcoming) {
           try {
             const formats = await getFormatsFromHLSManifest(result.streaming_data.hls_manifest_url)
 
@@ -460,6 +462,8 @@ export default defineComponent({
           this.showDashPlayer = false
           this.activeFormat = 'legacy'
           this.activeSourceList = this.videoSourceList
+          this.audioSourceList = null
+          this.dashSrc = null
         } else if (this.isUpcoming) {
           const upcomingTimestamp = result.basic_info.start_timestamp
 
@@ -1160,11 +1164,11 @@ export default defineComponent({
     },
 
     enableDashFormat: function () {
-      if (this.activeFormat === 'dash' || this.isLive) {
+      if (this.activeFormat === 'dash') {
         return
       }
 
-      if (this.dashSrc === null) {
+      if (this.dashSrc === null || this.isLive || this.isPostLiveDvr) {
         showToast(this.$t('Change Format.Dash formats are not available for this video'))
         return
       }
