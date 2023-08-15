@@ -1,7 +1,7 @@
 <template>
   <div>
     <ft-card class="card">
-      <h3>{{ $t('Channels.Title') }}</h3>
+      <h2>{{ $t('Channels.Title') }}</h2>
       <ft-input
         v-show="subscribedChannels.length > 0"
         ref="searchBarChannels"
