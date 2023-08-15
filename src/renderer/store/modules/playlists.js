@@ -143,7 +143,10 @@ const actions = {
     try {
       const payload = (await DBPlaylistHandlers.find()).filter((e) => e != null)
       if (payload.length === 0) {
-        dispatch('addPlaylists', state.defaultPlaylists)
+        // Not using `addPlaylists` to ensure required attributes with dynamic values added
+        state.defaultPlaylists.forEach(playlist => {
+          dispatch('addPlaylist', playlist)
+        })
       } else {
         payload.forEach((playlist) => {
           let anythingUpdated = false
