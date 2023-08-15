@@ -25,7 +25,7 @@
         class="title"
         :to="`/channel/${id}`"
       >
-        <h3>
+        <h3 class="h3Title">
           {{ channelName }}
         </h3>
       </router-link>

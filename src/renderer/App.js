@@ -103,7 +103,7 @@ export default defineComponent({
     },
 
     locale: function() {
-      return this.$i18n.locale
+      return this.$i18n.locale.replace('_', '-')
     },
 
     systemTheme: function () {
@@ -508,7 +508,7 @@ export default defineComponent({
     },
 
     setLocale: function() {
-      document.querySelector('html').setAttribute('lang', this.locale)
+      document.documentElement.setAttribute('lang', this.locale)
     },
 
     /**

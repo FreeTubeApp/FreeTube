@@ -2,6 +2,7 @@
   <div
     class="topNav"
     :class="{ topNavBarColor: barColor }"
+    role="navigation"
   >
     <div class="side">
       <font-awesome-icon

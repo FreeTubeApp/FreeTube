@@ -76,7 +76,7 @@
           query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
-        <h3>{{ displayTitle }}</h3>
+        <h3 class="h3Title">{{ displayTitle }}</h3>
       </router-link>
       <div class="infoLine">
         <router-link

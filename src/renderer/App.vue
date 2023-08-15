@@ -7,14 +7,8 @@
       rightAligned: isRightAligned
     }"
   >
-    <top-nav
-      ref="topNav"
-      role="navigation"
-    />
-    <side-nav
-      ref="sideNav"
-      role="navigation"
-    />
+    <top-nav ref="topNav" />
+    <side-nav ref="sideNav" />
     <ft-flex-box
       class="flexBox routerView"
       role="main"
