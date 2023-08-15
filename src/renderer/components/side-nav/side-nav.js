@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { deepCopy } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SideNav',
@@ -32,7 +33,7 @@ export default defineComponent({
       return this.$i18n.locale.replace('_', '-')
     },
     activeSubscriptions: function () {
-      const subscriptions = JSON.parse(JSON.stringify(this.activeProfile.subscriptions))
+      const subscriptions = deepCopy(this.activeProfile.subscriptions)
 
       subscriptions.sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)

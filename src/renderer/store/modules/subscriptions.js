@@ -1,9 +1,7 @@
+import { deepCopy } from '../../helpers/utils'
+
 const defaultCacheEntryValueForForOneChannel = {
   videos: null,
-}
-
-function deepCopy(obj) {
-  return JSON.parse(JSON.stringify(obj))
 }
 
 const state = {

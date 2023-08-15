@@ -6,7 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
-import { showToast } from '../../helpers/utils'
+import { deepCopy, showToast } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -71,7 +71,7 @@ export default defineComponent({
   },
   watch: {
     profile: function () {
-      const subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
+      const subscriptions = deepCopy(this.profile.subscriptions).sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
       subscriptions.forEach((channel) => {
@@ -86,7 +86,7 @@ export default defineComponent({
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      const subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
+      const subscriptions = deepCopy(this.profile.subscriptions).sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
       subscriptions.forEach((channel) => {
@@ -119,7 +119,7 @@ export default defineComponent({
           })
 
           this.profileList.forEach((x) => {
-            const profile = JSON.parse(JSON.stringify(x))
+            const profile = deepCopy(x)
             profile.subscriptions = profile.subscriptions.filter((channel) => {
               const index = channelsToRemove.findIndex((y) => {
                 return y.id === channel.id
@@ -133,7 +133,7 @@ export default defineComponent({
           showToast(this.$t('Profile.Profile has been updated'))
           this.selectNone()
         } else {
-          const profile = JSON.parse(JSON.stringify(this.profile))
+          const profile = deepCopy(this.profile)
 
           this.subscriptions = this.subscriptions.filter((channel) => {
             return !channel.selected

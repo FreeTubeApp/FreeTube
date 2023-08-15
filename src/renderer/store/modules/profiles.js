@@ -1,6 +1,7 @@
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { DBProfileHandlers } from '../../../datastores/handlers/index'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
+import { deepCopy } from '../../helpers/utils'
 
 const state = {
   profileList: [{
@@ -94,7 +95,7 @@ const actions = {
     const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
     const profileList = getters.getProfileList
     for (const profile of profileList) {
-      const currentProfileCopy = JSON.parse(JSON.stringify(profile))
+      const currentProfileCopy = deepCopy(profile)
       const channel = currentProfileCopy.subscriptions.find((channel) => {
         return channel.id === channelId
       }) ?? null
