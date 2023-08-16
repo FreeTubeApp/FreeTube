@@ -42,6 +42,14 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
+    thumbnailDisplayMode: function () {
+      return this.$store.getters.getThumbnailDisplayMode
+    },
+
+    thumbnailBlurStyle: function () {
+      return this.thumbnailDisplayMode === 'blurred' ? 'blur(20px)' : 'none'
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -51,6 +59,9 @@ export default defineComponent({
     },
 
     thumbnail: function () {
+      if (this.thumbnailDisplayMode === 'hidden') {
+        return require('../../assets/img/thumbnail_placeholder.png')
+      }
       let baseUrl
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
