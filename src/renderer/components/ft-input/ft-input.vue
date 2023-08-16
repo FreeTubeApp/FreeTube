@@ -49,6 +49,7 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :spellcheck="spellcheck"
+        :aria-label="!showLabel ? placeholder : null"
         @input="e => handleInput(e.target.value)"
         @focus="handleFocus"
         @blur="handleInputBlur"
