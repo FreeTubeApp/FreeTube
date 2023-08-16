@@ -92,7 +92,7 @@ export default defineComponent({
       return this.$store.getters.getThumbnailDisplayMode
     },
 
-    blurStyle: function () {
+    thumbnailBlurStyle: function () {
       return this.thumbnailDisplayMode === 'blurred' ? 'blur(20px)' : 'none'
     },
 
@@ -233,8 +233,11 @@ export default defineComponent({
     },
 
     thumbnail: function () {
+      if (this.thumbnailDisplayMode === 'hidden') {
+        return require('../../assets/img/thumbnail_placeholder.png')
+      }
       let baseUrl
-      if (this.backendPreference === 'invidious' && this.thumbnailDisplayMode !== 'not-loaded') {
+      if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
       } else {
         baseUrl = 'https://i.ytimg.com'
