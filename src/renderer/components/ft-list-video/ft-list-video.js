@@ -93,7 +93,7 @@ export default defineComponent({
     },
 
     thumbnailBlurStyle: function () {
-      return this.thumbnailDisplayMode === 'blurred' ? 'blur(20px)' : 'none'
+      return this.thumbnailDisplayMode === 'blurred' ? 'blur(20px)' : null
     },
 
     backendPreference: function () {
