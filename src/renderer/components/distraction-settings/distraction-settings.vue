@@ -193,12 +193,12 @@
           :default-value="hideSharingActions"
           @change="updateHideSharingActions"
         />
-        <ft-select
-          :placeholder="$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Thumbnail Display Mode')"
-          :value="thumbnailDisplayMode"
-          :select-names="thumbnailDisplayModeNames"
-          :select-values="thumbnailDisplayModeValues"
-          @change="updateThumbnailDisplayMode"
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Blur Thumbnails')"
+          :compact="true"
+          :default-value="blurThumbnails && thumbnailPreference !== 'hidden'"
+          :disabled="thumbnailPreference === 'hidden'"
+          v-on="thumbnailPreference === 'hidden' ? { change: updateBlurThumbnails(false) } : { change: updateBlurThumbnails}"
         />
       </div>
       <div class="switchColumn">

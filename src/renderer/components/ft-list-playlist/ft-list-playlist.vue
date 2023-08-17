@@ -15,7 +15,7 @@
           alt=""
           :src="thumbnail"
           class="thumbnailImage"
-          :style="{filter: thumbnailBlurStyle}"
+          :style="{filter: blurThumbnailsStyle}"
         >
       </router-link>
       <div

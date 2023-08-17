@@ -4,7 +4,6 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtSelect from '../ft-select/ft-select.vue'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -13,16 +12,6 @@ export default defineComponent({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-input-tags': FtInputTags,
     'ft-flex-box': FtFlexBox,
-    'ft-select': FtSelect
-  },
-  data: function () {
-    return {
-      thumbnailDisplayModeValues: [
-        'default',
-        'hidden',
-        'blurred'
-      ]
-    }
   },
   computed: {
     hideVideoViews: function () {
@@ -103,15 +92,11 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
-    thumbnailDisplayMode: function () {
-      return this.$store.getters.getThumbnailDisplayMode
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
     },
-    thumbnailDisplayModeNames: function () {
-      return [
-        this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Default'),
-        this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Hidden'),
-        this.$t('Settings.Distraction Free Settings.Thumbnail Display Mode.Blurred')
-      ]
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
     },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
@@ -166,7 +151,7 @@ export default defineComponent({
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
-      'updateThumbnailDisplayMode'
+      'updateBlurThumbnails'
     ])
   }
 })

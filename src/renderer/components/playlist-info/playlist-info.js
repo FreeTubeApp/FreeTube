@@ -42,12 +42,12 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
-    thumbnailDisplayMode: function () {
-      return this.$store.getters.getThumbnailDisplayMode
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
     },
 
-    thumbnailBlurStyle: function () {
-      return this.thumbnailDisplayMode === 'blurred' ? 'blur(20px)' : null
+    blurThumbnailsStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : null
     },
 
     backendPreference: function () {
@@ -59,7 +59,7 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      if (this.thumbnailDisplayMode === 'hidden') {
+      if (this.thumbnailPreference === 'hidden') {
         return require('../../assets/img/thumbnail_placeholder.png')
       }
       let baseUrl
