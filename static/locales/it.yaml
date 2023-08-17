@@ -23,7 +23,7 @@ Toggle Developer Tools: 'Attiva/disattiva strumenti per sviluppatori'
 Actual size: 'Dimensione reale'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
-Toggle fullscreen: 'Mostra a schermo intero'
+Toggle fullscreen: 'Attiva/disattiva schermo intero'
 Window: 'Finestra'
 Minimize: 'Riduci'
 Close: 'Chiudi'
@@ -792,7 +792,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
-Toggle Theatre Mode: 'Attiva modalità cinema'
+Toggle Theatre Mode: 'Attiva/disattiva modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -919,6 +919,7 @@ Profile:
   Profile Select: Seleziona il profilo
   Profile Filter: Filtro del profilo
   Profile Settings: Impostazioni dei profili
+  Toggle Profile List: Attiva/disattiva elenco profili
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
