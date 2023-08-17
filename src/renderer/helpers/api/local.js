@@ -931,7 +931,7 @@ function parseLocalAttachment(attachment) {
       content: Object.values(attachment.choices).map(choice => {
         return {
           text: choice.text.text,
-          isCorrect: choice.isCorrect,
+          isCorrect: choice.is_correct,
           image: choice.image
         }
       })
