@@ -11,6 +11,7 @@
     <side-nav ref="sideNav" />
     <ft-flex-box
       class="flexBox routerView"
+      role="main"
     >
       <div
         v-if="showUpdatesBanner || showBlogBanner"

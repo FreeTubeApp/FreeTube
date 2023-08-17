@@ -605,6 +605,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profilszűrő
   Profile Settings: Profilbeállítások
+  Toggle Profile List: Profillista be-/kikapcsolása
 Channel:
   Subscriber: 'Feliratkozó'
   Subscribers: 'Feliratkozók'

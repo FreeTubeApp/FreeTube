@@ -6,7 +6,7 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
-import { showToast } from '../../helpers/utils'
+import { deepCopy, showToast } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -46,7 +46,10 @@ export default defineComponent({
     },
     selectedText: function () {
       return this.$t('Profile.{number} selected', { number: this.selectedLength })
-    }
+    },
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
   },
   watch: {
     profile: 'updateChannelList',
@@ -54,16 +57,8 @@ export default defineComponent({
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      this.channels = JSON.parse(JSON.stringify(this.profileList[this.filteredProfileIndex].subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
+      this.channels = deepCopy(this.profileList[this.filteredProfileIndex].subscriptions).sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       }).filter((channel) => {
         const index = this.profile.subscriptions.findIndex((sub) => {
           return sub.id === channel.id
@@ -81,16 +76,8 @@ export default defineComponent({
   },
   methods: {
     updateChannelList () {
-      this.channels = JSON.parse(JSON.stringify(this.profileList[this.filteredProfileIndex].subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
+      this.channels = deepCopy(this.profileList[this.filteredProfileIndex].subscriptions).sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       }).filter((channel) => {
         const index = this.profile.subscriptions.findIndex((sub) => {
           return sub.id === channel.id
@@ -125,7 +112,7 @@ export default defineComponent({
           return channel.selected
         })
 
-        const profile = JSON.parse(JSON.stringify(this.profile))
+        const profile = deepCopy(this.profile)
         profile.subscriptions = profile.subscriptions.concat(subscriptions)
         this.updateProfile(profile)
         showToast(this.$t('Profile.Profile has been updated'))

@@ -656,3 +656,12 @@ export function escapeHTML(untrusted) {
     .replaceAll('"', '&quot;')
     .replaceAll('\'', '&apos;')
 }
+
+/**
+ * Performs a deep copy of a javascript object
+ * @param {Object} obj
+ * @returns {Object}
+ */
+export function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj))
+}

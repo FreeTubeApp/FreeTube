@@ -605,6 +605,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profil Filtresi
   Profile Settings: Profil Ayarları
+  Toggle Profile List: Profil Listesini Aç/Kapat
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
