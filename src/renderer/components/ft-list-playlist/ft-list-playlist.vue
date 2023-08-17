@@ -10,6 +10,8 @@
       <router-link
         class="thumbnailLink"
         :to="`/playlist/${playlistId}`"
+        tabindex="-1"
+        aria-hidden="true"
       >
         <img
           alt=""
@@ -32,7 +34,7 @@
         class="title"
         :to="`/playlist/${playlistId}`"
       >
-        {{ title }}
+        <h3 class="h3Title">{{ title }}</h3>
       </router-link>
       <div class="infoLine">
         <router-link

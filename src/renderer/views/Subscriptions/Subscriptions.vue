@@ -1,7 +1,7 @@
 <template>
   <div>
     <ft-card class="card">
-      <h3>{{ $t("Subscriptions.Subscriptions") }}</h3>
+      <h2>{{ $t("Subscriptions.Subscriptions") }}</h2>
       <ft-flex-box
         class="subscriptionTabs"
         role="tablist"
@@ -62,16 +62,16 @@
         role="tabpanel"
       />
       <subscriptions-shorts
-        v-if="currentTab === 'shorts'"
+        v-else-if="currentTab === 'shorts'"
         id="subscriptionsPanel"
         role="tabpanel"
       />
       <subscriptions-live
-        v-if="currentTab === 'live'"
+        v-else-if="currentTab === 'live'"
         id="subscriptionsPanel"
         role="tabpanel"
       />
-      <p v-if="currentTab === null">
+      <p v-else-if="currentTab === null">
         {{ $t("Subscriptions.All Subscription Tabs Hidden", {
           subsection: $t('Settings.Distraction Free Settings.Sections.Subscriptions Page'),
           settingsSection: $t('Settings.Distraction Free Settings.Distraction Free Settings')

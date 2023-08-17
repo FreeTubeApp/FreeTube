@@ -8,7 +8,7 @@
       v-else
       class="card"
     >
-      <h3>{{ hashtag }}</h3>
+      <h2>{{ hashtag }}</h2>
       <ft-element-list
         v-if="videos.length > 0"
         :data="videos"
