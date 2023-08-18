@@ -234,7 +234,7 @@ export default defineComponent({
 
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden') {
-        return require('../../assets/img/thumbnail_placeholder.png')
+        return require('../../assets/img/thumbnail_placeholder.svg')
       }
       let baseUrl
       if (this.backendPreference === 'invidious') {

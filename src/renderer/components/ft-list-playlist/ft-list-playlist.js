@@ -76,7 +76,7 @@ export default defineComponent({
     parseInvidiousData: function () {
       this.title = this.data.title
       if (this.thumbnailPreference === 'hidden') {
-        this.thumbnail = require('../../assets/img/thumbnail_placeholder.png')
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
       } else {
         this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       }
@@ -93,7 +93,7 @@ export default defineComponent({
     parseLocalData: function () {
       this.title = this.data.title
       if (this.thumbnailPreference === 'hidden') {
-        this.thumbnail = require('../../assets/img/thumbnail_placeholder.png')
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
       } else {
         this.thumbnail = this.data.thumbnail
       }
