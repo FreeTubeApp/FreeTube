@@ -587,6 +587,7 @@ Profile:
 #On Channel Page
   Profile Filter: מסנן פרופילים
   Profile Settings: הגדרת הפרופיל
+  Toggle Profile List: החלפת תצוגת רשימת פרופילים
 Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'

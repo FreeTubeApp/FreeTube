@@ -2,17 +2,21 @@ import db from '../index'
 
 class Settings {
   static find() {
-    return db.settings.find({ _id: { $ne: 'bounds' } })
+    return db.settings.findAsync({ _id: { $ne: 'bounds' } })
   }
 
   static upsert(_id, value) {
-    return db.settings.update({ _id }, { _id, value }, { upsert: true })
+    return db.settings.updateAsync({ _id }, { _id, value }, { upsert: true })
+  }
+
+  static persist() {
+    return db.settings.compactDatafileAsync()
   }
 
   // ******************** //
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {
-    return db.settings.find({
+    return db.settings.findAsync({
       $or: [
         { _id: 'disableSmoothScrolling' },
         { _id: 'useProxy' },
@@ -24,92 +28,92 @@ class Settings {
   }
 
   static _findBounds() {
-    return db.settings.findOne({ _id: 'bounds' })
+    return db.settings.findOneAsync({ _id: 'bounds' })
   }
 
   static _findTheme() {
-    return db.settings.findOne({ _id: 'baseTheme' })
+    return db.settings.findOneAsync({ _id: 'baseTheme' })
   }
 
   static _findSidenavSettings() {
     return {
-      hideTrendingVideos: db.settings.findOne({ _id: 'hideTrendingVideos' }),
-      hidePopularVideos: db.settings.findOne({ _id: 'hidePopularVideos' }),
-      backendFallback: db.settings.findOne({ _id: 'backendFallback' }),
-      backendPreference: db.settings.findOne({ _id: 'backendPreference' }),
-      hidePlaylists: db.settings.findOne({ _id: 'hidePlaylists' }),
+      hideTrendingVideos: db.settings.findOneAsync({ _id: 'hideTrendingVideos' }),
+      hidePopularVideos: db.settings.findOneAsync({ _id: 'hidePopularVideos' }),
+      backendFallback: db.settings.findOneAsync({ _id: 'backendFallback' }),
+      backendPreference: db.settings.findOneAsync({ _id: 'backendPreference' }),
+      hidePlaylists: db.settings.findOneAsync({ _id: 'hidePlaylists' }),
     }
   }
 
   static _updateBounds(value) {
-    return db.settings.update({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
+    return db.settings.updateAsync({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }
   // ******************** //
 }
 
 class History {
   static find() {
-    return db.history.find({}).sort({ timeWatched: -1 })
+    return db.history.findAsync({}).sort({ timeWatched: -1 })
   }
 
   static upsert(record) {
-    return db.history.update({ videoId: record.videoId }, record, { upsert: true })
+    return db.history.updateAsync({ videoId: record.videoId }, record, { upsert: true })
   }
 
   static updateWatchProgress(videoId, watchProgress) {
-    return db.history.update({ videoId }, { $set: { watchProgress } }, { upsert: true })
+    return db.history.updateAsync({ videoId }, { $set: { watchProgress } }, { upsert: true })
   }
 
   static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
-    return db.history.update({ videoId }, { $set: { lastViewedPlaylistId } }, { upsert: true })
+    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId } }, { upsert: true })
   }
 
   static delete(videoId) {
-    return db.history.remove({ videoId })
+    return db.history.removeAsync({ videoId })
   }
 
   static deleteAll() {
-    return db.history.remove({}, { multi: true })
+    return db.history.removeAsync({}, { multi: true })
   }
 
   static persist() {
-    db.history.persistence.compactDatafile()
+    return db.history.compactDatafileAsync()
   }
 }
 
 class Profiles {
   static create(profile) {
-    return db.profiles.insert(profile)
+    return db.profiles.insertAsync(profile)
   }
 
   static find() {
-    return db.profiles.find({})
+    return db.profiles.findAsync({})
   }
 
   static upsert(profile) {
-    return db.profiles.update({ _id: profile._id }, profile, { upsert: true })
+    return db.profiles.updateAsync({ _id: profile._id }, profile, { upsert: true })
   }
 
   static delete(id) {
-    return db.profiles.remove({ _id: id })
+    return db.profiles.removeAsync({ _id: id })
   }
 
   static persist() {
-    db.profiles.persistence.compactDatafile()
+    return db.profiles.compactDatafileAsync()
   }
 }
 
 class Playlists {
   static create(playlists) {
-    return db.playlists.insert(playlists)
+    return db.playlists.insertAsync(playlists)
   }
 
   static find() {
-    return db.playlists.find({})
+    return db.playlists.findAsync({})
   }
 
   static upsertVideoByPlaylistName(playlistName, videoData) {
-    return db.playlists.update(
+    return db.playlists.updateAsync(
       { playlistName },
       { $push: { videos: videoData } },
       { upsert: true }
@@ -117,7 +121,7 @@ class Playlists {
   }
 
   static upsertVideoIdsByPlaylistId(_id, videoIds) {
-    return db.playlists.update(
+    return db.playlists.updateAsync(
       { _id },
       { $push: { videos: { $each: videoIds } } },
       { upsert: true }
@@ -125,11 +129,11 @@ class Playlists {
   }
 
   static delete(_id) {
-    return db.playlists.remove({ _id, protected: { $ne: true } })
+    return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
   static deleteVideoIdByPlaylistName(playlistName, videoId) {
-    return db.playlists.update(
+    return db.playlists.updateAsync(
       { playlistName },
       { $pull: { videos: { videoId } } },
       { upsert: true }
@@ -137,7 +141,7 @@ class Playlists {
   }
 
   static deleteVideoIdsByPlaylistName(playlistName, videoIds) {
-    return db.playlists.update(
+    return db.playlists.updateAsync(
       { playlistName },
       { $pull: { videos: { $in: videoIds } } },
       { upsert: true }
@@ -145,7 +149,7 @@ class Playlists {
   }
 
   static deleteAllVideosByPlaylistName(playlistName) {
-    return db.playlists.update(
+    return db.playlists.updateAsync(
       { playlistName },
       { $set: { videos: [] } },
       { upsert: true }
@@ -153,19 +157,34 @@ class Playlists {
   }
 
   static deleteMultiple(ids) {
-    return db.playlists.remove({ _id: { $in: ids }, protected: { $ne: true } })
+    return db.playlists.removeAsync({ _id: { $in: ids }, protected: { $ne: true } })
   }
 
   static deleteAll() {
-    return db.playlists.remove({ protected: { $ne: true } })
+    return db.playlists.removeAsync({ protected: { $ne: true } })
   }
+
+  static persist() {
+    return db.playlists.compactDatafileAsync()
+  }
+}
+
+function compactAllDatastores() {
+  return Promise.allSettled([
+    Settings.persist(),
+    History.persist(),
+    Profiles.persist(),
+    Playlists.persist()
+  ])
 }
 
 const baseHandlers = {
   settings: Settings,
   history: History,
   profiles: Profiles,
-  playlists: Playlists
+  playlists: Playlists,
+
+  compactAllDatastores
 }
 
 export default baseHandlers

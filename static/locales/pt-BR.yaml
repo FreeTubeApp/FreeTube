@@ -904,6 +904,7 @@ Profile:
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
   Profile Filter: Filtro de Perfil
   Profile Settings: Configurações de Perfil
+  Toggle Profile List: Ativar/Desativar Lista de Perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,

@@ -595,6 +595,25 @@ export default defineComponent({
             tags.push(...badges)
             break
           }
+          case 'PageHeader': {
+            // example: YouTube Gaming (an A/B test at the time of writing)
+            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+            /**
+             * @type {import('youtubei.js').YTNodes.PageHeader}
+             */
+            const header = channel.header
+
+            channelName = header.content.title.text
+            channelThumbnailUrl = header.content.image.image[0].url
+            channelId = this.id
+
+            break
+          }
+        }
+
+        if (channelThumbnailUrl.startsWith('//')) {
+          channelThumbnailUrl = `https:${channelThumbnailUrl}`
         }
 
         this.channelName = channelName

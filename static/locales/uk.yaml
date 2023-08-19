@@ -19,7 +19,7 @@ Select all: 'Вибрати все'
 Reload: 'Перезавантажити'
 Force Reload: 'Примусове перезавантаження'
 Toggle Developer Tools: 'Перемкнути інструменти розробника'
-Actual size: 'Фактичний розмір'
+Actual size: 'Дійсний розмір'
 Zoom in: 'Збільшити'
 Zoom out: 'Зменшити'
 Toggle fullscreen: 'Перемкнути повноекранний режим'
@@ -37,10 +37,10 @@ Global:
   Live: Наживо
 
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
-  версія {versionNumber} ! Натисніть щоб побачити деталі'
+  версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
 A new blog is now available, {blogTitle}. Click to view more: 'Доступний новий блог,
-  {blogTitle}. Натисніть щоб побачити більше'
+  {blogTitle}. Натисніть, щоб переглянути більше'
 
 # Search Bar
 Search / Go to URL: 'Пошук / Перейти по URL'
@@ -51,7 +51,7 @@ Search Filters:
     Sort By: 'Впорядковувати за'
     Most Relevant: 'Найвідповідніші'
     Rating: 'Рейтинг'
-    Upload Date: 'Дата вивантаження'
+    Upload Date: 'Час вивантаження'
     View Count: 'Кількість переглядів'
   Time:
     Time: 'Час'
@@ -537,6 +537,7 @@ Profile:
 #On Channel Page
   Profile Filter: Фільтр профілю
   Profile Settings: Налаштування профілю
+  Toggle Profile List: Перемкнути список профілів
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'

@@ -179,7 +179,7 @@ export default defineComponent({
   },
   computed: {
     currentLocale: function () {
-      return this.$i18n.locale
+      return this.$i18n.locale.replace('_', '-')
     },
 
     defaultPlayback: function () {
@@ -1755,7 +1755,7 @@ export default defineComponent({
         const bCode = captionB.language_code.split('-')
         const aName = (captionA.label) // ex: english (auto-generated)
         const bName = (captionB.label)
-        const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
+        const userLocale = this.currentLocale.split('-') // ex. [en,US]
         if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
           if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
             if (bName.search('auto') !== -1) {
@@ -1786,7 +1786,7 @@ export default defineComponent({
           return 1
         }
         // sort alphabetically
-        return aName.localeCompare(bName)
+        return aName.localeCompare(bName, this.currentLocale)
       })
     },
 

@@ -85,6 +85,7 @@
             role="tablist"
             :aria-label="$t('Channel.Channel Tabs')"
           >
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('videos')"
               id="videosTab"
@@ -99,6 +100,7 @@
             >
               {{ $t("Channel.Videos.Videos").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('shorts') && !hideChannelShorts"
               id="shortsTab"
@@ -113,6 +115,7 @@
             >
               {{ $t("Global.Shorts").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('live') && !hideLiveStreams"
               id="liveTab"
@@ -127,6 +130,7 @@
             >
               {{ $t("Channel.Live.Live").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('releases') && !hideChannelReleases"
               id="releasesTab"
@@ -141,6 +145,7 @@
             >
               {{ $t("Channel.Releases.Releases").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('podcasts') && !hideChannelPodcasts"
               id="podcastsTab"
@@ -155,6 +160,7 @@
             >
               {{ $t("Channel.Podcasts.Podcasts").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('playlists') && !hideChannelPlaylists"
               id="playlistsTab"
@@ -169,6 +175,7 @@
             >
               {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               v-if="tabInfoValues.includes('community') && !hideChannelCommunity"
               id="communityTab"
@@ -183,6 +190,7 @@
             >
               {{ $t("Channel.Community.Community").toUpperCase() }}
             </div>
+            <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div
               id="aboutTab"
               class="tab"

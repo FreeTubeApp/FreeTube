@@ -21,7 +21,10 @@ class ProcessLocalesPlugin {
     }
     this.outputDir = options.outputDir
 
+    this.locales = []
     this.localeNames = []
+
+    this.cache = []
 
     this.loadLocales()
   }
@@ -29,13 +32,19 @@ class ProcessLocalesPlugin {
   apply(compiler) {
     compiler.hooks.thisCompilation.tap('ProcessLocalesPlugin', (compilation) => {
 
-      const { RawSource } = compiler.webpack.sources;
+      const IS_DEV_SERVER = !!compiler.watching
+      const { CachedSource, RawSource } = compiler.webpack.sources;
 
-      compilation.hooks.processAssets.tapPromise({
-        name: 'process-locales-plugin',
-        stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
-      },
-        async (_assets) => {
+      compilation.hooks.additionalAssets.tapPromise('process-locales-plugin', async (_assets) => {
+
+        // While running in the webpack dev server, this hook gets called for every incrememental build.
+        // For incremental builds we can return the already processed versions, which saves time
+        // and makes webpack treat them as cached
+        if (IS_DEV_SERVER && this.cache.length > 0) {
+          for (const { filename, source } of this.cache) {
+            compilation.emitAsset(filename, source, { minimized: true })
+          }
+        } else {
           const promises = []
 
           for (const { locale, data } of this.locales) {
@@ -54,24 +63,32 @@ class ProcessLocalesPlugin {
                 output = await this.compressLocale(output)
               }
 
-              compilation.emitAsset(
-                filename,
-                new RawSource(output),
-                { minimized: true }
-              )
+              let source = new RawSource(output)
+
+              if (IS_DEV_SERVER) {
+                source = new CachedSource(source)
+                this.cache.push({ filename, source })
+              }
+
+              compilation.emitAsset(filename, source, { minimized: true })
 
               resolve()
             }))
           }
 
           await Promise.all(promises)
-        })
+
+          if (IS_DEV_SERVER) {
+            // we don't need the unmodified sources anymore, as we use the cache `this.cache`
+            // so we can clear this to free some memory
+            delete this.locales
+          }
+        }
+      })
     })
   }
 
   loadLocales() {
-    this.locales = []
-
     const activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
 
     for (const locale of activeLocales) {
