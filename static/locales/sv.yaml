@@ -97,7 +97,7 @@ Subscriptions:
   Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning.
     Uppdatera prenumerationerna för att se dem här.
   Empty Channels: Dina prenumererade kanaler har inga filmer.
-  Subscriptions Tabs: Prenumerations Flik
+  Subscriptions Tabs: Prenumeration Flik
   All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll
     här, vänligen avdölj några flikar i avsnittet "{subsection}" i "{settingsSection}".
 Trending:
@@ -471,7 +471,7 @@ Settings:
   Download Settings:
     Ask Download Path: Välj nerladdningsmapp varje gång
     Download Settings: Nerladdningsinställningar
-    Choose Path: Välj mapp
+    Choose Path: Välj Sökväg
     Download in app: Ladda ner i appen
     Download Behavior: Nerladdningsalternativ
     Open in web browser: Öppna i webbläsare
@@ -585,6 +585,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profilinställningar
+  Toggle Profile List: Aktivera Profillista
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -646,8 +647,7 @@ Channel:
       inga släpp
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Den här kanalen har för närvarande
-      inga podcasts
+    This channel does not currently have any podcasts: Den här kanalen har inga podcasts
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -830,7 +830,7 @@ Share:
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Visa kommentarer'
+  Click to View Comments: 'Klicka för att Visa kommentarer'
   Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
   There are no more comments for this video: 'Det finns inga fler kommentarer för
     videon'
