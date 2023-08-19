@@ -614,6 +614,7 @@ Profile:
 #On Channel Page
   Profile Filter: Φίλτρο προφίλ
   Profile Settings: Ρυθμίσεις προφίλ
+  Toggle Profile List: Εναλλαγή Λίστας Προφίλ
 Channel:
   Subscriber: 'Συνδρομητής'
   Subscribers: 'Συνδρομητές'
