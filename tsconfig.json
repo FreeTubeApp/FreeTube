@@ -4,7 +4,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "es6",
-    "target": "ESNext",
+    "target": "es2020",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "bundler",

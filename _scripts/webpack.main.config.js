@@ -19,7 +19,7 @@ const config = {
         loader: 'esbuild-loader',
         exclude: /node_modules/,
         options: {
-          target: 'esnext'
+          target: 'es2020'
         }
       }
     ],
