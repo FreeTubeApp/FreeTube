@@ -333,8 +333,19 @@ export default defineComponent({
       try {
         let playlist = await getLocalPlaylist(this.playlistId)
 
+        let channelName
+
+        if (playlist.info.author) {
+          channelName = playlist.info.author.name
+        } else {
+          const subtitle = playlist.info.subtitle.toString()
+
+          const index = subtitle.lastIndexOf('•')
+          channelName = subtitle.substring(0, index).trim()
+        }
+
         this.playlistTitle = playlist.info.title
-        this.channelName = playlist.info.author?.name
+        this.channelName = channelName
         this.channelId = playlist.info.author?.id
 
         const videos = playlist.items.map(parseLocalPlaylistVideo)
