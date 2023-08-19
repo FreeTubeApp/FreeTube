@@ -596,6 +596,7 @@ Profile:
   Profile Select: Seleccionar perfil
   Profile Filter: Filtro de perfil
   Profile Settings: Ajustes del perfil
+  Toggle Profile List: Alternar la lista de los perfiles
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'

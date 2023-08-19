@@ -64,7 +64,7 @@ export default defineComponent({
       return this.$store.getters.getShowProgressBar
     },
     isRightAligned: function () {
-      return this.$i18n.locale === 'ar'
+      return this.locale === 'ar' || this.locale === 'he'
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -112,6 +112,10 @@ export default defineComponent({
       return this.$store.getters.getSecColor
     },
 
+    locale: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     systemTheme: function () {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     },
@@ -136,6 +140,8 @@ export default defineComponent({
 
     secColor: 'checkThemeSettings',
 
+    locale: 'setLocale',
+
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
@@ -145,6 +151,7 @@ export default defineComponent({
   created () {
     this.checkThemeSettings()
     this.setWindowTitle()
+    this.setLocale()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -508,6 +515,10 @@ export default defineComponent({
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
+    },
+
+    setLocale: function() {
+      document.documentElement.setAttribute('lang', this.locale)
     },
 
     /**

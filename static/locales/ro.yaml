@@ -548,6 +548,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtru profil
   Profile Settings: Setări de profil
+  Toggle Profile List: Lista profilului toggle
 Channel:
   Subscriber: 'Abonat'
   Subscribers: 'Abonați'

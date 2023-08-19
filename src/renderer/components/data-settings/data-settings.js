@@ -9,6 +9,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   copyToClipboard,
+  deepCopy,
   escapeHTML,
   getTodayDateStrLocalTimezone,
   readFileFromDialog,
@@ -69,7 +70,7 @@ export default defineComponent({
       ]
     },
     primaryProfile: function () {
-      return JSON.parse(JSON.stringify(this.profileList[0]))
+      return deepCopy(this.profileList[0])
     }
   },
   methods: {
@@ -174,7 +175,7 @@ export default defineComponent({
             })
 
             if (existingProfileIndex !== -1) {
-              const existingProfile = JSON.parse(JSON.stringify(this.profileList[existingProfileIndex]))
+              const existingProfile = deepCopy(this.profileList[existingProfileIndex])
               existingProfile.subscriptions = existingProfile.subscriptions.concat(profileObject.subscriptions)
               existingProfile.subscriptions = existingProfile.subscriptions.filter((sub, index) => {
                 const profileIndex = existingProfile.subscriptions.findIndex((x) => {

@@ -70,23 +70,25 @@
           :label="$t('Profile.Create Profile')"
           @click="saveProfile"
         />
-        <ft-button
-          v-if="!isNew"
-          :label="$t('Profile.Update Profile')"
-          @click="saveProfile"
-        />
-        <ft-button
-          v-if="!isNew"
-          :label="$t('Profile.Make Default Profile')"
-          @click="setDefaultProfile"
-        />
-        <ft-button
-          v-if="!isMainProfile && !isNew"
-          :label="$t('Profile.Delete Profile')"
-          text-color="var(--text-with-main-color)"
-          background-color="var(--primary-color)"
-          @click="openDeletePrompt"
-        />
+        <template
+          v-else
+        >
+          <ft-button
+            :label="$t('Profile.Update Profile')"
+            @click="saveProfile"
+          />
+          <ft-button
+            :label="$t('Profile.Make Default Profile')"
+            @click="setDefaultProfile"
+          />
+          <ft-button
+            v-if="!isMainProfile"
+            :label="$t('Profile.Delete Profile')"
+            text-color="var(--text-with-main-color)"
+            background-color="var(--primary-color)"
+            @click="openDeletePrompt"
+          />
+        </template>
       </ft-flex-box>
     </ft-card>
     <ft-prompt

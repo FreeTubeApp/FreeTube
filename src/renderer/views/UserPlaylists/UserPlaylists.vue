@@ -9,9 +9,9 @@
       class="card"
     >
       <div class="heading">
-        <h3 class="headingText">
+        <h2 class="headingText">
           {{ $t("User Playlists.Your Playlists") }}
-        </h3>
+        </h2>
         <ft-icon-button
           title="Create New Playlist"
           :icon="['fas', 'plus']"
