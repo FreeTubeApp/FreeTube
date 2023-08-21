@@ -208,7 +208,7 @@ export default defineComponent({
         this.isLoading = false
       } catch (err) {
         console.error(err)
-        if (this.backendPreference === 'invidious' && this.backendFallback) {
+        if (this.backendPreference === 'piped' && this.backendFallback) {
           if (process.env.IS_ELECTRON && this.fallbackPreference === 'local') {
             console.warn('Error getting data with Piped, falling back to local backend')
             this.getPlaylistLocal()
