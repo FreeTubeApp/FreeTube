@@ -1,15 +1,16 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
-import { scrapeTrendingPage } from '@freetube/yt-trending-scraper'
 import { copyToClipboard, showToast } from '../../helpers/utils'
+import { getLocalTrending } from '../../helpers/api/local'
+import { invidiousAPICall } from '../../helpers/api/invidious'
+import { Injectables } from '../../../constants'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Trending',
   components: {
     'ft-card': FtCard,
@@ -18,11 +19,15 @@ export default Vue.extend({
     'ft-icon-button': FtIconButton,
     'ft-flex-box': FtFlexBox
   },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
+  },
   data: function () {
     return {
       isLoading: false,
       shownResults: [],
-      currentTab: 'default'
+      currentTab: 'default',
+      trendingInstance: null
     }
   },
   computed: {
@@ -31,9 +36,6 @@ export default Vue.extend({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
-    },
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
     },
     region: function () {
       return this.$store.getters.getRegion.toUpperCase()
@@ -56,6 +58,10 @@ export default Vue.extend({
   },
   methods: {
     changeTab: function (tab) {
+      if (tab === this.currentTab) {
+        return
+      }
+
       this.currentTab = tab
       if (this.trendingCache[this.currentTab] && this.trendingCache[this.currentTab].length > 0) {
         this.getTrendingInfoCache()
@@ -64,12 +70,24 @@ export default Vue.extend({
       }
     },
 
-    focusTab: function (tab) {
-      this.$refs[tab].focus()
-      this.$emit('showOutlines')
+    /**
+     * @param {KeyboardEvent} event
+     * @param {string} tab
+     */
+    focusTab: function (event, tab) {
+      if (!event.altKey) {
+        event.preventDefault()
+        this.$refs[tab].focus()
+        this.showOutlines()
+      }
     },
 
-    getTrendingInfo: function () {
+    getTrendingInfo: function (refresh = false) {
+      if (refresh) {
+        this.trendingInstance = null
+        this.$store.commit('clearTrendingCache')
+      }
+
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getTrendingInfoInvidious()
       } else {
@@ -77,27 +95,21 @@ export default Vue.extend({
       }
     },
 
-    getTrendingInfoLocal: function () {
+    getTrendingInfoLocal: async function () {
       this.isLoading = true
 
-      const param = {
-        parseCreatorOnRise: false,
-        page: this.currentTab,
-        geoLocation: this.region
-      }
+      try {
+        const { results, instance } = await getLocalTrending(this.region, this.currentTab, this.trendingInstance)
 
-      scrapeTrendingPage(param).then((result) => {
-        const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
-        })
-
-        this.shownResults = returnData
+        this.shownResults = results
         this.isLoading = false
-        this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
+        this.trendingInstance = instance
+
+        this.$store.commit('setTrendingCache', { value: results, page: this.currentTab })
         setTimeout(() => {
-          this.$refs[this.currentTab].focus()
+          this.$refs[this.currentTab]?.focus()
         })
-      }).catch((err) => {
+      } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
         showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -109,21 +121,11 @@ export default Vue.extend({
         } else {
           this.isLoading = false
         }
-      })
+      }
     },
 
     getTrendingInfoCache: function () {
-      // the ft-element-list component has a bug where it doesn't change despite the data changing
-      // so we need to use this hack to make vue completely get rid of it and rerender it
-      // we should find a better way to do it to avoid the trending page flashing
-      this.isLoading = true
-      setTimeout(() => {
-        this.shownResults = this.trendingCache[this.currentTab]
-        this.isLoading = false
-        setTimeout(() => {
-          this.$refs[this.currentTab].focus()
-        })
-      })
+      this.shownResults = this.trendingCache[this.currentTab]
     },
     getTrendingInfoInvidious: function () {
       this.isLoading = true
@@ -138,7 +140,7 @@ export default Vue.extend({
         trendingPayload.params.type = this.currentTab.charAt(0).toUpperCase() + this.currentTab.slice(1)
       }
 
-      this.invidiousAPICall(trendingPayload).then((result) => {
+      invidiousAPICall(trendingPayload).then((result) => {
         if (!result) {
           return
         }
@@ -151,7 +153,7 @@ export default Vue.extend({
         this.isLoading = false
         this.$store.commit('setTrendingCache', { value: returnData, page: this.currentTab })
         setTimeout(() => {
-          this.$refs[this.currentTab].focus()
+          this.$refs[this.currentTab]?.focus()
         })
       }).catch((err) => {
         console.error(err)
@@ -169,23 +171,26 @@ export default Vue.extend({
       })
     },
 
-    // This function should always be at the bottom of this file
+    /**
+     * This function `keyboardShortcutHandler` should always be at the bottom of this file
+     * @param {KeyboardEvent} event the keyboard event
+     */
     keyboardShortcutHandler: function (event) {
       if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
         return
       }
+      // Avoid handling events due to user holding a key (not released)
+      // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
+      if (event.repeat) { return }
+
       switch (event.key) {
         case 'r':
         case 'R':
           if (!this.isLoading) {
-            this.getTrendingInfo()
+            this.getTrendingInfo(true)
           }
           break
       }
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

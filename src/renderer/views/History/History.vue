@@ -8,7 +8,7 @@
       v-show="!isLoading"
       class="card"
     >
-      <h3>{{ $t("History.History") }}</h3>
+      <h2>{{ $t("History.History") }}</h2>
       <ft-input
         v-show="fullData.length > 0"
         ref="searchBar"
@@ -35,6 +35,8 @@
       <ft-element-list
         v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
+        :show-video-with-last-viewed-playlist="true"
+        :use-channels-hidden-preference="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

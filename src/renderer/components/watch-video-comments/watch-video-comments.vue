@@ -1,16 +1,26 @@
 <template>
-  <ft-card>
+  <ft-card
+    class="card"
+  >
     <h4
-      v-if="commentData.length === 0 && !isLoading"
+      v-if="canPerformInitialCommentLoading"
       class="getCommentsTitle"
+      role="button"
+      tabindex="0"
       @click="getCommentData"
+      @keydown.space.prevent="getCommentData"
+      @keydown.enter.prevent="getCommentData"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
     <h4
       v-if="commentData.length > 0 && !isLoading && !showComments"
       class="getCommentsTitle"
+      role="button"
+      tabindex="0"
       @click="showComments = true"
+      @keydown.space.prevent="showComments = true"
+      @keydown.enter.prevent="showComments = true"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -25,11 +35,16 @@
     />
     <h3
       v-if="commentData.length > 0 && !isLoading && showComments"
+      class="commentsTitle"
     >
       {{ $t("Comments.Comments") }}
       <span
         class="hideComments"
+        role="button"
+        tabindex="0"
         @click="showComments = false"
+        @keydown.space.prevent="showComments = false"
+        @keydown.enter.prevent="showComments = false"
       >
         {{ $t("Comments.Hide Comments") }}
       </span>
@@ -39,14 +54,20 @@
     >
       <div
         v-for="(comment, index) in commentData"
+        :id="'comment' + index"
         :key="index"
         class="comment"
       >
-        <img
-          :src="comment.authorThumb"
-          class="commentThumbnail"
-          @click="goToChannel(comment.authorLink)"
+        <router-link
+          :to="`/channel/${comment.authorLink}`"
+          tabindex="-1"
         >
+          <img
+            :src="comment.authorThumb"
+            alt=""
+            class="commentThumbnail"
+          >
+        </router-link>
         <p
           v-if="comment.isPinned"
           class="commentPinned"
@@ -59,15 +80,15 @@
         <p
           class="commentAuthorWrapper"
         >
-          <span
+          <router-link
             class="commentAuthor"
             :class="{
               commentOwner: comment.isOwner
             }"
-            @click="goToChannel(comment.authorLink)"
+            :to="`/channel/${comment.authorLink}`"
           >
             {{ comment.author }}
-          </span>
+          </router-link>
           <img
             v-if="comment.isMember"
             :src="comment.memberIconUrl"
@@ -86,18 +107,24 @@
           @timestamp-event="onTimestamp"
         />
         <p class="commentLikeCount">
-          <font-awesome-icon
+          <template
             v-if="!hideCommentLikes"
-            :icon="['fas', 'thumbs-up']"
-          />
-          {{ comment.likes }}
+          >
+            <font-awesome-icon
+              :icon="['fas', 'thumbs-up']"
+            />
+            {{ comment.likes }}
+          </template>
           <span
             v-if="comment.isHearted"
             class="commentHeartBadge"
           >
             <img
               :src="channelThumbnail"
+              :title="$t('Comments.Hearted')"
+              :aria-label="$t('Comments.Hearted')"
               class="commentHeartBadgeImg"
+              alt=""
             >
             <font-awesome-icon
               :icon="['fas', 'heart']"
@@ -111,7 +138,11 @@
           <span
             v-if="comment.numReplies > 0"
             class="commentMoreReplies"
+            role="button"
+            tabindex="0"
             @click="toggleCommentReplies(index)"
+            @keydown.space.prevent="toggleCommentReplies(index)"
+            @keydown.enter.prevent="toggleCommentReplies(index)"
           >
             <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
             <span v-else>{{ $t("Comments.Hide") }}</span>
@@ -119,7 +150,7 @@
             <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
             <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
             <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From {channelName}", { channelName }) }}</span>
-            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies">{{ $t("Comments.And others") }}</span>
+            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.And others") }}</span>
           </span>
         </p>
         <div
@@ -128,23 +159,30 @@
         >
           <div
             v-for="(reply, replyIndex) in comment.replies"
+            :id="'comment' + index + '-' + replyIndex"
             :key="replyIndex"
             class="comment"
           >
-            <img
-              :src="reply.authorThumb"
-              class="commentThumbnail"
+            <router-link
+              :to="`/channel/${reply.authorLink}`"
+              tabindex="-1"
             >
+              <img
+                :src="reply.authorThumb"
+                class="commentThumbnail"
+                alt=""
+              >
+            </router-link>
             <p class="commentAuthorWrapper">
-              <span
+              <router-link
                 class="commentAuthor"
                 :class="{
                   commentOwner: reply.isOwner
                 }"
-                @click="goToChannel(reply.authorLink)"
+                :to="`/channel/${reply.authorLink}`"
               >
                 {{ reply.author }}
-              </span>
+              </router-link>
               <img
                 v-if="reply.isMember"
                 :src="reply.memberIconUrl"
@@ -161,23 +199,31 @@
               @timestamp-event="onTimestamp"
             />
             <p class="commentLikeCount">
-              <font-awesome-icon
+              <template
                 v-if="!hideCommentLikes"
-                :icon="['fas', 'thumbs-up']"
-              />
-              {{ reply.likes }}
+              >
+                <font-awesome-icon
+                  v-if="!hideCommentLikes"
+                  :icon="['fas', 'thumbs-up']"
+                />
+                {{ reply.likes }}
+              </template>
             </p>
             <p
               v-if="reply.numReplies > 0"
               class="commentMoreReplies"
             >
-              View {{ reply.numReplies }} replies
+              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }) }}
             </p>
           </div>
           <div
             v-if="comment.replyToken !== null"
             class="showMoreReplies"
-            @click="getCommentReplies(index)"
+            role="button"
+            tabindex="0"
+            @click="getCommentReplies(index, comment.replies.length)"
+            @keydown.space.prevent="getCommentReplies(index, comment.replies.length)"
+            @keydown.enter.prevent="getCommentReplies(index, comment.replies.length)"
           >
             <span>{{ $t("Comments.Show More Replies") }}</span>
           </div>
@@ -187,20 +233,31 @@
     <div
       v-else-if="showComments && !isLoading"
     >
-      <h3 class="center">
+      <h3 class="noCommentMsg">
         {{ $t("There are no comments available for this video") }}
       </h3>
     </div>
     <h4
-      v-if="commentData.length > 0 && !isLoading && showComments"
+      v-if="canPerformMoreCommentLoading"
       class="getMoreComments"
+      role="button"
+      tabindex="0"
       @click="getMoreComments"
+      @keydown.space.prevent="getMoreComments"
+      @keydown.enter.prevent="getMoreComments"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>
     <ft-loader
       v-if="isLoading"
     />
+    <div
+      v-observe-visibility="observeVisibilityOptions"
+    >
+      <!--
+        Dummy element to be observed by Intersection Observer
+      -->
+    </div>
   </ft-card>
 </template>
 

@@ -1,21 +1,19 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtButton from '../../components/ft-button/ft-button.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
-import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
-import ytch from 'yt-channel-info'
-import { showToast } from '../../helpers/utils'
+import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
+import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
+import { getLocalChannel } from '../../helpers/api/local'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SubscribedChannels',
   components: {
-    'ft-button': FtButton,
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-input': FtInput,
-    'ft-prompt': FtPrompt
+    'ft-subscribe-button': FtSubscribeButton
   },
   data: function () {
     return {
@@ -23,19 +21,11 @@ export default Vue.extend({
       subscribedChannels: [],
       filteredChannels: [],
       re: {
-        url: /(.+=\w{1})\d+(.+)/,
-        ivToIv: /^.+(ggpht.+)/,
-        ivToYt: /^.+ggpht\/(.+)/,
-        ytToIv: /^.+ggpht\.com\/(.+)/
+        url: /(.+=\w)\d+(.+)/,
+        ivToYt: /^.+ggpht\/(.+)/
       },
       thumbnailSize: 176,
       ytBaseURL: 'https://yt3.ggpht.com',
-      showUnsubscribePrompt: false,
-      unsubscribePromptValues: [
-        'yes',
-        'no'
-      ],
-      channelToUnsubscribe: null,
       errorCount: 0
     }
   },
@@ -60,6 +50,10 @@ export default Vue.extend({
       }
     },
 
+    hideUnsubscribeButton: function() {
+      return this.$store.getters.getHideUnsubscribeButton
+    },
+
     locale: function () {
       return this.$i18n.locale.replace('_', '-')
     },
@@ -70,13 +64,6 @@ export default Vue.extend({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    },
-
-    unsubscribePromptNames: function () {
-      return [
-        this.$t('Yes'),
-        this.$t('No')
-      ]
     }
   },
   watch: {
@@ -96,7 +83,7 @@ export default Vue.extend({
   methods: {
     getSubscription: function () {
       this.subscribedChannels = this.activeSubscriptionList.slice().sort((a, b) => {
-        return a.name.localeCompare(b.name, this.locale)
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
     },
 
@@ -111,63 +98,29 @@ export default Vue.extend({
         return
       }
 
-      const escapedQuery = this.query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      const escapedQuery = this.query.replaceAll(/[$()*+.?[\\\]^{|}]/g, '\\$&')
       const re = new RegExp(escapedQuery, 'i')
       this.filteredChannels = this.subscribedChannels.filter(channel => {
         return re.test(channel.name)
       })
     },
 
-    handleUnsubscribeButtonClick: function(channel) {
-      this.channelToUnsubscribe = channel
-      this.showUnsubscribePrompt = true
-    },
-
-    handleUnsubscribePromptClick: function(value) {
-      this.showUnsubscribePrompt = false
-      if (value !== 'yes') {
-        this.channelToUnsubscribe = null
-        return
-      }
-      this.unsubscribeChannel()
-    },
-
-    unsubscribeChannel: function () {
-      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
-      let index = currentProfile.subscriptions.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      currentProfile.subscriptions.splice(index, 1)
-
-      this.updateProfile(currentProfile)
-      showToast(this.$t('Channels.Unsubscribed', { channelName: this.channelToUnsubscribe.name }))
-
-      index = this.subscribedChannels.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      this.subscribedChannels.splice(index, 1)
-
-      index = this.filteredChannels.findIndex(channel => {
-        return channel.id === this.channelToUnsubscribe.id
-      })
-      if (index !== -1) {
-        this.filteredChannels.splice(index, 1)
-      }
-
-      this.channelToUnsubscribe = null
-    },
-
     thumbnailURL: function(originalURL) {
       let newURL = originalURL
-      if (new URL(originalURL).hostname === 'yt3.ggpht.com') {
+      // Sometimes relative protocol URLs are passed in
+      if (originalURL.startsWith('//')) {
+        newURL = `https:${originalURL}`
+      }
+      const hostname = new URL(newURL).hostname
+      if (hostname === 'yt3.ggpht.com' || hostname === 'yt3.googleusercontent.com') {
         if (this.backendPreference === 'invidious') { // YT to IV
-          newURL = originalURL.replace(this.re.ytToIv, `${this.currentInvidiousInstance}/ggpht/$1`)
+          newURL = youtubeImageUrlToInvidious(newURL, this.currentInvidiousInstance)
         }
       } else {
         if (this.backendPreference === 'local') { // IV to YT
-          newURL = originalURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
+          newURL = newURL.replace(this.re.ivToYt, `${this.ytBaseURL}/$1`)
         } else { // IV to IV
-          newURL = originalURL.replace(this.re.ivToIv, `${this.currentInvidiousInstance}/$1`)
+          newURL = invidiousImageUrlToInvidious(newURL, this.currentInvidiousInstance)
         }
       }
 
@@ -179,17 +132,19 @@ export default Vue.extend({
       if (this.backendPreference === 'local') {
         // avoid too many concurrent requests
         setTimeout(() => {
-          ytch.getChannelInfo({ channelId: channel.id }).then(response => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
-              channelName: channel.name,
-              channelId: channel.id
-            })
+          getLocalChannel(channel.id).then(response => {
+            if (!response.alert) {
+              this.updateSubscriptionDetails({
+                channelThumbnailUrl: this.thumbnailURL(response.header.author.thumbnails[0].url),
+                channelName: channel.name,
+                channelId: channel.id
+              })
+            }
           })
         }, this.errorCount * 500)
       } else {
         setTimeout(() => {
-          this.invidiousGetChannelInfo(channel.id).then(response => {
+          invidiousGetChannelInfo(channel.id).then(response => {
             this.updateSubscriptionDetails({
               channelThumbnailUrl: this.thumbnailURL(response.authorThumbnails[0].url),
               channelName: channel.name,
@@ -200,14 +155,8 @@ export default Vue.extend({
       }
     },
 
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
-
     ...mapActions([
-      'updateProfile',
-      'updateSubscriptionDetails',
-      'invidiousGetChannelInfo'
+      'updateSubscriptionDetails'
     ])
   }
 })

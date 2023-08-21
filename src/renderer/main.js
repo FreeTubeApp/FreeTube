@@ -14,7 +14,9 @@ import {
   faBookmark,
   faCheck,
   faChevronRight,
+  faCircleUser,
   faClone,
+  faComment,
   faCommentDots,
   faCopy,
   faDownload,
@@ -49,23 +51,24 @@ import {
   faStepBackward,
   faStepForward,
   faSync,
+  faThumbsDown,
   faThumbsUp,
   faThumbtack,
   faTimes,
   faTimesCircle,
   faUsers
 } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
-import { faBitcoin } from '@fortawesome/free-brands-svg-icons/faBitcoin'
-import { faMonero } from '@fortawesome/free-brands-svg-icons/faMonero'
-import { faMastodon } from '@fortawesome/free-brands-svg-icons/faMastodon'
+import {
+  faBitcoin,
+  faGithub,
+  faMastodon,
+  faMonero
+} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const isDev = process.env.NODE_ENV === 'development'
-
-Vue.config.devtools = isDev
-Vue.config.performance = isDev
-Vue.config.productionTip = isDev
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+Vue.config.performance = process.env.NODE_ENV === 'development'
+Vue.config.productionTip = process.env.NODE_ENV === 'development'
 
 library.add(
   // solid icons
@@ -77,7 +80,9 @@ library.add(
   faBookmark,
   faCheck,
   faChevronRight,
+  faCircleUser,
   faClone,
+  faComment,
   faCommentDots,
   faCopy,
   faDownload,
@@ -112,6 +117,7 @@ library.add(
   faStepBackward,
   faStepForward,
   faSync,
+  faThumbsDown,
   faThumbsUp,
   faThumbtack,
   faTimes,
@@ -127,7 +133,7 @@ library.add(
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
-/* eslint-disable-next-line */
+/* eslint-disable-next-line no-new */
 new Vue({
   el: '#app',
   router,

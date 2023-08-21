@@ -1,11 +1,11 @@
 <template>
   <ft-card class="watchVideoInfo">
     <div>
-      <p
+      <h1
         class="videoTitle"
       >
         {{ title }}
-      </p>
+      </h1>
       <div
         class="channelInformation"
       >
@@ -19,6 +19,7 @@
               <img
                 :src="channelThumbnail"
                 class="channelThumbnail"
+                alt=""
               >
             </router-link>
           </div>
@@ -29,13 +30,12 @@
             >
               {{ channelName }}
             </router-link>
-            <ft-button
+            <ft-subscribe-button
               v-if="!hideUnsubscribeButton"
-              :label="subscribedText"
-              class="subscribeButton"
-              background-color="var(--primary-color)"
-              text-color="var(--text-with-main-color)"
-              @click="handleSubscription"
+              :channel-id="channelId"
+              :channel-name="channelName"
+              :channel-thumbnail="channelThumbnail"
+              :subscription-count-text="subscriptionCountText"
             />
           </div>
         </div>
@@ -115,7 +115,7 @@
           theme="secondary"
           :icon="['fas', 'file-video']"
           :dropdown-options="formatTypeOptions"
-          @click="handleFormatChange"
+          @click="$emit('change-format', $event)"
         />
         <ft-share-button
           v-if="!hideSharingActions"
@@ -130,4 +130,4 @@
 </template>
 
 <script src="./watch-video-info.js" />
-<style scoped src="./watch-video-info.sass" lang="sass" />
+<style scoped src="./watch-video-info.scss" lang="scss" />

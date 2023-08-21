@@ -1,9 +1,9 @@
 # Put the name of your locale in the same language
-Locale Name: 'Lietuvių'
+Locale Name: 'lietuvių'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ši programos dalis dar neparengta. Grįžkite vėliau, kai bus padaryta pažanga.
+  Ši programėlės dalis dar neparengta. Grįžkite vėliau, kai bus padaryta pažanga.
 
 # Webkit Menu Bar
 File: 'Failas'
@@ -29,6 +29,11 @@ Close: 'Uždaryti'
 Back: 'Atgal'
 Forward: 'Pirmyn'
 Open New Window: 'Atidaryti naują langą'
+
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vaizdo įrašai'
 
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
   jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
@@ -61,12 +66,14 @@ Search Filters:
     Videos: 'Vaizdo įrašai'
     Channels: 'Kanalai'
     #& Playlists
+    Movies: Filmai
   Duration:
     Duration: 'Trukmė'
     All Durations: 'Visos trukmės'
     Short (< 4 minutes): 'Trumpas (< 4 minutės)'
     Long (> 20 minutes): 'Ilgas (> 20 minutės)'
   # On Search Page
+    Medium (4 - 20 minutes): Vidutinis (4 - 20 minučių)
   Search Results: 'Paieškos rezultatai'
   Fetching results. Please wait: 'Rezultatai kraunami. Prašome luktelėti'
   Fetch more results: 'Įkelti daugiau rezultatų'
@@ -76,7 +83,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumeratos'
   Latest Subscriptions: 'Naujausios prenumeratos'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Šiame
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šiame
     profilyje yra daug prenumeratų.   Vengiant ribojimų RSS bus naudojamas priverstinai'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Jūsų
     prenumeratų sąrašas šiuo metu tuščias. Pridėkite prenumeratas, kad jas pamatytumėte
@@ -134,7 +141,7 @@ Settings:
     Locale Preference: 'Kalbos pasirinkimas'
     System Default: 'Sistemos numatytieji'
     Preferred API Backend:
-      Preferred API Backend: 'Pageidaujamas API posistemė'
+      Preferred API Backend: 'Pageidaujama API posistemė'
       Local API: 'Vietinis API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -149,17 +156,18 @@ Settings:
       End: 'Vaizdo įrašo pabaiga'
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Numatytoji yra https://invidious.snopyta.org)'
-    View all Invidious instance information: 'Žiūrėti visą Invidious instancijos informaciją'
+    View all Invidious instance information: 'Žiūrėti visą Invidious perdavimo šaltinio
+      informaciją'
     Region for Trending: '„Dabar populiaru“ regionas'
         #! List countries
-    Clear Default Instance: Išvalyti numatytąją instanciją
-    Current Invidious Instance: Esama Invidious instancija
-    Set Current Instance as Default: Nustatyti esamą instanciją kaip numatytąją
-    Current instance will be randomized on startup: Esama instancija bus atsitiktinai
-      parinkta paleidimo metu
-    No default instance has been set: Nenustatytas jokia numatytoji instancija
-    The currently set default instance is {instance}: Šiuo metu nustatyta numatytoji
-      instancija yra {instance}
+    Clear Default Instance: Išvalyti numatytąjį perdavimo šaltinį
+    Current Invidious Instance: Esamas Invidious perdavimo šaltinis
+    Set Current Instance as Default: Nustatyti esamą perdavimo šaltinį kaip numatytąjį
+    Current instance will be randomized on startup: Esamas perdavimo šaltinis bus
+      atsitiktinai parinktas paleidimo metu
+    No default instance has been set: Nenustatytas joks numatytasis perdavimo šaltinis
+    The currently set default instance is {instance}: Šiuo metu nustatytas perdavimo
+      šaltinis yra {instance}
     External Link Handling:
       No Action: Jokio veiksmo
       Ask Before Opening Link: Klausti prieš atidarant nuorodą
@@ -168,9 +176,9 @@ Settings:
   Theme Settings:
     Theme Settings: 'Temos nustatymai'
     Match Top Bar with Main Color: 'Derinti viršutinė juosta prie pagrindinės spalvos'
-    Expand Side Bar by Default: 'Išskleiskite šoninę juostą pagal numatytuosius nustatymus'
-    Disable Smooth Scrolling: 'Išjungti Smooth Scrolling'
-    UI Scale: 'UI Skalė'
+    Expand Side Bar by Default: 'Išskleisti šoninę juostą pagal numatytuosius nustatymus'
+    Disable Smooth Scrolling: 'Išjungti sklandų slinkimą'
+    UI Scale: 'Naudotojo sąsajos skalė'
     Base Theme:
       Base Theme: 'Bazinė tema'
       Black: 'Juoda'
@@ -221,18 +229,19 @@ Settings:
     Secondary Color Theme: 'Papildoma temos spalva'
         #* Main Color Theme
     Hide Side Bar Labels: Slėpti šoninės juostos etiketes
+    Hide FreeTube Header Logo: Slėpti FreeTube logotipą antraštėje
   Player Settings:
     Player Settings: 'Grotuvo nustatymai'
     Force Local Backend for Legacy Formats: 'Priverstinai naudoti vietinę posistemę
-      Seniesiems formatams'
+      seniesiems formatams'
     Play Next Video: 'Leisti sekanti vaizdo įrašą'
     Turn on Subtitles by Default: 'Įjungti subtitrus automatiškai'
     Autoplay Videos: 'Automatinis vaizdo įrašų paleidimas'
-    Proxy Videos Through Invidious: 'Naudoti Proxy vaizdo įrašams per Invidious'
+    Proxy Videos Through Invidious: 'Naudoti įgaliotąjį serverį vaizdo įrašams per
+      Invidious'
     Autoplay Playlists: 'Automatinis grojaraščių paleidimas'
     Enable Theatre Mode by Default: 'Įjungti teatro rėžimą automatiškai'
-    Scroll Volume Over Video Player: 'Slinkite per vaizdo grotuvą, kad pakeistumėte
-      garsumą'
+    Scroll Volume Over Video Player: 'Slinkti per vaizdo grotuvą, kad pakeisti garsumą'
     Display Play Button In Video Player: 'Rodyti grojimo mygtuką vaizdo grotuve'
     Next Video Interval: 'Sekantis vaizdo įrašas bus paleistas po'
     Default Volume: 'Numatytasis garsumas'
@@ -256,7 +265,7 @@ Settings:
       8k: '8k'
     Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
     Scroll Playback Rate Over Video Player: Slinkties atkūrimo dažnis vaizdo įrašų
-      leistuve
+      grotuve
     Screenshot:
       Enable: Įgalinti ekrano kopijas
       Format Label: Ekrano kopijos formatas
@@ -275,10 +284,15 @@ Settings:
         Empty File Name: Tuščias failo pavadinimas
     Video Playback Rate Interval: Vaizdo įrašų atkūrimo dažnio intervalas
     Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
+    Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
+    Skip by Scrolling Over Video Player: Praleiskite slinkdami per vaizdo grotuvą
+    Comment Auto Load:
+      Comment Auto Load: Komentuoti Automatinis įkėlimas
+    Allow DASH AV1 formats: Leisti DASH AV1 formatus
   External Player Settings:
     External Player Settings: 'Išorinio grotuvo nustatymai'
     External Player: 'Išorinis grotuvas'
-    Ignore Unsupported Action Warnings: 'Nepaisykite ''nepalaikomas veiksmas'' įspėjimų'
+    Ignore Unsupported Action Warnings: 'Nepaisyti „nepalaikomas veiksmas” įspėjimų'
     Custom External Player Executable: 'Pasirinktinis išorinio grotuvo vykdymas'
     Custom External Player Arguments: 'Pasirinktiniai išorinio grotuvo argumentai'
     Players:
@@ -301,10 +315,12 @@ Settings:
     Remove All Subscriptions / Profiles: 'Pašalinti visas prenumeratas / profilius'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ar
       tikrai norite pašalinti visas prenumeratas ir profilius? To nebus galima atšaukti.'
+    Save Watched Videos With Last Viewed Playlist: Išsaugokite Žiūrėtus Vaizdo Įrašus
+      Naudodami Paskutinį Žiūrėtą Grojaraštį
   Subscription Settings:
     Subscription Settings: 'Prenumeratų nustatymai'
     Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
-    Fetch Feeds from RSS: 'Gaukite kanalus iš RSS'
+    Fetch Feeds from RSS: 'Gauti kanalus iš RSS'
     Manage Subscriptions: 'Valdyti prenumeratas'
     Fetch Automatically: Gauti sklaidos kanalą automatiškai
   Distraction Free Settings:
@@ -323,11 +339,25 @@ Settings:
     Hide Comments: Slėpti komentarus
     Hide Live Streams: Slėpti tiesiogines transliacijas
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
-    Hide Chapters: Slėpti skyrius
+    Hide Chapters: Slėpti skirsnius
+    Hide Upcoming Premieres: Slėpti būsimas premjeras
+    Sections:
+      General: Generolas
+      Side Bar: Šoninė juosta
+      Channel Page: Kanalas Puslapis
+      Watch Page: Žiūrėti Puslapis
+    Display Titles Without Excessive Capitalisation: Rodyti Pavadinimus Be Per Daug
+      Didžiųjų Raidžių
+    Hide Channels: Slėpti Vaizdo Įrašus Iš Kanalai
+    Hide Channels Placeholder: Kanalo pavadinimas arba ID
+    Hide Featured Channels: Slėpti Teminiai kanalai
+    Hide Channel Playlists: Slėpti Kanalo Grojaraščiai
+    Hide Channel Community: Slėpti Kanalo Bendruomenę
+    Hide Channel Shorts: Slėpti Kanalo Šortus
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
-    Select Import Type: 'Pasirinkite importavimo tipą'
-    Select Export Type: 'Pasirinkite eksportavimo tipą'
+    Select Import Type: 'Pasirinkti importavimo tipą'
+    Select Export Type: 'Pasirinkti eksportavimo tipą'
     Import Subscriptions: 'Importuoti prenumeratas'
     Import FreeTube: 'Importuoti FreeTube'
     Import YouTube: 'Importuot YouTube'
@@ -369,24 +399,25 @@ Settings:
     Import Playlists: Importuoti grojaraščius
     Export Playlists: Eksportuoti grojaraščius
     Subscription File: Prenumeratų failas
-    Playlist insufficient data: Nepakankamai duomenų "{playlist}" grojaraščiui, praleidžiamas
+    Playlist insufficient data: Nepakankamai duomenų „{playlist}“ grojaraščiui, praleidžiamas
       elementas
   Proxy Settings:
-    Proxy Settings: 'Proxy nustatymai'
-    Enable Tor / Proxy: 'Įgalinti Tor / Proxy'
-    Proxy Protocol: 'Proxy protokolas'
-    Proxy Host: 'Proxy serveris'
-    Proxy Port Number: 'Proxy prievado numeris'
-    Clicking on Test Proxy will send a request to: 'Spustelėjus Testuoti Proxy bus
-      išsiųsta užklausa į'
-    Test Proxy: 'Testuoti Proxy'
+    Proxy Settings: 'Įgaliotojo serverio nustatymai'
+    Enable Tor / Proxy: 'Įgalinti Tor / įgaliotąjį serverį'
+    Proxy Protocol: 'Įgaliotojo serverio protokolas'
+    Proxy Host: 'Įgaliotojo serverio adresas'
+    Proxy Port Number: 'Įgaliotojo serverio prievado numeris'
+    Clicking on Test Proxy will send a request to: 'Spustelėjus „Testuoti įgaliotąjį
+      serverį“ bus išsiųsta užklausa į'
+    Test Proxy: 'Testuoti įgaliotąjį serverį'
     Your Info: 'Tavo informacija'
     Ip: 'IP'
     Country: 'Šalis'
     Region: 'Regionas'
     City: 'Miestas'
     Error getting network information. Is your proxy configured properly?: 'Gaunant
-      tinklo informaciją įvyko klaida. Ar jūsų proxy sukonfigūruotas tinkamai?'
+      tinklo informaciją įvyko klaida. Ar jūsų įgaliotasis serveris sukonfigūruotas
+      tinkamai?'
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock nustatymai'
     Enable SponsorBlock: 'Įjungti SponsorBlock'
@@ -410,15 +441,19 @@ Settings:
     Open in web browser: Atidaryti žiniatinklio naršyklėje
   Parental Control Settings:
     Parental Control Settings: Tėvų kontrolės nustatymai
-    Hide Unsubscribe Button: Slėpti prenumeratos atsisakymo mygtuką
+    Hide Unsubscribe Button: Slėpti prenumeratos atšaukimo mygtuką
     Hide Search Bar: Slėpti paieškos juostą
     Show Family Friendly Only: Rodyti tik turinį tinkamą šeimai
   Experimental Settings:
     Replace HTTP Cache: Pakeisti HTTP talpyklą
     Experimental Settings: Eksperimentiniai nustatymai
-    Warning: Šie nustatymai yra eksperimentiniai, juos įjungus gali būti sutrikimų.
+    Warning: Šie nustatymus yra eksperimentiniai, juos įjungus gali būti sutrikimų.
       Labai rekomenduojama iš anksto pasidaryti atsargines kopijas. Naudokite savo
       rizika!
+  Password Dialog:
+    Password Incorrect: Slaptažodis Neteisingas
+    Password: Slaptažodis
+    Enter Password To Unlock: Įveskite slaptažodį į atrakintumėte nustatymus
 About:
   #On About page
   About: 'Apie'
@@ -551,7 +586,7 @@ Video:
   Play Previous Video: 'Groti ankstesnį vaizdo įrašą'
   # Context is "X People Watching"
   Watching: 'Žiūri'
-  Watched: 'Žiūrėjo'
+  Watched: 'Žiūrėta'
   Autoplay: 'Paleisti automatiškai'
   Starting soon, please refresh the page to check again: 'Greitai prasidės, atnaujinkite
     puslapį, kad galėtumėte patikrinti dar kartą'
@@ -564,9 +599,9 @@ Video:
     diskusija kol kas nepalaikoma.'
   'Chat is disabled or the Live Stream has ended.': 'Pokalbiai yra išjungti arba tiesioginė
     transliacija baigta.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Tiesioginė diskusija
+  Live chat is enabled. Chat messages will appear here once sent.: 'Tiesioginė diskusija
     yra įgalinta.  Čia bus rodomi pokalbio pranešimai.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Tiesioginė
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Tiesioginė
     diskusija šiuo metu nepalaikoma naudojant Invidious API. Būtinas tiesioginis ryšys
     su YouTube.'
   Download Video: 'Atsisiųsti vaizdo įrašą'
@@ -594,19 +629,19 @@ Video:
     Seconds: 'Sekundės'
     Minute: 'Minutė'
     Minutes: 'Minutės'
-    Hour: 'Valanda'
-    Hours: 'Valandos'
-    Day: 'Diena'
-    Days: 'Dienos'
-    Week: 'Savaitė'
-    Weeks: 'Savaitės'
-    Month: 'Mėnesis'
-    Months: 'Mėnesiai'
-    Year: 'Metai'
-    Years: 'Metai'
-    Ago: 'Atgal'
-    Upcoming: 'Premjera'
-    In less than a minute: Prieš mažiau nei minutę
+    Hour: 'val.'
+    Hours: 'val.'
+    Day: 'd.'
+    Days: 'd.'
+    Week: 'sav.'
+    Weeks: 'sav.'
+    Month: 'mėn.'
+    Months: 'mėn.'
+    Year: 'm.'
+    Years: 'm.'
+    Ago: 'atgal'
+    Upcoming: 'premjera'
+    In less than a minute: prieš mažiau nei minutę
   Published on: 'Publikuota'
   Streamed on: 'Transliuota'
   Started streaming on: 'Transliaciją pradėjo'
@@ -616,7 +651,7 @@ Video:
   Sponsor Block category:
     sponsor: 'Rėmėjas'
     intro: 'Įžanga'
-    outro: 'Autro'
+    outro: 'Pabaigos ekranas'
     self-promotion: 'Savireklama'
     interaction: 'Interakcija'
     music offtopic: 'Nesusijusi muzika'
@@ -674,12 +709,6 @@ Playlist:
   View: 'Žiūrėti'
   Views: 'Peržiūros'
   Last Updated On: 'Paskutinį kartą atnaujinta'
-  Share Playlist:
-    Share Playlist: 'Dalintis grojaraščiu'
-    Copy YouTube Link: 'Kopijuoti YouTube nuorodą'
-    Open in YouTube: 'Atidaryti Youtube'
-    Copy Invidious Link: 'Kopijuoti Invidious nuorodą'
-    Open in Invidious: 'Atidaryti Invidious'
 
 # On Video Watch Page
 #* Published
@@ -697,6 +726,7 @@ Change Format:
     negalimi'
 Share:
   Share Video: 'Dalintis vaizdo įrašu'
+  Share Playlist: 'Dalintis grojaraščiu'
   Include Timestamp: 'Pridėti laiko žymą'
   Copy Link: 'Kopijuoti nuorodą'
   Open Link: 'Atidaryti nuorodą'
@@ -712,6 +742,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube įterpinio URL nukopijuotas į iškarpinę'
   YouTube Channel URL copied to clipboard: 'YouTube kanalo URL nukopijuotas į iškarpinę'
 
+  Share Channel: Dalintis kanalu
 Mini Player: 'Mini grotuvas'
 Comments:
   Comments: 'Komentarai'
@@ -742,22 +773,21 @@ Up Next: 'Sekantis'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: 'Pasirinkite backendą, kurį „FreeTube“ naudoja duomenims
-      gauti. Vietinis API yra įmontuotas ištraukėjas. Norint prisijungti prie „Invidious“
-      API reikalingas „Invidious“ serveris.'
+    Preferred API Backend: 'Pasirinkite posistemę, kurią „FreeTube“ naudoja duomenims
+      gauti. Vietinis API yra su integruota ištraukimo funkciją. Norint prisijungti
+      prie „Invidious“ API reikalingas „Invidious“ serveris.'
     Fallback to Non-Preferred Backend on Failure: 'Kai jūsų pageidaujamoje API kyla
-      problemų, FreeTube automatiškai bandys naudoti jūsų nepasirinktą API kaip atsarginį
-      metodą, kai tai yra įgalinta.'
+      problemų, „FreeTube“ automatiškai bandys naudoti jūsų nepasirinktą API kaip
+      atsarginį metodą, kai tai yra įgalinta.'
     Thumbnail Preference: 'Visos FreeTube vaizdo įrašų miniatiūros vietoje numatytosios
       bus pakeistos atitinkamu vaizdo įrašo stop kardu.'
-    Invidious Instance: 'Invidious instancija, prie kurio FreeTube prisijungs, kad
-      gautų API pasikreipimus.'
+    Invidious Instance: 'Invidious perdavimo šaltinis, prie kurio FreeTube prisijungs,
+      kad gautų API pasikreipimus.'
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies
-      populiarius vaizdo įrašus norite rodyti. YouTube iš tikrųjų nepalaiko visų rodomų
-      šalių.'
-    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,\
-      \ kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“\
-      \ atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
+      populiarius vaizdo įrašus norite rodyti.'
+    External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda,
+      kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“
+      atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Veikia tik tada, kai numatytasis nustatymas
       yra „Invidious“ API. Kai įgalinta, vietinė API veiks ir naudos senus, o ne „Invidious“
@@ -784,7 +814,7 @@ Tooltips:
       manys, kad pasirinktą išorinį grotuvą galima rasti per PATH aplinkos kintamąjį.
       Jei reikia, čia galite nustatyti pasirinktinį kelią.'
     Ignore Warnings: 'Neatvaizduoti įspėjimų, kai dabartinis išorinis grotuvas nepalaiko
-      dabartinio veiksmo (pvz., Grojaraščių atkūrimas ir kt.).'
+      dabartinio veiksmo (pvz., grojaraščių atkūrimas ir kt.).'
     Custom External Player Arguments: 'Bet kokius pasirinktinius komandinės eilutės
       argumentus, atskirtus kabliataškiais ('';''), kuriuos norite perduoti išoriniam
       grotuvui.'
@@ -806,8 +836,8 @@ Tooltips:
       ir įjungiama pasirinktinė atmintyje esanti vaizdų talpykla. Dėl to padidės operatyviosios
       atminties naudojimas.
 Local API Error (Click to copy): 'Vietinė API klaida (spustelėkite, jei norite kopijuoti)'
-Invidious API Error (Click to copy): 'Invidious API Vietinė API klaida (spustelėkite,
-  jei norite kopijuoti)'
+Invidious API Error (Click to copy): 'Invidious API klaida (spustelėkite, jei norite
+  kopijuoti)'
 Falling back to Invidious API: 'Grįžtama prie Invidious API'
 Falling back to the local API: 'Grįžtama prie vietinio API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Šis
@@ -825,19 +855,20 @@ Shuffle is now enabled: 'Maišymas dabar įjungtas'
 The playlist has been reversed: 'Grojaraštis buvo apsuktas'
 Playing Next Video: 'Leidžiamas sekantis vaizdo įrašas'
 Playing Previous Video: 'Leidžiamas ankstesnis vaizdo įrašas'
-Playing Next Video Interval: 'Greitai paleisite kitą vaizdo įrašą. Spustelėkite norėdami
-  atšaukti. | Kitas vaizdo įrašas leidžiamas po {nextVideoInterval} sekundės. Spustelėkite,
-  jei norite atšaukti. | Kitas vaizdo įrašas bus leidžiamas po {nextVideoInterval}
-  sekundės. Spustelėkite norėdami atšaukti.'
+Playing Next Video Interval: 'Greitai bus paleistas kitas vaizdo įrašas. Spustelėkite
+  norėdami atšaukti. | Kitas vaizdo įrašas paleidžiamas po {nextVideoInterval} sek.
+  Spustelėkite, jei norite atšaukti. | Kitas vaizdo įrašas bus paleidžiamas po {nextVideoInterval}
+  sek. Spustelėkite norėdami atšaukti.'
 Canceled next video autoplay: 'Atšauktas sekančio vaizdo įrašo automatinis paleidimas'
-'The playlist has ended.  Enable loop to continue playing': 'Grojaraštis baigėsi.  Įgalinkite
+'The playlist has ended. Enable loop to continue playing': 'Grojaraštis baigėsi.  Įgalinkite
   grojimą ciklu, kad galėtumėte žiūrėti toliau'
 
 Yes: 'Taip'
 No: 'Ne'
-Default Invidious instance has been cleared: Numatytoji Invidious instancija išvalyta
-Default Invidious instance has been set to {instance}: Numatytoji Invidious instancija
-  buvo nustatyta į {instance}
+Default Invidious instance has been cleared: Numatytasis Invidious perdavimo šaltinis
+  išvalytas
+Default Invidious instance has been set to {instance}: Numatytasis Invidious perdavimo
+  šaltinis buvo nustatytas į {instance}
 Search Bar:
   Clear Input: Išvalyti įvestį
 External link opening has been disabled in the general settings: Išorinės nuorodos
@@ -850,9 +881,9 @@ Channels:
   Search bar placeholder: Ieškoti kanalų
   Count: rastas (-i) {number} kanalas (-ai).
   Empty: Jūsų kanalų sąrašas šiuo metu tuščias.
-  Unsubscribe: Atsisakyti prenumeratos
+  Unsubscribe: Atšaukti prenumeratą
   Unsubscribed: '{channelName} buvo pašalintas iš jūsų prenumeratų'
-  Unsubscribe Prompt: Ar tikrai norite atsisakyti {channelName} prenumeratos?
+  Unsubscribe Prompt: Ar tikrai norite atšaukti {channelName} prenumeratą?
 Age Restricted:
   Type:
     Channel: Kanalas
@@ -865,11 +896,11 @@ Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
 Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:
-  Chapters: Skyriai
-  'Chapters list visible, current chapter: {chapterName}': 'Skyrių sąrašas matomas,
-    dabartinis skyrius: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Skyrių sąrašas paslėptas,
-    dabartinis skyrius: {chapterName}'
+  Chapters: Skirsniai
+  'Chapters list visible, current chapter: {chapterName}': 'Skirsnių sąrašas matomas,
+    dabartinis skirsnis: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Skirsnių sąrašas paslėptas,
+    dabartinis skirsnis: {chapterName}'
 Clipboard:
   Copy failed: Nepavyko nukopijuoti į iškarpinę
   Cannot access clipboard without a secure connection: Negalima pasiekti iškarpinės

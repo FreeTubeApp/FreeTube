@@ -1,0 +1,112 @@
+# Put the name of your locale in the same language
+Locale Name: 'ଓଡ଼ିଆ'
+File: 'ଫାଇଲ୍'
+Edit: 'ସମ୍ପାଦନା'
+Undo: 'ପୂର୍ଵଵତ୍'
+Redo: 'ପୁନଃକରଣ'
+Search Filters:
+  Sort By:
+    Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
+    Most Relevant: 'ସବୁଠୁ ପ୍ରାସଙ୍ଗିକ'
+    View Count: 'ଦର୍ଶନ ଗଣନା'
+  Time:
+    Time: 'ସମୟ'
+    Any Time: 'ଯେକୌଣସି ସମୟରେ'
+    Last Hour: 'ଗତ ଘଣ୍ଟା'
+    Today: 'ଆଜି'
+    This Week: 'ଚଳିତ ସପ୍ତାହରେ'
+    This Month: 'ଚଳିତ ମାସରେ'
+    This Year: 'ଚଳିତ ଵର୍ଷରେ'
+  Type:
+    Type: 'ପ୍ରକାର'
+    All Types: 'ସମସ୍ତ ପ୍ରକାର'
+    Videos: 'ଵିଡ଼ିଓ'
+    Channels: 'ଚ୍ୟାନେଲ'
+    #& Playlists
+    Movies: ଚଳଚ୍ଚିତ୍ର
+  Duration:
+    Duration: 'ଅଵଧି'
+    All Durations: 'ସମସ୍ତ ଅଵଧି'
+Subscriptions:
+    # On Subscriptions Page
+  Subscriptions: 'ସଦସ୍ୟତା'
+  # channels that were likely deleted
+More: 'ଅଧିକ'
+Channels:
+  Channels: 'ଚ୍ୟାନେଲ'
+  Title: 'ଚ୍ୟାନେଲ ତାଲିକା'
+Trending:
+  Default: 'ଡିଫଲ୍ଟ'
+  Music: 'ସଙ୍ଗୀତ'
+  Gaming: 'ଖେଳ'
+  Movies: 'ଚଳଚ୍ଚିତ୍ର'
+Playlists: 'ଚାଳନାତାଲିକା'
+User Playlists:
+  Your Playlists: 'ଆପଣଙ୍କ ଚାଳନାତାଲିକା'
+Settings:
+  # On Settings Page
+  General Settings:
+    Thumbnail Preference:
+      Default: 'ଡିଫଲ୍ଟ'
+    External Link Handling:
+      No Action: 'କିଛି କରନ୍ତୁନି'
+  Theme Settings:
+    Theme Settings: 'ଥିମ୍ ସେଟିଂ'
+    Base Theme:
+      Base Theme: 'ଆଧାର ଥିମ୍'
+      Black: 'କଳା'
+      Dark: 'ଗାଢ଼'
+      Light: 'ହାଲୁକା'
+    Main Color Theme:
+      Red: 'ନାଲି'
+      Pink: 'ଗୋଲାପୀ'
+      Purple: 'ବାଇଗଣୀ'
+      Deep Purple: 'ଗାଢ଼ ବାଇଗଣୀ'
+      Blue: 'ନୀଳ'
+      Light Blue: 'ହାଲୁକା ନୀଳ'
+      Green: 'ସବୁଜ'
+      Light Green: 'ହାଲୁକା ସବୁଜ'
+      Lime: 'ଚୂନ'
+      Yellow: 'ହଳଦିଆ'
+      Orange: 'କମଳା'
+      Deep Orange: 'ଗାଢ଼ କମଳା'
+  Player Settings:
+    Player Settings: 'ଚାଳକ ସେଟିଂ'
+    Autoplay Videos: 'ଵିଡ଼ିଓ ସ୍ୱତଃଚାଳନ'
+    Autoplay Playlists: 'ଚାଳନାତାଲିକା ସ୍ୱତଃଚାଳନ'
+    Default Video Format:
+      Audio Formats: 'ଅଡ଼ିଓ ଫର୍ମାଟ୍'
+    Default Quality:
+      Default Quality: 'ଡିଫଲ୍ଟ ଗୁଣବତ୍ତା'
+      Auto: 'ସ୍ୱତଃ'
+      144p: '୧୪୪p'
+      240p: '୨୪୦p'
+      360p: '୩୬୦p'
+      480p: '୪୮୦p'
+      720p: '୭୨୦p'
+      1080p: '୧୦୮୦p'
+      1440p: '୧୪୪୦p'
+      4k: '୪k'
+      8k: '୮k'
+    Allow DASH AV1 formats: DASH AV1 ଫର୍ମାଟ୍‍କୁ ଅନୁମତି ଦେବା
+  External Player Settings:
+    External Player Settings: 'ବାହ୍ୟ ଚାଳକ ସେଟିଂ'
+    External Player: 'ବାହ୍ୟ ଚାଳକ'
+    Players: {}
+  Privacy Settings:
+    Privacy Settings: 'ଗୋପନୀୟତା ସେଟିଂ'
+    Remember History: 'ଇତିଵୃତ୍ତି ମନେରଖିବା'
+  Subscription Settings:
+    Manage Subscriptions: 'ସଦସ୍ୟତା ପରିଚାଳନା'
+  Distraction Free Settings:
+    Hide Comments: 'ମନ୍ତଵ୍ୟ ଲୁଚାଇବା'
+    Display Titles Without Excessive Capitalisation: ଅତ୍ୟଧିକ ବଡ଼ ଅକ୍ଷର ବିନା ଆଖ୍ୟା ପ୍ରଦର୍ଶନ
+      କରିବା
+  SponsorBlock Settings: {}
+Channel:
+  Videos: {}
+  Playlists: {}
+Video:
+  External Player: {}
+Tooltips: {}
+Age Restricted: {}

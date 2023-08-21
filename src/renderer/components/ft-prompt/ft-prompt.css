@@ -13,7 +13,13 @@
   justify-content: center;
 }
 
-.promptCard {
+.promptCard.autosize {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+.promptCard:not(.autosize) {
   width: 95%;
   margin: 0;
   position: absolute;

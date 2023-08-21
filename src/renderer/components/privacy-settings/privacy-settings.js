@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -8,7 +8,7 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PrivacySettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -34,6 +34,9 @@ export default Vue.extend({
     },
     saveWatchedProgress: function () {
       return this.$store.getters.getSaveWatchedProgress
+    },
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
     },
     removeVideoMetaFiles: function () {
       return this.$store.getters.getRemoveVideoMetaFiles
@@ -91,22 +94,24 @@ export default Vue.extend({
 
       this.updateActiveProfile(MAIN_PROFILE_ID)
 
-      if (option === 'yes') {
-        this.profileList.forEach((profile) => {
-          if (profile._id === MAIN_PROFILE_ID) {
-            const newProfile = {
-              _id: MAIN_PROFILE_ID,
-              name: profile.name,
-              bgColor: profile.bgColor,
-              textColor: profile.textColor,
-              subscriptions: []
-            }
-            this.updateProfile(newProfile)
-          } else {
-            this.removeProfile(profile._id)
+      if (option !== 'yes') { return }
+
+      this.profileList.forEach((profile) => {
+        if (profile._id === MAIN_PROFILE_ID) {
+          const newProfile = {
+            _id: MAIN_PROFILE_ID,
+            name: profile.name,
+            bgColor: profile.bgColor,
+            textColor: profile.textColor,
+            subscriptions: []
           }
-        })
-      }
+          this.updateProfile(newProfile)
+        } else {
+          this.removeProfile(profile._id)
+        }
+      })
+
+      this.clearSubscriptionsCache()
     },
 
     ...mapActions([
@@ -114,10 +119,12 @@ export default Vue.extend({
       'updateRemoveVideoMetaFiles',
       'removeAllHistory',
       'updateSaveWatchedProgress',
+      'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',
       'updateProfile',
       'removeProfile',
-      'updateActiveProfile'
+      'updateActiveProfile',
+      'clearSubscriptionsCache',
     ])
   }
 })

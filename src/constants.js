@@ -38,7 +38,8 @@ const DBActions = {
   },
 
   HISTORY: {
-    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress'
+    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
+    UPDATE_PLAYLIST: 'db-action-history-update-playlist',
   },
 
   PLAYLISTS: {
@@ -59,13 +60,19 @@ const SyncEvents = {
   },
 
   HISTORY: {
-    UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress'
+    UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
+    UPDATE_PLAYLIST: 'sync-history-update-playlist',
   },
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     DELETE_VIDEO: 'sync-playlists-delete-video'
   }
+}
+
+// https://v2.vuejs.org/v2/api/#provide-inject
+const Injectables = {
+  SHOW_OUTLINES: 'showOutlines'
 }
 
 // Utils
@@ -75,5 +82,6 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  Injectables,
   MAIN_PROFILE_ID
 }

@@ -1,9 +1,10 @@
 name: Remove outdated labels
 on:
-  # https://github.community/t/github-actions-are-severely-limited-on-prs/18179/15
   pull_request_target:
     types:
       - closed
+      - converted_to_draft
+      - ready_for_review
 jobs:
   remove-merged-pr-labels:
     name: Remove merged pull request labels
@@ -19,10 +20,11 @@ jobs:
             PR: changes requested
             PR: merge conflicts / rebase needed
             PR/Issue: dependent
+            PR: stale
 
   remove-closed-pr-labels:
     name: Remove closed pull request labels
-    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged)
+    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft') && (github.event.action != 'ready_for_review')
     runs-on: ubuntu-latest
     steps:
       - uses: mondeja/remove-labels-gh-action@v1.1.1
@@ -33,4 +35,27 @@ jobs:
             PR: WIP
             PR: changes requested
             PR: merge conflicts / rebase needed
-            PR/Issue: dependent      
+            PR/Issue: dependent
+            PR: stale
+
+  remove-draft-pr-labels:
+    name: Remove labels from draft pull requests
+    if: github.event_name == 'pull_request_target' && github.event.action == 'converted_to_draft'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            PR: waiting for review
+            
+  remove-ready-pr-labels:
+    name: Remove labels when draft pr is marked ready for review
+    if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            PR: WIP

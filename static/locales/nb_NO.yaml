@@ -29,6 +29,13 @@ Close: 'Lukk'
 Back: 'Tilbake'
 Forward: 'Framover'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoer'
+  Shorts: Kortvideoer
+  Live: Direkte
+
 # Search Bar
 Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
@@ -54,12 +61,14 @@ Search Filters:
     Videos: 'Videoer'
     Channels: 'Kanaler'
     #& Playlists
+    Movies: Filmer
   Duration:
     Duration: 'Varighet'
     All Durations: 'Alle varigheter'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
+    Medium (4 - 20 minutes): Middels (4–20 minutter)
   Search Results: 'Søkeresultater'
   Fetching results. Please wait: 'Henter resultater. Vennligst vent.'
   Fetch more results: 'Hent flere resultater'
@@ -75,9 +84,12 @@ Subscriptions:
   Refresh Subscriptions: Oppdater abonnementer
   Getting Subscriptions. Please wait.: Henter abonnementer. Vennligst vent.
   Load More Videos: Last flere videoer
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
   Error Channels: Kanaler med feil
+  Disabled Automatic Fetching: Automatisk innhenting av abonnementer avskrudd. Gjenoppfrisk
+    abonnementer for å se dem her.
+  Empty Channels: Ingen videoer fra kanaler du abonnerer på enda.
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -159,6 +171,7 @@ Settings:
       Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemforvalg
+      Catppuccin Mocha: Catppuccin-mokka
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -184,12 +197,27 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Rød'
       Dracula Yellow: 'Dracula Gul'
+      Catppuccin Mocha Flamingo: Catppuccin-mokka-flamingo
+      Catppuccin Mocha Pink: Catppuccin-mokka-rosa
+      Catppuccin Mocha Mauve: Catppuccin-mokka-blålilla
+      Catppuccin Mocha Red: Catppuccin-mokka-rød
+      Catppuccin Mocha Maroon: Catppuccin-mokka-kastanjebrun
+      Catppuccin Mocha Peach: Catppuccin-mokka-fersken
+      Catppuccin Mocha Yellow: Catppuccin-mokka-gul
+      Catppuccin Mocha Lavender: Catppuccin-mokka-lavendel
+      Catppuccin Mocha Sapphire: Catppuccin-mokka-saffir
+      Catppuccin Mocha Blue: Catppuccin-mokka-blå
+      Catppuccin Mocha Sky: Catppuccin-mokka-himmelblå
+      Catppuccin Mocha Green: Catppuccin-mokka-grønn
+      Catppuccin Mocha Teal: Catppuccin-mokka-blågrønn
+      Catppuccin Mocha Rosewater: Catppuccin-mokka-rosévann
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
     UI Scale: Grensesnittskala
     Disable Smooth Scrolling: Slå av myk rulling
     Expand Side Bar by Default: Utvidet sidefelt som forvalg
     Hide Side Bar Labels: Skjul sidefeltsetiketter
+    Hide FreeTube Header Logo: Skjul FreeTube-tittellogo
   Player Settings:
     Player Settings: 'Videoavspillingsinnstillinger'
     Force Local Backend for Legacy Formats: 'Påtving lokal bakende for forelede formater'
@@ -228,6 +256,26 @@ Settings:
       Error:
         Forbidden Characters: Forbudte tegn
         Empty File Name: Tomt filnavn
+      Enable: Skru på skjermavbildninger
+      Folder Label: Skjermavbildningsmappe
+      Folder Button: Velg mappe
+      Format Label: Skjermavbildningsformat
+      Quality Label: Skjermavbildningskvalitet
+      Ask Path: Spør om hvor ting skal lagres
+      File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
+        i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
+        %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t
+        videomillisekunder, i tre siffer. %i video-ID. Du kan også bruke «\», eller
+        «/» for å lage undermapper.
+    Max Video Playback Rate: Maks. videoavspillingshastighet
+    Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
+      videoavspiller
+    Video Playback Rate Interval: Intervall for videoavspillingshastighet
+    Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
+    Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
+    Allow DASH AV1 formats: Tillat DASH AV1-formater
+    Comment Auto Load:
+      Comment Auto Load: Auto-innlasting av kommentarer
   Privacy Settings:
     Privacy Settings: 'Personvernsinnstillinger'
     Remember History: 'Husk historikk'
@@ -244,12 +292,12 @@ Settings:
       du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
       angres.
     Automatically Remove Video Meta Files: Fjern metadata automatisk fra videoer
+    Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette
+      spilleliste
   Subscription Settings:
     Subscription Settings: 'Abonnementsinnstillinger'
     Hide Videos on Watch: 'Skjul sette videoer'
     Subscriptions Export Format:
-      Subscriptions Export Format: ''
-      #& Freetube
       Newpipe: 'NewPipe'
       OPML: 'OPML'
     Manage Subscriptions: 'Håndter abonnementer'
@@ -257,16 +305,12 @@ Settings:
     Export Subscriptions: 'Eksporter abonnementer'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
     Fetch Feeds from RSS: Hent informasjonskanaler fra RSS
+    Fetch Automatically: Hent informasjonskanaler automatisk
   Advanced Settings:
     Advanced Settings: 'Avanserte innstillinger'
-    Enable Debug Mode (Prints data to the console): ''
     'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': 'Mellomtjener-adresse (Eksempel:
       SOCKS5://127.0.0.1:9050 )'
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
     Use Tor / Proxy for API calls: 'Bruk Tor / mellomtjener for API-kall'
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
     Clear History:
       Clear History: 'Tøm historikk'
       # On Click
@@ -326,6 +370,9 @@ Settings:
     Playlist File: Spillelistefil
     Export Playlists: Eksporter spillelister
     Import Playlists: Importer spillelister
+    All playlists has been successfully exported: Alle spillelister eksportert
+    Playlist insufficient data: Utilstrekkelig data for «{playlist}»-spillelisten.
+      Hopper over elementet.
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
@@ -354,6 +401,25 @@ Settings:
     Hide Video Views: Skjul videovisninger
     Hide Live Chat: Skjul sanntidssludring
     Hide Playlists: Skjul spillelister
+    Hide Comments: Skjul kommentarer
+    Hide Live Streams: "\n"
+    Hide Chapters: Skjul kapitler
+    Hide Channels Placeholder: Kanalnavn eller ID
+    Hide Channels: Skjul videoer fra kanaler
+    Hide Sharing Actions: Skjul delingshandlinger
+    Hide Upcoming Premieres: Skjul kommende premièrer
+    Hide Video Description: Skjul videobeskrivelse
+    Display Titles Without Excessive Capitalisation: Vis titler uten overdrevet bruk
+      av store bokstaver
+    Hide Featured Channels: Skjult framhevede kanaler
+    Hide Channel Community: Skjul kanalgemenskap
+    Hide Channel Shorts: Skjul kanal-kortvideoer
+    Sections:
+      Side Bar: Sidefelt
+      Channel Page: Kanalside
+      General: Generelt
+      Watch Page: Seerlogg
+    Hide Channel Playlists: Skjul kanalspilleliste
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -365,7 +431,12 @@ Settings:
     SponsorBlock Settings: SponsorBlock-innstillinger
     Skip Options:
       Do Nothing: Ikke gjør noe
+      Prompt To Skip: Spør om å hoppe over
+      Skip Option: Alternativ for å hoppe over
+      Auto Skip: Automatisk
+      Show In Seek Bar: Vis i blafringsfelt
     Category Color: Kategorifarge
+    UseDeArrowTitles: Bruk DeArrow-videonavn
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
@@ -380,11 +451,28 @@ Settings:
     Download Settings: Nedlastingsinnstillinger
     Download in app: Last ned i programmet
     Open in web browser: Åpne i nettleser
+    Download Behavior: Nedlastingsadferd
+    Ask Download Path: Spør om nedlastingssti
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
     Hide Search Bar: Skjul søkefelt
+    Show Family Friendly Only: Kun vis familievennlige
+    Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
   Experimental Settings:
     Experimental Settings: Eksperimentelle innstillinger
+    Replace HTTP Cache: Erstatt HTTP-hurtiglager
+    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasj. Sikkerhetskopi
+      anbefales. Bruk på egen risiko.
+  Password Settings:
+    Remove Password: Fjern passord
+    Password Settings: Passordinnstillinger
+    Set Password To Prevent Access: Sett et passord for å forhindre tilgang til innstillingene
+    Set Password: Sett passord
+  Password Dialog:
+    Unlock: Lås opp
+    Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
+    Password Incorrect: Feil passord
+    Password: Passord
 About:
   #On About page
   About: 'Om'
@@ -392,23 +480,6 @@ About:
   'This software is FOSS and released under the GNU Affero General Public License v3.0.': 'Denne
     gemenslig frie programvaren er lisensiert AGPL-3.0.'
 
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
-
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-  'Looking for help? Check out our Wiki page.': ''
-
-  Check out our Firefox extension!: ''
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: ''
-
-#On Channel Page
   FAQ: Ofte stilte spørsmål
   Downloads / Changelog: Nedlastninger / Endringslogg
   Licensed under the AGPLv3: Lisensiert AGPLv3.
@@ -460,11 +531,31 @@ Channel:
     About: 'Om'
     Channel Description: 'Kanalbeskrivelse'
     Featured Channels: 'Framhevede kanaler'
+    Tags:
+      Tags: Etiketter
+      Search for: Søk etter «{tag}»
+    Details: Detaljer
+    Joined: Registrert
+    Location: Posisjon
   Added channel to your subscriptions: Lagt til kanal til dine abonnenter
   Removed subscription from {count} other channel(s): Fjernet abonnement fra {count}
     andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
     dine abonnement
+  This channel does not exist: Denne kanalen finnes ikke
+  This channel does not allow searching: Denne kanalen tillater ikke søk
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
+    kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
+  Channel Tabs: Kanalfaner
+  Community:
+    Community: Gemenskap
+    This channel currently does not have any posts: Denne kanalen har ingen oppføringer
+  Shorts:
+    This channel does not currently have any shorts: Denne kanalen har ingen kortvideoer
+  Live:
+    Live: Direkte
+    This channel does not currently have any live streams: Denne kanalen har ikke
+      noen direktestrømmer
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
@@ -491,9 +582,9 @@ Video:
     i denne versjonen.'
   'Chat is disabled or the Live Stream has ended.': 'Sludringen er slått av, eller
     så er direktesendingen avsluttet.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Sanntidssludring
+  Live chat is enabled. Chat messages will appear here once sent.: 'Sanntidssludring
     er påslått. Meldinger vil vises her når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Sanntidssludring
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Sanntidssludring
     støttes for tiden ikke med Invidious-API-et. Direkte tilkobling til YouTube kreves.'
   Published:
     Jan: 'Jan'
@@ -587,6 +678,18 @@ Video:
     Resolution: Oppløsning
     Player Dimensions: Avspillerdimensjoner
     Mimetype: Media-type
+    Buffered: Mellomlagret
+    Video ID: Video-ID
+    Video statistics are not available for legacy videos: Videostatistikk er ikke
+      tilgjengelig for gammeldagse videoer
+    Dropped / Total Frames: Tapte/totalt antall rammer
+  Show Super Chat Comment: Vis supersludringskommentar
+  Scroll to Bottom: Rull til bunnen
+  Premieres on: Har première
+  Premieres: Première
+  Upcoming: Kommende
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Sanntidssludring
+    er ikke tilgjengelig for denne strømmen. Opplasteren kan ha skrudd det av.
 Videos:
   #& Sort By
   Sort By:
@@ -601,12 +704,6 @@ Playlist:
   View: 'Visning'
   Views: 'Visninger'
   Last Updated On: 'Sist oppdatert'
-  Share Playlist:
-    Share Playlist: 'Del spilleliste'
-    Copy YouTube Link: 'Kopier YouTube-lenke'
-    Open in YouTube: 'Åpne i YouTube'
-    Copy Invidious Link: 'Kopier Invidious-lenke'
-    Open in Invidious: 'Åpne i Invidious'
 
 # On Video Watch Page
 #* Published
@@ -624,6 +721,7 @@ Change Format:
     for denne videoen
 Share:
   Share Video: 'Del video'
+  Share Playlist: 'Del spilleliste'
   Copy Link: 'Kopier lenke'
   Open Link: 'Åpne lenke'
   Copy Embed: 'Kopier innebyggingslenke'
@@ -639,6 +737,7 @@ Share:
   Include Timestamp: Inkluder tidsstempel
   Invidious Channel URL copied to clipboard: Invidious-kanalnettadresse kopiert til
     utklippstavle
+  Share Channel: Del kanal
 Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
@@ -663,6 +762,9 @@ Comments:
   From {channelName}: Fra {channelName}
   Pinned by: Festet av
   Member: Medlem
+  And others: og andre
+  View {replyCount} replies: Vis {replyCount} svar
+  Hearted: Hjertemerket
 Up Next: 'Neste'
 
 # Toast Messages
@@ -678,10 +780,8 @@ Shuffle is now disabled: 'Tilfeldig avspilling er nå deaktivert'
 Shuffle is now enabled: 'Tilfeldig avspilling er nå aktivert'
 Playing Next Video: 'Spiller av neste video'
 Playing Previous Video: 'Spiller av forrige video'
-Playing next video in 5 seconds.  Click to cancel: 'Spiller av neste video om 5 sekunder.
-  Klikk for å avbryte.'
 Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
-'The playlist has ended.  Enable loop to continue playing': 'Spillelisten har nådd
+'The playlist has ended. Enable loop to continue playing': 'Spillelisten har nådd
   sin ende. Klikk på "Gjenta" for å fortsette avspillingen'
 
 Yes: 'Ja'
@@ -741,16 +841,18 @@ Tooltips:
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en tilbakefallsmetode
       dersom det er aktivert.
     Region for Trending: Trendregionen lar deg enkelt velge hvilkets lands populære
-      videoer du ønsker å vise. Ikke alle land som vises støttes av YouTube.
+      videoer du ønsker å vise.
     Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
-    External Link Handling: "Velg oppførsel når en link som ikke kan åpnes i FreeTube\
-      \ klikkes.\nSom forvalg vil FreeTube åpne lenken i nettleseren din.\n"
+    External Link Handling: "Velg oppførsel når en link som ikke kan åpnes i FreeTube
+      klikkes.\nSom forvalg vil FreeTube åpne lenken i nettleseren din.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
       av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler
       noe informasjon som videovarighet og sanntidsstatus.
+    Fetch Automatically: Henter abonnementer når en ny video åpnes og ved bytting
+      av profil.
   Player Settings:
     Default Video Format: Sett formater brukt når en video spilles. DASH-formater
       kan spille høyere kvaliteter. Foreldede formater er begrenset til maks. 720p,
@@ -762,6 +864,16 @@ Tooltips:
       av som følge av regionsbegrensninger.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube. Overstyrer API-innstillinger.
+    Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe deg gjennom
+      videoen i MPV-stil.
+    Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke
+      og holde Ctrl-tasten (⌘ på Mac) og rulle musehjulet forover eller bakover for
+      å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og
+      venstreklikk på musen for å gå tilbake til fovalgt avspillingshastighet (1x
+      med minde det har blitt endret i innstillingene).
+    Allow DASH AV1 formats: DASH AV1-formater kan ha bedre kvalitet enn DASH H.264
+      -formater. DASH AV1-formater krever dog mer regnekraft for avspilling. Ikke
+      tilgjengelig for alle videoer, og i sådant fall bruker avspilleren DASH H.264-formater.
   Privacy Settings:
     Remove Video Meta Files: Hvis denne instillingen er på, vil FreeTube automatisk
       slette metadata generert under videoavspilling når du lukker avspillingsiden.
@@ -776,6 +888,16 @@ Tooltips:
     External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
       hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
     DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
+  Experimental Settings:
+    Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på
+      bildehurtiglager i minne. Medfører økt minnebruk.
+  Distraction Free Settings:
+    Hide Channels: Skiv inn et kanalnavn eller kanal-ID for å skjule alle videoer,
+      spillelister og selve kanalen fra å vises i søk eller på vei opp. Kanalnavnet
+      som skrives inn må være et nøyaktig treff, og gjør forskjell på små og store
+      bokstaver.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
 A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
   er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
@@ -798,7 +920,7 @@ External link opening has been disabled in the general settings: Åpning av ekst
   lenker er avskrudd i de generelle innstillingene
 Search Bar:
   Clear Input: Tøm inndata
-Are you sure you want to open this link?: Åpne denne lenken?
+Are you sure you want to open this link?: Er du sikker på at du vil åpne denne lenken?
 New Window: Nytt vindu
 Channels:
   Channels: Kanaler
@@ -813,7 +935,25 @@ Age Restricted:
   Type:
     Channel: Kanal
     Video: Video
+  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er aldersbegrenset
 Chapters:
   Chapters: Kapitler
+  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig.
+    Nåværende kapittel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende
+    kapittel: {chapterName}'
 Screenshot Success: Lagre skjermavbildning som «{filePath}»
 Screenshot Error: Skjermavbildning mislyktes. {error}
+Ok: OK
+Preferences: Innstillinger
+Downloading failed: Kunne ikke laste ned «{videoTitle}»
+Starting download: Starter nedlasting av «{videoTitle}» …
+Clipboard:
+  Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen
+    uten sikker forbindelse
+  Copy failed: Kunne ikke kopiere til utklippstavlen
+Downloading has completed: «{videoTitle}» er nedlastet
+Hashtag:
+  Hashtag: Emneknagg
+  This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer
+    enda

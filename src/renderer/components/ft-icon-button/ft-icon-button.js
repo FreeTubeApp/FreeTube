@@ -1,7 +1,12 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
+import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtIconButton',
+  components: {
+    'ft-prompt': FtPrompt
+  },
   props: {
     title: {
       type: String,
@@ -50,15 +55,32 @@ export default Vue.extend({
       // - value: String (if type == 'labelValue')
       type: Array,
       default: () => { return [] }
+    },
+    dropdownModalOnMobile: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
     return {
       dropdownShown: false,
-      mouseDownOnIcon: false
+      mouseDownOnIcon: false,
+      useModal: false
+    }
+  },
+  mounted: function () {
+    if (this.dropdownModalOnMobile) {
+      this.useModal = window.innerWidth <= 900
+      window.addEventListener('resize', this.handleResize)
+    }
+  },
+  beforeDestroy: function () {
+    if (this.dropdownModalOnMobile) {
+      window.removeEventListener('resize', this.handleResize)
     }
   },
   methods: {
+    sanitizeForHtmlId,
     // used by the share menu
     hideDropdown: function () {
       this.dropdownShown = false
@@ -68,12 +90,12 @@ export default Vue.extend({
       if (this.forceDropdown || (this.dropdownOptions.length > 0)) {
         this.dropdownShown = !this.dropdownShown
 
-        if (this.dropdownShown) {
+        if (this.dropdownShown && !this.useModal) {
           // wait until the dropdown is visible
           // then focus it so we can hide it automatically when it loses focus
           setTimeout(() => {
-            this.$refs.dropdown.focus()
-          }, 0)
+            this.$refs.dropdown?.focus()
+          })
         }
       } else {
         this.$emit('click')
@@ -102,6 +124,10 @@ export default Vue.extend({
       }
 
       this.dropdownShown = false
+    },
+
+    handleResize: function () {
+      this.useModal = window.innerWidth <= 900
     }
   }
 })

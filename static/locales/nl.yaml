@@ -30,6 +30,11 @@ Close: 'Sluiten'
 Back: 'Ga terug'
 Forward: 'Ga vooruit'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video''s'
+
 # Search Bar
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
@@ -55,12 +60,14 @@ Search Filters:
     Videos: 'Video''s'
     Channels: 'Kanalen'
     #& Playlists
+    Movies: Films
   Duration:
     Duration: 'Tijdsduur'
     All Durations: 'Alle tijdsduren'
     Short (< 4 minutes): 'Kort (< 4 minuten)'
     Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
+    Medium (4 - 20 minutes): Gemiddeld (4 - 20 minuten)
   Search Results: 'Zoekresultaten'
   Fetching results. Please wait: 'Resultaten verzamelen. Even geduld aub'
   Fetch more results: 'Meer resultaten laden'
@@ -73,14 +80,16 @@ Subscriptions:
   Latest Subscriptions: 'Nieuwste abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'U
     heeft nog geen Abonnementen. Voeg abonnementen toe om ze hier te zien'
-  'Getting Subscriptions.  Please wait.': ''
   Refresh Subscriptions: Abonnementen vernieuwen
   Getting Subscriptions. Please wait.: Abonnementen verzamelen. Even geduld aub.
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Dit
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om tariefbeperkingen
     te vermijden
   Load More Videos: Meer video's laden
   Error Channels: Kanalen met storingen
+  Disabled Automatic Fetching: U hebt het automatisch ophalen van abonnementen uitgeschakeld.
+    Vernieuw abonnementen om ze hier te zien.
+  Empty Channels: Je geabonneerde kanalen hebben momenteel geen video's.
 Trending:
   Trending: 'Actuele'
   Trending Tabs: Tendingtabbladen
@@ -165,6 +174,7 @@ Settings:
       Light: 'Licht'
       Dracula: 'Dracula'
       System Default: Standaardwaarde van systeem
+      Catppuccin Mocha: Catppuccin Mokka
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -190,12 +200,27 @@ Settings:
       Dracula Purple: 'Dracula-paars'
       Dracula Red: 'Dracula-rood'
       Dracula Yellow: 'Dracula-geel'
+      Catppuccin Mocha Green: Catppuccin Mokka Groen
+      Catppuccin Mocha Maroon: Catppuccin mokka kastanjebruin
+      Catppuccin Mocha Blue: Catppuccin Mokka Blauw
+      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+      Catppuccin Mocha Rosewater: Catppuccin Mokka Rozenwater
+      Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mokka Roze
+      Catppuccin Mocha Mauve: Catppuccin Mokka Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Roze
+      Catppuccin Mocha Peach: Catppuccin Mokka Perzik
+      Catppuccin Mocha Yellow: Catppuccin Mokka Geel
+      Catppuccin Mocha Sapphire: Catppuccin Mokka Saffier
+      Catppuccin Mocha Teal: Catppuccin Mokka Wintertaling
+      Catppuccin Mocha Sky: Catppuccin Mokka Hemel
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Schaal van interface
     Expand Side Bar by Default: Zijbalk standaard uitklappen
     Disable Smooth Scrolling: Vloeiend scrollen uitschakelen
     Hide Side Bar Labels: Labels op zijbalk verbergen
+    Hide FreeTube Header Logo: Verberg het FreeTube-koplogo
   Player Settings:
     Player Settings: 'Videospelerinstellingen'
     Force Local Backend for Legacy Formats: 'Lokale backend voor oudere formaten forceren'
@@ -249,6 +274,10 @@ Settings:
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
         video; %i ID van de video. U kunt ook "\" of "/" gebruiken om deelmappen aan
         te maken.'
+    Comment Auto Load:
+      Comment Auto Load: Commentaar Automatisch Laden
+    Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
+    Allow DASH AV1 formats: DASH-AV1-bestandstypes toestaan
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
@@ -270,16 +299,9 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Instellingen voor abonnementen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
-    Subscriptions Export Format:
-      Subscriptions Export Format: ''
-      #& Freetube
-      Newpipe: ''
-      OPML: ''
     Manage Subscriptions: 'Abonnementen beheren'
-    Import Subscriptions: ''
-    Export Subscriptions: ''
-    How do I import my subscriptions?: ''
     Fetch Feeds from RSS: Verzamel feeds via RSS
+    Fetch Automatically: Haal feed automatisch op
   Advanced Settings:
     Advanced Settings: 'Geavanceerde Instellingen'
     Enable Debug Mode (Prints data to the console): 'Schakel Debug Modus in (Print
@@ -349,10 +371,13 @@ Settings:
     All playlists has been successfully imported: Alle speellijsten zijn met succes
       geïmporteerd
     Import Playlists: Afspeellijsten importeren
-    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}", item word
-      overgeslagen
+    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}",
+      item word overgeslagen
     All playlists has been successfully exported: Alle speellijsten zijn met succes
       geëxporteerd
+    Subscription File: Abonnementenbestand
+    History File: Geschiedenisbestand
+    Playlist File: Afspeellijstbestand
   Distraction Free Settings:
     Hide Live Chat: Livechat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -369,6 +394,11 @@ Settings:
     Hide Video Description: Verberg de beschrijving van de video
     Hide Comments: Verberg de reacties
     Hide Live Streams: Verberg rechtstreekse uitzendingen
+    Display Titles Without Excessive Capitalisation: Toon titels zonder overmatig
+      hoofdlettergebruik
+    Sections:
+      Side Bar: Zijbalk
+      General: Algemeen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
     opstarten en verandering toepassen?
@@ -410,6 +440,9 @@ Settings:
       negeren
     External Player: Externe videospeler
     External Player Settings: Instellingen externe mediaspeler
+    Players:
+      None:
+        Name: Geen
   Download Settings:
     Choose Path: Pad kiezen
     Download Settings: Downloadinstellingen
@@ -422,6 +455,10 @@ Settings:
     Parental Control Settings: Instellingen voor ouderlijk toezicht
     Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
     Hide Search Bar: Zoekbalk verbergen
+  Experimental Settings:
+    Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken.
+      Het is raadzaam backups te maken. Gebruiken op eigen risico!
+    Experimental Settings: Experimentele instellingen
 About:
   #On About page
   About: 'Over'
@@ -507,9 +544,11 @@ Channel:
     About: 'Over'
     Channel Description: 'Kanaalbeschrijving'
     Featured Channels: 'Uitgelichte kanalen'
+    Tags:
+      Search for: Zoek naar ‘{tag}’
   Added channel to your subscriptions: Kanaal is toegevoegd aan uw abonnementen
-  Removed subscription from {count} other channel(s): Abonnementen van {count} andere kanalen
-    zijn verwijderd
+  Removed subscription from {count} other channel(s): Abonnementen van {count} andere
+    kanalen zijn verwijderd
   Channel has been removed from your subscriptions: Kanaal is verwijderd uit uw abonnementen
 Video:
   Mark As Watched: 'Als bekeken markeren'
@@ -536,9 +575,9 @@ Video:
     nog niet ondersteund.'
   'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de livestream
     is beëindigd.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
     Chats zullen hier verschijnen.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Livechat
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechat
     wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
     met YouTube is nodig.'
   Published:
@@ -660,12 +699,6 @@ Playlist:
   View: 'Bekijk'
   Views: 'Weergaven'
   Last Updated On: 'Laatste bijgewerkt op'
-  Share Playlist:
-    Share Playlist: 'Afspeellijst delen'
-    Copy YouTube Link: 'YouTube-link kopiëren'
-    Open in YouTube: 'In YouTube openen'
-    Copy Invidious Link: 'Invidious-link kopiëren'
-    Open in Invidious: 'In Invidious openen'
 
 # On Video Watch Page
 #* Published
@@ -683,6 +716,7 @@ Change Format:
     voor deze video
 Share:
   Share Video: 'Video delen'
+  Share Playlist: 'Afspeellijst delen'
   Copy Link: 'Koppeling kopiëren'
   Open Link: 'Koppeling openen'
   Copy Embed: 'Insluitlink kopiëren'
@@ -738,10 +772,8 @@ Shuffle is now disabled: 'Willekeurig afspelen is nu uitgeschakeld'
 Shuffle is now enabled: 'Willekeurig afspelen is nu ingeschakeld'
 Playing Next Video: 'Volgende Video Word Afgespeeld'
 Playing Previous Video: 'Vorige Video Word Afgespeeld'
-Playing next video in 5 seconds.  Click to cancel: 'Volgende Video Begint in 5 Seconden.
-  Klik om te Annuleer.'
 Canceled next video autoplay: 'Automatisch afspelen is geannuleerd'
-'The playlist has ended.  Enable loop to continue playing': 'Het einde van de afspeellijst
+'The playlist has ended. Enable loop to continue playing': 'Het einde van de afspeellijst
   is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
 Yes: 'Ja'
@@ -752,7 +784,8 @@ Profile:
   Your default profile has been changed to your primary profile: Uw standaardprofiel
     is veranderd naar uw hoofdprofiel
   Removed {profile} from your profiles: '{profile} is verwijderd uit uw profielen'
-  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld op {profile}
+  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld
+    op {profile}
   Profile has been updated: Profiel is bijgewerkt
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
@@ -789,11 +822,11 @@ Profile:
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
   Profile Settings: Profielinstellingen
-A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost is beschikbaar,
-  {blogTitle}. Klik voor meer informatie
+A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
+  is beschikbaar, {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
-Version {versionNumber} is now available!  Click for more details: Versie {versionNumber} is nu beschikbaar! Klik
-  voor meer informatie
+Version {versionNumber} is now available!  Click for more details: Versie {versionNumber}
+  is nu beschikbaar! Klik voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
   video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als
   de video niet in uw land beschikbaar is.
@@ -833,11 +866,10 @@ Tooltips:
       De lokale API is een ingebouwde inhoudsverzamelaar. De Invidious API moet worden
       verbonden met een Invidious server.
     Region for Trending: Met trend regio kan je instellen uit welk land je trending
-      video's je wil zien. Niet alle weergegeven landen worden ook daadwerkelijk ondersteund
-      door YouTube.
-    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet\
-      \ kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte\
-      \ link openen in je standaardbrowser.\n"
+      video's je wil zien.
+    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet
+      kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
+      link openen in je standaardbrowser.\n"
   Privacy Settings:
     Remove Video Meta Files: Wanneer ingeschakeld zal FreeTube automatisch meta bestanden
       die worden gecreëerd tijdens het afspelen van video's verwijderen zodra de pagina
@@ -865,8 +897,8 @@ Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-URL; de URL
   niet worden geopend in de app
 Open New Window: Nieuw venster openen
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
-Default Invidious instance has been set to {instance}: Standaard Invidious-instantie is ingesteld
-  op {instance}
+Default Invidious instance has been set to {instance}: Standaard Invidious-instantie
+  is ingesteld op {instance}
 Are you sure you want to open this link?: Weet je zeker dat je deze link wilt openen?
 Search Bar:
   Clear Input: Invoer wissen
@@ -893,4 +925,6 @@ Channels:
   Empty: Uw lijst van kanalen is thans leeg.
   Unsubscribe: Afmelden
   Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
+  Unsubscribe Prompt: Weet je zeker dat je wilt afmelden voor "{channelName}"?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
+Preferences: Voorkeuren

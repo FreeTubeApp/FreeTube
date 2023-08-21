@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SideNav',
   data: function () {
     return {
@@ -27,12 +27,6 @@ export default Vue.extend({
       return {
         navIconExpand: this.hideLabelsSideBar
       }
-    }
-  },
-  methods: {
-    navigate: function (route) {
-      this.openMoreOptions = false
-      this.$emit('navigate', route)
     }
   }
 })

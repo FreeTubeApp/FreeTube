@@ -35,6 +35,7 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
+          :disabled="videoSkipMouseScroll"
           :default-value="videoVolumeMouseScroll"
           @change="updateVideoVolumeMouseScroll"
         />
@@ -46,10 +47,12 @@
           @change="updateVideoPlaybackRateMouseScroll"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
+          :label="$t('Settings.Player Settings.Skip by Scrolling Over Video Player')"
           :compact="true"
-          :default-value="displayVideoPlayButton"
-          @change="updateDisplayVideoPlayButton"
+          :disabled="videoVolumeMouseScroll"
+          :default-value="videoSkipMouseScroll"
+          :tooltip="$t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
+          @change="updateVideoSkipMouseScroll"
         />
       </div>
       <div class="switchColumn">
@@ -71,6 +74,18 @@
           :disabled="hideRecommendedVideos"
           :default-value="playNextVideo"
           @change="updatePlayNextVideo"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
+          :compact="true"
+          :default-value="displayVideoPlayButton"
+          @change="updateDisplayVideoPlayButton"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
+          :compact="true"
+          :default-value="enterFullscreenOnDisplayRotate"
+          @change="updateEnterFullscreenOnDisplayRotate"
         />
       </div>
     </div>
@@ -144,16 +159,26 @@
         :select-values="qualityValues"
         @change="updateDefaultQuality"
       />
+      <ft-toggle-switch
+        class="av1Switch"
+        :label="$t('Settings.Player Settings.Allow DASH AV1 formats')"
+        :compact="true"
+        :default-value="allowDashAv1Formats"
+        :tooltip="$t('Tooltips.Player Settings.Allow DASH AV1 formats')"
+        @change="updateAllowDashAv1Formats"
+      />
     </ft-flex-box>
     <br>
-    <ft-flex-box>
+    <ft-flex-box
+      v-if="usingElectron"
+    >
       <ft-toggle-switch
         :label="$t('Settings.Player Settings.Screenshot.Enable')"
         :default-value="enableScreenshot"
         @change="updateEnableScreenshot"
       />
     </ft-flex-box>
-    <div v-if="enableScreenshot">
+    <div v-if="usingElectron && enableScreenshot">
       <ft-flex-box>
         <ft-select
           :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"
@@ -181,7 +206,7 @@
         />
       </ft-flex-box>
       <ft-flex-box
-        v-if="!screenshotAskPath"
+        v-if="usingElectron && !screenshotAskPath"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFolderLabel">
@@ -200,7 +225,10 @@
           @click="chooseScreenshotFolder"
         />
       </ft-flex-box>
-      <ft-flex-box class="screenshotFolderContainer">
+      <ft-flex-box
+        v-if="usingElectron"
+        class="screenshotFolderContainer"
+      >
         <p class="screenshotFilenamePatternTitle">
           {{ $t('Settings.Player Settings.Screenshot.File Name Label') }}
           <ft-tooltip
@@ -226,9 +254,18 @@
           :disabled="true"
         />
       </ft-flex-box>
+      <br>
     </div>
+    <ft-flex-box>
+      <ft-toggle-switch
+        :label="$t('Settings.Player Settings.Comment Auto Load.Comment Auto Load')"
+        :default-value="commentAutoLoadEnabled"
+        :disabled="hideComments"
+        @change="updateCommentAutoLoadEnabled"
+      />
+    </ft-flex-box>
   </ft-settings-section>
 </template>
 
 <script src="./player-settings.js" />
-<style scoped lang="sass" src="./player-settings.sass" />
+<style scoped lang="scss" src="./player-settings.scss" />

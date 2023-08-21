@@ -8,7 +8,7 @@ FreeTube: 'FreeTube'
 # Webkit Menu Bar
 File: 'Файл'
 Quit: 'Вийти'
-Edit: 'Редагувати'
+Edit: 'Змінити'
 Undo: 'Повернути'
 Redo: 'Повторити'
 Cut: 'Вирізати'
@@ -18,22 +18,29 @@ Delete: 'Видалити'
 Select all: 'Вибрати все'
 Reload: 'Перезавантажити'
 Force Reload: 'Примусове перезавантаження'
-Toggle Developer Tools: 'Переключити інструменти розробника'
-Actual size: 'Фактичний розмір'
+Toggle Developer Tools: 'Перемкнути інструменти розробника'
+Actual size: 'Дійсний розмір'
 Zoom in: 'Збільшити'
 Zoom out: 'Зменшити'
-Toggle fullscreen: 'Переключити повноекранний режим'
+Toggle fullscreen: 'Перемкнути повноекранний режим'
 Window: 'Вікно'
-Minimize: 'Мінімізувати'
+Minimize: 'Згорнути'
 Close: 'Закрити'
 Back: 'Назад'
 Forward: 'Вперед'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Відео'
+  Shorts: Shorts
+  Live: Наживо
+
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
-  версія {versionNumber} ! Натисніть щоб побачити деталі'
+  версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
 A new blog is now available, {blogTitle}. Click to view more: 'Доступний новий блог,
-  {blogTitle}. Натисніть щоб побачити більше'
+  {blogTitle}. Натисніть, щоб переглянути більше'
 
 # Search Bar
 Search / Go to URL: 'Пошук / Перейти по URL'
@@ -41,10 +48,10 @@ Search / Go to URL: 'Пошук / Перейти по URL'
 Search Filters:
   Search Filters: 'Фільтри пошуку'
   Sort By:
-    Sort By: 'Сортувати за'
-    Most Relevant: 'Найбільш релевантні'
+    Sort By: 'Впорядковувати за'
+    Most Relevant: 'Найвідповідніші'
     Rating: 'Рейтинг'
-    Upload Date: 'Дата публікації'
+    Upload Date: 'Час вивантаження'
     View Count: 'Кількість переглядів'
   Time:
     Time: 'Час'
@@ -60,12 +67,14 @@ Search Filters:
     Videos: 'Відео'
     Channels: 'Канали'
     #& Playlists
+    Movies: Фільми
   Duration:
     Duration: 'Тривалість'
     All Durations: 'Будь-яка тривалість'
     Short (< 4 minutes): 'Короткі (< 4 хвилини)'
     Long (> 20 minutes): 'Довгі (> 20 хвилин)'
   # On Search Page
+    Medium (4 - 20 minutes): Середні (4 - 20 хвилин)
   Search Results: 'Результати пошуку'
   Fetching results. Please wait: 'Завантажуються результати. Будь ласка, зачекайте'
   Fetch more results: 'Завантажити більше результатів'
@@ -75,7 +84,7 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
   Latest Subscriptions: 'Останні підписки'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 'Цей
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Цей
     профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження
     швидкості'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
@@ -87,6 +96,9 @@ Subscriptions:
   Disabled Automatic Fetching: Ви вимкнули автоматичне отримання підписок. Оновіть
     підписки, щоб вони з'явились тут.
   Empty Channels: Канали, на які ви підписалися, наразі не містять відео.
+  Subscriptions Tabs: Вкладки підписок
+  All Subscription Tabs Hidden: Усі вкладки підписки сховані. Щоб побачити вміст,
+    будь ласка, відкрийте деякі вкладки в розділі "{subsection}" в "{settingsSection}".
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -219,6 +231,7 @@ Settings:
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
+    Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
   Player Settings:
     Player Settings: 'Налаштування програвача'
     Force Local Backend for Legacy Formats: 'Примусово використовувати локальний сервер
@@ -273,6 +286,12 @@ Settings:
         Секунда 2 цифри. %T Мілісекунда 3 цифри. %s Секунда відео. %t Мілісекунда
         відео 3 цифри. %i ID відео. Ви також можете використовувати "\" або "/" для
         створення вкладених тек.
+    Enter Fullscreen on Display Rotate: Переходити в повноекранний режим за обертання
+      екрана
+    Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
+    Allow DASH AV1 formats: Дозволити формат DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Автозавантаження коментарів
   Privacy Settings:
     Privacy Settings: 'Налаштування приватності'
     Remember History: 'Збрігати історію'
@@ -289,6 +308,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Справді
       хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
     Automatically Remove Video Meta Files: Автоматично вилучати метафайли відео
+    Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео в добірку,
+      яку ви переглядали останнім часом
   Subscription Settings:
     Subscription Settings: 'Налаштування підписки'
     Hide Videos on Watch: 'Ховати відео при перегляді'
@@ -312,6 +333,26 @@ Settings:
     Hide Sharing Actions: Сховати дії поширення
     Hide Live Streams: Сховати прямі трансляції
     Hide Chapters: Сховати розділи
+    Hide Upcoming Premieres: Сховати майбутні прем'єри
+    Hide Channels: Сховати відео з каналів
+    Hide Channels Placeholder: Назва або ID каналу
+    Display Titles Without Excessive Capitalisation: Показувати заголовки без надмірно
+      великих літер
+    Hide Featured Channels: Сховати пропоновані канали
+    Hide Channel Playlists: Сховати добірки з каналів
+    Hide Channel Community: Сховати спільноту каналу
+    Hide Channel Shorts: Сховати Shorts каналу
+    Sections:
+      Side Bar: Бічна панель
+      Channel Page: Сторінка каналу
+      Watch Page: Сторінка перегляду
+      General: Загальні
+      Subscriptions Page: Сторінка підписок
+    Hide Subscriptions Videos: Сховати відео з підписок
+    Hide Channel Podcasts: Сховати канали подкастів
+    Hide Channel Releases: Сховати канали випусків
+    Hide Subscriptions Shorts: Сховати Shorts із підписок
+    Hide Subscriptions Live: Сховати трансляції з підписок
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -358,28 +399,7 @@ Settings:
     Playlist File: Файл добірки
     Subscription File: Файл підписки
     History File: Файл історії
-  Advanced Settings:
-    Advanced Settings: ''
-    Enable Debug Mode (Prints data to the console): ''
-    'Proxy Address (Example: SOCKS5://127.0.0.1:9050 )': ''
-    'Clicking "TEST PROXY" button will send a request to https://ipinfo.io/json': ''
-    Use Tor / Proxy for API calls: ''
-    TEST PROXY: ''
-    #& Invidious Instance (Default is https://invidious.snopyta.org)
-    See Public Instances: ''
-    Clear History:
-      Clear History: ''
-      # On Click
-      Are you sure you want to delete your history?: ''
-      #& Yes
-      #& No
-    Clear Subscriptions:
-      Clear Subscriptions: ''
-      # On Click
-      Are you sure you want to remove all subscriptions?: ''
-      #& Yes
-      #& No
-
+  Advanced Settings: {}
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Помилка
       отримання відомостей про мережу. Чи правильно налаштовано ваш проксі?
@@ -409,6 +429,7 @@ Settings:
       Prompt To Skip: Запит на пропуск
       Do Nothing: Нічого не робити
     Category Color: Колір категорії
+    UseDeArrowTitles: Використовувати назви для відео DeArrow
   External Player Settings:
     Custom External Player Arguments: Власні аргументи зовнішнього програвача
     Custom External Player Executable: Власний виконуваний зовнішній програвач
@@ -436,28 +457,20 @@ Settings:
     Experimental Settings: Експериментальні налаштування
     Warning: Ці налаштування експериментальні, їхнє ввімкнення може призводити до
       збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
+  Password Dialog:
+    Enter Password To Unlock: Введіть пароль, щоб розблокувати налаштування
+    Unlock: Розблокувати
+    Password Incorrect: Пароль неправильний
+    Password: Пароль
+  Password Settings:
+    Password Settings: Налаштування пароля
+    Set Password: Установити пароль
+    Remove Password: Вилучити пароль
+    Set Password To Prevent Access: Встановіть пароль, щоб запобігти доступу до налаштувань
 About:
   #On About page
   About: 'Про'
   #& About
-  'This software is FOSS and released under the GNU Affero General Public License v3.0.': ''
-
-  'Found a bug? Want to suggest a feature? Want to help out? Check out our GitHub page. Pull requests are welcome.': >
-
-  Thank you very much to the People and Projects that make FreeTube possible!: ''
-
-  'Want to chat? Join our Element / Matrix Server . Please check the rules before joining.': ''
-
-  'Looking for help? Check out our Wiki page.': ''
-
-  Check out our Firefox extension!: ''
-
-  'If you enjoy using FreeTube, consider donating via Liberapay or through our Bitcoin address.': ''
-
-  #~ 'BTC: 1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
-  Latest FreeTube News: ''
-
   Donate: Підтримати
   these people and projects: цим людям та проєктам
   FreeTube is made possible by: FreeTube доступний завдяки
@@ -507,7 +520,7 @@ Profile:
   Your default profile has been changed to your primary profile: 'Ваш типовий профіль
     змінено на основний'
   '{profile} is now the active profile': '{profile} активний профіль зараз'
-  Subscription List: 'Підписки'
+  Subscription List: 'Перелік підписок'
   Other Channels: 'Інші канали'
   '{number} selected': '{number} вибрано'
   Select All: 'Вибрати все'
@@ -524,6 +537,7 @@ Profile:
 #On Channel Page
   Profile Filter: Фільтр профілю
   Profile Settings: Налаштування профілю
+  Toggle Profile List: Перемкнути список профілів
 Channel:
   Subscriber: 'Підписник'
   Subscribers: 'Підписники'
@@ -535,7 +549,7 @@ Channel:
   Added channel to your subscriptions: 'Додано канал до підписок'
   Search Channel: 'Шукати на каналі'
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
-  Sort By: 'Сортувати за'
+  Sort By: 'Впорядковувати за'
   Videos:
     Videos: 'Відео'
     This channel does not currently have any videos: 'Наразі на цьому каналі немає
@@ -555,6 +569,34 @@ Channel:
     About: 'Про'
     Channel Description: 'Опис каналу'
     Featured Channels: 'Рекомендовані канали'
+    Tags:
+      Tags: Мітки
+      Search for: Шукати «{tag}»
+    Details: Подробиці
+    Joined: Дата приєднання
+    Location: Розташування
+  This channel does not exist: Цей канал не існує
+  This channel does not allow searching: Цей канал не дозволяє здійснювати пошук
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Цей
+    канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
+  Channel Tabs: Вкладки каналів
+  Community:
+    Community: Спільнота
+    This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
+  Live:
+    This channel does not currently have any live streams: Наразі на цьому каналі
+      немає прямих трансляцій
+    Live: Наживо
+  Shorts:
+    This channel does not currently have any shorts: На цьому каналі немає Shorts
+  Podcasts:
+    Podcasts: Подкасти
+    This channel does not currently have any podcasts: На цьому каналі наразі немає
+      подкастів
+  Releases:
+    This channel does not currently have any releases: Наразі на цьому каналі немає
+      випусків
+    Releases: Випуски
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
@@ -592,9 +634,9 @@ Video:
     наразі не підтримується в цій збірці.'
   'Chat is disabled or the Live Stream has ended.': 'Чат вимкнено, а пряму трансляцію
     завершено.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення
+  Live chat is enabled. Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення
     чату з''являться тут після надсилання.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Чат
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
     в режимі реального часу наразі не підтримується API Invidious.  Потрібне пряме
     з''єднання з YouTube.'
   Download Video: 'Завантажити відео'
@@ -693,6 +735,11 @@ Video:
       для застарілих відео
   Premieres in: Прем'єри в
   Premieres: Прем'єри
+  Scroll to Bottom: Прокрутити до кінця
+  Show Super Chat Comment: Показати коментар із суперчату
+  Upcoming: Незабаром
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Спілкування
+    наживо недоступне для цієї трансляції. Можливо, вивантажувач вимкнув його.
 Videos:
   #& Sort By
   Sort By:
@@ -707,12 +754,6 @@ Playlist:
   View: 'Перегляд'
   Views: 'Переглядів'
   Last Updated On: 'Востаннє оновлено'
-  Share Playlist:
-    Share Playlist: 'Поділитися добіркою'
-    Copy YouTube Link: 'Копіювати посилання YouTube'
-    Open in YouTube: 'Відкрити в YouTube'
-    Copy Invidious Link: 'Копіювати посилання Invidious'
-    Open in Invidious: 'Відкрити в Invidious'
 
 # On Video Watch Page
 #* Published
@@ -730,6 +771,7 @@ Change Format:
     відео'
 Share:
   Share Video: 'Поділитися відео'
+  Share Playlist: 'Поділитися добіркою'
   Include Timestamp: 'Включити позначку часу'
   Copy Link: 'Копіювати посилання'
   Open Link: 'Відкрити посилання'
@@ -747,6 +789,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL-адресу каналу YouTube скопійовано
     до буфера обміну'
 
+  Share Channel: Поділитися каналом
 Mini Player: 'Мініпрогравач'
 Comments:
   Comments: 'Коментарі'
@@ -755,7 +798,7 @@ Comments:
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
   Show Comments: 'Показати коментарі'
   Hide Comments: 'Сховати коментарі'
-  Sort by: 'Сортувати за'
+  Sort by: 'Впорядковувати за'
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply
@@ -771,6 +814,8 @@ Comments:
   And others: та інших
   Pinned by: Закріплено
   Member: Учасник
+  Hearted: З сердечком
+  View {replyCount} replies: Переглянути {replyCount} відповідей
 Up Next: 'Далі вгору'
 
 #Tooltips
@@ -787,11 +832,10 @@ Tooltips:
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
       викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
-      країни, які ви хочете бачити. Не всі показані країни насправді підтримуються
-      YouTube.'
-    External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,\
-      \ яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання\
-      \ у вашому типовому переглядачі.\n"
+      країни, які ви хочете бачити.'
+    External Link Handling: "Визначте типову поведінку, коли натиснено на посилання,
+      яке не можна відкрити у FreeTube.\nТипово FreeTube відкриває натиснуте посилання
+      у вашому типовому переглядачі.\n"
   Player Settings:
     Force Local Backend for Legacy Formats: 'Працює, лише якщо API Invidious використовується
       типовим. Якщо увімкнено, локальний API буде запущено і використовуватиме застарілі
@@ -809,6 +853,12 @@ Tooltips:
       клавішу Control (клавіша Command на Mac) і клацніть лівою кнопкою миші, щоб
       швидко повернутися до типової швидкості відтворення (1x, якщо вона не була змінена
       в налаштуваннях).
+    Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування
+      відео в стилі MPV.
+    Allow DASH AV1 formats: Формати DASH AV1 можуть виглядати краще, ніж формати DASH
+      H.264. Формати DASH AV1 вимагають більше енергії для відтворення! Вони доступні
+      не для всіх відео, у таких випадках програвач буде використовувати формати DASH
+      H.264.
   Subscription Settings:
     Fetch Feeds from RSS: 'Якщо ввімкнено, FreeTube використовуватиме RSS замість
       стандартного способу захоплення каналу підписки. RSS швидше і запобігає блокуванню
@@ -837,6 +887,14 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень
       у пам'яті. Призведе до збільшення використання оперативної пам'яті.
+  Distraction Free Settings:
+    Hide Channels: Введіть назву або ID каналу, щоб сховати всі відео, списки відтворення
+      та сам канал від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введена
+      назва каналу повинна повністю збігатися і чутлива до регістру.
+    Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням
+      "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
+  SponsorBlock Settings:
+    UseDeArrowTitles: Замінити назви відео на надіслані користувачем назви з DeArrow.
 Local API Error (Click to copy): 'Помилка локального API (натисніть, щоб скопіювати)'
 Invidious API Error (Click to copy): 'Помилка Invidious API (натисніть, щоб скопіювати)'
 Falling back to Invidious API: 'Повернення до API Invidious'
@@ -852,11 +910,9 @@ Shuffle is now enabled: 'Випадковий порядок увімкнено'
 The playlist has been reversed: 'Добірку обернено'
 Playing Next Video: 'Відтворення наступного відео'
 Playing Previous Video: 'Відтворення попереднього відео'
-Playing next video in 5 seconds.  Click to cancel: 'Відтворення наступного відео за
-  5 секунд. Клацніть, щоб скасувати операцію.'
 Canceled next video autoplay: 'Скасовано автовідтворення наступного відео'
-'The playlist has ended.  Enable loop to continue playing': 'Добірка завершилася.
-  Увімкніть цикл, щоб продовжити відтворення'
+'The playlist has ended. Enable loop to continue playing': 'Добірка завершилася. Увімкніть
+  цикл, щоб продовжити відтворення'
 
 Yes: 'Так'
 No: 'Ні'
@@ -914,3 +970,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований,
     поточний розділ: {chapterName}'
 Preferences: Налаштування
+Ok: Гаразд
+Hashtag:
+  Hashtag: Хештег
+  This hashtag does not currently have any videos: За цим хештегом наразі немає відео

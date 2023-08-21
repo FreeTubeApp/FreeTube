@@ -11,6 +11,8 @@
         :label="$t('Settings.Data Settings.Export Subscriptions')"
         @click="showExportSubscriptionsPrompt = true"
       />
+    </ft-flex-box>
+    <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import History')"
         @click="importHistory"
@@ -21,14 +23,11 @@
       />
     </ft-flex-box>
     <ft-flex-box>
-      <a
-        class="center"
-        href="https://docs.freetubeapp.io/usage/importing-subscriptions/"
-      >
-        <p>
+      <p>
+        <a href="https://docs.freetubeapp.io/usage/importing-subscriptions/">
           {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
-        </p>
-      </a>
+        </a>
+      </p>
     </ft-flex-box>
     <ft-flex-box>
       <ft-button
@@ -51,6 +50,7 @@
       :label="$t('Settings.Data Settings.Select Export Type')"
       :option-names="exportSubscriptionsPromptNames"
       :option-values="subscriptionsPromptValues"
+      :show-close="true"
       @click="exportSubscriptions"
     />
   </ft-settings-section>

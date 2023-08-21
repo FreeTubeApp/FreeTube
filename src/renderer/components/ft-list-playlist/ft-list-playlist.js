@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListPlaylist',
   components: {
     'ft-icon-button': FtIconButton
@@ -19,13 +19,12 @@ export default Vue.extend({
   },
   data: function () {
     return {
-      playlistLink: '',
-      channelLink: '',
+      playlistId: '',
+      channelId: '',
       title: 'Pop Music Playlist - Timeless Pop Songs (Updated Weekly 2020)',
       thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/mqdefault.jpg',
       channelName: '#RedMusic: Just Hits',
       videoCount: 200,
-      description: ''
     }
   },
   computed: {
@@ -37,16 +36,6 @@ export default Vue.extend({
       return this.$store.getters.getListType
     },
 
-    playlistId: function () {
-      return this.playlistLink.replace('https://www.youtube.com/playlist?list=', '')
-    },
-
-    channelId: function () {
-      let id = this.channelLink.replace('https://www.youtube.com/user/', '')
-      id = id.replace('https://www.youtube.com/channel/', '')
-      return id
-    },
-
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
@@ -55,8 +44,8 @@ export default Vue.extend({
       return this.$store.getters.getDefaultPlayback
     }
   },
-  mounted: function () {
-    if (typeof (this.data.owner) === 'object') {
+  created: function () {
+    if (this.data.dataSource === 'local') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -80,8 +69,8 @@ export default Vue.extend({
       this.title = this.data.title
       this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       this.channelName = this.data.author
-      this.channelLink = this.data.authorUrl
-      this.playlistLink = this.data.playlistId
+      this.channelId = this.data.authorId
+      this.playlistId = this.data.playlistId
       this.videoCount = this.data.videoCount
 
       if (this.data.proxyThumbnail === false) {
@@ -91,11 +80,11 @@ export default Vue.extend({
 
     parseLocalData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.firstVideo.bestThumbnail.url
-      this.channelName = this.data.owner.name
-      this.channelLink = this.data.owner.url
-      this.playlistLink = this.data.url
-      this.videoCount = this.data.length
+      this.thumbnail = this.data.thumbnail
+      this.channelName = this.data.channelName
+      this.channelId = this.data.channelId
+      this.playlistId = this.data.playlistId
+      this.videoCount = this.data.videoCount
     },
 
     ...mapActions([

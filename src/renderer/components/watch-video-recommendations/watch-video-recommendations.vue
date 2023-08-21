@@ -16,12 +16,13 @@
         @change="updatePlayNextVideo"
       />
     </div>
-    <ft-list-video
+    <ft-list-video-lazy
       v-for="(video, index) in data"
       :key="index"
       :data="video"
       appearance="recommendation"
       force-list-type="list"
+      :use-channels-hidden-preference="true"
     />
   </ft-card>
 </template>

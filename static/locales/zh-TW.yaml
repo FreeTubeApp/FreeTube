@@ -27,6 +27,13 @@ Close: '關閉'
 Back: '返回'
 Forward: '前進'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '影片'
+  Shorts: 短片
+  Live: 直播
+
 # Search Bar
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
@@ -52,12 +59,14 @@ Search Filters:
     Videos: '影片'
     Channels: '頻道'
     #& Playlists
+    Movies: 電影
   Duration:
     Duration: '影片長度'
     All Durations: '所有長度'
     Short (< 4 minutes): '短（小於4分鐘）'
     Long (> 20 minutes): '長（大於20分鐘）'
   # On Search Page
+    Medium (4 - 20 minutes): 中（4到20 分鐘）
   Search Results: '搜尋結果'
   Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'
@@ -71,12 +80,14 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
   Refresh Subscriptions: 重新整理訂閱內容的影片
   Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制RSS已防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
   Empty Channels: 您訂閱的頻道目前沒有任何影片。
+  Subscriptions Tabs: 訂閱分頁
+  All Subscription Tabs Hidden: 所有訂閱分頁均已隱藏。要檢視此處的內容，請取消隱藏「{settingsSection}」中「{subsection}」區塊中的一些分頁。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -197,6 +208,7 @@ Settings:
     Expand Side Bar by Default: 預設展開側邊欄
     Disable Smooth Scrolling: 停用平滑捲動
     Hide Side Bar Labels: 隱藏側邊欄標籤
+    Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
     Player Settings: '播放器選項'
     Force Local Backend for Legacy Formats: '強制使用傳統格式的區域伺服器'
@@ -248,6 +260,11 @@ Settings:
       File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N
         為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。您也可以使用 "\"
         或 "/" 來建立子資料夾。
+    Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
+    Skip by Scrolling Over Video Player: 捲動影片播放器跳過
+    Allow DASH AV1 formats: 允許 DASH AV1 格式
+    Comment Auto Load:
+      Comment Auto Load: 留言自動載入
   Subscription Settings:
     Subscription Settings: '訂閱設定'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -297,6 +314,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您確定要移除所有訂閱與設定檔嗎嗎?  注意:這無法復原。
     Remove All Subscriptions / Profiles: 移除所有訂閱／設定檔
     Automatically Remove Video Meta Files: 自動刪除影片元檔案
+    Save Watched Videos With Last Viewed Playlist: 使用上次觀看的播放清單儲存觀看的影片
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -353,6 +371,25 @@ Settings:
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
     Hide Chapters: 隱藏章節
+    Hide Upcoming Premieres: 隱藏即將到來的首映
+    Hide Channels Placeholder: 頻道名稱或 ID
+    Hide Channels: 隱藏頻道中的影片
+    Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫的標題
+    Hide Featured Channels: 隱藏精選頻道
+    Hide Channel Playlists: 隱藏頻道播放清單
+    Hide Channel Community: 隱藏頻道社群
+    Hide Channel Shorts: 隱藏頻道短片
+    Sections:
+      Side Bar: 側邊欄
+      Watch Page: 觀看頁面
+      General: 一般
+      Channel Page: 頻道頁面
+      Subscriptions Page: 訂閱頁面
+    Hide Channel Podcasts: 隱藏頻道 Podcast
+    Hide Channel Releases: 隱藏頻道發布
+    Hide Subscriptions Shorts: 隱藏訂閱短片
+    Hide Subscriptions Videos: 隱藏訂閱影片
+    Hide Subscriptions Live: 隱藏訂閱直播
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -381,6 +418,7 @@ Settings:
       Prompt To Skip: 提示略過
       Do Nothing: 不要做任何事
     Category Color: 分類色彩
+    UseDeArrowTitles: 使用 DeArrow 影片標題
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -406,6 +444,16 @@ Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
     Experimental Settings: 實驗設定
+  Password Settings:
+    Set Password To Prevent Access: 設定密碼以防止存取設定
+    Remove Password: 移除密碼
+    Password Settings: 密碼設定
+    Set Password: 設定密碼
+  Password Dialog:
+    Password: 密碼
+    Enter Password To Unlock: 輸入密碼以解鎖設定
+    Password Incorrect: 密碼不正確
+    Unlock: 解鎖
 About:
   #On About page
   About: '關於'
@@ -490,9 +538,34 @@ Channel:
     About: '關於'
     Channel Description: '頻道說明'
     Featured Channels: '推薦頻道'
+    Tags:
+      Tags: 標籤
+      Search for: 搜尋「{tag}」
+    Joined: 已加入
+    Location: 位置
+    Details: 詳細資訊
   Added channel to your subscriptions: 已新增頻道至您的訂閱
   Removed subscription from {count} other channel(s): 從{count}個其他頻道移除訂閱
   Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 此頻道有年齡限制，目前無法在
+    FreeTube 中檢視。
+  Channel Tabs: 頻道分頁
+  This channel does not exist: 此頻道不存在
+  This channel does not allow searching: 此頻道不允許搜尋
+  Community:
+    Community: 社群
+    This channel currently does not have any posts: 此頻道目前沒有任何貼文
+  Live:
+    Live: 直播
+    This channel does not currently have any live streams: 此頻道目前沒有任何直播
+  Shorts:
+    This channel does not currently have any shorts: 此頻道目前沒有任何短片
+  Podcasts:
+    This channel does not currently have any podcasts: 此頻道目前沒有 podcast
+    Podcasts: Podcast
+  Releases:
+    Releases: 發布
+    This channel does not currently have any releases: 此頻道目前沒有任何發布
 Video:
   Open in YouTube: '在YouTube中開啟'
   Copy YouTube Link: '複製YouTube連結'
@@ -512,8 +585,8 @@ Video:
   Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
   'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被停用或者直播已經結束。'
-  Live chat is enabled.  Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
+  Live chat is enabled. Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
   Published:
     Jan: '一月'
@@ -624,6 +697,10 @@ Video:
     Mimetype: 多媒體類型
   Premieres in: 首映於
   Premieres: 首映
+  Show Super Chat Comment: 顯示超級聊天留言
+  Scroll to Bottom: 捲動至底部
+  Upcoming: 即將到來
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 即時聊天在此串流不可用。其可能被上傳者停用了。
 Videos:
   #& Sort By
   Sort By:
@@ -638,12 +715,6 @@ Playlist:
   View: '觀看'
   Views: '觀看'
   Last Updated On: '最後更新於'
-  Share Playlist:
-    Share Playlist: '分享播放清單'
-    Copy YouTube Link: '複製YouTube連結'
-    Open in YouTube: '在YouTube中開啟'
-    Copy Invidious Link: '複製Invidious連結'
-    Open in Invidious: '在Invidious中開啟'
 
 # On Video Watch Page
 #* Published
@@ -659,6 +730,7 @@ Change Format:
   Dash formats are not available for this video: 這個影片沒有 DASH 格式
 Share:
   Share Video: '分享影片'
+  Share Playlist: '分享播放清單'
   Copy Link: '複製連結'
   Open Link: '開啟連結'
   Copy Embed: '複製內嵌'
@@ -671,6 +743,7 @@ Share:
   Include Timestamp: 包含時間戳
   YouTube Channel URL copied to clipboard: YouTube頻道URL已複製到剪貼簿
   Invidious Channel URL copied to clipboard: Invidious頻道URL已複製到剪貼簿
+  Share Channel: 分享頻道
 Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
@@ -695,6 +768,8 @@ Comments:
   From {channelName}: 來自 {channelName}
   Pinned by: 釘選由
   Member: 成員
+  View {replyCount} replies: 檢視 {replyCount} 則回覆
+  Hearted: 喜歡的
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -709,9 +784,8 @@ Shuffle is now disabled: '隨機播放現在被停用'
 Shuffle is now enabled: '隨機播放現在被停用'
 Playing Next Video: '將播放下一影片'
 Playing Previous Video: '將播放上一影片'
-Playing next video in 5 seconds.  Click to cancel: '下一部影片將在5秒後播放。點擊取消。'
 Canceled next video autoplay: '取消自動播放下一部影片'
-'The playlist has ended.  Enable loop to continue playing': '播放清單已播放完畢。 開啟循環播放來繼續播放'
+'The playlist has ended. Enable loop to continue playing': '播放清單已播放完畢。 開啟循環播放來繼續播放'
 
 Yes: '是'
 No: '否'
@@ -754,6 +828,7 @@ Profile:
   Subscription List: 訂閱清單
   Profile Filter: 設定檔篩選器
   Profile Settings: 設定檔設定
+  Toggle Profile List: 切換個人檔案清單
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
@@ -772,6 +847,9 @@ Tooltips:
       API 將會執行並使用由其回傳的的傳統格式，而非 Invidious 回傳的格式。對因為國家地區限制而無法播放 Invidious 回傳的影片時有幫助。
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
       Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
+    Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
+    Allow DASH AV1 formats: DASH AV1 格式可能會看起來比 DASH H.264 格式更好。DASH AV1 格式需要更大的功率來播放！且並非所有影片都提供，在這種情況下，播放程式會使用
+      DASH H.264 格式代替。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
@@ -779,7 +857,7 @@ Tooltips:
       API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
       API 需要 Invidious 伺服器才能連線。
-    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。注意：並非所有國家都被 YouTube 支援。
+    Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
   Privacy Settings:
     Remove Video Meta Files: 如果啟用，FreeTube會在關閉觀看頁面時，自動刪除影片播放過程中建立的暫存檔案。
@@ -792,6 +870,11 @@ Tooltips:
     DefaultCustomArgumentsTemplate: （預設：'{defaultCustomArguments}'）
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
+  Distraction Free Settings:
+    Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道名稱必須完全符合，且區分大小寫。
+    Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
+  SponsorBlock Settings:
+    UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
 Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
   播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
@@ -833,3 +916,7 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 章節清單可見，目前章節：{chapterName}
   'Chapters list hidden, current chapter: {chapterName}': 章節清單已隱藏，目前章節：{chapterName}
 Preferences: 偏好設定
+Ok: 確定
+Hashtag:
+  Hashtag: 主題標籤
+  This hashtag does not currently have any videos: 此標籤目前沒有任何影片

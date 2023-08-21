@@ -29,6 +29,13 @@ Close: 'Zatvori'
 Back: 'Natrag'
 Forward: 'Naprijed'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Kratka videa
+  Live: Uživo
+
 # Search Bar
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
@@ -54,12 +61,14 @@ Search Filters:
     Videos: 'Videa'
     Channels: 'Kanali'
     #& Playlists
+    Movies: Filmovi
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Sva trajanja'
     Short (< 4 minutes): 'Kratko (< 4 min)'
     Long (> 20 minutes): 'Dugo (> 20 min)'
   # On Search Page
+    Medium (4 - 20 minutes): Srednje (4 do 20 minuta)
   Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'
@@ -74,12 +83,17 @@ Subscriptions:
     neke pretplate.'
   'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
   Refresh Subscriptions: 'Aktualiziraj pretplate'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Ovaj
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
   Load More Videos: Učitaj još videa
   Error Channels: Kanali s greškama
   Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.
+  Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
+    pretplate da bi se ovdje prikazale.
+  Subscriptions Tabs: Kartica pretplata
+  All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
+    na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -144,8 +158,8 @@ Settings:
     Current instance will be randomized on startup: Trenutačna instanca će se slučajno
       odrediti nakon pokretanja računala
     No default instance has been set: Nema standardno postavljene instance
-    The currently set default instance is {instance}: Trenutačno postavljena standardna instanca
-      je {instance}
+    The currently set default instance is {instance}: Trenutačno postavljena standardna
+      instanca je {instance}
     Current Invidious Instance: Trenutačna Invidious instanca
     External Link Handling:
       No Action: Bez radnje
@@ -205,9 +219,10 @@ Settings:
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
-    Disable Smooth Scrolling: Deaktiviraj neisprekidano klizanje
+    Disable Smooth Scrolling: Deaktiviraj neisprekidano pomicanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
     Hide Side Bar Labels: Sakrij oznake bočnih traka
+    Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
   Player Settings:
     Player Settings: 'Postavke playera'
     Force Local Backend for Legacy Formats: 'Koristi lokalni pozadinski sustav za
@@ -261,6 +276,12 @@ Settings:
         %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda
         videa 3 znamenke. %i ID videa. Također možete koristiti "\" ili "/" za stvaranje
         podmapa.
+    Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
+      ekrana
+    Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
+    Allow DASH AV1 formats: Dozvoli DASH AV1 formate
+    Comment Auto Load:
+      Comment Auto Load: Automatski učitaj komentare
   Privacy Settings:
     Privacy Settings: 'Postavke privatnosti'
     Remember History: 'Zapamti povijest'
@@ -278,10 +299,12 @@ Settings:
     Remove All Subscriptions / Profiles: Ukloni sve pretplate/profile
     Automatically Remove Video Meta Files: Automatski ukloni datoteke metapodataka
       videa
+    Save Watched Videos With Last Viewed Playlist: Spremi gledana videa sa zadnjim
+      gledanom zbirkom
   Subscription Settings:
     Subscription Settings: 'Postavke pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
-    Fetch Feeds from RSS: 'Dohvati podatke putem RSS-a'
+    Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
     Subscriptions Export Format:
       Subscriptions Export Format: 'Format izvoza pretplata'
       #& Freetube
@@ -291,6 +314,7 @@ Settings:
     Import Subscriptions: 'Uvoz pretplata'
     Export Subscriptions: 'Izvoz pretplata'
     How do I import my subscriptions?: 'Kako mogu uvesti pretplate?'
+    Fetch Automatically: Automatski dohvati feed
   Advanced Settings:
     Advanced Settings: 'Napredne postavke'
     Enable Debug Mode (Prints data to the console): 'Aktiviraj modus otklanjanja grešaka
@@ -356,9 +380,13 @@ Settings:
     Manage Subscriptions: Upravljaj pretplatama
     Import Playlists: Uvezi zbirke
     Export Playlists: Izvezi zbirke
-    Playlist insufficient data: Nedovoljno podataka za „{playlist}” zbirku, element se preskače
+    Playlist insufficient data: Nedovoljno podataka za „{playlist}” zbirku, element
+      se preskače
     All playlists has been successfully imported: Sve zbirke su uspješno uvezene
     All playlists has been successfully exported: Sve zbirke su uspješno izvezene
+    Subscription File: Datoteka pretplate
+    History File: Datoteka povijesti
+    Playlist File: Datoteka playliste
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -376,6 +404,26 @@ Settings:
     Hide Video Description: Sakrij opis videa
     Hide Live Streams: Sakrij prijenose uživo
     Hide Chapters: Sakrij poglavlja
+    Hide Upcoming Premieres: Sakrij nadolazeće premijere
+    Hide Channels: Sakrij videa iz kanala
+    Hide Channels Placeholder: Ime kanala ili ID
+    Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
+      korištenja velikih slova
+    Hide Featured Channels: Sakrij istaknute kanale
+    Hide Channel Playlists: Sakrij kanal zbirki
+    Hide Channel Community: Sakrij kanal zajednice
+    Hide Channel Shorts: Sakrij kanal kratkih videa
+    Sections:
+      Watch Page: Stranica gledanja
+      General: Opće
+      Side Bar: Bočna traka
+      Channel Page: Stranica kanala
+      Subscriptions Page: Stranica pretplata
+    Hide Channel Podcasts: Sakrij kanal podcastova
+    Hide Channel Releases: Sakrij kanal izdanja
+    Hide Subscriptions Shorts: Sakrij kratka videa pretplate
+    Hide Subscriptions Live: Sakrij videa uživo pretplate
+    Hide Subscriptions Videos: Sakrij videa pretplate
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -407,6 +455,7 @@ Settings:
       Prompt To Skip: Poziv za preskakanje
       Do Nothing: Ne čini ništa
     Category Color: Boja kategorije
+    UseDeArrowTitles: Koristi DeArrow Video naslove
   External Player Settings:
     Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog vanjskog playera
@@ -428,6 +477,21 @@ Settings:
     Hide Unsubscribe Button: Sakrij gumb za odjavu
     Hide Search Bar: Sakrij traku pretrage
     Show Family Friendly Only: Prikaži samo prikladne za obitelji
+  Experimental Settings:
+    Warning: Ovo su eksperimentalne postavke. Kad su aktivirane mogu prouzročiti prekid
+      programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
+    Experimental Settings: Eksperimentalne postavke
+    Replace HTTP Cache: Zamijeni HTTP predmemoriju
+  Password Dialog:
+    Password Incorrect: Lozinka neispravna
+    Unlock: Otključaj
+    Enter Password To Unlock: Za otključavanje postavki upiši lozinku
+    Password: Lozinka
+  Password Settings:
+    Password Settings: Lozinka za postavke
+    Set Password: Postavi lozinku
+    Remove Password: Ukloni lozinku
+    Set Password To Prevent Access: Postavi lozinku za sprečavanja pristupa postavkama
 About:
   #On About page
   About: 'Informacije'
@@ -511,8 +575,8 @@ Profile:
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
   Profile has been updated: 'Profil je aktualiziran'
-  Your default profile has been set to {profile}: 'Tvoj standardni profil je postavljen na
-    {profile}'
+  Your default profile has been set to {profile}: 'Tvoj standardni profil je postavljen
+    na {profile}'
   Removed {profile} from your profiles: '{profile} je uklonjen iz tvojih profila'
   Your default profile has been changed to your primary profile: 'Tvoj standardni
     profil je promijenjen u tvoj primarni profil'
@@ -563,9 +627,39 @@ Channel:
     About: 'Informacije'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Istaknuti kanali'
+    Tags:
+      Tags: Oznake
+      Search for: Traži „{tag}”
+    Details: Detalji
+    Joined: Pridruženo
+    Location: Lokacija
   Added channel to your subscriptions: Kanal je dodan tvojim pretplatama
-  Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count} drugih kanala
+  Removed subscription from {count} other channel(s): Uklonjena pretplata iz {count}
+    drugih kanala
   Channel has been removed from your subscriptions: Kanal je uklonjen iz tvojih pretplata
+  Channel Tabs: Kartice kanala
+  This channel does not exist: Ovaj kanal ne postoji
+  This channel does not allow searching: Ovaj kanal ne dozvoljava pretraživanje
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Ovaj
+    kanal je dobno ograničen i trenutačno se ne može gledati na FreeTubeu.
+  Live:
+    Live: Uživo
+    This channel does not currently have any live streams: Ovaj kanal trenutačno nema
+      prijenosa uživo
+  Community:
+    This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
+    Community: Zajednica
+  Shorts:
+    This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
+      videa
+  Releases:
+    Releases: Izdanja
+    This channel does not currently have any releases: Ovaj kanal trenutačno nema
+      izdanja
+  Podcasts:
+    Podcasts: Podcasti
+    This channel does not currently have any podcasts: Ovaj kanal trenutačno nema
+      podcastova
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
@@ -591,9 +685,9 @@ Video:
     nije podržan u ovoj verziji.'
   'Chat is disabled or the Live Stream has ended.': 'Razgovor je deaktiviran ili je
     prijenos uživo završio.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Razgovor uživo
+  Live chat is enabled. Chat messages will appear here once sent.: 'Razgovor uživo
     je aktiviran. Poruke razgovora pojavit će se ovdje nakon slanja.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Razgovor
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Razgovor
     uživo trenutačno nije podržan s Invidious sučeljem. Potrebna je izravna veza s
     YouTubeom.'
   Published:
@@ -705,6 +799,11 @@ Video:
     Dropped / Total Frames: Ispušteni/ukupni kadrovi
   Premieres in: Premijera u
   Premieres: Premijere
+  Show Super Chat Comment: Prikaži Super Chat komentar
+  Scroll to Bottom: Pomakni se skroz dolje
+  Upcoming: Predstojeći
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
+    uživo nije dostupan za ovaj prijenos. Možda ga je prenosnik deaktivirao.
 Videos:
   #& Sort By
   Sort By:
@@ -719,12 +818,6 @@ Playlist:
   View: 'Pogled'
   Views: 'Pogledi'
   Last Updated On: 'Zadnje aktualiziranje'
-  Share Playlist:
-    Share Playlist: 'Dijeli zbirku'
-    Copy YouTube Link: 'Kopiraj poveznicu na YouTube'
-    Open in YouTube: 'Otvori na YouTube stranici'
-    Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-    Open in Invidious: 'Otvori na Invidious stranici'
 
 # On Video Watch Page
 #* Published
@@ -742,6 +835,7 @@ Change Format:
     video
 Share:
   Share Video: 'Dijeli video'
+  Share Playlist: 'Dijeli zbirku'
   Copy Link: 'Kopiraj poveznicu'
   Open Link: 'Otvori poveznicu'
   Copy Embed: 'Kopiraj ugrađenu verziju'
@@ -756,6 +850,7 @@ Share:
   Include Timestamp: Uključi vremensku oznaku
   YouTube Channel URL copied to clipboard: 'URL YouTube kanala kopiran je u međuspremnik'
   Invidious Channel URL copied to clipboard: 'URL Invidious kanala kopiran je u međuspremnik'
+  Share Channel: Dijeli kanal
 Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
@@ -780,6 +875,8 @@ Comments:
   And others: i drugi
   Pinned by: Prikvačio/la
   Member: Član
+  Hearted: Omiljeno
+  View {replyCount} replies: Pogledaj {replyCount} odgovora
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -794,20 +891,18 @@ Shuffle is now disabled: 'Slučajni redoslijed je sada deaktiviran'
 Shuffle is now enabled: 'Slučajni redoslijed je sada aktiviran'
 Playing Next Video: 'Reprodukcija sljedećeg videa'
 Playing Previous Video: 'Reprodukcija prethodnog videa'
-Playing next video in 5 seconds.  Click to cancel: 'Reprodukcija sljedećeg videa za
-  5 sekundi. Pritisni za prekid.'
 Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je prekinuta'
-'The playlist has ended.  Enable loop to continue playing': 'Dosegnut je kraj zbirke.
+'The playlist has ended. Enable loop to continue playing': 'Dosegnut je kraj zbirke.
   Aktiviraj ponavljanje za nastavljanje reprodukcije'
 
 Yes: 'Da'
 No: 'Ne'
 The playlist has been reversed: Redoslijed zbirke je obrnut
-A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog, {blogTitle}. Pritisni
-  za prikaz detalja
+A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog,
+  {blogTitle}. Pritisni za prikaz detalja
 Download From Site: Preuzmi s web-stranice
-Version {versionNumber} is now available!  Click for more details: Dostupna je verzija {versionNumber}! Pritisni
-  za prikaz detalja
+Version {versionNumber} is now available!  Click for more details: Dostupna je verzija
+  {versionNumber}! Pritisni za prikaz detalja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj
   video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost
   u zemlji.
@@ -827,6 +922,12 @@ Tooltips:
       ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control
       (Command tipka na Macu) i pritisni lijevom tipkom miša za brzo vraćanje na standardnu
       brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
+    Skip by Scrolling Over Video Player: Koristi kotačić za pregledavanje videa, MPV
+      stil.
+    Allow DASH AV1 formats: DASH AV1 formati mogu izgledati bolje od DASH H.264 formata.
+      DASH AV1 formati zahtijevaju više kapaciteta za reprodukciju! Nisu dostupni
+      pri svim videima. U tim će slučajevima player umjesto njih koristiti DASH H.264
+      formate.
   General Settings:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive
       API-a.
@@ -839,15 +940,17 @@ Tooltips:
       podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious
       poslužitelja na koji će se povezati.
     Region for Trending: 'Regija trendova omogućuje biranje prikaza videa u trendu
-      za određenu zemlju. YouTube zapravo ne podržava sve prikazane zemlje.'
-    External Link Handling: "Odaberi standardno ponašanje kad se pritisne poveznica\
-      \ koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom\
-      \ standardnom pregledniku.\n"
+      za određenu zemlju.'
+    External Link Handling: "Odaberi standardno ponašanje kad se pritisne poveznica
+      koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom
+      standardnom pregledniku.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Kad je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
       blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa
       ili stanja „uživo”
+    Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed
+      tvoje pretplate kada se otvori novi prozor i prilikom mijenjanja profila.
   Privacy Settings:
     Remove Video Meta Files: Kad je aktivirano, FreeTube automatski uklanja datoteke
       metapodataka koji su stvoreni tijekom reprodukcije videa, kad se zatvori stranica
@@ -864,6 +967,17 @@ Tooltips:
       da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja).
       Ako je potrebno, ovdje se može postaviti prilagođena putanja.
     DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
+  Experimental Settings:
+    Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
+      i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
+  Distraction Free Settings:
+    Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
+      kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
+      ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+    Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
+      u odjeljku „{subsection}” u „{settingsSection}”
+  SponsorBlock Settings:
+    UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekunde. Pritisni za prekid.
   | Reprodukcija sljedećeg videa za {nextVideoInterval} sekundi. Pritisni za prekid.
@@ -874,8 +988,8 @@ Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na
   ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
-Default Invidious instance has been set to {instance}: Standardna Invidious instanca je postavljena
-  na {instance}
+Default Invidious instance has been set to {instance}: Standardna Invidious instanca
+  je postavljena na {instance}
 External link opening has been disabled in the general settings: Vanjsko otvaranje
   poveznica je deaktivirano u općim postavkama
 Search Bar:
@@ -907,3 +1021,12 @@ Clipboard:
     moguć bez sigurne veze
 Chapters:
   Chapters: Poglavlja
+  'Chapters list visible, current chapter: {chapterName}': 'Popis poglavlja vidljiv,
+    aktualno poglavlje: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Popis poglavlja skriven,
+    aktualno poglavlje: {chapterName}'
+Preferences: Korisničke postavke
+Ok: U redu
+Hashtag:
+  This hashtag does not currently have any videos: Ovaj hashtag trenutačno nema videa
+  Hashtag: Hashtag

@@ -8,14 +8,14 @@
       v-show="!isLoading"
       class="card"
     >
-      <h3>
+      <h2>
         {{ $t("User Playlists.Your Playlists") }}
         <ft-tooltip
           class="selectTooltip"
           position="bottom"
           :tooltip="$t('User Playlists.Playlist Message')"
         />
-      </h3>
+      </h2>
       <ft-input
         v-show="fullData.length > 0"
         ref="searchBar"
@@ -42,6 +42,7 @@
       <ft-element-list
         v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
+        :use-channels-hidden-preference="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

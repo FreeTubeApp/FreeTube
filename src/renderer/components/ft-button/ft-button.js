@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtButton',
   props: {
     label: {
@@ -14,6 +14,10 @@ export default Vue.extend({
     backgroundColor: {
       type: String,
       default: 'var(--accent-color)'
+    },
+    id: {
+      type: String,
+      default: ''
     }
   }
 })

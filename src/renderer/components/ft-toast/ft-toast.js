@@ -1,7 +1,7 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtToastEvents from './ft-toast-events.js'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtToast',
   data: function () {
     return {
@@ -9,10 +9,10 @@ export default Vue.extend({
     }
   },
   mounted: function () {
-    FtToastEvents.$on('toast-open', this.open)
+    FtToastEvents.addEventListener('toast-open', this.open)
   },
   beforeDestroy: function () {
-    FtToastEvents.$off('toast-open', this.open)
+    FtToastEvents.removeEventListener('toast-open', this.open)
   },
   methods: {
     performAction: function (index) {
@@ -25,7 +25,7 @@ export default Vue.extend({
 
       toast.isOpen = false
     },
-    open: function (message, time, action) {
+    open: function ({ detail: { message, time, action } }) {
       const toast = { message: message, action: action || (() => { }), isOpen: false, timeout: null }
       toast.timeout = setTimeout(this.close, time || 3000, toast)
       setTimeout(() => { toast.isOpen = true })

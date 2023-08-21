@@ -23,7 +23,32 @@
   width: 60%;
 }
 
-@media only screen and (max-width: 800px) {
+.playlistItem {
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.videoIndex {
+  color: var(--tertiary-text-color);
+}
+
+.loadNextPageWrapper {
+  /* about the same height as the button */
+  max-height: 7vh;
+}
+
+:deep(.videoThumbnail) {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+:deep(.thumbnailImage) {
+  max-width: 25vw;
+}
+
+@media only screen and (max-width: 850px) {
   .routerView {
     flex-direction: column;
   }
@@ -39,5 +64,9 @@
   .playlistItems {
     box-sizing: border-box;
     width: 100%;
+  }
+
+  :deep(.thumbnailImage) {
+    max-width: 35vw;
   }
 }

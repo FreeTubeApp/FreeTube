@@ -1,15 +1,18 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
-import i18n from '../../i18n/index'
 import {
   copyToClipboard,
+  formatDurationAsTimestamp,
+  formatNumber,
   openExternalLink,
   showToast,
-  toLocalePublicationString
+  toLocalePublicationString,
+  toDistractionFreeTitle
 } from '../../helpers/utils'
+import { deArrowData } from '../../helpers/sponsorblock'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListVideo',
   components: {
     'ft-icon-button': FtIconButton
@@ -46,14 +49,18 @@ export default Vue.extend({
     appearance: {
       type: String,
       required: true
-    }
+    },
+    showVideoWithLastViewedPlaylist: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {
       id: '',
       title: '',
-      channelName: '',
-      channelId: '',
+      channelName: null,
+      channelId: null,
       viewCount: 0,
       parsedViewCount: '',
       uploadedTime: '',
@@ -63,7 +70,6 @@ export default Vue.extend({
       watchProgress: 0,
       publishedText: '',
       isLive: false,
-      isFavorited: false,
       isUpcoming: false,
       isPremium: false,
       hideViews: false
@@ -93,11 +99,17 @@ export default Vue.extend({
     inHistory: function () {
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
-      return this.$router.currentRoute.name === 'history'
+      return this.$route.name === 'history'
     },
 
     invidiousUrl: function () {
-      return `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistIdFinal}`
+      }
+      return videoUrl
     },
 
     invidiousChannelUrl: function () {
@@ -105,10 +117,21 @@ export default Vue.extend({
     },
 
     youtubeUrl: function () {
-      return `https://www.youtube.com/watch?v=${this.id}`
+      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistIdFinal}`
+      }
+      return videoUrl
     },
 
     youtubeShareUrl: function () {
+      // `playlistId` can be undefined
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+        // `index` seems can be ignored
+        return `https://youtu.be/${this.id}?list=${this.playlistIdFinal}`
+      }
       return `https://youtu.be/${this.id}`
     },
 
@@ -129,15 +152,14 @@ export default Vue.extend({
     },
 
     dropdownOptions: function () {
-      const options = []
-      options.push(
+      const options = [
         {
           label: this.watched
             ? this.$t('Video.Remove From History')
             : this.$t('Video.Mark As Watched'),
           value: 'history'
         }
-      )
+      ]
       if (!this.hideSharingActions) {
         options.push(
           {
@@ -169,30 +191,34 @@ export default Vue.extend({
           {
             label: this.$t('Video.Open in Invidious'),
             value: 'openInvidious'
-          },
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Copy YouTube Channel Link'),
-            value: 'copyYoutubeChannel'
-          },
-          {
-            label: this.$t('Video.Copy Invidious Channel Link'),
-            value: 'copyInvidiousChannel'
-          },
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Open Channel in YouTube'),
-            value: 'openYoutubeChannel'
-          },
-          {
-            label: this.$t('Video.Open Channel in Invidious'),
-            value: 'openInvidiousChannel'
           }
         )
+        if (this.channelId !== null) {
+          options.push(
+            {
+              type: 'divider'
+            },
+            {
+              label: this.$t('Video.Copy YouTube Channel Link'),
+              value: 'copyYoutubeChannel'
+            },
+            {
+              label: this.$t('Video.Copy Invidious Channel Link'),
+              value: 'copyInvidiousChannel'
+            },
+            {
+              type: 'divider'
+            },
+            {
+              label: this.$t('Video.Open Channel in YouTube'),
+              value: 'openYoutubeChannel'
+            },
+            {
+              label: this.$t('Video.Open Channel in Invidious'),
+              value: 'openInvidiousChannel'
+            }
+          )
+        }
       }
 
       return options
@@ -216,10 +242,6 @@ export default Vue.extend({
         default:
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }
-    },
-
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
     },
 
     hideVideoViews: function () {
@@ -258,15 +280,89 @@ export default Vue.extend({
       return this.$store.getters.getSaveWatchedProgress
     },
 
+    saveVideoHistoryWithLastViewedPlaylist: function () {
+      return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
+    },
+
+    showDistractionFreeTitles: function () {
+      return this.$store.getters.getShowDistractionFreeTitles
+    },
+
+    displayTitle: function () {
+      let title
+      if (this.useDeArrowTitles && this.deArrowCache?.title) {
+        title = this.deArrowCache.title
+      } else {
+        title = this.title
+      }
+
+      if (this.showDistractionFreeTitles) {
+        return toDistractionFreeTitle(title)
+      } else {
+        return title
+      }
+    },
+
+    historyIndex: function() {
+      return this.historyCache.findIndex((video) => {
+        return video.videoId === this.id
+      })
+    },
+
+    playlistIdFinal: function () {
+      if (this.playlistId) {
+        return this.playlistId
+      }
+
+      // Get playlist ID from history ONLY if option enabled
+      if (!this.showVideoWithLastViewedPlaylist) { return }
+      if (!this.saveVideoHistoryWithLastViewedPlaylist) { return }
+      const historyIndex = this.historyIndex
+      if (historyIndex === -1) {
+        return undefined
+      }
+
+      return this.historyCache[historyIndex].lastViewedPlaylistId
+    },
+
     currentLocale: function () {
-      return i18n.locale.replace('_', '-')
+      return this.$i18n.locale.replace('_', '-')
+    },
+
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
+    },
+
+    deArrowCache: function () {
+      return this.$store.getters.getDeArrowCache[this.id]
     }
   },
-  mounted: function () {
+  watch: {
+    historyIndex() {
+      this.checkIfWatched()
+    },
+  },
+  created: function () {
     this.parseVideoData()
     this.checkIfWatched()
+
+    if (this.useDeArrowTitles && !this.deArrowCache) {
+      this.fetchDeArrowData()
+    }
   },
   methods: {
+    fetchDeArrowData: async function() {
+      const videoId = this.id
+      const data = await deArrowData(this.id)
+      const cacheData = { videoId, title: null }
+      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
+        cacheData.title = data.titles[0].title
+      }
+
+      // Save data to cache whether data available or not to prevent duplicate requests
+      this.$store.commit('addVideoToDeArrowCache', cacheData)
+    },
+
     handleExternalPlayer: function () {
       this.$emit('pause-player')
 
@@ -275,7 +371,7 @@ export default Vue.extend({
         playbackRate: this.defaultPlayback,
         videoId: this.id,
         videoLength: this.data.lengthSeconds,
-        playlistId: this.playlistId,
+        playlistId: this.playlistIdFinal,
         playlistIndex: this.playlistIndex,
         playlistReverse: this.playlistReverse,
         playlistShuffle: this.playlistShuffle,
@@ -337,65 +433,80 @@ export default Vue.extend({
       }
     },
 
-    // For Invidious data, as duration is sent in seconds
-    calculateVideoDuration: function (lengthSeconds) {
-      if (typeof lengthSeconds === 'string') {
-        return lengthSeconds
-      }
-
-      if (typeof lengthSeconds === 'undefined') {
-        return '0:00'
-      }
-      let durationText = ''
-      let time = lengthSeconds
-      let hours = 0
-
-      if (time >= 3600) {
-        hours = Math.floor(time / 3600)
-        time = time - hours * 3600
-      }
-
-      let minutes = Math.floor(time / 60)
-      let seconds = time - minutes * 60
-
-      if (seconds < 10) {
-        seconds = '0' + seconds
-      }
-
-      if (minutes < 10 && hours > 0) {
-        minutes = '0' + minutes
-      }
-
-      if (hours > 0) {
-        durationText = hours + ':' + minutes + ':' + seconds
-      } else {
-        durationText = minutes + ':' + seconds
-      }
-
-      return durationText
-    },
-
     parseVideoData: function () {
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
 
-      this.channelName = this.data.author
-      this.channelId = this.data.authorId
-      this.duration = this.calculateVideoDuration(this.data.lengthSeconds)
+      this.channelName = this.data.author ?? null
+      this.channelId = this.data.authorId ?? null
+
+      if (this.data.isRSS && this.historyIndex !== -1) {
+        this.duration = formatDurationAsTimestamp(this.historyCache[this.historyIndex].lengthSeconds)
+      } else {
+        this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
+      }
+
       this.description = this.data.description
       this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount
 
-      if (typeof (this.data.premiereTimestamp) !== 'undefined') {
+      if (typeof this.data.premiereDate !== 'undefined') {
+        let premiereDate = this.data.premiereDate
+
+        // premiereDate will be a string when the subscriptions are restored from the cache
+        if (typeof premiereDate === 'string') {
+          premiereDate = new Date(premiereDate)
+        }
+        this.publishedText = premiereDate.toLocaleString()
+      } else if (typeof (this.data.premiereTimestamp) !== 'undefined') {
         this.publishedText = new Date(this.data.premiereTimestamp * 1000).toLocaleString()
       } else {
         this.publishedText = this.data.publishedText
       }
 
-      if (typeof (this.data.publishedText) !== 'undefined' && this.data.publishedText !== null && !this.isLive) {
+      if (this.data.isRSS && this.data.publishedDate != null && !this.isLive) {
+        const now = new Date()
+        // Convert from ms to second
+        // For easier code interpretation the value is made to be positive
+        // `publishedDate` is sometimes a string, e.g. when switched back from another view
+        const publishedDate = Date.parse(this.data.publishedDate)
+        let timeDiffFromNow = ((now - publishedDate) / 1000)
+        let timeUnit = 'second'
+
+        if (timeDiffFromNow > 60) {
+          timeDiffFromNow /= 60
+          timeUnit = 'minute'
+        }
+
+        if (timeUnit === 'minute' && timeDiffFromNow > 60) {
+          timeDiffFromNow /= 60
+          timeUnit = 'hour'
+        }
+
+        if (timeUnit === 'hour' && timeDiffFromNow > 24) {
+          timeDiffFromNow /= 24
+          timeUnit = 'day'
+        }
+
+        // Diff month might have diff no. of days
+        // To ensure the display is fine we use 31
+        if (timeUnit === 'day' && timeDiffFromNow > 31) {
+          timeDiffFromNow /= 24
+          timeUnit = 'month'
+        }
+
+        if (timeUnit === 'month' && timeDiffFromNow > 12) {
+          timeDiffFromNow /= 12
+          timeUnit = 'year'
+        }
+
+        // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
+        // Notice that the value is turned to negative to be displayed as "ago"
+        this.uploadedTime = new Intl.RelativeTimeFormat(this.currentLocale).format(Math.ceil(-timeDiffFromNow), timeUnit)
+      } else if (this.publishedText && !this.isLive) {
         // produces a string according to the template in the locales string
         this.uploadedTime = toLocalePublicationString({
           publishText: this.publishedText,
@@ -408,7 +519,7 @@ export default Vue.extend({
       if (this.hideVideoViews) {
         this.hideViews = true
       } else if (typeof (this.data.viewCount) !== 'undefined' && this.data.viewCount !== null) {
-        this.parsedViewCount = Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
+        this.parsedViewCount = formatNumber(this.data.viewCount)
       } else if (typeof (this.data.viewCountText) !== 'undefined') {
         this.parsedViewCount = this.data.viewCountText.replace(' views', '')
       } else {
@@ -417,13 +528,14 @@ export default Vue.extend({
     },
 
     checkIfWatched: function () {
-      const historyIndex = this.historyCache.findIndex((video) => {
-        return video.videoId === this.id
-      })
+      const historyIndex = this.historyIndex
 
       if (historyIndex !== -1) {
         this.watched = true
-        this.watchProgress = this.historyCache[historyIndex].watchProgress
+        if (this.saveWatchedProgress) {
+          // For UX consistency, no progress reading if writing disabled
+          this.watchProgress = this.historyCache[historyIndex].watchProgress
+        }
 
         if (this.historyCache[historyIndex].published !== '') {
           const videoPublished = this.historyCache[historyIndex].published

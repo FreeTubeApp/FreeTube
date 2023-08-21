@@ -6,9 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 
-const { productName } = require('../package.json')
-
 const isDevMode = process.env.NODE_ENV === 'development'
+
+const processLocalesPlugin = new ProcessLocalesPlugin({
+  compress: !isDevMode,
+  inputDir: path.join(__dirname, '../static/locales'),
+  outputDir: 'static/locales',
+})
 
 const config = {
   name: 'renderer',
@@ -28,10 +32,6 @@ const config = {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
-  // webpack spits out errors while inlining ytpl and ytsr as
-  // they dynamically import their package.json file to extract the bug report URL
-  // the error: "Critical dependency: the request of a dependency is an expression"
-  externals: ['ytpl', 'ytsr'],
   module: {
     rules: [
       {
@@ -42,9 +42,14 @@ const config = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            whitespace: 'condense',
+          }
+        }
       },
       {
-        test: /\.s(c|a)ss$/,
+        test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -58,11 +63,7 @@ const config = {
           {
             loader: 'sass-loader',
             options: {
-              // eslint-disable-next-line
-              implementation: require('sass'),
-              sassOptions: {
-                indentedSyntax: true
-              }
+              implementation: require('sass')
             }
           },
         ],
@@ -106,13 +107,14 @@ const config = {
   },
   node: {
     __dirname: isDevMode,
-    __filename: isDevMode,
-    global: isDevMode,
+    __filename: isDevMode
   },
   plugins: [
+    processLocalesPlugin,
     new webpack.DefinePlugin({
-      'process.env.PRODUCT_NAME': JSON.stringify(productName),
-      'process.env.IS_ELECTRON': true
+      'process.env.IS_ELECTRON': true,
+      'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -126,44 +128,22 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    }),
+    })
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.common.js',
-      '@': path.join(__dirname, '../src/'),
-      src: path.join(__dirname, '../src/'),
-      icons: path.join(__dirname, '../_icons/'),
-      images: path.join(__dirname, '../src/renderer/assets/img/'),
-      static: path.join(__dirname, '../static/'),
+      vue$: 'vue/dist/vue.runtime.esm.js',
+
+      'youtubei.js$': 'youtubei.js/web',
+
+      // video.js's mpd-parser uses @xmldom/xmldom so that it can support both node and web browsers
+      // as FreeTube only runs in electron and web browsers we can use the native DOMParser class, instead of the "polyfill"
+      // https://caniuse.com/mdn-api_domparser
+      '@xmldom/xmldom$': path.resolve(__dirname, '_domParser.js')
     },
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
-}
-
-/**
- * Adjust rendererConfig for production settings
- */
-if (!isDevMode) {
-  const processLocalesPlugin = new ProcessLocalesPlugin({
-    compress: true,
-    inputDir: path.join(__dirname, '../static/locales'),
-    outputDir: 'static/locales',
-  })
-
-  config.plugins.push(
-    processLocalesPlugin,
-    new webpack.DefinePlugin({
-      'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames)
-    }),
-    // webpack doesn't get rid of js-yaml even though it isn't used in the production builds
-    // so we need to manually tell it to ignore any imports for `js-yaml`
-    new webpack.IgnorePlugin({
-      resourceRegExp: /^js-yaml$/,
-      contextRegExp: /i18n$/
-    })
-  )
 }
 
 module.exports = config

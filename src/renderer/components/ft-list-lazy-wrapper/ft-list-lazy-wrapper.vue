@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="data.type !== undefined && (data.type === 'video' ? ((!data.liveNow && (data.lengthSeconds != null)) || (!hideLiveStreams)) : true)"
+    v-if="showResult"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
       once: true,
@@ -10,21 +10,31 @@
       list: layout === 'list'
     }"
   >
-    <ft-list-channel
-      v-if="data.type === 'channel' && visible"
-      :appearance="appearance"
-      :data="data"
-    />
-    <ft-list-video
-      v-if="(data.type === 'video' || data.type === 'shortVideo') && visible"
-      :appearance="appearance"
-      :data="data"
-    />
-    <ft-list-playlist
-      v-if="data.type === 'playlist' && visible"
-      :appearance="appearance"
-      :data="data"
-    />
+    <template
+      v-if="visible"
+    >
+      <ft-list-video
+        v-if="data.type === 'video' || data.type === 'shortVideo'"
+        :appearance="appearance"
+        :data="data"
+        :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
+      />
+      <ft-list-channel
+        v-else-if="data.type === 'channel'"
+        :appearance="appearance"
+        :data="data"
+      />
+      <ft-list-playlist
+        v-else-if="data.type === 'playlist'"
+        :appearance="appearance"
+        :data="data"
+      />
+      <ft-community-post
+        v-else-if="data.type === 'community'"
+        :appearance="appearance"
+        :data="data"
+      />
+    </template>
   </div>
 </template>
 

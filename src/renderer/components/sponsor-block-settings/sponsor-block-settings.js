@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
@@ -6,7 +6,7 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtSponsorBlockCategory from '../ft-sponsor-block-category/ft-sponsor-block-category.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SponsorBlockSettings',
   components: {
     'ft-settings-section': FtSettingsSection,
@@ -38,11 +38,19 @@ export default Vue.extend({
     },
     sponsorBlockShowSkippedToast: function () {
       return this.$store.getters.getSponsorBlockShowSkippedToast
+    },
+
+    useDeArrowTitles: function () {
+      return this.$store.getters.getUseDeArrowTitles
     }
   },
   methods: {
     handleUpdateSponsorBlock: function (value) {
       this.updateUseSponsorBlock(value)
+    },
+
+    handleUpdateUseDeArrowTitles: function (value) {
+      this.updateUseDeArrowTitles(value)
     },
 
     handleUpdateSponsorBlockUrl: function (value) {
@@ -58,7 +66,8 @@ export default Vue.extend({
     ...mapActions([
       'updateUseSponsorBlock',
       'updateSponsorBlockUrl',
-      'updateSponsorBlockShowSkippedToast'
+      'updateSponsorBlockShowSkippedToast',
+      'updateUseDeArrowTitles'
     ])
   }
 })

@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Dansk'
+Locale Name: 'dansk'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -29,8 +29,13 @@ Close: 'Luk'
 Back: 'Tilbage'
 Forward: 'Fremad'
 
-Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} er nu tilgængelig!  Klik
-  for flere detaljer'
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videoer
+
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
+  er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
   {blogTitle}. Klik for at vise mere'
@@ -60,12 +65,14 @@ Search Filters:
     Videos: 'Videoer'
     Channels: 'Kanaler'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Længde'
     All Durations: 'Alle Længder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4-20 minutter)
   Search Results: 'Søgeresultater'
   Fetching results. Please wait: 'Skaffer resultater. Vent venligst'
   Fetch more results: 'Skaf flere resultater'
@@ -82,9 +89,12 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Henter Abonnementer. Vent venligst.'
   Refresh Subscriptions: 'Genopfrisk Abonnementer'
   Load More Videos: Indlæs Flere Videoer
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Denne
-    profil har et stort antal abonnementer.  Tvinger RSS for at undgå adgangsbegrænsning
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
+    profil har et stort antal abonnementer.  Gennemtvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med Fejl
+  Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
+  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnementer.
+    Opdater abonnementer for at se dem her.
 Trending:
   Trending: 'Trender'
   Music: Musik
@@ -152,7 +162,8 @@ Settings:
     Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
       ved opstart
     System Default: Systemstandard
-    The currently set default instance is {instance}: Den nuværende standardinstans er {instance}
+    The currently set default instance is {instance}: Den nuværende standardinstans
+      er {instance}
     Current Invidious Instance: Nuværende Invidious-instans
     No default instance has been set: Ingen standardinstans er angivet
     Set Current Instance as Default: Angiv Nuværende Instans som Standard
@@ -262,6 +273,7 @@ Settings:
     Video Playback Rate Interval: Videoafspilningshastighed Interval
     Scroll Playback Rate Over Video Player: Scroll-afspilningshastighed i Videoafspiller
     Scroll Volume Over Video Player: Scroll-lydstyrke i Videoafspiller
+    Skip by Scrolling Over Video Player: Spring over ved at scrolle over videoafspilleren
   Privacy Settings:
     Privacy Settings: 'Privatlivsindstillinger'
     Remember History: 'Husk Historik'
@@ -323,8 +335,8 @@ Settings:
     Manage Subscriptions: Abonnementshåndtering
     Check for Legacy Subscriptions: Søg efter Gamle Abonnementer
     Export Playlists: Eksportér Playlister
-    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer objektet
-      over
+    Playlist insufficient data: Utilstrækkeligt data for "{playlist}" playlist, springer
+      objektet over
     Import Playlists: Importér Playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
       succesfuldt
@@ -532,7 +544,8 @@ Channel:
   Unsubscribe: 'Afmeld'
   Channel has been removed from your subscriptions: 'Kanal er blevet fjernet fra dine
     abonnementer'
-  Removed subscription from {count} other channel(s): 'Fjernede abonnement fra {count} andre kanaler'
+  Removed subscription from {count} other channel(s): 'Fjernede abonnement fra {count}
+    andre kanaler'
   Added channel to your subscriptions: 'Føjede kanal til dine abonnementer'
   Search Channel: 'Kanalsøgning'
   Your search results have returned 0 results: 'Dine søgeresultater har givet 0 resultater'
@@ -590,9 +603,9 @@ Video:
     i øjeblikket ikke i dette build.'
   'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Livestream
     er slut.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Direkte chat
-    er aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Direkte
+  Live chat is enabled. Chat messages will appear here once sent.: 'Direkte chat er
+    aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direkte
     Chat understøttes i øjeblikket ikke med Invidious-APIen.  Direkte forbindelse
     til YouTube kræves.'
   Published:
@@ -698,12 +711,6 @@ Playlist:
   View: 'Visning'
   Views: 'Visninger'
   Last Updated On: 'Sidst Opdateret'
-  Share Playlist:
-    Share Playlist: 'Del Playliste'
-    Copy YouTube Link: 'Kopiér YouTube-Link'
-    Open in YouTube: 'Åbn i YouTube'
-    Copy Invidious Link: 'Kopiér Indvidious-Link'
-    Open in Invidious: 'Åbn i Invidious'
 
 # On Video Watch Page
 #* Published
@@ -721,6 +728,7 @@ Change Format:
     for denne video'
 Share:
   Share Video: 'Del Video'
+  Share Playlist: 'Del Playliste'
   Include Timestamp: 'Inkludér Tidsstempel'
   Copy Link: 'Kopiér Link'
   Open Link: 'Åbn Link'
@@ -775,10 +783,8 @@ Shuffle is now enabled: 'Bland er nu aktiveret'
 The playlist has been reversed: 'Playlisten er blevet vendt om'
 Playing Next Video: 'Afspiller Næste Video'
 Playing Previous Video: 'Afspiller Forrige Video'
-Playing next video in 5 seconds.  Click to cancel: 'Afspiller næste video om 5 sekunder.
-  Klik for at afbryde.'
 Canceled next video autoplay: 'Afbrød næste videos autospilning'
-'The playlist has ended.  Enable loop to continue playing': 'Playlisten er slut.  Aktivér
+'The playlist has ended. Enable loop to continue playing': 'Playlisten er slut.  Aktivér
   gentagelse for at fortsætte afspilning'
 
 Yes: 'Ja'
@@ -809,8 +815,7 @@ Tooltips:
       til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
   General Settings:
     Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
-      på trend du ønsker at få vist. Ikke alle de viste lande understøttes faktisk
-      af YouTube.
+      på trend du ønsker at få vist.
     Preferred API Backend: Vælg den server som FreeTube bruger til at anskaffe data.
       Den lokale API er et indbygget dekomprimeringsværktøj. Invidious-API'en kræver
       en Invidious-server at forbinde til.
@@ -821,9 +826,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
       problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
       reservemetode, når det er aktiveret.
-    External Link Handling: "Vælg standardopførslen for når du klikker på et link,\
-      \ der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,\
-      \ du klikker på, i din standardbrowser.\n"
+    External Link Handling: "Vælg standardopførslen for når du klikker på et link,
+      der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,
+      du klikker på, i din standardbrowser.\n"
   External Player Settings:
     Custom External Player Executable: Som standard antager FreeTube at den valgte
       eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
@@ -851,8 +856,8 @@ Channels:
   Empty: Din kanalliste er i øjeblikket tom.
   Unsubscribe: Afmeld
   Unsubscribed: '{channelName} er fjernet fra dine abonnementer'
-Default Invidious instance has been set to {instance}: Standard Invidious-instans er blevet
-  sat til {instance}
+Default Invidious instance has been set to {instance}: Standard Invidious-instans
+  er blevet sat til {instance}
 Default Invidious instance has been cleared: Standard Invidious-instans er blevet
   ryddet
 Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
@@ -877,3 +882,4 @@ Screenshot Success: Gemte skærmbillede som "{filePath}"
 Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. |
   Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
+Preferences: Præferencer

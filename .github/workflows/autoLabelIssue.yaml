@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: Naturalclar/issue-action@v2.0.2
         with:
-          body: "both"
+          title-or-body: "body"
           parameters: >-
             [
               {
@@ -17,7 +17,7 @@ jobs:
                 "labels": ["B: visual"]
               },
               {
-                "keywords": ["AUR", "Chocolatey", "PortableApps", "winget", "Scoop", "MPR"],
+                "keywords": ["AUR", "Chocolatey", "FreeTubeCordova", "PortableApps", "winget", "Scoop", "Snapcraft", "MPR", "Nix"],
                 "labels": ["B: Unofficial Download"]
               },
               {

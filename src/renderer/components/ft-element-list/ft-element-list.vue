@@ -1,14 +1,16 @@
 <template>
   <ft-auto-grid
-    :grid="listType !== 'list'"
+    :grid="displayValue !== 'list'"
   >
     <ft-list-lazy-wrapper
       v-for="(result, index) in data"
-      :key="index"
+      :key="`${result.type}-${result.videoId || result.playlistId || result.postId || result.id || result.authorId}-${index}`"
       appearance="result"
       :data="result"
       :first-screen="index < 16"
-      :layout="listType"
+      :layout="displayValue"
+      :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
+      :use-channels-hidden-preference="useChannelsHiddenPreference"
     />
   </ft-auto-grid>
 </template>

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue, { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import { ObserveVisibility } from 'vue-observe-visibility'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
@@ -10,15 +10,15 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
-import { IpcChannels } from '../constants'
+import { Injectables, IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
-import { openExternalLink, showToast } from './helpers/utils'
+import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
 
 Vue.directive('observe-visibility', ObserveVisibility)
 
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
   components: {
     FtFlexBox,
@@ -29,6 +29,11 @@ export default Vue.extend({
     FtButton,
     FtToast,
     FtProgressBar
+  },
+  provide: function () {
+    return {
+      [Injectables.SHOW_OUTLINES]: this.showOutlines
+    }
   },
   data: function () {
     return {
@@ -51,14 +56,11 @@ export default Vue.extend({
     }
   },
   computed: {
-    isOpen: function () {
-      return this.$store.getters.getIsSideNavOpen
-    },
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
     isRightAligned: function () {
-      return this.$i18n.locale === 'ar'
+      return this.locale === 'ar' || this.locale === 'he'
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -66,28 +68,20 @@ export default Vue.extend({
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
     },
-    searchSettings: function () {
-      return this.$store.getters.getSearchSettings
-    },
-    profileList: function () {
-      return this.$store.getters.getProfileList
-    },
     windowTitle: function () {
-      if (this.$route.meta.title !== 'Channel' && this.$route.meta.title !== 'Watch') {
+      const routeTitle = this.$route.meta.title
+      if (routeTitle !== 'Channel' && routeTitle !== 'Watch' && routeTitle !== 'Hashtag') {
         let title =
         this.$route.meta.path === '/home'
-          ? process.env.PRODUCT_NAME
-          : `${this.$t(this.$route.meta.title)} - ${process.env.PRODUCT_NAME}`
+          ? packageDetails.productName
+          : `${this.$t(this.$route.meta.title)} - ${packageDetails.productName}`
         if (!title) {
-          title = process.env.PRODUCT_NAME
+          title = packageDetails.productName
         }
         return title
       } else {
         return null
       }
-    },
-    defaultProfile: function () {
-      return this.$store.getters.getDefaultProfile
     },
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
@@ -106,6 +100,10 @@ export default Vue.extend({
 
     secColor: function () {
       return this.$store.getters.getSecColor
+    },
+
+    locale: function() {
+      return this.$i18n.locale.replace('_', '-')
     },
 
     systemTheme: function () {
@@ -132,6 +130,8 @@ export default Vue.extend({
 
     secColor: 'checkThemeSettings',
 
+    locale: 'setLocale',
+
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
@@ -141,6 +141,7 @@ export default Vue.extend({
   created () {
     this.checkThemeSettings()
     this.setWindowTitle()
+    this.setLocale()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -159,6 +160,7 @@ export default Vue.extend({
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
+          this.activateIPCListeners()
           this.openAllLinksExternally()
           this.enableSetSearchQueryText()
           this.enableOpenUrl()
@@ -292,15 +294,19 @@ export default Vue.extend({
       })
     },
 
+    activateIPCListeners: function () {
+      // handle menu event updates from main script
+      ipcRenderer.on('history-back', (_event) => {
+        this.$refs.topNav.historyBack()
+      })
+      ipcRenderer.on('history-forward', (_event) => {
+        this.$refs.topNav.historyForward()
+      })
+    },
+
     handleKeyboardShortcuts: function (event) {
       if (event.altKey) {
         switch (event.key) {
-          case 'ArrowRight':
-            this.$refs.topNav.historyForward()
-            break
-          case 'ArrowLeft':
-            this.$refs.topNav.historyBack()
-            break
           case 'D':
           case 'd':
             this.$refs.topNav.focusSearch()
@@ -381,9 +387,9 @@ export default Vue.extend({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-            const path = `/watch/${videoId}`
-            this.openInternalPath({
-              path,
+
+            openInternalPath({
+              path: `/watch/${videoId}`,
               query,
               doCreateNewWindow
             })
@@ -393,9 +399,8 @@ export default Vue.extend({
           case 'playlist': {
             const { playlistId, query } = result
 
-            const path = `/playlist/${playlistId}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/playlist/${playlistId}`,
               query,
               doCreateNewWindow
             })
@@ -405,9 +410,8 @@ export default Vue.extend({
           case 'search': {
             const { searchQuery, query } = result
 
-            const path = `/search/${encodeURIComponent(searchQuery)}`
-            this.openInternalPath({
-              path,
+            openInternalPath({
+              path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
               doCreateNewWindow,
               searchQueryText: searchQuery
@@ -416,23 +420,23 @@ export default Vue.extend({
           }
 
           case 'hashtag': {
-            // TODO: Implement a hashtag related view
-            let message = 'Hashtags have not yet been implemented, try again later'
-            if (this.$te(message) && this.$t(message) !== '') {
-              message = this.$t(message)
-            }
-
-            showToast(message)
+            const { hashtag } = result
+            openInternalPath({
+              path: `/hashtag/${encodeURIComponent(hashtag)}`,
+              doCreateNewWindow
+            })
             break
           }
 
           case 'channel': {
-            const { channelId, subPath } = result
+            const { channelId, subPath, url } = result
 
-            const path = `/channel/${channelId}/${subPath}`
-            this.openInternalPath({
-              path,
-              doCreateNewWindow
+            openInternalPath({
+              path: `/channel/${channelId}/${subPath}`,
+              doCreateNewWindow,
+              query: {
+                url
+              }
             })
             break
           }
@@ -463,28 +467,6 @@ export default Vue.extend({
       ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
         document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
       })
-    },
-
-    openInternalPath: function({ path, doCreateNewWindow, query = {}, searchQueryText = null }) {
-      if (process.env.IS_ELECTRON && doCreateNewWindow) {
-        const { ipcRenderer } = require('electron')
-
-        // Combine current document path and new "hash" as new window startup URL
-        const newWindowStartupURL = [
-          window.location.href.split('#')[0],
-          `#${path}?${(new URLSearchParams(query)).toString()}`
-        ].join('')
-        ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-          windowStartupUrl: newWindowStartupURL,
-          searchQueryText
-        })
-      } else {
-        // Web
-        this.$router.push({
-          path,
-          query
-        })
-      }
     },
 
     enableSetSearchQueryText: function () {
@@ -523,6 +505,19 @@ export default Vue.extend({
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
+    },
+
+    setLocale: function() {
+      document.documentElement.setAttribute('lang', this.locale)
+    },
+
+    /**
+     * provided to all child components, see `provide` near the top of this file
+     * after injecting it, they can show outlines during keyboard navigation
+     * e.g. cycling through tabs with the arrow keys
+     */
+    showOutlines: function () {
+      this.hideOutlines = false
     },
 
     ...mapMutations([

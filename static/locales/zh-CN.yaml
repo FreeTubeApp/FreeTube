@@ -27,6 +27,13 @@ Close: '关闭'
 Back: '后退'
 Forward: '前进'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '视频'
+  Shorts: 短视频
+  Live: 直播
+
 # Search Bar
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
@@ -52,12 +59,14 @@ Search Filters:
     Videos: '视频'
     Channels: '频道'
     #& Playlists
+    Movies: 电影
   Duration:
     Duration: '时长'
     All Durations: '所有时长'
     Short (< 4 minutes): '短（< 4分钟）'
     Long (> 20 minutes): '长（> 20分钟）'
   # On Search Page
+    Medium (4 - 20 minutes): 中等（4-20 分钟）
   Search Results: '搜索结果'
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'
@@ -71,12 +80,15 @@ Subscriptions:
   'Getting Subscriptions.  Please wait.': '获取订阅中。 请稍等。'
   Refresh Subscriptions: 刷新订阅
   Getting Subscriptions. Please wait.: 获取订阅中。 请稍候。
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。
     强制RSS已防止速率限制
   Load More Videos: 加载更多视频
   Error Channels: 有错误的频道
   Disabled Automatic Fetching: 你仅用了自动订阅获取。刷新订阅在此处看到它们。
   Empty Channels: 你订阅的频道当前没有任何视频。
+  Subscriptions Tabs: 订阅标签页
+  All Subscription Tabs Hidden: 所有的订阅标签页均被隐藏。要在此查看内容，请在 "{subsection}" 部分取消隐藏某些标签页，此部分位于
+    "{settingsSection}"。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -196,6 +208,7 @@ Settings:
     Expand Side Bar by Default: 默认展开侧边栏
     Disable Smooth Scrolling: 禁用平滑滚动
     Hide Side Bar Labels: 隐藏侧边栏标签
+    Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
     Player Settings: '播放器选项'
     Force Local Backend for Legacy Formats: '强制本地后端给传统格式'
@@ -246,6 +259,11 @@ Settings:
         %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。 你也可以使用“\”或“/”创建子文件夹。
       Enable: 允许截屏
       Folder Label: 截屏文件夹
+    Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
+    Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
+    Allow DASH AV1 formats: 允许 DASH AV1 格式
+    Comment Auto Load:
+      Comment Auto Load: 自动加载评论
   Subscription Settings:
     Subscription Settings: '订阅设置'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -295,6 +313,7 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 您确定您想移除所有订阅和配置文件吗？这无法撤销。
     Remove All Subscriptions / Profiles: 移除所有订阅 / 配置文件
     Automatically Remove Video Meta Files: 自动删除硬盘元数据文件
+    Save Watched Videos With Last Viewed Playlist: 记住上次看过的播放列表中看过的视频 ID
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
     This might take a while, please wait: 这可能需要一段时间，请稍候
@@ -351,6 +370,25 @@ Settings:
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节
+    Hide Upcoming Premieres: 隐藏即将到来的首映
+    Hide Channels: 隐藏频道中的视频
+    Hide Channels Placeholder: 频道名称或 ID
+    Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
+    Hide Featured Channels: 隐藏精选频道
+    Hide Channel Playlists: 隐藏频道播放列表
+    Hide Channel Community: 隐藏频道社区
+    Hide Channel Shorts: 隐藏频道短视频
+    Sections:
+      Side Bar: 侧边栏
+      Channel Page: 频道页
+      Watch Page: 观看页
+      General: 常规
+      Subscriptions Page: 订阅页
+    Hide Channel Podcasts: 隐藏频道播客
+    Hide Channel Releases: 隐藏频道发布
+    Hide Subscriptions Shorts: 隐藏订阅短视频
+    Hide Subscriptions Videos: 隐藏订阅视频
+    Hide Subscriptions Live: 隐藏订阅直播
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -379,6 +417,7 @@ Settings:
       Do Nothing: 什么也不做
       Skip Option: 跳过选项
     Category Color: 类别颜色
+    UseDeArrowTitles: 使用 DeArrow 视频标题
   External Player Settings:
     Custom External Player Arguments: 定制外部播放器的参数
     Custom External Player Executable: 自定义外部播放器的可执行文件
@@ -404,6 +443,16 @@ Settings:
     Experimental Settings: 实验性设置
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
     Replace HTTP Cache: 替换 HTTP 缓存
+  Password Dialog:
+    Password: 密码
+    Enter Password To Unlock: 输入密码解锁设置
+    Password Incorrect: 密码不正确
+    Unlock: 解锁
+  Password Settings:
+    Password Settings: 密码设置
+    Set Password To Prevent Access: 设置密码防止访问设置
+    Set Password: 设置密码
+    Remove Password: 删除密码
 About:
   #On About page
   About: '关于'
@@ -479,9 +528,34 @@ Channel:
     About: '关于'
     Channel Description: '频道描述'
     Featured Channels: '列出频道'
+    Tags:
+      Search for: 搜索“{tag}”标签
+      Tags: 标签
+    Details: 详情
+    Joined: 已加入
+    Location: 位置
   Removed subscription from {count} other channel(s): 从{count}个其他频道移除订阅
   Added channel to your subscriptions: 已新增频道至您的订阅
   Channel has been removed from your subscriptions: 频道已从您的订阅中移除
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 此频道对观众年龄进行了限制，当前无法在
+    FreeTube 中查看。
+  Channel Tabs: 频道标签页
+  This channel does not exist: 此频道不存在
+  This channel does not allow searching: 此频道不允许搜索
+  Community:
+    Community: 社区
+    This channel currently does not have any posts: 此频道当前没有任何帖子
+  Live:
+    Live: 直播
+    This channel does not currently have any live streams: 此频道当前没有任何直播流
+  Shorts:
+    This channel does not currently have any shorts: 此频道目前没有任何短视频
+  Podcasts:
+    This channel does not currently have any podcasts: 此频道当前无任何播客节目
+    Podcasts: 播客
+  Releases:
+    Releases: 发布
+    This channel does not currently have any releases: 此频道当前无任何发布
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
@@ -501,8 +575,8 @@ Video:
   Enable Live Chat: '允许在线聊天'
   Live Chat is currently not supported in this build.: '在线聊天在此版本中目前不被支持。'
   'Chat is disabled or the Live Stream has ended.': '聊天被禁用或者在线直播已结束。'
-  Live chat is enabled.  Chat messages will appear here once sent.: '在线聊天结束。 聊天信息一旦发送将出现在这里。'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': '在线聊天目前不被Invidious
+  Live chat is enabled. Chat messages will appear here once sent.: '在线聊天结束。 聊天信息一旦发送将出现在这里。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '在线聊天目前不被Invidious
     API支持。 需要直接连接YouTube。'
   Published:
     Jan: '一月'
@@ -614,6 +688,10 @@ Video:
   Skipped segment: 跳过片段
   Premieres in: 首映于
   Premieres: 首映
+  Scroll to Bottom: 滚动到底部
+  Show Super Chat Comment: 显示超级聊天评论
+  Upcoming: 即将到来
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 实时聊天对此音视频流不可用。上传者可能禁用了它。
 Videos:
   #& Sort By
   Sort By:
@@ -628,12 +706,6 @@ Playlist:
   View: '观看'
   Views: '观看'
   Last Updated On: '最后更新于'
-  Share Playlist:
-    Share Playlist: '分享播放列表'
-    Copy YouTube Link: '复制YouTube链接'
-    Open in YouTube: '在YouTube中打开'
-    Copy Invidious Link: '复制Invidious链接'
-    Open in Invidious: '在Invidious中打开'
 
 # On Video Watch Page
 #* Published
@@ -649,6 +721,7 @@ Change Format:
   Dash formats are not available for this video: 这个视频没有Dash格式
 Share:
   Share Video: '分享视频'
+  Share Playlist: '分享播放列表'
   Copy Link: '复制链接'
   Open Link: '打开链接'
   Copy Embed: '复制内嵌'
@@ -661,6 +734,7 @@ Share:
   Include Timestamp: 包含时间戳
   YouTube Channel URL copied to clipboard: YouTube频道URL已复制到剪贴板
   Invidious Channel URL copied to clipboard: Invidious频道URL已复制到剪贴板
+  Share Channel: 分享频道
 Mini Player: '迷你播放器'
 Comments:
   Comments: '评论'
@@ -685,6 +759,8 @@ Comments:
   From {channelName}: 来自 {channelName}
   And others: 及其他
   Member: 成员
+  Hearted: 喜欢的
+  View {replyCount} replies: 查看 {replyCount} 条回复
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -699,9 +775,8 @@ Shuffle is now disabled: '随机播放现在被禁用'
 Shuffle is now enabled: '随机播放现在被禁用'
 Playing Next Video: '将播放下一视频'
 Playing Previous Video: '将播放上一视频'
-Playing next video in 5 seconds.  Click to cancel: '下一视频将在5秒后播放。点击取消。'
 Canceled next video autoplay: '取消的自动播放下一视频'
-'The playlist has ended.  Enable loop to continue playing': '播放列表已结束。 允许循环播放以继续播放'
+'The playlist has ended. Enable loop to continue playing': '播放列表已结束。 允许循环播放以继续播放'
 
 Yes: '是'
 No: '否'
@@ -744,11 +819,11 @@ Profile:
   Subscription List: 订阅列表
   Profile Settings: 个人资料设置
   Profile Filter: 个人资料筛选器
+  Toggle Profile List: 切换个人资料列表
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
-Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！
-  点击以取得更多信息
+Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！  点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
@@ -762,13 +837,16 @@ Tooltips:
       将执行并使用由其回传的的传统格式，而非 Invidious 回传的格式。对因为国家地区限制而不能播放 Invidious回传的影片时有帮助。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
       键)，前后滚动鼠标滚轮，控制播放速度。按住 Control 键(Mac 上的 Command 键)，左键点击鼠标快速返回到默认播放速率(1x，除非在设置中改变了数值)。
+    Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
+    Allow DASH AV1 formats: DASH AV1 格式画质也许比 DASH H.264 格式要好。 但请注意 DASH AV1 格式耗电更多！不是所有视频都有
+      DASH AV1 格式，如果没有的话，播放器会使用 DASH H.264 格式。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
     Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。
     Fallback to Non-Preferred Backend on Failure: 当您的首选API有问题时，FreeTube将自动尝试使用您的非首选API
       作为后备方案。
     Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
-    Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。并非所有显示的国家都被YouTube支持。
+    Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。
     External Link Handling: "选择单击一个无法在 FreeTube 中打开的链接时触发的默认操作。\n默认情况下，FreeTube 将在您的默认浏览器中打开所点击链接。\n"
   External Player Settings:
     External Player: 选择一个外部播放器将在缩略图上显示一个图标，用于在外部播放器中打开视频(播放列表，如果支持)。警告，Invidious 设置不影响外部播放器。
@@ -780,6 +858,12 @@ Tooltips:
     Remove Video Meta Files: 启用后，当观看页面关闭时，FreeTube 会自动删除在视频播放时创建的元文件。
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
+  Distraction Free Settings:
+    Hide Channels: 输入频道名称或频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道名称必须完全匹配，并且区分大小写。
+    Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}"
+      位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
+  SponsorBlock Settings:
+    UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
 More: 更多
 Open New Window: 打开新窗口
 Search Bar:
@@ -787,7 +871,7 @@ Search Bar:
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
-Hashtags have not yet been implemented, try again later: 哈希标签功能尚未实现，请稍后再试
+Hashtags have not yet been implemented, try again later: 话题标签功能尚未实现，请稍后再试
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 |
   {nextVideoInterval} 秒内播放下个视频。单击取消。
@@ -823,3 +907,7 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
   'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
 Preferences: 选项
+Ok: 好
+Hashtag:
+  Hashtag: 话题标签
+  This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频

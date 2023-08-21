@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -6,9 +6,10 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
-import { showToast } from '../../helpers/utils'
+import { deepCopy, showToast } from '../../helpers/utils'
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtProfileChannelList',
   components: {
     'ft-card': FtCard,
@@ -32,7 +33,6 @@ export default Vue.extend({
       showDeletePrompt: false,
       subscriptions: [],
       selectedLength: 0,
-      componentKey: 0,
       deletePromptValues: [
         'yes',
         'no'
@@ -64,48 +64,38 @@ export default Vue.extend({
         this.$t('Yes'),
         this.$t('No')
       ]
-    }
+    },
+    locale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
   },
   watch: {
     profile: function () {
-      this.subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
-      }).map((channel) => {
+      const subscriptions = deepCopy(this.profile.subscriptions).sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
+      })
+      subscriptions.forEach((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
-        return channel
       })
+
+      this.subscriptions = subscriptions
     }
   },
   mounted: function () {
     if (typeof this.profile.subscriptions !== 'undefined') {
-      this.subscriptions = JSON.parse(JSON.stringify(this.profile.subscriptions)).sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
-      }).map((channel) => {
+      const subscriptions = deepCopy(this.profile.subscriptions).sort((a, b) => {
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
+      })
+      subscriptions.forEach((channel) => {
         if (this.backendPreference === 'invidious') {
-          channel.thumbnail = channel.thumbnail.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+          channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
         }
         channel.selected = false
-        return channel
       })
+      this.subscriptions = subscriptions
     }
   },
   methods: {
@@ -129,7 +119,7 @@ export default Vue.extend({
           })
 
           this.profileList.forEach((x) => {
-            const profile = JSON.parse(JSON.stringify(x))
+            const profile = deepCopy(x)
             profile.subscriptions = profile.subscriptions.filter((channel) => {
               const index = channelsToRemove.findIndex((y) => {
                 return y.id === channel.id
@@ -143,7 +133,7 @@ export default Vue.extend({
           showToast(this.$t('Profile.Profile has been updated'))
           this.selectNone()
         } else {
-          const profile = JSON.parse(JSON.stringify(this.profile))
+          const profile = deepCopy(this.profile)
 
           this.subscriptions = this.subscriptions.filter((channel) => {
             return !channel.selected

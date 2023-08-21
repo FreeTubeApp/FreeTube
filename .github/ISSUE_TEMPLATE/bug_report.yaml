@@ -1,7 +1,7 @@
 name: Bug Report
 description: Report an issue or unexpected behavior that occurs within the application
 title: "[Bug]: "
-labels: "bug"
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
@@ -14,10 +14,14 @@ body:
       description: Please ensure you've completed all of the following.
       options:
         - label: I have encountered this bug in the [latest release of FreeTube](https://github.com/FreeTubeApp/FreeTube/releases).
-          required: true  
-        - label: I have searched the [issue tracker](https://github.com/FreeTubeApp/FreeTube/issues) for open and closed issues that are similar to the bug report I want to file, without success.
+          required: true
+        - label: I have encountered this bug in the [official downloads of FreeTube](https://github.com/FreeTubeApp/FreeTube#official-downloads).
+          required: true
+        - label: I have searched the issue tracker for [open](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aopen+is%3Aissue) and [closed](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+is%3Aclosed) issues that are similar to the bug report I want to file, without success.
           required: true
         - label: I have searched the [documentation](https://docs.freetubeapp.io/) for information that matches the description of the bug I want to file, without success.
+          required: true
+        - label: This issue contains only one bug.
           required: true
   - type: textarea
     attributes:
@@ -29,7 +33,7 @@ body:
           3. Scroll down to '....'
           4. See error
     validations:
-      required: true   
+      required: true
   - type: textarea
     attributes:
       label: Expected Behavior
@@ -77,7 +81,8 @@ body:
     attributes:
       label: Installation Method
       options:
-        - .apk
+        - .apk (Alpine Linux Package)
+        - .apk (Android, FreeTubeCordova)
         - .AppImage
         - AUR
         - Chocolatey
@@ -86,18 +91,20 @@ body:
         - .exe
         - Flathub
         - MPR
+        - Nix
         - .pacman
         - Portable
         - PortableApps
         - .rpm
         - Scoop
+        - Snapcraft
         - winget
         - .zip
         - other
     validations:
       required: true
   - type: dropdown
-    attributes: 
+    attributes:
       label: Primary API used
       description: What is the primary API being used?
       multiple: false

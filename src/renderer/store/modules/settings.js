@@ -1,7 +1,7 @@
 import i18n from '../../i18n/index'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
-import { showToast } from '../../helpers/utils'
+import { getSystemLocale, showToast } from '../../helpers/utils'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -163,8 +163,8 @@ const defaultSideEffectsTriggerId = settingId =>
 const state = {
   autoplayPlaylists: true,
   autoplayVideos: true,
-  backendFallback: true,
-  backendPreference: 'local',
+  backendFallback: process.env.IS_ELECTRON,
+  backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
   barColor: false,
   checkForBlogPosts: true,
   checkForUpdates: true,
@@ -183,6 +183,7 @@ const state = {
   displayVideoPlayButton: true,
   enableSearchSuggestions: true,
   enableSubtitles: true,
+  enterFullscreenOnDisplayRotate: false,
   externalLinkHandling: '',
   externalPlayer: '',
   externalPlayerExecutable: '',
@@ -191,24 +192,37 @@ const state = {
   expandSideBar: false,
   forceLocalBackendForLegacy: false,
   hideActiveSubscriptions: false,
+  hideChannelCommunity: false,
+  hideChannelPlaylists: false,
+  hideChannelReleases: false,
+  hideChannelPodcasts: false,
+  hideChannelShorts: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
   hideComments: false,
+  hideFeaturedChannels: false,
+  channelsHidden: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,
+  hideHeaderLogo: false,
   hidePlaylists: false,
   hidePopularVideos: false,
   hideRecommendedVideos: false,
   hideSearchBar: false,
   hideSharingActions: false,
+  hideSubscriptionsVideos: false,
+  hideSubscriptionsShorts: false,
+  hideSubscriptionsLive: false,
   hideTrendingVideos: false,
   hideUnsubscribeButton: false,
+  hideUpcomingPremieres: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
   hideLabelsSideBar: false,
   hideChapters: false,
+  showDistractionFreeTitles: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
@@ -216,11 +230,12 @@ const state = {
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
-  proxyVideos: false,
+  proxyVideos: !process.env.IS_ELECTRON,
   region: 'US',
   rememberHistory: true,
   removeVideoMetaFiles: true,
   saveWatchedProgress: true,
+  saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
   sponsorBlockUrl: 'https://sponsor.ajay.app',
@@ -262,6 +277,7 @@ const state = {
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,
+  videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   downloadFolderPath: '',
   downloadBehavior: 'download',
@@ -271,7 +287,11 @@ const state = {
   screenshotAskPath: false,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
-  fetchSubscriptionsAutomatically: true
+  fetchSubscriptionsAutomatically: true,
+  settingsPassword: '',
+  allowDashAv1Formats: false,
+  commentAutoLoadEnabled: false,
+  useDeArrowTitles: false,
 }
 
 const stateWithSideEffects = {
@@ -282,7 +302,7 @@ const stateWithSideEffects = {
 
       let targetLocale = value
       if (value === 'system') {
-        const systemLocaleName = (await dispatch('getSystemLocale')).replace('-', '_') // ex: en_US
+        const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
         const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
         const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
@@ -318,9 +338,7 @@ const stateWithSideEffects = {
         }
       }
 
-      if (process.env.NODE_ENV !== 'development' || !process.env.IS_ELECTRON) {
-        await i18n.loadLocale(targetLocale)
-      }
+      await i18n.loadLocale(targetLocale)
 
       i18n.locale = targetLocale
       await dispatch('getRegionData', {
@@ -342,6 +360,8 @@ const stateWithSideEffects = {
     defaultValue: 1,
     sideEffectsHandler: (_, value) => {
       sessionStorage.setItem('volume', value)
+      value === 0 ? sessionStorage.setItem('muted', 'true') : sessionStorage.setItem('muted', 'false')
+      sessionStorage.setItem('defaultVolume', value)
     }
   },
 
@@ -436,6 +456,10 @@ const customActions = {
 
         case SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS:
           commit('updateRecordWatchProgressInHistoryCache', data)
+          break
+
+        case SyncEvents.HISTORY.UPDATE_PLAYLIST:
+          commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
           break
 
         case SyncEvents.GENERAL.DELETE:

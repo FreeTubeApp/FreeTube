@@ -27,6 +27,11 @@ Close: 'Cerrar'
 Back: 'Volver'
 Forward: 'Adelante'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videos'
+
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
@@ -74,9 +79,10 @@ Subscriptions:
   Refresh Subscriptions: Actulizar Suscripciones
   Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
   Load More Videos: Cargar más videos
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Este
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
   Error Channels: Canales con errores
+  Empty Channels: Sus canales suscritos no tienen ningún video actualmente.
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -464,6 +470,9 @@ Channel:
     About: 'Acerca de'
     Channel Description: 'Descripción del canal'
     Featured Channels: 'Canales destacados'
+    Tags:
+      Search for: Buscar por «{tag}»
+    Details: Detalles
   Added channel to your subscriptions: Canal añadido a sus suscripciones
   Removed subscription from {count} other channel(s): Suscripción eliminada de {count}
     otros canales
@@ -495,9 +504,9 @@ Video:
     actualmente en esta compilación.'
   'Chat is disabled or the Live Stream has ended.': 'El chat esta desactivado o la
     transmisión en vivo ha terminado.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'El chat en vivo
+  Live chat is enabled. Chat messages will appear here once sent.: 'El chat en vivo
     esta activado. Los mensajes del chat aparecerán aquí cuando sean enviados.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'El
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
     chat en vivo no esta soportado actualmente con la API de Invidious. Es necesaria
     una conexión directa a YouTube.'
   Published:
@@ -609,12 +618,6 @@ Playlist:
   View: 'Vista'
   Views: 'Vistas'
   Last Updated On: 'Última actualización el'
-  Share Playlist:
-    Share Playlist: 'Compartir lista de reproducción'
-    Copy YouTube Link: 'Copiar enlace de YouTube'
-    Open in YouTube: 'Abrir en Youtube'
-    Copy Invidious Link: 'Copiar enlace de Invidious'
-    Open in Invidious: 'Abrir en Invidious'
 
 # On Video Watch Page
 #* Published
@@ -632,6 +635,7 @@ Change Format:
     este video
 Share:
   Share Video: 'Compartir Video'
+  Share Playlist: 'Compartir lista de reproducción'
   Copy Link: 'Copiar enlace'
   Open Link: 'Abrir enlace'
   Copy Embed: 'Copiar incrustado'
@@ -687,10 +691,8 @@ Shuffle is now disabled: 'La reproducción aleatoria se ha desactivada'
 Shuffle is now enabled: 'La reproducción aleatoria se ha activado'
 Playing Next Video: 'Reproduciendo el video siguiente'
 Playing Previous Video: 'Reproduciendo el video anterior'
-Playing next video in 5 seconds.  Click to cancel: 'Reproduciendo el video siguiente
-  en 5 segundos. Presione para cancelar.'
 Canceled next video autoplay: 'Reproducción automática del siguiente video cancelado'
-'The playlist has ended.  Enable loop to continue playing': 'La lista de reproducción
+'The playlist has ended. Enable loop to continue playing': 'La lista de reproducción
   ha terminado. Activa el bucle para continuar reproduciendo'
 
 Yes: 'Sí'
@@ -759,8 +761,7 @@ Tooltips:
     Invidious Instance: La dirección de Invidious a la que FreeTube se conectará para
       solicitudes de la API.
     Region for Trending: La región de tendencias le permitirá elegir las tendencias
-      del país que deseé ver mostradas. No todos los países mostrados están soportados
-      por YouTube.
+      del país que deseé ver mostradas.
     Thumbnail Preference: Todas las miniaturas a través de FreeTube serán reemplazadas
       con un fotograma del video en vez de su miniatura por defecto.
     External Link Handling: "Elija el comportamiento previsto para cuando un link,\
@@ -830,3 +831,7 @@ Playing Next Video Interval: El próximo video se abrirá inmediatamente. Haga c
   segundos. Haga clic aquí para cancelar.
 New Window: Nueva ventana
 Preferences: Preferencias
+Channels:
+  Channels: Canales
+  Title: Lista de Canales
+  Search bar placeholder: Buscar Canales

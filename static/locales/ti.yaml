@@ -1,0 +1,37 @@
+# Put the name of your locale in the same language
+Locale Name: 'እንግሊዘኛ (us)'
+FreeTube: 'FreeTube'
+# Currently on Subscriptions, Playlists, and History
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  እዚ ኽፋል .app ምሉእ ኣይኰነን ።
+
+# Webkit Menu Bar
+File: 'ፋይል'
+New Window: 'ሓድሽ ገጽ'
+Preferences: 'ምርጫታት'
+Quit: 'ውጻእ'
+Undo: 'ንድሕሪት'
+Cut: 'ቍረጽ'
+Copy: 'ቅዳሕ'
+Paste: 'ኣቀብል'
+Delete: 'ደምስሶ'
+Select all: 'ንዅሉ ምረጽ'
+Reload: 'እንደገና ጽዓን'
+Force Reload: 'ሓይሊ እንደገና ጽዓን'
+Toggle Developer Tools: 'መሳርሒታት'
+Actual size: 'ናይ ሓቂ መጠን'
+Toggle fullscreen: 'ምሉእ ኤለክትሮኒካዊ መሳርሒ'
+Search Filters: {}
+Settings:
+  # On Settings Page
+  General Settings: {}
+  Theme Settings: {}
+  Player Settings: {}
+  SponsorBlock Settings: {}
+Channel:
+  Videos: {}
+Video:
+  External Player: {}
+Tooltips: {}
+About:
+  Email: ኢመይል

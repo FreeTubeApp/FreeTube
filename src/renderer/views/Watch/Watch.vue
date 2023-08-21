@@ -21,6 +21,7 @@
           ref="videoPlayer"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
+          :audio-tracks="audioTracks"
           :adaptive-formats="adaptiveFormats"
           :caption-hybrid-list="captionHybridList"
           :storyboard-src="videoStoryboardSrc"
@@ -29,12 +30,16 @@
           :video-id="videoId"
           :length-seconds="videoLengthSeconds"
           :chapters="videoChapters"
+          :current-chapter-index="videoCurrentChapterIndex"
+          :theatre-possible="theatrePossible"
+          :use-theatre-mode="useTheatreMode"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
-          @ready="checkIfWatched"
+          @ready="handleVideoReady"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
+          @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
@@ -44,6 +49,7 @@
           <img
             :src="thumbnail"
             class="upcomingThumbnail"
+            alt=""
           >
           <div
             class="premiereDate"
@@ -107,21 +113,21 @@
         :is-upcoming="isUpcoming"
         :download-links="downloadLinks"
         :playlist-id="playlistId"
-        :watching-playlist="watchingPlaylist"
         :get-playlist-index="getPlaylistIndex"
         :get-playlist-reverse="getPlaylistReverse"
         :get-playlist-shuffle="getPlaylistShuffle"
         :get-playlist-loop="getPlaylistLoop"
-        :theatre-possible="theatrePossible"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        @change-format="handleFormatChange"
         @pause-player="pausePlayer"
+        @set-info-area-sticky="infoAreaSticky = $event"
+        @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
-        :compact="backendPreference === 'invidious'"
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
         class="watchVideo"
@@ -130,7 +136,6 @@
       />
       <watch-video-description
         v-if="!isLoading && !hideVideoDescription"
-        :published="videoPublished"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
         class="watchVideo"
@@ -144,6 +149,8 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
+        :video-player-ready="videoPlayerReady"
+        :force-state="commentsEnabled ? null : 'noComment'"
         @timestamp-event="changeTimestamp"
       />
     </div>
@@ -152,9 +159,10 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && isLive"
+        v-if="!isLoading && !hideLiveChat && isLive"
+        :live-chat="liveChat"
         :video-id="videoId"
-        :channel-name="channelName"
+        :channel-id="channelId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
       />
@@ -162,6 +170,7 @@
         v-if="watchingPlaylist"
         v-show="!isLoading"
         ref="watchVideoPlaylist"
+        :watch-view-loading="isLoading"
         :playlist-id="playlistId"
         :video-id="videoId"
         class="watchVideoSideBar watchVideoPlaylist"
@@ -184,4 +193,4 @@
 </template>
 
 <script src="./Watch.js" />
-<style scoped src="./Watch.sass" lang="sass" />
+<style scoped src="./Watch.scss" lang="scss" />

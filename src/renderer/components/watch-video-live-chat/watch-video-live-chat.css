@@ -1,3 +1,8 @@
+.card.hasError {
+  height: auto !important;
+  padding: 16px;
+}
+
 .relative {
   position: relative;
 }
@@ -10,6 +15,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.messageContainer.hasError {
+  flex-direction: column;
+  row-gap: 16px;
 }
 
 .message {
@@ -53,8 +63,8 @@
   height: 30px;
   cursor: pointer;
   background-color: var(--primary-color);
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
 }
 
 .superChatContent {
@@ -114,8 +124,8 @@
   margin-top: 25px;
   margin-bottom: 10px;
   background-color: var(--primary-color);
-  border-radius: 5px 5px 5px 5px;
-  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
   position: relative;
 }
 
@@ -205,12 +215,14 @@
   left: 45%;
   bottom: 20px;
   cursor: pointer;
-  border-radius: 200px 200px 200px 200px;
-  -webkit-border-radius: 200px 200px 200px 200px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  text-align: center;
   transition: background 0.2s ease-out;
 }
 
-.scrollToBottom:hover {
+.scrollToBottom:hover,
+.scrollToBottom:focus {
   background-color: var(--accent-color-light);
   transition: background 0.2s ease-in;
 }
@@ -219,6 +231,5 @@
   color: var(--text-with-accent-color);
   font-size: 22px;
   position: relative;
-  left: 0.5rem;
   top: 0.45rem;
 }

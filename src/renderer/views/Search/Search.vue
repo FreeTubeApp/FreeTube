@@ -10,13 +10,17 @@
       v-else
       class="card"
     >
-      <h3>{{ $t("Search Filters.Search Results") }}</h3>
+      <h2>{{ $t("Search Filters.Search Results") }}</h2>
       <ft-element-list
         :data="shownResults"
       />
       <div
         class="getNextPage"
+        role="button"
+        tabindex="0"
         @click="nextPage"
+        @keydown.enter.prevent="nextPage"
+        @keydown.space.prevent="nextPage"
       >
         <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
       </div>

@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtNotificationBanner',
   props: {
     message: {
@@ -8,18 +8,12 @@ export default Vue.extend({
       required: true
     }
   },
-  computed: {
-    progressBarPercentage: function () {
-      return this.$store.getters.getProgressBarPercentage
-    }
-  },
   methods: {
     handleClick: function (response) {
       this.$emit('click', response)
     },
 
-    handleClose: function (event) {
-      event.stopPropagation()
+    handleClose: function () {
       this.handleClick(false)
     }
   }

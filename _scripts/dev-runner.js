@@ -9,16 +9,22 @@ const kill = require('tree-kill')
 const path = require('path')
 const { spawn } = require('child_process')
 
-const mainConfig = require('./webpack.main.config')
-const rendererConfig = require('./webpack.renderer.config')
-const webConfig = require('./webpack.web.config')
-const workersConfig = require('./webpack.workers.config')
-
 let electronProcess = null
 let manualRestart = null
 
 const remoteDebugging = process.argv.indexOf('--remote-debug') !== -1
 const web = process.argv.indexOf('--web') !== -1
+
+let mainConfig
+let rendererConfig
+let webConfig
+
+if (!web) {
+  mainConfig = require('./webpack.main.config')
+  rendererConfig = require('./webpack.renderer.config')
+} else {
+  webConfig = require('./webpack.web.config')
+}
 
 if (remoteDebugging) {
   // disable dvtools open in electron
@@ -72,41 +78,27 @@ async function restartElectron() {
 }
 
 function startMain() {
-  const webpackSetup = webpack([mainConfig, workersConfig])
+  const compiler = webpack(mainConfig)
+  const { name } = compiler
 
-  webpackSetup.compilers.forEach(compiler => {
-    const { name } = compiler
+  compiler.hooks.afterEmit.tap('afterEmit', async () => {
+    console.log(`\nCompiled ${name} script!`)
 
-    switch (name) {
-      case 'workers':
-        compiler.hooks.afterEmit.tap('afterEmit', async () => {
-          console.log(`\nCompiled ${name} script!`)
-          console.log(`\nWatching file changes for ${name} script...`)
-        })
-        break
-      case 'main':
-      default:
-        compiler.hooks.afterEmit.tap('afterEmit', async () => {
-          console.log(`\nCompiled ${name} script!`)
+    manualRestart = true
+    await restartElectron()
+    setTimeout(() => {
+      manualRestart = false
+    }, 2500)
 
-          manualRestart = true
-          await restartElectron()
-          setTimeout(() => {
-            manualRestart = false
-          }, 2500)
-
-          console.log(`\nWatching file changes for ${name} script...`)
-        })
-        break
-    }
+    console.log(`\nWatching file changes for ${name} script...`)
   })
 
-  webpackSetup.watch({
+  compiler.watch({
     aggregateTimeout: 500,
   },
-    err => {
-      if (err) console.error(err)
-    })
+  err => {
+    if (err) console.error(err)
+  })
 }
 
 function startRenderer(callback) {

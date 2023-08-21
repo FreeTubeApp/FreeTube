@@ -1,30 +1,38 @@
 <template>
   <div>
-    <general-settings />
-    <hr>
-    <theme-settings />
-    <hr>
-    <player-settings />
-    <hr>
-    <external-player-settings v-if="usingElectron" />
-    <hr v-if="usingElectron">
-    <subscription-settings />
-    <hr>
-    <distraction-settings />
-    <hr>
-    <privacy-settings />
-    <hr>
-    <data-settings />
-    <hr>
-    <proxy-settings />
-    <hr>
-    <download-settings v-if="usingElectron" />
-    <hr v-if="usingElectron">
-    <parental-control-settings />
-    <hr>
-    <sponsor-block-settings />
-    <hr v-if="usingElectron">
-    <experimental-settings v-if="usingElectron" />
+    <template v-if="unlocked">
+      <general-settings />
+      <hr>
+      <theme-settings />
+      <hr>
+      <player-settings />
+      <hr>
+      <external-player-settings v-if="usingElectron" />
+      <hr v-if="usingElectron">
+      <subscription-settings />
+      <hr>
+      <distraction-settings />
+      <hr>
+      <privacy-settings />
+      <hr>
+      <data-settings />
+      <hr>
+      <proxy-settings v-if="usingElectron" />
+      <hr v-if="usingElectron">
+      <download-settings v-if="usingElectron" />
+      <hr v-if="usingElectron">
+      <parental-control-settings />
+      <hr>
+      <sponsor-block-settings />
+      <hr v-if="usingElectron">
+      <experimental-settings v-if="usingElectron" />
+      <hr>
+      <password-settings />
+    </template>
+    <password-dialog
+      v-else
+      @unlocked="unlocked = true"
+    />
   </div>
 </template>
 

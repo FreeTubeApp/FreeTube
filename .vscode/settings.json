@@ -1,0 +1,33 @@
+{
+  "stylelint.packageManager": "yarn",
+  "stylelint.snippet": [
+      "css",
+      "less",
+      "postcss",
+      "sass",
+      "scss"
+  ],
+  "stylelint.validate": [
+      "css",
+      "less",
+      "postcss",
+      "scss"
+  ],
+  "eslint.packageManager": "yarn",
+  "eslint.probe": [
+      "javascript",
+      "vue",
+      "json",
+      "jsonc",
+      "yml",
+      "yaml"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "vue",
+    "json",
+    "jsonc",
+    "yml",
+    "yaml"
+  ],
+}

@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
 let idCounter = 0
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtTooltip',
   props: {
     position: {

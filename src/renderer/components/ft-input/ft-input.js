@@ -1,16 +1,26 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { mapActions } from 'vuex'
+import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtInput',
   components: {
     'ft-tooltip': FtTooltip
   },
   props: {
+    inputType: {
+      type: String,
+      required: false,
+      default: 'text'
+    },
     placeholder: {
       type: String,
       required: true
+    },
+    label: {
+      type: String,
+      default: null
     },
     value: {
       type: String,
@@ -19,6 +29,10 @@ export default Vue.extend({
     showActionButton: {
       type: Boolean,
       default: true
+    },
+    forceActionButtonIconName: {
+      type: Array,
+      default: null
     },
     showClearTextButton: {
       type: Boolean,
@@ -29,10 +43,6 @@ export default Vue.extend({
       default: false
     },
     isSearch: {
-      type: Boolean,
-      default: false
-    },
-    selectOnFocus: {
       type: Boolean,
       default: false
     },
@@ -54,20 +64,25 @@ export default Vue.extend({
     }
   },
   data: function () {
+    let actionIcon = ['fas', 'search']
+    if (this.forceActionButtonIconName !== null) {
+      actionIcon = this.forceActionButtonIconName
+    }
     return {
       id: '',
       inputData: '',
       searchState: {
         showOptions: false,
         selectedOption: -1,
-        isPointerInList: false
+        isPointerInList: false,
+        keyboardSelectedOptionIndex: -1,
       },
       visibleDataList: this.dataList,
       // This button should be invisible on app start
       // As the text input box should be empty
       clearTextButtonExisting: false,
       clearTextButtonVisible: false,
-      actionButtonIconName: ['fas', 'search']
+      actionButtonIconName: actionIcon
     }
   },
   computed: {
@@ -85,7 +100,23 @@ export default Vue.extend({
 
     inputDataPresent: function () {
       return this.inputData.length > 0
-    }
+    },
+    inputDataDisplayed() {
+      if (!this.isSearch) { return this.inputData }
+
+      const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
+      if (selectedOptionValue != null && selectedOptionValue !== '') {
+        return selectedOptionValue
+      }
+
+      return this.inputData
+    },
+
+    searchStateKeyboardSelectedOptionValue() {
+      if (this.searchState.keyboardSelectedOptionIndex === -1) { return null }
+
+      return this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+    },
   },
   watch: {
     dataList(val, oldVal) {
@@ -97,14 +128,17 @@ export default Vue.extend({
       if (val !== oldVal) {
         this.updateVisibleDataList()
       }
+    },
+    value(val, oldVal) {
+      if (val !== oldVal) {
+        this.inputData = val
+      }
     }
   },
   mounted: function () {
     this.id = this._uid
     this.inputData = this.value
     this.updateVisibleDataList()
-
-    setTimeout(this.addListener, 200)
   },
   methods: {
     handleClick: function (e) {
@@ -112,11 +146,15 @@ export default Vue.extend({
       if (!this.inputDataPresent) { return }
 
       this.searchState.showOptions = false
+      this.searchState.selectedOption = -1
+      this.searchState.keyboardSelectedOptionIndex = -1
       this.$emit('input', this.inputData)
       this.$emit('click', this.inputData, { event: e })
     },
 
     handleInput: function (val) {
+      this.inputData = val
+
       if (this.isSearch &&
         this.searchState.selectedOption !== -1 &&
         this.inputData === this.visibleDataList[this.searchState.selectedOption]) { return }
@@ -132,11 +170,10 @@ export default Vue.extend({
       this.handleActionIconChange()
       this.updateVisibleDataList()
 
-      const inputElement = document.getElementById(this.id)
-      inputElement.value = ''
+      this.$refs.input.value = ''
 
       // Focus on input element after text is clear for better UX
-      inputElement.focus()
+      this.$refs.input.focus()
 
       this.$emit('clear')
     },
@@ -145,7 +182,7 @@ export default Vue.extend({
       // Only need to update icon if visible
       if (!this.showActionButton) { return }
 
-      if (!this.inputDataPresent) {
+      if (!this.inputDataPresent && this.forceActionButtonIconName === null) {
         // Change back to default icon if text is blank
         this.actionButtonIconName = ['fas', 'search']
         return
@@ -161,11 +198,8 @@ export default Vue.extend({
             case 'playlist':
             case 'search':
             case 'channel':
-              isYoutubeLink = true
-              break
             case 'hashtag':
-              // TODO: Implement a hashtag related view
-              // isYoutubeLink is already `false`
+              isYoutubeLink = true
               break
 
             case 'invalid_url':
@@ -173,32 +207,23 @@ export default Vue.extend({
               // isYoutubeLink is already `false`
             }
           }
-
-          if (isYoutubeLink) {
-            // Go to URL (i.e. Video/Playlist/Channel
-            this.actionButtonIconName = ['fas', 'arrow-right']
-          } else {
-            // Search with text
-            this.actionButtonIconName = ['fas', 'search']
+          if (this.forceActionButtonIconName === null) {
+            if (isYoutubeLink) {
+              // Go to URL (i.e. Video/Playlist/Channel
+              this.actionButtonIconName = ['fas', 'arrow-right']
+            } else {
+              // Search with text
+              this.actionButtonIconName = ['fas', 'search']
+            }
           }
         })
       } catch (ex) {
         // On exception, consider text as invalid URL
-        this.actionButtonIconName = ['fas', 'search']
+        if (this.forceActionButtonIconName === null) {
+          this.actionButtonIconName = ['fas', 'search']
+        }
         // Rethrow exception
         throw ex
-      }
-    },
-
-    addListener: function () {
-      const inputElement = document.getElementById(this.id)
-
-      if (inputElement !== null) {
-        inputElement.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
-            this.handleClick(event)
-          }
-        })
       }
     },
 
@@ -209,30 +234,52 @@ export default Vue.extend({
       this.handleClick()
     },
 
+    /**
+     * @param {KeyboardEvent} event
+     */
     handleKeyDown: function (event) {
-      if (this.visibleDataList.length === 0) { return }
-      // Update selectedOption based on arrow key pressed
-      if (event.key === 'ArrowDown') {
-        this.searchState.selectedOption = (this.searchState.selectedOption + 1) % this.visibleDataList.length
-      } else if (event.key === 'ArrowUp') {
-        if (this.searchState.selectedOption < 1) {
-          this.searchState.selectedOption = this.visibleDataList.length - 1
-        } else {
-          this.searchState.selectedOption--
+      if (event.key === 'Enter') {
+        // Update Input box value if enter key was pressed and option selected
+        if (this.searchState.selectedOption !== -1) {
+          this.searchState.showOptions = false
+          event.preventDefault()
+          this.inputData = this.visibleDataList[this.searchState.selectedOption]
         }
-      } else {
-        this.searchState.selectedOption = -1
+        this.handleClick(event)
+        // Early return
+        return
       }
 
-      // Key pressed isn't enter
-      if (event.key !== 'Enter') {
-        this.searchState.showOptions = true
+      if (this.visibleDataList.length === 0) { return }
+
+      this.searchState.showOptions = true
+      const isArrow = event.key === 'ArrowDown' || event.key === 'ArrowUp'
+      if (!isArrow) {
+        const selectedOptionValue = this.searchStateKeyboardSelectedOptionValue
+        // Keyboard selected & is char
+        if (!isNullOrEmpty(selectedOptionValue) && isKeyboardEventKeyPrintableChar(event.key)) {
+          // Update input based on KB selected suggestion value instead of current input value
+          event.preventDefault()
+          this.handleInput(`${selectedOptionValue}${event.key}`)
+          return
+        }
+        return
       }
-      // Update Input box value if arrow keys were pressed
-      if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && this.searchState.selectedOption !== -1) {
-        event.preventDefault()
-        this.inputData = this.visibleDataList[this.searchState.selectedOption]
+
+      event.preventDefault()
+      if (event.key === 'ArrowDown') {
+        this.searchState.selectedOption++
+      } else if (event.key === 'ArrowUp') {
+        this.searchState.selectedOption--
       }
+      // Allow deselecting suggestion
+      if (this.searchState.selectedOption < -1) {
+        this.searchState.selectedOption = this.visibleDataList.length - 1
+      } else if (this.searchState.selectedOption > this.visibleDataList.length - 1) {
+        this.searchState.selectedOption = -1
+      }
+      // Update displayed value
+      this.searchState.keyboardSelectedOptionIndex = this.searchState.selectedOption
     },
 
     handleInputBlur: function () {
@@ -241,31 +288,35 @@ export default Vue.extend({
 
     handleFocus: function(e) {
       this.searchState.showOptions = true
-      if (this.selectOnFocus) {
-        e.target.select()
-      }
     },
 
     updateVisibleDataList: function () {
       if (this.dataList.length === 0) { return }
+      // Reset selected option before it's updated
+      this.searchState.selectedOption = -1
+      this.searchState.keyboardSelectedOptionIndex = -1
       if (this.inputData === '') {
         this.visibleDataList = this.dataList
         return
       }
       // get list of items that match input
-      const visList = this.dataList.filter(x => {
-        if (x.toLowerCase().indexOf(this.inputData.toLowerCase()) !== -1) {
-          return true
-        } else {
-          return false
-        }
-      })
+      const lowerCaseInputData = this.inputData.toLowerCase()
 
-      this.visibleDataList = visList
+      this.visibleDataList = this.dataList.filter(x => {
+        return x.toLowerCase().indexOf(lowerCaseInputData) !== -1
+      })
     },
 
     updateInputData: function(text) {
       this.inputData = text
+    },
+
+    focus() {
+      this.$refs.input.focus()
+    },
+
+    blur() {
+      this.$refs.input.blur()
     },
 
     ...mapActions([

@@ -6,4 +6,3 @@
 </template>
 
 <script src="./ft-timestamp-catcher.js" />
-<style scoped src="./ft-timestamp-catcher.css" />

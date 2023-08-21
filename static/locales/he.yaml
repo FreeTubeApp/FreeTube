@@ -29,6 +29,13 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'סרטונים'
+  Shorts: Shorts
+  Live: חי
+
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -60,12 +67,14 @@ Search Filters:
     Videos: 'סרטונים'
     Channels: 'ערוצים'
     #& Playlists
+    Movies: סרטים
   Duration:
     Duration: 'משך זמן'
     All Durations: 'הכול'
     Short (< 4 minutes): 'קצר (מתחת ל־4 דקות)'
     Long (> 20 minutes): 'ארוך (מעל 20 דקות)'
   # On Search Page
+    Medium (4 - 20 minutes): בינוני (4 - 20‏ דקות)
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'
@@ -79,13 +88,16 @@ Subscriptions:
     המנויים שלכם כרגע ריקה. תתחילו להוסיף הרשמות כדי לראות אותן כאן.'
   'Getting Subscriptions. Please wait.': 'אוסף מנויים. אנא המתן.'
   Refresh Subscriptions: 'רענון מנויים'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: לפרופיל
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מנויים. עובר לעדכונים בעזרת RSS על מנת להימנע מהגבלות רוחב פס
   Load More Videos: לטעון סרטונים נוספים
   Error Channels: ערוצים עם שגיאות
   Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים
     כדי לצפות בהם כאן.
   Empty Channels: בערוצים אליהם נרשמת אין כלל סרטונים.
+  All Subscription Tabs Hidden: כל לשוניות המינויים מותסרות. כדי לראות את התוכן כאן,
+    נא לבטל את הסתרתן של כמה מהלשוניות תחת הסעיף „{subsection}” שב„{settingsSection}”.
+  Subscriptions Tabs: לשוניות מינויים
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -211,6 +223,7 @@ Settings:
     Expand Side Bar by Default: תפריט צד מורחב כברירת מחדל
     Disable Smooth Scrolling: השבתת גלילה חלקה
     Hide Side Bar Labels: הסתרת התוויות בסרגל הצד
+    Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'הגדרת נגן'
     Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
@@ -262,6 +275,11 @@ Settings:
         ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
         ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
+    Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
+    Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
+    Allow DASH AV1 formats: לאפשר תצורות DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: טעינת תגובות אוטומטית
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'זכור את היסטוריית הצפייה'
@@ -278,6 +296,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'האם
       אתם בטוחים שאתם רוצים למחוק כל את המנויים והפרופילים? פעולה זו היא לא הפיכה.'
     Automatically Remove Video Meta Files: להסיר אוטומטית קובצי נתוני על של הסרטון
+    Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
+      הנגינה לאחרונים שנצפו
   Subscription Settings:
     Subscription Settings: 'הגדרות מנויים'
     Hide Videos on Watch: 'הסתר סרטונים לאחר הצפייה'
@@ -374,6 +394,26 @@ Settings:
     Hide Comments: הסתרת הערות
     Hide Video Description: הסתרת תיאור וידאו
     Hide Chapters: הסתרת פרקים
+    Hide Upcoming Premieres: הסתרת בכורות קרובות
+    Hide Channels: הסתרת סרטונים מהערוצים
+    Hide Channels Placeholder: שם או מזהה ערוץ
+    Display Titles Without Excessive Capitalisation: להציג כותרות בלי הגזמה באותיות
+      גדולות
+    Hide Featured Channels: הסתרת ערוצים מומלצים
+    Hide Channel Playlists: הסתרת רשימת נגינה של ערוץ
+    Hide Channel Community: הסתרת קהילת הערוץ
+    Hide Channel Shorts: הסתרת ה־Shorts של הערוץ
+    Sections:
+      Watch Page: עמוד הצפייה
+      Channel Page: עמוד ערוץ
+      Side Bar: סרגל צד
+      General: כללי
+      Subscriptions Page: עמוד מינויים
+    Hide Channel Podcasts: הסתרת הסכתים של הערוץ
+    Hide Channel Releases: הסתרת שחרורים של הערוץ
+    Hide Subscriptions Live: הסתרת שידורים חיים של המינויים
+    Hide Subscriptions Shorts: הסתרת Shorts של המינויים
+    Hide Subscriptions Videos: הסתרת סרטוני מינוי
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -414,6 +454,7 @@ Settings:
       Do Nothing: לא לעשות כלום
       Prompt To Skip: לשאול אם לדלג
     Category Color: צבע קטגוריה
+    UseDeArrowTitles: להשתמש בכותרות סרטונים דרך DeArrow
   Download Settings:
     Download Settings: הגדרות הורדה
     Ask Download Path: לשאול מה נתיב ההורדות
@@ -429,8 +470,18 @@ Settings:
   Experimental Settings:
     Experimental Settings: הגדרות ניסיוניות
     Replace HTTP Cache: החלפת מטמון HTTP
-    Warning: אלו הגדרות ניסיוניות, הן עלולות לגרום לקריסת המערכת שהן פעילות. מומלץ
-      מאוד לגבות. השימוש הוא על אחריותך בלבד!
+    Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. ביצוע גיבויים
+      מומלץ מאוד. השימוש על אחריותך בלבד!
+  Password Dialog:
+    Password Incorrect: הסיסמה שגויה
+    Unlock: שחרור
+    Password: סיסמה
+    Enter Password To Unlock: נא למלא סיסמה כדי לשחרר את ההגדרות
+  Password Settings:
+    Password Settings: הגדרות סיסמה
+    Set Password: הגדרת סיסמה
+    Remove Password: הסרת סיסמה
+    Set Password To Prevent Access: יש להגדיר סיסמה כדי למנוע גישה להגדרות
 About:
   #On About page
   About: 'על אודות'
@@ -536,6 +587,7 @@ Profile:
 #On Channel Page
   Profile Filter: מסנן פרופילים
   Profile Settings: הגדרת הפרופיל
+  Toggle Profile List: החלפת תצוגת רשימת פרופילים
 Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'
@@ -566,6 +618,32 @@ Channel:
     About: 'על אודות'
     Channel Description: 'תיאור הערוץ'
     Featured Channels: 'ערוצים מומלצים'
+    Tags:
+      Tags: תגיות
+      Search for: חיפוש אחר „{tag}”
+    Details: פרטים
+    Joined: הצטרפות
+    Location: מקום
+  This channel does not allow searching: הערוץ הזה לא מאפשר חיפוש
+  Channel Tabs: לשוניות ערוצים
+  This channel does not exist: הערוץ הזה לא קיים
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: הערוץ
+    מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
+  Community:
+    This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
+    Community: קהילה
+  Live:
+    Live: חי
+    This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים
+      כרגע
+  Shorts:
+    This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
+  Podcasts:
+    Podcasts: הסכתים
+    This channel does not currently have any podcasts: בערוץ הזה אין הסכתים כרגע
+  Releases:
+    Releases: שחרורים
+    This channel does not currently have any releases: בערוץ הזה אין שחרורים כרגע
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
@@ -593,15 +671,14 @@ Video:
   # As in a Live Video
   Live: 'שידור חי'
   Live Now: 'בשידור חי'
-  Live Chat: 'צ''אט'
-  Enable Live Chat: 'אפשר צ''אט'
-  Live Chat is currently not supported in this build.: 'הצ''אט כרגע לא נתמך בגרסה
-    זו.'
+  Live Chat: 'צ׳אט'
+  Enable Live Chat: 'הפעלת צ׳אט'
+  Live Chat is currently not supported in this build.: 'הצ׳אט כרגע לא נתמך בגרסה זו.'
   'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'הצ''אט מופעל.
-    ההודעות יופיעו פה כאשר יישלחו.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'מנגנון
-    הצ''אט כרגע לא נתמך ע"י ה-API של Invidious. דרוש חיבור ישיר ל-YouTube.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל. ההודעות
+    תופענה פה כאשר תישלחנה.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון
+    הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
   Published:
     Jan: 'בינו׳'
     Feb: 'בפבר׳'
@@ -666,7 +743,7 @@ Video:
     recap: סיכום
   External Player:
     video: סרטון
-    playlist: פלייליסט
+    playlist: רשימת נגינה
     OpenInTemplate: פתיחה בתוך {externalPlayer}
     OpeningTemplate: '{videoOrPlaylist} נפתח ב־{externalPlayer}…'
     UnsupportedActionTemplate: 'ב־{externalPlayer} אין תמיכה בפעולה: {action}'
@@ -701,6 +778,11 @@ Video:
     Mimetype: סוג MIME
   Premieres in: בכורה בעוד
   Premieres: בכורות
+  Scroll to Bottom: גלילה לתחתית
+  Show Super Chat Comment: הצגת הערת סופר צ׳אט
+  Upcoming: בקרוב
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': הצ׳אט
+    לא זמין לשידור הזה. יכול להיות שהוא הושבת על ידי המעלה.
 Videos:
   #& Sort By
   Sort By:
@@ -715,17 +797,11 @@ Playlist:
   View: 'צפייה'
   Views: 'צפיות'
   Last Updated On: 'עודכן לאחרונה ב'
-  Share Playlist:
-    Share Playlist: 'שתפו פלייליסט'
-    Copy YouTube Link: 'העתיקו קישור ל-YouTube'
-    Open in YouTube: 'פתחו ב-Youtube'
-    Copy Invidious Link: 'העתיקו קישור ל-Invidious'
-    Open in Invidious: 'פתחו ב-Invidious'
 
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: פלייליסט
+  Playlist: רשימת נגינה
 Toggle Theatre Mode: 'הפעלו / בטלו מצב קולנוע'
 Change Format:
   Change Media Formats: 'שינוי תצורות הסרטונים'
@@ -736,6 +812,7 @@ Change Format:
   Audio formats are not available for this video: 'לא קיימות תצורות שמע לסרטון הזה'
 Share:
   Share Video: 'שתפו את הסרטון'
+  Share Playlist: 'שתפו פלייליסט'
   Include Timestamp: 'לשמור נקודת זמן'
   Copy Link: 'העתקת קישור'
   Open Link: 'פתיחת קישור'
@@ -748,6 +825,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'קישור הטמעה של YouTube הועתק'
   YouTube Channel URL copied to clipboard: כתובת ערוץ ה־YouTube הועתקה ללוח הגזירים
   Invidious Channel URL copied to clipboard: כתובת ערוץ ה־Invidious הועתק ללוח הגזירים
+  Share Channel: שיתוף ערוץ
 Mini Player: 'נגן מיני'
 Comments:
   Comments: 'תגובות'
@@ -772,6 +850,8 @@ Comments:
   And others: ואחרים
   Pinned by: ננעץ על ידי
   Member: חבר
+  View {replyCount} replies: הצגת {replyCount} תגובות
+  Hearted: סומן בלב
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -789,10 +869,8 @@ Shuffle is now enabled: 'ערבוב מופעל'
 The playlist has been reversed: 'רשימת נגינה זו התהפכה'
 Playing Next Video: 'הסרטון הבא מתנגן'
 Playing Previous Video: 'הסרטון הקודם מתנגן'
-Playing next video in 5 seconds.  Click to cancel: 'הסרטון הבא יתנגן תוך 5 שניות.
-  יבוטל בלחיצה.'
 Canceled next video autoplay: 'ניגון הסרטון הבא אוטומטית בוטל'
-'The playlist has ended.  Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש
+'The playlist has ended. Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש
   להפעיל לולאה כדי להמשיך לנגן'
 
 Yes: 'כן'
@@ -804,14 +882,14 @@ Tooltips:
       האפשרות פעילה.
     Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
-    Region for Trending: מגמות אזוריות מאפשר לך לבחור סרטונים חמים של איזו מדינה מעניין
-      אותך לראות. לא כל המדינות שמוצגות אכן נתמכות על ידי YouTube.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בפריים מתוך הסרטון
       במקום התמונה הממוזערת כברירת המחדל.
-    External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן\
-      \ לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת\
-      \ המחדל שלך.\n"
+    External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן
+      לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל
+      שלך.\n"
+    Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
+      מעניין אותך לראות.
   Player Settings:
     Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
       המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
@@ -827,6 +905,11 @@ Tooltips:
       לשלוט בקצב הנגינה. לחיצה והחזקה של מקש Control (או Command ב־Mac) ולחיצה על
       הכפתור השמאלי בעכבר מחזירה במהירות לקצב הנגינה כברירת מחדל (1x אלמלא בוצע שינוי
       בהגדרות).
+    Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
+      כמו ב־MPV.
+    Allow DASH AV1 formats: תצורות DASH AV1 עשויות להיראות טוב יותר מתצורות DASH H.264.
+      תצורות DASH AV1 דורשות יותר חשמל כדי לנגן! הן אינן זמינות בכל הסרטונים, במקרים
+      האלה הנגן ישתמש בתצורות DASH H.264 במקום.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
@@ -850,6 +933,14 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
       אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
+  Distraction Free Settings:
+    Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה
+      ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם
+      הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
+    Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”,
+      בסעיף „{subsection}” שב„{settingsSection}”
+  SponsorBlock Settings:
+    UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
 More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
@@ -898,3 +989,7 @@ Clipboard:
   Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא
     חיבור מאובטח
 Preferences: העדפות
+Ok: אישור
+Hashtag:
+  This hashtag does not currently have any videos: לתגית ההקבץ הזו אין סרטונים כרגע
+  Hashtag: תגית הקבץ

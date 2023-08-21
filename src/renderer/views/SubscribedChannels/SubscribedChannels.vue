@@ -1,7 +1,7 @@
 <template>
   <div>
     <ft-card class="card">
-      <h3>{{ $t('Channels.Title') }}</h3>
+      <h2>{{ $t('Channels.Title') }}</h2>
       <ft-input
         v-show="subscribedChannels.length > 0"
         ref="searchBarChannels"
@@ -29,40 +29,40 @@
             :key="channel.key"
             class="channel"
           >
-            <div class="thumbnailContainer">
+            <router-link
+              tabindex="-1"
+              class="thumbnailContainer"
+              :to="`/channel/${channel.id}`"
+            >
               <img
                 class="channelThumbnail"
                 :src="thumbnailURL(channel.thumbnail)"
-                @click="goToChannel(channel.id)"
+                alt=""
                 @error.once="updateThumbnail(channel)"
               >
-            </div>
-            <div
+            </router-link>
+            <router-link
               class="channelName"
               :title="channel.name"
-              @click="goToChannel(channel.id)"
+              :to="`/channel/${channel.id}`"
             >
               {{ channel.name }}
-            </div>
-            <div class="unsubscribeContainer">
-              <ft-button
-                :label="$t('Channels.Unsubscribe')"
-                background-color="var(--search-bar-color)"
-                text-color="var(--secondary-text-color)"
-                @click="handleUnsubscribeButtonClick(channel)"
+            </router-link>
+            <div
+              v-if="!hideUnsubscribeButton"
+              class="unsubscribeContainer"
+            >
+              <ft-subscribe-button
+                class="btn"
+                :channel-id="channel.id"
+                :channel-name="channel.name"
+                :channel-thumbnail="channel.thumbnail"
               />
             </div>
           </div>
         </ft-flex-box>
       </template>
     </ft-card>
-    <ft-prompt
-      v-if="showUnsubscribePrompt"
-      :label="$t('Channels.Unsubscribe Prompt', { channelName: channelToUnsubscribe.name })"
-      :option-names="unsubscribePromptNames"
-      :option-values="unsubscribePromptValues"
-      @click="handleUnsubscribePromptClick"
-    />
   </div>
 </template>
 

@@ -1,11 +1,13 @@
-import Vue from 'vue'
-import { mapActions } from 'vuex'
+import { defineComponent } from 'vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
-export default Vue.extend({
+import { invidiousAPICall } from '../../helpers/api/invidious'
+import { copyToClipboard, showToast } from '../../helpers/utils'
+
+export default defineComponent({
   name: 'Popular',
   components: {
     'ft-loader': FtLoader,
@@ -27,7 +29,7 @@ export default Vue.extend({
   mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
 
-    this.shownResults = this.popularCache
+    this.shownResults = this.popularCache || []
     if (!this.shownResults || this.shownResults.length < 1) {
       this.fetchPopularInfo()
     }
@@ -44,9 +46,13 @@ export default Vue.extend({
       }
 
       this.isLoading = true
-      const result = await this.invidiousAPICall(searchPayload)
+      const result = await invidiousAPICall(searchPayload)
         .catch((err) => {
-          console.error(err)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
+          })
+          return undefined
         })
 
       if (!result) {
@@ -61,11 +67,18 @@ export default Vue.extend({
       this.$store.commit('setPopularCache', this.shownResults)
     },
 
-    // This function should always be at the bottom of this file
+    /**
+     * This function `keyboardShortcutHandler` should always be at the bottom of this file
+     * @param {KeyboardEvent} event the keyboard event
+     */
     keyboardShortcutHandler: function (event) {
       if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
         return
       }
+      // Avoid handling events due to user holding a key (not released)
+      // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
+      if (event.repeat) { return }
+
       switch (event.key) {
         case 'r':
         case 'R':
@@ -74,10 +87,6 @@ export default Vue.extend({
           }
           break
       }
-    },
-
-    ...mapActions([
-      'invidiousAPICall'
-    ])
+    }
   }
 })

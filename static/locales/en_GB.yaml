@@ -29,6 +29,13 @@ Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videos
+  Shorts: Shorts
+  Live: Live
+
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
 Download From Site: 'Download From Site'
@@ -60,12 +67,14 @@ Search Filters:
     Videos: 'Videos'
     Channels: 'Channels'
     #& Playlists
+    Movies: Films
   Duration:
     Duration: 'Duration'
     All Durations: 'All durations'
     Short (< 4 minutes): 'Short (< 4 minutes)'
     Long (> 20 minutes): 'Long (> 20 minutes)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
   Search Results: 'Search results'
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'
@@ -80,12 +89,15 @@ Subscriptions:
   'Getting Subscriptions. Please wait.': 'Getting Subscriptions. Please wait.'
   Refresh Subscriptions: 'Refresh Subscriptions'
   Load More Videos: Load more videos
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: This
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   Error Channels: Channels with errors
   Disabled Automatic Fetching: You have disabled automatic subscription fetching.
     Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
+  Subscriptions Tabs: Subscriptions tabs
+  All Subscription Tabs Hidden: All subscription tabs are hidden. To see content here,
+    please unhide some tabs in the ‘{subsection}’ section in ‘{settingsSection}’.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -215,6 +227,7 @@ Settings:
     Disable Smooth Scrolling: Disable smooth scrolling
     Expand Side Bar by Default: Expand side bar by default
     Hide Side Bar Labels: Hide side bar labels
+    Hide FreeTube Header Logo: Hide FreeTube Header Logo
   Player Settings:
     Player Settings: 'Player Settings'
     Force Local Backend for Legacy Formats: 'Force Local Back-end for Legacy Formats'
@@ -247,6 +260,7 @@ Settings:
     Playlist Next Video Interval: Playlist Next Video Interval
     Next Video Interval: Next video interval
     Display Play Button In Video Player: Display play button in video player
+    Enter Fullscreen on Display Rotate: Enter fullscreen on display rotate
     Fast-Forward / Rewind Interval: Fast-forward / rewind interval
     Scroll Playback Rate Over Video Player: Scroll playback rate over video player
     Video Playback Rate Interval: Video playback rate interval
@@ -266,6 +280,10 @@ Settings:
       Format Label: Screenshot format
       Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
+    Skip by Scrolling Over Video Player: Skip by scrolling over video player
+    Allow DASH AV1 formats: Allow DASH AV1 formats
+    Comment Auto Load:
+      Comment Auto Load: Comment auto load
   External Player Settings:
     External Player Settings: External Player Settings
     External Player: External Player
@@ -292,6 +310,8 @@ Settings:
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.'
     Automatically Remove Video Meta Files: Automatically Remove Video Meta Files
+    Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed
+      Playlist
   Subscription Settings:
     Subscription Settings: 'Subscription Settings'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -390,8 +410,28 @@ Settings:
     Hide Comments: Hide comments
     Hide Video Description: Hide video description
     Hide Live Streams: Hide live streams
+    Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide sharing actions
     Hide Chapters: Hide chapters
+    Hide Channels: Hide videos from channels
+    Hide Channels Placeholder: Channel name or ID
+    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive
+      Capitalisation
+    Hide Featured Channels: Hide featured channels
+    Hide Channel Playlists: Hide channel playlists
+    Hide Channel Community: Hide channel community
+    Hide Channel Shorts: Hide channel shorts
+    Sections:
+      Side Bar: Side bar
+      General: General
+      Channel Page: Channel Page
+      Watch Page: Watch Page
+      Subscriptions Page: Subscriptions page
+    Hide Channel Podcasts: Hide channel podcasts
+    Hide Channel Releases: Hide channel releases
+    Hide Subscriptions Shorts: Hide subscriptions shorts
+    Hide Subscriptions Live: Hide subscriptions live
+    Hide Subscriptions Videos: Hide subscriptions videos
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -424,10 +464,11 @@ Settings:
       Prompt To Skip: Prompt to skip
       Do Nothing: Do nothing
     Category Color: Category colour
+    UseDeArrowTitles: Use DeArrow video titles
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
-    Choose Path: Choose Path
+    Choose Path: Choose path
     Download Behavior: Download behaviour
     Open in web browser: Open in web browser
     Download in app: Download in app
@@ -439,8 +480,18 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Replace HTTP cache
     Experimental Settings: Experimental settings
-    Warning: These settings are experimental; they may cause crashes while enabled.
-      Making back-ups is highly recommended. Use at your own risk!
+    Warning: These settings are experimental, they may cause crashes while enabled.
+      Making backups is highly recommended. Use at your own risk!
+  Password Dialog:
+    Password: Password
+    Enter Password To Unlock: Enter password to unlock settings
+    Unlock: Unlock
+    Password Incorrect: Password incorrect
+  Password Settings:
+    Set Password To Prevent Access: Set a password to prevent access to settings
+    Remove Password: Remove password
+    Password Settings: Password settings
+    Set Password: Set password
 About:
   #On About page
   About: About
@@ -557,6 +608,36 @@ Channel:
     About: 'About'
     Channel Description: 'Channel Description'
     Featured Channels: 'Featured Channels'
+    Tags:
+      Tags: Tags
+      Search for: Search for ‘{tag}’
+    Details: Details
+    Joined: Joined
+    Location: Location
+  This channel does not exist: This channel does not exist
+  Channel Tabs: Channel tabs
+  This channel does not allow searching: This channel does not allow searching
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: This
+    channel is age resticted and currently cannot be viewed in FreeTube.
+  Community:
+    This channel currently does not have any posts: This channel currently does not
+      have any posts
+    Community: Community
+  Live:
+    This channel does not currently have any live streams: This channel does not currently
+      have any live streams
+    Live: Live
+  Shorts:
+    This channel does not currently have any shorts: This channel does not currently
+      have any shorts
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: This channel does not currently
+      have any podcasts
+  Releases:
+    Releases: Releases
+    This channel does not currently have any releases: This channel does not currently
+      have any releases
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -590,9 +671,9 @@ Video:
     supported in this build.'
   'Chat is disabled or the Live Stream has ended.': 'Chat is disabled or the Live
     Stream has ended.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Live chat is
-    enabled.  Chat messages will appear here once sent.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Live
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat is enabled.  Chat
+    messages will appear here once sent.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
     Chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.'
   Published:
@@ -696,6 +777,11 @@ Video:
     Video ID: Video ID
   Premieres in: Premieres in
   Premieres: Premieres
+  Show Super Chat Comment: Show Super Chat comment
+  Scroll to Bottom: Scroll to bottom
+  Upcoming: Upcoming
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
+    Chat is unavailable for this stream. It may have been disabled by the uploader.
 Videos:
   #& Sort By
   Sort By:
@@ -711,12 +797,6 @@ Playlist:
   View: 'View'
   Views: 'Views'
   Last Updated On: 'Last Updated On'
-  Share Playlist:
-    Share Playlist: 'Share Playlist'
-    Copy YouTube Link: 'Copy YouTube Link'
-    Open in YouTube: 'Open in YouTube'
-    Copy Invidious Link: 'Copy Invidious Link'
-    Open in Invidious: 'Open in Invidious'
 
 # On Video Watch Page
 #* Published
@@ -733,6 +813,8 @@ Change Format:
     for this video'
 Share:
   Share Video: 'Share Video'
+  Share Channel: 'Share Channel'
+  Share Playlist: 'Share Playlist'
   Include Timestamp: 'Include Timestamp'
   Copy Link: 'Copy Link'
   Open Link: 'Open Link'
@@ -771,6 +853,8 @@ Comments:
   From {channelName}: from {channelName}
   And others: and others
   Member: Member
+  Hearted: Hearted
+  View {replyCount} replies: View {replyCount} replies
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -786,10 +870,8 @@ Shuffle is now enabled: 'Shuffle is now enabled'
 The playlist has been reversed: 'The playlist has been reversed'
 Playing Next Video: 'Playing Next Video'
 Playing Previous Video: 'Playing Previous Video'
-Playing next video in 5 seconds.  Click to cancel: 'Playing next video in 5 seconds.
-  Click to cancel.'
 Canceled next video autoplay: 'Cancelled next video autoplay'
-'The playlist has ended.  Enable loop to continue playing': 'The playlist has ended.  Enable
+'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 
 Yes: 'Yes'
@@ -819,10 +901,14 @@ Tooltips:
       or backwards to control the playback rate. Press and hold the Control key (Command
       Key on Mac) and left click the mouse to quickly return to the default playback
       rate (1x unless it has been changed in the settings).
+    Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the
+      video, MPV style.
+    Allow DASH AV1 formats: DASH AV1 formats may look better than DASH H.264 formats.
+      DASH AV1 formats require more power to playback! They are not available on all
+      videos, in those cases the player will use the DASH H.264 formats instead.
   General Settings:
     Region for Trending: The region of trends allows you to pick which country’s trending
-      videos you want to have displayed. Not all countries displayed are actually
-      supported by YouTube.
+      videos you want to have displayed.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
@@ -833,9 +919,9 @@ Tooltips:
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data.
       The local API is a built-in extractor. The Invidious API requires an Invidious
       server to connect to.
-    External Link Handling: "Choose the default behaviour when a link, which cannot\
-      \ be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked\
-      \ link in your default browser.\n"
+    External Link Handling: "Choose the default behaviour when a link, which cannot
+      be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked
+      link in your default browser.\n"
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening
       the video (playlist if supported) in the external player, on the thumbnail.
@@ -854,6 +940,14 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk-based HTTP cache and enables a custom
       in-memory image cache. Will lead to increased RAM usage.
+  Distraction Free Settings:
+    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists
+      and the channel itself from appearing in search, trending, most popular and
+      recommended. The channel name entered must be a complete match and is case sensitive.
+    Hide Subscriptions Live: This setting is overridden by the app-wide ‘{appWideSetting}’
+      setting, in the ‘{subsection}’ section of the ‘{settingsSection}’
+  SponsorBlock Settings:
+    UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.
@@ -902,3 +996,8 @@ Clipboard:
   Cannot access clipboard without a secure connection: Cannot access clipboard without
     a secure connection
 Preferences: Preferences
+Ok: OK
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: This hashtag does not currently
+    have any videos

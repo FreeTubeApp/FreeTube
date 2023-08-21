@@ -1,6 +1,7 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell, nativeTheme, net, protocol
+  powerSaveBlocker, screen, session, shell,
+  nativeTheme, net, protocol, clipboard
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -9,6 +10,8 @@ import { IpcChannels, DBActions, SyncEvents } from '../constants'
 import baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
+
+import packageDetails from '../../package.json'
 
 if (process.argv.includes('--version')) {
   app.exit()
@@ -21,6 +24,8 @@ function runApp() {
     showSearchWithGoogle: false,
     showSaveImageAs: true,
     showCopyImageAddress: true,
+    showSelectAll: false,
+    showCopyLink: false,
     prepend: (defaultActions, parameters, browserWindow) => [
       {
         label: 'Show / Hide Video Statistics',
@@ -31,17 +36,131 @@ function runApp() {
       },
       {
         label: 'Open in a New Window',
-        visible: parameters.linkURL.includes((new URL(browserWindow.webContents.getURL())).origin),
+        // Only show the option for in-app URLs and not external ones
+        visible: parameters.linkURL.split('#')[0] === browserWindow.webContents.getURL().split('#')[0],
         click: () => {
           createWindow({ replaceMainWindow: false, windowStartupUrl: parameters.linkURL, showWindowNow: true })
         }
+      },
+      // Only show select all in text fields
+      {
+        label: 'Select All',
+        enabled: parameters.editFlags.canSelectAll,
+        visible: parameters.isEditable,
+        click: () => {
+          browserWindow.webContents.selectAll()
+        }
       }
-    ]
+    ],
+    // only show the copy link entry for external links and the /playlist, /channel and /watch in-app URLs
+    // the /playlist, /channel and /watch in-app URLs get transformed to their equivalent YouTube or Invidious URLs
+    append: (defaultActions, parameters, browserWindow) => {
+      let visible = false
+      const urlParts = parameters.linkURL.split('#')
+      const isInAppUrl = urlParts[0] === browserWindow.webContents.getURL().split('#')[0]
+
+      if (parameters.linkURL.length > 0) {
+        if (isInAppUrl) {
+          const path = urlParts[1]
+
+          if (path) {
+            visible = ['/playlist', '/channel', '/watch'].some(p => path.startsWith(p))
+          }
+        } else {
+          visible = true
+        }
+      }
+
+      const copy = (url) => {
+        if (parameters.linkText) {
+          clipboard.write({
+            bookmark: parameters.linkText,
+            text: url
+          })
+        } else {
+          clipboard.writeText(url)
+        }
+      }
+
+      const transformURL = (toYouTube) => {
+        let origin
+
+        if (toYouTube) {
+          origin = 'https://www.youtube.com'
+        } else {
+          origin = 'https://redirect.invidious.io'
+        }
+
+        const [path, query] = urlParts[1].split('?')
+        const [route, id] = path.split('/').filter(p => p)
+
+        switch (route) {
+          case 'playlist':
+            return `${origin}/playlist?list=${id}`
+          case 'channel':
+            return `${origin}/channel/${id}`
+          case 'watch': {
+            let url
+
+            if (toYouTube) {
+              url = `https://youtu.be/${id}`
+            } else {
+              url = `https://redirect.invidious.io/watch?v=${id}`
+            }
+
+            if (query) {
+              const params = new URLSearchParams(query)
+              const newParams = new URLSearchParams()
+              let hasParams = false
+
+              if (params.has('playlistId')) {
+                newParams.set('list', params.get('playlistId'))
+                hasParams = true
+              }
+
+              if (params.has('timestamp')) {
+                newParams.set('t', params.get('timestamp'))
+                hasParams = true
+              }
+
+              if (hasParams) {
+                url += '?' + newParams.toString()
+              }
+            }
+
+            return url
+          }
+        }
+      }
+
+      return [
+        {
+          label: 'Copy Lin&k',
+          visible: visible && !isInAppUrl,
+          click: () => {
+            copy(parameters.linkURL)
+          }
+        },
+        {
+          label: 'Copy YouTube Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(true))
+          }
+        },
+        {
+          label: 'Copy Invidious Link',
+          visible: visible && isInAppUrl,
+          click: () => {
+            copy(transformURL(false))
+          }
+        }
+      ]
+    }
   })
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-  const isDev = process.env.NODE_ENV === 'development'
   const isDebug = process.argv.includes('--debug')
 
   let mainWindow
@@ -67,7 +186,7 @@ function runApp() {
   app.removeAsDefaultProtocolClient('freetube')
 
   // If we are running a non-packaged version of the app && on windows
-  if (isDev && process.platform === 'win32') {
+  if (process.env.NODE_ENV === 'development' && process.platform === 'win32') {
     // Set the path of electron.exe and your app.
     // These two additional parameters are only available on windows.
     app.setAsDefaultProtocolClient('freetube', process.execPath, [path.resolve(process.argv[1])])
@@ -75,7 +194,7 @@ function runApp() {
     app.setAsDefaultProtocolClient('freetube')
   }
 
-  if (!isDev) {
+  if (process.env.NODE_ENV !== 'development') {
     // Only allow single instance of the application
     const gotTheLock = app.requestSingleInstanceLock()
     if (!gotTheLock) {
@@ -146,11 +265,15 @@ function runApp() {
       })
     }
 
+    const fixedUserAgent = session.defaultSession.getUserAgent()
+      .split(' ')
+      .filter(part => !part.includes('Electron') && !part.includes(packageDetails.productName))
+      .join(' ')
+    session.defaultSession.setUserAgent(fixedUserAgent)
+
     // Set CONSENT cookie on reasonable domains
     const consentCookieDomains = [
-      'http://www.youtube.com',
       'https://www.youtube.com',
-      'http://youtube.com',
       'https://youtube.com'
     ]
     consentCookieDomains.forEach(url => {
@@ -160,6 +283,57 @@ function runApp() {
         value: 'YES+',
         sameSite: 'no_restriction'
       })
+    })
+
+    // make InnerTube requests work with the fetch function
+    // InnerTube rejects requests if the referer isn't YouTube or empty
+    const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
+
+    session.defaultSession.webRequest.onBeforeSendHeaders(innertubeAndMediaRequestFilter, ({ requestHeaders, url, resourceType }, callback) => {
+      requestHeaders.Referer = 'https://www.youtube.com/'
+      requestHeaders.Origin = 'https://www.youtube.com'
+
+      if (url.startsWith('https://www.youtube.com/youtubei/')) {
+        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+      } else {
+        // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
+        delete requestHeaders['Content-Type']
+      }
+
+      // YouTube throttles the adaptive formats if you request a chunk larger than 10MiB.
+      // For the DASH formats we are fine as video.js doesn't seem to ever request chunks that big.
+      // The legacy formats don't have any chunk size limits.
+      // For the audio formats we need to handle it ourselves, as the browser requests the entire audio file,
+      // which means that for most videos that are loger than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
+
+      // This code checks if the file is larger than the limit, by checking the `clen` query param,
+      // which YouTube helpfully populates with the content length for us.
+      // If it does surpass that limit, it then checks if the requested range is larger than the limit
+      // (seeking right at the end of the video, would result in a small enough range to be under the chunk limit)
+      // if that surpasses the limit too, it then limits the requested range to 10MiB, by setting the range to `start-${start + 10MiB}`.
+      if (resourceType === 'media' && url.includes('&mime=audio') && requestHeaders.Range) {
+        const TEN_MIB = 10 * 1024 * 1024
+
+        const contentLength = parseInt(new URL(url).searchParams.get('clen'))
+
+        if (contentLength > TEN_MIB) {
+          const [startStr, endStr] = requestHeaders.Range.split('=')[1].split('-')
+
+          const start = parseInt(startStr)
+
+          // handle open ended ranges like `0-` and `1234-`
+          const end = endStr.length === 0 ? contentLength : parseInt(endStr)
+
+          if (end - start > TEN_MIB) {
+            const newEnd = start + TEN_MIB
+
+            requestHeaders.Range = `bytes=${start}-${newEnd}`
+          }
+        }
+      }
+
+      // eslint-disable-next-line n/no-callback-literal
+      callback({ requestHeaders })
     })
 
     if (replaceHttpCache) {
@@ -173,11 +347,7 @@ function runApp() {
         if (imageCache.has(url)) {
           const cached = imageCache.get(url)
 
-          // eslint-disable-next-line node/no-callback-literal
-          callback({
-            mimeType: cached.mimeType,
-            data: cached.data
-          })
+          callback(cached)
           return
         }
 
@@ -211,7 +381,7 @@ function runApp() {
 
             imageCache.add(url, mimeType, data, expiryTimestamp)
 
-            // eslint-disable-next-line node/no-callback-literal
+            // eslint-disable-next-line n/no-callback-literal
             callback({
               mimeType,
               data: data
@@ -239,13 +409,17 @@ function runApp() {
               return value
             })
 
-            // eslint-disable-next-line node/no-callback-literal
+            // eslint-disable-next-line n/no-callback-literal
             callback({
               statusCode: response.statusCode ?? 400,
               mimeType: 'application/json',
               data: Buffer.from(errorJson)
             })
           })
+        })
+
+        newRequest.on('error', (err) => {
+          console.error(err)
         })
 
         newRequest.end()
@@ -256,12 +430,12 @@ function runApp() {
         // the requests made by the imagecache:// handler to fetch the image,
         // are allowed through, as their resourceType is 'other'
         if (details.resourceType === 'image') {
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({
             redirectURL: `imagecache://${encodeURIComponent(details.url)}`
           })
         } else {
-          // eslint-disable-next-line node/no-callback-literal
+          // eslint-disable-next-line n/no-callback-literal
           callback({})
         }
       })
@@ -271,7 +445,7 @@ function runApp() {
 
     await createWindow()
 
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       installDevTools()
     }
 
@@ -326,9 +500,9 @@ function runApp() {
     const commonBrowserWindowOptions = {
       backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
-      icon: isDev
+      icon: process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '../../_icons/iconColor.png')
-        /* eslint-disable-next-line */
+        /* eslint-disable-next-line n/no-path-concat */
         : `${__dirname}/_icons/iconColor.png`,
       autoHideMenuBar: true,
       // useContentSize: true,
@@ -379,11 +553,12 @@ function runApp() {
     const boundsDoc = await baseHandlers.settings._findBounds()
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, fullScreen, ...bounds } = boundsDoc.value
-      const allDisplaysSummaryWidth = screen
-        .getAllDisplays()
-        .reduce((accumulator, { size: { width } }) => accumulator + width, 0)
+      const windowVisible = screen.getAllDisplays().some(display => {
+        const { x, y, width, height } = display.bounds
+        return !(bounds.x > x + width || bounds.x + bounds.width < x || bounds.y > y + height || bounds.y + bounds.height < y)
+      })
 
-      if (allDisplaysSummaryWidth >= bounds.x) {
+      if (windowVisible) {
         newWindow.setBounds({
           x: bounds.x,
           y: bounds.y,
@@ -409,7 +584,7 @@ function runApp() {
     }
 
     // load root file/url
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       let devStartupURL = 'http://localhost:9080'
       if (windowStartupUrl != null) {
         devStartupURL = windowStartupUrl
@@ -419,7 +594,7 @@ function runApp() {
       if (windowStartupUrl != null) {
         newWindow.loadURL(windowStartupUrl)
       } else {
-        /* eslint-disable-next-line */
+        /* eslint-disable-next-line n/no-path-concat */
         newWindow.loadFile(`${__dirname}/index.html`)
       }
     }
@@ -434,7 +609,7 @@ function runApp() {
     newWindow.once('ready-to-show', () => {
       if (newWindow.isVisible()) {
         // only open the dev tools if they aren't already open
-        if (isDev && !newWindow.webContents.isDevToolsOpened()) {
+        if (process.env.NODE_ENV === 'development' && !newWindow.webContents.isDevToolsOpened()) {
           newWindow.webContents.openDevTools({ activate: false })
         }
         return
@@ -443,7 +618,7 @@ function runApp() {
       newWindow.show()
       newWindow.focus()
 
-      if (isDev) {
+      if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
       }
     })
@@ -479,7 +654,7 @@ function runApp() {
   })
 
   ipcMain.once('relaunchRequest', () => {
-    if (isDev) {
+    if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
       return
     }
@@ -611,6 +786,19 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
           )
+          switch (data._id) {
+            // Update app menu on related setting update
+            case 'hideTrendingVideos':
+            case 'hidePopularVideos':
+            case 'backendFallback':
+            case 'backendPreference':
+            case 'hidePlaylists':
+              await setMenu()
+              break
+
+            default:
+              // Do nothing for unmatched settings
+          }
           return null
 
         default:
@@ -646,6 +834,15 @@ function runApp() {
             IpcChannels.SYNC_HISTORY,
             event,
             { event: SyncEvents.HISTORY.UPDATE_WATCH_PROGRESS, data }
+          )
+          return null
+
+        case DBActions.HISTORY.UPDATE_PLAYLIST:
+          await baseHandlers.history.updateLastViewedPlaylist(data.videoId, data.lastViewedPlaylistId)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.UPDATE_PLAYLIST, data }
           )
           return null
 
@@ -827,27 +1024,36 @@ function runApp() {
 
   // ************************************************* //
 
-  app.once('window-all-closed', () => {
-    // Clear cache and storage if it's the last window
-    session.defaultSession.clearCache()
-    session.defaultSession.clearStorageData({
-      storages: [
-        'appcache',
-        'cookies',
-        'filesystem',
-        'indexdb',
-        'shadercache',
-        'websql',
-        'serviceworkers',
-        'cachestorage'
-      ]
+  app.on('window-all-closed', () => {
+    // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
+    cleanUpResources().finally(() => {
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
-
-    if (process.platform !== 'darwin') {
-      app.quit()
-    }
   })
 
+  function cleanUpResources() {
+    return Promise.allSettled([
+      baseHandlers.compactAllDatastores(),
+      session.defaultSession.clearCache(),
+      session.defaultSession.clearStorageData({
+        storages: [
+          'appcache',
+          'cookies',
+          'filesystem',
+          'indexdb',
+          'shadercache',
+          'websql',
+          'serviceworkers',
+          'cachestorage'
+        ]
+      })
+    ])
+  }
+
+  // MacOS event
+  // https://www.electronjs.org/docs/latest/api/app#event-activate-macos
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
@@ -877,7 +1083,16 @@ function runApp() {
   }
 
   function baseUrl(arg) {
-    return arg.replace('freetube://', '')
+    let newArg = arg.replace('freetube://', '')
+    // add support for authority free url
+      .replace('freetube:', '')
+
+    // fix for Qt URL, like `freetube://https//www.youtube.com/watch?v=...`
+    // For details see https://github.com/FreeTubeApp/FreeTube/pull/3119
+    if (newArg.startsWith('https') && newArg.charAt(5) !== ':') {
+      newArg = 'https:' + newArg.substring(5)
+    }
+    return newArg
   }
 
   function getLinkUrl(argv) {
@@ -888,7 +1103,7 @@ function runApp() {
     }
   }
 
-  /**
+  /*
    * Auto Updater
    *
    * Uncomment the following code below and install `electron-updater` to
@@ -907,12 +1122,25 @@ function runApp() {
   })
    */
 
-  /* eslint-disable-next-line */
-  const sendMenuEvent = async data => {
-    mainWindow.webContents.send('change-view', data)
+  function navigateTo(path, browserWindow) {
+    if (browserWindow == null) {
+      return
+    }
+
+    browserWindow.webContents.send(
+      'change-view',
+      { route: path }
+    )
   }
 
-  function setMenu() {
+  async function setMenu() {
+    const sidenavSettings = baseHandlers.settings._findSidenavSettings()
+    const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
+    const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
+    const backendFallback = (await sidenavSettings.backendFallback)?.value
+    const backendPreference = (await sidenavSettings.backendPreference)?.value
+    const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
+
     const template = [
       {
         label: 'File',
@@ -933,12 +1161,7 @@ function runApp() {
             label: 'Preferences',
             accelerator: 'CmdOrCtrl+,',
             click: (_menuItem, browserWindow, _event) => {
-              if (browserWindow == null) { return }
-
-              browserWindow.webContents.send(
-                'change-view',
-                { route: '/settings' }
-              )
+              navigateTo('/settings', browserWindow)
             },
             type: 'normal'
           },
@@ -998,8 +1221,83 @@ function runApp() {
           { role: 'zoomout' },
           { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
           { type: 'separator' },
-          { role: 'togglefullscreen' }
+          { role: 'togglefullscreen' },
+          { type: 'separator' },
+          {
+            label: 'Back',
+            accelerator: 'Alt+Left',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-back',
+              )
+            },
+            type: 'normal',
+          },
+          {
+            label: 'Forward',
+            accelerator: 'Alt+Right',
+            click: (_menuItem, browserWindow, _event) => {
+              if (browserWindow == null) { return }
+
+              browserWindow.webContents.send(
+                'history-forward',
+              )
+            },
+            type: 'normal',
+          },
         ]
+      },
+      {
+        label: 'Navigate',
+        submenu: [
+          {
+            label: 'Subscriptions',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/subscriptions', browserWindow)
+            },
+            type: 'normal'
+          },
+          {
+            label: 'Channels',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/subscribedchannels', browserWindow)
+            },
+            type: 'normal'
+          },
+          !hideTrendingVideos && {
+            label: 'Trending',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/trending', browserWindow)
+            },
+            type: 'normal'
+          },
+          (!hidePopularVideos && (backendFallback || backendPreference === 'invidious')) && {
+            label: 'Most Popular',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/popular', browserWindow)
+            },
+            type: 'normal'
+          },
+          !hidePlaylists && {
+            label: 'Playlists',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/userplaylists', browserWindow)
+            },
+            type: 'normal'
+          },
+          {
+            label: 'History',
+            // MacOS: Command + Y
+            // Other OS: Ctrl + H
+            accelerator: process.platform === 'darwin' ? 'Cmd+Y' : 'Ctrl+H',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/history', browserWindow)
+            },
+            type: 'normal'
+          },
+        ].filter((v) => v !== false),
       },
       {
         role: 'window',

@@ -1,102 +1,43 @@
+import fs from 'fs/promises'
+
 import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
-import fs from 'fs'
+import router from '../router/index'
 
-export const colors = [
-  { name: 'Red', value: '#d50000' },
-  { name: 'Pink', value: '#C51162' },
-  { name: 'Purple', value: '#AA00FF' },
-  { name: 'DeepPurple', value: '#6200EA' },
-  { name: 'Indigo', value: '#304FFE' },
-  { name: 'Blue', value: '#2962FF' },
-  { name: 'LightBlue', value: '#0091EA' },
-  { name: 'Cyan', value: '#00B8D4' },
-  { name: 'Teal', value: '#00BFA5' },
-  { name: 'Green', value: '#00C853' },
-  { name: 'LightGreen', value: '#64DD17' },
-  { name: 'Lime', value: '#AEEA00' },
-  { name: 'Yellow', value: '#FFD600' },
-  { name: 'Amber', value: '#FFAB00' },
-  { name: 'Orange', value: '#FF6D00' },
-  { name: 'DeepOrange', value: '#DD2C00' },
-  { name: 'DraculaCyan', value: '#8BE9FD' },
-  { name: 'DraculaGreen', value: '#50FA7B' },
-  { name: 'DraculaOrange', value: '#FFB86C' },
-  { name: 'DraculaPink', value: '#FF79C6' },
-  { name: 'DraculaPurple', value: '#BD93F9' },
-  { name: 'DraculaRed', value: '#FF5555' },
-  { name: 'DraculaYellow', value: '#F1FA8C' },
-  { name: 'CatppuccinMochaRosewater', value: '#F5E0DC' },
-  { name: 'CatppuccinMochaFlamingo', value: '#F2CDCD' },
-  { name: 'CatppuccinMochaPink', value: '#F5C2E7' },
-  { name: 'CatppuccinMochaMauve', value: '#CBA6F7' },
-  { name: 'CatppuccinMochaRed', value: '#F38BA8' },
-  { name: 'CatppuccinMochaMaroon', value: '#EBA0AC' },
-  { name: 'CatppuccinMochaPeach', value: '#FAB387' },
-  { name: 'CatppuccinMochaYellow', value: '#F9E2AF' },
-  { name: 'CatppuccinMochaGreen', value: '#A6E3A1' },
-  { name: 'CatppuccinMochaTeal', value: '#94E2D5' },
-  { name: 'CatppuccinMochaSky', value: '#89DCEB' },
-  { name: 'CatppuccinMochaSapphire', value: '#74C7EC' },
-  { name: 'CatppuccinMochaBlue', value: '#89B4FA' },
-  { name: 'CatppuccinMochaLavender', value: '#B4BEFE' }
-]
+// allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
+// https://support.google.com/youtube/answer/11585688#change_handle
+export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
-export function getRandomColorClass() {
-  const randomInt = Math.floor(Math.random() * colors.length)
-  return 'main' + colors[randomInt].name
-}
-
-export function getRandomColor() {
-  const randomInt = Math.floor(Math.random() * colors.length)
-  return colors[randomInt].value
-}
-
-export function calculateColorLuminance(colorValue) {
-  const cutHex = colorValue.substring(1, 7)
-  const colorValueR = parseInt(cutHex.substring(0, 2), 16)
-  const colorValueG = parseInt(cutHex.substring(2, 4), 16)
-  const colorValueB = parseInt(cutHex.substring(4, 6), 16)
-
-  const luminance = (0.299 * colorValueR + 0.587 * colorValueG + 0.114 * colorValueB) / 255
-
-  if (luminance > 0.5) {
-    return '#000000'
-  } else {
-    return '#FFFFFF'
-  }
-}
-
+const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+/**
+ * @param {string} publishedText
+ */
 export function calculatePublishedDate(publishedText) {
   const date = new Date()
   if (publishedText === 'Live') {
     return publishedText
   }
 
-  const textSplit = publishedText.split(' ')
+  const match = publishedText.match(PUBLISHED_TEXT_REGEX)
 
-  if (textSplit[0].toLowerCase() === 'streamed') {
-    textSplit.shift()
-  }
-
-  const timeFrame = textSplit[1]
-  const timeAmount = parseInt(textSplit[0])
+  const timeFrame = match[2]
+  const timeAmount = parseInt(match[1])
   let timeSpan = null
 
-  if (timeFrame.indexOf('second') > -1) {
+  if (timeFrame.startsWith('second') || timeFrame === 's') {
     timeSpan = timeAmount * 1000
-  } else if (timeFrame.indexOf('minute') > -1) {
+  } else if (timeFrame.startsWith('minute') || timeFrame === 'm') {
     timeSpan = timeAmount * 60000
-  } else if (timeFrame.indexOf('hour') > -1) {
+  } else if (timeFrame.startsWith('hour') || timeFrame === 'h') {
     timeSpan = timeAmount * 3600000
-  } else if (timeFrame.indexOf('day') > -1) {
+  } else if (timeFrame.startsWith('day') || timeFrame === 'd') {
     timeSpan = timeAmount * 86400000
-  } else if (timeFrame.indexOf('week') > -1) {
+  } else if (timeFrame.startsWith('week') || timeFrame === 'w') {
     timeSpan = timeAmount * 604800000
-  } else if (timeFrame.indexOf('month') > -1) {
+  } else if (timeFrame.startsWith('month') || timeFrame === 'mo') {
     timeSpan = timeAmount * 2592000000
-  } else if (timeFrame.indexOf('year') > -1) {
+  } else if (timeFrame.startsWith('year') || timeFrame === 'y') {
     timeSpan = timeAmount * 31556952000
   }
 
@@ -112,33 +53,36 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   } else if (isRSS) {
     return publishText
   }
-  const strings = publishText.split(' ')
-  // filters out the streamed x hours ago and removes the streamed in order to keep the rest of the code working
-  if (strings[0].toLowerCase() === 'streamed') {
-    strings.shift()
-  }
-  const singular = (strings[0] === '1')
+
+  const match = publishText.match(PUBLISHED_TEXT_REGEX)
+  const singular = (match[1] === '1')
   let translationKey = ''
-  switch (strings[1].substring(0, 2)) {
+  switch (match[2].substring(0, 2)) {
     case 'se':
+    case 's':
       translationKey = 'Video.Published.Second'
       break
     case 'mi':
+    case 'm':
       translationKey = 'Video.Published.Minute'
       break
     case 'ho':
+    case 'h':
       translationKey = 'Video.Published.Hour'
       break
     case 'da':
+    case 'd':
       translationKey = 'Video.Published.Day'
       break
     case 'we':
+    case 'w':
       translationKey = 'Video.Published.Week'
       break
     case 'mo':
       translationKey = 'Video.Published.Month'
       break
     case 'ye':
+    case 'y':
       translationKey = 'Video.Published.Year'
       break
     default:
@@ -149,17 +93,21 @@ export function toLocalePublicationString ({ publishText, isLive = false, isUpco
   }
 
   const unit = i18n.t(translationKey)
-  return i18n.t('Video.Publicationtemplate', { number: strings[0], unit })
+  return i18n.t('Video.Publicationtemplate', { number: match[1], unit })
 }
 
-export function buildVTTFileLocally(storyboard) {
+export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   let vttString = 'WEBVTT\n\n'
   // how many images are in one image
-  const numberOfSubImagesPerImage = storyboard.sWidth * storyboard.sHeight
+  const numberOfSubImagesPerImage = storyboard.columns * storyboard.rows
   // the number of storyboard images
-  const numberOfImages = Math.ceil(storyboard.count / numberOfSubImagesPerImage)
-  const intervalInSeconds = storyboard.interval / 1000
-  let currentUrl = storyboard.url
+  const numberOfImages = Math.ceil(storyboard.thumbnail_count / numberOfSubImagesPerImage)
+  let intervalInSeconds
+  if (storyboard.interval > 0) {
+    intervalInSeconds = storyboard.interval / 1000
+  } else {
+    intervalInSeconds = videoLengthSeconds / (numberOfImages * numberOfSubImagesPerImage)
+  }
   let startHours = 0
   let startMinutes = 0
   let startSeconds = 0
@@ -167,19 +115,20 @@ export function buildVTTFileLocally(storyboard) {
   let endMinutes = 0
   let endSeconds = intervalInSeconds
   for (let i = 0; i < numberOfImages; i++) {
+    const currentUrl = storyboard.template_url.replace('$M.jpg', `${i}.jpg`)
     let xCoord = 0
     let yCoord = 0
     for (let j = 0; j < numberOfSubImagesPerImage; j++) {
       // add the timestamp information
       const paddedStartHours = startHours.toString().padStart(2, '0')
       const paddedStartMinutes = startMinutes.toString().padStart(2, '0')
-      const paddedStartSeconds = startSeconds.toString().padStart(2, '0')
+      const paddedStartSeconds = startSeconds.toFixed(3).padStart(6, '0')
       const paddedEndHours = endHours.toString().padStart(2, '0')
       const paddedEndMinutes = endMinutes.toString().padStart(2, '0')
-      const paddedEndSeconds = endSeconds.toString().padStart(2, '0')
-      vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds}.000 --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}.000\n`
+      const paddedEndSeconds = endSeconds.toFixed(3).padStart(6, '0')
+      vttString += `${paddedStartHours}:${paddedStartMinutes}:${paddedStartSeconds} --> ${paddedEndHours}:${paddedEndMinutes}:${paddedEndSeconds}\n`
       // add the current image url as well as the x, y, width, height information
-      vttString += currentUrl + `#xywh=${xCoord},${yCoord},${storyboard.width},${storyboard.height}\n\n`
+      vttString += `${currentUrl}#xywh=${xCoord},${yCoord},${storyboard.thumbnail_width},${storyboard.thumbnail_height}\n\n`
       // update the variables
       startHours = endHours
       startMinutes = endMinutes
@@ -194,20 +143,59 @@ export function buildVTTFileLocally(storyboard) {
         endHours += 1
       }
       // x coordinate can only be smaller than the width of one subimage * the number of subimages per row
-      xCoord = (xCoord + storyboard.width) % (storyboard.width * storyboard.sWidth)
+      xCoord = (xCoord + storyboard.thumbnail_width) % (storyboard.thumbnail_width * storyboard.columns)
       // only if the x coordinate is , so in a new row, we have to update the y coordinate
       if (xCoord === 0) {
-        yCoord += storyboard.height
+        yCoord += storyboard.thumbnail_height
       }
     }
-    // make sure that there is no value like M0 or M1 in the parameters that gets replaced
-    currentUrl = currentUrl.replace('M' + i.toString() + '.jpg', 'M' + (i + 1).toString() + '.jpg')
   }
   return vttString
 }
 
+export async function getFormatsFromHLSManifest(manifestUrl) {
+  const response = await fetch(manifestUrl)
+  const text = await response.text()
+
+  const lines = text.split('\n').filter(line => line)
+
+  const formats = []
+  let currentHeight = 0
+  let currentFPS = 0
+
+  for (const line of lines) {
+    if (line.startsWith('#')) {
+      if (!line.startsWith('#EXT-X-STREAM-INF:')) {
+        continue
+      }
+
+      const parts = line.split(',')
+      const height = parts.find(part => part.startsWith('RESOLUTION'))
+        .split('x')[1]
+      const fps = parts.find(part => part.startsWith('FRAME-RATE'))
+        .split('=')[1]
+      currentHeight = parseInt(height)
+      currentFPS = parseInt(fps)
+    } else {
+      formats.push({
+        height: currentHeight,
+        fps: currentFPS,
+        url: line.trim()
+      })
+    }
+  }
+
+  return formats
+}
+
 export function showToast(message, time = null, action = null) {
-  FtToastEvents.$emit('toast-open', message, time, action)
+  FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
+    detail: {
+      message,
+      time,
+      action
+    }
+  }))
 }
 
 /**
@@ -215,10 +203,10 @@ export function showToast(message, time = null, action = null) {
    * a toast with the error is shown. If the copy is successful and
    * there is a success message, a toast with that message is shown.
    * @param {string} content the content to be copied to the clipboard
-   * @param {string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
-   * @param {string} messageOnError the message to be displayed as a toast when the copy fails (optional)
+   * @param {null|string} messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
+   * @param {null|string} messageOnError the message to be displayed as a toast when the copy fails (optional)
    */
-export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null }) {
+export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null } = {}) {
   if (navigator.clipboard !== undefined && window.isSecureContext) {
     try {
       await navigator.clipboard.writeText(content)
@@ -238,12 +226,45 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
   }
 }
 
+/**
+ * Opens a link in the default web browser or a new tab in the web builds
+ * @param {string} url the URL to open
+ */
 export function openExternalLink(url) {
   if (process.env.IS_ELECTRON) {
     const ipcRenderer = require('electron').ipcRenderer
     ipcRenderer.send(IpcChannels.OPEN_EXTERNAL_LINK, url)
   } else {
     window.open(url, '_blank')
+  }
+}
+
+/**
+ * Opens an internal path in the same or a new window.
+ * Optionally with query params and setting the contents of the search bar in the new window.
+ * @param {object} params
+ * @param {string} params.path the internal path to open
+ * @param {boolean} params.doCreateNewWindow set to true to open a new window
+ * @param {object} params.query the query params to use (optional)
+ * @param {string} params.searchQueryText the text to show in the search bar in the new window (optional)
+ */
+export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQueryText = null }) {
+  if (process.env.IS_ELECTRON && doCreateNewWindow) {
+    const { ipcRenderer } = require('electron')
+
+    // Combine current document path and new "hash" as new window startup URL
+    const newWindowStartupURL = new URL(window.location.href)
+    newWindowStartupURL.hash = `${path}?${(new URLSearchParams(query)).toString()}`
+
+    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
+      windowStartupUrl: newWindowStartupURL.toString(),
+      searchQueryText
+    })
+  } else {
+    router.push({
+      path,
+      query
+    })
   }
 }
 
@@ -290,13 +311,11 @@ export function readFileFromDialog(response, index = 0) {
   return new Promise((resolve, reject) => {
     if (process.env.IS_ELECTRON) {
       // if this is Electron, use fs
-      fs.readFile(response.filePaths[index], (err, data) => {
-        if (err) {
-          reject(err)
-          return
-        }
-        resolve(new TextDecoder('utf-8').decode(data))
-      })
+      fs.readFile(response.filePaths[index])
+        .then(data => {
+          resolve(new TextDecoder('utf-8').decode(data))
+        })
+        .catch(reject)
     } else {
       // if this is web, use FileReader
       try {
@@ -345,16 +364,8 @@ export async function showSaveDialog (options) {
 */
 export async function writeFileFromDialog (response, content) {
   if (process.env.IS_ELECTRON) {
-    return await new Promise((resolve, reject) => {
-      const { filePath } = response
-      fs.writeFile(filePath, content, (error) => {
-        if (error) {
-          reject(error)
-        } else {
-          resolve()
-        }
-      })
-    })
+    const { filePath } = response
+    return await fs.writeFile(filePath, content)
   } else {
     if ('showOpenFilePicker' in window) {
       const { handle } = response
@@ -401,5 +412,256 @@ export function createWebURL(path) {
 
 // strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
 export function stripHTML(value) {
-  return value.replace(/(<(?!br|\/?(?:b|s|i)>)([^>]+)>)/ig, '')
+  return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
+}
+
+/**
+ * This formats the duration of a video in seconds into a user friendly timestamp.
+ * It will return strings like LIVE or UPCOMING, without making any changes
+ * @param {string|number} lengthSeconds the video duration in seconds or the strings LIVE or UPCOMING
+ * @returns {string} timestamp or LIVE or UPCOMING
+ */
+export function formatDurationAsTimestamp(lengthSeconds) {
+  if (typeof lengthSeconds === 'string') {
+    return lengthSeconds
+  }
+
+  if (lengthSeconds === 0) {
+    return '0:00'
+  }
+
+  let hours = 0
+
+  if (lengthSeconds >= 3600) {
+    hours = Math.floor(lengthSeconds / 3600)
+    lengthSeconds = lengthSeconds - hours * 3600
+  }
+
+  let minutes = Math.floor(lengthSeconds / 60)
+  if (minutes < 10 && hours > 0) {
+    minutes = '0' + minutes
+  }
+
+  let seconds = lengthSeconds - minutes * 60
+  if (seconds < 10) {
+    seconds = '0' + seconds
+  }
+
+  let timestamp = ''
+  if (hours > 0) {
+    timestamp = hours + ':' + minutes + ':' + seconds
+  } else {
+    timestamp = minutes + ':' + seconds
+  }
+
+  return timestamp
+}
+
+export function searchFiltersMatch(filtersA, filtersB) {
+  return filtersA?.sortBy === filtersB?.sortBy &&
+    filtersA?.time === filtersB?.time &&
+    filtersA?.type === filtersB?.type &&
+    filtersA?.duration === filtersB?.duration
+}
+
+export function replaceFilenameForbiddenChars(filenameOriginal) {
+  let filenameNew = filenameOriginal
+  let forbiddenChars = {}
+  switch (process.platform) {
+    case 'win32':
+      forbiddenChars = {
+        '<': '＜', // U+FF1C
+        '>': '＞', // U+FF1E
+        ':': '：', // U+FF1A
+        '"': '＂', // U+FF02
+        '/': '／', // U+FF0F
+        '\\': '＼', // U+FF3C
+        '|': '｜', // U+FF5C
+        '?': '？', // U+FF1F
+        '*': '＊' // U+FF0A
+      }
+      break
+    case 'darwin':
+      forbiddenChars = { '/': '／', ':': '：' }
+      break
+    case 'linux':
+      forbiddenChars = { '/': '／' }
+      break
+    default:
+      break
+  }
+
+  for (const forbiddenChar in forbiddenChars) {
+    filenameNew = filenameNew.replaceAll(forbiddenChar, forbiddenChars[forbiddenChar])
+  }
+  return filenameNew
+}
+
+export async function getSystemLocale() {
+  let locale
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    locale = await ipcRenderer.invoke(IpcChannels.GET_SYSTEM_LOCALE)
+  } else {
+    if (navigator && navigator.language) {
+      locale = navigator.language
+    }
+  }
+
+  return locale || 'en-US'
+}
+
+export async function getUserDataPath() {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.GET_USER_DATA_PATH)
+  } else {
+    // TODO: implement getUserDataPath web compatible callback
+    return null
+  }
+}
+
+export async function getPicturesPath() {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.GET_PICTURES_PATH)
+  } else {
+    return null
+  }
+}
+
+export function extractNumberFromString(str) {
+  if (typeof str === 'string') {
+    return parseInt(str.replaceAll(/\D+/g, ''))
+  } else {
+    return NaN
+  }
+}
+
+export function showExternalPlayerUnsupportedActionToast(externalPlayer, actionName) {
+  const action = i18n.t(`Video.External Player.Unsupported Actions.${actionName}`)
+  const message = i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  showToast(message)
+}
+
+export function getVideoParamsFromUrl(url) {
+  /** @type {URL} */
+  let urlObject
+  const paramsObject = { videoId: null, timestamp: null, playlistId: null }
+  try {
+    urlObject = new URL(url)
+  } catch (e) {
+    return paramsObject
+  }
+
+  function extractParams(videoId) {
+    paramsObject.videoId = videoId
+    paramsObject.timestamp = urlObject.searchParams.get('t')
+  }
+
+  const extractors = [
+    // anything with /watch?v=
+    function () {
+      if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
+        extractParams(urlObject.searchParams.get('v'))
+        paramsObject.playlistId = urlObject.searchParams.get('list')
+        return paramsObject
+      }
+    },
+    // youtu.be
+    function () {
+      if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.slice(1))
+        return paramsObject
+      }
+    },
+    // youtube.com/embed
+    function () {
+      if (/^\/embed\/[\w-]+$/.test(urlObject.pathname)) {
+        const urlTail = urlObject.pathname.replace('/embed/', '')
+        if (urlTail === 'videoseries') {
+          paramsObject.playlistId = urlObject.searchParams.get('list')
+        } else {
+          extractParams(urlTail)
+        }
+        return paramsObject
+      }
+    },
+    // youtube.com/shorts
+    function () {
+      if (/^\/shorts\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.replace('/shorts/', ''))
+        return paramsObject
+      }
+    },
+    // cloudtube
+    function () {
+      if (/^cadence\.(gq|moe)$/.test(urlObject.host) && /^\/cloudtube\/video\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.slice('/cloudtube/video/'.length))
+        return paramsObject
+      }
+    }
+  ]
+
+  return extractors.reduce((a, c) => a || c(), null) || paramsObject
+}
+
+/**
+ * This will match sequences of upper case characters and convert them into title cased words.
+ * @param {string} title the title to process
+ * @param {number} minUpperCase the minimum number of consecutive upper case characters to match
+ * @returns {string} the title with upper case characters removed
+ */
+export function toDistractionFreeTitle(title, minUpperCase = 3) {
+  const firstValidCharIndex = (word) => {
+    const reg = /[\p{L}]/u
+    return word.search(reg)
+  }
+
+  const capitalizedWord = (word) => {
+    const chars = word.split('')
+    const index = firstValidCharIndex(word)
+    chars[index] = chars[index].toUpperCase()
+    return chars.join('')
+  }
+
+  const reg = RegExp(`[\\p{Lu}|']{${minUpperCase},}`, 'ug')
+  return title.replace(reg, x => capitalizedWord(x.toLowerCase()))
+}
+
+export function formatNumber(number, options = undefined) {
+  return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
+}
+
+export function getTodayDateStrLocalTimezone() {
+  const timeNow = new Date()
+  // `Date#getTimezoneOffset` returns the difference, in minutes
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset
+  const timeNowStr = new Date(timeNow.getTime() - (timeNow.getTimezoneOffset() * 60000)).toISOString()
+  // `Date#toISOString` returns string with `T` as date/time separator (ISO 8601 format)
+  // e.g. 2011-10-05T14:48:00.000Z
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+  return timeNowStr.split('T')[0]
+}
+
+/**
+ * Escapes HTML tags to avoid XSS
+ * @param {string} untrusted
+ * @returns {string}
+ */
+export function escapeHTML(untrusted) {
+  return untrusted.replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('\'', '&apos;')
+}
+
+/**
+ * Performs a deep copy of a javascript object
+ * @param {Object} obj
+ * @returns {Object}
+ */
+export function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj))
 }

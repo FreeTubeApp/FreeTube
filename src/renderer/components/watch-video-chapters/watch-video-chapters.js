@@ -1,16 +1,12 @@
-import Vue from 'vue'
+import { defineComponent, nextTick } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'WatchVideoChapters',
   components: {
     'ft-card': FtCard
   },
   props: {
-    compact: {
-      type: Boolean,
-      default: false
-    },
     chapters: {
       type: Array,
       required: true
@@ -27,8 +23,16 @@ export default Vue.extend({
     }
   },
   computed: {
+    currentChapter: function () {
+      return this.chapters[this.currentIndex]
+    },
+
     currentTitle: function () {
-      return this.chapters[this.currentIndex].title
+      return this.currentChapter.title
+    },
+
+    compact: function () {
+      return !this.chapters[0].thumbnail
     }
   },
   watch: {
@@ -67,6 +71,23 @@ export default Vue.extend({
       }
 
       chapterElements[newIndex].focus()
-    }
+    },
+
+    toggleShowChapters() {
+      this.showChapters = !this.showChapters
+
+      if (this.showChapters) { this.scrollToCurrentChapter() }
+    },
+
+    scrollToCurrentChapter() {
+      const container = this.$refs.chaptersWrapper
+      const currentChaptersItem = (this.$refs.currentChaptersItem || [])[0]
+      // Must wait until rendering done after value change
+      nextTick(() => {
+        if (container != null && currentChaptersItem != null) {
+          container.scrollTop = currentChaptersItem.offsetTop - container.offsetTop
+        }
+      })
+    },
   }
 })

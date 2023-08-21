@@ -42,6 +42,16 @@ class History {
     )
   }
 
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HISTORY,
+      {
+        action: DBActions.HISTORY.UPDATE_PLAYLIST,
+        data: { videoId, lastViewedPlaylistId }
+      }
+    )
+  }
+
   static delete(videoId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_HISTORY,

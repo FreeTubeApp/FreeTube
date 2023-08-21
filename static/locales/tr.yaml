@@ -3,7 +3,7 @@ Locale Name: 'Türkçe'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gel.
+  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
 
 # Webkit Menu Bar
 File: 'Dosya'
@@ -28,6 +28,13 @@ Minimize: 'Küçült'
 Close: 'Kapat'
 Back: 'Geri'
 Forward: 'İleri'
+
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videolar'
+  Shorts: Kısa Videolar
+  Live: Canlı
 
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
@@ -60,12 +67,14 @@ Search Filters:
     Videos: 'Videolar'
     Channels: 'Kanallar'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Süre'
     All Durations: 'Tüm Süreler'
     Short (< 4 minutes): 'Kısa (4 dakikadan az)'
     Long (> 20 minutes): 'Uzun (20 dakikadan fazla)'
   # On Search Page
+    Medium (4 - 20 minutes): Orta (4 - 20 dakika)
   Search Results: 'Arama Sonuçları'
   Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
   Fetch more results: 'Daha fazla sonuç yükle'
@@ -79,13 +88,17 @@ Subscriptions:
     listeniz şu anda boş. Aboneliklerinizi görebilmek için abone olmaya başlayın.'
   'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
   Refresh Subscriptions: 'Abonelikleri Yenile'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Bu
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
   Error Channels: Hatalı Kanallar
   Disabled Automatic Fetching: Otomatik abonelik getirmeyi devre dışı bıraktınız.
     Abonelikleri burada görmek için yenileyin.
   Empty Channels: Abone olduğunuz kanallarda şu anda herhangi bir video yok.
+  Subscriptions Tabs: Abonelikler Sekmeleri
+  All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği
+    görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı
+    sekmelerin gizliliğini kaldırın.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -214,6 +227,7 @@ Settings:
     Expand Side Bar by Default: Kenar Çubuğunu Öntanımlı Olarak Genişlet
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
     Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
+    Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
     Player Settings: 'Oynatıcı Ayarları'
     Force Local Backend for Legacy Formats: 'Eski Biçimler için Yerel Arka Ucu Kullanmaya
@@ -268,6 +282,11 @@ Settings:
         %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video
         Milisaniyesi 3 basamak. %i Video Kimliği. Alt klasörler oluşturmak için "\"
         veya "/" kullanabilirsiniz.
+    Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
+    Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
+    Allow DASH AV1 formats: DASH AV1 biçimlerine izin ver
+    Comment Auto Load:
+      Comment Auto Load: Yorumları Otomatik Yükle
   Privacy Settings:
     Privacy Settings: 'Gizlilik Ayarları'
     Remember History: 'Geçmişi Hatırla'
@@ -285,6 +304,8 @@ Settings:
       abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
     Automatically Remove Video Meta Files: Video Meta Dosyalarını Otomatik Olarak
       Kaldır
+    Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
+      Oynatma Listesiyle Kaydet
   Subscription Settings:
     Subscription Settings: 'Abonelik Ayarları'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -386,6 +407,26 @@ Settings:
     Hide Video Description: Video Açıklamasını Gizle
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle
+    Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
+    Hide Channels Placeholder: Kanal Adı veya Kimliği
+    Hide Channels: Kanallardan Videoları Gizle
+    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
+      Görüntüle
+    Hide Featured Channels: Öne Çıkan Kanalları Gizle
+    Hide Channel Playlists: Kanal Oynatma Listelerini Gizle
+    Hide Channel Community: Kanal Topluluğunu Gizle
+    Hide Channel Shorts: Kanal Kısa Videolarını Gizle
+    Sections:
+      Side Bar: Kenar Çubuğu
+      Channel Page: Kanal Sayfası
+      Watch Page: İzleme Sayfası
+      General: Genel
+      Subscriptions Page: Abonelikler Sayfası
+    Hide Channel Releases: Kanal Yayınlarını Gizle
+    Hide Channel Podcasts: Kanal Podcast'lerini Gizle
+    Hide Subscriptions Videos: Abonelik Videolarını Gizle
+    Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
+    Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -418,6 +459,7 @@ Settings:
       Prompt To Skip: Atlamak İçin Sor
       Do Nothing: Hiçbir Şey Yapma
     Category Color: Kategori Rengi
+    UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -445,6 +487,16 @@ Settings:
       Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
       aittir!
     Experimental Settings: Deneysel Ayarlar
+  Password Dialog:
+    Password Incorrect: Parola Yanlış
+    Unlock: Kilidi aç
+    Password: Parola
+    Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
+  Password Settings:
+    Password Settings: Parola Ayarları
+    Set Password To Prevent Access: Ayarlara erişimi engellemek için bir parola belirleyin
+    Remove Password: Parolayı Kaldır
+    Set Password: Parola Ayarla
 About:
   #On About page
   About: 'Hakkında'
@@ -500,7 +552,7 @@ About:
   Chat on Matrix: Matrix'te sohbet et
   Mastodon: Mastodon
   Please check for duplicates before posting: Lütfen bildirmeden önce bildirilmiş
-    olup olmadığını kontrol edin
+    olup olmadığına bakın
   GitHub issues: GitHub sorunları
   Report a problem: Sorun bildir
   FreeTube Wiki: FreeTube Wiki
@@ -553,6 +605,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profil Filtresi
   Profile Settings: Profil Ayarları
+  Toggle Profile List: Profil Listesini Aç/Kapat
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -567,16 +620,16 @@ Channel:
   Sort By: 'Sırala'
   Videos:
     Videos: 'Videolar'
-    This channel does not currently have any videos: 'Bu kanalda şu anda hiç video
-      yok'
+    This channel does not currently have any videos: 'Bu kanalda şu anda herhangi
+      bir video yok'
     Sort Types:
       Newest: 'En yeni'
       Oldest: 'En eski'
       Most Popular: 'En Popüler'
   Playlists:
     Playlists: 'Oynatma Listeleri'
-    This channel does not currently have any playlists: 'Bu kanalda şu anda hiç oynatma
-      listesi yok'
+    This channel does not currently have any playlists: 'Bu kanalda şu anda herhangi
+      bir oynatma listesi yok'
     Sort Types:
       Last Video Added: 'Son Eklenen Video'
       Newest: 'En yeni'
@@ -585,6 +638,36 @@ Channel:
     About: 'Hakkında'
     Channel Description: 'Kanal Açıklaması'
     Featured Channels: 'Öne Çıkan Kanallar'
+    Tags:
+      Tags: Etiketler
+      Search for: '“{tag}” için ara'
+    Details: Ayrıntılar
+    Joined: Katıldı
+    Location: Konum
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Bu kanal
+    yaş sınırlamasına tabidir ve şu anda FreeTube'da görüntülenememektedir.
+  Channel Tabs: Kanal Sekmeleri
+  This channel does not allow searching: Bu kanal aramaya izin vermiyor
+  This channel does not exist: Bu kanal mevcut değil
+  Community:
+    Community: Topluluk
+    This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
+      gönderi yok
+  Live:
+    Live: Canlı
+    This channel does not currently have any live streams: Bu kanalda şu anda herhangi
+      bir canlı yayın yok
+  Shorts:
+    This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video
+      yok
+  Podcasts:
+    Podcasts: Podcast'ler
+    This channel does not currently have any podcasts: Bu kanalda şu anda herhangi
+      bir podcast yok
+  Releases:
+    This channel does not currently have any releases: Bu kanalda şu anda herhangi
+      bir yayın yok
+    Releases: Yayınlar
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'
@@ -617,9 +700,9 @@ Video:
   Live Chat is currently not supported in this build.: 'Canlı Sohbet bu sürümde desteklenmiyor.'
   'Chat is disabled or the Live Stream has ended.': 'Sohbet devre dışı bırakıldı veya
     Canlı Yayın sona erdi.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Canlı Sohbet
-    etkinleştirildi. Sohbet mesajları gönderildikten sonra burada görünecektir.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Canlı
+  Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet etkinleştirildi.
+    Sohbet mesajları gönderildikten sonra burada görünecektir.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Canlı
     Sohbet şu anda Invidious API ile desteklenmemektedir. YouTube ile doğrudan bağlantı
     gerekli.'
   Published:
@@ -722,6 +805,12 @@ Video:
       videolar için kullanılabilir değil
   Premieres in: İlk gösterim
   Premieres: İlk gösterim
+  Scroll to Bottom: Aşağıya Kaydır
+  Show Super Chat Comment: Süper Sohbet Yorumunu Göster
+  Upcoming: Yakında
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı
+    sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
+    olabilir.
 Videos:
   #& Sort By
   Sort By:
@@ -736,12 +825,6 @@ Playlist:
   View: 'Görüntüle'
   Views: 'Görüntülenme'
   Last Updated On: 'Son Güncelleme Tarihi'
-  Share Playlist:
-    Share Playlist: 'Oynatma Listesini Paylaş'
-    Copy YouTube Link: 'YouTube Bağlantısını Kopyala'
-    Open in YouTube: 'YouTube''da aç'
-    Copy Invidious Link: 'Invidious Bağlantısını Kopyala'
-    Open in Invidious: 'Invidious''da aç'
 
 # On Video Watch Page
 #* Published
@@ -759,6 +842,7 @@ Change Format:
     değil'
 Share:
   Share Video: 'Videoyu Paylaş'
+  Share Playlist: 'Oynatma Listesini Paylaş'
   Include Timestamp: 'Zaman Damgasını Dahil Et'
   Copy Link: 'Bağlantıyı Kopyala'
   Open Link: 'Bağlantıyı Aç'
@@ -773,6 +857,7 @@ Share:
     kopyalandı'
   YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
   Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
+  Share Channel: Kanalı Paylaş
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
@@ -797,6 +882,8 @@ Comments:
   And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
+  View {replyCount} replies: '{replyCount} yanıtı görüntüle'
+  Hearted: Kalplendi
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -812,10 +899,8 @@ Shuffle is now enabled: 'Karıştır artık etkin'
 The playlist has been reversed: 'Çalma listesi tersine çevrildi'
 Playing Next Video: 'Sonraki Video Oynatılıyor'
 Playing Previous Video: 'Önceki Video Oynatılıyor'
-Playing next video in 5 seconds.  Click to cancel: 'Sonraki video 5 saniye içinde
-  oynatılacak. İptal etmek için tıklatın.'
 Canceled next video autoplay: 'Sonraki videoyu otomatik oynatma iptal edildi'
-'The playlist has ended.  Enable loop to continue playing': 'Çalma listesi sona erdi.  Çalmaya
+'The playlist has ended. Enable loop to continue playing': 'Çalma listesi sona erdi.  Çalmaya
   devam etmek için döngüyü etkinleştir'
 
 Yes: 'Evet'
@@ -848,6 +933,11 @@ Tooltips:
       hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı
       oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek
       için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
+    Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma
+      tekerleğini kullanın.
+    Allow DASH AV1 formats: DASH AV1 biçimleri, DASH H.264 biçimlerinden daha iyi
+      görünebilir. DASH AV1 biçimleri oynatmak daha fazla güç gerektirir! Tüm videolarda
+      bulunmazlar, bu durumlarda oynatıcı bunun yerine DASH H.264 biçimlerini kullanacaktır.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, öntanımlı küçük resim
@@ -859,11 +949,10 @@ Tooltips:
       Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
       sunucusu gerektirir.
     Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını
-      görüntülemek istediğinizi seçmenize olanak tanır. Görüntülenen ülkelerden bazıları
-      YouTube tarafından desteklenmemektedir.
-    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı\
-      \ davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı\
-      \ tarayıcınızda açacaktır.\n"
+      görüntülemek istediğinizi seçmenize olanak tanır.
+    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
+      davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
+      açacaktır.\n"
   Privacy Settings:
     Remove Video Meta Files: Etkinleştirildiğinde, izleme sayfası kapatıldığında video
       oynatma sırasında oluşturulan meta dosyaları otomatik olarak silinir.
@@ -883,6 +972,17 @@ Tooltips:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
       ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
       neden olacaktır.
+  Distraction Free Settings:
+    Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama,
+      öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
+      bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
+      ve büyük/küçük harfe duyarlıdır.
+    Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
+      kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
+      kılınıyor
+  SponsorBlock Settings:
+    UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
+      değiştir.
 Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
   | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
   tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
@@ -937,3 +1037,8 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli
     bölüm: {chapterName}'
 Preferences: Tercihler
+Ok: Tamam
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi
+    bir videosu yok

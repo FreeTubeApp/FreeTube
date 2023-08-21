@@ -1,11 +1,11 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import { showToast } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtProfileSelector',
   components: {
     'ft-card': FtCard,
@@ -24,15 +24,13 @@ export default Vue.extend({
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
-    defaultProfile: function () {
-      return this.$store.getters.getDefaultProfile
-    },
     activeProfileInitial: function () {
-      return this.activeProfile?.name?.length > 0 ? this.activeProfile.name[0].toUpperCase() : ''
+      // use Array.from, so that emojis don't get split up into individual character codes
+      return this.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        return profile?.name?.length > 0 ? profile.name[0].toUpperCase() : ''
+        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     }
   },
@@ -44,7 +42,7 @@ export default Vue.extend({
         // wait until the profile list is visible
         // then focus it so we can hide it automatically when it loses focus
         setTimeout(() => {
-          this.$refs.profileList.$el.focus()
+          this.$refs.profileList?.$el?.focus()
         })
       }
     },

@@ -1,0 +1,14 @@
+# Put the name of your locale in the same language
+Search Filters: {}
+Settings:
+  # On Settings Page
+  General Settings: {}
+  Theme Settings: {}
+  SponsorBlock Settings: {}
+Channel:
+  Videos: {}
+  Playlists: {}
+  About: {}
+Video: {}
+Tooltips: {}
+Age Restricted: {}

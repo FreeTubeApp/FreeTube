@@ -8,12 +8,13 @@
       v-else
       class="card"
     >
-      <h3>{{ $t("Trending.Trending") }}</h3>
+      <h2>{{ $t("Trending.Trending") }}</h2>
       <ft-flex-box
         class="trendingInfoTabs"
         role="tablist"
         :aria-label="$t('Trending.Trending Tabs')"
       >
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="default"
           class="tab"
@@ -24,11 +25,12 @@
           :class="{ selectedTab: currentTab === 'default' }"
           @click="changeTab('default')"
           @keydown.space.enter.prevent="changeTab('default')"
-          @keydown.left.prevent="focusTab('movies')"
-          @keydown.right.prevent="focusTab('music')"
+          @keydown.left="focusTab($event, 'movies')"
+          @keydown.right="focusTab($event, 'music')"
         >
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="music"
           class="tab"
@@ -39,11 +41,12 @@
           :class="{ selectedTab: currentTab === 'music' }"
           @click="changeTab('music')"
           @keydown.space.enter.prevent="changeTab('music')"
-          @keydown.left.prevent="focusTab('default')"
-          @keydown.right.prevent="focusTab('gaming')"
+          @keydown.left="focusTab($event, 'default')"
+          @keydown.right="focusTab($event, 'gaming')"
         >
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="gaming"
           class="tab"
@@ -54,11 +57,12 @@
           :class="{ selectedTab: currentTab === 'gaming' }"
           @click="changeTab('gaming')"
           @keydown.space.enter.prevent="changeTab('gaming')"
-          @keydown.left.prevent="focusTab('music')"
-          @keydown.right.prevent="focusTab('movies')"
+          @keydown.left="focusTab($event, 'music')"
+          @keydown.right="focusTab($event, 'movies')"
         >
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="movies"
           class="tab"
@@ -69,8 +73,8 @@
           :class="{ selectedTab: currentTab === 'movies' }"
           @click="changeTab('movies')"
           @keydown.space.enter.prevent="changeTab('movies')"
-          @keydown.left.prevent="focusTab('gaming')"
-          @keydown.right.prevent="focusTab('default')"
+          @keydown.left="focusTab($event, 'gaming')"
+          @keydown.right="focusTab($event, 'default')"
         >
           {{ $t("Trending.Movies").toUpperCase() }}
         </div>
@@ -87,7 +91,7 @@
       class="floatingTopButton"
       :size="12"
       theme="primary"
-      @click="getTrendingInfo"
+      @click="getTrendingInfo(true)"
     />
   </div>
 </template>

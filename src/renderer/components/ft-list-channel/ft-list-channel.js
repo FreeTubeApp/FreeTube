@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import i18n from '../../i18n/index'
+import { defineComponent } from 'vue'
+import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { formatNumber } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtListChannel',
   props: {
     data: {
@@ -20,7 +21,7 @@ export default Vue.extend({
       channelName: '',
       subscriberCount: 0,
       videoCount: '',
-      uploadedTime: '',
+      handle: null,
       description: ''
     }
   },
@@ -33,13 +34,10 @@ export default Vue.extend({
     },
     hideChannelSubscriptions: function () {
       return this.$store.getters.getHideChannelSubscriptions
-    },
-    currentLocale: function () {
-      return i18n.locale.replace('_', '-')
     }
   },
-  mounted: function () {
-    if (typeof (this.data.avatars) !== 'undefined') {
+  created: function () {
+    if (this.data.dataSource === 'local') {
       this.parseLocalData()
     } else {
       this.parseInvidiousData()
@@ -47,23 +45,24 @@ export default Vue.extend({
   },
   methods: {
     parseLocalData: function () {
-      this.thumbnail = this.data.bestAvatar.url
+      this.thumbnail = this.data.thumbnail
 
       if (!this.thumbnail.includes('https:')) {
         this.thumbnail = `https:${this.thumbnail}`
       }
 
       this.channelName = this.data.name
-      this.id = this.data.channelID
-      if (this.hideChannelSubscriptions || this.data.subscribers === null) {
-        this.subscriberCount = null
-      } else {
-        this.subscriberCount = this.data.subscribers.replace(/ subscriber(s)?/, '')
-      }
+      this.id = this.data.id
+      this.subscriberCount = this.data.subscribers != null ? this.data.subscribers.replace(/ subscriber(s)?/, '') : null
+
       if (this.data.videos === null) {
         this.videoCount = 0
       } else {
-        this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videos)
+        this.videoCount = formatNumber(this.data.videos)
+      }
+
+      if (this.data.handle) {
+        this.handle = this.data.handle
       }
 
       this.description = this.data.descriptionShort
@@ -71,23 +70,14 @@ export default Vue.extend({
 
     parseInvidiousData: function () {
       // Can be prefixed with `https://` or `//` (protocol relative)
-      let thumbnailUrl = this.data.authorThumbnails[2].url
+      const thumbnailUrl = this.data.authorThumbnails[2].url
 
-      // Update protocol relative URL to be prefixed with `https://`
-      if (thumbnailUrl.startsWith('//')) {
-        thumbnailUrl = `https:${thumbnailUrl}`
-      }
-
-      this.thumbnail = thumbnailUrl.replace('https://yt3.ggpht.com', `${this.currentInvidiousInstance}/ggpht/`)
+      this.thumbnail = youtubeImageUrlToInvidious(thumbnailUrl, this.currentInvidiousInstance)
 
       this.channelName = this.data.author
       this.id = this.data.authorId
-      if (this.hideChannelSubscriptions) {
-        this.subscriberCount = null
-      } else {
-        this.subscriberCount = Intl.NumberFormat(this.currentLocale).format(this.data.subCount)
-      }
-      this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
+      this.subscriberCount = formatNumber(this.data.subCount)
+      this.videoCount = formatNumber(this.data.videoCount)
       this.description = this.data.description
     }
   }

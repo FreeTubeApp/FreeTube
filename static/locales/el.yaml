@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Ελληνικά'
+Locale Name: 'Ελληνικά (EL)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -30,6 +30,13 @@ Close: 'Κλείσιμο'
 Back: 'Μετάβαση πίσω'
 Forward: 'Μετάβαση μπροστά'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Βίντεο'
+  Shorts: Shorts
+  Live: Ζωντανά
+
 # Search Bar
 Search / Go to URL: 'Αναζήτηση/Μετάβαση στη URL'
   # In Filter Button
@@ -55,12 +62,14 @@ Search Filters:
     Videos: 'Βίντεο'
     Channels: 'Κανάλια'
     #& Playlists
+    Movies: Ταινίες
   Duration:
     Duration: 'Διάρκεια'
     All Durations: 'Οποιασδήποτε Διάρκειας'
     Short (< 4 minutes): 'Μικρό(<4 λεπτών)'
     Long (> 20 minutes): 'Μεγάλο (>20 λεπτών)'
   # On Search Page
+    Medium (4 - 20 minutes): Μεσαία (4 - 20 λεπτά)
   Search Results: 'Αποτελέσματα αναζήτησης'
   Fetching results. Please wait: 'Aνάκτηση αποτελεσμάτων. Παρακαλώ περιμένετε'
   Fetch more results: 'Λήψη περαιτέρω αποτελεσμάτων'
@@ -76,10 +85,18 @@ Subscriptions:
     από εδώ.'
   'Getting Subscriptions. Please wait.': 'Ανάκτηση Εγγραφών/Συνδρομών. Παρακαλώ περιμένετε.'
   Refresh Subscriptions: 'Ανανέωση Εγγραφών/Συνδρομών'
-  This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting: Αυτό
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό
     το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Εγγραφών. Εξαναγκασμένη εναλλαγή σε λειτουργία
     RSS για αποφυγή περιορισμού των κλήσεων
   Load More Videos: Φόρτωση περισσότερων Βίντεο
+  Error Channels: Κανάλια με προβλήματα
+  Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση συνδρομής.
+    Ανανεώστε τις συνδρομές για να τις δείτε εδώ.
+  Empty Channels: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν βίντεο.
+  Subscriptions Tabs: Καρτέλες Συνδρομών
+  All Subscription Tabs Hidden: Όλες οι καρτέλες συνδρομής είναι κρυφές. Για να δείτε
+    περιεχόμενο εδώ, αποκρύψτε ορισμένες καρτέλες στην ενότητα "{subsection}" στο
+    "{settingsSection}".
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -144,8 +161,8 @@ Settings:
       περιπτώσεων
     System Default: Προεπιλογή συστήματος
     Current Invidious Instance: Τρέχων στιγμιότυπο Invidious
-    The currently set default instance is {instance}: 'Το τρέχων προεπιλεγμένο στιγμιότυπο είναι
-      {instance}'
+    The currently set default instance is {instance}: 'Το τρέχων προεπιλεγμένο στιγμιότυπο
+      είναι {instance}'
     No default instance has been set: Δεν έχει οριστεί κανένα προεπιλεγμένο στιγμιότυπο
     External Link Handling:
       External Link Handling: Χειρισμός εξωτερικών συνδέσμων
@@ -166,6 +183,7 @@ Settings:
       Light: 'Φωτεινό'
       Dracula: 'Δράκουλας'
       System Default: Προεπιλογή Συστήματος
+      Catppuccin Mocha: Catppuccin Mocha
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -191,12 +209,27 @@ Settings:
       Dracula Purple: 'Δράκουλας Μωβ'
       Dracula Red: 'Δράκουλας Κόκκινο'
       Dracula Yellow: 'Δράκουλας Κίτρινο'
+      Catppuccin Mocha Teal: Catppuccin Mocha Teal
+      Catppuccin Mocha Green: Catppuccin Mocha Green
+      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Blue: Catppuccin Mocha Blue
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Pink
+      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Red: Catppuccin Mocha Red
+      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
+      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
     Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
     Disable Smooth Scrolling: Απενεργοποίηση ομαλής κύλισης
     Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής γραμμής
+    Hide FreeTube Header Logo: Απόκρυψη Λογότυπου Κεφαλίδας FreeTube
   Player Settings:
     Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
     Force Local Backend for Legacy Formats: 'Εξαναγκασμένη τοπική υποστήριξη για Προηγούμενες
@@ -237,6 +270,29 @@ Settings:
     Fast-Forward / Rewind Interval: Διάστημα Γρήγορης προώθησης / Επανατύλιξης
     Max Video Playback Rate: Μέγιστος ρυθμός αναπαραγωγής βίντεο
     Video Playback Rate Interval: Διάστημα ρυθμού αναπαραγωγής βίντεο
+    Screenshot:
+      Error:
+        Forbidden Characters: Απαγορευμένοι Χαρακτήρες
+        Empty File Name: Κενό Όνομα Αρχείου
+      Enable: Ενεργοποίηση Στιγμιότυπου οθόνης
+      Quality Label: Ποιότητα Στιγμιότυπου Οθόνης
+      Ask Path: Ερώτηση για Αποθήκευση Φακέλου
+      Folder Button: Επιλέξτε φάκελο
+      Folder Label: Φάκελος Στιγμιότυπου Οθόνης
+      File Name Label: Μοτίβο ονόματος αρχείου
+      File Name Tooltip: Μπορείτε να χρησιμοποιήσετε μεταβλητές παρακάτω. %Y Έτος
+        4 ψηφία. %M Μήνας 2 ψηφία. %D ψηφία ημέρας 2. %H Ώρα 2 ψηφία. %N Λεπτά 2 ψηφία.
+        %S Δεύτερα 2 ψηφία. %T χιλιοστού του δευτερολέπτου 3 ψηφία. %s Βίντεο δεύτερο.
+        %t Βίντεο χιλιοστού του δευτερολέπτου 3 ψηφία. %i Αναγνωριστικό Βίντεο. Μπορείτε
+        επίσης να χρησιμοποιήσετε το "\" ή το "/" για να δημιουργήσετε υποφακέλους.
+      Format Label: Μορφή Στιγμιότυπου Οθόνης
+    Skip by Scrolling Over Video Player: Παράλειψη με Κύλιση στο Πρόγραμμα Αναπαραγωγής
+      Βίντεο
+    Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
+      Οθόνης
+    Allow DASH AV1 formats: Να επιτρέπονται οι μορφές DASH AV1
+    Comment Auto Load:
+      Comment Auto Load: Αυτόματη Φόρτωση Σχολίων
   Privacy Settings:
     Privacy Settings: 'Ρυθμίσεις απορρήτου'
     Remember History: 'Διατήρηση ιστορικού'
@@ -254,11 +310,14 @@ Settings:
       βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
       μπορεί να αναιρεθεί.'
     Automatically Remove Video Meta Files: Αυτόματη αφαίρεση μετα-αρχείων βίντεο
+    Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
+      Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
   Subscription Settings:
     Subscription Settings: 'Ρυθμίσεις Συνδρομών'
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Manage Subscriptions: 'Διαχείριση Εγγραφών'
+    Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
   Data Settings:
     Data Settings: 'Ρυθμίσεις Δεδομένων'
     Select Import Type: 'Επιλογή Τρόπου Εισαγωγής'
@@ -301,12 +360,15 @@ Settings:
     Manage Subscriptions: Διαχείριση συνδρομών
     Import Playlists: Εισαγωγή λιστών αναπαραγωγής
     Export Playlists: Εξαγωγή Λιστών Αναπαραγωγής
-    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}", γίνεται
-      παράκαμψη του αντικειμένου
+    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}",
+      γίνεται παράκαμψη του αντικειμένου
     All playlists has been successfully imported: Όλες οι λίστες αναπαραγωγής έχουν
       εισαχθεί με επιτυχία
     All playlists has been successfully exported: Όλες οι λίστες αναπαραγωγής έχουν
       εξαχθεί με επιτυχία
+    Subscription File: Αρχείο Συνδρομής
+    History File: Αρχείο Ιστορικού
+    Playlist File: Αρχείο Λίστας Αναπαραγωγής
   Advanced Settings:
     Advanced Settings: 'Ρυθμίσεις για προχωρημένους'
     Enable Debug Mode (Prints data to the console): 'Ενεργοποίηση λειτουργίας εντοπισμού
@@ -347,6 +409,31 @@ Settings:
     Hide Video Views: Απόκρυψη προβολών βίντεο
     Hide Active Subscriptions: Απόκρυψη ενεργών συνδρομών
     Hide Playlists: Απόκρυψη λιστών αναπαραγωγής
+    Hide Live Streams: Απόκρυψη Ζωντανών Ροών
+    Hide Sharing Actions: Απόκρυψη Ενεργειών Κοινής Χρήσης
+    Hide Channels: Απόκρυψη Βίντεο Από Κανάλια
+    Hide Upcoming Premieres: Απόκρυψη Επερχόμενων Πρεμιέρων
+    Hide Channels Placeholder: Όνομα Καναλιού ή Αναγνωριστικό
+    Hide Comments: Απόκρυψη Σχολίων
+    Hide Chapters: Απόκρυψη Κεφαλαίων
+    Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
+    Display Titles Without Excessive Capitalisation: Εμφάνιση Τίτλων Χωρίς Υπερβολική
+      Χρήση Κεφαλαίων
+    Sections:
+      Side Bar: Πλαϊνή Μπάρα
+      Channel Page: Σελίδα Καναλιού
+      Watch Page: Σελίδα Παρακολούθησης
+      General: Γενικά
+      Subscriptions Page: Σελίδα Συνδρομών
+    Hide Featured Channels: Απόκρυψη Προτεινόμενων Καναλιών
+    Hide Channel Playlists: Απόκρυψη Λιστών Αναπαραγωγής Καναλιών
+    Hide Channel Community: Απόκρυψη Κοινότητας Καναλιού
+    Hide Channel Shorts: Απόκρυψη Shorts Καναλιού
+    Hide Channel Releases: Απόκρυψη Kυκλοφοριών Kαναλιού
+    Hide Channel Podcasts: Απόκρυψη Podcasts Καναλιού
+    Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
+    Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
+    Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -374,6 +461,9 @@ Settings:
     Custom External Player Executable: Εκτελέσιμο εξωτερικού προγράμματος αναπαραγωγής
     Custom External Player Arguments: Προσαρμοσμένα ορίσματα εξωτερικού προγράμματος
       αναπαραγωγής
+    Players:
+      None:
+        Name: Κανένα
   SponsorBlock Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
     Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
@@ -381,10 +471,44 @@ Settings:
     SponsorBlock Settings: Ρυθμίσεις SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
       API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: Επιλογή Παράλειψης
+      Do Nothing: Να Μην Γίνει Τίποτα
+      Auto Skip: Αυτόματη Παράλειψη
+      Show In Seek Bar: Εμφάνιση Στη Γραμμή Αναζήτησης
+      Prompt To Skip: Προτροπή Για Παράλειψη
+    Category Color: Χρώμα Κατηγορίας
+    UseDeArrowTitles: Χρήση Τίτλων Βίντεο DeArrow
   Download Settings:
     Download Settings: Λήψη ρυθμίσεων
     Ask Download Path: Ζητήστε τη διαδρομή λήψης
     Choose Path: Επιλέξτε διαδρομή
+    Download Behavior: Συμπεριφορά Λήψης
+    Download in app: Λήψη στην εφαρμογή
+    Open in web browser: Άνοιγμα στο πρόγραμμα περιήγησης ιστού
+  Password Dialog:
+    Password Incorrect: Λάθος κωδικός
+    Unlock: Ξεκλείδωμα
+    Enter Password To Unlock: Εισαγάγετε τον κωδικό πρόσβασης για να ξεκλειδώσετε
+      τις ρυθμίσεις
+    Password: Κωδικός πρόσβασης
+  Password Settings:
+    Password Settings: Ρυθμίσεις Κωδικού πρόσβασης
+    Set Password: Ορίστε Κωδικό πρόσβασης
+    Set Password To Prevent Access: Ορίστε έναν κωδικό πρόσβασης για να αποτρέψετε
+      την πρόσβαση στις ρυθμίσεις
+    Remove Password: Κατάργηση Κωδικού πρόσβασης
+  Experimental Settings:
+    Replace HTTP Cache: Αντικατάσταση HTTP Cache
+    Warning: Αυτές οι ρυθμίσεις είναι πειραματικές, ενδέχεται να προκαλέσουν σφάλματα
+      όταν είναι ενεργοποιημένες. Συνιστάται ιδιαίτερα η δημιουργία αντιγράφων ασφαλείας.
+      Χρησιμοποιήστε το με δική σας ευθύνη!
+    Experimental Settings: Πειραματικές Ρυθμίσεις
+  Parental Control Settings:
+    Parental Control Settings: Ρυθμίσεις Γονικού Ελέγχου
+    Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
+    Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
+    Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
 About:
   #On About page
   About: 'Σχετικά με'
@@ -465,9 +589,10 @@ Profile:
     άδειο'
   Profile has been created: 'Το προφίλ σας έχει δημιουργηθεί'
   Profile has been updated: 'Το προφίλ σας έχει ενημερωθεί'
-  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το προεπιλεγμένο σας
-    προφίλ'
-  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ σας'
+  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το
+    προεπιλεγμένο σας προφίλ'
+  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ
+    σας'
   Your default profile has been changed to your primary profile: 'Το κύριο προφίλ
     σας έχει οριστεί ως το προεπιλεγμένο'
   '{profile} is now the active profile': 'Το {profile} είναι τώρα το ενεργό προφίλ'
@@ -489,6 +614,7 @@ Profile:
 #On Channel Page
   Profile Filter: Φίλτρο προφίλ
   Profile Settings: Ρυθμίσεις προφίλ
+  Toggle Profile List: Εναλλαγή Λίστας Προφίλ
 Channel:
   Subscriber: 'Συνδρομητής'
   Subscribers: 'Συνδρομητές'
@@ -496,8 +622,8 @@ Channel:
   Unsubscribe: 'Απεγγραφή'
   Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
     τις Συνδρομές/Εγγραφές σας'
-  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count} άλλα
-    κανάλια'
+  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count}
+    άλλα κανάλια'
   Added channel to your subscriptions: 'Προστέθηκε κανάλι στις συνδρομές/εγγραφές
     σας'
   Search Channel: 'Αναζήτηση στο κανάλι'
@@ -524,6 +650,37 @@ Channel:
     About: 'Σχετικά με'
     Channel Description: 'Περιγραφή καναλιού'
     Featured Channels: 'Προτεινόμενα κανάλια'
+    Tags:
+      Tags: Ετικέτες
+      Search for: Αναζήτηση για «{tag}»
+    Details: Λεπτομέριες
+    Location: Τοποθεσία
+    Joined: Εγγράφηκαν
+  This channel does not allow searching: Αυτό το κανάλι δεν επιτρέπει την αναζήτηση
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Αυτό
+    το κανάλι έχει περιορισμό ηλικίας και προς το παρόν δεν μπορεί να προβληθεί στο
+    FreeTube.
+  Channel Tabs: Καρτέλες Καναλιών
+  This channel does not exist: Αυτό το κανάλι δεν υπάρχει
+  Community:
+    Community: Κοινότητα
+    This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν
+      έχει αναρτήσεις
+  Live:
+    Live: Ζωντανά
+    This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
+      προς το παρόν ζωντανές ροές
+  Shorts:
+    This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς
+      το παρόν κανένα shorts
+  Releases:
+    Releases: Κυκλοφορίες
+    This channel does not currently have any releases: Αυτό το κανάλι δεν έχει προς
+      το παρόν κυκλοφορίες
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Αυτό το κανάλι δεν έχει αυτήν
+      τη στιγμή podcasts
 Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
@@ -551,16 +708,16 @@ Video:
   # As in a Live Video
   Live: 'Ζωντανά'
   Live Now: 'Ζωντανά τώρα'
-  Live Chat: 'Ζωντανή συζήτηση'
-  Enable Live Chat: 'Ενεργοποίηση της Ζωντανής συζήτησης'
-  Live Chat is currently not supported in this build.: 'Η ζωντανή συζήτηση δεν υποστηρίζεται
+  Live Chat: 'Ζωντανή συνομιλία'
+  Enable Live Chat: 'Ενεργοποίηση Ζωντανής συνομιλίας'
+  Live Chat is currently not supported in this build.: 'Η ζωντανή συνομιλία δεν υποστηρίζεται
     προς το παρόν σε αυτήν την έκδοση.'
   'Chat is disabled or the Live Stream has ended.': 'Η συνομιλία είναι απενεργοποιημένη
     ή η ζωντανή ροή έχει τερματιστεί.'
-  Live chat is enabled.  Chat messages will appear here once sent.: 'Η ζωντανή συζήτηση
+  Live chat is enabled. Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία
     είναι ενεργοποιημένη.  Τα μηνύματα συνομιλίας θα εμφανίζονται εδώ μόλις σταλούν.'
-  'Live Chat is currently not supported with the Invidious API.  A direct connection to YouTube is required.': 'Η
-    ζωντανή συζήτηση δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Η
+    ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
     άμεση σύνδεση με το YouTube.'
   Published:
     Jan: 'Ιαν'
@@ -591,6 +748,7 @@ Video:
     Years: 'Χρόνια'
     Ago: 'Πριν'
     Upcoming: 'Κάνει πρεμιέρα στις'
+    In less than a minute: Σε λιγότερο από ένα λεπτό
   Published on: 'Δημοσιεύθηκε στις'
   Publicationtemplate: 'δημοσιεύθηκε πριν από {number} {unit}'
 #& Videos
@@ -616,12 +774,14 @@ Video:
   Save Video: Αποθήκευση βίντεο
   translated from English: μεταφράστηκε από τα Αγγλικά
   Sponsor Block category:
-    intro: εισαγωγή
-    interaction: αλληλεπίδραση
-    sponsor: χορηγός
-    outro: επίλογος
-    self-promotion: αυτοπροβολή
-    music offtopic: μουσική εκτός θέματος
+    intro: Εισαγωγή
+    interaction: Αλληλεπίδραση
+    sponsor: Χορηγός
+    outro: Επίλογος
+    self-promotion: Αυτοπροβολή
+    music offtopic: Μουσική Εκτός θέματος
+    recap: Ανακεφαλαίωση
+    filler: Γεμιστικό
   External Player:
     video: βίντεο
     OpenInTemplate: Άνοιγμα σε {externalPlayer}
@@ -659,6 +819,13 @@ Video:
     Buffered: Φορτωμένο
     Dropped / Total Frames: Πτωμένα / Συνολικά Καρέ
   Skipped segment: Τμήμα που παραλείφθηκε
+  Show Super Chat Comment: Εμφάνιση Σχολίου Super Chat
+  Scroll to Bottom: Κύλιση προς τα Κάτω
+  Premieres: Πρεμιέρες
+  Upcoming: Επερχόμενο
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
+    Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
+    από τον χρήστη."
 Videos:
   #& Sort By
   Sort By:
@@ -673,12 +840,6 @@ Playlist:
   View: 'Προβολή'
   Views: 'Προβολές'
   Last Updated On: 'Τελευταία ενημέρωση στις'
-  Share Playlist:
-    Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
-    Copy YouTube Link: 'Αντιγραφή συνδέσμου YouTube'
-    Open in YouTube: 'Άνοιγμα στο YouTube'
-    Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-    Open in Invidious: 'Άνοιγμα στο Invidious'
 
 # On Video Watch Page
 #* Published
@@ -696,6 +857,7 @@ Change Format:
     αυτό το βίντεο'
 Share:
   Share Video: 'Κοινοποίηση βίντεο'
+  Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
   Include Timestamp: 'Συμπερίληψη χρονικής σήμανσης/στιγμής'
   Copy Link: 'Αντιγραφή συνδέσμου'
   Open Link: 'Άνοιγμα Συνδέσμου'
@@ -712,6 +874,7 @@ Share:
     στο πρόχειρο
   Invidious Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Invidious αντιγράφηκε
     στο πρόχειρο
+  Share Channel: Κοινή χρήση Καναλιού
 Mini Player: 'Μικρή πλατφόρμα αναπαραγωγής'
 Comments:
   Comments: 'Σχόλια'
@@ -737,6 +900,9 @@ Comments:
   From {channelName}: από {channelName}
   Show More Replies: Εμφάνιση περισσότερων απαντήσεων
   Pinned by: Καρφώθηκε από
+  Member: Μέλος
+  Hearted: Αγαπημένο
+  View {replyCount} replies: Προβολή {replyCount} απαντήσεων
 Up Next: 'Επόμενο'
 
 # Toast Messages
@@ -755,19 +921,17 @@ Shuffle is now enabled: 'Η τυχαία αναπαραγωγή ενεργοπο
 The playlist has been reversed: 'Η λίστα αναπαραγωγής έχει αντιστραφεί'
 Playing Next Video: 'Αναπαραγωγή του επόμενου βίντεο'
 Playing Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
-Playing next video in 5 seconds.  Click to cancel: 'Αναπαραγωγή επόμενου βίντεο σε
-  5 δευτερόλεπτα. Κάντε κλικ για ακύρωση.'
 Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου βίντεο έχει ακυρωθεί'
-'The playlist has ended.  Enable loop to continue playing': 'Η λίστα αναπαραγωγής
-  έχει τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
+'The playlist has ended. Enable loop to continue playing': 'Η λίστα αναπαραγωγής έχει
+  τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
 
 Yes: 'Ναι'
 No: 'Όχι'
-A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο είναι
-  πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
+A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο
+  είναι πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
 Download From Site: Κάντε λήψη απο την Ιστοσελίδα
-Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber} είναι πλέον διαθέσιμη.
-  Κάντε κλικ για περισσότερες λεπτομέρειες
+Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber}
+  είναι πλέον διαθέσιμη. Κάντε κλικ για περισσότερες λεπτομέρειες
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό
   το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω
   μη διαθεσιμότητας του βίντεο στη χώρα σας.
@@ -777,6 +941,8 @@ Tooltips:
       για την προεπιλεγμένη μέθοδο για την ανανέωση της τροφοδοσίας των συνδρομών
       σας. Η RSS είναι ταχύτερη και εμποδίζει το κλείδωμα IP, αλλά δεν παρέχει ορισμένες
       πληροφορίες, όπως η διάρκεια του βίντεο ή την κατάσταση αυτών
+    Fetch Automatically: Όταν είναι ενεργοποιημένο, το FreeTube θα λαμβάνει αυτόματα
+      τη ροή της συνδρομής σας όταν ανοίγει ένα νέο παράθυρο και όταν αλλάζει προφίλ.
   Player Settings:
     Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή
       ενός βίντεο. Οι μορφές DASH μπορούν να παίξουν υψηλότερη ποιότητα. Οι παλαιότερες
@@ -796,10 +962,15 @@ Tooltips:
       ρυθμό αναπαραγωγής. Πατήστε παρατεταμένα το πλήκτρο Control (Command Key σε
       Mac) και κάντε αριστερό κλικ στο ποντίκι για να επιστρέψετε γρήγορα στον προεπιλεγμένο
       ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
+    Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε
+      το βίντεο, στυλ MPV.
+    Allow DASH AV1 formats: Οι μορφές DASH AV1 μπορεί να φαίνονται καλύτερες από τις
+      μορφές DASH H.264. Οι μορφές DASH AV1 απαιτούν περισσότερη ισχύ για την αναπαραγωγή!
+      Δεν είναι διαθέσιμα σε όλα τα βίντεο, σε αυτές τις περιπτώσεις το πρόγραμμα
+      αναπαραγωγής θα χρησιμοποιήσει τις μορφές DASH H.264.
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
-      βίντεο της χώρας που θέλετε να εμφανίζονται. Δεν υποστηρίζονται όλες οι χώρες
-      που προβάλλονται από το YouTube.
+      βίντεο της χώρας που θέλετε να εμφανίζονται.
     Thumbnail Preference: Όλες οι μικρογραφίες του FreeTube θα αντικατασταθούν με
       ένα πλαίσιο του βίντεο αντί για την προεπιλεγμένη μικρογραφία.
     Fallback to Non-Preferred Backend on Failure: Όταν το προτιμώμενο API αντιμετωπίζει
@@ -810,10 +981,10 @@ Tooltips:
       απαιτεί έναν Invidious server για να συνδεθεί.
     Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
       για κλήσεις διεπαφής.
-    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ\
-      \ σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,\
-      \ το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα\
-      \ περιήγησης.\n"
+    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ
+      σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,
+      το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα
+      περιήγησης.\n"
   Privacy Settings:
     Remove Video Meta Files: Όταν είναι ενεργοποιημένο, το FreeTube διαγράφει αυτόματα
       τα μετα-αρχεία που δημιουργήθηκαν κατά την αναπαραγωγή βίντεο, όταν η σελίδα
@@ -828,11 +999,27 @@ Tooltips:
       κ.λπ.).
     External Player: Η επιλογή ενός εξωτερικού προγράμματος αναπαραγωγής θα εμφανίσει
       ένα εικονίδιο, για το άνοιγμα του βίντεο (λίστα αναπαραγωγής, εάν υποστηρίζεται)
-      στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία.
+      στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία. Προειδοποίηση, Οι ακατάλληλες
+      ρυθμίσεις δεν επηρεάζουν τις εξωτερικές συσκευές αναπαραγωγής.
     DefaultCustomArgumentsTemplate: "(Προεπιλογή: '{defaultCustomArguments}')"
     Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών,
       διαχωρισμένα με ερωτηματικά (';'), που θέλετε να μεταβιβαστούν στο εξωτερικό
       πρόγραμμα αναπαραγωγής.
+  Experimental Settings:
+    Replace HTTP Cache: Απενεργοποιεί το Electron's disk-based HTTP cache και ενεργοποιεί
+      μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη
+      χρήση RAM.
+  Distraction Free Settings:
+    Hide Channels: Εισαγάγετε ένα όνομα καναλιού ή ένα αναγνωριστικό καναλιού για
+      να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι ώστε
+      να μην εμφανίζονται στην αναζήτηση, στις τάσεις, στα πιο δημοφιλή και προτεινόμενα.
+      Το όνομα του καναλιού που καταχωρίσατε πρέπει να ταιριάζει απόλυτα και να κάνει
+      διάκριση πεζών-κεφαλαίων.
+    Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}"
+      σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
+  SponsorBlock Settings:
+    UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν
+      από τους χρήστες από το DeArrow.
 Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
   | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
   ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
@@ -845,8 +1032,8 @@ Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος �
 Search Bar:
   Clear Input: Εκκαθάριση εισαγωγής
 Open New Window: Άνοιγμα Νέου παραθύρου
-Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο Invidious
-  έχει οριστεί σε {instance}
+Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο
+  Invidious έχει οριστεί σε {instance}
 Downloading has completed: Η λήψη του "{videoTitle}" ολοκληρώθηκε
 Starting download: Έναρξη λήψης του "{videoTitle}"
 Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious
@@ -856,3 +1043,37 @@ External link opening has been disabled in the general settings: Το άνοιγ
 Are you sure you want to open this link?: Είστε σίγουροι ότι θέλετε να ανοίξετε αυτόν
   τον σύνδεσμο;
 Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "{videoTitle}"
+Channels:
+  Channels: Κανάλια
+  Title: Λίστα Καναλιών
+  Search bar placeholder: Αναζήτηση Καναλιών
+  Unsubscribe: Απεγγραφή
+  Count: $ κανάλι(α) βρέθηκαν.
+  Empty: Η λίστα καναλιών σας είναι άδεια.
+  Unsubscribed: $ έχει αφαιρεθεί απο τις εγγραφές σας
+  Unsubscribe Prompt: Είστε σίγουρος πως επιθυμείτε να απεγγραφείτε από το "$"?
+New Window: Νέο Παράθυρο
+Screenshot Error: Λήψη στιγμιότυπου απέτυχε. $
+Clipboard:
+  Copy failed: Η αντιγραφή στο πρόχειρο απέτυχε
+  Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση
+    στο πρόχειρο χωρίς ασφαλή σύνδεση
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'Κρυφή λίστα κεφαλαίων,
+    τρέχον κεφάλαιο: {chapterName}'
+  Chapters: Κεφάλαια
+  'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων,
+    τρέχον κεφάλαιο: {chapterName}'
+Age Restricted:
+  This {videoOrPlaylist} is age restricted: Αυτό το {videoOrPlaylist} έχει περιορισμό
+    ηλικίας
+  Type:
+    Channel: Κανάλι
+    Video: Βίντεο
+Ok: Εντάξει
+Preferences: Προτιμήσεις
+Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
+    παρόν κανένα βίντεο

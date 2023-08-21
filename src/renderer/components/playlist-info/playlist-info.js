@@ -1,12 +1,11 @@
-import Vue from 'vue'
-import FtListDropdown from '../ft-list-dropdown/ft-list-dropdown.vue'
-import i18n from '../../i18n/index'
-import { copyToClipboard, openExternalLink } from '../../helpers/utils'
+import { defineComponent } from 'vue'
+import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PlaylistInfo',
   components: {
-    'ft-list-dropdown': FtListDropdown
+    'ft-share-button': FtShareButton
   },
   props: {
     data: {
@@ -18,21 +17,16 @@ export default Vue.extend({
     return {
       id: '',
       firstVideoId: '',
+      playlistThumbnail: '',
       title: '',
       channelThumbnail: '',
       channelName: '',
-      channelId: '',
+      channelId: null,
       videoCount: 0,
       viewCount: 0,
       lastUpdated: '',
       description: '',
-      infoSource: '',
-      shareValues: [
-        'copyYoutube',
-        'openYoutube',
-        'copyInvidious',
-        'openInvidious'
-      ]
+      infoSource: ''
     }
   },
   computed: {
@@ -44,41 +38,36 @@ export default Vue.extend({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    listType: function () {
-      return this.$store.getters.getListType
-    },
-
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
+    },
+
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
     },
 
     hideViews: function () {
       return this.$store.getters.getHideVideoViews
     },
 
-    shareHeaders: function () {
-      return [
-        this.$t('Playlist.Share Playlist.Copy YouTube Link'),
-        this.$t('Playlist.Share Playlist.Open in YouTube'),
-        this.$t('Playlist.Share Playlist.Copy Invidious Link'),
-        this.$t('Playlist.Share Playlist.Open in Invidious')
-      ]
-    },
-
     thumbnail: function () {
+      let baseUrl
+      if (this.backendPreference === 'invidious') {
+        baseUrl = this.currentInvidiousInstance
+      } else {
+        return this.data.playlistThumbnail
+      }
+
       switch (this.thumbnailPreference) {
         case 'start':
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq1.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mq1.jpg`
         case 'middle':
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq2.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mq2.jpg`
         case 'end':
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mq3.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mq3.jpg`
         default:
-          return `https://i.ytimg.com/vi/${this.firstVideoId}/mqdefault.jpg`
+          return `${baseUrl}/vi/${this.firstVideoId}/mqdefault.jpg`
       }
-    },
-    currentLocale: function () {
-      return i18n.locale.replace('_', '-')
     }
   },
   mounted: function () {
@@ -93,12 +82,12 @@ export default Vue.extend({
     this.infoSource = this.data.infoSource
 
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined') {
-      this.viewCount = this.hideViews ? null : Intl.NumberFormat(this.currentLocale).format(this.data.viewCount)
+    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
+      this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
     }
 
-    if (typeof (this.data.videoCount) !== 'undefined') {
-      this.videoCount = Intl.NumberFormat(this.currentLocale).format(this.data.videoCount)
+    if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
+      this.videoCount = formatNumber(this.data.videoCount)
     }
 
     this.lastUpdated = this.data.lastUpdated
@@ -122,23 +111,6 @@ export default Vue.extend({
           openExternalLink(invidiousUrl)
           break
       }
-    },
-
-    playFirstVideo() {
-      const playlistInfo = {
-        playlistId: this.id
-      }
-
-      this.$router.push(
-        {
-          path: `/watch/${this.firstVideoId}`,
-          query: playlistInfo
-        }
-      )
-    },
-
-    goToChannel: function () {
-      this.$router.push({ path: `/channel/${this.channelId}` })
     }
   }
 })
