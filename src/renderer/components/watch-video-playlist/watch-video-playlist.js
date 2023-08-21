@@ -328,14 +328,16 @@ export default defineComponent({
         let nextpage = cachedPlaylist.continuationData
         while (nextpage != null) {
           const moreInfo = await getPipedPlaylistMore({
-            playlistId: cachedPlaylist.playlistId,
-            nextpage
+            playlistId: cachedPlaylist.id,
+            continuation: nextpage
           })
 
-          items.push(moreInfo.videos)
+          items.push(...moreInfo.videos)
 
           if (!moreInfo.nextpage) {
             nextpage = null
+          } else {
+            nextpage = moreInfo.nextpage
           }
         }
 
