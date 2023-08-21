@@ -129,6 +129,15 @@ export default defineComponent({
         nextTick(() => this.scrollToCurrentVideo())
       }
     },
+    playlistId: function (newVal, oldVal) {
+      if (oldVal !== newVal) {
+        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+          this.getPlaylistInformationInvidious()
+        } else {
+          this.getPlaylistInformationLocal()
+        }
+      }
+    }
   },
   mounted: function () {
     const cachedPlaylist = this.$store.getters.getCachedPlaylist
