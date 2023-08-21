@@ -601,6 +601,7 @@ Profile:
 #On Channel Page
   Profile Filter: Профилен филтър
   Profile Settings: Настройки на профил
+  Toggle Profile List: Превключване на списъка с профили
 Channel:
   Subscriber: 'Абонат'
   Subscribers: 'Абонати'

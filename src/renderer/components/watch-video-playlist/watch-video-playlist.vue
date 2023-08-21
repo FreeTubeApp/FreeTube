@@ -14,13 +14,23 @@
           {{ playlistTitle }}
         </router-link>
       </h3>
-      <router-link
+      <span
         v-if="channelName !== ''"
-        class="channelName"
-        :to="`/channel/${channelId}`"
       >
-        {{ channelName }} -
-      </router-link>
+        <router-link
+          v-if="channelId"
+          class="channelName"
+          :to="`/channel/${channelId}`"
+        >
+          {{ channelName }} -
+        </router-link>
+        <span
+          v-else
+          class="channelName"
+        >
+          {{ channelName }} -
+        </span>
+      </span>
       <span
         class="playlistIndex"
       >
