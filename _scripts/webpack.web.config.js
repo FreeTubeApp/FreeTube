@@ -29,9 +29,12 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: 'babel-loader',
+        test: /\.[tj]s$/,
+        loader: 'esbuild-loader',
         exclude: /node_modules/,
+        options: {
+          target: 'es2020'
+        }
       },
       {
         test: /\.vue$/,
@@ -155,7 +158,7 @@ const config = {
       'fs/promises': path.resolve(__dirname, '_empty.js'),
       path: require.resolve('path-browserify'),
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue', '.ts']
   },
   target: 'web',
 }

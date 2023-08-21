@@ -15,11 +15,17 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: 'babel-loader',
+        test: /\.[tj]s$/,
+        loader: 'esbuild-loader',
         exclude: /node_modules/,
-      },
+        options: {
+          target: 'es2020'
+        }
+      }
     ],
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {

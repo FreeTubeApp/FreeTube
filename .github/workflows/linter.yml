@@ -24,4 +24,5 @@ jobs:
         node-version: 18.x
         cache: "yarn"
     - run: yarn run ci
+    - run: yarn run check-ts
     - run: yarn run lint

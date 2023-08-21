@@ -35,9 +35,12 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: 'babel-loader',
+        test: /\[tj]s$/,
+        loader: 'esbuild-loader',
         exclude: /node_modules/,
+        options: {
+          target: 'es2020'
+        }
       },
       {
         test: /\.vue$/,
@@ -141,7 +144,7 @@ const config = {
       // https://caniuse.com/mdn-api_domparser
       '@xmldom/xmldom$': path.resolve(__dirname, '_domParser.js')
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue', '.ts']
   },
   target: 'electron-renderer',
 }

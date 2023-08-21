@@ -55,6 +55,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: "yarn"
     - run: yarn run ci
+    - run: yarn run check-ts
     - run: yarn run lint
     - name: Get Version Number
       uses: jozsefsallai/node-package-version@v1.0.4

@@ -13,9 +13,9 @@ module.exports = {
 
   // https://eslint.vuejs.org/user-guide/#faq
   parserOptions: {
-    parser: '@babel/eslint-parser',
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 2022,
-    sourceType: 'module'
+    sourceType: 'module',
   },
 
   overrides: [
@@ -34,6 +34,16 @@ module.exports = {
       extends: ['plugin:yml/recommended'],
       rules: {
         'yml/no-irregular-whitespace': 'off'
+      }
+    },
+    {
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
+      extends: ['plugin:@typescript-eslint/recommended-type-checked'],
+      plugins: ['@typescript-eslint'],
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
       }
     }
   ],
