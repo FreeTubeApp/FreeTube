@@ -50,6 +50,10 @@ export default defineComponent({
 
     blurThumbnailsStyle: function () {
       return this.blurThumbnails ? 'blur(20px)' : null
+    },
+
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
     }
   },
   created: function () {
