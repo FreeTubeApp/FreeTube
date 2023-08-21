@@ -9,8 +9,8 @@ import {
   showToast,
   toLocalePublicationString,
   toDistractionFreeTitle,
-  isNullOrEmpty
 } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import { getPipedUrlInfo } from '../../helpers/api/piped'
 import { deArrowData } from '../../helpers/sponsorblock'
 

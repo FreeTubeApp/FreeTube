@@ -136,6 +136,9 @@ export default defineComponent({
     },
     playlistId: function (newVal, oldVal) {
       if (oldVal !== newVal) {
+        if (this.backendPreference === 'piped') {
+          this.getPlaylistInformationPiped()
+        }
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
           this.getPlaylistInformationInvidious()
         } else {
@@ -149,6 +152,8 @@ export default defineComponent({
 
     if (cachedPlaylist?.id === this.playlistId) {
       this.loadCachedPlaylistInformation(cachedPlaylist)
+    } else if (this.backendPreference === 'piped') {
+      this.getPlaylistInformationPiped()
     } else if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
       this.getPlaylistInformationInvidious()
     } else {

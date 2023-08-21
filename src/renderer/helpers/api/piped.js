@@ -1,5 +1,6 @@
 import store from '../../store/index'
-import { isNullOrEmpty, toLocalePublicationString } from '../utils'
+import { toLocalePublicationString } from '../utils'
+import { isNullOrEmpty } from '../strings'
 
 function getCurrentInstance() {
   return store.getters.getCurrentPipedInstance

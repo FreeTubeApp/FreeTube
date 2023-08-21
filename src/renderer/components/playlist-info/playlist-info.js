@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import { copyToClipboard, formatNumber, isNullOrEmpty, openExternalLink } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, openExternalLink } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import { getPipedUrlInfo } from '../../helpers/api/piped'
 
 export default defineComponent({
