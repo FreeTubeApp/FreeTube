@@ -97,6 +97,10 @@ Subscriptions:
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
     Atualize as subscrições para as ver aqui.
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
+  Subscriptions Tabs: Separadores de subscrições
+  All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
+    Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsecção}"
+    em "{settingsSection}".
 Trending:
   Trending: Tendências
   Trending Tabs: Separador de tendências
@@ -348,8 +352,12 @@ Settings:
       Channel Page: Página do canal
       Watch Page: Ver página
       General: Geral
+      Subscriptions Page: Página de subscrições
     Hide Channel Releases: Ocultar as libertações do canal
     Hide Channel Podcasts: Ocultar podcasts do canal
+    Hide Subscriptions Videos: Ocultar subscrições Vídeos
+    Hide Subscriptions Shorts: Ocultar subscrições Shorts
+    Hide Subscriptions Live: Ocultar subscrições em direto
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -890,6 +898,8 @@ Tooltips:
       os vídeos, listas de reprodução e o próprio canal de aparecerem na pesquisa,
       tendências, mais populares e recomendados. O nome do canal introduzido tem de
       corresponder na totalidade e é sensível a maiúsculas e minúsculas.
+    Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
+      aplicação "{appWideSetting}", na secção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.

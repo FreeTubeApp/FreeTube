@@ -6,6 +6,7 @@ import SubscriptionsShorts from '../../components/subscriptions-shorts/subscript
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Subscriptions',
@@ -15,6 +16,9 @@ export default defineComponent({
     'subscriptions-shorts': SubscriptionsShorts,
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -102,7 +106,7 @@ export default defineComponent({
         const visibleTabs = this.visibleTabs
 
         if (visibleTabs.length === 1) {
-          this.$emit('showOutlines')
+          this.showOutlines()
           return
         }
 
@@ -121,7 +125,7 @@ export default defineComponent({
         }
 
         this.$refs[visibleTabs[index]].focus()
-        this.$emit('showOutlines')
+        this.showOutlines()
       }
     }
   }

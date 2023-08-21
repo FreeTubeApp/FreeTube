@@ -14,6 +14,7 @@
       <router-link
         class="thumbnailLink"
         tabindex="-1"
+        aria-hidden="true"
         :to="{
           path: `/watch/${id}`,
           query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
@@ -22,6 +23,7 @@
         <img
           :src="thumbnail"
           class="thumbnailImage"
+          alt=""
         >
       </router-link>
       <div
@@ -74,7 +76,9 @@
           query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
         }"
       >
-        {{ displayTitle }}
+        <h3 class="h3Title">
+          {{ displayTitle }}
+        </h3>
       </router-link>
       <div class="infoLine">
         <router-link

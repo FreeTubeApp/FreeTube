@@ -5,7 +5,7 @@ import { mapActions } from 'vuex'
 import FtButton from '../../components/ft-button/ft-button.vue'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
-import { showToast } from '../../helpers/utils'
+import { deepCopy, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtSubscribeButton',
@@ -69,7 +69,7 @@ export default defineComponent({
         return
       }
 
-      const currentProfile = JSON.parse(JSON.stringify(this.activeProfile))
+      const currentProfile = deepCopy(this.activeProfile)
 
       if (this.isSubscribed) {
         currentProfile.subscriptions = currentProfile.subscriptions.filter((channel) => {
@@ -108,9 +108,9 @@ export default defineComponent({
         showToast(this.$t('Channel.Added channel to your subscriptions'))
 
         if (this.activeProfile._id !== MAIN_PROFILE_ID) {
-          const primaryProfile = JSON.parse(JSON.stringify(this.profileList.find(prof => {
+          const primaryProfile = deepCopy(this.profileList.find(prof => {
             return prof._id === MAIN_PROFILE_ID
-          })))
+          }))
 
           const index = primaryProfile.subscriptions.findIndex((channel) => {
             return channel.id === this.channelId
@@ -125,7 +125,7 @@ export default defineComponent({
     },
 
     unsubscribe: function(profile, channelId) {
-      const parsedProfile = JSON.parse(JSON.stringify(profile))
+      const parsedProfile = deepCopy(profile)
       const index = parsedProfile.subscriptions.findIndex((channel) => {
         return channel.id === channelId
       })

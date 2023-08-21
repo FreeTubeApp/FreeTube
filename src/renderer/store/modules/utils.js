@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import i18n from '../../i18n/index'
+import { set as vueSet } from 'vue'
 
 import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
@@ -58,8 +59,8 @@ const getters = {
     return state.sessionSearchHistory
   },
 
-  getDeArrowCache: (state) => (videoId) => {
-    return state.deArrowCache[videoId]
+  getDeArrowCache: (state) => {
+    return state.deArrowCache
   },
 
   getPopularCache () {
@@ -323,7 +324,7 @@ const actions = {
 
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
-      ['search', /^\/results\/?$/],
+      ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
       ['channel', channelPattern]
     ])
@@ -358,12 +359,20 @@ const actions = {
       }
 
       case 'search': {
-        if (!url.searchParams.has('search_query')) {
+        let searchQuery = null
+        if (url.searchParams.has('search_query')) {
+          // https://www.youtube.com/results?search_query={QUERY}
+          searchQuery = url.searchParams.get('search_query')
+          url.searchParams.delete('search_query')
+        }
+        if (url.searchParams.has('q')) {
+          // https://redirect.invidious.io/search?q={QUERY}
+          searchQuery = url.searchParams.get('q')
+          url.searchParams.delete('q')
+        }
+        if (searchQuery == null) {
           throw new Error('Search: "search_query" field not found')
         }
-
-        const searchQuery = url.searchParams.get('search_query')
-        url.searchParams.delete('search_query')
 
         const searchSettings = state.searchSettings
         const query = {
@@ -529,7 +538,10 @@ const actions = {
 
     if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
       if (typeof cmdArgs.startOffset === 'string') {
-        if (cmdArgs.startOffset.endsWith('=')) {
+        if (cmdArgs.defaultExecutable.startsWith('mpc')) {
+          // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
+          args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
+        } else if (cmdArgs.startOffset.endsWith('=')) {
           // For players using `=` in arguments
           // e.g. vlc --start-time=xxxxx
           args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
@@ -585,7 +597,12 @@ const actions = {
         }
       }
 
-      args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
+      if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
+        args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
+      } else {
+        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      }
     } else {
       if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
         showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
@@ -631,7 +648,9 @@ const mutations = {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
-      state.deArrowCache[payload.videoId] = payload
+      // setting properties directly doesn't trigger watchers in Vue 2,
+      // so we need to use Vue's set function
+      vueSet(state.deArrowCache, payload.videoId, payload)
     }
   },
 

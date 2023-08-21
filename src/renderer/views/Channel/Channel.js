@@ -12,7 +12,8 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 
 import autolinker from 'autolinker'
-import { copyToClipboard, extractNumberFromString, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
+import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
   invidiousAPICall,
@@ -31,6 +32,7 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
+import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -45,6 +47,9 @@ export default defineComponent({
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -594,6 +599,25 @@ export default defineComponent({
             tags.push(...badges)
             break
           }
+          case 'PageHeader': {
+            // example: YouTube Gaming (an A/B test at the time of writing)
+            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+            /**
+             * @type {import('youtubei.js').YTNodes.PageHeader}
+             */
+            const header = channel.header
+
+            channelName = header.content.title.text
+            channelThumbnailUrl = header.content.image.image[0].url
+            channelId = this.id
+
+            break
+          }
+        }
+
+        if (channelThumbnailUrl.startsWith('//')) {
+          channelThumbnailUrl = `https:${channelThumbnailUrl}`
         }
 
         this.channelName = channelName
@@ -1727,7 +1751,8 @@ export default defineComponent({
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
           const tabNode = document.getElementById(`${tab}Tab`)
-          tabNode.focus({ focusVisible: true })
+          tabNode.focus()
+          this.showOutlines()
           return
         }
       }
@@ -1735,7 +1760,8 @@ export default defineComponent({
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
-      newTabNode?.focus({ focusVisible: true })
+      newTabNode?.focus()
+      this.showOutlines()
     },
 
     newSearch: function (query) {

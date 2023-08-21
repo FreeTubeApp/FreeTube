@@ -11,9 +11,14 @@
 .getNextPage:hover, .getNextPage:focus {
   background-color: var(--side-nav-hover-color);
 }
+
 .card {
-  box-sizing: border-box;
   margin: 0 auto 20px;
-  position: relative;
   width: 85%;
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    width: 90%;
+  }
 }

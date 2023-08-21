@@ -588,6 +588,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtr profilu
   Profile Settings: Nastavení profilu
+  Toggle Profile List: Přepnout seznam profilů
 Channel:
   Subscriber: 'Odběratel'
   Subscribers: 'odběratelů'

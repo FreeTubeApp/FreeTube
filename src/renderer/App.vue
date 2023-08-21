@@ -11,6 +11,7 @@
     <side-nav ref="sideNav" />
     <ft-flex-box
       class="flexBox routerView"
+      role="main"
     >
       <div
         v-if="showUpdatesBanner || showBlogBanner"
@@ -40,7 +41,6 @@
         <RouterView
           ref="router"
           class="routerView"
-          @showOutlines="hideOutlines = false"
         />
       <!-- </keep-alive> -->
       </transition>

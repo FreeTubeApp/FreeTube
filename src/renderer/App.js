@@ -10,7 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
-import { IpcChannels } from '../constants'
+import { Injectables, IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
@@ -29,6 +29,11 @@ export default defineComponent({
     FtButton,
     FtToast,
     FtProgressBar
+  },
+  provide: function () {
+    return {
+      [Injectables.SHOW_OUTLINES]: this.showOutlines
+    }
   },
   data: function () {
     return {
@@ -55,7 +60,7 @@ export default defineComponent({
       return this.$store.getters.getShowProgressBar
     },
     isRightAligned: function () {
-      return this.$i18n.locale === 'ar'
+      return this.locale === 'ar' || this.locale === 'he'
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -100,6 +105,10 @@ export default defineComponent({
       return this.$store.getters.getSecColor
     },
 
+    locale: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     systemTheme: function () {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     },
@@ -124,6 +133,8 @@ export default defineComponent({
 
     secColor: 'checkThemeSettings',
 
+    locale: 'setLocale',
+
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
@@ -133,6 +144,7 @@ export default defineComponent({
   created () {
     this.checkThemeSettings()
     this.setWindowTitle()
+    this.setLocale()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -501,6 +513,19 @@ export default defineComponent({
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
       }
+    },
+
+    setLocale: function() {
+      document.documentElement.setAttribute('lang', this.locale)
+    },
+
+    /**
+     * provided to all child components, see `provide` near the top of this file
+     * after injecting it, they can show outlines during keyboard navigation
+     * e.g. cycling through tabs with the arrow keys
+     */
+    showOutlines: function () {
+      this.hideOutlines = false
     },
 
     ...mapMutations([

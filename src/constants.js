@@ -70,6 +70,11 @@ const SyncEvents = {
   }
 }
 
+// https://v2.vuejs.org/v2/api/#provide-inject
+const Injectables = {
+  SHOW_OUTLINES: 'showOutlines'
+}
+
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -77,5 +82,6 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  Injectables,
   MAIN_PROFILE_ID
 }

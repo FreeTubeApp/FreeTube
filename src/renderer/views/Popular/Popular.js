@@ -5,6 +5,7 @@ import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 
 import { invidiousAPICall } from '../../helpers/api/invidious'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'Popular',
@@ -28,7 +29,7 @@ export default defineComponent({
   mounted: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
 
-    this.shownResults = this.popularCache
+    this.shownResults = this.popularCache || []
     if (!this.shownResults || this.shownResults.length < 1) {
       this.fetchPopularInfo()
     }
@@ -47,7 +48,11 @@ export default defineComponent({
       this.isLoading = true
       const result = await invidiousAPICall(searchPayload)
         .catch((err) => {
-          console.error(err)
+          const errorMessage = this.$t('Invidious API Error (Click to copy)')
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
+          })
+          return undefined
         })
 
       if (!result) {

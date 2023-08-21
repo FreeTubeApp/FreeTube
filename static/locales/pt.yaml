@@ -596,6 +596,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtro de perfil
   Profile Settings: Definições de perfil
+  Toggle Profile List: Alternar Lista de Perfis
 Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'

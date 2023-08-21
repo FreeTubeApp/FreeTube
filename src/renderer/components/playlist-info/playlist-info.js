@@ -22,7 +22,7 @@ export default defineComponent({
       title: '',
       channelThumbnail: '',
       channelName: '',
-      channelId: '',
+      channelId: null,
       videoCount: 0,
       viewCount: null,
       lastUpdated: '',
