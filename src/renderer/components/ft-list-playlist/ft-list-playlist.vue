@@ -34,7 +34,9 @@
         class="title"
         :to="`/playlist/${playlistId}`"
       >
-        <h3 class="h3Title">{{ title }}</h3>
+        <h3 class="h3Title">
+          {{ title }}
+        </h3>
       </router-link>
       <div class="infoLine">
         <router-link

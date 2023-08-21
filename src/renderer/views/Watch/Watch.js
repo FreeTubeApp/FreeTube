@@ -600,7 +600,14 @@ export default defineComponent({
               /** @type {import('youtubei.js').Misc.Format[][]} */
               const sourceLists = []
 
-              audioFormats.forEach(format => {
+              for (const format of audioFormats) {
+                // Some videos with multiple audio tracks, have a broken one, that doesn't have any audio track information
+                // It seems to be the same as default audio track but broken
+                // At the time of writing, this video has a broken audio track: https://youtu.be/UJeSWbR6W04
+                if (!format.audio_track) {
+                  continue
+                }
+
                 const index = ids.indexOf(format.audio_track.id)
                 if (index === -1) {
                   ids.push(format.audio_track.id)
@@ -632,7 +639,7 @@ export default defineComponent({
                 } else {
                   sourceLists[index].push(format)
                 }
-              })
+              }
 
               for (let i = 0; i < audioTracks.length; i++) {
                 audioTracks[i].sourceList = this.createLocalAudioSourceList(sourceLists[i])
