@@ -90,6 +90,9 @@ Subscriptions:
   Disabled Automatic Fetching: Automatisk innhenting av abonnementer avskrudd. Gjenoppfrisk
     abonnementer for å se dem her.
   Empty Channels: Ingen videoer fra kanaler du abonnerer på enda.
+  Subscriptions Tabs: Abonnementsfaner
+  All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. Opphev skjuling av
+    noen faner i «{subsection}»-delen av «{settingsSection}» for å vise innhold her.
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -402,7 +405,7 @@ Settings:
     Hide Live Chat: Skjul sanntidssludring
     Hide Playlists: Skjul spillelister
     Hide Comments: Skjul kommentarer
-    Hide Live Streams: "\n"
+    Hide Live Streams: "Skjul direktestrømmer"
     Hide Chapters: Skjul kapitler
     Hide Channels Placeholder: Kanalnavn eller ID
     Hide Channels: Skjul videoer fra kanaler
@@ -419,7 +422,13 @@ Settings:
       Channel Page: Kanalside
       General: Generelt
       Watch Page: Seerlogg
+      Subscriptions Page: Abonnementsside
     Hide Channel Playlists: Skjul kanalspilleliste
+    Hide Channel Releases: Skjul kanalpubliseringer
+    Hide Channel Podcasts: Skjul kanal-nettradioopptak
+    Hide Subscriptions Videos: Skjul abonnementsvideoer
+    Hide Subscriptions Shorts: Skjul abonnements-kortvideoer
+    Hide Subscriptions Live: Skjul abonnement det sendes direkte fra
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -504,6 +513,7 @@ About:
   GitHub releases: GitHub-utgivelser
   Beta: Beta
   Chat on Matrix: Snakk med oss på Matrix
+  Discussions: Diskusjoner
 Channel:
   Subscriber: 'Abonnent'
   Subscribers: 'Abonnenter'
@@ -556,6 +566,12 @@ Channel:
     Live: Direkte
     This channel does not currently have any live streams: Denne kanalen har ikke
       noen direktestrømmer
+  Podcasts:
+    Podcasts: Nettradioopptak
+    This channel does not currently have any podcasts: Denne kanalen har ingen nettradioopptak
+  Releases:
+    Releases: Publiseringer
+    This channel does not currently have any releases: Denne kanalen har ingen publiseringer
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
@@ -829,6 +845,7 @@ Profile:
   Custom Color: Egendefinert farge
   Profile Filter: Profilfilter
   Profile Settings: Profilinnstillinger
+  Toggle Profile List: Slå av/på profilliste
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
   videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
   i ditt land.
@@ -896,6 +913,8 @@ Tooltips:
       spillelister og selve kanalen fra å vises i søk eller på vei opp. Kanalnavnet
       som skrives inn må være et nøyaktig treff, og gjør forskjell på små og store
       bokstaver.
+    Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele
+      programmet, i «{subsection}»-delen av «{settingsSection}»
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
 A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
