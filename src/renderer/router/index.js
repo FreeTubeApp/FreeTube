@@ -162,6 +162,7 @@ const router = new CustomRouter({
     },
     {
       path: '/watch/:id',
+      name: 'watchOneVideo',
       meta: {
         title: 'Watch'
       },

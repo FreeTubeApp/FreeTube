@@ -76,7 +76,11 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
-    }
+    },
+
+    refreshOrReloadButtonVisible() {
+      return this.$route.name === 'watchOneVideo'
+    },
   },
   mounted: function () {
     let previousWidth = window.innerWidth

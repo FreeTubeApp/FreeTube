@@ -62,8 +62,7 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
-    this.handleRouteChange(this.videoId)
-    window.removeEventListener('beforeunload', this.handleWatchProgress)
+    this.onBeforeLeave()
     next()
   },
   data: function () {
@@ -120,6 +119,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+      videoPlayerKey: 0,
     }
   },
   computed: {
@@ -207,35 +207,14 @@ export default defineComponent({
   },
   watch: {
     $route() {
-      this.handleRouteChange(this.videoId)
-      // react to route changes...
-      this.videoId = this.$route.params.id
-
-      this.firstLoad = true
-      this.videoPlayerReady = false
-      this.activeFormat = this.defaultVideoFormat
-      this.videoStoryboardSrc = ''
-      this.captionHybridList = []
-      this.downloadLinks = []
-      this.videoCurrentChapterIndex = 0
-      this.audioTracks = []
-
-      this.checkIfPlaylist()
-      this.checkIfTimestamp()
-
-      switch (this.backendPreference) {
-        case 'local':
-          this.getVideoInformationLocal(this.videoId)
-          break
-        case 'invidious':
-          this.getVideoInformationInvidious(this.videoId)
-
-          if (this.forceLocalBackendForLegacy) {
-            this.getVideoInformationLocal(this.videoId)
-          }
-          break
-      }
+      this.onRouteChange()
     }
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('beforeunload', this.handleWatchProgress)
+
+    const reloadButtonElement = document.getElementById('refreshOrReloadButton')
+    reloadButtonElement.removeEventListener('click', this.forceVideoPlayerRerender)
   },
   mounted: function () {
     this.videoId = this.$route.params.id
@@ -252,8 +231,50 @@ export default defineComponent({
     }
 
     window.addEventListener('beforeunload', this.handleWatchProgress)
+
+    const reloadButtonElement = document.getElementById('refreshOrReloadButton')
+    reloadButtonElement.addEventListener('click', this.forceVideoPlayerRerender)
   },
   methods: {
+    onBeforeLeave() {
+      this.handleRouteChange(this.videoId)
+    },
+    onRouteChange({ timestamp = null } = {}) {
+      this.handleRouteChange(this.videoId)
+      // react to route changes...
+      this.videoId = this.$route.params.id
+
+      this.firstLoad = true
+      this.videoPlayerReady = false
+      this.activeFormat = this.defaultVideoFormat
+      this.videoStoryboardSrc = ''
+      this.captionHybridList = []
+      this.downloadLinks = []
+      this.videoCurrentChapterIndex = 0
+      this.audioTracks = []
+
+      this.checkIfPlaylist()
+      this.checkIfTimestamp(timestamp)
+
+      switch (this.backendPreference) {
+        case 'local':
+          this.getVideoInformationLocal(this.videoId)
+          break
+        case 'invidious':
+          this.getVideoInformationInvidious(this.videoId)
+
+          if (this.forceLocalBackendForLegacy) {
+            this.getVideoInformationLocal(this.videoId)
+          }
+          break
+      }
+    },
+
+    forceVideoPlayerRerender: function() {
+      this.videoPlayerKey++
+      this.onRouteChange({ timestamp: this.getTimestamp() })
+    },
+
     changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
@@ -1092,8 +1113,13 @@ export default defineComponent({
       }
     },
 
-    checkIfTimestamp: function () {
-      if (typeof (this.$route.query) !== 'undefined') {
+    checkIfTimestamp: function (timestamp = null) {
+      if (timestamp != null) {
+        this.timestamp = parseInt(timestamp)
+        return
+      }
+
+      if (this.$route.query != null) {
         try {
           this.timestamp = parseInt(this.$route.query.timestamp)
         } catch {

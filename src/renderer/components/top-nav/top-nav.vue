@@ -34,6 +34,15 @@
         @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
+        v-show="refreshOrReloadButtonVisible"
+        id="refreshOrReloadButton"
+        :icon="['fas', 'redo-alt']"
+        class="navIcon"
+        :title="$t('Refresh or Reload')"
+        role="button"
+        tabindex="0"
+      />
+      <font-awesome-icon
         v-if="!hideSearchBar"
         class="navSearchIcon navIcon"
         :icon="['fas', 'search']"
