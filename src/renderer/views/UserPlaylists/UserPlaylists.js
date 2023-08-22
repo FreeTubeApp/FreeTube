@@ -100,11 +100,7 @@ export default defineComponent({
 
     this.activeData = this.fullData
 
-    if (this.activeData.length < this.allPlaylists.length) {
-      this.showLoadMoreButton = true
-    } else {
-      this.showLoadMoreButton = false
-    }
+    this.showLoadMoreButton = this.activeData.length < this.allPlaylists.length
 
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
   },
