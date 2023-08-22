@@ -24,7 +24,7 @@ export default defineComponent({
         {
           icon: ['fas', 'question-circle'],
           title: this.$t('About.Help'),
-          content: `<a href="https://docs.freetubeapp.io/">${this.$t('About.FreeTube Wiki')}</a> / <a href="https://docs.freetubeapp.io/faq/">${this.$t('About.FAQ')}</a>`
+          content: `<a href="https://docs.freetubeapp.io/">${this.$t('About.FreeTube Wiki')}</a> / <a href="https://docs.freetubeapp.io/faq/">${this.$t('About.FAQ')}</a> / <a href="https://github.com/FreeTubeApp/FreeTube/discussions/">${this.$t('About.Discussions')}</a>`
         },
         {
           icon: ['fas', 'exclamation-circle'],
