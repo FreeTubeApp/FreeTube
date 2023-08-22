@@ -19,6 +19,7 @@
         <ft-video-player
           v-if="!isLoading && !hidePlayer && !isUpcoming"
           ref="videoPlayer"
+          :key="videoPlayerRefreshKey"
           :dash-src="dashSrc"
           :source-list="activeSourceList"
           :audio-tracks="audioTracks"

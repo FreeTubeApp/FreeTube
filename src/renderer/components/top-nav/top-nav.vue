@@ -34,6 +34,17 @@
         @keydown.enter.prevent="historyForward"
       />
       <font-awesome-icon
+        v-if="isVideoPlayerActive"
+        id="videoReloadButton"
+        role="button"
+        tabindex="0"
+        :icon="['fas', 'refresh']"
+        class="navIcon"
+        :title="$t('Video.Reload Video')"
+        @click="refreshVideoPlayer"
+        @keydown.enter.prevent="refreshVideoPlayer"
+      />
+      <font-awesome-icon
         v-if="!hideSearchBar"
         class="navSearchIcon navIcon"
         :icon="['fas', 'search']"
