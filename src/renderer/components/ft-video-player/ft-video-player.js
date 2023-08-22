@@ -400,6 +400,11 @@ export default defineComponent({
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
     if (this.player !== null) {
+      if (this.player.vttThumbnails != null) {
+        // Workaround - prevents setup function inside promise handler in plugin
+        // to spit error due to missing element(s)
+        this.player.vttThumbnails.setupThumbnailElement = function() {}
+      }
       this.exitFullWindow()
 
       if (!this.player.isInPictureInPicture()) {
