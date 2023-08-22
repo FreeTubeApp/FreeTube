@@ -6,9 +6,31 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+
+const SORT_BY_VALUES = {
+  NameAscending: 'name_ascending',
+  NameDescending: 'name_descending',
+
+  LatestCreatedFirst: 'latest_created_first',
+  EarliestCreatedFirst: 'earliest_created_first',
+
+  LatestUpdatedFirst: 'latest_updated_first',
+  EarliestUpdatedFirst: 'earliest_updated_first',
+}
+const SORT_BY_NAMES = {
+  NameAscending: 'A-Z',
+  NameDescending: 'Z-A',
+
+  LatestCreatedFirst: 'Latest Created',
+  EarliestCreatedFirst: 'Earliest Created',
+
+  LatestUpdatedFirst: 'Latest Updated',
+  EarliestUpdatedFirst: 'Earliest Updated',
+}
 
 export default defineComponent({
   name: 'UserPlaylists',
@@ -18,6 +40,7 @@ export default defineComponent({
     'ft-tooltip': FtTooltip,
     'ft-loader': FtLoader,
     'ft-button': FtButton,
+    'ft-select': FtSelect,
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton,
     'ft-input': FtInput,
@@ -30,6 +53,7 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
+      sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
   computed: {
@@ -53,18 +77,23 @@ export default defineComponent({
         playlist.videoCount = playlist.videos.length
         return playlist
       }).sort((a, b) => {
-        // Sort by favorites, watch later, then alphabetically
-        if (a._id === 'favorites') {
-          return -1
-        } else if (b._id === 'favorites') {
-          return 1
-        } else if (a._id === 'watchLater') {
-          return -1
-        } else if (b._id === 'watchLater') {
-          return 1
+        switch (this.sortBy) {
+          case SORT_BY_VALUES.NameAscending:
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          case SORT_BY_VALUES.NameDescending:
+            return b.playlistName.localeCompare(a.playlistName, this.locale)
+          case SORT_BY_VALUES.LatestCreatedFirst:
+            return a.createdAt > b.createdAt ? -1 : 1
+          case SORT_BY_VALUES.EarliestCreatedFirst:
+            return a.createdAt < b.createdAt ? -1 : 1
+          case SORT_BY_VALUES.LatestUpdatedFirst:
+            return a.lastUpdatedAt > b.lastUpdatedAt ? -1 : 1
+          case SORT_BY_VALUES.EarliestUpdatedFirst:
+            return a.lastUpdatedAt < b.lastUpdatedAt ? -1 : 1
+          default:
+            console.error(`Unknown sortby: ${this.sortBy}`)
+            return 0
         }
-
-        return a.title.localeCompare(b.title, this.locale)
       })
     },
 
@@ -80,6 +109,13 @@ export default defineComponent({
     lowerCaseQuery: function() {
       return this.query.toLowerCase()
     },
+
+    sortBySelectNames() {
+      return Object.keys(SORT_BY_VALUES).map(k => SORT_BY_NAMES[k])
+    },
+    sortBySelectValues() {
+      return Object.values(SORT_BY_VALUES)
+    },
   },
   watch: {
     lowerCaseQuery() {
@@ -90,12 +126,19 @@ export default defineComponent({
       this.activeData = this.fullData
       this.filterPlaylist()
     },
+    sortBy() {
+      sessionStorage.setItem('UserPlaylists/sortBy', this.sortBy)
+    }
   },
   mounted: function () {
     const limit = sessionStorage.getItem('favoritesLimit')
-
     if (limit !== null) {
       this.dataLimit = limit
+    }
+
+    const sortBy = sessionStorage.getItem('UserPlaylists/sortBy')
+    if (sortBy != null) {
+      this.sortBy = sortBy
     }
 
     this.activeData = this.fullData

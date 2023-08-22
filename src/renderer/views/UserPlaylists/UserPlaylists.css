@@ -16,6 +16,11 @@
   vertical-align: middle;
 }
 
+.sortSelect {
+  /* Put it on the right */
+  margin-left: auto;
+}
+
 .message {
   color: var(--tertiary-text-color);
 }

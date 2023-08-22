@@ -28,6 +28,15 @@
           @input="(input) => query = input"
           @clear="query = ''"
         />
+        <ft-select
+          v-if="fullData.length > 0"
+          class="sortSelect"
+          :value="sortBy"
+          :select-names="sortBySelectNames"
+          :select-values="sortBySelectValues"
+          :placeholder="'Sort By'"
+          @change="sortBy = $event"
+        />
       </div>
       <ft-flex-box
         v-if="fullData.length === 0"
