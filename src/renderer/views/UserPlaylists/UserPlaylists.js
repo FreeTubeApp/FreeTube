@@ -67,16 +67,7 @@ export default defineComponent({
 
     allPlaylists: function () {
       const playlists = this.$store.getters.getAllPlaylists
-      return [].concat(playlists).map((playlist) => {
-        playlist.title = playlist.playlistName
-        playlist.type = 'playlist'
-        playlist.thumbnail = ''
-        playlist.channelName = ''
-        playlist.channelId = ''
-        playlist.playlistId = ''
-        playlist.videoCount = playlist.videos.length
-        return playlist
-      }).sort((a, b) => {
+      return [].concat(playlists).sort((a, b) => {
         switch (this.sortBy) {
           case SORT_BY_VALUES.NameAscending:
             return a.playlistName.localeCompare(b.playlistName, this.locale)

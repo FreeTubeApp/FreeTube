@@ -34,16 +34,7 @@ export default Vue.extend({
   computed: {
     allPlaylists: function () {
       const playlists = this.$store.getters.getAllPlaylists
-      return [].concat(playlists).map((playlist) => {
-        playlist.title = playlist.playlistName
-        playlist.type = 'playlist'
-        playlist.thumbnail = ''
-        playlist.channelName = ''
-        playlist.channelId = ''
-        playlist.playlistId = ''
-        playlist.videoCount = playlist.videos.length
-        return playlist
-      }).sort((a, b) => {
+      return [].concat(playlists).sort((a, b) => {
         // Sort by `lastUpdatedAt`, then alphabetically
         if (a.lastUpdatedAt > b.lastUpdatedAt) {
           return -1
