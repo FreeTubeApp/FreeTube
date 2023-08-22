@@ -32,7 +32,8 @@ export default defineComponent({
         channelName: this.infoData.channelName,
         channelId: this.infoData.channelId,
         items: this.playlistItems,
-        continuationData: this.continuationData
+        continuationData: this.continuationData,
+        query: this.query
       })
     }
     next()
@@ -44,7 +45,8 @@ export default defineComponent({
       infoData: {},
       playlistItems: [],
       continuationData: null,
-      isLoadingMore: false
+      isLoadingMore: false,
+      query: {}
     }
   },
   computed: {
@@ -73,14 +75,20 @@ export default defineComponent({
   methods: {
     getPlaylist: function () {
       this.playlistId = this.$route.params.id
+      this.query = this.$route.query ?? {}
 
-      switch (this.backendPreference) {
-        case 'local':
-          this.getPlaylistLocal()
-          break
-        case 'invidious':
-          this.getPlaylistInvidious()
-          break
+      if (this.query.playlistType === 'invidious') {
+        // playlist only exists in invidious!
+        this.getPlaylistInvidious()
+      } else {
+        switch (this.backendPreference) {
+          case 'local':
+            this.getPlaylistLocal()
+            break
+          case 'invidious':
+            this.getPlaylistInvidious()
+            break
+        }
       }
     },
     getPlaylistLocal: function () {
@@ -139,8 +147,8 @@ export default defineComponent({
 
     getPlaylistInvidious: function () {
       this.isLoading = true
-
-      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
+      const origin = this.query.origin
+      invidiousGetPlaylistInfo(this.playlistId, origin).then((result) => {
         this.infoData = {
           id: result.playlistId,
           title: result.title,
@@ -149,16 +157,18 @@ export default defineComponent({
           viewCount: result.viewCount,
           videoCount: result.videoCount,
           channelName: result.author,
-          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance),
+          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails.at(2)?.url, this.currentInvidiousInstance),
           channelId: result.authorId,
           infoSource: 'invidious'
         }
 
-        this.updateSubscriptionDetails({
-          channelThumbnailUrl: result.authorThumbnails[2].url,
-          channelName: this.infoData.channelName,
-          channelId: this.infoData.channelId
-        })
+        if (!this.query.playlistType === 'invidious') {
+          this.updateSubscriptionDetails({
+            channelThumbnailUrl: result.authorThumbnails[2].url,
+            channelName: this.infoData.channelName,
+            channelId: this.infoData.channelId
+          })
+        }
 
         const dateString = new Date(result.updated * 1000)
         this.infoData.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })

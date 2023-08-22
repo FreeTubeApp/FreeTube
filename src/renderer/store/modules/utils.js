@@ -352,6 +352,12 @@ const actions = {
           query[param] = value
         }
 
+        // special handling for Invidious playlist
+        if (playlistId.startsWith('IV')) {
+          query.origin = url.origin
+          query.playlistType = 'invidious'
+        }
+
         return {
           urlType: 'playlist',
           playlistId,

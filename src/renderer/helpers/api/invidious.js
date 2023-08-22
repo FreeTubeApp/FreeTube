@@ -18,9 +18,9 @@ export function getProxyUrl(uri) {
   return url.toString().replace(origin, getCurrentInstance())
 }
 
-export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
+export function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '', instance = '' }) {
   return new Promise((resolve, reject) => {
-    const requestUrl = getCurrentInstance() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
+    const requestUrl = isNullOrEmpty(instance) ? getCurrentInstance() : instance + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     fetch(requestUrl)
       .then((response) => response.json())
       .then((json) => {
@@ -76,10 +76,11 @@ export async function invidiousGetChannelInfo(channelId) {
   })
 }
 
-export async function invidiousGetPlaylistInfo(playlistId) {
+export async function invidiousGetPlaylistInfo(playlistId, origin = '') {
   return await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
+    instance: origin
   })
 }
 
