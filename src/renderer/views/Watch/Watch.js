@@ -119,7 +119,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
-      videoPlayerRefreshKey: 542,
+      videoPlayerRefreshKey: 0,
     }
   },
   computed: {
@@ -211,25 +211,30 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.videoId = this.$route.params.id
-    this.activeFormat = this.defaultVideoFormat
-    this.useTheatreMode = this.defaultTheatreMode
-
-    this.checkIfPlaylist()
-    this.checkIfTimestamp()
-
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-      this.getVideoInformationInvidious()
-    } else {
-      this.getVideoInformationLocal()
-    }
-
-    this.$root.$on('refresh-video-player', () => this.refreshVideoPlayer())
-    window.addEventListener('beforeunload', this.handleWatchProgress)
+    this.mounted()
   },
   methods: {
+    mounted: function() {
+      this.videoId = this.$route.params.id
+      this.activeFormat = this.defaultVideoFormat
+      this.useTheatreMode = this.defaultTheatreMode
+
+      this.checkIfPlaylist()
+      this.checkIfTimestamp()
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getVideoInformationInvidious()
+      } else {
+        this.getVideoInformationLocal()
+      }
+
+      this.$root.$on('refresh-video-player', this.refreshVideoPlayer)
+      window.addEventListener('beforeunload', this.handleWatchProgress)
+      // window.addEventListener('refresh-video-player', this.refreshVideoPlayer)
+    },
     beforeLeave: function() {
       this.handleRouteChange(this.videoId)
+      this.$root.$off('refresh-video-player', this.refreshVideoPlayer)
       window.removeEventListener('beforeunload', this.handleWatchProgress)
     },
     route: function() {
@@ -263,9 +268,10 @@ export default defineComponent({
       }
     },
     refreshVideoPlayer: function() {
-      this.beforeLeave()
+      // this.beforeLeave()
       this.videoPlayerRefreshKey++
       this.route()
+      // await this.handleRouteChange(this.videoId)
     },
     changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
