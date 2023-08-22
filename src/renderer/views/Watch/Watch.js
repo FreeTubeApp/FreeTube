@@ -62,7 +62,12 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
-    this.onBeforeLeave()
+    this.handleRouteChange(this.videoId)
+    window.removeEventListener('beforeunload', this.handleWatchProgress)
+
+    const reloadButtonElement = document.getElementById('refreshOrReloadButton')
+    reloadButtonElement.removeEventListener('click', this.forceVideoPlayerRerender)
+
     next()
   },
   data: function () {
@@ -210,12 +215,6 @@ export default defineComponent({
       this.onRouteChange()
     }
   },
-  beforeDestroy: function () {
-    window.removeEventListener('beforeunload', this.handleWatchProgress)
-
-    const reloadButtonElement = document.getElementById('refreshOrReloadButton')
-    reloadButtonElement.removeEventListener('click', this.forceVideoPlayerRerender)
-  },
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
@@ -233,12 +232,11 @@ export default defineComponent({
     window.addEventListener('beforeunload', this.handleWatchProgress)
 
     const reloadButtonElement = document.getElementById('refreshOrReloadButton')
+    // Ensure only run once per click (mostly happens in dev when view reloaded)
+    reloadButtonElement.removeEventListener('click', this.forceVideoPlayerRerender)
     reloadButtonElement.addEventListener('click', this.forceVideoPlayerRerender)
   },
   methods: {
-    onBeforeLeave() {
-      this.handleRouteChange(this.videoId)
-    },
     onRouteChange({ timestamp = null } = {}) {
       this.handleRouteChange(this.videoId)
       // react to route changes...
@@ -271,6 +269,9 @@ export default defineComponent({
     },
 
     forceVideoPlayerRerender: function() {
+      if (!this.videoPlayerReady) { return }
+      if (this.$refs.videoPlayer?.player == null) { return }
+
       this.videoPlayerKey++
       this.onRouteChange({ timestamp: this.getTimestamp() })
     },
@@ -1029,9 +1030,9 @@ export default defineComponent({
 
     handleWatchProgress: function () {
       if (this.rememberHistory && !this.isUpcoming && !this.isLoading && !this.isLive) {
-        const player = this.$refs.videoPlayer.player
+        const player = this.$refs?.videoPlayer?.player
 
-        if (player !== null && this.saveWatchedProgress) {
+        if (player != null && this.saveWatchedProgress) {
           const currentTime = this.getWatchedProgress()
           const payload = {
             videoId: this.videoId,
@@ -1295,9 +1296,9 @@ export default defineComponent({
       this.handleWatchProgress()
 
       if (!this.isUpcoming && !this.isLoading) {
-        const player = this.$refs.videoPlayer.player
+        const player = this.$refs?.videoPlayer?.player
 
-        if (player !== null && !player.paused() && player.isInPictureInPicture()) {
+        if (player != null && !player.paused() && player.isInPictureInPicture()) {
           setTimeout(() => {
             player.play()
             player.on('leavepictureinpicture', (event) => {

@@ -703,7 +703,7 @@ export default defineComponent({
             return
           }
 
-          this.player.ready(() => {
+          this.player?.ready(() => {
             this.player.on('timeupdate', () => {
               this.skipSponsorBlocks(skipSegments)
             })
