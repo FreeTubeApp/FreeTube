@@ -416,6 +416,7 @@ export default defineComponent({
 
     this.stopPowerSaveBlocker()
     window.removeEventListener('beforeunload', this.stopPowerSaveBlocker)
+    this.$root.$emit('ft-video-player-ready', false)
   },
   methods: {
     initializePlayer: async function () {
@@ -601,6 +602,7 @@ export default defineComponent({
 
         this.player.on('ready', () => {
           this.$emit('ready')
+          this.$root.$emit('ft-video-player-ready', true)
           this.createStatsModal()
           if (this.captionHybridList.length !== 0) {
             this.transformAndInsertCaptions()

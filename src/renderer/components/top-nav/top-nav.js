@@ -26,7 +26,8 @@ export default defineComponent({
       historyIndex: 1,
       isForwardOrBack: false,
       searchSuggestionsDataList: [],
-      lastSuggestionQuery: ''
+      lastSuggestionQuery: '',
+      isVideoPlayerActive: false,
     }
   },
   computed: {
@@ -91,6 +92,7 @@ export default defineComponent({
       }
     }, 0)
 
+    this.$root.$on('ft-video-player-ready', (isReady) => { this.isVideoPlayerActive = isReady })
     window.addEventListener('resize', () => {
       // Don't change the status of showSearchContainer if only the height of the window changes
       // Opening the virtual keyboard can trigger this resize event, but it won't change the width
@@ -312,6 +314,10 @@ export default defineComponent({
           this.$refs.historyArrowForward.classList.add('fa-arrow-right')
         }
       }
+    },
+
+    refreshVideoPlayer: function() {
+      this.$root.$emit('refresh-video-player', null)
     },
 
     toggleSideNav: function () {

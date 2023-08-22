@@ -62,8 +62,7 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
-    this.handleRouteChange(this.videoId)
-    window.removeEventListener('beforeunload', this.handleWatchProgress)
+    this.beforeLeave()
     next()
   },
   data: function () {
@@ -120,6 +119,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+      videoPlayerRefreshKey: 542,
     }
   },
   computed: {
@@ -207,6 +207,32 @@ export default defineComponent({
   },
   watch: {
     $route() {
+      this.route()
+    }
+  },
+  mounted: function () {
+    this.videoId = this.$route.params.id
+    this.activeFormat = this.defaultVideoFormat
+    this.useTheatreMode = this.defaultTheatreMode
+
+    this.checkIfPlaylist()
+    this.checkIfTimestamp()
+
+    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+      this.getVideoInformationInvidious()
+    } else {
+      this.getVideoInformationLocal()
+    }
+
+    this.$root.$on('refresh-video-player', () => this.refreshVideoPlayer())
+    window.addEventListener('beforeunload', this.handleWatchProgress)
+  },
+  methods: {
+    beforeLeave: function() {
+      this.handleRouteChange(this.videoId)
+      window.removeEventListener('beforeunload', this.handleWatchProgress)
+    },
+    route: function() {
       this.handleRouteChange(this.videoId)
       // react to route changes...
       this.videoId = this.$route.params.id
@@ -235,25 +261,12 @@ export default defineComponent({
           }
           break
       }
-    }
-  },
-  mounted: function () {
-    this.videoId = this.$route.params.id
-    this.activeFormat = this.defaultVideoFormat
-    this.useTheatreMode = this.defaultTheatreMode
-
-    this.checkIfPlaylist()
-    this.checkIfTimestamp()
-
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-      this.getVideoInformationInvidious()
-    } else {
-      this.getVideoInformationLocal()
-    }
-
-    window.addEventListener('beforeunload', this.handleWatchProgress)
-  },
-  methods: {
+    },
+    refreshVideoPlayer: function() {
+      this.beforeLeave()
+      this.videoPlayerRefreshKey++
+      this.route()
+    },
     changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
