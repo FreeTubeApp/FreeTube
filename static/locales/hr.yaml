@@ -557,6 +557,7 @@ About:
   View License: Pogledaj licencu
   Licensed under the AGPLv3: AGPLv3 licenca
   Source code: Izvorni kod
+  Discussions: Diskusije
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
@@ -599,6 +600,7 @@ Profile:
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
   Profile Settings: Postavke profila
+  Toggle Profile List: Uključi/Isključi popis profila
 Channel:
   Subscriber: 'Pretplatnik'
   Subscribers: 'Pretplatnici'
