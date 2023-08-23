@@ -1789,17 +1789,15 @@ export default defineComponent({
           button.title = 'Select Quality'
           button.innerHTML = beginningHtml + qualityHtml + endingHtml
 
-          let autoQualityLabel = ''
+          let autoQualityLabel = 'auto'
           if (currentAdaptiveFormat) {
             autoQualityLabel += ` ${currentAdaptiveFormat.qualityLabel}`
-          } else {
+          } else if (autoResolution !== '') {
             autoQualityLabel += ` ${autoResolution.split('x')[1]}p`
           }
 
           // For default auto, it may select a resolution before generating the quality buttons
-          button.querySelector('#vjs-current-quality').innerText = defaultIsAuto
-            ? `auto${autoQualityLabel}`
-            : currentQualityLabel
+          button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? autoQualityLabel : currentQualityLabel
 
           return button.children[0]
         }
