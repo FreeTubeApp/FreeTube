@@ -855,14 +855,18 @@ export default defineComponent({
       }
     },
 
+    /**
+     * @param {WheelEvent} event
+     */
     mouseScrollPlaybackRate: function (event) {
       if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
-        event.preventDefault()
-
         if (event.ctrlKey || event.metaKey) {
-          if (event.wheelDelta > 0) {
+          // Only stop page scrolling when Cmd/Ctrl pressed
+          event.preventDefault()
+
+          if (event.deltaY > 0) {
             this.changePlayBackRate(0.05)
-          } else if (event.wheelDelta < 0) {
+          } else if (event.deltaY < 0) {
             this.changePlayBackRate(-0.05)
           }
         }
