@@ -130,5 +130,23 @@
             "playlistShuffle": null,
             "playlistLoop": null
         }
+    },
+    {
+      "name": "Clapper",
+      "nameTranslationKey": "Settings.External Player Settings.Players.Clapper.Name",
+      "value": "clapper",
+      "cmdArguments": {
+          "defaultExecutable": "clapper",
+          "defaultCustomArguments": null,
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": null,
+          "startOffset": null,
+          "playbackRate": null,
+          "playlistIndex": null,
+          "playlistReverse": null,
+          "playlistShuffle": null,
+          "playlistLoop": null
+        }
     }
 ]
