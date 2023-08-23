@@ -136,6 +136,7 @@ export default defineComponent({
       autoQuality: '',
       autoResolution: '',
       autoBitrate: '',
+      autoMimeType: '',
       autoFPS: 0,
       using60Fps: false,
       activeSourceList: [],
@@ -488,6 +489,7 @@ export default defineComponent({
               return format.bitrate === newQualityLevel.bitrate
             })
             if (adaptiveFormat) {
+              this.autoMimeType = adaptiveFormat.mimeType
               this.currentAdaptiveFormat = adaptiveFormat
               qualityLabel = `auto ${adaptiveFormat.qualityLabel}`
             } else {
@@ -1185,6 +1187,7 @@ export default defineComponent({
         this.autoResolution = this.selectedResolution
         this.autoFPS = this.selectedFPS
         this.autoBitrate = this.selectedBitrate
+        this.autoMimeType = this.selectedMimeType
 
         this.selectedResolution = 'auto'
         this.selectedFPS = 'auto'
@@ -1993,18 +1996,20 @@ export default defineComponent({
       const droppedFrames = this.playerStats.videoPlaybackQuality.droppedVideoFrames
       const totalFrames = this.playerStats.videoPlaybackQuality.totalVideoFrames
       const frames = `${droppedFrames} / ${totalFrames}`
-      const resolution = this.selectedResolution === 'auto' ? 'auto' : `${this.selectedResolution}@${this.selectedFPS}fps`
+      const resolution = this.selectedResolution === 'auto' ? `${this.autoResolution}@${this.autoFPS}fps (auto)` : `${this.selectedResolution}@${this.selectedFPS}fps`
       const playerDimensions = `${this.playerStats.playerDimensions.width}x${this.playerStats.playerDimensions.height}`
+      const bitrate = this.selectedBitrate === 'auto' ? `${this.autoBitrate} (auto)` : this.selectedBitrate
+      const mimeType = this.selectedMimeType === 'auto' ? `${this.autoMimeType} (auto)` : this.selectedMimeType
       const statsArray = [
         [this.$t('Video.Stats.Video ID'), this.videoId],
         [this.$t('Video.Stats.Resolution'), resolution],
         [this.$t('Video.Stats.Player Dimensions'), playerDimensions],
-        [this.$t('Video.Stats.Bitrate'), this.selectedBitrate],
+        [this.$t('Video.Stats.Bitrate'), bitrate],
         [this.$t('Video.Stats.Volume'), volume],
         [this.$t('Video.Stats.Bandwidth'), bandwidth],
         [this.$t('Video.Stats.Buffered'), buffered],
         [this.$t('Video.Stats.Dropped / Total Frames'), frames],
-        [this.$t('Video.Stats.Mimetype'), this.selectedMimeType]
+        [this.$t('Video.Stats.Mimetype'), mimeType]
       ]
       let listContentHTML = ''
 
