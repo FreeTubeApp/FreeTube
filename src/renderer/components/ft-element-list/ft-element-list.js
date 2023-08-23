@@ -13,6 +13,10 @@ export default defineComponent({
       type: Array,
       required: true
     },
+    dataType: {
+      type: String,
+      default: null,
+    },
     display: {
       type: String,
       required: false,

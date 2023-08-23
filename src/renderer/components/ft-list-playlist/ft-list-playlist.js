@@ -97,7 +97,7 @@ export default defineComponent({
     },
 
     parseUserData: function () {
-      this.title = this.data.title
+      this.title = this.data.playlistName
       if (this.data.videos.length > 0) {
         this.thumbnail = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
       } else {
@@ -106,7 +106,7 @@ export default defineComponent({
       this.channelName = ''
       this.channelId = ''
       this.playlistId = this.data._id
-      this.videoCount = this.data.videoCount
+      this.videoCount = this.data.videos.length
     },
 
     ...mapActions([

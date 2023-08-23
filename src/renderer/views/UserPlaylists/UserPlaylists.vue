@@ -55,6 +55,7 @@
       <ft-element-list
         v-else-if="activeData.length > 0 && !isLoading"
         :data="activeData"
+        :data-type="'playlist'"
         :use-channels-hidden-preference="false"
       />
       <ft-flex-box

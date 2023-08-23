@@ -119,7 +119,7 @@ export default defineComponent({
     },
     sortBy() {
       sessionStorage.setItem('UserPlaylists/sortBy', this.sortBy)
-    }
+    },
   },
   mounted: function () {
     const limit = sessionStorage.getItem('favoritesLimit')
