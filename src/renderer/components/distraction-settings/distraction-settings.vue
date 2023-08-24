@@ -166,6 +166,12 @@
           :default-value="hideComments"
           @change="updateHideComments"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Comment Photos')"
+          :compact="true"
+          :default-value="hideCommentPhotos"
+          @change="updateHideCommentPhotos"
+        />
       </div>
     </div>
     <h4
