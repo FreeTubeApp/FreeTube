@@ -916,7 +916,7 @@ function parseLocalAttachment(attachment) {
   } else if (attachment.type === 'Poll') {
     return {
       type: 'poll',
-      totalVotes: attachment.total_votes ?? 0,
+      totalVotes: parseLocalSubscriberCount(attachment.total_votes.text) ?? 0,
       content: attachment.choices.map(choice => {
         return {
           text: choice.text.text,
@@ -924,9 +924,21 @@ function parseLocalAttachment(attachment) {
         }
       })
     }
+  } else if (attachment.type === 'Quiz') {
+    return {
+      type: 'quiz',
+      totalVotes: parseLocalSubscriberCount(attachment.total_votes.text) ?? 0,
+      content: Object.values(attachment.choices).map(choice => {
+        return {
+          text: choice.text.text,
+          isCorrect: choice.is_correct,
+          image: choice.image
+        }
+      })
+    }
   } else {
+    console.error(`Unknown Local community post type: ${attachment.type}`)
     console.error(attachment)
-    console.error('unknown type')
   }
 }
 

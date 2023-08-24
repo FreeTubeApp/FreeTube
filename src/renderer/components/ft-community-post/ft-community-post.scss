@@ -13,31 +13,6 @@
   box-sizing: border-box;
 }
 
-.circle {
-  background-color: transparent;
-  border-radius: 50%;
-  border-style: solid;
-  border-width: 2px;
-  display: block;
-  float: left;
-  height: 10px;
-  left: 5px;
-  position: relative;
-  top: 8px;
-  width: 10px;
-}
-
-.poll-text {
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  padding: 5px 25px;
-}
-
-.poll-option {
-  padding-bottom: 10px;
-}
-
 .communityImage {
   height: 100%;
   width: 100%;
