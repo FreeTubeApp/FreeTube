@@ -73,16 +73,32 @@ export default defineComponent({
             return a.playlistName.localeCompare(b.playlistName, this.locale)
           case SORT_BY_VALUES.NameDescending:
             return b.playlistName.localeCompare(a.playlistName, this.locale)
-          case SORT_BY_VALUES.LatestCreatedFirst:
-            return a.createdAt > b.createdAt ? -1 : 1
-          case SORT_BY_VALUES.EarliestCreatedFirst:
-            return a.createdAt < b.createdAt ? -1 : 1
-          case SORT_BY_VALUES.LatestUpdatedFirst:
-            return a.lastUpdatedAt > b.lastUpdatedAt ? -1 : 1
-          case SORT_BY_VALUES.EarliestUpdatedFirst:
-            return a.lastUpdatedAt < b.lastUpdatedAt ? -1 : 1
+          case SORT_BY_VALUES.LatestCreatedFirst: {
+            if (a.createdAt > b.createdAt) { return -1 }
+            if (a.createdAt < b.createdAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.EarliestCreatedFirst: {
+            if (a.createdAt < b.createdAt) { return -1 }
+            if (a.createdAt > b.createdAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.LatestUpdatedFirst: {
+            if (a.lastUpdatedAt > b.lastUpdatedAt) { return -1 }
+            if (a.lastUpdatedAt < b.lastUpdatedAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.EarliestUpdatedFirst: {
+            if (a.lastUpdatedAt < b.lastUpdatedAt) { return -1 }
+            if (a.lastUpdatedAt > b.lastUpdatedAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
           default:
-            console.error(`Unknown sortby: ${this.sortBy}`)
+            console.error(`Unknown sortBy: ${this.sortBy}`)
             return 0
         }
       })
