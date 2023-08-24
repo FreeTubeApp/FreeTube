@@ -24,6 +24,7 @@
     &:hover,
     &:focus {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
     }
 
     &:active {
