@@ -42,7 +42,7 @@ export default Vue.extend({
           return 1
         }
 
-        return a.title.localeCompare(b.title, this.locale)
+        return a.playlistName.localeCompare(b.playlistName, this.locale)
       })
     },
     allPlaylistsLength() {
