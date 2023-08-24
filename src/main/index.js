@@ -484,6 +484,10 @@ function runApp() {
           return '#282a36'
         case 'catppuccin-mocha':
           return '#1e1e2e'
+        case 'pastel-pink':
+          return '#ffd1dc'
+        case 'hot-pink':
+          return '#de1c85'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'

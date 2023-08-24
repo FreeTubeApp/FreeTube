@@ -197,5 +197,6 @@
 
 .hover {
   background-color: var(--scrollbar-color-hover);
+  color: var(--scrollbar-text-color-hover);
 /*   color: white; */
 }

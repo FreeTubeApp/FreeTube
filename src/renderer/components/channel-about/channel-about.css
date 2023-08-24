@@ -27,8 +27,8 @@
 
 .aboutTagLink {
   background-color: var(--secondary-card-bg-color);
+  color: var(--scrollbar-text-color-hover);
   border-radius: 7px;
-  color: inherit;
   padding: 7px;
   text-decoration: none;
 }

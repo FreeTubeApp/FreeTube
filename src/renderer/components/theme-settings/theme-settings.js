@@ -35,7 +35,9 @@ export default defineComponent({
         'dark',
         'black',
         'dracula',
-        'catppuccinMocha'
+        'catppuccinMocha',
+        'pastelPink',
+        'hotPink'
       ]
     }
   },
@@ -98,7 +100,9 @@ export default defineComponent({
         this.$t('Settings.Theme Settings.Base Theme.Dark'),
         this.$t('Settings.Theme Settings.Base Theme.Black'),
         this.$t('Settings.Theme Settings.Base Theme.Dracula'),
-        this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha')
+        this.$t('Settings.Theme Settings.Base Theme.Catppuccin Mocha'),
+        this.$t('Settings.Theme Settings.Base Theme.Pastel Pink'),
+        this.$t('Settings.Theme Settings.Base Theme.Hot Pink')
       ]
     },
 

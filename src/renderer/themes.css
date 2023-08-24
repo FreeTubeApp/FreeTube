@@ -3,8 +3,22 @@
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.pastelPink,
+.hotPink {
   --primary-input-color: rgba(0, 0, 0, 0.50);
+}
+
+
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha,
+.hotPink {
+  --primary-active-color: var(--primary-text-color);
+  --scrollbar-text-color-hover: var(--primary-text-color);
 }
 
 .system[data-system-theme*='light'], .light,
@@ -19,7 +33,9 @@
 .system[data-system-theme*='dark'], .dark,
 .black,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.pastelPink,
+.hotPink {
   --link-color: var(--accent-color);
   --link-visited-color: var(--accent-color-visited);
   --instance-menu-color: var(--search-bar-color);
@@ -29,7 +45,8 @@
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.hotPink {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -135,6 +152,49 @@
   --search-bar-color: #313244;
   --logo-icon: url("../../_icons/iconCatppuccinMochaLightSmall.png");
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
+}
+
+.pastelPink {
+  --primary-text-color: #1F002B;
+  --primary-active-color: #FFFF;
+  --secondary-text-color: #361836;
+  --tertiary-text-color: #5A285A;
+  --primary-shadow-color: rgb(255, 240, 240, 0.5);
+  --title-color: #185EB4;
+  --bg-color: #ffeadd;
+  --favorite-icon-color: #760278;
+  --card-bg-color: #ffd1dc;
+  --secondary-card-bg-color: #760278;
+  --scrollbar-color: #f5c8d3;
+  --scrollbar-color-hover: #760278;
+  --scrollbar-text-color-hover: #FFFF;
+  --side-nav-color: #ffd1dc;
+  --side-nav-hover-color: #cef4f1;
+  --side-nav-active-color: #3124E7;
+  --search-bar-color: #FFF0DD;
+  /* --logo-icon: url("../../_icons/iconPastelPinkLightSmall.png");
+  --logo-text: url("../../_icons/textPastelPinkLightSmall.png"); */
+}
+
+.hotPink {
+  /* --primary-active-color: #FFFF; */
+  --primary-text-color: #FFFF;
+  --secondary-text-color: #FFFF;
+  --tertiary-text-color: #FFFF;
+  --title-color: #000000;
+  --bg-color: #86425F;
+  --favorite-icon-color: #FFEA00;
+  --card-bg-color: #DE1C85;
+  --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+  --scrollbar-color: #000000;
+  --scrollbar-color-hover: #C0F6FF;
+  --side-nav-color: #EE1E90;
+  --side-nav-hover-color: #000000;
+  --side-nav-active-color: #959595;
+  --search-bar-color: #9C2D5D;
+  --scrollbar-text-color-hover: #000000;
+  /* --logo-icon: url("../../_icons/iconHotPinkLightSmall.png");
+  --logo-text: url("../../_icons/textHotPinkLightSmall.png"); */
 }
 
 .mainRed,

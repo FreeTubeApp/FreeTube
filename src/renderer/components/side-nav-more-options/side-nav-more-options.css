@@ -20,6 +20,7 @@
 
 .navOption:active {
   background-color: var(--side-nav-active-color);
+  color: var(--primary-active-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;

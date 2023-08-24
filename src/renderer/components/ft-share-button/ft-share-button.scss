@@ -68,10 +68,12 @@
         .black &,
         .dracula &,
         .CatppuccinMocha &,
+        .hotPink &,
         .system[data-system-theme*='dark'] & {
           background-image: url('../../assets/img/invidious-logo-dark.svg');
         }
 
+        .pastelPink &,
         .light &,
         .system[data-system-theme*='light'] & {
           background-image: url('../../assets/img/invidious-logo-light.svg');
