@@ -546,6 +546,9 @@ Channel:
   Community:
     Community: 社区
     This channel currently does not have any posts: 此频道当前没有任何帖子
+    votes: '{votes} 票'
+    Reveal Answers: 揭晓答案
+    Hide Answers: 隐藏答案
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流
