@@ -172,19 +172,25 @@
             :key="replyIndex"
             class="comment"
           >
-            <template v-if="!hideCommentPhotos">
-              <img
-                :src="comment.authorThumb"
-                alt=""
-                class="commentThumbnail"
-              >
-            </template>
-            <template v-else>
-              <img
-                alt=""
-                class="commentThumbnailHidden"
-              >
-            </template>
+            <router-link
+              :to="`/channel/${reply.authorLink}`"
+              tabindex="-1"
+            >
+              <template v-if="!hideCommentPhotos">
+                <img
+                  :src="reply.authorThumb"
+                  alt=""
+                  class="commentThumbnail"
+                >
+              </template>
+              <template v-else>
+                <div
+                  class="commentThumbnailHidden"
+                >
+                  {{ reply.author.substr(1, 1) }}
+                </div>
+              </template>
+            </router-link>
             <p class="commentAuthorWrapper">
               <router-link
                 class="commentAuthor"
