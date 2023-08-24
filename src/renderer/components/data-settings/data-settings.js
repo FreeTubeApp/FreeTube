@@ -972,6 +972,8 @@ export default defineComponent({
                 this.addVideo(payload)
               }
             })
+            // Update playlist's `lastUpdatedAt`
+            this.updatePlaylist({ _id: existingPlaylist._id })
           } else {
             this.addPlaylist(playlistObject)
           }
@@ -1166,7 +1168,8 @@ export default defineComponent({
       'updateShowProgressBar',
       'updateHistory',
       'addPlaylist',
-      'addVideo'
+      'addVideo',
+      'updatePlaylist',
     ]),
 
     ...mapMutations([

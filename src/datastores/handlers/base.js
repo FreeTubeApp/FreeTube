@@ -113,7 +113,7 @@ class Playlists {
   }
 
   static upsert(playlist) {
-    return db.playlists.updateAsync({ _id: playlist._id }, playlist, { upsert: true })
+    return db.playlists.updateAsync({ _id: playlist._id }, { $set: playlist }, { upsert: true })
   }
 
   static upsertVideoByPlaylistId(_id, videoData) {

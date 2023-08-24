@@ -386,6 +386,8 @@ export default defineComponent({
 
       try {
         this.removeVideo(payload)
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: this.playlistId })
         showToast('Video has been removed')
       } catch (e) {
         showToast('There was a problem with removing this video')

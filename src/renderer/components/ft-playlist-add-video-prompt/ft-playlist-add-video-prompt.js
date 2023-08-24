@@ -171,6 +171,8 @@ export default Vue.extend({
           this.addVideo(payload)
           addedPlaylistIds.add(playlist._id)
         })
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: playlist._id })
       })
 
       showToast(`${this.toBeAddedToPlaylistVideoCount} video(s) added to ${addedPlaylistIds.size} playlist(s).`)
@@ -197,6 +199,7 @@ export default Vue.extend({
 
     ...mapActions([
       'addVideo',
+      'updatePlaylist',
       'hideAddToPlaylistPrompt',
       'showCreatePlaylistPrompt',
     ])
