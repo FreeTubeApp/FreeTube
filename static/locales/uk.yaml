@@ -584,6 +584,9 @@ Channel:
   Community:
     Community: Спільнота
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
+    votes: 'Голосів: {votes}'
+    Reveal Answers: Розгорнути відповіді
+    Hide Answers: Сховати відповіді
   Live:
     This channel does not currently have any live streams: Наразі на цьому каналі
       немає прямих трансляцій
