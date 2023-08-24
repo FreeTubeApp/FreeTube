@@ -949,12 +949,12 @@ function runApp() {
         case DBActions.GENERAL.FIND:
           return await baseHandlers.playlists.find()
 
-        case DBActions.PLAYLISTS.UPSERT:
+        case DBActions.GENERAL.UPSERT:
           await baseHandlers.playlists.upsert(data)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
-            { event: SyncEvents.PLAYLISTS.UPSERT, data }
+            { event: SyncEvents.GENERAL.UPSERT, data }
           )
           return null
 

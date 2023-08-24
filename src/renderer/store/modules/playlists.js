@@ -325,7 +325,8 @@ const mutations = {
     if (i === -1) {
       state.playlists.push(updatedPlaylist)
     } else {
-      state.playlists.splice(i, 1, updatedPlaylist)
+      const foundPlaylist = state.playlists[i]
+      state.playlists.splice(i, 1, Object.assign(foundPlaylist, updatedPlaylist))
     }
   },
 

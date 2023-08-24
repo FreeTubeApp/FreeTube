@@ -504,7 +504,7 @@ const customActions = {
           commit('removePlaylist', data)
           break
 
-        case SyncEvents.PLAYLISTS.UPSERT:
+        case SyncEvents.GENERAL.UPSERT:
           commit('upsertPlaylistToList', data)
           break
 

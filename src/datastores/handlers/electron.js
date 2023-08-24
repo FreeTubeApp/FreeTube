@@ -129,7 +129,7 @@ class Playlists {
   static upsert(playlist) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.PLAYLISTS.UPSERT, data: playlist }
+      { action: DBActions.GENERAL.UPSERT, data: playlist }
     )
   }
 
