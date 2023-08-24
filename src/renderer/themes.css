@@ -218,7 +218,7 @@
   --text-with-main-color: #FFFFFF !important;
   --accent-color: #000000 !important;
   --accent-color-hover: #808080 !important;
-  --accent-color-active: #abbaff !important;
+  --accent-color-active: #6A739A !important;
   --accent-color-light: #000000 !important;
   --accent-color-visited: #000000 !important;
   --accent-color-opacity1: rgba(0,0,0,0.04) !important;
@@ -231,7 +231,7 @@
 }
 
 /* Given that the Hot Pink theme does not need link underlining due to meeting
-WCAG 2 Level A (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
+WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
 it can be safely elided. This looks quite pleasant on this theme. */
 .hotPink a:not(:hover), .hotPink a.navOption:hover, .hotPink *:not(:hover) {
   text-decoration: none;
