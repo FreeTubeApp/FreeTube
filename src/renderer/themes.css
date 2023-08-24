@@ -184,8 +184,6 @@
   --search-bar-color: #FFF0DD;
   --logo-icon: url("../../_icons/iconBlackSmall.png");
   --logo-text: url("../../_icons/textBlackSmall.png");
-  /* --logo-icon: url("../../_icons/iconPastelPinkLightSmall.png");
-  --logo-text: url("../../_icons/textPastelPinkLightSmall.png"); */
 }
 
 .hotPink {
@@ -216,6 +214,7 @@
   --primary-color-hover: #000000 !important;
   --primary-color-active: #000000 !important;
   --text-with-main-color: #FFFFFF !important;
+  --text-with-accent-color: #FFFFFF !important;
   --accent-color: #000000 !important;
   --accent-color-hover: #808080 !important;
   --accent-color-active: #6A739A !important;
@@ -225,9 +224,6 @@
   --accent-color-opacity2: rgba(0,0,0,0.12) !important;
   --accent-color-opacity3: rgba(255,255,255,0.16) !important;
   --accent-color-opacity4: rgba(255,255,255,0.24) !important;
-
-  /* --logo-icon: url("../../_icons/iconHotPinkLightSmall.png");
-  --logo-text: url("../../_icons/textHotPinkLightSmall.png"); */
 }
 
 /* Given that the Hot Pink theme does not need link underlining due to meeting
