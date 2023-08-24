@@ -182,6 +182,8 @@
   --side-nav-active-color: #3124E7;
   --side-nav-active-text-color: #FFFF;
   --search-bar-color: #FFF0DD;
+  --logo-icon: url("../../_icons/iconBlackSmall.png");
+  --logo-text: url("../../_icons/textBlackSmall.png");
   /* --logo-icon: url("../../_icons/iconPastelPinkLightSmall.png");
   --logo-text: url("../../_icons/textPastelPinkLightSmall.png"); */
 }
@@ -204,6 +206,8 @@
   --side-nav-active-color: #959595;
   --side-nav-active-text-color: #000000;
   --search-bar-color: #9C2D5D;
+  --logo-icon: url("../../_icons/iconWhiteSmall.png");
+  --logo-text: url("../../_icons/textWhiteSmall.png");
   /* The hot pink theme does not have a great color contrast with
   many other colors than black and white. This means that the primary and
   secondary theme colors are forced here to be black so as to avoid any
@@ -248,8 +252,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainTeal,
 .mainGreen {
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
+  --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
 }
 
 .mainLightGreen,
