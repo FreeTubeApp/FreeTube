@@ -62,11 +62,20 @@
           :to="`/channel/${comment.authorLink}`"
           tabindex="-1"
         >
-          <img
-            :src="comment.authorThumb"
-            alt=""
-            class="commentThumbnail"
-          >
+          <template v-if="!hideCommentPhotos">
+            <img
+              :src="comment.authorThumb"
+              alt=""
+              class="commentThumbnail"
+            >
+          </template>
+          <template v-else>
+            <div
+              class="commentThumbnailHidden"
+            >
+              {{ comment.author.substr(1, 1) }}
+            </div>
+          </template>
         </router-link>
         <p
           v-if="comment.isPinned"
@@ -163,16 +172,19 @@
             :key="replyIndex"
             class="comment"
           >
-            <router-link
-              :to="`/channel/${reply.authorLink}`"
-              tabindex="-1"
-            >
+            <template v-if="!hideCommentPhotos">
               <img
-                :src="reply.authorThumb"
-                class="commentThumbnail"
+                :src="comment.authorThumb"
                 alt=""
+                class="commentThumbnail"
               >
-            </router-link>
+            </template>
+            <template v-else>
+              <img
+                alt=""
+                class="commentThumbnailHidden"
+              >
+            </template>
             <p class="commentAuthorWrapper">
               <router-link
                 class="commentAuthor"
