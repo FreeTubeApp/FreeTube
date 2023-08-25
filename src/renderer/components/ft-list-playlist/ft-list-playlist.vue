@@ -38,7 +38,7 @@
           {{ title }}
         </h3>
       </router-link>
-      <div class="infoLine">
+      <div class="infoLine" v-if="showChannelName">
         <router-link
           v-if="channelId"
           class="channelName"

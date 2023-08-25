@@ -33,6 +33,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    showChannelName: {
+      type: Boolean,
+      default: true,
+    },
     useChannelsHiddenPreference: {
       type: Boolean,
       default: true,
