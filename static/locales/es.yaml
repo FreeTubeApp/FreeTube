@@ -646,6 +646,9 @@ Channel:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
     Community: Comunidad
+    Reveal Answers: Revelar las respuestas
+    Hide Answers: Ocultar las respuestas
+    votes: '{votes} votos'
   Live:
     Live: En directo
     This channel does not currently have any live streams: Este canal no tiene actualmente
