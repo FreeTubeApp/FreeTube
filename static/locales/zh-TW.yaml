@@ -556,6 +556,9 @@ Channel:
   Community:
     Community: 社群
     This channel currently does not have any posts: 此頻道目前沒有任何貼文
+    votes: '{votes} 票'
+    Reveal Answers: 揭露答案
+    Hide Answers: 隱藏答案
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
