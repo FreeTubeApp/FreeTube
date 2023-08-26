@@ -28,6 +28,10 @@ export default defineComponent({
       type: Array,
       default: () => ([])
     },
+    displayList: {
+      type: Boolean,
+      default: false
+    },
     errorChannels: {
       type: Array,
       default: () => ([])

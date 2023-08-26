@@ -286,6 +286,36 @@ export async function getLocalChannelLiveStreams(id) {
   }
 }
 
+export async function getLocalChannelCommunity(id) {
+  const innertube = await createInnertube()
+
+  try {
+    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
+      browse_id: id,
+      params: 'Egljb21tdW5pdHnyBgQKAkoA'
+      // protobuf for the community tab (this is the one that YouTube uses,
+      // it has some empty fields in the protobuf but it doesn't work if you remove them)
+    }))
+
+    const communityTab = new YT.Channel(null, response)
+
+    // if the channel doesn't have a community tab, YouTube returns the home tab instead
+    // so we need to check that we got the right tab
+    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
+      return communityTab.posts.map(parseLocalCommunityPost)
+    } else {
+      return []
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof Utils.ChannelError) {
+      return null
+    } else {
+      throw error
+    }
+  }
+}
+
 /**
  * @param {import('youtubei.js').YTNodes.Video[]} videos
  * @param {Misc.Author} author
