@@ -43,6 +43,7 @@
   position: relative;
   padding: 5px;
   min-height: 35px;
+  -webkit-user-drag: none;
 }
 
 .moreOption {
