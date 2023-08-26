@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { formatNumber } from '../../helpers/utils'
 
 export default defineComponent({
-  name: 'FtListChannel',
+  name: 'FtListHashtag',
   props: {
     data: {
       type: Object,

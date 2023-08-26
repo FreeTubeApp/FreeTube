@@ -31,18 +31,14 @@
           v-if="channelCount"
           class="channelCount"
         >
-          {{ parsedChannelCount }}
-          <template v-if="channelCount === 1">{{ $t("Hashtag.Channel").toLowerCase() }}</template>
-          <template v-else>{{ $t("Hashtag.Channels").toLowerCase() }}</template>
+          {{ $tc('Global.Counts.Channel Count', channelCount, {count: parsedChannelCount}) }}
         </span>
         <span
           v-if="videoCount"
           class="videoCount"
         >
           <template v-if="channelCount"> • </template>
-          {{ parsedVideosCount }}
-          <template v-if="videoCount === 1">{{ $t("Hashtag.Video").toLowerCase() }}</template>
-          <template v-else>{{ $t("Hashtag.Videos").toLowerCase() }}</template>
+          {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideosCount}) }}
         </span>
       </div>
     </div>

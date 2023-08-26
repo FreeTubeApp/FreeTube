@@ -587,8 +587,8 @@ function parseListItem(item) {
       return {
         type: 'hashtag',
         title: hashtag.hashtag,
-        videoCount: parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
-        channelCount: parseLocalSubscriberCount(hashtag.hashtag_channel_count.text),
+        videoCount: hashtag.hashtag_video_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
+        channelCount: hashtag.hashtag_channel_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_channel_count.text),
         url: hashtag.endpoint.metadata.url ?? `hashtag/${encodeURIComponent(hashtag.hashtag.substring(1))}`
       }
     }
@@ -854,7 +854,6 @@ export function filterLocalFormats(formats, allowAv1 = false) {
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
-  if (typeof (text) === 'undefined' || text === null) { return null }
   const match = text
     .replace(',', '.')
     .toUpperCase()

@@ -45,6 +45,9 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Counts:
+    Video Count: 1 video | {count} videos
+    Channel Count: 1 channel | {count} channels
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -912,10 +915,6 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
-  Video: Video
-  Videos: Videos
-  Channel: Channel
-  Channels: Channels
 Yes: Yes
 No: No
 Ok: Ok
