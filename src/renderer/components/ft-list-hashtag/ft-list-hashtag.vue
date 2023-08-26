@@ -24,7 +24,9 @@
         class="title"
         :to="url"
       >
-        {{ title }}
+        <h3 class="h3Title">
+          {{ title }}
+        </h3>
       </router-link>
       <div class="infoLine">
         <span
