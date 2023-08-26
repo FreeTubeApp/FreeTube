@@ -30,6 +30,13 @@ Close: 'Loka'
 Back: 'Til baka'
 Forward: 'Áfram'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Myndskeið'
+  Shorts: Stuttmyndir
+  Live: Í beinni
+
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -92,6 +99,9 @@ Subscriptions:
   Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt.
     Endurlestu áskriftirnar og þær munu birtast hér.
   Empty Channels: Rásirnar sem þú ert með í áskrift eru er ekki með nein myndskeið.
+  Subscriptions Tabs: Áskriftaflipar
+  All Subscription Tabs Hidden: Allir áskriftaflipar eru faldir. Til að sjá efni hér,
+    skaltu gera einhverja flipa sýnilega í "{subsection}" hlutanum í "{settingsSection}".
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -335,10 +345,16 @@ Settings:
       Channel Page: Rásasíða
       Watch Page: Áhorfssíða
       General: Almennt
+      Subscriptions Page: Áskriftasíða
     Hide Channel Shorts: Fela stuttmyndir rása
     Hide Channel Playlists: Fela spilunarlista rása
     Hide Channel Community: Fela samfélag rása
     Hide Featured Channels: Fela rásir í deiglunni
+    Hide Channel Podcasts: Fela hlaðvörp rása
+    Hide Channel Releases: Fela útgáfur rása
+    Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
+    Hide Subscriptions Live: Fela bein streymi áskrifta
+    Hide Subscriptions Videos: Fela myndskeið áskrifta
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -417,6 +433,7 @@ Settings:
       Prompt To Skip: Spyrja hvort eigi að sleppa
       Do Nothing: Gera ekkert
     Category Color: Litur flokks
+    UseDeArrowTitles: Nota DeArrow myndskeiðatitla
   External Player Settings:
     Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
     Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
@@ -526,6 +543,7 @@ Profile:
     notkunarsniðum.'
 #On Channel Page
   Profile Settings: Stillingar notkunarsniðs
+  Toggle Profile List: Víxla lista með notkunarsniðum af/á
 Channel:
   Subscriber: 'Áskrifandi'
   Subscribers: 'Áskrifendur'
@@ -577,9 +595,16 @@ Channel:
     Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
   Shorts:
-    Shorts: Stuttmyndir
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
+  Releases:
+    Releases: Útgáfur
+    This channel does not currently have any releases: Þessi rás er ekki með neinar
+      útgáfur í augnablikinu
+  Podcasts:
+    Podcasts: Hlaðvörp
+    This channel does not currently have any podcasts: Þessi rás er ekki með nein
+      hlaðvörp í augnablikinu
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
@@ -873,8 +898,14 @@ Tooltips:
       minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
   Distraction Free Settings:
     Hide Channels: Settu inn heiti eða auðkenni rásar til að fela öll myndskeið, spilunarlista
-      og sjálfa rásina við leit eða vinsældaskráningu. Heiti rásarinnar sem sett er
-      inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
+      og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með.
+      Heiti rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit
+      til hástafa/lágstafa.
+    Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}"
+      stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
+  SponsorBlock Settings:
+    UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent
+      inn á DeArrow.
 Local API Error (Click to copy): 'Villa í staðværu API-kerfisviðmóti (smella til að
   afrita)'
 Invidious API Error (Click to copy): 'Villa í Invidious API-kerfisviðmóti (smella

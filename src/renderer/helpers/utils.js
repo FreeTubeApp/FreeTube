@@ -189,7 +189,13 @@ export async function getFormatsFromHLSManifest(manifestUrl) {
 }
 
 export function showToast(message, time = null, action = null) {
-  FtToastEvents.$emit('toast-open', message, time, action)
+  FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
+    detail: {
+      message,
+      time,
+      action
+    }
+  }))
 }
 
 /**
@@ -627,15 +633,6 @@ export function formatNumber(number, options = undefined) {
   return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
 }
 
-/**
- * This will return true if a string is null, undefined or empty.
- * @param {string} _string the string to process
- * @returns {bool} whether the string is empty or not
- */
-export function isNullOrEmpty(_string) {
-  return _string == null || _string === ''
-}
-
 export function getTodayDateStrLocalTimezone() {
   const timeNow = new Date()
   // `Date#getTimezoneOffset` returns the difference, in minutes
@@ -658,4 +655,13 @@ export function escapeHTML(untrusted) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll('\'', '&apos;')
+}
+
+/**
+ * Performs a deep copy of a javascript object
+ * @param {Object} obj
+ * @returns {Object}
+ */
+export function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj))
 }

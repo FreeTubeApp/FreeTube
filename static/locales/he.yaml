@@ -29,6 +29,13 @@ Close: 'סגירה'
 Back: 'אחורה'
 Forward: 'קדימה'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'סרטונים'
+  Shorts: Shorts
+  Live: חי
+
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -88,6 +95,9 @@ Subscriptions:
   Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים
     כדי לצפות בהם כאן.
   Empty Channels: בערוצים אליהם נרשמת אין כלל סרטונים.
+  All Subscription Tabs Hidden: כל לשוניות המינויים מותסרות. כדי לראות את התוכן כאן,
+    נא לבטל את הסתרתן של כמה מהלשוניות תחת הסעיף „{subsection}” שב„{settingsSection}”.
+  Subscriptions Tabs: לשוניות מינויים
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -398,6 +408,12 @@ Settings:
       Channel Page: עמוד ערוץ
       Side Bar: סרגל צד
       General: כללי
+      Subscriptions Page: עמוד מינויים
+    Hide Channel Podcasts: הסתרת הסכתים של הערוץ
+    Hide Channel Releases: הסתרת שחרורים של הערוץ
+    Hide Subscriptions Live: הסתרת שידורים חיים של המינויים
+    Hide Subscriptions Shorts: הסתרת Shorts של המינויים
+    Hide Subscriptions Videos: הסתרת סרטוני מינוי
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -528,6 +544,7 @@ About:
   View License: הצגת הרישיון
   Licensed under the AGPLv3: בכפוף לרישיון AGPLv3
   Source code: קוד מקור
+  Discussions: דיונים
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
@@ -571,6 +588,7 @@ Profile:
 #On Channel Page
   Profile Filter: מסנן פרופילים
   Profile Settings: הגדרת הפרופיל
+  Toggle Profile List: החלפת תצוגת רשימת פרופילים
 Channel:
   Subscriber: 'מנוי'
   Subscribers: 'מנויים'
@@ -615,13 +633,21 @@ Channel:
   Community:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
     Community: קהילה
+    votes: '{votes} הצבעות'
+    Reveal Answers: חשיפת התשובות
+    Hide Answers: הסתרת התשובות
   Live:
     Live: חי
     This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים
       כרגע
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
+  Podcasts:
+    Podcasts: הסכתים
+    This channel does not currently have any podcasts: בערוץ הזה אין הסכתים כרגע
+  Releases:
+    Releases: שחרורים
+    This channel does not currently have any releases: בערוץ הזה אין שחרורים כרגע
 Video:
   Mark As Watched: 'סמנו כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
@@ -915,6 +941,8 @@ Tooltips:
     Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה
       ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם
       הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
+    Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”,
+      בסעיף „{subsection}” שב„{settingsSection}”
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
 More: עוד

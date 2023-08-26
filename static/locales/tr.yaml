@@ -29,6 +29,13 @@ Close: 'Kapat'
 Back: 'Geri'
 Forward: 'İleri'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videolar'
+  Shorts: Kısa Videolar
+  Live: Canlı
+
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -88,6 +95,10 @@ Subscriptions:
   Disabled Automatic Fetching: Otomatik abonelik getirmeyi devre dışı bıraktınız.
     Abonelikleri burada görmek için yenileyin.
   Empty Channels: Abone olduğunuz kanallarda şu anda herhangi bir video yok.
+  Subscriptions Tabs: Abonelikler Sekmeleri
+  All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği
+    görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı
+    sekmelerin gizliliğini kaldırın.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -410,6 +421,12 @@ Settings:
       Channel Page: Kanal Sayfası
       Watch Page: İzleme Sayfası
       General: Genel
+      Subscriptions Page: Abonelikler Sayfası
+    Hide Channel Releases: Kanal Yayınlarını Gizle
+    Hide Channel Podcasts: Kanal Podcast'lerini Gizle
+    Hide Subscriptions Videos: Abonelik Videolarını Gizle
+    Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
+    Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -544,6 +561,7 @@ About:
   View License: Lisansı Görüntüle
   Licensed under the AGPLv3: AGPLv3 altında lisanslanmıştır
   Source code: Kaynak kodları
+  Discussions: Tartışmalar
 Profile:
   Profile Select: 'Profil Seçimi'
   All Channels: 'Tüm Kanallar'
@@ -588,6 +606,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profil Filtresi
   Profile Settings: Profil Ayarları
+  Toggle Profile List: Profil Listesini Aç/Kapat
 Channel:
   Subscriber: 'Abone'
   Subscribers: 'Abone'
@@ -640,9 +659,16 @@ Channel:
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
       bir canlı yayın yok
   Shorts:
-    Shorts: Kısa Videolar
     This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video
       yok
+  Podcasts:
+    Podcasts: Podcast'ler
+    This channel does not currently have any podcasts: Bu kanalda şu anda herhangi
+      bir podcast yok
+  Releases:
+    This channel does not currently have any releases: Bu kanalda şu anda herhangi
+      bir yayın yok
+    Releases: Yayınlar
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişden Kaldır'
@@ -952,6 +978,9 @@ Tooltips:
       öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
       bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
       ve büyük/küçük harfe duyarlıdır.
+    Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
+      kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
+      kılınıyor
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
       değiştir.

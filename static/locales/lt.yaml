@@ -30,6 +30,11 @@ Back: 'Atgal'
 Forward: 'Pirmyn'
 Open New Window: 'Atidaryti naują langą'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vaizdo įrašai'
+
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
   jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'

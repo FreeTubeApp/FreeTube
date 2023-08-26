@@ -17,7 +17,7 @@ jobs:
                 "labels": ["B: visual"]
               },
               {
-                "keywords": ["AUR", "Chocolatey", "FreeTubeCordova", "PortableApps", "winget", "Scoop", "Snapcraft", "MPR"],
+                "keywords": ["AUR", "Chocolatey", "FreeTubeCordova", "PortableApps", "winget", "Scoop", "Snapcraft", "MPR", "Nix"],
                 "labels": ["B: Unofficial Download"]
               },
               {

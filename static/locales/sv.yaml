@@ -29,6 +29,13 @@ Close: 'Stäng'
 Back: 'Tillbaka'
 Forward: 'Framåt'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videor'
+  Shorts: Shorts
+  Live: Live
+
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -50,7 +57,7 @@ Search Filters:
     Time: 'Tid'
     Any Time: 'När som helst'
     Last Hour: 'Senaste timmen'
-    Today: 'I dag'
+    Today: 'Idag'
     This Week: 'Den här veckan'
     This Month: 'Den här månaden'
     This Year: 'I år'
@@ -90,6 +97,9 @@ Subscriptions:
   Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning.
     Uppdatera prenumerationerna för att se dem här.
   Empty Channels: Dina prenumererade kanaler har inga filmer.
+  Subscriptions Tabs: Prenumeration Flik
+  All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll
+    här, vänligen avdölj några flikar i avsnittet "{subsection}" i "{settingsSection}".
 Trending:
   Trending: 'Populärt'
   Movies: Filmer
@@ -399,8 +409,14 @@ Settings:
       General: Allmänt
       Channel Page: Kanal sida
       Watch Page: Titta sida
+      Subscriptions Page: Prenumerationssida
     Hide Channel Community: Dölj Kanal gemenskap
     Hide Channel Playlists: Dölj Kanal spellistor
+    Hide Channel Podcasts: Dölj kanal podcasts
+    Hide Channel Releases: Dölj kanal släpp
+    Hide Subscriptions Videos: Dölj prenumerationsvideor
+    Hide Subscriptions Shorts: Dölj prenumerationsshorts
+    Hide Subscriptions Live: Dölj prenumerations Live-sändningar
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -455,7 +471,7 @@ Settings:
   Download Settings:
     Ask Download Path: Välj nerladdningsmapp varje gång
     Download Settings: Nerladdningsinställningar
-    Choose Path: Välj mapp
+    Choose Path: Välj Sökväg
     Download in app: Ladda ner i appen
     Download Behavior: Nerladdningsalternativ
     Open in web browser: Öppna i webbläsare
@@ -569,6 +585,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profilinställningar
+  Toggle Profile List: Aktivera Profillista
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -618,13 +635,19 @@ Channel:
     This channel currently does not have any posts: Denna kanal har för närvarande
       inga inlägg
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Den här kanalen har för närvarande
       inga shorts
   Live:
     Live: Live
     This channel does not currently have any live streams: Den här kanalen har för
       närvarande inga liveströmmar
+  Releases:
+    Releases: Släpp
+    This channel does not currently have any releases: Den här kanalen har för närvarande
+      inga släpp
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Den här kanalen har inga podcasts
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -807,7 +830,7 @@ Share:
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Visa kommentarer'
+  Click to View Comments: 'Klicka för att Visa kommentarer'
   Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
   There are no more comments for this video: 'Det finns inga fler kommentarer för
     videon'
@@ -817,7 +840,7 @@ Comments:
   View: 'Visa'
   Hide: 'Dölja'
   Replies: 'Svar'
-  Reply: 'Svar'
+  Reply: 'Svara'
   There are no comments available for this video: 'Det finns inga kommentarer tillgängliga
     för videon'
   Load More Comments: 'Fler kommentarer'
@@ -919,6 +942,8 @@ Tooltips:
     Hide Channels: Ange ett kanalnamn eller kanal-ID för att dölja alla videor, spellistor
       och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
       Det angivna kanalnamnet måste vara en fullständig matchning och är skiftlägeskänsligt.
+    Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande
+      "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
       en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.

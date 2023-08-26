@@ -29,6 +29,13 @@ Close: 'Zavřít'
 Back: 'Zpět'
 Forward: 'Dopředu'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Shorts
+  Live: Živě
+
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -89,6 +96,10 @@ Subscriptions:
   Empty Channels: Vaše odebírané kanály momentálně nemají žádná videa.
   Disabled Automatic Fetching: Máte zakázané automatické získávání odběrů. Obnovte
     odběry, abyste je zde mohli vidět.
+  Subscriptions Tabs: Karty s odběry
+  All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li
+    zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“
+    v „{settingsSection}“.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -334,6 +345,12 @@ Settings:
       Channel Page: Stránka kanálu
       Watch Page: Stránka sledování
       General: Obecné
+      Subscriptions Page: Stránka s odběry
+    Hide Channel Podcasts: Skrýt podcasty kanálu
+    Hide Channel Releases: Skrýt vydání kanálu
+    Hide Subscriptions Shorts: Skrýt Shorts odběrů
+    Hide Subscriptions Videos: Skrýt videa odběrů
+    Hide Subscriptions Live: Skrýt živá vysílání odběrů
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -528,6 +545,7 @@ About:
   Report a problem: Nahlásit problém
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
+  Discussions: Diskuze
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -571,6 +589,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtr profilu
   Profile Settings: Nastavení profilu
+  Toggle Profile List: Přepnout seznam profilů
 Channel:
   Subscriber: 'Odběratel'
   Subscribers: 'odběratelů'
@@ -617,13 +636,23 @@ Channel:
     Community: Komunita
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
+    Hide Answers: Skrýt odpovědi
+    votes: '{votes} hlasů'
+    Reveal Answers: Odhalit odpovědi
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
       době nemá žádné živé přenosy
   Shorts:
     This channel does not currently have any shorts: Tento kanál nemá žádné shorts
-    Shorts: Shorts
+  Releases:
+    Releases: Vydání
+    This channel does not currently have any releases: Tento kanál momentálně nemá
+      žádná vydání
+  Podcasts:
+    This channel does not currently have any podcasts: Tento kanál momentálně nemá
+      žádné podcasty
+    Podcasts: Podcasty
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
@@ -909,6 +938,8 @@ Tooltips:
       a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších
       a doporučených. Zadaný název kanálu se musí zcela shodovat a rozlišují se v
       něm velká a malá písmena.
+    Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace
+      „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
 Local API Error (Click to copy): 'Chyba lokálního API (kliknutím zkopírujete)'

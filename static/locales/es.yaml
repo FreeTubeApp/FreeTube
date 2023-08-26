@@ -30,6 +30,13 @@ Close: 'Cerrar'
 Back: 'Atrás'
 Forward: 'Adelante'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vídeos'
+  Shorts: Cortos
+  Live: En directo
+
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
@@ -84,6 +91,10 @@ Subscriptions:
     Actualice las suscripciones para verlas aquí.
   Empty Channels: Los canales a los que está suscrito no tienen actualmente ningún
     vídeo.
+  Subscriptions Tabs: Pestañas de suscripciones
+  All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
+    Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}»
+    en «{settingsSection}».
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -114,7 +125,7 @@ Settings:
   # On Settings Page
   Settings: 'Ajustes'
   General Settings:
-    General Settings: 'General'
+    General Settings: 'Ajustes generales'
     Fallback to Non-Preferred Backend on Failure: 'Usar motor API secundario en caso
       de fallo'
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
@@ -267,8 +278,8 @@ Settings:
       File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos.
         %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos.
         %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video
-        Milisegundo 3 dígitos. %i Video ID. También puede utilizar "\" o "/" para
-        crear subcarpetas.
+        Milisegundo 3 dígitos. %i Video ID. También puede utilizar \ o / para crear
+        subcarpetas.
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
@@ -408,6 +419,12 @@ Settings:
       Channel Page: Página del canal
       Watch Page: Ver la página
       General: General
+      Subscriptions Page: Página de suscripciones
+    Hide Channel Releases: Ocultar las nuevas publicaciones de los canales
+    Hide Channel Podcasts: Ocultar los canales de podcasts
+    Hide Subscriptions Shorts: Ocultar las suscripciones para los vídeos cortos
+    Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
+    Hide Subscriptions Live: Ocultar las suscripciones de los directos
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -535,6 +552,7 @@ About:
   Licensed under the AGPLv3: Licencia AGPLv3
   Source code: Código fuente
   Beta: Beta
+  Discussions: Debates
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
@@ -579,6 +597,7 @@ Profile:
   Profile Select: Seleccionar perfil
   Profile Filter: Filtro de perfil
   Profile Settings: Ajustes del perfil
+  Toggle Profile List: Alternar la lista de los perfiles
 Channel:
   Subscriber: 'Suscriptor'
   Subscribers: 'Suscriptores'
@@ -627,14 +646,24 @@ Channel:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
     Community: Comunidad
+    Reveal Answers: Revelar las respuestas
+    Hide Answers: Ocultar las respuestas
+    votes: '{votes} votos'
   Live:
     Live: En directo
     This channel does not currently have any live streams: Este canal no tiene actualmente
       ninguna retransmisión en directo
   Shorts:
-    Shorts: Cortos
     This channel does not currently have any shorts: Este canal no tiene actualmente
       ningún vídeo corto
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Este canal actualmente no tiene
+      podcasts
+  Releases:
+    Releases: Publicaciones
+    This channel does not currently have any releases: Este canal no tiene actualmente
+      ninguna publicación
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -959,6 +988,8 @@ Tooltips:
       los videos, listas de reproducción y el propio canal para que no aparezcan en
       la búsqueda, tendencias, más populares y recomendados. El nombre del canal ingresado
       debe ser una coincidencia completa y distinguir entre mayúsculas y minúsculas.
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
+      «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por
       los usuarios desde DeArrow.
@@ -996,7 +1027,7 @@ Channels:
   Empty: Tu lista de canales está actualmente vacía.
   Unsubscribe: Cancelar la suscripción
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
-  Unsubscribe Prompt: ¿Está seguro de querer desuscribirse de "{channelName}"?
+  Unsubscribe Prompt: ¿Está seguro/segura de querer desuscribirse de «{channelName}»?
 Age Restricted:
   Type:
     Channel: Canal

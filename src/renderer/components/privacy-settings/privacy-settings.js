@@ -94,24 +94,24 @@ export default defineComponent({
 
       this.updateActiveProfile(MAIN_PROFILE_ID)
 
-      if (option === 'yes') {
-        this.profileList.forEach((profile) => {
-          if (profile._id === MAIN_PROFILE_ID) {
-            const newProfile = {
-              _id: MAIN_PROFILE_ID,
-              name: profile.name,
-              bgColor: profile.bgColor,
-              textColor: profile.textColor,
-              subscriptions: []
-            }
-            this.updateProfile(newProfile)
-          } else {
-            this.removeProfile(profile._id)
-          }
-        })
+      if (option !== 'yes') { return }
 
-        this.clearSubscriptionsCache()
-      }
+      this.profileList.forEach((profile) => {
+        if (profile._id === MAIN_PROFILE_ID) {
+          const newProfile = {
+            _id: MAIN_PROFILE_ID,
+            name: profile.name,
+            bgColor: profile.bgColor,
+            textColor: profile.textColor,
+            subscriptions: []
+          }
+          this.updateProfile(newProfile)
+        } else {
+          this.removeProfile(profile._id)
+        }
+      })
+
+      this.clearSubscriptionsCache()
     },
 
     ...mapActions([

@@ -9,10 +9,10 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    FtToastEvents.$on('toast-open', this.open)
+    FtToastEvents.addEventListener('toast-open', this.open)
   },
   beforeDestroy: function () {
-    FtToastEvents.$off('toast-open', this.open)
+    FtToastEvents.removeEventListener('toast-open', this.open)
   },
   methods: {
     performAction: function (index) {
@@ -25,7 +25,7 @@ export default defineComponent({
 
       toast.isOpen = false
     },
-    open: function (message, time, action) {
+    open: function ({ detail: { message, time, action } }) {
       const toast = { message: message, action: action || (() => { }), isOpen: false, timeout: null }
       toast.timeout = setTimeout(this.close, time || 3000, toast)
       setTimeout(() => { toast.isOpen = true })

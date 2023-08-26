@@ -1,0 +1,57 @@
+.vote-count {
+  padding-bottom: 6px;
+  font-size: smaller;
+}
+
+.empty-circle {
+  background-color: transparent;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  display: block;
+  float: left;
+  height: 10px;
+  left: 5px;
+  position: relative;
+  top: 8px;
+  width: 10px;
+}
+  
+.filled-circle {
+  border-radius: 50%;
+  background-color: black;
+  float: left;
+  height: 6px;
+  left: 2px;
+  top: 2px;
+  position: relative;
+  width: 6px;
+}
+
+.option-text {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 5px 25px;
+}
+
+.option {
+  padding-bottom: 10px;
+}
+
+.correct-option {
+  background-color: #78da71;
+}
+
+.incorrect-option {
+  background-color: #dd4e4e;
+}
+
+.reveal-answer  {
+  text-align: center;
+  cursor: pointer;
+}
+
+.reveal-answer:hover > .option-text, .reveal-answer:focus > .option-text {
+  background-color: var(--side-nav-hover-color)
+}

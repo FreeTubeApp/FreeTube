@@ -54,11 +54,6 @@
 
   @include top-nav-is-colored {
     color: var(--text-with-main-color);
-
-    &:hover,
-    &:focus {
-      background-color: var(--primary-color-hover);
-    }
   }
 
   &.fa-arrow-left,
@@ -69,10 +64,13 @@
     user-select: none;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--side-nav-hover-color);
     transition: background 0.2s ease-in;
+
+    @include top-nav-is-colored {
+      background-color: var(--primary-color-hover);
+    }
   }
 
   &:active {

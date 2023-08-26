@@ -29,6 +29,13 @@ Close: 'Sulge'
 Back: 'Tagasi'
 Forward: 'Edasi'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videod'
+  Shorts: Lühivideod
+  Live: Otseeeter
+
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -89,6 +96,9 @@ Subscriptions:
   Disabled Automatic Fetching: Sa oled lülitanud välja automaatse tellimuste laadimise.
     Uuendatud teabe nägemiseks laadi vaade uuesti.
   Empty Channels: Sinu tellitud kanalites hetkel pole ühtegi videot.
+  Subscriptions Tabs: Tellimuste vahekaardid
+  All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu
+    nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -376,10 +386,16 @@ Settings:
       Side Bar: Külgpaan
       Channel Page: Kanali vaade
       Watch Page: Videovaade
+      Subscriptions Page: Tellimuste vaade
     Hide Featured Channels: Peaida soovitatud kanalid
     Hide Channel Playlists: Peida kanali esitusloendid
     Hide Channel Shorts: Peida kanali lühivideod
     Hide Channel Community: Peida kanali kogukond
+    Hide Channel Podcasts: Peida kanali taskuhäälingud
+    Hide Channel Releases: Peida kanali väljalasked
+    Hide Subscriptions Videos: Peida tellimuste videod
+    Hide Subscriptions Shorts: Peida tellimuste lühivideod
+    Hide Subscriptions Live: Peida tellimuste otse-eetrid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -427,7 +443,7 @@ Settings:
     Choose Path: Vali asukoht
     Download Behavior: Tegevus allalaadimisel
     Open in web browser: Ava veebibrauseris
-    Download in app: Lae alla rakenduses
+    Download in app: Laadi alla rakenduses
   Parental Control Settings:
     Parental Control Settings: Vanemliku järelevalve seadistused
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
@@ -478,6 +494,7 @@ About:
   Licensed under the AGPLv3: Avaldatud AGPLv3 litsentsi alusel
   Source code: Lähtekood
   Beta: beetaversioon
+  Discussions: Arutelud
 Profile:
   Profile Select: 'Vali profiil'
   All Channels: 'Kõik kanalid'
@@ -522,6 +539,7 @@ Profile:
 #On Channel Page
   Profile Filter: Sirvi profiile
   Profile Settings: Profiili seadistused
+  Toggle Profile List: Lülita profiilide loend sisse/välja
 Channel:
   Subscriber: 'Tellija'
   Subscribers: 'Tellijad'
@@ -563,8 +581,7 @@ Channel:
   This channel does not allow searching: See kanal ei luba otsingu kasutamist
   Channel Tabs: Kanali kaardid
   Shorts:
-    Shorts: Lühivideod
-    This channel does not currently have any shorts: Sellel kanalil pole lühiklippe
+    This channel does not currently have any shorts: Sellel kanalil pole lühivideosid
   Live:
     Live: Otseeeter
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
@@ -572,10 +589,21 @@ Channel:
   Community:
     Community: Kogukond
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
+    Reveal Answers: Näita vastuseid
+    Hide Answers: Peida vastused
+    votes: '{votes} häält'
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
     vaadata.
+  Podcasts:
+    Podcasts: Taskuhäälingud
+    This channel does not currently have any podcasts: Sellel kanalil hetkel pole
+      taskuhäälinguid
+  Releases:
+    This channel does not currently have any releases: Sellel kanalil pole hetkel
+      ühtegi väljalaset
+    Releases: Väljalasked
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
@@ -595,7 +623,7 @@ Video:
   Play Next Video: 'Esita järgmist videot'
   Play Previous Video: 'Esita eelmist videot'
   # Context is "X People Watching"
-  Watching: 'Vaatan'
+  Watching: 'vaatajat'
   Watched: 'Vaadatud'
   Autoplay: 'Automaatne esitus'
   Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel
@@ -783,7 +811,7 @@ Comments:
   Sort by: Sortimise alus
   No more comments available: Rohkem kommentaare pole
   Newest first: Uuemad esimesena
-  Top comments: Parimad kommentaarid
+  Top comments: Parimad esimesena
   Show More Replies: Näita järgmisi vastuseid
   And others: ja teised
   Pinned by: Esiplaanile tõstja
@@ -883,6 +911,8 @@ Tooltips:
       ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote
       ja populaarsust koguvate videote vaates. Sisestatud kanali nimi peab otsingule
       vastama täielikult ja on tõstutundlik.
+    Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“
+      seadistus „{subsection}“/„{settingsSection}“
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev
       http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks

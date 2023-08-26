@@ -12,7 +12,8 @@ import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe
 import ChannelAbout from '../../components/channel-about/channel-about.vue'
 
 import autolinker from 'autolinker'
-import { copyToClipboard, extractNumberFromString, formatNumber, isNullOrEmpty, showToast } from '../../helpers/utils'
+import { copyToClipboard, extractNumberFromString, formatNumber, showToast } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import packageDetails from '../../../../package.json'
 import {
   invidiousAPICall,
@@ -31,6 +32,7 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
+import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -45,6 +47,9 @@ export default defineComponent({
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -62,6 +67,8 @@ export default defineComponent({
       videoContinuationData: null,
       shortContinuationData: null,
       liveContinuationData: null,
+      releaseContinuationData: null,
+      podcastContinuationData: null,
       playlistContinuationData: null,
       searchContinuationData: null,
       communityContinuationData: null,
@@ -83,6 +90,8 @@ export default defineComponent({
       latestVideos: [],
       latestShorts: [],
       latestLive: [],
+      latestReleases: [],
+      latestPodcasts: [],
       latestPlaylists: [],
       latestCommunityPosts: [],
       searchResults: [],
@@ -107,6 +116,26 @@ export default defineComponent({
       ],
 
       autoRefreshOnSortByChangeEnabled: false,
+      supportedChannelTabs: [
+        'videos',
+        'shorts',
+        'live',
+        'releases',
+        'podcasts',
+        'playlists',
+        'community',
+        'about'
+      ],
+      channelTabs: [
+        'videos',
+        'shorts',
+        'live',
+        'releases',
+        'podcasts',
+        'playlists',
+        'community',
+        'about'
+      ]
     }
   },
   computed: {
@@ -181,6 +210,10 @@ export default defineComponent({
           return !isNullOrEmpty(this.shortContinuationData)
         case 'live':
           return !isNullOrEmpty(this.liveContinuationData)
+        case 'releases':
+          return !isNullOrEmpty(this.releaseContinuationData)
+        case 'podcasts':
+          return !isNullOrEmpty(this.podcastContinuationData)
         case 'playlists':
           return !isNullOrEmpty(this.playlistContinuationData)
         case 'community':
@@ -207,6 +240,14 @@ export default defineComponent({
       return this.$store.getters.getHideLiveStreams
     },
 
+    hideChannelPodcasts: function() {
+      return this.$store.getters.getHideChannelPodcasts
+    },
+
+    hideChannelReleases: function() {
+      return this.$store.getters.getHideChannelReleases
+    },
+
     hideChannelPlaylists: function() {
       return this.$store.getters.getHideChannelPlaylists
     },
@@ -216,35 +257,39 @@ export default defineComponent({
     },
 
     tabInfoValues: function () {
-      const values = [
-        'videos',
-        'shorts',
-        'live',
-        'playlists',
-        'community',
-        'about'
-      ]
+      const values = [...this.channelTabs]
 
+      const indexToRemove = []
       // remove tabs from the array based on user settings
       if (this.hideChannelShorts) {
-        const index = values.indexOf('shorts')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('shorts'))
       }
 
       if (this.hideLiveStreams) {
-        const index = values.indexOf('live')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('live'))
       }
 
       if (this.hideChannelPlaylists) {
-        const index = values.indexOf('playlists')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('playlists'))
       }
 
       if (this.hideChannelCommunity) {
-        const index = values.indexOf('community')
-        values.splice(index, 1)
+        indexToRemove.push(values.indexOf('community'))
       }
+
+      if (this.hideChannelPodcasts) {
+        indexToRemove.push(values.indexOf('podcasts'))
+      }
+
+      if (this.hideChannelReleases) {
+        indexToRemove.push(values.indexOf('releases'))
+      }
+
+      indexToRemove.forEach(index => {
+        if (index !== -1) {
+          values.splice(index, 1)
+        }
+      })
 
       return values
     }
@@ -273,6 +318,8 @@ export default defineComponent({
       this.liveSortBy = 'newest'
       this.playlistSortBy = 'newest'
       this.latestPlaylists = []
+      this.latestPodcasts = []
+      this.latestReleases = []
       this.latestCommunityPosts = []
       this.searchResults = []
       this.shownElementList = []
@@ -282,6 +329,8 @@ export default defineComponent({
       this.shortContinuationData = null
       this.liveContinuationData = null
       this.playlistContinuationData = null
+      this.podcastContinuationData = null
+      this.releaseContinuationData = null
       this.searchContinuationData = null
       this.communityContinuationData = null
       this.showSearchBar = true
@@ -546,6 +595,25 @@ export default defineComponent({
             tags.push(...badges)
             break
           }
+          case 'PageHeader': {
+            // example: YouTube Gaming (an A/B test at the time of writing)
+            // https://www.youtube.com/channel/UCOpNcN46UbXVtpKMrmU4Abg
+
+            /**
+             * @type {import('youtubei.js').YTNodes.PageHeader}
+             */
+            const header = channel.header
+
+            channelName = header.content.title.text
+            channelThumbnailUrl = header.content.image.image[0].url
+            channelId = this.id
+
+            break
+          }
+        }
+
+        if (channelThumbnailUrl.startsWith('//')) {
+          channelThumbnailUrl = `https:${channelThumbnailUrl}`
         }
 
         this.channelName = channelName
@@ -610,27 +678,48 @@ export default defineComponent({
           this.joined = 0
           this.location = null
         }
+        const tabs = ['about']
 
         if (channel.has_videos) {
+          tabs.push('videos')
           this.getChannelVideosLocal()
         }
 
         if (!this.hideChannelShorts && channel.has_shorts) {
+          tabs.push('shorts')
           this.getChannelShortsLocal()
         }
 
         if (!this.hideLiveStreams && channel.has_live_streams) {
+          tabs.push('live')
           this.getChannelLiveLocal()
         }
 
+        if (!this.hideChannelPodcasts && channel.has_podcasts) {
+          tabs.push('podcasts')
+          this.getChannelPodcastsLocal()
+        }
+
+        if (!this.hideChannelReleases && channel.has_releases) {
+          tabs.push('releases')
+          this.getChannelReleasesLocal()
+        }
+
         if (!this.hideChannelPlaylists && channel.has_playlists) {
+          tabs.push('playlists')
           this.getChannelPlaylistsLocal()
         }
 
         if (!this.hideChannelCommunity && channel.has_community) {
+          tabs.push('community')
           this.getCommunityPostsLocal()
         }
 
+        this.channelTabs = this.supportedChannelTabs.filter(tab => {
+          return tabs.includes(tab)
+        })
+
+        this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
         this.showSearchBar = channel.has_search
 
         this.isLoading = false
@@ -899,6 +988,19 @@ export default defineComponent({
         // some channels only have a few tabs
         // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
 
+        const tabs = response.tabs.map(tab => {
+          if (tab === 'streams') {
+            return 'live'
+          }
+          return tab
+        })
+
+        this.channelTabs = this.supportedChannelTabs.filter(tab => {
+          return tabs.includes(tab)
+        })
+
+        this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
+
         if (response.tabs.includes('videos')) {
           this.channelInvidiousVideos()
         }
@@ -909,6 +1011,14 @@ export default defineComponent({
 
         if (!this.hideLiveStreams && response.tabs.includes('streams')) {
           this.channelInvidiousLive()
+        }
+
+        if (!this.hideChannelPodcasts && response.tabs.includes('podcasts')) {
+          this.channelInvidiousPodcasts()
+        }
+
+        if (!this.hideChannelReleases && response.tabs.includes('releases')) {
+          this.channelInvidiousReleases()
         }
 
         if (!this.hideChannelPlaylists && response.tabs.includes('playlists')) {
@@ -938,8 +1048,9 @@ export default defineComponent({
 
     channelInvidiousVideos: function (sortByChanged) {
       const payload = {
-        resource: 'channels/videos',
+        resource: 'channels',
         id: this.id,
+        subResource: 'videos',
         params: {
           sort_by: this.videoSortBy,
         }
@@ -1145,7 +1256,8 @@ export default defineComponent({
     getPlaylistsInvidious: function () {
       this.isElementListLoading = true
       const payload = {
-        resource: 'channels/playlists',
+        resource: 'channels',
+        subResource: 'playlists',
         id: this.id,
         params: {
           sort_by: this.playlistSortBy
@@ -1181,7 +1293,8 @@ export default defineComponent({
       }
 
       const payload = {
-        resource: 'channels/playlists',
+        resource: 'channels',
+        subResource: 'playlists',
         id: this.id,
         params: {
           sort_by: this.playlistSortBy
@@ -1195,6 +1308,232 @@ export default defineComponent({
       invidiousAPICall(payload).then((response) => {
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    getChannelReleasesLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+        */
+        const channel = this.channelInstance
+        const releaseTab = await channel.getReleases()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestReleases = releaseTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.releaseContinuationData = releaseTab.has_continuation ? releaseTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getChannelReleasesInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getChannelReleasesLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
+         */
+        const continuation = await this.releaseContinuationData.getContinuation()
+
+        const parsedReleases = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        this.latestReleases = this.latestReleases.concat(parsedReleases)
+        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    channelInvidiousReleases: function() {
+      this.isElementListLoading = true
+      const payload = {
+        resource: 'channels',
+        subResource: 'releases',
+        id: this.id,
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.releaseContinuationData = response.continuation || null
+        this.latestReleases = response.playlists
+        this.isElementListLoading = false
+      }).catch(async (err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
+          this.getChannelReleasesLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    channelInvidiousReleasesMore: function () {
+      if (this.releaseContinuationData === null) {
+        console.warn('There are no more podcasts available for this channel')
+        return
+      }
+
+      const payload = {
+        resource: 'channels',
+        subResource: 'releases',
+        id: this.id
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.releaseContinuationData = response.continuation || null
+        this.latestReleases = this.latestReleases.concat(response.playlists)
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    getChannelPodcastsLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+        */
+        const channel = this.channelInstance
+        const podcastTab = await channel.getPodcasts()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestPodcasts = podcastTab.playlists.map(playlist => parseLocalListPlaylist(playlist, channel.header.author))
+        this.podcastContinuationData = podcastTab.has_continuation ? podcastTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.getChannelPodcastsInvidious()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getChannelPodcastsLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
+         */
+        const continuation = await this.podcastContinuationData.getContinuation()
+
+        const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.channelInstance.header.author))
+        this.latestPodcasts = this.latestPodcasts.concat(parsedPodcasts)
+        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    channelInvidiousPodcasts: function() {
+      this.isElementListLoading = true
+      const payload = {
+        resource: 'channels',
+        subResource: 'podcasts',
+        id: this.id,
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.podcastContinuationData = response.continuation || null
+        this.latestPodcasts = response.playlists
+        this.isElementListLoading = false
+      }).catch(async (err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
+          this.getChannelPodcastsLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    channelInvidiousPodcastsMore: function () {
+      if (this.podcastContinuationData === null) {
+        console.warn('There are no more podcasts available for this channel')
+        return
+      }
+
+      const payload = {
+        resource: 'channels',
+        subResource: 'podcasts',
+        id: this.id
+      }
+
+      invidiousAPICall(payload).then((response) => {
+        this.podcastContinuationData = response.continuation || null
+        this.latestPodcasts = this.latestPodcasts.concat(response.playlists)
         this.isElementListLoading = false
       }).catch((err) => {
         console.error(err)
@@ -1350,6 +1689,12 @@ export default defineComponent({
               break
           }
           break
+        case 'releases':
+          this.getChannelReleasesLocalMore()
+          break
+        case 'podcasts':
+          this.getChannelPodcastsLocalMore()
+          break
         case 'playlists':
           switch (this.apiUsed) {
             case 'local':
@@ -1402,7 +1747,8 @@ export default defineComponent({
             : this.tabInfoValues[(index + 1) % this.tabInfoValues.length]
 
           const tabNode = document.getElementById(`${tab}Tab`)
-          tabNode.focus({ focusVisible: true })
+          tabNode.focus()
+          this.showOutlines()
           return
         }
       }
@@ -1410,7 +1756,8 @@ export default defineComponent({
       // `newTabNode` can be `null` when `tab` === "search"
       const newTabNode = document.getElementById(`${tab}Tab`)
       this.currentTab = tab
-      newTabNode?.focus({ focusVisible: true })
+      newTabNode?.focus()
+      this.showOutlines()
     },
 
     newSearch: function (query) {
@@ -1487,8 +1834,9 @@ export default defineComponent({
 
     searchChannelInvidious: function () {
       const payload = {
-        resource: 'channels/search',
+        resource: 'channels',
         id: this.id,
+        subResource: 'search',
         params: {
           q: this.lastSearchQuery,
           page: this.searchPage

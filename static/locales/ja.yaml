@@ -27,6 +27,13 @@ Close: '閉じる'
 Back: '戻る'
 Forward: '進む'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '動画'
+  Shorts: ショート動画
+  Live: ライブ配信
+
 # Search Bar
 Search / Go to URL: '検索 / URL の表示'
   # In Filter Button
@@ -79,6 +86,9 @@ Subscriptions:
   Error Channels: エラーが発生したチャンネル
   Disabled Automatic Fetching: サブスクリプションの自動取得を無効にしました。サブスクリプションを更新して、ここで確認します。
   Empty Channels: 現在、チャンネル登録しているチャンネルには動画がありません。
+  Subscriptions Tabs: 登録チャンネル タブ
+  All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}"
+    内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -374,8 +384,14 @@ Settings:
       Channel Page: チャンネル ページ
       Watch Page: ウォッチリスト
       General: 一般
+      Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
     Hide Channel Shorts: ショート動画チャンネルの非表示
+    Hide Channel Podcasts: ポッドキャスト チャンネルの非表示
+    Hide Subscriptions Shorts: 登録チャンネルのショート動画の非表示
+    Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
+    Hide Subscriptions Videos: 登録チャンネルの動画の非表示
+    Hide Channel Releases: チャンネルの新着情報の非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -429,7 +445,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
-    Warning: この設定項目は実験中であるため、有効にするとクラッシュするかもしれません。バックアップを必ず作成してください。使用は自己責任でお願いします！
+    Warning: この設定項目は実験中であるため、有効にするとクラッシュすることがあります。必ずバックアップを作成してください。使用は自己責任でお願いします！
   Password Settings:
     Password Settings: パスワード設定
     Set Password To Prevent Access: 設定の変更にはパスワードを設定とする
@@ -539,8 +555,13 @@ Channel:
     This channel does not currently have any live streams: このチャンネルは現在、ライブ配信を行っていません
     Live: ライブ配信
   Shorts:
-    Shorts: ショート動画
     This channel does not currently have any shorts: このチャンネルには現在ショート動画がありません
+  Releases:
+    Releases: 新着情報
+    This channel does not currently have any releases: 現在、このチャンネルには公開されたものはありません
+  Podcasts:
+    This channel does not currently have any podcasts: このチャンネルにはポッドキャストがありません
+    Podcasts: ポッドキャスト
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -803,6 +824,7 @@ Profile:
   : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
   Profile Settings: プロファイル設定
+  Toggle Profile List: プロファイル一覧の切り替え
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
@@ -850,7 +872,9 @@ Tooltips:
       RAM の使用率は増加します。
   Distraction Free Settings:
     Hide Channels: チャンネル名またはチャンネル ID 
-      を入力すると、すべてのビデオ、再生リスト、およびチャンネル自体が検索や人気に表示されなくなります。入力するチャンネル名は完全に一致することが必要で、大文字と小文字を区別します。
+      を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル名は、大文字と小文字を区別するので完全に一致させてください。
+    Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
+      項目の "{subsection}" にあります
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
