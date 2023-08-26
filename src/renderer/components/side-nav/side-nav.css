@@ -12,6 +12,8 @@
   transition-property: width;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .inner {
