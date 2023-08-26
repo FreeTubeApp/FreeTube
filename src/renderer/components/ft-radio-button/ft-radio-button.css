@@ -19,6 +19,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   position: relative;
   padding-left: 2em;
   vertical-align: middle;
+  -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
   display: block;
