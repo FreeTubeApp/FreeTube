@@ -557,6 +557,7 @@ About:
   Website: Site web
   Please check for duplicates before posting: Verifique se há duplicatas antes de
     postar
+  Discussions: Discussões
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
@@ -603,6 +604,9 @@ Channel:
     Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
+    votes: '{votes} Votos'
+    Reveal Answers: Revelar respostas
+    Hide Answers: Ocultar respostas
   Channel Tabs: Abas dos Canais
   Live:
     Live: Ao vivo
