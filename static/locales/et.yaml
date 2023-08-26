@@ -494,6 +494,7 @@ About:
   Licensed under the AGPLv3: Avaldatud AGPLv3 litsentsi alusel
   Source code: Lähtekood
   Beta: beetaversioon
+  Discussions: Arutelud
 Profile:
   Profile Select: 'Vali profiil'
   All Channels: 'Kõik kanalid'
@@ -588,6 +589,9 @@ Channel:
   Community:
     Community: Kogukond
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
+    Reveal Answers: Näita vastuseid
+    Hide Answers: Peida vastused
+    votes: '{votes} häält'
   This channel does not exist: Sellist kanalit ei leidu
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Sellel
     kanalil on vanusega seotud piirangud ja teda ei saa hetkel FreeTube'i vahendusel
@@ -619,7 +623,7 @@ Video:
   Play Next Video: 'Esita järgmist videot'
   Play Previous Video: 'Esita eelmist videot'
   # Context is "X People Watching"
-  Watching: 'Vaatan'
+  Watching: 'vaatajat'
   Watched: 'Vaadatud'
   Autoplay: 'Automaatne esitus'
   Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel
@@ -807,7 +811,7 @@ Comments:
   Sort by: Sortimise alus
   No more comments available: Rohkem kommentaare pole
   Newest first: Uuemad esimesena
-  Top comments: Parimad kommentaarid
+  Top comments: Parimad esimesena
   Show More Replies: Näita järgmisi vastuseid
   And others: ja teised
   Pinned by: Esiplaanile tõstja

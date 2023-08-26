@@ -544,6 +544,7 @@ About:
   View License: הצגת הרישיון
   Licensed under the AGPLv3: בכפוף לרישיון AGPLv3
   Source code: קוד מקור
+  Discussions: דיונים
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
@@ -632,6 +633,9 @@ Channel:
   Community:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
     Community: קהילה
+    votes: '{votes} הצבעות'
+    Reveal Answers: חשיפת התשובות
+    Hide Answers: הסתרת התשובות
   Live:
     Live: חי
     This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים

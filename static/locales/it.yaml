@@ -561,6 +561,7 @@ About:
   Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
   Source code: Codice sorgente
   Beta: Beta
+  Discussions: Discussioni
 Channel:
   Subscriber: 'Iscritto'
   Subscribers: 'Iscritti'
@@ -610,6 +611,9 @@ Channel:
     This channel currently does not have any posts: Questo canale attualmente non
       ha alcun post
     Community: Comunità
+    votes: '{votes} voti'
+    Reveal Answers: Rivela le risposte
+    Hide Answers: Nascondi le risposte
   Live:
     Live: Dal vivo
     This channel does not currently have any live streams: Questo canale attualmente

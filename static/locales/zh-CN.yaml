@@ -502,6 +502,7 @@ About:
   room rules: 聊天室规则
   these people and projects: 这些人和项目
   FreeTube is made possible by: FreeTube 的存在依赖
+  Discussions: 讨论
 Channel:
   Subscriber: '订阅者'
   Subscribers: '订阅者'
@@ -545,6 +546,9 @@ Channel:
   Community:
     Community: 社区
     This channel currently does not have any posts: 此频道当前没有任何帖子
+    votes: '{votes} 票'
+    Reveal Answers: 揭晓答案
+    Hide Answers: 隐藏答案
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此频道当前没有任何直播流

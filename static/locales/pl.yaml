@@ -567,6 +567,7 @@ About:
   Licensed under the AGPLv3: Na licencji AGPLv3
   Source code: Kod źródłowy
   FreeTube is made possible by: FreeTube powstał dzięki
+  Discussions: Dyskusje
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'
@@ -615,6 +616,9 @@ Channel:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       publikacji
     Community: Społeczność
+    votes: '{votes} głosów'
+    Reveal Answers: Pokaż odpowiedzi
+    Hide Answers: Schowaj odpowiedzi
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -793,7 +797,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlista
-Toggle Theatre Mode: 'Aktywuj tryb kinowy'
+Toggle Theatre Mode: 'Włącz/wyłącz tryb kinowy'
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
@@ -913,6 +917,7 @@ Profile:
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
+  Toggle Profile List: Włącz/wyłącz listę profili
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'

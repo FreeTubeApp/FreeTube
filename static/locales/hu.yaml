@@ -563,6 +563,7 @@ About:
   Beta: Béta
   FAQ: GyIK
   Report a problem: Probléma jelentése
+  Discussions: Megbeszélések
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -656,6 +657,9 @@ Channel:
     This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
       bejegyzések
     Community: Közösség
+    Reveal Answers: Válaszok feltárása
+    Hide Answers: Válaszok elrejtése
+    votes: '{votes} szavazat'
   Shorts:
     This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
       rövidfilmek

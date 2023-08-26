@@ -56,7 +56,9 @@ import {
   faThumbtack,
   faTimes,
   faTimesCircle,
-  faUsers
+  faUsers,
+  faEye,
+  faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBitcoin,
@@ -123,6 +125,8 @@ library.add(
   faTimes,
   faTimesCircle,
   faUsers,
+  faEye,
+  faEyeSlash,
 
   // brand icons
   faGithub,

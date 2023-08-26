@@ -7,7 +7,7 @@
       v-if="!isLoading && errorChannels.length !== 0"
     >
       <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
-      <div>
+      <ft-flex-box>
         <ft-channel-bubble
           v-for="(channel, index) in errorChannels"
           :key="index"
@@ -16,7 +16,7 @@
           :channel-thumbnail="channel.thumbnail"
           @click="goToChannel(channel.id)"
         />
-      </div>
+      </ft-flex-box>
     </div>
     <ft-flex-box
       v-if="!isLoading && activeVideoList.length === 0"
