@@ -73,14 +73,17 @@ $watched-transition-duration: 0.5s;
 
   &:hover .favoritesIcon,
   &:hover .externalPlayerIcon,
+  &:hover .optionsButton,
   &:focus-within .favoritesIcon,
-  &:focus-within .externalPlayerIcon {
+  &:focus-within .externalPlayerIcon,
+  &:focus-within .optionsButton {
     visibility: visible;
     opacity: 1;
   }
 
   .favoritesIcon,
-  .externalPlayerIcon {
+  .externalPlayerIcon,
+  .optionsButton {
     visibility: none;
     opacity: 0;
     transition: visibility 0s, opacity 0.2s linear;
