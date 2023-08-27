@@ -66,9 +66,24 @@ $watched-transition-duration: 0.5s;
 
     &:hover .thumbnailImage,
     &:focus .thumbnailImage {
-      opacity: 1;
+      opacity: $thumbnail-overlay-opacity;
       transition-duration: $watched-transition-duration;
     }
+  }
+
+  &:hover .favoritesIcon,
+  &:hover .externalPlayerIcon,
+  &:focus-within .favoritesIcon,
+  &:focus-within .externalPlayerIcon {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .favoritesIcon,
+  .externalPlayerIcon {
+    visibility: none;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
   }
 
   .videoThumbnail {
@@ -85,6 +100,8 @@ $watched-transition-duration: 0.5s;
     .inner {
       grid-column: 1;
       grid-row: 1;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .thumbnailLink {
@@ -141,7 +158,6 @@ $watched-transition-duration: 0.5s;
       justify-self: left;
       margin-bottom: 4px;
       margin-left: 4px;
-      opacity: $thumbnail-overlay-opacity;
     }
 
     .favoritesIcon {
@@ -149,7 +165,6 @@ $watched-transition-duration: 0.5s;
       justify-self: right;
       margin-right: 3px;
       margin-top: 3px;
-      opacity: $thumbnail-overlay-opacity;
       height: fit-content;
     }
 
