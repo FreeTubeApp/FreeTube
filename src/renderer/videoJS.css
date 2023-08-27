@@ -1090,17 +1090,10 @@ body.vjs-full-window {
   cursor: pointer;
   padding: 0;
   margin: 0 0.45em 0 0.45em;
-  /* iOS Safari */
-  -webkit-touch-callout: none;
-  /* Safari */
+
   -webkit-user-select: none;
-  /* Konqueror HTML */
-  /* Firefox */
-  -moz-user-select: none;
-  /* Internet Explorer/Edge */
-  -ms-user-select: none;
-  /* Non-prefixed version, currently supported by Chrome and Opera */
   user-select: none;
+
   background-color: #73859f;
   background-color: rgba(115, 133, 159, 0.5);
 }
