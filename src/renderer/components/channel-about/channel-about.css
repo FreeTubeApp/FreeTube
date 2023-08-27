@@ -27,7 +27,7 @@
 
 .aboutTagLink {
   background-color: var(--secondary-card-bg-color);
-  color: var(--primary-text);
+  color: var(--primary-text-color);
   border-radius: 7px;
   padding: 7px;
   text-decoration: none;
