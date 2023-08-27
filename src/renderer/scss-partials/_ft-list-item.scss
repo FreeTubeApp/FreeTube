@@ -66,27 +66,9 @@ $watched-transition-duration: 0.5s;
 
     &:hover .thumbnailImage,
     &:focus .thumbnailImage {
-      opacity: $thumbnail-overlay-opacity;
+      opacity: 1;
       transition-duration: $watched-transition-duration;
     }
-  }
-
-  &:hover .favoritesIcon,
-  &:hover .externalPlayerIcon,
-  &:hover .optionsButton,
-  &:focus-within .favoritesIcon,
-  &:focus-within .externalPlayerIcon,
-  &:focus-within .optionsButton {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .favoritesIcon,
-  .externalPlayerIcon,
-  .optionsButton {
-    visibility: none;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.2s linear;
   }
 
   .videoThumbnail {
@@ -316,12 +298,44 @@ $watched-transition-duration: 0.5s;
       margin-top: 8px;
     }
   }
+
+  .favoritesIcon,
+  .externalPlayerIcon {
+    opacity: $thumbnail-overlay-opacity;
+  }
+
+  @media (hover: hover) {
+    &:hover .favoritesIcon,
+    &:hover .externalPlayerIcon,
+    &:focus-within .favoritesIcon,
+    &:focus-within .externalPlayerIcon,
+    &:focus-within .optionsButton {
+      visibility: visible;
+      opacity: $thumbnail-overlay-opacity;
+    }
+
+    &:hover .optionsButton,
+    &:focus-within .optionsButton {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .favoritesIcon,
+    .externalPlayerIcon,
+    .optionsButton {
+      visibility: none;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.2s linear;
+    }
+  }
 }
 
 .videoWatched,
 .live,
 .upcoming {
   text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 // we use h3 for semantic reasons but don't want to keep the h3 style
