@@ -656,7 +656,6 @@ Video:
   Reverse Playlist: 'Reverse Playlist'
   Play Next Video: 'Play Next Video'
   Play Previous Video: 'Play Previous Video'
-  Pause on Current Video: 'Pause on Current Video'
   # Context is "X People Watching"
   Watching: 'Watching'
   Watched: 'Watched'
@@ -871,8 +870,6 @@ Shuffle is now enabled: 'Shuffle is now enabled'
 The playlist has been reversed: 'The playlist has been reversed'
 Playing Next Video: 'Playing Next Video'
 Playing Previous Video: 'Playing Previous Video'
-Playlist will not pause when current video is finished: 'Playlist will not pause when current video is finished'
-Playlist will pause when current video is finished: 'Playlist will pause when current video is finished'
 Canceled next video autoplay: 'Cancelled next video autoplay'
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
