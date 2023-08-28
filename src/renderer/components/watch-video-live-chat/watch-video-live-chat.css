@@ -91,7 +91,7 @@
   position: absolute;
   margin-inline-start: -16px;
   padding-inline-end: 32px;
-  inset-block-end -15px;
+  inset-block-end: -15px;
   cursor: auto;
   z-index: 1;
 }
@@ -213,7 +213,7 @@
   height: 35px;
   position: absolute;
   inset-inline-start: 45%;
-  inset-block-end 20px;
+  inset-block-end: 20px;
   cursor: pointer;
   border-radius: 200px;
   -webkit-border-radius: 200px;

@@ -28,7 +28,7 @@
 .moreOptionContainer {
   position: fixed;
   background-color: var(--side-nav-color);
-  inset-block-end 60px;
+  inset-block-end: 60px;
   width: 70px;
   z-index: 0;
   -webkit-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
@@ -45,7 +45,7 @@
     margin-block-start: 0px;
     height: 60px;
     width: 100%;
-    inset-block-end 0px;
+    inset-block-end: 0px;
     inset-block-start: auto;
     overflow-y: inherit;
   }

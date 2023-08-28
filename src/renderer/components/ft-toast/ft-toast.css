@@ -2,7 +2,7 @@
   position: fixed;
   inset-inline-start: 50vw;
   transform: translate(-50%, 0);
-  inset-block-end 50px;
+  inset-block-end: 50px;
   z-index: 1;
   display: flex;
   flex-direction: column;

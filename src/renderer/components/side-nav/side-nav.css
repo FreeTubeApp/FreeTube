@@ -179,7 +179,7 @@
   .sideNav {
     position: fixed;
     inset-inline-start: 0;
-    inset-block-end 0;
+    inset-block-end: 0;
 
     display: flex;
   }
@@ -194,7 +194,7 @@
     margin-block-start: 0px;
     height: 60px;
     width: 100%;
-    inset-block-end 0px;
+    inset-block-end: 0px;
     inset-block-start: auto;
     overflow-y: hidden;
   }

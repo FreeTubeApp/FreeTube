@@ -141,7 +141,7 @@
 .commentHeartBadgeWhite {
   position: absolute;
   inset-inline-start: 9px;
-  inset-block-end 1px;
+  inset-block-end: 1px;
   width: 11px;
   height: 11px;
   z-index: 1;
@@ -151,7 +151,7 @@
   position: absolute;
   color: var(--red-500);
   inset-inline-start: 10px;
-  inset-block-end 2px;
+  inset-block-end: 2px;
   width: 9px;
   height: 9px;
   z-index: 2;

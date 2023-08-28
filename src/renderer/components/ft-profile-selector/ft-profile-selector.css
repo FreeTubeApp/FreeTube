@@ -58,7 +58,7 @@
 .profile .colorOption {
   float: left;
   position: relative;
-  inset-block-end 5px;
+  inset-block-end: 5px;
   margin: 10px;
 }
 

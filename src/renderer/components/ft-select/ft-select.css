@@ -115,7 +115,7 @@
   content: '';
   height: 2px;
   width: 0;
-  inset-block-end 1px;
+  inset-block-end: 1px;
   position: absolute;
   background: var(--accent-color);
   transition: 0.2s ease all;
