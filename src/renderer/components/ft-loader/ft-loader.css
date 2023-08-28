@@ -39,7 +39,8 @@
     width: 40px;
     height: 40px;
     position: relative;
-    margin: 100px auto;
+    margin-block: 100px;
+    margin-inline: auto;
 }
 
 .double-bounce1,

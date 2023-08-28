@@ -24,7 +24,8 @@
 
 .radioFlexBox {
   max-width: 1000px;
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
 }
 
 @media only screen and (max-width: 600px) {
