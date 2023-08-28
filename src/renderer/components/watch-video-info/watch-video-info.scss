@@ -53,10 +53,10 @@
 .datePublished {
   color: var(--secondary-text-color);
   font-size: 15px;
-  text-align: right;
+  text-align: end;
 
   @media screen and (max-width: 680px) {
-    text-align: left;
+    text-align: start;
   }
 }
 
@@ -81,11 +81,11 @@
   margin-inline-start: auto;
   margin-block-start: 4px;
   max-width: 210px;
-  text-align: right;
+  text-align: end;
 
   @media screen and (max-width: 680px) {
     margin-inline-start: 0;
-    text-align: left;
+    text-align: start;
   }
 
   .likeBar {

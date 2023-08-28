@@ -55,11 +55,11 @@
   font-size: 15px;
   margin-block-start: 4px;
   max-width: 210px;
-  text-align: left;
+  text-align: start;
 
   @media screen and (max-width: 680px) {
     margin-inline-start: 0;
-    text-align: left;
+    text-align: start;
   }
 
   .likeBar {
