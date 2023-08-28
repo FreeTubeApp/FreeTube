@@ -1,6 +1,6 @@
 .searchFilterInner {
   max-width: 800px;
-  margin-left: auto;
+  margin-inline-start: auto;
   margin-right: auto;
 
   padding: 20px 20px 70px 20px;

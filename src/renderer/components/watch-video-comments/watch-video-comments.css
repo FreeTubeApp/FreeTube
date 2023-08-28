@@ -72,7 +72,7 @@
 .commentAuthorWrapper {
   font-weight: bold;
   font-size: 14px;
-  margin-left: 68px;
+  margin-inline-start: 68px;
   margin-top: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -93,7 +93,7 @@
   white-space: pre-wrap;
   font-size: 14px;
   margin-top: -10px;
-  margin-left: 70px;
+  margin-inline-start: 70px;
   word-wrap: break-word;
 }
 .commentPinned {
@@ -101,25 +101,25 @@
   font-size: 12px;
   margin-block-end: 0;
   margin-block-start: 0;
-  margin-left: 68px;
+  margin-inline-start: 68px;
   margin-bottom: 5px;
 }
 
 .commentDate {
   font-weight: normal;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   font-size: 12px;
 }
 
 .commentMemberIcon {
-  margin-left: 5px;
+  margin-inline-start: 5px;
   width: 14px;
   height: 14px;
 }
 
 .commentLikeCount {
   font-size: 11px;
-  margin-left: 70px;
+  margin-inline-start: 70px;
   margin-top: 0px;
 }
 
@@ -128,7 +128,7 @@
   position: relative;
   width: 25px;
   height: 20px;
-  margin-left: 10px;
+  margin-inline-start: 10px;
   margin-bottom: -7px;
 }
 
@@ -162,18 +162,18 @@
 
 .commentMoreReplies {
   font-size: 11px;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
 }
 
 .commentReplies {
-  margin-left: 30px;
+  margin-inline-start: 30px;
 }
 
 .showMoreReplies {
-  margin-left: 30px;
+  margin-inline-start: 30px;
   font-size: 15px;
   cursor: pointer;
   text-decoration: underline;

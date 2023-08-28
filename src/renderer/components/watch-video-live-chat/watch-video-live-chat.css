@@ -58,7 +58,7 @@
   display: inline-block;
   padding: 1px;
   padding-right: 10px;
-  margin-left: 2px;
+  margin-inline-start: 2px;
   margin-right: 2px;
   height: 30px;
   cursor: pointer;
@@ -68,14 +68,14 @@
 }
 
 .superChatContent {
-  margin-left: 32px;
+  margin-inline-start: 32px;
   margin-top: -25px;
   color: var(--text-with-main-color);
 }
 
 .superChat .channelThumbnail {
   margin-top: 3px;
-  margin-left: 3px;
+  margin-inline-start: 3px;
   height: 25px;
 }
 
@@ -88,7 +88,7 @@
   width: 100%;
   height: 415px;
   position: absolute;
-  margin-left: -16px;
+  margin-inline-start: -16px;
   padding-right: 32px;
   bottom: -15px;
   cursor: auto;
@@ -119,7 +119,7 @@
 .superChatMessage {
   width: 90%;
   grid-template-columns: auto;
-  margin-left: 5%;
+  margin-inline-start: 5%;
   margin-right: 5%;
   margin-top: 25px;
   margin-bottom: 10px;
@@ -140,7 +140,7 @@
 
 .upperSuperChatMessage .channelThumbnail {
   width: 45px;
-  margin-left: 10px;
+  margin-inline-start: 10px;
   margin-top: 5px;
 }
 
@@ -149,20 +149,20 @@
   opacity: 0.7;
   position: absolute;
   top: -20px;
-  margin-left: 65px;
+  margin-inline-start: 65px;
 }
 
 .upperSuperChatMessage .donationAmount {
   color: var(--text-with-main-color);
   font-weight: bold;
-  margin-left: 65px;
+  margin-inline-start: 65px;
   position: absolute;
   top: 0px;
 }
 
 .superChatMessage .chatMessage {
   color: var(--text-with-main-color);
-  margin-left: 20px;
+  margin-inline-start: 20px;
 }
 
 .liveChatComments {

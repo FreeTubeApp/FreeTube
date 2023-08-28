@@ -36,7 +36,7 @@
     color: inherit;
     cursor: pointer;
     display: block;
-    margin-left: 6px;
+    margin-inline-start: 6px;
     position: relative;
     text-decoration: inherit;
     top: -2px;
@@ -44,7 +44,7 @@
 
   .subscribeButton {
     font-size: 14px;
-    margin-left: 6px;
+    margin-inline-start: 6px;
     margin-top: 6px;
     padding: 6px;
   }
@@ -78,13 +78,13 @@
   display: flex;
   flex-direction: column;
   font-size: 16px;
-  margin-left: auto;
+  margin-inline-start: auto;
   margin-top: 4px;
   max-width: 210px;
   text-align: right;
 
   @media screen and (max-width: 680px) {
-    margin-left: 0;
+    margin-inline-start: 0;
     text-align: left;
   }
 
@@ -105,7 +105,7 @@
   margin-top: 16px;
 
   .option:not(:first-child) {
-    margin-left: 4px;
+    margin-inline-start: 4px;
   }
 
   @media screen and (max-width: 680px) {
