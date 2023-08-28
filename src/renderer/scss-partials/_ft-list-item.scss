@@ -141,7 +141,6 @@ $watched-transition-duration: 0.5s;
       justify-self: left;
       margin-bottom: 4px;
       margin-left: 4px;
-      opacity: $thumbnail-overlay-opacity;
     }
 
     .favoritesIcon {
@@ -149,7 +148,6 @@ $watched-transition-duration: 0.5s;
       justify-self: right;
       margin-right: 3px;
       margin-top: 3px;
-      opacity: $thumbnail-overlay-opacity;
       height: fit-content;
     }
 
@@ -296,6 +294,35 @@ $watched-transition-duration: 0.5s;
     .infoLine {
       font-size: 13px;
       margin-top: 8px;
+    }
+  }
+
+  .favoritesIcon,
+  .externalPlayerIcon {
+    opacity: $thumbnail-overlay-opacity;
+  }
+
+  @media (hover: hover) {
+    &:hover .favoritesIcon,
+    &:hover .externalPlayerIcon,
+    &:focus-within .favoritesIcon,
+    &:focus-within .externalPlayerIcon {
+      visibility: visible;
+      opacity: $thumbnail-overlay-opacity;
+    }
+
+    &:hover .optionsButton,
+    &:focus-within .optionsButton {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .favoritesIcon,
+    .externalPlayerIcon,
+    .optionsButton {
+      visibility: none;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.2s linear;
     }
   }
 }
