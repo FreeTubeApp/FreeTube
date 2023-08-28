@@ -117,6 +117,11 @@ export default defineComponent({
         return this.$t(`Settings.Theme Settings.Main Color Theme.${colorName}`)
       })
     },
+
+    areColorThemesEnabled: function() {
+      return this.baseTheme !== 'hotPink'
+    },
+
     usingElectron: function () {
       return process.env.IS_ELECTRON
     }
