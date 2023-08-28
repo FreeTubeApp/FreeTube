@@ -102,7 +102,8 @@
   align-items: center;
   display: flex;
   gap: 3px;
-  margin: 0 6px;
+  margin-block: 0;
+  margin-inline: 6px;
 
   &.profiles {
     justify-content: flex-end;
@@ -198,14 +199,16 @@
 
   .searchFilters {
     left: 0;
-    margin: 10px 20px 20px 220px;
+    margin-block: 10px 20px;
+    margin-inline: 220px 20px;
     position: absolute;
     right: 0;
     transition: margin 150ms ease-in-out;
 
     @media only screen and (max-width: 680px) {
       left: 0;
-      margin: 95px 10px 0;
+      margin-block: 95px 0;
+      margin-inline: 10px;
       right: 0;
     }
   }

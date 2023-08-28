@@ -122,7 +122,8 @@ $watched-transition-duration: 0.5s;
       font-size: 15px;
       justify-self: right;
       line-height: 1.2;
-      margin: 0 4px 4px 0;
+      margin-block: 0 4px;
+      margin-inline: 0 4px;
       opacity: $thumbnail-overlay-opacity;
       padding-block: 3px;
       padding-inline: 4px;
@@ -150,7 +151,7 @@ $watched-transition-duration: 0.5s;
       font-size: 17px;
       justify-self: right;
       margin-inline-end: 3px;
-      margin-top: 3px;
+      margin-block-start: 3px;
       height: fit-content;
     }
 
@@ -229,7 +230,7 @@ $watched-transition-duration: 0.5s;
     .infoLine {
       font-size: 14px;
       grid-area: infoLine;
-      margin-top: 5px;
+      margin-block-start: 5px;
       overflow-wrap: anywhere;
 
       @include is-sidebar-item {
@@ -296,7 +297,7 @@ $watched-transition-duration: 0.5s;
 
     .infoLine {
       font-size: 13px;
-      margin-top: 8px;
+      margin-block-start: 8px;
     }
   }
 

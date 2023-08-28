@@ -40,7 +40,7 @@
 }
 
 :deep(.videoThumbnail) {
-  margin-top: auto;
+  margin-block-start: auto;
   margin-bottom: auto;
 }
 

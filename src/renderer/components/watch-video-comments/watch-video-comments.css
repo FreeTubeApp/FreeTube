@@ -70,7 +70,7 @@
   font-weight: bold;
   font-size: 14px;
   margin-inline-start: 68px;
-  margin-top: 0px;
+  margin-block-start: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -89,7 +89,7 @@
 .commentText {
   white-space: pre-wrap;
   font-size: 14px;
-  margin-top: -10px;
+  margin-block-start: -10px;
   margin-inline-start: 70px;
   word-wrap: break-word;
 }
@@ -117,7 +117,7 @@
 .commentLikeCount {
   font-size: 11px;
   margin-inline-start: 70px;
-  margin-top: 0px;
+  margin-block-start: 0px;
 }
 
 .commentHeartBadge {

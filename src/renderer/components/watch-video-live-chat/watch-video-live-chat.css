@@ -31,7 +31,8 @@
 
 :deep(.liveChatEmoji) {
   vertical-align: middle;
-  margin: 0 2px;
+  margin-block: 0;
+  margin-inline: 2px;
 }
 
 .errorIcon {
@@ -69,12 +70,12 @@
 
 .superChatContent {
   margin-inline-start: 32px;
-  margin-top: -25px;
+  margin-block-start: -25px;
   color: var(--text-with-main-color);
 }
 
 .superChat .channelThumbnail {
-  margin-top: 3px;
+  margin-block-start: 3px;
   margin-inline-start: 3px;
   height: 25px;
 }
@@ -120,7 +121,7 @@
   grid-template-columns: auto;
   margin-inline-start: 5%;
   margin-inline-end: 5%;
-  margin-top: 25px;
+  margin-block-start: 25px;
   margin-bottom: 10px;
   background-color: var(--primary-color);
   border-radius: 5px;
@@ -129,7 +130,7 @@
 }
 
 .upperSuperChatMessage {
-  margin-top: -15px;
+  margin-block-start: -15px;
   width: 100%;
   height: 55px;
   background-color: var(--primary-color-hover);
@@ -140,7 +141,7 @@
 .upperSuperChatMessage .channelThumbnail {
   width: 45px;
   margin-inline-start: 10px;
-  margin-top: 5px;
+  margin-block-start: 5px;
 }
 
 .upperSuperChatMessage .channelName {
@@ -176,7 +177,7 @@
 }
 
 .chatContent {
-  margin-top: 5px;
+  margin-block-start: 5px;
   margin-bottom: 2px;
   font-size: 12px;
   word-wrap: break-word;

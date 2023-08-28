@@ -53,7 +53,7 @@
 }
 
 .text.bottom {
-  margin-top: 1em;
+  margin-block-start: 1em;
   top: 100%;
   left: 50%;
   -webkit-transform: translate(-50%, -1em);
@@ -61,7 +61,7 @@
 }
 
 .text.bottom-left {
-  margin-top: 1em;
+  margin-block-start: 1em;
   top: 100%;
   left: -100px;
   -webkit-transform: translate(-50%, -1em);
