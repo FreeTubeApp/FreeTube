@@ -20,7 +20,7 @@
   margin: 5px;
   border-radius: 5px;
   display:flex;
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
 }
 
 .ft-tag-box li>span {
