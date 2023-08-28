@@ -15,8 +15,8 @@
       />
       <font-awesome-icon
         ref="historyArrowBack"
-        class="navBackIcon navIcon fa-arrow-left"
-        :icon="['fas', 'arrow-left']"
+        class="navIcon arrowBackwardDisabled"
+        :icon="['fas', isDirectionLtr ? 'arrow-left' : 'arrow-right']"
         role="button"
         tabindex="0"
         :title="backwardText"
@@ -25,8 +25,8 @@
       />
       <font-awesome-icon
         ref="historyArrowForward"
-        class="navForwardIcon navIcon fa-arrow-right"
-        :icon="['fas', 'arrow-right']"
+        class="navIcon arrowForwardDisabled"
+        :icon="['fas', isDirectionLtr ? 'arrow-right' : 'arrow-left']"
         role="button"
         tabindex="0"
         :title="forwardText"

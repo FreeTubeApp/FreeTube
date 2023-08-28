@@ -54,6 +54,15 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    currentLocale: function () {
+      return this.$store.getters.getCurrentLocale
+    },
+
+    isDirectionLtr: function() {
+      const locale = this.currentLocale
+      return !(locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi')
+    },
+
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
@@ -280,8 +289,8 @@ export default defineComponent({
     navigateHistory: function () {
       if (!this.isForwardOrBack) {
         this.historyIndex = window.history.length
-        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
-        this.$refs.historyArrowForward.classList.add('fa-arrow-right')
+        this.$refs.historyArrowBack.classList.remove('arrowBackwardDisabled')
+        this.$refs.historyArrowForward.classList.add('arrowForwardDisabled')
       } else {
         this.isForwardOrBack = false
       }
@@ -293,9 +302,9 @@ export default defineComponent({
 
       if (this.historyIndex > 1) {
         this.historyIndex--
-        this.$refs.historyArrowForward.classList.remove('fa-arrow-right')
+        this.$refs.historyArrowForward.classList.remove('arrowForwardDisabled')
         if (this.historyIndex === 1) {
-          this.$refs.historyArrowBack.classList.add('fa-arrow-left')
+          this.$refs.historyArrowBack.classList.add('arrowBackwardDisabled')
         }
       }
     },
@@ -306,10 +315,10 @@ export default defineComponent({
 
       if (this.historyIndex < window.history.length) {
         this.historyIndex++
-        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
+        this.$refs.historyArrowBack.classList.remove('arrowBackwardDisabled')
 
         if (this.historyIndex === window.history.length) {
-          this.$refs.historyArrowForward.classList.add('fa-arrow-right')
+          this.$refs.historyArrowForward.classList.add('arrowForwardDisabled')
         }
       }
     },
