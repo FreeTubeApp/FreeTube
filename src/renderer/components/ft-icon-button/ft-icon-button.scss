@@ -134,7 +134,8 @@
 
   .listItemDivider {
     border-top: 1px solid var(--tertiary-text-color);
-    margin: 1px auto;
+    margin-block: 1px;
+    margin-inline: auto;
     // Too "visible" with current color
     opacity: 0.5;
     width: 95%;

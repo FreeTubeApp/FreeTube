@@ -158,7 +158,8 @@
   position: static;
   display: block;
   float: none;
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
   top: 0px;
   -ms-transform: none;
   transform: none;

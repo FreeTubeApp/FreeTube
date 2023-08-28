@@ -1,7 +1,7 @@
 .card {
   width: 85%;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  margin-block: 0 30px;
+  margin-inline: auto;
 }
 
 .selected {
