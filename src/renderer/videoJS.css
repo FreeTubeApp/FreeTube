@@ -1313,7 +1313,7 @@ body.vjs-full-window {
   flex: none;
   display: inline-flex;
   height: 100%;
-  padding-left: 0.5em;
+  padding-inline-start: 0.5em;
   padding-right: 0.5em;
   font-size: 1em;
   line-height: 3em;
@@ -1351,7 +1351,7 @@ body.vjs-full-window {
   line-height: 3.7em;
   min-width: 2em;
   width: auto;
-  padding-left: 0em;
+  padding-inline-start: 0em;
   padding-right: 0em;
 }
 
