@@ -3,7 +3,8 @@
 
   h2 {
     background-color: var(--card-bg-color);
-    padding: 10px 0;
+    padding-block: 10px;
+    padding-inline: 0;
     text-align: center;
     width: 100%;
   }
@@ -12,7 +13,8 @@
     background-color: var(--card-bg-color);
     font-size: 10em;
     height: 100%;
-    padding: 20px 0;
+    padding-block: 20px;
+    padding-inline: 0;
     text-align: center;
     width: 100%;
   }

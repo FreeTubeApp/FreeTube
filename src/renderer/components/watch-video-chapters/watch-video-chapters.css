@@ -76,7 +76,8 @@
 .chapterTimestamp {
   grid-area: timestamp;
   align-self: flex-start;
-  padding: 3px 4px;
+  padding-block: 3px;
+  padding-inline: 4px;
   border-radius: 5px;
   background-color: var(--accent-color);
   color: var(--text-with-accent-color);

@@ -24,7 +24,8 @@
 .select {
   position: relative;
   width: 200px;
-  padding: 0px 10px 10px 0;
+  padding-block: 0 10px;
+  padding-inline: 0 10px;
   margin-top: 30px;
 }
 
@@ -39,7 +40,8 @@
   background-color: transparent;
   color: var(--primary-text-color);
   width: 240px;
-  padding: 10px 10px 10px 0;
+  padding-block: 10px;
+  padding-inline: 0 10px;
   font-size: 18px;
   border-radius: 0;
   border: none;

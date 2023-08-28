@@ -53,7 +53,8 @@
   .navOption, .closed .navOption {
     width: 70px;
     height: 40px;
-    padding: 10px 0px;
+    padding-block: 10px;
+    padding-inline: 0;
   }
 
   .navLabel {

@@ -41,7 +41,8 @@
   max-width: max-content;
   min-width: 15em;
   opacity: 0;
-  padding: 10px 8px;
+  padding-block: 10px;
+  padding-inline: 8px;
   pointer-events: none;
   position: absolute;
   text-align: center;

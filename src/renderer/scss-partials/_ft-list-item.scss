@@ -124,7 +124,8 @@ $watched-transition-duration: 0.5s;
       line-height: 1.2;
       margin: 0 4px 4px 0;
       opacity: $thumbnail-overlay-opacity;
-      padding: 3px 4px;
+      padding-block: 3px;
+      padding-inline: 4px;
       pointer-events: none;
 
       @include is-watch-playlist-item {
@@ -278,7 +279,7 @@ $watched-transition-duration: 0.5s;
     display: flex;
     flex-direction: column;
     min-height: 230px;
-    padding-bottom: 20px;
+    padding-block-end: 20px;
 
     .videoThumbnail,
     .channelThumbnail {

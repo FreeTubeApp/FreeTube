@@ -24,8 +24,7 @@
 }
 
 .ft-tag-box li>span {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-block: 10px;
   padding-inline-start: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;

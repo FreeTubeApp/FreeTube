@@ -111,7 +111,7 @@
       color: var(--primary-text-color);
       display: flex;
       font-size: small;
-      padding-top: 10px;
+      padding-block-start: 10px;
       text-decoration-line: none;
       width: 100%;
     }
@@ -128,5 +128,5 @@
 
 .ft-list-item.grid {
   min-height: 0 !important;
-  padding-bottom: 20px;
+  padding-block-end: 20px;
 }

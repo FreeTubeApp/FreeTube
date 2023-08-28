@@ -115,7 +115,8 @@
   .listItem {
     cursor: pointer;
     margin: 0;
-    padding: 8px 10px;
+    padding-block: 8px;
+    padding-inline: 10px;
     transition: background 0.2s ease-out;
     white-space: nowrap;
 

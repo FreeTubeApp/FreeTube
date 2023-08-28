@@ -8,12 +8,13 @@
   }
 
   &[open] {
-    padding-bottom: 15px;
+    padding-block-end: 15px;
   }
 
   > div {
     box-sizing: border-box;
-    padding: 0 20px;
+    padding-block: 0;
+    padding-inline: 20px;
     width: 100%;
   }
 
@@ -94,7 +95,8 @@
     :deep(.switch-ctn.containsTooltip) {
       left: -10px;
       margin-inline-end: 5px;
-      padding: 0 10px;
+      padding-block: 0;
+      padding-inline: 10px;
     }
 
     :not(.select, .selectLabel) {

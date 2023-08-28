@@ -2,7 +2,8 @@
   font-family: 'Roboto', sans-serif;
   min-width: 100px;
   font-size: 0.9rem;
-  padding: 10px 20px;
+  padding-block: 10px;
+  padding-inline: 20px;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;

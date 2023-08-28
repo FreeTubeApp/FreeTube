@@ -3,7 +3,8 @@
   margin-inline-start: auto;
   margin-inline-end: auto;
 
-  padding: 20px 20px 70px 20px;
+  padding-block: 20px 70px;
+  padding-inline: 20px;
   max-height: 410px;
   overflow-y: auto;
 

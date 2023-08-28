@@ -124,7 +124,8 @@
     align-items: center;
     cursor: pointer;
     display: flex;
-    padding: 0 25px 0 10px;
+    padding-block: 0;
+    padding-inline: 10px 25px;
 
     &:active {
       background-color: var(--tertiary-text-color);
