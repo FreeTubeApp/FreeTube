@@ -162,6 +162,6 @@
 @media only screen and (max-width: 680px) {
   .select {
     padding: 0px;
-    margin-right: -15px;
-  }  
+    margin-inline-end: -15px;
+  }
 }

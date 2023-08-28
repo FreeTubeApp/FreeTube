@@ -377,7 +377,7 @@
   line-height: inherit;
   list-style-position: outside;
   margin-inline-start: 0;
-  margin-right: 0;
+  margin-inline-end: 0;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -1113,7 +1113,7 @@ body.vjs-full-window {
 }
 .video-js .vjs-volume-control {
   cursor: pointer;
-  margin-right: 1em;
+  margin-inline-end: 1em;
   display: flex;
 }
 
@@ -1146,7 +1146,7 @@ body.vjs-full-window {
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-horizontal, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-horizontal {
   width: 5em;
   height: 3em;
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-vertical, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-vertical {
   left: -3.5em;
@@ -1337,7 +1337,7 @@ body.vjs-full-window {
 }
 
 .vjs-seek-to-live-control .vjs-icon-placeholder {
-  margin-right: 0.5em;
+  margin-inline-end: 0.5em;
   color: #888;
 }
 
@@ -1729,7 +1729,7 @@ video::-webkit-media-text-track-display {
   }
 }
 .vjs-track-setting > select {
-  margin-right: 1em;
+  margin-inline-end: 1em;
   margin-bottom: 0.5em;
 }
 
@@ -1785,7 +1785,7 @@ video::-webkit-media-text-track-display {
 }
 
 .vjs-track-settings-controls .vjs-default-button {
-  margin-right: 1em;
+  margin-inline-end: 1em;
 }
 
 @media print {
