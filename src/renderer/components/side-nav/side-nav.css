@@ -36,7 +36,7 @@
 }
 
 .topNavOption {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
 .navOption, .navChannel {
@@ -184,13 +184,13 @@
   }
 
   .topNavOption {
-    margin-top: 0px;
+    margin-block-start: 0px;
     padding-inline-start: 10px;
     padding-inline-end: 10px;
   }
 
   .sideNav, .closed {
-    margin-top: 0px;
+    margin-block-start: 0px;
     height: 60px;
     width: 100%;
     bottom: 0px;

@@ -376,8 +376,8 @@
   font-size: inherit;
   line-height: inherit;
   list-style-position: outside;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
+  margin-left: 0;
+  margin-right: 0;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -596,7 +596,7 @@ body.vjs-full-window {
   top: 50%;
   left: 50%;
   margin-top: -0.81666em;
-  margin-inline-start: -1.5em;
+  margin-left: -1.5em;
 }
 
 .video-js:hover .vjs-big-play-button,
@@ -1113,7 +1113,7 @@ body.vjs-full-window {
 }
 .video-js .vjs-volume-control {
   cursor: pointer;
-  margin-inline-end: 1em;
+  margin-right: 1em;
   display: flex;
 }
 
@@ -1127,7 +1127,7 @@ body.vjs-full-window {
   opacity: 0;
   width: 1px;
   height: 1px;
-  margin-inline-start: -1px;
+  margin-left: -1px;
 }
 
 .video-js .vjs-volume-tooltip {
@@ -1146,7 +1146,7 @@ body.vjs-full-window {
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-horizontal, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-horizontal, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-horizontal {
   width: 5em;
   height: 3em;
-  margin-inline-end: 0;
+  margin-right: 0;
 }
 .video-js .vjs-volume-panel.vjs-hover .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel:active .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel:focus .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel .vjs-volume-control:active.vjs-volume-vertical, .video-js .vjs-volume-panel.vjs-hover .vjs-mute-control ~ .vjs-volume-control.vjs-volume-vertical, .video-js .vjs-volume-panel .vjs-volume-control.vjs-slider-active.vjs-volume-vertical {
   left: -3.5em;
@@ -1313,8 +1313,8 @@ body.vjs-full-window {
   flex: none;
   display: inline-flex;
   height: 100%;
-  padding-inline-start: 0.5em;
-  padding-inline-end: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   font-size: 1em;
   line-height: 3em;
   width: auto;
@@ -1337,7 +1337,7 @@ body.vjs-full-window {
 }
 
 .vjs-seek-to-live-control .vjs-icon-placeholder {
-  margin-inline-end: 0.5em;
+  margin-right: 0.5em;
   color: #888;
 }
 
@@ -1351,8 +1351,8 @@ body.vjs-full-window {
   line-height: 3.7em;
   min-width: 2em;
   width: auto;
-  padding-inline-start: 0em;
-  padding-inline-end: 0em;
+  padding-left: 0em;
+  padding-right: 0em;
 }
 
 .vjs-live .vjs-time-control {
@@ -1729,7 +1729,7 @@ video::-webkit-media-text-track-display {
   }
 }
 .vjs-track-setting > select {
-  margin-inline-end: 1em;
+  margin-right: 1em;
   margin-bottom: 0.5em;
 }
 
@@ -1785,7 +1785,7 @@ video::-webkit-media-text-track-display {
 }
 
 .vjs-track-settings-controls .vjs-default-button {
-  margin-inline-end: 1em;
+  margin-right: 1em;
 }
 
 @media print {
@@ -1925,7 +1925,7 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js .vjs-time-control.vjs-current-time {
-    margin-inline-start: 1em
+    margin-left: 1em
 }
 
 .video-js .vjs-time-control .vjs-current-time-display,.video-js .vjs-time-control .vjs-duration-display {
@@ -2017,13 +2017,13 @@ video::-webkit-media-text-track-display {
 }
 
 .video-js.vjs-live .vjs-live-control {
-    margin-inline-start: 1em
+    margin-left: 1em
 }
 
 .video-js .vjs-big-play-button {
     top: 50%;
     left: 50%;
-    margin-inline-start: -1em;
+    margin-left: -1em;
     margin-top: -1em;
     width: 2em;
     height: 2em;

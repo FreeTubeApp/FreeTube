@@ -5,7 +5,7 @@
   line-height: 45px;
   text-align: center;
   cursor: pointer;
-  margin-top: 16px;
+  margin-block-start: 16px;
 }
 
 .getNextPage:hover, .getNextPage:focus {
@@ -13,7 +13,8 @@
 }
 
 .card {
-  margin: 0 auto 20px;
+  margin-block: 0 20px;
+  margin-inline: auto;
   width: 85%;
 }
 

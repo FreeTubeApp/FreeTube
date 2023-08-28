@@ -3,7 +3,7 @@
 }
 
 .chaptersTitle {
-  margin-top: 10px;
+  margin-block-start: 10px;
   margin-bottom: 0;
   cursor: pointer;
 }
@@ -13,7 +13,7 @@
 }
 
 .chaptersWrapper {
-  margin-top: 15px;
+  margin-block-start: 15px;
   max-height: 250px;
   overflow-y: scroll;
   display: flex;

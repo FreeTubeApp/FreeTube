@@ -1,7 +1,8 @@
 /* Thanks to Guus Lieben for the Material Design Switch */
 
 .switch-ctn {
-  margin: 20px 16px;
+  margin-block: 20px;
+  margin-inline: 16px;
   position: relative;
 
   &.compact {

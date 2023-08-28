@@ -35,7 +35,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   left: 0;
   width: 14px;
   height: 14px;
-  margin-top: -9px;
+  margin-block-start: -9px;
   border: 2px solid var(--primary-color);
   text-align: center;
   transition: all 0.4s ease;
@@ -50,7 +50,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   left: 4px;
   width: 10px;
   height: 10px;
-  margin-top: -5px;
+  margin-block-start: -5px;
   transform: scale(0);
   transform-origin: 50%;
   transition: transform 200ms ease-out;
@@ -68,7 +68,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   left: 4px;
   width: 8px;
   height: 3px;
-  margin-top: -4px;
+  margin-block-start: -4px;
   border-style: solid;
   border-width: 0 0 3px 3px;
   border-image: none;

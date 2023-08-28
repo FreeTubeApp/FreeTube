@@ -36,7 +36,8 @@
     grid-area: video;
 
     .videoAreaMargin {
-      margin: 0 0 16px;
+      margin-block: 0 16px;
+      margin-inline: 0;
     }
 
     .videoPlayer {
@@ -65,11 +66,13 @@
         .premiereIcon {
           float: left;
           font-size: 25px;
-          margin: 0 12px;
+          margin-block: 0;
+          margin-inline: 12px;
         }
 
         .premiereText {
-          margin: 0 12px;
+          margin-block: 0;
+          margin-inline: 12px;
           min-width: 200px;
 
           .premiereTextTimestamp {
@@ -83,7 +86,8 @@
 
   .watchVideo {
     grid-column: 1;
-    margin: 0 0 16px;
+    margin-block: 0 16px;
+    margin-inline: 0;
   }
 
   .infoArea {
@@ -106,7 +110,8 @@
   .watchVideoPlaylist,
   .watchVideoSidebar,
   .theatrePlaylist {
-    margin: 0 8px 16px;
+    margin-block: 0 16px;
+    margin-inline: 8px;
   }
 
   .watchVideoSidebar,
@@ -116,7 +121,7 @@
 
   .watchVideoPlaylist {
     :deep(.videoThumbnail) {
-      margin-top: auto;
+      margin-block-start: auto;
       margin-bottom: auto;
     }
     @media (max-width: 768px) {
@@ -126,10 +131,12 @@
 
   .watchVideoRecommendations,
   .theatreRecommendations {
-    margin: 0 0 16px;
+    margin-block: 0 16px;
+    margin-inline: 0;
 
     @media only screen and (min-width: 901px) {
-      margin: 0 8px 16px;
+      margin-block: 0 16px;
+      margin-inline: 8px;
     }
   }
 
@@ -149,7 +156,7 @@
 
   @media only screen and (min-width: 901px) {
     .infoArea {
-      scroll-margin-top: 76px;
+      scroll-margin-block-start: 76px;
     }
 
     .infoAreaSticky {

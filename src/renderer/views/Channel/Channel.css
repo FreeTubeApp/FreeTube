@@ -1,7 +1,8 @@
 .card {
   position: relative;
   width: 85%;
-  margin: 0 auto 20px;
+  margin-block: 0 20px;
+  margin-inline: auto;
   box-sizing: border-box;
 }
 
@@ -28,7 +29,7 @@
 .channelInfoContainer {
   position: relative;
   background-color: var(--card-bg-color);
-  margin-top: 10px;
+  margin-block-start: 10px;
   padding-block: 0;
   padding-inline: 16px;
 }
@@ -125,12 +126,12 @@
 }
 
 .channelSearch {
-  margin-top: 10px;
+  margin-block-start: 10px;
   max-width: 250px;
 }
 
 .elementListLoading {
-  margin-top: 200px;
+  margin-block-start: 200px;
 }
 
 .message {
@@ -144,7 +145,7 @@
   line-height: 45px;
   text-align: center;
   cursor: pointer;
-  margin-top: 16px;
+  margin-block-start: 16px;
 }
 
 .thumbnailContainer {
@@ -197,6 +198,6 @@
     overflow-x: scroll;
   }
   #communityPanel {
-    margin-top: 1rem;
+    margin-block-start: 1rem;
   }
 }

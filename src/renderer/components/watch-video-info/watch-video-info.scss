@@ -13,10 +13,9 @@
   display: block;
   font-size: 22px;
   font-weight: normal;
-  margin: 0 0 24px;
+  margin-block: 0 24px;
+  margin-inline: 0;
   margin-block-end: 1em;
-  margin-inline-end: 0;
-  margin-inline-start: 0;
   word-break: break-word;
 }
 
@@ -45,7 +44,7 @@
   .subscribeButton {
     font-size: 14px;
     margin-inline-start: 6px;
-    margin-top: 6px;
+    margin-block-start: 6px;
     padding: 6px;
   }
 }
@@ -62,14 +61,15 @@
 }
 
 .viewCount {
-  margin: 18px 0 0;
+  margin-block: 18px 0;
+  margin-inline: 0;
 }
 
 .datePublished {
   margin: 4px 0 0;
 
   @media screen and (max-width: 680px) {
-    margin-top: 16px;
+    margin-block-start: 16px;
   }
 }
 
@@ -79,7 +79,7 @@
   flex-direction: column;
   font-size: 16px;
   margin-inline-start: auto;
-  margin-top: 4px;
+  margin-block-start: 4px;
   max-width: 210px;
   text-align: right;
 
@@ -102,7 +102,7 @@
 .videoOptions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px;
+  margin-block-start: 16px;
 
   .option:not(:first-child) {
     margin-inline-start: 4px;

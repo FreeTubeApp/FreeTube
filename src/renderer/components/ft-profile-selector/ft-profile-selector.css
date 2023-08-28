@@ -34,7 +34,7 @@
 }
 
 .profileWrapper {
-  margin-top: 60px;
+  margin-block-start: 60px;
   height: 340px;
   overflow-y: auto;
 }

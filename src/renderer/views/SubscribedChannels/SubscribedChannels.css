@@ -9,7 +9,7 @@
 }
 
 .count {
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .channels {
@@ -17,7 +17,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr) );
   gap: 2.5rem;
-  margin-top: 2rem;
+  margin-block-start: 2rem;
 }
 
 .channel {

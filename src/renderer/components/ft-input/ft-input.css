@@ -42,7 +42,8 @@
   left: 0;
   /* To be higher than `.inputWrapper` */
   z-index: 1;
-  margin: 0 3px;
+  margin-block: 0;
+  margin-inline: 3px;
   padding: 10px;
   border-radius: 100%;
   color: var(--primary-text-color);
@@ -123,7 +124,8 @@
 
 .inputAction {
   position: absolute;
-  margin: 0 3px;
+  margin-block: 0;
+  margin-inline: 3px;
   padding: 10px;
   top: -8px;
   right: 0;

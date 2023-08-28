@@ -20,7 +20,8 @@
 .bubble {
   width: 70px;
   height: 70px;
-  margin: 20px auto 5px auto;
+  margin-block: 20px 5px;
+  margin-inline: auto;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
