@@ -925,6 +925,10 @@ body {
   --red-500: #f44336;
 }
 
+body p, body a {
+  text-align: start;
+}
+
 #app {
   color: var(--primary-text-color);
   background-color: var(--bg-color);
