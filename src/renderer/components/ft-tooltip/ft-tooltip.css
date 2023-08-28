@@ -68,7 +68,7 @@
 }
 
 .text.left {
-  margin-right:1em;
+  margin-inline-end:1em;
   right: 100%;
   top: 50%;
   -webkit-transform: translate(1em, -50%);

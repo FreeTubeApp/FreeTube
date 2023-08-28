@@ -19,7 +19,7 @@
 }
 
 .message {
-  margin-right: 25px;
+  margin-inline-end: 25px;
   cursor: pointer;
 }
 

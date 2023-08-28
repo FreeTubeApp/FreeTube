@@ -59,7 +59,7 @@
   padding: 1px;
   padding-right: 10px;
   margin-inline-start: 2px;
-  margin-right: 2px;
+  margin-inline-end: 2px;
   height: 30px;
   cursor: pointer;
   background-color: var(--primary-color);
@@ -120,7 +120,7 @@
   width: 90%;
   grid-template-columns: auto;
   margin-inline-start: 5%;
-  margin-right: 5%;
+  margin-inline-end: 5%;
   margin-top: 25px;
   margin-bottom: 10px;
   background-color: var(--primary-color);
@@ -198,7 +198,7 @@
 }
 
 .owner {
-  margin-right: 2px;
+  margin-inline-end: 2px;
   background-color: var(--primary-color);
   color: var(--text-with-main-color);
 }

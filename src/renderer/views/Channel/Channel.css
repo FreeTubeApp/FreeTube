@@ -172,7 +172,7 @@
 .ft-community-image {
   display: block;
   margin-inline-start: auto;
-  margin-right: auto;
+  margin-inline-end: auto;
 }
 
 .community-post-container {
