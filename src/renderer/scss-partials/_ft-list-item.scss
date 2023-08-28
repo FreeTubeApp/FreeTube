@@ -85,8 +85,6 @@ $watched-transition-duration: 0.5s;
     .inner {
       grid-column: 1;
       grid-row: 1;
-      user-select: none;
-      -webkit-user-select: none;
     }
 
     .thumbnailLink {
@@ -308,8 +306,7 @@ $watched-transition-duration: 0.5s;
     &:hover .favoritesIcon,
     &:hover .externalPlayerIcon,
     &:focus-within .favoritesIcon,
-    &:focus-within .externalPlayerIcon,
-    &:focus-within .optionsButton {
+    &:focus-within .externalPlayerIcon {
       visibility: visible;
       opacity: $thumbnail-overlay-opacity;
     }
@@ -334,8 +331,6 @@ $watched-transition-duration: 0.5s;
 .live,
 .upcoming {
   text-transform: uppercase;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
 // we use h3 for semantic reasons but don't want to keep the h3 style
