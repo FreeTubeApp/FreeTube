@@ -26,6 +26,6 @@
 .bannerIcon {
   position: absolute;
   top: 35%;
-  right: 10px;
+  inset-inline-end: 10px;
   cursor: pointer;
 }

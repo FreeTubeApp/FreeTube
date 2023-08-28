@@ -131,7 +131,7 @@
 
 .commentHeartBadgeImg {
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -140,7 +140,7 @@
 
 .commentHeartBadgeWhite {
   position: absolute;
-  left: 9px;
+  inset-inline-start: 9px;
   bottom: 1px;
   width: 11px;
   height: 11px;
@@ -150,7 +150,7 @@
 .commentHeartBadgeRed {
   position: absolute;
   color: var(--red-500);
-  left: 10px;
+  inset-inline-start: 10px;
   bottom: 2px;
   width: 9px;
   height: 9px;

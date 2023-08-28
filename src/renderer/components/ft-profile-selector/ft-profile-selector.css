@@ -25,7 +25,7 @@
   display: inline;
   position: absolute;
   top: 60px;
-  right: 10px;
+  inset-inline-end: 10px;
   min-width: 250px;
   height: 400px;
   padding: 5px;
@@ -72,12 +72,12 @@
 .profileListTitle {
   position: absolute;
   margin: 0;
-  left: 10px;
+  inset-inline-start: 10px;
 }
 
 .profileSettings {
   float: right;
   position: absolute;
   top: 10px;
-  right: 5px;
+  inset-inline-end: 5px;
 }

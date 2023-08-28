@@ -11,7 +11,7 @@
 .floatingTopButton {
   position: fixed;
   top: 70px;
-  right: 10px;
+  inset-inline-end: 10px;
 }
 
 @media only screen and (max-width: 350px) {

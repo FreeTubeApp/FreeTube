@@ -39,7 +39,7 @@
 .clearInputTextButton {
   position: absolute;
   top: 5px;
-  left: 0;
+  inset-inline-start: 0;
   /* To be higher than `.inputWrapper` */
   z-index: 1;
   margin-block: 0;
@@ -128,7 +128,7 @@
   margin-inline: 3px;
   padding: 10px;
   top: -8px;
-  right: 0;
+  inset-inline-end: 0;
   border-radius: 100%;
   color: var(--primary-text-color);
   /* this should look disabled by default */
@@ -196,7 +196,8 @@
 
 .list li {
   display: block;
-  padding: 0 15px;
+  padding-block: 0;
+  padding-inline: 15px;
   line-height: 2rem;
 }
 

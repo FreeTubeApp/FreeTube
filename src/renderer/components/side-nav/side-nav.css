@@ -4,7 +4,7 @@
   width: 200px;
   overflow-x: hidden;
   position: sticky;
-  left: 0;
+  inset-inline-start: 0;
   top: 60px;
   z-index: 3;
   box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
@@ -115,7 +115,7 @@
 .refreshIcon {
   position: absolute;
   top: 20px;
-  right: 20px;
+  inset-inline-end: 20px;
 }
 
 .closed .refreshIcon {
@@ -142,7 +142,7 @@
   margin-inline-start: 0px;
   width: 100%;
   text-align: center;
-  left: 0px;
+  inset-inline-start: 0px;
   font-size: 11px;
   margin-block-end: 0em;
 }
@@ -178,7 +178,7 @@
 
   .sideNav {
     position: fixed;
-    left: 0;
+    inset-inline-start: 0;
     bottom: 0;
 
     display: flex;
@@ -211,7 +211,7 @@
     margin-inline-start: 0px;
     width: 100%;
     text-align: center;
-    left: 0px;
+    inset-inline-start: 0px;
     font-size: 11px;
   }
 

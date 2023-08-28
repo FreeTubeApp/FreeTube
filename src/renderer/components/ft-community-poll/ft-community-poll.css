@@ -11,7 +11,7 @@
   display: block;
   float: left;
   height: 10px;
-  left: 5px;
+  inset-inline-start: 5px;
   position: relative;
   top: 8px;
   width: 10px;
@@ -22,7 +22,7 @@
   background-color: black;
   float: left;
   height: 6px;
-  left: 2px;
+  inset-inline-start: 2px;
   top: 2px;
   position: relative;
   width: 6px;

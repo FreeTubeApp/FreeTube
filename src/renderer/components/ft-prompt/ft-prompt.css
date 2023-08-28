@@ -1,7 +1,7 @@
 .prompt {
   position: fixed;
   top: 0px;
-  left: 0px;
+  inset-inline-start: 0px;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -24,7 +24,7 @@
   width: 95%;
   margin: 0;
   position: absolute;
-  left: 2.5%;
+  inset-inline-start: 2.5%;
   box-sizing: border-box;
 }
 

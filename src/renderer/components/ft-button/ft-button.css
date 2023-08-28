@@ -38,7 +38,7 @@
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   pointer-events: none;
   background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
   background-repeat: no-repeat;
