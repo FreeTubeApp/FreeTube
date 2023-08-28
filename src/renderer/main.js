@@ -26,6 +26,8 @@ import {
   faExchangeAlt,
   faExclamationCircle,
   faExternalLinkAlt,
+  faEye,
+  faEyeSlash,
   faFileDownload,
   faFileVideo,
   faFilter,
@@ -57,8 +59,6 @@ import {
   faTimes,
   faTimesCircle,
   faUsers,
-  faEye,
-  faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBitcoin,
@@ -94,6 +94,8 @@ library.add(
   faExchangeAlt,
   faExclamationCircle,
   faExternalLinkAlt,
+  faEye,
+  faEyeSlash,
   faFileDownload,
   faFileVideo,
   faFilter,
@@ -125,8 +127,6 @@ library.add(
   faTimes,
   faTimesCircle,
   faUsers,
-  faEye,
-  faEyeSlash,
 
   // brand icons
   faGithub,
