@@ -7,7 +7,7 @@
 .floatingTopButton {
   position: fixed;
   top: 70px;
-  right: 10px;
+  inset-inline-end: 10px;
 }
 
 .trendingInfoTabs {

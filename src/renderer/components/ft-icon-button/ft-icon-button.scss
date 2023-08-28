@@ -91,11 +91,11 @@
   z-index: 3;
 
   &.left {
-    right: calc(50% - 10px);
+    inset-inline-end: calc(50% - 10px);
   }
 
   &.right {
-    left: calc(50% - 10px);
+    inset-inline-start: calc(50% - 10px);
   }
 
   &.top {

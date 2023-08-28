@@ -1,6 +1,6 @@
 .toast-holder {
   position: fixed;
-  left: 50vw;
+  inset-inline-start: 50vw;
   transform: translate(-50%, 0);
   bottom: 50px;
   z-index: 1;

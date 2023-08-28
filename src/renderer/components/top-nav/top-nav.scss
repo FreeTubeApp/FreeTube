@@ -14,10 +14,10 @@
   box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
   display: flex;
   height: 60px;
-  left: 0;
+  inset-inline-start: 0;
   line-height: 60px;
   position: sticky;
-  right: 0;
+  inset-inline-end: 0;
   top: 0;
   width: 100%;
   z-index: 4;
@@ -182,9 +182,9 @@
 
     @media only screen and (max-width: 680px) {
       background-color: var(--side-nav-color);
-      left: 0;
+      inset-inline-start: 0;
       position: fixed;
-      right: 0;
+      inset-inline-end: 0;
       top: 60px;
 
       @include top-nav-is-colored {
@@ -198,18 +198,18 @@
   }
 
   .searchFilters {
-    left: 0;
+    inset-inline-start: 0;
     margin-block: 10px 20px;
     margin-inline: 220px 20px;
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     transition: margin 150ms ease-in-out;
 
     @media only screen and (max-width: 680px) {
-      left: 0;
+      inset-inline-start: 0;
       margin-block: 95px 0;
       margin-inline: 10px;
-      right: 0;
+      inset-inline-end: 0;
     }
   }
 }

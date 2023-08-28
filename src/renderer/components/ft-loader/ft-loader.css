@@ -51,7 +51,7 @@
     opacity: 0.6;
     position: absolute;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     background-color: var(--primary-color);
 
     -webkit-animation: sk-bounce 2.0s infinite ease-in-out;

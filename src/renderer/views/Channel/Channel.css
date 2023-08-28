@@ -62,7 +62,7 @@
 .channelSubCount {
   color: var(--tertiary-text-color);
   top: 50px;
-  left: 120px;
+  inset-inline-start: 120px;
 }
 
 .channelInfoActionsContainer {

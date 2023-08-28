@@ -212,7 +212,7 @@
   width: 35px;
   height: 35px;
   position: absolute;
-  left: 45%;
+  inset-inline-start: 45%;
   bottom: 20px;
   cursor: pointer;
   border-radius: 200px;

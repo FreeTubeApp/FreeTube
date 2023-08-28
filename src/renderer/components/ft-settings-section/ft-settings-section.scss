@@ -89,12 +89,12 @@
   .settingsSection {
     > div {
       :deep(.text.bottom) {
-        left: -85px;
+        inset-inline-start: -85px;
       }
     }
 
     :deep(.switch-ctn.containsTooltip) {
-      left: -10px;
+      inset-inline-start: -10px;
       margin-inline-end: 5px;
       padding-block: 0;
       padding-inline: 10px;
@@ -104,13 +104,13 @@
       > :deep(.tooltip) {
         display: inline-block;
         position: absolute;
-        right: -25px;
+        inset-inline-end: -25px;
         top: 12px;
       }
     }
 
     .settingsFlexStart460px :deep(.tooltip) {
-      right: 0;
+      inset-inline-end: 0;
       top: -2px;
     }
 

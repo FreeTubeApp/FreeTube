@@ -112,8 +112,8 @@
     justify-content: flex-start;
 
     :deep(.iconDropdown) {
-      left: calc(50% - 20px);
-      right: auto;
+      inset-inline-start: calc(50% - 20px);
+      inset-inline-end: auto;
     }
   }
 }

@@ -32,7 +32,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   color: var(--primary-color);
   position: absolute;
   top: 50%;
-  left: 0;
+  inset-inline-start: 0;
   width: 14px;
   height: 14px;
   margin-block-start: -9px;
@@ -47,7 +47,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   background-color: var(--primary-color);
   position: absolute;
   top: 50%;
-  left: 4px;
+  inset-inline-start: 4px;
   width: 10px;
   height: 10px;
   margin-block-start: -5px;
@@ -65,7 +65,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 .pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after {
   background-color: transparent;
   top: 50%;
-  left: 4px;
+  inset-inline-start: 4px;
   width: 8px;
   height: 3px;
   margin-block-start: -4px;
