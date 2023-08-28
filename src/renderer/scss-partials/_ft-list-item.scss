@@ -232,6 +232,7 @@ $watched-transition-duration: 0.5s;
       grid-area: infoLine;
       margin-block-start: 5px;
       overflow-wrap: anywhere;
+      text-align: start;
 
       @include is-sidebar-item {
         font-size: 12px;
