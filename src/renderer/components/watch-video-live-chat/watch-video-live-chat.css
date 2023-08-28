@@ -57,7 +57,7 @@
 .superChat {
   display: inline-block;
   padding: 1px;
-  padding-right: 10px;
+  padding-inline-end: 10px;
   margin-inline-start: 2px;
   margin-inline-end: 2px;
   height: 30px;
@@ -89,7 +89,7 @@
   height: 415px;
   position: absolute;
   margin-inline-start: -16px;
-  padding-right: 32px;
+  padding-inline-end: 32px;
   bottom: -15px;
   cursor: auto;
   z-index: 1;
@@ -186,7 +186,7 @@
 .channelName {
   color: var(--tertiary-text-color);
   font-weight: bold;
-  padding-right: 5px;
+  padding-inline-end: 5px;
 }
 
 .member {

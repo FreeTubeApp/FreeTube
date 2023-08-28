@@ -1314,7 +1314,7 @@ body.vjs-full-window {
   display: inline-flex;
   height: 100%;
   padding-inline-start: 0.5em;
-  padding-right: 0.5em;
+  padding-inline-end: 0.5em;
   font-size: 1em;
   line-height: 3em;
   width: auto;
@@ -1352,7 +1352,7 @@ body.vjs-full-window {
   min-width: 2em;
   width: auto;
   padding-inline-start: 0em;
-  padding-right: 0em;
+  padding-inline-end: 0em;
 }
 
 .vjs-live .vjs-time-control {

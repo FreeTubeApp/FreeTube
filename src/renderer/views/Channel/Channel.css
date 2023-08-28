@@ -177,7 +177,7 @@
 
 .community-post-container {
   padding-inline-start: 30%;
-  padding-right: 30%;
+  padding-inline-end: 30%;
 }
 
 @media only screen and (max-width: 800px) {

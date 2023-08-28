@@ -184,7 +184,7 @@
   .topNavOption {
     margin-top: 0px;
     padding-inline-start: 10px;
-    padding-right: 10px;
+    padding-inline-end: 10px;
   }
 
   .sideNav, .closed {

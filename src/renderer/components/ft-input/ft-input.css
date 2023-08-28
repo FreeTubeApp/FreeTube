@@ -153,7 +153,7 @@
   With arrow present means
   the text might get under the arrow with normal padding
    */
-  padding-right: calc(36px + 6px);
+  padding-inline-end: calc(36px + 6px);
 }
 
 .inputAction.enabled:hover {
