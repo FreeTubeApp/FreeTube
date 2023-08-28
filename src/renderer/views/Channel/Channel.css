@@ -75,13 +75,13 @@
 
 .channelSearch {
   width: 220px;
-  margin-left: auto;
+  margin-inline-start: auto;
   align-self: flex-end;
   flex: 1 1 0%;
 }
 
 .sortSelect {
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .channelInfoTabs {
@@ -171,7 +171,7 @@
 
 .ft-community-image {
   display: block;
-  margin-left: auto;
+  margin-inline-start: auto;
   margin-right: auto;
 }
 

@@ -57,7 +57,7 @@
   }
 
   .navLabel {
-    margin-left: 0px;
+    margin-inline-start: 0px;
     width: 100%;
     text-align: center;
     left: 0px;
@@ -65,7 +65,7 @@
   }
 
   .navIcon {
-    margin-left: 0px;
+    margin-inline-start: 0px;
     width: 100%;
     display: block;
     margin-top: 0.5em;

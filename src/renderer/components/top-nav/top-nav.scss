@@ -87,7 +87,7 @@
 .navFilterIcon {
   $effect-distance: 10px;
 
-  margin-left: $effect-distance;
+  margin-inline-start: $effect-distance;
 
   &.filterChanged {
     box-shadow: 0 0 $effect-distance var(--primary-color);
@@ -154,7 +154,7 @@
       background-repeat: no-repeat;
       background-size: 100px;
       height: 40px;
-      margin-left: 5px;
+      margin-inline-start: 5px;
       position: relative;
       top: -3px;
       width: 100px;

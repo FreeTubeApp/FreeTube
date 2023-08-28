@@ -77,7 +77,7 @@
 
 .text.right {
   left: 100%;
-  margin-left: 1em;
+  margin-inline-start: 1em;
   top: 50%;
   -webkit-transform: translate(-1em, -50%);
   transform: translate(-1em, -50%);

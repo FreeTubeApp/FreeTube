@@ -16,7 +16,7 @@
 }
 
 .playlistProgressBar {
-  margin-left: 10px;
+  margin-inline-start: 10px;
   /* > In order to let ::-webkit-progress-value take effect, appearance needs to be set to none on the <progress> element. */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
   appearance: none;
@@ -89,7 +89,7 @@
 }
 
 .videoInfo {
-  margin-left: 30px;
+  margin-inline-start: 30px;
   position: relative;
   bottom: 7px;
 }
