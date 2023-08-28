@@ -18,7 +18,7 @@
   line-height: 60px;
   position: sticky;
   inset-inline-end: 0;
-  top: 0;
+  inset-block-start: 0;
   width: 100%;
   z-index: 4;
 
@@ -158,7 +158,7 @@
       height: 40px;
       margin-inline-start: 5px;
       position: relative;
-      top: -3px;
+      inset-block-start: -3px;
       width: 100px;
 
       @media only screen and (max-width: 680px) {
@@ -185,7 +185,7 @@
       inset-inline-start: 0;
       position: fixed;
       inset-inline-end: 0;
-      top: 60px;
+      inset-block-start: 60px;
 
       @include top-nav-is-colored {
         background-color: var(--primary-color-hover);

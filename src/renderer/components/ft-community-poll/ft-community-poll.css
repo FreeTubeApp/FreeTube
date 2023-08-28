@@ -13,7 +13,7 @@
   height: 10px;
   inset-inline-start: 5px;
   position: relative;
-  top: 8px;
+  inset-block-start: 8px;
   width: 10px;
 }
 
@@ -23,7 +23,7 @@
   float: left;
   height: 6px;
   inset-inline-start: 2px;
-  top: 2px;
+  inset-block-start: 2px;
   position: relative;
   width: 6px;
 }

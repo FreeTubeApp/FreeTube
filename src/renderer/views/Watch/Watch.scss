@@ -64,7 +64,7 @@
         align-items: center;
         background-color: rgb(0 0 0 / 80%);
         border-radius: 5px;
-        bottom: 12px;
+        inset-block-end 12px;
         color: #fff;
         display: flex;
         height: 60px;
@@ -132,7 +132,7 @@
   .watchVideoPlaylist {
     :deep(.videoThumbnail) {
       margin-block-start: auto;
-      margin-bottom: auto;
+      margin-block-end: auto;
     }
     @media (max-width: 768px) {
       height: auto;
@@ -171,7 +171,7 @@
 
     .infoAreaSticky {
       position: sticky;
-      top: 76px;
+      inset-block-start: 76px;
     }
   }
 }

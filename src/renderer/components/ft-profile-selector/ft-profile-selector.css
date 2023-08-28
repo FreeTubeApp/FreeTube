@@ -24,7 +24,7 @@
 .profileList {
   display: inline;
   position: absolute;
-  top: 60px;
+  inset-block-start: 60px;
   inset-inline-end: 10px;
   min-width: 250px;
   height: 400px;
@@ -58,7 +58,7 @@
 .profile .colorOption {
   float: left;
   position: relative;
-  bottom: 5px;
+  inset-block-end 5px;
   margin: 10px;
 }
 
@@ -78,6 +78,6 @@
 .profileSettings {
   float: right;
   position: absolute;
-  top: 10px;
+  inset-block-start: 10px;
   inset-inline-end: 5px;
 }

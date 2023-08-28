@@ -1,6 +1,6 @@
 .prompt {
   position: fixed;
-  top: 0px;
+  inset-block-start: 0px;
   inset-inline-start: 0px;
   width: 100vw;
   height: 100vh;

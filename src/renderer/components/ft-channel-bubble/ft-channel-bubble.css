@@ -31,7 +31,7 @@
 
 .selected {
   position: absolute;
-  top: 10px;
+  inset-block-start: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -39,7 +39,7 @@
   color: #EEEEEE;
   font-size: 25px;
   position: absolute;
-  top: 12px;
+  inset-block-start: 12px;
   inset-inline-start: 12px;
 }
 

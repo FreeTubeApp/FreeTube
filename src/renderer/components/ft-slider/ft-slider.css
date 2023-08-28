@@ -18,7 +18,7 @@
 .pure-material-slider > input {
   -webkit-appearance: none;
   position: relative;
-  top: 24px;
+  inset-block-start: 24px;
   display: block;
   margin-block: 0 -36px;
   margin-inline: 0;
@@ -37,7 +37,7 @@
 /* Span */
 .pure-material-slider > span {
   display: inline-block;
-  margin-bottom: 36px;
+  margin-block-end: 36px;
 }
 
 /* Focus */

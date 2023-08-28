@@ -10,7 +10,7 @@
 
 .floatingTopButton {
   position: fixed;
-  top: 70px;
+  inset-block-start: 70px;
   inset-inline-end: 10px;
 }
 

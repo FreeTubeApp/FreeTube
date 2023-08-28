@@ -6,7 +6,7 @@
 
 .floatingTopButton {
   position: fixed;
-  top: 70px;
+  inset-block-start: 70px;
   inset-inline-end: 10px;
 }
 
@@ -16,15 +16,15 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-block-start: -3px;
   color: var(--tertiary-text-color);
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
 .selectedTab {
-  border-bottom: 3px solid var(--primary-color);
+  border-block-end: 3px solid var(--primary-color);
   color: var(--primary-text-color);
   font-weight: bold;
   box-sizing: border-box;
-  margin-bottom: -3px;
+  margin-block-end: -3px;
 }
 
 .tab {

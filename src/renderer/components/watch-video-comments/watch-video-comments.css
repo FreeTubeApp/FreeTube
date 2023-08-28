@@ -99,7 +99,7 @@
   margin-block-end: 0;
   margin-block-start: 0;
   margin-inline-start: 68px;
-  margin-bottom: 5px;
+  margin-block-end: 5px;
 }
 
 .commentDate {
@@ -126,7 +126,7 @@
   width: 25px;
   height: 20px;
   margin-inline-start: 10px;
-  margin-bottom: -7px;
+  margin-block-end: -7px;
 }
 
 .commentHeartBadgeImg {
@@ -141,7 +141,7 @@
 .commentHeartBadgeWhite {
   position: absolute;
   inset-inline-start: 9px;
-  bottom: 1px;
+  inset-block-end 1px;
   width: 11px;
   height: 11px;
   z-index: 1;
@@ -151,7 +151,7 @@
   position: absolute;
   color: var(--red-500);
   inset-inline-start: 10px;
-  bottom: 2px;
+  inset-block-end 2px;
   width: 9px;
   height: 9px;
   z-index: 2;

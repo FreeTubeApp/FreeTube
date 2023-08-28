@@ -38,7 +38,7 @@
 
 .clearInputTextButton {
   position: absolute;
-  top: 5px;
+  inset-block-start: 5px;
   inset-inline-start: 0;
   /* To be higher than `.inputWrapper` */
   z-index: 1;
@@ -69,7 +69,7 @@
 }
 
 .search .clearInputTextButton {
-  top: 12px;
+  inset-block-start: 12px;
 }
 
 .forceTextColor .clearInputTextButton {
@@ -88,7 +88,7 @@
   width: 100%;
   padding: 1rem;
   border: none;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   font-size: 16px;
   height: 45px;
   color: var(--secondary-text-color);
@@ -127,7 +127,7 @@
   margin-block: 0;
   margin-inline: 3px;
   padding: 10px;
-  top: -8px;
+  inset-block-start: -8px;
   inset-inline-end: 0;
   border-radius: 100%;
   color: var(--primary-text-color);

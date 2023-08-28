@@ -59,6 +59,6 @@
 
   .flexBox {
     margin-block-start: 60px;
-    margin-bottom: -75px;
+    margin-block-end: -75px;
   }
 }

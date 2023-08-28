@@ -38,7 +38,7 @@
     margin-inline-start: 6px;
     position: relative;
     text-decoration: inherit;
-    top: -2px;
+    inset-block-start: -2px;
   }
 
   .subscribeButton {
@@ -91,7 +91,7 @@
   .likeBar {
     border-radius: 4px;
     height: 8px;
-    margin-bottom: 4px;
+    margin-block-end: 4px;
   }
 
   .likeCount {

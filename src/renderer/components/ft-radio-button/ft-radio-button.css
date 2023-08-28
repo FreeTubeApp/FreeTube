@@ -23,7 +23,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   user-select: none;
   cursor: pointer;
   display: block;
-  margin-bottom: -20px;
+  margin-block-end: -20px;
 }
 
 .pure-checkbox input[type="checkbox"] + label:before, .pure-radiobutton input[type="checkbox"] + label:before, .pure-checkbox input[type="radio"] + label:before, .pure-radiobutton input[type="radio"] + label:before {
@@ -31,7 +31,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   content: '';
   color: var(--primary-color);
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   inset-inline-start: 0;
   width: 14px;
   height: 14px;
@@ -46,7 +46,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   content: '';
   background-color: var(--primary-color);
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   inset-inline-start: 4px;
   width: 10px;
   height: 10px;
@@ -64,7 +64,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 
 .pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after {
   background-color: transparent;
-  top: 50%;
+  inset-block-start: 50%;
   inset-inline-start: 4px;
   width: 8px;
   height: 3px;
@@ -103,5 +103,5 @@ borderscale {  50% {
 }
 
 .radioTitle {
-  margin-bottom: -20px;
+  margin-block-end: -20px;
 }
