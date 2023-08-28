@@ -6,12 +6,12 @@
 .channelName {
   font-size: 15px;
   position: relative;
-  inset-block-end 15px;
+  inset-block-end: 15px;
 }
 
 .playlistIndex {
   position: relative;
-  inset-block-end 15px;
+  inset-block-end: 15px;
   color: var(--tertiary-text-color);
 }
 
@@ -91,5 +91,5 @@
 .videoInfo {
   margin-inline-start: 30px;
   position: relative;
-  inset-block-end 7px;
+  inset-block-end: 7px;
 }

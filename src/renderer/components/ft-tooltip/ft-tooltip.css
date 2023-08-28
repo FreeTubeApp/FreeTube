@@ -85,7 +85,7 @@
 }
 
 .text.top {
-  inset-block-end 100%;
+  inset-block-end: 100%;
   inset-inline-start: 50%;
   margin-block-end: 1em;
   -webkit-transform: translate(-50%, 1em);
