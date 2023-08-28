@@ -56,8 +56,8 @@
     color: var(--text-with-main-color);
   }
 
-  &.fa-arrow-left,
-  &.fa-arrow-right {
+  &.arrowBackwardDisabled,
+  &.arrowForwardDisabled {
     color: gray;
     opacity: 0.5;
     pointer-events: none;
