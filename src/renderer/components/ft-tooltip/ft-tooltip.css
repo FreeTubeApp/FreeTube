@@ -54,7 +54,7 @@
 
 .text.bottom {
   margin-block-start: 1em;
-  top: 100%;
+  inset-block-start: 100%;
   inset-inline-start: 50%;
   -webkit-transform: translate(-50%, -1em);
   transform: translate(-50%, -1em);
@@ -62,7 +62,7 @@
 
 .text.bottom-left {
   margin-block-start: 1em;
-  top: 100%;
+  inset-block-start: 100%;
   inset-inline-start: -100px;
   -webkit-transform: translate(-50%, -1em);
   transform: translate(-50%, -1em);
@@ -71,7 +71,7 @@
 .text.left {
   margin-inline-end:1em;
   inset-inline-end: 100%;
-  top: 50%;
+  inset-block-start: 50%;
   -webkit-transform: translate(1em, -50%);
   transform: translate(1em, -50%);
 }
@@ -79,15 +79,15 @@
 .text.right {
   inset-inline-start: 100%;
   margin-inline-start: 1em;
-  top: 50%;
+  inset-block-start: 50%;
   -webkit-transform: translate(-1em, -50%);
   transform: translate(-1em, -50%);
 }
 
 .text.top {
-  bottom: 100%;
+  inset-block-end 100%;
   inset-inline-start: 50%;
-  margin-bottom: 1em;
+  margin-block-end: 1em;
   -webkit-transform: translate(-50%, 1em);
   transform: translate(-50%, 1em);
 }

@@ -5,7 +5,7 @@
   overflow-x: hidden;
   position: sticky;
   inset-inline-start: 0;
-  top: 60px;
+  inset-block-start: 60px;
   z-index: 3;
   box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
   background-color: var(--side-nav-color);
@@ -85,7 +85,7 @@
   width: 35px;
   margin: 0;
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -114,7 +114,7 @@
 
 .refreshIcon {
   position: absolute;
-  top: 20px;
+  inset-block-start: 20px;
   inset-inline-end: 20px;
 }
 
@@ -132,7 +132,7 @@
   margin-inline-start: 0px;
   width: 100%;
   display: block;
-  margin-bottom: 0px;
+  margin-block-end: 0px;
 }
 .closed .navIconExpand{
   height:1.3em;
@@ -160,7 +160,7 @@
   float: none;
   margin-block: 0;
   margin-inline: auto;
-  top: 0px;
+  inset-block-start: 0px;
   -ms-transform: none;
   transform: none;
   margin-block-start: 0.3em;
@@ -179,7 +179,7 @@
   .sideNav {
     position: fixed;
     inset-inline-start: 0;
-    bottom: 0;
+    inset-block-end 0;
 
     display: flex;
   }
@@ -194,8 +194,8 @@
     margin-block-start: 0px;
     height: 60px;
     width: 100%;
-    bottom: 0px;
-    top: auto;
+    inset-block-end 0px;
+    inset-block-start: auto;
     overflow-y: hidden;
   }
 

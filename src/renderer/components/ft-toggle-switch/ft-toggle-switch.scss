@@ -15,7 +15,7 @@
   height: 20px;
   inset-inline-start: -3px;
   position: absolute;
-  top: calc(50% - 3px);
+  inset-block-start: calc(50% - 3px);
   transform: translate(0, -50%);
   width: 34px;
 }
@@ -35,7 +35,7 @@
     margin: 0;
     outline: 0;
     position: absolute;
-    top: 50%;
+    inset-block-start: 50%;
     transform: translate(0, -50%);
     transition: all 0.3s ease;
   }

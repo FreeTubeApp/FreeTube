@@ -91,7 +91,7 @@
   position: absolute;
   margin-inline-start: -16px;
   padding-inline-end: 32px;
-  bottom: -15px;
+  inset-block-end -15px;
   cursor: auto;
   z-index: 1;
 }
@@ -122,7 +122,7 @@
   margin-inline-start: 5%;
   margin-inline-end: 5%;
   margin-block-start: 25px;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   background-color: var(--primary-color);
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -148,7 +148,7 @@
   color: var(--text-with-main-color);
   opacity: 0.7;
   position: absolute;
-  top: -20px;
+  inset-block-start: -20px;
   margin-inline-start: 65px;
 }
 
@@ -157,7 +157,7 @@
   font-weight: bold;
   margin-inline-start: 65px;
   position: absolute;
-  top: 0px;
+  inset-block-start: 0px;
 }
 
 .superChatMessage .chatMessage {
@@ -178,7 +178,7 @@
 
 .chatContent {
   margin-block-start: 5px;
-  margin-bottom: 2px;
+  margin-block-end: 2px;
   font-size: 12px;
   word-wrap: break-word;
 }
@@ -213,7 +213,7 @@
   height: 35px;
   position: absolute;
   inset-inline-start: 45%;
-  bottom: 20px;
+  inset-block-end 20px;
   cursor: pointer;
   border-radius: 200px;
   -webkit-border-radius: 200px;
@@ -231,5 +231,5 @@
   color: var(--text-with-accent-color);
   font-size: 22px;
   position: relative;
-  top: 0.45rem;
+  inset-block-start: 0.45rem;
 }

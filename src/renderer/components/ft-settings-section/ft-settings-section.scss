@@ -21,7 +21,7 @@
 
   > div:not(:last-child, .ft-flex-box) {
     @media only screen and (max-width: 800px) {
-      margin-bottom: 20px;
+      margin-block-end: 20px;
     }
   }
 }
@@ -105,13 +105,13 @@
         display: inline-block;
         position: absolute;
         inset-inline-end: -25px;
-        top: 12px;
+        inset-block-start: 12px;
       }
     }
 
     .settingsFlexStart460px :deep(.tooltip) {
       inset-inline-end: 0;
-      top: -2px;
+      inset-block-start: -2px;
     }
 
     :deep(.switch-ctn) {

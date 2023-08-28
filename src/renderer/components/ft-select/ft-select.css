@@ -67,7 +67,7 @@
 
 .iconSelect {
   position: absolute;
-  top: 10px;
+  inset-block-start: 10px;
   inset-inline-end: 15px;
   /* Styling the down arrow */
   padding: 0;
@@ -80,7 +80,7 @@
 
 .selectTooltip {
   position: absolute;
-  top: -20px;
+  inset-block-start: -20px;
   inset-inline-end: 17px;
 }
 
@@ -91,7 +91,7 @@
   font-weight: normal;
   position: absolute;
   inset-inline-start: 0;
-  top: 10px;
+  inset-block-start: 10px;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
 }
@@ -99,7 +99,7 @@
 /* active state */
 .select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
   color: var(--accent-color);
-  top: -20px;
+  inset-block-start: -20px;
   transition: 0.2s ease all;
   font-size: 14px;
 }
@@ -115,7 +115,7 @@
   content: '';
   height: 2px;
   width: 0;
-  bottom: 1px;
+  inset-block-end 1px;
   position: absolute;
   background: var(--accent-color);
   transition: 0.2s ease all;
@@ -139,7 +139,7 @@
   position: absolute;
   height: 60%;
   width: 100px;
-  top: 25%;
+  inset-block-start: 25%;
   inset-inline-start: 0;
   pointer-events: none;
   opacity: 0.5;

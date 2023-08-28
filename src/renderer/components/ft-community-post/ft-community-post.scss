@@ -65,7 +65,7 @@
   .likeBar {
     border-radius: 4px;
     height: 8px;
-    margin-bottom: 4px;
+    margin-block-end: 4px;
   }
 
   .likeCount {
@@ -79,7 +79,7 @@
 
   .videoThumbnail {
     display: flex;
-    margin-bottom: auto;
+    margin-block-end: auto;
     margin-block-start: auto;
     position: relative;
     width: fit-content;

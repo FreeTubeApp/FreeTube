@@ -99,11 +99,11 @@
   }
 
   &.top {
-    bottom: 45px;
+    inset-block-end 45px;
   }
 
   &.bottom {
-    top: 45px;
+    inset-block-start: 45px;
   }
 
   .list {
@@ -133,7 +133,7 @@
   }
 
   .listItemDivider {
-    border-top: 1px solid var(--tertiary-text-color);
+    border-block-start: 1px solid var(--tertiary-text-color);
     margin-block: 1px;
     margin-inline: auto;
     // Too "visible" with current color

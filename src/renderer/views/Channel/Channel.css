@@ -61,7 +61,7 @@
 
 .channelSubCount {
   color: var(--tertiary-text-color);
-  top: 50px;
+  inset-block-start: 50px;
   inset-inline-start: 120px;
 }
 
@@ -109,18 +109,18 @@
   align-self: flex-end;
   text-align: center;
   color: var(--tertiary-text-color);
-  border-bottom: 3px solid transparent;
+  border-block-end: 3px solid transparent;
 }
 
 .tab:hover,
 .tab:focus {
   font-weight: bold;
-  border-bottom: 3px solid var(--tertiary-text-color);
+  border-block-end: 3px solid var(--tertiary-text-color);
 }
 
 .selectedTab {
   color: var(--primary-text-color);
-  border-bottom: 3px solid var(--primary-color);
+  border-block-end: 3px solid var(--primary-color);
   font-weight: bold;
   box-sizing: border-box;
 }

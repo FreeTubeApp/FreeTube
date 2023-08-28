@@ -4,7 +4,7 @@
 
 .chaptersTitle {
   margin-block-start: 10px;
-  margin-bottom: 0;
+  margin-block-end: 0;
   cursor: pointer;
 }
 

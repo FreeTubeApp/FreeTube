@@ -22,7 +22,7 @@
 
 :deep(.chapterMarker) {
   height: 100%;
-  top: 0;
+  inset-block-start: 0;
   width: 2px;
   z-index: 2;
   background-color: #000;
