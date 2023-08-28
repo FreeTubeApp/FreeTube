@@ -124,7 +124,8 @@
 
 .closed .navOption {
   width: 100%;
-  padding: 5px 0px;
+  padding-block: 5px;
+  padding-inline: 0;
 }
 
 .closed .navIcon {
@@ -149,7 +150,8 @@
 .closed .navChannel {
   width: 100%;
   height: 45px;
-  padding: 5px 0px;
+  padding-block: 5px;
+  padding-inline: 0;
 }
 
 .closed .thumbnailContainer {
@@ -200,8 +202,8 @@
     width: 70px;
     height: 40px;
     padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
   }
 
   .navLabel {

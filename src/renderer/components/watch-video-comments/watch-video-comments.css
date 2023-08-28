@@ -1,5 +1,6 @@
 .card {
-  padding: 0 16px;
+  padding-block: 0;
+  padding-inline: 16px;
 }
 
 .getCommentsTitle,
@@ -9,8 +10,7 @@
 }
 
 .getCommentsTitle {
-  padding-bottom: 8px;
-  padding-top: 8px;
+  padding-block: 8px;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
@@ -18,15 +18,12 @@
 }
 
 .noCommentMsg {
-  padding-top: 1em;
-  padding-bottom: 1em;
-
+  padding-block: 1em;
   text-align: center;
 }
 
 .commentsTitle {
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-block: 1em;
 }
 
 .commentSort {
@@ -81,7 +78,7 @@
 .commentOwner {
   background-color: var(--scrollbar-color);
   border-radius: 10px;
-  padding: 0 10px;
+  padding-inline: 10px;
 }
 
 .commentAuthor {
@@ -180,7 +177,7 @@
 }
 
 .getMoreComments {
-  padding-bottom: 1em;
+  padding-block-end: 1em;
 
   text-align: center;
   text-decoration: underline;

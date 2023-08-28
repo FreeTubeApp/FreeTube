@@ -29,7 +29,8 @@
   position: relative;
   background-color: var(--card-bg-color);
   margin-top: 10px;
-  padding: 0 16px;
+  padding-block: 0;
+  padding-inline: 16px;
 }
 
 .channelInfo {
@@ -40,7 +41,7 @@
 }
 
 .channelInfoHasError {
-  padding-bottom: 10px;
+  padding-block-end: 10px;
 }
 
 .channelThumbnail {
@@ -90,7 +91,8 @@
   height: auto;
   justify-content: unset;
   gap: 32px;
-  padding: .3em 0;
+  padding-block: .3em;
+  padding-inline: 0;
 }
 
 .tabs {

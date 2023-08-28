@@ -1,5 +1,5 @@
 .vote-count {
-  padding-bottom: 6px;
+  padding-block-end: 6px;
   font-size: smaller;
 }
 
@@ -16,7 +16,7 @@
   top: 8px;
   width: 10px;
 }
-  
+
 .filled-circle {
   border-radius: 50%;
   background-color: black;
@@ -32,11 +32,12 @@
   border-radius: 5px;
   border-style: solid;
   border-width: 2px;
-  padding: 5px 25px;
+  padding-block: 5px;
+  padding-inline: 25px;
 }
 
 .option {
-  padding-bottom: 10px;
+  padding-block-end: 10px;
 }
 
 .correct-option {

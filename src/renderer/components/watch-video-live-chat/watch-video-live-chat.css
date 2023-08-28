@@ -109,8 +109,7 @@
 
 .comment {
   width: 100%;
-  padding-top: 5px;
-  padding-bottom: 7px;
+  padding-block: 5px 7px;
   display: grid;
   grid-template-columns: min-content auto;
   gap: 5px;

@@ -177,7 +177,8 @@
     margin: 17px 0;
     border: none;
     border-radius: 1px;
-    padding: 0 17px;
+    padding-block: 0;
+    padding-inline: 17px;
     width: 100%;
     height: 2px;
     background-color: transparent;
