@@ -27,7 +27,7 @@
 }
 
 .commentSort {
-  float: right;
+  float: var(--float-right-ltr-rtl-value);
 }
 
 .comment {
@@ -43,7 +43,7 @@
 }
 
 .commentThumbnail {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   width: 60px;
   height: 60px;
   border-radius: 200px;

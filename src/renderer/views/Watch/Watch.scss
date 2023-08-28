@@ -74,7 +74,7 @@
         position: absolute;
 
         .premiereIcon {
-          float: left;
+          float: var(--float-left-ltr-rtl-value);
           font-size: 25px;
           margin-block: 0;
           margin-inline: 12px;

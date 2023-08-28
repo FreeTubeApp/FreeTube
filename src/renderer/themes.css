@@ -903,6 +903,18 @@
   --accent-color-opacity4: rgba(180,190,254,0.24);
 }
 
+body[dir='ltr'] {
+  --ltr-or-rtl: ltr;
+  --float-left-ltr-rtl-value: left;
+  --float-right-ltr-rtl-value: right;
+}
+
+body[dir='rtl'] {
+  --ltr-or-rtl: rtl;
+  --float-left-ltr-rtl-value: right;
+  --float-right-ltr-rtl-value: left;
+}
+
 body {
   margin: 0;
   min-height: 100vh;

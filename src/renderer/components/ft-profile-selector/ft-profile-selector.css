@@ -56,7 +56,7 @@
 }
 
 .profile .colorOption {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   position: relative;
   inset-block-end: 5px;
   margin: 10px;
@@ -76,7 +76,7 @@
 }
 
 .profileSettings {
-  float: right;
+  float: var(--float-right-ltr-rtl-value);
   position: absolute;
   inset-block-start: 10px;
   inset-inline-end: 5px;

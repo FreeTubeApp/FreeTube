@@ -45,7 +45,7 @@
 
 .channelThumbnail {
   border-radius: 200px;
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   width: 40px;
 }
 
