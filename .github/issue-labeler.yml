@@ -2,7 +2,7 @@
     - '(visual bug)'
 
 'B: Unofficial Download':
-    - '(AUR|Chocolatey|FreeTubeCordova|PortableApps|winget|Scoop|Snapcraft|MPR|Nix)'
+    - '(AUR \(Unofficial\)|Chocolatey \(Unofficial\)|\.apk \(Android, FreeTubeCordova Unofficial\)|PortableApps \(Unofficial\)|winget \(Unofficial\)|Scoop \(Unofficial\)|Snapcraft \(Unofficial\)|MPR \(Unofficial\)|Nix \(Unofficial\))'
 
 'B: keyboard control':
     - '(keyboard control not working)' 
