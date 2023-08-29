@@ -253,28 +253,22 @@ export default defineComponent({
         const videoIndex = this.playlistItems.findIndex((item) => {
           return (item.id ?? item.videoId) === this.videoId
         })
+        const targetVideoIndex = videoIndex === this.playlistItems.length - 1 ? 0 : videoIndex + 1
+        const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
-        if (videoIndex === this.playlistItems.length - 1) {
-          if (this.loopEnabled) {
-            this.$router.push(
-              {
-                path: `/watch/${this.playlistItems[0].id ?? this.playlistItems[0].videoId}`,
-                query: playlistInfo
-              }
-            )
-            showToast(this.$t('Playing Next Video'))
-          } else {
-            showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
-          }
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.playlistItems[videoIndex + 1].id ?? this.playlistItems[videoIndex + 1].videoId}`,
-              query: playlistInfo
-            }
-          )
-          showToast(this.$t('Playing Next Video'))
+        const stopDueToLoopDisabled = videoIndex === this.playlistItems.length - 1 && !this.loopEnabled
+        if (stopDueToLoopDisabled) {
+          showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
+          return
         }
+
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.id ?? targetPlaylistItem.videoId}`,
+            query: playlistInfo
+          }
+        )
+        showToast(this.$t('Playing Next Video'))
       }
     },
 
@@ -309,22 +303,15 @@ export default defineComponent({
         const videoIndex = this.playlistItems.findIndex((item) => {
           return (item.id ?? item.videoId) === this.videoId
         })
+        const targetVideoIndex = videoIndex === 0 ? this.playlistItems.length - 1 : videoIndex - 1
+        const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
-        if (videoIndex === 0) {
-          this.$router.push(
-            {
-              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].id ?? this.playlistItems[this.randomizedPlaylistItems.length - 1].videoId}`,
-              query: playlistInfo
-            }
-          )
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.playlistItems[videoIndex - 1].id ?? this.playlistItems[videoIndex - 1].videoId}`,
-              query: playlistInfo
-            }
-          )
-        }
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.id ?? targetPlaylistItem.videoId}`,
+            query: playlistInfo
+          }
+        )
       }
     },
 
