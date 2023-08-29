@@ -4,6 +4,7 @@
 .outside {
   margin: auto;
   width: 40%;
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -33,6 +34,11 @@
     font-size: 15px;
     font-weight: bold;
     margin: 5px 6px 0 5px;
+
+    .authorNameLink {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   .publishedText {

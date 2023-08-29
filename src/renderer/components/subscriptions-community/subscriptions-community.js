@@ -14,7 +14,7 @@ export default defineComponent({
   data: function () {
     return {
       isLoading: false,
-      videoList: [],
+      postList: [],
       errorChannels: [],
       attemptedFetch: false,
     }
@@ -30,10 +30,6 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    },
-
-    useRssFeeds: function () {
-      return this.$store.getters.getUseRssFeeds
     },
 
     activeProfile: function () {
@@ -58,7 +54,7 @@ export default defineComponent({
       if (this.cacheEntriesForAllActiveProfileChannels.length < this.activeSubscriptionList.length) { return false }
 
       return this.cacheEntriesForAllActiveProfileChannels.every((cacheEntry) => {
-        return cacheEntry.videos != null
+        return cacheEntry.posts != null
       })
     },
 
@@ -73,16 +69,16 @@ export default defineComponent({
   watch: {
     activeProfile: async function (_) {
       this.isLoading = true
-      this.loadVideosFromCacheSometimes()
+      this.loadpostsFromCacheSometimes()
     },
   },
   mounted: async function () {
     this.isLoading = true
 
-    this.loadVideosFromCacheSometimes()
+    this.loadpostsFromCacheSometimes()
   },
   methods: {
-    loadVideosFromCacheSometimes() {
+    loadpostsFromCacheSometimes() {
       // This method is called on view visible
       if (this.postCacheForAllActiveProfileChannelsPresent) {
         this.loadPostsFromCacheForAllActiveProfileChannels()
@@ -93,52 +89,44 @@ export default defineComponent({
     },
 
     async loadPostsFromCacheForAllActiveProfileChannels() {
-      const videoList = []
+      const postList = []
       this.activeSubscriptionList.forEach((channel) => {
         const channelCacheEntry = this.$store.getters.getPostsCacheByChannel(channel.id)
 
-        videoList.push(...channelCacheEntry.videos)
+        postList.push(...channelCacheEntry.posts)
       })
 
-      videoList.sort((a, b) => {
+      postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
 
-      this.videoList = videoList
+      this.postList = postList
       this.isLoading = false
     },
 
     loadPostsForSubscriptionsFromRemote: async function () {
       if (this.activeSubscriptionList.length === 0) {
         this.isLoading = false
-        this.videoList = []
+        this.postList = []
         return
       }
 
       const channelsToLoadFromRemote = this.activeSubscriptionList
-      const videoList = []
+      const postList = []
       let channelCount = 0
       this.isLoading = true
 
-      let useRss = this.useRssFeeds
-      if (channelsToLoadFromRemote.length >= 125 && !useRss) {
-        showToast(
-          this.$t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
-          10000
-        )
-        useRss = true
-      }
       this.updateShowProgressBar(true)
       this.setProgressBarPercentage(0)
       this.attemptedFetch = true
 
       this.errorChannels = []
-      const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
-        let videos = []
+      const postListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
+        let posts = []
         if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-          videos = await this.getChannelPostsInvidious(channel)
+          posts = await this.getChannelPostsInvidious(channel)
         } else {
-          videos = await this.getChannelPostsLocal(channel)
+          posts = await this.getChannelPostsLocal(channel)
         }
 
         channelCount++
@@ -147,16 +135,16 @@ export default defineComponent({
 
         this.updateSubscriptionPostsCacheByChannel({
           channelId: channel.id,
-          videos: videos,
+          posts: posts,
         })
-        return videos
+        return posts
       }))).flatMap((o) => o)
-      videoList.push(...videoListFromRemote)
-      videoList.sort((a, b) => {
+      postList.push(...postListFromRemote)
+      postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
 
-      this.videoList = videoList
+      this.postList = postList
       this.isLoading = false
       this.updateShowProgressBar(false)
     },
@@ -166,7 +154,7 @@ export default defineComponent({
         // `this.isLoading = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
         await this.loadPostsForSubscriptionsFromRemote()
       } else {
-        this.videoList = []
+        this.postList = []
         this.attemptedFetch = false
         this.isLoading = false
       }
@@ -180,7 +168,9 @@ export default defineComponent({
           this.errorChannels.push(channel)
           return []
         }
-
+        entries.forEach(post => {
+          post.authorId = channel.id
+        })
         return entries
       } catch (err) {
         console.error(err)
@@ -199,6 +189,9 @@ export default defineComponent({
     getChannelPostsInvidious: function (channel) {
       return new Promise((resolve, reject) => {
         invidiousGetCommunityPosts(channel.id).then(result => {
+          result.posts.forEach(post => {
+            post.authorId = channel.id
+          })
           resolve(result.posts)
         }).catch((err) => {
           console.error(err)

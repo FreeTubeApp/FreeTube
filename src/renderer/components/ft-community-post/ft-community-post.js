@@ -40,6 +40,7 @@ export default defineComponent({
       commentCount: '',
       isLoading: true,
       author: '',
+      authorId: '',
     }
   },
   computed: {
@@ -104,6 +105,7 @@ export default defineComponent({
       this.commentCount = this.data.commentCount
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
       this.author = this.data.author
+      this.authorId = this.data.authorId
       this.isLoading = false
     },
 

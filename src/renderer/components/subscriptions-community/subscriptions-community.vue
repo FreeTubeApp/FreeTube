@@ -1,7 +1,7 @@
 <template>
   <subscriptions-tab-ui
     :is-loading="isLoading"
-    :video-list="videoList"
+    :video-list="postList"
     :error-channels="errorChannels"
     :attempted-fetch="attemptedFetch"
     :display-list="true"
