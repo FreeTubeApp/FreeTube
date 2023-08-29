@@ -925,7 +925,7 @@ body {
   --red-500: #f44336;
 }
 
-body p, body a, body h2, body h3 {
+body p, body a, body h2, body h3, body li {
   text-align: start;
 }
 
