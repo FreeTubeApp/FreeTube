@@ -80,7 +80,7 @@ body:
   - type: dropdown
     attributes:
       label: Installation Method
-      description: When u select an Unofficial Installation Method u must have verified that the bug is also apparent in one of the Official Installation Methods. Make sure u uninstall the Unofficial Installation before installing one of the Official Installations. If u cant reproduce this in one of the Official Installation Methods u should report the bug to the maintainer of the Unofficial Installation Method you used.
+      description: When you select an unofficial installation method, you must have verified that the bug is also present in one of the official installation methods. Please make sure you uninstall the unofficial installation before installing one of the official installations. If you can't reproduce this in one of the official installation methods, you should report the bug to the maintainer of the unofficial installation method you used.
       options:
         - .apk (Alpine Linux Package)
         - .AppImage
