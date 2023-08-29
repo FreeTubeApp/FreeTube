@@ -14,8 +14,9 @@
         @keydown.enter.prevent="toggleSideNav"
       />
       <font-awesome-icon
-        ref="historyArrowBack"
-        class="navIcon arrowBackwardDisabled"
+        :aria-disabled="isArrowBackwardDisabled"
+        class="navIcon"
+        :class="{ arrowBackwardDisabled: isArrowBackwardDisabled}"
         :icon="['fas', isDirectionLtr ? 'arrow-left' : 'arrow-right']"
         role="button"
         tabindex="0"
@@ -24,8 +25,9 @@
         @keydown.enter.prevent="historyBack"
       />
       <font-awesome-icon
-        ref="historyArrowForward"
-        class="navIcon arrowForwardDisabled"
+        :aria-disabled="isArrowForwardDisabled"
+        class="navIcon"
+        :class="{ arrowForwardDisabled: isArrowForwardDisabled}"
         :icon="['fas', isDirectionLtr ? 'arrow-right' : 'arrow-left']"
         role="button"
         tabindex="0"
