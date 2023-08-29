@@ -504,18 +504,17 @@ export default defineComponent({
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
-        const locale = this.$store.getters.getCurrentLocale
-        document.querySelector('html').lang = locale
-        if (locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi') {
-          document.querySelector('body').dir = 'rtl'
-        } else {
-          document.querySelector('body').dir = 'ltr'
-        }
       }
     },
 
     setLocale: function() {
       document.documentElement.setAttribute('lang', this.locale)
+      const locale = this.$store.getters.getCurrentLocale
+      if (locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi') {
+        document.body.dir = 'rtl'
+      } else {
+        document.body.dir = 'ltr'
+      }
     },
 
     /**
