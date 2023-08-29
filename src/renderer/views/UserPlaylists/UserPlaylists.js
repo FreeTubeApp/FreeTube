@@ -178,9 +178,6 @@ export default defineComponent({
           if (typeof (playlist.playlistName) !== 'string') { return false }
 
           return playlist.playlistName.toLowerCase().includes(this.lowerCaseQuery)
-        }).sort((a, b) => {
-          // Latest updated first
-          return b.lastUpdatedAt - a.lastUpdatedAt
         })
         this.showLoadMoreButton = filteredPlaylists.length > this.searchDataLimit
         this.activeData = filteredPlaylists.length < this.searchDataLimit ? filteredPlaylists : filteredPlaylists.slice(0, this.searchDataLimit)
