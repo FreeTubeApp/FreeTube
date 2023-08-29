@@ -33,12 +33,12 @@ export default defineComponent({
   },
   methods: {
     parseData: function () {
-      this.url = this.data.url
+      this.title = this.data.title
       this.channelCount = this.data.channelCount
       this.parsedChannelCount = formatNumber(this.channelCount)
       this.videoCount = this.data.videoCount
       this.parsedVideosCount = formatNumber(this.videoCount)
-      this.title = this.data.title
+      this.url = this.data.url ?? `hashtag/${encodeURIComponent(this.data.title.substring(1))}`
     }
   }
 })

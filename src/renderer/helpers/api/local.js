@@ -586,10 +586,10 @@ function parseListItem(item) {
 
       return {
         type: 'hashtag',
-        title: hashtag.hashtag,
+        title: hashtag.hashtag.text,
         videoCount: hashtag.hashtag_video_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
         channelCount: hashtag.hashtag_channel_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_channel_count.text),
-        url: hashtag.endpoint.metadata.url ?? `hashtag/${encodeURIComponent(hashtag.hashtag.substring(1))}`
+        url: hashtag.endpoint.metadata.url
       }
     }
     case 'Playlist': {
