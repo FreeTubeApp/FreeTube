@@ -56,6 +56,7 @@
       <div
         v-if="!hideHeaderLogo"
         class="logo"
+        dir="ltr"
         role="link"
         tabindex="0"
         :title="$t('Subscriptions.Subscriptions')"
