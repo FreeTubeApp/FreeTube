@@ -19,8 +19,8 @@
 .button:hover + .text.bottom-left,
 .button:focus + .text.top,
 .button:hover + .text.top {
-  -webkit-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
+  -webkit-transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
 }
 
 .button:focus + .text.left,
@@ -56,8 +56,8 @@
   margin-block-start: 1em;
   inset-block-start: 100%;
   inset-inline-start: 50%;
-  -webkit-transform: translate(-50%, -1em);
-  transform: translate(-50%, -1em);
+  -webkit-transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
 }
 
 .text.bottom-left {
@@ -65,31 +65,31 @@
   inset-block-start: 100%;
   inset-inline-start: -100px;
   -webkit-transform: translate(-50%, -1em);
-  transform: translate(-50%, -1em);
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
 }
 
 .text.left {
   margin-inline-end:1em;
   inset-inline-end: 100%;
   inset-block-start: 50%;
-  -webkit-transform: translate(1em, -50%);
-  transform: translate(1em, -50%);
+  -webkit-transform: translate(calc(1em * var(--horizontal-directionality-coefficient)), -50%);
+  transform: translate(calc(1em * var(--horizontal-directionality-coefficient)), -50%);
 }
 
 .text.right {
   inset-inline-start: 100%;
   margin-inline-start: 1em;
   inset-block-start: 50%;
-  -webkit-transform: translate(-1em, -50%);
-  transform: translate(-1em, -50%);
+  -webkit-transform: translate(calc(-1em * var(--horizontal-directionality-coefficient)), -50%);
+  transform: translate(calc(-1em * var(--horizontal-directionality-coefficient)), -50%);
 }
 
 .text.top {
   inset-block-end: 100%;
   inset-inline-start: 50%;
   margin-block-end: 1em;
-  -webkit-transform: translate(-50%, 1em);
-  transform: translate(-50%, 1em);
+  -webkit-transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
 }
 
 .tooltip {

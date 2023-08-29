@@ -905,12 +905,14 @@
 
 body[dir='ltr'] {
   --ltr-or-rtl: ltr;
+  --horizontal-directionality-coefficient: 1;
   --float-left-ltr-rtl-value: left;
   --float-right-ltr-rtl-value: right;
 }
 
 body[dir='rtl'] {
   --ltr-or-rtl: rtl;
+  --horizontal-directionality-coefficient: -1;
   --float-left-ltr-rtl-value: right;
   --float-right-ltr-rtl-value: left;
 }

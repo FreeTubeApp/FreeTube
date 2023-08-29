@@ -66,7 +66,7 @@
 
     .switch-input:checked + & {
       background-color: var(--accent-color);
-      transform: translate(80%, -50%);
+      transform: translate(calc(80% * var(--horizontal-directionality-coefficient)), -50%);
     }
 
     .switch-input:disabled + & {
