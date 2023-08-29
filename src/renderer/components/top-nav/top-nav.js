@@ -60,9 +60,10 @@ export default defineComponent({
       return this.$store.getters.getCurrentLocale
     },
 
-    isDirectionLtr: function() {
-      const locale = this.currentLocale
-      return !(locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi' || locale === 'ku')
+    isRightAligned: function() {
+      const locale = this.$i18n.locale.replace('_', '-')
+      return locale === 'ar' || locale === 'fa' || locale === 'he' ||
+        locale === 'ur' || locale === 'yi' || locale === 'ku'
     },
 
     backendFallback: function () {

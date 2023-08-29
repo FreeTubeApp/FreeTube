@@ -60,7 +60,8 @@ export default defineComponent({
       return this.$store.getters.getShowProgressBar
     },
     isRightAligned: function () {
-      return this.locale === 'ar' || this.locale === 'he'
+      return this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' ||
+        this.locale === 'ur' || this.locale === 'yi' || this.locale === 'ku'
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -509,8 +510,7 @@ export default defineComponent({
 
     setLocale: function() {
       document.documentElement.setAttribute('lang', this.locale)
-      const locale = this.$store.getters.getCurrentLocale
-      if (locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi' || locale === 'ku') {
+      if (this.isRightAligned) {
         document.body.dir = 'rtl'
       } else {
         document.body.dir = 'ltr'
