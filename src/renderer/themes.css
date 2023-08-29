@@ -929,10 +929,6 @@ body {
   --red-500: #f44336;
 }
 
-body p, body a, body h2, body h3, body li {
-  text-align: start;
-}
-
 #app {
   color: var(--primary-text-color);
   background-color: var(--bg-color);
@@ -940,10 +936,6 @@ body p, body a, body h2, body h3, body li {
 
 .hideOutlines *:focus {
   outline: none;
-}
-
-.rightAligned {
-  text-align: end;
 }
 
 a:link {

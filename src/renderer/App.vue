@@ -4,7 +4,7 @@
     id="app"
     :class="{
       hideOutlines: hideOutlines,
-      rightAligned: isLocaleRightToLeft
+      isLocaleRightToLeft: isLocaleRightToLeft
     }"
   >
     <top-nav ref="topNav" />
