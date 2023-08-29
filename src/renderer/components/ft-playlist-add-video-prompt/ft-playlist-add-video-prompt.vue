@@ -50,4 +50,4 @@
 </template>
 
 <script src="./ft-playlist-add-video-prompt.js" />
-<style scoped src="./ft-playlist-add-video-prompt.css" />
+<style scoped lang="scss" src="./ft-playlist-add-video-prompt.scss" />

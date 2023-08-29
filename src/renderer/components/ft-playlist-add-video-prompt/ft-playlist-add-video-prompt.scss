@@ -21,3 +21,11 @@
 .center {
   text-align: center;
 }
+
+:deep(.promptCard:not(.autosize)) {
+  /* Override some existing style */
+  $horizontal-margin: 2.5%;
+  left: $horizontal-margin;
+  right: $horizontal-margin;
+  width: 100% - ($horizontal-margin * 2);
+}
