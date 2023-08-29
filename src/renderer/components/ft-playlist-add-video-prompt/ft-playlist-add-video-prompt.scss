@@ -29,3 +29,8 @@
   right: $horizontal-margin;
   width: 100% - ($horizontal-margin * 2);
 }
+
+.sortSelect {
+  /* Put it on the right */
+  margin-left: auto;
+}

@@ -6,9 +6,31 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
+import FtSelect from '../../components/ft-select/ft-select.vue'
 import {
   showToast,
 } from '../../helpers/utils'
+
+const SORT_BY_VALUES = {
+  NameAscending: 'name_ascending',
+  NameDescending: 'name_descending',
+
+  LatestCreatedFirst: 'latest_created_first',
+  EarliestCreatedFirst: 'earliest_created_first',
+
+  LatestUpdatedFirst: 'latest_updated_first',
+  EarliestUpdatedFirst: 'earliest_updated_first',
+}
+const SORT_BY_NAMES = {
+  NameAscending: 'A-Z',
+  NameDescending: 'Z-A',
+
+  LatestCreatedFirst: 'Recently Created',
+  EarliestCreatedFirst: 'Earliest Created',
+
+  LatestUpdatedFirst: 'Recently Updated',
+  EarliestUpdatedFirst: 'Earliest Updated',
+}
 
 export default Vue.extend({
   name: 'FtPlaylistAddVideoPrompt',
@@ -18,6 +40,7 @@ export default Vue.extend({
     'ft-button': FtButton,
     'ft-playlist-selector': FtPlaylistSelector,
     'ft-input': FtInput,
+    'ft-select': FtSelect,
   },
   data: function () {
     return {
@@ -29,20 +52,46 @@ export default Vue.extend({
       lastActiveElement: null,
       interactionsLocked: false,
       preventOpenCreatePlaylistPromptOnce: false,
+      sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
   computed: {
     allPlaylists: function () {
       const playlists = this.$store.getters.getAllPlaylists
       return [].concat(playlists).sort((a, b) => {
-        // Sort by `lastUpdatedAt`, then alphabetically
-        if (a.lastUpdatedAt > b.lastUpdatedAt) {
-          return -1
-        } else if (b.lastUpdatedAt > a.lastUpdatedAt) {
-          return 1
-        }
+        switch (this.sortBy) {
+          case SORT_BY_VALUES.NameAscending:
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          case SORT_BY_VALUES.NameDescending:
+            return b.playlistName.localeCompare(a.playlistName, this.locale)
+          case SORT_BY_VALUES.LatestCreatedFirst: {
+            if (a.createdAt > b.createdAt) { return -1 }
+            if (a.createdAt < b.createdAt) { return 1 }
 
-        return a.playlistName.localeCompare(b.playlistName, this.locale)
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.EarliestCreatedFirst: {
+            if (a.createdAt < b.createdAt) { return -1 }
+            if (a.createdAt > b.createdAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.LatestUpdatedFirst: {
+            if (a.lastUpdatedAt > b.lastUpdatedAt) { return -1 }
+            if (a.lastUpdatedAt < b.lastUpdatedAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.EarliestUpdatedFirst: {
+            if (a.lastUpdatedAt < b.lastUpdatedAt) { return -1 }
+            if (a.lastUpdatedAt > b.lastUpdatedAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          default:
+            console.error(`Unknown sortBy: ${this.sortBy}`)
+            return 0
+        }
       })
     },
     allPlaylistsLength() {
@@ -87,7 +136,14 @@ export default Vue.extend({
 
     tabindex() {
       return this.interactionsLocked ? -1 : 0
-    }
+    },
+
+    sortBySelectNames() {
+      return Object.keys(SORT_BY_VALUES).map(k => SORT_BY_NAMES[k])
+    },
+    sortBySelectValues() {
+      return Object.values(SORT_BY_VALUES)
+    },
   },
   watch: {
     allPlaylistsLength(val, oldVal) {

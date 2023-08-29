@@ -9,7 +9,7 @@
       {{ selectedPlaylistCount }} Selected
     </p>
     <ft-input
-      v-show="allPlaylists.length > 0"
+      v-show="allPlaylists.length > 1"
       ref="searchBar"
       placeholder="Search in Playlist"
       :show-clear-text-button="true"
@@ -17,6 +17,15 @@
       :input-tabindex="tabindex"
       @input="(input) => updateQueryDebounce(input)"
       @clear="updateQueryDebounce('')"
+    />
+    <ft-select
+      v-if="allPlaylists.length > 1"
+      class="sortSelect"
+      :value="sortBy"
+      :select-names="sortBySelectNames"
+      :select-values="sortBySelectValues"
+      :placeholder="'Sort By'"
+      @change="sortBy = $event"
     />
     <ft-flex-box>
       <ft-playlist-selector
