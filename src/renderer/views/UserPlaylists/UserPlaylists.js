@@ -25,10 +25,10 @@ const SORT_BY_NAMES = {
   NameAscending: 'A-Z',
   NameDescending: 'Z-A',
 
-  LatestCreatedFirst: 'Latest Created',
+  LatestCreatedFirst: 'Recently Created',
   EarliestCreatedFirst: 'Earliest Created',
 
-  LatestUpdatedFirst: 'Latest Updated',
+  LatestUpdatedFirst: 'Recently Updated',
   EarliestUpdatedFirst: 'Earliest Updated',
 }
 
