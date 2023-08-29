@@ -167,7 +167,7 @@
           @change="updateHideComments"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Comment Photos')"
+          :label="$t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
           :compact="true"
           :default-value="hideCommentPhotos"
           @change="updateHideCommentPhotos"
