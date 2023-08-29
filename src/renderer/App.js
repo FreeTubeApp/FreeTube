@@ -59,7 +59,7 @@ export default defineComponent({
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
     },
-    isRightAligned: function () {
+    isLocaleRightToLeft: function () {
       return this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' ||
         this.locale === 'ur' || this.locale === 'yi' || this.locale === 'ku'
     },
@@ -510,7 +510,7 @@ export default defineComponent({
 
     setLocale: function() {
       document.documentElement.setAttribute('lang', this.locale)
-      if (this.isRightAligned) {
+      if (this.isLocaleRightToLeft) {
         document.body.dir = 'rtl'
       } else {
         document.body.dir = 'ltr'
