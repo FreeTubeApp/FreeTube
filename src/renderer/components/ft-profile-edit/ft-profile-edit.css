@@ -36,6 +36,8 @@
   line-height: 1em;
   text-align: center;
   padding: 25px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 @media only screen and (max-width: 680px) {

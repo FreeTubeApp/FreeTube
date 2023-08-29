@@ -3,6 +3,8 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   position: relative;
+
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -84,6 +86,7 @@
   list-style-type: none;
   position: absolute;
   text-align: center;
+  -webkit-user-select: none;
   user-select: none;
   z-index: 3;
 
