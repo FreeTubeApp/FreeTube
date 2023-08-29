@@ -20,7 +20,7 @@
           @click="createNewPlaylist"
         />
         <ft-input
-          v-if="fullData.length > 0"
+          v-if="fullData.length > 1"
           ref="searchBar"
           :placeholder="$t('User Playlists.Search bar placeholder')"
           :show-clear-text-button="true"
@@ -29,7 +29,7 @@
           @clear="query = ''"
         />
         <ft-select
-          v-if="fullData.length > 0"
+          v-if="fullData.length > 1"
           class="sortSelect"
           :value="sortBy"
           :select-names="sortBySelectNames"
