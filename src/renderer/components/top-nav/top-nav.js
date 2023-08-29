@@ -60,7 +60,7 @@ export default defineComponent({
       return this.$store.getters.getCurrentLocale
     },
 
-    isRightAligned: function() {
+    isLocaleRightToLeft: function() {
       const locale = this.$i18n.locale.replace('_', '-')
       return locale === 'ar' || locale === 'fa' || locale === 'he' ||
         locale === 'ur' || locale === 'yi' || locale === 'ku'
