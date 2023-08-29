@@ -550,6 +550,7 @@ About:
   Licensed under the AGPLv3: Licenciado sob AGPLv3
   Source code: Código-fonte
   Beta: Beta
+  Discussions: Debate
 Profile:
   Profile Select: 'Seleção de perfil'
   All Channels: 'Todos os canais'
@@ -645,6 +646,9 @@ Channel:
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     Community: Comunidade
+    Hide Answers: Ocultar respostas
+    Reveal Answers: Revelar respostas
+    votes: '{votes} votos'
   Live:
     Live: Em directo
     This channel does not currently have any live streams: Este canal não tem atualmente

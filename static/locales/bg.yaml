@@ -557,6 +557,7 @@ About:
   Source code: Програмен код
   Beta: Бета
   Credits: Заслуги
+  Discussions: Дискусии
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -639,12 +640,15 @@ Channel:
       Tags: Етикети
       Search for: Търсене за „{tag}“
     Details: Детайли
-    Joined: Присъедини се към
+    Joined: Присъединен на
     Location: Местоположение
   Community:
     Community: Общност
     This channel currently does not have any posts: В момента този канал няма никакви
       публикации
+    votes: '{votes} гласа'
+    Reveal Answers: Разкриване на отговорите
+    Hide Answers: Скриване на отговорите
   This channel does not exist: Каналът не съществува
   This channel does not allow searching: Каналът не позволява търсене
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Каналът
@@ -677,7 +681,7 @@ Video:
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
   View: 'показване'
-  Views: 'показвания'
+  Views: 'Показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'

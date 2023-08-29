@@ -471,6 +471,7 @@ About:
   Help: Help
   FreeTube Wiki: FreeTube Wiki
   FAQ: FAQ
+  Discussions: Discussions
   Report a problem: Report a problem
   GitHub issues: GitHub issues
   Please check for duplicates before posting: Please check for duplicates before posting
@@ -589,6 +590,9 @@ Channel:
   Community:
     Community: Community
     This channel currently does not have any posts: This channel currently does not have any posts
+    votes: '{votes} votes'
+    Reveal Answers: Reveal Answers
+    Hide Answers: Hide Answers
 Video:
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History

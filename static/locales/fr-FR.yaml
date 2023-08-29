@@ -586,6 +586,7 @@ About:
   FreeTube Wiki: Wiki de FreeTube
   GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
   Downloads / Changelog: Téléchargements / Journal des modifications
+  Discussions: Discussions
 Channel:
   Subscriber: 'Abonnement'
   Subscribers: 'Abonnés'
@@ -635,6 +636,9 @@ Channel:
     Community: Communauté
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
+    votes: '{votes} votes'
+    Reveal Answers: Afficher les réponses
+    Hide Answers: Masquer les réponses
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement

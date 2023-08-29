@@ -81,6 +81,10 @@ Subscriptions:
   Refresh Subscriptions: 'تازه سازی دنبال کرده ها'
   Load More Videos: 'بارگیری ویدیو های بیشتر'
   Error Channels: کانالهای خطادار
+  Subscriptions Tabs: برگه های اشتراک
+  Disabled Automatic Fetching: شما دریافت خودکار اشتراک را غیرفعال کرده اید. اشتراک‌ها
+    را بازخوانی کنید تا آنها را در اینجا ببینید.
+  Empty Channels: کانال های مشترک شما در حال حاضر هیچ ویدیویی ندارند.
 More: 'بیشتر'
 Trending:
   Trending: 'پربازدید ها'
@@ -167,6 +171,7 @@ Settings:
       Dark: 'تاریک'
       Light: 'روشن'
       Dracula: دراکولا
+      System Default: پیش فرض سیستم
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -195,6 +200,7 @@ Settings:
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
+    Hide FreeTube Header Logo: لوگوی سربرگ FreeTube را مخفی کنید
   Player Settings:
     Player Settings: 'تنظیمات پخش کننده'
     Force Local Backend for Legacy Formats: 'اجبار کردن پشتیبان داخلی به استفاده از
@@ -334,3 +340,16 @@ Version {versionNumber} is now available!  Click for more details: نسخه {ver
   موجود است!  برای جزئیات بیشتر کلیک کنید
 A new blog is now available, {blogTitle}. Click to view more: یک بلاگ جدید در دسترس
   است، {blogTitle}. برای مشاهده بیشتر کلیک کنید
+Channels:
+  Channels: کانال ها
+  Unsubscribe: لغو اشتراک
+  Unsubscribed: '{channelName}از اشتراک های شما حذف شده است'
+  Unsubscribe Prompt: آیا مطمئنید که می‌خواهید اشتراک «{channelName}» را لغو کنید؟
+  Title: لیست کانال
+  Search bar placeholder: جستجو در کانال ها
+  Count: '{number} تعداد کانال پیدا شد.'
+  Empty: لیست کانال شما در حال حاضر خالی است.
+Global:
+  Videos: ویدیو
+  Shorts: کوتاه
+  Live: زنده

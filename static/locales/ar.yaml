@@ -541,6 +541,7 @@ About:
   GitHub releases: إصدارات GitHub
   Downloads / Changelog: التحميلات\التغييرات
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
+  Discussions: المناقشات
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -633,6 +634,9 @@ Channel:
     Community: المجتمع
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
+    Hide Answers: إخفاء الأجوبة
+    votes: '{votes} أصوات'
+    Reveal Answers: كشف الإجابات
   Live:
     Live: مباشر
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر

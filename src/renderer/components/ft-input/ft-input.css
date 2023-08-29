@@ -97,6 +97,8 @@
 
 .ft-input-component ::-webkit-input-placeholder {
   color: var(--tertiary-text-color);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .forceTextColor .ft-input {

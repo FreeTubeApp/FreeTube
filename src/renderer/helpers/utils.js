@@ -594,6 +594,13 @@ export function getVideoParamsFromUrl(url) {
         return paramsObject
       }
     },
+    // youtube.com/live
+    function () {
+      if (/^\/live\/[\w-]+$/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.replace('/live/', ''))
+        return paramsObject
+      }
+    },
     // cloudtube
     function () {
       if (/^cadence\.(gq|moe)$/.test(urlObject.host) && /^\/cloudtube\/video\/[\w-]+$/.test(urlObject.pathname)) {

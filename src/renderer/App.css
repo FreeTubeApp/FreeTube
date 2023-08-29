@@ -26,6 +26,8 @@
 
 .flexBox {
   display: block;
+  user-select: unset;
+  -webkit-user-select: unset;
 }
 
 #changeLogText {

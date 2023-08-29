@@ -506,12 +506,13 @@ About:
   Please check for duplicates before posting: 提交前請檢查有無重複的問題
   GitHub issues: GitHub 問題追蹤器
   Report a problem: 回報問題
-  FreeTube Wiki: FreeTube 維基百科
+  FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub 版本
   Downloads / Changelog: 下載 / 變更紀錄
   View License: 檢視授權條款
   Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
+  Discussions: 討論
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'
@@ -555,6 +556,9 @@ Channel:
   Community:
     Community: 社群
     This channel currently does not have any posts: 此頻道目前沒有任何貼文
+    votes: '{votes} 票'
+    Reveal Answers: 揭露答案
+    Hide Answers: 隱藏答案
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播

@@ -574,6 +574,7 @@ About:
   View License: Lizenz einsehen
   Licensed under the AGPLv3: Lizensiert unter der AGPLv3
   Source code: Quellcode
+  Discussions: Diskussionen
 Channel:
   Subscriber: Abonnement
   Subscribers: Abonnements
@@ -622,6 +623,9 @@ Channel:
     This channel currently does not have any posts: Dieser Kanal enthält derzeit keine
       Beiträge
     Community: Gemeinschaft
+    votes: '{votes} Stimmen'
+    Reveal Answers: Antworten aufzeigen
+    Hide Answers: Antworten verbergen
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit

@@ -149,9 +149,8 @@
       <p
         v-if="listType !== 'grid' && appearance === 'result'"
         class="description"
-      >
-        {{ description }}
-      </p>
+        v-html="description"
+      />
     </div>
   </div>
 </template>
