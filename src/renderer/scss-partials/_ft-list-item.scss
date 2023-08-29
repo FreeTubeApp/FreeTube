@@ -108,7 +108,7 @@ $watched-transition-duration: 0.5s;
       align-self: flex-start;
       background-color: var(--bg-color);
       color: var(--primary-text-color);
-      justify-self: left;
+      justify-self: start;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
@@ -120,7 +120,7 @@ $watched-transition-duration: 0.5s;
       border-radius: 5px;
       color: var(--primary-text-color);
       font-size: 15px;
-      justify-self: right;
+      justify-self: end;
       line-height: 1.2;
       margin-block: 0 4px;
       margin-inline: 0 4px;
@@ -142,14 +142,14 @@ $watched-transition-duration: 0.5s;
     .externalPlayerIcon {
       align-self: flex-end;
       font-size: 17px;
-      justify-self: left;
+      justify-self: start;
       margin-block-end: 4px;
       margin-inline-start: 4px;
     }
 
     .favoritesIcon {
       font-size: 17px;
-      justify-self: right;
+      justify-self: end;
       margin-inline-end: 3px;
       margin-block-start: 3px;
       height: fit-content;
@@ -167,7 +167,7 @@ $watched-transition-duration: 0.5s;
       align-self: stretch;
       display: grid;
       font-size: 20px;
-      justify-self: right;
+      justify-self: end;
       width: 60px;
 
       .background {
