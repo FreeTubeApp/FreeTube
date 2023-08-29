@@ -646,7 +646,7 @@ export default defineComponent({
 
         // `thumbnailLink` is a `router-link`
         // `focus()` can only be called on the actual element
-        this.$refs.thumbnailLink.$el.focus()
+        this.$refs.addToPlaylistIcon?.$el?.focus()
       }
     },
 

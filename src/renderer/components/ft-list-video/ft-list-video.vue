@@ -12,9 +12,8 @@
       class="videoThumbnail"
     >
       <router-link
-        ref="thumbnailLink"
         class="thumbnailLink"
-        tabindex="0"
+        tabindex="-1"
         :to="{
           path: `/watch/${id}`,
           query: watchPageLinkQuery,
@@ -49,6 +48,7 @@
       <span class="playlistIcons">
         <ft-icon-button
           v-if="showPlaylists"
+          ref="addToPlaylistIcon"
           title="Add to playlist"
           :icon="['fas', 'plus']"
           class="addToPlaylistIcon"
