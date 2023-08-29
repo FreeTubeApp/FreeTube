@@ -60,12 +60,6 @@ export default defineComponent({
       return this.$store.getters.getCurrentLocale
     },
 
-    isLocaleRightToLeft: function() {
-      const locale = this.$i18n.locale.replace('_', '-')
-      return locale === 'ar' || locale === 'fa' || locale === 'he' ||
-        locale === 'ur' || locale === 'yi' || locale === 'ku'
-    },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
