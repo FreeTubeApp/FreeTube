@@ -62,7 +62,7 @@ export default defineComponent({
 
     isDirectionLtr: function() {
       const locale = this.currentLocale
-      return !(locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi')
+      return !(locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi' || locale === 'ku')
     },
 
     backendFallback: function () {

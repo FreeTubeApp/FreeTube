@@ -510,7 +510,7 @@ export default defineComponent({
     setLocale: function() {
       document.documentElement.setAttribute('lang', this.locale)
       const locale = this.$store.getters.getCurrentLocale
-      if (locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi') {
+      if (locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi' || locale === 'ku') {
         document.body.dir = 'rtl'
       } else {
         document.body.dir = 'ltr'
