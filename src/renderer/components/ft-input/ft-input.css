@@ -2,6 +2,15 @@
   position: relative;
 }
 
+ body[dir='rtl'] .ft-input-component.search.showClearTextButton .inputAction {
+  inset-inline-end: -30px;
+ }
+
+ body[dir='rtl'] .ft-input-component.search.clearTextButtonVisible .inputAction,
+ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inputAction {
+  inset-inline-end: 0;
+ }
+
 .ft-input-component.search.showClearTextButton {
   padding-inline-start: 30px;
 }
