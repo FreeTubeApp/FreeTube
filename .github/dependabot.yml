@@ -17,6 +17,9 @@ updates:
         patterns:
           - "eslint"
           - "eslint-*"
+      fortawesome:
+        patterns:
+          - "@fortawesome/*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
