@@ -603,6 +603,8 @@ export default defineComponent({
         this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
         if (this.chapters.length > 0) {
+          this.addChapterMarkerContainer()
+          this.addChapterTooltip()
           this.chapters.forEach(this.addChapterMarker)
         }
 
@@ -833,14 +835,60 @@ export default defineComponent({
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
     },
 
+    addChapterMarkerContainer() {
+      const markerContainerDiv = videojs.dom.createEl('div')
+      markerContainerDiv.className = 'chapterMarkerContainer'
+      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerContainerDiv)
+      this.player.el().querySelector('.vjs-progress-holder').classList.add('vjs-chapter-slider')
+    },
+
+    addChapterTooltip() {
+      const chapterTooltip = videojs.dom.createEl('div')
+      chapterTooltip.className = 'chapterDisplayTooltip'
+      const timeTooltip = this.player.el().querySelector('.vjs-time-tooltip')
+      const mouseDisplay = timeTooltip.parentNode
+      mouseDisplay.appendChild(chapterTooltip)
+
+      // Add listener whenever the mouse moves over the progress bar
+      // The X coordinate of the chapter tooltip is updated using CSS right property
+      const progressBar = this.player.el().querySelector('.vjs-progress-control')
+      progressBar.onmousemove = () => {
+        const { left: mouseDisplayLeft } = mouseDisplay.getBoundingClientRect()
+        const { left: playerLeft, right: playerRight } = this.player.el().getBoundingClientRect()
+        const { width: chapterTooltipWidth } = chapterTooltip.getBoundingClientRect()
+
+        let calculatedRight = -(chapterTooltipWidth / 2)
+
+        // Gets left and right boundaries of the chapter tooltip
+        // +1 for rightX to include width of the mouse display
+        const chapterTooltipLeftX = mouseDisplayLeft - (chapterTooltipWidth / 2)
+        const chapterTooltipRightX = mouseDisplayLeft + 1 + (chapterTooltipWidth / 2)
+
+        // If tooltip extends outside of the video player
+        // Adjust CSS right property to fit the tooltip within the player
+        if (chapterTooltipLeftX < playerLeft) {
+          calculatedRight -= (playerLeft - chapterTooltipLeftX)
+        } else if (chapterTooltipRightX > playerRight) {
+          calculatedRight += (chapterTooltipRightX - playerRight)
+        }
+
+        chapterTooltip.style.right = `${calculatedRight}px`
+      }
+    },
+
     addChapterMarker(chapter) {
       const markerDiv = videojs.dom.createEl('div')
 
-      markerDiv.title = chapter.title
       markerDiv.className = 'chapterMarker'
-      markerDiv.style.marginLeft = `calc(${(chapter.startSeconds / this.lengthSeconds) * 100}% - 1px)`
 
-      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
+      const duration = chapter.endSeconds - chapter.startSeconds
+      markerDiv.style.width = `calc(${(duration / this.lengthSeconds) * 100}% - 1px)`
+
+      markerDiv.onmouseover = () => {
+        this.player.el().querySelector('.chapterDisplayTooltip').innerText = chapter.title
+      }
+
+      this.player.el().querySelector('.chapterMarkerContainer').appendChild(markerDiv)
     },
 
     checkAspectRatio() {
