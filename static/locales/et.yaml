@@ -396,6 +396,7 @@ Settings:
     Hide Subscriptions Videos: Peida tellimuste videod
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
+    Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
