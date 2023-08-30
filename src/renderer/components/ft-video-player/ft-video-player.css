@@ -44,8 +44,7 @@
 
 :deep(.chapterMarker) {
   height: 100%;
-  margin-right: 2px;
   z-index: 5;
-  border-left: solid transparent 3px;
+  border-left: solid #000 2px;
   background-color: #73859f;
 }
