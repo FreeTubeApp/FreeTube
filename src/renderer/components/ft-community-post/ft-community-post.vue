@@ -8,24 +8,28 @@
     <div
       class="author-div"
     >
-      <router-link
-        v-if="authorThumbnails.length > 0 && authorId"
-        :to="`/channel/${authorId}`"
-        tabindex="-1"
-        aria-hidden="true"
+      <template
+        v-if="authorThumbnails.length > 0"
       >
+        <router-link
+          v-if="authorId"
+          :to="`/channel/${authorId}`"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <img
+            :src="getBestQualityImage(authorThumbnails)"
+            class="communityThumbnail"
+            alt=""
+          >
+        </router-link>
         <img
+          v-else
           :src="getBestQualityImage(authorThumbnails)"
           class="communityThumbnail"
           alt=""
         >
-      </router-link>
-      <img
-        v-else-if="authorThumbnails.length > 0"
-        :src="getBestQualityImage(authorThumbnails)"
-        class="communityThumbnail"
-        alt=""
-      >
+      </template>
       <p
         class="authorName"
       >
