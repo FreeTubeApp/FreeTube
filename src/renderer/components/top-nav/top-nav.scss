@@ -96,6 +96,11 @@
       box-shadow: 0 0 $effect-distance var(--text-with-main-color);
     }
   }
+
+  &.showFilters {
+    background-color: var(--primary-text-color);
+    color: var(--card-bg-color);
+  }
 }
 
 .side {
