@@ -17,6 +17,15 @@ updates:
         patterns:
           - "eslint"
           - "eslint-*"
+          - "yaml-eslint-parser"
+          - "vue-eslint-parser"
+      stylelint:
+        patterns:
+          - "stylelint"
+          - "stylelint-*"
+          - "postcss"
+          - "postcss-*"
+          - "@double-great/stylelint-a11y"
       fortawesome:
         patterns:
           - "@fortawesome/*"
