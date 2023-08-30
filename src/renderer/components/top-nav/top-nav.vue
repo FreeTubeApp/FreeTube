@@ -100,6 +100,7 @@
         />
       </div>
       <ft-search-filters
+        ref="searchFilters"
         v-if="!hideSearchBar"
         v-show="showFilters"
         class="searchFilters"

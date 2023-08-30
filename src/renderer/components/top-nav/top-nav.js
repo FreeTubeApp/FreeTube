@@ -276,7 +276,7 @@ export default defineComponent({
     toggleSearchFiltersDisplayed: function() {
       this.showFilters = !this.showFilters
       if (this.showFilters) {
-        nextTick(() => this.$refs.sortByRadio?.focus())
+        nextTick(() => this.$refs.searchFilters?.$refs.sortByRadio?.$el?.focus())
       }
     },
 
