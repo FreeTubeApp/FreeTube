@@ -95,8 +95,8 @@
           :title="$t('Search Filters.Search Filters')"
           role="button"
           tabindex="0"
-          @click="showFilters = !showFilters"
-          @keydown.enter.prevent="showFilters = !showFilters"
+          @click="toggleSearchFiltersDisplayed"
+          @keydown.enter.prevent="toggleSearchFiltersDisplayed"
         />
       </div>
       <ft-search-filters
