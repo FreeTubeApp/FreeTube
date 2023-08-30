@@ -3,16 +3,17 @@
 }
 
 .ftVideoPlayer {
-  width:100%;
+  width: 100%;
 }
 
 .ftVideoPlayer.vjs-user-inactive {
   cursor: none;
 }
 
-:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
-  position: absolute;
-  opacity: 0.6;
+:deep(.sponsorBlockMarker),
+:deep(.chapterMarker) {
+  position: relative;
+  opacity: 0.3;
 }
 
 :deep(.sponsorBlockMarker) {
@@ -20,10 +21,31 @@
   background-color: var(--primary-color);
 }
 
+:deep(.chapterDisplayTooltip) {
+  border-radius: 0.3em;
+  text-align: center;
+  width: max-content;
+  display: block;
+  position: absolute;
+  top: -5.2em;
+  font-size: 0.6em;
+  padding: 6px 8px 8px;
+  color: rgb(255 255 255);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+}
+
+:deep(.chapterMarkerContainer) {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
 :deep(.chapterMarker) {
   height: 100%;
-  top: 0;
-  width: 2px;
-  z-index: 2;
-  background-color: #000;
+  margin-right: 2px;
+  z-index: 5;
+  border-left: solid transparent 3px;
+  background-color: #73859f;
 }
