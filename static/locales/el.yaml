@@ -36,6 +36,7 @@ Global:
   Videos: 'Βίντεο'
   Shorts: Shorts
   Live: Ζωντανά
+  Community: Κοινότητα
 
 # Search Bar
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
@@ -665,7 +666,6 @@ Channel:
   Channel Tabs: Καρτέλες Καναλιών
   This channel does not exist: Αυτό το κανάλι δεν υπάρχει
   Community:
-    Community: Κοινότητα
     This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν
       έχει αναρτήσεις
   Live:

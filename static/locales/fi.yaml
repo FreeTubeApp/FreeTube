@@ -33,6 +33,7 @@ Global:
   Videos: 'Videot'
   Shorts: Lyhyet
   Live: Livenä
+  Community: Yhteisö
 
 # Search Bar
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
@@ -590,7 +591,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
       mitään
-    Community: Yhteisö
   Live:
     Live: Livenä
     This channel does not currently have any live streams: Tällä kanavalla ei ole

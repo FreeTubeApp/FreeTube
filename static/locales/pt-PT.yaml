@@ -36,6 +36,7 @@ Global:
   Videos: Vídeos
   Shorts: Curtas
   Live: Em directo
+  Community: Comunidade
 
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível!  Clique para mais detalhes
@@ -594,7 +595,6 @@ Channel:
     canal tem restrição de idade e atualmente não pode ser visualizado no Free Tube.
   Channel Tabs: Separadores de canais
   Community:
-    Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
   Live:

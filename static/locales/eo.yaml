@@ -21,6 +21,9 @@ Close: 'Fermi'
 Back: 'Reen'
 Forward: 'Antaŭen'
 
+Globals:
+  Community: Komunumo
+
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
   disponeblas nun!  Alklaki por pli informoj.'
 Download From Site: 'Elŝuti el retejo'
@@ -105,8 +108,6 @@ About:
 Channel:
   About:
     Details: Detaloj
-  Community:
-    Community: Komunumo
 Video: {}
 More: Pli
 Search Bar:

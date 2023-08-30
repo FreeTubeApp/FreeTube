@@ -35,6 +35,7 @@ Global:
   Videos: 'Videa'
   Shorts: Kratka videa
   Live: Uživo
+  Community: Zajednica
 
 # Search Bar
 Search / Go to URL: 'Pretraži / Idi na URL'
@@ -650,7 +651,6 @@ Channel:
       prijenosa uživo
   Community:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
-    Community: Zajednica
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa

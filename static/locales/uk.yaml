@@ -35,6 +35,7 @@ Global:
   Videos: 'Відео'
   Shorts: Shorts
   Live: Наживо
+  Community: Спільнота
 
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
@@ -582,7 +583,6 @@ Channel:
     канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
   Community:
-    Community: Спільнота
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді

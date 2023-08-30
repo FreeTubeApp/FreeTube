@@ -33,6 +33,7 @@ Global:
   Videos: '動画'
   Shorts: ショート動画
   Live: ライブ配信
+  Community: コミュニティ
 
 # Search Bar
 Search / Go to URL: '検索 / URL の表示'
@@ -101,7 +102,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: 
+  Playlist Message:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -545,7 +546,6 @@ Channel:
   Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
   Community:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
-    Community: コミュニティ
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
   This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
@@ -871,7 +871,7 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル名またはチャンネル ID 
+    Hide Channels: チャンネル名またはチャンネル ID
       を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル名は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります

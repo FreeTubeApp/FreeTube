@@ -34,6 +34,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Community: Gemeinschaft
 
 # Search Bar
 Search / Go to URL: Suche / Geh zu URL
@@ -621,7 +622,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Dieser Kanal enthält derzeit keine
       Beiträge
-    Community: Gemeinschaft
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit

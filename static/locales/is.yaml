@@ -36,6 +36,7 @@ Global:
   Videos: 'Myndskeið'
   Shorts: Stuttmyndir
   Live: Í beinni
+  Community: Samfélag
 
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
@@ -592,7 +593,6 @@ Channel:
     This channel does not currently have any live streams: Þessi rás er í augnablikinu
       ekki með nein bein streymi
   Community:
-    Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
