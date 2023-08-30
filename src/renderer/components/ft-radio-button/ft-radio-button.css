@@ -10,7 +10,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 }
 
 .pure-checkbox input[type="checkbox"]:focus + label:before, .pure-radiobutton input[type="checkbox"]:focus + label:before, .pure-checkbox input[type="radio"]:focus + label:before, .pure-radiobutton input[type="radio"]:focus + label:before, .pure-checkbox input[type="checkbox"]:hover + label:before, .pure-radiobutton input[type="checkbox"]:hover + label:before, .pure-checkbox input[type="radio"]:hover + label:before, .pure-radiobutton input[type="radio"]:hover + label:before {
-  border-color: var(--primary-color);
+  border: 2px solid var(--accent-color-active);
 }
 
 .pure-checkbox input[type="checkbox"]:active + label:before, .pure-radiobutton input[type="checkbox"]:active + label:before, .pure-checkbox input[type="radio"]:active + label:before, .pure-radiobutton input[type="radio"]:active + label:before { transition-duration: 0s; }
@@ -83,6 +83,10 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 
 .pure-checkbox input[type="radio"]:checked + label:before, .pure-radiobutton input[type="radio"]:checked + label:before {
   animation: borderscale 300ms ease-in;
+}
+
+.pure-radiobutton input[type="radio"]:focus + label:after{
+  background-color: var(--accent-color-active);
 }
 
 .pure-checkbox input[type="radio"]:checked + label:after, .pure-radiobutton input[type="radio"]:checked + label:after { transform: scale(1); }
