@@ -8,12 +8,12 @@ FreeTube: 'یوتیوب آزاد'
 # Webkit Menu Bar
 File: 'فایل'
 Quit: 'خروج'
-Edit: 'اصلاح'
+Edit: 'ویرایش'
 Undo: 'بازگردانی'
 Redo: 'انجام دوباره'
 Cut: 'برش'
 Copy: 'کپی'
-Paste: 'جاگذاری'
+Paste: 'جایگذاری'
 Delete: 'حذف'
 Select all: 'انتخاب همه'
 Reload: 'بارگذاری دوباره'
@@ -30,13 +30,13 @@ Back: 'بازگشت'
 Forward: 'پیشروی'
 Open New Window: 'بازکردن پنجره جدید'
 
-Download From Site: 'دانلود از وبگاه'
+Download From Site: 'دانلود از سایت'
 Search / Go to URL: 'جست و جو / برو به لینک'
   # In Filter Button
 Search Filters:
-  Search Filters: 'جست و جو فیلتر ها'
+  Search Filters: 'فیلترهای جست و جو'
   Sort By:
-    Sort By: 'منظم کن بر اساس'
+    Sort By: 'مرتب کن بر اساس'
     Most Relevant: 'مرتبط ترین'
     Rating: 'امتیاز'
     Upload Date: 'زمان بارگذاری'
@@ -44,7 +44,7 @@ Search Filters:
   Time:
     Time: 'زمان'
     Any Time: 'هر زمانی'
-    Last Hour: 'ساعتی قبل'
+    Last Hour: 'یک ساعت قبل'
     Today: 'امروز'
     This Week: 'این هفته'
     This Month: 'این ماه'
@@ -55,14 +55,14 @@ Search Filters:
     Videos: 'ویدیو ها'
     Channels: 'کانال ها'
     #& Playlists
-    Movies: فیلم‌ها
+    Movies: فیلم ها
   Duration:
     Duration: 'طول مدت'
     All Durations: 'طول مدت همه'
     Short (< 4 minutes): 'کوتاه(>۴ دقیقه)'
     Long (> 20 minutes): 'طولانی(<۲۰ دقیقه)'
   # On Search Page
-    Medium (4 - 20 minutes): متوسط (۴-۲۰ دقیقه)
+    Medium (4 - 20 minutes): متوسط (۴ تا ۲۰ دقیقه)
   Search Results: 'نتایج جست و جو'
   Fetching results. Please wait: 'دریافت نتایج.لطفا صبر کنید'
   Fetch more results: 'دریافت نتایج بیشتر'
@@ -73,17 +73,16 @@ Subscriptions:
   Subscriptions: 'دنبال کرده ها'
   Latest Subscriptions: 'اخرین دنبال کرده ها'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'این
-    نمایه تعداد زیادی دنبال کرده دارد.   به اجبار باید از RSS استفاده کرد تا دچار
-    محدودیت درخواست ها نشود.'
+    پروفایل تعداد زیادی اشتراک دارد. اجبار RSS برای جلوگیری از محدودیت نرخ'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'چیزی
     دنبال نکرده اید.شروع به افزودن دنبال کننده ها کنید تا اینجا نشان داده شوند.'
   'Getting Subscriptions. Please wait.': 'درحال گرفتن دنبال کرده ها.لطفا صبر کنید.'
   Refresh Subscriptions: 'تازه سازی دنبال کرده ها'
   Load More Videos: 'بارگیری ویدیو های بیشتر'
-  Error Channels: کانالهای خطادار
+  Error Channels: کانال های خطادار
   Subscriptions Tabs: برگه های اشتراک
-  Disabled Automatic Fetching: شما دریافت خودکار اشتراک را غیرفعال کرده اید. اشتراک‌ها
-    را بازخوانی کنید تا آنها را در اینجا ببینید.
+  Disabled Automatic Fetching: شما دریافت خودکار دنبال شونده ها را غیر فعال کرده اید.
+    دنبال شونده ها را تازه سازی کنید تا آنها را اینجا ببینید.
   Empty Channels: کانال های مشترک شما در حال حاضر هیچ ویدیویی ندارند.
   All Subscription Tabs Hidden: همه تب های اشتراک پنهان هستند. برای مشاهده محتوا در
     اینجا، لطفاً برخی از برگه‌ها را در بخش '{subsection}' در '{settingsSection}' باز
@@ -126,9 +125,8 @@ Settings:
     General Settings: 'تنظیمات عمومی'
     Check for Updates: 'بررسی برای به روزرسانی ها'
     Check for Latest Blog Posts: 'بررسی آخرین مطالب وبلاگ'
-    Fallback to Non-Preferred Backend on Failure: 'همه تب های اشتراک پنهان هستند.
-      برای مشاهده محتوا در اینجا، لطفاً برخی از برگه‌ها را در بخش ''{subsection}''
-      در ''{settingsSection}'' باز کنید.'
+    Fallback to Non-Preferred Backend on Failure: 'بازگشت به Backend غیر ترجیحی در
+      صورت شکست'
     Enable Search Suggestions: 'فعال کردن پیشنهادات جستجو'
     Default Landing Page: 'صفحه اول پیشفرض'
     Locale Preference: 'تغییر زبان سیستم'
@@ -302,8 +300,8 @@ Settings:
     Watch history has been cleared: 'تاریخچه تماشا پاک شد'
     Remove All Subscriptions / Profiles: 'حذف تمام دنبال شوندگان / پروفایل ها'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'آیا
-      شما مطمئنید میخواهید تمام دنبال شوندگان و پروفایل هایتان را حذف کنید؟.. این
-      عملیات غیر قابل برگشت است'
+      مطمئن هستید که می خواهید همه اشتراک ها و نمایه ها را حذف کنید؟ این قابل بازگشت
+      نیست.'
     Save Watched Videos With Last Viewed Playlist: ویدئوهای تماشا شده را با لیست پخش
       آخرین مشاهده ذخیره کنید
   Subscription Settings:
@@ -343,6 +341,11 @@ Settings:
     Hide Chapters: پنهان کردن فصل ها
     Hide Channels Placeholder: نام یا آیدی کانال
     Hide Subscriptions Live: مخفی کردن اشتراک های زنده
+    Hide Channel Community: مخفی کردن انجمن کانال
+    Hide Channel Shorts: مخفی کردن شورت های کانال
+    Hide Subscriptions Shorts: مخفی کردن شورت اشتراک ها
+    Hide Channel Podcasts: پنهان کردن پادکست های کانال
+    Hide Channel Releases: مخفی کردن انتشارات کانال
   Data Settings:
     Data Settings: 'تنظیمات داده'
     Select Import Type: 'انتخاب شیوه وارد کردن'
@@ -412,11 +415,80 @@ Settings:
   SponsorBlock Settings:
     Skip Options:
       Skip Option: گزینه پرش
+      Do Nothing: هیچ کاری نکن
+      Show In Seek Bar: نمایش در نوار جستجو
+      Auto Skip: پرش خودکار
     Enable SponsorBlock: فعال کردن محدود کردن حامی
     SponsorBlock Settings: تنظیمات محدود کردن حامی
     Notify when sponsor segment is skipped: وقتی بخش حامی رد شد اطلاع دهید
+    UseDeArrowTitles: از عنوان های ویدیویی DeArrow استفاده کنید
+    Category Color: رنگ دسته
+  Download Settings:
+    Download in app: دانلود در برنامه
+    Open in web browser: در مرورگر وب باز کنید
+    Download Settings: دانلود تنظیمات
+    Ask Download Path: مسیر دانلود را بخواهید
+    Choose Path: مسیر را انتخاب کنید
+    Download Behavior: وضعیت دانلود
+  Parental Control Settings:
+    Hide Unsubscribe Button: پنهان کردن دکمه لغو اشتراک
+    Show Family Friendly Only: نمایش فقط دوستانه برای خانواده
+    Hide Search Bar: پنهان کردن نوار جستجو
+    Parental Control Settings: تنظیمات کنترل والدین
+  Experimental Settings:
+    Experimental Settings: تنظیمات آزمایشی
+    Replace HTTP Cache: ‍کش HTTP را جایگزین کنید
+    Warning: این تنظیمات آزمایشی هستند، ممکن است هنگام فعال بودن باعث خرابی شوند.
+      تهیه نسخه پشتیبان به شدت توصیه می شود. با مسئولیت خود استفاده کنید!
+  Password Settings:
+    Remove Password: رمز عبور را حذف کنید
+    Password Settings: تنظیمات رمز عبور
+    Set Password To Prevent Access: برای جلوگیری از دسترسی به تنظیمات، رمز عبور تنظیم
+      کنید
+    Set Password: قراردادن رمز عبور
+  Password Dialog:
+    Password: کلمه عبور
+    Enter Password To Unlock: برای باز کردن قفل تنظیمات رمز عبور را وارد کنید
+    Password Incorrect: رمز عبور اشتباه است
+    Unlock: باز کردن
 Channel:
   Playlists: {}
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: این
+    کانال دارای محدودیت سنی است و در حال حاضر نمی توان آن را در FreeTube مشاهده کرد.
+  Live:
+    Live: زنده
+    This channel does not currently have any live streams: این کانال در حال حاضر هیچ
+      پخش زنده ای ندارد
+  Podcasts:
+    This channel does not currently have any podcasts: این کانال در حال حاضر هیچ پادکست
+      ندارد
+    Podcasts: پادکست ها
+  This channel does not exist: این کانال وجود ندارد
+  This channel does not allow searching: این کانال اجازه جستجو را نمی دهد
+  Shorts:
+    This channel does not currently have any shorts: این کانال در حال حاضر هیچ شورت
+      ندارد
+  Releases:
+    Releases: منتشر شده
+    This channel does not currently have any releases: این کانال در حال حاضر هیچ نسخه
+      ای ندارد
+  Community:
+    Community: انجمن
+    votes: '{رای} رأی'
+    Reveal Answers: پاسخ ها را فاش کن
+    This channel currently does not have any posts: این کانال در حال حاضر هیچ پستی
+      ندارد
+    Hide Answers: پنهان کردن پاسخ ها
+  Removed subscription from {count} other channel(s): اشتراک از {count} کانال(های)
+    دیگر حذف شد
+  About:
+    Tags:
+      Search for: جستجوی '{tag}'
+      Tags: برچسب ها
+    Joined: پیوسته
+    Location: مکان
+    Details: جزئیات
+  Channel Tabs: زبانه های کانال
 Video:
   External Player: {}
   Published:
@@ -448,6 +520,7 @@ Video:
     Years: سالها
     Ago: پیش
     Upcoming: اولین نمایش در
+    In less than a minute: در کمتر از یک دقیقه
   translated from English: ترجمه شده از انگلیسی
   Copy Invidious Link: لینک Invidious را کپی کنید
   Play Previous Video: پخش ویدیوی قبلی
@@ -497,19 +570,90 @@ Video:
   audio only: فقط صدا
   Publicationtemplate: '{number} {unit} پیش'
   Video has been saved: ویدیو ذخیره شده است
-Tooltips: {}
+  Stats:
+    Dropped / Total Frames: حذف شده / مجموع فریم ها
+    Video ID: شناسه ویدیو
+    Player Dimensions: ابعاد پخش کننده
+    Bitrate: میزان بیت
+    Volume: درجه صدا
+    Bandwidth: پهنای باند
+    Buffered: بافر شده
+    Video statistics are not available for legacy videos: آمار ویدیویی برای ویدیوهای
+      قدیمی موجود نیست
+    Resolution: کیفیت
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': گفتگوی
+    زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به YouTube مورد
+    نیاز است.
+  Premieres: نخستین نمایش
+  Upcoming: نزدیک
+  Premieres on: اولین نمایش در
+  Live chat is enabled. Chat messages will appear here once sent.: چت زنده فعال است.
+    پیام‌های گپ پس از ارسال در اینجا ظاهر می‌شوند.
+  Scroll to Bottom: به پایین بروید
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': چت
+    زنده برای این جریان در دسترس نیست. ممکن است توسط آپلود کننده غیرفعال شده باشد.
+  Show Super Chat Comment: نمایش نظر سوپر چت
+Tooltips:
+  General Settings:
+    External Link Handling: "وقتی روی پیوندی که در FreeTube باز نمی شود، روی آن کلیک
+      می شود، رفتار پیش فرض را انتخاب کنید.\nبه طور پیش فرض FreeTube پیوند کلیک شده
+      را در مرورگر پیش فرض شما باز می کند.\n"
+  SponsorBlock Settings:
+    UseDeArrowTitles: عناوین ویدیویی را با عناوین ارسال شده توسط کاربر از DeArrow
+      جایگزین کنید.
+  Player Settings:
+    Skip by Scrolling Over Video Player: از چرخ اسکرول برای رد شدن از ویدیو، سبک MPV
+      استفاده کنید.
+    Allow DASH AV1 formats: فرمت‌های DASH AV1 ممکن است بهتر از فرمت‌های DASH H.264
+      به نظر برسند. فرمت های DASH AV1 برای پخش به قدرت بیشتری نیاز دارند! آنها در
+      همه ویدیوها در دسترس نیستند، در این موارد پخش کننده به جای آن از فرمت های DASH
+      H.264 استفاده می کند.
+    Scroll Playback Rate Over Video Player: در حالی که مکان نما روی ویدیو است، کلید
+      کنترل (کلید فرمان در مک) را فشار داده و نگه دارید و چرخ ماوس را به جلو یا عقب
+      ببرید تا سرعت پخش را کنترل کنید. کلید کنترل (کلید فرمان در مک) را فشار داده
+      و نگه دارید و روی ماوس کلیک چپ کنید تا به سرعت به سرعت پخش پیش فرض برگردید (مگر
+      اینکه در تنظیمات تغییر نکرده باشد).
+  Subscription Settings:
+    Fetch Feeds from RSS: هنگامی که FreeTube فعال باشد، از RSS به جای روش پیش فرض
+      خود برای گرفتن فید اشتراک شما استفاده می کند. RSS سریعتر است و از مسدود شدن
+      IP جلوگیری می کند، اما اطلاعات خاصی مانند مدت زمان ویدیو یا وضعیت زنده را ارائه
+      نمی دهد
+    Fetch Automatically: هنگامی که فعال باشد، FreeTube به طور خودکار فید اشتراک شما
+      را هنگام باز شدن یک پنجره جدید و هنگام تغییر نمایه دریافت می کند.
+  Privacy Settings:
+    Remove Video Meta Files: هنگامی که FreeTube فعال باشد، به طور خودکار فایل های
+      متا ایجاد شده در حین پخش ویدیو را حذف می کند، زمانی که صفحه تماشا بسته می شود.
+  External Player Settings:
+    Custom External Player Executable: به طور پیش فرض، FreeTube فرض می کند که پخش
+      کننده خارجی انتخاب شده را می توان از طریق متغیر محیطی PATH پیدا کرد. در صورت
+      نیاز، یک مسیر سفارشی را می توان در اینجا تنظیم کرد.
+    DefaultCustomArgumentsTemplate: "(پیش‌فرض: '{defaultCustomArguments}')"
+    Ignore Warnings: اخطارها را برای زمانی که پخش کننده خارجی فعلی از عملکرد فعلی
+      پشتیبانی نمی کند (به عنوان مثال معکوس کردن لیست های پخش و غیره) حذف کنید.
+    Custom External Player Arguments: هر آرگومان خط فرمان سفارشی، که با نقطه ویرگول
+      (';') از هم جدا شده اند، می خواهید به پخش کننده خارجی منتقل شوند.
+  Distraction Free Settings:
+    Hide Subscriptions Live: این تنظیم با تنظیم «{appWideSetting}» در سراسر برنامه،
+      در بخش «{subsection}» در «{settingsSection}» لغو می‌شود.
+    Hide Channels: نام کانال یا شناسه کانال را وارد کنید تا همه ویدیوها، فهرست‌های
+      پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشوند. نام
+      کانال وارد شده باید کاملا مطابقت داشته باشد و به حروف کوچک و بزرگ حساس باشد.
+  Experimental Settings:
+    Replace HTTP Cache: حافظه پنهان HTTP مبتنی بر دیسک Electron را غیرفعال می کند
+      و یک کش تصویر سفارشی در حافظه را فعال می کند. منجر به افزایش مصرف رم خواهد شد.
 Search Bar:
   Clear Input: پاک کردن ورودی
 Are you sure you want to open this link?: آیا مطمئن هستید که میخواهید این لینک را
   باز کنید؟
 About:
   Email: پست الکترونیکی
+  Discussions: گفتگو
 New Window: پنجره جدید
-Preferences: ترجیحات
+Preferences: اولویت ها
 Version {versionNumber} is now available!  Click for more details: نسخه {versionNumber}
-  موجود است!  برای جزئیات بیشتر کلیک کنید
-A new blog is now available, {blogTitle}. Click to view more: یک بلاگ جدید در دسترس
-  است، {blogTitle}. برای مشاهده بیشتر کلیک کنید
+  در دسترس است!  برای مشاهده جزئیات کلیک کنید
+A new blog is now available, {blogTitle}. Click to view more: یک مطلب جدید در دسترس
+  است, {blogTitle}. برای مشاهده بیشتر کلیک کنید
 Channels:
   Channels: کانال ها
   Unsubscribe: لغو اشتراک
@@ -523,3 +667,79 @@ Global:
   Videos: ویدیو
   Shorts: کوتاه
   Live: زنده
+Share:
+  Share Playlist: لیست پخش را به اشتراک بگذارید
+  Share Channel: اشتراک گذاری کانال
+Change Format:
+  Change Media Formats: تغییر فرمت های رسانه
+Chapters:
+  'Chapters list hidden, current chapter: {chapterName}': 'فهرست فصل‌ها پنهان است،
+    فصل فعلی: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'فهرست فصل‌ها قابل مشاهده
+    است، فصل فعلی: {chapterName}'
+  Chapters: فصل
+Hashtag:
+  This hashtag does not currently have any videos: این هشتگ در حال حاضر هیچ ویدیویی
+    ندارد
+  Hashtag: هشتگ
+External link opening has been disabled in the general settings: باز کردن پیوند خارجی
+  در تنظیمات عمومی غیرفعال شده است
+Screenshot Error: اسکرین شات ناموفق بود. {خطا}
+'The playlist has ended. Enable loop to continue playing': لیست پخش به پایان رسیده
+  است. حلقه را برای ادامه بازی فعال کنید
+Playing Next Video: پخش ویدیوی بعدی
+Loop is now disabled: حلقه اکنون غیرفعال است
+Playing Next Video Interval: پخش ویدیوی بعدی در کمترین زمان برای لغو کلیک کنید. |
+  پخش ویدیوی بعدی در {nextVideoInterval} ثانیه دیگر. برای لغو کلیک کنید. | پخش ویدیوی
+  بعدی در {nextVideoInterval} ثانیه. برای لغو کلیک کنید.
+Clipboard:
+  Copy failed: کپی در کلیپ بورد ناموفق بود
+  Cannot access clipboard without a secure connection: بدون اتصال ایمن نمی توان به
+    کلیپ بورد دسترسی پیدا کرد
+Comments:
+  View {replyCount} replies: مشاهده {replyCount} پاسخ
+  Pinned by: پین شده توسط
+  Member: عضو
+  From {channelName}: از {channelName}
+  And others: و دیگران
+The playlist has been reversed: لیست پخش معکوس شده است
+Default Invidious instance has been cleared: نمونه پیش فرض Invidious پاک شده است
+Profile:
+  Your default profile has been set to {profile}: نمایه پیش فرض شما روی {profile}
+    تنظیم شده است
+  Removed {profile} from your profiles: '{profile} از نمایه‌های شما حذف شد'
+  '{profile} is now the active profile': '{profile} اکنون نمایه فعال است'
+  '{number} selected': '{number} انتخاب شد'
+  Toggle Profile List: فهرست نمایه را تغییر دهید
+Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیره شد
+Ok: تایید
+Downloading has completed: دانلود '{videoTitle}' به پایان رسید
+Loop is now enabled: حلقه اکنون فعال است
+Age Restricted:
+  Type:
+    Video: ویدیو
+    Channel: کانال
+  This {videoOrPlaylist} is age restricted: این {videoOrPlaylist} دارای محدودیت سنی
+    است
+Shuffle is now enabled: Shuffle اکنون فعال است
+Falling back to Invidious API: بازگشت به Invidious API
+Local API Error (Click to copy): خطای Local API (برای کپی کلیک کنید)
+Shuffle is now disabled: Shuffle اکنون غیرفعال است
+Canceled next video autoplay: پخش خودکار ویدیوی بعدی لغو شد
+Unknown YouTube url type, cannot be opened in app: نوع URL ناشناخته YouTube، در برنامه
+  باز نمی شود
+Falling back to the local API: بازگشت به API محلی
+This video is unavailable because of missing formats. This can happen due to country unavailability.: این
+  ویدیو به دلیل عدم وجود قالب در دسترس نیست. این ممکن است به دلیل در دسترس نبودن کشور
+  اتفاق بیفتد.
+Subscriptions have not yet been implemented: اشتراک ها هنوز اجرا نشده است
+Playing Previous Video: پخش ویدیوی قبلی
+Default Invidious instance has been set to {instance}: نمونه پیش‌فرض Invidious روی
+  {instance} تنظیم شده است
+Starting download: شروع دانلود «{videoTitle}»
+Yes: بلی
+Invidious API Error (Click to copy): خطای Invidious API (برای کپی کلیک کنید)
+Hashtags have not yet been implemented, try again later: هشتگ ها هنوز پیاده سازی نشده
+  اند، بعداً دوباره امتحان کنید
+Downloading failed: مشکلی در بارگیری «{videoTitle}» وجود داشت
+No: خیر
