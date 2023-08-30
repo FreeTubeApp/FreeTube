@@ -3,15 +3,14 @@
 }
 
 .ftVideoPlayer {
-  width: 100%;
+  width:100%;
 }
 
 .ftVideoPlayer.vjs-user-inactive {
   cursor: none;
 }
 
-:deep(.sponsorBlockMarker),
-:deep(.chapterMarker) {
+:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
   position: relative;
   opacity: 0.3;
 }
