@@ -57,7 +57,7 @@
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
-          v-if="!hideSubscriptionsCommunity"
+          v-if="visibleTabs.includes('community')"
           ref="community"
           class="tab"
           role="tab"
