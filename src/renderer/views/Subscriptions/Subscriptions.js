@@ -46,6 +46,10 @@ export default defineComponent({
     activeSubscriptionList: function () {
       return this.activeProfile.subscriptions
     },
+    useRssFeeds: function () {
+      return this.$store.getters.getUseRssFeeds
+    },
+
     visibleTabs: function () {
       const tabs = []
 
@@ -62,7 +66,7 @@ export default defineComponent({
       }
 
       // community does not support rss
-      if (!this.hideSubscriptionsCommunity && this.activeSubscriptionList.length < 125) {
+      if (!this.hideSubscriptionsCommunity && !this.useRssFeeds && this.activeSubscriptionList.length < 125) {
         tabs.push('community')
       }
 
