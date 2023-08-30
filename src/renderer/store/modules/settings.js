@@ -199,6 +199,7 @@ const state = {
   hideChannelShorts: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
+  hideCommentPhotos: false,
   hideComments: false,
   hideFeaturedChannels: false,
   channelsHidden: '[]',

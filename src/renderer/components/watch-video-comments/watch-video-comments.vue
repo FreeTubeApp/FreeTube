@@ -62,11 +62,21 @@
           :to="`/channel/${comment.authorLink}`"
           tabindex="-1"
         >
-          <img
-            :src="comment.authorThumb"
-            alt=""
-            class="commentThumbnail"
-          >
+          <!-- Hide comment photo only if it isn't the video uploader -->
+          <template v-if="hideCommentPhotos && !comment.isOwner">
+            <div
+              class="commentThumbnailHidden"
+            >
+              {{ comment.author.substr(1, 1) }}
+            </div>
+          </template>
+          <template v-else>
+            <img
+              :src="comment.authorThumb"
+              alt=""
+              class="commentThumbnail"
+            >
+          </template>
         </router-link>
         <p
           v-if="comment.isPinned"
@@ -167,11 +177,21 @@
               :to="`/channel/${reply.authorLink}`"
               tabindex="-1"
             >
-              <img
-                :src="reply.authorThumb"
-                class="commentThumbnail"
-                alt=""
-              >
+              <!-- Hide comment photo only if it isn't the video uploader -->
+              <template v-if="hideCommentPhotos && !reply.isOwner">
+                <div
+                  class="commentThumbnailHidden"
+                >
+                  {{ reply.author.substr(1, 1) }}
+                </div>
+              </template>
+              <template v-else>
+                <img
+                  :src="reply.authorThumb"
+                  alt=""
+                  class="commentThumbnail"
+                >
+              </template>
             </router-link>
             <p class="commentAuthorWrapper">
               <router-link
