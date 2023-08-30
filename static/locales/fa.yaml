@@ -134,7 +134,7 @@ Settings:
     Locale Preference: 'تغییر زبان سیستم'
     System Default: 'پیشفرض سیستم'
     Preferred API Backend:
-      Preferred API Backend: 'ای پی ای پشتیبان ترجیح داده شده'
+      Preferred API Backend: 'ای پی ای پشتیبان ترجیحی'
       Local API: 'ای پی ای داخلی'
       Invidious API: 'ای پی ای Invidious'
     Video View Type:
@@ -176,6 +176,7 @@ Settings:
       Light: 'روشن'
       Dracula: دراکولا
       System Default: پیش فرض سیستم
+      Catppuccin Mocha: مجموعه رنگ کتپوسین موکا
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -201,6 +202,20 @@ Settings:
       Dracula Orange: نارنجی دراکولا
       Dracula Red: قرمز دراکولا
       Dracula Cyan: آبی یشمی دراکولا
+      Catppuccin Mocha Rosewater: گلاب
+      Catppuccin Mocha Sapphire: یاقونی
+      Catppuccin Mocha Blue: آبی
+      Catppuccin Mocha Sky: آسمانی
+      Catppuccin Mocha Lavender: بنفش کمرنگ
+      Catppuccin Mocha Flamingo: فلامینگو
+      Catppuccin Mocha Teal: مرغابی
+      Catppuccin Mocha Pink: صورتی
+      Catppuccin Mocha Mauve: ارغوانی سیر
+      Catppuccin Mocha Red: قرمز
+      Catppuccin Mocha Maroon: خرمایی
+      Catppuccin Mocha Peach: هلویی
+      Catppuccin Mocha Yellow: زرد
+      Catppuccin Mocha Green: سبز
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
@@ -242,12 +257,35 @@ Settings:
       پخش کننده ویدیو
     Video Playback Rate Interval: فاصله سرعت پخش ویدیو
     Max Video Playback Rate: حداکثر سرعت پخش ویدیو
+    Comment Auto Load:
+      Comment Auto Load: بارگذاری خودکار نظر دهید
+    Enter Fullscreen on Display Rotate: در چرخه نمایشگر وارد صفحه تمام صفحه شوید
+    Screenshot:
+      Format Label: فرمت اسکرین شات
+      Error:
+        Forbidden Characters: کاراکتر های ممنوعه
+        Empty File Name: نام فایل خالی
+      File Name Label: الگوی نام فایل
+      Quality Label: کیفیت اسکرین شات
+      File Name Tooltip: می توانید از متغیرهای زیر استفاده کنید. %Y سال 4 رقم. رقم
+        %M ماه 2. %D رقم روز دوم. %H ساعت 2 رقمی. %N دقیقه 2 رقم. %S 2 رقم دوم. %T
+        میلی ثانیه 3 رقمی. %s ویدیو دوم. %t ویدیو میلی ثانیه 3 رقمی. %i شناسه ویدیو.
+        همچنین می توانید از '\\' یا '/' برای ایجاد زیرپوشه ها استفاده کنید.
+      Enable: اسکرین شات را فعال کنید
+      Ask Path: پرسش برای محل ذخیره
+      Folder Label: پوشه اسکرین شات
+      Folder Button: پوشه را انتخاب کنید
+    Skip by Scrolling Over Video Player: با پیمایش روی پخش‌کننده ویدیو از آن بگذرید
+    Allow DASH AV1 formats: فرمت‌های DASH AV1 را مجاز کنید
   External Player Settings:
     External Player Settings: 'تنظیمات پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
     Ignore Unsupported Action Warnings: 'به اخطار های فعالیت پشتیبانی نشده اهمیت نده'
     Custom External Player Executable: 'پخش کننده خارجی شخصی سازی شده قابل اجرا'
     Custom External Player Arguments: 'ورودی های شخصی سازی شده پخش کننده خارجی'
+    Players:
+      None:
+        Name: هیچ کدام
   Privacy Settings:
     Privacy Settings: 'تنظیمات امنیتی'
     Remember History: 'حفظ تاریخچه'
@@ -266,11 +304,14 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'آیا
       شما مطمئنید میخواهید تمام دنبال شوندگان و پروفایل هایتان را حذف کنید؟.. این
       عملیات غیر قابل برگشت است'
+    Save Watched Videos With Last Viewed Playlist: ویدئوهای تماشا شده را با لیست پخش
+      آخرین مشاهده ذخیره کنید
   Subscription Settings:
     Subscription Settings: 'تنظیمات دنبال شوندگان'
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Fetch Feeds from RSS: 'دریافت feed ها از RSS'
     Manage Subscriptions: 'سامان دهی دنبال شوندگان'
+    Fetch Automatically: آوردن خودکار فید
   Distraction Free Settings:
     Distraction Free Settings: 'تنظیمات رهایی از انحراف حواس'
     Hide Video Views: 'مخفی کردن دیده های ویدیو'
@@ -283,6 +324,25 @@ Settings:
     Hide Playlists: 'مخفی کردن فهرست های پخش'
     Hide Live Chat: 'مخفی کردن چت لایو'
     Hide Active Subscriptions: 'مخفی کردن دنبال کنندگان فعال'
+    Hide Channel Playlists: لیست های پخش کانال را مخفی کنید
+    Sections:
+      Watch Page: صفحه تماشا
+      Subscriptions Page: صفحه اشتراک ها
+      Side Bar: نوار کناری
+      Channel Page: صفحه کانال
+      General: عمومی
+    Hide Live Streams: پنهان کردن پخشهای زنده
+    Hide Subscriptions Videos: پنهان کردن ویدیوهای اشتراک
+    Hide Video Description: مخفی کردن توضیحات ویدیو
+    Hide Featured Channels: پنهان کردن کانال های ویژه
+    Hide Comments: پنهان کردن نظرات
+    Hide Profile Pictures in Comments: مخفی کردن تصاویر پروفایل در نظرات
+    Display Titles Without Excessive Capitalisation: نمایش عناوین بدون حروف بزرگ
+    Hide Channels: پنهان کردن ویدیوها از کانال ها
+    Hide Upcoming Premieres: مخفی کردن اولین نمایش های آینده
+    Hide Chapters: پنهان کردن فصل ها
+    Hide Channels Placeholder: نام یا آیدی کانال
+    Hide Subscriptions Live: مخفی کردن اشتراک های زنده
   Data Settings:
     Data Settings: 'تنظیمات داده'
     Select Import Type: 'انتخاب شیوه وارد کردن'
@@ -327,10 +387,116 @@ Settings:
       شدند
     All playlists has been successfully exported: همه لیست های پخش با موفقیت صادر
       شد
+    Playlist File: فایل لیست پخش
+    Manage Subscriptions: مدیریت اشتراک ها
+    History File: فایل تاریخچه
+    Subscription File: فایل اشتراک
+    Playlist insufficient data: داده ناکافی برای لیست پخش «{playlist}»، در حال رد
+      شدن از مورد
+  Proxy Settings:
+    Proxy Host: میزبان پروکسی
+    Region: منطقه
+    Error getting network information. Is your proxy configured properly?: خطا در
+      دریافت اطلاعات شبکه. آیا پروکسی شما به درستی پیکربندی شده است؟
+    Ip: آی پی
+    Country: کشور
+    Proxy Settings: تنظیمات پروکسی
+    Proxy Port Number: شماره پورت پروکسی
+    Test Proxy: تست پروکسی
+    Enable Tor / Proxy: پروکسی / تور را فعال کنید
+    Proxy Protocol: پروتکل پروکسی
+    City: شهر
+    Clicking on Test Proxy will send a request to: با کلیک بر روی تست پروکسی یک درخواست
+      ارسال می شود
+    Your Info: اطلاعات شما
+  SponsorBlock Settings:
+    Skip Options:
+      Skip Option: گزینه پرش
+    Enable SponsorBlock: فعال کردن محدود کردن حامی
+    SponsorBlock Settings: تنظیمات محدود کردن حامی
+    Notify when sponsor segment is skipped: وقتی بخش حامی رد شد اطلاع دهید
 Channel:
   Playlists: {}
 Video:
   External Player: {}
+  Published:
+    Sep: سپتامبر
+    Month: ماه
+    Months: ماه ها
+    Year: سال
+    May: می
+    Minute: دقیقه
+    Hours: ساعت ها
+    Day: روز
+    Weeks: هفته ها
+    Feb: فوریه
+    Hour: ساعت
+    Mar: مارس
+    Jul: ژوئیه
+    Jan: جان
+    Apr: آپریل
+    Jun: ژوئن
+    Aug: اوت
+    Oct: اکتبر
+    Nov: نوامبر
+    Dec: دسامبر
+    Second: ثانیه
+    Seconds: ثانیه ها
+    Minutes: دقیقه ها
+    Days: روزها
+    Week: هفته
+    Years: سالها
+    Ago: پیش
+    Upcoming: اولین نمایش در
+  translated from English: ترجمه شده از انگلیسی
+  Copy Invidious Link: لینک Invidious را کپی کنید
+  Play Previous Video: پخش ویدیوی قبلی
+  Autoplay: پخش خودکار
+  Started streaming on: پخش جریانی را شروع کرد
+  Skipped segment: بخش رد شد
+  View: دیده شده
+  'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
+    پایان رسیده است.
+  Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
+  Views: دیده شده ها
+  Live Chat is currently not supported in this build.: گفتگوی زنده در حال حاضر در
+    این ساخت پشتیبانی نمی شود.
+  video only: فقط ویدیو
+  Sponsor Block category:
+    sponsor: حامی
+  Loop Playlist: حلقه پخش لیست
+  Live Now: زنده هم اکنون
+  Save Video: ذخیره ویدیو
+  Open in Invidious: در Invidious باز کنید
+  Audio:
+    Medium: متوسط
+    Best: بهترین
+    High: عالی
+    Low: کم
+  Video has been removed from your saved list: ویدیو از لیست ذخیره شده شما حذف شده
+    است
+  Download Video: دانلود ویدیو
+  Open in YouTube: در یوتیوب باز کنید
+  Play Next Video: پخش ویدیوی بعدی
+  Open Channel in Invidious: کانال را در Invidious باز کنید
+  Copy Invidious Channel Link: لینک کانال Invidious را کپی کنید
+  Watching: تماشا کردن
+  Watched: دیده شده
+  Open Channel in YouTube: کانال را در یوتیوب باز کنید
+  Copy YouTube Link: لینک یوتیوب را کپی کنید
+  Open YouTube Embedded Player: پخش کننده جاساز یوتیوب را بار کنید
+  Shuffle Playlist: مخلوط کردن لیست پخش
+  Reverse Playlist: لیست پخش معکوس
+  Starting soon, please refresh the page to check again: به زودی شروع می شود، لطفاً
+    برای بررسی دوباره صفحه را بازخوانی کنید
+  Live: زنده
+  Live Chat: چت زنده
+  Enable Live Chat: فعال کردن چت زنده
+  Streamed on: پخش جریانی
+  Published on: منتشر شده در
+  audio only: فقط صدا
+  Publicationtemplate: '{number} {unit} پیش'
+  Video has been saved: ویدیو ذخیره شده است
 Tooltips: {}
 Search Bar:
   Clear Input: پاک کردن ورودی
