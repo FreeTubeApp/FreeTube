@@ -427,6 +427,7 @@ Settings:
     Hide Subscriptions Videos: Abonelik Videolarını Gizle
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
+    Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -654,6 +655,9 @@ Channel:
     Community: Topluluk
     This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
       gönderi yok
+    votes: '{votes} oy'
+    Reveal Answers: Yanıtları Göster
+    Hide Answers: Yanıtları Gizle
   Live:
     Live: Canlı
     This channel does not currently have any live streams: Bu kanalda şu anda herhangi
