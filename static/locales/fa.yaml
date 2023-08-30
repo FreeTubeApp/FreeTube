@@ -85,6 +85,9 @@ Subscriptions:
   Disabled Automatic Fetching: شما دریافت خودکار اشتراک را غیرفعال کرده اید. اشتراک‌ها
     را بازخوانی کنید تا آنها را در اینجا ببینید.
   Empty Channels: کانال های مشترک شما در حال حاضر هیچ ویدیویی ندارند.
+  All Subscription Tabs Hidden: همه تب های اشتراک پنهان هستند. برای مشاهده محتوا در
+    اینجا، لطفاً برخی از برگه‌ها را در بخش '{subsection}' در '{settingsSection}' باز
+    کنید.
 More: 'بیشتر'
 Trending:
   Trending: 'پربازدید ها'
@@ -123,11 +126,12 @@ Settings:
     General Settings: 'تنظیمات عمومی'
     Check for Updates: 'بررسی برای به روزرسانی ها'
     Check for Latest Blog Posts: 'بررسی آخرین مطالب وبلاگ'
-    Fallback to Non-Preferred Backend on Failure: 'بازگشت به پشتیبانی ترجیح نداده
-      شده موقع شکست'
+    Fallback to Non-Preferred Backend on Failure: 'همه تب های اشتراک پنهان هستند.
+      برای مشاهده محتوا در اینجا، لطفاً برخی از برگه‌ها را در بخش ''{subsection}''
+      در ''{settingsSection}'' باز کنید.'
     Enable Search Suggestions: 'فعال کردن پیشنهادات جستجو'
     Default Landing Page: 'صفحه اول پیشفرض'
-    Locale Preference: 'اولویت مکان'
+    Locale Preference: 'تغییر زبان سیستم'
     System Default: 'پیشفرض سیستم'
     Preferred API Backend:
       Preferred API Backend: 'ای پی ای پشتیبان ترجیح داده شده'

@@ -61,6 +61,7 @@
     color: gray;
     opacity: 0.5;
     pointer-events: none;
+    -webkit-user-select: none;
     user-select: none;
   }
 

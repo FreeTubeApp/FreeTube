@@ -29,6 +29,8 @@
   line-height: 1em;
   text-align: center;
   padding: 17.5px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .profileName {
