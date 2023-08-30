@@ -1045,6 +1045,7 @@ export default defineComponent({
     handleVideoReady: function () {
       this.videoPlayerReady = true
       this.checkIfWatched()
+      this.updateLocalPlaylistLastPlayedAtSometimes()
     },
 
     checkIfWatched: function () {
@@ -1601,11 +1602,19 @@ export default defineComponent({
       document.title = `${this.videoTitle} - FreeTube`
     },
 
+    updateLocalPlaylistLastPlayedAtSometimes() {
+      if (this.selectedUserPlaylist == null) { return }
+
+      const playlist = this.selectedUserPlaylist
+      this.updatePlaylistLastPlayedAt({ _id: playlist._id })
+    },
+
     ...mapActions([
       'updateHistory',
       'updateWatchProgress',
       'updateLastViewedPlaylist',
-      'updateSubscriptionDetails'
+      'updatePlaylistLastPlayedAt',
+      'updateSubscriptionDetails',
     ])
   }
 })

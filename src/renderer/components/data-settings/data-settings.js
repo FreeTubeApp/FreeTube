@@ -885,6 +885,7 @@ export default defineComponent({
         'type',
         'protected',
         'lastUpdatedAt',
+        'lastPlayedAt',
         'removeOnWatched',
 
         'thumbnail',

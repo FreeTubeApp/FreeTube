@@ -20,6 +20,9 @@ const SORT_BY_VALUES = {
 
   LatestUpdatedFirst: 'latest_updated_first',
   EarliestUpdatedFirst: 'earliest_updated_first',
+
+  LatestPlayedFirst: 'latest_played_first',
+  EarliestPlayedFirst: 'earliest_played_first',
 }
 const SORT_BY_NAMES = {
   NameAscending: 'A-Z',
@@ -30,6 +33,9 @@ const SORT_BY_NAMES = {
 
   LatestUpdatedFirst: 'Recently Updated',
   EarliestUpdatedFirst: 'Earliest Updated',
+
+  LatestPlayedFirst: 'Recently Played',
+  EarliestPlayedFirst: 'Earliest Played',
 }
 
 export default defineComponent({
@@ -53,7 +59,7 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
-      sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
+      sortBy: SORT_BY_VALUES.LatestPlayedFirst,
     }
   },
   computed: {
@@ -94,6 +100,31 @@ export default defineComponent({
           case SORT_BY_VALUES.EarliestUpdatedFirst: {
             if (a.lastUpdatedAt < b.lastUpdatedAt) { return -1 }
             if (a.lastUpdatedAt > b.lastUpdatedAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.LatestPlayedFirst: {
+            if (a.lastPlayedAt == null && b.lastPlayedAt == null) {
+              return a.playlistName.localeCompare(b.playlistName, this.locale)
+            }
+            // Never played playlist = move to last
+            if (a.lastPlayedAt == null) { return 1 }
+            if (b.lastPlayedAt == null) { return -1 }
+            if (a.lastPlayedAt > b.lastPlayedAt) { return -1 }
+            if (a.lastPlayedAt < b.lastPlayedAt) { return 1 }
+
+            return a.playlistName.localeCompare(b.playlistName, this.locale)
+          }
+          case SORT_BY_VALUES.EarliestPlayedFirst: {
+            // Never played playlist = first
+            if (a.lastPlayedAt == null && b.lastPlayedAt == null) {
+              return a.playlistName.localeCompare(b.playlistName, this.locale)
+            }
+            // Never played playlist = move to first
+            if (a.lastPlayedAt == null) { return -1 }
+            if (b.lastPlayedAt == null) { return 1 }
+            if (a.lastPlayedAt < b.lastPlayedAt) { return -1 }
+            if (a.lastPlayedAt > b.lastPlayedAt) { return 1 }
 
             return a.playlistName.localeCompare(b.playlistName, this.locale)
           }
