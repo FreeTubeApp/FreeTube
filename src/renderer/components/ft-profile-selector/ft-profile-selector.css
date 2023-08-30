@@ -17,6 +17,8 @@
   font-size: 20px;
   line-height: 1em;
   text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .profileList {

@@ -53,9 +53,8 @@
       <p
         v-if="listType !== 'grid'"
         class="description"
-      >
-        {{ description }}
-      </p>
+        v-html="description"
+      />
     </div>
   </div>
 </template>

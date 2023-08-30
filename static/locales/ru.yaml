@@ -601,9 +601,9 @@ Channel:
     Community: Сообщество
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
-    votes: '{голоса} голоса'
-    Hide Answers: Скрыть ответ
-    Reveal Answers: Раскрыть ответ
+    votes: 'Голосов: {votes}'
+    Hide Answers: Скрыть ответы
+    Reveal Answers: Раскрыть ответы
   Live:
     Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее
@@ -904,7 +904,7 @@ Profile:
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
   Profile Settings: Настройки профиля
-  Toggle Profile List: Переключать список профилей
+  Toggle Profile List: Переключить список профилей
 The playlist has been reversed: Подборка была перевёрнута
 A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
   {blogTitle}. Нажмите здесь, чтобы посмотреть подробности
