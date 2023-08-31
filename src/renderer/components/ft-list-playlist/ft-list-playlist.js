@@ -42,6 +42,18 @@ export default defineComponent({
 
     defaultPlayback: function () {
       return this.$store.getters.getDefaultPlayback
+    },
+
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
+
+    blurThumbnailsStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : null
+    },
+
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
     }
   },
   created: function () {
@@ -67,7 +79,11 @@ export default defineComponent({
 
     parseInvidiousData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
+      if (this.thumbnailPreference === 'hidden') {
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
+      } else {
+        this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
+      }
       this.channelName = this.data.author
       this.channelId = this.data.authorId
       this.playlistId = this.data.playlistId
@@ -80,7 +96,11 @@ export default defineComponent({
 
     parseLocalData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.thumbnail
+      if (this.thumbnailPreference === 'hidden') {
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
+      } else {
+        this.thumbnail = this.data.thumbnail
+      }
       this.channelName = this.data.channelName
       this.channelId = this.data.channelId
       this.playlistId = this.data.playlistId

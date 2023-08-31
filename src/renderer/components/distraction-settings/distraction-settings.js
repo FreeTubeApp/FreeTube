@@ -11,7 +11,7 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-input-tags': FtInputTags,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
   },
   computed: {
     hideVideoViews: function () {
@@ -95,6 +95,12 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
+    },
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
     },
@@ -148,7 +154,8 @@ export default defineComponent({
       'updateHideChannelReleases',
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
-      'updateHideSubscriptionsLive'
+      'updateHideSubscriptionsLive',
+      'updateBlurThumbnails'
     ])
   }
 })

@@ -273,6 +273,7 @@ const state = {
     skip: 'doNothing'
   },
   thumbnailPreference: '',
+  blurThumbnails: false,
   useProxy: false,
   useRssFeeds: false,
   useSponsorBlock: false,
