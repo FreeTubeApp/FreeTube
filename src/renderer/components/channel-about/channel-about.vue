@@ -90,10 +90,9 @@
         <ft-channel-bubble
           v-for="(channel, index) in relatedChannels"
           :key="index"
+          :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnailUrl"
-          role="link"
-          @click="goToChannel(channel.id)"
         />
       </ft-flex-box>
     </template>

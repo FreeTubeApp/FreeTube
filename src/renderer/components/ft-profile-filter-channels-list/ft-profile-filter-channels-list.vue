@@ -21,10 +21,10 @@
           v-for="(channel, index) in channels"
           :key="index"
           :ref="`all-channels-${index}`"
+          :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
           :show-selected="true"
-          role="button"
           @click="handleChannelClick(index)"
         />
       </ft-flex-box>
