@@ -240,7 +240,7 @@ export default defineComponent({
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
-    this.useTheatreMode = this.defaultTheatreMode
+    this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
 
     this.checkIfPlaylist()
     this.checkIfTimestamp()
