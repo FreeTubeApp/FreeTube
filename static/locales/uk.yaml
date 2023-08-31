@@ -155,6 +155,7 @@ Settings:
       Beginning: 'На початку'
       Middle: 'В середині'
       End: 'У кінці'
+      Hidden: Сховано
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Екземпляр Invidious
       (За замовчуванням https://invidious.snopyta.org)'
     Region for Trending: 'Регіон для Популярних'
@@ -354,6 +355,7 @@ Settings:
     Hide Subscriptions Shorts: Сховати Shorts із підписок
     Hide Subscriptions Live: Сховати трансляції з підписок
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
+    Blur Thumbnails: Розмиті мініатюри
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
