@@ -151,6 +151,7 @@ Settings:
       Beginning: 'Alguses'
       Middle: 'Keskel'
       End: 'Lõpus'
+      Hidden: Peidetud
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
       veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
     Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
@@ -397,6 +398,7 @@ Settings:
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
+    Blur Thumbnails: Hägusta pisipildid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
