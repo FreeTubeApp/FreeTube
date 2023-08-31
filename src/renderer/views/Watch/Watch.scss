@@ -3,17 +3,7 @@
 }
 
 @mixin theatre-mode-template {
-  grid-template:  'video video video' auto
-                  'info info sidebar' auto
-                  'info info sidebar' auto / 1fr 1fr 1fr;
-
-  // When there is no sidebar (but the empty container element still exists)
-  // The info element need to be expanded with following rule(s)
-  @at-root .videoLayout.noSidebar {
-    grid-template:  'video video video' auto
-                    'info info info'    auto
-                    'info info info'    auto / 1fr 1fr 1fr;
-  }
+  grid-template: 'video video video' auto 'info info sidebar' auto 'info info sidebar' auto / 1fr 1fr 1fr;
 }
 
 @mixin single-column-template {
