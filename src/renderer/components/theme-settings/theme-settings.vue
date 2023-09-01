@@ -64,6 +64,7 @@
         :value="mainColor"
         :select-names="colorNames"
         :select-values="colorValues"
+        :disabled="!areColorThemesEnabled"
         @change="updateMainColor"
       />
       <ft-select
@@ -71,6 +72,7 @@
         :value="secColor"
         :select-names="colorNames"
         :select-values="colorValues"
+        :disabled="!areColorThemesEnabled"
         @change="updateSecColor"
       />
     </ft-flex-box>

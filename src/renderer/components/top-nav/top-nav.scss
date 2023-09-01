@@ -58,8 +58,7 @@
 
   &.fa-arrow-left,
   &.fa-arrow-right {
-    color: gray;
-    opacity: 0.5;
+    opacity: 0.4;
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
@@ -67,6 +66,7 @@
 
   &:hover {
     background-color: var(--side-nav-hover-color);
+    color: var(--side-nav-hover-text-color);
     transition: background 0.2s ease-in;
 
     @include top-nav-is-colored {
@@ -76,6 +76,7 @@
 
   &:active {
     background-color: var(--tertiary-text-color);
+    color: var(--side-nav-active-text-color);
     transition: background 0.2s ease-in;
 
     @include top-nav-is-colored {
