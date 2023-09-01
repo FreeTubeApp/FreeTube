@@ -11,7 +11,7 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-input-tags': FtInputTags,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
   },
   computed: {
     hideVideoViews: function () {
@@ -50,7 +50,10 @@ export default defineComponent({
     hideComments: function () {
       return this.$store.getters.getHideComments
     },
-    hideLiveStreams: function() {
+    hideCommentPhotos: function () {
+      return this.$store.getters.getHideCommentPhotos
+    },
+    hideLiveStreams: function () {
       return this.$store.getters.getHideLiveStreams
     },
     hideUpcomingPremieres: function () {
@@ -62,35 +65,41 @@ export default defineComponent({
     hideChapters: function () {
       return this.$store.getters.getHideChapters
     },
-    hideFeaturedChannels: function() {
+    hideFeaturedChannels: function () {
       return this.$store.getters.getHideFeaturedChannels
     },
-    hideChannelShorts: function() {
+    hideChannelShorts: function () {
       return this.$store.getters.getHideChannelShorts
     },
-    hideChannelPlaylists: function() {
+    hideChannelPlaylists: function () {
       return this.$store.getters.getHideChannelPlaylists
     },
-    hideChannelPodcasts: function() {
+    hideChannelPodcasts: function () {
       return this.$store.getters.getHideChannelPodcasts
     },
-    hideChannelReleases: function() {
+    hideChannelReleases: function () {
       return this.$store.getters.getHideChannelReleases
     },
-    hideChannelCommunity: function() {
+    hideChannelCommunity: function () {
       return this.$store.getters.getHideChannelCommunity
     },
-    hideSubscriptionsVideos: function() {
+    hideSubscriptionsVideos: function () {
       return this.$store.getters.getHideSubscriptionsVideos
     },
-    hideSubscriptionsShorts: function() {
+    hideSubscriptionsShorts: function () {
       return this.$store.getters.getHideSubscriptionsShorts
     },
-    hideSubscriptionsLive: function() {
+    hideSubscriptionsLive: function () {
       return this.$store.getters.getHideSubscriptionsLive
     },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
+    },
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
+    },
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
     },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
@@ -111,7 +120,7 @@ export default defineComponent({
 
       this.updateHideRecommendedVideos(value)
     },
-    handleChannelsHidden: function(value) {
+    handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
     },
 
@@ -130,6 +139,7 @@ export default defineComponent({
       'updateDefaultTheatreMode',
       'updateHideVideoDescription',
       'updateHideComments',
+      'updateHideCommentPhotos',
       'updateHideLiveStreams',
       'updateHideUpcomingPremieres',
       'updateHideSharingActions',
@@ -144,7 +154,8 @@ export default defineComponent({
       'updateHideChannelReleases',
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
-      'updateHideSubscriptionsLive'
+      'updateHideSubscriptionsLive',
+      'updateBlurThumbnails'
     ])
   }
 })

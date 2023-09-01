@@ -156,6 +156,7 @@ Settings:
       Beginning: 'Začátek'
       Middle: 'Střed'
       End: 'Konec'
+      Hidden: Skryté
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
       (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Oblast pro trendy'
@@ -351,6 +352,8 @@ Settings:
     Hide Subscriptions Shorts: Skrýt Shorts odběrů
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
+    Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
+    Blur Thumbnails: Rozmazat náhledy
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
