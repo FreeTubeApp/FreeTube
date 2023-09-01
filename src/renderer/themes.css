@@ -1017,14 +1017,16 @@ body[dir='rtl'] {
   --horizontal-directionality-coefficient: -1;
 }
 
-/* Arabic, Kurdish, Persian and Urdu have a reversed question mark, but not Hebrew and Yiddish */
-html[lang='he'] body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"]):not([data-icon="circle-question"]),
-html[lang='yi'] body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"]):not([data-icon="circle-question"]) {
+body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"]):not([data-icon="circle-question"]) {
   transform: scale(-1,1);
 }
 
-body[dir='rtl'] [data-prefix="fas"]:not([data-icon="magnifying-glass"]) {
-  transform: scale(-1,1);
+/* Arabic, Kurdish, Persian and Urdu have a reversed question mark, but not Hebrew and Yiddish */
+html[lang='ar'] [data-prefix="fas"][data-icon="circle-question"],
+html[lang='fa'] [data-prefix="fas"][data-icon="circle-question"],
+html[lang='ku'] [data-prefix="fas"][data-icon="circle-question"],
+html[lang='ur'] [data-prefix="fas"][data-icon="circle-question"] {
+  transform: scale(-1, 1)
 }
 
 body {
