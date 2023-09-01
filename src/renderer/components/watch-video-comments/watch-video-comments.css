@@ -51,7 +51,7 @@
 }
 
 .commentThumbnailHidden {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,10 +76,11 @@
 }
 
 .commentOwner {
-  background-color: var(--scrollbar-color);
+  background-color: var(--secondary-card-bg-color);
   border-radius: 10px;
   padding-inline: 10px;
 }
+
 
 .commentAuthor {
   color: inherit;

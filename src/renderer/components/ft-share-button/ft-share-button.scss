@@ -46,6 +46,7 @@
 
       /* no changes for the dracula theme */
 
+      .pastelPink &,
       .light &,
       .system[data-system-theme*='light'] & {
         filter: invert(0.87);
@@ -70,10 +71,12 @@
         .black &,
         .dracula &,
         .CatppuccinMocha &,
+        .hotPink &,
         .system[data-system-theme*='dark'] & {
           background-image: url('../../assets/img/invidious-logo-dark.svg');
         }
 
+        .pastelPink &,
         .light &,
         .system[data-system-theme*='light'] & {
           background-image: url('../../assets/img/invidious-logo-light.svg');
