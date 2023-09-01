@@ -137,7 +137,7 @@ Settings:
       Invidious API: 'ای پی ای Invidious'
     Video View Type:
       Video View Type: 'طرز نمایش ویدیو'
-      Grid: 'جدول'
+      Grid: 'شبکه'
       List: 'فهرست'
     Thumbnail Preference:
       Thumbnail Preference: 'اولویت کاور ویدیو'
@@ -464,7 +464,7 @@ Channel:
       Last Video Added: آخرین ویدیو اضافه شده
       Oldest: قدیمی ترین
       Newest: جدیدترین
-    Playlists: فهرست پخش
+    Playlists: فهرست های پخش
     This channel does not currently have any playlists: این کانال در حال حاضر هیچ
       لیست پخشی ندارد
   This channel is age-restricted and currently cannot be viewed in FreeTube.: این
@@ -562,7 +562,7 @@ Video:
     Oct: اکتبر
     Nov: نوامبر
     Dec: دسامبر
-    Second: ثانیه
+    Second: دوم
     Seconds: ثانیه ها
     Minutes: دقیقه ها
     Days: روزها
