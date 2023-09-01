@@ -199,6 +199,7 @@ const state = {
   hideChannelShorts: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
+  hideCommentPhotos: false,
   hideComments: false,
   hideFeaturedChannels: false,
   channelsHidden: '[]',
@@ -273,6 +274,7 @@ const state = {
     skip: 'doNothing'
   },
   thumbnailPreference: '',
+  blurThumbnails: false,
   useProxy: false,
   useRssFeeds: false,
   useSponsorBlock: false,

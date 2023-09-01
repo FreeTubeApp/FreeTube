@@ -88,6 +88,14 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
+
+    blurThumbnailsStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : null
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -239,6 +247,8 @@ export default defineComponent({
           return `${baseUrl}/vi/${this.id}/mq2.jpg`
         case 'end':
           return `${baseUrl}/vi/${this.id}/mq3.jpg`
+        case 'hidden':
+          return require('../../assets/img/thumbnail_placeholder.svg')
         default:
           return `${baseUrl}/vi/${this.id}/mqdefault.jpg`
       }

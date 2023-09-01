@@ -391,6 +391,7 @@ Settings:
     Hide Subscriptions Shorts: 隱藏訂閱短片
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
+    Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？

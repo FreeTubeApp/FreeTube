@@ -167,6 +167,7 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
+      Hidden: Hidden
     Current Invidious Instance: Current Invidious Instance
     The currently set default instance is {instance}: The currently set default instance is {instance}
     No default instance has been set: No default instance has been set
@@ -333,6 +334,7 @@ Settings:
       Channel Page: Channel Page
       Watch Page: Watch Page
       General: General
+    Blur Thumbnails: Blur Thumbnails
     Hide Video Views: Hide Video Views
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Channel Subscribers: Hide Channel Subscribers
@@ -345,6 +347,7 @@ Settings:
     Hide Active Subscriptions: Hide Active Subscriptions
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
+    Hide Profile Pictures in Comments: Hide Profile Pictures in Comments
     Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation
     Hide Live Streams: Hide Live Streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
