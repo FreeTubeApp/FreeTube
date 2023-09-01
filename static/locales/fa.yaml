@@ -203,18 +203,18 @@ Settings:
       Dracula Cyan: آبی یشمی دراکولا
       Catppuccin Mocha Rosewater: گلاب
       Catppuccin Mocha Sapphire: یاقونی
-      Catppuccin Mocha Blue: آبی
+      Catppuccin Mocha Blue: کتپوچین موکا آبی
       Catppuccin Mocha Sky: آسمانی
       Catppuccin Mocha Lavender: بنفش کمرنگ
       Catppuccin Mocha Flamingo: فلامینگو
       Catppuccin Mocha Teal: مرغابی
-      Catppuccin Mocha Pink: صورتی
+      Catppuccin Mocha Pink: کتپوچین موکا صورتی
       Catppuccin Mocha Mauve: ارغوانی سیر
-      Catppuccin Mocha Red: قرمز
+      Catppuccin Mocha Red: کتپوسین موکا قرمز
       Catppuccin Mocha Maroon: خرمایی
       Catppuccin Mocha Peach: هلویی
-      Catppuccin Mocha Yellow: زرد
-      Catppuccin Mocha Green: سبز
+      Catppuccin Mocha Yellow: کتپوسین موکا زرد
+      Catppuccin Mocha Green: کتپوچین موکا سبز
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
@@ -714,8 +714,8 @@ Tooltips:
       پشتیبانی لیست پخش) در پخش کننده خارجی، روی تصویر کوچک نمایش داده می شود. هشدار،
       تنظیمات ناخوشایند بر پخش کننده های خارجی تأثیر نمی گذارد.
   Distraction Free Settings:
-    Hide Subscriptions Live: این تنظیم با تنظیم «{appWideSetting}» در سراسر برنامه،
-      در بخش «{subsection}» در «{settingsSection}» لغو می‌شود.
+    Hide Subscriptions Live: این تنظیم با «{appWideSetting}» در سراسر برنامه، در بخش
+      «{subsection}» در «{settingsSection}» لغو می‌شود.
     Hide Channels: نام کانال یا شناسه کانال را وارد کنید تا همه ویدیوها، فهرست‌های
       پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشوند. نام
       کانال وارد شده باید کاملا مطابقت داشته باشد و به حروف کوچک و بزرگ حساس باشد.
