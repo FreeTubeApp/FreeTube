@@ -1,9 +1,19 @@
 /* stylelint-disable property-no-vendor-prefix */
 @use '../../scss-partials/_ft-list-item';
 
+$community-thumbnail-side-width: 65px;
+
 .outside {
   margin: auto;
-  width: 40%;
+
+  &.list {
+    width: 100%;
+  }
+
+  &.grid {
+    width: 40%;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -129,4 +139,22 @@
 .ft-list-item.grid {
   min-height: 0 !important;
   padding-bottom: 20px;
+}
+
+.ft-list-item.list {
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > :not(.author-div) {
+    margin-inline-start: $community-thumbnail-side-width;
+    flex-basis: 100%;
+  }
+
+  .author-div {
+    height: 24px;
+  }
+
+  .postText {
+    margin-block-start: 6px;
+  }
 }
