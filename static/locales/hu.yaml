@@ -158,6 +158,7 @@ Settings:
       Beginning: 'Kezdet'
       Middle: 'Középső'
       End: 'Vég'
+      Hidden: Rejtett
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious példány
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
@@ -188,6 +189,8 @@ Settings:
       Dracula: 'Drakula'
       System Default: Rendszer alapértelmezett
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pasztell rózsaszín
+      Hot Pink: Forró rózsaszín
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -433,6 +436,8 @@ Settings:
     Hide Subscriptions Shorts: Feliratkozások rövidfilmek elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
+    Blur Thumbnails: Miniatűr elhomályosítása
+    Hide Profile Pictures in Comments: Profilképek elrejtése a kommentszekcióban
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
