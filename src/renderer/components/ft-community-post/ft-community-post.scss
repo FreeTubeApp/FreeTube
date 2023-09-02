@@ -3,22 +3,6 @@
 
 $community-thumbnail-side-width: 65px;
 
-.outside {
-  margin: auto;
-
-  &.list {
-    width: 100%;
-  }
-
-  &.grid {
-    width: 40%;
-  }
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
-}
-
 .ft-list-post {
   box-sizing: border-box;
 }
@@ -138,7 +122,6 @@ $community-thumbnail-side-width: 65px;
 
 .ft-list-item.grid {
   min-height: 0 !important;
-  padding-bottom: 20px;
 }
 
 .ft-list-item.list {
