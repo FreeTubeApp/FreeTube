@@ -22,20 +22,23 @@ $community-thumbnail-side-width: 65px;
 
 .author-div {
   display: flex;
+  margin-block-start: -16px;
 
   .authorName {
     font-size: 15px;
     font-weight: bold;
-    margin: 5px 6px 0 5px;
+    margin-block-end: 6px;
   }
 
   .publishedText {
     font-size: 15px;
-    margin: 5px 6px 0 5px;
+    margin-inline: 5px 6px;
+    margin-block-end: 6px;
   }
 }
 
 .postText {
+  margin-block-start: 0;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
@@ -120,24 +123,9 @@ $community-thumbnail-side-width: 65px;
   }
 }
 
-.ft-list-item.grid {
-  min-height: 0 !important;
-}
-
-.ft-list-item.list {
-  flex-wrap: wrap;
+.ft-list-item.grid, .ft-list-item.list {
+  flex-direction: row;
   justify-content: space-between;
-
-  > :not(.author-div) {
-    margin-inline-start: $community-thumbnail-side-width;
-    flex-basis: 100%;
-  }
-
-  .author-div {
-    height: 24px;
-  }
-
-  .postText {
-    margin-block-start: 6px;
-  }
+  gap: 10px;
+  padding-block-end: 0;
 }
