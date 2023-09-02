@@ -4,7 +4,7 @@
     :class="{
       grid: grid,
       list: !grid,
-      card: usingFtCardWrapper
+      card: useFtCardWrapper
     }"
   >
     <slot />

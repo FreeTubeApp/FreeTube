@@ -39,7 +39,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    usingFtCardWrapper: {
+    useFtCardWrapper: {
       type: Boolean,
       default: false,
     }

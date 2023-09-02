@@ -220,7 +220,7 @@
       v-if="(!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)) && !hideChannelCommunity && currentTab === 'community' && latestCommunityPosts.length > 0"
       id="communityPanel"
       :data="latestCommunityPosts"
-      :using-ft-card-wrapper="true"
+      :use-ft-card-wrapper="true"
       :use-channels-hidden-preference="false"
       role="tabpanel"
       aria-labelledby="communityTab"

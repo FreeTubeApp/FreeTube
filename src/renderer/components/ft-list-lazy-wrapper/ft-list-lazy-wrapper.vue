@@ -1,5 +1,5 @@
 <template>
-  <component :is="usingFtCardWrapper ? 'ft-card' : 'div'"
+  <component :is="useFtCardWrapper ? 'ft-card' : 'div'"
     v-if="showResult"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,

@@ -7,7 +7,7 @@ export default defineComponent({
       type: Boolean,
       required: true
     },
-    usingFtCardWrapper: {
+    useFtCardWrapper: {
       type: Boolean,
       default: false
     }
