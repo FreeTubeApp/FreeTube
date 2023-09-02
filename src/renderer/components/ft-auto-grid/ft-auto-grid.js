@@ -6,6 +6,10 @@ export default defineComponent({
     grid: {
       type: Boolean,
       required: true
+    },
+    usingFtCardWrapper: {
+      type: Boolean,
+      default: false
     }
   }
 })

@@ -3,6 +3,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
 import FtCommunityPost from '../ft-community-post/ft-community-post.vue'
+import FtCard from '../ft-card/ft-card.vue'
 
 export default defineComponent({
   name: 'FtListLazyWrapper',
@@ -10,7 +11,8 @@ export default defineComponent({
     'ft-list-video': FtListVideo,
     'ft-list-channel': FtListChannel,
     'ft-list-playlist': FtListPlaylist,
-    'ft-community-post': FtCommunityPost
+    'ft-community-post': FtCommunityPost,
+    'ft-card': FtCard
   },
   props: {
     data: {
@@ -37,6 +39,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    usingFtCardWrapper: {
+      type: Boolean,
+      default: false,
+    }
   },
   data: function () {
     return {

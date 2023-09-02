@@ -1,6 +1,7 @@
 <template>
   <ft-auto-grid
     :grid="displayValue !== 'list'"
+    :usingFtCardWrapper = usingFtCardWrapper
   >
     <ft-list-lazy-wrapper
       v-for="(result, index) in data"
@@ -11,6 +12,7 @@
       :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
+      :using-ft-card-wrapper="usingFtCardWrapper"
     />
   </ft-auto-grid>
 </template>

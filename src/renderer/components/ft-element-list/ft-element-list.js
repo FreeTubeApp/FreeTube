@@ -26,6 +26,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    usingFtCardWrapper: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     listType: function () {
