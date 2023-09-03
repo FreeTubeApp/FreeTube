@@ -52,10 +52,6 @@ export default defineComponent({
         slideBy: 'page',
         navPosition: 'bottom'
       }
-    },
-
-    listType: function () {
-      return this.$store.getters.getListType
     }
   },
   created: function () {

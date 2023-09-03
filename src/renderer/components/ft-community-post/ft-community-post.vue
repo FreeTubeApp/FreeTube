@@ -1,9 +1,8 @@
 <template>
   <div
     v-if="!isLoading"
-    class="ft-list-post ft-list-item outside"
+    class="ft-list-post ft-list-item outside card list"
     :appearance="appearance"
-    :class="{ list: listType === 'list', grid: listType === 'grid' }"
   >
     <div>
       <img

@@ -9,9 +9,21 @@
 
 .ft-card:has(.ft-card) {
   background-color: inherit;
-  margin: inherit;
-  padding: inherit;
-  padding-top: inherit;
-	padding-bottom: inherit;
+  margin: 0;
+  padding: 0;
   box-shadow: inherit;
+  width: auto;
+}
+
+.ft-card .ft-card {
+  margin-inline: 0;
+  margin-block: 0 16px;
+  padding-block: 16px;
+  width: 75%;
+}
+
+@media screen and (max-width: 680px) {
+  .ft-card .ft-card {
+    width: 100%;
+  }
 }

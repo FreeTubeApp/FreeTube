@@ -5,6 +5,7 @@ $community-thumbnail-side-width: 65px;
 
 .ft-list-post {
   box-sizing: border-box;
+  margin-inline: auto;
 }
 
 .communityImage {
@@ -51,11 +52,6 @@ $community-thumbnail-side-width: 65px;
   margin-top: 4px;
   max-width: 210px;
   text-align: left;
-
-  @media screen and (max-width: 680px) {
-    margin-left: 0;
-    text-align: left;
-  }
 
   .likeBar {
     border-radius: 4px;
@@ -123,9 +119,7 @@ $community-thumbnail-side-width: 65px;
   }
 }
 
-.ft-list-item.grid, .ft-list-item.list {
+.ft-list-item.list {
   flex-direction: row;
   justify-content: space-between;
-  gap: 10px;
-  padding-block-end: 0;
 }
