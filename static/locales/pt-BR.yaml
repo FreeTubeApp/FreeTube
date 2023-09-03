@@ -144,6 +144,7 @@ Settings:
       Beginning: 'No começo'
       Middle: 'No meio'
       End: 'No fim'
+      Hidden: Escondido
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
       Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
@@ -431,6 +432,8 @@ Settings:
     Hide Subscriptions Videos: Ocultar vídeos de inscrições
     Hide Subscriptions Shorts: Ocultar Shorts de Inscrições
     Hide Subscriptions Live: Ocultar inscrições de transmissões ao vivo
+    Hide Profile Pictures in Comments: Esconder imagens do perfil nos comentários
+    Blur Thumbnails: Desfocar Miniaturas
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?

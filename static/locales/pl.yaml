@@ -147,6 +147,7 @@ Settings:
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
+      Hidden: Nie pokazuj
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious
       (Domyślnie jest https://invidious.snopyta.org)'
     Region for Trending: '„Na czasie” z obszaru'
@@ -180,6 +181,8 @@ Settings:
       Dracula: 'Drakula'
       System Default: Domyślny systemu
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Gorący róż
+      Pastel Pink: Pastelowy róż
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -433,6 +436,7 @@ Settings:
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
     Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
+    Blur Thumbnails: Rozmazuj miniaturki
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?

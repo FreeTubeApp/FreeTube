@@ -146,6 +146,7 @@ Settings:
       Beginning: 'Comienzo'
       Middle: 'Mitad'
       End: 'Final'
+      Hidden: Oculto
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
       Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región de las tendencias'
@@ -180,6 +181,8 @@ Settings:
       Dracula: 'Drácula'
       System Default: Valor predeterminado del sistema
       Catppuccin Mocha: Catppuccin Moca
+      Pastel Pink: Rosa pastel
+      Hot Pink: Fucsia
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -427,6 +430,7 @@ Settings:
     Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
+    Blur Thumbnails: Difuminar las miniaturas
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
