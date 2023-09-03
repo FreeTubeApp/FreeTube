@@ -216,16 +216,6 @@
         </ft-flex-box>
       </div>
     </ft-card>
-    <ft-element-list
-      v-if="(!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)) && !hideChannelCommunity && currentTab === 'community' && latestCommunityPosts.length > 0"
-      id="communityPanel"
-      :data="latestCommunityPosts"
-      :use-ft-card-wrapper="true"
-      :use-channels-hidden-preference="false"
-      role="tabpanel"
-      aria-labelledby="communityTab"
-      display="list"
-    />
     <ft-card
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="card"
@@ -378,6 +368,16 @@
             {{ $t("Channel.Playlists.This channel does not currently have any playlists") }}
           </p>
         </ft-flex-box>
+        <ft-element-list
+          v-if="(!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)) && !hideChannelCommunity && currentTab === 'community' && latestCommunityPosts.length > 0"
+          id="communityPanel"
+          :data="latestCommunityPosts"
+          :use-ft-card-wrapper="true"
+          :use-channels-hidden-preference="false"
+          role="tabpanel"
+          aria-labelledby="communityTab"
+          display="list"
+        />
         <ft-flex-box
           v-if="!hideChannelCommunity && currentTab === 'community' && latestCommunityPosts.length === 0"
         >
