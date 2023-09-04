@@ -3,8 +3,8 @@ Locale Name: 'Nederlands (NL)'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dit gedeelte van de applicatie is nog niet klaar. Kom later terug als er vooruitgang
-  is geboekt.
+  Dit gedeelte van de app is nog niet klaar. Kom later terug als er vooruitgang is
+  geboekt.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -36,6 +36,8 @@ Global:
   Videos: 'Video''s'
 
 # Search Bar
+  Shorts: Shorts
+  Live: Live
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -90,14 +92,15 @@ Subscriptions:
   Disabled Automatic Fetching: U hebt het automatisch ophalen van abonnementen uitgeschakeld.
     Vernieuw abonnementen om ze hier te zien.
   Empty Channels: Je geabonneerde kanalen hebben momenteel geen video's.
+  Subscriptions Tabs: Abonnement­tabbladen
 Trending:
-  Trending: 'Actuele'
-  Trending Tabs: Tendingtabbladen
+  Trending: 'Trending'
+  Trending Tabs: Tending-tabbladen
   Movies: Films
-  Gaming: Gamen
+  Gaming: Gaming
   Music: Muziek
   Default: Standaard
-Most Popular: 'Populair'
+Most Popular: 'Populairst'
 Playlists: 'Afspeellijsten'
 User Playlists:
   Your Playlists: 'Uw afspeellijsten'
@@ -108,7 +111,7 @@ User Playlists:
     Er worden alleen video's weergegeven die jij hebt opgeslagen of gefavoriet. Wanneer
     we klaar zijn met de ontwikkeling van deze feature zullen al deze video's worden
     gemigreerd naar de 'favorieten' afspeellijst.
-  Search bar placeholder: In Afspeellijst zoeken
+  Search bar placeholder: In afspeellijst zoeken
   Empty Search Message: Deze afspeellijst bevat geen video's die overeenkomen met
     de zoekopdracht
 History:
@@ -116,7 +119,7 @@ History:
   History: 'Geschiedenis'
   Watch History: 'Kijkgeschiedenis'
   Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
-  Search bar placeholder: In Geschiedenis zoeken
+  Search bar placeholder: In geschiedenis zoeken
   Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
 Settings:
   # On Settings Page
@@ -142,6 +145,7 @@ Settings:
       Beginning: 'Begin'
       Middle: 'Midden'
       End: 'Einde'
+      Hidden: Verborgen
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instantie
       (Standaard is https://invidious.snopyta.org)'
     Region for Trending: 'Regio voor Trending'
@@ -155,7 +159,7 @@ Settings:
     Set Current Instance as Default: Stel momenteel geselecteerde instantie in als
       standaard
     Current instance will be randomized on startup: Momenteel gebruikte instantie
-      zal willekeurig worden gekozen wanneer de applicatie start
+      zal willekeurig worden gekozen bij het starten
     No default instance has been set: Er is geen standaard instantie ingesteld
     The currently set default instance is {instance}: De momenteel als standaard ingestelde
       instantie is {instance}
@@ -175,6 +179,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Standaardwaarde van systeem
       Catppuccin Mocha: Catppuccin Mokka
+      Pastel Pink: Pastel­roze
+      Hot Pink: Heet-roze
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -399,9 +405,18 @@ Settings:
     Sections:
       Side Bar: Zijbalk
       General: Algemeen
+      Subscriptions Page: Abonnementen-pagina
+      Channel Page: Kanaal­pagina
+      Watch Page: Kijken-pagina
+    Hide Chapters: Hoofdstukken verbergen
+    Hide Upcoming Premieres: Aankomende premières verbergen
+    Hide Featured Channels: Uitgelichte kanalen verbergen
+    Blur Thumbnails: Miniaturen vervagen
+    Hide Channel Playlists: Kanaal­afspeellijsten verbergen
+    Hide Channel Community: Kanaal­gemeenschap verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: De
-    applicatie moet opnieuw opstarten om de veranderingen aan te brengen. Wilt u opnieuw
-    opstarten en verandering toepassen?
+    app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
+    opnieuw starten en veranderingen toepassen?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fout bij
       het opvragen van netwerkinformatie. Is uw proxy correct geconfigureerd?
@@ -459,6 +474,15 @@ Settings:
     Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken.
       Het is raadzaam backups te maken. Gebruiken op eigen risico!
     Experimental Settings: Experimentele instellingen
+    Replace HTTP Cache: HTTP-cache vervangen
+  Password Settings:
+    Set Password: Wachtwoord instellen
+    Remove Password: Wachtwoord verwijderen
+    Password Settings: Wachtwoord­instellingen
+  Password Dialog:
+    Password: Wachtwoord
+    Password Incorrect: Wachtwoord onjuist
+    Unlock: Ontgrendelen
 About:
   #On About page
   About: 'Over'
@@ -516,6 +540,7 @@ About:
   Licensed under the AGPLv3: Vrijgegeven onder de AGPLv3 licentie
   Source code: Broncode
   Beta: Beta
+  Discussions: Discussies
 Channel:
   Subscriber: 'Abonnee'
   Subscribers: 'Abonnees'
@@ -546,10 +571,26 @@ Channel:
     Featured Channels: 'Uitgelichte kanalen'
     Tags:
       Search for: Zoek naar ‘{tag}’
+      Tags: Tags
+    Location: Locatie
+    Details: Details
+    Joined: Lid sinds
   Added channel to your subscriptions: Kanaal is toegevoegd aan uw abonnementen
   Removed subscription from {count} other channel(s): Abonnementen van {count} andere
     kanalen zijn verwijderd
   Channel has been removed from your subscriptions: Kanaal is verwijderd uit uw abonnementen
+  Channel Tabs: Kanaal­tabbladen
+  Live:
+    Live: Live
+  Podcasts:
+    Podcasts: Podcasts
+  Community:
+    Community: Gemeenschap
+    Reveal Answers: Antwoorden onthullen
+    Hide Answers: Antwoorden verbergen
+    votes: '{votes} stemmen'
+  Releases:
+    Releases: Uitgaven
 Video:
   Mark As Watched: 'Als bekeken markeren'
   Remove From History: 'Uit geschiedenis verwijderen'
@@ -646,8 +687,8 @@ Video:
     outro: uitleiding
     intro: inleiding
     sponsor: sponsor
-    recap: samenvatting
-    filler: opvulling
+    recap: Samenvatting
+    filler: Opvulling
   Skipped segment: Overgeslagen segment
   External Player:
     Unsupported Actions:
@@ -684,7 +725,10 @@ Video:
     Bitrate: Bitrate
     Volume: Volume
     Player Dimensions: Spelerafmetingen
-  Premieres on: in première op
+  Premieres on: Gaat in première op
+  Premieres: Premières
+  Scroll to Bottom: Helemaal naar onderen scrollen
+  Upcoming: Aankomend
 Videos:
   #& Sort By
   Sort By:
@@ -732,6 +776,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
   Invidious Channel URL copied to clipboard: Invidiouskanaal-URL is naar het klembord
     gekopieerd
+  Share Channel: Kanaal delen
 Mini Player: 'Minivideospeler'
 Comments:
   Comments: 'Reacties'
@@ -753,11 +798,13 @@ Comments:
   Newest first: Nieuwste eerst
   Top comments: Beste reacties
   Sort by: Sorteer op
-  Show More Replies: Toon meer reacties
+  Show More Replies: Meer reacties tonen
   From {channelName}: van {channelName}
   And others: en anderen
   Pinned by: Vastgemaakt door
-  Member: lid
+  Member: Lid
+  Hearted: Met hartje
+  View {replyCount} replies: '{replyCount} reacties bekijken'
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -822,6 +869,7 @@ Profile:
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
   Profile Settings: Profielinstellingen
+  Toggle Profile List: Profiellijst omschakelen
 A new blog is now available, {blogTitle}. Click to view more: Een nieuwe blogpost
   is beschikbaar, {blogTitle}. Klik voor meer informatie
 Download From Site: Van website downloaden
@@ -919,12 +967,17 @@ Age Restricted:
 Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
 Channels:
   Title: Lijst van kanalen
-  Search bar placeholder: Zoek naar kanalen
-  Count: '{number} kanalen gevonden.'
+  Search bar placeholder: Kanalen zoeken
+  Count: '{number} kanaal/kanalen gevonden'
   Channels: Kanalen
   Empty: Uw lijst van kanalen is thans leeg.
-  Unsubscribe: Afmelden
+  Unsubscribe: Deabonneren
   Unsubscribed: '{channelName} is verwijderd uit uw lijst van abonnees'
-  Unsubscribe Prompt: Weet je zeker dat je wilt afmelden voor "{channelName}"?
+  Unsubscribe Prompt: Weet u zeker dat u zich wilt deabonneren van ‘{channelName}’?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
+Hashtag:
+  Hashtag: Hashtag
+Ok: Oké
+Chapters:
+  Chapters: Hoofdstukken
