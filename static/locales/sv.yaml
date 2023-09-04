@@ -152,6 +152,7 @@ Settings:
       Beginning: 'Början'
       Middle: 'Mitten'
       End: 'Slutet'
+      Hidden: Dold
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Standard är https://invidious.snopyta.org)'
     Region for Trending: 'Region för Trender'
