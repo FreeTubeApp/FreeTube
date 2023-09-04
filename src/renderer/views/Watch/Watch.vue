@@ -3,7 +3,7 @@
     class="videoLayout"
     :class="{
       isLoading,
-      useTheatreMode,
+      useTheatreMode: useTheatreMode && !isLoading,
       noSidebar: !theatrePossible
     }"
   >
