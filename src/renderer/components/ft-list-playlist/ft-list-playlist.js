@@ -22,12 +22,15 @@ export default defineComponent({
       playlistId: '',
       channelId: '',
       title: 'Pop Music Playlist - Timeless Pop Songs (Updated Weekly 2020)',
-      thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/mqdefault.jpg',
+      thumbnail: require('../../assets/img/thumbnail_placeholder.svg'),
       channelName: '#RedMusic: Just Hits',
       videoCount: 200,
     }
   },
   computed: {
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
     },
@@ -62,6 +65,9 @@ export default defineComponent({
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
+    thumbnailCanBeShown() {
+      return this.thumbnailPreference !== 'hidden'
+    },
   },
   created: function () {
     if (this.data._id != null) {
@@ -88,9 +94,7 @@ export default defineComponent({
 
     parseInvidiousData: function () {
       this.title = this.data.title
-      if (this.thumbnailPreference === 'hidden') {
-        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
-      } else {
+      if (this.thumbnailCanBeShown) {
         this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
       }
       this.channelName = this.data.author
@@ -105,9 +109,7 @@ export default defineComponent({
 
     parseLocalData: function () {
       this.title = this.data.title
-      if (this.thumbnailPreference === 'hidden') {
-        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
-      } else {
+      if (this.thumbnailCanBeShown) {
         this.thumbnail = this.data.thumbnail
       }
       this.channelName = this.data.channelName
@@ -118,10 +120,13 @@ export default defineComponent({
 
     parseUserData: function () {
       this.title = this.data.playlistName
-      if (this.thumbnailPreference === 'hidden' || this.data.videos.length === 0) {
-        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
-      } else {
-        this.thumbnail = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
+      if (this.thumbnailCanBeShown && this.data.videos.length > 0) {
+        const thumbnailURL = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
+        if (this.backendPreference === 'invidious') {
+          this.thumbnail = thumbnailURL.replace('https://i.ytimg.com', this.currentInvidiousInstance)
+        } else {
+          this.thumbnail = thumbnailURL
+        }
       }
       this.channelName = ''
       this.channelId = ''
