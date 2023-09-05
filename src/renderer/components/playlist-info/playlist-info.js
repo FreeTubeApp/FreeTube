@@ -147,7 +147,7 @@ export default defineComponent({
         baseUrl = this.currentInvidiousInstance
       } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
         // Use playlist thumbnail provided by YT when available
-        return this.data.playlistThumbnail
+        return this.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {
