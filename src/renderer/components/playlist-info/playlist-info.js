@@ -138,7 +138,7 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      if (this.thumbnailPreference === 'hidden') {
+      if (this.thumbnailPreference === 'hidden' || this.firstVideoId === '') {
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
