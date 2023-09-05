@@ -50,6 +50,18 @@ export default defineComponent({
 
       return `${this.title.substring(0, 255)}...`
     },
+
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
+
+    blurThumbnailsStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : null
+    },
+
+    thumbnailPreference: function () {
+      return this.$store.getters.getThumbnailPreference
+    },
   },
   created: function () {
     if (this.data._id != null) {
@@ -76,7 +88,11 @@ export default defineComponent({
 
     parseInvidiousData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
+      if (this.thumbnailPreference === 'hidden') {
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
+      } else {
+        this.thumbnail = this.data.playlistThumbnail.replace('https://i.ytimg.com', this.currentInvidiousInstance).replace('hqdefault', 'mqdefault')
+      }
       this.channelName = this.data.author
       this.channelId = this.data.authorId
       this.playlistId = this.data.playlistId
@@ -89,7 +105,11 @@ export default defineComponent({
 
     parseLocalData: function () {
       this.title = this.data.title
-      this.thumbnail = this.data.thumbnail
+      if (this.thumbnailPreference === 'hidden') {
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
+      } else {
+        this.thumbnail = this.data.thumbnail
+      }
       this.channelName = this.data.channelName
       this.channelId = this.data.channelId
       this.playlistId = this.data.playlistId
@@ -98,10 +118,10 @@ export default defineComponent({
 
     parseUserData: function () {
       this.title = this.data.playlistName
-      if (this.data.videos.length > 0) {
-        this.thumbnail = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
+      if (this.thumbnailPreference === 'hidden' || this.data.videos.length === 0) {
+        this.thumbnail = require('../../assets/img/thumbnail_placeholder.svg')
       } else {
-        this.thumbnail = 'https://i.ytimg.com/vi/aaaaaa/mqdefault.jpg'
+        this.thumbnail = `https://i.ytimg.com/vi/${this.data.videos[0].videoId}/mqdefault.jpg`
       }
       this.channelName = ''
       this.channelId = ''

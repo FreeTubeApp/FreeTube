@@ -106,6 +106,14 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
+
+    blurThumbnailsStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : null
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -130,13 +138,16 @@ export default defineComponent({
     },
 
     thumbnail: function () {
-      if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
-        return this.playlistThumbnail
+      if (this.thumbnailPreference === 'hidden') {
+        return require('../../assets/img/thumbnail_placeholder.svg')
       }
 
       let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
+      } else if (typeof this.playlistThumbnail === 'string' && this.playlistThumbnail.length > 0) {
+        // Use playlist thumbnail provided by YT when available
+        return this.data.playlistThumbnail
       }
 
       switch (this.thumbnailPreference) {

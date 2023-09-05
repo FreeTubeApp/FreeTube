@@ -91,6 +91,7 @@ $watched-transition-duration: 0.5s;
 
     .thumbnailLink {
       display: flex;
+      overflow: hidden;
     }
 
     .thumbnailImage {

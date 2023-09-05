@@ -148,6 +148,7 @@ Settings:
       Beginning: 'Inizio'
       Middle: 'Nel mezzo'
       End: 'Fine'
+      Hidden: Nascoste
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'
@@ -181,6 +182,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Predefinito del sistema
       Catppuccin Mocha: Cappuccino moka
+      Pastel Pink: Rosa pastello
+      Hot Pink: Rosa caldo
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -432,6 +435,8 @@ Settings:
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
+    Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
+    Blur Thumbnails: Miniature sfocate
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?

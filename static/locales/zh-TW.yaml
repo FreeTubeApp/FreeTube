@@ -133,6 +133,7 @@ Settings:
       Beginning: '片頭'
       Middle: '中間'
       End: '結尾'
+      Hidden: 隱藏
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
       https://invidious.snopyta.org )'
     Region for Trending: '發燒影片區域'
@@ -163,6 +164,8 @@ Settings:
       Dracula: '德古拉'
       System Default: 系統預設值
       Catppuccin Mocha: 卡布奇諾摩卡
+      Pastel Pink: 淡粉紅色
+      Hot Pink: 亮粉紅色
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -390,6 +393,8 @@ Settings:
     Hide Subscriptions Shorts: 隱藏訂閱短片
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
+    Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
+    Blur Thumbnails: 模糊縮圖
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
