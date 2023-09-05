@@ -56,10 +56,6 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    currentLocale: function () {
-      return this.$store.getters.getCurrentLocale
-    },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
