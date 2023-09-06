@@ -605,7 +605,7 @@ export default defineComponent({
         this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
         // Count the number of visible elements in progress-holder > mouse-display and
-        // update horizontal offset of thumbnail accordingly
+        // update vertical offset of thumbnail accordingly
         const seekBar = this.player.controlBar.progressControl.seekBar.el()
         const mouseDisplay = seekBar.querySelector('.vjs-mouse-display')
         seekBar.addEventListener('mousemove', () => {
