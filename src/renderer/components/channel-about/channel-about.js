@@ -61,10 +61,5 @@ export default defineComponent({
     formattedViews: function () {
       return formatNumber(this.views)
     },
-  },
-  methods: {
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
   }
 })
