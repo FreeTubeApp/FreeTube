@@ -144,8 +144,8 @@ const actions = {
 
   async addVideos({ commit }, payload) {
     try {
-      const { playlistId, videoIds } = payload
-      await DBPlaylistHandlers.upsertVideoIdsByPlaylistId(playlistId, videoIds)
+      const { _id, videos } = payload
+      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, videos)
       commit('addVideos', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -351,9 +351,9 @@ const mutations = {
   },
 
   addVideos(state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.concat(payload.playlistIds)
+      playlist.videos = playlist.videos.concat(payload.videos)
     }
   },
 

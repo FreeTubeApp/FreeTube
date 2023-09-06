@@ -514,6 +514,10 @@ const customActions = {
           commit('addVideo', data)
           break
 
+        case SyncEvents.PLAYLISTS.UPSERT_VIDEOS:
+          commit('addVideos', data)
+          break
+
         case SyncEvents.PLAYLISTS.DELETE_VIDEO:
           commit('removeVideo', data)
           break

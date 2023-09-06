@@ -124,6 +124,14 @@ class Playlists {
     )
   }
 
+  static upsertVideosByPlaylistId(_id, videos) {
+    return db.playlists.updateAsync(
+      { _id },
+      { $push: { videos: { $each: videos } } },
+      { upsert: true }
+    )
+  }
+
   static upsertVideoIdsByPlaylistId(_id, videoIds) {
     return db.playlists.updateAsync(
       { _id },

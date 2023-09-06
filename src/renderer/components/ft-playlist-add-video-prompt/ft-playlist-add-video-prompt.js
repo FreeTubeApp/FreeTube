@@ -218,15 +218,12 @@ export default Vue.extend({
         const playlist = this.allPlaylists.find((list) => list._id === selectedPlaylistId)
         if (playlist == null) { return }
 
-        this.toBeAddedToPlaylistVideoList.forEach((videoObject) => {
-          const payload = {
-            _id: playlist._id,
-            // Avoid `do not mutate vuex store state outside mutation handlers`
-            videoData: videoObject,
-          }
-          this.addVideo(payload)
-          addedPlaylistIds.add(playlist._id)
+        this.addVideos({
+          _id: playlist._id,
+          // Use [].concat to avoid `do not mutate vuex store state outside mutation handlers`
+          videos: [].concat(this.toBeAddedToPlaylistVideoList),
         })
+        addedPlaylistIds.add(playlist._id)
         // Update playlist's `lastUpdatedAt`
         this.updatePlaylist({ _id: playlist._id })
       })
@@ -255,6 +252,7 @@ export default Vue.extend({
 
     ...mapActions([
       'addVideo',
+      'addVideos',
       'updatePlaylist',
       'hideAddToPlaylistPrompt',
       'showCreatePlaylistPrompt',
