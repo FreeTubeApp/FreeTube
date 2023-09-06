@@ -137,7 +137,7 @@ Settings:
       Invidious API: 'ای پی ای Invidious'
     Video View Type:
       Video View Type: 'طرز نمایش ویدیو'
-      Grid: 'جدول'
+      Grid: 'شبکه'
       List: 'فهرست'
     Thumbnail Preference:
       Thumbnail Preference: 'اولویت کاور ویدیو'
@@ -176,6 +176,8 @@ Settings:
       Dracula: دراکولا
       System Default: پیش فرض سیستم
       Catppuccin Mocha: مجموعه رنگ کتپوسین موکا
+      Hot Pink: صورتی داغ
+      Pastel Pink: صورتی پاستلی
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -203,18 +205,18 @@ Settings:
       Dracula Cyan: آبی یشمی دراکولا
       Catppuccin Mocha Rosewater: گلاب
       Catppuccin Mocha Sapphire: یاقونی
-      Catppuccin Mocha Blue: آبی
+      Catppuccin Mocha Blue: کتپوچین موکا آبی
       Catppuccin Mocha Sky: آسمانی
       Catppuccin Mocha Lavender: بنفش کمرنگ
       Catppuccin Mocha Flamingo: فلامینگو
       Catppuccin Mocha Teal: مرغابی
-      Catppuccin Mocha Pink: صورتی
+      Catppuccin Mocha Pink: کتپوچین موکا صورتی
       Catppuccin Mocha Mauve: ارغوانی سیر
-      Catppuccin Mocha Red: قرمز
+      Catppuccin Mocha Red: کتپوسین موکا قرمز
       Catppuccin Mocha Maroon: خرمایی
       Catppuccin Mocha Peach: هلویی
-      Catppuccin Mocha Yellow: زرد
-      Catppuccin Mocha Green: سبز
+      Catppuccin Mocha Yellow: کتپوسین موکا زرد
+      Catppuccin Mocha Green: کتپوچین موکا سبز
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
@@ -426,6 +428,8 @@ Settings:
     Notify when sponsor segment is skipped: وقتی بخش حامی رد شد اطلاع دهید
     UseDeArrowTitles: از عنوان های ویدیویی DeArrow استفاده کنید
     Category Color: رنگ دسته
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      URL (پیش‌فرض https://sponsor.ajay.app است)
   Download Settings:
     Download in app: دانلود در برنامه
     Open in web browser: در مرورگر وب باز کنید
@@ -460,7 +464,7 @@ Channel:
       Last Video Added: آخرین ویدیو اضافه شده
       Oldest: قدیمی ترین
       Newest: جدیدترین
-    Playlists: فهرست پخش
+    Playlists: فهرست های پخش
     This channel does not currently have any playlists: این کانال در حال حاضر هیچ
       لیست پخشی ندارد
   This channel is age-restricted and currently cannot be viewed in FreeTube.: این
@@ -558,7 +562,7 @@ Video:
     Oct: اکتبر
     Nov: نوامبر
     Dec: دسامبر
-    Second: ثانیه
+    Second: دوم
     Seconds: ثانیه ها
     Minutes: دقیقه ها
     Days: روزها
@@ -589,6 +593,7 @@ Video:
     recap: روکش
     music offtopic: موسیقی آف تاپیک
     interaction: تعامل
+    outro: دیگر
   Loop Playlist: حلقه پخش لیست
   Live Now: زنده هم اکنون
   Save Video: ذخیره ویدیو
@@ -665,6 +670,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: هنگامی که API ترجیحی شما با مشکل
       مواجه شود، FreeTube به طور خودکار سعی می کند از API غیر ترجیحی شما به عنوان
       روش بازگشتی در صورت فعال شدن استفاده کند.
+    Preferred API Backend: پس زمینه ای را انتخاب کنید که FreeTube برای به دست آوردن
+      داده ها استفاده می کند. API محلی یک استخراج کننده داخلی است. Invidious API برای
+      اتصال به سرور Invidious نیاز دارد.
   SponsorBlock Settings:
     UseDeArrowTitles: عناوین ویدیویی را با عناوین ارسال شده توسط کاربر از DeArrow
       جایگزین کنید.
@@ -714,8 +722,8 @@ Tooltips:
       پشتیبانی لیست پخش) در پخش کننده خارجی، روی تصویر کوچک نمایش داده می شود. هشدار،
       تنظیمات ناخوشایند بر پخش کننده های خارجی تأثیر نمی گذارد.
   Distraction Free Settings:
-    Hide Subscriptions Live: این تنظیم با تنظیم «{appWideSetting}» در سراسر برنامه،
-      در بخش «{subsection}» در «{settingsSection}» لغو می‌شود.
+    Hide Subscriptions Live: این تنظیم با «{appWideSetting}» در سراسر برنامه، در بخش
+      «{subsection}» در «{settingsSection}» لغو می‌شود.
     Hide Channels: نام کانال یا شناسه کانال را وارد کنید تا همه ویدیوها، فهرست‌های
       پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشوند. نام
       کانال وارد شده باید کاملا مطابقت داشته باشد و به حروف کوچک و بزرگ حساس باشد.
@@ -752,6 +760,8 @@ About:
   GitHub issues: مشکلات گیت هاب
   Donate: اهدا
   Source code: کد منبع
+  Mastodon: Mastodon
+  FreeTube is made possible by: فری تیوب ممکن است ساخته شده توسط
 New Window: پنجره جدید
 Preferences: تنظیمات
 Version {versionNumber} is now available!  Click for more details: نسخه {versionNumber}
@@ -843,6 +853,7 @@ Comments:
   Newest first: جدیدترین اول
   Hide: مخفی کردن
   Replies: پاسخ
+  Hearted: دلی
 The playlist has been reversed: لیست پخش معکوس شده است
 Default Invidious instance has been cleared: نمونه پیش فرض Invidious پاک شده است
 Profile:
@@ -934,3 +945,4 @@ Videos:
     Newest: جدیدترین
     Oldest: قدیمی ترین
 Toggle Theatre Mode: حالت تئاتر را تغییر دهید
+Up Next: تا بعدی

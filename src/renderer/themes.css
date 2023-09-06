@@ -3,8 +3,44 @@
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.pastelPink,
+.hotPink {
   --primary-input-color: rgba(0, 0, 0, 0.50);
+}
+
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.dracula,
+.catppuccinMocha,
+.pastelPink,
+.hotPink {
+  --link-color: var(--accent-color);
+  --link-visited-color: var(--accent-color-visited);
+  --instance-menu-color: var(--search-bar-color);
+}
+
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha,
+.pastelPink {
+  --primary-input-color: rgba(0, 0, 0, 0.50);
+  --side-nav-hover-text-color: var(--primary-text-color);
+}
+
+.system[data-system-theme*='light'], .light,
+.system[data-system-theme*='dark'], .dark,
+.black,
+.gray,
+.dracula,
+.catppuccinMocha {
+  --side-nav-active-text-color: var(--primary-text-color);
+  --scrollbar-text-color-hover: var(--primary-text-color);
+
 }
 
 .system[data-system-theme*='light'], .light,
@@ -15,21 +51,12 @@
   --logo-text: url("../../_icons/textColorSmall.png");
 }
 
-.system[data-system-theme*='light'], .light,
-.system[data-system-theme*='dark'], .dark,
-.black,
-.dracula,
-.catppuccinMocha {
-  --link-color: var(--accent-color);
-  --link-visited-color: var(--accent-color-visited);
-  --instance-menu-color: var(--search-bar-color);
-}
-
 .system[data-system-theme*='dark'], .dark,
 .black,
 .gray,
 .dracula,
-.catppuccinMocha {
+.catppuccinMocha,
+.hotPink {
   --primary-shadow-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -72,7 +99,7 @@
     --primary-text-color: #EEEEEE;
     --secondary-text-color: #ddd;
     --tertiary-text-color: #EEEEEE;
-    --title-color: #EEEEEEE;
+    --title-color: #EEEEEE;
     --bg-color: #000000;
     --favorite-icon-color: #FFEA00;
     --card-bg-color: #000000;
@@ -137,6 +164,79 @@
   --logo-text: url("../../_icons/textCatppuccinMochaLightSmall.png");
 }
 
+.pastelPink {
+  --primary-text-color: #1F002B;
+  --secondary-text-color: #361836;
+  --tertiary-text-color: #5A285A;
+  --primary-shadow-color: rgb(255, 240, 240, 0.5);
+  --title-color: #185EB4;
+  --bg-color: #ffeadd;
+  --favorite-icon-color: #760278;
+  --card-bg-color: #ffd1dc;
+  --secondary-card-bg-color: #FFFFFF;
+  --scrollbar-color: #f5c8d3;
+  --scrollbar-color-hover: #760278;
+  --scrollbar-text-color-hover: var(--scrollbar-color);
+  --side-nav-color: #ffd1dc;
+  --side-nav-hover-color: #cef4f1;
+  --side-nav-active-color: #3124E7;
+  --side-nav-active-text-color: #FFFF;
+  --search-bar-color: #FFF0DD;
+  --logo-icon: url("../../_icons/iconBlackSmall.png");
+  --logo-text: url("../../_icons/textBlackSmall.png");
+}
+
+.hotPink {
+  --primary-text-color: #FFFF;
+  --secondary-text-color: #FFFF;
+  --tertiary-text-color: #FFFF;
+  --title-color: #000000;
+  --bg-color: #ff008a;
+  --favorite-icon-color: #FFEA00;
+  --card-bg-color: #DE1C85;
+  --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
+  --scrollbar-color: #FFFFFF;
+  --scrollbar-color-hover: #C0F6FF;
+  --scrollbar-text-color-hover: #000000;
+  --side-nav-color: #EE1E90;
+  --side-nav-hover-color: #FFFFFF;
+  --side-nav-hover-text-color: #000000;
+  --side-nav-active-color: #959595;
+  --side-nav-active-text-color: #000000;
+  --search-bar-color: #9C2D5D;
+  --logo-icon: url("../../_icons/iconWhiteSmall.png");
+  --logo-text: url("../../_icons/textWhiteSmall.png");
+  /* The hot pink theme does not have a great color contrast with
+  many other colors than black and white. This means that the primary and
+  secondary theme colors are forced here to be black so as to avoid any
+  accessibility concerns. */
+  --primary-color: #000000 !important;
+  --primary-color-hover: #000000 !important;
+  --primary-color-active: #000000 !important;
+  --text-with-main-color: #FFFFFF !important;
+  --text-with-accent-color: #FFFFFF !important;
+  --accent-color: #000000 !important;
+  --accent-color-hover: #808080 !important;
+  --accent-color-active: #6A739A !important;
+  --accent-color-light: #000000 !important;
+  --accent-color-visited: #000000 !important;
+  --accent-color-opacity1: rgba(0,0,0,0.04) !important;
+  --accent-color-opacity2: rgba(0,0,0,0.12) !important;
+  --accent-color-opacity3: rgba(255,255,255,0.16) !important;
+  --accent-color-opacity4: rgba(255,255,255,0.24) !important;
+}
+
+/* Given that the Hot Pink theme does not need link underlining due to meeting
+WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
+it can be safely elided. This looks quite pleasant on this theme. */
+.hotPink a:not(:hover), .hotPink a.navOption:hover, .hotPink *:not(:hover) {
+  text-decoration: none;
+}
+
+.hotPink a:hover {
+  text-decoration: underline;
+}
+
 .mainRed,
 .mainPink,
 .mainPurple,
@@ -148,8 +248,8 @@
 .mainTeal,
 .mainGreen {
   --text-with-main-color: #FFFFFF;
-  --logo-icon-bar-color: url("../../_icons/iconWhite.png");
-  --logo-text-bar-color: url("../../_icons/textWhite.png");
+  --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
+  --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
 }
 
 .mainLightGreen,

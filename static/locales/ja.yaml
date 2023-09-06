@@ -135,6 +135,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
+      Hidden: 非表示
     'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
       サーバー（初期値は https://invidious.snopyta.org）'
     Region for Trending: '急上昇の地域設定'
@@ -165,6 +166,8 @@ Settings:
       Dracula: 'ドラキュラ'
       System Default: 初期設定
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: パステルピンク
+      Hot Pink: ホットピンク
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -392,6 +395,8 @@ Settings:
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
     Hide Channel Releases: チャンネルの新着情報の非表示
+    Hide Profile Pictures in Comments: コメントでプロフィール写真を隠す
+    Blur Thumbnails: サムネイルをぼかす
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -508,6 +513,7 @@ About:
   Licensed under the AGPLv3: AGPLv3 の下でライセンス供与
   Source code: ソースコード
   Beta: ベータ
+  Discussions: 議論
 Channel:
   Subscriber: '人の登録者'
   Subscribers: '人の登録者'
@@ -546,6 +552,9 @@ Channel:
   Community:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
     Community: コミュニティ
+    votes: '{votes} 投票'
+    Reveal Answers: 回答を表示
+    Hide Answers: 回答の非表示
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
   This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
@@ -821,7 +830,7 @@ Profile:
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
+  : これはメインのプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
   Profile Settings: プロファイル設定
   Toggle Profile List: プロファイル一覧の切り替え

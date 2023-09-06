@@ -7,7 +7,7 @@ FreeTube: 'FreeTube'
   fet progressos.
 
 # Webkit Menu Bar
-File: 'Archiu'
+File: 'Fitxer'
 Quit: 'Surt'
 Edit: 'Edita'
 Undo: 'Desfer'
@@ -259,7 +259,8 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Estàs
       segur que vols eliminar totes les subscripcions i perfils? Aquesta acció no
       es pot desfer.'
-    Automatically Remove Video Meta Files: Elimina automàticament els arxius de metadades
+    Automatically Remove Video Meta Files: Esborra automàticament les metadades dels
+      vídeos
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'
@@ -625,3 +626,5 @@ Open New Window: Obre una finestra nova
 Search Bar:
   Clear Input: Netejar
 Are you sure you want to open this link?: Estàs segur/a que vols obrir aquest enllaç?
+New Window: Finestra nova
+Preferences: Preferències

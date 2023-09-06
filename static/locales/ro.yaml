@@ -155,6 +155,7 @@ Settings:
       Beginning: 'Început'
       Middle: 'Mijloc'
       End: 'Sfârșit'
+      Hidden: Ascuns
     Region for Trending: 'Regiunea tendințelor'
         #! List countries
     External Link Handling:

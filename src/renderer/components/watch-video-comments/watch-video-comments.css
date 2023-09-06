@@ -78,15 +78,15 @@
   text-overflow: ellipsis;
 }
 
-.commentOwner {
-  background-color: var(--scrollbar-color);
-  border-radius: 10px;
-  padding: 0 10px;
-}
-
 .commentAuthor {
   color: inherit;
   text-decoration: none;
+}
+
+.commentOwner {
+  background-color: var(--secondary-card-bg-color);
+  border-radius: 10px;
+  padding: 0 10px;
 }
 
 .commentText {
