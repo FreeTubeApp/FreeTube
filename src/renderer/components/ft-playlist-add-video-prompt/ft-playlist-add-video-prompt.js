@@ -251,7 +251,6 @@ export default Vue.extend({
     },
 
     ...mapActions([
-      'addVideo',
       'addVideos',
       'updatePlaylist',
       'hideAddToPlaylistPrompt',

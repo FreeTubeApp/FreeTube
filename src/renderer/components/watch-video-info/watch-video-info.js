@@ -315,8 +315,6 @@ export default defineComponent({
 
     ...mapActions([
       'openInExternalPlayer',
-      'addVideo',
-      'removeVideo',
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',
     ])

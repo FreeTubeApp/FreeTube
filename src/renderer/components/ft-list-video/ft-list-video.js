@@ -664,7 +664,6 @@ export default defineComponent({
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
-      'addVideo',
       'showAddToPlaylistPromptForManyVideos',
     ])
   }
