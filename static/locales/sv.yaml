@@ -153,6 +153,7 @@ Settings:
       Beginning: 'Början'
       Middle: 'Mitten'
       End: 'Slutet'
+      Hidden: Dold
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Standard är https://invidious.snopyta.org)'
     Region for Trending: 'Region för Trender'
@@ -183,6 +184,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Systemstandard
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Het Rosa
+      Pastel Pink: Pastell Rosa
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -418,6 +421,7 @@ Settings:
     Hide Subscriptions Shorts: Dölj prenumerationsshorts
     Hide Subscriptions Live: Dölj prenumerations Live-sändningar
     Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
+    Blur Thumbnails: Oskärpa tumnaglar
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:

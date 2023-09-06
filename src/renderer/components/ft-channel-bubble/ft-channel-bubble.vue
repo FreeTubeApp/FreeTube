@@ -1,6 +1,26 @@
 <template>
-  <div
+  <router-link
+    v-if="!showSelected"
     class="bubblePadding"
+    :aria-labelledby="sanitizedId"
+    :to="`/channel/${channelId}`"
+  >
+    <img
+      class="bubble"
+      :src="channelThumbnail"
+      alt=""
+    >
+    <div
+      :id="sanitizedId"
+      class="channelName"
+    >
+      {{ channelName }}
+    </div>
+  </router-link>
+  <div
+    v-else
+    class="bubblePadding"
+    role="button"
     tabindex="0"
     :aria-labelledby="sanitizedId"
     @click="handleClick"

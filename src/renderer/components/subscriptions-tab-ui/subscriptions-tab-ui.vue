@@ -14,7 +14,6 @@
           :channel-name="channel.name"
           :channel-id="channel.id"
           :channel-thumbnail="channel.thumbnail"
-          @click="goToChannel(channel.id)"
         />
       </ft-flex-box>
     </div>

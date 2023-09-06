@@ -81,10 +81,6 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
-
     increaseLimit: function () {
       this.dataLimit += 100
       sessionStorage.setItem('subscriptionLimit', this.dataLimit)
