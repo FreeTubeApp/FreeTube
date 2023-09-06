@@ -794,11 +794,12 @@ export default defineComponent({
         })
     },
 
+    // Adds sponsorblock tooltip to progress-holder > mouse-display
     addSponsorBlockTooltip() {
       const sponsorBlockTooltip = videojs.dom.createEl('span')
       sponsorBlockTooltip.className = 'sponsorBlockTooltip'
-      const timeTooltip = this.player.el().querySelector('.vjs-time-tooltip')
-      const mouseDisplay = timeTooltip.parentNode
+      const seekBar = this.player.controlBar.progressControl.seekBar.el()
+      const mouseDisplay = seekBar.querySelector('.vjs-mouse-display')
       mouseDisplay.appendChild(sponsorBlockTooltip)
 
       // When moving over progress bar and user hovers over a sponsorblock marker
@@ -934,11 +935,12 @@ export default defineComponent({
       this.chapterMarkers.push(markerDiv)
     },
 
+    // Adds chapter title tooltip to progress-holder > mouse-display
     addChapterTooltip() {
       const chapterTooltip = videojs.dom.createEl('div')
       chapterTooltip.className = 'chapterDisplayTooltip'
-      const timeTooltip = this.player.el().querySelector('.vjs-time-tooltip')
-      const mouseDisplay = timeTooltip.parentNode
+      const seekBar = this.player.controlBar.progressControl.seekBar.el()
+      const mouseDisplay = seekBar.querySelector('.vjs-mouse-display')
       mouseDisplay.appendChild(chapterTooltip)
 
       // When moving over progress bar and user hovers over a chapter marker
