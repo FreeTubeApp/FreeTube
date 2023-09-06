@@ -98,10 +98,10 @@ const mutations = {
   clearLiveCache(state) {
     state.liveCache = {}
   },
-  updatePostsCacheByChannel(state, { channelId, videos }) {
+  updatePostsCacheByChannel(state, { channelId, posts }) {
     const existingObject = state.postsCache[channelId]
     const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
-    if (videos != null) { newObject.videos = videos }
+    if (posts != null) { newObject.posts = posts }
     state.postsCache[channelId] = newObject
   },
   clearPostsCache(state) {

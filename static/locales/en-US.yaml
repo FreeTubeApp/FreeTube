@@ -99,8 +99,10 @@ Subscriptions:
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
+  Empty Posts: Your subscribed channels currently do not have any posts.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
+  Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
   All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
 More: More

@@ -4,7 +4,8 @@
     :video-list="postList"
     :error-channels="errorChannels"
     :attempted-fetch="attemptedFetch"
-    :display-list="true"
+    :is-community="true"
+    :initial-data-limit="20"
     @refresh="loadPostsForSubscriptionsFromRemote"
   />
 </template>

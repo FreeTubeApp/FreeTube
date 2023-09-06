@@ -36,20 +36,20 @@
         v-else
         class="message"
       >
-        {{ $t("Subscriptions.Empty Channels") }}
+        {{ isCommunity ? $t("Subscriptions.Empty Posts") : $t("Subscriptions.Empty Channels") }}
       </p>
     </ft-flex-box>
     <ft-element-list
       v-if="!isLoading && activeVideoList.length > 0"
       :data="activeVideoList"
       :use-channels-hidden-preference="false"
-      :display="displayList ? 'list' : ''"
+      :display="isCommunity ? 'list' : ''"
     />
     <ft-flex-box
       v-if="!isLoading && videoList.length > dataLimit"
     >
       <ft-button
-        :label="$t('Subscriptions.Load More Videos')"
+        :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
         @click="increaseLimit"
