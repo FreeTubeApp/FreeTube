@@ -38,7 +38,7 @@ export default defineComponent({
       this.parsedChannelCount = formatNumber(this.channelCount)
       this.videoCount = this.data.videoCount
       this.parsedVideosCount = formatNumber(this.videoCount)
-      this.url = this.data.url ?? `hashtag/${encodeURIComponent(this.data.title.substring(1))}`
+      this.url = `/hashtag/${encodeURIComponent(this.data.title.substring(1))}`
     }
   }
 })
