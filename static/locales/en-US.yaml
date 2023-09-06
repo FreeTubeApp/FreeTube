@@ -166,6 +166,7 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
+      Hidden: Hidden
     Current Invidious Instance: Current Invidious Instance
     The currently set default instance is {instance}: The currently set default instance is {instance}
     No default instance has been set: No default instance has been set
@@ -196,6 +197,8 @@ Settings:
       Light: Light
       Dracula: Dracula
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastel Pink
+      Hot Pink: Hot Pink
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -332,6 +335,7 @@ Settings:
       Channel Page: Channel Page
       Watch Page: Watch Page
       General: General
+    Blur Thumbnails: Blur Thumbnails
     Hide Video Views: Hide Video Views
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Channel Subscribers: Hide Channel Subscribers

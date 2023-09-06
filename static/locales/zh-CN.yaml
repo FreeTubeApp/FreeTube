@@ -134,6 +134,7 @@ Settings:
       Beginning: '开始'
       Middle: '中间'
       End: '结尾'
+      Hidden: 隐藏缩略图
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries
@@ -163,6 +164,8 @@ Settings:
       Dracula: '德古拉'
       System Default: 系统默认
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastel Pink
+      Hot Pink: Hot Pink
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -390,6 +393,7 @@ Settings:
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
+    Blur Thumbnails: 模糊缩略图
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议

@@ -47,6 +47,7 @@
 
 .playlistIcon:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
@@ -72,6 +73,7 @@
 
 .playlistItem:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 

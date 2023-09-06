@@ -148,6 +148,7 @@ Settings:
       Beginning: 'התחלה'
       Middle: 'אמצע'
       End: 'סוף'
+      Hidden: מוסתר
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'שרת Invidious
       (ברירת המחדל היא https://invidious.snopyta.org)'
     Region for Trending: 'אזור לסרטונים חמים'
@@ -178,6 +179,8 @@ Settings:
       Dracula: 'דרקולה'
       System Default: ברירת המחדל של המערכת
       Catppuccin Mocha: מוקה קפוצ׳ינו
+      Pastel Pink: ורוד פסטל
+      Hot Pink: ורוד עז
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -414,6 +417,8 @@ Settings:
     Hide Subscriptions Live: הסתרת שידורים חיים של המינויים
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
+    Blur Thumbnails: טשטוש התמונות הממוזערות
+    Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:

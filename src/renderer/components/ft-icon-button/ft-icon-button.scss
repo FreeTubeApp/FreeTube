@@ -24,23 +24,27 @@
     color: var(--primary-text-color);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
     }
 
     &:active {
       background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
     }
   }
 
   &.base-no-default {
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
     }
 
     &:active {
       background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
     }
   }
 
@@ -49,7 +53,7 @@
     color: var(--text-with-main-color);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--primary-color-hover);
     }
 
@@ -63,7 +67,7 @@
     color: var(--text-with-accent-color);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--accent-color-hover);
     }
 
@@ -72,7 +76,7 @@
     }
   }
 
-  &.favorite {
+  &.favorite, &.favorite:hover, &.favorite:focus-visible {
     color: var(--favorite-icon-color);
   }
 }
@@ -120,13 +124,15 @@
     white-space: nowrap;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
       transition: background 0.2s ease-in;
     }
 
     &:active {
       background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
       transition: background 0.1s ease-in;
     }
   }

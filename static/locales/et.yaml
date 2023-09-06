@@ -151,6 +151,7 @@ Settings:
       Beginning: 'Alguses'
       Middle: 'Keskel'
       End: 'Lõpus'
+      Hidden: Peidetud
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
       veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
     Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
@@ -183,6 +184,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Süsteemi vaikeseadistus
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelne roosa
+      Hot Pink: Säravroosa
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -396,6 +399,8 @@ Settings:
     Hide Subscriptions Videos: Peida tellimuste videod
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
+    Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
+    Blur Thumbnails: Hägusta pisipildid
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
