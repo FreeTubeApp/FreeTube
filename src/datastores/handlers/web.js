@@ -93,10 +93,6 @@ class Playlists {
     return baseHandlers.playlists.upsertVideosByPlaylistId(_id, videoData)
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
-    return baseHandlers.playlists.upsertVideoIdsByPlaylistId(_id, videoIds)
-  }
-
   static delete(_id) {
     return baseHandlers.playlists.delete(_id)
   }

@@ -132,14 +132,6 @@ class Playlists {
     )
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
-    return db.playlists.updateAsync(
-      { _id },
-      { $push: { videos: { $each: videoIds } } },
-      { upsert: true }
-    )
-  }
-
   static delete(_id) {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }

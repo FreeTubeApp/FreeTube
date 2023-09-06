@@ -153,16 +153,6 @@ class Playlists {
     )
   }
 
-  static upsertVideoIdsByPlaylistId(_id, videoIds) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      {
-        action: DBActions.PLAYLISTS.UPSERT_VIDEO_IDS,
-        data: { _id, videoIds }
-      }
-    )
-  }
-
   static delete(_id) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,

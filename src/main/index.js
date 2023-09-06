@@ -980,12 +980,6 @@ function runApp() {
           )
           return null
 
-        case DBActions.PLAYLISTS.UPSERT_VIDEO_IDS:
-          await baseHandlers.playlists.upsertVideoIdsByPlaylistId(data._id, data.videoIds)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
-          return null
-
         case DBActions.GENERAL.DELETE:
           await baseHandlers.playlists.delete(data)
           syncOtherWindows(
