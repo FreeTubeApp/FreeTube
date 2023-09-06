@@ -10,6 +10,20 @@
   cursor: none;
 }
 
+:deep(.sponsorBlockTooltip) {
+  border-radius: 0.3em;
+  text-align: center;
+  width: max-content;
+  display: block;
+  position: absolute;
+  top: -7.5em;
+  font-size: 0.6em;
+  padding: 6px 8px 8px;
+  color: rgb(255 255 255);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
 :deep(.sponsorBlockMarker) {
   position: absolute;
   opacity: 0.6;
@@ -23,15 +37,16 @@
   width: max-content;
   display: block;
   position: absolute;
-  top: -5.2em;
+  top: -5.0em;
   font-size: 0.6em;
   padding: 6px 8px 8px;
   color: rgb(255 255 255);
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 100;
+  z-index: 1;
 }
 
 :deep(.chapterMarkerContainer) {
+  position: absolute;
   height: 100%;
   width: 100%;
   display: flex;
