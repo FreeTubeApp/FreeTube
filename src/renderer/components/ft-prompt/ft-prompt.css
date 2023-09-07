@@ -21,7 +21,7 @@
 }
 
 .promptCard:not(.autosize) {
-  width: 100%;
+  width: 95%;
   margin: 0;
   position: absolute;
   left: 2.5%;
