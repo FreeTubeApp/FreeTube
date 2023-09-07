@@ -1021,3 +1021,7 @@ Ok: Ok
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Tento hashtag nemá žádná videa
+Playlist will pause when current video is finished: Po přehrání aktuálního videa bude
+  playlist pozastaven
+Playlist will not pause when current video is finished: Po přehrání aktuálního videa
+  nebude playlist pozastaven
