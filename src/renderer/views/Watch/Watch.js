@@ -184,7 +184,7 @@ export default defineComponent({
     hideVideoDescription: function () {
       return this.$store.getters.getHideVideoDescription
     },
-    showFamilyFriendlyOnly: function() {
+    showFamilyFriendlyOnly: function () {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
     hideChannelSubscriptions: function () {
@@ -1088,6 +1088,10 @@ export default defineComponent({
     },
 
     checkIfPlaylist: function () {
+      // On the off chance that user selected pause on current video
+      // Then clicks on another video in the playlist
+      this.disablePlaylistPauseOnCurrent()
+
       if (this.$route.query == null) {
         this.watchingPlaylist = false
         return
@@ -1244,6 +1248,11 @@ export default defineComponent({
 
     handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+        return
+      }
+
+      if (this.watchingPlaylist && this.getPlaylistPauseOnCurrent()) {
+        this.disablePlaylistPauseOnCurrent()
         return
       }
 
@@ -1429,7 +1438,7 @@ export default defineComponent({
       ]
     },
 
-    getAdaptiveFormatsInvidious: async function(existingInfoResult = null) {
+    getAdaptiveFormatsInvidious: async function (existingInfoResult = null) {
       let result
       if (existingInfoResult) {
         result = existingInfoResult
@@ -1596,6 +1605,16 @@ export default defineComponent({
 
     getPlaylistLoop: function () {
       return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
+    },
+
+    getPlaylistPauseOnCurrent: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.pauseOnCurrentVideo : false
+    },
+
+    disablePlaylistPauseOnCurrent: function () {
+      if (this.$refs.watchVideoPlaylist) {
+        this.$refs.watchVideoPlaylist.pauseOnCurrentVideo = false
+      }
     },
 
     updateTitle: function () {

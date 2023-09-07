@@ -9,6 +9,8 @@
   align-items: center;
   gap: 16px;
   overflow: hidden;
+  color: inherit;
+  text-decoration: none;
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;
   -o-transition: background 0.2s ease-out;

@@ -36,6 +36,8 @@
 }
 
 .playlistIcon {
+  height: 20px;
+  width: 20px;
   font-size: 20px;
   padding: 10px;
   margin-top: -25px;

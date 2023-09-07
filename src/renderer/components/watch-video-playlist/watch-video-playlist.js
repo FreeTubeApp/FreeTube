@@ -34,6 +34,7 @@ export default defineComponent({
       shuffleEnabled: false,
       loopEnabled: false,
       reversePlaylist: false,
+      pauseOnCurrentVideo: false,
       channelName: '',
       channelId: '',
       playlistTitle: '',
@@ -83,7 +84,7 @@ export default defineComponent({
       return !this.loopEnabled
     },
 
-    videoIsLastInInPlaylistItems: function() {
+    videoIsLastInInPlaylistItems: function () {
       if (this.shuffleEnabled) {
         return this.videoIndexInPlaylistItems === this.randomizedPlaylistItems.length - 1
       } else {
@@ -124,7 +125,7 @@ export default defineComponent({
         }
       }
     },
-    watchViewLoading: function(newVal, oldVal) {
+    watchViewLoading: function (newVal, oldVal) {
       // This component is loaded/rendered before watch view loaded
       if (oldVal && !newVal) {
         // Scroll after watch view loaded, otherwise doesn't work
@@ -133,7 +134,7 @@ export default defineComponent({
         this.scrollToCurrentVideo()
       }
     },
-    isLoading: function(newVal, oldVal) {
+    isLoading: function (newVal, oldVal) {
       // This component is loaded/rendered before watch view loaded
       if (oldVal && !newVal) {
         // Scroll after this component loaded, otherwise doesn't work
@@ -215,6 +216,16 @@ export default defineComponent({
       setTimeout(() => {
         this.isLoading = false
       }, 1)
+    },
+
+    togglePauseOnCurrentVideo: function () {
+      if (this.pauseOnCurrentVideo) {
+        this.pauseOnCurrentVideo = false
+        showToast(this.$t('Playlist will not pause when current video is finished'))
+      } else {
+        this.pauseOnCurrentVideo = true
+        showToast(this.$t('Playlist will pause when current video is finished'))
+      }
     },
 
     playNextVideo: function () {

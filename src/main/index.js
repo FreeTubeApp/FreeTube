@@ -472,8 +472,12 @@ function runApp() {
       searchQueryText = null
     } = { }) {
     // Syncing new window background to theme choice.
-    const windowBackground = await baseHandlers.settings._findTheme().then(({ value }) => {
-      switch (value) {
+    const windowBackground = await baseHandlers.settings._findTheme().then((setting) => {
+      if (!setting) {
+        return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
+      }
+
+      switch (setting.value) {
         case 'dark':
           return '#212121'
         case 'light':
