@@ -126,7 +126,7 @@
           @click="toggleCopyVideosPrompt"
         />
         <ft-icon-button
-          v-if="!editMode && infoSource === 'user'"
+          v-if="!editMode && infoSource === 'user' && videoCount > 0"
           title="Remove Watched Videos"
           :icon="['fas', 'eye-slash']"
           theme="secondary"
