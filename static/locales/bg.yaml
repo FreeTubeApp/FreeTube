@@ -154,6 +154,7 @@ Settings:
       Beginning: 'Начало на видео'
       Middle: 'Среда на видео'
       End: 'Край на видео'
+      Hidden: Скрити
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Излед на Invidious
       (по подразбиране е https://invidious.snopyta.org)'
     Region for Trending: 'Регион за набиращи популярност'
