@@ -707,6 +707,7 @@ Video:
   Scroll to Bottom: 下までスクロール
   Upcoming: 今後の配信予定
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
+  Pause on Current Video: 現在の動画の一時停止
 Videos:
   #& Sort By
   Sort By:
@@ -933,3 +934,5 @@ Ok: OK
 Hashtag:
   Hashtag: ハッシュタグ
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
+Playlist will pause when current video is finished: 現在のビデオが終了すると、プレイリストは停止します
+Playlist will not pause when current video is finished: 現在のビデオが終了しても、プレイリストは停止しません
