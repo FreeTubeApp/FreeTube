@@ -177,6 +177,8 @@ Settings:
       Dracula: 'Drácula'
       System Default: Padrão do sistema
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Rosa Pastel
+      Hot Pink: Rosa Choque
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -771,6 +773,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
     bate-papo ao vivo não está disponível para esta transmissão. Pode ter sido desativado
     pelo responsável.
+  Pause on Current Video: Pausar no vídeo atual
 Videos:
   #& Sort By
   Sort By:
@@ -1056,3 +1059,7 @@ Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     nenhum vídeo
   Hashtag: Hashtag
+Playlist will pause when current video is finished: Lista de reprodução será pausada
+  quando vídeo atual terminar
+Playlist will not pause when current video is finished: Lista de reprodução não será
+  pausada quando vídeo atual terminar
