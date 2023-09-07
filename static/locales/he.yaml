@@ -792,6 +792,7 @@ Video:
   Upcoming: בקרוב
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': הצ׳אט
     לא זמין לשידור הזה. יכול להיות שהוא הושבת על ידי המעלה.
+  Pause on Current Video: השהייה על הסרטון הנוכחי
 Videos:
   #& Sort By
   Sort By:
@@ -1002,3 +1003,7 @@ Ok: אישור
 Hashtag:
   This hashtag does not currently have any videos: לתגית ההקבץ הזו אין סרטונים כרגע
   Hashtag: תגית הקבץ
+Playlist will pause when current video is finished: רשימת הנגינה תושהה עם סיום הסרטון
+  הנוכחי
+Playlist will not pause when current video is finished: רשימת הנגינה לא תושהה עם סיום
+  הסרטון הנוכחי
