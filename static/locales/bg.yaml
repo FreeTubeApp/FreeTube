@@ -187,6 +187,8 @@ Settings:
       Dracula: Dracula
       System Default: Стандартна за системата
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Пастелно розово
+      Hot Pink: Горещо розово
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -430,6 +432,8 @@ Settings:
     Hide Subscriptions Shorts: Скриване на кратките видеа в абонаментите
     Hide Subscriptions Live: Скриване на абонаментите на живо
     Hide Channel Podcasts: Скриване на подкастите на канала
+    Blur Thumbnails: Размазване на миниатюрите
+    Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -814,6 +818,7 @@ Video:
   Upcoming: Предстои
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чатът
     на живо не е наличен за този поток. Възможно е да е бил деактивиран от качващия.
+  Pause on Current Video: Пауза на текущото видео
 Videos:
   #& Sort By
   Sort By:
@@ -1042,3 +1047,7 @@ Ok: Добре
 Hashtag:
   Hashtag: Хаштаг
   This hashtag does not currently have any videos: В момента този хаштаг няма видеа
+Playlist will pause when current video is finished: Плейлистът ще бъде спрян на пауза,
+  когато текущото видео приключи
+Playlist will not pause when current video is finished: Плейлистът няма да спре, когато
+  текущото видео е завършено
