@@ -816,7 +816,7 @@ export default defineComponent({
           sponsorBlockTooltip.style.visibility = 'hidden'
           return
         }
-        
+
         const { left: mouseDisplayLeft } = mouseDisplay.getBoundingClientRect()
         const { left: playerLeft, right: playerRight } = this.player.el().getBoundingClientRect()
         const { width: sbTooltipWidth } = sponsorBlockTooltip.getBoundingClientRect()
