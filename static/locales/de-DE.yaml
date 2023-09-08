@@ -792,6 +792,7 @@ Video:
   Upcoming: Demnächst
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
+  Pause on Current Video: Pause für aktuelles Video
 Videos:
   #& Sort By
   Sort By:
@@ -1076,3 +1077,7 @@ Hashtag:
   Hashtag: Schlagwort
   This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
     derzeit keine Videos gefunden werden
+Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
+  wenn das aktuelle Video beendet ist
+Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
+  pausiert, wenn das aktuelle Video beendet ist
