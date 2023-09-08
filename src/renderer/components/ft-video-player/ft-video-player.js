@@ -621,9 +621,7 @@ export default defineComponent({
           }
 
           const thumbnail = this.player.el().querySelector('.vjs-vtt-thumbnail-display')
-          if (!thumbnail) {
-            return
-          }
+          if (!thumbnail) { return }
 
           const bottomOffset = visibleChildren.length * 30
           thumbnail.style.bottom = `${bottomOffset + 20}px`
