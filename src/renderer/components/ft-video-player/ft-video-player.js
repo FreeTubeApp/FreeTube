@@ -615,10 +615,7 @@ export default defineComponent({
             const visibility = style.getPropertyValue('visibility')
             return visibility === 'visible'
           })
-
-          if (visibleChildren.length === 0) {
-            return
-          }
+          if (visibleChildren.length === 0) { return }
 
           const thumbnail = this.player.el().querySelector('.vjs-vtt-thumbnail-display')
           if (!thumbnail) { return }
