@@ -118,6 +118,7 @@
 }
 
 .commentSubscribedIcon {
+  content: var(--logo-icon);
   height: 10px;
   width: 10px;
   margin-left: 0.25em;

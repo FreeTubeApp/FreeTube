@@ -111,7 +111,6 @@
             v-if="subscriptions.find((channel) => channel.id === comment.authorId)"
             :title="$t('Comments.Subscribed')"
             :aria-label="$t('Comments.Subscribed')"
-            src="../../../../_icons/iconColorSmall.png"
             class="commentSubscribedIcon"
             alt=""
           >
