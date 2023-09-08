@@ -117,6 +117,14 @@
   height: 14px;
 }
 
+.commentSubscribedIcon {
+  content: url("../../../../_icons/iconColorSmall.png");
+  height: 10px;
+  width: 10px;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
 .commentLikeCount {
   font-size: 11px;
   margin-left: 70px;
