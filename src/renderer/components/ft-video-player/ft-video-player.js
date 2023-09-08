@@ -817,28 +817,29 @@ export default defineComponent({
 
         if (noMarkerHovered) {
           sponsorBlockTooltip.style.visibility = 'hidden'
-        } else {
-          const { left: mouseDisplayLeft } = mouseDisplay.getBoundingClientRect()
-          const { left: playerLeft, right: playerRight } = this.player.el().getBoundingClientRect()
-          const { width: sbTooltipWidth } = sponsorBlockTooltip.getBoundingClientRect()
-
-          let calculatedRight = -(sbTooltipWidth / 2)
-
-          // Gets left and right boundaries of the chapter tooltip
-          // +1 for rightX to include width of the mouse display
-          const sbTooltipLeftX = mouseDisplayLeft - (sbTooltipWidth / 2)
-          const sbTooltipRightX = mouseDisplayLeft + 1 + (sbTooltipWidth / 2)
-
-          // If tooltip extends outside of the video player
-          // Adjust CSS right property to fit the tooltip within the player
-          if (sbTooltipLeftX < playerLeft) {
-            calculatedRight -= (playerLeft - sbTooltipLeftX)
-          } else if (sbTooltipRightX > playerRight) {
-            calculatedRight += (sbTooltipRightX - playerRight)
-          }
-
-          sponsorBlockTooltip.style.right = `${calculatedRight}px`
+          return
         }
+        
+        const { left: mouseDisplayLeft } = mouseDisplay.getBoundingClientRect()
+        const { left: playerLeft, right: playerRight } = this.player.el().getBoundingClientRect()
+        const { width: sbTooltipWidth } = sponsorBlockTooltip.getBoundingClientRect()
+
+        let calculatedRight = -(sbTooltipWidth / 2)
+
+        // Gets left and right boundaries of the chapter tooltip
+        // +1 for rightX to include width of the mouse display
+        const sbTooltipLeftX = mouseDisplayLeft - (sbTooltipWidth / 2)
+        const sbTooltipRightX = mouseDisplayLeft + 1 + (sbTooltipWidth / 2)
+
+        // If tooltip extends outside of the video player
+        // Adjust CSS right property to fit the tooltip within the player
+        if (sbTooltipLeftX < playerLeft) {
+          calculatedRight -= (playerLeft - sbTooltipLeftX)
+        } else if (sbTooltipRightX > playerRight) {
+          calculatedRight += (sbTooltipRightX - playerRight)
+        }
+
+        sponsorBlockTooltip.style.right = `${calculatedRight}px`
       })
     },
 
