@@ -45,6 +45,12 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Counts:
+    Video Count: 1 video | {count} videos
+    Channel Count: 1 channel | {count} channels
+    Subscriber Count: 1 subscriber | {count} subscribers
+    View Count: 1 view | {count} views
+    Watching Count: 1 watching | {count} watching
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
