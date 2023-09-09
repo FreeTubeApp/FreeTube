@@ -810,7 +810,7 @@ export default defineComponent({
               // when we are in Electron and the video has multiple audio tracks,
               // we populate the list inside createInvidiousDashManifest
               // as we need to work out the different audio tracks for the DASH manifest anyway
-              this.audioSourceList = this.audioTracks.find(track => track.isDefault)
+              this.audioSourceList = this.audioTracks.find(track => track.isDefault).sourceList
             } else {
               this.audioSourceList = result.adaptiveFormats.filter((format) => {
                 return format.type.includes('audio')
