@@ -124,6 +124,8 @@ export default defineComponent({
       muted: false,
       /** @type {(import('video.js').VideoJsPlayer|null)} */
       player: null,
+      chapterMarkers: [],
+      sponsorBlockMarkers: [],
       useDash: false,
       useHls: false,
       selectedDefaultQuality: '',
@@ -602,12 +604,34 @@ export default defineComponent({
         // https://github.com/videojs/video.js/blob/v7.13.3/docs/guides/components.md#default-component-tree
         this.player.controlBar.progressControl.seekBar.playProgressBar.removeChild('timeTooltip')
 
+        // Count the number of visible elements in progress-holder > mouse-display and
+        // update vertical offset of thumbnail accordingly
+        const seekBar = this.player.controlBar.progressControl.seekBar.el()
+        const mouseDisplay = seekBar.querySelector('.vjs-mouse-display')
+        seekBar.addEventListener('mousemove', () => {
+          const children = Array.from(mouseDisplay.children)
+          const visibleChildren = children.filter((child) => {
+            const style = window.getComputedStyle(child)
+            const visibility = style.getPropertyValue('visibility')
+            return visibility === 'visible'
+          })
+          if (visibleChildren.length === 0) { return }
+
+          const thumbnail = this.player.el().querySelector('.vjs-vtt-thumbnail-display')
+          if (!thumbnail) { return }
+
+          const bottomOffset = visibleChildren.length * 30
+          thumbnail.style.bottom = `${bottomOffset + 20}px`
+        })
+
         if (this.chapters.length > 0) {
-          this.chapters.forEach(this.addChapterMarker)
+          this.initializeChapterMarkers()
+          this.addChapterTooltip()
         }
 
         if (this.useSponsorBlock) {
           this.initializeSponsorBlock()
+          this.addSponsorBlockTooltip()
         }
 
         document.removeEventListener('keydown', this.keyboardShortcutHandler)
@@ -765,6 +789,57 @@ export default defineComponent({
         })
     },
 
+    // Adds sponsorblock tooltip to progress-holder > mouse-display
+    addSponsorBlockTooltip() {
+      const sponsorBlockTooltip = videojs.dom.createEl('span')
+      sponsorBlockTooltip.className = 'sponsorBlockTooltip'
+      const seekBar = this.player.controlBar.progressControl.seekBar.el()
+      const mouseDisplay = seekBar.querySelector('.vjs-mouse-display')
+      mouseDisplay.appendChild(sponsorBlockTooltip)
+
+      // When moving over progress bar and user hovers over a sponsorblock marker
+      // Make tooltip visible and update its label
+      const progressBar = this.player.el().querySelector('.vjs-progress-control')
+      progressBar.addEventListener('mousemove', ({ x }) => {
+        // Check if any sponsorblock markers are hovered over
+        const noMarkerHovered = this.sponsorBlockMarkers.every((sponsorBlockMarker) => {
+          const rect = sponsorBlockMarker.getBoundingClientRect()
+          if (x >= rect.x && x <= (rect.x + rect.width)) {
+            sponsorBlockTooltip.style.visibility = 'initial'
+            sponsorBlockTooltip.innerText = sponsorBlockMarker.title
+            return false
+          }
+          return true
+        })
+
+        if (noMarkerHovered) {
+          sponsorBlockTooltip.style.visibility = 'hidden'
+          return
+        }
+
+        const { left: mouseDisplayLeft } = mouseDisplay.getBoundingClientRect()
+        const { left: playerLeft, right: playerRight } = this.player.el().getBoundingClientRect()
+        const { width: sbTooltipWidth } = sponsorBlockTooltip.getBoundingClientRect()
+
+        let calculatedRight = -(sbTooltipWidth / 2)
+
+        // Gets left and right boundaries of the chapter tooltip
+        // +1 for rightX to include width of the mouse display
+        const sbTooltipLeftX = mouseDisplayLeft - (sbTooltipWidth / 2)
+        const sbTooltipRightX = mouseDisplayLeft + 1 + (sbTooltipWidth / 2)
+
+        // If tooltip extends outside of the video player
+        // Adjust CSS right property to fit the tooltip within the player
+        if (sbTooltipLeftX < playerLeft) {
+          calculatedRight -= (playerLeft - sbTooltipLeftX)
+        } else if (sbTooltipRightX > playerRight) {
+          calculatedRight += (sbTooltipRightX - playerRight)
+        }
+
+        sponsorBlockTooltip.style.right = `${calculatedRight}px`
+      })
+    },
+
     skipSponsorBlocks(skipSegments) {
       const currentTime = this.player.currentTime()
       const duration = this.player.duration()
@@ -831,16 +906,74 @@ export default defineComponent({
       markerDiv.style.marginLeft = (marker.time / this.lengthSeconds) * 100 + '%'
 
       this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
+      this.sponsorBlockMarkers.push(markerDiv)
     },
 
-    addChapterMarker(chapter) {
+    initializeChapterMarkers() {
+      const markerContainerDiv = videojs.dom.createEl('div')
+      markerContainerDiv.className = 'chapterMarkerContainer'
+      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerContainerDiv)
+      this.player.el().querySelector('.vjs-progress-holder').classList.add('vjs-chapter-slider')
+
+      this.chapters.forEach(this.addChapterToTimeline)
+    },
+
+    addChapterToTimeline(chapter) {
       const markerDiv = videojs.dom.createEl('div')
 
-      markerDiv.title = chapter.title
+      markerDiv.dataset.chapterName = chapter.title
       markerDiv.className = 'chapterMarker'
-      markerDiv.style.marginLeft = `calc(${(chapter.startSeconds / this.lengthSeconds) * 100}% - 1px)`
 
-      this.player.el().querySelector('.vjs-progress-holder').appendChild(markerDiv)
+      const duration = chapter.endSeconds - chapter.startSeconds
+      markerDiv.style.width = `calc(${(duration / this.lengthSeconds) * 100}%)`
+
+      this.player.el().querySelector('.chapterMarkerContainer').appendChild(markerDiv)
+      this.chapterMarkers.push(markerDiv)
+    },
+
+    // Adds chapter title tooltip to progress-holder > mouse-display
+    addChapterTooltip() {
+      const chapterTooltip = videojs.dom.createEl('div')
+      chapterTooltip.className = 'chapterDisplayTooltip'
+      const seekBar = this.player.controlBar.progressControl.seekBar.el()
+      const mouseDisplay = seekBar.querySelector('.vjs-mouse-display')
+      mouseDisplay.appendChild(chapterTooltip)
+
+      // When moving over progress bar and user hovers over a chapter marker
+      // Update tooltip text with the hovered chapter
+      // The X coordinate of the chapter tooltip is updated using CSS right property
+      const progressBar = this.player.el().querySelector('.vjs-progress-control')
+      progressBar.addEventListener('mousemove', ({ x }) => {
+        const { left: mouseDisplayLeft } = mouseDisplay.getBoundingClientRect()
+        const { left: playerLeft, right: playerRight } = this.player.el().getBoundingClientRect()
+        const { width: chapterTooltipWidth } = chapterTooltip.getBoundingClientRect()
+
+        let calculatedRight = -(chapterTooltipWidth / 2)
+
+        // Gets left and right boundaries of the chapter tooltip
+        const chapterTooltipLeftX = mouseDisplayLeft - (chapterTooltipWidth / 2)
+        const chapterTooltipRightX = mouseDisplayLeft + (chapterTooltipWidth / 2)
+
+        // If tooltip extends outside of the video player
+        // Adjust CSS right property to fit the tooltip within the player
+        if (chapterTooltipLeftX < playerLeft) {
+          calculatedRight -= (playerLeft - chapterTooltipLeftX)
+        } else if (chapterTooltipRightX > playerRight) {
+          calculatedRight += (chapterTooltipRightX - playerRight)
+        }
+
+        chapterTooltip.style.right = `${calculatedRight}px`
+
+        // Updates chapter tooltip with the current chapter marker hovered over
+        this.chapterMarkers.every((chapterMarker) => {
+          const rect = chapterMarker.getBoundingClientRect()
+          if (x >= rect.x && x <= (rect.x + rect.width)) {
+            chapterTooltip.innerText = chapterMarker.dataset.chapterName
+            return false
+          }
+          return true
+        })
+      })
     },
 
     checkAspectRatio() {

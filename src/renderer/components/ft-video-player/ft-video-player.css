@@ -3,27 +3,61 @@
 }
 
 .ftVideoPlayer {
-  width:100%;
+  width: 100%;
 }
 
 .ftVideoPlayer.vjs-user-inactive {
   cursor: none;
 }
 
-:deep(.sponsorBlockMarker), :deep(.chapterMarker) {
+:deep(.sponsorBlockTooltip) {
+  border-radius: 0.3em;
+  text-align: center;
+  width: max-content;
+  display: block;
   position: absolute;
-  opacity: 0.6;
+  top: -7.5em;
+  font-size: 0.6em;
+  padding: 6px 8px 8px;
+  color: rgb(255 255 255);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
 :deep(.sponsorBlockMarker) {
+  position: absolute;
+  opacity: 0.6;
   height: 100%;
   background-color: var(--primary-color);
 }
 
-:deep(.chapterMarker) {
+:deep(.chapterDisplayTooltip) {
+  border-radius: 0.3em;
+  text-align: center;
+  width: max-content;
+  display: block;
+  position: absolute;
+  top: -5.0em;
+  font-size: 0.6em;
+  padding: 6px 8px 8px;
+  color: rgb(255 255 255);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+:deep(.chapterMarkerContainer) {
+  position: absolute;
   height: 100%;
-  top: 0;
-  width: 2px;
-  z-index: 2;
-  background-color: #000;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+:deep(.chapterMarker) {
+  position: relative;
+  opacity: 0.3;
+  height: 100%;
+  z-index: 5;
+  border-left: solid #000 2px;
+  background-color: #73859f;
 }
