@@ -285,6 +285,13 @@ function runApp() {
       })
     })
 
+    session.defaultSession.cookies.set({
+      url: 'https://www.youtube.com',
+      name: 'SOCS',
+      value: 'CAI',
+      sameSite: 'no_restriction',
+    })
+
     // make InnerTube requests work with the fetch function
     // InnerTube rejects requests if the referer isn't YouTube or empty
     const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
@@ -334,6 +341,17 @@ function runApp() {
 
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
+    })
+
+    // when we create a real session on the watch page, youtube returns tracking cookies, which we definitely don't want
+    const trackingCookieRequestFilter = { urls: ['https://www.youtube.com/sw.js_data', 'https://www.youtube.com/iframe_api'] }
+
+    session.defaultSession.webRequest.onHeadersReceived(trackingCookieRequestFilter, ({ responseHeaders }, callback) => {
+      if (responseHeaders) {
+        delete responseHeaders['set-cookie']
+      }
+      // eslint-disable-next-line n/no-callback-literal
+      callback({ responseHeaders })
     })
 
     if (replaceHttpCache) {
