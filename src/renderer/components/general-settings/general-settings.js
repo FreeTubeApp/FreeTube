@@ -48,7 +48,8 @@ export default defineComponent({
         '',
         'start',
         'middle',
-        'end'
+        'end',
+        'hidden'
       ],
       externalLinkHandlingValues: [
         '',
@@ -137,7 +138,8 @@ export default defineComponent({
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         this.$t('Settings.General Settings.Thumbnail Preference.Beginning'),
         this.$t('Settings.General Settings.Thumbnail Preference.Middle'),
-        this.$t('Settings.General Settings.Thumbnail Preference.End')
+        this.$t('Settings.General Settings.Thumbnail Preference.End'),
+        this.$t('Settings.General Settings.Thumbnail Preference.Hidden')
       ]
     },
 

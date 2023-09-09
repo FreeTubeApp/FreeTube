@@ -149,6 +149,7 @@ Settings:
       Beginning: Anfang
       Middle: Mitte
       End: Ende
+      Hidden: Versteckt
     'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
@@ -182,6 +183,8 @@ Settings:
       Dracula: Dracula
       System Default: Systemvoreinstellung
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Pink
+      Pastel Pink: Pastellrosa
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -433,6 +436,8 @@ Settings:
     Hide Subscriptions Shorts: Shorts der Abonnements ausblenden
     Hide Channel Releases: Kanalveröffentlichungen ausblenden
     Hide Subscriptions Live: Live der Abonnements ausblenden
+    Blur Thumbnails: Vorschaubilder unscharf machen
+    Hide Profile Pictures in Comments: Profilbilder in den Kommentaren verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -787,6 +792,7 @@ Video:
   Upcoming: Demnächst
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
+  Pause on Current Video: Pause für aktuelles Video
 Videos:
   #& Sort By
   Sort By:
@@ -1071,3 +1077,7 @@ Hashtag:
   Hashtag: Schlagwort
   This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
     derzeit keine Videos gefunden werden
+Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
+  wenn das aktuelle Video beendet ist
+Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
+  pausiert, wenn das aktuelle Video beendet ist

@@ -1,9 +1,10 @@
 .searchFilterInner {
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 
-  padding: 20px 20px 70px 20px;
+  padding-block: 20px 70px;
+  padding-inline: 20px;
   max-height: 410px;
   overflow-y: auto;
 
@@ -23,11 +24,12 @@
 
 .radioFlexBox {
   max-width: 1000px;
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
 }
 
 @media only screen and (max-width: 600px) {
   .searchRadio {
-    border-right: 0;
+    border-inline-end: 0;
   }
 }

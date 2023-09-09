@@ -97,7 +97,7 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
 
-* Snap: [Download](https://snapcraft.io/freetube-snap) and [Source Code](https://launchpad.net/freetube)
+* Snap: [Download](https://snapcraft.io/freetube) and [Source Code](https://git.launchpad.net/freetube)
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 

@@ -6,11 +6,11 @@
   background-color: var(--card-bg-color);
   box-sizing: border-box;
   height: calc(100vh - 132px);
-  margin-right: 1em;
+  margin-inline-end: 1em;
   overflow-y: auto;
   padding: 10px;
   position: sticky;
-  top: 96px;
+  inset-block-start: 96px;
   width: 30%;
 }
 
@@ -40,8 +40,8 @@
 }
 
 :deep(.videoThumbnail) {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-block-start: auto;
+  margin-block-end: auto;
 }
 
 :deep(.thumbnailImage) {
@@ -56,7 +56,7 @@
   .playlistInfo {
     box-sizing: border-box;
     position: relative;
-    top: 0;
+    inset-block-start: 0;
     height: auto;
     width: 100%;
   }

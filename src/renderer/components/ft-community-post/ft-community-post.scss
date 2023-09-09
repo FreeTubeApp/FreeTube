@@ -22,7 +22,7 @@
   -webkit-border-radius: 50%;
   border-radius: 50%;
   height: 55px;
-  margin-right: 5px;
+  margin-inline-end: 5px;
   width: 55px;
 }
 
@@ -32,12 +32,14 @@
   .authorName {
     font-size: 15px;
     font-weight: bold;
-    margin: 5px 6px 0 5px;
+    margin-block: 5px 0;
+    margin-inline: 5px 6px;
   }
 
   .publishedText {
     font-size: 15px;
-    margin: 5px 6px 0 5px;
+    margin-block: 5px 0;
+    margin-inline: 5px 6px;
   }
 }
 
@@ -51,24 +53,24 @@
   display: block;
   flex-direction: column;
   font-size: 15px;
-  margin-top: 4px;
+  margin-block-start: 4px;
   max-width: 210px;
-  text-align: left;
+  text-align: start;
 
   @media screen and (max-width: 680px) {
-    margin-left: 0;
-    text-align: left;
+    margin-inline-start: 0;
+    text-align: start;
   }
 
   .likeBar {
     border-radius: 4px;
     height: 8px;
-    margin-bottom: 4px;
+    margin-block-end: 4px;
   }
 
   .likeCount {
-    margin-left: 5px;
-    margin-right: 6px;
+    margin-inline-start: 5px;
+    margin-inline-end: 6px;
   }
 }
 
@@ -77,8 +79,8 @@
 
   .videoThumbnail {
     display: flex;
-    margin-bottom: auto;
-    margin-top: auto;
+    margin-block-end: auto;
+    margin-block-start: auto;
     position: relative;
     width: fit-content;
 
@@ -91,7 +93,7 @@
   }
 
   .playlistText {
-    margin-left: 10px;
+    margin-inline-start: 10px;
     width: 50%;
     word-wrap: break-word;
 
@@ -111,7 +113,7 @@
       color: var(--primary-text-color);
       display: flex;
       font-size: small;
-      padding-top: 10px;
+      padding-block-start: 10px;
       text-decoration-line: none;
       width: 100%;
     }
@@ -128,5 +130,5 @@
 
 .ft-list-item.grid {
   min-height: 0 !important;
-  padding-bottom: 20px;
+  padding-block-end: 20px;
 }
