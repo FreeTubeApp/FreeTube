@@ -434,7 +434,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
     })
     .map((item) => parseListItem(item))
 
@@ -578,6 +578,17 @@ function parseListItem(item) {
         videos,
         handle,
         descriptionShort: channel.description_snippet.text
+      }
+    }
+    case 'HashtagTile': {
+      /** @type {import('youtubei.js').YTNodes.HashtagTile} */
+      const hashtag = item
+
+      return {
+        type: 'hashtag',
+        title: hashtag.hashtag.text,
+        videoCount: hashtag.hashtag_video_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
+        channelCount: hashtag.hashtag_channel_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_channel_count.text)
       }
     }
     case 'Playlist': {
