@@ -36,6 +36,9 @@ Global:
   Shorts: Kısa Videolar
   Live: Canlı
 
+  Counts:
+    Video Count: 1 video | {count} video
+    Channel Count: 1 kanal | {count} kanal
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
