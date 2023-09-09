@@ -1459,8 +1459,10 @@ export default defineComponent({
         }
 
         if (hasMultipleAudioTracks) {
+          // match YouTube's local API response with English
+          const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
           for (const format of audioFormats) {
-            this.generateAudioTrackFieldInvidious(format)
+            this.generateAudioTrackFieldInvidious(format, languageNames)
           }
 
           this.audioTracks = this.createAudioTracksFromLocalFormats(audioFormats)
@@ -1488,31 +1490,34 @@ export default defineComponent({
 
     /**
      * @param {import('youtubei.js').Misc.Format} format
+     * @param {Intl.DisplayNames} languageNames
      */
-    generateAudioTrackFieldInvidious: function (format) {
+    generateAudioTrackFieldInvidious: function (format, languageNames) {
       let type = ''
 
       // use the same id numbers as YouTube (except -1, when we aren't sure what it is)
       let idNumber = ''
 
       if (format.is_descriptive) {
-        type = 'descriptive'
+        type = ' descriptive'
         idNumber = 2
       } else if (format.is_dubbed) {
-        type = 'dubbed'
+        type = ''
         idNumber = 3
       } else if (format.is_original) {
-        type = 'original'
+        type = ' original'
         idNumber = 4
       } else {
-        type = 'alternative'
+        type = ' alternative'
         idNumber = -1
       }
+
+      const languageName = languageNames.of(format.language)
 
       format.audio_track = {
         audio_is_default: !!format.is_original,
         id: `${format.language}.${idNumber}`,
-        display_name: `${format.language} ${type}`
+        display_name: `${languageName}${type}`
       }
     },
 
