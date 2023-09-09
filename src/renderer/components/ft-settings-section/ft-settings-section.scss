@@ -1,6 +1,7 @@
 .settingsSection {
   background-color: var(--card-bg-color);
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
   width: 85%;
 
   @media only screen and (max-width: 800px) {
@@ -8,18 +9,19 @@
   }
 
   &[open] {
-    padding-bottom: 15px;
+    padding-block-end: 15px;
   }
 
   > div {
     box-sizing: border-box;
-    padding: 0 20px;
+    padding-block: 0;
+    padding-inline: 20px;
     width: 100%;
   }
 
   > div:not(:last-child, .ft-flex-box) {
     @media only screen and (max-width: 800px) {
-      margin-bottom: 20px;
+      margin-block-end: 20px;
     }
   }
 }
@@ -28,7 +30,7 @@
   background-color: var(--primary-color);
   border: 0;
   height: 2px;
-  margin-top: -1px;
+  margin-block-start: -1px;
   width: 100%;
 }
 
@@ -41,7 +43,7 @@
 .sectionTitle {
   -webkit-user-select: none;
   user-select: none;
-  margin-left: 2%;
+  margin-inline-start: 2%;
 }
 
 :deep(.switchGrid) {
@@ -64,7 +66,7 @@
 :deep(.switchColumn) {
   display: flex;
   flex-direction: column;
-  justify-items: start;
+  align-items: start;
 }
 
 :deep(.center) {
@@ -87,32 +89,34 @@
   .settingsSection {
     > div {
       :deep(.text.bottom) {
-        left: -85px;
+        inset-inline-start: -85px;
       }
     }
 
     :deep(.switch-ctn.containsTooltip) {
-      left: -10px;
-      margin-right: 5px;
-      padding: 0 10px;
+      inset-inline-start: -10px;
+      margin-inline-end: 5px;
+      padding-block: 0;
+      padding-inline: 10px;
     }
 
     :not(.select, .selectLabel) {
       > :deep(.tooltip) {
         display: inline-block;
         position: absolute;
-        right: -25px;
-        top: 12px;
+        inset-inline-end: -25px;
+        inset-block-start: 12px;
       }
     }
 
     .settingsFlexStart460px :deep(.tooltip) {
-      right: 0;
-      top: -2px;
+      inset-inline-end: 0;
+      inset-block-start: -2px;
     }
 
     :deep(.switch-ctn) {
-      margin: 10px 7px;
+      margin-block: 10px;
+      margin-inline: 7px;
     }
   }
 }
