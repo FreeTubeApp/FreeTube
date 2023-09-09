@@ -93,6 +93,9 @@ Subscriptions:
     Vernieuw abonnementen om ze hier te zien.
   Empty Channels: Je geabonneerde kanalen hebben momenteel geen video's.
   Subscriptions Tabs: Abonnement­tabbladen
+  All Subscription Tabs Hidden: Alle abonnementstabbladen zijn verborgen. Om de inhoud
+    hier te zien moet u enkele tabbladen zichtbaar maken in de sectie ‘{subsection}’
+    onder ‘{settingsSection}’.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Tending-tabbladen
@@ -303,6 +306,8 @@ Settings:
     Remove All Subscriptions / Profiles: Verwijder alle abonnementen / profielen
     Automatically Remove Video Meta Files: Bestanden met metadata van video's automatisch
       verwijderen
+    Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de
+      afspeellijst ‘Laatst bekeken’
   Subscription Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
@@ -490,6 +495,8 @@ Settings:
     Set Password: Wachtwoord instellen
     Remove Password: Wachtwoord verwijderen
     Password Settings: Wachtwoord­instellingen
+    Set Password To Prevent Access: Stel een wachtwoord in om toegang tot instellingen
+      te beperken
   Password Dialog:
     Password: Wachtwoord
     Password Incorrect: Wachtwoord onjuist
@@ -594,17 +601,30 @@ Channel:
   Channel Tabs: Kanaal­tabbladen
   Live:
     Live: Live
+    This channel does not currently have any live streams: Dit kanaal heeft momenteel
+      geen livestreams
   Podcasts:
     Podcasts: Podcasts
+    This channel does not currently have any podcasts: Dit kanaal heeft momenteel
+      geen podcasts
   Community:
     Community: Gemeenschap
     Reveal Answers: Antwoorden onthullen
     Hide Answers: Antwoorden verbergen
     votes: '{votes} stemmen'
+    This channel currently does not have any posts: Dit kanaal heeft momenteel geen
+      posts
   Releases:
     Releases: Uitgaven
+    This channel does not currently have any releases: Dit kanaal heeft momenteel
+      geen uitgaven
   This channel does not exist: Dit kanaal bestaat niet
   This channel does not allow searching: Dit kanaal staat zoeken niet toe
+  Shorts:
+    This channel does not currently have any shorts: Dit kanaal heeft momenteel geen
+      Shorts
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Dit
+    kanaal heeft een leeftijdsbeperking en kan momenteel niet worden bekeken in FreeTube.
 Video:
   Mark As Watched: 'Markeren als bekeken'
   Remove From History: 'Uit geschiedenis verwijderen'
@@ -745,6 +765,7 @@ Video:
   Scroll to Bottom: Helemaal naar onderen scrollen
   Upcoming: Aankomend
   Show Super Chat Comment: Superchat-opmerking tonen
+  Pause on Current Video: Pauzeren bij huidige video
 Videos:
   #& Sort By
   Sort By:
