@@ -39,7 +39,8 @@
     width: 40px;
     height: 40px;
     position: relative;
-    margin: 100px auto;
+    margin-block: 100px;
+    margin-inline: auto;
 }
 
 .double-bounce1,
@@ -49,8 +50,8 @@
     border-radius: 50%;
     opacity: 0.6;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     background-color: var(--primary-color);
 
     -webkit-animation: sk-bounce 2.0s infinite ease-in-out;

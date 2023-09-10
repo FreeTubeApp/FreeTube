@@ -37,6 +37,9 @@ Global:
   Live: Наживо
   Community: Спільнота
 
+  Counts:
+    Video Count: 1 відео | {count} відео
+    Channel Count: 1 канал | {count} канал
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -749,6 +752,7 @@ Video:
   Upcoming: Незабаром
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Спілкування
     наживо недоступне для цієї трансляції. Можливо, вивантажувач вимкнув його.
+  Pause on Current Video: Призупинити на поточному відео
 Videos:
   #& Sort By
   Sort By:
@@ -983,3 +987,7 @@ Ok: Гаразд
 Hashtag:
   Hashtag: Хештег
   This hashtag does not currently have any videos: За цим хештегом наразі немає відео
+Playlist will pause when current video is finished: Добірка призупиняється, коли поточне
+  відео завершено
+Playlist will not pause when current video is finished: Добірка не призупиняється,
+  коли поточне відео завершено

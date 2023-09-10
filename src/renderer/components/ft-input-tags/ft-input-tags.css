@@ -20,13 +20,12 @@
   margin: 5px;
   border-radius: 5px;
   display:flex;
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
 }
 
 .ft-tag-box li>span {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+  padding-block: 10px;
+  padding-inline-start: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
@@ -45,7 +44,7 @@
 }
 
 :deep(.ft-input-component .ft-input) {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
 @media only screen and (max-width: 576px) {

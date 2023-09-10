@@ -46,6 +46,9 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Community
+  Counts:
+    Video Count: 1 video | {count} videos
+    Channel Count: 1 channel | {count} channels
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -626,6 +629,7 @@ Video:
   Reverse Playlist: Reverse Playlist
   Play Next Video: Play Next Video
   Play Previous Video: Play Previous Video
+  Pause on Current Video: Pause on Current Video
   # Context is "X People Watching"
   Watching: Watching
   Watched: Watched
@@ -897,6 +901,8 @@ Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist has been reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
+Playlist will not pause when current video is finished: Playlist will not pause when current video is finished
+Playlist will pause when current video is finished: Playlist will pause when current video is finished
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
 

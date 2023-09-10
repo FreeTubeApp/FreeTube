@@ -38,6 +38,9 @@ Global:
   Community: المجتمع
 
 # Search Bar
+  Counts:
+    Video Count: 1 فيديو | {count} مقاطع فيديو
+    Channel Count: 1 قناة | {count} القنوات
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -799,6 +802,7 @@ Video:
   Upcoming: القادمة
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': الدردشة
     المباشرة غير متاحة لهذا البث. ربما تم تعطيلها من قبل القائم بالتحميل.
+  Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
 Videos:
   #& Sort By
   Sort By:
@@ -1020,3 +1024,7 @@ Hashtag:
   This hashtag does not currently have any videos: هذا الهاشتاج ليس لديه حاليا أي
     مقاطع فيديو
   Hashtag: هاشتاج
+Playlist will pause when current video is finished: ستتوقف قائمة التشغيل مؤقتًا عند
+  انتهاء الفيديو الحالي
+Playlist will not pause when current video is finished: لن تتوقف قائمة التشغيل مؤقتًا
+  عند انتهاء الفيديو الحالي
