@@ -46,8 +46,8 @@
   border-radius: 50%;
   color: var(--primary-text-color);
   cursor: pointer;
-  font-size: 20px;
   height: 1em;
+  font-size: 20px;
   padding: 10px;
   transition: background 0.2s ease-out;
   width: 1em;
@@ -56,8 +56,7 @@
     color: var(--text-with-main-color);
   }
 
-  &.arrowBackwardDisabled,
-  &.arrowForwardDisabled {
+  &.navIconDisabled {
     color: gray;
     opacity: 0.5;
     pointer-events: none;
@@ -84,6 +83,12 @@
       background-color: var(--primary-color-active);
     }
   }
+}
+
+
+.ftIconButton.selectModeOptionsButton {
+  line-height: normal;
+  height: normal;
 }
 
 .navFilterIcon {

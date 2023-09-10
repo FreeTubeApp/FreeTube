@@ -16,7 +16,7 @@
       <font-awesome-icon
         :aria-disabled="isArrowBackwardDisabled"
         class="navIcon"
-        :class="{ arrowBackwardDisabled: isArrowBackwardDisabled}"
+        :class="{ navIconDisabled: isArrowBackwardDisabled}"
         :icon="['fas', 'arrow-left']"
         role="button"
         tabindex="0"
@@ -27,7 +27,7 @@
       <font-awesome-icon
         :aria-disabled="isArrowForwardDisabled"
         class="navIcon"
-        :class="{ arrowForwardDisabled: isArrowForwardDisabled}"
+        :class="{ navIconDisabled: isArrowForwardDisabled}"
         :icon="['fas', 'arrow-right']"
         role="button"
         tabindex="0"
@@ -53,6 +53,30 @@
         @click="createNewWindow"
         @keydown.enter.prevent="createNewWindow"
       />
+      <font-awesome-icon
+        class="navIcon"
+        :icon="['fas', 'square-check']"
+        :title="selectVideosText"
+        role="button"
+        tabindex="0"
+        @click="toggleSelectMode"
+        @keydown.enter.prevent="tselectVideosTextoggleSelectMode"
+      />
+      <ft-icon-button
+        v-if="isSelectModeEnabled"
+        class="selectModeOptionsButton"
+        :icon="['fas', 'ellipsis-v']"
+        title="More Options"
+        theme="base-no-default"
+        role="button"
+        :use-shadow="false"
+        dropdown-position-x="right"
+        :dropdown-options="dropdownOptions"
+        tabindex="0"
+        @click="handleOptionsClick"
+      />
+      <!-- :disabled="true" -->
+      <!-- :size="16" -->
       <div
         v-if="!hideHeaderLogo"
         class="logo"

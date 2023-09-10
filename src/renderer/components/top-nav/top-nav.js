@@ -1,12 +1,22 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtSearchFilters from '../ft-search-filters/ft-search-filters.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
-import { openInternalPath } from '../../helpers/utils'
+import {
+  copyToClipboard,
+  formatDurationAsTimestamp,
+  formatNumber,
+  openExternalLink,
+  openInternalPath,
+  showToast,
+  toLocalePublicationString,
+  toDistractionFreeTitle
+} from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -15,7 +25,8 @@ export default defineComponent({
   components: {
     FtInput,
     FtSearchFilters,
-    FtProfileSelector
+    FtProfileSelector,
+    'ft-icon-button': FtIconButton
   },
   data: () => {
     return {
@@ -28,7 +39,8 @@ export default defineComponent({
       isArrowBackwardDisabled: true,
       isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
-      lastSuggestionQuery: ''
+      lastSuggestionQuery: '',
+      isSelectModeEnabled: false
     }
   },
   computed: {
@@ -78,6 +90,87 @@ export default defineComponent({
 
     newWindowText: function () {
       return this.$t('Open New Window')
+    },
+
+    selectVideosText: function () {
+      return this.$t('Select Videos')
+    },
+
+    hideSharingActions: function() {
+      return this.$store.getters.getHideSharingActions
+    },
+
+    dropdownOptions: function () {
+      const options = [
+        {
+          label: this.watched
+            ? this.$t('Video.Remove From History')
+            : this.$t('Video.Mark As Watched'),
+          value: 'history'
+        }
+      ]
+      if (!this.hideSharingActions) {
+        options.push(
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Link'),
+            value: 'copyYoutube'
+          },
+          {
+            label: this.$t('Video.Copy YouTube Embedded Player Link'),
+            value: 'copyYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Copy Invidious Link'),
+            value: 'copyInvidious'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            label: this.$t('Video.Open in YouTube'),
+            value: 'openYoutube'
+          },
+          {
+            label: this.$t('Video.Open YouTube Embedded Player'),
+            value: 'openYoutubeEmbed'
+          },
+          {
+            label: this.$t('Video.Open in Invidious'),
+            value: 'openInvidious'
+          }
+        )
+        if (this.channelId !== null) {
+          options.push(
+            {
+              type: 'divider'
+            },
+            {
+              label: this.$t('Video.Copy YouTube Channel Link'),
+              value: 'copyYoutubeChannel'
+            },
+            {
+              label: this.$t('Video.Copy Invidious Channel Link'),
+              value: 'copyInvidiousChannel'
+            },
+            {
+              type: 'divider'
+            },
+            {
+              label: this.$t('Video.Open Channel in YouTube'),
+              value: 'openYoutubeChannel'
+            },
+            {
+              label: this.$t('Video.Open Channel in Invidious'),
+              value: 'openInvidiousChannel'
+            }
+          )
+        }
+      }
+
+      return options
     }
   },
   mounted: function () {
@@ -328,17 +421,100 @@ export default defineComponent({
         // Web placeholder
       }
     },
+
+    markAsWatched: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: this.publishedText ? this.publishedText.split(',')[0] : this.publishedText,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+        watchProgress: 0,
+        timeWatched: new Date().getTime(),
+        isLive: false,
+        paid: false,
+        type: 'video'
+      }
+      this.updateHistory(videoData)
+      showToast(this.$t('Video.Video has been marked as watched'))
+
+      this.watched = true
+    },
+
+    removeFromWatched: function () {
+      this.removeFromHistory(this.id)
+
+      showToast(this.$t('Video.Video has been removed from your history'))
+
+      this.watched = false
+      this.watchProgress = 0
+    },
+
+    handleOptionsClick: function (option) {
+      let youtubeShareUrls, youtubeUrls, youTubeEmbedUrls, invidiousUrls, youtubeChannelUrls, invidiousChannelUrls
+      switch (option) {
+        case 'history':
+          if (this.watched) {
+            this.removeFromWatched()
+          } else {
+            this.markAsWatched()
+          }
+          break
+        case 'copyYoutube':
+          copyToClipboard(youtubeShareUrls, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+          break
+        case 'openYoutube':
+          openExternalLink(youtubeUrls)
+          break
+        case 'copyYoutubeEmbed':
+          copyToClipboard(youTubeEmbedUrls, { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
+          break
+        case 'openYoutubeEmbed':
+          openExternalLink(youTubeEmbedUrls)
+          break
+        case 'copyInvidious':
+          copyToClipboard(invidiousUrls, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+          break
+        case 'openInvidious':
+          openExternalLink(invidiousUrls)
+          break
+        case 'copyYoutubeChannel':
+          copyToClipboard(youtubeChannelUrls, { messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
+          break
+        case 'openYoutubeChannel':
+          openExternalLink(youtubeChannelUrls)
+          break
+        case 'copyInvidiousChannel':
+          copyToClipboard(invidiousChannelUrls, { messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
+          break
+        case 'openInvidiousChannel':
+          openExternalLink(invidiousChannelUrls)
+          break
+      }
+    },
+
+    toggleSelectMode: function () {
+      this.isSelectModeEnabled = !this.isSelectModeEnabled
+      // enter select mode
+    },
+
     navigate: function (route) {
       this.$router.push('/' + route)
     },
     hideFilters: function () {
       this.showFilters = false
     },
+
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
     ...mapActions([
       'getYoutubeUrlInfo',
+      'updateHistory',
+      'removeFromHistory'
     ])
   }
 })
