@@ -38,6 +38,9 @@ Global:
   Live: Ζωντανά
 
 # Search Bar
+  Counts:
+    Video Count: 1 βίντεο | {count} βίντεο
+    Channel Count: 1 κανάλι | {count} κανάλια
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
