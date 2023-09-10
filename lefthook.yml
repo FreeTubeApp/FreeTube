@@ -12,7 +12,7 @@ pre-commit:
         - rebase
     stylelint:
       glob: "*.{css,scss}"
-      run: yarn stylelint --no-color {staged_files}
+      run: yarn stylelint --no-color --allow-empty-input {staged_files}
       skip:
         - rebase
 
