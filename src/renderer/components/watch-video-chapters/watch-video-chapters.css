@@ -14,7 +14,7 @@
 
 .chaptersWrapper {
   margin-block-start: 15px;
-  max-height: 250px;
+  max-block-size: 250px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 .chaptersWrapper.compact {
-  max-height: 200px;
+  max-block-size: 200px;
 }
 
 .chaptersChevron {
@@ -53,8 +53,8 @@
 
 .chapterThumbnail {
   grid-area: thumbnail;
-  width: 130px;
-  height: auto;
+  inline-size: 130px;
+  block-size: auto;
   margin: 3px;
 }
 

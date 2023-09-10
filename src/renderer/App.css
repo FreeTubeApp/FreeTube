@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  height: 100%;
+  block-size: 100%;
 }
 
 .routerView {
@@ -17,7 +17,7 @@
 }
 
 .banner {
-  width: 85%;
+  inline-size: 85%;
   margin-block: 20px;
   margin-inline: auto;
 }
@@ -35,7 +35,7 @@
 
 #changeLogText {
   overflow-y: scroll;
-  height: 40vh;
+  block-size: 40vh;
   display: block
 }
 
@@ -53,7 +53,7 @@
   }
 
   .banner {
-    width: 80%;
+    inline-size: 80%;
     margin-block-start: 20px;
   }
 
