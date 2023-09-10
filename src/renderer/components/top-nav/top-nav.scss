@@ -13,13 +13,13 @@
   background-color: var(--card-bg-color);
   box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
   display: flex;
-  height: 60px;
+  block-size: 60px;
   inset-inline-start: 0;
   line-height: 60px;
   position: sticky;
   inset-inline-end: 0;
   inset-block-start: 0;
-  width: 100%;
+  inline-size: 100%;
   z-index: 4;
 
   @media only screen and (min-width: 961px) {
@@ -47,10 +47,10 @@
   color: var(--primary-text-color);
   cursor: pointer;
   font-size: 20px;
-  height: 1em;
+  block-size: 1em;
   padding: 10px;
   transition: background 0.2s ease-out;
-  width: 1em;
+  inline-size: 1em;
 
   @include top-nav-is-colored {
     color: var(--text-with-main-color);
@@ -144,8 +144,8 @@
       background-position: right top;
       background-repeat: no-repeat;
       background-size: 25px;
-      height: 25px;
-      width: 25px;
+      block-size: 25px;
+      inline-size: 25px;
 
       @include top-nav-is-colored {
         background-image: var(--logo-icon-bar-color);
@@ -157,11 +157,11 @@
       background-position: right top;
       background-repeat: no-repeat;
       background-size: 100px;
-      height: 40px;
+      block-size: 40px;
       margin-inline-start: 5px;
       position: relative;
       inset-block-start: -3px;
-      width: 100px;
+      inline-size: 100px;
 
       @media only screen and (max-width: 680px) {
         display: none;
@@ -176,7 +176,7 @@
 
 .middle {
   flex: 1;
-  max-width: 440px;
+  max-inline-size: 440px;
 
   .searchContainer {
     align-items: center;

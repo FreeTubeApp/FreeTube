@@ -14,10 +14,10 @@
   @include single-column-template;
 
   display: inline-block;
-  max-width: calc(80vh * 1.78);
+  max-inline-size: calc(80vh * 1.78);
 
   @media only screen and (min-width: 901px) {
-    width: 300%;
+    inline-size: 300%;
   }
 }
 
@@ -42,12 +42,13 @@
 
     .videoPlayer {
       grid-column: 1;
-      margin: 0 auto;
-      max-width: calc(80vh * 1.78);
+      margin-block: 0;
+      margin-inline: auto;
+      max-inline-size: calc(80vh * 1.78);
       position: relative;
 
       .upcomingThumbnail {
-        width: 100%;
+        inline-size: 100%;
       }
 
       .premiereDate {
@@ -57,7 +58,7 @@
         inset-block-end: 12px;
         color: #fff;
         display: flex;
-        height: 60px;
+        block-size: 60px;
         inset-inline-start: 12px;
         padding-block: 0;
         padding-inline: 12px;
@@ -73,7 +74,7 @@
         .premiereText {
           margin-block: 0;
           margin-inline: 12px;
-          min-width: 200px;
+          min-inline-size: 200px;
 
           .premiereTextTimestamp {
             font-size: 0.85em;
@@ -99,7 +100,7 @@
     grid-area: sidebar;
 
     @media only screen and (min-width: 901px) {
-      min-width: 380px;
+      min-inline-size: 380px;
     }
 
     @at-root .noSidebar#{&} {
@@ -116,7 +117,7 @@
 
   .watchVideoSidebar,
   .watchVideoPlaylist {
-    height: 500px;
+    block-size: 500px;
   }
 
   .watchVideoPlaylist {
@@ -125,7 +126,7 @@
       margin-block-end: auto;
     }
     @media (max-width: 768px) {
-      height: auto;
+      block-size: auto;
     }
   }
 

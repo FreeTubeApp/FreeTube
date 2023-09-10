@@ -3,7 +3,7 @@
   grid-auto-flow: column;
   grid-template-rows: auto auto;
   padding: 12px;
-  width: max-content;
+  inline-size: max-content;
 
   .header {
     color: var(--primary-text-color);
@@ -27,12 +27,12 @@
     grid-row: span 3;
     margin-block: 0;
     margin-inline: 12px;
-    width: 1px;
+    inline-size: 1px;
   }
 
   .youtubeLogo {
-    height: 18px;
-    width: auto;
+    block-size: 18px;
+    inline-size: auto;
 
     @at-root {
       .dark &,
@@ -62,9 +62,9 @@
     .invidiousLogo {
       background-size: cover;
       display: inline-block;
-      height: 20px;
+      block-size: 20px;
       margin-inline-end: 2px;
-      width: 20px;
+      inline-size: 20px;
 
       @at-root {
         .dark &,

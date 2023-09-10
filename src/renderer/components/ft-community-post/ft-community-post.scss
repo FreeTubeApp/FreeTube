@@ -3,9 +3,9 @@
 
 .outside {
   margin: auto;
-  width: 40%;
+  inline-size: 40%;
   @media screen and (max-width: 768px) {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -14,16 +14,16 @@
 }
 
 .communityImage {
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .communityThumbnail {
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  height: 55px;
+  block-size: 55px;
   margin-inline-end: 5px;
-  width: 55px;
+  inline-size: 55px;
 }
 
 .author-div {
@@ -54,7 +54,7 @@
   flex-direction: column;
   font-size: 15px;
   margin-block-start: 4px;
-  max-width: 210px;
+  max-inline-size: 210px;
   text-align: start;
 
   @media screen and (max-width: 680px) {
@@ -64,7 +64,7 @@
 
   .likeBar {
     border-radius: 4px;
-    height: 8px;
+    block-size: 8px;
     margin-block-end: 4px;
   }
 
@@ -82,19 +82,19 @@
     margin-block-end: auto;
     margin-block-start: auto;
     position: relative;
-    width: fit-content;
+    inline-size: fit-content;
 
     .thumbnailImage {
       display: block;
-      height: auto;
-      max-width: 100%;
-      width: auto;
+      block-size: auto;
+      max-inline-size: 100%;
+      inline-size: auto;
     }
   }
 
   .playlistText {
     margin-inline-start: 10px;
-    width: 50%;
+    inline-size: 50%;
     word-wrap: break-word;
 
     .playlistAuthor {
@@ -115,7 +115,7 @@
       font-size: small;
       padding-block-start: 10px;
       text-decoration-line: none;
-      width: 100%;
+      inline-size: 100%;
     }
 
     .playlistPreviewVideoTitle {
@@ -123,12 +123,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      width: 100%;
+      inline-size: 100%;
     }
   }
 }
 
 .ft-list-item.grid {
-  min-height: 0 !important;
+  min-block-size: 0 !important;
   padding-block-end: 20px;
 }
