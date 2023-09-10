@@ -1,5 +1,5 @@
 {
-  "plugins": ["stylelint-high-performance-animation", "@double-great/stylelint-a11y"],
+  "plugins": ["stylelint-high-performance-animation", "@double-great/stylelint-a11y", "stylelint-use-logical-spec"],
   "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
   "overrides": [
     {
@@ -28,6 +28,7 @@
     ],
     "a11y/no-outline-none": true,
     "a11y/selector-pseudo-class-focus": true,
-    "a11y/font-size-is-readable": true
+    "a11y/font-size-is-readable": true,
+    "liberty/use-logical-spec": ["always", { "except": ["float"] }]
   }
 }
