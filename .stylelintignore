@@ -5,3 +5,4 @@ src/renderer/videoJS.css
 dist/
 static/
 node_modules/
+src/renderer/components/ft-video-player
