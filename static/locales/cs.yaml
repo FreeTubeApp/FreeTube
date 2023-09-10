@@ -36,6 +36,9 @@ Global:
   Shorts: Shorts
   Live: Živě
 
+  Counts:
+    Video Count: 1 video | {count} videí
+    Channel Count: 1 kanál | {count} kanálů
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'

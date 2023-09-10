@@ -36,6 +36,9 @@ Global:
   Shorts: Shorts
   Live: חי
 
+  Counts:
+    Video Count: סרטון אחד | {count} סרטונים
+    Channel Count: ערוץ אחד | {count} ערוצים
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'

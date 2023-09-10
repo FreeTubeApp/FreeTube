@@ -38,6 +38,9 @@ Global:
   Live: En directo
 
 # Search Bar
+  Counts:
+    Video Count: 1 vídeo | {count} vídeos
+    Channel Count: 1 canal | {count} canales
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:

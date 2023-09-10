@@ -95,19 +95,19 @@
   z-index: 3;
 
   &.left {
-    right: calc(50% - 10px);
+    inset-inline-end: calc(50% - 10px);
   }
 
   &.right {
-    left: calc(50% - 10px);
+    inset-inline-start: calc(50% - 10px);
   }
 
   &.top {
-    bottom: 45px;
+    inset-block-end: 45px;
   }
 
   &.bottom {
-    top: 45px;
+    inset-block-start: 45px;
   }
 
   .list {
@@ -119,7 +119,8 @@
   .listItem {
     cursor: pointer;
     margin: 0;
-    padding: 8px 10px;
+    padding-block: 8px;
+    padding-inline: 10px;
     transition: background 0.2s ease-out;
     white-space: nowrap;
 
@@ -138,8 +139,9 @@
   }
 
   .listItemDivider {
-    border-top: 1px solid var(--tertiary-text-color);
-    margin: 1px auto;
+    border-block-start: 1px solid var(--tertiary-text-color);
+    margin-block: 1px;
+    margin-inline: auto;
     // Too "visible" with current color
     opacity: 0.5;
     width: 95%;

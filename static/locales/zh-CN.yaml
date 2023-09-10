@@ -35,6 +35,9 @@ Global:
   Live: 直播
 
 # Search Bar
+  Counts:
+    Video Count: 1 个视频 | {count} 个视频
+    Channel Count: 1 个频道 | {count} 个频道
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:

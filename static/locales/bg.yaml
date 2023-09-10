@@ -37,6 +37,9 @@ Global:
   Shorts: Кратки видеа
   Live: На живо
 
+  Counts:
+    Video Count: 1 видео | {count} видеа
+    Channel Count: 1 канал | {count} канала
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
   е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'

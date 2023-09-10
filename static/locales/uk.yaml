@@ -36,6 +36,9 @@ Global:
   Shorts: Shorts
   Live: Наживо
 
+  Counts:
+    Video Count: 1 відео | {count} відео
+    Channel Count: 1 канал | {count} канал
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'

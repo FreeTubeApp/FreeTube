@@ -37,6 +37,9 @@ Global:
   Live: مباشر
 
 # Search Bar
+  Counts:
+    Video Count: 1 فيديو | {count} مقاطع فيديو
+    Channel Count: 1 قناة | {count} القنوات
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
