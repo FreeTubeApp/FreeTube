@@ -123,8 +123,8 @@ export default defineComponent({
     }
   },
   computed: {
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyEntry: function () {
+      return this.$store.getters.getHistoryCacheById[this.videoId]
     },
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
@@ -1040,9 +1040,7 @@ export default defineComponent({
     },
 
     checkIfWatched: function () {
-      const historyIndex = this.historyCache.findIndex((video) => {
-        return video.videoId === this.videoId
-      })
+      const historyEntry = this.historyEntry
 
       if (!this.isLive) {
         if (this.timestamp) {
@@ -1053,9 +1051,9 @@ export default defineComponent({
           } else {
             this.$refs.videoPlayer.player.currentTime(this.timestamp)
           }
-        } else if (this.saveWatchedProgress && historyIndex !== -1) {
+        } else if (this.saveWatchedProgress && typeof historyEntry !== 'undefined') {
           // For UX consistency, no progress reading if writing disabled
-          const watchProgress = this.historyCache[historyIndex].watchProgress
+          const watchProgress = this.historyEntry.watchProgress
 
           if (watchProgress < (this.videoLengthSeconds - 10)) {
             this.$refs.videoPlayer.player.currentTime(watchProgress)
@@ -1066,8 +1064,8 @@ export default defineComponent({
       if (this.rememberHistory) {
         if (this.timestamp) {
           this.addToHistory(this.timestamp)
-        } else if (historyIndex !== -1) {
-          this.addToHistory(this.historyCache[historyIndex].watchProgress)
+        } else if (typeof historyEntry !== 'undefined') {
+          this.addToHistory(this.historyEntry.watchProgress)
         } else {
           this.addToHistory(0)
         }
