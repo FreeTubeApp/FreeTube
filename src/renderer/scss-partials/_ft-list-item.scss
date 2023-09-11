@@ -38,15 +38,18 @@ $watched-transition-duration: 0.5s;
   color: $col;
 
   @at-root {
-    .watched &,
-    .watched#{&} {
+    &.watched &,
+    &.watched#{&} {
       color: var(--tertiary-text-color);
       transition-duration: $watched-transition-duration;
     }
-    .watched:hover &,
-    .watched:hover#{&} {
-      color: $col;
-      transition-duration: $watched-transition-duration;
+
+    :not(.selectModeEnabled) {
+      &.watched:hover &,
+      &.watched:hover#{&} {
+        color: $col;
+        transition-duration: $watched-transition-duration;
+      }
     }
   }
 }
@@ -64,10 +67,20 @@ $watched-transition-duration: 0.5s;
       transition: opacity $watched-transition-duration;
     }
 
-    &:hover .thumbnailImage,
-    &:focus .thumbnailImage {
-      opacity: 1;
-      transition-duration: $watched-transition-duration;
+    &:not(.selectModeEnabled) {
+      &:hover .thumbnailImage,
+      &:focus .thumbnailImage {
+        opacity: 1;
+        transition-duration: $watched-transition-duration;
+      }
+    }
+  }
+
+  &.selectModeEnabled {
+    pointer-events: none;
+
+    .favoritesIcon {
+      pointer-events: initial;
     }
   }
 
