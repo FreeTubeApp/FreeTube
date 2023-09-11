@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import {
   formatDurationAsTimestamp,
   formatNumber,
@@ -72,10 +72,15 @@ export default defineComponent({
       isLive: false,
       isUpcoming: false,
       isPremium: false,
-      hideViews: false
+      hideViews: false,
+      selectModeSelectionId: 0
     }
   },
   computed: {
+    ...mapGetters([
+      'getIsIndexSelectedInSelectMode'
+    ]),
+
     historyCache: function () {
       return this.$store.getters.getHistoryCache
     },
@@ -235,7 +240,11 @@ export default defineComponent({
 
     deArrowCache: function () {
       return this.$store.getters.getDeArrowCache[this.id]
-    }
+    },
+
+    isSelectModeEnabled: function () {
+      return this.$store.getters.getIsSelectModeEnabled
+    },
   },
   watch: {
     historyIndex() {
@@ -292,7 +301,7 @@ export default defineComponent({
     },
 
     handleOptionsClick: function (option) {
-      handleVideoDropdownOptionsClick(option, 1, !this.watched, [this])
+      handleVideoDropdownOptionsClick(option, 1, [this])
     },
 
     parseVideoData: function () {
@@ -482,12 +491,30 @@ export default defineComponent({
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
+    addToOrRemoveFromSelectModeSelections: async function () {
+      if (!this.isSelectModeEnabled) {
+        return
+      }
+
+      if (!this.getIsIndexSelectedInSelectMode(this.selectModeSelectionId)) {
+        const selectModeSelectionId = await this.$store.dispatch('addToSelectModeSelections', this)
+        this.selectModeSelectionId = selectModeSelectionId
+      } else {
+        this.$store.commit('removeFromSelectModeSelections', this.selectModeSelectionId)
+      }
+    },
+
+    clearAllSelections: function () {
+      this.clearSelectModeSelections()
+    },
+
     ...mapActions([
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'clearSelectModeSelections'
     ])
   }
 })

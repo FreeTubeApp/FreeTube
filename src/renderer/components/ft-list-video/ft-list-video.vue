@@ -5,8 +5,12 @@
       list: (listType === 'list' || forceListType === 'list') && forceListType !== 'grid',
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
       [appearance]: true,
-      watched: addWatchedStyle
+      watched: addWatchedStyle,
+      selectModeEnabled: isSelectModeEnabled,
+      selectedInSelectMode: getIsIndexSelectedInSelectMode
     }"
+    @click.prevent.stop="addToOrRemoveFromSelectModeSelections"
+    @keydown.enter.prevent.stop="addToOrRemoveFromSelectModeSelections"
   >
     <div
       class="videoThumbnail"
