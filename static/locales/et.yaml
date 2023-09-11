@@ -546,8 +546,6 @@ Profile:
   Profile Settings: Profiili seadistused
   Toggle Profile List: Lülita profiilide loend sisse/välja
 Channel:
-  Subscriber: 'Tellija'
-  Subscribers: 'Tellijad'
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
   Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
@@ -620,15 +618,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopeeri YouTube''i lõimitud meediamängija link'
   Open in Invidious: 'Ava Invidious''e veebirakenduses'
   Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
-  View: 'Vaatamine'
   Views: 'Vaatamist'
   Loop Playlist: 'Korda esitusloendit'
   Shuffle Playlist: 'Sega esitusloend'
   Reverse Playlist: 'Pööra esitusloend tagurpidi'
   Play Next Video: 'Esita järgmist videot'
   Play Previous Video: 'Esita eelmist videot'
-  # Context is "X People Watching"
-  Watching: 'vaatajat'
   Watched: 'Vaadatud'
   Autoplay: 'Automaatne esitus'
   Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel

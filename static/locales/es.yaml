@@ -607,8 +607,6 @@ Profile:
   Profile Settings: Ajustes del perfil
   Toggle Profile List: Alternar la lista de los perfiles
 Channel:
-  Subscriber: 'Suscriptor'
-  Subscribers: 'Suscriptores'
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'
   Search Channel: 'Buscar en canal'
@@ -684,10 +682,7 @@ Video:
     YouTube'
   Open in Invidious: 'Abrir en Invidious'
   Copy Invidious Link: 'Copiar el enlace de Invidious'
-  View: 'Ver'
   Views: 'Vistas'
-  # Context is "X People Watching"
-  Watching: 'Viendo'
   Watched: 'Visto'
   Autoplay: 'Reproducción automática'
   # As in a Live Video

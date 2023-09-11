@@ -596,8 +596,6 @@ Profile:
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
 Channel:
-  Subscriber: 'مُشترِك'
-  Subscribers: 'مُشترِكين'
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
   Search Channel: 'ابحث في القناة'
@@ -671,10 +669,7 @@ Video:
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
   Open in Invidious: 'إفتح على انفيديوس'
   Copy Invidious Link: 'انسخ رابط انفيديوس'
-  View: 'عرض'
   Views: 'مشاهدات'
-  # Context is "X People Watching"
-  Watching: 'يتم مشاهدته'
   Watched: 'مُشاهد'
   # As in a Live Video
   Live: '‏‏‪مُباشر'

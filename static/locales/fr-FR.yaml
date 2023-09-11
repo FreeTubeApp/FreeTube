@@ -593,8 +593,6 @@ About:
   Downloads / Changelog: Téléchargements / Journal des modifications
   Discussions: Discussions
 Channel:
-  Subscriber: 'Abonnement'
-  Subscribers: 'Abonnés'
   Subscribe: 'S''abonner'
   Unsubscribe: 'Se désabonner'
   Search Channel: 'Chercher une chaîne'
@@ -670,10 +668,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Copier le lien YouTube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
-  View: 'Vue'
   Views: 'Vues'
-  # Context is "X People Watching"
-  Watching: 'En cours de lecture'
   Watched: 'Vu'
   # As in a Live Video
   Live: 'En direct'

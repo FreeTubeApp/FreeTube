@@ -598,8 +598,6 @@ Profile:
   Profile Settings: הגדרת הפרופיל
   Toggle Profile List: החלפת תצוגת רשימת פרופילים
 Channel:
-  Subscriber: 'מנוי'
-  Subscribers: 'מנויים'
   Subscribe: 'הרשמה למינוי'
   Unsubscribe: 'ביטול המינוי'
   Channel has been removed from your subscriptions: 'הערוץ נמחק מרשימת המנויים שלך'
@@ -667,15 +665,12 @@ Video:
   Copy YouTube Embedded Player Link: 'העתיקו קישור לנגן המוטמע של YouTube'
   Open in Invidious: 'פתחו ב-Invidious'
   Copy Invidious Link: 'העתיקו קישור ל-Invidious'
-  View: 'צפייה'
   Views: 'צפיות'
   Loop Playlist: 'ניגון פלייליסט בלופ'
   Shuffle Playlist: 'ערבבו את הפלייליסט'
   Reverse Playlist: 'נגנו את הפלייליסט בסדר הפוך'
   Play Next Video: 'נגנו את הסרטון הבא'
   Play Previous Video: 'נגנו את הסרטון הקודם'
-  # Context is "X People Watching"
-  Watching: 'נצפה כרגע'
   Watched: 'נצפה'
   Autoplay: 'ניגון אוטומטי'
   Starting soon, please refresh the page to check again: 'מתחילים בקרוב, נא רעננו

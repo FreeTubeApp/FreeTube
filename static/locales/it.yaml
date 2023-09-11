@@ -571,8 +571,6 @@ About:
   Beta: Beta
   Discussions: Discussioni
 Channel:
-  Subscriber: 'Iscritto'
-  Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca nel canale'
@@ -649,10 +647,7 @@ Video:
     YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
-  View: 'Vista'
   Views: 'Visualizzazioni'
-  # Context is "X People Watching"
-  Watching: 'Stanno guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'

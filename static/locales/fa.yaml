@@ -516,14 +516,12 @@ Channel:
     Videos: ویدیوها
   Search Channel: جستجوی کانال
   Subscribe: اشتراک
-  Subscribers: مشترکین
   Unsubscribe: لغو اشتراک
   Your search results have returned 0 results: نتایج جستجوی شما 0 نتیجه برگردانده
     است
   Sort By: مرتب سازی بر اساس
   Channel has been removed from your subscriptions: کانال از اشتراک های شما حذف شده
     است
-  Subscriber: مشترک
   Added channel to your subscriptions: کانال به اشتراک های شما اضافه شد
 Video:
   External Player:
@@ -577,7 +575,6 @@ Video:
   Autoplay: پخش خودکار
   Started streaming on: پخش جریانی را شروع کرد
   Skipped segment: بخش رد شد
-  View: دیده شده
   'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
     پایان رسیده است.
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
@@ -610,7 +607,6 @@ Video:
   Play Next Video: پخش ویدیوی بعدی
   Open Channel in Invidious: کانال را در Invidious باز کنید
   Copy Invidious Channel Link: لینک کانال Invidious را کپی کنید
-  Watching: تماشا کردن
   Watched: دیده شده
   Open Channel in YouTube: کانال را در یوتیوب باز کنید
   Copy YouTube Link: لینک یوتیوب را کپی کنید

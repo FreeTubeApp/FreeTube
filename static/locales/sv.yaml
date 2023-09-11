@@ -667,15 +667,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiera länk till den interna YouTube-spelaren'
   Open in Invidious: 'Öppna på Invidious'
   Copy Invidious Link: 'Kopiera Invidious-länk'
-  View: 'Visa'
   Views: 'Visningar'
   Loop Playlist: 'Loop spellista'
   Shuffle Playlist: 'Blanda spellista'
   Reverse Playlist: 'Omvänd spellista'
   Play Next Video: 'Spela nästa video'
   Play Previous Video: 'Spela föregående video'
-  # Context is "X People Watching"
-  Watching: 'Tittar på'
   Watched: 'Visad'
   Autoplay: 'Autospelning'
   Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera
