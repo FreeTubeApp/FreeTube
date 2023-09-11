@@ -675,7 +675,6 @@ export function deepCopy(obj) {
 
 let videosWithChannelIds, numberOfWatchedVideos, numberOfUnwatchedVideos, numberOfSavedVideos, numberOfUnsavedVideos
 
-// TODO: Add "Clear Selection" option
 export function getVideoDropdownOptions(count, videoComponents, hideSharingActions) {
   const options = []
   videosWithChannelIds = videoComponents.filter((videoComponent) => videoComponent.channelId !== null).length
@@ -686,7 +685,7 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
   if (count > 1) {
     options.push(
       {
-        label: i18n.t('Video.Clear Selection'),
+        label: i18n.tc('Video.Clear Selection', count, { count: count }),
         value: 'clear'
       },
       {

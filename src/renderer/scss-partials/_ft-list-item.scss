@@ -303,8 +303,12 @@ $watched-transition-duration: 0.5s;
     }
   }
 
-  &.selectModeEnabled * {
+  &.selectModeEnabled {
     pointer-events: none;
+
+    .ftIconButton {
+      pointer-events: initial;
+    }
   }
 
   .favoritesIcon,

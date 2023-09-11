@@ -316,6 +316,8 @@ export default defineComponent({
       } else {
         this.isForwardOrBack = false
       }
+
+      this.setSelectMode(false)
     },
 
     historyBack: function () {
@@ -365,7 +367,19 @@ export default defineComponent({
     },
 
     toggleSelectMode: function () {
-      this.$store.commit('toggleSelectMode')
+      this.setSelectMode(!this.isSelectModeEnabled)
+    },
+
+    setSelectMode: function (value) {
+      if (this.isSelectModeEnabled === value) {
+        return
+      }
+
+      this.$store.commit('setSelectMode', value)
+
+      if (!value) {
+        this.clearSelectModeSelections()
+      }
     },
 
     navigate: function (route) {

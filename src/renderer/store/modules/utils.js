@@ -766,8 +766,8 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
-  toggleSelectMode (state) {
-    state.isSelectModeEnabled = !state.isSelectModeEnabled
+  setSelectMode (state, value) {
+    state.isSelectModeEnabled = value
   },
 
   setSelectModeSelections (state, selectModeSelections) {
