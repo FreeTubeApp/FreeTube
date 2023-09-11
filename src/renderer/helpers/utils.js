@@ -673,27 +673,38 @@ export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
+// TODO: Add "Clear Selection" option
 export function getVideoDropdownOptions(count, allWatched, allUnwatched, hasChannelIds, hideSharingActions) {
   const options = []
+  if (count > 1) {
+    options.push({
+      label: i18n.t('Video.Clear Selection'),
+      value: 'clear'
+    },
+    {
+      type: 'divider'
+    })
+  }
+
   if (allWatched) {
     options.push({
       label: i18n.tc('Video.Remove From History', count),
-      value: 'history'
+      value: 'history-remove'
     })
   } else if (allUnwatched) {
     options.push({
       label: i18n.tc('Video.Mark As Watched', count),
-      value: 'history'
+      value: 'history-add'
     })
   } else {
     options.push(
       {
         label: i18n.tc('Video.Remove From History', count),
-        value: 'history'
+        value: 'history-remove'
       },
       {
         label: i18n.tc('Video.Mark As Watched', count),
-        value: 'history'
+        value: 'history-add'
       },
     )
   }
@@ -762,16 +773,19 @@ export function getVideoDropdownOptions(count, allWatched, allUnwatched, hasChan
   return options
 }
 
-export function handleVideoDropdownOptionsClick(option, count, setToWatched, videoComponents) {
+export function handleVideoDropdownOptionsClick(option, count, videoComponents) {
   switch (option) {
-    case 'history':
-      if (setToWatched) {
-        videoComponents.forEach((videoComponent) => videoComponent.markAsWatched(true))
-        showToast(i18n.tc('Video.Video has been marked as watched', count))
-      } else {
-        videoComponents.forEach((videoComponent) => videoComponent.removeFromWatched(true))
-        showToast(i18n.tc('Video.Video has been removed from your history', count))
-      }
+    case 'clear':
+      videoComponents[0].clearSelectModeSelections()
+      break
+    case 'history-add':
+      videoComponents.forEach((videoComponent) => videoComponent)
+      videoComponents.forEach((videoComponent) => videoComponent.markAsWatched(true))
+      showToast(i18n.tc('Video.Video has been marked as watched', count))
+      break
+    case 'history-remove':
+      videoComponents.forEach((videoComponent) => videoComponent.removeFromWatched(true))
+      showToast(i18n.tc('Video.Video has been removed from your history', count))
       break
     case 'copyYoutube':
       copyToClipboard(videoComponents.map(videoComponent => videoComponent.youtubeShareUrl).join('\n'), { messageOnSuccess: i18n.tc('Share.YouTube URL copied to clipboard', count) })
