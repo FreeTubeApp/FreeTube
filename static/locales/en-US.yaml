@@ -603,23 +603,24 @@ Channel:
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
 Video:
-  Mark As Watched: Mark As Watched
-  Remove From History: Remove From History
-  Video has been marked as watched: Video has been marked as watched
-  Video has been removed from your history: Video has been removed from your history
-  Save Video: Save Video
-  Video has been saved: Video has been saved
-  Video has been removed from your saved list: Video has been removed from your saved list
-  Open in YouTube: Open in YouTube
-  Copy YouTube Link: Copy YouTube Link
-  Open YouTube Embedded Player: Open YouTube Embedded Player
-  Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
-  Open in Invidious: Open in Invidious
-  Copy Invidious Link: Copy Invidious Link
-  Open Channel in YouTube: Open Channel in YouTube
-  Copy YouTube Channel Link: Copy YouTube Channel Link
-  Open Channel in Invidious: Open Channel in Invidious
-  Copy Invidious Channel Link: Copy Invidious Channel Link
+  Clear Selection: Clear Selection
+  Mark As Watched: Mark As Watched | Mark All As Watched
+  Remove From History: Remove From History | Remove All From History
+  Video has been marked as watched: Video has been marked as watched | Videos have been marked as watched
+  Video has been removed from your history: Video has been removed from your history | Videos have been removed from your history
+  Save Video: Save Video | Save Videos
+  Video has been saved: Video has been saved | Videos have been saved
+  Video has been removed from your saved list: Video has been removed from your saved list | Videos have been removed from your saved list
+  Open in YouTube: Open in YouTube | Open All in YouTube
+  Copy YouTube Link: Copy YouTube Link | Copy YouTube Links
+  Open YouTube Embedded Player: Open YouTube Embedded Player | Open YouTube Embedded Players
+  Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link | Copy YouTube Embedded Player Links
+  Open in Invidious: Open in Invidious | Open All in Invidious
+  Copy Invidious Link: Copy Invidious Link | Copy Invidious Links
+  Open Channel in YouTube: Open Channel in YouTube | Open Channels in YouTube
+  Copy YouTube Channel Link: Copy YouTube Channel Link | Copy YouTube Channel Links
+  Open Channel in Invidious: Open Channel in Invidious | Open Channels in Invidious
+  Copy Invidious Channel Link: Copy Invidious Channel Link | Copy Invidious Channel Links
   View: View
   Views: Views
   Loop Playlist: Loop Playlist
@@ -772,12 +773,12 @@ Share:
   Copy Embed: Copy Embed
   Open Embed: Open Embed
   # On Click
-  Invidious URL copied to clipboard: Invidious URL copied to clipboard
-  Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
-  Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
-  YouTube URL copied to clipboard: YouTube URL copied to clipboard
-  YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
-  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+  Invidious URL copied to clipboard: Invidious URL copied to clipboard | Invidious URLs copied to clipboard
+  Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard | Invidious Embed URLs copied to clipboard
+  Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard | Invidious Channel URLs copied to clipboard
+  YouTube URL copied to clipboard: YouTube URL copied to clipboard | YouTube URLs copied to clipboard
+  YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard | YouTube Embed URLs copied to clipboard
+  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard | YouTube Channel URLs copied to clipboard
 Clipboard:
   Copy failed: Copy to clipboard failed
   Cannot access clipboard without a secure connection: Cannot access clipboard without a secure connection

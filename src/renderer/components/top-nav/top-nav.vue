@@ -65,6 +65,7 @@
       <ft-icon-button
         v-if="isSelectModeEnabled"
         class="selectModeOptionsButton"
+        :class="{ navIconDisabled: selectModeSelections.count === 0 }"
         :icon="['fas', 'ellipsis-v']"
         title="More Options"
         theme="base-no-default"
@@ -75,8 +76,6 @@
         tabindex="0"
         @click="handleOptionsClick"
       />
-      <!-- :disabled="true" -->
-      <!-- :size="16" -->
       <div
         v-if="!hideHeaderLogo"
         class="logo"

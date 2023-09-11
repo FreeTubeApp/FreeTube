@@ -35,7 +35,6 @@ export default defineComponent({
       isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: '',
-      isSelectModeEnabled: false
     }
   },
   computed: {
@@ -95,12 +94,21 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
-    dropdownOptions: function (videoComponents) {
-      const count = videoComponents.length
+    isSelectModeEnabled: function () {
+      return this.$store.getters.getIsSelectModeEnabled
+    },
+
+    selectModeSelections: function () {
+      return this.$store.getters.getSelectModeSelections
+    },
+
+    dropdownOptions: function () {
+      const count = this.selectModeSelections.count
+      const videoComponents = Object.values(this.selectModeSelections.selections)
       const allWatched = videoComponents.every((videoComponent) => videoComponent.watched)
       const allUnwatched = videoComponents.every((videoComponent) => !videoComponent.watched)
       return getVideoDropdownOptions(count, allWatched, allUnwatched, this.hideSharingActions)
-    }
+    },
   },
 
   mounted: function () {
@@ -352,13 +360,14 @@ export default defineComponent({
       }
     },
 
-    handleOptionsClick: function (option, setToWatched, videoComponents) {
-      handleVideoDropdownOptionsClick(option, videoComponents.length, setToWatched, videoComponents)
+    handleOptionsClick: function (option) {
+      const count = this.selectModeSelections.count
+      const videoComponents = Object.values(this.selectModeSelections.selections)
+      handleVideoDropdownOptionsClick(option, count, videoComponents)
     },
 
     toggleSelectMode: function () {
-      this.isSelectModeEnabled = !this.isSelectModeEnabled
-      // enter select mode
+      this.$store.commit('toggleSelectMode')
     },
 
     navigate: function (route) {
@@ -373,8 +382,7 @@ export default defineComponent({
     },
     ...mapActions([
       'getYoutubeUrlInfo',
-      'updateHistory',
-      'removeFromHistory'
+      'clearSelectModeSelections'
     ])
   }
 })
