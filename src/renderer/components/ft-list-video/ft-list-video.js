@@ -2,13 +2,13 @@ import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 import {
-  copyToClipboard,
   formatDurationAsTimestamp,
   formatNumber,
-  openExternalLink,
   showToast,
   toLocalePublicationString,
-  toDistractionFreeTitle
+  toDistractionFreeTitle,
+  getVideoDropdownOptions,
+  handleVideoDropdownOptionsClick
 } from '../../helpers/utils'
 import { deArrowData } from '../../helpers/sponsorblock'
 
@@ -110,47 +110,6 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
-    invidiousUrl: function () {
-      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
-      // `playlistId` can be undefined
-      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
-        // `index` seems can be ignored
-        videoUrl += `&list=${this.playlistIdFinal}`
-      }
-      return videoUrl
-    },
-
-    invidiousChannelUrl: function () {
-      return `${this.currentInvidiousInstance}/channel/${this.channelId}`
-    },
-
-    youtubeUrl: function () {
-      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
-      // `playlistId` can be undefined
-      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
-        // `index` seems can be ignored
-        videoUrl += `&list=${this.playlistIdFinal}`
-      }
-      return videoUrl
-    },
-
-    youtubeShareUrl: function () {
-      // `playlistId` can be undefined
-      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
-        // `index` seems can be ignored
-        return `https://youtu.be/${this.id}?list=${this.playlistIdFinal}`
-      }
-      return `https://youtu.be/${this.id}`
-    },
-
-    youtubeChannelUrl: function () {
-      return `https://youtube.com/channel/${this.channelId}`
-    },
-
-    youtubeEmbedUrl: function () {
-      return `https://www.youtube-nocookie.com/embed/${this.id}`
-    },
-
     progressPercentage: function () {
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
@@ -160,76 +119,7 @@ export default defineComponent({
     },
 
     dropdownOptions: function () {
-      const options = [
-        {
-          label: this.watched
-            ? this.$t('Video.Remove From History')
-            : this.$t('Video.Mark As Watched'),
-          value: 'history'
-        }
-      ]
-      if (!this.hideSharingActions) {
-        options.push(
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Copy YouTube Link'),
-            value: 'copyYoutube'
-          },
-          {
-            label: this.$t('Video.Copy YouTube Embedded Player Link'),
-            value: 'copyYoutubeEmbed'
-          },
-          {
-            label: this.$t('Video.Copy Invidious Link'),
-            value: 'copyInvidious'
-          },
-          {
-            type: 'divider'
-          },
-          {
-            label: this.$t('Video.Open in YouTube'),
-            value: 'openYoutube'
-          },
-          {
-            label: this.$t('Video.Open YouTube Embedded Player'),
-            value: 'openYoutubeEmbed'
-          },
-          {
-            label: this.$t('Video.Open in Invidious'),
-            value: 'openInvidious'
-          }
-        )
-        if (this.channelId !== null) {
-          options.push(
-            {
-              type: 'divider'
-            },
-            {
-              label: this.$t('Video.Copy YouTube Channel Link'),
-              value: 'copyYoutubeChannel'
-            },
-            {
-              label: this.$t('Video.Copy Invidious Channel Link'),
-              value: 'copyInvidiousChannel'
-            },
-            {
-              type: 'divider'
-            },
-            {
-              label: this.$t('Video.Open Channel in YouTube'),
-              value: 'openYoutubeChannel'
-            },
-            {
-              label: this.$t('Video.Open Channel in Invidious'),
-              value: 'openInvidiousChannel'
-            }
-          )
-        }
-      }
-
-      return options
+      return getVideoDropdownOptions(1, this.watched, !this.watched, this.channelId !== null, this.hideSharingActions)
     },
 
     thumbnail: function () {
@@ -402,45 +292,7 @@ export default defineComponent({
     },
 
     handleOptionsClick: function (option) {
-      switch (option) {
-        case 'history':
-          if (this.watched) {
-            this.removeFromWatched()
-          } else {
-            this.markAsWatched()
-          }
-          break
-        case 'copyYoutube':
-          copyToClipboard(this.youtubeShareUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
-          break
-        case 'openYoutube':
-          openExternalLink(this.youtubeUrl)
-          break
-        case 'copyYoutubeEmbed':
-          copyToClipboard(this.youtubeEmbedUrl, { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
-          break
-        case 'openYoutubeEmbed':
-          openExternalLink(this.youtubeEmbedUrl)
-          break
-        case 'copyInvidious':
-          copyToClipboard(this.invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
-          break
-        case 'openInvidious':
-          openExternalLink(this.invidiousUrl)
-          break
-        case 'copyYoutubeChannel':
-          copyToClipboard(this.youtubeChannelUrl, { messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
-          break
-        case 'openYoutubeChannel':
-          openExternalLink(this.youtubeChannelUrl)
-          break
-        case 'copyInvidiousChannel':
-          copyToClipboard(this.invidiousChannelUrl, { messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
-          break
-        case 'openInvidiousChannel':
-          openExternalLink(this.invidiousChannelUrl)
-          break
-      }
+      handleVideoDropdownOptionsClick(option, 1, !this.watched, [this])
     },
 
     parseVideoData: function () {
@@ -557,7 +409,7 @@ export default defineComponent({
       }
     },
 
-    markAsWatched: function () {
+    markAsWatched: function (hideToast = false) {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -574,15 +426,20 @@ export default defineComponent({
         type: 'video'
       }
       this.updateHistory(videoData)
-      showToast(this.$t('Video.Video has been marked as watched'))
+
+      if (!hideToast) {
+        showToast(this.$t('Video.Video has been marked as watched'))
+      }
 
       this.watched = true
     },
 
-    removeFromWatched: function () {
+    removeFromWatched: function (hideToast = false) {
       this.removeFromHistory(this.id)
 
-      showToast(this.$t('Video.Video has been removed from your history'))
+      if (!hideToast) {
+        showToast(this.$t('Video.Video has been removed from your history'))
+      }
 
       this.watched = false
       this.watchProgress = 0

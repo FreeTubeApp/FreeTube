@@ -672,3 +672,136 @@ export function escapeHTML(untrusted) {
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
 }
+
+export function getVideoDropdownOptions(count, allWatched, allUnwatched, hasChannelIds, hideSharingActions) {
+  const options = []
+  if (allWatched) {
+    options.push({
+      label: i18n.tc('Video.Remove From History', count),
+      value: 'history'
+    })
+  } else if (allUnwatched) {
+    options.push({
+      label: i18n.tc('Video.Mark As Watched', count),
+      value: 'history'
+    })
+  } else {
+    options.push(
+      {
+        label: i18n.tc('Video.Remove From History', count),
+        value: 'history'
+      },
+      {
+        label: i18n.tc('Video.Mark As Watched', count),
+        value: 'history'
+      },
+    )
+  }
+
+  if (!hideSharingActions) {
+    options.push(
+      {
+        type: 'divider'
+      },
+      {
+        label: i18n.tc('Video.Copy YouTube Link', count),
+        value: 'copyYoutube'
+      },
+      {
+        label: i18n.tc('Video.Copy YouTube Embedded Player Link', count),
+        value: 'copyYoutubeEmbed'
+      },
+      {
+        label: i18n.tc('Video.Copy Invidious Link', count),
+        value: 'copyInvidious'
+      },
+      {
+        type: 'divider'
+      },
+      {
+        label: i18n.tc('Video.Open in YouTube', count),
+        value: 'openYoutube'
+      },
+      {
+        label: i18n.tc('Video.Open YouTube Embedded Player', count),
+        value: 'openYoutubeEmbed'
+      },
+      {
+        label: i18n.tc('Video.Open in Invidious', count),
+        value: 'openInvidious'
+      }
+    )
+    if (hasChannelIds) {
+      options.push(
+        {
+          type: 'divider'
+        },
+        {
+          label: i18n.tc('Video.Copy YouTube Channel Link', count),
+          value: 'copyYoutubeChannel'
+        },
+        {
+          label: i18n.tc('Video.Copy Invidious Channel Link', count),
+          value: 'copyInvidiousChannel'
+        },
+        {
+          type: 'divider'
+        },
+        {
+          label: i18n.tc('Video.Open Channel in YouTube', count),
+          value: 'openYoutubeChannel'
+        },
+        {
+          label: i18n.tc('Video.Open Channel in Invidious', count),
+          value: 'openInvidiousChannel'
+        }
+      )
+    }
+  }
+
+  return options
+}
+
+export function handleVideoDropdownOptionsClick(option, count, setToWatched, videoComponents) {
+  switch (option) {
+    case 'history':
+      if (setToWatched) {
+        videoComponents.forEach((videoComponent) => videoComponent.markAsWatched(true))
+        showToast(i18n.tc('Video.Video has been marked as watched', count))
+      } else {
+        videoComponents.forEach((videoComponent) => videoComponent.removeFromWatched(true))
+        showToast(i18n.tc('Video.Video has been removed from your history', count))
+      }
+      break
+    case 'copyYoutube':
+      copyToClipboard(videoComponents.map(videoComponent => videoComponent.youtubeShareUrl).join('\n'), { messageOnSuccess: i18n.tc('Share.YouTube URL copied to clipboard', count) })
+      break
+    case 'openYoutube':
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youtubeUrl))
+      break
+    case 'copyYoutubeEmbed':
+      copyToClipboard(videoComponents.map(videoComponent => videoComponent.youTubeEmbedUrl).join('\n'), { messageOnSuccess: i18n.tc('Share.YouTube Embed URL copied to clipboard', count) })
+      break
+    case 'openYoutubeEmbed':
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youTubeEmbedUrl))
+      break
+    case 'copyInvidious':
+      copyToClipboard(videoComponents.map(videoComponent => videoComponent.invidiousUrl).join('\n'), { messageOnSuccess: i18n.tc('Share.Invidious URL copied to clipboard', count) })
+      break
+    case 'openInvidious':
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.invidiousUrl))
+      break
+    case 'copyYoutubeChannel':
+      copyToClipboard(videoComponents.filter(videoComponent => videoComponent.channelId !== null).map(videoComponent => videoComponent.youtubeChannelUrl).join('\n'), { messageOnSuccess: i18n.tc('Share.YouTube Channel URL copied to clipboard', count) })
+      break
+    case 'openYoutubeChannel':
+      videoComponents.filter(videoComponent => videoComponent.channelId !== null).forEach((videoComponent) => openExternalLink(videoComponent.youtubeChannelUrl))
+      break
+    case 'copyInvidiousChannel':
+      copyToClipboard(videoComponents.filter(videoComponent => videoComponent.channelId !== null).map(videoComponent => videoComponent.invidiousChannelUrl).join('\n'), { messageOnSuccess: i18n.tc('Share.Invidious Channel URL copied to clipboard', count) })
+      break
+    case 'openInvidiousChannel':
+      videoComponents.filter(videoComponent => videoComponent.channelId !== null).forEach((videoComponent) => openExternalLink(videoComponent.invidiousChannelUrl))
+      break
+  }
+}
