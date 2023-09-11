@@ -657,16 +657,16 @@ Channel:
     Releases: שחרורים
     This channel does not currently have any releases: בערוץ הזה אין שחרורים כרגע
 Video:
-  Mark As Watched: 'סמנו כנצפה'
+  Mark As Watched: 'סימון כנצפה'
   Remove From History: 'מחקו מהיסטוריית הצפייה'
   Video has been marked as watched: 'הסרטון סומנן כנצפה'
   Video has been removed from your history: 'הסרטון נמחק מהיסטוריית הצפייה שלך'
-  Open in YouTube: 'פתחו ב-Youtube'
-  Copy YouTube Link: 'העתיקו קישור ל-YouTube'
-  Open YouTube Embedded Player: 'פתחו בנגן המוטמע של YouTube'
-  Copy YouTube Embedded Player Link: 'העתיקו קישור לנגן המוטמע של YouTube'
+  Open in YouTube: 'פתיחה ב־Youtube'
+  Copy YouTube Link: 'העתקת קישור ל־YouTube'
+  Open YouTube Embedded Player: 'פתיחה בנגן המוטמע של YouTube'
+  Copy YouTube Embedded Player Link: 'העתקת קישור לנגן המוטמע של YouTube'
   Open in Invidious: 'פתחו ב-Invidious'
-  Copy Invidious Link: 'העתיקו קישור ל-Invidious'
+  Copy Invidious Link: 'העתקת קישור ל־Invidious'
   View: 'צפייה'
   Views: 'צפיות'
   Loop Playlist: 'ניגון פלייליסט בלופ'
@@ -865,6 +865,7 @@ Comments:
   Member: חבר
   View {replyCount} replies: הצגת {replyCount} תגובות
   Hearted: סומן בלב
+  Subscribed: נרשמת
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
