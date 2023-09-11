@@ -498,9 +498,14 @@ const actions = {
       fileData = '[{"name":"None","value":"","cmdArguments":null}]'
     }
 
-    const externalPlayerMap = JSON.parse(fileData).map((entry) => {
+    const externalPlayerMapUnsorted = JSON.parse(fileData).map((entry) => {
       return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
+    // Sort external players alphabetically & case-insensitive, keep default entry at the top
+    const playerNone = externalPlayerMapUnsorted[0]
+    const externalPlayerMapTemp = externalPlayerMapUnsorted.slice(1)
+    externalPlayerMapTemp.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+    const externalPlayerMap = [playerNone, ...externalPlayerMapTemp]
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
     const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })
