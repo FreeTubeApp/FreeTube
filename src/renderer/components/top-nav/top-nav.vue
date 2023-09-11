@@ -60,7 +60,7 @@
         role="button"
         tabindex="0"
         @click="toggleSelectMode"
-        @keydown.enter.prevent="tselectVideosTextoggleSelectMode"
+        @keydown.enter.prevent="toggleSelectMode"
       />
       <ft-icon-button
         v-if="isSelectModeEnabled"

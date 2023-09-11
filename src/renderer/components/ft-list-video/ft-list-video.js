@@ -119,6 +119,47 @@ export default defineComponent({
       return (this.watchProgress / this.data.lengthSeconds) * 100
     },
 
+    invidiousUrl: function () {
+      let videoUrl = `${this.currentInvidiousInstance}/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistIdFinal}`
+      }
+      return videoUrl
+    },
+
+    invidiousChannelUrl: function () {
+      return `${this.currentInvidiousInstance}/channel/${this.channelId}`
+    },
+
+    youtubeUrl: function () {
+      let videoUrl = `https://www.youtube.com/watch?v=${this.id}`
+      // `playlistId` can be undefined
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+        // `index` seems can be ignored
+        videoUrl += `&list=${this.playlistIdFinal}`
+      }
+      return videoUrl
+    },
+
+    youtubeShareUrl: function () {
+      // `playlistId` can be undefined
+      if (this.playlistIdFinal && this.playlistIdFinal.length !== 0) {
+        // `index` seems can be ignored
+        return `https://youtu.be/${this.id}?list=${this.playlistIdFinal}`
+      }
+      return `https://youtu.be/${this.id}`
+    },
+
+    youtubeChannelUrl: function () {
+      return `https://youtube.com/channel/${this.channelId}`
+    },
+
+    youtubeEmbedUrl: function () {
+      return `https://www.youtube-nocookie.com/embed/${this.id}`
+    },
+
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
     },
