@@ -124,7 +124,7 @@ export default defineComponent({
     },
 
     dropdownOptions: function () {
-      return getVideoDropdownOptions(1, this.watched, !this.watched, this.channelId !== null, this.hideSharingActions)
+      return getVideoDropdownOptions(1, [this], this.hideSharingActions)
     },
 
     thumbnail: function () {
@@ -300,6 +300,14 @@ export default defineComponent({
       }
     },
 
+    setSave(willSave, hideToast = false) {
+      if (!this.inFavoritesPlaylist && willSave) {
+        this.addToPlaylist(hideToast)
+      } else if (this.inFavoritesPlaylist && !willSave) {
+        this.removeFromPlaylist(hideToast)
+      }
+    },
+
     handleOptionsClick: function (option) {
       handleVideoDropdownOptionsClick(option, 1, [this])
     },
@@ -454,7 +462,7 @@ export default defineComponent({
       this.watchProgress = 0
     },
 
-    addToPlaylist: function () {
+    addToPlaylist: function (hideToast = false) {
       const videoData = {
         videoId: this.id,
         title: this.title,
@@ -477,10 +485,12 @@ export default defineComponent({
 
       this.addVideo(payload)
 
-      showToast(this.$t('Video.Video has been saved'))
+      if (!hideToast) {
+        showToast(this.$t('Video.Video has been saved'))
+      }
     },
 
-    removeFromPlaylist: function () {
+    removeFromPlaylist: function (hideToast = false) {
       const payload = {
         playlistName: 'Favorites',
         videoId: this.id
@@ -488,7 +498,9 @@ export default defineComponent({
 
       this.removeVideo(payload)
 
-      showToast(this.$t('Video.Video has been removed from your saved list'))
+      if (!hideToast) {
+        showToast(this.$t('Video.Video has been removed from your saved list'))
+      }
     },
 
     addToOrRemoveFromSelectModeSelections: async function () {
@@ -506,6 +518,7 @@ export default defineComponent({
 
     clearAllSelections: function () {
       this.clearSelectModeSelections()
+      // showToast(this.$t('Video.Saved videos have been cleared'))
     },
 
     ...mapActions([

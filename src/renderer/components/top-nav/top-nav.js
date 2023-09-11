@@ -105,9 +105,7 @@ export default defineComponent({
     dropdownOptions: function () {
       const count = this.selectModeSelections.count
       const videoComponents = Object.values(this.selectModeSelections.selections)
-      const allWatched = videoComponents.every((videoComponent) => videoComponent.watched)
-      const allUnwatched = videoComponents.every((videoComponent) => !videoComponent.watched)
-      return getVideoDropdownOptions(count, allWatched, allUnwatched, this.hideSharingActions)
+      return getVideoDropdownOptions(count, videoComponents, this.hideSharingActions)
     },
   },
 
