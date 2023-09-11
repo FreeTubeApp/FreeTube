@@ -699,22 +699,22 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
 
     if (numberOfSavedVideos === count) {
       options.push({
-        label: i18n.tc('Video.Unsave Video', count, { count }),
+        label: i18n.tc('Video.Unsave Video', count, { count: count }),
         value: 'unsave'
       })
     } else if (numberOfUnsavedVideos === count) {
       options.push({
-        label: i18n.tc('Video.Save Video', count, { count }),
+        label: i18n.tc('Video.Save Video', count, { count: count }),
         value: 'save'
       })
     } else {
       options.push(
         {
-          label: i18n.tc('Video.Unsave Video', numberOfUnsavedVideos, { numberOfUnsavedVideos }),
+          label: i18n.tc('Video.Unsave Video', numberOfUnsavedVideos, { count: numberOfUnsavedVideos }),
           value: 'unsave'
         },
         {
-          label: i18n.tc('Video.Save Video', numberOfSavedVideos, { numberOfSavedVideos }),
+          label: i18n.tc('Video.Save Video', numberOfSavedVideos, { count: numberOfSavedVideos }),
           value: 'save'
         }
       )
@@ -723,22 +723,22 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
 
   if (numberOfWatchedVideos === count) {
     options.push({
-      label: i18n.tc('Video.Remove From History', count, { count }),
+      label: i18n.tc('Video.Remove From History', count, { count: count }),
       value: 'history-remove'
     })
   } else if (numberOfUnwatchedVideos === count) {
     options.push({
-      label: i18n.tc('Video.Mark As Watched', count, { count }),
+      label: i18n.tc('Video.Mark As Watched', count, { count: count }),
       value: 'history-add'
     })
   } else {
     options.push(
       {
-        label: i18n.tc('Video.Remove From History', numberOfUnwatchedVideos, { numberOfUnwatchedVideos }),
+        label: i18n.tc('Video.Remove From History', numberOfUnwatchedVideos, { count: numberOfUnwatchedVideos }),
         value: 'history-remove'
       },
       {
-        label: i18n.tc('Video.Mark As Watched', numberOfWatchedVideos, { numberOfWatchedVideos }),
+        label: i18n.tc('Video.Mark As Watched', numberOfWatchedVideos, { count: numberOfWatchedVideos }),
         value: 'history-add'
       },
     )
@@ -750,30 +750,30 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
         type: 'divider'
       },
       {
-        label: i18n.tc('Video.Copy YouTube Link', count, { count }),
+        label: i18n.tc('Video.Copy YouTube Link', count, { count: count }),
         value: 'copyYoutube'
       },
       {
-        label: i18n.tc('Video.Copy YouTube Embedded Player Link', count, { count }),
+        label: i18n.tc('Video.Copy YouTube Embedded Player Link', count, { count: count }),
         value: 'copyYoutubeEmbed'
       },
       {
-        label: i18n.tc('Video.Copy Invidious Link', count, { count }),
+        label: i18n.tc('Video.Copy Invidious Link', count, { count: count }),
         value: 'copyInvidious'
       },
       {
         type: 'divider'
       },
       {
-        label: i18n.tc('Video.Open in YouTube', count, { count }),
+        label: i18n.tc('Video.Open in YouTube', count, { count: count }),
         value: 'openYoutube'
       },
       {
-        label: i18n.tc('Video.Open YouTube Embedded Player', count, { count }),
+        label: i18n.tc('Video.Open YouTube Embedded Player', count, { count: count }),
         value: 'openYoutubeEmbed'
       },
       {
-        label: i18n.tc('Video.Open in Invidious', count, { count }),
+        label: i18n.tc('Video.Open in Invidious', count, { count: count }),
         value: 'openInvidious'
       }
     )
@@ -783,22 +783,22 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
           type: 'divider'
         },
         {
-          label: i18n.tc('Video.Copy YouTube Channel Link', videosWithChannelIds, { videosWithChannelIds }),
+          label: i18n.tc('Video.Copy YouTube Channel Link', videosWithChannelIds, { count: videosWithChannelIds }),
           value: 'copyYoutubeChannel'
         },
         {
-          label: i18n.tc('Video.Copy Invidious Channel Link', videosWithChannelIds, { videosWithChannelIds }),
+          label: i18n.tc('Video.Copy Invidious Channel Link', videosWithChannelIds, { count: videosWithChannelIds }),
           value: 'copyInvidiousChannel'
         },
         {
           type: 'divider'
         },
         {
-          label: i18n.tc('Video.Open Channel in YouTube', videosWithChannelIds, { videosWithChannelIds }),
+          label: i18n.tc('Video.Open Channel in YouTube', videosWithChannelIds, { count: videosWithChannelIds }),
           value: 'openYoutubeChannel'
         },
         {
-          label: i18n.tc('Video.Open Channel in Invidious', videosWithChannelIds, { videosWithChannelIds }),
+          label: i18n.tc('Video.Open Channel in Invidious', videosWithChannelIds, { count: videosWithChannelIds }),
           value: 'openInvidiousChannel'
         }
       )
@@ -815,40 +815,40 @@ export function handleVideoDropdownOptionsClick(option, count, videoComponents) 
       break
     case 'save':
       videoComponents.forEach((videoComponent) => videoComponent.setSave(true, true))
-      showToast(i18n.tc('Video.Video has been saved', numberOfUnsavedVideos, { numberOfUnsavedVideos }))
+      showToast(i18n.tc('Video.Video has been saved', numberOfUnsavedVideos, { count: numberOfUnsavedVideos }))
       break
     case 'unsave':
       videoComponents.forEach((videoComponent) => videoComponent.setSave(false, true))
-      showToast(i18n.tc('Video.Video has been removed from your history', numberOfSavedVideos, { numberOfSavedVideos }))
+      showToast(i18n.tc('Video.Video has been removed from your history', numberOfSavedVideos, { count: numberOfSavedVideos }))
       break
     case 'history-add':
       videoComponents.forEach((videoComponent) => videoComponent.markAsWatched(true))
-      showToast(i18n.tc('Video.Video has been marked as watched', numberOfUnwatchedVideos, { numberOfUnwatchedVideos }))
+      showToast(i18n.tc('Video.Video has been marked as watched', numberOfUnwatchedVideos, { count: numberOfUnwatchedVideos }))
       break
     case 'history-remove':
       videoComponents.forEach((videoComponent) => videoComponent.removeFromWatched(true))
-      showToast(i18n.tc('Video.Video has been removed from your history', numberOfWatchedVideos, { numberOfWatchedVideos }))
+      showToast(i18n.tc('Video.Video has been removed from your history', numberOfWatchedVideos, { count: numberOfWatchedVideos }))
       break
     case 'copyYoutube':
       copyToClipboard(
         videoComponents.map(videoComponent => videoComponent.youtubeShareUrl).join('\n'),
-        { messageOnSuccess: i18n.tc('Share.YouTube URL copied to clipboard', count, { count }) })
+        { messageOnSuccess: i18n.tc('Share.YouTube URL copied to clipboard', count, { count: count }) })
       break
     case 'openYoutube':
       videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youtubeUrl))
       break
     case 'copyYoutubeEmbed':
       copyToClipboard(
-        videoComponents.map(videoComponent => videoComponent.youTubeEmbedUrl).join('\n'),
-        { messageOnSuccess: i18n.tc('Share.YouTube Embed URL copied to clipboard', count, { count }) })
+        videoComponents.map(videoComponent => videoComponent.youtubeEmbedUrl).join('\n'),
+        { messageOnSuccess: i18n.tc('Share.YouTube Embed URL copied to clipboard', count, { count: count }) })
       break
     case 'openYoutubeEmbed':
-      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youTubeEmbedUrl))
+      videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.youtubeEmbedUrl))
       break
     case 'copyInvidious':
       copyToClipboard(
         videoComponents.map(videoComponent => videoComponent.invidiousUrl).join('\n'),
-        { messageOnSuccess: i18n.tc('Share.Invidious URL copied to clipboard', count, { count }) })
+        { messageOnSuccess: i18n.tc('Share.Invidious URL copied to clipboard', count, { count: count }) })
       break
     case 'openInvidious':
       videoComponents.forEach((videoComponent) => openExternalLink(videoComponent.invidiousUrl))
@@ -857,7 +857,7 @@ export function handleVideoDropdownOptionsClick(option, count, videoComponents) 
       copyToClipboard(
         videoComponents.filter(videoComponent => videoComponent.channelId !== null)
           .map(videoComponent => videoComponent.youtubeChannelUrl).join('\n'),
-        { messageOnSuccess: i18n.tc('Share.YouTube Channel URL copied to clipboard', videosWithChannelIds, { videosWithChannelIds }) })
+        { messageOnSuccess: i18n.tc('Share.YouTube Channel URL copied to clipboard', videosWithChannelIds, { count: videosWithChannelIds }) })
       break
     case 'openYoutubeChannel':
       videoComponents.filter(videoComponent => videoComponent.channelId !== null)
@@ -867,7 +867,7 @@ export function handleVideoDropdownOptionsClick(option, count, videoComponents) 
       copyToClipboard(
         videoComponents.filter(videoComponent => videoComponent.channelId !== null)
           .map(videoComponent => videoComponent.invidiousChannelUrl).join('\n'),
-        { messageOnSuccess: i18n.tc('Share.Invidious Channel URL copied to clipboard', videosWithChannelIds, { videosWithChannelIds }) }
+        { messageOnSuccess: i18n.tc('Share.Invidious Channel URL copied to clipboard', videosWithChannelIds, { count: videosWithChannelIds }) }
       )
       break
     case 'openInvidiousChannel':
