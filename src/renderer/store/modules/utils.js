@@ -43,7 +43,9 @@ const state = {
   externalPlayerNames: [],
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
-  externalPlayerCmdArguments: {}
+  externalPlayerCmdArguments: {},
+  isSelectModeEnabled: false,
+  selectModeSelections: { count: 0, selections: {} },
 }
 
 const getters = {
@@ -113,6 +115,18 @@ const getters = {
 
   getExternalPlayerCmdArguments () {
     return state.externalPlayerCmdArguments
+  },
+
+  getIsSelectModeEnabled () {
+    return state.isSelectModeEnabled
+  },
+
+  getIsIndexSelectedInSelectMode: (state) => (index) => {
+    Object.hasOwn(state.selectModeSelections.selections, index)
+  },
+
+  getSelectModeSelections () {
+    return state.selectModeSelections
   }
 }
 
@@ -482,6 +496,20 @@ const actions = {
     }
   },
 
+  clearSelectModeSelections ({ commit }) {
+    commit('setSelectModeSelections', { count: 0, selections: [] })
+  },
+
+  addToSelectModeSelections ({ commit }, selection) {
+    return new Promise((resolve) => {
+      commit('addToSelectModeSelections', { selection, callback: resolve })
+    })
+  },
+
+  removeFromSelectModeSelections ({ commit }, selectionIndex) {
+    return commit('removeFromSelectModeSelections', { selectionIndex })
+  },
+
   clearSessionSearchHistory ({ commit }) {
     commit('setSessionSearchHistory', [])
   },
@@ -736,7 +764,24 @@ const mutations = {
 
   setExternalPlayerCmdArguments (state, value) {
     state.externalPlayerCmdArguments = value
-  }
+  },
+
+  toggleSelectMode (state) {
+    state.isSelectModeEnabled = !state.isSelectModeEnabled
+  },
+
+  setSelectModeSelections (state, selectModeSelections) {
+    state.selectModeSelections = selectModeSelections
+  },
+
+  addToSelectModeSelections (state, { selection, callback }) {
+    state.selectModeSelections.selections[++state.selectModeSelections.count] = selection
+    callback(state.selectModeSelections.count)
+  },
+
+  removeFromSelectModeSelections (state, { selectionIndex }) {
+    delete state.selectModeSelections.selections[selectionIndex]
+  },
 }
 
 export default {
