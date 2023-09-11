@@ -90,7 +90,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
-    "electron": "^22.3.21",
+    "electron": "^26.2.0",
     "electron-builder": "^24.6.4",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
