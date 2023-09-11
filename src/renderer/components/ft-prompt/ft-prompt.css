@@ -1,7 +1,7 @@
 .prompt {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -16,7 +16,8 @@
 
 .promptCard.autosize {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin-block: 0;
+  margin-inline: auto;
   max-width: 95%;
 }
 
@@ -24,7 +25,7 @@
   width: 95%;
   margin: 0;
   position: absolute;
-  left: 2.5%;
+  inset-inline-start: 2.5%;
   box-sizing: border-box;
 }
 

@@ -117,6 +117,10 @@ export default defineComponent({
     canPerformMoreCommentLoading: function () {
       return this.commentData.length > 0 && !this.isLoading && this.showComments && this.nextPageToken
     },
+
+    subscriptions: function() {
+      return this.$store.getters.getActiveProfile.subscriptions
+    }
   },
   mounted: function () {
     // region No comment detection

@@ -4,8 +4,8 @@
   width: 200px;
   overflow-x: hidden;
   position: sticky;
-  left: 0;
-  top: 60px;
+  inset-inline-start: 0;
+  inset-block-start: 60px;
   z-index: 3;
   box-shadow: 1px -1px 1px -1px var(--primary-shadow-color);
   background-color: var(--side-nav-color);
@@ -36,7 +36,7 @@
 }
 
 .topNavOption {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
 .navOption, .navChannel {
@@ -67,18 +67,18 @@
 }
 
 .navIcon {
-  margin-left: 10px;
+  margin-inline-start: 10px;
 }
 
 .navOption .navLabel {
-  margin-left: 40px;
+  margin-inline-start: 40px;
   overflow: hidden;
   word-break: break-word;
 }
 
 .navChannel .navLabel {
   overflow: hidden;
-  margin-left: 40px;
+  margin-inline-start: 40px;
   word-break: break-word;
   font-size: 12px;
 }
@@ -87,7 +87,7 @@
   width: 35px;
   margin: 0;
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -116,8 +116,8 @@
 
 .refreshIcon {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  inset-block-start: 20px;
+  inset-inline-end: 20px;
 }
 
 .closed .refreshIcon {
@@ -126,24 +126,25 @@
 
 .closed .navOption {
   width: 100%;
-  padding: 5px 0px;
+  padding-block: 5px;
+  padding-inline: 0;
 }
 
 .closed .navIcon {
-  margin-left: 0px;
+  margin-inline-start: 0px;
   width: 100%;
   display: block;
-  margin-bottom: 0px;
+  margin-block-end: 0px;
 }
 .closed .navIconExpand{
   height:1.3em;
 }
 
 .closed .navLabel {
-  margin-left: 0px;
+  margin-inline-start: 0px;
   width: 100%;
   text-align: center;
-  left: 0px;
+  inset-inline-start: 0px;
   font-size: 11px;
   margin-block-end: 0em;
 }
@@ -151,15 +152,17 @@
 .closed .navChannel {
   width: 100%;
   height: 45px;
-  padding: 5px 0px;
+  padding-block: 5px;
+  padding-inline: 0;
 }
 
 .closed .thumbnailContainer {
   position: static;
   display: block;
   float: none;
-  margin: 0 auto;
-  top: 0px;
+  margin-block: 0;
+  margin-inline: auto;
+  inset-block-start: 0px;
   -ms-transform: none;
   transform: none;
   margin-block-start: 0.3em;
@@ -177,24 +180,24 @@
 
   .sideNav {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    inset-inline-start: 0;
+    inset-block-end: 0;
 
     display: flex;
   }
 
   .topNavOption {
-    margin-top: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-block-start: 0px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
   }
 
   .sideNav, .closed {
-    margin-top: 0px;
+    margin-block-start: 0px;
     height: 60px;
     width: 100%;
-    bottom: 0px;
-    top: auto;
+    inset-block-end: 0px;
+    inset-block-start: auto;
     overflow-y: hidden;
   }
 
@@ -202,15 +205,15 @@
     width: 70px;
     height: 40px;
     padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
   }
 
   .navLabel {
-    margin-left: 0px;
+    margin-inline-start: 0px;
     width: 100%;
     text-align: center;
-    left: 0px;
+    inset-inline-start: 0px;
     font-size: 11px;
   }
 

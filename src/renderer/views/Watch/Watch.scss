@@ -3,17 +3,7 @@
 }
 
 @mixin theatre-mode-template {
-  grid-template:  'video video video' auto
-                  'info info sidebar' auto
-                  'info info sidebar' auto / 1fr 1fr 1fr;
-
-  // When there is no sidebar (but the empty container element still exists)
-  // The info element need to be expanded with following rule(s)
-  @at-root .videoLayout.noSidebar {
-    grid-template:  'video video video' auto
-                    'info info info'    auto
-                    'info info info'    auto / 1fr 1fr 1fr;
-  }
+  grid-template: 'video video video' auto 'info info sidebar' auto 'info info sidebar' auto / 1fr 1fr 1fr;
 }
 
 @mixin single-column-template {
@@ -46,7 +36,8 @@
     grid-area: video;
 
     .videoAreaMargin {
-      margin: 0 0 16px;
+      margin-block: 0 16px;
+      margin-inline: 0;
     }
 
     .videoPlayer {
@@ -63,22 +54,25 @@
         align-items: center;
         background-color: rgb(0 0 0 / 80%);
         border-radius: 5px;
-        bottom: 12px;
+        inset-block-end: 12px;
         color: #fff;
         display: flex;
         height: 60px;
-        left: 12px;
-        padding: 0 12px;
+        inset-inline-start: 12px;
+        padding-block: 0;
+        padding-inline: 12px;
         position: absolute;
 
         .premiereIcon {
-          float: left;
+          float: var(--float-left-ltr-rtl-value);
           font-size: 25px;
-          margin: 0 12px;
+          margin-block: 0;
+          margin-inline: 12px;
         }
 
         .premiereText {
-          margin: 0 12px;
+          margin-block: 0;
+          margin-inline: 12px;
           min-width: 200px;
 
           .premiereTextTimestamp {
@@ -92,7 +86,8 @@
 
   .watchVideo {
     grid-column: 1;
-    margin: 0 0 16px;
+    margin-block: 0 16px;
+    margin-inline: 0;
   }
 
   .infoArea {
@@ -115,7 +110,8 @@
   .watchVideoPlaylist,
   .watchVideoSidebar,
   .theatrePlaylist {
-    margin: 0 8px 16px;
+    margin-block: 0 16px;
+    margin-inline: 8px;
   }
 
   .watchVideoSidebar,
@@ -125,8 +121,8 @@
 
   .watchVideoPlaylist {
     :deep(.videoThumbnail) {
-      margin-top: auto;
-      margin-bottom: auto;
+      margin-block-start: auto;
+      margin-block-end: auto;
     }
     @media (max-width: 768px) {
       height: auto;
@@ -135,10 +131,12 @@
 
   .watchVideoRecommendations,
   .theatreRecommendations {
-    margin: 0 0 16px;
+    margin-block: 0 16px;
+    margin-inline: 0;
 
     @media only screen and (min-width: 901px) {
-      margin: 0 8px 16px;
+      margin-block: 0 16px;
+      margin-inline: 8px;
     }
   }
 
@@ -158,12 +156,12 @@
 
   @media only screen and (min-width: 901px) {
     .infoArea {
-      scroll-margin-top: 76px;
+      scroll-margin-block-start: 76px;
     }
 
     .infoAreaSticky {
       position: sticky;
-      top: 76px;
+      inset-block-start: 76px;
     }
   }
 }

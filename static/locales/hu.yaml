@@ -37,6 +37,9 @@ Global:
   Shorts: Rövidfilmek
   Live: Élő
 
+  Counts:
+    Video Count: 1 videó | {count} videó
+    Channel Count: 1 csatorna | {count} csatorna
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
   verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
@@ -813,6 +816,7 @@ Video:
   Upcoming: Közelgő
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
     élő csevegés nem érhető el ehhez az adatfolyamhoz. Lehet, hogy a feltöltő letiltotta.
+  Pause on Current Video: Jelenlegi videó szüneteltetése
 Videos:
   #& Sort By
   Sort By:
@@ -1047,3 +1051,7 @@ Hashtag:
   Hashtag: Kettőskereszt
   This hashtag does not currently have any videos: Ez a kettőskereszt jelenleg nem
     rendelkezik videókkal
+Playlist will pause when current video is finished: Szünetel a lejátszási lista, amikor
+  a jelenlegi videó véget ér
+Playlist will not pause when current video is finished: Nem szünetel a lejátszási
+  lista, amikor a jelenlegi videó véget ér

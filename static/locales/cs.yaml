@@ -36,6 +36,9 @@ Global:
   Shorts: Shorts
   Live: Živě
 
+  Counts:
+    Video Count: 1 video | {count} videí
+    Channel Count: 1 kanál | {count} kanálů
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -794,6 +797,7 @@ Video:
   Upcoming: Nadcházející
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Živý
     chat není pro tento stream k dispozici. Je možné, že byl vypnut nahrávajícím.
+  Pause on Current Video: Pozastavit na současném videu
 Videos:
   #& Sort By
   Sort By:
@@ -1020,3 +1024,7 @@ Ok: Ok
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Tento hashtag nemá žádná videa
+Playlist will pause when current video is finished: Po přehrání aktuálního videa bude
+  playlist pozastaven
+Playlist will not pause when current video is finished: Po přehrání aktuálního videa
+  nebude playlist pozastaven

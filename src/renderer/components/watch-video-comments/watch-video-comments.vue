@@ -107,6 +107,13 @@
             class="commentMemberIcon"
             alt=""
           >
+          <img
+            v-if="subscriptions.find((channel) => channel.id === comment.authorId)"
+            :title="$t('Comments.Subscribed')"
+            :aria-label="$t('Comments.Subscribed')"
+            class="commentSubscribedIcon"
+            alt=""
+          >
           <span class="commentDate">
             {{ comment.time }}
           </span>
@@ -207,6 +214,13 @@
                 v-if="reply.isMember"
                 :src="reply.memberIconUrl"
                 class="commentMemberIcon"
+                alt=""
+              >
+              <img
+                v-if="subscriptions.find((channel) => channel.id === reply.authorId)"
+                :title="$t('Comments.Subscribed')"
+                :aria-label="$t('Comments.Subscribed')"
+                class="commentSubscribedIcon"
                 alt=""
               >
               <span class="commentDate">

@@ -109,7 +109,7 @@ $watched-transition-duration: 0.5s;
       align-self: flex-start;
       background-color: var(--bg-color);
       color: var(--primary-text-color);
-      justify-self: left;
+      justify-self: start;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
@@ -121,11 +121,13 @@ $watched-transition-duration: 0.5s;
       border-radius: 5px;
       color: var(--primary-text-color);
       font-size: 15px;
-      justify-self: right;
+      justify-self: end;
       line-height: 1.2;
-      margin: 0 4px 4px 0;
+      margin-block: 0 4px;
+      margin-inline: 0 4px;
       opacity: $thumbnail-overlay-opacity;
-      padding: 3px 4px;
+      padding-block: 3px;
+      padding-inline: 4px;
       pointer-events: none;
 
       @include is-watch-playlist-item {
@@ -141,15 +143,15 @@ $watched-transition-duration: 0.5s;
     .externalPlayerIcon {
       align-self: flex-end;
       font-size: 17px;
-      justify-self: left;
-      margin-bottom: 4px;
-      margin-left: 4px;
+      justify-self: start;
+      margin-block-end: 4px;
+      margin-inline-start: 4px;
     }
 
     .playlistIcons {
-      justify-self: right;
-      margin-right: 3px;
-      margin-top: 3px;
+      justify-self: end;
+      margin-inline-end: 3px;
+      margin-block-start: 3px;
 
       display: grid;
       grid-auto-flow: column;
@@ -184,7 +186,7 @@ $watched-transition-duration: 0.5s;
       align-self: stretch;
       display: grid;
       font-size: 20px;
-      justify-self: right;
+      justify-self: end;
       width: 60px;
 
       .background {
@@ -247,8 +249,9 @@ $watched-transition-duration: 0.5s;
     .infoLine {
       font-size: 14px;
       grid-area: infoLine;
-      margin-top: 5px;
+      margin-block-start: 5px;
       overflow-wrap: anywhere;
+      text-align: start;
 
       @include is-sidebar-item {
         font-size: 12px;
@@ -279,13 +282,13 @@ $watched-transition-duration: 0.5s;
 
     @include is-sidebar-item {
       .videoThumbnail {
-        margin-right: 10px;
+        margin-inline-end: 10px;
       }
     }
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-right: 20px;
+      margin-inline-end: 20px;
     }
 
     .channelThumbnail {
@@ -297,11 +300,11 @@ $watched-transition-duration: 0.5s;
     display: flex;
     flex-direction: column;
     min-height: 230px;
-    padding-bottom: 20px;
+    padding-block-end: 20px;
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-bottom: 12px;
+      margin-block-end: 12px;
 
       .thumbnailImage {
         width: 100%;
@@ -316,7 +319,7 @@ $watched-transition-duration: 0.5s;
 
     .infoLine {
       font-size: 13px;
-      margin-top: 8px;
+      margin-block-start: 8px;
     }
   }
 

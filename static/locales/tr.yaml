@@ -36,6 +36,9 @@ Global:
   Shorts: Kısa Videolar
   Live: Canlı
 
+  Counts:
+    Video Count: 1 video | {count} video
+    Channel Count: 1 kanal | {count} kanal
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -820,6 +823,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı
     sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
     olabilir.
+  Pause on Current Video: Geçerli Videoda Duraklat
 Videos:
   #& Sort By
   Sort By:
@@ -1051,3 +1055,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi
     bir videosu yok
+Playlist will pause when current video is finished: Geçerli video bittiğinde oynatma
+  listesi duraklatılacak
+Playlist will not pause when current video is finished: Geçerli video bittiğinde oynatma
+  listesi duraklatılmayacak

@@ -1,7 +1,8 @@
 /* Thanks to Guus Lieben for the Material Design Switch */
 
 .switch-ctn {
-  margin: 20px 16px;
+  margin-block: 20px;
+  margin-inline: 16px;
   position: relative;
 
   &.compact {
@@ -12,9 +13,9 @@
 .switch-input {
   appearance: none;
   height: 20px;
-  left: -3px;
+  inset-inline-start: -3px;
   position: absolute;
-  top: calc(50% - 3px);
+  inset-block-start: calc(50% - 3px);
   transform: translate(0, -50%);
   width: 34px;
 }
@@ -23,9 +24,10 @@
   cursor: pointer;
   display: inline-block;
   font-weight: 500;
-  padding: 12px 0 12px 44px;
+  padding-block: 12px;
+  padding-inline: 44px 0;
   position: relative;
-  text-align: left;
+  text-align: start;
 
   &::before,
   &::after {
@@ -33,7 +35,7 @@
     margin: 0;
     outline: 0;
     position: absolute;
-    top: 50%;
+    inset-block-start: 50%;
     transform: translate(0, -50%);
     transition: all 0.3s ease;
   }
@@ -42,7 +44,7 @@
     background-color: #9e9e9e;
     border-radius: 8px;
     height: 14px;
-    left: 1px;
+    inset-inline-start: 1px;
     width: 34px;
 
     .switch-input:checked + & {
@@ -59,12 +61,12 @@
     border-radius: 50%;
     box-shadow: 0 3px 1px -2px rgb(0 0 0 / 14%), 0 2px 2px 0 rgb(0 0 0 / 9.8%), 0 1px 5px 0 rgb(0 0 0 / 8.4%);
     height: 20px;
-    left: 0;
+    inset-inline-start: 0;
     width: 20px;
 
     .switch-input:checked + & {
       background-color: var(--accent-color);
-      transform: translate(80%, -50%);
+      transform: translate(calc(80% * var(--horizontal-directionality-coefficient)), -50%);
     }
 
     .switch-input:disabled + & {

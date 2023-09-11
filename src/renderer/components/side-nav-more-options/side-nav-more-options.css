@@ -30,7 +30,7 @@
 .moreOptionContainer {
   position: fixed;
   background-color: var(--side-nav-color);
-  bottom: 60px;
+  inset-block-end: 60px;
   width: 70px;
   z-index: 0;
   -webkit-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
@@ -44,33 +44,34 @@
   }
 
   .sideNav, .closed {
-    margin-top: 0px;
+    margin-block-start: 0px;
     height: 60px;
     width: 100%;
-    bottom: 0px;
-    top: auto;
+    inset-block-end: 0px;
+    inset-block-start: auto;
     overflow-y: inherit;
   }
 
   .navOption, .closed .navOption {
     width: 70px;
     height: 40px;
-    padding: 10px 0px;
+    padding-block: 10px;
+    padding-inline: 0;
   }
 
   .navLabel {
-    margin-left: 0px;
+    margin-inline-start: 0px;
     width: 100%;
     text-align: center;
-    left: 0px;
+    inset-inline-start: 0px;
     font-size: 11px;
   }
 
   .navIcon {
-    margin-left: 0px;
+    margin-inline-start: 0px;
     width: 100%;
     display: block;
-    margin-top: 0.5em;
+    margin-block-start: 0.5em;
   }
 
   .moreOption {

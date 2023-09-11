@@ -38,6 +38,9 @@ Global:
   Live: Ζωντανά
 
 # Search Bar
+  Counts:
+    Video Count: 1 βίντεο | {count} βίντεο
+    Channel Count: 1 κανάλι | {count} κανάλια
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -836,6 +839,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
     Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
     από τον χρήστη."
+  Pause on Current Video: Παύση στο Τρέχον Βίντεο
 Videos:
   #& Sort By
   Sort By:
@@ -1086,3 +1090,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
     παρόν κανένα βίντεο
+Playlist will pause when current video is finished: Η Λίστα Αναπαραγωγής θα σταματήσει
+  όταν ολοκληρωθεί το τρέχον βίντεο
+Playlist will not pause when current video is finished: Η Λίστα Αναπαραγωγής δεν θα
+  σταματήσει όταν ολοκληρωθεί το τρέχον βίντεο
