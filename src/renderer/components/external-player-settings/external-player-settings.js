@@ -21,9 +21,20 @@ export default defineComponent({
   computed: {
     externalPlayerNames: function () {
       const fallbackNames = this.$store.getters.getExternalPlayerNames
-      const nameTranslationKeys = this.$store.getters.getExternalPlayerNameTranslationKeys
+      const nameTranslationKeys = this.$store.getters.getExternalPlayerNameTranslationKeys.map((translationKey, idx) => this.$te(translationKey) ? this.$t(translationKey) : fallbackNames[idx])
 
-      return nameTranslationKeys.map((translationKey, idx) => this.$te(translationKey) ? this.$t(translationKey) : fallbackNames[idx])
+      // Sort list of external players alphabetically & case-insensitive and keep the default 'None' in the first index
+      const nameTranslationKeysSorted = [...nameTranslationKeys]
+
+      nameTranslationKeysSorted.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+
+      const playerNone = nameTranslationKeys[0]
+      const playerNoneIndex = nameTranslationKeysSorted.indexOf(playerNone)
+
+      nameTranslationKeysSorted.splice(playerNoneIndex, 1)
+      nameTranslationKeysSorted.unshift(playerNone)
+
+      return nameTranslationKeysSorted
     },
     externalPlayerValues: function () {
       return this.$store.getters.getExternalPlayerValues
