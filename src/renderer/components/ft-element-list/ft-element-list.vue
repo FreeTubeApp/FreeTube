@@ -4,7 +4,7 @@
   >
     <ft-list-lazy-wrapper
       v-for="(result, index) in data"
-      :key="`${result.type}-${result.videoId || result.playlistId || result.postId || result.id || result.authorId}-${index}`"
+      :key="`${result.type}-${result.videoId || result.playlistId || result.postId || result.id || result.authorId || result.title}-${index}`"
       appearance="result"
       :data="result"
       :first-screen="index < 16"

@@ -36,6 +36,9 @@ Global:
   Live: Transmisje
 
 # Search Bar
+  Counts:
+    Video Count: 1 film | {count} film(y/ów)
+    Channel Count: 1 kanał | {count} kanał(y/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -146,6 +149,7 @@ Settings:
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
+      Hidden: Nie pokazuj
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious
       (Domyślnie jest https://invidious.snopyta.org)'
     Region for Trending: '„Na czasie” z obszaru'
@@ -179,6 +183,8 @@ Settings:
       Dracula: 'Drakula'
       System Default: Domyślny systemu
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Gorący róż
+      Pastel Pink: Pastelowy róż
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -431,6 +437,8 @@ Settings:
     Hide Subscriptions Videos: Schowaj filmy z subskrypcji
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
+    Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
+    Blur Thumbnails: Rozmazuj miniaturki
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -616,6 +624,9 @@ Channel:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       publikacji
     Community: Społeczność
+    votes: '{votes} głosów'
+    Reveal Answers: Pokaż odpowiedzi
+    Hide Answers: Schowaj odpowiedzi
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -641,10 +652,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
   Copy Invidious Link: 'Skopiuj link do strony Invidious'
-  View: 'wyświetlenie'
   Views: 'wyświetleń'
-  # Context is "X People Watching"
-  Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
   Live: 'Transmisja'
@@ -775,6 +783,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Czat
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
+  Pause on Current Video: Zatrzymaj po tym filmie
 Videos:
   #& Sort By
   Sort By:
@@ -850,6 +859,7 @@ Comments:
   Member: Wspierający
   Hearted: z serduszkiem
   View {replyCount} replies: Zobacz {replyCount} odpowiedzi
+  Subscribed: Zasubskrybowano
 Up Next: 'Następne'
 
 # Toast Messages
@@ -1058,3 +1068,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Nie ma na razie żadnych filmów
     z takim hashtagiem
+Playlist will pause when current video is finished: Playlista zatrzyma się, gdy obecny
+  film się zakończy
+Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
+  gdy obecny film się zakończy

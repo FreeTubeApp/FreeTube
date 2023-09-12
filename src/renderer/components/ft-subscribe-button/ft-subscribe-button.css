@@ -1,6 +1,6 @@
 .subscribeButton {
   align-self: center;
   height: 50%;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   min-width: 150px;
 }

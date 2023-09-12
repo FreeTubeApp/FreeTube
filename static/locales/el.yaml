@@ -38,6 +38,9 @@ Global:
   Live: Ζωντανά
 
 # Search Bar
+  Counts:
+    Video Count: 1 βίντεο | {count} βίντεο
+    Channel Count: 1 κανάλι | {count} κανάλια
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -151,6 +154,7 @@ Settings:
       Beginning: 'Αρχή'
       Middle: 'Μέση'
       End: 'Τέλος'
+      Hidden: Κρυμμένο
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Διακομιστής
       Invidious (προεπιλογή https://invidious.snopyta.org)'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
@@ -185,6 +189,8 @@ Settings:
       Dracula: 'Δράκουλας'
       System Default: Προεπιλογή Συστήματος
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Παστέλ Ρόζ
+      Hot Pink: Ζεστό Ρόζ
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
@@ -435,6 +441,8 @@ Settings:
     Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
     Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
+    Blur Thumbnails: Θάμπωμα Μικρογραφιών
+    Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -618,8 +626,6 @@ Profile:
   Profile Settings: Ρυθμίσεις προφίλ
   Toggle Profile List: Εναλλαγή Λίστας Προφίλ
 Channel:
-  Subscriber: 'Συνδρομητής'
-  Subscribers: 'Συνδρομητές'
   Subscribe: 'Εγγραφή'
   Unsubscribe: 'Απεγγραφή'
   Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
@@ -668,6 +674,9 @@ Channel:
     Community: Κοινότητα
     This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν
       έχει αναρτήσεις
+    Reveal Answers: Εμφάνιση Απαντήσεων
+    Hide Answers: Απόκρυψη Απαντήσεων
+    votes: '{votes} ψήφοι'
   Live:
     Live: Ζωντανά
     This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
@@ -696,15 +705,12 @@ Video:
     αναπαραγωγής από το YouTube'
   Open in Invidious: 'Άνοιγμα στο Invidious'
   Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-  View: 'Προβολή'
   Views: 'Προβολές'
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
   Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
   Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
-  # Context is "X People Watching"
-  Watching: 'Παρακολουθούν τώρα'
   Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video
@@ -828,6 +834,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
     Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
     από τον χρήστη."
+  Pause on Current Video: Παύση στο Τρέχον Βίντεο
 Videos:
   #& Sort By
   Sort By:
@@ -1078,3 +1085,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
     παρόν κανένα βίντεο
+Playlist will pause when current video is finished: Η Λίστα Αναπαραγωγής θα σταματήσει
+  όταν ολοκληρωθεί το τρέχον βίντεο
+Playlist will not pause when current video is finished: Η Λίστα Αναπαραγωγής δεν θα
+  σταματήσει όταν ολοκληρωθεί το τρέχον βίντεο

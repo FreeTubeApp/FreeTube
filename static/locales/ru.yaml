@@ -553,6 +553,7 @@ About:
   Please check for duplicates before posting: Перед публикацией проблемы, проверьте
     нет ли дубликатов
   GitHub issues: Проблемы на GitHub
+  Discussions: Обсуждения
 Channel:
   Subscriber: 'Подписчик'
   Subscribers: 'Подписчиков'
@@ -600,6 +601,9 @@ Channel:
     Community: Сообщество
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
+    votes: 'Голосов: {votes}'
+    Hide Answers: Скрыть ответы
+    Reveal Answers: Раскрыть ответы
   Live:
     Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее
@@ -627,10 +631,7 @@ Video:
     YouTube'
   Open in Invidious: 'Открыть в Invidious'
   Copy Invidious Link: 'Скопировать ссылку Invidious'
-  View: 'Вид'
   Views: 'Просмотров'
-  # Context is "X People Watching"
-  Watching: 'Смотрят'
   Watched: 'Просмотрено'
   # As in a Live Video
   Live: 'Трансляция'
@@ -900,6 +901,7 @@ Profile:
   Subscription List: Список подписок
   Profile Filter: Фильтр профилей
   Profile Settings: Настройки профиля
+  Toggle Profile List: Переключить список профилей
 The playlist has been reversed: Подборка была перевёрнута
 A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
   {blogTitle}. Нажмите здесь, чтобы посмотреть подробности

@@ -12,20 +12,25 @@
 
 .routerView {
   flex: 1 1 0%;
-  margin: 18px 10px;
+  margin-block: 18px;
+  margin-inline: 10px;
 }
 
 .banner {
   width: 85%;
-  margin: 20px auto 0;
+  margin-block: 20px;
+  margin-inline: auto;
 }
 
 .banner-wrapper {
-  margin: 0 10px;
+  margin-block: 0;
+  margin-inline: 10px;
 }
 
 .flexBox {
   display: block;
+  user-select: unset;
+  -webkit-user-select: unset;
 }
 
 #changeLogText {
@@ -43,16 +48,17 @@
 
 @media only screen and (max-width: 680px) {
   .routerView {
-    margin: 68px 8px 68px;
+    margin-block: 68px;
+    margin-inline: 8px;
   }
 
   .banner {
     width: 80%;
-    margin-top: 20px;
+    margin-block-start: 20px;
   }
 
   .flexBox {
-    margin-top: 60px;
-    margin-bottom: -75px;
+    margin-block-start: 60px;
+    margin-block-end: -75px;
   }
 }

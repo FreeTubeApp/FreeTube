@@ -5,6 +5,8 @@ import router from './router/index'
 import store from './store/index'
 import i18n from './i18n/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
+// Please keep the list of constants sorted by name
+// to avoid code conflict and duplicate entries
 import {
   faAngleDown,
   faArrowDown,
@@ -26,17 +28,21 @@ import {
   faExchangeAlt,
   faExclamationCircle,
   faExternalLinkAlt,
+  faEye,
+  faEyeSlash,
   faFileDownload,
   faFileVideo,
   faFilter,
   faFire,
   faGlobe,
+  faHashtag,
   faHeart,
   faHistory,
   faInfoCircle,
   faLanguage,
   faList,
   faNewspaper,
+  faPause,
   faPlay,
   faQuestionCircle,
   faRandom,
@@ -57,8 +63,6 @@ import {
   faTimes,
   faTimesCircle,
   faUsers,
-  faEye,
-  faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faBitcoin,
@@ -72,6 +76,8 @@ Vue.config.devtools = process.env.NODE_ENV === 'development'
 Vue.config.performance = process.env.NODE_ENV === 'development'
 Vue.config.productionTip = process.env.NODE_ENV === 'development'
 
+// Please keep the list of constants sorted by name
+// to avoid code conflict and duplicate entries
 library.add(
   // solid icons
   faAngleDown,
@@ -94,17 +100,21 @@ library.add(
   faExchangeAlt,
   faExclamationCircle,
   faExternalLinkAlt,
+  faEye,
+  faEyeSlash,
   faFileDownload,
   faFileVideo,
   faFilter,
   faFire,
   faGlobe,
+  faHashtag,
   faHeart,
   faHistory,
   faInfoCircle,
   faLanguage,
   faList,
   faNewspaper,
+  faPause,
   faPlay,
   faQuestionCircle,
   faRandom,
@@ -125,8 +135,6 @@ library.add(
   faTimes,
   faTimesCircle,
   faUsers,
-  faEye,
-  faEyeSlash,
 
   // brand icons
   faGithub,

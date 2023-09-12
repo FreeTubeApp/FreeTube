@@ -456,6 +456,7 @@ Settings:
     Hide Subscriptions Videos: Ocultar subscrições de vídeos
     Hide Subscriptions Shorts: Ocultar subscrições de vídeos curtos
     Hide Subscriptions Live: Ocultar subscrições de vídeos em direto
+    Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -550,6 +551,7 @@ About:
   Licensed under the AGPLv3: Licenciado sob AGPLv3
   Source code: Código-fonte
   Beta: Beta
+  Discussions: Debate
 Profile:
   Profile Select: 'Seleção de perfil'
   All Channels: 'Todos os canais'
@@ -645,6 +647,9 @@ Channel:
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     Community: Comunidade
+    Hide Answers: Ocultar respostas
+    Reveal Answers: Revelar respostas
+    votes: '{votes} votos'
   Live:
     Live: Em directo
     This channel does not currently have any live streams: Este canal não tem atualmente
@@ -671,15 +676,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar ligação do Invidious'
-  View: 'Visualização'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
   Reverse Playlist: 'Inverter lista de reprodução'
   Play Next Video: 'Reproduzir vídeo seguinte'
   Play Previous Video: 'Reproduzir vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'A ver'
   Watched: 'Visto'
   Autoplay: 'Reprodução automática'
   # As in a Live Video

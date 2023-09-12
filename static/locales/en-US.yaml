@@ -45,6 +45,12 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Counts:
+    Video Count: 1 video | {count} videos
+    Channel Count: 1 channel | {count} channels
+    Subscriber Count: 1 subscriber | {count} subscribers
+    View Count: 1 view | {count} views
+    Watching Count: 1 watching | {count} watching
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -166,6 +172,7 @@ Settings:
       Beginning: Beginning
       Middle: Middle
       End: End
+      Hidden: Hidden
     Current Invidious Instance: Current Invidious Instance
     The currently set default instance is {instance}: The currently set default instance is {instance}
     No default instance has been set: No default instance has been set
@@ -196,6 +203,8 @@ Settings:
       Light: Light
       Dracula: Dracula
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastel Pink
+      Hot Pink: Hot Pink
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -332,6 +341,7 @@ Settings:
       Channel Page: Channel Page
       Watch Page: Watch Page
       General: General
+    Blur Thumbnails: Blur Thumbnails
     Hide Video Views: Hide Video Views
     Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
     Hide Channel Subscribers: Hide Channel Subscribers
@@ -344,6 +354,7 @@ Settings:
     Hide Active Subscriptions: Hide Active Subscriptions
     Hide Video Description: Hide Video Description
     Hide Comments: Hide Comments
+    Hide Profile Pictures in Comments: Hide Profile Pictures in Comments
     Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation
     Hide Live Streams: Hide Live Streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
@@ -533,8 +544,6 @@ Profile:
     from any other profile.
 #On Channel Page
 Channel:
-  Subscriber: Subscriber
-  Subscribers: Subscribers
   Subscribe: Subscribe
   Unsubscribe: Unsubscribe
   Channel has been removed from your subscriptions: Channel has been removed from
@@ -611,15 +620,13 @@ Video:
   Copy YouTube Channel Link: Copy YouTube Channel Link
   Open Channel in Invidious: Open Channel in Invidious
   Copy Invidious Channel Link: Copy Invidious Channel Link
-  View: View
   Views: Views
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
   Reverse Playlist: Reverse Playlist
   Play Next Video: Play Next Video
   Play Previous Video: Play Previous Video
-  # Context is "X People Watching"
-  Watching: Watching
+  Pause on Current Video: Pause on Current Video
   Watched: Watched
   Autoplay: Autoplay
   Starting soon, please refresh the page to check again: Starting soon, please refresh
@@ -803,6 +810,7 @@ Comments:
   No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
+  Subscribed: Subscribed
   Hearted: Hearted
 Up Next: Up Next
 
@@ -889,6 +897,8 @@ Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist has been reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
+Playlist will not pause when current video is finished: Playlist will not pause when current video is finished
+Playlist will pause when current video is finished: Playlist will pause when current video is finished
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
 

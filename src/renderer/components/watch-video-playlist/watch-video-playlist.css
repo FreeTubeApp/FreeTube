@@ -6,17 +6,17 @@
 .channelName {
   font-size: 15px;
   position: relative;
-  bottom: 15px;
+  inset-block-end: 15px;
 }
 
 .playlistIndex {
   position: relative;
-  bottom: 15px;
+  inset-block-end: 15px;
   color: var(--tertiary-text-color);
 }
 
 .playlistProgressBar {
-  margin-left: 10px;
+  margin-inline-start: 10px;
   /* > In order to let ::-webkit-progress-value take effect, appearance needs to be set to none on the <progress> element. */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
   appearance: none;
@@ -36,9 +36,11 @@
 }
 
 .playlistIcon {
+  height: 20px;
+  width: 20px;
   font-size: 20px;
   padding: 10px;
-  margin-top: -25px;
+  margin-block-start: -25px;
   cursor: pointer;
   border-radius: 50%;
   color: var(--tertiary-text-color);
@@ -47,6 +49,7 @@
 
 .playlistIcon:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
@@ -67,11 +70,12 @@
 }
 
 .playlistItem:not(:last-child) {
-  margin-bottom: 8px;
+  margin-block-end: 8px;
 }
 
 .playlistItem:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   transition: background 0.2s ease-in;
 }
 
@@ -89,7 +93,7 @@
 }
 
 .videoInfo {
-  margin-left: 30px;
+  margin-inline-start: 30px;
   position: relative;
-  bottom: 7px;
+  inset-block-end: 7px;
 }

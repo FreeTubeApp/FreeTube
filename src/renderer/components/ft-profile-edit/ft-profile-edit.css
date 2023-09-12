@@ -1,7 +1,7 @@
 .card {
   width: 85%;
-  margin: 0 auto;
-  margin-bottom: 15px;
+  margin-block: 0 15px;
+  margin-inline: auto;
 }
 
 .message {
@@ -13,13 +13,13 @@
 }
 
 .bottomMargin {
-  margin-bottom: 30px;
+  margin-block-end: 30px;
 }
 
 .colorOptions {
   max-width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  margin-block: 0 30px;
+  margin-inline: auto;
 }
 
 .colorOption {
@@ -35,7 +35,10 @@
   font-size: 50px;
   line-height: 1em;
   text-align: center;
-  padding: 25px 0;
+  padding-block: 25px;
+  padding-inline: 0px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 @media only screen and (max-width: 680px) {

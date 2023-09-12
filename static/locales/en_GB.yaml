@@ -575,8 +575,6 @@ Profile:
   Profile Filter: Profile Filter
   '{number} selected': '{number} selected'
 Channel:
-  Subscriber: 'Subscriber'
-  Subscribers: 'Subscribers'
   Subscribe: 'Subscribe'
   Unsubscribe: 'Unsubscribe'
   Channel has been removed from your subscriptions: 'Channel has been removed from
@@ -649,15 +647,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copy YouTube Embedded Player Link'
   Open in Invidious: 'Open in Invidious'
   Copy Invidious Link: 'Copy Invidious Link'
-  View: 'View'
   Views: 'Views'
   Loop Playlist: 'Loop Playlist'
   Shuffle Playlist: 'Shuffle Playlist'
   Reverse Playlist: 'Reverse Playlist'
   Play Next Video: 'Play Next Video'
   Play Previous Video: 'Play Previous Video'
-  # Context is "X People Watching"
-  Watching: 'Watching'
   Watched: 'Watched'
   Autoplay: 'Autoplay'
   Starting soon, please refresh the page to check again: 'Starting soon, please refresh
