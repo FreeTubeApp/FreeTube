@@ -39,6 +39,9 @@ Global:
   Counts:
     Video Count: 1 film | {count} film(y/ów)
     Channel Count: 1 kanał | {count} kanał(y/ów)
+    Subscriber Count: 1 subskrybujący | {count} subskrybentów
+    View Count: 1 wyświetlenie | {count} wyświetle(nia/ń)
+    Watching Count: 1 oglądający | {count} oglądających
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
