@@ -36,6 +36,9 @@ Global:
   Live: Live
 
 # Search Bar
+  Counts:
+    Video Count: 1 Video | {count} Videos
+    Channel Count: 1 Kanal | {count} Kanäle
 Search / Go to URL: Suche / Geh zu URL
   # In Filter Button
 Search Filters:
@@ -869,6 +872,7 @@ Comments:
   Member: Mitglied
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
+  Subscribed: Abonniert
 Up Next: Nächster Titel
 
 # Toast Messages
