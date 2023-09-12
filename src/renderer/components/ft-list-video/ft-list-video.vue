@@ -52,6 +52,7 @@
         :title="$t('Video.Save Video')"
         :icon="['fas', 'star']"
         class="favoritesIcon"
+        :class="{ favorited: favoriteIconTheme === 'base favorite'}"
         :theme="favoriteIconTheme"
         :padding="appearance === `watchPlaylistItem` ? 5 : 6"
         :size="appearance === `watchPlaylistItem` ? 14 : 18"

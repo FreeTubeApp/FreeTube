@@ -309,6 +309,7 @@ $watched-transition-duration: 0.5s;
   }
 
   @media (hover: hover) {
+    .favoritesIcon.favorited,
     &:hover .favoritesIcon,
     &:hover .externalPlayerIcon,
     &:focus-within .favoritesIcon,
