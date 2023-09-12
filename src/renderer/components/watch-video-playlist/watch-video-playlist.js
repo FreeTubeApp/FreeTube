@@ -71,8 +71,8 @@ export default defineComponent({
       return this.selectedUserPlaylist?.lastUpdatedAt
     },
 
-    currentVideoIndex: function () {
-      const index = this.playlistItems.findIndex((item) => {
+    currentVideoIndexZeroBased: function () {
+      return this.playlistItems.findIndex((item) => {
         if (item.uniqueId != null && this.uniqueId != null) {
           return item.uniqueId === this.uniqueId
         } else if (item.videoId != null) {
@@ -81,8 +81,12 @@ export default defineComponent({
           return item.id === this.videoId
         }
       })
-
-      return index + 1
+    },
+    currentVideoIndexOneBased: function () {
+      return this.currentVideoIndexZeroBased + 1
+    },
+    currentVideo: function () {
+      return this.playlistItems[this.currentVideoIndexZeroBased]
     },
 
     playlistVideoCount: function () {
@@ -105,15 +109,23 @@ export default defineComponent({
     },
 
     videoIndexInPlaylistItems: function () {
-      if (this.shuffleEnabled) {
-        return this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
-        })
-      } else {
-        return this.playlistItems.findIndex((item) => {
-          return (item.id ?? item.videoId) === this.videoId
-        })
-      }
+      const playlistItems = this.shuffleEnabled ? this.randomizedPlaylistItems : this.playlistItems
+
+      return playlistItems.findIndex((item) => {
+        if (item.uniqueId != null && this.uniqueId != null) {
+          return item.uniqueId === this.uniqueId
+        } else if (item.videoId != null) {
+          return item.videoId === this.videoId
+        } else {
+          return item.id === this.videoId
+        }
+      })
+    },
+    videoIsFirstPlaylistItem: function () {
+      return this.videoIndexInPlaylistItems === 0
+    },
+    videoIsLastPlaylistItem: function () {
+      return this.videoIndexInPlaylistItems === (this.playlistItems.length - 1)
     },
   },
   watch: {
@@ -136,11 +148,11 @@ export default defineComponent({
       // Check if next video is from the shuffled list or if the user clicked a different video
       if (this.shuffleEnabled) {
         const newVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === newId
+          return item.videoId === newId
         })
 
         const oldVideoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === oldId
+          return item.videoId === oldId
         })
 
         if ((newVideoIndex - 1) !== oldVideoIndex) {
@@ -258,40 +270,32 @@ export default defineComponent({
       }
 
       if (this.shuffleEnabled) {
-        const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
-        })
-
-        if (videoIndex === this.randomizedPlaylistItems.length - 1) {
-          if (this.loopEnabled) {
-            this.$router.push(
-              {
-                path: `/watch/${this.randomizedPlaylistItems[0]}`,
-                query: playlistInfo
-              }
-            )
-            showToast(this.$t('Playing Next Video'))
-            this.shufflePlaylistItems()
-          } else {
-            showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
-          }
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.randomizedPlaylistItems[videoIndex + 1]}`,
-              query: playlistInfo
-            }
-          )
-          showToast(this.$t('Playing Next Video'))
+        const videoIndex = this.videoIndexInPlaylistItems
+        let doShufflePlaylistItems = false
+        if (this.videoIsLastPlaylistItem && !this.loopEnabled) {
+          showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
+          return
         }
+        // loopEnabled = true
+        if (this.videoIsLastPlaylistItem) { doShufflePlaylistItems = true }
+
+        const targetVideoIndex = this.videoIsLastPlaylistItem ? 0 : videoIndex + 1
+        const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
+
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
+          }
+        )
+        showToast(this.$t('Playing Next Video'))
+        if (doShufflePlaylistItems) { this.shufflePlaylistItems() }
       } else {
-        const videoIndex = this.playlistItems.findIndex((item) => {
-          return (item.id ?? item.videoId) === this.videoId
-        })
-        const targetVideoIndex = videoIndex === this.playlistItems.length - 1 ? 0 : videoIndex + 1
+        const videoIndex = this.videoIndexInPlaylistItems
+        const targetVideoIndex = this.videoIsLastPlaylistItem ? 0 : videoIndex + 1
         const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
-        const stopDueToLoopDisabled = videoIndex === this.playlistItems.length - 1 && !this.loopEnabled
+        const stopDueToLoopDisabled = this.videoIsLastPlaylistItem && !this.loopEnabled
         if (stopDueToLoopDisabled) {
           showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
           return
@@ -299,8 +303,8 @@ export default defineComponent({
 
         this.$router.push(
           {
-            path: `/watch/${targetPlaylistItem.id ?? targetPlaylistItem.videoId}`,
-            query: playlistInfo
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
           }
         )
         showToast(this.$t('Playing Next Video'))
@@ -315,36 +319,25 @@ export default defineComponent({
       }
 
       if (this.shuffleEnabled) {
-        const videoIndex = this.randomizedPlaylistItems.findIndex((item) => {
-          return item === this.videoId
-        })
+        const videoIndex = this.videoIndexInPlaylistItems
+        const targetVideoIndex = this.videoIsFirstPlaylistItem ? this.randomizedPlaylistItems.length - 1 : videoIndex - 1
+        const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
 
-        if (videoIndex === 0) {
-          this.$router.push(
-            {
-              path: `/watch/${this.randomizedPlaylistItems[this.randomizedPlaylistItems.length - 1]}`,
-              query: playlistInfo
-            }
-          )
-        } else {
-          this.$router.push(
-            {
-              path: `/watch/${this.randomizedPlaylistItems[videoIndex - 1]}`,
-              query: playlistInfo
-            }
-          )
-        }
+        this.$router.push(
+          {
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
+          }
+        )
       } else {
-        const videoIndex = this.playlistItems.findIndex((item) => {
-          return (item.id ?? item.videoId) === this.videoId
-        })
-        const targetVideoIndex = videoIndex === 0 ? this.playlistItems.length - 1 : videoIndex - 1
+        const videoIndex = this.videoIndexInPlaylistItems
+        const targetVideoIndex = this.videoIsFirstPlaylistItem ? this.playlistItems.length - 1 : videoIndex - 1
         const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
         this.$router.push(
           {
-            path: `/watch/${targetPlaylistItem.id ?? targetPlaylistItem.videoId}`,
-            query: playlistInfo
+            path: `/watch/${targetPlaylistItem.videoId}`,
+            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
           }
         )
       }
@@ -480,17 +473,15 @@ export default defineComponent({
       const remainingItems = [].concat(this.playlistItems)
       const items = []
 
-      items.push(this.videoId)
+      items.push(this.currentVideo)
+      remainingItems.splice(this.currentVideoIndexZeroBased, 1)
 
-      this.playlistItems.forEach((item) => {
+      while (remainingItems.length > 0) {
         const randomInt = Math.floor(Math.random() * remainingItems.length)
 
-        if ((remainingItems[randomInt].id ?? remainingItems[randomInt].videoId) !== this.videoId) {
-          items.push(remainingItems[randomInt].id ?? remainingItems[randomInt].videoId)
-        }
-
+        items.push(remainingItems[randomInt])
         remainingItems.splice(randomInt, 1)
-      })
+      }
 
       this.randomizedPlaylistItems = items
     },

@@ -1592,8 +1592,8 @@ export default defineComponent({
     getPlaylistIndex: function () {
       return this.$refs.watchVideoPlaylist
         ? this.getPlaylistReverse()
-          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndex
-          : this.$refs.watchVideoPlaylist.currentVideoIndex - 1
+          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndexOneBased
+          : this.$refs.watchVideoPlaylist.currentVideoIndexZeroBased
         : -1
     },
 

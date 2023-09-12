@@ -34,11 +34,11 @@
       <span
         class="playlistIndex"
       >
-        {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
         <progress
           v-if="!shuffleEnabled && !reversePlaylist"
           class="playlistProgressBar"
-          :value="currentVideoIndex"
+          :value="currentVideoIndexOneBased"
           :max="playlistVideoCount"
         />
       </span>
@@ -116,12 +116,12 @@
         <div
           v-for="(item, index) in playlistItems"
           :key="`index-${item.uniqueId || item.videoId}`"
-          :ref="currentVideoIndex === (index + 1) ? 'currentVideoItem' : null"
+          :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
           class="playlistItem"
         >
           <div class="videoIndexContainer">
             <font-awesome-icon
-              v-if="currentVideoIndex === (index + 1)"
+              v-if="currentVideoIndexZeroBased === index"
               class="videoIndexIcon"
               :icon="['fas', 'play']"
             />
@@ -142,7 +142,7 @@
             :unique-id="item.uniqueId"
             appearance="watchPlaylistItem"
             force-list-type="list"
-            :initial-visible-state="index < ((currentVideoIndex - 1) + 4) && index > ((currentVideoIndex - 1) - 4)"
+            :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
             @pause-player="$emit('pause-player')"
           />
         </div>
