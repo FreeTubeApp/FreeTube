@@ -140,7 +140,10 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist updated
       this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: false })
     },
-    uniqueId () {
+    uniqueId (newId, _oldId) {
+      // Playing online video
+      if (newId == null) { return }
+
       // Re-fetch from local store when different item played
       this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
