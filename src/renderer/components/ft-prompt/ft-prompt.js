@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
+import { Injectables } from '../../../constants'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({
@@ -10,6 +11,9 @@ export default defineComponent({
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
     'ft-button': FtButton
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   props: {
     label: {
@@ -77,7 +81,8 @@ export default defineComponent({
         index = 0
       }
       if (index >= 0 && index < this.promptButtons.length) {
-        this.promptButtons[index].focus({ focusVisible: true })
+        this.promptButtons[index].focus()
+        this.showOutlines()
       }
     },
     // close on escape key and unfocus

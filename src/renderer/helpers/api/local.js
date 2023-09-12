@@ -256,6 +256,36 @@ export async function getLocalChannelVideos(id) {
   }
 }
 
+export async function getLocalChannelLiveStreams(id) {
+  const innertube = await createInnertube()
+
+  try {
+    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
+      browse_id: id,
+      params: 'EgdzdHJlYW1z8gYECgJ6AA%3D%3D'
+      // protobuf for the live tab (this is the one that YouTube uses,
+      // it has some empty fields in the protobuf but it doesn't work if you remove them)
+    }))
+
+    const liveStreamsTab = new YT.Channel(null, response)
+
+    // if the channel doesn't have a live tab, YouTube returns the home tab instead
+    // so we need to check that we got the right tab
+    if (liveStreamsTab.current_tab?.endpoint.metadata.url?.endsWith('/streams')) {
+      return parseLocalChannelVideos(liveStreamsTab.videos, liveStreamsTab.header.author)
+    } else {
+      return []
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof Utils.ChannelError) {
+      return null
+    } else {
+      throw error
+    }
+  }
+}
+
 /**
  * @param {import('youtubei.js').YTNodes.Video[]} videos
  * @param {Misc.Author} author
@@ -363,8 +393,7 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
   let channelId = null
   /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
   const thumbnailRenderer = playlist.thumbnail_renderer
-
-  if (playlist.author) {
+  if (playlist.author && playlist.author.id !== 'N/A') {
     if (playlist.author instanceof Misc.Text) {
       channelName = playlist.author.text
 
@@ -405,7 +434,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
     })
     .map((item) => parseListItem(item))
 
@@ -549,6 +578,17 @@ function parseListItem(item) {
         videos,
         handle,
         descriptionShort: channel.description_snippet.text
+      }
+    }
+    case 'HashtagTile': {
+      /** @type {import('youtubei.js').YTNodes.HashtagTile} */
+      const hashtag = item
+
+      return {
+        type: 'hashtag',
+        title: hashtag.hashtag.text,
+        videoCount: hashtag.hashtag_video_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
+        channelCount: hashtag.hashtag_channel_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_channel_count.text)
       }
     }
     case 'Playlist': {
@@ -760,6 +800,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
+    authorId: comment.author.id,
     authorThumb: comment.author.best_thumbnail.url,
     isPinned: comment.is_pinned,
     isOwner: comment.author_is_channel_owner,
@@ -887,7 +928,7 @@ function parseLocalAttachment(attachment) {
   } else if (attachment.type === 'Poll') {
     return {
       type: 'poll',
-      totalVotes: attachment.total_votes ?? 0,
+      totalVotes: parseLocalSubscriberCount(attachment.total_votes.text) ?? 0,
       content: attachment.choices.map(choice => {
         return {
           text: choice.text.text,
@@ -895,9 +936,21 @@ function parseLocalAttachment(attachment) {
         }
       })
     }
+  } else if (attachment.type === 'Quiz') {
+    return {
+      type: 'quiz',
+      totalVotes: parseLocalSubscriberCount(attachment.total_votes.text) ?? 0,
+      content: Object.values(attachment.choices).map(choice => {
+        return {
+          text: choice.text.text,
+          isCorrect: choice.is_correct,
+          image: choice.image
+        }
+      })
+    }
   } else {
+    console.error(`Unknown Local community post type: ${attachment.type}`)
     console.error(attachment)
-    console.error('unknown type')
   }
 }
 

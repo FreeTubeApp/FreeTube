@@ -29,6 +29,11 @@ Close: 'Затвори'
 Back: 'Назад'
 Forward: 'Напред'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Видео'
+
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
   је сада достуна!  Кликните за више детаља'
 Download From Site: 'Преузми са сајта'
@@ -410,15 +415,12 @@ Video:
   Copy YouTube Channel Link: 'Копирај везу YouTube канала'
   Open Channel in Invidious: 'Отвори канал у Invidious'
   Copy Invidious Channel Link: 'Копирај везу Invidious канала'
-  View: 'Прегледа'
   Views: 'Прегледа'
   Loop Playlist: 'Безкрајна плејлиста'
   Shuffle Playlist: 'Промешај плејлисту'
   Reverse Playlist: 'Обрни плејлисту'
   Play Next Video: 'Пусти следећи видео'
   Play Previous Video: 'Пусти претходни видео'
-  # Context is "X People Watching"
-  Watching: 'Гледа се'
   Watched: 'Одгледано'
   Autoplay: 'Аутоматско покретање'
   Starting soon, please refresh the page to check again: 'Ускоро почиње, освежите

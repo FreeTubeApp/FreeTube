@@ -199,7 +199,8 @@ export default defineComponent({
       if (this.hideVideoViews) {
         return null
       }
-      return formatNumber(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
+
+      return this.$tc('Global.Counts.View Count', this.viewCount, { count: formatNumber(this.viewCount) })
     },
 
     dateString: function () {
@@ -242,13 +243,13 @@ export default defineComponent({
       })
 
       this.$watch('$refs.downloadButton.dropdownShown', (dropdownShown) => {
-        this.$parent.infoAreaSticky = !dropdownShown
+        this.$emit('set-info-area-sticky', !dropdownShown)
 
         if (dropdownShown && window.innerWidth >= 901) {
           // adds a slight delay so we know that the dropdown has shown up
           // and won't mess up our scrolling
-          Promise.resolve().then(() => {
-            this.$parent.$refs.infoArea.scrollIntoView()
+          setTimeout(() => {
+            this.$emit('scroll-to-info-area')
           })
         }
       })
@@ -276,20 +277,6 @@ export default defineComponent({
         this.removeFromPlaylist()
       } else {
         this.addToPlaylist()
-      }
-    },
-
-    handleFormatChange: function (format) {
-      switch (format) {
-        case 'dash':
-          this.$parent.enableDashFormat()
-          break
-        case 'legacy':
-          this.$parent.enableLegacyFormat()
-          break
-        case 'audio':
-          this.$parent.enableAudioFormat()
-          break
       }
     },
 

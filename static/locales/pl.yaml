@@ -28,7 +28,17 @@ Close: 'Zamknij'
 Back: 'Wstecz'
 Forward: 'Naprzód'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Filmy'
+  Shorts: Filmy Short
+  Live: Transmisje
+
 # Search Bar
+  Counts:
+    Video Count: 1 film | {count} film(y/ów)
+    Channel Count: 1 kanał | {count} kanał(y/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -84,6 +94,9 @@ Subscriptions:
   Disabled Automatic Fetching: Wyłączyłeś automatyczne pobieranie subskrypcji. Odśwież
     subskrypcje, by je zobaczyć.
   Empty Channels: Twoje subskrypcje nie mają obecnie żadnych filmów.
+  All Subscription Tabs Hidden: Wszystkie karty subskrypcji są pochowane. Aby je zobaczyć,
+    proszę odznaczyć ich ukrycie w podgrupie „{subsection}” grupy „{settingsSection}”.
+  Subscriptions Tabs: Karty subskrypcji
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -136,6 +149,7 @@ Settings:
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
+      Hidden: Nie pokazuj
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious
       (Domyślnie jest https://invidious.snopyta.org)'
     Region for Trending: '„Na czasie” z obszaru'
@@ -169,6 +183,8 @@ Settings:
       Dracula: 'Drakula'
       System Default: Domyślny systemu
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Gorący róż
+      Pastel Pink: Pastelowy róż
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -415,6 +431,14 @@ Settings:
       Channel Page: Strona kanału
       General: Ogólne
       Watch Page: Strona odtwarzacza
+      Subscriptions Page: Strona subskrypcji
+    Hide Channel Releases: Schowaj wydawnictwa kanału
+    Hide Channel Podcasts: Schowaj podkasty kanału
+    Hide Subscriptions Videos: Schowaj filmy z subskrypcji
+    Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
+    Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
+    Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
+    Blur Thumbnails: Rozmazuj miniaturki
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -551,6 +575,7 @@ About:
   Licensed under the AGPLv3: Na licencji AGPLv3
   Source code: Kod źródłowy
   FreeTube is made possible by: FreeTube powstał dzięki
+  Discussions: Dyskusje
 Channel:
   Subscriber: 'Subskrybent/ka'
   Subscribers: 'subskrybentów'
@@ -599,14 +624,23 @@ Channel:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       publikacji
     Community: Społeczność
+    votes: '{votes} głosów'
+    Reveal Answers: Pokaż odpowiedzi
+    Hide Answers: Schowaj odpowiedzi
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
       żadnych transmisji
   Shorts:
-    Shorts: Filmy Short
     This channel does not currently have any shorts: Ten kanał nie ma obecnie żadnych
       filmów Short
+  Releases:
+    Releases: Wydania
+    This channel does not currently have any releases: Ten kanał nie ma obecnie żadnych
+      wydawnictw
+  Podcasts:
+    Podcasts: Podkasty
+    This channel does not currently have any podcasts: Ten kanał nie ma żadnych podkastów
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -618,10 +652,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
   Copy Invidious Link: 'Skopiuj link do strony Invidious'
-  View: 'wyświetlenie'
   Views: 'wyświetleń'
-  # Context is "X People Watching"
-  Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
   Live: 'Transmisja'
@@ -677,7 +708,7 @@ Video:
   Reverse Playlist: Odwróć playlistę
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
-  Starting soon, please refresh the page to check again: Wkrótce się zacznie, proszę
+  Starting soon, please refresh the page to check again: Wkrótce się zacznie. Proszę
     odświeżyć stronę, aby ponownie sprawdzić
   Audio:
     Best: Najlepsza
@@ -752,6 +783,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Czat
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
+  Pause on Current Video: Zatrzymaj po tym filmie
 Videos:
   #& Sort By
   Sort By:
@@ -771,7 +803,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlista
-Toggle Theatre Mode: 'Aktywuj tryb kinowy'
+Toggle Theatre Mode: 'Włącz/wyłącz tryb kinowy'
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
@@ -827,6 +859,7 @@ Comments:
   Member: Wspierający
   Hearted: z serduszkiem
   View {replyCount} replies: Zobacz {replyCount} odpowiedzi
+  Subscribed: Zasubskrybowano
 Up Next: 'Następne'
 
 # Toast Messages
@@ -891,6 +924,7 @@ Profile:
   Subscription List: Lista subskrypcji
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
+  Toggle Profile List: Włącz/wyłącz listę profili
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
@@ -969,6 +1003,8 @@ Tooltips:
       tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne”
       oraz z polecanych. Nazwa kanału musi być dokładnym dopasowaniem, z uwzględnieniem
       wielkości liter.
+    Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}”
+      z podgrupy „{subsection}” grupy „{settingsSection}”
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników
       DeArrow.
@@ -1032,3 +1068,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Nie ma na razie żadnych filmów
     z takim hashtagiem
+Playlist will pause when current video is finished: Playlista zatrzyma się, gdy obecny
+  film się zakończy
+Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
+  gdy obecny film się zakończy

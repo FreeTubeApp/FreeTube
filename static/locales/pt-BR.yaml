@@ -28,7 +28,17 @@ Close: 'Fechar'
 Back: 'Voltar'
 Forward: 'Avançar'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vídeos'
+  Shorts: Shorts
+  Live: Ao vivo
+
 # Search Bar
+  Counts:
+    Video Count: Contagem de videos
+    Channel Count: Contagem de Canais
 Search / Go to URL: 'Buscar/Ir ao URL'
   # In Filter Button
 Search Filters:
@@ -83,6 +93,9 @@ Subscriptions:
   Disabled Automatic Fetching: Você desativou a busca automática de assinaturas. Atualize-as
     para vê-las aqui.
   Empty Channels: No momento, seus canais inscritos não têm vídeos.
+  Subscriptions Tabs: Abas de inscrição
+  All Subscription Tabs Hidden: Todos as abas de inscrição estão ocultas. Para ver
+    o conteúdo aqui, exiba algumas abas na seção "{subsection}" em "{settingsSection}".
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -133,6 +146,7 @@ Settings:
       Beginning: 'No começo'
       Middle: 'No meio'
       End: 'No fim'
+      Hidden: Escondido
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância do
       Invidious (A padrão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para o “Em alta”'
@@ -166,6 +180,8 @@ Settings:
       Dracula: 'Drácula'
       System Default: Padrão do sistema
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Rosa Pastel
+      Hot Pink: Rosa Choque
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -410,10 +426,18 @@ Settings:
       Channel Page: Página do canal
       Watch Page: Página de Visualização
       General: Geral
+      Subscriptions Page: Página de inscrições
     Hide Featured Channels: Ocultar canais em destaque
     Hide Channel Playlists: Ocultar listas de reprodução de canais
     Hide Channel Community: Ocultar comunidade do canal
     Hide Channel Shorts: Ocultar Shorts do Canal
+    Hide Channel Podcasts: Ocultar podcasts do canal
+    Hide Channel Releases: Ocultar lançamentos do canal
+    Hide Subscriptions Videos: Ocultar vídeos de inscrições
+    Hide Subscriptions Shorts: Ocultar Shorts de Inscrições
+    Hide Subscriptions Live: Ocultar inscrições de transmissões ao vivo
+    Hide Profile Pictures in Comments: Esconder imagens do perfil nos comentários
+    Blur Thumbnails: Desfocar Miniaturas
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -541,6 +565,7 @@ About:
   Website: Site web
   Please check for duplicates before posting: Verifique se há duplicatas antes de
     postar
+  Discussions: Discussões
 Channel:
   Subscriber: 'Inscrito'
   Subscribers: 'Inscritos'
@@ -587,15 +612,25 @@ Channel:
     Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
+    votes: '{votes} Votos'
+    Reveal Answers: Revelar respostas
+    Hide Answers: Ocultar respostas
   Channel Tabs: Abas dos Canais
   Live:
     Live: Ao vivo
     This channel does not currently have any live streams: Este canal não tem nenhuma
       transmissão ao vivo no momento
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Este canal não tem atualmente
       nenhum short
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Este canal não possui podcasts
+      no momento
+  Releases:
+    Releases: Lançamentos
+    This channel does not currently have any releases: Este canal não tem nenhum lançamento
+      no momento
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
@@ -607,10 +642,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiar link incorporado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar link do Invidious'
-  View: 'Visualização'
   Views: 'Visualizações'
-  # Context is "X People Watching"
-  Watching: 'Assistindo'
   Watched: 'Assistido'
   # As in a Live Video
   Live: 'Ao vivo'
@@ -741,6 +773,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
     bate-papo ao vivo não está disponível para esta transmissão. Pode ter sido desativado
     pelo responsável.
+  Pause on Current Video: Pausar no vídeo atual
 Videos:
   #& Sort By
   Sort By:
@@ -881,6 +914,7 @@ Profile:
   Your profile name cannot be empty: Seu nome de perfil não pode ficar em branco
   Profile Filter: Filtro de Perfil
   Profile Settings: Configurações de Perfil
+  Toggle Profile List: Ativar/Desativar Lista de Perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
 A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
@@ -959,9 +993,12 @@ Tooltips:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
-    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, listas
-      de reprodução e o próprio canal dos resultados da busca ou nas tendências. O
-      nome do canal digitado deve coincidir exatamente, observando maiúsculas e minúsculas.
+    Hide Channels: Digite um nome ou ID de canal para ocultar todos os vídeos, as
+      listas de reprodução e o próprio canal dos resultados da busca, tendências,
+      mais populares e recomendados. O nome do canal digitado deve coincidir exatamente,
+      observando maiúsculas e minúsculas.
+    Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
+      aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário
       a partir do DeArrow.
@@ -1022,3 +1059,7 @@ Hashtag:
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     nenhum vídeo
   Hashtag: Hashtag
+Playlist will pause when current video is finished: Lista de reprodução será pausada
+  quando vídeo atual terminar
+Playlist will not pause when current video is finished: Lista de reprodução não será
+  pausada quando vídeo atual terminar

@@ -5,7 +5,8 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
-import { copyToClipboard, isNullOrEmpty, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
+import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -96,12 +97,26 @@ export default defineComponent({
     getLocalHashtag: async function(hashtag) {
       try {
         const hashtagData = await getHashtagLocal(hashtag)
-        this.hashtag = hashtagData.header.hashtag
-        this.videos = hashtagData.contents.contents.filter(item =>
-          item.type !== 'ContinuationItem'
-        ).map(item =>
-          parseLocalListVideo(item.content)
-        )
+
+        const header = hashtagData.header
+        if (header) {
+          switch (header.type) {
+            case 'HashtagHeader':
+              this.hashtag = header.hashtag.toString()
+              break
+            case 'PageHeader':
+              this.hashtag = header.content.title.text
+              break
+            default:
+              console.error(`Unknown hashtag header type: ${header.type}, falling back to query parameter.`)
+              this.hashtag = `#${hashtag}`
+          }
+        } else {
+          console.error(' Hashtag header missing, probably a layout change, falling back to query parameter.')
+          this.hashtag = `#${hashtag}`
+        }
+
+        this.videos = hashtagData.videos.map(parseLocalListVideo)
         this.apiUsed = 'local'
         this.hashtagContinuationData = hashtagData.has_continuation ? hashtagData : null
         this.isLoading = false
@@ -123,12 +138,8 @@ export default defineComponent({
 
     getLocalHashtagMore: async function() {
       try {
-        const continuation = await this.hashtagContinuationData.getContinuationData()
-        const newVideos = continuation.on_response_received_actions[0].contents.filter(item =>
-          item.type !== 'ContinuationItem'
-        ).map(item =>
-          parseLocalListVideo(item.content)
-        )
+        const continuation = await this.hashtagContinuationData.getContinuation()
+        const newVideos = continuation.videos.map(parseLocalListVideo)
         this.hashtagContinuationData = continuation.has_continuation ? continuation : null
         this.videos = this.videos.concat(newVideos)
       } catch (error) {

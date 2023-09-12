@@ -25,4 +25,3 @@
 </template>
 
 <script src="./ProfileEdit.js" />
-<style scoped src="./ProfileEdit.css" />

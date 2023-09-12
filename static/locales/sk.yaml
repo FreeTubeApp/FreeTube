@@ -28,6 +28,11 @@ Close: 'Zavrieť'
 Back: 'Späť'
 Forward: 'Vpred'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videá'
+
 # Search Bar
 Search / Go to URL: 'Hľadať / Ísť na adresu URL'
   # In Filter Button
@@ -449,10 +454,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopírovať link na vložený prehrávač Youtube'
   Open in Invidious: 'Otvoriť v Invidious'
   Copy Invidious Link: 'Skopírovať Invidious linku'
-  View: 'Pozrieť'
   Views: 'Zhliadnutí'
-  # Context is "X People Watching"
-  Watching: 'Sleduje'
   Watched: 'Prehraté'
   # As in a Live Video
   Live: 'Naživo'

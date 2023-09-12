@@ -47,7 +47,7 @@ module.exports = {
     'plugin:vue/recommended',
     'standard',
     'plugin:jsonc/recommended-with-json',
-    // 'plugin:vuejs-accessibility/recommended' // uncomment once issues are fixed
+    'plugin:vuejs-accessibility/recommended'
   ],
 
   // https://eslint.org/docs/user-guide/configuring#configuring-plugins
@@ -70,6 +70,7 @@ module.exports = {
         some: ['nesting', 'id']
       }
     }],
+    'vuejs-accessibility/no-static-element-interactions': 'off',
     'n/no-callback-literal': 'warn',
     'n/no-path-concat': 'warn',
     'unicorn/better-regex': 'error',

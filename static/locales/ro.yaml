@@ -29,6 +29,13 @@ Close: 'Închideți'
 Back: 'Înapoi'
 Forward: 'Înainte'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoclipuri'
+
+  Shorts: Shorts
+  Live: Live
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -60,12 +67,14 @@ Search Filters:
     Videos: 'Videoclipuri'
     Channels: 'Canale'
     #& Playlists
+    Movies: Filme
   Duration:
     Duration: 'Durata'
     All Durations: 'Toate duratele'
     Short (< 4 minutes): 'Scurt (< 4 minute)'
     Long (> 20 minutes): 'Lung (> 20 minute)'
   # On Search Page
+    Medium (4 - 20 minutes): Mediu (4 - 20 minute)
   Search Results: 'Rezultatele căutării'
   Fetching results. Please wait: 'Se obțin rezultatele. Vă rugăm să așteptați'
   Fetch more results: 'Obțineți mai multe rezultate'
@@ -89,6 +98,10 @@ Subscriptions:
   Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
   Disabled Automatic Fetching: Ai dezactivat obținerea automată de abonamente. Reîmprospătează
     abonamentele pentru a le vedea aici.
+  Subscriptions Tabs: Filele Abonamente
+  All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea
+    conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din
+    "{settingsSection}”.
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
@@ -142,6 +155,7 @@ Settings:
       Beginning: 'Început'
       Middle: 'Mijloc'
       End: 'Sfârșit'
+      Hidden: Ascuns
     Region for Trending: 'Regiunea tendințelor'
         #! List countries
     External Link Handling:
@@ -216,6 +230,7 @@ Settings:
     Disable Smooth Scrolling: Dezactivați derularea lină
     Expand Side Bar by Default: Extindeți bara laterală în mod implicit
     Hide Side Bar Labels: Ascunde etichetele din bara laterală
+    Hide FreeTube Header Logo: Ascundeți logo-ul FreeTube Header
   Player Settings:
     Player Settings: 'Setări player'
     Force Local Backend for Legacy Formats: 'Forțați backend-ul local pentru formatele
@@ -269,6 +284,11 @@ Settings:
     Max Video Playback Rate: Viteza maximă de redare
     Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
       de scroll
+    Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
+    Comment Auto Load:
+      Comment Auto Load: Comentariu Încărcare automată
+    Skip by Scrolling Over Video Player: Omiteți derulând peste player-ul video
+    Allow DASH AV1 formats: Permiteți formatele DASH AV1
   Privacy Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
@@ -286,11 +306,14 @@ Settings:
       sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
       nu poate fi anulat.'
     Automatically Remove Video Meta Files: Îndepărtați automat fișierele meta video
+    Save Watched Videos With Last Viewed Playlist: Salvați videoclipurile vizionate
+      cu ultima listă de redare vizualizată
   Subscription Settings:
     Subscription Settings: 'Setări de abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Manage Subscriptions: 'Gestionați abonamentele'
+    Fetch Automatically: Preluați feedul automat
   Data Settings:
     Data Settings: 'Setări de date'
     Select Import Type: 'Selectează tipul de import'
@@ -339,6 +362,9 @@ Settings:
       se omite
     All playlists has been successfully exported: Toate listele de redare au fost
       exportate cu succes
+    Playlist File: Fișier listă de redare
+    History File: Fișier istoric
+    Subscription File: Fișier abonament
   Advanced Settings: {}
   The app needs to restart for changes to take effect. Restart and apply change?: Aplicația
     trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați
@@ -368,6 +394,27 @@ Settings:
     Hide Comments: Ascunde comentariile
     Hide Live Streams: Ascunde stream-urile live
     Hide Sharing Actions: Ascunde butoanele de sharing
+    Hide Chapters: Ascundeți capitolele
+    Display Titles Without Excessive Capitalisation: Afișați titluri fără majuscule
+      excesive
+    Sections:
+      Subscriptions Page: Pagina de abonamente
+      Side Bar: Bară laterală
+      Channel Page: Pagina canalului
+      Watch Page: Pagina de vizionare
+      General: General
+    Hide Channel Podcasts: Ascundeți podcasturile canalului
+    Hide Subscriptions Shorts: Ascundeți Abonamente Shorts
+    Hide Channel Releases: Ascunde lansările canalului
+    Hide Subscriptions Videos: Ascundeți Abonamente Videoclipuri
+    Hide Subscriptions Live: Ascundeți Abonamente Live
+    Hide Channels: Ascundeți videoclipurile din canale
+    Hide Channel Community: Ascunde comunitatea canalului
+    Hide Channel Shorts: Ascundeți canalul Shorts
+    Hide Featured Channels: Ascundeți canalele recomandate
+    Hide Channels Placeholder: Numele canalului sau ID-ul
+    Hide Channel Playlists: Ascunde playlisturile canalului
+    Hide Upcoming Premieres: Ascundeți premierele viitoare
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -382,6 +429,7 @@ Settings:
       Prompt To Skip: Întreabă pentru a sării
       Do Nothing: Nu fă nimic
     Category Color: Culoarea categoriilor
+    UseDeArrowTitles: Utilizați titlurile video DeArrow
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Eroare
       la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
@@ -410,6 +458,23 @@ Settings:
     Parental Control Settings: Setările controlului parental
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
+  Password Dialog:
+    Password Incorrect: Parolă incorectă
+    Unlock: Deblocați
+    Password: Parolă
+    Enter Password To Unlock: Introduceți parola pentru a debloca setările
+  Password Settings:
+    Remove Password: Eliminați parola
+    Password Settings: Setări parolă
+    Set Password To Prevent Access: Setați o parolă pentru a împiedica accesul la
+      setări
+    Set Password: Setați parola
+  Experimental Settings:
+    Warning: Aceste setări sunt experimentale, ele pot cauza blocări atunci când sunt
+      activate. Este foarte recomandat să faceți copii de rezervă. Folosiți pe propria
+      răspundere!
+    Replace HTTP Cache: Înlocuiți cache HTTP
+    Experimental Settings: Setări experimentale
 About:
   #On About page
   About: 'Despre'
@@ -484,6 +549,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtru profil
   Profile Settings: Setări de profil
+  Toggle Profile List: Lista profilului toggle
 Channel:
   Subscriber: 'Abonat'
   Subscribers: 'Abonați'
@@ -518,6 +584,35 @@ Channel:
     About: 'Despre'
     Channel Description: 'Descrierea canalului'
     Featured Channels: 'Canale recomandate'
+    Joined: S-a alăturat pe
+    Location: Locație
+    Details: Detalii
+    Tags:
+      Search for: Căutați "{tag}"
+      Tags: Tags
+  Community:
+    Community: Comunitate
+    This channel currently does not have any posts: Acest canal nu are momentan nicio
+      postare
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Acest
+    canal are restricții de vârstă și momentan nu poate fi vizionat în FreeTube.
+  This channel does not exist: Acest canal nu există
+  This channel does not allow searching: Acest canal nu permite căutarea
+  Live:
+    Live: Live
+    This channel does not currently have any live streams: Acest canal nu are momentan
+      niciun live stream
+  Shorts:
+    This channel does not currently have any shorts: Acest canal nu are momentan shorts
+  Podcasts:
+    Podcasts: Podcasturi
+    This channel does not currently have any podcasts: Acest canal nu are momentan
+      nici un podcast
+  Releases:
+    Releases: Lansări
+    This channel does not currently have any releases: Acest canal nu are momentan
+      nicio lansare
+  Channel Tabs: Filele canalului
 Video:
   Mark As Watched: 'Marcați ca vizionat'
   Remove From History: 'Eliminați din istoric'
@@ -529,15 +624,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiați link-ul playerului încorporat YouTube'
   Open in Invidious: 'Deschideți în Invidious'
   Copy Invidious Link: 'Copiați link-ul Invidious'
-  View: 'Vizionare'
   Views: 'Vizionări'
   Loop Playlist: 'Lista de redare în buclă'
   Shuffle Playlist: 'Lista de redare aleatorie'
   Reverse Playlist: 'Lista de redare inversă'
   Play Next Video: 'Redă videoclipul următor'
   Play Previous Video: 'Redă videoclipul anterior'
-  # Context is "X People Watching"
-  Watching: 'Vizionează'
   Watched: 'Vizionat'
   Autoplay: 'Redare automată'
   Starting soon, please refresh the page to check again: 'Începe în curând, vă rugăm
@@ -586,6 +678,7 @@ Video:
     Ago: 'În urmă'
     Upcoming: 'În premieră la'
     Less than a minute: Mai putin de un minut
+    In less than a minute: În mai puțin de un minut
   Published on: 'Publicat pe'
   Publicationtemplate: 'acum {number} {unit}'
 #& Videos
@@ -655,6 +748,13 @@ Video:
     Mimetype: Mimetype
   Premieres on: Premieră pe
   Premieres in: Are premiera în
+  Scroll to Bottom: Derulați până jos
+  Upcoming: Urmează
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Chatul
+    live nu este disponibil pentru acest flux. Este posibil să fi fost dezactivat
+    de persoana care a încărcat.
+  Premieres: Premiere
+  Show Super Chat Comment: Afișați comentariul Super Chat
 Videos:
   #& Sort By
   Sort By:
@@ -701,6 +801,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL-ul canalului YouTube copiat în clipboard
   Invidious Channel URL copied to clipboard: URL-ul Invidious al canalului a fost
     copiat în clipboard
+  Share Channel: Distribuie canalul
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentarii'
@@ -728,6 +829,8 @@ Comments:
   From {channelName}: de la {channelName}
   Pinned by: Lipit de
   Member: Membru
+  Hearted: Inima
+  View {replyCount} replies: '{replyCount} răspunsuri'
 Up Next: 'În continuare'
 
 # Toast Messages
@@ -778,6 +881,8 @@ Tooltips:
       metodei implicite pentru a prelua feed-ul de abonament. RSS este mai rapid și
       previne blocarea IP-ului, dar nu oferă anumite informații, cum ar fi durata
       videoclipului sau starea live
+    Fetch Automatically: Când activat, FreeTube va prelua automat feed-ul de abonament
+      când se deschide o fereastră nouă și când schimbați profilul.
   External Player Settings:
     Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
       separate prin punct și virgulă (";"), pe care doriți să le transmiteți playerului
@@ -809,10 +914,16 @@ Tooltips:
       (tasta Command pe Mac) și faceți clic cu butonul stâng al mouse-ului pentru
       a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care
       aceasta a fost modificată în setări).
+    Allow DASH AV1 formats: Formatele DASH AV1 pot arăta mai bine decât formatele
+      DASH H.264. Formatele DASH AV1 necesită mai multă putere pentru redare! Nu sunt
+      disponibile pe toate videoclipurile, în acele cazuri playerul va folosi în schimb
+      formatele DASH H.264.
+    Skip by Scrolling Over Video Player: Utilizați rotița de derulare pentru a trece
+      prin videoclip, stil MPV.
   General Settings:
-    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic\
-      \ pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube\
-      \ va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
+    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic
+      pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube
+      va deschide link-ul pe care s-a făcut clic în browserul dvs. implicit.\n"
     Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
       în tendințe din fiecare țară doriți să fie afișate.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
@@ -825,6 +936,20 @@ Tooltips:
     Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru
       a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită
       un server Invidious la care să vă conectați.
+  Distraction Free Settings:
+    Hide Channels: Introduceți un nume de canal sau un ID de canal pentru a ascunde
+      toate videoclipurile, listele de redare și canalul în sine pentru a nu apărea
+      în căutare, în tendințe, în cele mai populare și recomandate. Numele canalului
+      introdus trebuie să se potrivească complet și să țină cont de majuscule și minuscule.
+    Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}”
+      la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
+  Experimental Settings:
+    Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și
+      activează un cache de imagini personalizat în memorie. Va duce la o utilizare
+      crescută a memoriei RAM.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Înlocuiți titlurile video cu titluri trimise de utilizator de
+      la DeArrow.
 External link opening has been disabled in the general settings: Deschiderea linkurilor
   externe a fost dezactivată în setările generale
 Starting download: Se începe descărcarea a "{videoTitle}"
@@ -837,6 +962,8 @@ Age Restricted:
   Type:
     Channel: Canal
     Video: Video
+  This {videoOrPlaylist} is age restricted: Acest {videoOrPlaylist} are restricții
+    de vârstă
 Channels:
   Channels: Canale
   Title: Listă de canale
@@ -847,4 +974,20 @@ Channels:
   Unsubscribed: '{channelName} a fost eliminat din lista ta de abonamente'
   Unsubscribe Prompt: Ești sigur că dorești să te dezabonezi de la "{channelName}"?
 Screenshot Success: Capturi de ecran salvate ca "{filePath}"
-Screenshot Error: Captura de ecran a eșuat
+Screenshot Error: Captura de ecran a eșuat {error}
+Preferences: Preferințe
+Chapters:
+  Chapters: Capitole
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de capitole vizibilă,
+    capitolul curent: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capitole ascunsă,
+    capitolul curent: {chapterName}'
+Clipboard:
+  Cannot access clipboard without a secure connection: Nu se poate accesa clipboard-ul
+    fără o conexiune securizată
+  Copy failed: Copierea în clipboard a eșuat
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun
+    videoclip
+Ok: OK

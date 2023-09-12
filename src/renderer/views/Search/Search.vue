@@ -10,7 +10,7 @@
       v-else
       class="card"
     >
-      <h3>{{ $t("Search Filters.Search Results") }}</h3>
+      <h2>{{ $t("Search Filters.Search Results") }}</h2>
       <ft-element-list
         :data="shownResults"
       />

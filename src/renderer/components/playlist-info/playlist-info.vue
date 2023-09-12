@@ -13,6 +13,7 @@
         <img
           :src="thumbnail"
           alt=""
+          :style="{filter: blurThumbnailsStyle}"
         >
       </router-link>
     </div>
@@ -41,6 +42,7 @@
       class="channelShareWrapper"
     >
       <router-link
+        v-if="channelId"
         class="playlistChannel"
         :to="`/channel/${channelId}`"
       >
@@ -55,6 +57,16 @@
           {{ channelName }}
         </h3>
       </router-link>
+      <div
+        v-else
+        class="playlistChannel"
+      >
+        <h3
+          class="channelName"
+        >
+          {{ channelName }}
+        </h3>
+      </div>
 
       <ft-share-button
         v-if="!hideSharingActions"

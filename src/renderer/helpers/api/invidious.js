@@ -1,5 +1,6 @@
 import store from '../../store/index'
-import { isNullOrEmpty, stripHTML, toLocalePublicationString } from '../utils'
+import { stripHTML, toLocalePublicationString } from '../utils'
+import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 
 function getCurrentInstance() {
@@ -256,6 +257,23 @@ function parseInvidiousCommunityAttachments(data) {
     }
   }
 
+  if (data.type === 'quiz') {
+    return {
+      type: 'quiz',
+      totalVotes: data.totalVotes ?? 0,
+      content: data.choices.map(choice => {
+        return {
+          text: choice.text,
+          isCorrect: choice.isCorrect,
+          image: choice.image?.map(thumbnail => {
+            thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
+            return thumbnail
+          })
+        }
+      })
+    }
+  }
+
   if (data.type === 'playlist') {
     return {
       type: data.type,
@@ -263,7 +281,8 @@ function parseInvidiousCommunityAttachments(data) {
     }
   }
 
-  console.error('New Invidious Community Post Type: ' + data.type)
+  console.error(`Unknown Invidious community post type: ${data.type}`)
+  console.error(data)
 }
 
 /**

@@ -28,7 +28,14 @@ Close: 'Đóng'
 Back: 'Quay lại'
 Forward: 'Tiến tới'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+
 # Search Bar
+  Live: Trực tiếp
+  Shorts: Shorts
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
@@ -53,6 +60,7 @@ Search Filters:
     Videos: 'Video'
     Channels: 'Kênh'
     #& Playlists
+    Movies: Phim ảnh
   Duration:
     Duration: 'Thời hạn'
     All Durations: 'Tất cả thời hạn'
@@ -135,8 +143,8 @@ Settings:
     Check for Latest Blog Posts: Check Blog post mới nhất
     Check for Updates: Kiểm tra cập nhật
     Current Invidious Instance: Phiên bản invidious hiện tại
-    The currently set default instance is {instance}: Phiên bản Invidious mặc định hiện được
-      đặt thành {instance}
+    The currently set default instance is {instance}: Phiên bản Invidious mặc định
+      hiện được đặt thành {instance}
     No default instance has been set: Không có phiên bản mặc định nào được đặt
     Current instance will be randomized on startup: Phiên bản hiện tại sẽ được chọn
       ngẫu nhiên khi khởi động
@@ -205,6 +213,7 @@ Settings:
     Disable Smooth Scrolling: Tắt cuộn mượt
     Expand Side Bar by Default: Mở rộng thanh bên theo mặc định
     Hide Side Bar Labels: Ẩn Nhãn Thanh Bên
+    Hide FreeTube Header Logo: Ẩn Logo FreeTube trên thanh trên
   Player Settings:
     Player Settings: 'Cài đặt trình phát'
     Force Local Backend for Legacy Formats: 'Bắt buộc Local Backend cho định dạng
@@ -258,6 +267,7 @@ Settings:
         mục con.
     Max Video Playback Rate: Tốc độ phát lại tối đa
     Video Playback Rate Interval: khoảng cách phát lại video
+    Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay
   Subscription Settings:
     Subscription Settings: 'Cài đặt đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -271,6 +281,7 @@ Settings:
     Export Subscriptions: 'Xuất đăng ký'
     How do I import my subscriptions?: 'Làm sao để nhập đăng ký của tôi?'
     Fetch Feeds from RSS: Lấy feeds từ RSS
+    Fetch Automatically: Tự động làm mới bảng tin
   Advanced Settings:
     Advanced Settings: 'Cài đặt nâng cao'
     Enable Debug Mode (Prints data to the console): 'Bật chế độ Debug (Ghi data ra
@@ -340,9 +351,11 @@ Settings:
       thêm vào thành công
     All playlists has been successfully exported: Tất cả các danh sách phát đã được
       xuất thành công
-    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "{playlist}", bỏ qua mục
-      này
+    Playlist insufficient data: Dữ liệu bị thiếu cho danh sách phát "{playlist}",
+      bỏ qua mục này
     Export Playlists: Xuất danh sách phát
+    History File: Tệp Lịch sử
+    Playlist File: Tệp Danh sách phát
   Distraction Free Settings:
     Hide Live Chat: Giấu live chat
     Hide Popular Videos: Giấu video phổ biến
@@ -359,6 +372,14 @@ Settings:
     Hide Live Streams: Ẩn phát trực tiếp
     Hide Video Description: Ẩn mổ tả video
     Hide Sharing Actions: Ẩn hoạt động chia sẻ
+    Sections:
+      General: Chung
+    Hide Channel Playlists: Ẩn danh sách phát của kênh
+    Hide Featured Channels: Ẩn các kênh nổi bật
+    Hide Channels Placeholder: Tên kênh hoặc ID
+    Hide Profile Pictures in Comments: Ẩn ảnh đại diện trong Bình luận
+    Hide Chapters: Ẩn các chương
+    Hide Channels: Ẩn các videos khỏi kênh
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
       có muốn xóa toàn bộ đăng ký và profiles không? Điều này không thể phục hồi.
@@ -412,6 +433,9 @@ Settings:
     Custom External Player Arguments: Chứng minh trình phát bên ngoài tùy chỉnh
     Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
     Custom External Player Executable: Chạy trình phát bên ngoài tuỳ chỉnh
+    Players:
+      None:
+        Name: Trống
   Parental Control Settings:
     Parental Control Settings: Cài đặt trình kiểm soát của phụ huynh
     Hide Unsubscribe Button: Ẩn Nút Huỷ Đăng Ký
@@ -424,6 +448,21 @@ Settings:
     Ask Download Path: Yêu cầu đường dẫn tải xuống
     Choose Path: Chọn đường dẫn
     Download Settings: Cài đặt tải xuống
+  Password Dialog:
+    Password: Mật khẩu
+    Password Incorrect: Mật khẩu sai
+    Enter Password To Unlock: Nhập mật khẩu để mở Cài đặt
+    Unlock: Mở khoá
+  Password Settings:
+    Set Password To Prevent Access: Đặt mặt khẩu để ngăn truy cập cài đặt
+    Password Settings: Cài đặt Mật khẩu
+    Remove Password: Xoá mật khẩu
+    Set Password: Đặt mật khẩu
+  Experimental Settings:
+    Warning: Những cài đặt này đều đang trong quá trình thử nghiệm, bật các tùy chọn
+      cài đặt này có thể gây ra hoạt động bất ổn định. Hãy tạo phương án dự phòng
+      trước khi bật!
+    Experimental Settings: Cài đặt thử nghiệm
 About:
   #On About page
   About: 'Giới thiệu'
@@ -481,6 +520,7 @@ About:
   FreeTube is made possible by: FreeTube được tạo ra bởi
   these people and projects: những người và dự án
   Please read the: Hãy đọc
+  Discussions: Thảo luận
 Channel:
   Subscriber: 'Người đăng ký'
   Subscribers: 'Người đăng ký'
@@ -509,10 +549,33 @@ Channel:
     About: 'Giới thiệu'
     Channel Description: 'Miêu tả kênh'
     Featured Channels: 'Kênh đặc sắc'
+    Tags:
+      Search for: Tìm kiếm cho "{tag}"
+    Joined: Đã tham gia
+    Location: Vị trí
+    Details: Chi tiết
   Added channel to your subscriptions: Đã thêm kênh vào đăng ký của bạn
-  Removed subscription from {count} other channel(s): Đã xóa đăng ký từ {count} các kênh khác
+  Removed subscription from {count} other channel(s): Đã xóa đăng ký từ {count} các
+    kênh khác
   Channel has been removed from your subscriptions: Kênh đã được xóa khỏi đăng ký
     của bạn
+  Live:
+    Live: Trực tiếp
+    This channel does not currently have any live streams: Kênh này hiện không có
+      bất kì luồng phát trực tiếp nào
+  This channel does not allow searching: Kênh này không cho phép tìm kiếm
+  This channel does not exist: Kênh không tồn tại
+  Community:
+    Community: Cộng đồng
+    This channel currently does not have any posts: Kênh này hiện không có bất kì
+      bài đăng nào
+    votes: '{votes} bình chọn'
+    Reveal Answers: Hiện Câu trả lời
+    Hide Answers: Ẩn Câu trả lời
+  Releases:
+    Releases: Xuất bản
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Kênh
+    này là kênh giới hạn độ tuổi và hiện tại không thể xem được trên FreeTube.
 Video:
   Open in YouTube: 'Mở trong Youtube'
   Copy YouTube Link: 'Sao chép liên kết Youtube'
@@ -521,10 +584,7 @@ Video:
     nhúng vào'
   Open in Invidious: 'Mở trong Invidious'
   Copy Invidious Link: 'Sao chép liên kết Invidious'
-  View: 'Lượt xem'
   Views: 'Lượt xem'
-  # Context is "X People Watching"
-  Watching: 'Đang xem'
   Watched: 'Đã xem'
   # As in a Live Video
   Live: 'Trực tiếp'
@@ -569,6 +629,7 @@ Video:
     Upcoming: 'Công chiếu vào'
     Minutes: Phút
     Minute: Phút
+    In less than a minute: Trong khoảng ít hơn 1 phút
   Published on: 'Phát hành vào'
   Publicationtemplate: '{number} {unit} trước'
 #& Videos
@@ -641,6 +702,10 @@ Video:
     trữ của bạn
   Video has been saved: Video đã được lưu
   Save Video: Lưu Video
+  Scroll to Bottom: Cuộn xuống dưới
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Trò
+    chuyện trực tiếp hiện không khả dụng trên luồng phát này. Chủ sở hữu có thể đã
+    tắt chức năng này.
 Videos:
   #& Sort By
   Sort By:
@@ -710,6 +775,7 @@ Comments:
   And others: Và những thứ khác
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
+  View {replyCount} replies: Hiển thị {replyCount} câu trả lời
 Up Next: 'Tiếp theo'
 
 # Toast Messages
@@ -754,8 +820,8 @@ Profile:
   Your default profile has been changed to your primary profile: Profile mặc định
     của bạn đã thay đổi thành profile chính
   Removed {profile} from your profiles: Đã xóa {profile} khỏi Profile của bạn
-  Your default profile has been set to {profile}: 'Profile mặc định của bạn đã được chỉnh về
-    {profile}'
+  Your default profile has been set to {profile}: 'Profile mặc định của bạn đã được
+    chỉnh về {profile}'
   Profile has been updated: Profile đã được cập nhật
   Profile has been created: Profile đã được tạo
   Your profile name cannot be empty: Tên Profile của bạn không được để trống
@@ -776,11 +842,11 @@ Profile:
   Profile Select: Chọn Profile
   Profile Filter: Bộ lọc hồ sơ
   Profile Settings: Cài đặt hồ sơ cá nhân
-A new blog is now available, {blogTitle}. Click to view more: Một blog mới đã có, {blogTitle}. Nhấn để
-  xem chi tiết
+A new blog is now available, {blogTitle}. Click to view more: Một blog mới đã có,
+  {blogTitle}. Nhấn để xem chi tiết
 Download From Site: Tải từ website
-Version {versionNumber} is now available!  Click for more details: Phiên bản {versionNumber} đã có! Click để xem
-  chi tiết
+Version {versionNumber} is now available!  Click for more details: Phiên bản {versionNumber}
+  đã có! Click để xem chi tiết
 Open New Window: Mở cửa sổ mới
 Search Bar:
   Clear Input: Xóa đầu vào
@@ -801,9 +867,9 @@ Tooltips:
   General Settings:
     Thumbnail Preference: Tất cả các hình thu nhỏ trên FreeTube sẽ được thay thế bằng
       khung hình của video thay vì hình thu nhỏ mặc định.
-    External Link Handling: "Chọn tác vụ mặc định khi một liên kết không thể mở được\
-      \ nhập vào FreeTube.\nTheo mặc định, FreeTube sẽ mở liên kết này trong trình\
-      \ duyệt mặc định của bạn.\n"
+    External Link Handling: "Chọn tác vụ mặc định khi một liên kết không thể mở được
+      nhập vào FreeTube.\nTheo mặc định, FreeTube sẽ mở liên kết này trong trình duyệt
+      mặc định của bạn.\n"
     Fallback to Non-Preferred Backend on Failure: Khi API ưu tiên của bạn gặp sự cố,
       FreeTube sẽ tự động sử dụng API không ưu tiên của bạn làm phương án dự phòng
       khi nó được bật lên.
@@ -853,10 +919,12 @@ Tooltips:
     Remove Video Meta Files: Khi được bật lên, FreeTube sẽ tự động xóa các tệp meta
       được tạo trong quá trình phát lại video, khi trang xem bị đóng.
 Age Restricted:
-  The currently set default instance is {instance}: '{instance} này bị giới hạn độ tuổi'
+  The currently set default instance is {instance}: '{instance} này bị giới hạn độ
+    tuổi'
   Type:
     Channel: Kênh
     Video: Video
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} bị giới hạn độ tuổi'
 Hashtags have not yet been implemented, try again later: Thẻ hashtag chưa thể dùng
   được, hãy thử lại sau
 Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. |
@@ -869,8 +937,11 @@ Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "{vi
 Default Invidious instance has been cleared: Phiên bản Invidious mặc định đã bị xóa
 Screenshot Success: Ảnh chụp màn hình đã lưu thành "{filePath}"
 Screenshot Error: Chụp màn hình không thành công. {error}
-Default Invidious instance has been set to {instance}: Phiên bản Invidious mặc định đã được
-  đặt thành {instance}
+Default Invidious instance has been set to {instance}: Phiên bản Invidious mặc định
+  đã được đặt thành {instance}
 Unknown YouTube url type, cannot be opened in app: Dạng YouTube URL không xác định,
   không thể mở trong ứng dụng này
 Starting download: Bắt đầu tải xuống "{videoTitle}"
+Ok: Ok
+Clipboard:
+  Copy failed: Sao chép vào bộ nhớ tạm thất bại

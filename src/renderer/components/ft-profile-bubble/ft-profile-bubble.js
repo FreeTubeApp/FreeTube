@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({
   name: 'FtProfileBubble',
@@ -21,12 +22,20 @@ export default defineComponent({
     }
   },
   computed: {
+    sanitizedId: function() {
+      return 'profileBubble' + sanitizeForHtmlId(this.profileId)
+    },
     profileInitial: function () {
       return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
     }
   },
   methods: {
-    goToProfile: function () {
+    goToProfile: function (event) {
+      if (event instanceof KeyboardEvent) {
+        if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
+          return
+        }
+      }
       this.$router.push({
         path: `/settings/profile/edit/${this.profileId}`
       })

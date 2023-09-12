@@ -9,7 +9,8 @@
     color: var(--primary-text-color);
     font-size: 18px;
     font-weight: bold;
-    margin: 4px 0 8px;
+    margin-block: 4px 8px;
+    margin-inline: 0;
   }
 
   .buttons {
@@ -24,7 +25,8 @@
   .divider {
     background: var(--tertiary-text-color);
     grid-row: span 3;
-    margin: 0 12px;
+    margin-block: 0;
+    margin-inline: 12px;
     width: 1px;
   }
 
@@ -44,6 +46,7 @@
 
       /* no changes for the dracula theme */
 
+      .pastelPink &,
       .light &,
       .system[data-system-theme*='light'] & {
         filter: invert(0.87);
@@ -60,7 +63,7 @@
       background-size: cover;
       display: inline-block;
       height: 20px;
-      margin-right: 2px;
+      margin-inline-end: 2px;
       width: 20px;
 
       @at-root {
@@ -68,10 +71,12 @@
         .black &,
         .dracula &,
         .CatppuccinMocha &,
+        .hotPink &,
         .system[data-system-theme*='dark'] & {
           background-image: url('../../assets/img/invidious-logo-dark.svg');
         }
 
+        .pastelPink &,
         .light &,
         .system[data-system-theme*='light'] & {
           background-image: url('../../assets/img/invidious-logo-light.svg');

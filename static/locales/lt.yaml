@@ -30,6 +30,13 @@ Back: 'Atgal'
 Forward: 'Pirmyn'
 Open New Window: 'Atidaryti naują langą'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vaizdo įrašai'
+
+  Live: Tiesiogiai
+  Shorts: Šortai
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
   jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
@@ -572,15 +579,12 @@ Video:
   Copy YouTube Channel Link: 'Kopijuoti YouTube kanalo nuorodą'
   Open Channel in Invidious: 'Atidaryti kanalą Invidious'
   Copy Invidious Channel Link: 'Kopijuoti Invidious kanalo nuorodą'
-  View: 'Peržiūra'
   Views: 'Peržiūros'
   Loop Playlist: 'Sukti grojaraštį ciklu'
   Shuffle Playlist: 'Maišyti grojaraštį'
   Reverse Playlist: 'Apsukti grojaraštį'
   Play Next Video: 'Groti sekantį vaizdo įrašą'
   Play Previous Video: 'Groti ankstesnį vaizdo įrašą'
-  # Context is "X People Watching"
-  Watching: 'Žiūri'
   Watched: 'Žiūrėta'
   Autoplay: 'Paleisti automatiškai'
   Starting soon, please refresh the page to check again: 'Greitai prasidės, atnaujinkite

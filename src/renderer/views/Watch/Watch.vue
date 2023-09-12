@@ -3,7 +3,7 @@
     class="videoLayout"
     :class="{
       isLoading,
-      useTheatreMode,
+      useTheatreMode: useTheatreMode && !isLoading,
       noSidebar: !theatrePossible
     }"
   >
@@ -30,12 +30,16 @@
           :video-id="videoId"
           :length-seconds="videoLengthSeconds"
           :chapters="videoChapters"
+          :current-chapter-index="videoCurrentChapterIndex"
+          :theatre-possible="theatrePossible"
+          :use-theatre-mode="useTheatreMode"
           class="videoPlayer"
           :class="{ theatrePlayer: useTheatreMode }"
           @ready="handleVideoReady"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
+          @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
@@ -113,12 +117,14 @@
         :get-playlist-reverse="getPlaylistReverse"
         :get-playlist-shuffle="getPlaylistShuffle"
         :get-playlist-loop="getPlaylistLoop"
-        :theatre-possible="theatrePossible"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        @change-format="handleFormatChange"
         @pause-player="pausePlayer"
+        @set-info-area-sticky="infoAreaSticky = $event"
+        @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"

@@ -8,7 +8,7 @@
       v-show="!isLoading"
       class="card"
     >
-      <h3>{{ $t("History.History") }}</h3>
+      <h2>{{ $t("History.History") }}</h2>
       <ft-input
         v-show="fullData.length > 0"
         ref="searchBar"

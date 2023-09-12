@@ -3,6 +3,7 @@
     ref="sideNav"
     class="sideNav"
     :class="[{closed: !isOpen}, applyHiddenLabels]"
+    role="navigation"
   >
     <div
       class="inner"

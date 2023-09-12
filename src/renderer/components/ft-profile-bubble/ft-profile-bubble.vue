@@ -1,7 +1,11 @@
 <template>
   <div
     class="bubblePadding"
+    tabindex="0"
+    :aria-labelledby="sanitizedId"
     @click="goToProfile"
+    @keydown.space.prevent="goToProfile($event)"
+    @keydown.enter.prevent="goToProfile($event)"
   >
     <div
       class="bubble"
@@ -11,7 +15,10 @@
         {{ profileInitial }}
       </div>
     </div>
-    <div class="profileName">
+    <div
+      :id="sanitizedId"
+      class="profileName"
+    >
       {{ profileName }}
     </div>
   </div>

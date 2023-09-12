@@ -29,6 +29,13 @@ Close: 'Stäng'
 Back: 'Tillbaka'
 Forward: 'Framåt'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videor'
+  Shorts: Shorts
+  Live: Live
+
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -50,7 +57,7 @@ Search Filters:
     Time: 'Tid'
     Any Time: 'När som helst'
     Last Hour: 'Senaste timmen'
-    Today: 'I dag'
+    Today: 'Idag'
     This Week: 'Den här veckan'
     This Month: 'Den här månaden'
     This Year: 'I år'
@@ -82,14 +89,16 @@ Subscriptions:
     till prenumerationer för att se dem här.'
   'Getting Subscriptions. Please wait.': 'Hämtar prenumerationer. Snälla vänta.'
   Refresh Subscriptions: 'Uppdatera prenumerationer'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Den
-    här profilen har ett stort antal prenumerationer.  Tvinga RSS för att undvika
-    ränta begränsa
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denna
+    profil har ett stort antal prenumerationer. Tvingar RSS för att undvika hastighetsbegränsning
   Load More Videos: Se mer
   Error Channels: Kanaler med fel
   Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning.
     Uppdatera prenumerationerna för att se dem här.
   Empty Channels: Dina prenumererade kanaler har inga filmer.
+  Subscriptions Tabs: Prenumeration Flik
+  All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll
+    här, vänligen avdölj några flikar i avsnittet "{subsection}" i "{settingsSection}".
 Trending:
   Trending: 'Populärt'
   Movies: Filmer
@@ -143,6 +152,7 @@ Settings:
       Beginning: 'Början'
       Middle: 'Mitten'
       End: 'Slutet'
+      Hidden: Dold
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Standard är https://invidious.snopyta.org)'
     Region for Trending: 'Region för Trender'
@@ -173,6 +183,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Systemstandard
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Het Rosa
+      Pastel Pink: Pastell Rosa
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -399,8 +411,16 @@ Settings:
       General: Allmänt
       Channel Page: Kanal sida
       Watch Page: Titta sida
+      Subscriptions Page: Prenumerationssida
     Hide Channel Community: Dölj Kanal gemenskap
     Hide Channel Playlists: Dölj Kanal spellistor
+    Hide Channel Podcasts: Dölj kanal podcasts
+    Hide Channel Releases: Dölj kanal släpp
+    Hide Subscriptions Videos: Dölj prenumerationsvideor
+    Hide Subscriptions Shorts: Dölj prenumerationsshorts
+    Hide Subscriptions Live: Dölj prenumerations Live-sändningar
+    Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
+    Blur Thumbnails: Oskärpa tumnaglar
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -455,7 +475,7 @@ Settings:
   Download Settings:
     Ask Download Path: Välj nerladdningsmapp varje gång
     Download Settings: Nerladdningsinställningar
-    Choose Path: Välj mapp
+    Choose Path: Välj Sökväg
     Download in app: Ladda ner i appen
     Download Behavior: Nerladdningsalternativ
     Open in web browser: Öppna i webbläsare
@@ -526,6 +546,7 @@ About:
   Licensed under the AGPLv3: Licensierad under AGPLv3
   Source code: Källkod
   Beta: Beta
+  Discussions: Diskussioner
 Profile:
   Profile Select: 'Välj profil'
   All Channels: 'Alla kanaler'
@@ -569,6 +590,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profilinställningar
+  Toggle Profile List: Aktivera Profillista
 Channel:
   Subscriber: 'Prenumerant'
   Subscribers: 'Prenumeranter'
@@ -617,14 +639,23 @@ Channel:
     Community: Gemenskap
     This channel currently does not have any posts: Denna kanal har för närvarande
       inga inlägg
+    votes: '{votes} röster'
+    Reveal Answers: Avslöja svar
+    Hide Answers: Dölj svar
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Den här kanalen har för närvarande
       inga shorts
   Live:
     Live: Live
     This channel does not currently have any live streams: Den här kanalen har för
       närvarande inga liveströmmar
+  Releases:
+    Releases: Släpp
+    This channel does not currently have any releases: Den här kanalen har för närvarande
+      inga släpp
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Den här kanalen har inga podcasts
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -636,15 +667,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiera länk till den interna YouTube-spelaren'
   Open in Invidious: 'Öppna på Invidious'
   Copy Invidious Link: 'Kopiera Invidious-länk'
-  View: 'Visa'
   Views: 'Visningar'
   Loop Playlist: 'Loop spellista'
   Shuffle Playlist: 'Blanda spellista'
   Reverse Playlist: 'Omvänd spellista'
   Play Next Video: 'Spela nästa video'
   Play Previous Video: 'Spela föregående video'
-  # Context is "X People Watching"
-  Watching: 'Tittar på'
   Watched: 'Visad'
   Autoplay: 'Autospelning'
   Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera
@@ -759,6 +787,7 @@ Video:
   Scroll to Bottom: Skrolla till botten
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt
     är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
+  Pause on Current Video: Pausa på aktuell video
 Videos:
   #& Sort By
   Sort By:
@@ -807,7 +836,7 @@ Share:
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Visa kommentarer'
+  Click to View Comments: 'Klicka för att Visa kommentarer'
   Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
   There are no more comments for this video: 'Det finns inga fler kommentarer för
     videon'
@@ -817,7 +846,7 @@ Comments:
   View: 'Visa'
   Hide: 'Dölja'
   Replies: 'Svar'
-  Reply: 'Svar'
+  Reply: 'Svara'
   There are no comments available for this video: 'Det finns inga kommentarer tillgängliga
     för videon'
   Load More Comments: 'Fler kommentarer'
@@ -919,6 +948,8 @@ Tooltips:
     Hide Channels: Ange ett kanalnamn eller kanal-ID för att dölja alla videor, spellistor
       och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
       Det angivna kanalnamnet måste vara en fullständig matchning och är skiftlägeskänsligt.
+    Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande
+      "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
       en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
@@ -979,3 +1010,7 @@ Hashtag:
   Hashtag: Hashtaggar
   This hashtag does not currently have any videos: Den här hashtaggen har för närvarande
     inga videor
+Playlist will pause when current video is finished: Spellistan pausas när den aktuella
+  videon är klar
+Playlist will not pause when current video is finished: Spellistan kommer inte att
+  pausas när den aktuella videon är klar

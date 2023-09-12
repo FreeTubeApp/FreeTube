@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Auto Merge PR
-      if: github.event.pull_request.draft == false && (contains(${{ github.event.pull_request.base.ref }}, 'development') || contains(${{ github.event.pull_request.base.ref }}, 'RC'))
+      if: ${{ !github.event.pull_request.draft && (contains(github.event.pull_request.base.ref, 'development') || contains(github.event.pull_request.base.ref, 'RC')) }}
       run: |
         echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
         gh auth login --with-token < auth.txt

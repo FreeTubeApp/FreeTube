@@ -83,7 +83,7 @@ export default defineComponent({
   methods: {
     getSubscription: function () {
       this.subscribedChannels = this.activeSubscriptionList.slice().sort((a, b) => {
-        return a.name.localeCompare(b.name, this.locale)
+        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
     },
 

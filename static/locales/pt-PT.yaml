@@ -30,6 +30,13 @@ Close: Fechar
 Back: Recuar
 Forward: Avançar
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Vídeos
+  Shorts: Curtas
+  Live: Em directo
+
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível!  Clique para mais detalhes
 Download From Site: Descarregar do site
@@ -90,6 +97,10 @@ Subscriptions:
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
     Atualize as subscrições para as ver aqui.
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
+  Subscriptions Tabs: Separadores de subscrições
+  All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
+    Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsecção}"
+    em "{settingsSection}".
 Trending:
   Trending: Tendências
   Trending Tabs: Separador de tendências
@@ -341,6 +352,12 @@ Settings:
       Channel Page: Página do canal
       Watch Page: Ver página
       General: Geral
+      Subscriptions Page: Página de subscrições
+    Hide Channel Releases: Ocultar as libertações do canal
+    Hide Channel Podcasts: Ocultar podcasts do canal
+    Hide Subscriptions Videos: Ocultar subscrições Vídeos
+    Hide Subscriptions Shorts: Ocultar subscrições Shorts
+    Hide Subscriptions Live: Ocultar subscrições em direto
   Data Settings:
     Data Settings: Definições de dados
     Select Import Type: Escolher tipo de importação
@@ -585,9 +602,16 @@ Channel:
     This channel does not currently have any live streams: Este canal não tem atualmente
       nenhuma transmissão ao vivo
   Shorts:
-    Shorts: Curtas
     This channel does not currently have any shorts: Este canal não tem atualmente
       nenhum canal curto
+  Releases:
+    Releases: Lançamentos
+    This channel does not currently have any releases: Este canal não tem atualmente
+      nenhum lançamento
+  Podcasts:
+    This channel does not currently have any podcasts: Este canal não tem atualmente
+      podcasts
+    Podcasts: Podcasts
 Video:
   Mark As Watched: Marcar como visto
   Remove From History: Remover do histórico
@@ -606,10 +630,7 @@ Video:
   Copy YouTube Channel Link: Copiar ligação do canal do YouTube
   Open Channel in Invidious: Abrir canal no Invidious
   Copy Invidious Channel Link: Copiar ligação do canal do Invidious
-  View: Visualização
   Views: Visualizações
-  # Context is "X People Watching"
-  Watching: A ver
   Watched: Visto
   Autoplay: Reprodução automática
   Starting soon, please refresh the page to check again: A começar em breve, recarregue
@@ -870,10 +891,12 @@ Tooltips:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Levará ao aumento da utilização de RAM.
   Distraction Free Settings:
-    Hide Channels: Introduza o nome de um canal ou ID do canal para esconder todos
-      os vídeos, listas de reprodução e o próprio canal de aparecer em busca ou em
-      tendências. O nome do canal introduzido tem de ser uma correspondência completa
-      e é sensível a maiúsculas e minúsculas.
+    Hide Channels: Introduza um nome de canal ou um ID de canal para ocultar todos
+      os vídeos, listas de reprodução e o próprio canal de aparecerem na pesquisa,
+      tendências, mais populares e recomendados. O nome do canal introduzido tem de
+      corresponder na totalidade e é sensível a maiúsculas e minúsculas.
+    Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
+      aplicação "{appWideSetting}", na secção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.

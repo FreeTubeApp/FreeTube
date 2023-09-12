@@ -29,6 +29,13 @@ Close: 'Fechar'
 Back: 'Recuar'
 Forward: 'Avançar'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vídeos'
+  Shorts: Curtas
+  Live: Em directo
+
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações'
 Download From Site: 'Descarregar do site'
@@ -89,6 +96,10 @@ Subscriptions:
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
     Atualize as subscrições para as ver aqui.
+  Subscriptions Tabs: Separadores de subscrições
+  All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
+    Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsection}"
+    em "{settingsSection}".
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Separador de tendências
@@ -439,6 +450,13 @@ Settings:
       Channel Page: Página do canal
       Watch Page: Ver página
       General: Geral
+      Subscriptions Page: Página de subscrições
+    Hide Channel Podcasts: Ocultar podcasts do canal
+    Hide Channel Releases: Ocultar as libertações do canal
+    Hide Subscriptions Videos: Ocultar subscrições de vídeos
+    Hide Subscriptions Shorts: Ocultar subscrições de vídeos curtos
+    Hide Subscriptions Live: Ocultar subscrições de vídeos em direto
+    Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -533,6 +551,7 @@ About:
   Licensed under the AGPLv3: Licenciado sob AGPLv3
   Source code: Código-fonte
   Beta: Beta
+  Discussions: Debate
 Profile:
   Profile Select: 'Seleção de perfil'
   All Channels: 'Todos os canais'
@@ -579,6 +598,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtro de perfil
   Profile Settings: Definições de perfil
+  Toggle Profile List: Alternar Lista de Perfis
 Channel:
   Subscriber: 'Subscritor'
   Subscribers: 'Subscritores'
@@ -627,14 +647,24 @@ Channel:
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     Community: Comunidade
+    Hide Answers: Ocultar respostas
+    Reveal Answers: Revelar respostas
+    votes: '{votes} votos'
   Live:
     Live: Em directo
     This channel does not currently have any live streams: Este canal não tem atualmente
       nenhuma transmissão ao vivo
   Shorts:
-    Shorts: Curtas
     This channel does not currently have any shorts: Este canal não tem atualmente
       nenhum canal curto
+  Releases:
+    Releases: Lançamentos
+    This channel does not currently have any releases: Este canal não tem atualmente
+      nenhum lançamento
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Este canal não tem atualmente
+      podcasts
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'
@@ -646,15 +676,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar ligação do Invidious'
-  View: 'Visualização'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
   Reverse Playlist: 'Inverter lista de reprodução'
   Play Next Video: 'Reproduzir vídeo seguinte'
   Play Previous Video: 'Reproduzir vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'A ver'
   Watched: 'Visto'
   Autoplay: 'Reprodução automática'
   # As in a Live Video
@@ -959,10 +986,12 @@ Tooltips:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Levará ao aumento da utilização de RAM.
   Distraction Free Settings:
-    Hide Channels: Digite um nome ou ID do canal para ocultar todos os vídeos, listas
-      de reprodução e o próprio canal, de forma a não aparecer em pesquisas ou tendências.
-      O nome do canal inserido deve ser exatamente igual ao nome do canal e é sensível
-      a maiúsculas e minúsculas.
+    Hide Channels: Introduza um nome de canal ou um ID de canal para ocultar todos
+      os vídeos, listas de reprodução e o próprio canal de aparecerem na pesquisa,
+      tendências, mais populares e recomendados. O nome do canal introduzido tem de
+      corresponder na totalidade e é sensível a maiúsculas e minúsculas.
+    Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
+      aplicação "{appWideSetting}", na secção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.

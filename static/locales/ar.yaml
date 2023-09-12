@@ -29,7 +29,17 @@ Close: 'إغلاق'
 Back: 'رجوع'
 Forward: 'إلى الأمام'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'الفيديوهات'
+  Shorts: القصيرة
+  Live: مباشر
+
 # Search Bar
+  Counts:
+    Video Count: 1 فيديو | {count} مقاطع فيديو
+    Channel Count: 1 قناة | {count} القنوات
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -82,6 +92,9 @@ Subscriptions:
   Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات
     لرؤيتها هنا.
   Empty Channels: لا تحتوي قنواتك التي اشتركت فيها حاليا على أي مقاطع فيديو.
+  All Subscription Tabs Hidden: جميع علامات تبويب الاشتراك مخفية. لمشاهدة المحتوى
+    هنا ، يرجى إظهار بعض علامات التبويب في قسم "{subection}" في "{settingsSection}".
+  Subscriptions Tabs: تبويب الاشتراكات
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -131,6 +144,7 @@ Settings:
       Beginning: 'بداية'
       Middle: 'وسط'
       End: 'نهاية'
+      Hidden: مخفي
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious
       (الافتراضية هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
@@ -163,6 +177,8 @@ Settings:
       Dracula: 'دراكولا'
       System Default: افتراضيات النظام
       Catppuccin Mocha: كاتبوتشين موكا
+      Pastel Pink: الباستيل الوردي
+      Hot Pink: وردي فاقع
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -402,6 +418,14 @@ Settings:
       Channel Page: صفحة القناة
       Watch Page: صفحة المشاهدة
       General: عام
+      Subscriptions Page: صفحة الاشتراكات
+    Hide Channel Podcasts: إخفاء بودكاست القناة
+    Hide Channel Releases: إخفاء إصدارات القناة
+    Hide Subscriptions Live: إخفاء الاشتراكات مباشرة
+    Hide Subscriptions Shorts: إخفاء الاشتراكات الفيدوهات القصيرة
+    Hide Subscriptions Videos: إخفاء مقاطع فيديو الاشتراكات
+    Hide Profile Pictures in Comments: إخفاء صور الملف الشخصي في التعليقات
+    Blur Thumbnails: اخفاء الصور المصغرة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -525,6 +549,7 @@ About:
   GitHub releases: إصدارات GitHub
   Downloads / Changelog: التحميلات\التغييرات
   Licensed under the AGPLv3: مرخّص تحت رخصة أفيرو جيبيإل النسخة الثالثة
+  Discussions: المناقشات
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -569,9 +594,8 @@ Profile:
   Subscription List: قائمة الاشتراكات
   Profile Filter: مرشح الملف الشخصي
   Profile Settings: إعدادات الملف الشخصي
+  Toggle Profile List: تبديل قائمة الملف الشخصي
 Channel:
-  Subscriber: 'مُشترِك'
-  Subscribers: 'مُشترِكين'
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
   Search Channel: 'ابحث في القناة'
@@ -616,14 +640,24 @@ Channel:
     Community: المجتمع
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
+    Hide Answers: إخفاء الأجوبة
+    votes: '{votes} أصوات'
+    Reveal Answers: كشف الإجابات
   Live:
     Live: مباشر
     This channel does not currently have any live streams: لا يوجد حاليا أي بث مباشر
       على هذه القناة
   Shorts:
-    Shorts: القصيرة
     This channel does not currently have any shorts: هذه القناة ليس لديها حاليا أي
       أفلام قصيرة (shorts)
+  Podcasts:
+    Podcasts: البودكاست
+    This channel does not currently have any podcasts: لا تحتوي هذه القناة حاليا على
+      أي بودكاست
+  Releases:
+    Releases: الاصدارات
+    This channel does not currently have any releases: هذه القناة ليس لديها أي إصدارات
+      حاليا
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
@@ -635,10 +669,7 @@ Video:
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
   Open in Invidious: 'إفتح على انفيديوس'
   Copy Invidious Link: 'انسخ رابط انفيديوس'
-  View: 'عرض'
   Views: 'مشاهدات'
-  # Context is "X People Watching"
-  Watching: 'يتم مشاهدته'
   Watched: 'مُشاهد'
   # As in a Live Video
   Live: '‏‏‪مُباشر'
@@ -766,6 +797,7 @@ Video:
   Upcoming: القادمة
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': الدردشة
     المباشرة غير متاحة لهذا البث. ربما تم تعطيلها من قبل القائم بالتحميل.
+  Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
 Videos:
   #& Sort By
   Sort By:
@@ -835,6 +867,7 @@ Comments:
   Member: عضو
   View {replyCount} replies: عرض {replyCount} ردود
   Hearted: القلب
+  Subscribed: مشترك
 Up Next: 'التالي'
 
 # Toast Messages
@@ -927,6 +960,8 @@ Tooltips:
     Hide Channels: أدخل اسم قناة أو معرّف القناة لإخفاء جميع مقاطع الفيديو وقوائم
       التشغيل والقناة نفسها من الظهور في البحث والشهرة والأكثر شعبية والموصى بها.
       يجب أن يكون اسم القناة الذي تم إدخاله مطابقًا تمامًا وحساسًا لحالة الأحرف.
+    Hide Subscriptions Live: يتم تجاوز هذا الإعداد من خلال إعداد "{appWideSetting}"
+      على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.
 This video is unavailable because of missing formats. This can happen due to country unavailability.: هذا
@@ -985,3 +1020,7 @@ Hashtag:
   This hashtag does not currently have any videos: هذا الهاشتاج ليس لديه حاليا أي
     مقاطع فيديو
   Hashtag: هاشتاج
+Playlist will pause when current video is finished: ستتوقف قائمة التشغيل مؤقتًا عند
+  انتهاء الفيديو الحالي
+Playlist will not pause when current video is finished: لن تتوقف قائمة التشغيل مؤقتًا
+  عند انتهاء الفيديو الحالي

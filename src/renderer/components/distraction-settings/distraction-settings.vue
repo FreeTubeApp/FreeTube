@@ -40,6 +40,37 @@
     <h4
       class="groupTitle"
     >
+      {{ $t('Settings.Distraction Free Settings.Sections.Subscriptions Page') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Videos')"
+          :compact="true"
+          :default-value="hideSubscriptionsVideos"
+          @change="updateHideSubscriptionsVideos"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
+          :compact="true"
+          :default-value="hideSubscriptionsShorts"
+          @change="updateHideSubscriptionsShorts"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
+          :compact="true"
+          :disabled="hideLiveStreams"
+          :default-value="hideLiveStreams || hideSubscriptionsLive"
+          :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
+          v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
+        />
+      </div>
+    </div>
+    <h4
+      class="groupTitle"
+    >
       {{ $t('Settings.Distraction Free Settings.Sections.Channel Page') }}
     </h4>
     <div class="switchColumnGrid">
@@ -56,6 +87,12 @@
           :default-value="hideChannelPlaylists"
           @change="updateHideChannelPlaylists"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Podcasts')"
+          :compact="true"
+          :default-value="hideChannelPodcasts"
+          @change="updateHideChannelPodcasts"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
@@ -69,6 +106,12 @@
           :compact="true"
           :default-value="hideFeaturedChannels"
           @change="updateHideFeaturedChannels"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Releases')"
+          :compact="true"
+          :default-value="hideChannelReleases"
+          @change="updateHideChannelReleases"
         />
       </div>
     </div>
@@ -123,6 +166,12 @@
           :default-value="hideComments"
           @change="updateHideComments"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
+          :compact="true"
+          :default-value="hideCommentPhotos"
+          @change="updateHideCommentPhotos"
+        />
       </div>
     </div>
     <h4
@@ -149,6 +198,13 @@
           :compact="true"
           :default-value="hideSharingActions"
           @change="updateHideSharingActions"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Blur Thumbnails')"
+          :compact="true"
+          :default-value="blurThumbnails && thumbnailPreference !== 'hidden'"
+          :disabled="thumbnailPreference === 'hidden'"
+          v-on="thumbnailPreference === 'hidden' ? { change: updateBlurThumbnails(false) } : { change: updateBlurThumbnails}"
         />
       </div>
       <div class="switchColumn">

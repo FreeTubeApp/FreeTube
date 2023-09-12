@@ -27,6 +27,13 @@ Close: '閉じる'
 Back: '戻る'
 Forward: '進む'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: '動画'
+  Shorts: ショート動画
+  Live: ライブ配信
+
 # Search Bar
 Search / Go to URL: '検索 / URL の表示'
   # In Filter Button
@@ -79,6 +86,9 @@ Subscriptions:
   Error Channels: エラーが発生したチャンネル
   Disabled Automatic Fetching: サブスクリプションの自動取得を無効にしました。サブスクリプションを更新して、ここで確認します。
   Empty Channels: 現在、チャンネル登録しているチャンネルには動画がありません。
+  Subscriptions Tabs: 登録チャンネル タブ
+  All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}"
+    内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -91,7 +101,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: 
+  Playlist Message:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -125,6 +135,7 @@ Settings:
       Beginning: '開始'
       Middle: '中間'
       End: '終了'
+      Hidden: 非表示
     'Invidious Instance (Default is https://invidious.snopyta.org)': '接続先の Invidious
       サーバー（初期値は https://invidious.snopyta.org）'
     Region for Trending: '急上昇の地域設定'
@@ -155,6 +166,8 @@ Settings:
       Dracula: 'ドラキュラ'
       System Default: 初期設定
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: パステルピンク
+      Hot Pink: ホットピンク
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -374,8 +387,16 @@ Settings:
       Channel Page: チャンネル ページ
       Watch Page: ウォッチリスト
       General: 一般
+      Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
     Hide Channel Shorts: ショート動画チャンネルの非表示
+    Hide Channel Podcasts: ポッドキャスト チャンネルの非表示
+    Hide Subscriptions Shorts: 登録チャンネルのショート動画の非表示
+    Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
+    Hide Subscriptions Videos: 登録チャンネルの動画の非表示
+    Hide Channel Releases: チャンネルの新着情報の非表示
+    Hide Profile Pictures in Comments: コメントでプロフィール写真を隠す
+    Blur Thumbnails: サムネイルをぼかす
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -429,7 +450,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 実験中の設定
-    Warning: この設定項目は実験中であるため、有効にするとクラッシュするかもしれません。バックアップを必ず作成してください。使用は自己責任でお願いします！
+    Warning: この設定項目は実験中であるため、有効にするとクラッシュすることがあります。必ずバックアップを作成してください。使用は自己責任でお願いします！
   Password Settings:
     Password Settings: パスワード設定
     Set Password To Prevent Access: 設定の変更にはパスワードを設定とする
@@ -492,9 +513,8 @@ About:
   Licensed under the AGPLv3: AGPLv3 の下でライセンス供与
   Source code: ソースコード
   Beta: ベータ
+  Discussions: 議論
 Channel:
-  Subscriber: '人の登録者'
-  Subscribers: '人の登録者'
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネル検索'
@@ -530,6 +550,9 @@ Channel:
   Community:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
     Community: コミュニティ
+    votes: '{votes} 投票'
+    Reveal Answers: 回答を表示
+    Hide Answers: 回答の非表示
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
   This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
@@ -539,8 +562,13 @@ Channel:
     This channel does not currently have any live streams: このチャンネルは現在、ライブ配信を行っていません
     Live: ライブ配信
   Shorts:
-    Shorts: ショート動画
     This channel does not currently have any shorts: このチャンネルには現在ショート動画がありません
+  Releases:
+    Releases: 新着情報
+    This channel does not currently have any releases: 現在、このチャンネルには公開されたものはありません
+  Podcasts:
+    This channel does not currently have any podcasts: このチャンネルにはポッドキャストがありません
+    Podcasts: ポッドキャスト
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -548,10 +576,7 @@ Video:
   Copy YouTube Embedded Player Link: 'YouTube 埋め込みプレーヤーへのリンクのコピー'
   Open in Invidious: 'Invidious で表示'
   Copy Invidious Link: 'Invidious リンクのコピー'
-  View: '回再生'
   Views: '回再生'
-  # Context is "X People Watching"
-  Watching: '人が視聴中'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
@@ -677,6 +702,7 @@ Video:
   Scroll to Bottom: 下までスクロール
   Upcoming: 今後の配信予定
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
+  Pause on Current Video: 現在の動画の一時停止
 Videos:
   #& Sort By
   Sort By:
@@ -800,9 +826,10 @@ Profile:
   Add Selected To Profile: 選択項目をプロファイルに追加
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : これは上位のプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
+  : これはメインのプロファイルです。選択したチャンネルを削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
   Profile Settings: プロファイル設定
+  Toggle Profile List: プロファイル一覧の切り替え
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
@@ -849,8 +876,10 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル名またはチャンネル ID 
-      を入力すると、すべてのビデオ、再生リスト、およびチャンネル自体が検索や人気に表示されなくなります。入力するチャンネル名は完全に一致することが必要で、大文字と小文字を区別します。
+    Hide Channels: チャンネル名またはチャンネル ID
+      を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル名は、大文字と小文字を区別するので完全に一致させてください。
+    Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
+      項目の "{subsection}" にあります
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
@@ -900,3 +929,5 @@ Ok: OK
 Hashtag:
   Hashtag: ハッシュタグ
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
+Playlist will pause when current video is finished: 現在のビデオが終了すると、プレイリストは停止します
+Playlist will not pause when current video is finished: 現在のビデオが終了しても、プレイリストは停止しません

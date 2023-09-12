@@ -1,497 +1,132 @@
 import { defineComponent } from 'vue'
-import { mapActions, mapMutations } from 'vuex'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtCard from '../../components/ft-card/ft-card.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
-import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
-import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
-import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
 
-import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
-import { invidiousAPICall } from '../../helpers/api/invidious'
-import { getLocalChannelVideos } from '../../helpers/api/local'
+import SubscriptionsVideos from '../../components/subscriptions-videos/subscriptions-videos.vue'
+import SubscriptionsLive from '../../components/subscriptions-live/subscriptions-live.vue'
+import SubscriptionsShorts from '../../components/subscriptions-shorts/subscriptions-shorts.vue'
+
+import FtCard from '../../components/ft-card/ft-card.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Subscriptions',
   components: {
-    'ft-loader': FtLoader,
+    'subscriptions-videos': SubscriptionsVideos,
+    'subscriptions-live': SubscriptionsLive,
+    'subscriptions-shorts': SubscriptionsShorts,
     'ft-card': FtCard,
-    'ft-button': FtButton,
-    'ft-icon-button': FtIconButton,
-    'ft-flex-box': FtFlexBox,
-    'ft-element-list': FtElementList,
-    'ft-channel-bubble': FtChannelBubble
+    'ft-flex-box': FtFlexBox
+  },
+  inject: {
+    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
-      isLoading: false,
-      dataLimit: 100,
-      videoList: [],
-      errorChannels: [],
-      attemptedFetch: false,
+      currentTab: 'videos'
     }
   },
   computed: {
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
+    hideSubscriptionsVideos: function () {
+      return this.$store.getters.getHideSubscriptionsVideos
     },
-
-    backendFallback: function () {
-      return this.$store.getters.getBackendFallback
+    hideSubscriptionsShorts: function () {
+      return this.$store.getters.getHideSubscriptionsShorts
     },
-
-    currentInvidiousInstance: function () {
-      return this.$store.getters.getCurrentInvidiousInstance
+    hideSubscriptionsLive: function () {
+      return this.$store.getters.getHideLiveStreams || this.$store.getters.getHideSubscriptionsLive
     },
+    visibleTabs: function () {
+      const tabs = []
 
-    hideWatchedSubs: function () {
-      return this.$store.getters.getHideWatchedSubs
-    },
-
-    useRssFeeds: function () {
-      return this.$store.getters.getUseRssFeeds
-    },
-
-    activeVideoList: function () {
-      if (this.videoList.length < this.dataLimit) {
-        return this.videoList
-      } else {
-        return this.videoList.slice(0, this.dataLimit)
+      if (!this.hideSubscriptionsVideos) {
+        tabs.push('videos')
       }
-    },
 
-    activeProfile: function () {
-      return this.$store.getters.getActiveProfile
-    },
-    activeProfileId: function () {
-      return this.activeProfile._id
-    },
+      if (!this.hideSubscriptionsShorts) {
+        tabs.push('shorts')
+      }
 
-    cacheEntriesForAllActiveProfileChannels() {
-      const entries = []
-      this.activeSubscriptionList.forEach((channel) => {
-        const cacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
-        if (cacheEntry == null) { return }
+      if (!this.hideSubscriptionsLive) {
+        tabs.push('live')
+      }
 
-        entries.push(cacheEntry)
-      })
-      return entries
-    },
-    videoCacheForAllActiveProfileChannelsPresent() {
-      if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return false }
-      if (this.cacheEntriesForAllActiveProfileChannels.length < this.activeSubscriptionList.length) { return false }
-
-      return this.cacheEntriesForAllActiveProfileChannels.every((cacheEntry) => {
-        return cacheEntry.videos != null
-      })
-    },
-
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
-    },
-
-    activeSubscriptionList: function () {
-      return this.activeProfile.subscriptions
-    },
-
-    hideLiveStreams: function() {
-      return this.$store.getters.getHideLiveStreams
-    },
-
-    hideUpcomingPremieres: function () {
-      return this.$store.getters.getHideUpcomingPremieres
-    },
-
-    fetchSubscriptionsAutomatically: function() {
-      return this.$store.getters.getFetchSubscriptionsAutomatically
-    },
+      return tabs
+    }
   },
   watch: {
-    activeProfile: async function (_) {
-      this.isLoading = true
-      this.loadVideosFromCacheSometimes()
+    currentTab(value) {
+      if (value !== null) {
+        // Save last used tab, restore when view mounted again
+        sessionStorage.setItem('Subscriptions/currentTab', value)
+      } else {
+        sessionStorage.removeItem('Subscriptions/currentTab')
+      }
     },
-  },
-  mounted: async function () {
-    document.addEventListener('keydown', this.keyboardShortcutHandler)
-
-    this.isLoading = true
-    const dataLimit = sessionStorage.getItem('subscriptionLimit')
-    if (dataLimit !== null) {
-      this.dataLimit = dataLimit
+    /**
+     * @param {string[]} newValue
+     */
+    visibleTabs: function (newValue) {
+      if (newValue.length === 0) {
+        this.currentTab = null
+      } else if (!newValue.includes(this.currentTab)) {
+        this.currentTab = newValue[0]
+      }
     }
-
-    this.loadVideosFromCacheSometimes()
   },
-  beforeDestroy: function () {
-    document.removeEventListener('keydown', this.keyboardShortcutHandler)
+  created: async function () {
+    if (this.visibleTabs.length === 0) {
+      this.currentTab = null
+    } else {
+      // Restore currentTab
+      const lastCurrentTabId = sessionStorage.getItem('Subscriptions/currentTab')
+      if (lastCurrentTabId !== null) { this.changeTab(lastCurrentTabId) }
+    }
   },
   methods: {
-    loadVideosFromCacheSometimes() {
-      // This method is called on view visible
-      if (this.videoCacheForAllActiveProfileChannelsPresent) {
-        this.loadVideosFromCacheForAllActiveProfileChannels()
+    changeTab: function (tab) {
+      if (tab === this.currentTab) {
         return
       }
 
-      this.maybeLoadVideosForSubscriptionsFromRemote()
-    },
-
-    async loadVideosFromCacheForAllActiveProfileChannels() {
-      const videoList = []
-      this.activeSubscriptionList.forEach((channel) => {
-        const channelCacheEntry = this.$store.getters.getSubscriptionsCacheEntriesForOneChannel(channel.id)
-
-        videoList.push(...channelCacheEntry.videos)
-      })
-      this.updateVideoListAfterProcessing(videoList)
-      this.isLoading = false
-    },
-
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
-
-    loadVideosForSubscriptionsFromRemote: async function () {
-      if (this.activeSubscriptionList.length === 0) {
-        this.isLoading = false
-        this.videoList = []
-        return
-      }
-
-      const channelsToLoadFromRemote = this.activeSubscriptionList
-      const videoList = []
-      let channelCount = 0
-      this.isLoading = true
-
-      let useRss = this.useRssFeeds
-      if (channelsToLoadFromRemote.length >= 125 && !useRss) {
-        showToast(
-          this.$t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
-          10000
-        )
-        useRss = true
-      }
-      this.updateShowProgressBar(true)
-      this.setProgressBarPercentage(0)
-      this.attemptedFetch = true
-
-      this.errorChannels = []
-      const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
-        let videos = []
-        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-          if (useRss) {
-            videos = await this.getChannelVideosInvidiousRSS(channel)
-          } else {
-            videos = await this.getChannelVideosInvidiousScraper(channel)
-          }
-        } else {
-          if (useRss) {
-            videos = await this.getChannelVideosLocalRSS(channel)
-          } else {
-            videos = await this.getChannelVideosLocalScraper(channel)
-          }
-        }
-
-        channelCount++
-        const percentageComplete = (channelCount / channelsToLoadFromRemote.length) * 100
-        this.setProgressBarPercentage(percentageComplete)
-        this.updateSubscriptionsCacheForOneChannel({
-          channelId: channel.id,
-          videos: videos,
-        })
-        return videos
-      }))).flatMap((o) => o)
-      videoList.push(...videoListFromRemote)
-
-      this.updateVideoListAfterProcessing(videoList)
-      this.isLoading = false
-      this.updateShowProgressBar(false)
-    },
-
-    updateVideoListAfterProcessing(videoList) {
-      // Filtering and sorting based in preference
-      videoList.sort((a, b) => {
-        return b.publishedDate - a.publishedDate
-      })
-      if (this.hideLiveStreams) {
-        videoList = videoList.filter(item => {
-          return (!item.liveNow && !item.isUpcoming)
-        })
-      }
-      if (this.hideUpcomingPremieres) {
-        videoList = videoList.filter(item => {
-          if (item.isRSS) {
-            // viewCount is our only method of detecting premieres in RSS
-            // data without sending an additional request.
-            // If we ever get a better flag, use it here instead.
-            return item.viewCount !== '0'
-          }
-          // Observed for premieres in Local API Subscriptions.
-          return (item.premiereDate == null ||
-            // Invidious API
-            // `premiereTimestamp` only available on premiered videos
-            // https://docs.invidious.io/api/common_types/#videoobject
-            item.premiereTimestamp == null
-          )
-        })
-      }
-
-      this.videoList = videoList.filter((video) => {
-        if (this.hideWatchedSubs) {
-          const historyIndex = this.historyCache.findIndex((x) => {
-            return x.videoId === video.videoId
-          })
-
-          return historyIndex === -1
-        } else {
-          return true
-        }
-      })
-    },
-
-    maybeLoadVideosForSubscriptionsFromRemote: async function () {
-      if (this.fetchSubscriptionsAutomatically) {
-        // `this.isLoading = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-        await this.loadVideosForSubscriptionsFromRemote()
+      if (this.visibleTabs.includes(tab)) {
+        this.currentTab = tab
       } else {
-        this.videoList = []
-        this.attemptedFetch = false
-        this.isLoading = false
+        this.currentTab = null
       }
-    },
-
-    getChannelVideosLocalScraper: async function (channel, failedAttempts = 0) {
-      try {
-        const videos = await getLocalChannelVideos(channel.id)
-
-        if (videos === null) {
-          this.errorChannels.push(channel)
-          return []
-        }
-
-        videos.map(video => {
-          if (video.liveNow) {
-            video.publishedDate = new Date().getTime()
-          } else if (video.isUpcoming) {
-            video.publishedDate = video.premiereDate
-          } else {
-            video.publishedDate = calculatePublishedDate(video.publishedText)
-          }
-          return video
-        })
-
-        return videos
-      } catch (err) {
-        console.error(err)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err}`, 10000, () => {
-          copyToClipboard(err)
-        })
-        switch (failedAttempts) {
-          case 0:
-            return await this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
-          case 1:
-            if (this.backendFallback) {
-              showToast(this.$t('Falling back to Invidious API'))
-              return await this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
-            } else {
-              return []
-            }
-          case 2:
-            return await this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
-          default:
-            return []
-        }
-      }
-    },
-
-    getChannelVideosLocalRSS: async function (channel, failedAttempts = 0) {
-      const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`
-
-      try {
-        const response = await fetch(feedUrl)
-
-        if (response.status === 404) {
-          this.errorChannels.push(channel)
-          return []
-        }
-
-        return await this.parseYouTubeRSSFeed(await response.text(), channel.id)
-      } catch (error) {
-        console.error(error)
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        showToast(`${errorMessage}: ${error}`, 10000, () => {
-          copyToClipboard(error)
-        })
-        switch (failedAttempts) {
-          case 0:
-            return this.getChannelVideosLocalScraper(channel, failedAttempts + 1)
-          case 1:
-            if (this.backendFallback) {
-              showToast(this.$t('Falling back to Invidious API'))
-              return this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1)
-            } else {
-              return []
-            }
-          case 2:
-            return this.getChannelVideosLocalScraper(channel, failedAttempts + 1)
-          default:
-            return []
-        }
-      }
-    },
-
-    getChannelVideosInvidiousScraper: function (channel, failedAttempts = 0) {
-      return new Promise((resolve, reject) => {
-        const subscriptionsPayload = {
-          resource: 'channels/latest',
-          id: channel.id,
-          params: {}
-        }
-
-        invidiousAPICall(subscriptionsPayload).then(async (result) => {
-          resolve(await Promise.all(result.videos.map((video) => {
-            if (video.liveNow) {
-              video.publishedDate = new Date().getTime()
-            } else if (video.isUpcoming) {
-              video.publishedDate = new Date(video.premiereTimestamp * 1000)
-            } else {
-              video.publishedDate = new Date(video.published * 1000)
-            }
-            return video
-          })))
-        }).catch((err) => {
-          console.error(err)
-          const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err.responseText}`, 10000, () => {
-            copyToClipboard(err.responseText)
-          })
-          switch (failedAttempts) {
-            case 0:
-              resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
-              break
-            case 1:
-              if (process.env.IS_ELECTRON && this.backendFallback) {
-                showToast(this.$t('Falling back to the local API'))
-                resolve(this.getChannelVideosLocalScraper(channel, failedAttempts + 1))
-              } else {
-                resolve([])
-              }
-              break
-            case 2:
-              resolve(this.getChannelVideosInvidiousRSS(channel, failedAttempts + 1))
-              break
-            default:
-              resolve([])
-          }
-        })
-      })
-    },
-
-    getChannelVideosInvidiousRSS: async function (channel, failedAttempts = 0) {
-      const feedUrl = `${this.currentInvidiousInstance}/feed/channel/${channel.id}`
-
-      try {
-        const response = await fetch(feedUrl)
-
-        if (response.status === 500) {
-          this.errorChannels.push(channel)
-          return []
-        }
-
-        return await this.parseYouTubeRSSFeed(await response.text(), channel.id)
-      } catch (error) {
-        console.error(error)
-        const errorMessage = this.$t('Invidious API Error (Click to copy)')
-        showToast(`${errorMessage}: ${error}`, 10000, () => {
-          copyToClipboard(error)
-        })
-        switch (failedAttempts) {
-          case 0:
-            return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
-          case 1:
-            if (process.env.IS_ELECTRON && this.backendFallback) {
-              showToast(this.$t('Falling back to the local API'))
-              return this.getChannelVideosLocalRSS(channel, failedAttempts + 1)
-            } else {
-              return []
-            }
-          case 2:
-            return this.getChannelVideosInvidiousScraper(channel, failedAttempts + 1)
-          default:
-            return []
-        }
-      }
-    },
-
-    async parseYouTubeRSSFeed(rssString, channelId) {
-      const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
-
-      const channelName = xmlDom.querySelector('author > name').textContent
-      const entries = xmlDom.querySelectorAll('entry')
-
-      const promises = []
-
-      for (const entry of entries) {
-        promises.push(this.parseRSSEntry(entry, channelId, channelName))
-      }
-
-      return await Promise.all(promises)
-    },
-
-    async parseRSSEntry(entry, channelId, channelName) {
-      const published = new Date(entry.querySelector('published').textContent)
-      return {
-        authorId: channelId,
-        author: channelName,
-        // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
-        videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
-        title: entry.querySelector('title').textContent,
-        publishedDate: published,
-        publishedText: published.toLocaleString(),
-        viewCount: entry.getElementsByTagName('media:statistics')[0]?.getAttribute('views') || null,
-        type: 'video',
-        lengthSeconds: '0:00',
-        isRSS: true
-      }
-    },
-
-    increaseLimit: function () {
-      this.dataLimit += 100
-      sessionStorage.setItem('subscriptionLimit', this.dataLimit)
     },
 
     /**
-     * This function `keyboardShortcutHandler` should always be at the bottom of this file
-     * @param {KeyboardEvent} event the keyboard event
+     * @param {KeyboardEvent} event
+     * @param {string} currentTab
      */
-    keyboardShortcutHandler: function (event) {
-      if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
-        return
+    focusTab: function (event, currentTab) {
+      if (!event.altKey) {
+        event.preventDefault()
+
+        const visibleTabs = this.visibleTabs
+
+        if (visibleTabs.length === 1) {
+          this.showOutlines()
+          return
+        }
+
+        let index = visibleTabs.indexOf(currentTab)
+
+        if (event.key === 'ArrowLeft') {
+          index--
+        } else {
+          index++
+        }
+
+        if (index < 0) {
+          index = visibleTabs.length - 1
+        } else if (index > visibleTabs.length - 1) {
+          index = 0
+        }
+
+        this.$refs[visibleTabs[index]].focus()
+        this.showOutlines()
       }
-      // Avoid handling events due to user holding a key (not released)
-      // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/repeat
-      if (event.repeat) { return }
-
-      switch (event.key) {
-        case 'r':
-        case 'R':
-          if (!this.isLoading) {
-            this.loadVideosForSubscriptionsFromRemote()
-          }
-          break
-      }
-    },
-
-    ...mapActions([
-      'updateShowProgressBar',
-      'updateSubscriptionsCacheForOneChannel',
-    ]),
-
-    ...mapMutations([
-      'setProgressBarPercentage'
-    ])
+    }
   }
 })

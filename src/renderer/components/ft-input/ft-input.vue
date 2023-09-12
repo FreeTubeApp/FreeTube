@@ -42,13 +42,14 @@
       <input
         :id="id"
         ref="input"
-        v-model="inputData"
+        :value="inputDataDisplayed"
         :list="idDataList"
         class="ft-input"
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"
         :spellcheck="spellcheck"
+        :aria-label="!showLabel ? placeholder : null"
         @input="e => handleInput(e.target.value)"
         @focus="handleFocus"
         @blur="handleInputBlur"
@@ -77,9 +78,10 @@
         <li
           v-for="(list, index) in visibleDataList"
           :key="index"
-          :class="searchState.selectedOption == index ? 'hover': ''"
+          :class="searchState.selectedOption === index ? 'hover': ''"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
+          @mouseleave="searchState.selectedOption = -1"
         >
           {{ list }}
         </li>

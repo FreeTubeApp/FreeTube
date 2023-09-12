@@ -29,6 +29,13 @@ Close: 'Zatvori'
 Back: 'Natrag'
 Forward: 'Naprijed'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videa'
+  Shorts: Kratka videa
+  Live: Uživo
+
 # Search Bar
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
@@ -84,6 +91,9 @@ Subscriptions:
   Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.
   Disabled Automatic Fetching: Automatsko dohvaćanje pretplata je deaktivirano. Aktualiziraj
     pretplate da bi se ovdje prikazale.
+  Subscriptions Tabs: Kartica pretplata
+  All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
+    na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -408,6 +418,12 @@ Settings:
       General: Opće
       Side Bar: Bočna traka
       Channel Page: Stranica kanala
+      Subscriptions Page: Stranica pretplata
+    Hide Channel Podcasts: Sakrij kanal podcastova
+    Hide Channel Releases: Sakrij kanal izdanja
+    Hide Subscriptions Shorts: Sakrij kratka videa pretplate
+    Hide Subscriptions Live: Sakrij videa uživo pretplate
+    Hide Subscriptions Videos: Sakrij videa pretplate
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -541,6 +557,7 @@ About:
   View License: Pogledaj licencu
   Licensed under the AGPLv3: AGPLv3 licenca
   Source code: Izvorni kod
+  Discussions: Diskusije
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
@@ -583,9 +600,8 @@ Profile:
   Subscription List: Popis pretplata
   Profile Filter: Filtar profila
   Profile Settings: Postavke profila
+  Toggle Profile List: Uključi/Isključi popis profila
 Channel:
-  Subscriber: 'Pretplatnik'
-  Subscribers: 'Pretplatnici'
   Subscribe: 'Pretplati se'
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
@@ -636,7 +652,14 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
-    Shorts: Kratka videa
+  Releases:
+    Releases: Izdanja
+    This channel does not currently have any releases: Ovaj kanal trenutačno nema
+      izdanja
+  Podcasts:
+    Podcasts: Podcasti
+    This channel does not currently have any podcasts: Ovaj kanal trenutačno nema
+      podcastova
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
@@ -648,10 +671,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
   Open in Invidious: 'Otvori na Invidious stranici'
   Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-  View: 'gledanje'
   Views: 'gledanja'
-  # Context is "X People Watching"
-  Watching: 'Gleda se'
   Watched: 'Pogledano'
   # As in a Live Video
   Live: 'Uživo'
@@ -951,6 +971,8 @@ Tooltips:
     Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
       kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
       ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+    Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
+      u odjeljku „{subsection}” u „{settingsSection}”
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
 Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za prekid.

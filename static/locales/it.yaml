@@ -23,14 +23,24 @@ Toggle Developer Tools: 'Attiva/disattiva strumenti per sviluppatori'
 Actual size: 'Dimensione reale'
 Zoom in: 'Ingrandisci'
 Zoom out: 'Rimpicciolisci'
-Toggle fullscreen: 'Mostra a schermo intero'
+Toggle fullscreen: 'Attiva/disattiva schermo intero'
 Window: 'Finestra'
 Minimize: 'Riduci'
 Close: 'Chiudi'
 Back: 'Indietro'
 Forward: 'Avanti'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+  Shorts: Video brevi
+  Live: Dal vivo
+
 # Search Bar
+  Counts:
+    Video Count: 1 video | {count} video
+    Channel Count: 1 canale | {count} canali
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -73,9 +83,8 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Iscrizioni'
   Latest Subscriptions: 'Ultime iscrizioni'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
-    lista delle tue iscrizioni è vuota. Iscriviti a qualche canale per visualizzare
-    qui i video.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'L''elenco
+    delle iscrizioni è vuoto. Iscriviti a qualche canale per visualizzare qui i video.'
   'Getting Subscriptions.  Please wait.': 'Caricamento Iscrizioni. Attendi.'
   Refresh Subscriptions: Ricarica le iscrizioni
   'Getting Subscriptions. Please wait.': Scaricamento delle iscrizioni. Per favore
@@ -87,6 +96,9 @@ Subscriptions:
   Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
     Aggiorna gli abbonamenti per vederli qui.
   Empty Channels: I canali a cui sei iscritto attualmente non hanno alcun video.
+  Subscriptions Tabs: Schede iscrizioni
+  All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
+    i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -132,13 +144,14 @@ Settings:
     Video View Type:
       Video View Type: 'Modalità di visualizzazione video'
       Grid: 'Griglia'
-      List: 'Lista'
+      List: 'Elenco'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferenze delle miniature'
       Default: 'Predefinito'
       Beginning: 'Inizio'
       Middle: 'Nel mezzo'
       End: 'Fine'
+      Hidden: Nascoste
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'
@@ -172,6 +185,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Predefinito del sistema
       Catppuccin Mocha: Cappuccino moka
+      Pastel Pink: Rosa pastello
+      Hot Pink: Rosa caldo
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -417,6 +432,14 @@ Settings:
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
+      Subscriptions Page: Pagina delle iscrizioni
+    Hide Channel Podcasts: Nascondi i podcast del canale
+    Hide Channel Releases: Nascondi i rilasci del canale
+    Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
+    Hide Subscriptions Videos: Nascondi i video delle iscrizioni
+    Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
+    Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
+    Blur Thumbnails: Miniature sfocate
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -546,9 +569,8 @@ About:
   Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
   Source code: Codice sorgente
   Beta: Beta
+  Discussions: Discussioni
 Channel:
-  Subscriber: 'Iscritto'
-  Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca nel canale'
@@ -595,14 +617,24 @@ Channel:
     This channel currently does not have any posts: Questo canale attualmente non
       ha alcun post
     Community: Comunità
+    votes: '{votes} voti'
+    Reveal Answers: Rivela le risposte
+    Hide Answers: Nascondi le risposte
   Live:
     Live: Dal vivo
     This channel does not currently have any live streams: Questo canale attualmente
       non ha alcun video dal vivo
   Shorts:
-    Shorts: Video brevi
     This channel does not currently have any shorts: Questo canale attualmente non
       ha video brevi
+  Podcasts:
+    Podcasts: Podcast
+    This channel does not currently have any podcasts: Questo canale non ha attualmente
+      alcun podcast
+  Releases:
+    Releases: Rilasci
+    This channel does not currently have any releases: Questo canale non ha attualmente
+      alcun rilascio
 Video:
   Mark As Watched: 'Segna come già visto'
   Remove From History: 'Rimuovi dalla cronologia'
@@ -611,13 +643,11 @@ Video:
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
   Open YouTube Embedded Player: 'Apri il player incorporato di YouTube'
-  Copy YouTube Embedded Player Link: 'Copia link del lettore incorporato di YouTube'
+  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore incorporato di
+    YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
-  View: 'Vista'
   Views: 'Visualizzazioni'
-  # Context is "X People Watching"
-  Watching: 'Sto guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
@@ -629,7 +659,7 @@ Video:
   'Chat is disabled or the Live Stream has ended.': 'La chat è disabilitata o la diretta
     è terminata.'
   Live chat is enabled. Chat messages will appear here once sent.: 'La chat dal vivo
-    è abilitata.  I messaggi appariranno qui una volta inviati.'
+    è abilitata. I messaggi appariranno qui una volta inviati.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'La
     chat dal vivo non è attualmente supportata con le API di Invidious. È necessaria
     una connessione diretta a YouTube.'
@@ -689,8 +719,7 @@ Video:
   Open Channel in YouTube: Apri il canale con YouTube
   Started streaming on: Trasmissione iniziata il
   Streamed on: Trasmesso il
-  Video has been removed from your saved list: Il video è stato rimosso dalla tua
-    lista preferiti
+  Video has been removed from your saved list: Il video è stato rimosso dall'elenco
   Video has been saved: Il video è stato salvato
   Save Video: Salva il video
   External Player:
@@ -749,6 +778,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La
     chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
+  Pause on Current Video: Pausa sul video attuale
 Videos:
   #& Sort By
   Sort By:
@@ -768,7 +798,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
-Toggle Theatre Mode: 'Attiva modalità cinema'
+Toggle Theatre Mode: 'Attiva/disattiva modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -825,6 +855,7 @@ Comments:
   Member: Membro
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
+  Subscribed: Iscritto
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -867,7 +898,7 @@ Profile:
   Select All: Seleziona tutto
   '{number} selected': '{number} selezionato'
   Other Channels: Altri canali
-  Subscription List: Lista iscrizioni
+  Subscription List: Elenco iscrizioni
   '{profile} is now the active profile': '{profile} è diventato il tuo profilo attivo'
   Your default profile has been changed to your primary profile: Il tuo profilo predefinito
     è stato cambiato in profilo primario
@@ -895,6 +926,7 @@ Profile:
   Profile Select: Seleziona il profilo
   Profile Filter: Filtro del profilo
   Profile Settings: Impostazioni dei profili
+  Toggle Profile List: Attiva/disattiva elenco profili
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
@@ -924,9 +956,9 @@ Tooltips:
       invece i formati DASH H.264.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
-      per leggere la tua lista iscrizioni. Gli RSS sono più veloci e impediscono il
-      blocco dell'IP, ma non forniscono determinate informazioni come la durata del
-      video o lo stato della diretta dal vivo
+      per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
+      ma non forniscono determinate informazioni come la durata del video o lo stato
+      dal vivo
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
       dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
   General Settings:
@@ -969,6 +1001,8 @@ Tooltips:
       video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze,
       più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
       completa e fa distinzione tra maiuscole e minuscole.
+    Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
+      "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Sostituisci i titoli dei video con titoli inviati dagli utenti
       da DeArrow.
@@ -1029,3 +1063,7 @@ Hashtag:
   This hashtag does not currently have any videos: Questo hashtag attualmente non
     ha alcun video
   Hashtag: Hashtag
+Playlist will pause when current video is finished: La playlist verrà messa in pausa
+  al termine del video attuale
+Playlist will not pause when current video is finished: La playlist non verrà messa
+  in pausa al termine del video attuale

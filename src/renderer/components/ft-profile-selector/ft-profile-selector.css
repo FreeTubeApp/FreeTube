@@ -17,13 +17,15 @@
   font-size: 20px;
   line-height: 1em;
   text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .profileList {
   display: inline;
   position: absolute;
-  top: 60px;
-  right: 10px;
+  inset-block-start: 60px;
+  inset-inline-end: 10px;
   min-width: 250px;
   height: 400px;
   padding: 5px;
@@ -32,7 +34,7 @@
 }
 
 .profileWrapper {
-  margin-top: 60px;
+  margin-block-start: 60px;
   height: 340px;
   overflow-y: auto;
 }
@@ -48,15 +50,16 @@
 
 .profile:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .profile .colorOption {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   position: relative;
-  bottom: 5px;
+  inset-block-end: 5px;
   margin: 10px;
 }
 
@@ -64,18 +67,18 @@
   display: flex;
   align-items: center;
   height: 50px;
-  padding-right: 10px;
+  padding-inline-end: 10px;
 }
 
 .profileListTitle {
   position: absolute;
   margin: 0;
-  left: 10px;
+  inset-inline-start: 10px;
 }
 
 .profileSettings {
-  float: right;
+  float: var(--float-right-ltr-rtl-value);
   position: absolute;
-  top: 10px;
-  right: 5px;
+  inset-block-start: 10px;
+  inset-inline-end: 5px;
 }

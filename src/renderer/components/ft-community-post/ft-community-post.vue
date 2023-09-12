@@ -60,36 +60,9 @@
       />
     </div>
     <div
-      v-if="type === 'poll'"
+      v-if="type === 'poll' || type === 'quiz'"
     >
-      <div
-        class="poll-count"
-      >
-        {{ postContent.totalVotes }}
-      </div>
-      <div
-        v-for="(poll, index) in postContent.content"
-        :key="index"
-      >
-        <div
-          class="poll-option"
-        >
-          <span
-            class="circle"
-          />
-          <div
-            class="poll-text"
-          >
-            <!-- <img
-              v-if="poll.image != null && poll.image.length >0"
-              :src="getBestQualityImage(poll.image)"
-              class="poll-image"
-              alt=""
-            > -->
-            {{ poll.text }}
-          </div>
-        </div>
-      </div>
+      <ft-community-poll :data="postContent" />
     </div>
     <div
       v-if="type === 'playlist'"

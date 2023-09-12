@@ -29,6 +29,11 @@ Close: 'Itxi'
 Back: 'Atzera'
 Forward: 'Aurrera'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Bideoak'
+
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
@@ -476,8 +481,6 @@ Profile:
 #On Channel Page
   Profile Settings: Profilaren ezarpenak
 Channel:
-  Subscriber: 'Harpideduna'
-  Subscribers: 'Harpidedunak'
   Subscribe: 'Harpidetu'
   Unsubscribe: 'Harpidetza kendu'
   Channel has been removed from your subscriptions: 'kanala zure harpidetzetatik kendu
@@ -528,15 +531,12 @@ Video:
   Copy YouTube Channel Link: 'Youtubeko kanalaren esteka kopiatu'
   Open Channel in Invidious: 'Kanala Invidious-en ireki'
   Copy Invidious Channel Link: 'Invidious-eko kanalaren esteka kopiatu'
-  View: 'Ikusi'
   Views: 'Ikustaldiak'
   Loop Playlist: 'etengabeko erreprodukzio zerrenda'
   Shuffle Playlist: 'Nahasketa erreprodukzio zerrenda'
   Reverse Playlist: 'Alderantzizko erreprodukzio zerrenda'
   Play Next Video: 'Hurrengo bideoa ikusi'
   Play Previous Video: 'Aurreko bideoa ikusi'
-  # Context is "X People Watching"
-  Watching: 'Ikusten'
   Watched: 'Ikusitakoak'
   Autoplay: 'Automatikoki ikusi'
   Starting soon, please refresh the page to check again: 'Laster hasiko da, mesedez,

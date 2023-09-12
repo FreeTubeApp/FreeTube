@@ -9,7 +9,7 @@
         @change="handleUpdateProxy"
       />
     </ft-flex-box>
-    <div
+    <template
       v-if="useProxy"
     >
       <ft-flex-box>
@@ -72,7 +72,7 @@
           {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
         </p>
       </div>
-    </div>
+    </template>
   </ft-settings-section>
 </template>
 

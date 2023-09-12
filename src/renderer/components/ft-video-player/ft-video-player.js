@@ -25,6 +25,13 @@ import {
 import { getProxyUrl } from '../../helpers/api/invidious'
 import store from '../../store'
 
+const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
+  // This is thrown when `play()` called but user already viewing another page
+  'The play() request was interrupted by a new load request.',
+  // This is thrown when `pause()` called before video started playing on load
+  'The play() request was interrupted by a call to pause()',
+]
+
 // YouTube now throttles if you use the `Range` header for the DASH formats, instead of the range query parameter
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
@@ -93,9 +100,21 @@ export default defineComponent({
       type: Array,
       default: () => { return [] }
     },
+    currentChapterIndex: {
+      type: Number,
+      default: 0
+    },
     audioTracks: {
       type: Array,
       default: () => ([])
+    },
+    theatrePossible: {
+      type: Boolean,
+      default: false
+    },
+    useTheatreMode: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {
@@ -113,6 +132,12 @@ export default defineComponent({
       selectedBitrate: '',
       selectedMimeType: '',
       selectedFPS: 0,
+      currentAdaptiveFormat: null,
+      autoQuality: '',
+      autoResolution: '',
+      autoBitrate: '',
+      autoMimeType: '',
+      autoFPS: 0,
       using60Fps: false,
       activeSourceList: [],
       activeAdaptiveFormats: [],
@@ -160,7 +185,7 @@ export default defineComponent({
   },
   computed: {
     currentLocale: function () {
-      return this.$i18n.locale
+      return this.$i18n.locale.replace('_', '-')
     },
 
     defaultPlayback: function () {
@@ -211,11 +236,11 @@ export default defineComponent({
       return this.$store.getters.getSponsorBlockShowSkippedToast
     },
 
-    displayVideoPlayButton: function() {
+    displayVideoPlayButton: function () {
       return this.$store.getters.getDisplayVideoPlayButton
     },
 
-    enterFullscreenOnDisplayRotate: function() {
+    enterFullscreenOnDisplayRotate: function () {
       return this.$store.getters.getEnterFullscreenOnDisplayRotate
     },
 
@@ -296,23 +321,23 @@ export default defineComponent({
       return playbackRates
     },
 
-    enableScreenshot: function() {
+    enableScreenshot: function () {
       return this.$store.getters.getEnableScreenshot
     },
 
-    screenshotFormat: function() {
+    screenshotFormat: function () {
       return this.$store.getters.getScreenshotFormat
     },
 
-    screenshotQuality: function() {
+    screenshotQuality: function () {
       return this.$store.getters.getScreenshotQuality
     },
 
-    screenshotAskPath: function() {
+    screenshotAskPath: function () {
       return this.$store.getters.getScreenshotAskPath
     },
 
-    screenshotFolder: function() {
+    screenshotFolder: function () {
       return this.$store.getters.getScreenshotFolderPath
     },
 
@@ -321,11 +346,11 @@ export default defineComponent({
     }
   },
   watch: {
-    showStatsModal: function() {
+    showStatsModal: function () {
       this.player.trigger(this.statsModalEventName)
     },
 
-    enableScreenshot: function() {
+    enableScreenshot: function () {
       this.toggleScreenshotButton()
     }
   },
@@ -447,10 +472,41 @@ export default defineComponent({
           }
         })
 
+        const qualityLevels = this.player.qualityLevels()
+
+        // Catch quality changes and update auto labels
+        // Event will not fire if new auto resolution is same as previous manual
+        // eg. 1080p30 -> auto 1080p30
+        qualityLevels.on('change', ({ selectedIndex }) => {
+          if (this.selectedQuality === 'auto' || (this.selectedQuality === '' && this.defaultQuality === 'auto')) {
+            const newQualityLevel = qualityLevels[selectedIndex]
+            this.autoBitrate = newQualityLevel.bitrate
+            this.autoFPS = newQualityLevel.frameRate
+            this.autoResolution = `${newQualityLevel.width}x${newQualityLevel.height}`
+
+            let qualityLabel = ''
+            const adaptiveFormat = this.activeAdaptiveFormats.find((format) => {
+              return format.bitrate === newQualityLevel.bitrate
+            })
+            if (adaptiveFormat) {
+              this.autoMimeType = adaptiveFormat.mimeType
+              this.currentAdaptiveFormat = adaptiveFormat
+              qualityLabel = `auto ${adaptiveFormat.qualityLabel}`
+            } else {
+              qualityLabel = `auto ${newQualityLevel.height}p`
+            }
+
+            // Can be run before createDashQualitySelector is called
+            const qualityElement = document.getElementById('vjs-current-quality')
+            if (qualityElement !== null) {
+              qualityElement.innerText = qualityLabel
+            }
+          }
+        })
+
         // disable any quality the isn't the default one, as soon as it gets added
         // we don't need to disable any qualities for auto
         if (this.useDash && this.defaultQuality !== 'auto') {
-          const qualityLevels = this.player.qualityLevels()
           qualityLevels.on('addqualitylevel', ({ qualityLevel }) => {
             qualityLevel.enabled = qualityLevel.bitrate === this.selectedBitrate
           })
@@ -836,14 +892,18 @@ export default defineComponent({
       }
     },
 
+    /**
+     * @param {WheelEvent} event
+     */
     mouseScrollPlaybackRate: function (event) {
       if (event.target && !event.currentTarget.querySelector('.vjs-menu:hover')) {
-        event.preventDefault()
-
         if (event.ctrlKey || event.metaKey) {
-          if (event.wheelDelta > 0) {
+          // Only stop page scrolling when Cmd/Ctrl pressed
+          event.preventDefault()
+
+          if (event.deltaY > 0) {
             this.changePlayBackRate(0.05)
-          } else if (event.wheelDelta < 0) {
+          } else if (event.deltaY < 0) {
             this.changePlayBackRate(-0.05)
           }
         }
@@ -1054,6 +1114,7 @@ export default defineComponent({
         })
 
         const selectedFormat = formatsToTest[0]
+        this.currentAdaptiveFormat = selectedFormat
         this.selectedBitrate = selectedFormat.bitrate
         this.selectedResolution = `${selectedFormat.width}x${selectedFormat.height}`
         this.selectedFPS = selectedFormat.fps
@@ -1113,7 +1174,10 @@ export default defineComponent({
       const selectedQuality = bitrate === 'auto' ? 'auto' : qualityLabel
 
       const qualityElement = document.getElementById('vjs-current-quality')
-      qualityElement.innerText = selectedQuality
+      // Include resolution of previous selection
+      // If new auto resolution is the same as the previous resolution
+      // the qualityLevels on 'change' event will not be called
+      qualityElement.innerText = (selectedQuality === 'auto') ? `auto ${this.currentAdaptiveFormat.qualityLabel}` : selectedQuality
       this.selectedQuality = selectedQuality
 
       if (selectedQuality !== 'auto') {
@@ -1121,7 +1185,14 @@ export default defineComponent({
         this.selectedFPS = adaptiveFormat.fps
         this.selectedBitrate = adaptiveFormat.bitrate
         this.selectedMimeType = adaptiveFormat.mimeType
+        this.currentAdaptiveFormat = adaptiveFormat
       } else {
+        // Default auto values to use previous selected values in case the adaptive format doesn't change
+        this.autoResolution = this.selectedResolution
+        this.autoFPS = this.selectedFPS
+        this.autoBitrate = this.selectedBitrate
+        this.autoMimeType = this.selectedMimeType
+
         this.selectedResolution = 'auto'
         this.selectedFPS = 'auto'
         this.selectedBitrate = 'auto'
@@ -1405,7 +1476,7 @@ export default defineComponent({
           toggleFullWindow()
         }
 
-        createControlTextEl (button) {
+        createControlTextEl(button) {
           // Add class name to button to be able to target it with CSS selector
           button.classList.add('vjs-button-fullwindow')
           button.title = 'Full Window'
@@ -1423,12 +1494,12 @@ export default defineComponent({
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
-    createToggleTheatreModeButton: function() {
-      if (!this.$parent.theatrePossible) {
+    createToggleTheatreModeButton: function () {
+      if (!this.theatrePossible) {
         return
       }
 
-      const theatreModeActive = this.$parent.useTheatreMode ? ' vjs-icon-theatre-active' : ''
+      const theatreModeActive = this.useTheatreMode ? ' vjs-icon-theatre-active' : ''
 
       const toggleTheatreMode = this.toggleTheatreMode
 
@@ -1455,17 +1526,17 @@ export default defineComponent({
       videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
     },
 
-    toggleTheatreMode: function() {
+    toggleTheatreMode: function () {
       if (!this.player.isFullscreen_) {
         const toggleTheatreModeButton = document.getElementById('toggleTheatreModeButton')
-        if (!this.$parent.useTheatreMode) {
+        if (!this.useTheatreMode) {
           toggleTheatreModeButton.classList.add('vjs-icon-theatre-active')
         } else {
           toggleTheatreModeButton.classList.remove('vjs-icon-theatre-active')
         }
       }
 
-      this.$parent.toggleTheatreMode()
+      this.$emit('toggle-theatre-mode')
     },
 
     createScreenshotButton: function () {
@@ -1497,7 +1568,7 @@ export default defineComponent({
       videojs.registerComponent('screenshotButton', screenshotButton)
     },
 
-    toggleScreenshotButton: function() {
+    toggleScreenshotButton: function () {
       const button = document.getElementById('screenshotButton').parentNode
       if (this.enableScreenshot && this.format !== 'audio') {
         button.classList.remove('vjs-hidden')
@@ -1506,7 +1577,7 @@ export default defineComponent({
       }
     },
 
-    takeScreenshot: async function() {
+    takeScreenshot: async function () {
       if (!this.enableScreenshot || this.format === 'audio') {
         return
       }
@@ -1629,11 +1700,13 @@ export default defineComponent({
     },
 
     createDashQualitySelector: function (levels) {
+      const currentAdaptiveFormat = this.currentAdaptiveFormat
       const adaptiveFormats = this.adaptiveFormats
       const activeAdaptiveFormats = this.activeAdaptiveFormats
       const setDashQualityLevel = this.setDashQualityLevel
       const defaultQuality = this.defaultQuality
       const defaultBitrate = this.selectedBitrate
+      const autoResolution = this.autoResolution
 
       const VjsButton = videojs.getComponent('Button')
       class dashQualitySelector extends VjsButton {
@@ -1720,7 +1793,15 @@ export default defineComponent({
           button.title = 'Select Quality'
           button.innerHTML = beginningHtml + qualityHtml + endingHtml
 
-          button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? 'auto' : currentQualityLabel
+          let autoQualityLabel = 'auto'
+          if (currentAdaptiveFormat) {
+            autoQualityLabel += ` ${currentAdaptiveFormat.qualityLabel}`
+          } else if (autoResolution !== '') {
+            autoQualityLabel += ` ${autoResolution.split('x')[1]}p`
+          }
+
+          // For default auto, it may select a resolution before generating the quality buttons
+          button.querySelector('#vjs-current-quality').innerText = defaultIsAuto ? autoQualityLabel : currentQualityLabel
 
           return button.children[0]
         }
@@ -1736,7 +1817,7 @@ export default defineComponent({
         const bCode = captionB.language_code.split('-')
         const aName = (captionA.label) // ex: english (auto-generated)
         const bName = (captionB.label)
-        const userLocale = this.currentLocale.split(/-|_/) // ex. [en,US]
+        const userLocale = this.currentLocale.split('-') // ex. [en,US]
         if (aCode[0] === userLocale[0]) { // caption a has same language as user's locale
           if (bCode[0] === userLocale[0]) { // caption b has same language as user's locale
             if (bName.search('auto') !== -1) {
@@ -1767,11 +1848,11 @@ export default defineComponent({
           return 1
         }
         // sort alphabetically
-        return aName.localeCompare(bName)
+        return aName.localeCompare(bName, this.currentLocale)
       })
     },
 
-    transformAndInsertCaptions: async function() {
+    transformAndInsertCaptions: async function () {
       let captionList
       if (this.captionHybridList[0] instanceof Promise) {
         captionList = await Promise.all(this.captionHybridList)
@@ -1791,7 +1872,7 @@ export default defineComponent({
       }
     },
 
-    toggleFullWindow: function() {
+    toggleFullWindow: function () {
       if (!this.player.isFullscreen_) {
         if (this.player.isFullWindow) {
           this.player.removeClass('vjs-full-screen')
@@ -1813,7 +1894,7 @@ export default defineComponent({
       }
     },
 
-    exitFullWindow: function() {
+    exitFullWindow: function () {
       if (this.player.isFullWindow) {
         this.player.isFullWindow = false
         document.documentElement.style.overflow = this.player.docOrigOverflow
@@ -1878,14 +1959,14 @@ export default defineComponent({
       this.usingTouch = false
     },
 
-    toggleShowStatsModal: function() {
+    toggleShowStatsModal: function () {
       if (this.format !== 'dash') {
         showToast(this.$t('Video.Stats.Video statistics are not available for legacy videos'))
       } else {
         this.showStatsModal = !this.showStatsModal
       }
     },
-    createStatsModal: function() {
+    createStatsModal: function () {
       const ModalDialog = videojs.getComponent('ModalDialog')
       this.statsModal = new ModalDialog(this.player, {
         temporary: false,
@@ -1904,12 +1985,12 @@ export default defineComponent({
         this.showStatsModal = false
       })
     },
-    updateStatsContent: function() {
+    updateStatsContent: function () {
       if (this.showStatsModal) {
         this.statsModal.contentEl().innerHTML = this.getFormattedStats()
       }
     },
-    getFormattedStats: function() {
+    getFormattedStats: function () {
       const currentVolume = this.player.muted() ? 0 : this.player.volume()
       const volume = `${(currentVolume * 100).toFixed(0)}%`
       const bandwidth = `${(this.playerStats.bandwidth / 1000).toFixed(2)}kbps`
@@ -1917,18 +1998,20 @@ export default defineComponent({
       const droppedFrames = this.playerStats.videoPlaybackQuality.droppedVideoFrames
       const totalFrames = this.playerStats.videoPlaybackQuality.totalVideoFrames
       const frames = `${droppedFrames} / ${totalFrames}`
-      const resolution = this.selectedResolution === 'auto' ? 'auto' : `${this.selectedResolution}@${this.selectedFPS}fps`
+      const resolution = this.selectedResolution === 'auto' ? `${this.autoResolution}@${this.autoFPS}fps (auto)` : `${this.selectedResolution}@${this.selectedFPS}fps`
       const playerDimensions = `${this.playerStats.playerDimensions.width}x${this.playerStats.playerDimensions.height}`
+      const bitrate = this.selectedBitrate === 'auto' ? `${this.autoBitrate} (auto)` : this.selectedBitrate
+      const mimeType = this.selectedMimeType === 'auto' ? `${this.autoMimeType} (auto)` : this.selectedMimeType
       const statsArray = [
         [this.$t('Video.Stats.Video ID'), this.videoId],
         [this.$t('Video.Stats.Resolution'), resolution],
         [this.$t('Video.Stats.Player Dimensions'), playerDimensions],
-        [this.$t('Video.Stats.Bitrate'), this.selectedBitrate],
+        [this.$t('Video.Stats.Bitrate'), bitrate],
         [this.$t('Video.Stats.Volume'), volume],
         [this.$t('Video.Stats.Bandwidth'), bandwidth],
         [this.$t('Video.Stats.Buffered'), buffered],
         [this.$t('Video.Stats.Dropped / Total Frames'), frames],
-        [this.$t('Video.Stats.Mimetype'), this.selectedMimeType]
+        [this.$t('Video.Stats.Mimetype'), mimeType]
       ]
       let listContentHTML = ''
 
@@ -1949,7 +2032,7 @@ export default defineComponent({
      * @returns {boolean}
      */
     canChapterJump: function (event, direction) {
-      const currentChapter = this.$parent.videoCurrentChapterIndex
+      const currentChapter = this.currentChapterIndex
       return this.chapters.length > 0 &&
         (direction === 'previous' ? currentChapter > 0 : this.chapters.length - 1 !== currentChapter) &&
         ((process.platform !== 'darwin' && event.ctrlKey) ||
@@ -1967,9 +2050,8 @@ export default defineComponent({
       }
       promise
         .catch(err => {
-          if (err.message.includes('The play() request was interrupted by a new load request.')) {
+          if (EXPECTED_PLAY_RELATED_ERROR_MESSAGES.some(msg => err.message.includes(msg))) {
             // Ignoring expected exception
-            // This is thrown when `play()` called but user already viewing another page
             // console.debug('Ignoring expected error')
             // console.debug(err)
             return
@@ -2075,7 +2157,7 @@ export default defineComponent({
             event.preventDefault()
             if (this.canChapterJump(event, 'previous')) {
               // Jump to the previous chapter
-              this.player.currentTime(this.chapters[this.$parent.videoCurrentChapterIndex - 1].startSeconds)
+              this.player.currentTime(this.chapters[this.currentChapterIndex - 1].startSeconds)
             } else {
               // Rewind by the time-skip interval (in seconds)
               this.changeDurationBySeconds(-this.defaultSkipInterval * this.player.playbackRate())
@@ -2085,7 +2167,7 @@ export default defineComponent({
             event.preventDefault()
             if (this.canChapterJump(event, 'next')) {
               // Jump to the next chapter
-              this.player.currentTime(this.chapters[this.$parent.videoCurrentChapterIndex + 1].startSeconds)
+              this.player.currentTime(this.chapters[this.currentChapterIndex + 1].startSeconds)
             } else {
               // Fast-Forward by the time-skip interval (in seconds)
               this.changeDurationBySeconds(this.defaultSkipInterval * this.player.playbackRate())
@@ -2158,7 +2240,7 @@ export default defineComponent({
       }
     },
 
-    stopPowerSaveBlocker: function() {
+    stopPowerSaveBlocker: function () {
       if (process.env.IS_ELECTRON && this.powerSaveBlocker !== null) {
         const { ipcRenderer } = require('electron')
         ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, this.powerSaveBlocker)

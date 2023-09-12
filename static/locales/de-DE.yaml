@@ -28,6 +28,13 @@ Close: Schließen
 Back: Zurück
 Forward: Vorwärts
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videos
+  Shorts: Shorts
+  Live: Live
+
 # Search Bar
 Search / Go to URL: Suche / Geh zu URL
   # In Filter Button
@@ -85,6 +92,10 @@ Subscriptions:
   Disabled Automatic Fetching: Du hast den automatischen Abruf von Abonnements deaktiviert.
     Aktualisiere die Abonnements, um sie hier zu sehen.
   Empty Channels: Deine abonnierten Kanäle haben derzeit keine Videos.
+  Subscriptions Tabs: Registerkarten für Abonnements
+  All Subscription Tabs Hidden: Alle Registerkarten für Abonnements sind ausgeblendet.
+    Um den Inhalt hier zu sehen, blenden Sie bitte einige Registerkarten im Abschnitt
+    „{subsection}“ in „{settingsSection}“ ein.
 Trending:
   Trending: Trends
   Trending Tabs: Trendtabs
@@ -138,6 +149,7 @@ Settings:
       Beginning: Anfang
       Middle: Mitte
       End: Ende
+      Hidden: Versteckt
     'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
@@ -171,6 +183,8 @@ Settings:
       Dracula: Dracula
       System Default: Systemvoreinstellung
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Pink
+      Pastel Pink: Pastellrosa
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -416,6 +430,14 @@ Settings:
       Channel Page: Kanalseite
       General: Allgemein
       Watch Page: Seite beobachten
+      Subscriptions Page: Abonnements-Seite
+    Hide Channel Podcasts: Kanal-Podcasts ausblenden
+    Hide Subscriptions Videos: Videos der Abonnements ausblenden
+    Hide Subscriptions Shorts: Shorts der Abonnements ausblenden
+    Hide Channel Releases: Kanalveröffentlichungen ausblenden
+    Hide Subscriptions Live: Live der Abonnements ausblenden
+    Blur Thumbnails: Vorschaubilder unscharf machen
+    Hide Profile Pictures in Comments: Profilbilder in den Kommentaren verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -449,6 +471,7 @@ Settings:
       Prompt To Skip: Aufforderung zum Überspringen
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
+    UseDeArrowTitles: DeArrow-Video-Titel verwenden
   External Player Settings:
     Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
     External Player: Externer Player
@@ -556,9 +579,8 @@ About:
   View License: Lizenz einsehen
   Licensed under the AGPLv3: Lizensiert unter der AGPLv3
   Source code: Quellcode
+  Discussions: Diskussionen
 Channel:
-  Subscriber: Abonnement
-  Subscribers: Abonnements
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
   Search Channel: Durchsuche Kanal
@@ -604,14 +626,24 @@ Channel:
     This channel currently does not have any posts: Dieser Kanal enthält derzeit keine
       Beiträge
     Community: Gemeinschaft
+    votes: '{votes} Stimmen'
+    Reveal Answers: Antworten aufzeigen
+    Hide Answers: Antworten verbergen
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
       keine Live-Streams
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Dieser Kanal hat derzeit keine
       Shorts
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Dieser Kanal hat aktuell keine
+      Podcasts
+  Releases:
+    Releases: Veröffentlichungen
+    This channel does not currently have any releases: Dieser Kanel hat aktuell keine
+      Veröffentlichungen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
@@ -619,10 +651,7 @@ Video:
   Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
-  View: Aufruf
   Views: Aufrufe
-  # Context is "X People Watching"
-  Watching: aktive Zuschauer
   Watched: Gesehen
   # As in a Live Video
   Live: Live
@@ -758,6 +787,7 @@ Video:
   Upcoming: Demnächst
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
+  Pause on Current Video: Pause für aktuelles Video
 Videos:
   #& Sort By
   Sort By:
@@ -901,6 +931,7 @@ Profile:
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
   Profile Settings: Profileinstellungen
+  Toggle Profile List: Profilliste umschalten
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
   ist verfügbar, {blogTitle}. Um ihn zu öffnen klicken
@@ -974,10 +1005,17 @@ Tooltips:
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
       einer erhöhten Nutzung des Direktzugriffsspeichers.
   Distraction Free Settings:
-    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um alle Videos,
-      Wiedergabelisten und den Kanal selbst vor der Anzeige in der Suche oder den
-      Trends zu verbergen. Der eingegebene Kanalname muss vollständig übereinstimmen
-      und es wird zwischen Groß- und Kleinschreibung unterschieden.
+    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
+      dass alle Videos, Wiedergabelisten und der Kanal selbst in der Suche, den Trends,
+      den beliebtesten und den empfohlenen Videos angezeigt werden. Der eingegebene
+      Kanalname muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung
+      unterschieden.
+    Hide Subscriptions Live: Diese Einstellung wird durch die app-weite Einstellung
+      „{appWideSetting}“ im Abschnitt „{subsection}“ des Abschnitts „{settingsSection}“
+      außer Kraft gesetzt
+  SponsorBlock Settings:
+    UseDeArrowTitles: Ersetzen Sie Videotitel durch von Benutzern eingereichte Titel
+      von DeArrow.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1034,3 +1072,7 @@ Hashtag:
   Hashtag: Schlagwort
   This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
     derzeit keine Videos gefunden werden
+Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
+  wenn das aktuelle Video beendet ist
+Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
+  pausiert, wenn das aktuelle Video beendet ist

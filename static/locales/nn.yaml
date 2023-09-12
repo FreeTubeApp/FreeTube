@@ -30,6 +30,11 @@ Close: 'Lukk'
 Back: 'Tilbake'
 Forward: 'Framover'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoar'
+
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
   er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
@@ -562,15 +567,12 @@ Video:
   Copy YouTube Channel Link: 'Kopier YouTube-kanallenke'
   Open Channel in Invidious: 'Opne kanal i Invidious'
   Copy Invidious Channel Link: 'Kopier Invidious-kanallenke'
-  View: 'Vis'
   Views: 'Visingar'
   Loop Playlist: 'Gjenta speleliste'
   Shuffle Playlist: 'Spel av tilfeldig frå spelelista'
   Reverse Playlist: 'Snu spelelista'
   Play Next Video: 'Spel av neste video'
   Play Previous Video: 'Spel av førre video'
-  # Context is "X People Watching"
-  Watching: 'Ser på'
   Watched: 'Sett'
   Autoplay: 'Automatisk avspeling'
   Starting soon, please refresh the page to check again: 'Starter snart. Ver venleg

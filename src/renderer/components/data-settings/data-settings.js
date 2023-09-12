@@ -9,6 +9,7 @@ import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   copyToClipboard,
+  deepCopy,
   escapeHTML,
   getTodayDateStrLocalTimezone,
   readFileFromDialog,
@@ -69,7 +70,7 @@ export default defineComponent({
       ]
     },
     primaryProfile: function () {
-      return JSON.parse(JSON.stringify(this.profileList[0]))
+      return deepCopy(this.profileList[0])
     }
   },
   methods: {
@@ -174,7 +175,7 @@ export default defineComponent({
             })
 
             if (existingProfileIndex !== -1) {
-              const existingProfile = JSON.parse(JSON.stringify(this.profileList[existingProfileIndex]))
+              const existingProfile = deepCopy(this.profileList[existingProfileIndex])
               existingProfile.subscriptions = existingProfile.subscriptions.concat(profileObject.subscriptions)
               existingProfile.subscriptions = existingProfile.subscriptions.filter((sub, index) => {
                 const profileIndex = existingProfile.subscriptions.findIndex((x) => {
@@ -421,7 +422,7 @@ export default defineComponent({
       }
 
       const newPipeSubscriptions = newPipeData.subscriptions.filter((channel, index) => {
-        return channel.service_id === 0
+        return new URL(channel.url).hostname === 'www.youtube.com'
       })
 
       const subscriptions = []
@@ -1035,10 +1036,9 @@ export default defineComponent({
         invidiousAPICall(subscriptionsPayload).then((response) => {
           resolve(response)
         }).catch((err) => {
-          console.error(err)
           const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err.responseJSON.error}`, 10000, () => {
-            copyToClipboard(err.responseJSON.error)
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
           })
 
           if (process.env.IS_ELECTRON && this.backendFallback && this.backendPreference === 'invidious') {
@@ -1056,7 +1056,7 @@ export default defineComponent({
         const channel = await getLocalChannel(channelId)
 
         if (channel.alert) {
-          return undefined
+          return []
         }
 
         return {
@@ -1138,10 +1138,8 @@ export default defineComponent({
 
     ...mapActions([
       'updateProfile',
-      'compactProfiles',
       'updateShowProgressBar',
       'updateHistory',
-      'compactHistory',
       'addPlaylist',
       'addVideo'
     ]),

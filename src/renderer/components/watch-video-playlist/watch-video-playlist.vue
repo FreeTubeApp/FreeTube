@@ -15,11 +15,18 @@
         </router-link>
       </h3>
       <router-link
+        v-if="channelId"
         class="channelName"
         :to="`/channel/${channelId}`"
       >
         {{ channelName }}
       </router-link>
+      <span
+        v-else
+        class="channelName"
+      >
+        {{ channelName }}
+      </span>
       <span
         class="playlistIndex"
       >
@@ -84,6 +91,17 @@
           @click="playNextVideo"
           @keydown.enter.prevent="playNextVideo"
           @keydown.space.prevent="playNextVideo"
+        />
+        <font-awesome-icon
+          class="playlistIcon"
+          :class="{ playlistIconActive: pauseOnCurrentVideo }"
+          :icon="['fas', 'pause']"
+          :title="$t('Video.Pause on Current Video')"
+          role="button"
+          tabindex="0"
+          @click="togglePauseOnCurrentVideo"
+          @keydown.enter.prevent="togglePauseOnCurrentVideo"
+          @keydown.space.prevent="togglePauseOnCurrentVideo"
         />
       </p>
       <div

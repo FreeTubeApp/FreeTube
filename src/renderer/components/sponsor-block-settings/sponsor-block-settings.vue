@@ -15,7 +15,7 @@
         @change="handleUpdateUseDeArrowTitles"
       />
     </ft-flex-box>
-    <div
+    <template
       v-if="useSponsorBlock || useDeArrowTitles"
     >
       <ft-flex-box
@@ -46,7 +46,7 @@
           :category-name="category"
         />
       </ft-flex-box>
-    </div>
+    </template>
   </ft-settings-section>
 </template>
 

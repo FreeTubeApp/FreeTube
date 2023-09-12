@@ -8,12 +8,13 @@
       v-else
       class="card"
     >
-      <h3>{{ $t("Trending.Trending") }}</h3>
+      <h2>{{ $t("Trending.Trending") }}</h2>
       <ft-flex-box
         class="trendingInfoTabs"
         role="tablist"
         :aria-label="$t('Trending.Trending Tabs')"
       >
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="default"
           class="tab"
@@ -29,6 +30,7 @@
         >
           {{ $t("Trending.Default").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="music"
           class="tab"
@@ -44,6 +46,7 @@
         >
           {{ $t("Trending.Music").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="gaming"
           class="tab"
@@ -59,6 +62,7 @@
         >
           {{ $t("Trending.Gaming").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="movies"
           class="tab"

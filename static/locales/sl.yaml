@@ -30,6 +30,11 @@ Close: 'Zapri'
 Back: 'Nazaj'
 Forward: 'Naprej'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videoposnetki'
+
 Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica
   {versionNumber}!·  Za več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'
@@ -553,15 +558,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj povezavo vgrajenega YouTube predvajalnika'
   Open in Invidious: 'Odpri v Invidious'
   Copy Invidious Link: 'Kopiraj Invidious povezavo'
-  View: 'Ogled'
   Views: 'Ogledi'
   Loop Playlist: 'Ponovno predvajaj seznam predvajanja'
   Shuffle Playlist: 'Mešaj seznam predvajanja'
   Reverse Playlist: 'Obrni seznam predvajanja'
   Play Next Video: 'Predvajaj naslednji videoposnetek'
   Play Previous Video: 'Predvajaj prejšnji videoposnetek'
-  # Context is "X People Watching"
-  Watching: 'Gledano'
   Watched: 'Ogledano'
   Autoplay: 'Samodejno predvajanje'
   Starting soon, please refresh the page to check again: 'Predvajanje se začenja.

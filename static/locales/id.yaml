@@ -30,6 +30,11 @@ Close: 'Tutup'
 Back: 'Kembali'
 Forward: 'Maju'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Video'
+
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
@@ -61,12 +66,14 @@ Search Filters:
     Videos: 'Video'
     Channels: 'Kanal'
     #& Playlists
+    Movies: Film
   Duration:
     Duration: 'Durasi'
     All Durations: 'Semua Durasi'
     Short (< 4 minutes): 'Pendek (< 4 menit)'
     Long (> 20 minutes): 'Panjang (>20 menit)'
   # On Search Page
+    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
   Search Results: 'Hasil Pencarian'
   Fetching results. Please wait: 'Mengambil hasil. Silakan tunggu'
   Fetch more results: 'Ambil lebih banyak hasil'
@@ -474,8 +481,6 @@ Profile:
   Profile Filter: Filter Profil
   Profile Settings: Pengaturan Profil
 Channel:
-  Subscriber: 'Pelanggan'
-  Subscribers: 'Pelanggan'
   Subscribe: 'Langganan'
   Unsubscribe: 'Berhenti Langganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
@@ -518,15 +523,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Salin Tautan Pemutar Tersemat YouTube'
   Open in Invidious: 'Buka di Invidious'
   Copy Invidious Link: 'Salin Tautan Invidious'
-  View: 'Ditonton'
   Views: 'Ditonton'
   Loop Playlist: 'Ulangi Daftar Putar'
   Shuffle Playlist: 'Acak Daftar Putar'
   Reverse Playlist: 'Putar-Balik Daftar Putar'
   Play Next Video: 'Putar Video Berikutnya'
   Play Previous Video: 'Putar Video Sebelumnya'
-  # Context is "X People Watching"
-  Watching: 'Sedang Ditonton'
   Watched: 'Sudah Ditonton'
   Autoplay: 'Putar-Otomatis'
   # As in a Live Video
@@ -768,9 +770,9 @@ Tooltips:
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil
       data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan
       ke server Invidious.
-    External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat\
-      \ dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang\
-      \ diklik dengan browser default Anda.\n"
+    External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat
+      dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang
+      diklik dengan browser default Anda.\n"
   Privacy Settings:
     Remove Video Meta Files: Saat diaktifkan, FreeTube secara otomatis menghapus file
       meta yang dibuat selama pemutaran video, saat halaman tonton ditutup.

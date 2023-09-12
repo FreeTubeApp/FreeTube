@@ -27,6 +27,13 @@ Close: 'Sulje'
 Back: 'Takaisin'
 Forward: 'Eteenpäin'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Videot'
+  Shorts: Lyhyet
+  Live: Livenä
+
 # Search Bar
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
@@ -81,6 +88,10 @@ Subscriptions:
   Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
   Disabled Automatic Fetching: Olet poistanut käytöstä automaattisen tilaustennoutamisen.
     Virkistä tilaukset nähdäksesi ne täällä.
+  Subscriptions Tabs: Tilaukset-välilehdet
+  All Subscription Tabs Hidden: Kaikki tilausvälilehdet on piilotettu. Jos haluat
+    nähdä sisällön täällä, poista joitakin välilehtiä ”{settingsSection}”-osion ”{settingsSection}”-osion
+    ”{subsection}”-välilehdistä.
 Trending:
   Trending: 'Nousussa'
   Trending Tabs: Nousussa olevat välilehdet
@@ -404,6 +415,11 @@ Settings:
       Channel Page: Kanavan sivu
       Watch Page: Katso sivu
       General: Yleiset
+      Subscriptions Page: Tilaukset-sivu
+    Hide Channel Releases: Piilota kanavajulkaisut
+    Hide Channel Podcasts: Piilota kanavan podcastit
+    Hide Subscriptions Videos: Piilota tilausvideot
+    Hide Subscriptions Live: Piilota tilausten livet
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -529,8 +545,6 @@ About:
   Donate: Lahjoita
   Source code: Lähdekoodi
 Channel:
-  Subscriber: 'Tilaaja'
-  Subscribers: 'Tilaajat'
   Subscribe: 'Tilaa'
   Unsubscribe: 'Peruuta tilaus'
   Search Channel: 'Etsi kanavaa'
@@ -580,9 +594,16 @@ Channel:
     This channel does not currently have any live streams: Tällä kanavalla ei ole
       tällä hetkellä yhtään suoraa lähetystä
   Shorts:
-    Shorts: Lyhyet
     This channel does not currently have any shorts: Tällä kanavalla ei juuri nyt
       ole lyhyitä
+  Podcasts:
+    Podcasts: Podcastit
+    This channel does not currently have any podcasts: Tällä kanavalla ei ole yhtäkään
+      podcastia
+  Releases:
+    Releases: Julkaisut
+    This channel does not currently have any releases: Tällä kanavalla ei ole yhtäkään
+      julkaisua
 Video:
   Open in YouTube: 'Avaa Youtubessa'
   Copy YouTube Link: 'Kopioi Youtube-linkki'
@@ -590,10 +611,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopioi upotetun Youtube-soittimen linkki'
   Open in Invidious: 'Avaa Invidious'
   Copy Invidious Link: 'Kopioi Invidious-linkki'
-  View: 'Katselu'
   Views: 'Katsomiskertaa'
-  # Context is "X People Watching"
-  Watching: 'Katsoo'
   Watched: 'Katsotut'
   # As in a Live Video
   Live: 'Suora'
@@ -931,6 +949,10 @@ Tooltips:
       soittolistat ja itse kanavan näkymästä haussa, trendaamisessa, suosituimmissa
       ja suositelluissa. Annetun kanavan nimen on oltava täysin oikein ja kirjainkoolla
       on merkitystä.
+    Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}”-asetuksella,
+      joka on ”{settingsSection}”-osion ”{subsection}”-osiossa.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow'n otsikoilla.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
   video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava

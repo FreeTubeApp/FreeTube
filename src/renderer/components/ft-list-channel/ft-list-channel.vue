@@ -10,10 +10,13 @@
     <div class="channelThumbnail">
       <router-link
         :to="`/channel/${id}`"
+        tabindex="-1"
+        aria-hidden="true"
       >
         <img
           :src="thumbnail"
           class="channelImage"
+          alt=""
         >
       </router-link>
     </div>
@@ -22,16 +25,16 @@
         class="title"
         :to="`/channel/${id}`"
       >
-        {{ channelName }}
+        <h3 class="h3Title">
+          {{ channelName }}
+        </h3>
       </router-link>
       <div class="infoLine">
         <span
           v-if="subscriberCount !== null && !hideChannelSubscriptions"
           class="subscriberCount"
         >
-          {{ parsedSubscriberCount }}
-          <template v-if="subscriberCount === 1">{{ $t("Channel.Subscriber") }}</template>
-          <template v-else>{{ $t("Channel.Subscribers") }}</template> -
+          {{ $tc('Global.Counts.Subscriber Count', subscriberCount, {count: formattedSubscriberCount}) }}
         </span>
         <router-link
           v-if="handle !== null"
@@ -44,17 +47,14 @@
           v-else
           class="videoCount"
         >
-          {{ parsedVideoCount }}
-          <template v-if="videoCount === 1">{{ $t("Channel.Videos.Video") }}</template>
-          <template v-else>{{ $t("Channel.Videos.Videos") }}</template>
+          {{ $tc('Global.Counts.Video Count', videoCount, {count: formattedVideoCount}) }}
         </span>
       </div>
       <p
         v-if="listType !== 'grid'"
         class="description"
-      >
-        {{ description }}
-      </p>
+        v-html="description"
+      />
     </div>
   </div>
 </template>

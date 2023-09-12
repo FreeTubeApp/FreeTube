@@ -29,6 +29,13 @@ Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: Videos
+  Shorts: Shorts
+  Live: Live
+
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
 Download From Site: 'Download From Site'
@@ -88,6 +95,9 @@ Subscriptions:
   Disabled Automatic Fetching: You have disabled automatic subscription fetching.
     Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
+  Subscriptions Tabs: Subscriptions tabs
+  All Subscription Tabs Hidden: All subscription tabs are hidden. To see content here,
+    please unhide some tabs in the ‘{subsection}’ section in ‘{settingsSection}’.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -412,10 +422,16 @@ Settings:
     Hide Channel Community: Hide channel community
     Hide Channel Shorts: Hide channel shorts
     Sections:
-      Side Bar: Side Bar
+      Side Bar: Side bar
       General: General
       Channel Page: Channel Page
       Watch Page: Watch Page
+      Subscriptions Page: Subscriptions page
+    Hide Channel Podcasts: Hide channel podcasts
+    Hide Channel Releases: Hide channel releases
+    Hide Subscriptions Shorts: Hide subscriptions shorts
+    Hide Subscriptions Live: Hide subscriptions live
+    Hide Subscriptions Videos: Hide subscriptions videos
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -448,6 +464,7 @@ Settings:
       Prompt To Skip: Prompt to skip
       Do Nothing: Do nothing
     Category Color: Category colour
+    UseDeArrowTitles: Use DeArrow video titles
   Download Settings:
     Download Settings: Download Settings
     Ask Download Path: Ask for download path
@@ -558,8 +575,6 @@ Profile:
   Profile Filter: Profile Filter
   '{number} selected': '{number} selected'
 Channel:
-  Subscriber: 'Subscriber'
-  Subscribers: 'Subscribers'
   Subscribe: 'Subscribe'
   Unsubscribe: 'Unsubscribe'
   Channel has been removed from your subscriptions: 'Channel has been removed from
@@ -611,9 +626,16 @@ Channel:
       have any live streams
     Live: Live
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: This channel does not currently
       have any shorts
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: This channel does not currently
+      have any podcasts
+  Releases:
+    Releases: Releases
+    This channel does not currently have any releases: This channel does not currently
+      have any releases
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -625,15 +647,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copy YouTube Embedded Player Link'
   Open in Invidious: 'Open in Invidious'
   Copy Invidious Link: 'Copy Invidious Link'
-  View: 'View'
   Views: 'Views'
   Loop Playlist: 'Loop Playlist'
   Shuffle Playlist: 'Shuffle Playlist'
   Reverse Playlist: 'Reverse Playlist'
   Play Next Video: 'Play Next Video'
   Play Previous Video: 'Play Previous Video'
-  # Context is "X People Watching"
-  Watching: 'Watching'
   Watched: 'Watched'
   Autoplay: 'Autoplay'
   Starting soon, please refresh the page to check again: 'Starting soon, please refresh
@@ -918,8 +937,12 @@ Tooltips:
       in-memory image cache. Will lead to increased RAM usage.
   Distraction Free Settings:
     Hide Channels: Enter a channel name or channel ID to hide all videos, playlists
-      and the channel itself from appearing in search, trending, most popular and recommended. The channel name
-      entered must be a complete match and is case sensitive.
+      and the channel itself from appearing in search, trending, most popular and
+      recommended. The channel name entered must be a complete match and is case sensitive.
+    Hide Subscriptions Live: This setting is overridden by the app-wide ‘{appWideSetting}’
+      setting, in the ‘{subsection}’ section of the ‘{settingsSection}’
+  SponsorBlock Settings:
+    UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing
   next video in {nextVideoInterval} second. Click to cancel. | Playing next video
   in {nextVideoInterval} seconds. Click to cancel.

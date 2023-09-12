@@ -12,6 +12,7 @@
           v-for="(channel, index) in subscriptions"
           :key="index"
           :ref="`channel-${index}`"
+          :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
           :show-selected="true"

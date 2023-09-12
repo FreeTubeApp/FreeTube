@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+import FtCommunityPoll from '../ft-community-poll/ft-community-poll.vue'
 
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
@@ -15,6 +16,7 @@ export default defineComponent({
   components: {
     'ft-list-playlist': FtListPlaylist,
     'ft-list-video': FtListVideo,
+    'ft-community-poll': FtCommunityPoll,
     'tiny-slider': VueTinySlider
   },
   props: {
@@ -37,7 +39,7 @@ export default defineComponent({
       postContent: '',
       commentCount: '',
       isLoading: true,
-      author: ''
+      author: '',
     }
   },
   computed: {

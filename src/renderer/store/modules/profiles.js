@@ -1,6 +1,7 @@
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { DBProfileHandlers } from '../../../datastores/handlers/index'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
+import { deepCopy } from '../../helpers/utils'
 
 const state = {
   profileList: [{
@@ -94,17 +95,18 @@ const actions = {
     const thumbnail = channelThumbnailUrl?.replace(/=s\d*/, '=s176') ?? null // change thumbnail size if different
     const profileList = getters.getProfileList
     for (const profile of profileList) {
-      const currentProfileCopy = JSON.parse(JSON.stringify(profile))
+      const currentProfileCopy = deepCopy(profile)
       const channel = currentProfileCopy.subscriptions.find((channel) => {
         return channel.id === channelId
       }) ?? null
       if (channel === null) { continue }
       let updated = false
-      if (channel.name !== channelName || (channel.thumbnail !== thumbnail && thumbnail !== null)) {
-        if (thumbnail !== null) {
-          channel.thumbnail = thumbnail
-        }
+      if (channel.name !== channelName && channelName != null) {
         channel.name = channelName
+        updated = true
+      }
+      if (channel.thumbnail !== thumbnail && thumbnail != null) {
+        channel.thumbnail = thumbnail
         updated = true
       }
       if (updated) {
@@ -140,10 +142,6 @@ const actions = {
     } catch (errMessage) {
       console.error(errMessage)
     }
-  },
-
-  compactProfiles(_) {
-    DBProfileHandlers.persist()
   },
 
   updateActiveProfile({ commit }, id) {

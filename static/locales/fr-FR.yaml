@@ -28,7 +28,17 @@ Close: 'Fermer'
 Back: 'Retour'
 Forward: 'Avancer'
 
+# Global
+# Anything shared among components / views should be put here
+Global:
+  Videos: 'Vidéos'
+  Shorts: Shorts
+  Live: En direct
+
 # Search Bar
+  Counts:
+    Video Count: 1 vidéo | {count} vidéos
+    Channel Count: 1 chaîne | {count} chaînes
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -63,7 +73,7 @@ Search Filters:
     Medium (4 - 20 minutes): Moyenne (4 - 20 minutes)
   Search Results: 'Résultats de la recherche'
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
-  Fetch more results: 'Montrer plus de résultats'
+  Fetch more results: 'Afficher plus de résultats'
 # Sidebar
   There are no more results for this search: Il n'y a plus de résultats pour cette
     recherche
@@ -87,6 +97,10 @@ Subscriptions:
     abonnements. Actualisez les abonnements pour les voir ici.
   Empty Channels: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement
     aucune vidéo.
+  Subscriptions Tabs: Onglets Abonnements
+  All Subscription Tabs Hidden: Tous les onglets d'abonnement sont cachés. Pour voir
+    le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} »
+    dans « {settingsSection} ».
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -140,6 +154,7 @@ Settings:
       Beginning: 'Début'
       Middle: 'Milieu'
       End: 'Fin'
+      Hidden: Caché
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious
       (https://invidious.snopyta.org par défaut)'
     Region for Trending: 'Pays pour les tendances'
@@ -175,6 +190,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Paramètres système
       Catppuccin Mocha: Catppuccin Moka
+      Pastel Pink: Rose Pastel
+      Hot Pink: Rose Vif
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -427,6 +444,14 @@ Settings:
       Side Bar: Barre latérale
       Watch Page: Page de lecture
       General: Général
+      Subscriptions Page: Page Abonnements
+    Hide Channel Podcasts: Masquer les podcasts de la chaîne
+    Hide Channel Releases: Masquer les publications de la chaîne
+    Hide Subscriptions Videos: Masquer les vidéos des abonnements
+    Hide Subscriptions Shorts: Masquer les shorts des abonnements
+    Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
+    Blur Thumbnails: Flouter les miniatures
+    Hide Profile Pictures in Comments: Cacher les photos de profil dans les commentaires
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -569,9 +594,8 @@ About:
   FreeTube Wiki: Wiki de FreeTube
   GitHub releases: Les différentes versions de FreeTube disponibles sur GitHub
   Downloads / Changelog: Téléchargements / Journal des modifications
+  Discussions: Discussions
 Channel:
-  Subscriber: 'Abonnement'
-  Subscribers: 'Abonnés'
   Subscribe: 'S''abonner'
   Unsubscribe: 'Se désabonner'
   Search Channel: 'Chercher une chaîne'
@@ -618,29 +642,36 @@ Channel:
     Community: Communauté
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
+    votes: '{votes} votes'
+    Reveal Answers: Afficher les réponses
+    Hide Answers: Masquer les réponses
   Live:
     Live: En direct
     This channel does not currently have any live streams: Cette chaîne n'a actuellement
       aucun flux en direct
   Shorts:
-    Shorts: Shorts
     This channel does not currently have any shorts: Cette chaîne n'a actuellement
       aucun shorts
+  Releases:
+    Releases: Publications
+    This channel does not currently have any releases: Cette chaîne n'a actuellement
+      aucune publication
+  Podcasts:
+    Podcasts: Podcasts
+    This channel does not currently have any podcasts: Cette chaîne n'a pas encore
+      de podcasts
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Retirer de l''historique'
   Video has been marked as watched: 'La vidéo a été marqué comme Vu'
   Video has been removed from your history: 'La vidéo a été retiré de votre historique'
-  Open in YouTube: 'Ouvrir sur Youtube'
-  Copy YouTube Link: 'Copier le lien Youtube'
+  Open in YouTube: 'Ouvrir sur YouTube'
+  Copy YouTube Link: 'Copier le lien YouTube'
   Open YouTube Embedded Player: 'Ouvrir sur Youtube-NoCookie'
-  Copy YouTube Embedded Player Link: 'Copier le lien Youtube-NoCookie'
+  Copy YouTube Embedded Player Link: 'Copier le lien YouTube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
-  View: 'Vue'
   Views: 'Vues'
-  # Context is "X People Watching"
-  Watching: 'En cours de lecture'
   Watched: 'Vu'
   # As in a Live Video
   Live: 'En direct'
@@ -772,6 +803,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le
     chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé
     par le téléchargeur.
+  Pause on Current Video: Pause sur la vidéo en cours
 Videos:
   #& Sort By
   Sort By:
@@ -812,8 +844,8 @@ Share:
   Invidious URL copied to clipboard: 'URL Individious copié dans le presse-papier'
   Invidious Embed URL copied to clipboard: 'URL d''intégration Individious copié dans
     le presse-papier'
-  YouTube URL copied to clipboard: 'URL Youtube copié dans le presse-papiers'
-  YouTube Embed URL copied to clipboard: 'URL d''intégration Youtube copié dans le
+  YouTube URL copied to clipboard: 'URL YouTube copié dans le presse-papiers'
+  YouTube Embed URL copied to clipboard: 'URL d''intégration YouTube copié dans le
     presse-papiers'
   Include Timestamp: Inclure l'horodatage
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans
@@ -915,6 +947,7 @@ Profile:
   Other Channels: Autres chaînes
   Profile Filter: Filtre de profil
   Profile Settings: Paramètres du profil
+  Toggle Profile List: Afficher la liste des profils
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet est
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
@@ -999,9 +1032,12 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un nom de chaîne ou un identifiant de chaîne pour empêcher
       toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître
-      dans les recherches, dans les catégories "Tendances", "Plus populaires" et "Recommandées".
+      dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés.
       Le nom de la chaîne entré doit correspondre exactement et est sensible à la
       casse.
+    Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} »
+      applicable à l'ensemble de l'application, dans la section « {subsection} » de
+      la section « {settingsSection} »
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacez les titres des vidéos par des titres proposés par
       les utilisateurs de DeArrow.
@@ -1064,3 +1100,7 @@ Hashtag:
   Hashtag: Mot-clé
   This hashtag does not currently have any videos: Ce mot-clé n'a actuellement aucune
     vidéo
+Playlist will pause when current video is finished: La liste de lecture se met en
+  pause lorsque la vidéo en cours est terminée
+Playlist will not pause when current video is finished: La liste de lecture ne se
+  met pas en pause lorsque la vidéo en cours est terminée

@@ -58,5 +58,95 @@
             "playlistShuffle": "--mpv-shuffle",
             "playlistLoop": "--mpv-loop-playlist"
         }
+    },
+      {
+        "name": "SMPlayer",
+        "nameTranslationKey": "Settings.External Player Settings.Players.SMPlayer.Name",
+        "value": "smplayer",
+        "cmdArguments": {
+            "defaultExecutable": "smplayer",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "-start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
+    {
+        "name": "MPC-BE",
+        "nameTranslationKey": "Settings.External Player Settings.Players.MPC-BE.Name",
+        "value": "mpc-be",
+        "cmdArguments": {
+            "defaultExecutable": "mpc-be64",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "/start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
+    {
+        "name": "MPC-HC",
+        "nameTranslationKey": "Settings.External Player Settings.Players.MPC-HC.Name",
+        "value": "mpc-hc",
+        "cmdArguments": {
+            "defaultExecutable": "mpc-hc64",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "/start",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
+    {
+        "name": "PotPlayer",
+        "nameTranslationKey": "Settings.External Player Settings.Players.PotPlayer.Name",
+        "value": "potplayer",
+        "cmdArguments": {
+            "defaultExecutable": "potplayermini64",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": false,
+            "videoUrl": "",
+            "playlistUrl": null,
+            "startOffset": "/seek=",
+            "playbackRate": null,
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
+    {
+      "name": "Clapper",
+      "nameTranslationKey": "Settings.External Player Settings.Players.Clapper.Name",
+      "value": "clapper",
+      "cmdArguments": {
+          "defaultExecutable": "clapper",
+          "defaultCustomArguments": null,
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": null,
+          "startOffset": null,
+          "playbackRate": null,
+          "playlistIndex": null,
+          "playlistReverse": null,
+          "playlistShuffle": null,
+          "playlistLoop": null
+        }
     }
 ]

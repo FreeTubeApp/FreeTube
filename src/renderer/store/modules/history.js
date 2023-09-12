@@ -63,10 +63,6 @@ const actions = {
     } catch (errMessage) {
       console.error(errMessage)
     }
-  },
-
-  compactHistory(_) {
-    DBHistoryHandlers.persist()
   }
 }
 

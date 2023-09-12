@@ -8,14 +8,14 @@
       v-show="!isLoading"
       class="card"
     >
-      <h3>
+      <h2>
         {{ $t("User Playlists.Your Playlists") }}
         <ft-tooltip
           class="selectTooltip"
           position="bottom"
           :tooltip="$t('User Playlists.Playlist Message')"
         />
-      </h3>
+      </h2>
       <ft-input
         v-show="fullData.length > 0"
         ref="searchBar"
