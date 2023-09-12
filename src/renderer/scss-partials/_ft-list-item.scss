@@ -54,7 +54,7 @@ $watched-transition-duration: 0.5s;
 .ft-list-item {
   padding: 6px;
 
-  &.watched {
+  &.watched:not(.selectModeEnabled) {
     @include low-contrast-when-watched(var(--primary-text-color));
 
     background-color: var(--bg-color);
@@ -68,6 +68,25 @@ $watched-transition-duration: 0.5s;
     &:focus .thumbnailImage {
       opacity: 1;
       transition-duration: $watched-transition-duration;
+    }
+  }
+
+  &.selectedInSelectMode {
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: var(--primary-text-color) !important;
+    transition-duration: $watched-transition-duration;
+
+    &, .info .title, .info div.infoLine, .info div.infoLine .channelName {
+      color: var(--card-bg-color) !important;
+      transition-duration: $watched-transition-duration;
+    }
+
+    &:hover, &:focus {
+      transition-duration: $watched-transition-duration;
+      background-color: var(--tertiary-text-color) !important;
+      // & .title, &.infoLine {
+      // }
     }
   }
 
@@ -305,6 +324,8 @@ $watched-transition-duration: 0.5s;
 
   &.selectModeEnabled * {
     pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
 
     .ftIconButton {
       pointer-events: initial;

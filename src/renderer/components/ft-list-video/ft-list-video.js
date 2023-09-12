@@ -554,6 +554,7 @@ export default defineComponent({
         this.selectModeSelectionId = selectModeSelectionId
       } else {
         this.removeFromSelectModeSelections(this.selectModeSelectionId)
+        this.selectModeSelectionId = 0
       }
     },
 
