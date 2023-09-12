@@ -80,6 +80,10 @@ export default defineComponent({
       return this.$store.getters.getHistoryCacheById[this.id]
     },
 
+    historyEntryExists: function () {
+      return typeof this.historyEntry !== 'undefined'
+    },
+
     listType: function () {
       return this.$store.getters.getListType
     },
@@ -441,7 +445,7 @@ export default defineComponent({
       this.channelName = this.data.author ?? null
       this.channelId = this.data.authorId ?? null
 
-      if (this.data.isRSS && typeof this.historyEntry !== 'undefined') {
+      if (this.data.isRSS && typeof this.historyEntryExists) {
         this.duration = formatDurationAsTimestamp(this.historyEntry.lengthSeconds)
       } else {
         this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
@@ -528,10 +532,11 @@ export default defineComponent({
     },
 
     checkIfWatched: function () {
-      const historyEntry = this.historyEntry
-
-      if (typeof historyEntry !== 'undefined') {
+      if (this.historyEntryExists) {
         this.watched = true
+
+        const historyEntry = this.historyEntry
+
         if (this.saveWatchedProgress) {
           // For UX consistency, no progress reading if writing disabled
           this.watchProgress = historyEntry.watchProgress

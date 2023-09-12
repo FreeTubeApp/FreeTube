@@ -126,6 +126,9 @@ export default defineComponent({
     historyEntry: function () {
       return this.$store.getters.getHistoryCacheById[this.videoId]
     },
+    historyEntryExists: function () {
+      return typeof this.historyEntry !== 'undefined'
+    },
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
@@ -1040,8 +1043,6 @@ export default defineComponent({
     },
 
     checkIfWatched: function () {
-      const historyEntry = this.historyEntry
-
       if (!this.isLive) {
         if (this.timestamp) {
           if (this.timestamp < 0) {
@@ -1051,7 +1052,7 @@ export default defineComponent({
           } else {
             this.$refs.videoPlayer.player.currentTime(this.timestamp)
           }
-        } else if (this.saveWatchedProgress && typeof historyEntry !== 'undefined') {
+        } else if (this.saveWatchedProgress && this.historyEntryExists) {
           // For UX consistency, no progress reading if writing disabled
           const watchProgress = this.historyEntry.watchProgress
 
@@ -1064,7 +1065,7 @@ export default defineComponent({
       if (this.rememberHistory) {
         if (this.timestamp) {
           this.addToHistory(this.timestamp)
-        } else if (typeof historyEntry !== 'undefined') {
+        } else if (this.historyEntryExists) {
           this.addToHistory(this.historyEntry.watchProgress)
         } else {
           this.addToHistory(0)
