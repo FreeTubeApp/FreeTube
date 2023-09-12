@@ -35,6 +35,9 @@ Global:
   Live: 直播
 
 # Search Bar
+  Counts:
+    Video Count: 1 部影片 | {count} 部影片
+    Channel Count: 1 個頻道 | {count} 個頻道
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -780,6 +783,7 @@ Comments:
   Member: 成員
   View {replyCount} replies: 檢視 {replyCount} 則回覆
   Hearted: 喜歡的
+  Subscribed: 已訂閱
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
