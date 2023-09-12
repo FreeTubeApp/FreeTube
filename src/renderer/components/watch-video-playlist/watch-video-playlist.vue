@@ -115,7 +115,7 @@
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="index"
+          :key="`index-${item.uniqueId || item.videoId}`"
           :ref="currentVideoIndex === (index + 1) ? 'currentVideoItem' : null"
           class="playlistItem"
         >

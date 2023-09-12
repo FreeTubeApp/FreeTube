@@ -17,15 +17,19 @@ export default defineComponent({
   props: {
     playlistId: {
       type: String,
-      required: true
+      required: true,
     },
     videoId: {
       type: String,
-      required: true
+      required: true,
+    },
+    uniqueId: {
+      type: String,
+      default: null,
     },
     watchViewLoading: {
       type: Boolean,
-      required: true
+      required: true,
     },
   },
   data: function () {
@@ -60,10 +64,18 @@ export default defineComponent({
 
       return this.$store.getters.getPlaylist(this.playlistId)
     },
+    selectedUserPlaylistVideoCount () {
+      return this.selectedUserPlaylist?.videos?.length
+    },
+    selectedUserPlaylistLastUpdatedAt () {
+      return this.selectedUserPlaylist?.lastUpdatedAt
+    },
 
     currentVideoIndex: function () {
       const index = this.playlistItems.findIndex((item) => {
-        if (typeof item.videoId !== 'undefined') {
+        if (item.uniqueId != null && this.uniqueId != null) {
+          return item.uniqueId === this.uniqueId
+        } else if (item.videoId != null) {
           return item.videoId === this.videoId
         } else {
           return item.id === this.videoId
@@ -107,6 +119,18 @@ export default defineComponent({
   watch: {
     userPlaylistsReady: function() {
       this.getPlaylistInfoWithDelay()
+    },
+    selectedUserPlaylistVideoCount () {
+      // Re-fetch from local store when current user playlist updated
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: false })
+    },
+    selectedUserPlaylistLastUpdatedAt () {
+      // Re-fetch from local store when current user playlist updated
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: false })
+    },
+    uniqueId () {
+      // Re-fetch from local store when different item played
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
     videoId: function (newId, oldId) {
       // Check if next video is from the shuffled list or if the user clicked a different video
@@ -431,14 +455,22 @@ export default defineComponent({
       })
     },
 
-    parseUserPlaylist: function (playlist) {
+    parseUserPlaylist: function (playlist, { allowPlayingVideoRemoval = true } = {}) {
       this.playlistTitle = playlist.playlistName
-      this.videoCount = playlist.videoCount
       this.channelName = ''
       this.channelThumbnail = ''
       this.channelId = ''
 
-      this.playlistItems = playlist.videos
+      if (this.playlistItems.length === 0 || allowPlayingVideoRemoval) {
+        this.playlistItems = playlist.videos
+      } else {
+        // `this.currentVideo` relies on `playlistItems`
+        const latestPlaylistContainsCurrentVideo = playlist.videos.find(v => v.uniqueId === this.uniqueId) != null
+        // Only update list of videos if latest video list still contains currently playing video
+        if (latestPlaylistContainsCurrentVideo) {
+          this.playlistItems = playlist.videos
+        }
+      }
 
       this.isLoading = false
     },
