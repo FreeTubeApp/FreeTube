@@ -1,3 +1,4 @@
+/* stylelint-disable liberty/use-logical-spec */
 .relative {
   position: relative;
 }
@@ -27,3 +28,4 @@
   z-index: 2;
   background-color: #000;
 }
+/* stylelint-enable liberty/use-logical-spec */
