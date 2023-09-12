@@ -30,6 +30,10 @@ export default defineComponent({
       type: String,
       default: null
     },
+    uniqueId: {
+      type: String,
+      default: null
+    },
     playlistIndex: {
       type: Number,
       default: null
@@ -348,6 +352,7 @@ export default defineComponent({
         return {
           playlistId: this.playlistId,
           playlistType: null,
+          uniqueId: this.uniqueId,
         }
       }
 
@@ -368,15 +373,18 @@ export default defineComponent({
     playlistIdFinal: function () {
       return this.playlistIdTypePairFinal?.playlistId
     },
-
     playlistTypeFinal: function () {
       return this.playlistIdTypePairFinal?.playlistType
+    },
+    uniqueIdFinal: function () {
+      return this.playlistIdTypePairFinal?.uniqueId
     },
 
     watchPageLinkQuery() {
       const query = {}
       if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }
       if (this.playlistTypeFinal) { query.playlistType = this.playlistTypeFinal }
+      if (this.uniqueIdFinal) { query.uniqueId = this.uniqueIdFinal }
       return query
     },
 

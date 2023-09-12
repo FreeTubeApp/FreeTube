@@ -35,6 +35,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    uniqueId: {
+      type: String,
+      default: null,
+    },
     forceListType: {
       type: String,
       default: null

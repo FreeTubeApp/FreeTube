@@ -40,6 +40,7 @@ export default defineComponent({
       playlistTitle: '',
       playlistDescription: '',
       firstVideoId: '',
+      firstVideoUniqueId: '',
       playlistThumbnail: '',
       viewCount: 0,
       videoCount: 0,
@@ -268,8 +269,10 @@ export default defineComponent({
 
       if (playlist.videos.length > 0) {
         this.firstVideoId = playlist.videos[0].videoId
+        this.firstVideoUniqueId = playlist.videos[0].uniqueId
       } else {
         this.firstVideoId = ''
+        this.firstVideoUniqueId = ''
       }
       this.viewCount = 0
       this.videoCount = playlist.videos.length

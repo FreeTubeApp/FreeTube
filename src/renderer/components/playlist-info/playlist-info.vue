@@ -6,7 +6,10 @@
       <router-link
         :to="{
           path: `/watch/${firstVideoId}`,
-          query: { playlistId: id }
+          query: {
+            playlistId: id,
+            uniqueId: firstVideoUniqueId,
+          },
         }"
         tabindex="-1"
       >

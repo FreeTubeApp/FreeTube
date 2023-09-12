@@ -27,6 +27,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    firstVideoUniqueId: {
+      type: String,
+      required: true,
+    },
     playlistThumbnail: {
       type: String,
       required: true,

@@ -379,7 +379,7 @@ const mutations = {
   removeVideo(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video.videoId !== payload.videoId || video.uniqueId !== payload.uniqueId)
+      playlist.videos = playlist.videos.filter(video => video.uniqueId !== payload.uniqueId)
     }
   },
 

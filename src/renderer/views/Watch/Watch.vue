@@ -173,6 +173,7 @@
         :watch-view-loading="isLoading"
         :playlist-id="playlistId"
         :video-id="videoId"
+        :unique-id="uniqueId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
         @pause-player="pausePlayer"
