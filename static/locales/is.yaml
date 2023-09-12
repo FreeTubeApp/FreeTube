@@ -37,6 +37,9 @@ Global:
   Shorts: Stuttmyndir
   Live: Í beinni
 
+  Counts:
+    Video Count: 1 myndskeið | {count} myndskeið
+    Channel Count: 1 rás | {count} rásir
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'

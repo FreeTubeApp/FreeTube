@@ -38,6 +38,9 @@ Global:
   Live: Dal vivo
 
 # Search Bar
+  Counts:
+    Video Count: 1 video | {count} video
+    Channel Count: 1 canale | {count} canali
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -857,6 +860,7 @@ Comments:
   Member: Membro
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
+  Subscribed: Iscritto
 Up Next: 'Prossimi video'
 
 # Toast Messages

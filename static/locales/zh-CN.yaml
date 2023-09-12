@@ -35,6 +35,9 @@ Global:
   Live: 直播
 
 # Search Bar
+  Counts:
+    Video Count: 1 个视频 | {count} 个视频
+    Channel Count: 1 个频道 | {count} 个频道
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
@@ -771,6 +774,7 @@ Comments:
   Member: 成员
   Hearted: 喜欢的
   View {replyCount} replies: 查看 {replyCount} 条回复
+  Subscribed: 已订阅
 Up Next: 'Up Next'
 
 # Toast Messages
