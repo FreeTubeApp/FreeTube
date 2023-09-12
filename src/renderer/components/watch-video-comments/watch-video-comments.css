@@ -115,6 +115,15 @@
   height: 14px;
 }
 
+.commentSubscribedIcon {
+  content: var(--logo-icon);
+  height: 14px;
+  width: 14px;
+  vertical-align: middle;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
 .commentLikeCount {
   font-size: 11px;
   margin-inline-start: 70px;

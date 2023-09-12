@@ -101,7 +101,7 @@ Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 保存した動画はありません。一覧に表示させるには、ビデオの角にある保存ボタンをクリックします
-  Playlist Message: 
+  Playlist Message:
     このページは、完全に動作する動画リストではありません。保存またはお気に入りと設定した動画のみが表示されます。操作が完了すると、現在ここにあるすべての動画は「お気に入り」の動画リストに移動します。
   Search bar placeholder: 動画リスト内の検索
   Empty Search Message: この再生リストに、検索に一致する動画はありません
@@ -515,8 +515,6 @@ About:
   Beta: ベータ
   Discussions: 議論
 Channel:
-  Subscriber: '人の登録者'
-  Subscribers: '人の登録者'
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネル検索'
@@ -578,10 +576,7 @@ Video:
   Copy YouTube Embedded Player Link: 'YouTube 埋め込みプレーヤーへのリンクのコピー'
   Open in Invidious: 'Invidious で表示'
   Copy Invidious Link: 'Invidious リンクのコピー'
-  View: '回再生'
   Views: '回再生'
-  # Context is "X People Watching"
-  Watching: '人が視聴中'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'
@@ -881,7 +876,7 @@ Tooltips:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
       RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル名またはチャンネル ID 
+    Hide Channels: チャンネル名またはチャンネル ID
       を入力すると、すべてのビデオ、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル名は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります

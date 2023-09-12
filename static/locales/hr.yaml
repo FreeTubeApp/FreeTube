@@ -602,8 +602,6 @@ Profile:
   Profile Settings: Postavke profila
   Toggle Profile List: Uključi/Isključi popis profila
 Channel:
-  Subscriber: 'Pretplatnik'
-  Subscribers: 'Pretplatnici'
   Subscribe: 'Pretplati se'
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
@@ -673,10 +671,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
   Open in Invidious: 'Otvori na Invidious stranici'
   Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-  View: 'gledanje'
   Views: 'gledanja'
-  # Context is "X People Watching"
-  Watching: 'Gleda se'
   Watched: 'Pogledano'
   # As in a Live Video
   Live: 'Uživo'

@@ -631,10 +631,7 @@ Video:
     YouTube'
   Open in Invidious: 'Открыть в Invidious'
   Copy Invidious Link: 'Скопировать ссылку Invidious'
-  View: 'Вид'
   Views: 'Просмотров'
-  # Context is "X People Watching"
-  Watching: 'Смотрят'
   Watched: 'Просмотрено'
   # As in a Live Video
   Live: 'Трансляция'

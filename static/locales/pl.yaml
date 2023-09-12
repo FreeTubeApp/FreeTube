@@ -36,6 +36,9 @@ Global:
   Live: Transmisje
 
 # Search Bar
+  Counts:
+    Video Count: 1 film | {count} film(y/ów)
+    Channel Count: 1 kanał | {count} kanał(y/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -649,10 +652,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
   Copy Invidious Link: 'Skopiuj link do strony Invidious'
-  View: 'wyświetlenie'
   Views: 'wyświetleń'
-  # Context is "X People Watching"
-  Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
   Live: 'Transmisja'
@@ -783,6 +783,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Czat
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
+  Pause on Current Video: Zatrzymaj po tym filmie
 Videos:
   #& Sort By
   Sort By:
@@ -858,6 +859,7 @@ Comments:
   Member: Wspierający
   Hearted: z serduszkiem
   View {replyCount} replies: Zobacz {replyCount} odpowiedzi
+  Subscribed: Zasubskrybowano
 Up Next: 'Następne'
 
 # Toast Messages
@@ -1066,3 +1068,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Nie ma na razie żadnych filmów
     z takim hashtagiem
+Playlist will pause when current video is finished: Playlista zatrzyma się, gdy obecny
+  film się zakończy
+Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
+  gdy obecny film się zakończy

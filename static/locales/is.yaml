@@ -37,6 +37,9 @@ Global:
   Shorts: Stuttmyndir
   Live: Í beinni
 
+  Counts:
+    Video Count: 1 myndskeið | {count} myndskeið
+    Channel Count: 1 rás | {count} rásir
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -551,8 +554,6 @@ Profile:
   Profile Settings: Stillingar notkunarsniðs
   Toggle Profile List: Víxla lista með notkunarsniðum af/á
 Channel:
-  Subscriber: 'Áskrifandi'
-  Subscribers: 'Áskrifendur'
   Subscribe: 'Gerast áskrifandi'
   Unsubscribe: 'Segja upp áskrift'
   Channel has been removed from your subscriptions: 'Rás var fjarlægð úr áskriftunum
@@ -634,15 +635,12 @@ Video:
   Copy YouTube Channel Link: 'Afrita tengil YouTube-rásar'
   Open Channel in Invidious: 'Opna rás í Invidious'
   Copy Invidious Channel Link: 'Afrita tengil Invidious-rásar'
-  View: 'Áhorf'
   Views: 'Áhorf'
   Loop Playlist: 'Endurtaka spilunarlista endalaust'
   Shuffle Playlist: 'Stokka spilunarlista'
   Reverse Playlist: 'Snúa við spilunarlista'
   Play Next Video: 'Spila næsta myndskeið'
   Play Previous Video: 'Spila fyrra myndskeið'
-  # Context is "X People Watching"
-  Watching: 'Verið að horfa'
   Watched: 'Búið að horfa'
   Autoplay: 'Spila sjálfkrafa'
   Starting soon, please refresh the page to check again: 'Byrjar bráðum, endurlestu
@@ -835,6 +833,7 @@ Comments:
   Member: Meðlimur
   View {replyCount} replies: Skoða {replyCount} svör
   Hearted: Líkað
+  Subscribed: Áskrifandi
 Up Next: 'Næst í spilun'
 
 #Tooltips
