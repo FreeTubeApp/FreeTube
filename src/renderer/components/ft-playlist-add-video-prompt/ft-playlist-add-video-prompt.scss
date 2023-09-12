@@ -12,17 +12,34 @@
     along with FreeTube.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*
-* Credit goes to pavelvaravko for making this css.
-* https://codepen.io/pavelvaravko/pen/qjojOr
-*/
-
-/* select starting stylings ------------------------------*/
-.center {
+.heading {
   text-align: center;
+}
+
+.selected-count {
+  text-align: center;
+}
+
+// Style for `ft-prompt`
+:deep(.promptCard) {
+  // Currently only this prompt has enough content to make prompt too high
+  max-height: 95%;
+
+  // Some child(s) will grow vertically
+  display: flex;
+  flex-direction: column;
 }
 
 .sortSelect {
   /* Put it on the right */
   margin-left: auto;
+}
+
+.playlists-container {
+  box-shadow: inset 0 0 5px rgba(0,0,0,.5);
+
+  // Use remaining height
+  flex-grow: 1;
+
+  overflow-y: scroll;
 }

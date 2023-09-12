@@ -2,10 +2,10 @@
   <ft-prompt
     @click="hide"
   >
-    <h2 class="center">
+    <h2 class="heading">
       Select a Playlist to add your {{ toBeAddedToPlaylistVideoCount }} video(s) to
     </h2>
-    <p class="center">
+    <p class="selected-count">
       {{ selectedPlaylistCount }} Selected
     </p>
     <ft-input
@@ -27,34 +27,38 @@
       :placeholder="'Sort By'"
       @change="sortBy = $event"
     />
-    <ft-flex-box>
-      <ft-playlist-selector
-        v-for="(playlist, index) in activePlaylists"
-        :key="`${playlist._id}-${index}`"
-        :tabindex="tabindex"
-        :data="playlist"
-        :index="index"
-        :selected="selectedPlaylistIdList.includes(playlist._id)"
-        @selected="countSelected(playlist._id)"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-button
-        label="Create New Playlist"
-        :tabindex="tabindex"
-        @click="openCreatePlaylistPrompt"
-      />
-      <ft-button
-        label="Save"
-        :tabindex="tabindex"
-        @click="addSelectedToPlaylists"
-      />
-      <ft-button
-        label="Cancel"
-        :tabindex="tabindex"
-        @click="hide"
-      />
-    </ft-flex-box>
+    <div class="playlists-container">
+      <ft-flex-box>
+        <ft-playlist-selector
+          v-for="(playlist, index) in activePlaylists"
+          :key="`${playlist._id}-${index}`"
+          :tabindex="tabindex"
+          :data="playlist"
+          :index="index"
+          :selected="selectedPlaylistIdList.includes(playlist._id)"
+          @selected="countSelected(playlist._id)"
+        />
+      </ft-flex-box>
+    </div>
+    <div class="actions-container">
+      <ft-flex-box>
+        <ft-button
+          label="Create New Playlist"
+          :tabindex="tabindex"
+          @click="openCreatePlaylistPrompt"
+        />
+        <ft-button
+          label="Save"
+          :tabindex="tabindex"
+          @click="addSelectedToPlaylists"
+        />
+        <ft-button
+          label="Cancel"
+          :tabindex="tabindex"
+          @click="hide"
+        />
+      </ft-flex-box>
+    </div>
   </ft-prompt>
 </template>
 
