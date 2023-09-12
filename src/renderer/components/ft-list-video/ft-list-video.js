@@ -553,7 +553,7 @@ export default defineComponent({
         const selectModeSelectionId = await this.$store.dispatch('addToSelectModeSelections', this)
         this.selectModeSelectionId = selectModeSelectionId
       } else {
-        this.$store.commit('removeFromSelectModeSelections', this.selectModeSelectionId)
+        this.removeFromSelectModeSelections(this.selectModeSelectionId)
       }
     },
 
@@ -568,7 +568,8 @@ export default defineComponent({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
-      'clearSelectModeSelections'
+      'clearSelectModeSelections',
+      'removeFromSelectModeSelections'
     ])
   }
 })

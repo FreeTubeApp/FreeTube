@@ -122,7 +122,7 @@ const getters = {
   },
 
   getIsIndexSelectedInSelectMode: (state) => (index) => {
-    Object.hasOwn(state.selectModeSelections.selections, index)
+    return Object.hasOwn(state.selectModeSelections.selections, index)
   },
 
   getSelectModeSelections () {
@@ -497,7 +497,7 @@ const actions = {
   },
 
   clearSelectModeSelections ({ commit }) {
-    commit('setSelectModeSelections', { count: 0, selections: [] })
+    commit('setSelectModeSelections', { count: 0, selections: {} })
   },
 
   addToSelectModeSelections ({ commit }, selection) {
@@ -781,6 +781,7 @@ const mutations = {
 
   removeFromSelectModeSelections (state, { selectionIndex }) {
     delete state.selectModeSelections.selections[selectionIndex]
+    state.selectModeSelections.count--
   },
 }
 
