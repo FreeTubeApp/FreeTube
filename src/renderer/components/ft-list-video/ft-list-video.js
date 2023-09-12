@@ -486,7 +486,7 @@ export default defineComponent({
       this.updateHistory(videoData)
 
       if (!hideToast) {
-        showToast(this.$t('Video.Video has been marked as watched'))
+        showToast(this.$tc('Video.Video has been marked as watched'))
       }
 
       this.watched = true
@@ -496,7 +496,7 @@ export default defineComponent({
       this.removeFromHistory(this.id)
 
       if (!hideToast) {
-        showToast(this.$t('Video.Video has been removed from your history'))
+        showToast(this.$tc('Video.Video has been removed from your history'))
       }
 
       this.watched = false
@@ -527,7 +527,7 @@ export default defineComponent({
       this.addVideo(payload)
 
       if (!hideToast) {
-        showToast(this.$t('Video.Video has been saved'))
+        showToast(this.$tc('Video.Video has been saved'))
       }
     },
 
@@ -540,7 +540,7 @@ export default defineComponent({
       this.removeVideo(payload)
 
       if (!hideToast) {
-        showToast(this.$t('Video.Video has been removed from your saved list'))
+        showToast(this.$tc('Video.Video has been removed from your saved list'))
       }
     },
 

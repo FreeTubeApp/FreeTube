@@ -53,7 +53,7 @@
       />
       <ft-icon-button
         v-if="!isUpcoming"
-        :title="inFavoritesPlaylist ? $t('Video.Unsave Video') : $t('Video.Save Video')"
+        :title="inFavoritesPlaylist ? $tc('Video.Unsave Video') : $tc('Video.Save Video')"
         :icon="['fas', 'star']"
         class="favoritesIcon"
         :theme="favoriteIconTheme"
