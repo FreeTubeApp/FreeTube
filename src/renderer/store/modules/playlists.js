@@ -145,6 +145,14 @@ const actions = {
   async addVideos({ commit }, payload) {
     try {
       const { _id, videos } = payload
+      videos.forEach((videoData) => {
+        if (videoData.timeAdded == null) {
+          videoData.timeAdded = new Date().getTime()
+        }
+        if (videoData.uniqueId == null) {
+          videoData.uniqueId = generateRandomUniqueId()
+        }
+      })
       await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, videos)
       commit('addVideos', payload)
     } catch (errMessage) {
