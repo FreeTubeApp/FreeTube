@@ -302,8 +302,8 @@ const actions = {
 
   async removeVideo({ commit }, payload) {
     try {
-      const { _id, videoId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, videoId)
+      const { _id, uniqueId } = payload
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, uniqueId)
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)

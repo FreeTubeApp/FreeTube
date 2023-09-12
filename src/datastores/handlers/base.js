@@ -136,10 +136,10 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistId(_id, videoId) {
+  static deleteVideoIdByPlaylistId(_id, uniqueId) {
     return db.playlists.updateAsync(
       { _id },
-      { $pull: { videos: { videoId } } },
+      { $pull: { videos: { uniqueId } } },
       { upsert: true }
     )
   }

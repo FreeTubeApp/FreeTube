@@ -97,8 +97,8 @@ class Playlists {
     return baseHandlers.playlists.delete(_id)
   }
 
-  static deleteVideoIdByPlaylistId(_id, videoId) {
-    return baseHandlers.playlists.deleteVideoIdByPlaylistId(_id, videoId)
+  static deleteVideoIdByPlaylistId(_id, uniqueId) {
+    return baseHandlers.playlists.deleteVideoIdByPlaylistId(_id, uniqueId)
   }
 
   static deleteVideoIdsByPlaylistId(_id, videoIds) {

@@ -378,14 +378,12 @@ export default defineComponent({
     },
 
     removeVideoFromPlaylist: function (videoId, uniqueId) {
-      const payload = {
-        _id: this.playlistId,
-        videoId: videoId,
-        uniqueId: uniqueId,
-      }
-
       try {
-        this.removeVideo(payload)
+        this.removeVideo({
+          _id: this.playlistId,
+          videoId: videoId,
+          uniqueId: uniqueId,
+        })
         // Update playlist's `lastUpdatedAt`
         this.updatePlaylist({ _id: this.playlistId })
         showToast('Video has been removed')

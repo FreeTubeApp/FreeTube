@@ -160,12 +160,12 @@ class Playlists {
     )
   }
 
-  static deleteVideoIdByPlaylistId(_id, videoId) {
+  static deleteVideoIdByPlaylistId(_id, uniqueId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_VIDEO_ID,
-        data: { _id, videoId }
+        data: { _id, uniqueId }
       }
     )
   }
