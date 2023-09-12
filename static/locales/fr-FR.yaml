@@ -36,6 +36,9 @@ Global:
   Live: En direct
 
 # Search Bar
+  Counts:
+    Video Count: 1 vidéo | {count} vidéos
+    Channel Count: 1 chaîne | {count} chaînes
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
