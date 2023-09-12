@@ -709,11 +709,11 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
     } else {
       options.push(
         {
-          label: i18n.tc('Video.Unsave Video', numberOfUnsavedVideos, { count: numberOfUnsavedVideos }),
+          label: i18n.tc('Video.Unsave Video', numberOfSavedVideos, { count: numberOfSavedVideos }),
           value: 'unsave'
         },
         {
-          label: i18n.tc('Video.Save Video', numberOfSavedVideos, { count: numberOfSavedVideos }),
+          label: i18n.tc('Video.Save Video', numberOfUnsavedVideos, { count: numberOfUnsavedVideos }),
           value: 'save'
         }
       )
@@ -733,11 +733,11 @@ export function getVideoDropdownOptions(count, videoComponents, hideSharingActio
   } else {
     options.push(
       {
-        label: i18n.tc('Video.Remove From History', numberOfUnwatchedVideos, { count: numberOfUnwatchedVideos }),
+        label: i18n.tc('Video.Remove From History', numberOfWatchedVideos, { count: numberOfWatchedVideos }),
         value: 'history-remove'
       },
       {
-        label: i18n.tc('Video.Mark As Watched', numberOfWatchedVideos, { count: numberOfWatchedVideos }),
+        label: i18n.tc('Video.Mark As Watched', numberOfUnwatchedVideos, { count: numberOfUnwatchedVideos }),
         value: 'history-add'
       },
     )

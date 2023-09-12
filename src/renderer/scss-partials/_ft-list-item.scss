@@ -54,7 +54,7 @@ $watched-transition-duration: 0.5s;
 .ft-list-item {
   padding: 6px;
 
-  &.watched:not(.selectModeEnabled) {
+  &.watched:not(.selectedInSelectMode) {
     @include low-contrast-when-watched(var(--primary-text-color));
 
     background-color: var(--bg-color);

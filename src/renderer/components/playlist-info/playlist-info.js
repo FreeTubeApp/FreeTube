@@ -110,13 +110,13 @@ export default defineComponent({
 
       switch (method) {
         case 'copyYoutube':
-          copyToClipboard(youtubeUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+          copyToClipboard(youtubeUrl, { messageOnSuccess: this.$tc('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
           openExternalLink(youtubeUrl)
           break
         case 'copyInvidious':
-          copyToClipboard(invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+          copyToClipboard(invidiousUrl, { messageOnSuccess: this.$tc('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
           openExternalLink(invidiousUrl)

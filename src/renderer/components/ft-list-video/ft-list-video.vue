@@ -7,7 +7,7 @@
       [appearance]: true,
       watched: addWatchedStyle,
       selectModeEnabled: isSelectModeEnabled,
-      selectedInSelectMode: getIsIndexSelectedInSelectMode(selectModeSelectionId)
+      selectedInSelectMode: isSelectedInSelectMode
     }"
     @click.prevent.stop="addToOrRemoveFromSelectModeSelections"
     @keydown.enter.prevent.stop="addToOrRemoveFromSelectModeSelections"

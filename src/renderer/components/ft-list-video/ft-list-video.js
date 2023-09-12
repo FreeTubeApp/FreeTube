@@ -73,7 +73,8 @@ export default defineComponent({
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
-      selectModeSelectionId: 0
+      selectModeSelectionId: 0,
+      isSelectedInSelectMode: false
     }
   },
   computed: {
@@ -552,9 +553,11 @@ export default defineComponent({
       if (!this.getIsIndexSelectedInSelectMode(this.selectModeSelectionId)) {
         const selectModeSelectionId = await this.$store.dispatch('addToSelectModeSelections', this)
         this.selectModeSelectionId = selectModeSelectionId
+        this.isSelectedInSelectMode = true
       } else {
         this.removeFromSelectModeSelections(this.selectModeSelectionId)
         this.selectModeSelectionId = 0
+        this.isSelectedInSelectMode = false
       }
     },
 
