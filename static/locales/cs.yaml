@@ -599,8 +599,6 @@ Profile:
   Profile Settings: Nastavení profilu
   Toggle Profile List: Přepnout seznam profilů
 Channel:
-  Subscriber: 'Odběratel'
-  Subscribers: 'odběratelů'
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
   Channel has been removed from your subscriptions: 'Kanál byl odebrán z vašich odběrů'
@@ -676,15 +674,12 @@ Video:
   Copy YouTube Channel Link: 'Kopírovat odkaz kanálu YouTube'
   Open Channel in Invidious: 'Otevřít kanál v Invidious'
   Copy Invidious Channel Link: 'Kopírovat odkaz Invidious kanálu'
-  View: 'Zhlédnutí'
   Views: 'Zhlédnutí'
   Loop Playlist: 'Smyčka playlistu'
   Shuffle Playlist: 'Zamíchat playlist'
   Reverse Playlist: 'Obrátit playlist'
   Play Next Video: 'Přehrát další video'
   Play Previous Video: 'Přehrát předchozí video'
-  # Context is "X People Watching"
-  Watching: 'Sledujících'
   Watched: 'Zhlédnuto'
   Autoplay: 'Automatické přehrávání'
   Starting soon, please refresh the page to check again: 'Začínáme brzy, obnovte prosím

@@ -46,7 +46,7 @@ export function calculatePublishedDate(publishedText) {
 
 export function toLocalePublicationString ({ publishText, isLive = false, isUpcoming = false, isRSS = false }) {
   if (isLive) {
-    return '0' + i18n.t('Video.Watching')
+    return i18n.tc('Global.Counts.Watching Count', 0, { count: 0 })
   } else if (isUpcoming || publishText === null) {
     // the check for null is currently just an inferring of knowledge, because there is no other possibility left
     return `${i18n.t('Video.Published.Upcoming')}: ${publishText}`
