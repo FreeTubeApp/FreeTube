@@ -64,13 +64,13 @@
       />
       <ft-icon-button
         v-if="isSelectModeEnabled"
-        class="selectModeOptionsButton"
+        class="navIcon selectModeOptionsButton"
         :class="{ navIconDisabled: selectModeSelections.count === 0 }"
         :icon="['fas', 'ellipsis-v']"
         title="More Options"
-        theme="base-no-default"
+        theme="base-nav-icon"
         role="button"
-        :use-shadow="false"
+        :remove-icon-button-styling="true"
         dropdown-position-x="right"
         :dropdown-options="dropdownOptions"
         tabindex="0"

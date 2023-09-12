@@ -6,7 +6,8 @@
       :icon="icon"
       :class="{
         [theme]: true,
-        shadow: useShadow
+        shadow: useShadow,
+        navIcon: theme === 'base-nav-icon'
       }"
       :style="{
         padding: padding + 'px',

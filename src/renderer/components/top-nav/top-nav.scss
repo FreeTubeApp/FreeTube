@@ -42,12 +42,20 @@
   }
 }
 
+:deep {
+  .ftIconButton.navIcon:has(svg) {
+    padding: 0;
+    height: fit-content;
+    width: fit-content;
+  }
+}
+
 .navIcon {
   border-radius: 50%;
   color: var(--primary-text-color);
   cursor: pointer;
-  height: 1em;
   font-size: 20px;
+  height: 1em;
   padding: 10px;
   transition: background 0.2s ease-out;
   width: 1em;
@@ -57,11 +65,11 @@
   }
 
   &.navIconDisabled {
-    color: gray;
-    opacity: 0.5;
     pointer-events: none;
     -webkit-user-select: none;
     user-select: none;
+    color: gray;
+    opacity: 0.5;
   }
 
   &:hover {
@@ -84,7 +92,6 @@
     }
   }
 }
-
 
 .ftIconButton.selectModeOptionsButton {
   line-height: normal;
