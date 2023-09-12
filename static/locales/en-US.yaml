@@ -603,20 +603,20 @@ Channel:
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
 Video:
-  Clear Selection: Clear Selection
-  Mark As Watched: Mark As Watched | Mark All As Watched
-  Remove From History: Remove From History | Remove All From History
+  Clear Selection: Clear Selection | Clear {count} Selections
+  Mark As Watched: Mark As Watched | Mark All {count} As Watched
+  Remove From History: Remove From History | Remove All {count} From History
   Video has been marked as watched: Video has been marked as watched | {count} videos have been marked as watched
   Video has been removed from your history: Video has been removed from your history | {count} videos have been removed from your history
   Unsave Video: Unsave Video | Unsave {count} Videos
   Save Video: Save Video | Save {count} Videos
   Video has been saved: Video has been saved | {count} videos have been saved
   Video has been removed from your saved list: Video has been removed from your saved list | {count} videos have been removed from your saved list
-  Open in YouTube: Open in YouTube | Open All in YouTube
+  Open in YouTube: Open in YouTube | Open All {count} in YouTube
   Copy YouTube Link: Copy YouTube Link | Copy {count} YouTube Links
-  Open YouTube Embedded Player: Open YouTube Embedded Player | Open YouTube Embedded Player for All
+  Open YouTube Embedded Player: Open YouTube Embedded Player | Open {count} in YouTube Embedded Player
   Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link | Copy {count} YouTube Embedded Player Links
-  Open in Invidious: Open in Invidious | Open All in Invidious
+  Open in Invidious: Open in Invidious | Open All {count} in Invidious
   Copy Invidious Link: Copy Invidious Link | Copy {count} Invidious Links
   Open Channel in YouTube: Open Channel in YouTube | Open {count} Channels in YouTube
   Copy YouTube Channel Link: Copy YouTube Channel Link | Copy {count} YouTube Channel Links
