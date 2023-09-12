@@ -626,8 +626,6 @@ Profile:
   Profile Settings: Ρυθμίσεις προφίλ
   Toggle Profile List: Εναλλαγή Λίστας Προφίλ
 Channel:
-  Subscriber: 'Συνδρομητής'
-  Subscribers: 'Συνδρομητές'
   Subscribe: 'Εγγραφή'
   Unsubscribe: 'Απεγγραφή'
   Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
@@ -707,15 +705,12 @@ Video:
     αναπαραγωγής από το YouTube'
   Open in Invidious: 'Άνοιγμα στο Invidious'
   Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
-  View: 'Προβολή'
   Views: 'Προβολές'
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
   Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
   Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
   Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
-  # Context is "X People Watching"
-  Watching: 'Παρακολουθούν τώρα'
   Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video

@@ -581,8 +581,6 @@ About:
   Source code: Quellcode
   Discussions: Diskussionen
 Channel:
-  Subscriber: Abonnement
-  Subscribers: Abonnements
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
   Search Channel: Durchsuche Kanal
@@ -653,10 +651,7 @@ Video:
   Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
-  View: Aufruf
   Views: Aufrufe
-  # Context is "X People Watching"
-  Watching: aktive Zuschauer
   Watched: Gesehen
   # As in a Live Video
   Live: Live

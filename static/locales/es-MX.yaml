@@ -442,8 +442,6 @@ About:
   Donate: Donar
   Credits: Créditos
 Channel:
-  Subscriber: 'Suscriptor'
-  Subscribers: 'Suscriptores'
   Subscribe: 'Suscribir'
   Unsubscribe: 'Desuscribir'
   Search Channel: 'Buscar canal'
@@ -490,10 +488,7 @@ Video:
     YouTube'
   Open in Invidious: 'Abrir en Invidious'
   Copy Invidious Link: 'Copiar enlace de Invidious'
-  View: 'Ver'
   Views: 'Vistas'
-  # Context is "X People Watching"
-  Watching: 'Viendo'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'En vivo'

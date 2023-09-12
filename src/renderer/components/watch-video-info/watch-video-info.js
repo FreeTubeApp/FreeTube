@@ -199,7 +199,8 @@ export default defineComponent({
       if (this.hideVideoViews) {
         return null
       }
-      return formatNumber(this.viewCount) + ` ${this.$t('Video.Views').toLowerCase()}`
+
+      return this.$tc('Global.Counts.View Count', this.viewCount, { count: formatNumber(this.viewCount) })
     },
 
     dateString: function () {

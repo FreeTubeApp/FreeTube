@@ -585,10 +585,7 @@ Video:
   Copy YouTube Embedded Player Link: '複製YouTube內嵌播放器連結'
   Open in Invidious: '在Invidious中開啟'
   Copy Invidious Link: '複製Invidious連結'
-  View: '觀看'
   Views: '觀看'
-  # Context is "X People Watching"
-  Watching: '觀看中'
   Watched: '已觀看'
   # As in a Live Video
   Live: '直播'
