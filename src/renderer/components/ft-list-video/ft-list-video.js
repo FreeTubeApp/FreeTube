@@ -301,6 +301,11 @@ export default defineComponent({
       this.fetchDeArrowData()
     }
   },
+  beforeDestroy: function () {
+    if (this.selectModeSelectionId) {
+      this.removeFromSelectModeSelections(this.selectModeSelectionId)
+    }
+  },
   methods: {
     fetchDeArrowData: async function() {
       const videoId = this.id
