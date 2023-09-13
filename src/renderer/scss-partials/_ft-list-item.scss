@@ -95,6 +95,8 @@ $watched-transition-duration: 0.5s;
     }
 
     .thumbnailImage {
+      border-radius: 12px;
+
       @include is-sidebar-item {
         height: 75px;
       }
@@ -154,6 +156,11 @@ $watched-transition-duration: 0.5s;
       margin-inline-end: 3px;
       margin-block-start: 3px;
       height: fit-content;
+    }
+
+    .watchedProgressBarContainer {
+      width: calc(100% - 24px);
+      margin: auto;
     }
 
     .watchedProgressBar {
@@ -331,6 +338,13 @@ $watched-transition-duration: 0.5s;
       opacity: 0;
       transition: visibility 0s, opacity 0.2s linear;
     }
+  }
+}
+
+.thumbnailImage {
+  border-radius: 12px;
+  &:hover {
+    box-shadow: 0 0 0 3px var(--side-nav-hover-color);
   }
 }
 

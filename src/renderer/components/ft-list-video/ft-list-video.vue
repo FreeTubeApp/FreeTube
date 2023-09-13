@@ -64,11 +64,13 @@
       >
         {{ $t("Video.Watched") }}
       </div>
-      <div
-        v-if="watched"
-        class="watchedProgressBar"
-        :style="{width: progressPercentage + '%'}"
-      />
+      <div class="watchedProgressBarContainer">
+        <div
+          v-if="watched"
+          class="watchedProgressBar"
+          :style="{width: progressPercentage + '%'}"
+        />
+      </div>
     </div>
     <div class="info">
       <router-link
