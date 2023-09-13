@@ -38,6 +38,9 @@ Global:
   Counts:
     Video Count: 1 部影片 | {count} 部影片
     Channel Count: 1 個頻道 | {count} 個頻道
+    Subscriber Count: 1 個訂閱者 | {count} 個訂閱者
+    View Count: 1 次檢視 | {count} 次檢視
+    Watching Count: 1 個正在觀看 | {count} 個正在觀看
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
