@@ -703,7 +703,6 @@ export default defineComponent({
         'description',
         'isLive',
         'lengthSeconds',
-        'paid',
         'published',
         'timeWatched',
         'title',
@@ -719,6 +718,10 @@ export default defineComponent({
         'lastViewedPlaylistId',
       ]
 
+      const ignoredKeys = [
+        'paid',
+      ]
+
       textDecode.forEach((history) => {
         const historyData = JSON.parse(history)
         // We would technically already be done by the time the data is parsed,
@@ -730,9 +733,10 @@ export default defineComponent({
         Object.keys(historyData).forEach((key) => {
           if (requiredKeys.includes(key) || optionalKeys.includes(key)) {
             historyObject[key] = historyData[key]
-          } else {
+          } else if (!ignoredKeys.includes(key)) {
             showToast(`Unknown data key: ${key}`)
           }
+          // Else do not import the key
         })
 
         const historyObjectKeysSet = new Set(Object.keys(historyObject))
@@ -823,7 +827,6 @@ export default defineComponent({
           historyObject.lengthSeconds = null
           historyObject.watchProgress = 1
           historyObject.isLive = false
-          historyObject.paid = false
 
           this.updateHistory(historyObject)
         }
@@ -897,8 +900,7 @@ export default defineComponent({
         'lengthSeconds',
         'timeAdded',
         'isLive',
-        'paid',
-        'type'
+        'type',
       ]
 
       playlists.forEach(async (playlistData) => {

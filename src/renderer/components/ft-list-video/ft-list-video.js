@@ -570,7 +570,6 @@ export default defineComponent({
         watchProgress: 0,
         timeWatched: new Date().getTime(),
         isLive: false,
-        paid: false,
         type: 'video'
       }
       this.updateHistory(videoData)
@@ -600,8 +599,7 @@ export default defineComponent({
         lengthSeconds: this.data.lengthSeconds,
         timeAdded: new Date().getTime(),
         isLive: false,
-        paid: false,
-        type: 'video'
+        type: 'video',
       }
 
       const payload = {
