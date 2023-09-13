@@ -45,6 +45,7 @@ const state = {
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
   isSelectModeEnabled: false,
+  selectAllVideosInSelectModeKey: 0,
   // Vuex doesn't support Maps, so we have to use an object here instead
   // TODO: switch to a Map during the Pinia migration
   selectModeSelections: { count: 0, selections: {} },
@@ -121,6 +122,10 @@ const getters = {
 
   getIsSelectModeEnabled () {
     return state.isSelectModeEnabled
+  },
+
+  getSelectAllInSelectModeTriggered () {
+    return state.selectAllVideosInSelectModeKey
   },
 
   getIsIndexSelectedInSelectMode: (state) => (index) => {
@@ -498,6 +503,10 @@ const actions = {
     }
   },
 
+  selectAllVideosInSelectMode({ commit }) {
+    commit('setSelectAllVideosInSelectMode')
+  },
+
   clearSelectModeSelections ({ commit }) {
     commit('setSelectModeSelections', { count: 0, selections: {} })
   },
@@ -774,6 +783,10 @@ const mutations = {
 
   setSelectMode (state, value) {
     state.isSelectModeEnabled = value
+  },
+
+  setSelectAllVideosInSelectMode (state) {
+    state.selectAllVideosInSelectModeKey++
   },
 
   setSelectModeSelections (state, selectModeSelections) {

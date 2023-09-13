@@ -286,11 +286,20 @@ export default defineComponent({
     isSelectModeEnabled: function () {
       return this.$store.getters.getIsSelectModeEnabled
     },
+
+    selectAllInSelectModeTriggered: function () {
+      return this.$store.getters.getSelectAllInSelectModeTriggered
+    }
   },
   watch: {
     historyIndex() {
       this.checkIfWatched()
     },
+    selectAllInSelectModeTriggered() {
+      if (this.selectModeSelectionId === 0) {
+        this.addToOrRemoveFromSelectModeSelections()
+      }
+    }
   },
   created: function () {
     this.parseVideoData()

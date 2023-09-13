@@ -120,6 +120,10 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
+    },
+
+    isSelectModeEnabled: function () {
+      return this.$store.getters.getIsSelectModeEnabled
     }
   },
   watch: {
@@ -325,6 +329,15 @@ export default defineComponent({
             this.$refs.topNav.focusSearch()
           }
           break
+      }
+
+      if (this.isSelectModeEnabled && (event.ctrlKey || event.metaKey)) {
+        switch (event.key) {
+          case 'A':
+          case 'a':
+            this.selectAllVideosInSelectMode()
+            break
+        }
       }
     },
 
@@ -542,7 +555,8 @@ export default defineComponent({
       'setupListenersToSyncWindows',
       'updateBaseTheme',
       'updateMainColor',
-      'updateSecColor'
+      'updateSecColor',
+      'selectAllVideosInSelectMode'
     ])
   }
 })
