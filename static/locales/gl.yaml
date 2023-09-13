@@ -577,8 +577,6 @@ Profile:
   Profile Filter: Filtro por perfís
   Profile Settings: Configuración do perfil
 Channel:
-  Subscriber: 'Subscritor'
-  Subscribers: 'Subscritores'
   Subscribe: 'Subscribirse'
   Unsubscribe: 'Desubscribirse'
   Channel has been removed from your subscriptions: 'Esta canle foi eliminada das
@@ -639,15 +637,12 @@ Video:
   Copy YouTube Channel Link: 'Copiar ligazón de YouTube da canle'
   Open Channel in Invidious: 'Abrir canle no Invidious'
   Copy Invidious Channel Link: 'Copiar ligazón de Invidious da canle'
-  View: 'Ver'
   Views: 'Visualizacións'
   Loop Playlist: 'Reprodución en bucle'
   Shuffle Playlist: 'Reprodución aleatoria'
   Reverse Playlist: 'Inverter listaxe de reprodución'
   Play Next Video: 'Reproducir próximo vídeo'
   Play Previous Video: 'Reproducir vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'A ver'
   Watched: 'Visto'
   Autoplay: 'Reprodución automática'
   Starting soon, please refresh the page to check again: 'Comezará en breve. Por favor,

@@ -440,8 +440,6 @@ Profile:
   Profile Settings: Configuració del perfil
   Profile Filter: Filtre de perfil
 Channel:
-  Subscriber: 'Subscriptor'
-  Subscribers: 'Subscriptors'
   Subscribe: 'Subscriu-te'
   Unsubscribe: 'Des-subscriu-te'
   Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les
@@ -484,15 +482,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copia el Enllaç del Reproductor de YouTube Incrustat'
   Open in Invidious: 'Obri a Invidious'
   Copy Invidious Link: 'Copia Enllaç d''Invidious'
-  View: 'Visualitza'
   Views: 'Visualitzacions'
   Loop Playlist: 'Llista de reproducció en bucle'
   Shuffle Playlist: 'Llista de reproducció en aleatori'
   Reverse Playlist: 'Llista de reproducció invertida'
   Play Next Video: 'Reprodueix el vídeo següent'
   Play Previous Video: 'Reprodueix el vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'Visualitzant'
   Watched: 'Visualitzat'
   Autoplay: 'Reproducció Automàtica'
   # As in a Live Video

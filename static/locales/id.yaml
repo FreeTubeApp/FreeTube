@@ -481,8 +481,6 @@ Profile:
   Profile Filter: Filter Profil
   Profile Settings: Pengaturan Profil
 Channel:
-  Subscriber: 'Pelanggan'
-  Subscribers: 'Pelanggan'
   Subscribe: 'Langganan'
   Unsubscribe: 'Berhenti Langganan'
   Channel has been removed from your subscriptions: 'Kanal telah dihapus dari langganan
@@ -525,15 +523,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Salin Tautan Pemutar Tersemat YouTube'
   Open in Invidious: 'Buka di Invidious'
   Copy Invidious Link: 'Salin Tautan Invidious'
-  View: 'Ditonton'
   Views: 'Ditonton'
   Loop Playlist: 'Ulangi Daftar Putar'
   Shuffle Playlist: 'Acak Daftar Putar'
   Reverse Playlist: 'Putar-Balik Daftar Putar'
   Play Next Video: 'Putar Video Berikutnya'
   Play Previous Video: 'Putar Video Sebelumnya'
-  # Context is "X People Watching"
-  Watching: 'Sedang Ditonton'
   Watched: 'Sudah Ditonton'
   Autoplay: 'Putar-Otomatis'
   # As in a Live Video

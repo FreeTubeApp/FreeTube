@@ -642,10 +642,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiar link incorporado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar link do Invidious'
-  View: 'Visualização'
   Views: 'Visualizações'
-  # Context is "X People Watching"
-  Watching: 'Assistindo'
   Watched: 'Assistido'
   # As in a Live Video
   Live: 'Ao vivo'
