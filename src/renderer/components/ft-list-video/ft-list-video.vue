@@ -6,8 +6,8 @@
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
       [appearance]: true,
       watched: addWatchedStyle,
-      selectModeEnabled: isSelectModeEnabled,
-      selectedInSelectMode: isSelectedInSelectMode
+      isSelectableInSelectMode: isSelectModeEnabled,
+      selectedInSelectMode: selectModeSelectionId !== 0
     }"
     @click.prevent.stop="addToOrRemoveFromSelectModeSelections"
     @keydown.enter.prevent.stop="addToOrRemoveFromSelectModeSelections"

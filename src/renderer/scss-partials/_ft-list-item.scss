@@ -322,7 +322,7 @@ $watched-transition-duration: 0.5s;
     }
   }
 
-  &.selectModeEnabled * {
+  &.isSelectableInSelectMode * {
     pointer-events: none;
     user-select: none;
     -webkit-user-select: none;

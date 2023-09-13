@@ -778,7 +778,7 @@ const mutations = {
 
   setSelectModeSelections (state, selectModeSelections) {
     Object.values(state.selectModeSelections.selections).forEach((videoComponent) => {
-      videoComponent.isSelectedInSelectMode = false
+      videoComponent.selectModeSelectionId = 0
     })
     state.selectModeSelections = selectModeSelections
   },
