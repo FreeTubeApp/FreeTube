@@ -445,7 +445,7 @@ export default defineComponent({
       this.channelName = this.data.author ?? null
       this.channelId = this.data.authorId ?? null
 
-      if (this.data.isRSS && typeof this.historyEntryExists) {
+      if (this.data.isRSS && this.historyEntryExists) {
         this.duration = formatDurationAsTimestamp(this.historyEntry.lengthSeconds)
       } else {
         this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
