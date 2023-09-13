@@ -40,6 +40,9 @@ Global:
   Counts:
     Video Count: 1 فيديو | {count} مقاطع فيديو
     Channel Count: 1 قناة | {count} القنوات
+    Subscriber Count: 1 مشترك | {count} المشتركين
+    View Count: 1 مشاهدة | {count} مشاهدات
+    Watching Count: 1 مشاهدة | {count} مشاهدة
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
