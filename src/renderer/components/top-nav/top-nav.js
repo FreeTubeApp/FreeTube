@@ -102,11 +102,32 @@ export default defineComponent({
       return this.$store.getters.getSelectModeSelections
     },
 
-    dropdownOptions: function () {
+    videoDropdownOptionArguments: function() {
       const count = this.selectModeSelections.count
       const videoComponents = Object.values(this.selectModeSelections.selections)
-      return getVideoDropdownOptions(count, videoComponents, this.hideSharingActions)
+      const videosWithChannelIdsCount = videoComponents.filter((videoComponent) => videoComponent.channelId !== null).length
+
+      const watchedVideosCount = videoComponents.filter((videoComponent) => videoComponent.watched).length
+      const unwatchedVideosCount = count - watchedVideosCount
+
+      const savedVideosCount = videoComponents.filter((videoComponent) => videoComponent.inFavoritesPlaylist).length
+      const unsavedVideosCount = count - savedVideosCount
+
+      return [
+        videoComponents,
+        count,
+        watchedVideosCount,
+        unwatchedVideosCount,
+        savedVideosCount,
+        unsavedVideosCount,
+        videosWithChannelIdsCount,
+        this.hideSharingActions
+      ]
     },
+
+    dropdownOptions: function () {
+      return getVideoDropdownOptions(...this.videoDropdownOptionArguments.slice(1))
+    }
   },
 
   mounted: function () {
@@ -361,9 +382,7 @@ export default defineComponent({
     },
 
     handleOptionsClick: function (option) {
-      const count = this.selectModeSelections.count
-      const videoComponents = Object.values(this.selectModeSelections.selections)
-      handleVideoDropdownOptionsClick(option, count, videoComponents)
+      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments)
     },
 
     toggleSelectMode: function () {

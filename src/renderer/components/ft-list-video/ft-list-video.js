@@ -169,7 +169,7 @@ export default defineComponent({
     },
 
     dropdownOptions: function () {
-      return getVideoDropdownOptions(1, [this], this.hideSharingActions)
+      return getVideoDropdownOptions(...this.videoDropdownOptionArguments.slice(1))
     },
 
     thumbnail: function () {
@@ -283,6 +283,29 @@ export default defineComponent({
 
     selectAllInSelectModeTriggered: function () {
       return this.$store.getters.getSelectAllInSelectModeTriggered
+    },
+
+    videoDropdownOptionArguments: function () {
+      const count = 1
+      const videoComponents = [this]
+      const videosWithChannelIdsCount = this.channelId !== null ? 1 : 0
+
+      const watchedVideosCount = this.watched ? 1 : 0
+      const unwatchedVideosCount = count - watchedVideosCount
+
+      const savedVideosCount = this.inFavoritesPlaylist ? 1 : 0
+      const unsavedVideosCount = count - savedVideosCount
+
+      return [
+        videoComponents,
+        count,
+        watchedVideosCount,
+        unwatchedVideosCount,
+        savedVideosCount,
+        unsavedVideosCount,
+        videosWithChannelIdsCount,
+        this.hideSharingActions
+      ]
     }
   },
   watch: {
@@ -358,7 +381,7 @@ export default defineComponent({
     },
 
     handleOptionsClick: function (option) {
-      handleVideoDropdownOptionsClick(option, 1, [this])
+      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments)
     },
 
     parseVideoData: function () {
