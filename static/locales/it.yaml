@@ -41,6 +41,9 @@ Global:
   Counts:
     Video Count: 1 video | {count} video
     Channel Count: 1 canale | {count} canali
+    Subscriber Count: 1 iscritto | {count} iscritti
+    View Count: 1 visualizzazione | {count} visualizzazioni
+    Watching Count: 1 spettatore | {count} spettatori
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:

@@ -10,22 +10,22 @@
   border-width: 2px;
   display: block;
   float: var(--float-left-ltr-rtl-value);
-  height: 10px;
+  block-size: 10px;
   inset-inline-start: 5px;
   position: relative;
   inset-block-start: 8px;
-  width: 10px;
+  inline-size: 10px;
 }
 
 .filled-circle {
   border-radius: 50%;
   background-color: black;
   float: var(--float-left-ltr-rtl-value);
-  height: 6px;
+  block-size: 6px;
   inset-inline-start: 2px;
   inset-block-start: 2px;
   position: relative;
-  width: 6px;
+  inline-size: 6px;
 }
 
 .option-text {

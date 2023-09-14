@@ -96,12 +96,12 @@ $watched-transition-duration: 0.5s;
 
     .thumbnailImage {
       @include is-sidebar-item {
-        height: 75px;
+        block-size: 75px;
       }
 
       @include is-recommendation {
-        height: auto;
-        width: 163px;
+        block-size: auto;
+        inline-size: 163px;
       }
     }
 
@@ -159,25 +159,25 @@ $watched-transition-duration: 0.5s;
     }
     .addToPlaylistIcon {
       font-size: 17px;
-      height: fit-content;
+      block-size: fit-content;
     }
     .trashIcon {
       font-size: 17px;
-      height: fit-content;
+      block-size: fit-content;
     }
     .upArrowIcon {
       font-size: 17px;
-      height: fit-content;
+      block-size: fit-content;
     }
     .downArrowIcon {
       font-size: 17px;
-      height: fit-content;
+      block-size: fit-content;
     }
 
     .watchedProgressBar {
       align-self: flex-end;
       background-color: var(--primary-color);
-      height: 2px;
+      block-size: 2px;
       justify-self: stretch;
       z-index: 2;
     }
@@ -187,7 +187,7 @@ $watched-transition-duration: 0.5s;
       display: grid;
       font-size: 20px;
       justify-self: end;
-      width: 60px;
+      inline-size: 60px;
 
       .background {
         background-color: var(--bg-color);
@@ -211,7 +211,7 @@ $watched-transition-duration: 0.5s;
 
     .channelImage {
       border-radius: 50%;
-      height: 130px;
+      block-size: 130px;
     }
   }
 
@@ -271,7 +271,7 @@ $watched-transition-duration: 0.5s;
 
       font-size: 14px;
       grid-area: description;
-      max-height: 50px;
+      max-block-size: 50px;
       overflow-y: hidden;
     }
   }
@@ -292,14 +292,14 @@ $watched-transition-duration: 0.5s;
     }
 
     .channelThumbnail {
-      width: 231px;
+      inline-size: 231px;
     }
   }
 
   &.grid {
     display: flex;
     flex-direction: column;
-    min-height: 230px;
+    min-block-size: 230px;
     padding-block-end: 20px;
 
     .videoThumbnail,
@@ -307,7 +307,7 @@ $watched-transition-duration: 0.5s;
       margin-block-end: 12px;
 
       .thumbnailImage {
-        width: 100%;
+        inline-size: 100%;
         // Ensure placeholder image displayed at same aspect ratio as most other images
         aspect-ratio: 16/9;
       }
