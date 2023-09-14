@@ -283,7 +283,8 @@ $watched-transition-duration: 0.5s;
     flex-direction: column;
     min-height: 230px;
     padding-block-end: 20px;
-    height: 91.46%;
+    box-sizing: border-box;
+    block-size: 100%;
 
     .videoThumbnail,
     .channelThumbnail {
