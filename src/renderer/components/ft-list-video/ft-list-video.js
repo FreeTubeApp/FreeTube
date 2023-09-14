@@ -101,8 +101,12 @@ export default defineComponent({
     }
   },
   computed: {
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyEntry: function () {
+      return this.$store.getters.getHistoryCacheById[this.id]
+    },
+
+    historyEntryExists: function () {
+      return typeof this.historyEntry !== 'undefined'
     },
 
     listType: function () {
@@ -341,12 +345,6 @@ export default defineComponent({
       }
     },
 
-    historyIndex: function() {
-      return this.historyCache.findIndex((video) => {
-        return video.videoId === this.id
-      })
-    },
-
     playlistIdTypePairFinal() {
       if (this.playlistId) {
         return {
@@ -359,14 +357,10 @@ export default defineComponent({
       // Get playlist ID from history ONLY if option enabled
       if (!this.showVideoWithLastViewedPlaylist) { return }
       if (!this.saveVideoHistoryWithLastViewedPlaylist) { return }
-      const historyIndex = this.historyIndex
-      if (historyIndex === -1) {
-        return undefined
-      }
 
       return {
-        playlistId: this.historyCache[historyIndex].lastViewedPlaylistId,
-        playlistType: this.historyCache[historyIndex].lastViewedPlaylistType,
+        playlistId: this.historyEntry?.lastViewedPlaylistId,
+        playlistType: this.historyEntry?.lastViewedPlaylistType,
       }
     },
 
@@ -405,7 +399,7 @@ export default defineComponent({
     },
   },
   watch: {
-    historyIndex() {
+    historyEntry() {
       this.checkIfWatched()
     },
     showAddToPlaylistPrompt(value) {
@@ -507,8 +501,8 @@ export default defineComponent({
       this.channelName = this.data.author ?? null
       this.channelId = this.data.authorId ?? null
 
-      if (this.data.isRSS && this.historyIndex !== -1) {
-        this.duration = formatDurationAsTimestamp(this.historyCache[this.historyIndex].lengthSeconds)
+      if (this.data.isRSS && this.historyEntryExists) {
+        this.duration = formatDurationAsTimestamp(this.historyEntry.lengthSeconds)
       } else {
         this.duration = formatDurationAsTimestamp(this.data.lengthSeconds)
       }
@@ -594,22 +588,26 @@ export default defineComponent({
     },
 
     checkIfWatched: function () {
-      const historyIndex = this.historyIndex
-
-      if (historyIndex !== -1) {
+      if (this.historyEntryExists) {
         this.watched = true
+
+        const historyEntry = this.historyEntry
+
         if (this.saveWatchedProgress) {
           // For UX consistency, no progress reading if writing disabled
-          this.watchProgress = this.historyCache[historyIndex].watchProgress
+          this.watchProgress = historyEntry.watchProgress
         }
 
-        if (this.historyCache[historyIndex].published !== '') {
-          const videoPublished = this.historyCache[historyIndex].published
+        if (historyEntry.published !== '') {
+          const videoPublished = historyEntry.published
           const videoPublishedDate = new Date(videoPublished)
           this.publishedText = videoPublishedDate.toLocaleDateString()
         } else {
           this.publishedText = ''
         }
+      } else {
+        this.watched = false
+        this.watchProgress = 0
       }
     },
 

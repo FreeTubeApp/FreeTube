@@ -54,8 +54,8 @@ export default defineComponent({
     allPlaylists: function () {
       return this.$store.getters.getAllPlaylists
     },
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyCacheSorted: function () {
+      return this.$store.getters.getHistoryCacheSorted
     },
     exportSubscriptionsPromptNames: function () {
       const exportFreeTube = this.$t('Settings.Data Settings.Export FreeTube')
@@ -825,7 +825,7 @@ export default defineComponent({
     },
 
     exportHistory: async function () {
-      const historyDb = this.historyCache.map((historyEntry) => {
+      const historyDb = this.historyCacheSorted.map((historyEntry) => {
         return JSON.stringify(historyEntry)
       }).join('\n') + '\n'
       const dateStr = getTodayDateStrLocalTimezone()
