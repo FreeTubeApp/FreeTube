@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'انگلیسی(آمریکایی)'
+Locale Name: 'فارسی (ایرانی)'
 FreeTube: 'یوتیوب آزاد'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -104,7 +104,7 @@ User Playlists:
     وقتی که عملیات تکمیل شد، این ویدیوها به بخش فهرت پخش «مورد علاقه ها» منتقل خواهند
     شد.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'ویدیوی
-    ذخیره شده ای ندارید.بر دکمه ذخیره در گوشه ویدیو کلیک کنید تا اینجا لیست شوند'
+    ذخیره شده ای ندارید.بر روی دکمه ذخیره در گوشه ویدیو کلیک کنید تا اینجا لیست شوند'
   Search bar placeholder: جستجو در فهرست پخش
   Empty Search Message: هیچ ویدیویی در این فهرست پخش وجود ندارد که با جستجوی شما مطابق
     باشد
@@ -129,7 +129,7 @@ Settings:
       صورت شکست'
     Enable Search Suggestions: 'فعال کردن پیشنهادات جستجو'
     Default Landing Page: 'صفحه اول پیشفرض'
-    Locale Preference: 'اولویت محلی'
+    Locale Preference: 'تغیر زبان سیستم'
     System Default: 'پیشفرض سیستم'
     Preferred API Backend:
       Preferred API Backend: 'API پشتیبان ترجیح داده شده'
@@ -163,7 +163,7 @@ Settings:
       No Action: کاری نکردن
       External Link Handling: اداره کردن لینک های خارجی
   Theme Settings:
-    Theme Settings: 'تنظیمات تم'
+    Theme Settings: 'تنظیمات قالب'
     Match Top Bar with Main Color: 'یکسان سازی قطعه بالا با رنگ اصلی'
     Expand Side Bar by Default: 'گسترش ستون فرعی به صورت پیشفرض'
     Disable Smooth Scrolling: 'غیرفعال کردن حرکت ملایم'
@@ -258,7 +258,7 @@ Settings:
     Video Playback Rate Interval: فاصله سرعت پخش ویدیو
     Max Video Playback Rate: حداکثر سرعت پخش ویدیو
     Comment Auto Load:
-      Comment Auto Load: بارگذاری خودکار نظر دهید
+      Comment Auto Load: نظرات اتوماتیک بارگذاری شود
     Enter Fullscreen on Display Rotate: در چرخه نمایشگر وارد صفحه تمام صفحه شوید
     Screenshot:
       Format Label: فرمت اسکرین شات
@@ -271,7 +271,7 @@ Settings:
         %M ماه 2. %D رقم روز دوم. %H ساعت 2 رقمی. %N دقیقه 2 رقم. %S 2 رقم دوم. %T
         میلی ثانیه 3 رقمی. %s ویدیو دوم. %t ویدیو میلی ثانیه 3 رقمی. %i شناسه ویدیو.
         همچنین می توانید از '\\' یا '/' برای ایجاد زیرپوشه ها استفاده کنید.
-      Enable: اسکرین شات را فعال کنید
+      Enable: اسکرین شات فعال باشد
       Ask Path: پرسش برای محل ذخیره
       Folder Label: پوشه اسکرین شات
       Folder Button: پوشه را انتخاب کنید
@@ -280,7 +280,7 @@ Settings:
   External Player Settings:
     External Player Settings: 'تنظیمات پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
-    Ignore Unsupported Action Warnings: 'به اخطار های فعالیت پشتیبانی نشده اهمیت نده'
+    Ignore Unsupported Action Warnings: 'به اخطارهای فعالیت پشتیبانی نشده اهمیت نده'
     Custom External Player Executable: 'پخش کننده خارجی شخصی سازی شده قابل اجرا'
     Custom External Player Arguments: 'ورودی های شخصی سازی شده پخش کننده خارجی'
     Players:
@@ -313,7 +313,7 @@ Settings:
     Manage Subscriptions: 'سامان دهی دنبال شوندگان'
     Fetch Automatically: آوردن خودکار فید
   Distraction Free Settings:
-    Distraction Free Settings: 'تنظیمات رهایی از انحراف حواس'
+    Distraction Free Settings: 'تنظیمات اضافی مفید'
     Hide Video Views: 'مخفی کردن دیده های ویدیو'
     Hide Video Likes And Dislikes: 'مخفی کردن لایک و دیسلایک های ویدیو'
     Hide Channel Subscribers: 'مخفی کردن دنبال کنندگان کانال'
@@ -351,20 +351,20 @@ Settings:
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
     Blur Thumbnails: تار کردن ریز عکسها
   Data Settings:
-    Data Settings: 'تنظیمات داده'
-    Select Import Type: 'انتخاب شیوه وارد کردن'
-    Select Export Type: 'انتخاب شیوه استخراج کردن'
-    Import Subscriptions: 'وارد کردن دنبال شوندگان'
+    Data Settings: 'تنظیمات اطلاعات'
+    Select Import Type: 'انتخاب روش وارد کردن فایل بک آپ'
+    Select Export Type: 'انتخاب روش پشتیبان گیری'
+    Import Subscriptions: 'وارد کردن بک آپ دنبال شوندگان'
     Import FreeTube: 'وارد کردن از FreeTube'
     Import YouTube: 'وارد کردن از YouTube'
     Import NewPipe: 'وارد کردن از NewPipe'
     Check for Legacy Subscriptions: 'بررسی برای دنبال‌شوندگان قدیمی'
-    Export Subscriptions: 'استخراج دنبال شوندگان'
+    Export Subscriptions: 'ذخیره (پشتیبان گیری)دنبال شوندگان'
     Export FreeTube: 'استخراج FreeTube'
     Export YouTube: 'استخراج YouTube'
     Export NewPipe: 'استخراج NewPipe'
     Import History: 'وارد کردن تاریخچه'
-    Export History: 'استخراج تاریخچه'
+    Export History: 'ذخیره (پشتیبان گیری)تاریخچه'
     Profile object has insufficient data, skipping item: 'پروفایل داده کافی ندارد،
       در حال چشم پوشی'
     All subscriptions and profiles have been successfully imported: 'همه دنبال شوندگان
@@ -431,12 +431,12 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       URL (پیش‌فرض https://sponsor.ajay.app است)
   Download Settings:
-    Download in app: دانلود در برنامه
+    Download in app: دانلود از طریق برنامه
     Open in web browser: در مرورگر وب باز کنید
-    Download Settings: دانلود تنظیمات
-    Ask Download Path: مسیر دانلود را بخواهید
-    Choose Path: مسیر را انتخاب کنید
-    Download Behavior: وضعیت دانلود
+    Download Settings: تنظیمات دانلود
+    Ask Download Path: هربار مسیر دانلود را سوال کند
+    Choose Path: مکان ذخیره دانلود را انتخاب کنید
+    Download Behavior: روش دانلود
   Parental Control Settings:
     Hide Unsubscribe Button: پنهان کردن دکمه لغو اشتراک
     Show Family Friendly Only: نمایش فقط دوستانه برای خانواده
@@ -516,14 +516,12 @@ Channel:
     Videos: ویدیوها
   Search Channel: جستجوی کانال
   Subscribe: اشتراک
-  Subscribers: مشترکین
   Unsubscribe: لغو اشتراک
   Your search results have returned 0 results: نتایج جستجوی شما 0 نتیجه برگردانده
     است
   Sort By: مرتب سازی بر اساس
   Channel has been removed from your subscriptions: کانال از اشتراک های شما حذف شده
     است
-  Subscriber: مشترک
   Added channel to your subscriptions: کانال به اشتراک های شما اضافه شد
 Video:
   External Player:
@@ -577,7 +575,6 @@ Video:
   Autoplay: پخش خودکار
   Started streaming on: پخش جریانی را شروع کرد
   Skipped segment: بخش رد شد
-  View: دیده شده
   'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
     پایان رسیده است.
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
@@ -610,7 +607,6 @@ Video:
   Play Next Video: پخش ویدیوی بعدی
   Open Channel in Invidious: کانال را در Invidious باز کنید
   Copy Invidious Channel Link: لینک کانال Invidious را کپی کنید
-  Watching: تماشا کردن
   Watched: دیده شده
   Open Channel in YouTube: کانال را در یوتیوب باز کنید
   Copy YouTube Link: لینک یوتیوب را کپی کنید

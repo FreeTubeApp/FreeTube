@@ -37,6 +37,10 @@ Global:
   Community: Communauté
 
 # Search Bar
+  Counts:
+    Video Count: 1 vidéo | {count} vidéos
+    Channel Count: 1 chaîne | {count} chaînes
+    View Count: 1 vue | {count} vues
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -594,8 +598,6 @@ About:
   Downloads / Changelog: Téléchargements / Journal des modifications
   Discussions: Discussions
 Channel:
-  Subscriber: 'Abonnement'
-  Subscribers: 'Abonnés'
   Subscribe: 'S''abonner'
   Unsubscribe: 'Se désabonner'
   Search Channel: 'Chercher une chaîne'
@@ -670,10 +672,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Copier le lien YouTube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
-  View: 'Vue'
   Views: 'Vues'
-  # Context is "X People Watching"
-  Watching: 'En cours de lecture'
   Watched: 'Vu'
   # As in a Live Video
   Live: 'En direct'
@@ -883,6 +882,7 @@ Comments:
   Member: Membre
   Hearted: Aimé
   View {replyCount} replies: Voir les {replyCount} réponses
+  Subscribed: Abonné(e)
 Up Next: 'À suivre'
 
 # Toast Messages

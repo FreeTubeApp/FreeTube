@@ -617,8 +617,6 @@ Profile:
   Profile Settings: Profilbeállítások
   Toggle Profile List: Profillista be-/kikapcsolása
 Channel:
-  Subscriber: 'Feliratkozó'
-  Subscribers: 'Feliratkozók'
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
   Channel has been removed from your subscriptions: 'A csatornát eltávolítottuk a
@@ -692,15 +690,12 @@ Video:
   Copy YouTube Embedded Player Link: 'YouTube beágyazott lejátszói hivatkozás másolása'
   Open in Invidious: 'Invidious megnyitása'
   Copy Invidious Link: 'Invidious hivatkozás másolása'
-  View: 'Nézet'
   Views: 'Megtekintés'
   Loop Playlist: 'Lejátszási lista folyamatos lejátszása'
   Shuffle Playlist: 'Véletlen sorrendű lejátszás'
   Reverse Playlist: 'Fordított lejátszási lista'
   Play Next Video: 'Következő videó lejátszása'
   Play Previous Video: 'Előző videó lejátszása'
-  # Context is "X People Watching"
-  Watching: 'Megtekintő'
   Watched: 'Megtekintett'
   Autoplay: 'Önműködő lejátszás'
   Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, kérjük,

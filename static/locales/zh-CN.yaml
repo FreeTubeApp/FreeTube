@@ -39,6 +39,9 @@ Global:
   Counts:
     Video Count: 1 个视频 | {count} 个视频
     Channel Count: 1 个频道 | {count} 个频道
+    Subscriber Count: 1 位订阅者 | {count} 位订阅者
+    View Count: 1 次观看 | {count} 次观看
+    Watching Count: 1 人正在观看 | {count} 人正在观看
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
@@ -575,10 +578,7 @@ Video:
   Copy YouTube Embedded Player Link: '复制YouTube内嵌播放器链接'
   Open in Invidious: '在Invidious中打开'
   Copy Invidious Link: '复制Invidious链接'
-  View: '观看'
   Views: '观看'
-  # Context is "X People Watching"
-  Watching: '观看中'
   Watched: '已观看'
   # As in a Live Video
   Live: '直播'
@@ -774,6 +774,7 @@ Comments:
   Member: 成员
   Hearted: 喜欢的
   View {replyCount} replies: 查看 {replyCount} 条回复
+  Subscribed: 已订阅
 Up Next: 'Up Next'
 
 # Toast Messages

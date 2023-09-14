@@ -1,9 +1,10 @@
+/* stylelint-disable liberty/use-logical-spec */
 .relative {
   position: relative;
 }
 
 .ftVideoPlayer {
-  width:100%;
+  width: 100%;
 }
 
 .ftVideoPlayer.vjs-user-inactive {
@@ -16,14 +17,15 @@
 }
 
 :deep(.sponsorBlockMarker) {
-  height: 100%;
+  block-size: 100%;
   background-color: var(--primary-color);
 }
 
 :deep(.chapterMarker) {
   height: 100%;
-  inset-block-start: 0;
+  top: 0;
   width: 2px;
   z-index: 2;
   background-color: #000;
 }
+/* stylelint-enable liberty/use-logical-spec */

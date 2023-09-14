@@ -40,6 +40,9 @@ Global:
   Counts:
     Video Count: 1 відео | {count} відео
     Channel Count: 1 канал | {count} канал
+    Subscriber Count: 1 підписник | {count} підписників
+    View Count: 1 перегляд | {count} переглядів
+    Watching Count: 1 глядач | {count} глядачів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -624,15 +627,12 @@ Video:
   Copy YouTube Channel Link: 'Копіювати посилання на канал YouTube'
   Open Channel in Invidious: 'Відкрити канал у Invidious'
   Copy Invidious Channel Link: 'Копіювати посилання на канал Invidious'
-  View: 'Перегляд'
   Views: 'Перегляди'
   Loop Playlist: 'Зациклити добірку'
   Shuffle Playlist: 'Перемішати добірку'
   Reverse Playlist: 'Змінити напрямок добірки'
   Play Next Video: 'Відтворити наступне відео'
   Play Previous Video: 'Відтворити попереднє відео'
-  # Context is "X People Watching"
-  Watching: 'Переглядає'
   Watched: 'Переглянуто'
   Autoplay: 'Автовідтворення'
   Starting soon, please refresh the page to check again: 'Початок незабаром, оновіть
@@ -829,6 +829,7 @@ Comments:
   Member: Учасник
   Hearted: З сердечком
   View {replyCount} replies: Переглянути {replyCount} відповідей
+  Subscribed: Слідкують
 Up Next: 'Далі вгору'
 
 #Tooltips

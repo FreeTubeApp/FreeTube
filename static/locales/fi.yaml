@@ -546,8 +546,6 @@ About:
   Donate: Lahjoita
   Source code: Lähdekoodi
 Channel:
-  Subscriber: 'Tilaaja'
-  Subscribers: 'Tilaajat'
   Subscribe: 'Tilaa'
   Unsubscribe: 'Peruuta tilaus'
   Search Channel: 'Etsi kanavaa'
@@ -613,10 +611,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopioi upotetun Youtube-soittimen linkki'
   Open in Invidious: 'Avaa Invidious'
   Copy Invidious Link: 'Kopioi Invidious-linkki'
-  View: 'Katselu'
   Views: 'Katsomiskertaa'
-  # Context is "X People Watching"
-  Watching: 'Katsoo'
   Watched: 'Katsotut'
   # As in a Live Video
   Live: 'Suora'

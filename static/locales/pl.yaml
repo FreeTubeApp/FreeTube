@@ -40,6 +40,9 @@ Global:
   Counts:
     Video Count: 1 film | {count} film(y/ów)
     Channel Count: 1 kanał | {count} kanał(y/ów)
+    Subscriber Count: 1 subskrybujący | {count} subskrybentów
+    View Count: 1 wyświetlenie | {count} wyświetle(nia/ń)
+    Watching Count: 1 oglądający | {count} oglądających
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -652,10 +655,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Skopiuj link do odtwarzacza YouTube'
   Open in Invidious: 'Otwórz na stronie Invidious'
   Copy Invidious Link: 'Skopiuj link do strony Invidious'
-  View: 'wyświetlenie'
   Views: 'wyświetleń'
-  # Context is "X People Watching"
-  Watching: 'ogląda'
   Watched: 'Obejrzany'
   # As in a Live Video
   Live: 'Transmisja'
@@ -862,6 +862,7 @@ Comments:
   Member: Wspierający
   Hearted: z serduszkiem
   View {replyCount} replies: Zobacz {replyCount} odpowiedzi
+  Subscribed: Zasubskrybowano
 Up Next: 'Następne'
 
 # Toast Messages

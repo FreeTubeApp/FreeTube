@@ -38,14 +38,10 @@ export function updateVideoListAfterProcessing(videos) {
   }
 
   if (store.getters.getHideWatchedSubs) {
-    const historyCache = store.getters.getHistoryCache
+    const historyCacheById = store.getters.getHistoryCacheById
 
     videoList = videoList.filter((video) => {
-      const historyIndex = historyCache.findIndex((x) => {
-        return x.videoId === video.videoId
-      })
-
-      return historyIndex === -1
+      return !Object.hasOwn(historyCacheById, video.videoId)
     })
   }
 

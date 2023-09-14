@@ -613,8 +613,6 @@ Profile:
   Profile Settings: Настройки на профил
   Toggle Profile List: Превключване на списъка с профили
 Channel:
-  Subscriber: 'Абонат'
-  Subscribers: 'Абонати'
   Subscribe: 'Абониране'
   Unsubscribe: 'Отписване'
   Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
@@ -688,15 +686,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Копиране на връзка за вградения YouTube плейър'
   Open in Invidious: 'Отваряне в Invidious'
   Copy Invidious Link: 'Копиране на връзка за Invidious'
-  View: 'показване'
   Views: 'Показвания'
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
   Play Next Video: 'Следващо видео'
   Play Previous Video: 'Предишно видео'
-  # Context is "X People Watching"
-  Watching: 'Гледащи'
   Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете

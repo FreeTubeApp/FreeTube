@@ -5,13 +5,13 @@
 .playlistInfo {
   background-color: var(--card-bg-color);
   box-sizing: border-box;
-  height: calc(100vh - 132px);
+  block-size: calc(100vh - 132px);
   margin-inline-end: 1em;
   overflow-y: auto;
   padding: 10px;
   position: sticky;
   inset-block-start: 96px;
-  width: 30%;
+  inline-size: 30%;
 }
 
 .playlistItems {
@@ -20,7 +20,7 @@
   grid-gap: 10px;
   margin: 0;
   padding: 10px;
-  width: 60%;
+  inline-size: 60%;
 }
 
 .playlistItem {
@@ -36,7 +36,7 @@
 
 .loadNextPageWrapper {
   /* about the same height as the button */
-  max-height: 7vh;
+  max-block-size: 7vh;
 }
 
 :deep(.videoThumbnail) {
@@ -45,7 +45,7 @@
 }
 
 :deep(.thumbnailImage) {
-  max-width: 25vw;
+  max-inline-size: 25vw;
 }
 
 @media only screen and (max-width: 850px) {
@@ -57,16 +57,16 @@
     box-sizing: border-box;
     position: relative;
     inset-block-start: 0;
-    height: auto;
-    width: 100%;
+    block-size: auto;
+    inline-size: 100%;
   }
 
   .playlistItems {
     box-sizing: border-box;
-    width: 100%;
+    inline-size: 100%;
   }
 
   :deep(.thumbnailImage) {
-    max-width: 35vw;
+    max-inline-size: 35vw;
   }
 }

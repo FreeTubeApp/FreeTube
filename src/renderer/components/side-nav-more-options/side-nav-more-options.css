@@ -31,7 +31,7 @@
   position: fixed;
   background-color: var(--side-nav-color);
   inset-block-end: 60px;
-  width: 70px;
+  inline-size: 70px;
   z-index: 0;
   -webkit-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
@@ -45,23 +45,23 @@
 
   .sideNav, .closed {
     margin-block-start: 0px;
-    height: 60px;
-    width: 100%;
+    block-size: 60px;
+    inline-size: 100%;
     inset-block-end: 0px;
     inset-block-start: auto;
     overflow-y: inherit;
   }
 
   .navOption, .closed .navOption {
-    width: 70px;
-    height: 40px;
+    inline-size: 70px;
+    block-size: 40px;
     padding-block: 10px;
     padding-inline: 0;
   }
 
   .navLabel {
     margin-inline-start: 0px;
-    width: 100%;
+    inline-size: 100%;
     text-align: center;
     inset-inline-start: 0px;
     font-size: 11px;
@@ -69,7 +69,7 @@
 
   .navIcon {
     margin-inline-start: 0px;
-    width: 100%;
+    inline-size: 100%;
     display: block;
     margin-block-start: 0.5em;
   }
@@ -79,6 +79,6 @@
   }
 
   .closed .navIconExpand{
-    height:1.3em;
+    block-size:1.3em;
   }
 }

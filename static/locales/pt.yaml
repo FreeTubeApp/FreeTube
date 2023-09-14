@@ -677,15 +677,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar ligação do Invidious'
-  View: 'Visualização'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
   Reverse Playlist: 'Inverter lista de reprodução'
   Play Next Video: 'Reproduzir vídeo seguinte'
   Play Previous Video: 'Reproduzir vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'A ver'
   Watched: 'Visto'
   Autoplay: 'Reprodução automática'
   # As in a Live Video

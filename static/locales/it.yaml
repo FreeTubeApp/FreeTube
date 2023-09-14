@@ -42,6 +42,9 @@ Global:
   Counts:
     Video Count: 1 video | {count} video
     Channel Count: 1 canale | {count} canali
+    Subscriber Count: 1 iscritto | {count} iscritti
+    View Count: 1 visualizzazione | {count} visualizzazioni
+    Watching Count: 1 spettatore | {count} spettatori
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -572,8 +575,6 @@ About:
   Beta: Beta
   Discussions: Discussioni
 Channel:
-  Subscriber: 'Iscritto'
-  Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca nel canale'
@@ -649,10 +650,7 @@ Video:
     YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
-  View: 'Vista'
   Views: 'Visualizzazioni'
-  # Context is "X People Watching"
-  Watching: 'Stanno guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
@@ -860,6 +858,7 @@ Comments:
   Member: Membro
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
+  Subscribed: Iscritto
 Up Next: 'Prossimi video'
 
 # Toast Messages

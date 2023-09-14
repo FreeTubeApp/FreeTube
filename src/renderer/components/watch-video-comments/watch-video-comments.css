@@ -44,8 +44,8 @@
 
 .commentThumbnail {
   float: var(--float-left-ltr-rtl-value);
-  width: 60px;
-  height: 60px;
+  inline-size: 60px;
+  block-size: 60px;
   border-radius: 200px;
   -webkit-border-radius: 200px;
 }
@@ -55,8 +55,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
+  inline-size: 60px;
+  block-size: 60px;
   font-size: 20px;
   line-height: 1em;
   text-transform: capitalize;
@@ -111,8 +111,16 @@
 
 .commentMemberIcon {
   margin-inline-start: 5px;
-  width: 14px;
-  height: 14px;
+  inline-size: 14px;
+  block-size: 14px;
+}
+
+.commentSubscribedIcon {
+  content: var(--logo-icon);
+  block-size: 14px;
+  inline-size: 14px;
+  vertical-align: middle;
+  margin-inline: 0.25em;
 }
 
 .commentLikeCount {
@@ -124,8 +132,8 @@
 .commentHeartBadge {
   display: inline-block;
   position: relative;
-  width: 25px;
-  height: 20px;
+  inline-size: 25px;
+  block-size: 20px;
   margin-inline-start: 10px;
   margin-block-end: -7px;
 }
@@ -133,8 +141,8 @@
 .commentHeartBadgeImg {
   position: absolute;
   inset-inline-start: 0;
-  width: 15px;
-  height: 15px;
+  inline-size: 15px;
+  block-size: 15px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
@@ -143,8 +151,8 @@
   position: absolute;
   inset-inline-start: 9px;
   inset-block-end: 1px;
-  width: 11px;
-  height: 11px;
+  inline-size: 11px;
+  block-size: 11px;
   z-index: 1;
 }
 
@@ -153,8 +161,8 @@
   color: var(--red-500);
   inset-inline-start: 10px;
   inset-block-end: 2px;
-  width: 9px;
-  height: 9px;
+  inline-size: 9px;
+  block-size: 9px;
   z-index: 2;
 }
 

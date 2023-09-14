@@ -516,8 +516,6 @@ About:
   Beta: ベータ
   Discussions: 議論
 Channel:
-  Subscriber: '人の登録者'
-  Subscribers: '人の登録者'
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネル検索'
@@ -578,10 +576,7 @@ Video:
   Copy YouTube Embedded Player Link: 'YouTube 埋め込みプレーヤーへのリンクのコピー'
   Open in Invidious: 'Invidious で表示'
   Copy Invidious Link: 'Invidious リンクのコピー'
-  View: '回再生'
   Views: '回再生'
-  # Context is "X People Watching"
-  Watching: '人が視聴中'
   Watched: '視聴済み'
   # As in a Live Video
   Live: 'ライブ配信'

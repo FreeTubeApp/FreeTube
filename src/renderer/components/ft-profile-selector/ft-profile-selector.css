@@ -1,6 +1,6 @@
 .colorOption {
-  width: 40px;
-  height: 40px;
+  inline-size: 40px;
+  block-size: 40px;
   cursor: pointer;
   align-items: center;
   display: flex;
@@ -26,8 +26,8 @@
   position: absolute;
   inset-block-start: 60px;
   inset-inline-end: 10px;
-  min-width: 250px;
-  height: 400px;
+  min-inline-size: 250px;
+  block-size: 400px;
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
@@ -35,13 +35,13 @@
 
 .profileWrapper {
   margin-block-start: 60px;
-  height: 340px;
+  block-size: 340px;
   overflow-y: auto;
 }
 
 .profile {
   cursor: pointer;
-  height: 50px;
+  block-size: 50px;
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;
   -o-transition: background 0.2s ease-out;
@@ -66,7 +66,7 @@
 .profileName {
   display: flex;
   align-items: center;
-  height: 50px;
+  block-size: 50px;
   padding-inline-end: 10px;
 }
 

@@ -42,6 +42,9 @@ Global:
   Counts:
     Video Count: 1 vídeo | {count} vídeos
     Channel Count: 1 canal | {count} canales
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    View Count: 1 vista | {count} vistas
+    Watching Count: 1 espectador | {count} espectadores
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:
@@ -608,8 +611,6 @@ Profile:
   Profile Settings: Ajustes del perfil
   Toggle Profile List: Alternar la lista de los perfiles
 Channel:
-  Subscriber: 'Suscriptor'
-  Subscribers: 'Suscriptores'
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'
   Search Channel: 'Buscar en canal'
@@ -684,10 +685,7 @@ Video:
     YouTube'
   Open in Invidious: 'Abrir en Invidious'
   Copy Invidious Link: 'Copiar el enlace de Invidious'
-  View: 'Ver'
   Views: 'Vistas'
-  # Context is "X People Watching"
-  Watching: 'Viendo'
   Watched: 'Visto'
   Autoplay: 'Reproducción automática'
   # As in a Live Video
@@ -894,6 +892,7 @@ Comments:
   Member: Miembro
   Hearted: Corazón
   View {replyCount} replies: Ver {replyCount} respuestas
+  Subscribed: Suscrito
 Up Next: 'A continuación'
 
 # Toast Messages

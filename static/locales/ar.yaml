@@ -41,6 +41,9 @@ Global:
   Counts:
     Video Count: 1 فيديو | {count} مقاطع فيديو
     Channel Count: 1 قناة | {count} القنوات
+    Subscriber Count: 1 مشترك | {count} المشتركين
+    View Count: 1 مشاهدة | {count} مشاهدات
+    Watching Count: 1 مشاهدة | {count} مشاهدة
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -597,8 +600,6 @@ Profile:
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
 Channel:
-  Subscriber: 'مُشترِك'
-  Subscribers: 'مُشترِكين'
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
   Search Channel: 'ابحث في القناة'
@@ -671,10 +672,7 @@ Video:
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
   Open in Invidious: 'إفتح على انفيديوس'
   Copy Invidious Link: 'انسخ رابط انفيديوس'
-  View: 'عرض'
   Views: 'مشاهدات'
-  # Context is "X People Watching"
-  Watching: 'يتم مشاهدته'
   Watched: 'مُشاهد'
   # As in a Live Video
   Live: '‏‏‪مُباشر'
@@ -872,6 +870,7 @@ Comments:
   Member: عضو
   View {replyCount} replies: عرض {replyCount} ردود
   Hearted: القلب
+  Subscribed: مشترك
 Up Next: 'التالي'
 
 # Toast Messages

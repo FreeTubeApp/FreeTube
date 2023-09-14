@@ -1,11 +1,11 @@
 .searchFilterInner {
-  max-width: 800px;
+  max-inline-size: 800px;
   margin-inline-start: auto;
   margin-inline-end: auto;
 
   padding-block: 20px 70px;
   padding-inline: 20px;
-  max-height: 410px;
+  max-block-size: 410px;
   overflow-y: auto;
 
   background-color: var(--card-bg-color);
@@ -23,7 +23,7 @@
 }
 
 .radioFlexBox {
-  max-width: 1000px;
+  max-inline-size: 1000px;
   margin-block: 0;
   margin-inline: auto;
 }

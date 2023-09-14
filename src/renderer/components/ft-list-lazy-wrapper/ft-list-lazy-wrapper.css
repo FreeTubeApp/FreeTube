@@ -1,7 +1,7 @@
 .grid {
-  min-height: 264px;
+  min-block-size: 264px;
 }
 
 .list {
-  min-height: 131px;
+  min-block-size: 131px;
 }

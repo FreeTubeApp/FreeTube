@@ -40,6 +40,9 @@ Global:
   Counts:
     Video Count: 1 video | {count} video
     Channel Count: 1 kanal | {count} kanal
+    Subscriber Count: 1 abone | {count} abone
+    View Count: 1 izlenme | {count} izlenme
+    Watching Count: 1 izliyor | {count} izliyor
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -405,7 +408,7 @@ Settings:
     Hide Comment Likes: Yorum Beğenmelerini Gizle
     Hide Channel Subscribers: Kanal Abonelerini Gizle
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
-    Hide Video Views: Video Görüntülenme Sayılarını Gizle
+    Hide Video Views: Video İzlenme Sayılarını Gizle
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
@@ -691,15 +694,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Youtube Bütünleşik Oynatıcı Bağlantısını Kopyala'
   Open in Invidious: 'Invidious''da aç'
   Copy Invidious Link: 'Invidious Bağlantısını Kopyala'
-  View: 'Görünüm'
-  Views: 'Görüntülenme'
+  Views: 'İzlenme'
   Loop Playlist: 'Oynatma Listesini Döngüye Al'
   Shuffle Playlist: 'Oynatma Listesini Karıştır'
   Reverse Playlist: 'Oynatma Listesini Geriden Oynat'
   Play Next Video: 'Sonraki Videoyu Oynat'
   Play Previous Video: 'Önceki Videoyu Oynat'
-  # Context is "X People Watching"
-  Watching: 'İzleniyor'
   Watched: 'İzlendi'
   Autoplay: 'Otomatik oynatma'
   Starting soon, please refresh the page to check again: 'Yakında başlayacak, lütfen
@@ -836,7 +836,7 @@ Playlist:
   View Full Playlist: 'Tüm Oynatma Listesini Görüntüle'
   Videos: 'Videolar'
   View: 'Görüntüle'
-  Views: 'Görüntülenme'
+  Views: 'İzlenme'
   Last Updated On: 'Son Güncelleme Tarihi'
 
 # On Video Watch Page
@@ -897,6 +897,7 @@ Comments:
   Member: Üye
   View {replyCount} replies: '{replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
+  Subscribed: Abone olundu
 Up Next: 'Sonraki'
 
 # Toast Messages

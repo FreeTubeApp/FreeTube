@@ -37,6 +37,11 @@ Global:
   Community: Gemeinschaft
 
 # Search Bar
+  Counts:
+    Video Count: 1 Video | {count} Videos
+    Channel Count: 1 Kanal | {count} Kanäle
+    Subscriber Count: 1 Abonnent | {count} Abonnenten
+    View Count: 1 Aufruf | {count} Aufrufe
 Search / Go to URL: Suche / Geh zu URL
   # In Filter Button
 Search Filters:
@@ -582,8 +587,6 @@ About:
   Source code: Quellcode
   Discussions: Diskussionen
 Channel:
-  Subscriber: Abonnement
-  Subscribers: Abonnements
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
   Search Channel: Durchsuche Kanal
@@ -653,10 +656,7 @@ Video:
   Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
-  View: Aufruf
   Views: Aufrufe
-  # Context is "X People Watching"
-  Watching: aktive Zuschauer
   Watched: Gesehen
   # As in a Live Video
   Live: Live
@@ -869,6 +869,7 @@ Comments:
   Member: Mitglied
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
+  Subscribed: Abonniert
 Up Next: Nächster Titel
 
 # Toast Messages
