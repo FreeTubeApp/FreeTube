@@ -2,8 +2,8 @@
   position: fixed;
   inset-block-start: 0px;
   inset-inline-start: 0px;
-  width: 100vw;
-  height: 100vh;
+  inline-size: 100vw;
+  block-size: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 10;
   padding: 15px;
@@ -17,11 +17,11 @@
   box-sizing: border-box;
   margin-block: 0;
   margin-inline: auto;
-  max-width: 95%;
+  max-inline-size: 95%;
 }
 
 .promptCard:not(.autosize) {
-  width: 95%;
+  inline-size: 95%;
   margin: 0;
   position: absolute;
   inset-inline-start: 2.5%;

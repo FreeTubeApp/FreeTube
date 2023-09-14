@@ -1,6 +1,6 @@
 .bubblePadding {
-  width: 100px;
-  height: 115px;
+  inline-size: 100px;
+  block-size: 115px;
   padding-block: 10px 30px;
   padding-inline: 10px;
   cursor: pointer;
@@ -19,8 +19,8 @@
 }
 
 .bubble {
-  width: 70px;
-  height: 70px;
+  inline-size: 70px;
+  block-size: 70px;
   margin-block: 20px 5px;
   margin-inline: auto;
   border-radius: 50%;

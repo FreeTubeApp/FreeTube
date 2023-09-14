@@ -23,7 +23,7 @@
 /* select starting stylings ------------------------------*/
 .select {
   position: relative;
-  width: 200px;
+  inline-size: 200px;
   padding-block: 0 10px;
   padding-inline: 0 10px;
   margin-block-start: 30px;
@@ -39,7 +39,7 @@
   font-family: inherit;
   background-color: transparent;
   color: var(--primary-text-color);
-  width: 240px;
+  inline-size: 240px;
   padding-block: 10px;
   padding-inline: 0 10px;
   font-size: 18px;
@@ -108,13 +108,13 @@
 .select-bar {
   position: relative;
   display: block;
-  width: 200px;
+  inline-size: 200px;
 }
 
 .select-bar:before, .select-bar:after {
   content: '';
-  height: 2px;
-  width: 0;
+  block-size: 2px;
+  inline-size: 0;
   inset-block-end: 1px;
   position: absolute;
   background: var(--accent-color);
@@ -131,14 +131,14 @@
 
 /* active state */
 .select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
-  width: 50%;
+  inline-size: 50%;
 }
 
 /* HIGHLIGHTER ================================== */
 .select-highlight {
   position: absolute;
-  height: 60%;
-  width: 100px;
+  block-size: 60%;
+  inline-size: 100px;
   inset-block-start: 25%;
   inset-inline-start: 0;
   pointer-events: none;
@@ -147,17 +147,17 @@
 
 @media only screen and (max-width: 1000px) {
   .select .select-text {
-    max-width: 240px;
+    max-inline-size: 240px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .select {
-    width: 100%;
+    inline-size: 100%;
   }
   .select .select-text {
     display:block;
-    max-width: 95%;
+    max-inline-size: 95%;
   }
 }
 

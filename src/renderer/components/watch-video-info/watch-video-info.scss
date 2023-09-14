@@ -28,7 +28,7 @@
     border-radius: 50%;
     cursor: pointer;
     margin-inline-end: 10px;
-    width: 56px;
+    inline-size: 56px;
   }
 
   .channelName {
@@ -66,7 +66,8 @@
 }
 
 .datePublished {
-  margin: 4px 0 0;
+  margin-block: 4px 0;
+  margin-inline: 0;
 
   @media screen and (max-width: 680px) {
     margin-block-start: 16px;
@@ -80,7 +81,7 @@
   font-size: 16px;
   margin-inline-start: auto;
   margin-block-start: 4px;
-  max-width: 210px;
+  max-inline-size: 210px;
   text-align: end;
 
   @media screen and (max-width: 680px) {
@@ -90,7 +91,7 @@
 
   .likeBar {
     border-radius: 4px;
-    height: 8px;
+    block-size: 8px;
     margin-block-end: 4px;
   }
 

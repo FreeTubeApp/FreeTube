@@ -67,7 +67,7 @@
       <div
         v-if="watched"
         class="watchedProgressBar"
-        :style="{width: progressPercentage + '%'}"
+        :style="{inlineSize: progressPercentage + '%'}"
       />
     </div>
     <div class="info">

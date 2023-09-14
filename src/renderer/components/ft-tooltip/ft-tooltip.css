@@ -38,8 +38,8 @@
   font-size: 1rem;
   line-height: 120%;
   margin: 0;
-  max-width: max-content;
-  min-width: 15em;
+  max-inline-size: max-content;
+  min-inline-size: 15em;
   opacity: 0;
   padding-block: 10px;
   padding-inline: 8px;
