@@ -469,7 +469,8 @@ const customActions = {
           break
 
         case SyncEvents.GENERAL.DELETE_ALL:
-          commit('setHistoryCache', [])
+          commit('setHistoryCacheSorted', [])
+          commit('setHistoryCacheById', {})
           break
 
         default:
