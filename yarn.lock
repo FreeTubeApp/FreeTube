@@ -8593,10 +8593,9 @@ videojs-vtt.js@^0.15.5:
   dependencies:
     global "^4.3.1"
 
-vue-devtools@^5.1.4:
+vue-devtools@PikachuEXE/vue-devtools#test/upstream-6.x:
   version "5.1.4"
-  resolved "https://registry.yarnpkg.com/vue-devtools/-/vue-devtools-5.1.4.tgz#265a7458ade2affb291739176964256b597fa302"
-  integrity sha512-EBAEXvAHUinsPzoSiElps0JgtLXUnJXKIJbP6nfdz/R63VdKBMfJ34/rFip+4iT7iMbVS5lA4W6N1jq4Hj4LCg==
+  resolved "https://codeload.github.com/PikachuEXE/vue-devtools/tar.gz/220f33c6e8a4f7c18b2c7e977000710b22b729c1"
 
 vue-eslint-parser@^9.0.1, vue-eslint-parser@^9.3.1, vue-eslint-parser@^9.3.2:
   version "9.3.2"

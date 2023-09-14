@@ -121,7 +121,7 @@
     "stylelint-high-performance-animation": "^1.9.0",
     "stylelint-use-logical-spec": "^5.0.0",
     "tree-kill": "1.2.2",
-    "vue-devtools": "^5.1.4",
+    "vue-devtools": "PikachuEXE/vue-devtools#test/upstream-6.x",
     "vue-eslint-parser": "^9.3.2",
     "vue-loader": "^15.10.0",
     "webpack": "^5.89.0",
