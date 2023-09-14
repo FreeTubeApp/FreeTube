@@ -135,6 +135,10 @@ const actions = {
       if (videoData.uniqueId == null) {
         videoData.uniqueId = generateRandomUniqueId()
       }
+      // For backward compatibility
+      if (videoData.type == null) {
+        videoData.type = 'video'
+      }
       await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, videoData)
       commit('addVideo', payload)
     } catch (errMessage) {
@@ -151,6 +155,10 @@ const actions = {
         }
         if (videoData.uniqueId == null) {
           videoData.uniqueId = generateRandomUniqueId()
+        }
+        // For backward compatibility
+        if (videoData.type == null) {
+          videoData.type = 'video'
         }
       })
       await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, videos)
@@ -205,6 +213,13 @@ const actions = {
             // Ensure all videos has `uniqueId` property
             if (v.uniqueId == null) {
               v.uniqueId = generateRandomUniqueId()
+              anythingUpdated = true
+            }
+
+            // For backward compatibility
+            if (v.type == null) {
+              v.type = 'video'
+              anythingUpdated = true
             }
           })
           // Save updated playlist object

@@ -288,6 +288,9 @@ const actions = {
 
         // `uniqueId` should be generated anyway
         // 'uniqueId',
+
+        // `type` should be added in action anyway
+        // 'type',
       ]
       // Using `every` to loop and `return false` to break
       videoObjectArray.every((video) => {
