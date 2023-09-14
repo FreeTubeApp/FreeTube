@@ -39,6 +39,7 @@ Global:
   Counts:
     Video Count: 1 vidéo | {count} vidéos
     Channel Count: 1 chaîne | {count} chaînes
+    View Count: 1 vue | {count} vues
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:

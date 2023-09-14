@@ -6,16 +6,16 @@
     padding-block: 10px;
     padding-inline: 0;
     text-align: center;
-    width: 100%;
+    inline-size: 100%;
   }
 
   .frown {
     background-color: var(--card-bg-color);
     font-size: 10em;
-    height: 100%;
+    block-size: 100%;
     padding-block: 20px;
     padding-inline: 0;
     text-align: center;
-    width: 100%;
+    inline-size: 100%;
   }
 }

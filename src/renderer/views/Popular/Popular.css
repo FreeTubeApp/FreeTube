@@ -1,5 +1,5 @@
 .card {
-  width: 85%;
+  inline-size: 85%;
   margin-block: 0 60px;
   margin-inline: auto;
 }
@@ -18,6 +18,6 @@
 
 @media only screen and (max-width: 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 }

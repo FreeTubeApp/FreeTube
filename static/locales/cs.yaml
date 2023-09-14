@@ -39,6 +39,9 @@ Global:
   Counts:
     Video Count: 1 video | {count} videí
     Channel Count: 1 kanál | {count} kanálů
+    Subscriber Count: 1 odběratel | {count} odběratelů
+    View Count: 1 zhlédnutí | {count} zhlédnutí
+    Watching Count: 1 sledující | {count} sledujících
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'

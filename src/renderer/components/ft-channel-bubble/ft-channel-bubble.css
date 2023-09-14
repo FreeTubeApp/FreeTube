@@ -1,7 +1,7 @@
 .bubblePadding {
   position: relative;
-  width: 100px;
-  height: 100px;
+  inline-size: 100px;
+  block-size: 100px;
   padding: 10px;
   cursor: pointer;
   display: flex;
@@ -26,8 +26,8 @@
 }
 
 .bubble {
-  width: 50px;
-  height: 50px;
+  inline-size: 50px;
+  block-size: 50px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
 }
@@ -52,5 +52,5 @@
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
-  width: 100%;
+  inline-size: 100%;
 }

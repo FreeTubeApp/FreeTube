@@ -1,6 +1,5 @@
 {
-  "plugins": ["stylelint-high-performance-animation", "@double-great/stylelint-a11y"],
-  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  "plugins": ["stylelint-use-logical-spec"],
   "overrides": [
     {
       "files": ["**/*.scss"],
@@ -17,17 +16,6 @@
     }
   ],
   "rules": {
-    "selector-class-pattern": null,
-    "selector-id-pattern": null,
-    "plugin/no-low-performance-animation-properties": null,
-    "selector-pseudo-class-no-unknown": [
-      true,
-      {
-        "ignorePseudoClasses": ["deep"]
-      }
-    ],
-    "a11y/no-outline-none": true,
-    "a11y/selector-pseudo-class-focus": true,
-    "a11y/font-size-is-readable": true
+    "liberty/use-logical-spec": ["always", { "except": ["float"] }]
   }
 }

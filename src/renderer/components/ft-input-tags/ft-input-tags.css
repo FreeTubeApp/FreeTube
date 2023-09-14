@@ -4,7 +4,7 @@
   padding: 20px;
   border-radius: 5px;
   display: block;
-  width: 60%;
+  inline-size: 60%;
 }
 
 .ft-tag-box ul {
@@ -49,6 +49,6 @@
 
 @media only screen and (max-width: 576px) {
   .ft-input-tags-component {
-    width: 100%;
+    inline-size: 100%;
   }
 }

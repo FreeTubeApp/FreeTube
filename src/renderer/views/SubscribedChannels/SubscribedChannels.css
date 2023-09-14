@@ -1,5 +1,5 @@
 .card {
-  width: 85%;
+  inline-size: 85%;
   margin-block: 0 60px;
   margin-inline: auto;
 }
@@ -13,7 +13,7 @@
 }
 
 .channels {
-  width: 100%;
+  inline-size: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr) );
   gap: 2.5rem;
@@ -35,7 +35,7 @@
 }
 
 .channelThumbnail {
-  height: 120px;
+  block-size: 120px;
   border-radius: 50%;
 }
 
@@ -48,7 +48,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
-  width: 100%;
+  inline-size: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -63,12 +63,12 @@
 }
 
 .unsubscribeContainer .btn {
-  height: 80%;
+  block-size: 80%;
 }
 
 @media only screen and (max-width: 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 
   .channels {
@@ -76,6 +76,6 @@
   }
 
   .channelThumbnail {
-    height: 80px;
+    block-size: 80px;
   }
 }

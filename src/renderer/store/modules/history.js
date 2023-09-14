@@ -1,12 +1,21 @@
+import { set as vueSet, del as vueDel } from 'vue'
 import { DBHistoryHandlers } from '../../../datastores/handlers/index'
 
 const state = {
-  historyCache: []
+  historyCacheSorted: [],
+
+  // Vuex doesn't support Maps, so we have to use an object here instead
+  // TODO: switch to a Map during the Pinia migration
+  historyCacheById: {}
 }
 
 const getters = {
-  getHistoryCache: () => {
-    return state.historyCache
+  getHistoryCacheSorted: () => {
+    return state.historyCacheSorted
+  },
+
+  getHistoryCacheById: () => {
+    return state.historyCacheById
   }
 }
 
@@ -14,7 +23,14 @@ const actions = {
   async grabHistory({ commit }) {
     try {
       const results = await DBHistoryHandlers.find()
-      commit('setHistoryCache', results)
+
+      const resultsById = {}
+      results.forEach(video => {
+        resultsById[video.videoId] = video
+      })
+
+      commit('setHistoryCacheSorted', results)
+      commit('setHistoryCacheById', resultsById)
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -41,7 +57,8 @@ const actions = {
   async removeAllHistory({ commit }) {
     try {
       await DBHistoryHandlers.deleteAll()
-      commit('setHistoryCache', [])
+      commit('setHistoryCacheSorted', [])
+      commit('setHistoryCacheById', {})
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -67,56 +84,60 @@ const actions = {
 }
 
 const mutations = {
-  setHistoryCache(state, historyCache) {
-    state.historyCache = historyCache
+  setHistoryCacheSorted(state, historyCacheSorted) {
+    state.historyCacheSorted = historyCacheSorted
   },
 
-  hoistEntryToTopOfHistoryCache(state, { currentIndex, updatedEntry }) {
-    state.historyCache.splice(currentIndex, 1)
-    state.historyCache.unshift(updatedEntry)
+  setHistoryCacheById(state, historyCacheById) {
+    state.historyCacheById = historyCacheById
   },
 
   upsertToHistoryCache(state, record) {
-    const i = state.historyCache.findIndex((currentRecord) => {
+    const i = state.historyCacheSorted.findIndex((currentRecord) => {
       return record.videoId === currentRecord.videoId
     })
 
     if (i !== -1) {
       // Already in cache
       // Must be hoisted to top, remove it and then unshift it
-      state.historyCache.splice(i, 1)
+      state.historyCacheSorted.splice(i, 1)
     }
 
-    state.historyCache.unshift(record)
+    state.historyCacheSorted.unshift(record)
+    vueSet(state.historyCacheById, record.videoId, record)
   },
 
   updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
-    const i = state.historyCache.findIndex((currentRecord) => {
+    const i = state.historyCacheSorted.findIndex((currentRecord) => {
       return currentRecord.videoId === videoId
     })
 
-    const targetRecord = Object.assign({}, state.historyCache[i])
+    const targetRecord = Object.assign({}, state.historyCacheSorted[i])
     targetRecord.watchProgress = watchProgress
-    state.historyCache.splice(i, 1, targetRecord)
+    state.historyCacheSorted.splice(i, 1, targetRecord)
+    vueSet(state.historyCacheById, videoId, targetRecord)
   },
 
   updateRecordLastViewedPlaylistIdInHistoryCache(state, { videoId, lastViewedPlaylistId }) {
-    const i = state.historyCache.findIndex((currentRecord) => {
+    const i = state.historyCacheSorted.findIndex((currentRecord) => {
       return currentRecord.videoId === videoId
     })
 
-    const targetRecord = Object.assign({}, state.historyCache[i])
+    const targetRecord = Object.assign({}, state.historyCacheSorted[i])
     targetRecord.lastViewedPlaylistId = lastViewedPlaylistId
-    state.historyCache.splice(i, 1, targetRecord)
+    state.historyCacheSorted.splice(i, 1, targetRecord)
+    vueSet(state.historyCacheById, videoId, targetRecord)
   },
 
   removeFromHistoryCacheById(state, videoId) {
-    for (let i = 0; i < state.historyCache.length; i++) {
-      if (state.historyCache[i].videoId === videoId) {
-        state.historyCache.splice(i, 1)
+    for (let i = 0; i < state.historyCacheSorted.length; i++) {
+      if (state.historyCacheSorted[i].videoId === videoId) {
+        state.historyCacheSorted.splice(i, 1)
         break
       }
     }
+
+    vueDel(state.historyCacheById, videoId)
   }
 }
 

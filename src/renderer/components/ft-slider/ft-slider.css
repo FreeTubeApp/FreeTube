@@ -4,7 +4,7 @@
   --pure-material-safari-helper3: var(--accent-color-opacity3);
   --pure-material-safari-helper4: var(--accent-color-opacity4);
   display: inline-block;
-  width: 380px;
+  inline-size: 380px;
   color: rgba(var(--primary-text-color), 0.87);
   font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
   font-size: 16px;
@@ -22,8 +22,8 @@
   display: block;
   margin-block: 0 -36px;
   margin-inline: 0;
-  width: 100%;
-  height: 36px;
+  inline-size: 100%;
+  block-size: 36px;
   background-color: transparent;
   cursor: pointer;
 }
@@ -60,8 +60,8 @@
   margin-block: 17px;
   margin-inline: 0;
   border-radius: 1px;
-  width: 100%;
-  height: 2px;
+  inline-size: 100%;
+  block-size: 2px;
   background-color: var(--accent-color-opacity4);
 }
 
@@ -71,8 +71,8 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 50%;
-  height: 2px;
-  width: 2px;
+  block-size: 2px;
+  inline-size: 2px;
   background-color: var(--accent-color);
   transform: scale(6, 6);
   transition: box-shadow 0.2s;
@@ -113,8 +113,8 @@
   margin-block: 0;
   margin-auto: 17px;
   border-radius: 1px;
-  width: 100%;
-  height: 2px;
+  inline-size: 100%;
+  block-size: 2px;
   background-color: var(--accent-color-opacity4);
 }
 
@@ -124,8 +124,8 @@
   -moz-appearance: none;
   border: none;
   border-radius: 50%;
-  height: 2px;
-  width: 2px;
+  block-size: 2px;
+  inline-size: 2px;
   background-color: var(--accent-color);
   transform: scale(6, 6);
   transition: box-shadow 0.2s;
@@ -134,7 +134,7 @@
 /* Moz | Progress */
 .pure-material-slider > input::-moz-range-progress {
   border-radius: 1px;
-  height: 2px;
+  block-size: 2px;
   background-color: var(--accent-color);
 }
 
@@ -183,21 +183,21 @@
   border-radius: 1px;
   padding-block: 0;
   padding-inline: 17px;
-  width: 100%;
-  height: 2px;
+  inline-size: 100%;
+  block-size: 2px;
   background-color: transparent;
 }
 
 .pure-material-slider > input::-ms-fill-lower {
   border-radius: 1px;
-  height: 2px;
+  block-size: 2px;
   background-color: var(--accent-color);
 }
 
 /* MS | Progress */
 .pure-material-slider > input::-ms-fill-upper {
   border-radius: 1px;
-  height: 2px;
+  block-size: 2px;
   background-color: var(--accent-color-opacity4);
 }
 
@@ -208,8 +208,8 @@
   margin-inline: 17px;
   border: none;
   border-radius: 50%;
-  height: 2px;
-  width: 2px;
+  block-size: 2px;
+  inline-size: 2px;
   background-color: var(--accent-color);
   transform: scale(6, 6);
   transition: box-shadow 0.2s;
@@ -251,6 +251,6 @@
 
 @media only screen and (max-width: 680px) {
   .pure-material-slider {
-    width: 100%;
+    inline-size: 100%;
   }
 }
