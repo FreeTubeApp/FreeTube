@@ -4,7 +4,8 @@
     id="app"
     :class="{
       hideOutlines: hideOutlines,
-      isLocaleRightToLeft: isLocaleRightToLeft
+      isLocaleRightToLeft: isLocaleRightToLeft,
+      selectModeEnabled: isSelectModeEnabled
     }"
   >
     <top-nav ref="topNav" />

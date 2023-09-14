@@ -10,6 +10,11 @@
   block-size: 100%;
 }
 
+.selectModeEnabled {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .routerView {
   flex: 1 1 0%;
   margin-block: 18px;
