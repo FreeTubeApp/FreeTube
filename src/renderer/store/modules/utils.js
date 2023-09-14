@@ -793,6 +793,11 @@ const mutations = {
     Object.values(state.selectModeSelections.selections).forEach((videoComponent) => {
       videoComponent.selectModeSelectionId = 0
     })
+
+    // clears up rare cases of Vue not removing selection styling
+    document.querySelectorAll('.selectedInSelectMode')?.forEach((match) =>
+      match.classList.remove('selectedInSelectMode'))
+
     state.selectModeSelections = selectModeSelections
   },
 
