@@ -71,7 +71,7 @@
   font-size: 14px;
   margin-inline-start: 68px;
   margin-block-start: 0;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .commentOwner {
