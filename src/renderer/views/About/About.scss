@@ -13,8 +13,29 @@
 }
 
 .logo {
-  max-inline-size: 100%;
-  inline-size: 500px;
+  block-size: 200px;
+  inline-size: 640px;
+  display: inline-flex;
+  background-image: url('../../../../_icons/logoWhite.png');
+
+  @at-root {
+    .dracula &,
+    .CatppuccinMocha &,
+    .hotPink & {
+      background-image: url('../../../../_icons/logoWhite.png');
+    }
+
+    .system &,
+    .light &,
+    .dark &,
+    .black & {
+      background-image: url('../../../../_icons/logoColor.png');
+    }
+
+    .pastelPink & {
+      background-image: url('../../../../_icons/logoBlack.png');
+    }
+  }
 }
 
 .version {

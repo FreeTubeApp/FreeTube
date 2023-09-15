@@ -141,8 +141,8 @@
   --side-nav-hover-color: #57596B;
   --side-nav-active-color: #3D4051;
   --search-bar-color: #3E3F4A;
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .catppuccinMocha {
@@ -160,8 +160,8 @@
   --side-nav-hover-color: #11111b;
   --side-nav-active-color: #11111b;
   --search-bar-color: #313244;
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconDraculaLightSmall.png");
+  --logo-text: url("../../_icons/textDraculaLightSmall.png");
 }
 
 .pastelPink {
@@ -182,8 +182,8 @@
   --side-nav-active-color: #3124E7;
   --side-nav-active-text-color: #FFFF;
   --search-bar-color: #FFF0DD;
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconBlackSmall.png");
+  --logo-text: url("../../_icons/textBlackSmall.png");
 }
 
 .hotPink {
@@ -204,8 +204,8 @@
   --side-nav-active-color: #959595;
   --side-nav-active-text-color: #000000;
   --search-bar-color: #9C2D5D;
-  --logo-icon: url("../../_icons/iconColorSmall.png");
-  --logo-text: url("../../_icons/textColorSmall.png");
+  --logo-icon: url("../../_icons/iconWhiteSmall.png");
+  --logo-text: url("../../_icons/textWhiteSmall.png");
   /* The hot pink theme does not have a great color contrast with
   many other colors than black and white. This means that the primary and
   secondary theme colors are forced here to be black so as to avoid any
