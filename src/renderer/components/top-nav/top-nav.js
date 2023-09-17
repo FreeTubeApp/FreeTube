@@ -88,8 +88,8 @@ export default defineComponent({
 
     selectVideosText: function () {
       return this.isSelectionModeEnabled
-        ? this.$t('Disable Selection Mode')
-        : this.$t('Enable Selection Mode')
+        ? this.$t('Disable Video Selection Mode')
+        : this.$t('Enable Video Selection Mode')
     },
 
     hideSharingActions: function() {

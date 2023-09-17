@@ -594,7 +594,7 @@ export default defineComponent({
     },
 
     handlePointerEnter(event) {
-      if (event.pointerType !== 'mouse' || event.pressure <= 0) {
+      if (event.pointerType !== 'mouse' || event.pressure === 0) {
         return
       }
 
