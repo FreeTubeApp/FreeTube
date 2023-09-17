@@ -9,8 +9,10 @@
       isSelectableInSelectMode: isSelectModeEnabled,
       selectedInSelectMode: selectModeSelectionId !== 0
     }"
-    @click.prevent.stop="addToOrRemoveFromSelectModeSelections"
+    @pointerenter.prevent.stop="handlePointerEnter($event)"
+    @mousedown.prevent.stop="addToOrRemoveFromSelectModeSelections"
     @keydown.enter.prevent.stop="addToOrRemoveFromSelectModeSelections"
+    @keydown.space.prevent.stop="addToOrRemoveFromSelectModeSelections"
   >
     <div
       class="videoThumbnail"

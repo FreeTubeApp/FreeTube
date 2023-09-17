@@ -593,6 +593,14 @@ export default defineComponent({
       }
     },
 
+    handlePointerEnter(event) {
+      if (event.pointerType !== 'mouse' || event.pressure <= 0) {
+        return
+      }
+
+      this.addToOrRemoveFromSelectModeSelections()
+    },
+
     clearSelectModeSelections: function () {
       this.clearSelectModeSelections()
       // showToast(this.$t('Video.Saved videos have been cleared'))
