@@ -6,13 +6,13 @@
       grid: (listType === 'grid' || forceListType === 'list') && forceListType !== 'list',
       [appearance]: true,
       watched: addWatchedStyle,
-      isSelectableInSelectMode: isSelectModeEnabled,
-      selectedInSelectMode: selectModeSelectionId !== 0
+      isSelectableInSelectionMode: isSelectionModeEnabled,
+      selectedInSelectionMode: selectionModeSelectionId !== 0
     }"
     @pointerenter.prevent.stop="handlePointerEnter($event)"
-    @mousedown.prevent.stop="addToOrRemoveFromSelectModeSelections"
-    @keydown.enter.prevent.stop="addToOrRemoveFromSelectModeSelections"
-    @keydown.space.prevent.stop="addToOrRemoveFromSelectModeSelections"
+    @mousedown.prevent.stop="addToOrRemoveFromSelectionModeSelections"
+    @keydown.enter.prevent.stop="addToOrRemoveFromSelectionModeSelections"
+    @keydown.space.prevent.stop="addToOrRemoveFromSelectionModeSelections"
   >
     <div
       class="videoThumbnail"

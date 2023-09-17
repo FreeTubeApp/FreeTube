@@ -5,7 +5,7 @@
     :class="{
       hideOutlines: hideOutlines,
       isLocaleRightToLeft: isLocaleRightToLeft,
-      selectModeEnabled: isSelectModeEnabled
+      selectionModeEnabled: isSelectionModeEnabled
     }"
   >
     <top-nav ref="topNav" />

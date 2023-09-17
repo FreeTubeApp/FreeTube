@@ -122,8 +122,8 @@ export default defineComponent({
       return this.$store.getters.getExternalLinkHandling
     },
 
-    isSelectModeEnabled: function () {
-      return this.$store.getters.getIsSelectModeEnabled
+    isSelectionModeEnabled: function () {
+      return this.$store.getters.getIsSelectionModeEnabled
     }
   },
   watch: {
@@ -331,11 +331,11 @@ export default defineComponent({
           break
       }
 
-      if (this.isSelectModeEnabled && (event.ctrlKey || event.metaKey)) {
+      if (this.isSelectionModeEnabled && (event.ctrlKey || event.metaKey)) {
         switch (event.key) {
           case 'A':
           case 'a':
-            this.selectAllVideosInSelectMode()
+            this.selectAllVideosInSelectionMode()
             break
         }
       }
@@ -556,7 +556,7 @@ export default defineComponent({
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
-      'selectAllVideosInSelectMode'
+      'selectAllVideosInSelectionMode'
     ])
   }
 })

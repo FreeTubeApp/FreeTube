@@ -73,12 +73,12 @@ export default defineComponent({
       isUpcoming: false,
       isPremium: false,
       hideViews: false,
-      selectModeSelectionId: 0
+      selectionModeSelectionId: 0
     }
   },
   computed: {
     ...mapGetters([
-      'getIsIndexSelectedInSelectMode'
+      'getIsIndexSelectedInSelectionMode'
     ]),
 
     historyEntry: function () {
@@ -277,12 +277,12 @@ export default defineComponent({
       return this.$store.getters.getDeArrowCache[this.id]
     },
 
-    isSelectModeEnabled: function () {
-      return this.$store.getters.getIsSelectModeEnabled
+    isSelectionModeEnabled: function () {
+      return this.$store.getters.getIsSelectionModeEnabled
     },
 
-    selectAllInSelectModeTriggered: function () {
-      return this.$store.getters.getSelectAllInSelectModeTriggered
+    selectAllInSelectionModeTriggered: function () {
+      return this.$store.getters.getSelectAllInSelectionModeTriggered
     },
 
     videoDropdownOptionArguments: function () {
@@ -312,9 +312,9 @@ export default defineComponent({
     historyEntry() {
       this.checkIfWatched()
     },
-    selectAllInSelectModeTriggered() {
-      if (this.selectModeSelectionId === 0) {
-        this.addToOrRemoveFromSelectModeSelections()
+    selectAllInSelectionModeTriggered() {
+      if (this.selectionModeSelectionId === 0) {
+        this.addToOrRemoveFromSelectionModeSelections()
       }
     }
   },
@@ -327,8 +327,8 @@ export default defineComponent({
     }
   },
   beforeDestroy: function () {
-    if (this.selectModeSelectionId) {
-      this.removeFromSelectModeSelections(this.selectModeSelectionId)
+    if (this.selectionModeSelectionId) {
+      this.removeFromSelectionModeSelections(this.selectionModeSelectionId)
     }
   },
   methods: {
@@ -579,17 +579,17 @@ export default defineComponent({
       }
     },
 
-    addToOrRemoveFromSelectModeSelections: async function () {
-      if (!this.isSelectModeEnabled) {
+    addToOrRemoveFromSelectionModeSelections: async function () {
+      if (!this.isSelectionModeEnabled) {
         return
       }
 
-      if (!this.getIsIndexSelectedInSelectMode(this.selectModeSelectionId)) {
-        const selectModeSelectionId = await this.$store.dispatch('addToSelectModeSelections', this)
-        this.selectModeSelectionId = selectModeSelectionId
+      if (!this.getIsIndexSelectedInSelectionMode(this.selectionModeSelectionId)) {
+        const selectionModeSelectionId = await this.$store.dispatch('addToSelectionModeSelections', this)
+        this.selectionModeSelectionId = selectionModeSelectionId
       } else {
-        this.removeFromSelectModeSelections(this.selectModeSelectionId)
-        this.selectModeSelectionId = 0
+        this.removeFromSelectionModeSelections(this.selectionModeSelectionId)
+        this.selectionModeSelectionId = 0
       }
     },
 
@@ -598,11 +598,11 @@ export default defineComponent({
         return
       }
 
-      this.addToOrRemoveFromSelectModeSelections()
+      this.addToOrRemoveFromSelectionModeSelections()
     },
 
-    clearSelectModeSelections: function () {
-      this.clearSelectModeSelections()
+    clearSelectionModeSelections: function () {
+      this.clearSelectionModeSelections()
       // showToast(this.$t('Video.Saved videos have been cleared'))
     },
 
@@ -612,8 +612,8 @@ export default defineComponent({
       'removeFromHistory',
       'addVideo',
       'removeVideo',
-      'clearSelectModeSelections',
-      'removeFromSelectModeSelections'
+      'clearSelectionModeSelections',
+      'removeFromSelectionModeSelections'
     ])
   }
 })

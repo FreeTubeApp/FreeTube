@@ -817,7 +817,7 @@ export function handleVideoDropdownOptionsClick(
 ) {
   switch (option) {
     case 'clear':
-      videoComponents[0].clearSelectModeSelections()
+      videoComponents[0].clearSelectionModeSelections()
       break
     case 'save':
       videoComponents.forEach((videoComponent) => videoComponent.setSave(true, true))

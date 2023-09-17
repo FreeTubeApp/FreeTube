@@ -59,13 +59,13 @@
         :title="selectVideosText"
         role="button"
         tabindex="0"
-        @click="toggleSelectMode"
-        @keydown.enter.prevent="toggleSelectMode"
+        @click="toggleSelectionMode"
+        @keydown.enter.prevent="toggleSelectionMode"
       />
       <ft-icon-button
-        v-if="isSelectModeEnabled"
-        class="navIcon selectModeOptionsButton"
-        :class="{ navIconDisabled: selectModeSelections.count === 0 }"
+        v-if="isSelectionModeEnabled"
+        class="navIcon selectionModeOptionsButton"
+        :class="{ navIconDisabled: selectionModeSelections.count === 0 }"
         :icon="['fas', 'ellipsis-v']"
         title="More Options"
         theme="base-nav-icon"

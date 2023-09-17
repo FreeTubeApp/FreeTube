@@ -87,24 +87,26 @@ export default defineComponent({
     },
 
     selectVideosText: function () {
-      return this.$t('Select Videos')
+      return this.isSelectionModeEnabled
+        ? this.$t('Disable Selection Mode')
+        : this.$t('Enable Selection Mode')
     },
 
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
     },
 
-    isSelectModeEnabled: function () {
-      return this.$store.getters.getIsSelectModeEnabled
+    isSelectionModeEnabled: function () {
+      return this.$store.getters.getIsSelectionModeEnabled
     },
 
-    selectModeSelections: function () {
-      return this.$store.getters.getSelectModeSelections
+    selectionModeSelections: function () {
+      return this.$store.getters.getSelectionModeSelections
     },
 
     videoDropdownOptionArguments: function() {
-      const count = this.selectModeSelections.count
-      const videoComponents = Object.values(this.selectModeSelections.selections)
+      const count = this.selectionModeSelections.count
+      const videoComponents = Object.values(this.selectionModeSelections.selections)
       const videosWithChannelIdsCount = videoComponents.filter((videoComponent) => videoComponent.channelId !== null).length
 
       const watchedVideosCount = videoComponents.filter((videoComponent) => videoComponent.watched).length
@@ -338,7 +340,7 @@ export default defineComponent({
         this.isForwardOrBack = false
       }
 
-      this.setSelectMode(false)
+      this.setSelectionMode(false)
     },
 
     historyBack: function () {
@@ -385,26 +387,26 @@ export default defineComponent({
       handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments)
     },
 
-    toggleSelectMode: function () {
-      // prevents all page elements from being highlighted if Ctrl+A was used in Select Mode
-      if (this.isSelectModeEnabled) {
+    toggleSelectionMode: function () {
+      // prevents all page elements from being highlighted if Ctrl+A was used in Selection Mode
+      if (this.isSelectionModeEnabled) {
         if (window.getSelection) {
           window.getSelection().empty()
         }
       }
 
-      this.setSelectMode(!this.isSelectModeEnabled)
+      this.setSelectionMode(!this.isSelectionModeEnabled)
     },
 
-    setSelectMode: function (value) {
-      if (this.isSelectModeEnabled === value) {
+    setSelectionMode: function (value) {
+      if (this.isSelectionModeEnabled === value) {
         return
       }
 
-      this.$store.commit('setSelectMode', value)
+      this.$store.commit('setSelectionMode', value)
 
       if (!value) {
-        this.clearSelectModeSelections()
+        this.clearSelectionModeSelections()
       }
     },
 
@@ -420,7 +422,7 @@ export default defineComponent({
     },
     ...mapActions([
       'getYoutubeUrlInfo',
-      'clearSelectModeSelections'
+      'clearSelectionModeSelections'
     ])
   }
 })

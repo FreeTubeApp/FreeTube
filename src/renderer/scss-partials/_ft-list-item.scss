@@ -54,7 +54,7 @@ $watched-transition-duration: 0.5s;
 .ft-list-item {
   padding: 6px;
 
-  &.watched:not(.selectedInSelectMode) {
+  &.watched:not(.selectedInSelectionMode) {
     @include low-contrast-when-watched(var(--primary-text-color));
 
     background-color: var(--bg-color);
@@ -71,7 +71,7 @@ $watched-transition-duration: 0.5s;
     }
   }
 
-  &.selectedInSelectMode {
+  &.selectedInSelectionMode {
     user-select: none;
     -webkit-user-select: none;
     background-color: var(--primary-text-color) !important;
@@ -322,7 +322,7 @@ $watched-transition-duration: 0.5s;
     }
   }
 
-  &.isSelectableInSelectMode * {
+  &.isSelectableInSelectionMode * {
     pointer-events: none;
     user-select: none;
     -webkit-user-select: none;

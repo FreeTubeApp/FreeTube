@@ -44,11 +44,11 @@ const state = {
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
-  isSelectModeEnabled: false,
-  selectAllVideosInSelectModeKey: 0,
+  isSelectionModeEnabled: false,
+  selectAllVideosInSelectionModeKey: 0,
   // Vuex doesn't support Maps, so we have to use an object here instead
   // TODO: switch to a Map during the Pinia migration
-  selectModeSelections: { count: 0, selections: {} },
+  selectionModeSelections: { count: 0, selections: {} },
 }
 
 const getters = {
@@ -120,20 +120,20 @@ const getters = {
     return state.externalPlayerCmdArguments
   },
 
-  getIsSelectModeEnabled () {
-    return state.isSelectModeEnabled
+  getIsSelectionModeEnabled () {
+    return state.isSelectionModeEnabled
   },
 
-  getSelectAllInSelectModeTriggered () {
-    return state.selectAllVideosInSelectModeKey
+  getSelectAllInSelectionModeTriggered () {
+    return state.selectAllVideosInSelectionModeKey
   },
 
-  getIsIndexSelectedInSelectMode: (state) => (index) => {
-    return Object.hasOwn(state.selectModeSelections.selections, index)
+  getIsIndexSelectedInSelectionMode: (state) => (index) => {
+    return Object.hasOwn(state.selectionModeSelections.selections, index)
   },
 
-  getSelectModeSelections () {
-    return state.selectModeSelections
+  getSelectionModeSelections () {
+    return state.selectionModeSelections
   }
 }
 
@@ -503,22 +503,22 @@ const actions = {
     }
   },
 
-  selectAllVideosInSelectMode({ commit }) {
-    commit('setSelectAllVideosInSelectMode')
+  selectAllVideosInSelectionMode({ commit }) {
+    commit('setSelectAllVideosInSelectionMode')
   },
 
-  clearSelectModeSelections ({ commit }) {
-    commit('setSelectModeSelections', { count: 0, selections: {} })
+  clearSelectionModeSelections ({ commit }) {
+    commit('setSelectionModeSelections', { count: 0, selections: {} })
   },
 
-  addToSelectModeSelections ({ commit }, selection) {
+  addToSelectionModeSelections ({ commit }, selection) {
     return new Promise((resolve) => {
-      commit('addToSelectModeSelections', { selection, callback: resolve })
+      commit('addToSelectionModeSelections', { selection, callback: resolve })
     })
   },
 
-  removeFromSelectModeSelections ({ commit }, selectionIndex) {
-    return commit('removeFromSelectModeSelections', { selectionIndex })
+  removeFromSelectionModeSelections ({ commit }, selectionIndex) {
+    return commit('removeFromSelectionModeSelections', { selectionIndex })
   },
 
   clearSessionSearchHistory ({ commit }) {
@@ -781,34 +781,34 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
-  setSelectMode (state, value) {
-    state.isSelectModeEnabled = value
+  setSelectionMode (state, value) {
+    state.isSelectionModeEnabled = value
   },
 
-  setSelectAllVideosInSelectMode (state) {
-    state.selectAllVideosInSelectModeKey++
+  setSelectAllVideosInSelectionMode (state) {
+    state.selectAllVideosInSelectionModeKey++
   },
 
-  setSelectModeSelections (state, selectModeSelections) {
-    Object.values(state.selectModeSelections.selections).forEach((videoComponent) => {
-      videoComponent.selectModeSelectionId = 0
+  setSelectionModeSelections (state, selectionModeSelections) {
+    Object.values(state.selectionModeSelections.selections).forEach((videoComponent) => {
+      videoComponent.selectionModeSelectionId = 0
     })
 
     // clears up rare cases of Vue not removing selection styling
-    document.querySelectorAll('.selectedInSelectMode')?.forEach((match) =>
-      match.classList.remove('selectedInSelectMode'))
+    document.querySelectorAll('.selectedInSelectionMode')?.forEach((match) =>
+      match.classList.remove('selectedInSelectionMode'))
 
-    state.selectModeSelections = selectModeSelections
+    state.selectionModeSelections = selectionModeSelections
   },
 
-  addToSelectModeSelections (state, { selection, callback }) {
-    state.selectModeSelections.selections[++state.selectModeSelections.count] = selection
-    callback(state.selectModeSelections.count)
+  addToSelectionModeSelections (state, { selection, callback }) {
+    state.selectionModeSelections.selections[++state.selectionModeSelections.count] = selection
+    callback(state.selectionModeSelections.count)
   },
 
-  removeFromSelectModeSelections (state, { selectionIndex }) {
-    delete state.selectModeSelections.selections[selectionIndex]
-    state.selectModeSelections.count--
+  removeFromSelectionModeSelections (state, { selectionIndex }) {
+    delete state.selectionModeSelections.selections[selectionIndex]
+    state.selectionModeSelections.count--
   },
 }
 

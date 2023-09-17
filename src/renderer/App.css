@@ -10,7 +10,7 @@
   block-size: 100%;
 }
 
-.selectModeEnabled {
+.selectionModeEnabled {
   -webkit-user-select: none;
   user-select: none;
 }
