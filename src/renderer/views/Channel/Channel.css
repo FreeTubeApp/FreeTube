@@ -187,6 +187,7 @@
   .channelInfoTabs {
     block-size: auto;
     flex-flow: column-reverse;
+    gap: 0;
   }
 
   .channelSearch {
@@ -195,7 +196,8 @@
   }
 
   .tabs {
-    overflow-x: scroll;
+    flex: 1 1 0;
+    flex-wrap: wrap;
   }
 
   #communityPanel {
