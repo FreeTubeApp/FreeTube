@@ -3858,10 +3858,10 @@ eslint-plugin-vuejs-accessibility@^2.2.0:
     emoji-regex "^10.0.0"
     vue-eslint-parser "^9.0.1"
 
-eslint-plugin-yml@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-yml/-/eslint-plugin-yml-1.8.0.tgz#f3d2779ea92692b902fefa4755ec075d7b364c1d"
-  integrity sha512-fgBiJvXD0P2IN7SARDJ2J7mx8t0bLdG6Zcig4ufOqW5hOvSiFxeUyc2g5I1uIm8AExbo26NNYCcTGZT0MXTsyg==
+eslint-plugin-yml@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-yml/-/eslint-plugin-yml-1.9.0.tgz#4daa4137a38fa26e38e28e847c490991326c9010"
+  integrity sha512-ayuC57WyVQ5+QZ02y62GiB//5+zsiyzUGxUX/mrhLni+jfsKA4KoITjkbR65iUdjjhWpyTJHPcAIFLKQIOwgsw==
   dependencies:
     debug "^4.3.2"
     lodash "^4.17.21"
