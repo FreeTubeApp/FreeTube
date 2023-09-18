@@ -914,6 +914,7 @@ export function parseLocalSubscriberCount(text) {
 export function parseLocalCommunityPosts(posts) {
   const foundIds = []
   // `posts` includes the SharedPost's attached post for some reason so we need to filter that out.
+  // see: https://github.com/FreeTubeApp/FreeTube/issues/3252#issuecomment-1546675781
   // we don't currently support SharedPost's so that is also filtered out
   for (const post of posts) {
     if (post.type === 'SharedPost') {
