@@ -103,7 +103,7 @@
     "eslint-plugin-unicorn": "^48.0.1",
     "eslint-plugin-vue": "^9.17.0",
     "eslint-plugin-vuejs-accessibility": "^2.2.0",
-    "eslint-plugin-yml": "^1.8.0",
+    "eslint-plugin-yml": "^1.9.0",
     "html-webpack-plugin": "^5.5.3",
     "js-yaml": "^4.1.0",
     "json-minimizer-webpack-plugin": "^4.0.0",
