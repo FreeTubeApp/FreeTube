@@ -197,7 +197,30 @@
   .tabs {
     overflow-x: scroll;
   }
+
   #communityPanel {
     margin-block-start: 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .channelInfo {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .channelInfoActionsContainer {
+    flex-direction: column-reverse;
+  }
+
+  .thumbnailContainer {
+    flex-direction: column;
+  }
+
+  .thumbnailContainer, .channelInfoActionsContainer {
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
   }
 }
