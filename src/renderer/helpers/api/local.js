@@ -302,7 +302,7 @@ export async function getLocalChannelCommunity(id) {
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
-      return communityTab.posts.map(parseLocalCommunityPost)
+      return parseLocalCommunityPosts(communityTab.posts)
     } else {
       return []
     }
@@ -909,9 +909,28 @@ export function parseLocalSubscriberCount(text) {
 
 /**
  * Parse community posts
+ * @param {import('youtubei.js').YTNodes.BackstagePost[] | import('youtubei.js').YTNodes.SharedPost[] | import('youtubei.js').YTNodes.Post[] } posts
+ */
+export function parseLocalCommunityPosts(posts) {
+  const foundIds = []
+  // `posts` includes the SharedPost's attached post for some reason so we need to filter that out.
+  // we don't currently support SharedPost's so that is also filtered out
+  for (const post of posts) {
+    if (post.type === 'SharedPost') {
+      foundIds.push(post.original_post.id, post.id)
+    }
+  }
+
+  return posts.filter(post => {
+    return !foundIds.includes(post.id)
+  }).map(parseLocalCommunityPost)
+}
+
+/**
+ * Parse community post
  * @param {import('youtubei.js').YTNodes.BackstagePost} post
  */
-export function parseLocalCommunityPost(post) {
+function parseLocalCommunityPost(post) {
   let replyCount = post.action_buttons?.reply_button?.text ?? null
   if (replyCount !== null) {
     replyCount = parseLocalSubscriberCount(post?.action_buttons.reply_button.text)
