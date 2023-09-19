@@ -68,9 +68,13 @@ export default defineComponent({
     thumbnailCanBeShown() {
       return this.thumbnailPreference !== 'hidden'
     },
+
+    isUserPlaylist() {
+      return this.data._id != null
+    },
   },
   created: function () {
-    if (this.data._id != null) {
+    if (this.isUserPlaylist) {
       this.parseUserData()
     } else if (this.data.dataSource === 'local') {
       this.parseLocalData()
