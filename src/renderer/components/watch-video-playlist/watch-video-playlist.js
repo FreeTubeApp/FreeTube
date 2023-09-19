@@ -132,6 +132,9 @@ export default defineComponent({
     videoIsLastPlaylistItem: function () {
       return this.videoIndexInPlaylistItems === (this.playlistItems.length - 1)
     },
+    videoIsNotPlaylistItem: function () {
+      return this.videoIndexInPlaylistItems === -1
+    },
   },
   watch: {
     userPlaylistsReady: function() {
@@ -139,11 +142,12 @@ export default defineComponent({
     },
     selectedUserPlaylistVideoCount () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: false })
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
+      this.shufflePlaylistItems()
     },
     selectedUserPlaylistLastUpdatedAt () {
       // Re-fetch from local store when current user playlist updated
-      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: false })
+      this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
     uniqueId (newId, _oldId) {
       // Playing online video
@@ -277,17 +281,17 @@ export default defineComponent({
         playlistId: this.playlistId
       }
 
+      const videoIndex = this.videoIndexInPlaylistItems
+      const targetVideoIndex = (this.videoIsNotPlaylistItem || this.videoIsLastPlaylistItem) ? 0 : videoIndex + 1
       if (this.shuffleEnabled) {
-        const videoIndex = this.videoIndexInPlaylistItems
         let doShufflePlaylistItems = false
         if (this.videoIsLastPlaylistItem && !this.loopEnabled) {
           showToast(this.$t('The playlist has ended. Enable loop to continue playing'))
           return
         }
         // loopEnabled = true
-        if (this.videoIsLastPlaylistItem) { doShufflePlaylistItems = true }
+        if (this.videoIsLastPlaylistItem || this.videoIsNotPlaylistItem) { doShufflePlaylistItems = true }
 
-        const targetVideoIndex = this.videoIsLastPlaylistItem ? 0 : videoIndex + 1
         const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
 
         this.$router.push(
@@ -299,8 +303,6 @@ export default defineComponent({
         showToast(this.$t('Playing Next Video'))
         if (doShufflePlaylistItems) { this.shufflePlaylistItems() }
       } else {
-        const videoIndex = this.videoIndexInPlaylistItems
-        const targetVideoIndex = this.videoIsLastPlaylistItem ? 0 : videoIndex + 1
         const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
         const stopDueToLoopDisabled = this.videoIsLastPlaylistItem && !this.loopEnabled
@@ -326,9 +328,9 @@ export default defineComponent({
         playlistId: this.playlistId
       }
 
+      const videoIndex = this.videoIndexInPlaylistItems
+      const targetVideoIndex = (this.videoIsFirstPlaylistItem || this.videoIsNotPlaylistItem) ? this.playlistItems.length - 1 : videoIndex - 1
       if (this.shuffleEnabled) {
-        const videoIndex = this.videoIndexInPlaylistItems
-        const targetVideoIndex = this.videoIsFirstPlaylistItem ? this.randomizedPlaylistItems.length - 1 : videoIndex - 1
         const targetPlaylistItem = this.randomizedPlaylistItems[targetVideoIndex]
 
         this.$router.push(
@@ -338,8 +340,6 @@ export default defineComponent({
           }
         )
       } else {
-        const videoIndex = this.videoIndexInPlaylistItems
-        const targetVideoIndex = this.videoIsFirstPlaylistItem ? this.playlistItems.length - 1 : videoIndex - 1
         const targetPlaylistItem = this.playlistItems[targetVideoIndex]
 
         this.$router.push(
