@@ -226,3 +226,9 @@
     gap: 10px;
   }
 }
+
+@media only screen and (max-width: 260px) {
+   .channelDetails {
+    max-inline-size: none;
+  }
+}
