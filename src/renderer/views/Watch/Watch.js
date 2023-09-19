@@ -210,6 +210,9 @@ export default defineComponent({
       return this.$store.getters.getAllowDashAv1Formats
     },
 
+    userPlaylistsReady: function () {
+      return this.$store.getters.getPlaylistsReady
+    },
     selectedUserPlaylist: function () {
       if (this.playlistId == null) { return null }
       if (this.playlistId === '') { return null }
@@ -247,25 +250,35 @@ export default defineComponent({
           }
           break
       }
-    }
+    },
+    userPlaylistsReady() {
+      this.onMountedDependOnLocalStateLoading()
+    },
   },
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
     this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
 
-    this.checkIfPlaylist()
-    this.checkIfTimestamp()
-
-    if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-      this.getVideoInformationInvidious()
-    } else {
-      this.getVideoInformationLocal()
-    }
-
-    window.addEventListener('beforeunload', this.handleWatchProgress)
+    this.onMountedDependOnLocalStateLoading()
   },
   methods: {
+    onMountedDependOnLocalStateLoading() {
+      // Stuff that require user playlists to be ready
+      if (!this.userPlaylistsReady) { return }
+
+      this.checkIfPlaylist()
+      this.checkIfTimestamp()
+
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        this.getVideoInformationInvidious()
+      } else {
+        this.getVideoInformationLocal()
+      }
+
+      window.addEventListener('beforeunload', this.handleWatchProgress)
+    },
+
     changeTimestamp: function (timestamp) {
       this.$refs.videoPlayer.player.currentTime(timestamp)
     },
