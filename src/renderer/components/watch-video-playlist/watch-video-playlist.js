@@ -70,6 +70,11 @@ export default defineComponent({
     selectedUserPlaylistLastUpdatedAt () {
       return this.selectedUserPlaylist?.lastUpdatedAt
     },
+    playlistType() {
+      if (this.selectedUserPlaylist != null) { return 'user' }
+
+      return ''
+    },
 
     currentVideoIndexZeroBased: function () {
       return this.playlistItems.findIndex((item) => {

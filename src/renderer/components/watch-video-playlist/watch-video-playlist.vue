@@ -135,11 +135,12 @@
           <ft-list-video-lazy
             :data="item"
             :playlist-id="playlistId"
+            :playlist-type="playlistType"
             :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
+            :unique-id="item.uniqueId"
             :playlist-reverse="reversePlaylist"
             :playlist-shuffle="shuffleEnabled"
             :playlist-loop="loopEnabled"
-            :unique-id="item.uniqueId"
             appearance="watchPlaylistItem"
             force-list-type="list"
             :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
