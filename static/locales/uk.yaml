@@ -39,6 +39,9 @@ Global:
   Counts:
     Video Count: 1 відео | {count} відео
     Channel Count: 1 канал | {count} канал
+    Subscriber Count: 1 підписник | {count} підписників
+    View Count: 1 перегляд | {count} переглядів
+    Watching Count: 1 глядач | {count} глядачів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'

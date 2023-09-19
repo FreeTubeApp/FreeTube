@@ -41,6 +41,9 @@ Global:
   Counts:
     Video Count: 1 vídeo | {count} vídeos
     Channel Count: 1 canal | {count} canales
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    View Count: 1 vista | {count} vistas
+    Watching Count: 1 espectador | {count} espectadores
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:

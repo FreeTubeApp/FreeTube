@@ -39,6 +39,9 @@ Global:
   Counts:
     Video Count: סרטון אחד | {count} סרטונים
     Channel Count: ערוץ אחד | {count} ערוצים
+    Subscriber Count: מנוי או מנויה 1 | {count} מנויים
+    View Count: צפייה אחת | {count} צפיות
+    Watching Count: צופה 1 | {count} צורפים
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
