@@ -144,7 +144,7 @@ export default defineComponent({
     },
 
     inUserPlaylist: function () {
-      return this.playlistType === 'user'
+      return this.playlistTypeFinal === 'user'
     },
 
     selectedUserPlaylist: function () {
@@ -349,7 +349,7 @@ export default defineComponent({
       if (this.playlistId) {
         return {
           playlistId: this.playlistId,
-          playlistType: null,
+          playlistType: this.playlistType,
           uniqueId: this.uniqueId,
         }
       }
