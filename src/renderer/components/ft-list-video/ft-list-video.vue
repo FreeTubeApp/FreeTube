@@ -37,7 +37,7 @@
         {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : duration) }}
       </div>
       <ft-icon-button
-        v-if="externalPlayer !== '' && !inUserPlaylist"
+        v-if="externalPlayer !== ''"
         :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
         :icon="['fas', 'external-link-alt']"
         class="externalPlayerIcon"

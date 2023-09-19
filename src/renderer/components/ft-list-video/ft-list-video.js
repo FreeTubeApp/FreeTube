@@ -435,7 +435,7 @@ export default defineComponent({
     handleExternalPlayer: function () {
       this.$emit('pause-player')
 
-      this.openInExternalPlayer({
+      const payload = {
         watchProgress: this.watchProgress,
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -444,8 +444,19 @@ export default defineComponent({
         playlistIndex: this.playlistIndex,
         playlistReverse: this.playlistReverse,
         playlistShuffle: this.playlistShuffle,
-        playlistLoop: this.playlistLoop
-      })
+        playlistLoop: this.playlistLoop,
+      }
+      // Only play video in non playlist mode when user playlist detected
+      if (!this.inUserPlaylist) {
+        Object.assign(payload, {
+          playlistId: null,
+          playlistIndex: null,
+          playlistReverse: null,
+          playlistShuffle: null,
+          playlistLoop: null,
+        })
+      }
+      this.openInExternalPlayer(payload)
 
       if (this.saveWatchedProgress && !this.watched) {
         this.markAsWatched()

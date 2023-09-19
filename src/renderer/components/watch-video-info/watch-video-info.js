@@ -247,7 +247,7 @@ export default defineComponent({
     handleExternalPlayer: function () {
       this.$emit('pause-player')
 
-      this.openInExternalPlayer({
+      const payload = {
         watchProgress: this.getTimestamp(),
         playbackRate: this.defaultPlayback,
         videoId: this.id,
@@ -256,8 +256,19 @@ export default defineComponent({
         playlistIndex: this.getPlaylistIndex(),
         playlistReverse: this.getPlaylistReverse(),
         playlistShuffle: this.getPlaylistShuffle(),
-        playlistLoop: this.getPlaylistLoop()
-      })
+        playlistLoop: this.getPlaylistLoop(),
+      }
+      // Only play video in non playlist mode when user playlist detected
+      if (!this.inUserPlaylist) {
+        Object.assign(payload, {
+          playlistId: null,
+          playlistIndex: null,
+          playlistReverse: null,
+          playlistShuffle: null,
+          playlistLoop: null,
+        })
+      }
+      this.openInExternalPlayer(payload)
     },
 
     handleFormatChange: function (format) {
