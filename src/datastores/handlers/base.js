@@ -64,8 +64,8 @@ class History {
     return db.history.updateAsync({ videoId }, { $set: { watchProgress } }, { upsert: true })
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType) {
-    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType } }, { upsert: true })
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedUniqueId) {
+    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType, lastViewedUniqueId } }, { upsert: true })
   }
 
   static delete(videoId) {

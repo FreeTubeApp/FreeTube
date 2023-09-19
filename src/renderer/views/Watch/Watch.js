@@ -1037,13 +1037,13 @@ export default defineComponent({
       if (!(this.rememberHistory && this.saveVideoHistoryWithLastViewedPlaylist)) { return }
       if (this.isUpcoming || this.isLive) { return }
 
-      const payload = {
+      this.updateLastViewedPlaylist({
         videoId: this.videoId,
         // Whether there is a playlist ID or not, save it
         lastViewedPlaylistId: this.playlistId,
         lastViewedPlaylistType: this.playlistType,
-      }
-      this.updateLastViewedPlaylist(payload)
+        lastViewedUniqueId: this.uniqueId,
+      })
     },
 
     handleVideoReady: function () {

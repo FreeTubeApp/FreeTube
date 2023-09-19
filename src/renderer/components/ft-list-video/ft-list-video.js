@@ -361,6 +361,7 @@ export default defineComponent({
       return {
         playlistId: this.historyEntry?.lastViewedPlaylistId,
         playlistType: this.historyEntry?.lastViewedPlaylistType,
+        uniqueId: this.historyEntry?.lastViewedUniqueId,
       }
     },
 
