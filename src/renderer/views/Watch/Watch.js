@@ -1102,6 +1102,7 @@ export default defineComponent({
 
       if (this.playlistId == null || this.playlistId.length === 0) {
         this.playlistType = ''
+        this.uniqueId = null
         this.watchingPlaylist = false
         return
       }
@@ -1120,6 +1121,7 @@ export default defineComponent({
       this.playlistType = this.$route.query.playlistType
       if (this.playlistType !== 'user') {
         // Remote playlist
+        this.uniqueId = null
         this.watchingPlaylist = true
         return
       }
@@ -1130,6 +1132,7 @@ export default defineComponent({
         // Clear playlist data so that watch history will be properly updated
         this.playlistId = ''
         this.playlistType = ''
+        this.uniqueId = null
       }
       this.watchingPlaylist = this.selectedUserPlaylist != null
     },
