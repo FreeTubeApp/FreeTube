@@ -1,3 +1,4 @@
+/* Ensures style here overrides style of .btn */
 .subscribeButton.btn {
   align-self: center;
   block-size: 50%;
