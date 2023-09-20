@@ -5,6 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
+const WatchExternalFilesPlugin = require('webpack-watch-external-files-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
@@ -128,7 +129,12 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
-    })
+    }),
+    new WatchExternalFilesPlugin({
+      files: [
+        './static/locales/*.yaml',
+      ],
+    }),
   ],
   resolve: {
     alias: {

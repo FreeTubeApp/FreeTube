@@ -1,4 +1,4 @@
-const { existsSync, readFileSync } = require('fs')
+const { existsSync, readFileSync, statSync } = require('fs')
 const { brotliCompress, constants } = require('zlib')
 const { promisify } = require('util')
 const { load: loadYaml } = require('js-yaml')
@@ -21,10 +21,11 @@ class ProcessLocalesPlugin {
     }
     this.outputDir = options.outputDir
 
-    this.locales = []
+    this.locales = {}
     this.localeNames = []
+    this.activeLocales = []
 
-    this.cache = []
+    this.cache = {}
 
     this.loadLocales()
   }
@@ -37,66 +38,88 @@ class ProcessLocalesPlugin {
 
       compilation.hooks.additionalAssets.tapPromise('process-locales-plugin', async (_assets) => {
 
-        // While running in the webpack dev server, this hook gets called for every incrememental build.
+        // While running in the webpack dev server, this hook gets called for every incremental build.
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
-        if (IS_DEV_SERVER && this.cache.length > 0) {
-          for (const { filename, source } of this.cache) {
+        const promises = []
+        this.loadLocales(true)
+
+        Object.values(this.locales).forEach((localeEntry) => {
+          const { locale, data, mtimeMs } = localeEntry
+          promises.push(new Promise(async (resolve) => {
+            if (IS_DEV_SERVER) {
+              const cacheEntry = this.cache[locale]
+              if (cacheEntry != null) {
+                const { filename, source, mtimeMs: cachedMtimeMs } = cacheEntry
+                if (cachedMtimeMs === mtimeMs) {
+                  compilation.emitAsset(filename, source, { minimized: true })
+                  resolve()
+                  return
+                }
+              }
+            }
+
+            if (Object.prototype.hasOwnProperty.call(data, 'Locale Name')) {
+              delete data['Locale Name']
+            }
+
+            this.removeEmptyValues(data)
+
+            let filename = `${this.outputDir}/${locale}.json`
+            let output = JSON.stringify(data)
+
+            if (this.compress) {
+              filename += '.br'
+              output = await this.compressLocale(output)
+            }
+
+            let source = new RawSource(output)
+
+            if (IS_DEV_SERVER) {
+              source = new CachedSource(source)
+              this.cache[locale] = { filename, source, mtimeMs }
+            }
+
             compilation.emitAsset(filename, source, { minimized: true })
-          }
-        } else {
-          const promises = []
 
-          for (const { locale, data } of this.locales) {
-            promises.push(new Promise(async (resolve) => {
-              if (Object.prototype.hasOwnProperty.call(data, 'Locale Name')) {
-                delete data['Locale Name']
-              }
-
-              this.removeEmptyValues(data)
-
-              let filename = `${this.outputDir}/${locale}.json`
-              let output = JSON.stringify(data)
-
-              if (this.compress) {
-                filename += '.br'
-                output = await this.compressLocale(output)
-              }
-
-              let source = new RawSource(output)
-
-              if (IS_DEV_SERVER) {
-                source = new CachedSource(source)
-                this.cache.push({ filename, source })
-              }
-
-              compilation.emitAsset(filename, source, { minimized: true })
-
-              resolve()
-            }))
-          }
-
-          await Promise.all(promises)
+            resolve()
+          }))
 
           if (IS_DEV_SERVER) {
             // we don't need the unmodified sources anymore, as we use the cache `this.cache`
             // so we can clear this to free some memory
-            delete this.locales
+            delete localeEntry.data
           }
-        }
+        })
+
+        await Promise.all(promises)
       })
     })
   }
 
-  loadLocales() {
-    const activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
+  loadLocales(loadModifiedFilesOnly = false) {
+    if (this.activeLocales.length === 0) {
+      this.activeLocales = JSON.parse(readFileSync(`${this.inputDir}/activeLocales.json`))
+    }
 
-    for (const locale of activeLocales) {
-      const contents = readFileSync(`${this.inputDir}/${locale}.yaml`, 'utf-8')
+    for (const locale of this.activeLocales) {
+      const filePath = `${this.inputDir}/${locale}.yaml`
+      // Cannot use `mtime` since values never equal
+      const mtimeMsFromStats = statSync(filePath).mtimeMs
+      if (loadModifiedFilesOnly) {
+        // Skip reading files where mtime (modified time) same as last read
+        // (stored in mtime)
+        const existingMtime = this.locales[locale]?.mtimeMs
+        if (existingMtime != null && existingMtime === mtimeMsFromStats) {
+          continue
+        }
+      }
+      const contents = readFileSync(filePath, 'utf-8')
       const data = loadYaml(contents)
+      this.locales[locale] = { locale, data, mtimeMs: mtimeMsFromStats }
 
-      this.localeNames.push(data['Locale Name'] ?? locale)
-      this.locales.push({ locale, data })
+      const localeName = data['Locale Name'] ?? locale
+      if (!this.localeNames.includes(localeName)) { this.localeNames.push(localeName) }
     }
   }
 
