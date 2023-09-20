@@ -41,6 +41,8 @@ Global:
     Video Count: 1 vidéo | {count} vidéos
     Channel Count: 1 chaîne | {count} chaînes
     View Count: 1 vue | {count} vues
+    Subscriber Count: 1 abonné | {count} abonnés
+    Watching Count: 1 spectateur | {count} spectateurs
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
