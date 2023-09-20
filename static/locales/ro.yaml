@@ -36,6 +36,12 @@ Global:
 
   Shorts: Shorts
   Live: Live
+  Counts:
+    Video Count: 1 videoclip | {count} videoclipuri
+    Subscriber Count: 1 abonat | {count} de abonați
+    View Count: 1 vizionare | {count} vizionări
+    Channel Count: 1 canal | {count} canale
+    Watching Count: 1 se uită | {count} se uită
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -43,7 +49,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este 
   disponibil, {blogTitle}. Click to view more'
 
 # Search Bar
-Search / Go to URL: 'Căutare / Du-te la URL'
+Search / Go to URL: 'Căutare / Întrodu la URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtre de căutare'
@@ -175,7 +181,7 @@ Settings:
     Current Invidious Instance: Instanța actuală Invidious
     System Default: Prestabilită de sistem
   Theme Settings:
-    Theme Settings: 'Setările temei'
+    Theme Settings: 'Setări temei'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
     Base Theme:
       Base Theme: 'Temă de bază'
@@ -185,6 +191,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Setări implicite
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastel Roz
+      Hot Pink: Hot Roz
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -415,6 +423,8 @@ Settings:
     Hide Channels Placeholder: Numele canalului sau ID-ul
     Hide Channel Playlists: Ascunde playlisturile canalului
     Hide Upcoming Premieres: Ascundeți premierele viitoare
+    Blur Thumbnails: Estomparea miniaturilor
+    Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -504,6 +514,7 @@ About:
   Licensed under the AGPLv3: Licențiat sub AGPLv3
   Source code: Codul sursă
   Beta: Beta
+  Discussions: Discuții
 Profile:
   Profile Select: 'Selectare profil'
   All Channels: 'Toate canalele'
@@ -594,6 +605,9 @@ Channel:
     Community: Comunitate
     This channel currently does not have any posts: Acest canal nu are momentan nicio
       postare
+    Reveal Answers: Dezvăluie Răspunsuri
+    Hide Answers: Ascunde Răspunsurile
+    votes: '{votes} voturi'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Acest
     canal are restricții de vârstă și momentan nu poate fi vizionat în FreeTube.
   This channel does not exist: Acest canal nu există
@@ -755,6 +769,7 @@ Video:
     de persoana care a încărcat.
   Premieres: Premiere
   Show Super Chat Comment: Afișați comentariul Super Chat
+  Pause on Current Video: Pauză la videoclipul curent
 Videos:
   #& Sort By
   Sort By:
@@ -831,6 +846,7 @@ Comments:
   Member: Membru
   Hearted: Inima
   View {replyCount} replies: '{replyCount} răspunsuri'
+  Subscribed: Abonat
 Up Next: 'În continuare'
 
 # Toast Messages
@@ -991,3 +1007,7 @@ Hashtag:
   This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun
     videoclip
 Ok: OK
+Playlist will pause when current video is finished: Lista de redare se va întrerupe
+  când videoclipul curent este terminat
+Playlist will not pause when current video is finished: Lista de redare nu se va întrerupe
+  când videoclipul curent este terminat
