@@ -16,9 +16,12 @@
   .buttons {
     display: flex;
     flex-direction: column;
+    max-inline-size: min-content;
+    min-inline-size: 150px;
 
     .action {
       padding: 6px;
+      white-space: initial;
     }
   }
 
@@ -82,6 +85,33 @@
           background-image: url('../../assets/img/invidious-logo-light.svg');
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+  .shareLinks {
+    grid-auto-flow: row;
+    margin-inline: auto;
+    justify-items: center;
+
+
+    .header {
+      inline-size: fit-content;
+
+      &.invidious {
+        margin-block-start: 20px;
+      }
+    }
+
+    .buttons {
+      max-inline-size: min-content;
+      inline-size: max-content;
+    }
+
+    .divider {
+      display: none;
     }
   }
 }
