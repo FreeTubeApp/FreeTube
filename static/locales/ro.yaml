@@ -36,6 +36,11 @@ Global:
 
   Shorts: Shorts
   Live: Live
+  Counts:
+    Video Count: 1 videoclip | {count} videoclipuri
+    Subscriber Count: 1 abonat | {count} de abonați
+    View Count: 1 vizionare | {count} vizionări
+    Channel Count: 1 canal | {count} canale
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -175,7 +180,7 @@ Settings:
     Current Invidious Instance: Instanța actuală Invidious
     System Default: Prestabilită de sistem
   Theme Settings:
-    Theme Settings: 'Setările temei'
+    Theme Settings: 'Setări temei'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
     Base Theme:
       Base Theme: 'Temă de bază'
