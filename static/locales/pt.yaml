@@ -36,6 +36,8 @@ Global:
   Shorts: Curtas
   Live: Em directo
 
+  Counts:
+    Channel Count: 1 canal | {count} canais
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações'
 Download From Site: 'Descarregar do site'
