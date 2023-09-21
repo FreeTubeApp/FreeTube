@@ -11,6 +11,8 @@
     font-weight: bold;
     margin-block: 4px 8px;
     margin-inline: 0;
+    display: flex;
+    justify-content: center;
   }
 
   .buttons {
@@ -58,8 +60,6 @@
   }
 
   .invidious {
-    display: flex;
-    justify-content: center;
     letter-spacing: -0.4px;
 
     .invidiousLogo {
@@ -90,24 +90,19 @@
 }
 
 @media only screen and (max-width: 450px) {
-
   .shareLinks {
     grid-auto-flow: row;
     margin-inline: auto;
     justify-items: center;
+    max-inline-size: max-content;
 
-
-    .header {
-      inline-size: fit-content;
-
-      &.invidious {
-        margin-block-start: 20px;
-      }
+    .header.invidious {
+      margin-block-start: 20px;
     }
 
     .buttons {
       max-inline-size: min-content;
-      inline-size: max-content;
+      min-inline-size: 180px;
     }
 
     .divider {
