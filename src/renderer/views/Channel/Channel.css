@@ -98,11 +98,14 @@
   gap: 32px;
   padding-block: .3em;
   padding-inline: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .tabs {
   display: flex;
   flex: 0 1 33%;
+  flex-wrap: wrap;
 }
 
 .tab {
