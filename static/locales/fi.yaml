@@ -35,6 +35,12 @@ Global:
   Live: Livenä
 
 # Search Bar
+  Counts:
+    Video Count: 1 video | {count} videota
+    Subscriber Count: 1 tilaaja | {count} tilaajaa
+    View Count: 1 näyttökerta | {count} näyttökertaa
+    Watching Count: 1 katselee | {count} katselee
+    Channel Count: 1 kanava | {count} kanavaa
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
 Search Filters:
@@ -142,6 +148,7 @@ Settings:
       Beginning: 'Alku'
       Middle: 'Puoliväli'
       End: 'Loppu'
+      Hidden: Piilotettu
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious instanssi
       (Oletus on https://invidious.snopyta.org)'
     Region for Trending: 'Nousussa-sivun alue'
@@ -274,7 +281,7 @@ Settings:
         numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit.
         %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID. Voit myös käyttää
         "\" tai "/" luodaksesi alikansioita.
-    Enter Fullscreen on Display Rotate: Siirry koko näytön kokoiseen näytön kiertoon
+    Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
     Allow DASH AV1 formats: Salli DASH AV1 -formaatit
     Comment Auto Load:
@@ -420,6 +427,8 @@ Settings:
     Hide Channel Podcasts: Piilota kanavan podcastit
     Hide Subscriptions Videos: Piilota tilausvideot
     Hide Subscriptions Live: Piilota tilausten livet
+    Blur Thumbnails: Sumenna pikkukuvat
+    Hide Profile Pictures in Comments: Piilota profiilikuvat kommenteissa
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -544,6 +553,7 @@ About:
   FreeTube Wiki: FreeTube Wiki
   Donate: Lahjoita
   Source code: Lähdekoodi
+  Discussions: Keskustelut
 Channel:
   Subscribe: 'Tilaa'
   Unsubscribe: 'Peruuta tilaus'
@@ -589,6 +599,9 @@ Channel:
     This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
       mitään
     Community: Yhteisö
+    Reveal Answers: Näytä vastaukset
+    Hide Answers: Piilota vastaukset
+    votes: '{votes} ääntä'
   Live:
     Live: Livenä
     This channel does not currently have any live streams: Tällä kanavalla ei ole
@@ -813,6 +826,7 @@ Comments:
   Member: Jäsen
   View {replyCount} replies: Näytä {replyCount} vastausta
   Hearted: Tykätty
+  Subscribed: Tilattu
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
