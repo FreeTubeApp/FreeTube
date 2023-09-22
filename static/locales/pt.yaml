@@ -38,6 +38,10 @@ Global:
 
   Counts:
     Channel Count: 1 canal | {count} canais
+    Video Count: 1 vídeo | {count} vídeos
+    Subscriber Count: 1 assinante | {count} assinantes
+    View Count: 1 visualização | {contagem} visualizações
+    Watching Count: 1 a assistir | {count} a assistir
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações'
 Download From Site: 'Descarregar do site'
@@ -155,6 +159,7 @@ Settings:
       Beginning: 'Início'
       Middle: 'Centro'
       End: 'Final'
+      Hidden: Oculto
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância Invidious
       (Por omissão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para as tendências'
@@ -185,6 +190,8 @@ Settings:
       Dracula: 'Drácula'
       System Default: Definição do sistema
       Catppuccin Mocha: Cappuccino mocha
+      Pastel Pink: Rosa pastel
+      Hot Pink: Rosa Choque
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -459,6 +466,7 @@ Settings:
     Hide Subscriptions Shorts: Ocultar subscrições de vídeos curtos
     Hide Subscriptions Live: Ocultar subscrições de vídeos em direto
     Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
+    Blur Thumbnails: Desfocar miniaturas
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -808,6 +816,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
     Chat ao vivo não está disponível para esta transmissão. Pode ter sido desativado
     pelo remetente.
+  Pause on Current Video: Pausa no vídeo atual
 Videos:
   #& Sort By
   Sort By:
@@ -884,6 +893,7 @@ Comments:
   Member: Membro
   Hearted: Marcado
   View {replyCount} replies: Ver {replyCount} respostas
+  Subscribed: Subscrito
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -1040,3 +1050,7 @@ Hashtag:
   Hashtag: Marcador
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     quaisquer vídeos
+Playlist will pause when current video is finished: A lista de reprodução será colocada
+  em pausa quando o vídeo atual terminar
+Playlist will not pause when current video is finished: A lista de reprodução não
+  será colocada em pausa quando o vídeo atual terminar
