@@ -1,6 +1,8 @@
-.subscribeButton {
+/* Ensures style here overrides style of .btn */
+.subscribeButton.btn {
   align-self: center;
   block-size: 50%;
   margin-block-end: 10px;
   min-inline-size: 150px;
+  white-space: initial;
 }
