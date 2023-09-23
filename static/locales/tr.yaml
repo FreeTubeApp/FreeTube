@@ -106,6 +106,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği
     görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı
     sekmelerin gizliliğini kaldırın.
+  Load More Posts: Daha Fazla Gönderi Yükle
+  Empty Posts: Abone olduğunuz kanallarda şu anda herhangi bir gönderi yok.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -439,6 +441,7 @@ Settings:
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
     Blur Thumbnails: Küçük Resimleri Bulanıklaştır
+    Hide Subscriptions Community: Abonelik Topluluğunu Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
