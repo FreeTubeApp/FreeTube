@@ -66,6 +66,12 @@
           :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
           v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Community')"
+          :compact="true"
+          :default-value="hideSubscriptionsCommunity"
+          @change="updateHideSubscriptionsCommunity"
+        />
       </div>
     </div>
     <h4

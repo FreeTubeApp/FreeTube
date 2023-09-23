@@ -24,7 +24,13 @@ export function invidiousAPICall({ resource, id = '', params = {}, doLogError = 
       .then((response) => response.json())
       .then((json) => {
         if (json.error !== undefined) {
-          throw new Error(json.error)
+          // community is empty, no need to display error.
+          // This code can be removed when: https://github.com/iv-org/invidious/issues/3814 is reolved
+          if (json.error === 'This channel hasn\'t posted yet') {
+            resolve({ comments: [] })
+          } else {
+            throw new Error(json.error)
+          }
         }
         resolve(json)
       })

@@ -33,6 +33,7 @@ Global:
   Videos: '影片'
   Shorts: 短片
   Live: 直播
+  Community: 社群
 
 # Search Bar
   Counts:
@@ -565,7 +566,6 @@ Channel:
   This channel does not exist: 此頻道不存在
   This channel does not allow searching: 此頻道不允許搜尋
   Community:
-    Community: 社群
     This channel currently does not have any posts: 此頻道目前沒有任何貼文
     votes: '{votes} 票'
     Reveal Answers: 揭露答案

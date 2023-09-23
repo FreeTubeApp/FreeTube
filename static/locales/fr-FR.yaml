@@ -34,6 +34,7 @@ Global:
   Videos: 'Vidéos'
   Shorts: Shorts
   Live: En direct
+  Community: Communauté
 
 # Search Bar
   Counts:
@@ -642,7 +643,6 @@ Channel:
     chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
   Community:
-    Community: Communauté
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
     votes: '{votes} votes'

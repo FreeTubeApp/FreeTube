@@ -35,6 +35,7 @@ Global:
   Videos: 'Videa'
   Shorts: Shorts
   Live: Živě
+  Community: Komunita
 
   Counts:
     Video Count: 1 video | {count} videí
@@ -642,7 +643,6 @@ Channel:
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
   Channel Tabs: Karty kanálů
   Community:
-    Community: Komunita
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
     Hide Answers: Skrýt odpovědi

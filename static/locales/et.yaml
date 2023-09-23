@@ -35,6 +35,7 @@ Global:
   Videos: 'Videod'
   Shorts: Lühivideod
   Live: Otseeeter
+  Community: Kogukond
 
   Counts:
     Video Count: 1 video | {count} videot
@@ -596,7 +597,6 @@ Channel:
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
       ühtegi otseeetrit
   Community:
-    Community: Kogukond
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused

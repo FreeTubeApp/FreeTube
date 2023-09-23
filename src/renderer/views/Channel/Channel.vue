@@ -186,7 +186,7 @@
               @click="changeTab('community')"
               @keydown.left.right.enter.space="changeTab('community', $event)"
             >
-              {{ $t("Channel.Community.Community").toUpperCase() }}
+              {{ $t("Global.Community").toUpperCase() }}
             </div>
             <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div

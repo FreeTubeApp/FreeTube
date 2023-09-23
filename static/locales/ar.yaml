@@ -35,6 +35,7 @@ Global:
   Videos: 'الفيديوهات'
   Shorts: القصيرة
   Live: مباشر
+  Community: المجتمع
 
 # Search Bar
   Counts:
@@ -640,7 +641,6 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه
     القناة مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
   Community:
-    Community: المجتمع
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
     Hide Answers: إخفاء الأجوبة

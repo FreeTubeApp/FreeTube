@@ -33,14 +33,14 @@ Global:
   Videos: 'Videot'
   Shorts: Lyhyet
   Live: Livenä
-
-# Search Bar
+  Community: Yhteisö
   Counts:
     Video Count: 1 video | {count} videota
     Subscriber Count: 1 tilaaja | {count} tilaajaa
     View Count: 1 näyttökerta | {count} näyttökertaa
     Watching Count: 1 katselee | {count} katselee
     Channel Count: 1 kanava | {count} kanavaa
+# Search Bar
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
 Search Filters:
@@ -598,7 +598,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
       mitään
-    Community: Yhteisö
     Reveal Answers: Näytä vastaukset
     Hide Answers: Piilota vastaukset
     votes: '{votes} ääntä'

@@ -35,6 +35,7 @@ Global:
   Videos: 'Videolar'
   Shorts: Kısa Videolar
   Live: Canlı
+  Community: Topluluk
 
   Counts:
     Video Count: 1 video | {count} video
@@ -662,7 +663,6 @@ Channel:
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
   This channel does not exist: Bu kanal mevcut değil
   Community:
-    Community: Topluluk
     This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
       gönderi yok
     votes: '{votes} oy'

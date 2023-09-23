@@ -33,6 +33,7 @@ Global:
   Videos: '動画'
   Shorts: ショート動画
   Live: ライブ配信
+  Community: コミュニティ
 
 # Search Bar
   Counts:
@@ -555,7 +556,6 @@ Channel:
   Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
   Community:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
-    Community: コミュニティ
     votes: '{votes} 投票'
     Reveal Answers: 回答を表示
     Hide Answers: 回答の非表示

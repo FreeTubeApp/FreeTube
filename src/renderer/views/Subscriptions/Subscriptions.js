@@ -3,6 +3,7 @@ import { defineComponent } from 'vue'
 import SubscriptionsVideos from '../../components/subscriptions-videos/subscriptions-videos.vue'
 import SubscriptionsLive from '../../components/subscriptions-live/subscriptions-live.vue'
 import SubscriptionsShorts from '../../components/subscriptions-shorts/subscriptions-shorts.vue'
+import SubscriptionsCommunity from '../../components/subscriptions-community/subscriptions-community.vue'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -14,6 +15,7 @@ export default defineComponent({
     'subscriptions-videos': SubscriptionsVideos,
     'subscriptions-live': SubscriptionsLive,
     'subscriptions-shorts': SubscriptionsShorts,
+    'subscriptions-community': SubscriptionsCommunity,
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox
   },
@@ -35,6 +37,19 @@ export default defineComponent({
     hideSubscriptionsLive: function () {
       return this.$store.getters.getHideLiveStreams || this.$store.getters.getHideSubscriptionsLive
     },
+    hideSubscriptionsCommunity: function() {
+      return this.$store.getters.getHideSubscriptionsCommunity
+    },
+    activeProfile: function () {
+      return this.$store.getters.getActiveProfile
+    },
+    activeSubscriptionList: function () {
+      return this.activeProfile.subscriptions
+    },
+    useRssFeeds: function () {
+      return this.$store.getters.getUseRssFeeds
+    },
+
     visibleTabs: function () {
       const tabs = []
 
@@ -48,6 +63,11 @@ export default defineComponent({
 
       if (!this.hideSubscriptionsLive) {
         tabs.push('live')
+      }
+
+      // community does not support rss
+      if (!this.hideSubscriptionsCommunity && !this.useRssFeeds && this.activeSubscriptionList.length < 125) {
+        tabs.push('community')
       }
 
       return tabs

@@ -36,6 +36,7 @@ Global:
   Videos: 'Vídeos'
   Shorts: Cortos
   Live: En directo
+  Community: Comunidad
 
 # Search Bar
   Counts:
@@ -654,7 +655,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
-    Community: Comunidad
     Reveal Answers: Revelar las respuestas
     Hide Answers: Ocultar las respuestas
     votes: '{votes} votos'

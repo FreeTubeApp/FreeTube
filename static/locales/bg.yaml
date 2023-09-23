@@ -36,6 +36,7 @@ Global:
   Videos: 'видеа'
   Shorts: Кратки видеа
   Live: На живо
+  Community: Общност
 
   Counts:
     Video Count: 1 видео | {count} видеа
@@ -652,7 +653,6 @@ Channel:
     Joined: Присъединен на
     Location: Местоположение
   Community:
-    Community: Общност
     This channel currently does not have any posts: В момента този канал няма никакви
       публикации
     votes: '{votes} гласа'

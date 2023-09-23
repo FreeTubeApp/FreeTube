@@ -36,6 +36,7 @@ Global:
   Videos: 'Myndskeið'
   Shorts: Stuttmyndir
   Live: Í beinni
+  Community: Samfélag
 
   Counts:
     Video Count: 1 myndskeið | {count} myndskeið
@@ -599,7 +600,6 @@ Channel:
     This channel does not currently have any live streams: Þessi rás er í augnablikinu
       ekki með nein bein streymi
   Community:
-    Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
     Reveal Answers: Birta svör
     Hide Answers: Fela svör

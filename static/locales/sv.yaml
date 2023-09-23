@@ -35,6 +35,7 @@ Global:
   Videos: 'Videor'
   Shorts: Shorts
   Live: Live
+  Community: Gemenskap
 
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
@@ -636,7 +637,6 @@ Channel:
     kanalen är ålderbegränsad och kan inte ses i FreeTube.
   Channel Tabs: Kanalflikar
   Community:
-    Community: Gemenskap
     This channel currently does not have any posts: Denna kanal har för närvarande
       inga inlägg
     votes: '{votes} röster'

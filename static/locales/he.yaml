@@ -35,6 +35,7 @@ Global:
   Videos: 'סרטונים'
   Shorts: Shorts
   Live: חי
+  Community: קהילה
 
   Counts:
     Video Count: סרטון אחד | {count} סרטונים
@@ -640,7 +641,6 @@ Channel:
     מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
   Community:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
-    Community: קהילה
     votes: '{votes} הצבעות'
     Reveal Answers: חשיפת התשובות
     Hide Answers: הסתרת התשובות

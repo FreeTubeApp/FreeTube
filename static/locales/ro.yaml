@@ -33,9 +33,9 @@ Forward: 'Înainte'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videoclipuri'
-
   Shorts: Shorts
   Live: Live
+  Community: Comunitate
   Counts:
     Video Count: 1 videoclip | {count} videoclipuri
     Subscriber Count: 1 abonat | {count} de abonați

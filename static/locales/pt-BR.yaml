@@ -34,6 +34,7 @@ Global:
   Videos: 'Vídeos'
   Shorts: Shorts
   Live: Ao vivo
+  Community: Comunidade
 
 # Search Bar
   Counts:
@@ -612,7 +613,6 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Este
     canal tem restrição de idade e atualmente não pode ser visualizado no FreeTube.
   Community:
-    Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     votes: '{votes} Votos'

@@ -35,6 +35,7 @@ Global:
   Videos: 'Відео'
   Shorts: Shorts
   Live: Наживо
+  Community: Спільнота
 
   Counts:
     Video Count: 1 відео | {count} відео
@@ -593,7 +594,6 @@ Channel:
     канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
   Community:
-    Community: Спільнота
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді

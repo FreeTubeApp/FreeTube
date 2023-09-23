@@ -34,6 +34,7 @@ Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
   Live: Transmisje
+  Community: Społeczność
 
 # Search Bar
   Counts:
@@ -626,7 +627,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       publikacji
-    Community: Społeczność
     votes: '{votes} głosów'
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi

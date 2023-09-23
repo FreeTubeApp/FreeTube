@@ -36,6 +36,7 @@ Global:
   Videos: 'Videók'
   Shorts: Rövidfilmek
   Live: Élő
+  Community: Közösség
 
   Counts:
     Video Count: 1 videó | {count} videó
@@ -665,7 +666,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
       bejegyzések
-    Community: Közösség
     Reveal Answers: Válaszok feltárása
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
