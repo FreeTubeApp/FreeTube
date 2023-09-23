@@ -106,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Вкладки підписок
   All Subscription Tabs Hidden: Усі вкладки підписки сховані. Щоб побачити вміст,
     будь ласка, відкрийте деякі вкладки в розділі "{subsection}" в "{settingsSection}".
+  Load More Posts: Завантажити ще дописи
+  Empty Posts: На каналах, на які ви підписані, наразі немає дописів.
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -365,6 +367,7 @@ Settings:
     Hide Subscriptions Live: Сховати трансляції з підписок
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
     Blur Thumbnails: Розмиті мініатюри
+    Hide Subscriptions Community: Сховати спільноту підписників
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
