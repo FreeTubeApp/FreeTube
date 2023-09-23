@@ -102,6 +102,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
     Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}»
     en «{settingsSection}».
+  Load More Posts: Cargar más mensajes
+  Empty Posts: Tus canales suscritos no tienen actualmente ninguna entrada.
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -437,6 +439,7 @@ Settings:
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
     Blur Thumbnails: Difuminar las miniaturas
+    Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
