@@ -105,6 +105,8 @@ Subscriptions:
   All Subscription Tabs Hidden: כל לשוניות המינויים מוסתרות. כדי לראות את התוכן כאן,
     נא לבטל את הסתרתן של כמה מהלשוניות תחת הסעיף „{subsection}” שב„{settingsSection}”.
   Subscriptions Tabs: לשוניות מינויים
+  Load More Posts: טעינת רשומות נוספות
+  Empty Posts: בערוצים אליהם נרשמת אין כרגע רשומות.
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -425,6 +427,7 @@ Settings:
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Blur Thumbnails: טשטוש התמונות הממוזערות
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
+    Hide Subscriptions Community: הסתרת קהילת המינויים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
