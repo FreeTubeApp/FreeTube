@@ -107,6 +107,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li
     zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“
     v „{settingsSection}“.
+  Load More Posts: Načíst další příspěvky
+  Empty Posts: Vaše odebírané kanály momentálně nemají žádné příspěvky.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -363,6 +365,7 @@ Settings:
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
     Blur Thumbnails: Rozmazat náhledy
+    Hide Subscriptions Community: Skrýt komunitu odběratelů
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
