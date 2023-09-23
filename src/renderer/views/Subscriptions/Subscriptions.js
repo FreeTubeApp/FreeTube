@@ -111,7 +111,8 @@ export default defineComponent({
       if (this.visibleTabs.includes(tab)) {
         this.currentTab = tab
       } else {
-        this.currentTab = null
+        // First visible tab or no tab
+        this.currentTab = this.visibleTabs.length > 0 ? this.visibleTabs[0] : null
       }
     },
 
