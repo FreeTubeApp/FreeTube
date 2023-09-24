@@ -148,5 +148,59 @@
           "playlistShuffle": null,
           "playlistLoop": null
         }
+    },
+    {
+      "name": "Baka-MPlayer",
+      "nameTranslationKey": "Settings.External Player Settings.Players.Baka-MPlayer.Name",
+      "value": "baka-mplayer",
+      "cmdArguments": {
+          "defaultExecutable": "baka-mplayer",
+          "defaultCustomArguments": null,
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": null,
+          "startOffset": null,
+          "playbackRate": null,
+          "playlistIndex": null,
+          "playlistReverse": null,
+          "playlistShuffle": null,
+          "playlistLoop": null
+        }
+    },
+    {
+      "name": "Celluloid",
+      "nameTranslationKey": "Settings.External Player Settings.Players.Celluloid.Name",
+      "value": "celluloid",
+      "cmdArguments": {
+          "defaultExecutable": "celluloid",
+          "defaultCustomArguments": null,
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": "",
+          "startOffset": "--mpv-start=",
+          "playbackRate": "--mpv-speed=",
+          "playlistIndex": "--mpv-playlist-start=",
+          "playlistReverse": null,
+          "playlistShuffle": "--mpv-shuffle",
+          "playlistLoop": "--mpv-loop-playlist"
+        }
+    },
+    {
+      "name": "Haruna",
+      "nameTranslationKey": "Settings.External Player Settings.Players.Haruna.Name",
+      "value": "haruna",
+      "cmdArguments": {
+          "defaultExecutable": "haruna",
+          "defaultCustomArguments": null,
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": "",
+          "startOffset": null,
+          "playbackRate": null,
+          "playlistIndex": null,
+          "playlistReverse": null,
+          "playlistShuffle": null,
+          "playlistLoop": null
+        }
     }
 ]
