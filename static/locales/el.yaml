@@ -42,6 +42,9 @@ Global:
   Counts:
     Video Count: 1 βίντεο | {count} βίντεο
     Channel Count: 1 κανάλι | {count} κανάλια
+    Subscriber Count: 1 συνδρομητής | {count} συνδρομητές
+    View Count: 1 προβολή | {count} προβολές
+    Watching Count: 1 παρακολούθηση | {count} παρακολουθούν
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -101,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Όλες οι καρτέλες Συνδρομών είναι κρυμμένες. Για να
     δείτε περιεχόμενο εδώ, εμφανίστε ορισμένες καρτέλες στην ενότητα "{subsection}"
     στο "{settingsSection}".
+  Load More Posts: Φόρτωση Περισσότερων Αναρτήσεων
+  Empty Posts: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν αναρτήσεις.
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -444,6 +449,7 @@ Settings:
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
     Blur Thumbnails: Θάμπωμα Μικρογραφιών
     Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
+    Hide Subscriptions Community: Απόκρυψη Συνδρομών Κοινότητας
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -912,6 +918,7 @@ Comments:
   Member: Μέλος
   Hearted: Αγαπημένο
   View {replyCount} replies: Προβολή {replyCount} απαντήσεων
+  Subscribed: Εγγεγραμμένος
 Up Next: 'Επόμενο'
 
 # Toast Messages
