@@ -100,6 +100,8 @@ Subscriptions:
   Subscriptions Tabs: Abas de inscrição
   All Subscription Tabs Hidden: Todos as abas de inscrição estão ocultas. Para ver
     o conteúdo aqui, exiba algumas abas na seção "{subsection}" em "{settingsSection}".
+  Load More Posts: Carregar mais posts
+  Empty Posts: No momento, seus canais inscritos não têm nenhum post.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -442,6 +444,7 @@ Settings:
     Hide Subscriptions Live: Ocultar inscrições de transmissões ao vivo
     Hide Profile Pictures in Comments: Esconder imagens do perfil nos comentários
     Blur Thumbnails: Desfocar Miniaturas
+    Hide Subscriptions Community: Ocultar comunidade inscritas
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
