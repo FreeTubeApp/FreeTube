@@ -107,6 +107,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
     Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsection}"
     em "{settingsSection}".
+  Load More Posts: Carregar mais posts
+  Empty Posts: Os canais inscritos atualmente não tem nenhum post.
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Separador de tendências
@@ -468,6 +470,7 @@ Settings:
     Hide Subscriptions Live: Ocultar subscrições de vídeos em direto
     Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
     Blur Thumbnails: Desfocar miniaturas
+    Hide Subscriptions Community: Ocultar comunidade inscritas
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
