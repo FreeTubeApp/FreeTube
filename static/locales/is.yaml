@@ -41,6 +41,9 @@ Global:
   Counts:
     Video Count: 1 myndskeið | {count} myndskeið
     Channel Count: 1 rás | {count} rásir
+    Subscriber Count: 1 áskrifandi | {count} áskrifendur
+    View Count: 1 áhorf | {count} áhorf
+    Watching Count: 1 að horfa | {count} að horfa
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -106,6 +109,8 @@ Subscriptions:
   Subscriptions Tabs: Áskriftaflipar
   All Subscription Tabs Hidden: Allir áskriftaflipar eru faldir. Til að sjá efni hér,
     skaltu gera einhverja flipa sýnilega í "{subsection}" hlutanum í "{settingsSection}".
+  Load More Posts: Hlaða inn fleiri færslum
+  Empty Posts: Rásirnar sem þú ert áskrifandi að eru ekki með neinar færslur.
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -364,6 +369,7 @@ Settings:
     Hide Subscriptions Videos: Fela myndskeið áskrifta
     Blur Thumbnails: Móska smámyndir
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
+    Hide Subscriptions Community: Fela samfélag áskrifenda
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
