@@ -130,11 +130,6 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
-    new WatchExternalFilesPlugin({
-      files: [
-        './static/locales/*.yaml',
-      ],
-    }),
   ],
   resolve: {
     alias: {
@@ -150,6 +145,16 @@ const config = {
     extensions: ['.js', '.vue']
   },
   target: 'electron-renderer',
+}
+
+if (isDevMode) {
+  config.plugins.push(
+    new WatchExternalFilesPlugin({
+      files: [
+        './static/locales/*.yaml',
+      ],
+    }),
+  )
 }
 
 module.exports = config
