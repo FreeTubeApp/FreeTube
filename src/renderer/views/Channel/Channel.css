@@ -71,6 +71,10 @@
   justify-content: space-between;
 }
 
+.subscribeButton {
+  block-size: fit-content;
+}
+
 .shareIcon {
   align-self: center;
 }
@@ -94,11 +98,14 @@
   gap: 32px;
   padding-block: .3em;
   padding-inline: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .tabs {
   display: flex;
   flex: 0 1 33%;
+  flex-wrap: wrap;
 }
 
 .tab {
@@ -187,6 +194,7 @@
   .channelInfoTabs {
     block-size: auto;
     flex-flow: column-reverse;
+    gap: 0;
   }
 
   .channelSearch {
@@ -195,9 +203,39 @@
   }
 
   .tabs {
-    overflow-x: scroll;
+    flex: 1 1 0;
+    flex-wrap: wrap;
   }
+
   #communityPanel {
     margin-block-start: 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .channelInfo {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .channelInfoActionsContainer {
+    flex-direction: column-reverse;
+  }
+
+  .thumbnailContainer {
+    flex-direction: column;
+  }
+
+  .thumbnailContainer, .channelInfoActionsContainer {
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 260px) {
+   .channelDetails {
+    max-inline-size: none;
   }
 }
