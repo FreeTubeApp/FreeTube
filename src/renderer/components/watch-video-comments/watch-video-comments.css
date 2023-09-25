@@ -70,9 +70,8 @@
   font-weight: bold;
   font-size: 14px;
   margin-inline-start: 68px;
-  margin-block-start: 0px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-block-start: 0;
+  word-wrap: break-word;
 }
 
 .commentOwner {
@@ -94,10 +93,10 @@
   margin-inline-start: 70px;
   word-wrap: break-word;
 }
+
 .commentPinned {
   font-weight: normal;
   font-size: 12px;
-  margin-block-end: 0;
   margin-block-start: 0;
   margin-inline-start: 68px;
   margin-block-end: 5px;
@@ -126,7 +125,7 @@
 .commentLikeCount {
   font-size: 11px;
   margin-inline-start: 70px;
-  margin-block-start: 0px;
+  margin-block-start: 0;
 }
 
 .commentHeartBadge {
@@ -187,7 +186,6 @@
 
 .getMoreComments {
   padding-block-end: 1em;
-
   text-align: center;
   text-decoration: underline;
   cursor: pointer;

@@ -34,6 +34,7 @@ Forward: 'Adiante'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Vídeos'
+  Community: Comunidade
 
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
@@ -619,7 +620,6 @@ Channel:
     canle ten unha limitación de idade e actualmente non se pode ver en FreeTube.
   Channel Tabs: Pestanas das canles
   Community:
-    Community: Comunidade
     This channel currently does not have any posts: Esta canle actualmente non ten
       publicacións
 Video:

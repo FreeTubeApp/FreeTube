@@ -36,10 +36,14 @@ Global:
   Videos: 'видеа'
   Shorts: Кратки видеа
   Live: На живо
+  Community: Общност
 
   Counts:
     Video Count: 1 видео | {count} видеа
     Channel Count: 1 канал | {count} канала
+    Subscriber Count: 1 абонат | {count} абоната
+    View Count: 1 преглед | {count} прегледа
+    Watching Count: 1 гледане | {count} гледания
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
   е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
@@ -649,7 +653,6 @@ Channel:
     Joined: Присъединен на
     Location: Местоположение
   Community:
-    Community: Общност
     This channel currently does not have any posts: В момента този канал няма никакви
       публикации
     votes: '{votes} гласа'
@@ -889,6 +892,7 @@ Comments:
   Member: Член
   View {replyCount} replies: Преглед на {replyCount} отговора
   Hearted: Сърдечно
+  Subscribed: Абониран
 Up Next: 'Следващ'
 
 # Toast Messages

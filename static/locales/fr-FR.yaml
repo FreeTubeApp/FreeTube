@@ -34,12 +34,15 @@ Global:
   Videos: 'Vidéos'
   Shorts: Shorts
   Live: En direct
+  Community: Communauté
 
 # Search Bar
   Counts:
     Video Count: 1 vidéo | {count} vidéos
     Channel Count: 1 chaîne | {count} chaînes
     View Count: 1 vue | {count} vues
+    Subscriber Count: 1 abonné | {count} abonnés
+    Watching Count: 1 spectateur | {count} spectateurs
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -102,6 +105,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tous les onglets d'abonnement sont cachés. Pour voir
     le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} »
     dans « {settingsSection} ».
+  Load More Posts: Charger plus de billets
+  Empty Posts: Les chaînes abonnées ne contiennent actuellement aucun billet.
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -453,6 +458,7 @@ Settings:
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
     Blur Thumbnails: Flouter les miniatures
     Hide Profile Pictures in Comments: Cacher les photos de profil dans les commentaires
+    Hide Subscriptions Community: Occulter les communautés abonnées
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -640,7 +646,6 @@ Channel:
     chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
   Community:
-    Community: Communauté
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
     votes: '{votes} votes'

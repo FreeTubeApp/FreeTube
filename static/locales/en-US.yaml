@@ -48,6 +48,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Community: Community
   Counts:
     Video Count: 1 video | {count} videos
     Channel Count: 1 channel | {count} channels
@@ -107,8 +108,10 @@ Subscriptions:
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
+  Empty Posts: Your subscribed channels currently do not have any posts.
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
+  Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
   All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
 More: More
@@ -374,6 +377,7 @@ Settings:
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
+    Hide Subscriptions Community: Hide Subscriptions Community
   Data Settings:
     Data Settings: Data Settings
     Select Import Type: Select Import Type
@@ -600,7 +604,6 @@ Channel:
     Location: Location
     Featured Channels: Featured Channels
   Community:
-    Community: Community
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
     Reveal Answers: Reveal Answers

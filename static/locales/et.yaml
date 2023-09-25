@@ -35,10 +35,14 @@ Global:
   Videos: 'Videod'
   Shorts: Lühivideod
   Live: Otseeeter
+  Community: Kogukond
 
   Counts:
     Video Count: 1 video | {count} videot
     Channel Count: 1 kanal | {count} kanalit
+    Subscriber Count: 1 tellija | {count} tellijat
+    View Count: 1 vaatamine | {count} vaatamist
+    Watching Count: 1 vaatamas | {count} vaatamas
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -593,7 +597,6 @@ Channel:
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
       ühtegi otseeetrit
   Community:
-    Community: Kogukond
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused

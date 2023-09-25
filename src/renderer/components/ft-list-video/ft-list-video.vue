@@ -118,7 +118,7 @@
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
-        title="$t('More Options')"
+        :title="$t('More Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"

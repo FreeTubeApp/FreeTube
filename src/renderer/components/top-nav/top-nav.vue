@@ -67,7 +67,7 @@
         class="navIcon selectionModeOptionsButton"
         :class="{ navIconDisabled: selectionModeSelections.count === 0 }"
         :icon="['fas', 'ellipsis-v']"
-        title="$t('More Options')"
+        :title="$t('More Options')"
         theme="base-nav-icon"
         role="button"
         :remove-icon-button-styling="true"

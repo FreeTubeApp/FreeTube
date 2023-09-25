@@ -35,6 +35,7 @@ Global:
   Videos: 'Videa'
   Shorts: Shorts
   Live: Živě
+  Community: Komunita
 
   Counts:
     Video Count: 1 video | {count} videí
@@ -106,6 +107,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li
     zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“
     v „{settingsSection}“.
+  Load More Posts: Načíst další příspěvky
+  Empty Posts: Vaše odebírané kanály momentálně nemají žádné příspěvky.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -362,6 +365,7 @@ Settings:
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
     Blur Thumbnails: Rozmazat náhledy
+    Hide Subscriptions Community: Skrýt komunitu odběratelů
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -642,7 +646,6 @@ Channel:
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
   Channel Tabs: Karty kanálů
   Community:
-    Community: Komunita
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
     Hide Answers: Skrýt odpovědi
