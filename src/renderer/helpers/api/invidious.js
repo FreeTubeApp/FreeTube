@@ -2,6 +2,7 @@ import store from '../../store/index'
 import { stripHTML, toLocalePublicationString } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
+import { FormatUtils, Misc, Player } from 'youtubei.js'
 
 function getCurrentInstance() {
   return store.getters.getCurrentInvidiousInstance
@@ -318,11 +319,13 @@ export function filterInvidiousFormats(formats, allowAv1 = false) {
   // Which is caused by Invidious API limitation on AV1 formats (see related issues)
   // Commented code to be restored after Invidious issue fixed
   //
-  // if (allowAv1 && av1Formats.length > 0) {
-  //   return [...audioFormats, ...av1Formats]
-  // } else {
-  //   return [...audioFormats, ...h264Formats]
-  // }
+  // As we generate our own DASH manifest (using YouTube.js) for multiple audio track support in Electron,
+  // we can allow AV1 in that situation. If we aren't in electron,
+  // we still can't use them until Invidious fixes the issue on their side
+  if (process.env.IS_ELECTRON && allowAv1 && av1Formats.length > 0) {
+    return [...audioFormats, ...av1Formats]
+  }
+
   return [...audioFormats, ...h264Formats]
 }
 
@@ -336,4 +339,81 @@ export async function getHashtagInvidious(hashtag, page) {
   }
   const response = await invidiousAPICall(payload)
   return response.results
+}
+
+/**
+ * Generates a DASH manifest locally from Invidious' adaptive formats and manifest,
+ * doing so allows us to support multiple audio tracks, which Invidious doesn't support yet
+ * @param {import('youtubei.js').Misc.Format[]} formats
+ * @param {string=} invidiousInstance the formats will be proxied through the specified instance, when one is provided
+ */
+export async function generateInvidiousDashManifestLocally(formats, invidiousInstance) {
+  // create a dummy player, as deciphering requires making requests to YouTube,
+  // which we want to avoid when Invidious is selected as the backend
+  const player = new Player()
+  player.decipher = (url) => url
+
+  let urlTransformer
+
+  if (invidiousInstance) {
+    /**
+     * @param {URL} url
+     */
+    urlTransformer = (url) => {
+      return new URL(url.toString().replace(url.origin, invidiousInstance))
+    }
+  }
+
+  return await FormatUtils.toDash({
+    adaptive_formats: formats
+  }, urlTransformer, undefined, undefined, player)
+}
+
+export function convertInvidiousToLocalFormat(format) {
+  const [initStart, initEnd] = format.init.split('-')
+  const [indexStart, indexEnd] = format.index.split('-')
+
+  const duration = parseInt(parseFloat(new URL(format.url).searchParams.get('dur')) * 1000)
+
+  // only converts the properties that are needed to generate a DASH manifest with YouTube.js
+  // audioQuality and qualityLabel don't go inside the DASH manifest, but are used by YouTube.js
+  // to determine whether a format is an audio or video stream respectively.
+
+  /** @type {import('./local').LocalFormat} */
+  const localFormat = new Misc.Format({
+    itag: format.itag,
+    mimeType: format.type,
+    bitrate: format.bitrate,
+    width: format.width,
+    height: format.height,
+    initRange: {
+      start: initStart,
+      end: initEnd
+    },
+    indexRange: {
+      start: indexStart,
+      end: indexEnd
+    },
+    // lastModified: format.lmt,
+    // contentLength: format.clen,
+    url: format.url,
+    approxDurationMs: duration,
+    ...(format.type.startsWith('audio/')
+      ? {
+          audioQuality: format.audioQuality,
+          audioSampleRate: format.audioSampleRate,
+          audioChannels: format.audioChannels
+        }
+      : {
+          fps: format.fps,
+          qualityLabel: format.qualityLabel,
+          colorInfo: format.colorInfo
+        })
+  })
+
+  // Adding freeTubeUrl allows us to reuse the code,
+  // to generate the audio tracks for audio only mode, that we use for the local API
+  localFormat.freeTubeUrl = format.url
+
+  return localFormat
 }
