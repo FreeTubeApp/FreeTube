@@ -95,6 +95,8 @@ Subscriptions:
   Empty Channels: 您訂閱的頻道目前沒有任何影片。
   Subscriptions Tabs: 訂閱分頁
   All Subscription Tabs Hidden: 所有訂閱分頁均已隱藏。要檢視此處的內容，請取消隱藏「{settingsSection}」中「{subsection}」區塊中的一些分頁。
+  Load More Posts: 載入更多影片
+  Empty Posts: 您訂閱的頻道目前沒有任何影片。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -402,6 +404,7 @@ Settings:
     Hide Subscriptions Live: 隱藏訂閱直播
     Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
     Blur Thumbnails: 模糊縮圖
+    Hide Subscriptions Community: 隱藏訂閱社群
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
