@@ -144,7 +144,7 @@ export default defineComponent({
     },
 
     inUserPlaylist: function () {
-      return this.playlistTypeFinal === 'user'
+      return this.playlistTypeFinal === 'user' || this.selectedUserPlaylist != null
     },
 
     selectedUserPlaylist: function () {
@@ -157,7 +157,7 @@ export default defineComponent({
     playlistSharable() {
       // `playlistId` can be undefined
       // User playlist ID should not be shared
-      return this.playlistIdFinal && this.playlistIdFinal.length !== 0 && this.selectedUserPlaylist == null
+      return this.playlistIdFinal && this.playlistIdFinal.length !== 0 && !this.inUserPlaylist
     },
 
     invidiousUrl: function () {
@@ -447,7 +447,7 @@ export default defineComponent({
         playlistLoop: this.playlistLoop,
       }
       // Only play video in non playlist mode when user playlist detected
-      if (!this.inUserPlaylist) {
+      if (this.inUserPlaylist) {
         Object.assign(payload, {
           playlistId: null,
           playlistIndex: null,
