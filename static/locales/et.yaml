@@ -106,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Tellimuste vahekaardid
   All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu
     nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
+  Load More Posts: Lisa järgmised postitused
+  Empty Posts: Sinu tellitud kanalites hetkel pole ühtegi postitust.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -408,6 +410,7 @@ Settings:
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
     Blur Thumbnails: Hägusta pisipildid
+    Hide Subscriptions Community: Peida tellijate loend
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
