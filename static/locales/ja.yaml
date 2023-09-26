@@ -96,6 +96,8 @@ Subscriptions:
   Subscriptions Tabs: 登録チャンネル タブ
   All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}"
     内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
+  Load More Posts: もっと見る
+  Empty Posts: 現在、登録しているチャンネルには動画はありません。
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -404,6 +406,7 @@ Settings:
     Hide Channel Releases: チャンネルの新着情報の非表示
     Hide Profile Pictures in Comments: コメントでプロフィール写真を隠す
     Blur Thumbnails: サムネイルをぼかす
+    Hide Subscriptions Community: チャンネルの購読者リストの非公開
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
