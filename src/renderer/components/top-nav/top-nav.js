@@ -104,9 +104,13 @@ export default defineComponent({
       return this.$store.getters.getSelectionModeSelections
     },
 
+    selectionModeSelectionValues: function() {
+      return Object.values(this.selectionModeSelections.selections)
+    },
+
     videoDropdownOptionArguments: function() {
-      const count = this.selectionModeSelections.count
-      const videoComponents = Object.values(this.selectionModeSelections.selections)
+      const videoComponents = this.selectionModeSelectionValues
+      const count = videoComponents.length
       const videosWithChannelIdsCount = videoComponents.filter((videoComponent) => videoComponent.channelId !== null).length
 
       const watchedVideosCount = videoComponents.filter((videoComponent) => videoComponent.watched).length

@@ -285,6 +285,10 @@ export default defineComponent({
       return this.$store.getters.getSelectAllInSelectionModeTriggered
     },
 
+    unselectAllInSelectionModeTriggered: function () {
+      return this.$store.getters.getUnselectAllInSelectionModeTriggered
+    },
+
     videoDropdownOptionArguments: function () {
       const count = 1
       const videoComponents = [this]
@@ -316,6 +320,9 @@ export default defineComponent({
       if (this.selectionModeSelectionId === 0) {
         this.addToOrRemoveFromSelectionModeSelections()
       }
+    },
+    unselectAllInSelectionModeTriggered() {
+      this.selectionModeSelectionId = 0
     }
   },
   created: function () {

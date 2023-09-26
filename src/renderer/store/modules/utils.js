@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import i18n from '../../i18n/index'
-import { set as vueSet } from 'vue'
+import { set as vueSet, del as vueDel } from 'vue'
 
 import { IpcChannels } from '../../../constants'
 import { pathExists } from '../../helpers/filesystem'
@@ -46,9 +46,10 @@ const state = {
   externalPlayerCmdArguments: {},
   isSelectionModeEnabled: false,
   selectAllVideosInSelectionModeKey: 0,
+  unselectAllVideosInSelectionModeKey: 0,
   // Vuex doesn't support Maps, so we have to use an object here instead
   // TODO: switch to a Map during the Pinia migration
-  selectionModeSelections: { count: 0, selections: {} },
+  selectionModeSelections: { index: 0, selections: {} },
 }
 
 const getters = {
@@ -126,6 +127,10 @@ const getters = {
 
   getSelectAllInSelectionModeTriggered () {
     return state.selectAllVideosInSelectionModeKey
+  },
+
+  getUnselectAllInSelectionModeTriggered () {
+    return state.unselectAllVideosInSelectionModeKey
   },
 
   getIsIndexSelectedInSelectionMode: (state) => (index) => {
@@ -508,7 +513,7 @@ const actions = {
   },
 
   clearSelectionModeSelections ({ commit }) {
-    commit('setSelectionModeSelections', { count: 0, selections: {} })
+    commit('setSelectionModeSelections', { index: 0, selections: {} })
   },
 
   addToSelectionModeSelections ({ commit }, selection) {
@@ -790,25 +795,18 @@ const mutations = {
   },
 
   setSelectionModeSelections (state, selectionModeSelections) {
-    Object.values(state.selectionModeSelections.selections).forEach((videoComponent) => {
-      videoComponent.selectionModeSelectionId = 0
-    })
-
-    // clears up rare cases of Vue not removing selection styling
-    document.querySelectorAll('.selectedInSelectionMode')?.forEach((match) =>
-      match.classList.remove('selectedInSelectionMode'))
-
     state.selectionModeSelections = selectionModeSelections
+    state.unselectAllVideosInSelectionModeKey++
   },
 
   addToSelectionModeSelections (state, { selection, callback }) {
-    state.selectionModeSelections.selections[++state.selectionModeSelections.count] = selection
-    callback(state.selectionModeSelections.count)
+    vueSet(state.selectionModeSelections.selections,
+      ++state.selectionModeSelections.index, selection)
+    callback(state.selectionModeSelections.index)
   },
 
   removeFromSelectionModeSelections (state, { selectionIndex }) {
-    delete state.selectionModeSelections.selections[selectionIndex]
-    state.selectionModeSelections.count--
+    vueDel(state.selectionModeSelections.selections, selectionIndex)
   },
 }
 

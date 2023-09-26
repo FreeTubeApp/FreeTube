@@ -65,7 +65,7 @@
       <ft-icon-button
         v-if="isSelectionModeEnabled"
         class="navIcon selectionModeOptionsButton"
-        :class="{ navIconDisabled: selectionModeSelections.count === 0 }"
+        :class="{ navIconDisabled: selectionModeSelectionValues.length === 0 }"
         :icon="['fas', 'ellipsis-v']"
         :title="$t('More Options')"
         theme="base-nav-icon"
