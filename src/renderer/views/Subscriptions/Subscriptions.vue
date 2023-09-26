@@ -55,6 +55,22 @@
         >
           {{ $t("Global.Live").toUpperCase() }}
         </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+        <div
+          v-if="visibleTabs.includes('community')"
+          ref="community"
+          class="tab"
+          role="tab"
+          :aria-selected="String(currentTab === 'community')"
+          aria-controls="subscriptionsPanel"
+          :tabindex="currentTab === 'community' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'community' }"
+          @click="changeTab('community')"
+          @keydown.space.enter.prevent="changeTab('community')"
+          @keydown.left.right="focusTab($event, 'community')"
+        >
+          {{ $t("Global.Community").toUpperCase() }}
+        </div>
       </ft-flex-box>
       <subscriptions-videos
         v-if="currentTab === 'videos'"
@@ -68,6 +84,11 @@
       />
       <subscriptions-live
         v-else-if="currentTab === 'live'"
+        id="subscriptionsPanel"
+        role="tabpanel"
+      />
+      <subscriptions-community
+        v-else-if="currentTab === 'community'"
         id="subscriptionsPanel"
         role="tabpanel"
       />

@@ -35,6 +35,7 @@ Global:
   Videos: 'Videa'
   Shorts: Kratka videa
   Live: Uživo
+  Community: Zajednica
 
 # Search Bar
   Counts:
@@ -659,7 +660,6 @@ Channel:
       prijenosa uživo
   Community:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
-    Community: Zajednica
     Reveal Answers: Prikaži odgovore
     Hide Answers: Sakrij odgovore
     votes: '{votes} glasanja'

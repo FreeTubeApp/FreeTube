@@ -4,6 +4,7 @@
   font-size: 0.9rem;
   padding-block: 10px;
   padding-inline: 20px;
+  block-size: fit-content;
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;

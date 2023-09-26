@@ -36,6 +36,7 @@ Global:
   Videos: 'Video'
   Shorts: Video brevi
   Live: Dal vivo
+  Community: Comunità
 
 # Search Bar
   Counts:
@@ -102,6 +103,8 @@ Subscriptions:
   Subscriptions Tabs: Schede iscrizioni
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
     i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
+  Load More Posts: Carica più post
+  Empty Posts: I canali a cui sei iscritto attualmente non hanno post.
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -443,6 +446,7 @@ Settings:
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
     Blur Thumbnails: Miniature sfocate
+    Hide Subscriptions Community: Nascondi comunità di iscritti
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -619,7 +623,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Questo canale attualmente non
       ha alcun post
-    Community: Comunità
     votes: '{votes} voti'
     Reveal Answers: Rivela le risposte
     Hide Answers: Nascondi le risposte

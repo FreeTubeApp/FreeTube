@@ -34,6 +34,10 @@
     font-weight: bold;
     margin-block: 5px 0;
     margin-inline: 5px 6px;
+    .authorNameLink {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   .publishedText {

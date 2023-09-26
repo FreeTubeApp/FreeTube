@@ -216,6 +216,7 @@ const state = {
   hideSubscriptionsVideos: false,
   hideSubscriptionsShorts: false,
   hideSubscriptionsLive: false,
+  hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
   hideUnsubscribeButton: false,
   hideUpcomingPremieres: false,

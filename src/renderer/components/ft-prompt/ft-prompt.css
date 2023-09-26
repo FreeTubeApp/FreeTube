@@ -2,8 +2,8 @@
   position: fixed;
   inset-block-start: 0;
   inset-inline-start: 0;
-  inline-size: 100vw;
-  block-size: 100vh;
+  inline-size: 100%;
+  block-size: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   /* Higher than components like playlist info */
   z-index: 200;
@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.promptCard {
+  overflow-y: scroll;
 }
 
 .promptCard.autosize {

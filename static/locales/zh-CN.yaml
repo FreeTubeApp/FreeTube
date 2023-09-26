@@ -33,6 +33,7 @@ Global:
   Videos: '视频'
   Shorts: 短视频
   Live: 直播
+  Community: 社区
 
 # Search Bar
   Counts:
@@ -95,6 +96,8 @@ Subscriptions:
   Subscriptions Tabs: 订阅标签页
   All Subscription Tabs Hidden: 所有的订阅标签页均被隐藏。要在此查看内容，请在 "{subsection}" 部分取消隐藏某些标签页，此部分位于
     "{settingsSection}"。
+  Load More Posts: 加载更多帖子
+  Empty Posts: 你已订阅的频道当前没有任何帖子。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -400,6 +403,7 @@ Settings:
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
     Blur Thumbnails: 模糊缩略图
+    Hide Subscriptions Community: 隐藏订阅社区
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -555,7 +559,6 @@ Channel:
   This channel does not exist: 此频道不存在
   This channel does not allow searching: 此频道不允许搜索
   Community:
-    Community: 社区
     This channel currently does not have any posts: 此频道当前没有任何帖子
     votes: '{votes} 票'
     Reveal Answers: 揭晓答案
