@@ -83,6 +83,7 @@
               :tabindex="option.type === 'divider' ? '-1' : '0'"
               :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
               @click.stop="handleDropdownClick({url: option.value, index: index}, $event)"
+              @mousedown.stop.prevent
               @keydown.enter.stop="handleDropdownClick({url: option.value, index: index}, $event)"
               @keydown.space.stop="handleDropdownClick({url: option.value, index: index}, $event)"
             >
