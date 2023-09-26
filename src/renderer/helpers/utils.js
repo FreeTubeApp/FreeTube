@@ -10,6 +10,9 @@ import router from '../router/index'
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+
+const MAX_NEW_TABS = 15
+
 /**
  * @param {string} publishedText
  */
@@ -757,23 +760,29 @@ export function getVideoDropdownOptions(
       {
         label: i18n.tc('Video.Copy Invidious Link', count, { count: count }),
         value: 'copyInvidious'
-      },
-      {
-        type: 'divider'
-      },
-      {
-        label: i18n.tc('Video.Open in YouTube', count, { count: count }),
-        value: 'openYoutube'
-      },
-      {
-        label: i18n.tc('Video.Open YouTube Embedded Player', count, { count: count }),
-        value: 'openYoutubeEmbed'
-      },
-      {
-        label: i18n.tc('Video.Open in Invidious', count, { count: count }),
-        value: 'openInvidious'
       }
     )
+
+    if (count <= MAX_NEW_TABS) {
+      options.push(
+        {
+          type: 'divider'
+        },
+        {
+          label: i18n.tc('Video.Open in YouTube', count, { count: count }),
+          value: 'openYoutube'
+        },
+        {
+          label: i18n.tc('Video.Open YouTube Embedded Player', count, { count: count }),
+          value: 'openYoutubeEmbed'
+        },
+        {
+          label: i18n.tc('Video.Open in Invidious', count, { count: count }),
+          value: 'openInvidious'
+        }
+      )
+    }
+
     if (videosWithChannelIdsCount) {
       options.push(
         {
@@ -786,19 +795,24 @@ export function getVideoDropdownOptions(
         {
           label: i18n.tc('Video.Copy Invidious Channel Link', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
           value: 'copyInvidiousChannel'
-        },
-        {
-          type: 'divider'
-        },
-        {
-          label: i18n.tc('Video.Open Channel in YouTube', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
-          value: 'openYoutubeChannel'
-        },
-        {
-          label: i18n.tc('Video.Open Channel in Invidious', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
-          value: 'openInvidiousChannel'
         }
       )
+
+      if (videosWithChannelIdsCount <= MAX_NEW_TABS) {
+        options.push(
+          {
+            type: 'divider'
+          },
+          {
+            label: i18n.tc('Video.Open Channel in YouTube', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
+            value: 'openYoutubeChannel'
+          },
+          {
+            label: i18n.tc('Video.Open Channel in Invidious', videosWithChannelIdsCount, { count: videosWithChannelIdsCount }),
+            value: 'openInvidiousChannel'
+          }
+        )
+      }
     }
   }
 
