@@ -375,6 +375,13 @@ export default defineComponent({
       return this.playlistIdTypePairFinal?.uniqueId
     },
 
+    watchPageLinkTo() {
+      // For `router-link` attribute `to`
+      return {
+        path: `/watch/${this.id}`,
+        query: this.watchPageLinkQuery,
+      }
+    },
     watchPageLinkQuery() {
       const query = {}
       if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }

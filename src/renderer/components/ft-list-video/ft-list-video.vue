@@ -14,10 +14,7 @@
       <router-link
         class="thumbnailLink"
         tabindex="-1"
-        :to="{
-          path: `/watch/${id}`,
-          query: watchPageLinkQuery,
-        }"
+        :to="watchPageLinkTo"
       >
         <img
           :src="thumbnail"
@@ -101,10 +98,7 @@
     <div class="info">
       <router-link
         class="title"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
-        }"
+        :to="watchPageLinkTo"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
