@@ -698,20 +698,28 @@ export default defineComponent({
       textDecode.pop()
 
       const requiredKeys = [
-        '_id',
         'author',
         'authorId',
         'description',
         'isLive',
         'lengthSeconds',
-        'paid',
         'published',
         'timeWatched',
         'title',
         'type',
         'videoId',
         'viewCount',
-        'watchProgress'
+        'watchProgress',
+      ]
+
+      const optionalKeys = [
+        // `_id` absent if marked as watched manually
+        '_id',
+        'lastViewedPlaylistId',
+      ]
+
+      const ignoredKeys = [
+        'paid',
       ]
 
       textDecode.forEach((history) => {
@@ -723,15 +731,19 @@ export default defineComponent({
         const historyObject = {}
 
         Object.keys(historyData).forEach((key) => {
-          if (!requiredKeys.includes(key)) {
-            showToast(`Unknown data key: ${key}`)
-          } else {
+          if (requiredKeys.includes(key) || optionalKeys.includes(key)) {
             historyObject[key] = historyData[key]
+          } else if (!ignoredKeys.includes(key)) {
+            showToast(`Unknown data key: ${key}`)
           }
+          // Else do not import the key
         })
 
-        if (Object.keys(historyObject).length < (requiredKeys.length - 2)) {
+        const historyObjectKeysSet = new Set(Object.keys(historyObject))
+        const missingKeys = requiredKeys.filter(x => !historyObjectKeysSet.has(x))
+        if (missingKeys.length > 0) {
           showToast(this.$t('Settings.Data Settings.History object has insufficient data, skipping item'))
+          console.error('Missing Keys: ', missingKeys, historyData)
         } else {
           this.updateHistory(historyObject)
         }
@@ -815,7 +827,6 @@ export default defineComponent({
           historyObject.lengthSeconds = null
           historyObject.watchProgress = 1
           historyObject.isLive = false
-          historyObject.paid = false
 
           this.updateHistory(historyObject)
         }
@@ -889,8 +900,7 @@ export default defineComponent({
         'lengthSeconds',
         'timeAdded',
         'isLive',
-        'paid',
-        'type'
+        'type',
       ]
 
       playlists.forEach(async (playlistData) => {
