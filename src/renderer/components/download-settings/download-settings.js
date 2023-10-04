@@ -21,7 +21,6 @@ export default defineComponent({
   },
   data: function () {
     return {
-      askForDownloadPath: false,
       downloadBehaviorValues: [
         'download',
         'open'
@@ -31,6 +30,9 @@ export default defineComponent({
   computed: {
     downloadPath: function() {
       return this.$store.getters.getDownloadFolderPath
+    },
+    askForDownloadPath: function() {
+      return this.$store.getters.getAskForDownloadFolderPath
     },
     downloadBehaviorNames: function () {
       return [
@@ -42,15 +44,9 @@ export default defineComponent({
       return this.$store.getters.getDownloadBehavior
     }
   },
-  mounted: function () {
-    this.askForDownloadPath = this.downloadPath === ''
-  },
   methods: {
     handleDownloadingSettingChange: function (value) {
-      this.askForDownloadPath = value
-      if (value === true) {
-        this.updateDownloadFolderPath('')
-      }
+      this.updateAskForDownloadFolderPath(value)
     },
     chooseDownloadingFolder: async function() {
       // only use with electron
@@ -62,6 +58,7 @@ export default defineComponent({
       this.updateDownloadFolderPath(folder.filePaths[0])
     },
     ...mapActions([
+      'updateAskForDownloadFolderPath',
       'updateDownloadFolderPath',
       'updateDownloadBehavior'
     ])
