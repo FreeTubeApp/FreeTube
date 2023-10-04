@@ -32,7 +32,7 @@ export default defineComponent({
       return this.$store.getters.getDownloadFolderPath
     },
     askForDownloadPath: function() {
-      return this.$store.getters.getAskForDownloadFolderPath
+      return this.$store.getters.getDownloadAskPath
     },
     downloadBehaviorNames: function () {
       return [
@@ -46,7 +46,7 @@ export default defineComponent({
   },
   methods: {
     handleDownloadingSettingChange: function (value) {
-      this.updateAskForDownloadFolderPath(value)
+      this.updateDownloadAskPath(value)
     },
     chooseDownloadingFolder: async function() {
       // only use with electron
@@ -58,7 +58,7 @@ export default defineComponent({
       this.updateDownloadFolderPath(folder.filePaths[0])
     },
     ...mapActions([
-      'updateAskForDownloadFolderPath',
+      'updateDownloadAskPath',
       'updateDownloadFolderPath',
       'updateDownloadBehavior'
     ])
