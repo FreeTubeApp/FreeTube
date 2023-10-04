@@ -24,6 +24,7 @@
 
 .commentsTitle {
   padding-block: 1em;
+  display: inline-block;
 }
 
 .commentSort {
