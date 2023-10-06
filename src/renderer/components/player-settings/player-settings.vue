@@ -33,10 +33,16 @@
           @change="updateDefaultTheatreMode"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enter Full Window on Start')"
+          :label="$t('Settings.Player Settings.Enable Full Window by Default')"
           :compact="true"
-          :default-value="enterFullWindowOnStart"
-          @change="updateEnterFullWindowOnStart"
+          :default-value="defaultFullWindow"
+          @change="updateDefaultFullWindow"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enable Fullcreen by Default')"
+          :compact="true"
+          :default-value="defaultFullscreen"
+          @change="updateDefaultFullscreen"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"

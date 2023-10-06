@@ -148,8 +148,12 @@ export default defineComponent({
       return this.$store.getters.getEnterFullscreenOnDisplayRotate
     },
 
-    enterFullWindowOnStart: function () {
-      return this.$store.getters.getEnterFullWindowOnStart
+    defaultFullWindow: function () {
+      return this.$store.getters.getDefaultFullWindow
+    },
+
+    defaultFullscreen: function () {
+      return this.$store.getters.getDefaultFullscreen
     },
 
     maxVideoPlaybackRate: function () {
@@ -303,6 +307,8 @@ export default defineComponent({
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
       'updateDefaultTheatreMode',
+      'updateDefaultFullWindow',
+      'updateDefaultFullscreen',
       'updateDefaultSkipInterval',
       'updateDefaultInterval',
       'updateDefaultVolume',
@@ -315,7 +321,6 @@ export default defineComponent({
       'updateVideoSkipMouseScroll',
       'updateDisplayVideoPlayButton',
       'updateEnterFullscreenOnDisplayRotate',
-      'updateEnterFullWindowOnStart',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
       'updateEnableScreenshot',

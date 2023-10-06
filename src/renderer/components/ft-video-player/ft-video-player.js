@@ -244,8 +244,12 @@ export default defineComponent({
       return this.$store.getters.getEnterFullscreenOnDisplayRotate
     },
 
-    enterFullWindowOnStart: function () {
-      return this.$store.getters.getEnterFullWindowOnStart
+    defaultFullWindow: function () {
+      return this.$store.getters.getDefaultFullWindow
+    },
+
+    defaultFullscreen: function () {
+      return this.$store.getters.getDefaultFullscreen
     },
 
     sponsorSkips: function () {
@@ -640,7 +644,11 @@ export default defineComponent({
           this.toggleFullscreenClass()
         })
 
-        if (this.enterFullWindowOnStart) {
+        if (this.defaultFullWindow) {
+          this.toggleFullWindow()
+        }
+
+        if (this.defaultFullscreen) {
           this.toggleFullWindow()
         }
 
