@@ -39,7 +39,7 @@
           @change="updateDefaultFullWindow"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enable Fullcreen by Default')"
+          :label="$t('Settings.Player Settings.Enable Fullscreen by Default')"
           :compact="true"
           :default-value="defaultFullscreen"
           @change="updateDefaultFullscreen"

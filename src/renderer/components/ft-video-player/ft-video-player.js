@@ -649,7 +649,7 @@ export default defineComponent({
         }
 
         if (this.defaultFullscreen) {
-          this.toggleFullWindow()
+          this.toggleFullscreen()
         }
 
         this.player.on('ready', () => {
