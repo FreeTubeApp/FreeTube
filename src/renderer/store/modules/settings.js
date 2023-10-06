@@ -185,6 +185,7 @@ const state = {
   enableSearchSuggestions: true,
   enableSubtitles: true,
   enterFullscreenOnDisplayRotate: false,
+  enterFullWindowOnStart: false,
   externalLinkHandling: '',
   externalPlayer: '',
   externalPlayerExecutable: '',

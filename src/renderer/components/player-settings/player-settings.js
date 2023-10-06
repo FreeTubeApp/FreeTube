@@ -148,6 +148,10 @@ export default defineComponent({
       return this.$store.getters.getEnterFullscreenOnDisplayRotate
     },
 
+    enterFullWindowOnStart: function () {
+      return this.$store.getters.getEnterFullWindowOnStart
+    },
+
     maxVideoPlaybackRate: function () {
       return parseInt(this.$store.getters.getMaxVideoPlaybackRate)
     },
@@ -311,6 +315,7 @@ export default defineComponent({
       'updateVideoSkipMouseScroll',
       'updateDisplayVideoPlayButton',
       'updateEnterFullscreenOnDisplayRotate',
+      'updateEnterFullWindowOnStart',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
       'updateEnableScreenshot',

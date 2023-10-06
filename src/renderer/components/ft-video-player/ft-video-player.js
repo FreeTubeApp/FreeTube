@@ -244,6 +244,10 @@ export default defineComponent({
       return this.$store.getters.getEnterFullscreenOnDisplayRotate
     },
 
+    enterFullWindowOnStart: function () {
+      return this.$store.getters.getEnterFullWindowOnStart
+    },
+
     sponsorSkips: function () {
       const sponsorCats = ['sponsor',
         'selfpromo',
@@ -635,6 +639,10 @@ export default defineComponent({
           this.fullscreenOverlay()
           this.toggleFullscreenClass()
         })
+
+        if (this.enterFullWindowOnStart) {
+          this.toggleFullWindow()
+        }
 
         this.player.on('ready', () => {
           this.$emit('ready')
