@@ -322,7 +322,8 @@ export default defineComponent({
           channelId: this.channelId
         })
 
-        this.videoPublished = new Date(result.page[0].microformat.publish_date.replace('-', '/')).getTime()
+        // `result.page[0].microformat.publish_date` example value: `2023-08-12T08:59:59-07:00`
+        this.videoPublished = new Date(result.page[0].microformat.publish_date).getTime()
 
         if (result.secondary_info?.description.runs) {
           try {
