@@ -1,5 +1,6 @@
 <template>
-  <component :is="useFtCardWrapper ? 'ft-card' : 'div'"
+  <component
+    :is="useFtCardWrapper ? 'ft-card' : 'div'"
     v-if="showResult"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
@@ -31,6 +32,11 @@
       />
       <ft-community-post
         v-else-if="data.type === 'community'"
+        :appearance="appearance"
+        :data="data"
+      />
+      <ft-list-hashtag
+        v-else-if="data.type === 'hashtag'"
         :appearance="appearance"
         :data="data"
       />

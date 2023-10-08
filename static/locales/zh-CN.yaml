@@ -33,8 +33,15 @@ Global:
   Videos: '视频'
   Shorts: 短视频
   Live: 直播
+  Community: 社区
 
 # Search Bar
+  Counts:
+    Video Count: 1 个视频 | {count} 个视频
+    Channel Count: 1 个频道 | {count} 个频道
+    Subscriber Count: 1 位订阅者 | {count} 位订阅者
+    View Count: 1 次观看 | {count} 次观看
+    Watching Count: 1 人正在观看 | {count} 人正在观看
 Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
@@ -89,6 +96,8 @@ Subscriptions:
   Subscriptions Tabs: 订阅标签页
   All Subscription Tabs Hidden: 所有的订阅标签页均被隐藏。要在此查看内容，请在 "{subsection}" 部分取消隐藏某些标签页，此部分位于
     "{settingsSection}"。
+  Load More Posts: 加载更多帖子
+  Empty Posts: 你已订阅的频道当前没有任何帖子。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
@@ -134,6 +143,7 @@ Settings:
       Beginning: '开始'
       Middle: '中间'
       End: '结尾'
+      Hidden: 隐藏缩略图
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries
@@ -163,6 +173,8 @@ Settings:
       Dracula: '德古拉'
       System Default: 系统默认
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastel Pink
+      Hot Pink: Hot Pink
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -390,6 +402,8 @@ Settings:
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
+    Blur Thumbnails: 模糊缩略图
+    Hide Subscriptions Community: 隐藏订阅社区
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -545,7 +559,6 @@ Channel:
   This channel does not exist: 此频道不存在
   This channel does not allow searching: 此频道不允许搜索
   Community:
-    Community: 社区
     This channel currently does not have any posts: 此频道当前没有任何帖子
     votes: '{votes} 票'
     Reveal Answers: 揭晓答案
@@ -568,10 +581,7 @@ Video:
   Copy YouTube Embedded Player Link: '复制YouTube内嵌播放器链接'
   Open in Invidious: '在Invidious中打开'
   Copy Invidious Link: '复制Invidious链接'
-  View: '观看'
   Views: '观看'
-  # Context is "X People Watching"
-  Watching: '观看中'
   Watched: '已观看'
   # As in a Live Video
   Live: '直播'
@@ -697,6 +707,7 @@ Video:
   Show Super Chat Comment: 显示超级聊天评论
   Upcoming: 即将到来
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 实时聊天对此音视频流不可用。上传者可能禁用了它。
+  Pause on Current Video: 当前视频播完后不自动播放列表中下一视频
 Videos:
   #& Sort By
   Sort By:
@@ -766,6 +777,7 @@ Comments:
   Member: 成员
   Hearted: 喜欢的
   View {replyCount} replies: 查看 {replyCount} 条回复
+  Subscribed: 已订阅
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -916,3 +928,5 @@ Ok: 好
 Hashtag:
   Hashtag: 话题标签
   This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频
+Playlist will pause when current video is finished: 当前视频播完后播放列表会暂停
+Playlist will not pause when current video is finished: 当前视频播完后播放列表不会暂停

@@ -36,8 +36,15 @@ Global:
   Videos: 'Vídeos'
   Shorts: Cortos
   Live: En directo
+  Community: Comunidad
 
 # Search Bar
+  Counts:
+    Video Count: 1 vídeo | {count} vídeos
+    Channel Count: 1 canal | {count} canales
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    View Count: 1 vista | {count} vistas
+    Watching Count: 1 espectador | {count} espectadores
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:
@@ -95,6 +102,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
     Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}»
     en «{settingsSection}».
+  Load More Posts: Cargar más mensajes
+  Empty Posts: Tus canales suscritos no tienen actualmente ninguna entrada.
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -145,6 +154,7 @@ Settings:
       Beginning: 'Comienzo'
       Middle: 'Mitad'
       End: 'Final'
+      Hidden: Oculto
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
       Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región de las tendencias'
@@ -179,6 +189,8 @@ Settings:
       Dracula: 'Drácula'
       System Default: Valor predeterminado del sistema
       Catppuccin Mocha: Catppuccin Moca
+      Pastel Pink: Rosa pastel
+      Hot Pink: Fucsia
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -426,6 +438,8 @@ Settings:
     Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
+    Blur Thumbnails: Difuminar las miniaturas
+    Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -600,8 +614,6 @@ Profile:
   Profile Settings: Ajustes del perfil
   Toggle Profile List: Alternar la lista de los perfiles
 Channel:
-  Subscriber: 'Suscriptor'
-  Subscribers: 'Suscriptores'
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'
   Search Channel: 'Buscar en canal'
@@ -646,7 +658,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
-    Community: Comunidad
     Reveal Answers: Revelar las respuestas
     Hide Answers: Ocultar las respuestas
     votes: '{votes} votos'
@@ -677,10 +688,7 @@ Video:
     YouTube'
   Open in Invidious: 'Abrir en Invidious'
   Copy Invidious Link: 'Copiar el enlace de Invidious'
-  View: 'Ver'
   Views: 'Vistas'
-  # Context is "X People Watching"
-  Watching: 'Viendo'
   Watched: 'Visto'
   Autoplay: 'Reproducción automática'
   # As in a Live Video
@@ -811,6 +819,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': El
     chat en vivo no está disponible para esta transmisión. Tal vez estaba deshabilitado
     antes de la retransmisión.
+  Pause on Current Video: Pausa en el vídeo actual
 Videos:
   #& Sort By
   Sort By:
@@ -886,6 +895,7 @@ Comments:
   Member: Miembro
   Hearted: Corazón
   View {replyCount} replies: Ver {replyCount} respuestas
+  Subscribed: Suscrito
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -1051,3 +1061,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Este hashtag no tiene actualmente
     ningún vídeo
+Playlist will pause when current video is finished: La lista de reproducción se detendrá
+  cuando termine el vídeo actual
+Playlist will not pause when current video is finished: La lista de reproducción no
+  se detendrá cuando termine el vídeo actual

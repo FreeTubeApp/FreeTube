@@ -1,9 +1,8 @@
 .ft-card {
   background-color: var(--card-bg-color);
   margin: 8px;
-	padding: 16px;
-	padding-top: 3px;
-	padding-bottom: 16px;
+  padding-block: 3px 16px;
+  padding-inline: 16px;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 
@@ -12,18 +11,18 @@
   margin: 0;
   padding: 0;
   box-shadow: inherit;
-  width: auto;
+  inline-size: auto;
 }
 
 .ft-card .ft-card {
   margin-inline: 0;
   margin-block: 0 16px;
   padding-block: 16px;
-  width: 75%;
+  inline-size: 75%;
 }
 
 @media screen and (max-width: 680px) {
   .ft-card .ft-card {
-    width: 100%;
+    inline-size: 100%;
   }
 }

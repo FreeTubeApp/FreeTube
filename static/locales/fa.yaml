@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'انگلیسی(آمریکایی)'
+Locale Name: 'فارسی (ایرانی)'
 FreeTube: 'یوتیوب آزاد'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -81,8 +81,8 @@ Subscriptions:
   Load More Videos: 'بارگیری ویدیو های بیشتر'
   Error Channels: کانال های خطادار
   Subscriptions Tabs: برگه های اشتراک
-  Disabled Automatic Fetching: شما دریافت خودکار دنبال شونده ها را غیر فعال کرده اید.
-    دنبال شونده ها را تازه سازی کنید تا آنها را اینجا ببینید.
+  Disabled Automatic Fetching: شما دریافت خودکار دنبال کرده ها را غیر فعال کرده اید.
+    دنبال کرده ها را تازه سازی کنید تا آنها را اینجا ببینید.
   Empty Channels: کانال های مشترک شما در حال حاضر هیچ ویدیویی ندارند.
   All Subscription Tabs Hidden: همه تب های اشتراک پنهان هستند. برای مشاهده محتوا در
     اینجا، لطفاً برخی از برگه‌ها را در بخش '{subsection}' در '{settingsSection}' باز
@@ -104,7 +104,7 @@ User Playlists:
     وقتی که عملیات تکمیل شد، این ویدیوها به بخش فهرت پخش «مورد علاقه ها» منتقل خواهند
     شد.'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'ویدیوی
-    ذخیره شده ای ندارید.بر دکمه ذخیره در گوشه ویدیو کلیک کنید تا اینجا لیست شوند'
+    ذخیره شده ای ندارید.بر روی دکمه ذخیره در گوشه ویدیو کلیک کنید تا اینجا لیست شوند'
   Search bar placeholder: جستجو در فهرست پخش
   Empty Search Message: هیچ ویدیویی در این فهرست پخش وجود ندارد که با جستجوی شما مطابق
     باشد
@@ -129,15 +129,15 @@ Settings:
       صورت شکست'
     Enable Search Suggestions: 'فعال کردن پیشنهادات جستجو'
     Default Landing Page: 'صفحه اول پیشفرض'
-    Locale Preference: 'تغییر زبان سیستم'
+    Locale Preference: 'تغیر زبان سیستم'
     System Default: 'پیشفرض سیستم'
     Preferred API Backend:
-      Preferred API Backend: 'ای پی ای پشتیبان ترجیحی'
+      Preferred API Backend: 'API پشتیبان ترجیح داده شده'
       Local API: 'ای پی ای داخلی'
       Invidious API: 'ای پی ای Invidious'
     Video View Type:
       Video View Type: 'طرز نمایش ویدیو'
-      Grid: 'جدول'
+      Grid: 'شبکه'
       List: 'فهرست'
     Thumbnail Preference:
       Thumbnail Preference: 'اولویت کاور ویدیو'
@@ -145,6 +145,7 @@ Settings:
       Beginning: 'ابتدا'
       Middle: 'وسط'
       End: 'انتها'
+      Hidden: مخفی
     Current Invidious Instance: 'نمونه فعلی Invidious'
     The currently set default instance is {instance}: 'در حال حاضر نمونه Invidious
       پیشفرض {instance} است'
@@ -162,7 +163,7 @@ Settings:
       No Action: کاری نکردن
       External Link Handling: اداره کردن لینک های خارجی
   Theme Settings:
-    Theme Settings: 'تنظیمات تم'
+    Theme Settings: 'تنظیمات قالب'
     Match Top Bar with Main Color: 'یکسان سازی قطعه بالا با رنگ اصلی'
     Expand Side Bar by Default: 'گسترش ستون فرعی به صورت پیشفرض'
     Disable Smooth Scrolling: 'غیرفعال کردن حرکت ملایم'
@@ -175,6 +176,8 @@ Settings:
       Dracula: دراکولا
       System Default: پیش فرض سیستم
       Catppuccin Mocha: مجموعه رنگ کتپوسین موکا
+      Hot Pink: صورتی داغ
+      Pastel Pink: صورتی پاستلی
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -202,26 +205,25 @@ Settings:
       Dracula Cyan: آبی یشمی دراکولا
       Catppuccin Mocha Rosewater: گلاب
       Catppuccin Mocha Sapphire: یاقونی
-      Catppuccin Mocha Blue: آبی
+      Catppuccin Mocha Blue: کتپوچین موکا آبی
       Catppuccin Mocha Sky: آسمانی
       Catppuccin Mocha Lavender: بنفش کمرنگ
       Catppuccin Mocha Flamingo: فلامینگو
       Catppuccin Mocha Teal: مرغابی
-      Catppuccin Mocha Pink: صورتی
+      Catppuccin Mocha Pink: کتپوچین موکا صورتی
       Catppuccin Mocha Mauve: ارغوانی سیر
-      Catppuccin Mocha Red: قرمز
+      Catppuccin Mocha Red: کتپوسین موکا قرمز
       Catppuccin Mocha Maroon: خرمایی
       Catppuccin Mocha Peach: هلویی
-      Catppuccin Mocha Yellow: زرد
-      Catppuccin Mocha Green: سبز
+      Catppuccin Mocha Yellow: کتپوسین موکا زرد
+      Catppuccin Mocha Green: کتپوچین موکا سبز
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
     Hide FreeTube Header Logo: لوگوی سربرگ FreeTube را مخفی کنید
   Player Settings:
     Player Settings: 'تنظیمات پخش کننده'
-    Force Local Backend for Legacy Formats: 'اجبار کردن پشتیبان داخلی به استفاده از
-      فرمت های قدیمی'
+    Force Local Backend for Legacy Formats: 'اجبار پشتیبان داخلی به فرمت‌های قدیمی'
     Play Next Video: 'پخش ویدیو بعدی'
     Turn on Subtitles by Default: 'فعال کردن زیرنویس به عنوان پیشفرض'
     Autoplay Videos: 'پخش خودکار ویدیو ها'
@@ -256,7 +258,7 @@ Settings:
     Video Playback Rate Interval: فاصله سرعت پخش ویدیو
     Max Video Playback Rate: حداکثر سرعت پخش ویدیو
     Comment Auto Load:
-      Comment Auto Load: بارگذاری خودکار نظر دهید
+      Comment Auto Load: نظرات اتوماتیک بارگذاری شود
     Enter Fullscreen on Display Rotate: در چرخه نمایشگر وارد صفحه تمام صفحه شوید
     Screenshot:
       Format Label: فرمت اسکرین شات
@@ -269,7 +271,7 @@ Settings:
         %M ماه 2. %D رقم روز دوم. %H ساعت 2 رقمی. %N دقیقه 2 رقم. %S 2 رقم دوم. %T
         میلی ثانیه 3 رقمی. %s ویدیو دوم. %t ویدیو میلی ثانیه 3 رقمی. %i شناسه ویدیو.
         همچنین می توانید از '\\' یا '/' برای ایجاد زیرپوشه ها استفاده کنید.
-      Enable: اسکرین شات را فعال کنید
+      Enable: اسکرین شات فعال باشد
       Ask Path: پرسش برای محل ذخیره
       Folder Label: پوشه اسکرین شات
       Folder Button: پوشه را انتخاب کنید
@@ -278,7 +280,7 @@ Settings:
   External Player Settings:
     External Player Settings: 'تنظیمات پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
-    Ignore Unsupported Action Warnings: 'به اخطار های فعالیت پشتیبانی نشده اهمیت نده'
+    Ignore Unsupported Action Warnings: 'به اخطارهای فعالیت پشتیبانی نشده اهمیت نده'
     Custom External Player Executable: 'پخش کننده خارجی شخصی سازی شده قابل اجرا'
     Custom External Player Arguments: 'ورودی های شخصی سازی شده پخش کننده خارجی'
     Players:
@@ -311,7 +313,7 @@ Settings:
     Manage Subscriptions: 'سامان دهی دنبال شوندگان'
     Fetch Automatically: آوردن خودکار فید
   Distraction Free Settings:
-    Distraction Free Settings: 'تنظیمات رهایی از انحراف حواس'
+    Distraction Free Settings: 'تنظیمات اضافی مفید'
     Hide Video Views: 'مخفی کردن دیده های ویدیو'
     Hide Video Likes And Dislikes: 'مخفی کردن لایک و دیسلایک های ویدیو'
     Hide Channel Subscribers: 'مخفی کردن دنبال کنندگان کانال'
@@ -346,21 +348,23 @@ Settings:
     Hide Subscriptions Shorts: مخفی کردن شورت اشتراک ها
     Hide Channel Podcasts: پنهان کردن پادکست های کانال
     Hide Channel Releases: مخفی کردن انتشارات کانال
+    Hide Sharing Actions: مخفی کردن فعالیت های مشترک
+    Blur Thumbnails: تار کردن ریز عکسها
   Data Settings:
-    Data Settings: 'تنظیمات داده'
-    Select Import Type: 'انتخاب شیوه وارد کردن'
-    Select Export Type: 'انتخاب شیوه استخراج کردن'
-    Import Subscriptions: 'وارد کردن دنبال شوندگان'
+    Data Settings: 'تنظیمات اطلاعات'
+    Select Import Type: 'انتخاب روش وارد کردن فایل بک آپ'
+    Select Export Type: 'انتخاب روش پشتیبان گیری'
+    Import Subscriptions: 'وارد کردن بک آپ دنبال شوندگان'
     Import FreeTube: 'وارد کردن از FreeTube'
     Import YouTube: 'وارد کردن از YouTube'
     Import NewPipe: 'وارد کردن از NewPipe'
-    Check for Legacy Subscriptions: 'بررسی برای دنبال شوندگان قدیمی'
-    Export Subscriptions: 'استخراج دنبال شوندگان'
+    Check for Legacy Subscriptions: 'بررسی برای دنبال‌شوندگان قدیمی'
+    Export Subscriptions: 'ذخیره (پشتیبان گیری)دنبال شوندگان'
     Export FreeTube: 'استخراج FreeTube'
     Export YouTube: 'استخراج YouTube'
     Export NewPipe: 'استخراج NewPipe'
     Import History: 'وارد کردن تاریخچه'
-    Export History: 'استخراج تاریخچه'
+    Export History: 'ذخیره (پشتیبان گیری)تاریخچه'
     Profile object has insufficient data, skipping item: 'پروفایل داده کافی ندارد،
       در حال چشم پوشی'
     All subscriptions and profiles have been successfully imported: 'همه دنبال شوندگان
@@ -418,18 +422,21 @@ Settings:
       Do Nothing: هیچ کاری نکن
       Show In Seek Bar: نمایش در نوار جستجو
       Auto Skip: پرش خودکار
+      Prompt To Skip: اعلان برای پرش
     Enable SponsorBlock: فعال کردن محدود کردن حامی
     SponsorBlock Settings: تنظیمات محدود کردن حامی
     Notify when sponsor segment is skipped: وقتی بخش حامی رد شد اطلاع دهید
     UseDeArrowTitles: از عنوان های ویدیویی DeArrow استفاده کنید
     Category Color: رنگ دسته
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
+      URL (پیش‌فرض https://sponsor.ajay.app است)
   Download Settings:
-    Download in app: دانلود در برنامه
+    Download in app: دانلود از طریق برنامه
     Open in web browser: در مرورگر وب باز کنید
-    Download Settings: دانلود تنظیمات
-    Ask Download Path: مسیر دانلود را بخواهید
-    Choose Path: مسیر را انتخاب کنید
-    Download Behavior: وضعیت دانلود
+    Download Settings: تنظیمات دانلود
+    Ask Download Path: هربار مسیر دانلود را سوال کند
+    Choose Path: مکان ذخیره دانلود را انتخاب کنید
+    Download Behavior: روش دانلود
   Parental Control Settings:
     Hide Unsubscribe Button: پنهان کردن دکمه لغو اشتراک
     Show Family Friendly Only: نمایش فقط دوستانه برای خانواده
@@ -452,7 +459,14 @@ Settings:
     Password Incorrect: رمز عبور اشتباه است
     Unlock: باز کردن
 Channel:
-  Playlists: {}
+  Playlists:
+    Sort Types:
+      Last Video Added: آخرین ویدیو اضافه شده
+      Oldest: قدیمی ترین
+      Newest: جدیدترین
+    Playlists: فهرست های پخش
+    This channel does not currently have any playlists: این کانال در حال حاضر هیچ
+      لیست پخشی ندارد
   This channel is age-restricted and currently cannot be viewed in FreeTube.: این
     کانال دارای محدودیت سنی است و در حال حاضر نمی توان آن را در FreeTube مشاهده کرد.
   Live:
@@ -488,9 +502,43 @@ Channel:
     Joined: پیوسته
     Location: مکان
     Details: جزئیات
+    Channel Description: توضیحات کانال
+    About: درباه
+    Featured Channels: کانال های ویژه
   Channel Tabs: زبانه های کانال
+  Videos:
+    This channel does not currently have any videos: این کانال در حال حاضر هیچ ویدیویی
+      ندارد
+    Sort Types:
+      Newest: جدیدترین
+      Oldest: قدیمی ترین
+      Most Popular: محبوبترین
+    Videos: ویدیوها
+  Search Channel: جستجوی کانال
+  Subscribe: اشتراک
+  Unsubscribe: لغو اشتراک
+  Your search results have returned 0 results: نتایج جستجوی شما 0 نتیجه برگردانده
+    است
+  Sort By: مرتب سازی بر اساس
+  Channel has been removed from your subscriptions: کانال از اشتراک های شما حذف شده
+    است
+  Added channel to your subscriptions: کانال به اشتراک های شما اضافه شد
 Video:
-  External Player: {}
+  External Player:
+    video: ویدیو
+    Unsupported Actions:
+      opening specific video in a playlist (falling back to opening the video): باز
+        کردن یک ویدیوی خاص در یک لیست پخش (بازگشت به باز کردن ویدیو)
+      setting a playback rate: تنظیم نرخ پخش
+      opening playlists: باز کردن لیست های پخش
+      shuffling playlists: درهم ریختن لیست های پخش
+      starting video at offset: شروع ویدیو در حالت افست
+      reversing playlists: معکوس کردن لیست های پخش
+      looping playlists: در حال چرخش لیست های پخش
+    OpenInTemplate: باز کردن در {externalPlayer}
+    UnsupportedActionTemplate: '{externalPlayer} پشتیبانی نمی‌کند: {action}'
+    playlist: فهرست پخش
+    OpeningTemplate: باز کردن {videoOrPlaylist} در {externalPlayer}...
   Published:
     Sep: سپتامبر
     Month: ماه
@@ -512,7 +560,7 @@ Video:
     Oct: اکتبر
     Nov: نوامبر
     Dec: دسامبر
-    Second: ثانیه
+    Second: دوم
     Seconds: ثانیه ها
     Minutes: دقیقه ها
     Days: روزها
@@ -527,7 +575,6 @@ Video:
   Autoplay: پخش خودکار
   Started streaming on: پخش جریانی را شروع کرد
   Skipped segment: بخش رد شد
-  View: دیده شده
   'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
     پایان رسیده است.
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
@@ -537,6 +584,13 @@ Video:
   video only: فقط ویدیو
   Sponsor Block category:
     sponsor: حامی
+    intro: معرفی
+    self-promotion: خود تبلیغی
+    filler: پرکننده
+    recap: روکش
+    music offtopic: موسیقی آف تاپیک
+    interaction: تعامل
+    outro: دیگر
   Loop Playlist: حلقه پخش لیست
   Live Now: زنده هم اکنون
   Save Video: ذخیره ویدیو
@@ -553,7 +607,6 @@ Video:
   Play Next Video: پخش ویدیوی بعدی
   Open Channel in Invidious: کانال را در Invidious باز کنید
   Copy Invidious Channel Link: لینک کانال Invidious را کپی کنید
-  Watching: تماشا کردن
   Watched: دیده شده
   Open Channel in YouTube: کانال را در یوتیوب باز کنید
   Copy YouTube Link: لینک یوتیوب را کپی کنید
@@ -581,6 +634,7 @@ Video:
     Video statistics are not available for legacy videos: آمار ویدیویی برای ویدیوهای
       قدیمی موجود نیست
     Resolution: کیفیت
+    Mimetype: نوع مایم
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': گفتگوی
     زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به YouTube مورد
     نیاز است.
@@ -593,11 +647,28 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': چت
     زنده برای این جریان در دسترس نیست. ممکن است توسط آپلود کننده غیرفعال شده باشد.
   Show Super Chat Comment: نمایش نظر سوپر چت
+  Copy YouTube Embedded Player Link: پیوند YouTube Embedded Player را کپی کنید
+  Remove From History: حذف از دیده شده ها
+  Video has been marked as watched: ویدیو به عنوان تماشا شده علامت گذاری شده است
+  Mark As Watched: علامت گذاری به عنوان تماشا شده
+  Video has been removed from your history: ویدیو از سابقه شما حذف شده است
 Tooltips:
   General Settings:
     External Link Handling: "وقتی روی پیوندی که در FreeTube باز نمی شود، روی آن کلیک
       می شود، رفتار پیش فرض را انتخاب کنید.\nبه طور پیش فرض FreeTube پیوند کلیک شده
       را در مرورگر پیش فرض شما باز می کند.\n"
+    Region for Trending: منطقه گرایش‌ها به شما امکان می‌دهد ویدیوهای پرطرفدار کشوری
+      را که می‌خواهید نمایش دهید انتخاب کنید.
+    Thumbnail Preference: همه تصاویر کوچک در سراسر FreeTube با یک فریم از ویدیو به
+      جای تصویر کوچک پیش فرض جایگزین می شوند.
+    Invidious Instance: نمونه Invidious که FreeTube برای تماس های API به آن متصل می
+      شود.
+    Fallback to Non-Preferred Backend on Failure: هنگامی که API ترجیحی شما با مشکل
+      مواجه شود، FreeTube به طور خودکار سعی می کند از API غیر ترجیحی شما به عنوان
+      روش بازگشتی در صورت فعال شدن استفاده کند.
+    Preferred API Backend: پس زمینه ای را انتخاب کنید که FreeTube برای به دست آوردن
+      داده ها استفاده می کند. API محلی یک استخراج کننده داخلی است. Invidious API برای
+      اتصال به سرور Invidious نیاز دارد.
   SponsorBlock Settings:
     UseDeArrowTitles: عناوین ویدیویی را با عناوین ارسال شده توسط کاربر از DeArrow
       جایگزین کنید.
@@ -613,6 +684,17 @@ Tooltips:
       ببرید تا سرعت پخش را کنترل کنید. کلید کنترل (کلید فرمان در مک) را فشار داده
       و نگه دارید و روی ماوس کلیک چپ کنید تا به سرعت به سرعت پخش پیش فرض برگردید (مگر
       اینکه در تنظیمات تغییر نکرده باشد).
+    Proxy Videos Through Invidious: به جای اتصال مستقیم به YouTube، به Invidious متصل
+      می شود تا ویدیوها را ارائه دهد. اولویت API را لغو می کند.
+    Force Local Backend for Legacy Formats: فقط زمانی کار می کند که Invidious API
+      پیش فرض شما باشد. وقتی فعال باشد، API محلی اجرا می‌شود و از قالب‌های قدیمی بازگردانده
+      شده توسط آن به جای قالب‌هایی که توسط Invidious بازگردانده شده است استفاده می‌کند.
+      کمک می‌کند ویدیوهای بازگردانده شده توسط Invidious به دلیل محدودیت‌های کشور پخش
+      نشود.
+    Default Video Format: فرمت های مورد استفاده هنگام پخش ویدیو را تنظیم کنید. فرمت
+      های DASH می توانند کیفیت های بالاتری را پخش کنند. فرمت های قدیمی به حداکثر 720p
+      محدود می شوند اما از پهنای باند کمتری استفاده می کنند. فرمت های صوتی فقط جریان
+      های صوتی هستند.
   Subscription Settings:
     Fetch Feeds from RSS: هنگامی که FreeTube فعال باشد، از RSS به جای روش پیش فرض
       خود برای گرفتن فید اشتراک شما استفاده می کند. RSS سریعتر است و از مسدود شدن
@@ -632,9 +714,12 @@ Tooltips:
       پشتیبانی نمی کند (به عنوان مثال معکوس کردن لیست های پخش و غیره) حذف کنید.
     Custom External Player Arguments: هر آرگومان خط فرمان سفارشی، که با نقطه ویرگول
       (';') از هم جدا شده اند، می خواهید به پخش کننده خارجی منتقل شوند.
+    External Player: با انتخاب یک پخش کننده خارجی، نمادی برای باز کردن ویدیو (در صورت
+      پشتیبانی لیست پخش) در پخش کننده خارجی، روی تصویر کوچک نمایش داده می شود. هشدار،
+      تنظیمات ناخوشایند بر پخش کننده های خارجی تأثیر نمی گذارد.
   Distraction Free Settings:
-    Hide Subscriptions Live: این تنظیم با تنظیم «{appWideSetting}» در سراسر برنامه،
-      در بخش «{subsection}» در «{settingsSection}» لغو می‌شود.
+    Hide Subscriptions Live: این تنظیم با «{appWideSetting}» در سراسر برنامه، در بخش
+      «{subsection}» در «{settingsSection}» لغو می‌شود.
     Hide Channels: نام کانال یا شناسه کانال را وارد کنید تا همه ویدیوها، فهرست‌های
       پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشوند. نام
       کانال وارد شده باید کاملا مطابقت داشته باشد و به حروف کوچک و بزرگ حساس باشد.
@@ -648,8 +733,33 @@ Are you sure you want to open this link?: آیا مطمئن هستید که می
 About:
   Email: پست الکترونیکی
   Discussions: گفتگو
+  Downloads / Changelog: دانلودها / تغییرات
+  Please check for duplicates before posting: لطفاً قبل از ارسال موارد تکراری را بررسی
+    کنید
+  Help: راهنما
+  Website: سایت
+  Credits: اعتبارات
+  Beta: بتا
+  About: درباره
+  FreeTube Wiki: ویکی فریتیوب
+  GitHub releases: نسخه های گیت هاب
+  FAQ: پرسش و پاسخ
+  Please read the: لطفاً بخوانید
+  room rules: قوانین اتاق
+  Translate: ترجمه
+  Blog: وبلاگ
+  Chat on Matrix: چت در ماتریکس
+  Licensed under the AGPLv3: تحت مجوز AGPLv3
+  these people and projects: این افراد و پروژه ها
+  View License: مشاهده مجوز
+  Report a problem: گزارش یک مشکل
+  GitHub issues: مشکلات گیت هاب
+  Donate: اهدا
+  Source code: کد منبع
+  Mastodon: Mastodon
+  FreeTube is made possible by: فری تیوب ممکن است ساخته شده توسط
 New Window: پنجره جدید
-Preferences: اولویت ها
+Preferences: تنظیمات
 Version {versionNumber} is now available!  Click for more details: نسخه {versionNumber}
   در دسترس است!  برای مشاهده جزئیات کلیک کنید
 A new blog is now available, {blogTitle}. Click to view more: یک مطلب جدید در دسترس
@@ -670,8 +780,28 @@ Global:
 Share:
   Share Playlist: لیست پخش را به اشتراک بگذارید
   Share Channel: اشتراک گذاری کانال
+  Copy Embed: کپی کردن لینک کوتاه
+  Invidious Embed URL copied to clipboard: آدرس کوتاه Invidious در کلیپ بورد کپی شد
+  YouTube URL copied to clipboard: لینک یوتیوب در کلیپ بورد کپی شد
+  Copy Link: لینک را کپی کنید
+  Share Video: اشتراک گذاری ویدیو
+  Include Timestamp: شامل مهر زمانی
+  Invidious Channel URL copied to clipboard: آدرس کانال Invidious در کلیپ بورد کپی
+    شد
+  YouTube Embed URL copied to clipboard: لینک کوتاه یوتیوب در کلیپ بورد کپی شد
+  YouTube Channel URL copied to clipboard: لینک کانال یوتیوب در کلیپ بورد کپی شد
+  Open Link: بازکردن لینک
+  Open Embed: بازکردن لینک کوتاه
+  Invidious URL copied to clipboard: آدرس Invidious در کلیپ بورد کپی شد
 Change Format:
   Change Media Formats: تغییر فرمت های رسانه
+  Dash formats are not available for this video: فرما های دش برای این ویدیو در دسترس
+    نیستند
+  Use Legacy Formats: از قالب‌های قدیمی استفاده کنید
+  Audio formats are not available for this video: فرمت های صوتی برای این ویدیو موجود
+    نیست
+  Use Dash Formats: از فرمت های دش استفاده کنید
+  Use Audio Formats: از فرمت های صوتی استفاده کنید
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'فهرست فصل‌ها پنهان است،
     فصل فعلی: {chapterName}'
@@ -702,6 +832,24 @@ Comments:
   Member: عضو
   From {channelName}: از {channelName}
   And others: و دیگران
+  Load More Comments: بارگذاری نظرات بیشتر
+  No more comments available: نظر دیگری در دسترس نیست
+  There are no comments available for this video: هیچ نظری برای این ویدیو موجود نیست
+  Sort by: مرتب سازی بر اساس
+  View: مشاهده
+  Reply: پاسخ
+  Comments: نظرات
+  Getting comment replies, please wait: در حال دریافت پاسخ نظرات، لطفا صبر کنید
+  There are no more comments for this video: هیچ نظر دیگری برای این ویدیو وجود ندارد
+  Show Comments: نمایش نظرات
+  Hide Comments: پنهان کردن نظرات
+  Top comments: نظرات برتر
+  Show More Replies: نمایش پاسخ های بیشتر
+  Click to View Comments: برای مشاهده نظرات کلیک کنید
+  Newest first: جدیدترین اول
+  Hide: مخفی کردن
+  Replies: پاسخ
+  Hearted: دلی
 The playlist has been reversed: لیست پخش معکوس شده است
 Default Invidious instance has been cleared: نمونه پیش فرض Invidious پاک شده است
 Profile:
@@ -711,6 +859,43 @@ Profile:
   '{profile} is now the active profile': '{profile} اکنون نمایه فعال است'
   '{number} selected': '{number} انتخاب شد'
   Toggle Profile List: فهرست نمایه را تغییر دهید
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : این نمایه اصلی شماست. آیا مطمئن هستید که می خواهید کانال های انتخاب شده را حذف
+    کنید؟ همان کانال ها در هر نمایه ای که در آن یافت می شوند حذف می شوند.
+  Profile Settings: تنظیمات پروفایل
+  Profile Filter: فیلتر پروفایل
+  Profile Manager: مدیر پروفایل
+  Custom Color: رنگ سفارشی
+  All Channels: همه کانال ها
+  Profile Preview: پیش نمایش پروفایل
+  Create Profile: ایجاد پروفایل
+  Profile has been created: پروفایل ایجاد شده است
+  Add Selected To Profile: انتخاب شده را به پروفایل اضافه کنید
+  Profile has been updated: پروفایل به روز شد
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: آیا
+    مطمئن هستید که می خواهید کانال های انتخاب شده را حذف کنید؟ با این کار کانال از
+    هیچ نمایه دیگری حذف نمی شود.
+  Are you sure you want to delete this profile?: آیا مطمئن هستید که می خواهید این
+    پروفایل را حذف کنید؟
+  Select None: انتخاب هیچ کدام
+  Delete Selected: انتخاب شده را پاک کن
+  No channel(s) have been selected: هیچ کانالی انتخاب نشده است
+  Update Profile: بروزرسانی پروفایل
+  Make Default Profile: ایجاد پروفایل پیش فرض
+  Edit Profile: ویرایش پروفایل
+  Create New Profile: ایجاد پروفایل جدید
+  Color Picker: انتخاب کننده رنگ
+  Subscription List: نمایه پیش فرض شما به نمایه اصلی شما تغییر یافته است
+  Select All: انتخاب همه
+  Delete Profile: حذف پروفایل
+  Profile could not be found: پروفایل پیدا نشد
+  All subscriptions will also be deleted.: تمامی اشتراک ها نیز حذف خواهند شد.
+  Your profile name cannot be empty: نام پروفایل شما نمی تواند خالی باشد
+  Other Channels: کانال های دیگر
+  Your default profile has been changed to your primary profile: پروفایل پیش فرض شما
+    به پروفایل اصلی شما تغییر یافته است
+  Profile Select: پروفایل را انتخاب کنید
 Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیره شد
 Ok: تایید
 Downloading has completed: دانلود '{videoTitle}' به پایان رسید
@@ -743,3 +928,17 @@ Hashtags have not yet been implemented, try again later: هشتگ ها هنوز 
   اند، بعداً دوباره امتحان کنید
 Downloading failed: مشکلی در بارگیری «{videoTitle}» وجود داشت
 No: خیر
+Playlist:
+  Views: مشاهدات
+  Last Updated On: آخرین بروز رسانی در تاریخ
+  View Full Playlist: مشاهده لیست پخش کامل
+  Videos: ویدیوها
+  View: مشاهده
+  Playlist: فهرست پخش
+Mini Player: مینی پلیر
+Videos:
+  Sort By:
+    Newest: جدیدترین
+    Oldest: قدیمی ترین
+Toggle Theatre Mode: حالت تئاتر را تغییر دهید
+Up Next: تا بعدی

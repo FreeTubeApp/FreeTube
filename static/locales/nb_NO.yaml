@@ -35,6 +35,7 @@ Global:
   Videos: 'Videoer'
   Shorts: Kortvideoer
   Live: Direkte
+  Community: Gemenskap
 
 # Search Bar
 Search / Go to URL: 'Søk/gå til nettadresse'
@@ -558,7 +559,6 @@ Channel:
     kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
   Channel Tabs: Kanalfaner
   Community:
-    Community: Gemenskap
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
   Shorts:
     This channel does not currently have any shorts: Denne kanalen har ingen kortvideoer
@@ -584,10 +584,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopier lenke til innebygd YouTube-avspiller'
   Open in Invidious: 'Åpne i Invidious'
   Copy Invidious Link: 'Kopier Invidious-lenke'
-  View: 'Vis'
   Views: 'Visninger'
-  # Context is "X People Watching"
-  Watching: 'Ser på'
   Watched: 'Sett'
   # As in a Live Video
   Live: 'Direkte'

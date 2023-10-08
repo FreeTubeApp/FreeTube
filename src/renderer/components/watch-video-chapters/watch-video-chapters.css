@@ -3,8 +3,8 @@
 }
 
 .chaptersTitle {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-block-start: 10px;
+  margin-block-end: 0;
   cursor: pointer;
 }
 
@@ -13,8 +13,8 @@
 }
 
 .chaptersWrapper {
-  margin-top: 15px;
-  max-height: 250px;
+  margin-block-start: 15px;
+  max-block-size: 250px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 .chaptersWrapper.compact {
-  max-height: 200px;
+  max-block-size: 200px;
 }
 
 .chaptersChevron {
@@ -30,7 +30,7 @@
 }
 
 .chaptersChevron.open {
-  margin-left: 4px;
+  margin-inline-start: 4px;
 }
 
 .chapter {
@@ -53,8 +53,8 @@
 
 .chapterThumbnail {
   grid-area: thumbnail;
-  width: 130px;
-  height: auto;
+  inline-size: 130px;
+  block-size: auto;
   margin: 3px;
 }
 
@@ -76,7 +76,8 @@
 .chapterTimestamp {
   grid-area: timestamp;
   align-self: flex-start;
-  padding: 3px 4px;
+  padding-block: 3px;
+  padding-inline: 4px;
   border-radius: 5px;
   background-color: var(--accent-color);
   color: var(--text-with-accent-color);

@@ -6,25 +6,25 @@ FreeTube: 'FreeTube'
   Овај део апликације још није спреман. Вратите се касније када буде постигнут напредак.
 
 # Webkit Menu Bar
-File: 'Датотека'
-Quit: 'Затвори'
-Edit: 'Промени'
+File: 'Фајл'
+Quit: 'Напусти'
+Edit: 'Измени'
 Undo: 'Поништи'
 Redo: 'Обнови'
 Cut: 'Исеци'
 Copy: 'Копирај'
-Paste: 'Прилепи'
+Paste: 'Налепи'
 Delete: 'Избриши'
-Select all: 'Све одабрати'
+Select all: 'Изабери све'
 Reload: 'Освежи'
-Force Reload: 'Натерај освежавање'
-Toggle Developer Tools: 'Укључите/искључите алате за програмере'
-Actual size: 'Тренутна величина'
-Zoom in: 'Повећај'
-Zoom out: 'Смањи'
-Toggle fullscreen: 'Цео екран'
+Force Reload: 'Присилно освежи'
+Toggle Developer Tools: 'Укључи алатке за програмере'
+Actual size: 'Стварна величина'
+Zoom in: 'Увећај'
+Zoom out: 'Умањи'
+Toggle fullscreen: 'Укључи цео екран'
 Window: 'Прозор'
-Minimize: 'Минимизуј'
+Minimize: 'Минимизирај'
 Close: 'Затвори'
 Back: 'Назад'
 Forward: 'Напред'
@@ -32,174 +32,241 @@ Forward: 'Напред'
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: 'Видео'
+  Videos: 'Видео снимци'
 
+  Counts:
+    Video Count: 1 видео снимак | {count} видео снимака
+    Subscriber Count: 1 пратилац | {count} пратилаца
+    View Count: 1 преглед | {count} прегледа
+    Watching Count: 1 гледање | {count} гледања
+    Channel Count: 1 канал | {count} канала
+  Live: Уживо
+  Community: Заједница
+  Shorts: Shorts
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
   је сада достуна!  Кликните за више детаља'
 Download From Site: 'Преузми са сајта'
 A new blog is now available, {blogTitle}. Click to view more: 'Нови блог је сада доступан,
-  {blogTitle}. Кликни за приказ више'
+  {blogTitle}. Кликните да бисте видели више'
 
 # Search Bar
-Search / Go to URL: 'Претражи / иди на УРЛ'
+Search / Go to URL: 'Претрага / Иди на URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Филтери претраге'
   Sort By:
-    Sort By: 'Среди по'
+    Sort By: 'Сортирање по'
     Most Relevant: 'Најрелевантније'
     Rating: 'Оцена'
     Upload Date: 'Датум отпремања'
     View Count: 'Број прегледа'
   Time:
-    Time: 'Датум'
-    Any Time: 'Све'
+    Time: 'Време'
+    Any Time: 'Било које време'
     Last Hour: 'Последњи сат'
     Today: 'Данас'
     This Week: 'Ове недеље'
-    This Month: 'Овај месец'
-    This Year: 'Ова година'
+    This Month: 'Овог месеца'
+    This Year: 'Ове године'
   Type:
-    Type: 'Тип'
-    All Types: 'Сва'
-    Videos: 'Видео'
+    Type: 'Врста'
+    All Types: 'Све врсте'
+    Videos: 'Видео снимци'
     Channels: 'Канали'
     #& Playlists
+    Movies: Филмови
   Duration:
     Duration: 'Трајање'
-    All Durations: 'Све'
+    All Durations: 'Сва трајања'
     Short (< 4 minutes): 'Кратко (< 4 минута)'
-    Long (> 20 minutes): 'Дугачко (> 20 минута)'
+    Long (> 20 minutes): 'Дуго (> 20 минута)'
   # On Search Page
+    Medium (4 - 20 minutes): Средње (4 - 20 минута)
   Search Results: 'Резултати претраге'
-  Fetching results. Please wait: 'Примање резултата. Сачекајте'
-  Fetch more results: 'Покажи још резултата'
+  Fetching results. Please wait: 'Прикупљање резултата. Сачекајте'
+  Fetch more results: 'Прикупити више резултата'
   There are no more results for this search: 'Нема више резултата за ову претрагу'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
-  Latest Subscriptions: 'Задња праћења'
+  Latest Subscriptions: 'Најновија праћења'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Овај
-    профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничење'
+    профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничавање
+    брзине'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваша
-    листа прећења је тренутно празна. Почните да додајете прећење да бисте их видели
+    листа праћења је тренутно празна. Почните да додајете праћења да бисте их видели
     овде.'
-  'Getting Subscriptions. Please wait.': 'Примање праћења. Сачекајте.'
+  'Getting Subscriptions. Please wait.': 'Набављање праћења. Сачекајте.'
   Refresh Subscriptions: 'Освежи праћења'
-  Load More Videos: 'Учитај више видео записа'
-More: 'Још'
+  Load More Videos: 'Учитај више видео снимака'
+  Load More Posts: Учитај више објава
+  Empty Channels: Канали које пратите тренутно немају ниједан видео снимак.
+  Subscriptions Tabs: Картице праћења
+  Empty Posts: Канали које пратите тренутно немају ниједну објаву.
+  All Subscription Tabs Hidden: Све картице праћења су скривене. Да бисте видели садржај
+    овде, откријте неке картице у одељку „{subsection}“ у „{settingsSection}“.
+  Disabled Automatic Fetching: Онемогућили сте аутоматско прикупљање праћења. Освежите
+    праћења да бисте их видели овде.
+  Error Channels: Канали са грешкама
+More: 'Више'
 Trending:
-  Trending: 'Тренда'
-Most Popular: 'Нај популарније'
+  Trending: 'У тренду'
+  Gaming: Видео игре
+  Default: Подразумевано
+  Music: Музика
+  Movies: Филмови
+  Trending Tabs: Картице у тренду
+Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
 User Playlists:
   Your Playlists: 'Ваше плејлисте'
-  Playlist Message: 'Ова страница се не одражава у потпуности радне плејлисте. Она
-    само приказује видео записе које сте сачували или фаворизирали. Када је посао
-    завршио, сви видео записи одавде ће се преместити на плејлисту "Омиљени".'
-  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Нисте
-    сачували ни један видео. Кликни на дугме Сачувај на углу видео записа да бисте
-    је овде навели'
+  Playlist Message: 'Ова страница не одражава потпуно функционалне плејлисте. Наводи
+    само видео снимке које сте сачували или означили као фаворите. Када се посао заврши,
+    сви видео снимци који су тренутно овде биће пребачени на плејлисту „Омиљено“.'
+  Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: 'Немате
+    сачуване видео снимке. Кликните на дугме за чување у углу видео снимка да бисте
+    га додали на ову листу'
+  Empty Search Message: На овој плејлисти нема видео снимака који одговарају вашој
+    претрази
+  Search bar placeholder: Претрага у плејлисти
 History:
   # On History Page
   History: 'Историја'
-  Watch History: 'Види историју'
-  Your history list is currently empty.: 'Ваша историја је празна.'
+  Watch History: 'Историја гледања'
+  Your history list is currently empty.: 'Ваша историја је тренутно празна.'
+  Search bar placeholder: Претрага у историји
+  Empty Search Message: У вашој историји нема видео снимака који одговарају вашој
+    претрази
 Settings:
   # On Settings Page
   Settings: 'Подешавања'
   The app needs to restart for changes to take effect. Restart and apply change?: 'Апликација
-    треба да се поново покрене како би промене ступиле на снагу. Поново покрените
-    и примените промене?'
+    се мора рестартовати да би се примениле промене. Рестартовати и применити промене?'
   General Settings:
     General Settings: 'Општа подешавања'
-    Check for Updates: 'Провери ажурирања'
-    Check for Latest Blog Posts: 'Провери најновије поруке блога'
-    Fallback to Non-Preferred Backend on Failure: 'Повратак на неомиљени Backend на
-      неуспех'
-    Enable Search Suggestions: 'Покажи предлоге за претрагу'
+    Check for Updates: 'Провера ажурирања'
+    Check for Latest Blog Posts: 'Провера најновијих објава на блогу'
+    Fallback to Non-Preferred Backend on Failure: 'Повратак на непреферирани бек-енд
+      у случају неуспеха'
+    Enable Search Suggestions: 'Омогући предлоге за претрагу'
     Default Landing Page: 'Подразумевана почетна страница'
     Locale Preference: 'Локална преференција'
     Preferred API Backend:
-      Preferred API Backend: 'Омиљени API Backend'
+      Preferred API Backend: 'Преферирани API бек-енд'
       Local API: 'Локални API'
-      Invidious API: 'Инвидиус АПИ'
+      Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Тип приказа видеа'
-      Grid: 'Решетка'
+      Video View Type: 'Врста приказа видео снимка'
+      Grid: 'Мрежа'
       List: 'Листа'
     Thumbnail Preference:
-      Thumbnail Preference: 'Преференције сличице'
+      Thumbnail Preference: 'Преференција сличице'
       Default: 'Подразумевано'
       Beginning: 'Почетак'
       Middle: 'Средина'
       End: 'Крај'
+      Hidden: Скривено
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious инстанца
       (Подразумевано је https://invidious.snopyta.org)'
-    View all Invidious instance information: 'Погледајте информације свих Invidious
-      инстанце'
-    Region for Trending: 'Регион за тренд'
+    View all Invidious instance information: 'Погледај све информације о Invidious
+      инстанци'
+    Region for Trending: 'Регион за „У тренду“'
         #! List countries
+    External Link Handling:
+      Open Link: Отвори линк
+      External Link Handling: Руковање спољним линковима
+      No Action: Нема радње
+      Ask Before Opening Link: Питај пре отварања линка
+    No default instance has been set: Није подешена ниједна подразумевана инстанца
+    System Default: Системски подразумевано
+    Set Current Instance as Default: Подеси тренутну инстанцу као подразумевану
+    Current instance will be randomized on startup: Тренутна инстанца ће бити насумично
+      изабрана при покретању
+    Clear Default Instance: Очисти подразумеване инстанце
+    The currently set default instance is {instance}: Тренутно подешена подразумевана
+      инстанца је {instance}
+    Current Invidious Instance: Тренутна Invidious инстанца
   Theme Settings:
     Theme Settings: 'Подешавања теме'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
     Expand Side Bar by Default: 'Подразумевано прошири бочну траку'
-    Disable Smooth Scrolling: 'Онемогући глатко померање'
-    UI Scale: 'UI скала'
+    Disable Smooth Scrolling: 'Онемогући глатко прелажење'
+    UI Scale: 'Скала корисничког интерфејса'
     Base Theme:
       Base Theme: 'Основна тема'
       Black: 'Црна'
       Dark: 'Тамна'
       Light: 'Светла'
       Dracula: 'Дракула'
+      Pastel Pink: Пастелно розе
+      Hot Pink: Врућа розе
+      Catppuccin Mocha: Catppuccin Mocha
+      System Default: Системски подразумевано
     Main Color Theme:
-      Main Color Theme: 'Главна боја теме'
-      Red: 'Црвено'
+      Main Color Theme: 'Главна тема боја'
+      Red: 'Црвена'
       Pink: 'Розе'
-      Purple: 'Љубичасто'
-      Deep Purple: 'Тамно љубичасто'
+      Purple: 'Љубичаста'
+      Deep Purple: 'Тамнољубичаста'
       Indigo: 'Индиго'
-      Blue: 'Плаво'
-      Light Blue: 'Светло плаво'
+      Blue: 'Плава'
+      Light Blue: 'Светлоплава'
       Cyan: 'Цијан'
-      Teal: 'Modrozelena'
-      Green: 'Зелено'
-      Light Green: 'Светло зелено'
-      Lime: 'Лимун зелено'
-      Yellow: 'Жуто'
+      Teal: 'Тиркизна'
+      Green: 'Зелена'
+      Light Green: 'Светлозелена'
+      Lime: 'Лимета'
+      Yellow: 'Жута'
       Amber: 'Амбер'
-      Orange: 'Наранђасто'
-      Deep Orange: 'Тамно нарађасто'
-      Dracula Cyan: 'Дракула Цијан'
-      Dracula Green: 'Дракула Зелено'
-      Dracula Orange: 'Дракула Наранђасто'
-      Dracula Pink: 'Дракула Розе'
-      Dracula Purple: 'Дракула Љубичасто'
-      Dracula Red: 'Дракула Црвено'
-      Dracula Yellow: 'Дракула Жуто'
-    Secondary Color Theme: 'Секундарна боја теме'
+      Orange: 'Наранџаста'
+      Deep Orange: 'Тамнонаранџаста'
+      Dracula Cyan: 'Дракула цијан'
+      Dracula Green: 'Дракула зелена'
+      Dracula Orange: 'Дракула наранџаста'
+      Dracula Pink: 'Дракула розе'
+      Dracula Purple: 'Дракула љубичаста'
+      Dracula Red: 'Дракула црвена'
+      Dracula Yellow: 'Дракула жута'
+      Catppuccin Mocha Red: Catppuccin Mocha црвена
+      Catppuccin Mocha Maroon: Catppuccin Mocha бордо
+      Catppuccin Mocha Sky: Catppuccin Mocha небо
+      Catppuccin Mocha Sapphire: Catppuccin Mocha сафирна
+      Catppuccin Mocha Teal: Catppuccin Mocha тиркизна
+      Catppuccin Mocha Yellow: Catppuccin Mocha жута
+      Catppuccin Mocha Rosewater: Catppuccin Mocha светлорозе-румена
+      Catppuccin Mocha Peach: Catppuccin Mocha бресква
+      Catppuccin Mocha Flamingo: Catppuccin Mocha фламингос
+      Catppuccin Mocha Mauve: Catppuccin Mocha мауве
+      Catppuccin Mocha Pink: Catppuccin Mocha розе
+      Catppuccin Mocha Lavender: Catppuccin Mocha лаванда
+      Catppuccin Mocha Blue: Catppuccin Mocha плава
+      Catppuccin Mocha Green: Catppuccin Mocha зелена
+    Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
+    Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
+    Hide Side Bar Labels: Сакриј ознаке бочне траке
   Player Settings:
     Player Settings: 'Подешавања плејера'
-    Force Local Backend for Legacy Formats: 'форсирај локални Backend за Legacy формате'
-    Play Next Video: 'Пусти следећи видео'
-    Turn on Subtitles by Default: 'Подразумевано упали титлове'
-    Autoplay Videos: 'Ауто-пусти видео'
-    Proxy Videos Through Invidious: 'Прокси видео преко Invidious'
-    Autoplay Playlists: 'Ауто-пусти плејлисте'
-    Enable Theatre Mode by Default: 'Подразумевано активирај театар мод'
+    Force Local Backend for Legacy Formats: 'Присили локални бек-енд за застареле
+      формате'
+    Play Next Video: 'Пусти следећи видео снимак'
+    Turn on Subtitles by Default: 'Подразумевано укључи титлове'
+    Autoplay Videos: 'Аутоматски пусти видео снимак'
+    Proxy Videos Through Invidious: 'Прокси видео снимци преко Invidious-а'
+    Autoplay Playlists: 'Аутоматски пусти плејлисте'
+    Enable Theatre Mode by Default: 'Подразумевано омогући биоскопски режим'
     Playlist Next Video Interval: 'Интервал следећег видеа из плејлисте'
-    Default Volume: 'Подразумевана јачина'
+    Default Volume: 'Подразумевана јачина звука'
     Default Playback Rate: 'Подразумевана брзина репродукције'
     Default Video Format:
-      Default Video Format: 'Подразумеван формат видеа'
+      Default Video Format: 'Подразумевани формат видео снимка'
       Dash Formats: 'DASH формати'
-      Legacy Formats: 'Legacy формати'
+      Legacy Formats: 'Застарели формати'
       Audio Formats: 'Аудио формати'
     Default Quality:
-      Default Quality: 'Подразумеван квалитет'
-      Auto: 'Ауто'
+      Default Quality: 'Подразумевани квалитет'
+      Auto: 'Аутоматски'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -209,240 +276,702 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
+    Screenshot:
+      Folder Label: Фолдер за снимке екрана
+      Error:
+        Empty File Name: Празан назив фајла
+        Forbidden Characters: Забрањени знакови
+      Folder Button: Избор фолдера
+      Format Label: Формат снимка екрана
+      Enable: Омогући снимак екрана
+      Ask Path: Питај за фолдер за чување
+      Quality Label: Квалитет снимка екрана
+      File Name Tooltip: Можете да користите променљиве испод. %Y Година 4 цифре.
+        %M Месец 2 цифре. %D Дан 2 цифре. %H Сат 2 цифре. %N Минут 2 цифре. %S Секунда
+        2 цифре. %T Милисекунда 3 цифре. %s Секунда видео снимка. %t Милисекунда видео
+        снимка 3 цифре. %i ID видео снимка. Такође, можете да користите „\“ или „/“
+        да бисте направили потфолдере.
+      File Name Label: Образац назива фајла
+    Scroll Volume Over Video Player: Превуци за јачину звука преко плејера видео снимка
+    Skip by Scrolling Over Video Player: Прескочи превлачењем преко плејера видео
+      снимка
+    Allow DASH AV1 formats: Дозволи DASH AV1 формате
+    Scroll Playback Rate Over Video Player: Превуци за брзину репродукције преко плејера
+      видео снимка
+    Fast-Forward / Rewind Interval: Интервал брзог премотавања унапред/уназад
+    Comment Auto Load:
+      Comment Auto Load: Аутоматско учитавање коментара
+    Video Playback Rate Interval: Интервал брзине репродукције видео снимка
+    Max Video Playback Rate: Максимална брзина репродукције видео снимка
+    Enter Fullscreen on Display Rotate: Уђи у цео екран при окретању екрана
+    Next Video Interval: Интервал следећег видео снимка
+    Display Play Button In Video Player: Прикажи дугме за пуштање у плејеру видео
+      снимка
   Privacy Settings:
     Privacy Settings: 'Подешавања приватности'
     Remember History: 'Запамти историју'
-    Save Watched Progress: 'Сачувај напредак видеа'
-    Clear Search Cache: 'Испразни кеш претраге'
-    Are you sure you want to clear out your search cache?: 'Јесте ли сигурни да желите
-      да очистите кеш претраге?'
-    Search cache has been cleared: 'Кеш претраживања је обрисано'
-    Remove Watch History: 'Избриши историју гледања'
-    Are you sure you want to remove your entire watch history?: 'Сигурно желите да
-      избришете целу историју гледања?'
-    Watch history has been cleared: 'Историја је избрисана'
-    Remove All Subscriptions / Profiles: 'Обриши сва праћења/профили'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Да
-      ли сте сигурни да желите уклонити сва праћења и профиле? Ово се не може поништити.'
+    Save Watched Progress: 'Сачувај напредак одгледаног'
+    Clear Search Cache: 'Очисти кеш претраге'
+    Are you sure you want to clear out your search cache?: 'Желите ли заиста да очистите
+      кеш претраге?'
+    Search cache has been cleared: 'Кеш претраге је очишћен'
+    Remove Watch History: 'Очисти историју гледања'
+    Are you sure you want to remove your entire watch history?: 'Желите ли заиста
+      да очистите целу историју гледања?'
+    Watch history has been cleared: 'Историја гледања је очишћена'
+    Remove All Subscriptions / Profiles: 'Уклони сва праћења/профиле'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Желите
+      ли заиста да уклоните сва праћења и профиле?   Ово се не може поништити.'
+    Automatically Remove Video Meta Files: Аутоматски уклони мета фајлове за видео
+      снимак
+    Save Watched Videos With Last Viewed Playlist: Сачувај одгледане видео снимке
+      са последње гледане плејлисте
   Subscription Settings:
     Subscription Settings: 'Подешавања праћења'
-    Hide Videos on Watch: 'Сакриј одгледани видео записи'
-    Fetch Feeds from RSS: 'Дохват RSS-а'
-    Manage Subscriptions: 'Управљај ста пратиш'
+    Hide Videos on Watch: 'Сакриј видео снимке на гледању'
+    Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
+    Manage Subscriptions: 'Управљање праћењима'
+    Fetch Automatically: Аутоматски прикупи фид
   Distraction Free Settings:
-    Distraction Free Settings: 'Подешавања дистракције'
-    Hide Video Views: 'Сакриј број приказа видеа'
-    Hide Video Likes And Dislikes: 'Сакриј видео лајкове'
-    Hide Channel Subscribers: 'Сакриј број праћења канала'
-    Hide Comment Likes: 'Сакриј лајковање из коментара'
-    Hide Recommended Videos: 'Сакриј препоручене видее'
-    Hide Trending Videos: 'Сакриј видее у тренду'
-    Hide Popular Videos: 'Сакриј популарне видее'
+    Distraction Free Settings: 'Подешавања „Без ометања“'
+    Hide Video Views: 'Сакриј прегледе видео снимка'
+    Hide Video Likes And Dislikes: 'Сакриј свиђања и несвиђања видео снимка'
+    Hide Channel Subscribers: 'Сакриј праћења канала'
+    Hide Comment Likes: 'Сакриј свиђања коментара'
+    Hide Recommended Videos: 'Сакриј препоручене видео снимке'
+    Hide Trending Videos: 'Сакриј видео снимке у тренду'
+    Hide Popular Videos: 'Сакриј популарне видео снимке'
     Hide Playlists: 'Сакриј плејлисте'
-    Hide Live Chat: 'Сакриј уживо ћаскање'
+    Hide Live Chat: 'Сакриј ћаскање уживо'
     Hide Active Subscriptions: 'Сакриј активна праћења'
+    Blur Thumbnails: Замагли сличице
+    Hide Channels Placeholder: Назив канала или ID канала
+    Hide Video Description: Сакриј опис видео снимка
+    Hide Chapters: Сакриј поглавља
+    Sections:
+      Watch Page: Страница гледања
+      Side Bar: Бочна трака
+      Channel Page: Страница канала
+      Subscriptions Page: Страница праћења
+      General: Опште
+    Hide Channel Community: Сакриј заједницу канала
+    Hide Subscriptions Videos: Сакриј видео снимке канала које пратите
+    Hide Comments: Сакриј коментаре
+    Hide Channel Shorts: Сакриј Shorts снимке канала
+    Hide Sharing Actions: Сакриј радње дељења
+    Hide Channel Podcasts: Сакриј подкасте канала
+    Hide Live Streams: Сакриј стримове уживо
+    Hide Channel Playlists: Сакриј плејлисте канала
+    Hide Subscriptions Community: Сакриј заједницу канала које пратите
+    Hide Channels: Сакриј видео снимке са канала
+    Hide Subscriptions Live: Сакриј стримове уживо канала које пратите
+    Hide Subscriptions Shorts: Сакриј Shorts снимке канала које пратите
+    Display Titles Without Excessive Capitalisation: Прикажи наслове без претераног
+      коришћења великих слова
+    Hide Featured Channels: Сакриј истакнуте канале
+    Hide Profile Pictures in Comments: Сакриј слике профила у коментарима
+    Hide Upcoming Premieres: Сакриј предстојеће премијере
+    Hide Channel Releases: Сакриј издања канала
   Data Settings:
     Data Settings: 'Подешавања података'
-    Select Import Type: 'Одабери тип увоза'
-    Select Export Type: 'Одабери тип извоза'
+    Select Import Type: 'Избор врсте увоза'
+    Select Export Type: 'Избор врсте извоза'
     Import Subscriptions: 'Увоз праћења'
     Import FreeTube: 'Увоз FreeTube'
     Import YouTube: 'Увоз YouTube'
     Import NewPipe: 'Увоз NewPipe'
-    Check for Legacy Subscriptions: 'Провери да ли постоје стара праћања'
-    Export Subscriptions: 'Извоз праћања'
-    Export FreeTube: 'Извоз FreeTube'
-    Export YouTube: 'Извоз YouTube'
-    Export NewPipe: 'Извоз NewPipe'
+    Check for Legacy Subscriptions: 'Провера застарелих праћења'
+    Export Subscriptions: 'Извоз праћења'
+    Export FreeTube: 'Извоз FreeTube-а'
+    Export YouTube: 'Извоз YouTube-а'
+    Export NewPipe: 'Извоз NewPipe-а'
     Import History: 'Увоз историје'
     Export History: 'Извоз историје'
-    Profile object has insufficient data, skipping item: 'Објект профила нема довољно
-      података, прескакање'
-    All subscriptions and profiles have been successfully imported: 'Сва праћања и
+    Profile object has insufficient data, skipping item: 'Објекат профила нема довољно
+      података, прескакање предмета'
+    All subscriptions and profiles have been successfully imported: 'Сва праћења и
       профили су успешно увезени'
-    All subscriptions have been successfully imported: 'Сва праћања су успешно увезене'
-    One or more subscriptions were unable to be imported: 'Увоз једне или више праћења
-      није успео'
-    Invalid subscriptions file: 'Датотека праћења није добра'
-    This might take a while, please wait: 'Ово би могло потрајати неко време, молим
-      вас причекајте'
-    Invalid history file: 'Неважећа датотека историје'
-    Subscriptions have been successfully exported: 'Праћења су успешно извезени'
-    History object has insufficient data, skipping item: 'Објект историје нема довољно
-      података, прескакање'
+    All subscriptions have been successfully imported: 'Сва праћења су успешно увезена'
+    One or more subscriptions were unable to be imported: 'Није могуће увести једно
+      или више праћења'
+    Invalid subscriptions file: 'Неважећи фајл праћења'
+    This might take a while, please wait: 'Ово може потрајати, сачекајте'
+    Invalid history file: 'Неважећи фајл историје'
+    Subscriptions have been successfully exported: 'Праћења су успешно извезена'
+    History object has insufficient data, skipping item: 'Објекат историје нема довољно
+      података, прескакање предмета'
     All watched history has been successfully imported: 'Цела историја гледања је
       успешно увезена'
     All watched history has been successfully exported: 'Цела историја гледања је
       успешно извезена'
-    Unable to read file: 'Није могуће читати датотеку'
-    Unable to write file: 'Није могуће писати датотеку'
-    Unknown data key: 'Непознат кључ података'
-    How do I import my subscriptions?: 'Како унети моја праћања?'
-    Manage Subscriptions: 'Управљај праћањима'
+    Unable to read file: 'Није могуће прочитати фајл'
+    Unable to write file: 'Није могуће написати фајл'
+    Unknown data key: 'Непознати кључ података'
+    How do I import my subscriptions?: 'Како да увезем своја праћења?'
+    Manage Subscriptions: 'Управљање праћењима'
+    All playlists has been successfully exported: Све плејлисте су успешно извезене
+    Playlist File: Фајл плејлисте
+    Subscription File: Фајл праћења
+    History File: Фајл историје
+    Export Playlists: Извор плејлиста
+    Import Playlists: Увоз плејлиста
+    All playlists has been successfully imported: Све плејлисте су успешно увезене
+    Playlist insufficient data: Нема довољно података за плејлисту „{playlist}“, прескакање
+      предмета
   Proxy Settings:
     Proxy Settings: 'Подешавања проксија'
-    Enable Tor / Proxy: 'Активирај Tor/Прокси'
+    Enable Tor / Proxy: 'Омогући Tor / Прокси'
     Proxy Protocol: 'Протокол проксија'
     Proxy Host: 'Хост проксија'
-    Proxy Port Number: 'Порт за прокси'
-    Clicking on Test Proxy will send a request to: 'Клик на „Пробај Прокси“ послаће
+    Proxy Port Number: 'Број порта проксија'
+    Clicking on Test Proxy will send a request to: 'Клик на „Тестирај прокси“ послаће
       захтев на'
-    Test Proxy: 'Пробај Прокси'
+    Test Proxy: 'Тестирај прокси'
     Your Info: 'Ваше информације'
     Ip: 'IP'
-    Country: 'Земља'
+    Country: 'Држава'
     Region: 'Регион'
     City: 'Град'
     Error getting network information. Is your proxy configured properly?: 'Грешка
-      у добијању информација о мрежи. Да ли је ваш проки правилно подешен?'
+      при набављању информација о мрежи. Да ли је ваш прокси исправно конфигурисан?'
+  Experimental Settings:
+    Replace HTTP Cache: Замени HTTP кеш
+    Experimental Settings: Експериментална подешавања
+    Warning: Ова подешавања су експериментална, могу да доведу до отказивања док су
+      омогућена. Прављење резервних копија је веома препоручљиво. Користите на властиту
+      одговорност!
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: Обавештење када се спонзор сегмент прескочи
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-ја SponsorBlock-а
+      (Подразумевано је https://sponsor.ajay.app)
+    Skip Options:
+      Skip Option: Опција прескакања
+      Do Nothing: Не ради ништа
+      Prompt To Skip: Упит за прескакање
+      Auto Skip: Аутоматско прескакање
+      Show In Seek Bar: Приказ у траци за прескакање
+    UseDeArrowTitles: Користи DeArrow наслове видео снимака
+    Enable SponsorBlock: Омогући SponsorBlock
+    SponsorBlock Settings: Подешавања SponsorBlock-а
+    Category Color: Боја категорије
+  External Player Settings:
+    External Player: Спољни плејер
+    External Player Settings: Подешавања спољног плејера
+    Custom External Player Executable: Прилагођени извршни спољни плејер
+    Ignore Unsupported Action Warnings: Игнориши упозорења о неподржаним радњама
+    Custom External Player Arguments: Прилагођени аргументи спољног плејера
+    Players:
+      None:
+        Name: Ниједно
+  Download Settings:
+    Choose Path: Избор путање
+    Open in web browser: Отвори у прегледачу
+    Ask Download Path: Питај за путању за преузимање
+    Download Behavior: Понашање преузимања
+    Download in app: Преузми у апликацији
+    Download Settings: Подешавања преузимања
+  Password Settings:
+    Remove Password: Уклони лозинку
+    Set Password To Prevent Access: Подеси лозинку да спречиш приступ подешавањима
+    Password Settings: Подешавања лозинке
+    Set Password: Подеси лозинку
+  Parental Control Settings:
+    Show Family Friendly Only: Прикажи само погодно за породицу
+    Hide Unsubscribe Button: Сакриј дугме „Прекини праћење“
+    Hide Search Bar: Сакриј траку за претрагу
+    Parental Control Settings: Подешавања родитељске контроле
+  Password Dialog:
+    Password Incorrect: Лозинка нетачна
+    Password: Лозинка
+    Enter Password To Unlock: Унесите лозинку да бисте откључали подешавања
+    Unlock: Откључај
 About:
   #On About page
-  About: 'О програму'
+  About: 'О апликацији'
   Beta: 'Бета'
-  Source code: 'Изворни код'
-  Licensed under the AGPLv3: 'Лиценциран под AGPLv3'
-  View License: 'Види лиценцу'
-  Downloads / Changelog: 'Преузимања/Листа промена'
-  GitHub releases: 'Доступна издања на GitHub'
+  Source code: 'Изворни кôд'
+  Licensed under the AGPLv3: 'Лиценцирано под AGPLv3'
+  View License: 'Погледај лиценцу'
+  Downloads / Changelog: 'Преузимања / Евиденција промена'
+  GitHub releases: 'GitHub издања'
   Help: 'Помоћ'
-  FreeTube Wiki: 'Wiki од FreeTube-а'
-  FAQ: 'FAQ'
-  Report a problem: 'Пријави проблем'
-  GitHub issues: 'Проблеми које је заједничка идентификовала на GitHub'
-  Please check for duplicates before posting: 'Молимо проверите дупликате пре објављивања'
-  Website: 'Вебсајт'
+  FreeTube Wiki: 'FreeTube Wiki'
+  FAQ: 'ЧПП'
+  Report a problem: 'Пријава проблема'
+  GitHub issues: 'Пријава проблема на GitHub-у'
+  Please check for duplicates before posting: 'Проверите да ли има дупликата пре објављивања'
+  Website: 'Веб-сајт'
   Blog: 'Блог'
-  Email: 'Е-пошта'
+  Email: 'Имејл'
   Mastodon: 'Mastodon'
-  Chat on Matrix: 'Ћаскање на Matrix'
+  Chat on Matrix: 'Ћаскање на Matrix-у'
   Please read the: 'Прочитајте'
   room rules: 'правила собе'
-  Translate: 'Превод'
-  Credits: 'Призњања'
-  FreeTube is made possible by: 'FreeTube је омогућено од'
+  Translate: 'Преведи'
+  Credits: 'Кредити'
+  FreeTube is made possible by: 'FreeTube су омогућили'
   these people and projects: 'ови људи и пројекти'
   Donate: 'Донација'
 
+  Discussions: Дискусије
 Profile:
-  Profile Select: 'Одабир профила'
+  Profile Select: 'Избор профила'
   Profile Filter: 'Филтер профила'
   All Channels: 'Сви канали'
-  Profile Manager: 'Менаџер профила'
-  Create New Profile: 'Креирај нови профил'
-  Edit Profile: 'Уреди профил'
-  Color Picker: 'Селектор боја'
+  Profile Manager: 'Управљање профилом'
+  Create New Profile: 'Направи нови профил'
+  Edit Profile: 'Измени профил'
+  Color Picker: 'Бирач боје'
   Custom Color: 'Прилагођена боја'
   Profile Preview: 'Преглед профила'
-  Create Profile: 'Креирај профил'
+  Create Profile: 'Направи профил'
   Update Profile: 'Ажурирај профил'
-  Make Default Profile: 'Креирај подразумевани профил'
+  Make Default Profile: 'Направи подразумевани профил'
   Delete Profile: 'Избриши профил'
-  Are you sure you want to delete this profile?: 'Сигурно желите да избришете овај
+  Are you sure you want to delete this profile?: 'Желите ли заиста да избришете овај
     профил?'
-  All subscriptions will also be deleted.: 'Сва праћања ће такође бити избрисани.'
-  Profile could not be found: 'Профил не може да се нађе'
-  Your profile name cannot be empty: 'Име профила не може да буде празно'
-  Profile has been created: 'Профил је креиран'
+  All subscriptions will also be deleted.: 'Сва праћења ће такође бити избрисана.'
+  Profile could not be found: 'Није могуће пронаћи профил'
+  Your profile name cannot be empty: 'Име профила не може бити празно'
+  Profile has been created: 'Профил је направљен'
   Profile has been updated: 'Профил је ажуриран'
-  Your default profile has been set to {profile}: 'Ваш подразумеван профил је постављен
+  Your default profile has been set to {profile}: 'Ваш подразумевани профил је постављен
     на {profile}'
-  Removed {profile} from your profiles: 'Уклоњено {profile} од ваших профила'
+  Removed {profile} from your profiles: 'Уклоњен {profile} из ваших профила'
   Your default profile has been changed to your primary profile: 'Ваш подразумевани
     профил је промењен на ваш примарни профил'
   '{profile} is now the active profile': '{profile} је сада активан профил'
-  Subscription List: 'Листа праћања'
+  Subscription List: 'Листа праћења'
   Other Channels: 'Остали канали'
-  '{number} selected': '{number} одабрано'
-  Select All: 'Све одабрати'
-  Select None: 'Скини одабирање'
-  Delete Selected: 'Избриши одабрано'
-  Add Selected To Profile: 'Додај одабрано на профил'
-  No channel(s) have been selected: 'Ни један канал није одабран'
+  '{number} selected': 'Изабрано: {number}'
+  Select All: 'Изабери све'
+  Select None: 'Ниједан'
+  Delete Selected: 'Избриши изабрано'
+  Add Selected To Profile: 'Додај изабрано на профил'
+  No channel(s) have been selected: 'Није изабран ниједан канал'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Ово је ваш примарни профил.  Јесте ли сигурни да желите да избришете одабране
-    канале?  Исти канали биће избрисани у било којем профилу у којем се налазе.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Јесте
-    ли сигурни да желите да избришете одабране канале?  Ово неће избрисати канал из
-    било којег другог профила.'
+  : 'Ово је ваш примарни профил.  Желите ли заиста да избришете изабране канале?  Исти
+    канали ће бити избрисани у било ком профилу на којем се налазе.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Желите
+    ли заиста да избришете изабране канале?  Ово неће избрисати канал из било ког
+    другог профила.'
 #On Channel Page
+  Profile Settings: Подешавања профила
+  Toggle Profile List: Укључи листу профила
 Channel:
   Subscriber: 'Пратилац'
   Subscribers: 'Пратиоци'
-  Subscribe: 'Прати'
-  Unsubscribe: 'Не прати више'
-  Channel has been removed from your subscriptions: 'Канал је уклоњен из праћања'
-  Removed subscription from {count} other channel(s): 'Праћење уклоњен из {count}
-    остала канала'
-  Added channel to your subscriptions: 'Канал додат у прећења'
-  Search Channel: 'Тражи канал'
-  Your search results have returned 0 results: 'Резултати претраге вратили су 0 резултата'
-  Sort By: 'Среди по'
+  Subscribe: 'Запрати'
+  Unsubscribe: 'Прекини праћење'
+  Channel has been removed from your subscriptions: 'Канал је уклоњен из ваших праћења'
+  Removed subscription from {count} other channel(s): 'Уклоњено праћење са {count}
+    других канала'
+  Added channel to your subscriptions: 'Канал је додат у ваша праћења'
+  Search Channel: 'Претрага канала'
+  Your search results have returned 0 results: 'Резултати претраге су дали 0 резултата'
+  Sort By: 'Сортирање по'
   Videos:
-    Videos: 'Видео'
-    This channel does not currently have any videos: 'Овај канал тренутно нема видео'
+    Videos: 'Видео снимци'
+    This channel does not currently have any videos: 'Овај канал тренутно нема ниједан
+      видео снимак'
     Sort Types:
       Newest: 'Најновије'
-      Oldest: 'Нај старије'
-      Most Popular: 'Нај популарније'
+      Oldest: 'Најстарије'
+      Most Popular: 'Најпопуларније'
   Playlists:
-    Playlists: 'Плејлиста'
+    Playlists: 'Плејлисте'
     This channel does not currently have any playlists: 'Овај канал тренутно нема
-      ни једну плејлисту'
+      ниједну плејлисту'
     Sort Types:
-      Last Video Added: 'Задњи додат видео'
-      Newest: 'Нај новије'
-      Oldest: 'Нај старије'
+      Last Video Added: 'Последњи додат видео снимак'
+      Newest: 'Најновије'
+      Oldest: 'Најстарије'
   About:
-    About: 'О...'
+    About: 'О каналу'
     Channel Description: 'Опис канала'
     Featured Channels: 'Истакнути канали'
+    Joined: Придружено
+    Tags:
+      Search for: Претрага „{tag}“
+      Tags: Ознаке
+    Details: Детаљи
+    Location: Локација
+  Community:
+    This channel currently does not have any posts: Овај канал тренутно нема ниједну
+      објаву
+    Reveal Answers: Откриј одговоре
+    Hide Answers: Сакриј одговоре
+    votes: 'Гласова: {votes}'
+  Live:
+    Live: Уживо
+    This channel does not currently have any live streams: Овај канал тренутно нема
+      ниједан стрим уживо
+  Releases:
+    Releases: Издања
+    This channel does not currently have any releases: Овај канал тренутно нема ниједно
+      издање
+  This channel does not allow searching: Овај канал не дозвољава претрагу
+  Shorts:
+    This channel does not currently have any shorts: Овај канал тренутно нема Shorts
+      снимке
+  Podcasts:
+    This channel does not currently have any podcasts: Овај канал тренутно нема ниједан
+      подкаст
+    Podcasts: Подкасти
+  Channel Tabs: Картице канала
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Овај
+    канал је старосно ограничен и тренутно се не може гледати на FreeTube-у.
+  This channel does not exist: Овај канал не постоји
 Video:
-  Mark As Watched: 'Означи као погледано'
+  Mark As Watched: 'Означи као одгледано'
   Remove From History: 'Уклони из историје'
-  Video has been marked as watched: 'Видео је постављен као гледан'
-  Video has been removed from your history: 'Видео је уклоњеј из историје'
-  Save Video: 'Сачувај видео'
-  Video has been saved: 'Видео је сачуван'
-  Video has been removed from your saved list: 'Видео је уклоњен из сачуване листе'
-  Open in YouTube: 'Отвори у YouTube'
-  Copy YouTube Link: 'Копирај YouTube везу'
-  Open YouTube Embedded Player: 'Отвори у Youtube-NoCookie'
-  Copy YouTube Embedded Player Link: 'Копирај Youtube-NoCookie везу'
-  Open in Invidious: 'Отвори у Invidious'
-  Copy Invidious Link: 'Копирај Invidious везу'
-  Open Channel in YouTube: 'Отвори канал у YouTube'
-  Copy YouTube Channel Link: 'Копирај везу YouTube канала'
-  Open Channel in Invidious: 'Отвори канал у Invidious'
-  Copy Invidious Channel Link: 'Копирај везу Invidious канала'
-  View: 'Прегледа'
+  Video has been marked as watched: 'Видео снимак је означен као одгледан'
+  Video has been removed from your history: 'Видео снимак је уклоњен из ваше историје'
+  Save Video: 'Сачувај видео снимак'
+  Video has been saved: 'Видео снимак је сачуван'
+  Video has been removed from your saved list: 'Видео снимак је уклоњен из ваше листе
+    сачуваног'
+  Open in YouTube: 'Отвори у YouTube-у'
+  Copy YouTube Link: 'Копирај YouTube линк'
+  Open YouTube Embedded Player: 'Отвори YouTube уграђени плејер'
+  Copy YouTube Embedded Player Link: 'Копирај линк YouTube уграђеног плејера'
+  Open in Invidious: 'Отвори у Invidious-у'
+  Copy Invidious Link: 'Копирај Invidious линк'
+  Open Channel in YouTube: 'Отвори канал у YouTube-у'
+  Copy YouTube Channel Link: 'Копирај линк YouTube канала'
+  Open Channel in Invidious: 'Отвори канал у Invidious-у'
+  Copy Invidious Channel Link: 'Копирај линк Invidious канала'
   Views: 'Прегледа'
-  Loop Playlist: 'Безкрајна плејлиста'
-  Shuffle Playlist: 'Промешај плејлисту'
-  Reverse Playlist: 'Обрни плејлисту'
-  Play Next Video: 'Пусти следећи видео'
-  Play Previous Video: 'Пусти претходни видео'
-  # Context is "X People Watching"
-  Watching: 'Гледа се'
+  Loop Playlist: 'Понављај плејлисту'
+  Shuffle Playlist: 'Мешање плејлисте'
+  Reverse Playlist: 'Обрнута плејлиста'
+  Play Next Video: 'Пусти следећи видео снимак'
+  Play Previous Video: 'Пусти претходни видео снимак'
   Watched: 'Одгледано'
-  Autoplay: 'Аутоматско покретање'
-  Starting soon, please refresh the page to check again: 'Ускоро почиње, освежите
+  Autoplay: 'Аутоматско пуштање'
+  Starting soon, please refresh the page to check again: 'Почиње ускоро, освежите
     страницу да бисте поново проверили'
   # As in a Live Video
-  Live: 'Директно'
-  Live Now: 'Директно сада'
-  Live Chat: 'Директно ћаскање'
-  Enable Live Chat: 'Упали директно ћаскање'
-  Live Chat is currently not supported in this build.: 'Директно ћаскање тренутно
-    није подржан у овој изградњи.'
-  'Chat is disabled or the Live Stream has ended.': 'Ћаскање је угашено или директан
-    пренос је завршен.'
+  Live: 'Уживо'
+  Live Now: 'Уживо сада'
+  Live Chat: 'Ћаскање уживо'
+  Enable Live Chat: 'Омогући ћаскање уживо'
+  Live Chat is currently not supported in this build.: 'Ћаскање уживо тренутно није
+    подржано у овом издању.'
+  'Chat is disabled or the Live Stream has ended.': 'Ћаскање је онемогућено или је
+    стрим уживо завршен.'
+  Published:
+    Month: Месец
+    Sep: Сеп.
+    Seconds: Секунди
+    In less than a minute: За мање од једног минута
+    Week: Недеља
+    Upcoming: Премијера за
+    Dec: Дец.
+    Jan: Јан.
+    Weeks: Недеља
+    Days: Дана
+    Years: Године
+    May: Мај
+    Mar: Мар.
+    Hours: Сати
+    Oct: Окт.
+    Months: Месеци
+    Apr: Апр.
+    Feb: Феб.
+    Jul: Јул
+    Minutes: Минути
+    Minute: Минут
+    Day: Дан
+    Hour: Сат
+    Jun: Јун
+    Second: Секунда
+    Year: Година
+    Nov: Нов.
+    Ago: Пре
+    Aug: Авг.
+  Upcoming: Предстојеће
+  Stats:
+    Video statistics are not available for legacy videos: Статистика видео снимака
+      није доступна за застареле видео снимке
+    Buffered: Баферовано
+    Bitrate: Брзина кадра
+    Volume: Волумен (партиција)
+    Mimetype: Mimetype
+    Resolution: Резолуција
+    Dropped / Total Frames: Испуштено / Укупно кадрова
+    Bandwidth: Проток
+    Player Dimensions: Димензије плејера
+    Video ID: ID видео снимка
+  Sponsor Block category:
+    interaction: Интеракција
+    filler: Попуњавање
+    music offtopic: Сегмент без музике
+    outro: Завршна анимација
+    self-promotion: Самопромоција
+    sponsor: Спонзор
+    recap: Рекапитулација
+    intro: Уводна анимација
+  translated from English: преведено са енглеског
+  External Player:
+    Unsupported Actions:
+      opening playlists: отварање плејлиста
+      shuffling playlists: мешање плејлиста
+      setting a playback rate: подешавање брзине репродукције
+      looping playlists: понављање плејлиста
+      reversing playlists: обртање плејлиста
+      opening specific video in a playlist (falling back to opening the video): отварање
+        одређеног видео снимка на плејлисти (повратак на отварање видео снимка)
+      starting video at offset: почињање видео снимка у офсету
+    OpeningTemplate: Отварање {videoOrPlaylist} у {externalPlayer}...
+    OpenInTemplate: Отвори у {externalPlayer}
+    video: видео снимак
+    UnsupportedActionTemplate: '{externalPlayer} не подржава: {action}'
+    playlist: плејлиста
+  Live chat is enabled. Chat messages will appear here once sent.: Ћаскање уживо је
+    омогућено.  Поруке ћаскања ће се појавити овде када буду послате.
+  Streamed on: Стримовано
+  Audio:
+    Medium: Средње
+    High: Високо
+    Best: Најбоље
+    Low: Ниско
+  video only: само видео снимак
+  Skipped segment: Прескочен сегмент
+  Pause on Current Video: Паузирај на тренутном видео снимку
+  Premieres on: Премијера на
+  audio only: само аудио снимак (звук)
+  Show Super Chat Comment: Прикажи Super Chat коментар
+  Scroll to Bottom: Превуци до дна
+  Started streaming on: Започето стримовање
+  Publicationtemplate: пре {number} {unit}
+  Premieres: Премијера
+  Download Video: Преузми видео снимак
+  Published on: Објављено
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Ћаскање
+    уживо тренутно није подржано са Invidious API-јем. Потребна је директна веза са
+    YouTube-ом.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Ћаскање
+    уживо није доступно за овај стрим. Можда га је онемогућио аутор.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити РСС уместо свог
-      подразумеваног метода за прикупљање вашег праћења. РСС је бржи и спречава блокирање
-      ИП-а, али не пружа одређене информације попут трајања видеа или статуса уживо'
+    Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
+      подразумеваног метода за прикупљање вашег фида праћења. RSS је бржи и спречава
+      блокирање IP адресе, али не пружа одређене информације као што су трајање видео
+      снимка или статус уживо'
 
 # Toast Messages
-Subscriptions have not yet been implemented: 'Праћења још увек нису примењени'
-Open New Window: Отбори нов прозор
+    Fetch Automatically: Када је омогућено, FreeTube ће аутоматски прикупити ваш фид
+      праћења када се отвори нови прозор и када промените профил.
+  General Settings:
+    External Link Handling: "Изаберите подразумевано понашање када се кликне на линк
+      који се не може отворити у FreeTube-у.\nПодразумевано, FreeTube ће отворити
+      линк на који сте кликнули у вашем подразумеваном прегледачу.\n"
+    Fallback to Non-Preferred Backend on Failure: Када ваш преферирани API има проблем,
+      FreeTube ће аутоматски покушати да користи ваш непреферирани API као резервни
+      метод, када је омогућено.
+    Preferred API Backend: Изаберите бек-енд коју FreeTube користи за добијање података.
+      Локални API је уграђени екстрактор. Invidious API захтева Invidious сервер за
+      повезивање.
+    Thumbnail Preference: Све сличице широм FreeTube-а ће бити замењене кадром видео
+      снимка уместо подразумеване сличице.
+    Region for Trending: Регион трендова вам омогућава да изаберете државу за видео
+      снимке у тренду коју желите да се приказује.
+    Invidious Instance: Invidious инстанца на коју ће се FreeTube повезати за API
+      позиве.
+  External Player Settings:
+    Custom External Player Arguments: Сви прилагођени аргументи командне линије, раздвојени
+      тачком и зарезом („;“), желите да буду прослеђени спољном плејеру.
+    External Player: Избором спољног плејера ће приказати иконицу, за отварање видео
+      снимка (плејлисте, ако је подржана) у спољном плејеру, на сличици. Упозорење,
+      подешавања Invidious-а не утичу на спољне плејере.
+    DefaultCustomArgumentsTemplate: (Подразумевано:„{defaultCustomArguments}“)
+    Custom External Player Executable: Подразумевано, FreeTube ће претпоставити да
+      се изабрани спољни плејер може пронаћи преко PATH променљиве окружења. Ако је
+      потребно, овде се може подесити прилагођена путања.
+    Ignore Warnings: Поништи упозорења када тренутни спољни плејер не подржава тренутну
+      радњу (нпр. обртање плејлиста итд.).
+  Distraction Free Settings:
+    Hide Channels: Унесите назив канала или ID канала да бисте сакрили све видео снимке,
+      плејлисте и сам канал, да се не појављују у претрази, у тренду, најпопуларнијима
+      и препорученима. Назив канала који сте унели мора се потпуно подударати и разликовати
+      велика и мала слова.
+    Hide Subscriptions Live: Ово подешавање је замењено подешавањем за целу апликацију
+      „{appWideSetting}“ у одељку „{subsection}“ у „{settingsSection}“
+  Privacy Settings:
+    Remove Video Meta Files: Када је омогућено, FreeTube аутоматски брише мета фајлове
+      направљене током репродукције видео снимка, када се страница гледања затвори.
+  Player Settings:
+    Allow DASH AV1 formats: DASH AV1 формати могу изгледати боље од DASH H.264 формата.
+      DASH AV1 формати захтевају више снаге за репродукцију! Они нису доступни на
+      свим видео снимцима, у тим случајевима плејер ће уместо њих користити DASH H.264
+      формате.
+    Default Video Format: Подесите формате који се користе када се видео снимак пушта.
+      DASH формати могу да пуштају виши квалитет. Застарели формати су ограничени
+      на максимално 720p, али користе мање протока. Аудио формати су само звучни снимци.
+    Proxy Videos Through Invidious: Повезаће се сa Invidious-ом ради приказивања видео
+      снимака уместо директног повезивања са YouTube-ом. Замењује подешавања API-ја.
+    Scroll Playback Rate Over Video Player: Док је курсор изнад видео снимка, притисните
+      и држите тастер „Control“ (тастер „Command“ на Mac-у) и померајте точкић миша
+      унапред или уназад да бисте контролисали брзину репродукције. Притисните и држите
+      тастер „Control“ (тастер „Command„ на Mac-у) и кликните левим тастером миша
+      да бисте се брзо вратили на подразумевану брзину репродукције (1x, осим ако
+      није промењено у подешавањима).
+    Force Local Backend for Legacy Formats: Ради само када је Invidious API подразумевани.
+      Када је омогућено, локални API ће се покренути и користити застареле формате
+      које је вратио, уместо оних које је вратио Invidious. Помаже када се видео снимци
+      које је вратио Invidious не пуштају због ограничења у држави.
+    Skip by Scrolling Over Video Player: Користите точкић миша да бисте прескакали
+      кроз видео снимак, MPV стил.
+  Experimental Settings:
+    Replace HTTP Cache: Онемогућава HTTP кеш заснован на Electron-овом диску и омогућава
+      прилагођени кеш слике у меморији. То ће довести до повећане употребе RAM-а.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Замена наслова видео снимака насловима које су послали корисници
+      DeArrow-a.
+Subscriptions have not yet been implemented: 'Праћења још увек нису имплементирана'
+Open New Window: Отвори нови прозор
+Shuffle is now disabled: Мешање је сада онемогућено
+Age Restricted:
+  Type:
+    Video: Видео снимак
+    Channel: Канал
+  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} је старосно ограничен(а)'
+New Window: Нови прозор
+Clipboard:
+  Copy failed: Копирање у привремену меморију није успело
+  Cannot access clipboard without a secure connection: Није могуће приступити привременој
+    меморији без безбедне везе
+Playlist:
+  View Full Playlist: Погледај целу плејлисту
+  Last Updated On: Последњи пут ажурирано
+  Videos: Видео снимци
+  View: Преглед
+  Playlist: Плејлиста
+  Views: Прегледа
+Falling back to Invidious API: Повратак на Invidious API
+Change Format:
+  Dash formats are not available for this video: DASH формати нису доступни за овај
+    видео снимак
+  Audio formats are not available for this video: Аудио формати нису доступни за овај
+    видео снимак
+  Use Audio Formats: Користи аудио формате
+  Change Media Formats: Промени формате медија
+  Use Dash Formats: Користи DASH формате
+  Use Legacy Formats: Користи застареле формате
+Comments:
+  Comments: Коментари
+  Sort by: Сортирање по
+  Show Comments: Прикажи коментаре
+  View: Погледај
+  Click to View Comments: Кликни да видиш коментаре
+  From {channelName}: од {channelName}
+  Top comments: Топ коментари
+  Subscribed: Пратите
+  Getting comment replies, please wait: Набављање одговора на коментаре, сачекајте
+  Load More Comments: Учитај више коментара
+  Hide Comments: Сакриј коментаре
+  Show More Replies: Прикажи више одговора
+  Pinned by: Закачио
+  No more comments available: Нема више доступних коментара
+  Hearted: Са срцем
+  There are no comments available for this video: Нема доступних коментара за овај
+    видео снимак
+  Replies: Одговори
+  Reply: Одговори
+  View {replyCount} replies: Погледај {replyCount} одговор(а)
+  Member: Члан
+  Hide: Сакриј
+  There are no more comments for this video: Нема више коментара за овај видео снимак
+  And others: и осталих
+  Newest first: Најновије прво
+Hashtags have not yet been implemented, try again later: Хеш-ознаке још увек нису
+  имплементиране, покушајте поново касније
+Share:
+  Invidious Embed URL copied to clipboard: Invidious уграђени URL је копиран у привремену
+    меморију
+  Share Channel: Дели канал
+  Open Embed: Отвори уграђено
+  Invidious Channel URL copied to clipboard: Invidious URL канала је копиран у привремену
+    меморију
+  YouTube URL copied to clipboard: YouTube URL је копиран у привремену меморију
+  Share Playlist: Дели плејлисту
+  Copy Embed: Копирај уграђено
+  Copy Link: Копирај линк
+  Open Link: Отвори линк
+  Share Video: Дели видео снимак
+  Include Timestamp: Укључи временску ознаку
+  Invidious URL copied to clipboard: Invidious URL је копиран у привремену меморију
+  YouTube Channel URL copied to clipboard: YouTube URL канала је копиран у привремену
+    меморију
+  YouTube Embed URL copied to clipboard: YouTube уграђени URL је копиран у привремену
+    меморију
+Falling back to the local API: Повратак на локални API
+Unknown YouTube url type, cannot be opened in app: Непозната врста YouTube URL-а,
+  не може се отворити у апликацији
+Search Bar:
+  Clear Input: Очисти унос
+Up Next: Следеће
+Loop is now disabled: Понављање је сада онемогућено
+Playing Next Video: Пуштање следећег видео снимка
+The playlist has been reversed: Плејлиста је обрнута
+Videos:
+  Sort By:
+    Oldest: Најстарије
+    Newest: Најновије
+Playlist will pause when current video is finished: Плејлиста ће се паузирати када
+  се тренутни видео снимак заврши
+Local API Error (Click to copy): Грешка локалног API-ја (Кликнути за копирање)
+Channels:
+  Search bar placeholder: Претрага канала
+  Unsubscribe Prompt: Желите ли заиста да прекинете праћење „{channelName}“?
+  Channels: Канали
+  Title: Листа канала
+  Empty: Ваша листа канала је тренутно празна.
+  Unsubscribe: Прекини праћење
+  Count: 'Пронађено канала: {number}.'
+  Unsubscribed: '{channelName} је уклоњен из ваших праћења'
+External link opening has been disabled in the general settings: Отварање спољног
+  линка је онемогућено у општим подешавањима
+Screenshot Success: Снимак екрана је сачуван као „{filePath}“
+Canceled next video autoplay: Отказано аутоматско пуштање следећег видео снимка
+Playing Next Video Interval: Пуштање следећег видео снимка убрзо. Кликнути за отказивање.
+  | Пушта се следећи видео снимак за {nextVideoInterval} секунду. Кликнути за отказивање.
+  | Пушта се следећи видео за {nextVideoInterval} секунди. Кликнути за отказивање.
+No: Не
+Playlist will not pause when current video is finished: Плејлиста се неће паузирати
+  када се тренутни видео снимак заврши
+Yes: Да
+Chapters:
+  'Chapters list visible, current chapter: {chapterName}': 'Листа поглавља је видљива,
+    тренутно поглавље: {chapterName}'
+  Chapters: Поглавља
+  'Chapters list hidden, current chapter: {chapterName}': 'Листа поглавља је скривена,
+    тренутно поглавље: {chapterName}'
+Hashtag:
+  This hashtag does not currently have any videos: Ова хеш-ознака тренутно нема ниједан
+    видео снимак
+  Hashtag: Хеш-ознака
+Playing Previous Video: Пуштање претходног видео снимка
+Ok: У реду
+Invidious API Error (Click to copy): Грешка Invidious API-ја (Кликнути за копирање)
+Starting download: Почиње преузимање „{videoTitle}“
+Preferences: Преференце
+Default Invidious instance has been cleared: Подразумевана инстанца Invidious-а је
+  избрисана
+Mini Player: Мини плејер
+Toggle Theatre Mode: Укључи биоскопски режим
+'The playlist has ended. Enable loop to continue playing': Плејлиста је завршена.
+  Омогућите понављање да бисте наставили пуштање
+Shuffle is now enabled: Мешање је сада омогућено
+Default Invidious instance has been set to {instance}: Подразумевана инстанца Invidious-а
+  је подешена на {instance}
+Are you sure you want to open this link?: Желите ли заиста да отворите овај линк?
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Овај
+  видео снимак је недоступан, јер недостају формати. То се може догодити због недоступности
+  државе.
+Screenshot Error: Снимак екрана није успео. {error}
+Downloading has completed: „{videoTitle}“ је завршио преузимање
+Loop is now enabled: Понављање је сада омогућено
+Downloading failed: Дошло је до проблема при преузимању „{videoTitle}“

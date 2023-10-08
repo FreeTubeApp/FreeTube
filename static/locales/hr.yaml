@@ -35,8 +35,15 @@ Global:
   Videos: 'Videa'
   Shorts: Kratka videa
   Live: Uživo
+  Community: Zajednica
 
 # Search Bar
+  Counts:
+    Video Count: 1 video | {count} videa
+    Subscriber Count: 1 pretplatnik | {count} pretplatnika
+    View Count: 1 prikaz | {count} prikaza
+    Watching Count: 1 praćenje | {count} praćenja
+    Channel Count: 1 kanal | {count} kanala
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
@@ -94,6 +101,8 @@ Subscriptions:
   Subscriptions Tabs: Kartica pretplata
   All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
     na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
+  Empty Posts: Kanali na koje si pretplaćen/a trenutačno nemaju objave.
+  Load More Posts: Učitaj još objava
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -145,6 +154,7 @@ Settings:
       Beginning: 'Početak'
       Middle: 'Sredina'
       End: 'Kraj'
+      Hidden: Skriveno
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videa u trendu'
@@ -177,6 +187,8 @@ Settings:
       Dracula: 'Drakula'
       System Default: Standard sustava
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelno ružičasta
+      Hot Pink: Vruća ružičasta
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -386,7 +398,7 @@ Settings:
     All playlists has been successfully exported: Sve zbirke su uspješno izvezene
     Subscription File: Datoteka pretplate
     History File: Datoteka povijesti
-    Playlist File: Datoteka playliste
+    Playlist File: Datoteka zbirke
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -421,9 +433,12 @@ Settings:
       Subscriptions Page: Stranica pretplata
     Hide Channel Podcasts: Sakrij kanal podcastova
     Hide Channel Releases: Sakrij kanal izdanja
-    Hide Subscriptions Shorts: Sakrij kratka videa pretplate
-    Hide Subscriptions Live: Sakrij videa uživo pretplate
-    Hide Subscriptions Videos: Sakrij videa pretplate
+    Hide Subscriptions Shorts: Sakrij pretplate kratkih videa
+    Hide Subscriptions Live: Sakrij pretplate videa uživo
+    Hide Subscriptions Videos: Sakrij pretplate videa
+    Blur Thumbnails: Zamuti minijature
+    Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
+    Hide Subscriptions Community: Sakrij pretplate zajednice
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -602,8 +617,6 @@ Profile:
   Profile Settings: Postavke profila
   Toggle Profile List: Uključi/Isključi popis profila
 Channel:
-  Subscriber: 'Pretplatnik'
-  Subscribers: 'Pretplatnici'
   Subscribe: 'Pretplati se'
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
@@ -650,7 +663,9 @@ Channel:
       prijenosa uživo
   Community:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
-    Community: Zajednica
+    Reveal Answers: Prikaži odgovore
+    Hide Answers: Sakrij odgovore
+    votes: '{votes} glasanja'
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka
       videa
@@ -673,10 +688,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiraj poveznicu na ugrađeni YouTube player'
   Open in Invidious: 'Otvori na Invidious stranici'
   Copy Invidious Link: 'Kopiraj poveznicu na Invidious'
-  View: 'gledanje'
   Views: 'gledanja'
-  # Context is "X People Watching"
-  Watching: 'Gleda se'
   Watched: 'Pogledano'
   # As in a Live Video
   Live: 'Uživo'
@@ -806,6 +818,7 @@ Video:
   Upcoming: Predstojeći
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
     uživo nije dostupan za ovaj prijenos. Možda ga je prenosnik deaktivirao.
+  Pause on Current Video: Zaustavi trenutačni video
 Videos:
   #& Sort By
   Sort By:
@@ -879,6 +892,7 @@ Comments:
   Member: Član
   Hearted: Omiljeno
   View {replyCount} replies: Pogledaj {replyCount} odgovora
+  Subscribed: Pretplaćeno
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -1032,3 +1046,7 @@ Ok: U redu
 Hashtag:
   This hashtag does not currently have any videos: Ovaj hashtag trenutačno nema videa
   Hashtag: Hashtag
+Playlist will pause when current video is finished: Zbirka će se zaustaviti kada trenutačni
+  video završi
+Playlist will not pause when current video is finished: Zbirka se neće zaustaviti
+  kada trenutačni video završi

@@ -36,8 +36,15 @@ Global:
   Videos: 'Video'
   Shorts: Video brevi
   Live: Dal vivo
+  Community: Comunità
 
 # Search Bar
+  Counts:
+    Video Count: 1 video | {count} video
+    Channel Count: 1 canale | {count} canali
+    Subscriber Count: 1 iscritto | {count} iscritti
+    View Count: 1 visualizzazione | {count} visualizzazioni
+    Watching Count: 1 spettatore | {count} spettatori
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -96,6 +103,8 @@ Subscriptions:
   Subscriptions Tabs: Schede iscrizioni
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
     i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
+  Load More Posts: Carica più post
+  Empty Posts: I canali a cui sei iscritto attualmente non hanno post.
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -148,6 +157,7 @@ Settings:
       Beginning: 'Inizio'
       Middle: 'Nel mezzo'
       End: 'Fine'
+      Hidden: Nascoste
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'
@@ -181,6 +191,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Predefinito del sistema
       Catppuccin Mocha: Cappuccino moka
+      Pastel Pink: Rosa pastello
+      Hot Pink: Rosa caldo
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -433,6 +445,8 @@ Settings:
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
+    Blur Thumbnails: Miniature sfocate
+    Hide Subscriptions Community: Nascondi comunità di iscritti
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -564,8 +578,6 @@ About:
   Beta: Beta
   Discussions: Discussioni
 Channel:
-  Subscriber: 'Iscritto'
-  Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca nel canale'
@@ -611,7 +623,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Questo canale attualmente non
       ha alcun post
-    Community: Comunità
     votes: '{votes} voti'
     Reveal Answers: Rivela le risposte
     Hide Answers: Nascondi le risposte
@@ -642,10 +653,7 @@ Video:
     YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
-  View: 'Vista'
   Views: 'Visualizzazioni'
-  # Context is "X People Watching"
-  Watching: 'Stanno guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
@@ -776,6 +784,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La
     chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
+  Pause on Current Video: Pausa sul video attuale
 Videos:
   #& Sort By
   Sort By:
@@ -852,6 +861,7 @@ Comments:
   Member: Membro
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
+  Subscribed: Iscritto
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -1059,3 +1069,7 @@ Hashtag:
   This hashtag does not currently have any videos: Questo hashtag attualmente non
     ha alcun video
   Hashtag: Hashtag
+Playlist will pause when current video is finished: La playlist verrà messa in pausa
+  al termine del video attuale
+Playlist will not pause when current video is finished: La playlist non verrà messa
+  in pausa al termine del video attuale

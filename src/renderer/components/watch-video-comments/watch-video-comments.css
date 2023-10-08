@@ -1,5 +1,6 @@
 .card {
-  padding: 0 16px;
+  padding-block: 0;
+  padding-inline: 16px;
 }
 
 .getCommentsTitle,
@@ -9,8 +10,7 @@
 }
 
 .getCommentsTitle {
-  padding-bottom: 8px;
-  padding-top: 8px;
+  padding-block: 8px;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;
@@ -18,19 +18,16 @@
 }
 
 .noCommentMsg {
-  padding-top: 1em;
-  padding-bottom: 1em;
-
+  padding-block: 1em;
   text-align: center;
 }
 
 .commentsTitle {
-  padding-bottom: 1em;
-  padding-top: 1em;
+  padding-block: 1em;
 }
 
 .commentSort {
-  float: right;
+  float: var(--float-right-ltr-rtl-value);
 }
 
 .comment {
@@ -46,20 +43,20 @@
 }
 
 .commentThumbnail {
-  float: left;
-  width: 60px;
-  height: 60px;
+  float: var(--float-left-ltr-rtl-value);
+  inline-size: 60px;
+  block-size: 60px;
   border-radius: 200px;
   -webkit-border-radius: 200px;
 }
 
 .commentThumbnailHidden {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
+  inline-size: 60px;
+  block-size: 60px;
   font-size: 20px;
   line-height: 1em;
   text-transform: capitalize;
@@ -72,17 +69,17 @@
 .commentAuthorWrapper {
   font-weight: bold;
   font-size: 14px;
-  margin-left: 68px;
-  margin-top: 0px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-inline-start: 68px;
+  margin-block-start: 0;
+  word-wrap: break-word;
 }
 
 .commentOwner {
-  background-color: var(--scrollbar-color);
+  background-color: var(--secondary-card-bg-color);
   border-radius: 10px;
-  padding: 0 10px;
+  padding-inline: 10px;
 }
+
 
 .commentAuthor {
   color: inherit;
@@ -92,96 +89,103 @@
 .commentText {
   white-space: pre-wrap;
   font-size: 14px;
-  margin-top: -10px;
-  margin-left: 70px;
+  margin-block-start: -10px;
+  margin-inline-start: 70px;
   word-wrap: break-word;
 }
+
 .commentPinned {
   font-weight: normal;
   font-size: 12px;
-  margin-block-end: 0;
   margin-block-start: 0;
-  margin-left: 68px;
-  margin-bottom: 5px;
+  margin-inline-start: 68px;
+  margin-block-end: 5px;
 }
 
 .commentDate {
   font-weight: normal;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   font-size: 12px;
 }
 
 .commentMemberIcon {
-  margin-left: 5px;
-  width: 14px;
-  height: 14px;
+  margin-inline-start: 5px;
+  inline-size: 14px;
+  block-size: 14px;
+}
+
+.commentSubscribedIcon {
+  content: var(--logo-icon);
+  block-size: 14px;
+  inline-size: 14px;
+  vertical-align: middle;
+  margin-inline: 0.25em;
 }
 
 .commentLikeCount {
   font-size: 11px;
-  margin-left: 70px;
-  margin-top: 0px;
+  margin-inline-start: 70px;
+  margin-block-start: 0;
 }
 
 .commentHeartBadge {
   display: inline-block;
   position: relative;
-  width: 25px;
-  height: 20px;
-  margin-left: 10px;
-  margin-bottom: -7px;
+  inline-size: 25px;
+  block-size: 20px;
+  margin-inline-start: 10px;
+  margin-block-end: -7px;
 }
 
 .commentHeartBadgeImg {
   position: absolute;
-  left: 0;
-  width: 15px;
-  height: 15px;
+  inset-inline-start: 0;
+  inline-size: 15px;
+  block-size: 15px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
 
 .commentHeartBadgeWhite {
   position: absolute;
-  left: 9px;
-  bottom: 1px;
-  width: 11px;
-  height: 11px;
+  inset-inline-start: 9px;
+  inset-block-end: 1px;
+  inline-size: 11px;
+  block-size: 11px;
   z-index: 1;
 }
 
 .commentHeartBadgeRed {
   position: absolute;
   color: var(--red-500);
-  left: 10px;
-  bottom: 2px;
-  width: 9px;
-  height: 9px;
+  inset-inline-start: 10px;
+  inset-block-end: 2px;
+  inline-size: 9px;
+  block-size: 9px;
   z-index: 2;
 }
 
 .commentMoreReplies {
   font-size: 11px;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
 }
 
 .commentReplies {
-  margin-left: 30px;
+  margin-inline-start: 30px;
 }
 
 .showMoreReplies {
-  margin-left: 30px;
+  margin-inline-start: 30px;
   font-size: 15px;
   cursor: pointer;
   text-decoration: underline;
 }
 
 .getMoreComments {
-  padding-bottom: 1em;
-
+  padding-block-end: 1em;
   text-align: center;
   text-decoration: underline;
   cursor: pointer;

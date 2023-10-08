@@ -13,13 +13,13 @@
   background-color: var(--card-bg-color);
   box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
   display: flex;
-  height: 60px;
-  left: 0;
+  block-size: 60px;
+  inset-inline-start: 0;
   line-height: 60px;
   position: sticky;
-  right: 0;
-  top: 0;
-  width: 100%;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  inline-size: 100%;
   z-index: 4;
 
   @media only screen and (min-width: 961px) {
@@ -47,17 +47,17 @@
   color: var(--primary-text-color);
   cursor: pointer;
   font-size: 20px;
-  height: 1em;
+  block-size: 1em;
   padding: 10px;
   transition: background 0.2s ease-out;
-  width: 1em;
+  inline-size: 1em;
 
   @include top-nav-is-colored {
     color: var(--text-with-main-color);
   }
 
-  &.fa-arrow-left,
-  &.fa-arrow-right {
+  &.arrowBackwardDisabled,
+  &.arrowForwardDisabled {
     color: gray;
     opacity: 0.5;
     pointer-events: none;
@@ -67,6 +67,7 @@
 
   &:hover {
     background-color: var(--side-nav-hover-color);
+    color: var(--side-nav-hover-text-color);
     transition: background 0.2s ease-in;
 
     @include top-nav-is-colored {
@@ -76,6 +77,7 @@
 
   &:active {
     background-color: var(--tertiary-text-color);
+    color: var(--side-nav-active-text-color);
     transition: background 0.2s ease-in;
 
     @include top-nav-is-colored {
@@ -87,7 +89,7 @@
 .navFilterIcon {
   $effect-distance: 10px;
 
-  margin-left: $effect-distance;
+  margin-inline-start: $effect-distance;
 
   &.filterChanged {
     box-shadow: 0 0 $effect-distance var(--primary-color);
@@ -102,7 +104,8 @@
   align-items: center;
   display: flex;
   gap: 3px;
-  margin: 0 6px;
+  margin-block: 0;
+  margin-inline: 6px;
 
   &.profiles {
     justify-content: flex-end;
@@ -124,7 +127,8 @@
     align-items: center;
     cursor: pointer;
     display: flex;
-    padding: 0 25px 0 10px;
+    padding-block: 0;
+    padding-inline: 10px 25px;
 
     &:active {
       background-color: var(--tertiary-text-color);
@@ -140,8 +144,8 @@
       background-position: right top;
       background-repeat: no-repeat;
       background-size: 25px;
-      height: 25px;
-      width: 25px;
+      block-size: 25px;
+      inline-size: 25px;
 
       @include top-nav-is-colored {
         background-image: var(--logo-icon-bar-color);
@@ -153,11 +157,11 @@
       background-position: right top;
       background-repeat: no-repeat;
       background-size: 100px;
-      height: 40px;
-      margin-left: 5px;
+      block-size: 40px;
+      margin-inline-start: 5px;
       position: relative;
-      top: -3px;
-      width: 100px;
+      inset-block-start: -3px;
+      inline-size: 100px;
 
       @media only screen and (max-width: 680px) {
         display: none;
@@ -172,7 +176,7 @@
 
 .middle {
   flex: 1;
-  max-width: 440px;
+  max-inline-size: 440px;
 
   .searchContainer {
     align-items: center;
@@ -180,10 +184,10 @@
 
     @media only screen and (max-width: 680px) {
       background-color: var(--side-nav-color);
-      left: 0;
+      inset-inline-start: 0;
       position: fixed;
-      right: 0;
-      top: 60px;
+      inset-inline-end: 0;
+      inset-block-start: 60px;
 
       @include top-nav-is-colored {
         background-color: var(--primary-color-hover);
@@ -196,16 +200,18 @@
   }
 
   .searchFilters {
-    left: 0;
-    margin: 10px 20px 20px 220px;
+    inset-inline-start: 0;
+    margin-block: 10px 20px;
+    margin-inline: 220px 20px;
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     transition: margin 150ms ease-in-out;
 
     @media only screen and (max-width: 680px) {
-      left: 0;
-      margin: 95px 10px 0;
-      right: 0;
+      inset-inline-start: 0;
+      margin-block: 95px 0;
+      margin-inline: 10px;
+      inset-inline-end: 0;
     }
   }
 }

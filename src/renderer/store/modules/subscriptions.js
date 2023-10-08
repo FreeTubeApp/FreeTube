@@ -7,7 +7,8 @@ const defaultCacheEntryValueForForOneChannel = {
 const state = {
   videoCache: {},
   liveCache: {},
-  shortsCache: {}
+  shortsCache: {},
+  postsCache: {}
 }
 
 const getters = {
@@ -34,6 +35,14 @@ const getters = {
   getLiveCacheByChannel: (state) => (channelId) => {
     return state.liveCache[channelId]
   },
+
+  getPostsCache: (state) => {
+    return state.postsCache
+  },
+
+  getPostsCacheByChannel: (state) => (channelId) => {
+    return state.postsCache[channelId]
+  },
 }
 
 const actions = {
@@ -49,10 +58,15 @@ const actions = {
     commit('updateLiveCacheByChannel', payload)
   },
 
+  updateSubscriptionPostsCacheByChannel: ({ commit }, payload) => {
+    commit('updatePostsCacheByChannel', payload)
+  },
+
   clearSubscriptionsCache: ({ commit }, payload) => {
     commit('clearVideoCache', payload)
     commit('clearShortsCache', payload)
     commit('clearLiveCache', payload)
+    commit('clearPostsCache', payload)
   },
 }
 
@@ -83,6 +97,15 @@ const mutations = {
   },
   clearLiveCache(state) {
     state.liveCache = {}
+  },
+  updatePostsCacheByChannel(state, { channelId, posts }) {
+    const existingObject = state.postsCache[channelId]
+    const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
+    if (posts != null) { newObject.posts = posts }
+    state.postsCache[channelId] = newObject
+  },
+  clearPostsCache(state) {
+    state.postsCache = {}
   },
 }
 

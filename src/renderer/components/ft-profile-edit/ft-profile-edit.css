@@ -1,7 +1,7 @@
 .card {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 15px;
+  inline-size: 85%;
+  margin-block: 0 15px;
+  margin-inline: auto;
 }
 
 .message {
@@ -9,22 +9,22 @@
 }
 
 .profileName {
-  width: 400px;
+  inline-size: 400px;
 }
 
 .bottomMargin {
-  margin-bottom: 30px;
+  margin-block-end: 30px;
 }
 
 .colorOptions {
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  max-inline-size: 1000px;
+  margin-block: 0 30px;
+  margin-inline: auto;
 }
 
 .colorOption {
-  width: 100px;
-  height: 100px;
+  inline-size: 100px;
+  block-size: 100px;
   margin: 10px;
   cursor: pointer;
   border-radius: 50%;
@@ -35,13 +35,14 @@
   font-size: 50px;
   line-height: 1em;
   text-align: center;
-  padding: 25px 0;
+  padding-block: 25px;
+  padding-inline: 0px;
   user-select: none;
   -webkit-user-select: none;
 }
 
 @media only screen and (max-width: 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 }

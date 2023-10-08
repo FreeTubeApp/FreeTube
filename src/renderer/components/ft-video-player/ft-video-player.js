@@ -36,7 +36,7 @@ const EXPECTED_PLAY_RELATED_ERROR_MESSAGES = [
 // videojs-http-streaming calls this hook everytime it makes a request,
 // so we can use it to convert the Range header into the range query parameter for the streaming URLs
 videojs.Vhs.xhr.beforeRequest = (options) => {
-  if (store.getters.getProxyVideos) {
+  if (store.getters.getProxyVideos && !options.uri.startsWith('data:application/dash+xml')) {
     const { uri } = options
     options.uri = getProxyUrl(uri)
   }

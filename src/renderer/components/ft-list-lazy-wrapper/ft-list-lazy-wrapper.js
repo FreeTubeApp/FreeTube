@@ -4,6 +4,7 @@ import FtListChannel from '../ft-list-channel/ft-list-channel.vue'
 import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
 import FtCommunityPost from '../ft-community-post/ft-community-post.vue'
 import FtCard from '../ft-card/ft-card.vue'
+import FtListHashtag from '../ft-list-hashtag/ft-list-hashtag.vue'
 
 export default defineComponent({
   name: 'FtListLazyWrapper',
@@ -12,7 +13,8 @@ export default defineComponent({
     'ft-list-channel': FtListChannel,
     'ft-list-playlist': FtListPlaylist,
     'ft-community-post': FtCommunityPost,
-    'ft-card': FtCard
+    'ft-card': FtCard,
+    'ft-list-hashtag': FtListHashtag
   },
   props: {
     data: {

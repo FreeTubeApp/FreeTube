@@ -2,23 +2,32 @@
   position: relative;
 }
 
+ body[dir='rtl'] .ft-input-component.search.showClearTextButton .inputAction {
+  inset-inline-end: -30px;
+ }
+
+ body[dir='rtl'] .ft-input-component.search.clearTextButtonVisible .inputAction,
+ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inputAction {
+  inset-inline-end: 0;
+ }
+
 .ft-input-component.search.showClearTextButton {
-  padding-left: 30px;
+  padding-inline-start: 30px;
 }
 
 .ft-input-component.search.clearTextButtonVisible,
 .ft-input-component.search.showClearTextButton:focus-within {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .ft-input-component.showClearTextButton:not(.search) .ft-input {
-  padding-left: 46px;
+  padding-inline-start: 46px;
 }
 
 /* Main search input */
 .clearTextButtonVisible.search .ft-input,
 .ft-input-component.search.showClearTextButton:focus-within .ft-input {
-  padding-left: 46px;
+  padding-inline-start: 46px;
 }
 
 .ft-input-component:focus-within .clearInputTextButton {
@@ -38,11 +47,12 @@
 
 .clearInputTextButton {
   position: absolute;
-  top: 5px;
-  left: 0;
+  inset-block-start: 5px;
+  inset-inline-start: 0;
   /* To be higher than `.inputWrapper` */
   z-index: 1;
-  margin: 0 3px;
+  margin-block: 0;
+  margin-inline: 3px;
   padding: 10px;
   border-radius: 100%;
   color: var(--primary-text-color);
@@ -54,6 +64,7 @@
 
 .clearInputTextButton.visible:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
 }
 
 .forceTextColor .clearInputTextButton:hover {
@@ -62,13 +73,14 @@
 
 .clearInputTextButton.visible:active {
   background-color: var(--tertiary-text-color);
+  color: var(--side-nav-active-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .search .clearInputTextButton {
-  top: 12px;
+  inset-block-start: 12px;
 }
 
 .forceTextColor .clearInputTextButton {
@@ -84,12 +96,12 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   outline: none;
-  width: 100%;
+  inline-size: 100%;
   padding: 1rem;
   border: none;
-  margin-bottom: 10px;
+  margin-block-end: 10px;
   font-size: 16px;
-  height: 45px;
+  block-size: 45px;
   color: var(--secondary-text-color);
   border-radius: 5px;
   background-color: var(--search-bar-color);
@@ -123,10 +135,11 @@
 
 .inputAction {
   position: absolute;
-  margin: 0 3px;
+  margin-block: 0;
+  margin-inline: 3px;
   padding: 10px;
-  top: -8px;
-  right: 0;
+  inset-block-start: -8px;
+  inset-inline-end: 0;
   border-radius: 100%;
   color: var(--primary-text-color);
   /* this should look disabled by default */
@@ -153,11 +166,12 @@
   With arrow present means
   the text might get under the arrow with normal padding
    */
-  padding-right: calc(36px + 6px);
+  padding-inline-end: calc(36px + 6px);
 }
 
 .inputAction.enabled:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
@@ -169,6 +183,7 @@
 
 .inputAction.enabled:active {
   background-color: var(--tertiary-text-color);
+  color: var(--side-nav-active-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
@@ -180,10 +195,11 @@
 
 .list {
   position: absolute;
-  width: 100%;
+  inline-size: 100%;
   list-style: none;
   margin: 0;
-  padding: 5px 0;
+  padding-block: 5px;
+  padding-inline: 0;
   z-index: 10;
   border-radius: 0 0 5px 5px;
   word-wrap: break-word;
@@ -193,11 +209,12 @@
 
 .list li {
   display: block;
-  padding: 0 15px;
+  padding-block: 0;
+  padding-inline: 15px;
   line-height: 2rem;
 }
 
 .hover {
   background-color: var(--scrollbar-color-hover);
-/*   color: white; */
+  color: var(--scrollbar-text-color-hover);
 }

@@ -76,6 +76,47 @@ export async function getLocalPlaylist(id) {
 }
 
 /**
+ * @param {Playlist} playlist
+ * @returns {Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
+ */
+export async function getLocalPlaylistContinuation(playlist) {
+  try {
+    return await playlist.getContinuation()
+  } catch (error) {
+    // Youtube can provide useless continuation data
+    if (!error.message.includes('Got empty continuation response.')) {
+      // Re-throw unhandled error
+      throw error
+    }
+
+    return null
+  }
+}
+
+/**
+ * Callback for adding two numbers.
+ *
+ * @callback untilEndOfLocalPlayListCallback
+ * @param {Playlist} playlist
+ */
+
+/**
+ * @param {Playlist} playlist
+ * @param {untilEndOfLocalPlayListCallback} callback
+ * @param {object} options
+ * @param {boolean} options.runCallbackOnceFirst
+ */
+export async function untilEndOfLocalPlayList(playlist, callback, options = { runCallbackOnceFirst: true }) {
+  if (options.runCallbackOnceFirst) { callback(playlist) }
+
+  while (playlist != null && playlist.has_continuation) {
+    playlist = await getLocalPlaylistContinuation(playlist)
+
+    if (playlist != null) { callback(playlist) }
+  }
+}
+
+/**
  * @param {string} location
  * @param {'default'|'music'|'gaming'|'movies'} tab
  * @param {import('youtubei.js').Mixins.TabbedFeed|null} instance
@@ -286,6 +327,36 @@ export async function getLocalChannelLiveStreams(id) {
   }
 }
 
+export async function getLocalChannelCommunity(id) {
+  const innertube = await createInnertube()
+
+  try {
+    const response = await innertube.actions.execute(Endpoints.BrowseEndpoint.PATH, Endpoints.BrowseEndpoint.build({
+      browse_id: id,
+      params: 'Egljb21tdW5pdHnyBgQKAkoA'
+      // protobuf for the community tab (this is the one that YouTube uses,
+      // it has some empty fields in the protobuf but it doesn't work if you remove them)
+    }))
+
+    const communityTab = new YT.Channel(null, response)
+
+    // if the channel doesn't have a community tab, YouTube returns the home tab instead
+    // so we need to check that we got the right tab
+    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
+      return parseLocalCommunityPosts(communityTab.posts)
+    } else {
+      return []
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof Utils.ChannelError) {
+      return null
+    } else {
+      throw error
+    }
+  }
+}
+
 /**
  * @param {import('youtubei.js').YTNodes.Video[]} videos
  * @param {Misc.Author} author
@@ -434,7 +505,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
     })
     .map((item) => parseListItem(item))
 
@@ -578,6 +649,17 @@ function parseListItem(item) {
         videos,
         handle,
         descriptionShort: channel.description_snippet.text
+      }
+    }
+    case 'HashtagTile': {
+      /** @type {import('youtubei.js').YTNodes.HashtagTile} */
+      const hashtag = item
+
+      return {
+        type: 'hashtag',
+        title: hashtag.hashtag.text,
+        videoCount: hashtag.hashtag_video_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_video_count.text),
+        channelCount: hashtag.hashtag_channel_count.isEmpty() ? null : parseLocalSubscriberCount(hashtag.hashtag_channel_count.text)
       }
     }
     case 'Playlist': {
@@ -789,6 +871,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     dataType: 'local',
     authorLink: comment.author.id,
     author: comment.author.name,
+    authorId: comment.author.id,
     authorThumb: comment.author.best_thumbnail.url,
     isPinned: comment.is_pinned,
     isOwner: comment.author_is_channel_owner,
@@ -867,9 +950,29 @@ export function parseLocalSubscriberCount(text) {
 
 /**
  * Parse community posts
+ * @param {import('youtubei.js').YTNodes.BackstagePost[] | import('youtubei.js').YTNodes.SharedPost[] | import('youtubei.js').YTNodes.Post[] } posts
+ */
+export function parseLocalCommunityPosts(posts) {
+  const foundIds = []
+  // `posts` includes the SharedPost's attached post for some reason so we need to filter that out.
+  // see: https://github.com/FreeTubeApp/FreeTube/issues/3252#issuecomment-1546675781
+  // we don't currently support SharedPost's so that is also filtered out
+  for (const post of posts) {
+    if (post.type === 'SharedPost') {
+      foundIds.push(post.original_post.id, post.id)
+    }
+  }
+
+  return posts.filter(post => {
+    return !foundIds.includes(post.id)
+  }).map(parseLocalCommunityPost)
+}
+
+/**
+ * Parse community post
  * @param {import('youtubei.js').YTNodes.BackstagePost} post
  */
-export function parseLocalCommunityPost(post) {
+function parseLocalCommunityPost(post) {
   let replyCount = post.action_buttons?.reply_button?.text ?? null
   if (replyCount !== null) {
     replyCount = parseLocalSubscriberCount(post?.action_buttons.reply_button.text)

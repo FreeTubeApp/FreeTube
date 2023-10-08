@@ -1,8 +1,8 @@
 FreeTube: FreeTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dieser Teil des Programms ist noch nicht fertig. Bitte komm zu einem späteren Zeitpunkt
-  wieder.
+  Dieser Teil der App ist noch nicht bereit. Kommen Sie später wieder, wenn Fortschritte
+  gemacht wurden.
 
 # Webkit Menu Bar
 File: Datei
@@ -15,13 +15,13 @@ Copy: Kopieren
 Paste: Einfügen
 Delete: Löschen
 Select all: Alles auswählen
-Reload: Aktualisieren
-Force Reload: Aktualisierung erzwingen
+Reload: Neu laden
+Force Reload: Neu laden erzwingen
 Toggle Developer Tools: Entwicklerwerkzeuge aktivieren/deaktivieren
 Actual size: Originalgröße
 Zoom in: Vergrößern
 Zoom out: Verkleinern
-Toggle fullscreen: Vollbild aktivieren
+Toggle fullscreen: Vollbild aktivieren/deaktivieren
 Window: Fenster
 Minimize: Minimieren
 Close: Schließen
@@ -32,11 +32,18 @@ Forward: Vorwärts
 # Anything shared among components / views should be put here
 Global:
   Videos: Videos
-  Shorts: Shorts
+  Shorts: Kurzvideos
   Live: Live
+  Community: Gemeinschaft
 
 # Search Bar
-Search / Go to URL: Suche / Geh zu URL
+  Counts:
+    Video Count: 1 Video | {count} Videos
+    Channel Count: 1 Kanal | {count} Kanäle
+    Subscriber Count: 1 Abonnent | {count} Abonnenten
+    View Count: 1 Aufruf | {count} Aufrufe
+    Watching Count: 1 Zuschauer | {count} Zuschauer
+Search / Go to URL: Suche / Gehe zu URL
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
@@ -44,7 +51,7 @@ Search Filters:
     Sort By: Sortiere nach
     Most Relevant: Am relevantesten
     Rating: Bewertung
-    Upload Date: Hochlade-Datum
+    Upload Date: Hochladedatum
     View Count: Anzahl der Aufrufe
   Time:
     Time: Zeit
@@ -96,6 +103,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle Registerkarten für Abonnements sind ausgeblendet.
     Um den Inhalt hier zu sehen, blenden Sie bitte einige Registerkarten im Abschnitt
     „{subsection}“ in „{settingsSection}“ ein.
+  Load More Posts: Mehr Beiträge laden
+  Empty Posts: Deine abonnierten Kanäle haben derzeit keine Beiträge.
 Trending:
   Trending: Trends
   Trending Tabs: Trendtabs
@@ -149,6 +158,7 @@ Settings:
       Beginning: Anfang
       Middle: Mitte
       End: Ende
+      Hidden: Versteckt
     'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
@@ -182,6 +192,8 @@ Settings:
       Dracula: Dracula
       System Default: Systemvoreinstellung
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Pink
+      Pastel Pink: Pastellrosa
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -420,7 +432,7 @@ Settings:
       anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
-    Hide Channel Shorts: Shorts des jeweiligen Kanals ausblenden
+    Hide Channel Shorts: Kurzvideos des Kanals ausblenden
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
       Side Bar: Seitenleiste
@@ -430,9 +442,12 @@ Settings:
       Subscriptions Page: Abonnements-Seite
     Hide Channel Podcasts: Kanal-Podcasts ausblenden
     Hide Subscriptions Videos: Videos der Abonnements ausblenden
-    Hide Subscriptions Shorts: Shorts der Abonnements ausblenden
+    Hide Subscriptions Shorts: Kurzvideos der Abonnements ausblenden
     Hide Channel Releases: Kanalveröffentlichungen ausblenden
     Hide Subscriptions Live: Live der Abonnements ausblenden
+    Blur Thumbnails: Vorschaubilder unscharf machen
+    Hide Profile Pictures in Comments: Profilbilder in den Kommentaren verbergen
+    Hide Subscriptions Community: Abonnementsgemeinschaft ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Um
     die Änderungen anzuwenden muss die Anwendung neustarten. Jetzt neustarten und
     Änderungen aktivieren?
@@ -576,8 +591,6 @@ About:
   Source code: Quellcode
   Discussions: Diskussionen
 Channel:
-  Subscriber: Abonnement
-  Subscribers: Abonnements
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
   Search Channel: Durchsuche Kanal
@@ -622,7 +635,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Dieser Kanal enthält derzeit keine
       Beiträge
-    Community: Gemeinschaft
     votes: '{votes} Stimmen'
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
@@ -632,7 +644,7 @@ Channel:
       keine Live-Streams
   Shorts:
     This channel does not currently have any shorts: Dieser Kanal hat derzeit keine
-      Shorts
+      Kurzvideos
   Podcasts:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: Dieser Kanal hat aktuell keine
@@ -648,10 +660,7 @@ Video:
   Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
-  View: Aufruf
   Views: Aufrufe
-  # Context is "X People Watching"
-  Watching: aktive Zuschauer
   Watched: Gesehen
   # As in a Live Video
   Live: Live
@@ -787,6 +796,7 @@ Video:
   Upcoming: Demnächst
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
+  Pause on Current Video: Pause für aktuelles Video
 Videos:
   #& Sort By
   Sort By:
@@ -863,6 +873,7 @@ Comments:
   Member: Mitglied
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
+  Subscribed: Abonniert
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -933,7 +944,7 @@ Profile:
   Toggle Profile List: Profilliste umschalten
 The playlist has been reversed: Die Wiedergabeliste wurde umgedreht
 A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
-  ist verfügbar, {blogTitle}. Um ihn zu öffnen klicken
+  ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
 Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber}
   ist jetzt verfügbar!  Für mehr Details klicken
@@ -1071,3 +1082,7 @@ Hashtag:
   Hashtag: Schlagwort
   This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
     derzeit keine Videos gefunden werden
+Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
+  wenn das aktuelle Video beendet ist
+Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
+  pausiert, wenn das aktuelle Video beendet ist

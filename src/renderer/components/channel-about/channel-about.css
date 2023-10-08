@@ -1,6 +1,6 @@
 .about {
   background-color: var(--card-bg-color);
-  margin-top: 0;
+  margin-block-start: 0;
   padding: 10px;
   position: relative;
   z-index: 1;
@@ -27,16 +27,16 @@
 
 .aboutTagLink {
   background-color: var(--secondary-card-bg-color);
+  color: var(--primary-text-color);
   border-radius: 7px;
-  color: inherit;
   padding: 7px;
   text-decoration: none;
 }
 
 .aboutDetails {
-  text-align: left;
+  text-align: start;
 }
 
 .aboutDetails th {
-  padding-right: 10px;
+  padding-inline-end: 10px;
 }

@@ -35,6 +35,7 @@ Global:
 
 # Search Bar
   Live: Trực tiếp
+  Shorts: Shorts
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
@@ -583,10 +584,7 @@ Video:
     nhúng vào'
   Open in Invidious: 'Mở trong Invidious'
   Copy Invidious Link: 'Sao chép liên kết Invidious'
-  View: 'Lượt xem'
   Views: 'Lượt xem'
-  # Context is "X People Watching"
-  Watching: 'Đang xem'
   Watched: 'Đã xem'
   # As in a Live Video
   Live: 'Trực tiếp'

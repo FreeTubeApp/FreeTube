@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "dev-runner (Electron)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/_scripts/dev-runner.js",
+      "args": ["--remote-debug"]
+    },
+    {
+      "name": "Attach to renderer process (Electron)",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9223,
+      "webRoot": "http://localhost:9080",
+      "sourceMapPathOverrides": {
+        "webpack://freetube/./~/*": "${workspaceFolder}/node_modules/*",
+        "webpack://freetube/./*": "${workspaceFolder}/*"
+      }
+    }
+  ]
+}
