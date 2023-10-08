@@ -107,14 +107,6 @@
         >
       </div>
       <div
-        v-if="type === 'video'"
-      >
-        <ft-list-video
-          :data="data.postContent.content"
-          appearance=""
-        />
-      </div>
-      <div
         v-if="type === 'poll' || type === 'quiz'"
       >
         <ft-community-poll :data="postContent" />
@@ -128,19 +120,19 @@
           :appearance="appearance"
         />
       </div>
-      <div
-        class="bottomSection"
-      >
-        <span class="likeCount"><font-awesome-icon
-          class="thumbs-up-icon"
-          :icon="['fas', 'thumbs-up']"
-        /> {{ voteCount }}</span>
-        <span class="commentCount">
-          <font-awesome-icon
-            class="comment-count-icon"
-            :icon="['fas', 'comment']"
-          /> {{ commentCount }}</span>
-      </div>
+    </div>
+    <div
+      class="bottomSection"
+    >
+      <span class="likeCount"><font-awesome-icon
+        class="thumbs-up-icon"
+        :icon="['fas', 'thumbs-up']"
+      /> {{ voteCount }}</span>
+      <span class="commentCount">
+        <font-awesome-icon
+          class="comment-count-icon"
+          :icon="['fas', 'comment']"
+        /> {{ commentCount }}</span>
     </div>
   </div>
 </template>

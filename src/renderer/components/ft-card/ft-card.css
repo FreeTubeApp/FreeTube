@@ -5,24 +5,3 @@
   padding-inline: 16px;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
-
-.ft-card:has(.ft-card) {
-  background-color: inherit;
-  margin: 0;
-  padding: 0;
-  box-shadow: inherit;
-  inline-size: auto;
-}
-
-.ft-card .ft-card {
-  margin-inline: 0;
-  margin-block: 0 16px;
-  padding-block: 16px;
-  inline-size: 75%;
-}
-
-@media screen and (max-width: 680px) {
-  .ft-card .ft-card {
-    inline-size: 100%;
-  }
-}

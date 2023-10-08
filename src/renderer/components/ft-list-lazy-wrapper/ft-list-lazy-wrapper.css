@@ -5,3 +5,18 @@
 .list {
   min-block-size: 131px;
 }
+
+.list.ft-card {
+  box-sizing: border-box;
+  min-block-size: 0;
+  margin-inline: 0;
+  margin-block: 0 16px;
+  padding-block: 0;
+  inline-size: 75%;
+}
+
+@media screen and (max-width: 680px) {
+  .list.ft-card {
+    inline-size: 100%;
+  }
+}

@@ -292,6 +292,12 @@ export default defineComponent({
       })
 
       return values
+    },
+
+    showCommunityPanel: function() {
+      return (!this.isLoading && !this.errorMessage &&
+        (this.isFamilyFriendly || !this.showFamilyFriendlyOnly)) &&
+        !this.hideChannelCommunity && this.currentTab === 'community' && this.latestCommunityPosts.length > 0
     }
   },
   watch: {

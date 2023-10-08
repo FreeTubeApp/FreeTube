@@ -3,9 +3,11 @@
 
 $community-thumbnail-side-width: 65px;
 
-.ft-list-post {
+.ft-list-post.list {
   box-sizing: border-box;
-  margin-inline: auto;
+  margin-inline: 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .communityImage {
@@ -23,8 +25,7 @@ $community-thumbnail-side-width: 65px;
 
 .author-div {
   display: flex;
-  margin-block-start: -16px;
-
+  padding-block-end: 6px;
   .authorName {
     font-size: 15px;
     font-weight: bold;
@@ -44,7 +45,7 @@ $community-thumbnail-side-width: 65px;
 }
 
 .postText {
-  margin-block-start: 0;
+  margin-block: 6px;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
@@ -127,9 +128,4 @@ $community-thumbnail-side-width: 65px;
       inline-size: 100%;
     }
   }
-}
-
-.ft-list-item.list {
-  flex-direction: row;
-  justify-content: space-between;
 }
