@@ -55,6 +55,8 @@ export default defineComponent({
         { properties: ['openDirectory'] }
       )
 
+      if (folder.canceled) return
+
       this.updateDownloadFolderPath(folder.filePaths[0])
     },
     ...mapActions([
