@@ -79,7 +79,7 @@ $watched-transition-duration: 0.5s;
     }
     .videoWatched {
       position: absolute;
-      top: 0;
+      inset-block-start: 0;
       padding: 2px;
       opacity: $thumbnail-overlay-opacity;
       color: var(--primary-text-color);
@@ -88,9 +88,10 @@ $watched-transition-duration: 0.5s;
     }
     .videoDuration {
       position: absolute;
-      bottom: 4px;
-      right: 4px;
-      padding: 3px 4px;
+      inset-block-end: 4px;
+      inset-inline-end: 4px;
+      padding-block: 3px;
+      padding-inline: 4px;
       line-height: 1.2;
       font-size: 15px;
       border-radius: 5px;
@@ -110,40 +111,36 @@ $watched-transition-duration: 0.5s;
     }
     .externalPlayerIcon {
       position: absolute;
-      bottom: 4px;
-      left: 4px;
+      inset-block-end: 4px;
+      inset-inline-start: 4px;
       font-size: 17px;
       opacity: $thumbnail-overlay-opacity;
     }
     .playlistIcon {
       position: absolute;
-      top: 40px;
-      right: 3px;
+      inset-block-start: 40px;
+      inset-inline-end: 3px;
       font-size: 17px;
       opacity: $thumbnail-overlay-opacity;
     }
     .watchedProgressBar {
-      height: 2px;
+      block-size: 2px;
       position: absolute;
-      bottom: 0;
+      inset-block-end: 0;
       background-color: var(--primary-color);
       z-index: 2;
     }
     .videoCountContainer {
       position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 60px;
+      inset-inline-end: 0;
+      inset-block: 0;
+      inline-size: 60px;
       font-size: 20px;
 
       .background,
       .inner {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        inset: 0;
       }
       .background {
         background-color: var(--bg-color);
@@ -163,7 +160,7 @@ $watched-transition-duration: 0.5s;
     justify-content: center;
 
     .channelImage {
-      height: 130px;
+      block-size: 130px;
       border-radius: 50%;
     }
   }
@@ -189,7 +186,7 @@ $watched-transition-duration: 0.5s;
       }
     }
     .infoLine {
-      margin-top: 5px;
+      margin-block-start: 5px;
       font-size: 14px;
 
       @include is-sidebar-item {
@@ -204,7 +201,7 @@ $watched-transition-duration: 0.5s;
     }
     .description {
       font-size: 14px;
-      max-height: 50px;
+      max-block-size: 50px;
       overflow-y: hidden;
       @include low-contrast-when-watched(var(--secondary-text-color));
     }
@@ -212,16 +209,16 @@ $watched-transition-duration: 0.5s;
   &.grid {
     display: flex;
     flex-direction: column;
-    width: 245px;
-    min-height: 230px;
-    padding-bottom: 20px;
+    inline-size: 245px;
+    min-block-size: 230px;
+    padding-block-end: 20px;
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-bottom: 12px;
+      margin-block-end: 12px;
 
       .thumbnailImage {
-        width: 100%;
+        inline-size: 100%;
         // Ensure placeholder image displayed at same aspect ratio as most other images
         aspect-ratio: 16/9;
       }
@@ -230,7 +227,7 @@ $watched-transition-duration: 0.5s;
       font-size: 22px;
     }
     .infoLine {
-      margin-top: 8px;
+      margin-block-start: 8px;
       font-size: 13px;
     }
   }
@@ -243,7 +240,7 @@ $watched-transition-duration: 0.5s;
 
 .selectedIcon {
   position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
+  inset-block-start: calc(50% - 25px);
+  inset-inline-start: calc(50% - 25px);
   font-size: 50px;
 }

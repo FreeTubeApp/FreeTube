@@ -23,7 +23,7 @@
 // Style for `ft-prompt`
 :deep(.promptCard) {
   // Currently only this prompt has enough content to make prompt too high
-  max-height: 95%;
+  max-block-size: 95%;
 
   // Some child(s) will grow vertically
   display: flex;
@@ -32,7 +32,7 @@
 
 .sortSelect {
   /* Put it on the right */
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .playlists-container {

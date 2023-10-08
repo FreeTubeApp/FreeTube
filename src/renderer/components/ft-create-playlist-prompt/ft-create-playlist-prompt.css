@@ -23,6 +23,6 @@
 }
 
 .playlistNameInput {
-  width: 80%;
-  max-width: 600px;
+  inline-size: 80%;
+  max-inline-size: 600px;
 }
