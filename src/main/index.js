@@ -285,6 +285,13 @@ function runApp() {
       })
     })
 
+    session.defaultSession.cookies.set({
+      url: 'https://www.youtube.com',
+      name: 'SOCS',
+      value: 'CAI',
+      sameSite: 'no_restriction',
+    })
+
     // make InnerTube requests work with the fetch function
     // InnerTube rejects requests if the referer isn't YouTube or empty
     const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
@@ -334,6 +341,17 @@ function runApp() {
 
       // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
+    })
+
+    // when we create a real session on the watch page, youtube returns tracking cookies, which we definitely don't want
+    const trackingCookieRequestFilter = { urls: ['https://www.youtube.com/sw.js_data', 'https://www.youtube.com/iframe_api'] }
+
+    session.defaultSession.webRequest.onHeadersReceived(trackingCookieRequestFilter, ({ responseHeaders }, callback) => {
+      if (responseHeaders) {
+        delete responseHeaders['set-cookie']
+      }
+      // eslint-disable-next-line n/no-callback-literal
+      callback({ responseHeaders })
     })
 
     if (replaceHttpCache) {
@@ -1032,6 +1050,8 @@ function runApp() {
 
   // ************************************************* //
 
+  let resourcesCleanUpDone = false
+
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
@@ -1041,8 +1061,32 @@ function runApp() {
     })
   })
 
-  function cleanUpResources() {
-    return Promise.allSettled([
+  if (process.platform === 'darwin') {
+    // `window-all-closed` doesn't fire for Cmd+Q
+    // https://www.electronjs.org/docs/latest/api/app#event-window-all-closed
+    // This is also fired when `app.quit` called
+    // Not using `before-quit` since that one is fired before windows are closed
+    app.on('will-quit', e => {
+      // Let app quit when the cleanup is finished
+
+      if (resourcesCleanUpDone) { return }
+
+      e.preventDefault()
+      cleanUpResources().finally(() => {
+        // Quit AFTER the resources cleanup is finished
+        // Which calls the listener again, which is why we have the variable
+
+        app.quit()
+      })
+    })
+  }
+
+  async function cleanUpResources() {
+    if (resourcesCleanUpDone) {
+      return
+    }
+
+    await Promise.allSettled([
       baseHandlers.compactAllDatastores(),
       session.defaultSession.clearCache(),
       session.defaultSession.clearStorageData({
@@ -1058,6 +1102,8 @@ function runApp() {
         ]
       })
     ])
+
+    resourcesCleanUpDone = true
   }
 
   // MacOS event
