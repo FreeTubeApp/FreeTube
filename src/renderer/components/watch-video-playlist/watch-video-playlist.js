@@ -4,7 +4,11 @@ import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
-import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
+import {
+  getLocalPlaylist,
+  parseLocalPlaylistVideo,
+  untilEndOfLocalPlayList,
+} from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
 
 export default defineComponent({
@@ -362,21 +366,12 @@ export default defineComponent({
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious' || cachedPlaylist.continuationData === null) {
         this.playlistItems = cachedPlaylist.items
       } else {
-        const items = cachedPlaylist.items
-        let playlist = cachedPlaylist.continuationData
+        const videos = cachedPlaylist.items
+        await untilEndOfLocalPlayList(cachedPlaylist.continuationData, (p) => {
+          videos.push(...p.items.map(parseLocalPlaylistVideo))
+        }, { runCallbackOnceFirst: false })
 
-        do {
-          playlist = await playlist.getContinuation()
-
-          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
-          items.push(...parsedVideos)
-
-          if (!playlist.has_continuation) {
-            playlist = null
-          }
-        } while (playlist !== null)
-
-        this.playlistItems = items
+        this.playlistItems = videos
       }
 
       this.isLoading = false
@@ -386,7 +381,7 @@ export default defineComponent({
       this.isLoading = true
 
       try {
-        let playlist = await getLocalPlaylist(this.playlistId)
+        const playlist = await getLocalPlaylist(this.playlistId)
 
         let channelName
 
@@ -403,14 +398,10 @@ export default defineComponent({
         this.channelName = channelName
         this.channelId = playlist.info.author?.id
 
-        const videos = playlist.items.map(parseLocalPlaylistVideo)
-
-        while (playlist.has_continuation) {
-          playlist = await playlist.getContinuation()
-
-          const parsedVideos = playlist.items.map(parseLocalPlaylistVideo)
-          videos.push(...parsedVideos)
-        }
+        const videos = []
+        await untilEndOfLocalPlayList(playlist, (p) => {
+          videos.push(...p.items.map(parseLocalPlaylistVideo))
+        })
 
         this.playlistItems = videos
 

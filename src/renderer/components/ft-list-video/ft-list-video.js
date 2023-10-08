@@ -643,7 +643,6 @@ export default defineComponent({
         watchProgress: 0,
         timeWatched: new Date().getTime(),
         isLive: false,
-        paid: false,
         type: 'video'
       }
       this.updateHistory(videoData)

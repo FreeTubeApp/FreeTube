@@ -101,6 +101,8 @@ Subscriptions:
   Subscriptions Tabs: Kartica pretplata
   All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
     na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
+  Empty Posts: Kanali na koje si pretplaćen/a trenutačno nemaju objave.
+  Load More Posts: Učitaj još objava
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -431,11 +433,12 @@ Settings:
       Subscriptions Page: Stranica pretplata
     Hide Channel Podcasts: Sakrij kanal podcastova
     Hide Channel Releases: Sakrij kanal izdanja
-    Hide Subscriptions Shorts: Sakrij kratka videa pretplate
-    Hide Subscriptions Live: Sakrij videa uživo pretplate
-    Hide Subscriptions Videos: Sakrij videa pretplate
+    Hide Subscriptions Shorts: Sakrij pretplate kratkih videa
+    Hide Subscriptions Live: Sakrij pretplate videa uživo
+    Hide Subscriptions Videos: Sakrij pretplate videa
     Blur Thumbnails: Zamuti minijature
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
+    Hide Subscriptions Community: Sakrij pretplate zajednice
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:

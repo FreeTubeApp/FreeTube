@@ -7,7 +7,11 @@ import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoLazy from '../../components/ft-list-video-lazy/ft-list-video-lazy.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
-import { getLocalPlaylist, parseLocalPlaylistVideo } from '../../helpers/api/local'
+import {
+  getLocalPlaylist,
+  getLocalPlaylistContinuation,
+  parseLocalPlaylistVideo,
+} from '../../helpers/api/local'
 import { extractNumberFromString, showToast } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
@@ -302,12 +306,16 @@ export default defineComponent({
     getNextPageLocal: function () {
       this.isLoadingMore = true
 
-      this.continuationData.getContinuation().then((result) => {
-        const parsedVideos = result.items.map(parseLocalPlaylistVideo)
-        this.playlistItems = this.playlistItems.concat(parsedVideos)
+      getLocalPlaylistContinuation(this.continuationData).then((result) => {
+        if (result) {
+          const parsedVideos = result.items.map(parseLocalPlaylistVideo)
+          this.playlistItems = this.playlistItems.concat(parsedVideos)
 
-        if (result.has_continuation) {
-          this.continuationData = result
+          if (result.has_continuation) {
+            this.continuationData = result
+          } else {
+            this.continuationData = null
+          }
         } else {
           this.continuationData = null
         }

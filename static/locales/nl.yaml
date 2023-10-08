@@ -44,6 +44,7 @@ Global:
     View Count: 1 weergave | {count} weergaven
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
+  Community: Gemeenschap
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -102,6 +103,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle abonnementstabbladen zijn verborgen. Om de inhoud
     hier te zien moet u enkele tabbladen zichtbaar maken in de sectie ‘{subsection}’
     onder ‘{settingsSection}’.
+  Load More Posts: Meer berichten laden
+  Empty Posts: De kanalen waarop u geabonneerd bent hebben momenteel geen berichten.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Tending-tabbladen
@@ -435,6 +438,7 @@ Settings:
     Hide Channel Shorts: Kanaal-Shorts verbergen
     Hide Subscriptions Shorts: Abonnement-Shorts verbergen
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
+    Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
