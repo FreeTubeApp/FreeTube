@@ -1,36 +1,35 @@
 /* stylelint-disable property-no-vendor-prefix */
 @use '../../scss-partials/_ft-list-item';
 
-$community-thumbnail-side-width: 65px;
-
 .ft-list-post.list {
-  box-sizing: border-box;
   margin-inline: 0 auto;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  min-block-size: 0;
+  gap: 6px;
 }
 
 .communityImage {
   block-size: 100%;
   inline-size: 100%;
+  margin-block-start: 6px;
 }
 
 .communityThumbnail {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   block-size: 55px;
+  margin-block-start: 1em;
   margin-inline-end: 5px;
   inline-size: 55px;
 }
 
 .author-div {
   display: flex;
-  padding-block-end: 6px;
   .authorName {
     font-size: 15px;
     font-weight: bold;
     margin-block-end: 6px;
-    margin-inline: 5px 6px;
+    margin-inline: 0 6px;
     .authorNameLink {
       color: inherit;
       text-decoration: none;
@@ -55,7 +54,7 @@ $community-thumbnail-side-width: 65px;
   display: block;
   flex-direction: column;
   font-size: 15px;
-  margin-block-start: 4px;
+  margin-block: 8px 6px;
   max-inline-size: 210px;
   text-align: start;
 
