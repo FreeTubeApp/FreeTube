@@ -48,7 +48,7 @@ export default defineComponent({
       return this.$store.getters.getSettingsPassword
     }
   },
-  mounted: function () {
+  created: function () {
     if (this.settingsPassword === '') {
       this.unlocked = true
     }

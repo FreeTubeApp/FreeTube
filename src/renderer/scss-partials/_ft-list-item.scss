@@ -85,20 +85,23 @@ $watched-transition-duration: 0.5s;
     .inner {
       grid-column: 1;
       grid-row: 1;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .thumbnailLink {
       display: flex;
+      overflow: hidden;
     }
 
     .thumbnailImage {
       @include is-sidebar-item {
-        height: 75px;
+        block-size: 75px;
       }
 
       @include is-recommendation {
-        height: auto;
-        width: 163px;
+        block-size: auto;
+        inline-size: 163px;
       }
     }
 
@@ -106,7 +109,7 @@ $watched-transition-duration: 0.5s;
       align-self: flex-start;
       background-color: var(--bg-color);
       color: var(--primary-text-color);
-      justify-self: left;
+      justify-self: start;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
@@ -118,11 +121,13 @@ $watched-transition-duration: 0.5s;
       border-radius: 5px;
       color: var(--primary-text-color);
       font-size: 15px;
-      justify-self: right;
+      justify-self: end;
       line-height: 1.2;
-      margin: 0 4px 4px 0;
+      margin-block: 0 4px;
+      margin-inline: 0 4px;
       opacity: $thumbnail-overlay-opacity;
-      padding: 3px 4px;
+      padding-block: 3px;
+      padding-inline: 4px;
       pointer-events: none;
 
       @include is-watch-playlist-item {
@@ -138,24 +143,23 @@ $watched-transition-duration: 0.5s;
     .externalPlayerIcon {
       align-self: flex-end;
       font-size: 17px;
-      justify-self: left;
-      margin-bottom: 4px;
-      margin-left: 4px;
-      opacity: $thumbnail-overlay-opacity;
+      justify-self: start;
+      margin-block-end: 4px;
+      margin-inline-start: 4px;
     }
 
     .favoritesIcon {
       font-size: 17px;
-      justify-self: right;
-      margin-right: 3px;
-      margin-top: 3px;
-      opacity: $thumbnail-overlay-opacity;
+      justify-self: end;
+      margin-inline-end: 3px;
+      margin-block-start: 3px;
+      block-size: fit-content;
     }
 
     .watchedProgressBar {
       align-self: flex-end;
       background-color: var(--primary-color);
-      height: 2px;
+      block-size: 2px;
       justify-self: stretch;
       z-index: 2;
     }
@@ -164,8 +168,8 @@ $watched-transition-duration: 0.5s;
       align-self: stretch;
       display: grid;
       font-size: 20px;
-      justify-self: right;
-      width: 60px;
+      justify-self: end;
+      inline-size: 60px;
 
       .background {
         background-color: var(--bg-color);
@@ -189,7 +193,7 @@ $watched-transition-duration: 0.5s;
 
     .channelImage {
       border-radius: 50%;
-      height: 130px;
+      block-size: 130px;
     }
   }
 
@@ -227,8 +231,9 @@ $watched-transition-duration: 0.5s;
     .infoLine {
       font-size: 14px;
       grid-area: infoLine;
-      margin-top: 5px;
+      margin-block-start: 5px;
       overflow-wrap: anywhere;
+      text-align: start;
 
       @include is-sidebar-item {
         font-size: 12px;
@@ -248,7 +253,7 @@ $watched-transition-duration: 0.5s;
 
       font-size: 14px;
       grid-area: description;
-      max-height: 50px;
+      max-block-size: 50px;
       overflow-y: hidden;
     }
   }
@@ -259,32 +264,34 @@ $watched-transition-duration: 0.5s;
 
     @include is-sidebar-item {
       .videoThumbnail {
-        margin-right: 10px;
+        margin-inline-end: 10px;
       }
     }
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-right: 20px;
+      margin-inline-end: 20px;
     }
 
     .channelThumbnail {
-      width: 231px;
+      inline-size: 231px;
     }
   }
 
   &.grid {
     display: flex;
     flex-direction: column;
-    min-height: 230px;
-    padding-bottom: 20px;
+    min-block-size: 230px;
+    padding-block-end: 20px;
+    box-sizing: border-box;
+    block-size: 100%;
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-bottom: 12px;
+      margin-block-end: 12px;
 
       .thumbnailImage {
-        width: 100%;
+        inline-size: 100%;
       }
     }
 
@@ -294,7 +301,37 @@ $watched-transition-duration: 0.5s;
 
     .infoLine {
       font-size: 13px;
-      margin-top: 8px;
+      margin-block-start: 8px;
+    }
+  }
+
+  .favoritesIcon,
+  .externalPlayerIcon {
+    opacity: $thumbnail-overlay-opacity;
+  }
+
+  @media (hover: hover) {
+    .favoritesIcon.favorited,
+    &:hover .favoritesIcon,
+    &:hover .externalPlayerIcon,
+    &:focus-within .favoritesIcon,
+    &:focus-within .externalPlayerIcon {
+      visibility: visible;
+      opacity: $thumbnail-overlay-opacity;
+    }
+
+    &:hover .optionsButton,
+    &:focus-within .optionsButton {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .favoritesIcon,
+    .externalPlayerIcon,
+    .optionsButton {
+      visibility: none;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.2s linear;
     }
   }
 }
@@ -303,6 +340,8 @@ $watched-transition-duration: 0.5s;
 .live,
 .upcoming {
   text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 // we use h3 for semantic reasons but don't want to keep the h3 style

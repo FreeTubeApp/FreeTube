@@ -34,6 +34,11 @@
         :appearance="appearance"
         :data="data"
       />
+      <ft-list-hashtag
+        v-else-if="data.type === 'hashtag'"
+        :appearance="appearance"
+        :data="data"
+      />
     </template>
   </div>
 </template>

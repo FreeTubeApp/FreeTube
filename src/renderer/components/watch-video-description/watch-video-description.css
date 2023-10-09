@@ -1,6 +1,6 @@
 .videoDescription {
   overflow-y: auto;
-  max-height: 300px;
+  max-block-size: 300px;
 }
 
 .description {

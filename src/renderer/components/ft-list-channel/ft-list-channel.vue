@@ -34,7 +34,7 @@
           v-if="subscriberCount !== null && !hideChannelSubscriptions"
           class="subscriberCount"
         >
-          {{ subscriberCount }} subscribers -
+          {{ $tc('Global.Counts.Subscriber Count', subscriberCount, {count: formattedSubscriberCount}) }}
         </span>
         <router-link
           v-if="handle !== null"
@@ -47,15 +47,14 @@
           v-else
           class="videoCount"
         >
-          {{ videoCount }} videos
+          {{ $tc('Global.Counts.Video Count', videoCount, {count: formattedVideoCount}) }}
         </span>
       </div>
       <p
         v-if="listType !== 'grid'"
         class="description"
-      >
-        {{ description }}
-      </p>
+        v-html="description"
+      />
     </div>
   </div>
 </template>

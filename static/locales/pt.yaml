@@ -35,7 +35,14 @@ Global:
   Videos: 'Vídeos'
   Shorts: Curtas
   Live: Em directo
+  Community: Comunidade
 
+  Counts:
+    Channel Count: 1 canal | {count} canais
+    Video Count: 1 vídeo | {count} vídeos
+    Subscriber Count: 1 assinante | {count} assinantes
+    View Count: 1 visualização | {contagem} visualizações
+    Watching Count: 1 a assistir | {count} a assistir
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações'
 Download From Site: 'Descarregar do site'
@@ -100,6 +107,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
     Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsection}"
     em "{settingsSection}".
+  Load More Posts: Carregar mais posts
+  Empty Posts: Os canais inscritos atualmente não tem nenhum post.
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Separador de tendências
@@ -153,6 +162,7 @@ Settings:
       Beginning: 'Início'
       Middle: 'Centro'
       End: 'Final'
+      Hidden: Oculto
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instância Invidious
       (Por omissão é https://invidious.snopyta.org)'
     Region for Trending: 'Região para as tendências'
@@ -183,6 +193,8 @@ Settings:
       Dracula: 'Drácula'
       System Default: Definição do sistema
       Catppuccin Mocha: Cappuccino mocha
+      Pastel Pink: Rosa pastel
+      Hot Pink: Rosa Choque
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -456,6 +468,9 @@ Settings:
     Hide Subscriptions Videos: Ocultar subscrições de vídeos
     Hide Subscriptions Shorts: Ocultar subscrições de vídeos curtos
     Hide Subscriptions Live: Ocultar subscrições de vídeos em direto
+    Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
+    Blur Thumbnails: Desfocar miniaturas
+    Hide Subscriptions Community: Ocultar comunidade inscritas
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo personalizado
     Custom External Player Executable: Executável de reprodutor externo personalizado
@@ -550,6 +565,7 @@ About:
   Licensed under the AGPLv3: Licenciado sob AGPLv3
   Source code: Código-fonte
   Beta: Beta
+  Discussions: Debate
 Profile:
   Profile Select: 'Seleção de perfil'
   All Channels: 'Todos os canais'
@@ -645,6 +661,9 @@ Channel:
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     Community: Comunidade
+    Hide Answers: Ocultar respostas
+    Reveal Answers: Revelar respostas
+    votes: '{votes} votos'
   Live:
     Live: Em directo
     This channel does not currently have any live streams: Este canal não tem atualmente
@@ -671,15 +690,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
   Open in Invidious: 'Abrir no Invidious'
   Copy Invidious Link: 'Copiar ligação do Invidious'
-  View: 'Visualização'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
   Reverse Playlist: 'Inverter lista de reprodução'
   Play Next Video: 'Reproduzir vídeo seguinte'
   Play Previous Video: 'Reproduzir vídeo anterior'
-  # Context is "X People Watching"
-  Watching: 'A ver'
   Watched: 'Visto'
   Autoplay: 'Reprodução automática'
   # As in a Live Video
@@ -804,6 +820,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
     Chat ao vivo não está disponível para esta transmissão. Pode ter sido desativado
     pelo remetente.
+  Pause on Current Video: Pausa no vídeo atual
 Videos:
   #& Sort By
   Sort By:
@@ -880,6 +897,7 @@ Comments:
   Member: Membro
   Hearted: Marcado
   View {replyCount} replies: Ver {replyCount} respostas
+  Subscribed: Subscrito
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -1036,3 +1054,7 @@ Hashtag:
   Hashtag: Marcador
   This hashtag does not currently have any videos: Esta hashtag não tem atualmente
     quaisquer vídeos
+Playlist will pause when current video is finished: A lista de reprodução será colocada
+  em pausa quando o vídeo atual terminar
+Playlist will not pause when current video is finished: A lista de reprodução não
+  será colocada em pausa quando o vídeo atual terminar

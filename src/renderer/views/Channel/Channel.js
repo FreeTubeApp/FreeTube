@@ -27,7 +27,7 @@ import {
   getLocalChannelId,
   parseLocalChannelShorts,
   parseLocalChannelVideos,
-  parseLocalCommunityPost,
+  parseLocalCommunityPosts,
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount
@@ -1576,7 +1576,7 @@ export default defineComponent({
           posts = communityTab.posts
         }
 
-        this.latestCommunityPosts = posts.map(parseLocalCommunityPost)
+        this.latestCommunityPosts = parseLocalCommunityPosts(posts)
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
       } catch (err) {
         console.error(err)
@@ -1608,7 +1608,7 @@ export default defineComponent({
           posts = continuation.posts
         }
 
-        this.latestCommunityPosts = this.latestCommunityPosts.concat(posts.map(parseLocalCommunityPost))
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(parseLocalCommunityPosts(posts))
         this.communityContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)

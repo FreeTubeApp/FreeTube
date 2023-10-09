@@ -1,7 +1,7 @@
 .card {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 60px;
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
 }
 
 .message {
@@ -10,8 +10,8 @@
 
 .floatingTopButton {
   position: fixed;
-  top: 70px;
-  right: 10px;
+  inset-block-start: 70px;
+  inset-inline-end: 10px;
 }
 
 @media only screen and (max-width: 350px) {
@@ -22,6 +22,6 @@
 
 @media only screen and (max-width: 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 }

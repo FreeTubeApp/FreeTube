@@ -33,8 +33,15 @@ Global:
   Videos: '影片'
   Shorts: 短片
   Live: 直播
+  Community: 社群
 
 # Search Bar
+  Counts:
+    Video Count: 1 部影片 | {count} 部影片
+    Channel Count: 1 個頻道 | {count} 個頻道
+    Subscriber Count: 1 個訂閱者 | {count} 個訂閱者
+    View Count: 1 次檢視 | {count} 次檢視
+    Watching Count: 1 個正在觀看 | {count} 個正在觀看
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -88,6 +95,8 @@ Subscriptions:
   Empty Channels: 您訂閱的頻道目前沒有任何影片。
   Subscriptions Tabs: 訂閱分頁
   All Subscription Tabs Hidden: 所有訂閱分頁均已隱藏。要檢視此處的內容，請取消隱藏「{settingsSection}」中「{subsection}」區塊中的一些分頁。
+  Load More Posts: 載入更多影片
+  Empty Posts: 您訂閱的頻道目前沒有任何影片。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -133,6 +142,7 @@ Settings:
       Beginning: '片頭'
       Middle: '中間'
       End: '結尾'
+      Hidden: 隱藏
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
       https://invidious.snopyta.org )'
     Region for Trending: '發燒影片區域'
@@ -163,6 +173,8 @@ Settings:
       Dracula: '德古拉'
       System Default: 系統預設值
       Catppuccin Mocha: 卡布奇諾摩卡
+      Pastel Pink: 淡粉紅色
+      Hot Pink: 亮粉紅色
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -390,6 +402,9 @@ Settings:
     Hide Subscriptions Shorts: 隱藏訂閱短片
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
+    Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
+    Blur Thumbnails: 模糊縮圖
+    Hide Subscriptions Community: 隱藏訂閱社群
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -506,12 +521,13 @@ About:
   Please check for duplicates before posting: 提交前請檢查有無重複的問題
   GitHub issues: GitHub 問題追蹤器
   Report a problem: 回報問題
-  FreeTube Wiki: FreeTube 維基百科
+  FreeTube Wiki: FreeTube Wiki
   GitHub releases: GitHub 版本
   Downloads / Changelog: 下載 / 變更紀錄
   View License: 檢視授權條款
   Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
+  Discussions: 討論
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'
@@ -553,8 +569,10 @@ Channel:
   This channel does not exist: 此頻道不存在
   This channel does not allow searching: 此頻道不允許搜尋
   Community:
-    Community: 社群
     This channel currently does not have any posts: 此頻道目前沒有任何貼文
+    votes: '{votes} 票'
+    Reveal Answers: 揭露答案
+    Hide Answers: 隱藏答案
   Live:
     Live: 直播
     This channel does not currently have any live streams: 此頻道目前沒有任何直播
@@ -573,10 +591,7 @@ Video:
   Copy YouTube Embedded Player Link: '複製YouTube內嵌播放器連結'
   Open in Invidious: '在Invidious中開啟'
   Copy Invidious Link: '複製Invidious連結'
-  View: '觀看'
   Views: '觀看'
-  # Context is "X People Watching"
-  Watching: '觀看中'
   Watched: '已觀看'
   # As in a Live Video
   Live: '直播'
@@ -701,6 +716,7 @@ Video:
   Scroll to Bottom: 捲動至底部
   Upcoming: 即將到來
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 即時聊天在此串流不可用。其可能被上傳者停用了。
+  Pause on Current Video: 暫停目前影片
 Videos:
   #& Sort By
   Sort By:
@@ -770,6 +786,7 @@ Comments:
   Member: 成員
   View {replyCount} replies: 檢視 {replyCount} 則回覆
   Hearted: 喜歡的
+  Subscribed: 已訂閱
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -920,3 +937,5 @@ Ok: 確定
 Hashtag:
   Hashtag: 主題標籤
   This hashtag does not currently have any videos: 此標籤目前沒有任何影片
+Playlist will pause when current video is finished: 當目前影片結束時，播放清單將會暫停
+Playlist will not pause when current video is finished: 當目前影片結束時，播放清單將不會暫停

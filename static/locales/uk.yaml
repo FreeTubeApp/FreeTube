@@ -35,7 +35,14 @@ Global:
   Videos: 'Відео'
   Shorts: Shorts
   Live: Наживо
+  Community: Спільнота
 
+  Counts:
+    Video Count: 1 відео | {count} відео
+    Channel Count: 1 канал | {count} канал
+    Subscriber Count: 1 підписник | {count} підписників
+    View Count: 1 перегляд | {count} переглядів
+    Watching Count: 1 глядач | {count} глядачів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -99,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Вкладки підписок
   All Subscription Tabs Hidden: Усі вкладки підписки сховані. Щоб побачити вміст,
     будь ласка, відкрийте деякі вкладки в розділі "{subsection}" в "{settingsSection}".
+  Load More Posts: Завантажити ще дописи
+  Empty Posts: На каналах, на які ви підписані, наразі немає дописів.
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -155,6 +164,7 @@ Settings:
       Beginning: 'На початку'
       Middle: 'В середині'
       End: 'У кінці'
+      Hidden: Сховано
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Екземпляр Invidious
       (За замовчуванням https://invidious.snopyta.org)'
     Region for Trending: 'Регіон для Популярних'
@@ -189,6 +199,8 @@ Settings:
       Dracula: 'Дракула'
       System Default: Тема системи
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Гарячий рожевий
+      Pastel Pink: Пастельний рожевий
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -353,6 +365,9 @@ Settings:
     Hide Channel Releases: Сховати канали випусків
     Hide Subscriptions Shorts: Сховати Shorts із підписок
     Hide Subscriptions Live: Сховати трансляції з підписок
+    Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
+    Blur Thumbnails: Розмиті мініатюри
+    Hide Subscriptions Community: Сховати спільноту підписників
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -496,6 +511,7 @@ About:
   Licensed under the AGPLv3: Ліцензовано під AGPLv3
   Source code: Джерельний код
   Beta: Бета
+  Discussions: Обговорення
 Profile:
   Profile Select: 'Вибір профілю'
   All Channels: 'Усі канали'
@@ -581,8 +597,10 @@ Channel:
     канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
   Community:
-    Community: Спільнота
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
+    votes: 'Голосів: {votes}'
+    Reveal Answers: Розгорнути відповіді
+    Hide Answers: Сховати відповіді
   Live:
     This channel does not currently have any live streams: Наразі на цьому каналі
       немає прямих трансляцій
@@ -612,15 +630,12 @@ Video:
   Copy YouTube Channel Link: 'Копіювати посилання на канал YouTube'
   Open Channel in Invidious: 'Відкрити канал у Invidious'
   Copy Invidious Channel Link: 'Копіювати посилання на канал Invidious'
-  View: 'Перегляд'
   Views: 'Перегляди'
   Loop Playlist: 'Зациклити добірку'
   Shuffle Playlist: 'Перемішати добірку'
   Reverse Playlist: 'Змінити напрямок добірки'
   Play Next Video: 'Відтворити наступне відео'
   Play Previous Video: 'Відтворити попереднє відео'
-  # Context is "X People Watching"
-  Watching: 'Переглядає'
   Watched: 'Переглянуто'
   Autoplay: 'Автовідтворення'
   Starting soon, please refresh the page to check again: 'Початок незабаром, оновіть
@@ -740,6 +755,7 @@ Video:
   Upcoming: Незабаром
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Спілкування
     наживо недоступне для цієї трансляції. Можливо, вивантажувач вимкнув його.
+  Pause on Current Video: Призупинити на поточному відео
 Videos:
   #& Sort By
   Sort By:
@@ -816,6 +832,7 @@ Comments:
   Member: Учасник
   Hearted: З сердечком
   View {replyCount} replies: Переглянути {replyCount} відповідей
+  Subscribed: Слідкують
 Up Next: 'Далі вгору'
 
 #Tooltips
@@ -974,3 +991,7 @@ Ok: Гаразд
 Hashtag:
   Hashtag: Хештег
   This hashtag does not currently have any videos: За цим хештегом наразі немає відео
+Playlist will pause when current video is finished: Добірка призупиняється, коли поточне
+  відео завершено
+Playlist will not pause when current video is finished: Добірка не призупиняється,
+  коли поточне відео завершено

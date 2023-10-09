@@ -36,8 +36,15 @@ Global:
   Videos: 'Video'
   Shorts: Video brevi
   Live: Dal vivo
+  Community: Comunità
 
 # Search Bar
+  Counts:
+    Video Count: 1 video | {count} video
+    Channel Count: 1 canale | {count} canali
+    Subscriber Count: 1 iscritto | {count} iscritti
+    View Count: 1 visualizzazione | {count} visualizzazioni
+    Watching Count: 1 spettatore | {count} spettatori
 Search / Go to URL: 'Cerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -96,6 +103,8 @@ Subscriptions:
   Subscriptions Tabs: Schede iscrizioni
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
     i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
+  Load More Posts: Carica più post
+  Empty Posts: I canali a cui sei iscritto attualmente non hanno post.
 Trending:
   Trending: 'Tendenze'
   Music: Musica
@@ -148,6 +157,7 @@ Settings:
       Beginning: 'Inizio'
       Middle: 'Nel mezzo'
       End: 'Fine'
+      Hidden: Nascoste
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'
@@ -181,6 +191,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Predefinito del sistema
       Catppuccin Mocha: Cappuccino moka
+      Pastel Pink: Rosa pastello
+      Hot Pink: Rosa caldo
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -222,20 +234,21 @@ Settings:
       Catppuccin Mocha Sky: Cappuccino moka cielo
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
-    UI Scale: Dimensioni interfaccia utente
-    Disable Smooth Scrolling: Disabilita scorrimento fluido
+    UI Scale: Dimensioni dell'interfaccia utente
+    Disable Smooth Scrolling: Disabilita lo scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Impostazioni del lettore'
-    Force Local Backend for Legacy Formats: 'Forza backend locale per formati obsoleti'
+    Force Local Backend for Legacy Formats: 'Forza il backend locale per i formati
+      obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
     Proxy Videos Through Invidious: 'Proxy dei video tramite Invidious'
     Autoplay Playlists: 'Riproduci le playlist automaticamente'
-    Enable Theatre Mode by Default: 'Abilita modalità teatro come predefinita'
+    Enable Theatre Mode by Default: 'Abilita la modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
@@ -315,8 +328,8 @@ Settings:
     Import Subscriptions: 'Importa Iscrizioni'
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
-    Fetch Feeds from RSS: Scarica aggiornamenti dai flussi RSS
-    Fetch Automatically: Recupera feed automaticamente
+    Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
+    Fetch Automatically: Recupera i feed automaticamente
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -432,6 +445,9 @@ Settings:
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
+    Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
+    Blur Thumbnails: Miniature sfocate
+    Hide Subscriptions Community: Nascondi la comunità di iscritti
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -561,9 +577,8 @@ About:
   Licensed under the AGPLv3: Distribuito sotto la licenza AGPLv3
   Source code: Codice sorgente
   Beta: Beta
+  Discussions: Discussioni
 Channel:
-  Subscriber: 'Iscritto'
-  Subscribers: 'Iscritti'
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
   Search Channel: 'Cerca nel canale'
@@ -609,7 +624,9 @@ Channel:
   Community:
     This channel currently does not have any posts: Questo canale attualmente non
       ha alcun post
-    Community: Comunità
+    votes: '{votes} voti'
+    Reveal Answers: Rivela le risposte
+    Hide Answers: Nascondi le risposte
   Live:
     Live: Dal vivo
     This channel does not currently have any live streams: Questo canale attualmente
@@ -637,10 +654,7 @@ Video:
     YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
-  View: 'Vista'
   Views: 'Visualizzazioni'
-  # Context is "X People Watching"
-  Watching: 'Stanno guardando'
   Watched: 'Visto'
   # As in a Live Video
   Live: 'Dal vivo'
@@ -771,6 +785,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La
     chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
+  Pause on Current Video: Pausa sul video attuale
 Videos:
   #& Sort By
   Sort By:
@@ -790,7 +805,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
-Toggle Theatre Mode: 'Attiva/disattiva modalità teatro'
+Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -847,6 +862,7 @@ Comments:
   Member: Membro
   Hearted: Di cuore
   View {replyCount} replies: Visualizza {replyCount} risposte
+  Subscribed: Iscritto
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -1054,3 +1070,7 @@ Hashtag:
   This hashtag does not currently have any videos: Questo hashtag attualmente non
     ha alcun video
   Hashtag: Hashtag
+Playlist will pause when current video is finished: La playlist verrà messa in pausa
+  al termine del video attuale
+Playlist will not pause when current video is finished: La playlist non verrà messa
+  in pausa al termine del video attuale

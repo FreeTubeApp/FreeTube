@@ -36,7 +36,14 @@ Global:
   Videos: 'Myndskeið'
   Shorts: Stuttmyndir
   Live: Í beinni
+  Community: Samfélag
 
+  Counts:
+    Video Count: 1 myndskeið | {count} myndskeið
+    Channel Count: 1 rás | {count} rásir
+    Subscriber Count: 1 áskrifandi | {count} áskrifendur
+    View Count: 1 áhorf | {count} áhorf
+    Watching Count: 1 að horfa | {count} að horfa
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -102,6 +109,8 @@ Subscriptions:
   Subscriptions Tabs: Áskriftaflipar
   All Subscription Tabs Hidden: Allir áskriftaflipar eru faldir. Til að sjá efni hér,
     skaltu gera einhverja flipa sýnilega í "{subsection}" hlutanum í "{settingsSection}".
+  Load More Posts: Hlaða inn fleiri færslum
+  Empty Posts: Rásirnar sem þú ert áskrifandi að eru ekki með neinar færslur.
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -160,6 +169,7 @@ Settings:
       Beginning: 'Upphaf'
       Middle: 'Miðja'
       End: 'Endir'
+      Hidden: Falið
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-tilvik
       (sjálfgefið er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
@@ -193,6 +203,8 @@ Settings:
       Dracula: 'Drakúla'
       System Default: Sjálfgefið í kerfinu
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelbleikt
+      Hot Pink: Dimmbleikt
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -355,6 +367,9 @@ Settings:
     Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
+    Blur Thumbnails: Móska smámyndir
+    Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
+    Hide Subscriptions Community: Fela samfélag áskrifenda
   Data Settings:
     Data Settings: 'Stillingar gagna'
     Select Import Type: 'Veldu tegund innflutnings'
@@ -499,6 +514,7 @@ About:
   these people and projects: 'þessu fólki og verkefnum'
   Donate: 'Styrkja'
 
+  Discussions: Umræður
 Profile:
   Profile Select: 'Val á notkunarsniði'
   Profile Filter: 'Sía notkunarsnið'
@@ -543,9 +559,8 @@ Profile:
     notkunarsniðum.'
 #On Channel Page
   Profile Settings: Stillingar notkunarsniðs
+  Toggle Profile List: Víxla lista með notkunarsniðum af/á
 Channel:
-  Subscriber: 'Áskrifandi'
-  Subscribers: 'Áskrifendur'
   Subscribe: 'Gerast áskrifandi'
   Unsubscribe: 'Segja upp áskrift'
   Channel has been removed from your subscriptions: 'Rás var fjarlægð úr áskriftunum
@@ -591,8 +606,10 @@ Channel:
     This channel does not currently have any live streams: Þessi rás er í augnablikinu
       ekki með nein bein streymi
   Community:
-    Community: Samfélag
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
+    Reveal Answers: Birta svör
+    Hide Answers: Fela svör
+    votes: '{votes} atkvæði'
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
       með neinar stuttmyndir
@@ -624,15 +641,12 @@ Video:
   Copy YouTube Channel Link: 'Afrita tengil YouTube-rásar'
   Open Channel in Invidious: 'Opna rás í Invidious'
   Copy Invidious Channel Link: 'Afrita tengil Invidious-rásar'
-  View: 'Áhorf'
   Views: 'Áhorf'
   Loop Playlist: 'Endurtaka spilunarlista endalaust'
   Shuffle Playlist: 'Stokka spilunarlista'
   Reverse Playlist: 'Snúa við spilunarlista'
   Play Next Video: 'Spila næsta myndskeið'
   Play Previous Video: 'Spila fyrra myndskeið'
-  # Context is "X People Watching"
-  Watching: 'Verið að horfa'
   Watched: 'Búið að horfa'
   Autoplay: 'Spila sjálfkrafa'
   Starting soon, please refresh the page to check again: 'Byrjar bráðum, endurlestu
@@ -750,6 +764,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Spjall
     í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
     gert það óvirkt.
+  Pause on Current Video: Setja núverandi myndskeið í bið
 Videos:
   #& Sort By
   Sort By:
@@ -824,6 +839,7 @@ Comments:
   Member: Meðlimur
   View {replyCount} replies: Skoða {replyCount} svör
   Hearted: Líkað
+  Subscribed: Áskrifandi
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -982,3 +998,7 @@ Hashtag:
   Hashtag: Myllumerki
   This hashtag does not currently have any videos: Þetta myllumerki er í augnablikinu
     ekki með nein myndskeið
+Playlist will pause when current video is finished: Spilunarlisti mun fara í bið eftir
+  að núverandi myndskeið klárast
+Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
+  í bið eftir að núverandi myndskeið klárast

@@ -52,9 +52,7 @@
                 v-if="subCount !== null && !hideChannelSubscriptions"
                 class="channelSubCount"
               >
-                {{ formattedSubCount }}
-                <span v-if="subCount === 1">{{ $t("Channel.Subscriber") }}</span>
-                <span v-else>{{ $t("Channel.Subscribers") }}</span>
+                {{ $tc('Global.Counts.Subscriber Count', subCount, { count: formattedSubCount }) }}
               </p>
             </div>
           </div>
@@ -188,7 +186,7 @@
               @click="changeTab('community')"
               @keydown.left.right.enter.space="changeTab('community', $event)"
             >
-              {{ $t("Channel.Community.Community").toUpperCase() }}
+              {{ $t("Global.Community").toUpperCase() }}
             </div>
             <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
             <div

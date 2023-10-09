@@ -62,11 +62,21 @@
           :to="`/channel/${comment.authorLink}`"
           tabindex="-1"
         >
-          <img
-            :src="comment.authorThumb"
-            alt=""
-            class="commentThumbnail"
-          >
+          <!-- Hide comment photo only if it isn't the video uploader -->
+          <template v-if="hideCommentPhotos && !comment.isOwner">
+            <div
+              class="commentThumbnailHidden"
+            >
+              {{ comment.author.substr(1, 1) }}
+            </div>
+          </template>
+          <template v-else>
+            <img
+              :src="comment.authorThumb"
+              alt=""
+              class="commentThumbnail"
+            >
+          </template>
         </router-link>
         <p
           v-if="comment.isPinned"
@@ -95,6 +105,13 @@
             :title="$t('Comments.Member')"
             :aria-label="$t('Comments.Member')"
             class="commentMemberIcon"
+            alt=""
+          >
+          <img
+            v-if="subscriptions.find((channel) => channel.id === comment.authorId)"
+            :title="$t('Comments.Subscribed')"
+            :aria-label="$t('Comments.Subscribed')"
+            class="commentSubscribedIcon"
             alt=""
           >
           <span class="commentDate">
@@ -167,11 +184,21 @@
               :to="`/channel/${reply.authorLink}`"
               tabindex="-1"
             >
-              <img
-                :src="reply.authorThumb"
-                class="commentThumbnail"
-                alt=""
-              >
+              <!-- Hide comment photo only if it isn't the video uploader -->
+              <template v-if="hideCommentPhotos && !reply.isOwner">
+                <div
+                  class="commentThumbnailHidden"
+                >
+                  {{ reply.author.substr(1, 1) }}
+                </div>
+              </template>
+              <template v-else>
+                <img
+                  :src="reply.authorThumb"
+                  alt=""
+                  class="commentThumbnail"
+                >
+              </template>
             </router-link>
             <p class="commentAuthorWrapper">
               <router-link
@@ -187,6 +214,13 @@
                 v-if="reply.isMember"
                 :src="reply.memberIconUrl"
                 class="commentMemberIcon"
+                alt=""
+              >
+              <img
+                v-if="subscriptions.find((channel) => channel.id === reply.authorId)"
+                :title="$t('Comments.Subscribed')"
+                :aria-label="$t('Comments.Subscribed')"
+                class="commentSubscribedIcon"
                 alt=""
               >
               <span class="commentDate">

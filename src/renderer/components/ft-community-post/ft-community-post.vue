@@ -8,16 +8,43 @@
     <div
       class="author-div"
     >
-      <img
+      <template
         v-if="authorThumbnails.length > 0"
-        :src="getBestQualityImage(authorThumbnails)"
-        class="communityThumbnail"
-        alt=""
       >
+        <router-link
+          v-if="authorId"
+          :to="`/channel/${authorId}`"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <img
+            :src="getBestQualityImage(authorThumbnails)"
+            class="communityThumbnail"
+            alt=""
+          >
+        </router-link>
+        <img
+          v-else
+          :src="getBestQualityImage(authorThumbnails)"
+          class="communityThumbnail"
+          alt=""
+        >
+      </template>
       <p
         class="authorName"
       >
-        {{ author }}
+        <router-link
+          v-if="authorId"
+          :to="`/channel/${authorId}`"
+          class="authorNameLink"
+        >
+          {{ author }}
+        </router-link>
+        <template
+          v-else
+        >
+          {{ author }}
+        </template>
       </p>
       <p
         class="publishedText"
@@ -60,36 +87,9 @@
       />
     </div>
     <div
-      v-if="type === 'poll'"
+      v-if="type === 'poll' || type === 'quiz'"
     >
-      <div
-        class="poll-count"
-      >
-        {{ postContent.totalVotes }}
-      </div>
-      <div
-        v-for="(poll, index) in postContent.content"
-        :key="index"
-      >
-        <div
-          class="poll-option"
-        >
-          <span
-            class="circle"
-          />
-          <div
-            class="poll-text"
-          >
-            <!-- <img
-              v-if="poll.image != null && poll.image.length >0"
-              :src="getBestQualityImage(poll.image)"
-              class="poll-image"
-              alt=""
-            > -->
-            {{ poll.text }}
-          </div>
-        </div>
-      </div>
+      <ft-community-poll :data="postContent" />
     </div>
     <div
       v-if="type === 'playlist'"

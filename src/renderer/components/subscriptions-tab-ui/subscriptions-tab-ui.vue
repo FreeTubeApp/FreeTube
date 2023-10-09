@@ -7,16 +7,15 @@
       v-if="!isLoading && errorChannels.length !== 0"
     >
       <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
-      <div>
+      <ft-flex-box>
         <ft-channel-bubble
           v-for="(channel, index) in errorChannels"
           :key="index"
           :channel-name="channel.name"
           :channel-id="channel.id"
           :channel-thumbnail="channel.thumbnail"
-          @click="goToChannel(channel.id)"
         />
-      </div>
+      </ft-flex-box>
     </div>
     <ft-flex-box
       v-if="!isLoading && activeVideoList.length === 0"
@@ -37,19 +36,20 @@
         v-else
         class="message"
       >
-        {{ $t("Subscriptions.Empty Channels") }}
+        {{ isCommunity ? $t("Subscriptions.Empty Posts") : $t("Subscriptions.Empty Channels") }}
       </p>
     </ft-flex-box>
     <ft-element-list
       v-if="!isLoading && activeVideoList.length > 0"
       :data="activeVideoList"
       :use-channels-hidden-preference="false"
+      :display="isCommunity ? 'list' : ''"
     />
     <ft-flex-box
       v-if="!isLoading && videoList.length > dataLimit"
     >
       <ft-button
-        :label="$t('Subscriptions.Load More Videos')"
+        :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
         @click="increaseLimit"

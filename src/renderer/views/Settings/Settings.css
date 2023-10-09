@@ -1,7 +1,8 @@
 hr {
-  height: 2px;
-  width: 85%;
-  margin: 0 auto;
+  block-size: 2px;
+  inline-size: 85%;
+  margin-block: 0;
+  margin-inline: auto;
   border: 0;
   background-color: var(--scrollbar-color-hover);
 }

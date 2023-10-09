@@ -1,7 +1,7 @@
 <template>
   <div
     class="progressBar"
-    :style="{ width: progressBarPercentage + '%' }"
+    :style="{ inlineSize: progressBarPercentage + '%' }"
   />
 </template>
 

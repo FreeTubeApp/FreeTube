@@ -23,9 +23,10 @@
 /* select starting stylings ------------------------------*/
 .select {
   position: relative;
-  width: 200px;
-  padding: 0px 10px 10px 0;
-  margin-top: 30px;
+  inline-size: 200px;
+  padding-block: 0 10px;
+  padding-inline: 0 10px;
+  margin-block-start: 30px;
 }
 
 .disabled, .disabled + svg.iconSelect {
@@ -38,8 +39,9 @@
   font-family: inherit;
   background-color: transparent;
   color: var(--primary-text-color);
-  width: 240px;
-  padding: 10px 10px 10px 0;
+  inline-size: 240px;
+  padding-block: 10px;
+  padding-inline: 0 10px;
   font-size: 18px;
   border-radius: 0;
   border: none;
@@ -60,26 +62,26 @@
   appearance: none;
   -webkit-appearance:none;
   text-overflow: ellipsis;
-  padding-right: 1.1rem;
+  padding-inline-end: 1.1rem;
 }
 
 .iconSelect {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  inset-block-start: 10px;
+  inset-inline-end: 15px;
   /* Styling the down arrow */
   padding: 0;
   content: '';
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
+  border-inline-start: 6px solid transparent;
+  border-inline-end: 6px solid transparent;
   pointer-events: none;
   color: var(--tertiary-text-color);
 }
 
 .selectTooltip {
   position: absolute;
-  top: -20px;
-  right: 17px;
+  inset-block-start: -20px;
+  inset-inline-end: 17px;
 }
 
 
@@ -88,8 +90,8 @@
   font-size: 18px;
   font-weight: normal;
   position: absolute;
-  left: 0;
-  top: 10px;
+  inset-inline-start: 0;
+  inset-block-start: 10px;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
 }
@@ -97,7 +99,7 @@
 /* active state */
 .select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
   color: var(--accent-color);
-  top: -20px;
+  inset-block-start: -20px;
   transition: 0.2s ease all;
   font-size: 14px;
 }
@@ -106,62 +108,62 @@
 .select-bar {
   position: relative;
   display: block;
-  width: 200px;
+  inline-size: 200px;
 }
 
 .select-bar:before, .select-bar:after {
   content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
+  block-size: 2px;
+  inline-size: 0;
+  inset-block-end: 1px;
   position: absolute;
   background: var(--accent-color);
   transition: 0.2s ease all;
 }
 
 .select-bar:before {
-  left: 50%;
+  inset-inline-start: 50%;
 }
 
 .select-bar:after {
-  right: 50%;
+  inset-inline-end: 50%;
 }
 
 /* active state */
 .select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
-  width: 50%;
+  inline-size: 50%;
 }
 
 /* HIGHLIGHTER ================================== */
 .select-highlight {
   position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
+  block-size: 60%;
+  inline-size: 100px;
+  inset-block-start: 25%;
+  inset-inline-start: 0;
   pointer-events: none;
   opacity: 0.5;
 }
 
 @media only screen and (max-width: 1000px) {
   .select .select-text {
-    max-width: 240px;
+    max-inline-size: 240px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .select {
-    width: 100%;
+    inline-size: 100%;
   }
   .select .select-text {
     display:block;
-    max-width: 95%;
+    max-inline-size: 95%;
   }
 }
 
 @media only screen and (max-width: 680px) {
   .select {
     padding: 0px;
-    margin-right: -15px;
-  }  
+    margin-inline-end: -15px;
+  }
 }

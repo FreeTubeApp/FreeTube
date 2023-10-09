@@ -35,7 +35,14 @@ Global:
   Videos: 'Videa'
   Shorts: Shorts
   Live: Živě
+  Community: Komunita
 
+  Counts:
+    Video Count: 1 video | {count} videí
+    Channel Count: 1 kanál | {count} kanálů
+    Subscriber Count: 1 odběratel | {count} odběratelů
+    View Count: 1 zhlédnutí | {count} zhlédnutí
+    Watching Count: 1 sledující | {count} sledujících
 Version {versionNumber} is now available!  Click for more details: 'Verze {versionNumber}
   je k dispozici! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -100,6 +107,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li
     zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“
     v „{settingsSection}“.
+  Load More Posts: Načíst další příspěvky
+  Empty Posts: Vaše odebírané kanály momentálně nemají žádné příspěvky.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -156,6 +165,7 @@ Settings:
       Beginning: 'Začátek'
       Middle: 'Střed'
       End: 'Konec'
+      Hidden: Skryté
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
       (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Oblast pro trendy'
@@ -190,6 +200,8 @@ Settings:
       Dracula: 'Drákula'
       System Default: Podle systému
       Catppuccin Mocha: Catppuccin Mocha
+      Hot Pink: Horká růžová
+      Pastel Pink: Pastelově růžová
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -232,7 +244,7 @@ Settings:
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt štítky na bočním panelu
-    Hide FreeTube Header Logo: Skrýt logo záhlaví FreeTube
+    Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
     Player Settings: 'Nastavení přehrávače'
     Force Local Backend for Legacy Formats: 'Vynutit místní backend pro starší formáty'
@@ -351,6 +363,9 @@ Settings:
     Hide Subscriptions Shorts: Skrýt Shorts odběrů
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
+    Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
+    Blur Thumbnails: Rozmazat náhledy
+    Hide Subscriptions Community: Skrýt komunitu odběratelů
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -545,6 +560,7 @@ About:
   Report a problem: Nahlásit problém
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
+  Discussions: Diskuze
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -590,8 +606,6 @@ Profile:
   Profile Settings: Nastavení profilu
   Toggle Profile List: Přepnout seznam profilů
 Channel:
-  Subscriber: 'Odběratel'
-  Subscribers: 'odběratelů'
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
   Channel has been removed from your subscriptions: 'Kanál byl odebrán z vašich odběrů'
@@ -632,9 +646,11 @@ Channel:
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
   Channel Tabs: Karty kanálů
   Community:
-    Community: Komunita
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
+    Hide Answers: Skrýt odpovědi
+    votes: '{votes} hlasů'
+    Reveal Answers: Odhalit odpovědi
   Live:
     Live: Živě
     This channel does not currently have any live streams: Tento kanál v současné
@@ -664,15 +680,12 @@ Video:
   Copy YouTube Channel Link: 'Kopírovat odkaz kanálu YouTube'
   Open Channel in Invidious: 'Otevřít kanál v Invidious'
   Copy Invidious Channel Link: 'Kopírovat odkaz Invidious kanálu'
-  View: 'Zhlédnutí'
   Views: 'Zhlédnutí'
   Loop Playlist: 'Smyčka playlistu'
   Shuffle Playlist: 'Zamíchat playlist'
   Reverse Playlist: 'Obrátit playlist'
   Play Next Video: 'Přehrát další video'
   Play Previous Video: 'Přehrát předchozí video'
-  # Context is "X People Watching"
-  Watching: 'Sledujících'
   Watched: 'Zhlédnuto'
   Autoplay: 'Automatické přehrávání'
   Starting soon, please refresh the page to check again: 'Začínáme brzy, obnovte prosím
@@ -785,6 +798,7 @@ Video:
   Upcoming: Nadcházející
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Živý
     chat není pro tento stream k dispozici. Je možné, že byl vypnut nahrávajícím.
+  Pause on Current Video: Pozastavit na současném videu
 Videos:
   #& Sort By
   Sort By:
@@ -862,6 +876,7 @@ Comments:
   Member: Člen
   View {replyCount} replies: Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
+  Subscribed: Odebíráno
 Up Next: 'Další'
 
 #Tooltips
@@ -1011,3 +1026,7 @@ Ok: Ok
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Tento hashtag nemá žádná videa
+Playlist will pause when current video is finished: Po přehrání aktuálního videa bude
+  playlist pozastaven
+Playlist will not pause when current video is finished: Po přehrání aktuálního videa
+  nebude playlist pozastaven

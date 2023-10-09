@@ -80,26 +80,27 @@ body:
   - type: dropdown
     attributes:
       label: Installation Method
+      description: When you select an unofficial installation method, you must have verified that the bug is also present in one of the official installation methods. Please make sure you uninstall the unofficial installation before installing one of the official installations. If you can't reproduce this in one of the official installation methods, you should report the bug to the maintainer of the unofficial installation method you used.
       options:
         - .apk (Alpine Linux Package)
-        - .apk (Android, FreeTubeCordova)
         - .AppImage
-        - AUR
-        - Chocolatey
         - .deb
         - .dmg
         - .exe
         - Flathub
-        - MPR
-        - Nix
         - .pacman
         - Portable
-        - PortableApps
-        - .rpm
-        - Scoop
-        - Snapcraft
-        - winget
+        - .rpm 
         - .zip
+        - .apk (Android, FreeTubeCordova Unofficial)
+        - AUR (Unofficial)
+        - Chocolatey (Unofficial)
+        - MPR (Unofficial)
+        - Nix (Unofficial)
+        - PortableApps (Unofficial)
+        - Scoop (Unofficial)
+        - Snapcraft (Unofficial)
+        - winget (Unofficial)
         - other
     validations:
       required: true
