@@ -1239,10 +1239,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@8.50.0":
-  version "8.50.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.50.0.tgz#9e93b850f0f3fa35f5fa59adfd03adae8488e484"
-  integrity sha512-NCC3zz2+nvYd+Ckfh87rA47zfu2QsQpvc6k1yzTk+b9KzRj0wkGa8LSoGOXN6Zv4lRf/EIoZ80biDh9HOI+RNQ==
+"@eslint/js@8.51.0":
+  version "8.51.0"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.51.0.tgz#6d419c240cfb2b66da37df230f7e7eef801c32fa"
+  integrity sha512-HxjQ8Qn+4SI3/AFv6sOrDB+g6PpUTDwSJiQqOrnneEk8L71161srI9gjzzZvYVbzHiVg/BvcH95+cK/zfIt4pg==
 
 "@fortawesome/fontawesome-common-types@6.4.2":
   version "6.4.2"
@@ -3732,6 +3732,11 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
+eslint-compat-utils@^0.1.0, eslint-compat-utils@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-compat-utils/-/eslint-compat-utils-0.1.2.tgz#f45e3b5ced4c746c127cf724fb074cd4e730d653"
+  integrity sha512-Jia4JDldWnFNIru1Ehx1H5s9/yxiRHY/TimCuUc0jNexew3cF1gI6CYZil1ociakfWO3rRqFjl1mskBblB3RYg==
+
 eslint-config-prettier@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-9.0.0.tgz#eb25485946dd0c66cd216a46232dc05451518d1f"
@@ -3789,12 +3794,13 @@ eslint-plugin-import@^2.28.1:
     semver "^6.3.1"
     tsconfig-paths "^3.14.2"
 
-eslint-plugin-jsonc@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsonc/-/eslint-plugin-jsonc-2.9.0.tgz#df3bff1339e10bdef72aafef3b2c132a1a08c23f"
-  integrity sha512-RK+LeONVukbLwT2+t7/OY54NJRccTXh/QbnXzPuTLpFMVZhPuq1C9E07+qWenGx7rrQl0kAalAWl7EmB+RjpGA==
+eslint-plugin-jsonc@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsonc/-/eslint-plugin-jsonc-2.10.0.tgz#4286fd49a79ee3dd86f9c6c61b6f3c65f30b954f"
+  integrity sha512-9d//o6Jyh4s1RxC9fNSt1+MMaFN2ruFdXPG9XZcb/mR2KkfjADYiNL/hbU6W0Cyxfg3tS/XSFuhl5LgtMD8hmw==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
+    eslint-compat-utils "^0.1.2"
     jsonc-eslint-parser "^2.0.4"
     natural-compare "^1.4.0"
 
@@ -3869,12 +3875,13 @@ eslint-plugin-vuejs-accessibility@^2.2.0:
     emoji-regex "^10.0.0"
     vue-eslint-parser "^9.0.1"
 
-eslint-plugin-yml@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-yml/-/eslint-plugin-yml-1.9.0.tgz#4daa4137a38fa26e38e28e847c490991326c9010"
-  integrity sha512-ayuC57WyVQ5+QZ02y62GiB//5+zsiyzUGxUX/mrhLni+jfsKA4KoITjkbR65iUdjjhWpyTJHPcAIFLKQIOwgsw==
+eslint-plugin-yml@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-yml/-/eslint-plugin-yml-1.10.0.tgz#0c750253825ff352fb11b824d80864d8a2df3408"
+  integrity sha512-53SUwuNDna97lVk38hL/5++WXDuugPM9SUQ1T645R0EHMRCdBIIxGye/oOX2qO3FQ7aImxaUZJU/ju+NMUBrLQ==
   dependencies:
     debug "^4.3.2"
+    eslint-compat-utils "^0.1.0"
     lodash "^4.17.21"
     natural-compare "^1.4.0"
     yaml-eslint-parser "^1.2.1"
@@ -3905,15 +3912,15 @@ eslint-visitor-keys@^3.0.0, eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz#0cd72fe8550e3c2eae156a96a4dddcd1c8ac5800"
   integrity sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==
 
-eslint@^8.50.0:
-  version "8.50.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.50.0.tgz#2ae6015fee0240fcd3f83e1e25df0287f487d6b2"
-  integrity sha512-FOnOGSuFuFLv/Sa+FDVRZl4GGVAAFFi8LecRsI5a1tMO5HIE8nCm4ivAlzt4dT3ol/PaaGC0rJEEXQmHJBGoOg==
+eslint@^8.51.0:
+  version "8.51.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.51.0.tgz#4a82dae60d209ac89a5cff1604fea978ba4950f3"
+  integrity sha512-2WuxRZBrlwnXi+/vFSJyjMqrNjtJqiasMzehF0shoLaW7DzS3/9Yvrmq5JiT66+pNjiX4UBnLDiKHcWAr/OInA==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@eslint-community/regexpp" "^4.6.1"
     "@eslint/eslintrc" "^2.1.2"
-    "@eslint/js" "8.50.0"
+    "@eslint/js" "8.51.0"
     "@humanwhocodes/config-array" "^0.11.11"
     "@humanwhocodes/module-importer" "^1.0.1"
     "@nodelib/fs.walk" "^1.2.8"
@@ -8511,10 +8518,10 @@ vue-devtools@^5.1.4:
   resolved "https://registry.yarnpkg.com/vue-devtools/-/vue-devtools-5.1.4.tgz#265a7458ade2affb291739176964256b597fa302"
   integrity sha512-EBAEXvAHUinsPzoSiElps0JgtLXUnJXKIJbP6nfdz/R63VdKBMfJ34/rFip+4iT7iMbVS5lA4W6N1jq4Hj4LCg==
 
-vue-eslint-parser@^9.0.1, vue-eslint-parser@^9.3.1:
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.3.1.tgz#429955e041ae5371df5f9e37ebc29ba046496182"
-  integrity sha512-Clr85iD2XFZ3lJ52/ppmUDG/spxQu6+MAeHXjjyI4I1NUYZ9xmenQp4N0oaHJhrA8OOxltCVxMRfANGa70vU0g==
+vue-eslint-parser@^9.0.1, vue-eslint-parser@^9.3.1, vue-eslint-parser@^9.3.2:
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.3.2.tgz#6f9638e55703f1c77875a19026347548d93fd499"
+  integrity sha512-q7tWyCVaV9f8iQyIA5Mkj/S6AoJ9KBN8IeUSf3XEmBrOtxOZnfTg5s4KClbZBCK3GtnT/+RyCLZyDHuZwTuBjg==
   dependencies:
     debug "^4.3.4"
     eslint-scope "^7.1.1"
