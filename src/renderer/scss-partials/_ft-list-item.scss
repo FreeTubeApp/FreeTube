@@ -201,6 +201,7 @@ $watched-transition-duration: 0.5s;
     align-content: flex-start;
     display: grid;
     flex: 1;
+    min-inline-size: 10em;
     grid-template:
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
