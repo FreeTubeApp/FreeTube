@@ -150,24 +150,6 @@
         }
     },
     {
-      "name": "Baka-MPlayer",
-      "nameTranslationKey": "Settings.External Player Settings.Players.Baka-MPlayer.Name",
-      "value": "baka-mplayer",
-      "cmdArguments": {
-          "defaultExecutable": "baka-mplayer",
-          "defaultCustomArguments": null,
-          "supportsYtdlProtocol": false,
-          "videoUrl": "",
-          "playlistUrl": null,
-          "startOffset": null,
-          "playbackRate": null,
-          "playlistIndex": null,
-          "playlistReverse": null,
-          "playlistShuffle": null,
-          "playlistLoop": null
-        }
-    },
-    {
       "name": "Celluloid",
       "nameTranslationKey": "Settings.External Player Settings.Players.Celluloid.Name",
       "value": "celluloid",
