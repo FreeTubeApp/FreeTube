@@ -9,6 +9,7 @@
   >
     <div class="channelThumbnail">
       <router-link
+        class="channelThumbnailLink"
         tabindex="-1"
         aria-hidden="true"
         :to="url"

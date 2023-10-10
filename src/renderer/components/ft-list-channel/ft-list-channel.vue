@@ -10,6 +10,7 @@
     <div class="channelThumbnail">
       <router-link
         :to="`/channel/${id}`"
+        class="channelThumbnailLink"
         tabindex="-1"
         aria-hidden="true"
       >

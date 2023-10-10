@@ -191,9 +191,14 @@ $watched-transition-duration: 0.5s;
     display: flex;
     justify-content: center;
 
-    .channelImage {
-      border-radius: 50%;
-      block-size: 130px;
+    .channelThumbnailLink {
+      inline-size: 100%;
+      text-align: center;
+
+      .channelImage {
+        border-radius: 50%;
+        block-size: 130px;
+      }
     }
   }
 
