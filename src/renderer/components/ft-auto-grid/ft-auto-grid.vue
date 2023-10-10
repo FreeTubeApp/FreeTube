@@ -3,8 +3,7 @@
     class="ft-auto-grid"
     :class="{
       grid: grid,
-      list: !grid,
-      card: useFtCardWrapper
+      list: !grid
     }"
   >
     <slot />

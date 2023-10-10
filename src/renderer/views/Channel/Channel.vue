@@ -272,8 +272,7 @@
       <ft-loader
         v-if="isElementListLoading"
       />
-      <component
-        :is="showCommunityPanel ? 'div' : 'ft-card'"
+      <div
         v-if="currentTab !== 'about' && !isElementListLoading"
         class="elementList"
       >
@@ -372,7 +371,6 @@
           v-if="showCommunityPanel"
           id="communityPanel"
           :data="latestCommunityPosts"
-          :use-ft-card-wrapper="true"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="communityTab"
@@ -408,7 +406,7 @@
         >
           <font-awesome-icon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>
-      </component>
+      </div>
     </component>
     <ft-card
       v-if="errorMessage"

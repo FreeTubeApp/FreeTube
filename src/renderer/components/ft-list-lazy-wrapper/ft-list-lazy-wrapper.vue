@@ -1,6 +1,5 @@
 <template>
-  <component
-    :is="useFtCardWrapper ? 'ft-card' : 'div'"
+  <div
     v-if="showResult"
     v-observe-visibility="firstScreen ? false : {
       callback: onVisibilityChanged,
@@ -41,7 +40,7 @@
         :data="data"
       />
     </template>
-  </component>
+  </div>
 </template>
 
 <script src="./ft-list-lazy-wrapper.js" />

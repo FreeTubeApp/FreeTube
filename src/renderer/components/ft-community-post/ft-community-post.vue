@@ -1,92 +1,65 @@
 <template>
   <ft-card
     v-if="!isLoading"
-    class="ft-list-post ft-list-item card list"
-    :appearance="appearance"
+    class="card"
   >
-    <div>
-      <template
-        v-if="authorThumbnails.length > 0"
-      >
-        <router-link
-          v-if="authorId"
-          :to="`/channel/${authorId}`"
-          tabindex="-1"
-          aria-hidden="true"
-        >
-          <img
-            :src="getBestQualityImage(authorThumbnails)"
-            class="communityThumbnail"
-            alt=""
-          >
-        </router-link>
-        <img
-          v-else
-          :src="getBestQualityImage(authorThumbnails)"
-          class="communityThumbnail"
-          alt=""
-        >
-      </template>
-    </div>
-    <div>
-      <div
-        class="author-div"
-      >
-        <p
-          class="authorName"
+    <div
+      class="ft-list-post ft-list-item list"
+      :appearance="appearance"
+    >
+      <div>
+        <template
+          v-if="authorThumbnails.length > 0"
         >
           <router-link
             v-if="authorId"
             :to="`/channel/${authorId}`"
-            class="authorNameLink"
+            tabindex="-1"
+            aria-hidden="true"
           >
-            {{ author }}
+            <img
+              :src="getBestQualityImage(authorThumbnails)"
+              class="communityThumbnail"
+              alt=""
+            >
           </router-link>
-          <template
+          <img
             v-else
+            :src="getBestQualityImage(authorThumbnails)"
+            class="communityThumbnail"
+            alt=""
           >
-            {{ author }}
-          </template>
-        </p>
+        </template>
+      </div>
+      <div>
+        <div
+          class="author-div"
+        >
+          <p
+            class="authorName"
+          >
+            <router-link
+              v-if="authorId"
+              :to="`/channel/${authorId}`"
+              class="authorNameLink"
+            >
+              {{ author }}
+            </router-link>
+            <template
+              v-else
+            >
+              {{ author }}
+            </template>
+          </p>
+          <p
+            class="publishedText"
+          >
+            {{ publishedText }}
+          </p>
+        </div>
         <p
-          class="publishedText"
-        >
-          {{ publishedText }}
-        </p>
-      </div>
-      <p
-        class="postText"
-        v-html="postText"
-      />
-      <tiny-slider
-        v-if="type === 'multiImage' && postContent.content.length > 0"
-        v-bind="tinySliderOptions"
-        class="slider"
-      >
-        <img
-          v-for="(img, index) in postContent.content"
-          :key="index"
-          :src="getBestQualityImage(img)"
-          class="communityImage tns-lazy-img"
-          alt=""
-        >
-      </tiny-slider>
-      <div
-        v-if="type === 'image' && postContent.content.length > 0"
-      >
-        <img
-          :src="getBestQualityImage(postContent.content)"
-          class="communityImage"
-          alt=""
-        >
-      </div>
-      <div
-        v-if="type === 'video'"
-      >
-        <ft-list-video
-          :data="data.postContent.content"
-          appearance="result"
-          force-list-type="list"
+          class="postText"
+          v-html="postText"
         />
         <tiny-slider
           v-if="type === 'multiImage' && postContent.content.length > 0"
@@ -111,6 +84,15 @@
           >
         </div>
         <div
+          v-if="type === 'video'"
+        >
+          <ft-list-video
+            :data="data.postContent.content"
+            appearance="result"
+            force-list-type="list"
+          />
+        </div>
+        <div
           v-if="type === 'poll' || type === 'quiz'"
         >
           <ft-community-poll :data="postContent" />
@@ -124,19 +106,19 @@
             :appearance="appearance"
           />
         </div>
-      </div>
-      <div
-        class="bottomSection"
-      >
-        <span class="likeCount"><font-awesome-icon
-          class="thumbs-up-icon"
-          :icon="['fas', 'thumbs-up']"
-        /> {{ voteCount }}</span>
-        <span class="commentCount">
-          <font-awesome-icon
-            class="comment-count-icon"
-            :icon="['fas', 'comment']"
-          /> {{ commentCount }}</span>
+        <div
+          class="bottomSection"
+        >
+          <span class="likeCount"><font-awesome-icon
+            class="thumbs-up-icon"
+            :icon="['fas', 'thumbs-up']"
+          /> {{ voteCount }}</span>
+          <span class="commentCount">
+            <font-awesome-icon
+              class="comment-count-icon"
+              :icon="['fas', 'comment']"
+            /> {{ commentCount }}</span>
+        </div>
       </div>
     </div>
   </ft-card>

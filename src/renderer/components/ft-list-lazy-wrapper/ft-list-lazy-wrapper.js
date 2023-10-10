@@ -40,10 +40,6 @@ export default defineComponent({
     useChannelsHiddenPreference: {
       type: Boolean,
       default: true,
-    },
-    useFtCardWrapper: {
-      type: Boolean,
-      default: false,
     }
   },
   data: function () {
