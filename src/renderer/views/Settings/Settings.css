@@ -1,6 +1,6 @@
 hr {
-  height: 2px;
-  width: 85%;
+  block-size: 2px;
+  inline-size: 85%;
   margin-block: 0;
   margin-inline: auto;
   border: 0;

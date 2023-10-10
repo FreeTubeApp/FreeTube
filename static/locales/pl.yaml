@@ -34,11 +34,15 @@ Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
   Live: Transmisje
+  Community: Społeczność
 
 # Search Bar
   Counts:
     Video Count: 1 film | {count} film(y/ów)
     Channel Count: 1 kanał | {count} kanał(y/ów)
+    Subscriber Count: 1 subskrybujący | {count} subskrybentów
+    View Count: 1 wyświetlenie | {count} wyświetle(nia/ń)
+    Watching Count: 1 oglądający | {count} oglądających
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -97,6 +101,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Wszystkie karty subskrypcji są pochowane. Aby je zobaczyć,
     proszę odznaczyć ich ukrycie w podgrupie „{subsection}” grupy „{settingsSection}”.
   Subscriptions Tabs: Karty subskrypcji
+  Load More Posts: Załaduj więcej wpisów
+  Empty Posts: Zasubskrybowane przez Ciebie kanały nie mają żadnych wpisów.
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -439,6 +445,7 @@ Settings:
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
     Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
     Blur Thumbnails: Rozmazuj miniaturki
+    Hide Subscriptions Community: Schowaj „Społeczność” kanałów
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -622,8 +629,7 @@ Channel:
   This channel does not allow searching: Ten kanał nie zezwala na przeszukiwanie
   Community:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
-      publikacji
-    Community: Społeczność
+      wpisów
     votes: '{votes} głosów'
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi

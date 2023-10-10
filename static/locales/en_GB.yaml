@@ -35,6 +35,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Community: Community
 
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
@@ -620,7 +621,6 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not
       have any posts
-    Community: Community
   Live:
     This channel does not currently have any live streams: This channel does not currently
       have any live streams

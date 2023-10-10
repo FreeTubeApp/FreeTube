@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  width: 85%;
+  inline-size: 85%;
   margin-block: 0 20px;
   margin-inline: auto;
   box-sizing: border-box;
@@ -8,15 +8,15 @@
 
 .channelDetails {
   padding: 0;
-  max-width: 92vw;
+  max-inline-size: 92vw;
 }
 
 .channelBannerContainer {
   background: center / cover no-repeat var(--banner-url, transparent);
-  height: 13vw;
-  min-height: 110px;
-  max-height: 32vh;
-  width: 100%;
+  block-size: 13vw;
+  min-block-size: 110px;
+  max-block-size: 32vh;
+  inline-size: 100%;
 }
 
 .channelBannerContainer.default {
@@ -37,7 +37,7 @@
 .channelInfo {
   display: flex;
   flex-flow: row wrap;
-  width: 100%;
+  inline-size: 100%;
   justify-content: space-between;
 }
 
@@ -46,8 +46,8 @@
 }
 
 .channelThumbnail {
-  width: 100px;
-  height: 100px;
+  inline-size: 100px;
+  block-size: 100px;
   border-radius: 200px;
   -webkit-border-radius: 200px;
   object-fit: cover;
@@ -55,7 +55,7 @@
 
 .channelName {
   font-weight: bold;
-  width: 100%;
+  inline-size: 100%;
   font-size: 25px;
 }
 
@@ -71,12 +71,16 @@
   justify-content: space-between;
 }
 
+.subscribeButton {
+  block-size: fit-content;
+}
+
 .shareIcon {
   align-self: center;
 }
 
 .channelSearch {
-  width: 220px;
+  inline-size: 220px;
   margin-inline-start: auto;
   align-self: flex-end;
   flex: 1 1 0%;
@@ -88,12 +92,13 @@
 
 .channelInfoTabs {
   position: relative;
-  width: 100%;
-  height: auto;
+  inline-size: 100%;
+  block-size: auto;
   justify-content: unset;
   gap: 32px;
   padding-block: .3em;
   padding-inline: 0;
+  flex-wrap: nowrap;
 }
 
 .tabs {
@@ -105,7 +110,6 @@
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
-  flex: 1 1 0%;
   align-self: flex-end;
   text-align: center;
   color: var(--tertiary-text-color);
@@ -127,7 +131,7 @@
 
 .channelSearch {
   margin-block-start: 10px;
-  max-width: 250px;
+  max-inline-size: 250px;
 }
 
 .elementListLoading {
@@ -140,8 +144,8 @@
 
 .getNextPage {
   background-color: var(--search-bar-color);
-  width: 100%;
-  height: 45px;
+  inline-size: 100%;
+  block-size: 45px;
   line-height: 45px;
   text-align: center;
   cursor: pointer;
@@ -168,8 +172,8 @@
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-border-radius: 200px;
   border-radius: 200px;
-  height: 12%;
-  width: 12%;
+  block-size: 12%;
+  inline-size: 12%;
 }
 
 .ft-community-image {
@@ -185,19 +189,54 @@
 
 @media only screen and (max-width: 800px) {
   .channelInfoTabs {
-    height: auto;
+    block-size: auto;
     flex-flow: column-reverse;
+    gap: 0;
   }
 
   .channelSearch {
-    width: 100%;
-    max-width: none;
+    inline-size: 100%;
+    max-inline-size: none;
   }
 
   .tabs {
-    overflow-x: scroll;
+    flex: 1 1 0;
+    flex-wrap: wrap;
   }
+
+  .tab {
+    flex: 1 1 0%;
+  }
+
   #communityPanel {
     margin-block-start: 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .channelInfo {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .channelInfoActionsContainer {
+    flex-direction: column-reverse;
+  }
+
+  .thumbnailContainer {
+    flex-direction: column;
+  }
+
+  .thumbnailContainer, .channelInfoActionsContainer {
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 260px) {
+   .channelDetails {
+    max-inline-size: none;
   }
 }

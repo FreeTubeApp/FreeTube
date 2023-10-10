@@ -12,12 +12,12 @@
 
 .switch-input {
   appearance: none;
-  height: 20px;
+  block-size: 20px;
   inset-inline-start: -3px;
   position: absolute;
   inset-block-start: calc(50% - 3px);
   transform: translate(0, -50%);
-  width: 34px;
+  inline-size: 34px;
 }
 
 .switch-label {
@@ -43,9 +43,9 @@
   &::before {
     background-color: #9e9e9e;
     border-radius: 8px;
-    height: 14px;
+    block-size: 14px;
     inset-inline-start: 1px;
-    width: 34px;
+    inline-size: 34px;
 
     .switch-input:checked + & {
       background-color: var(--accent-color-light);
@@ -60,9 +60,9 @@
     background-color: #fafafa;
     border-radius: 50%;
     box-shadow: 0 3px 1px -2px rgb(0 0 0 / 14%), 0 2px 2px 0 rgb(0 0 0 / 9.8%), 0 1px 5px 0 rgb(0 0 0 / 8.4%);
-    height: 20px;
+    block-size: 20px;
     inset-inline-start: 0;
-    width: 20px;
+    inline-size: 20px;
 
     .switch-input:checked + & {
       background-color: var(--accent-color);
@@ -75,7 +75,7 @@
   }
 
   @media (max-width: 680px) {
-    max-width: 250px;
+    max-inline-size: 250px;
   }
 }
 

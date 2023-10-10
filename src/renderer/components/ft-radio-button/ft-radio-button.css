@@ -1,12 +1,12 @@
 pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], .pure-checkbox input[type="radio"], .pure-radiobutton input[type="radio"] {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 1px;
+  block-size: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  inline-size: 1px;
 }
 
 .pure-checkbox input[type="checkbox"]:focus + label:before, .pure-radiobutton input[type="checkbox"]:focus + label:before, .pure-checkbox input[type="radio"]:focus + label:before, .pure-radiobutton input[type="radio"]:focus + label:before, .pure-checkbox input[type="checkbox"]:hover + label:before, .pure-radiobutton input[type="checkbox"]:hover + label:before, .pure-checkbox input[type="radio"]:hover + label:before, .pure-radiobutton input[type="radio"]:hover + label:before {
@@ -33,8 +33,8 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   position: absolute;
   inset-block-start: 50%;
   inset-inline-start: 0;
-  width: 14px;
-  height: 14px;
+  inline-size: 14px;
+  block-size: 14px;
   margin-block-start: -9px;
   border: 2px solid var(--primary-color);
   text-align: center;
@@ -48,8 +48,8 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   position: absolute;
   inset-block-start: 50%;
   inset-inline-start: 4px;
-  width: 10px;
-  height: 10px;
+  inline-size: 10px;
+  block-size: 10px;
   margin-block-start: -5px;
   transform: scale(0);
   transform-origin: 50%;
@@ -66,8 +66,8 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   background-color: transparent;
   inset-block-start: 50%;
   inset-inline-start: 4px;
-  width: 8px;
-  height: 3px;
+  inline-size: 8px;
+  block-size: 3px;
   margin-block-start: -4px;
   border-style: solid;
   border-width: 0 0 3px 3px;

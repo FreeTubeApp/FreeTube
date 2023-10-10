@@ -92,6 +92,9 @@ export default defineComponent({
     hideSubscriptionsLive: function () {
       return this.$store.getters.getHideSubscriptionsLive
     },
+    hideSubscriptionsCommunity: function() {
+      return this.$store.getters.getHideSubscriptionsCommunity
+    },
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
@@ -155,6 +158,7 @@ export default defineComponent({
       'updateHideSubscriptionsVideos',
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
+      'updateHideSubscriptionsCommunity',
       'updateBlurThumbnails'
     ])
   }

@@ -38,6 +38,13 @@ Global:
 # Search Bar
   Shorts: Shorts
   Live: Live
+  Counts:
+    Video Count: 1 video | {count} video's
+    Subscriber Count: 1 abonnee | {count} abonnees
+    View Count: 1 weergave | {count} weergaven
+    Watching Count: 1 aan het kijken | {count} aan het kijken
+    Channel Count: 1 kanaal | {count} kanalen
+  Community: Gemeenschap
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -96,6 +103,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle abonnementstabbladen zijn verborgen. Om de inhoud
     hier te zien moet u enkele tabbladen zichtbaar maken in de sectie ‘{subsection}’
     onder ‘{settingsSection}’.
+  Load More Posts: Meer berichten laden
+  Empty Posts: De kanalen waarop u geabonneerd bent hebben momenteel geen berichten.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Tending-tabbladen
@@ -429,6 +438,7 @@ Settings:
     Hide Channel Shorts: Kanaal-Shorts verbergen
     Hide Subscriptions Shorts: Abonnement-Shorts verbergen
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
+    Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
@@ -763,6 +773,8 @@ Video:
   Upcoming: Aankomend
   Show Super Chat Comment: Superchat-opmerking tonen
   Pause on Current Video: Pauzeren bij huidige video
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
+    is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
 Videos:
   #& Sort By
   Sort By:
@@ -839,6 +851,7 @@ Comments:
   Member: Lid
   Hearted: Met hartje
   View {replyCount} replies: '{replyCount} reacties bekijken'
+  Subscribed: Geabonneerd
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -931,6 +944,12 @@ Tooltips:
       om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)
       ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de
       standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
+    Allow DASH AV1 formats: Video's in DASH AV1-formaat kunnen er beter uitzien dan
+      die in DASH H.264-formaat. DASH AV1 verbruikt op oudere apparaten meer energie!
+      Dit formaat is niet beschikbaar voor alle video's, in welk geval het DASH H.264-formaat
+      wordt gebruikt.
+    Skip by Scrolling Over Video Player: Gebruik het scroll-wieltje om door de video
+      te spoelen, zoals bij MPV.
   Subscription Settings:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
@@ -969,6 +988,14 @@ Tooltips:
       in de gekozen externe videospeler kan worden geopend. Let op: Invidious instellingen
       beïnvloeden externe videospelers niet.'
     DefaultCustomArgumentsTemplate: "(standaard: ‘{defaultCustomArguments}’)"
+  Distraction Free Settings:
+    Hide Channels: Voer een kanaalnaam of kanaal-ID in om alle video's, afspeellijsten
+      en het kanaal zelf te verbergen zodat ze niet worden weergegeven in zoeken,
+      trending, populairst en aanbevolen. De ingevoerde kanaalnaam moet volledig overeenkomen
+      en is hoofdlettergevoelig.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van
+      DeArrow.
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
@@ -1013,6 +1040,8 @@ Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
 Hashtag:
   Hashtag: Hashtag
+  This hashtag does not currently have any videos: Deze hashtag heeft momenteel geen
+    video's
 Ok: Oké
 Chapters:
   Chapters: Hoofdstukken
@@ -1024,3 +1053,7 @@ Clipboard:
   Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder
     een beveiligde verbinding
   Copy failed: Kopiëren naar klembord mislukt
+Playlist will pause when current video is finished: Afspeellijst zal pauzeren wanneer
+  de huidige video is afgelopen
+Playlist will not pause when current video is finished: Afspeellijst zal niet pauzeren
+  wanneer de huidige video is afgelopen

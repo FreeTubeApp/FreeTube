@@ -35,10 +35,14 @@ Global:
   Videos: 'Відео'
   Shorts: Shorts
   Live: Наживо
+  Community: Спільнота
 
   Counts:
     Video Count: 1 відео | {count} відео
     Channel Count: 1 канал | {count} канал
+    Subscriber Count: 1 підписник | {count} підписників
+    View Count: 1 перегляд | {count} переглядів
+    Watching Count: 1 глядач | {count} глядачів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -102,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Вкладки підписок
   All Subscription Tabs Hidden: Усі вкладки підписки сховані. Щоб побачити вміст,
     будь ласка, відкрийте деякі вкладки в розділі "{subsection}" в "{settingsSection}".
+  Load More Posts: Завантажити ще дописи
+  Empty Posts: На каналах, на які ви підписані, наразі немає дописів.
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
@@ -361,6 +367,7 @@ Settings:
     Hide Subscriptions Live: Сховати трансляції з підписок
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
     Blur Thumbnails: Розмиті мініатюри
+    Hide Subscriptions Community: Сховати спільноту підписників
   Data Settings:
     Data Settings: 'Налаштування даних'
     Select Import Type: 'Оберіть тип імпорту'
@@ -590,7 +597,6 @@ Channel:
     канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
   Community:
-    Community: Спільнота
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді

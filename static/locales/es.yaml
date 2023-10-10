@@ -36,11 +36,15 @@ Global:
   Videos: 'Vídeos'
   Shorts: Cortos
   Live: En directo
+  Community: Comunidad
 
 # Search Bar
   Counts:
     Video Count: 1 vídeo | {count} vídeos
     Channel Count: 1 canal | {count} canales
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    View Count: 1 vista | {count} vistas
+    Watching Count: 1 espectador | {count} espectadores
 Search / Go to URL: 'Buscar / Ir a la dirección'
   # In Filter Button
 Search Filters:
@@ -98,6 +102,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
     Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}»
     en «{settingsSection}».
+  Load More Posts: Cargar más mensajes
+  Empty Posts: Tus canales suscritos no tienen actualmente ninguna entrada.
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -433,6 +439,7 @@ Settings:
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
     Blur Thumbnails: Difuminar las miniaturas
+    Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -651,7 +658,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
-    Community: Comunidad
     Reveal Answers: Revelar las respuestas
     Hide Answers: Ocultar las respuestas
     votes: '{votes} votos'

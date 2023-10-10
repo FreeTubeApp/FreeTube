@@ -35,10 +35,14 @@ Global:
   Videos: 'Videod'
   Shorts: Lühivideod
   Live: Otseeeter
+  Community: Kogukond
 
   Counts:
     Video Count: 1 video | {count} videot
     Channel Count: 1 kanal | {count} kanalit
+    Subscriber Count: 1 tellija | {count} tellijat
+    View Count: 1 vaatamine | {count} vaatamist
+    Watching Count: 1 vaatamas | {count} vaatamas
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -102,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Tellimuste vahekaardid
   All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu
     nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
+  Load More Posts: Lisa järgmised postitused
+  Empty Posts: Sinu tellitud kanalites hetkel pole ühtegi postitust.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -404,6 +410,7 @@ Settings:
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
     Blur Thumbnails: Hägusta pisipildid
+    Hide Subscriptions Community: Peida tellijate loend
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -593,7 +600,6 @@ Channel:
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
       ühtegi otseeetrit
   Community:
-    Community: Kogukond
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused

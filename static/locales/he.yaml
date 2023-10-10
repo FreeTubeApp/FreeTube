@@ -35,10 +35,14 @@ Global:
   Videos: 'סרטונים'
   Shorts: Shorts
   Live: חי
+  Community: קהילה
 
   Counts:
     Video Count: סרטון אחד | {count} סרטונים
     Channel Count: ערוץ אחד | {count} ערוצים
+    Subscriber Count: מנוי או מנויה 1 | {count} מנויים
+    View Count: צפייה אחת | {count} צפיות
+    Watching Count: צופה 1 | {count} צורפים
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -101,6 +105,8 @@ Subscriptions:
   All Subscription Tabs Hidden: כל לשוניות המינויים מוסתרות. כדי לראות את התוכן כאן,
     נא לבטל את הסתרתן של כמה מהלשוניות תחת הסעיף „{subsection}” שב„{settingsSection}”.
   Subscriptions Tabs: לשוניות מינויים
+  Load More Posts: טעינת רשומות נוספות
+  Empty Posts: בערוצים אליהם נרשמת אין כרגע רשומות.
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
@@ -421,6 +427,7 @@ Settings:
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Blur Thumbnails: טשטוש התמונות הממוזערות
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
+    Hide Subscriptions Community: הסתרת קהילת המינויים
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -637,7 +644,6 @@ Channel:
     מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
   Community:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
-    Community: קהילה
     votes: '{votes} הצבעות'
     Reveal Answers: חשיפת התשובות
     Hide Answers: הסתרת התשובות

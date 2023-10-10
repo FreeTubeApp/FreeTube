@@ -6,7 +6,7 @@ import FtCommunityPoll from '../ft-community-poll/ft-community-poll.vue'
 import autolinker from 'autolinker'
 import VueTinySlider from 'vue-tiny-slider'
 
-import { toLocalePublicationString } from '../../helpers/utils'
+import { deepCopy, toLocalePublicationString } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
 import 'tiny-slider/dist/tiny-slider.css'
@@ -40,6 +40,7 @@ export default defineComponent({
       commentCount: '',
       isLoading: true,
       author: '',
+      authorId: '',
     }
   },
   computed: {
@@ -77,18 +78,16 @@ export default defineComponent({
         return
       }
       this.postText = autolinker.link(this.data.postText)
-      let authorThumbnails = this.data.authorThumbnails
+      const authorThumbnails = deepCopy(this.data.authorThumbnails)
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-        authorThumbnails = authorThumbnails.map(thumbnail => {
+        authorThumbnails.forEach(thumbnail => {
           thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
-          return thumbnail
         })
       } else {
-        authorThumbnails = authorThumbnails.map(thumbnail => {
+        authorThumbnails.forEach(thumbnail => {
           if (thumbnail.url.startsWith('//')) {
             thumbnail.url = 'https:' + thumbnail.url
           }
-          return thumbnail
         })
       }
       this.authorThumbnails = authorThumbnails
@@ -104,6 +103,7 @@ export default defineComponent({
       this.commentCount = this.data.commentCount
       this.type = (this.data.postContent !== null && this.data.postContent !== undefined) ? this.data.postContent.type : 'text'
       this.author = this.data.author
+      this.authorId = this.data.authorId
       this.isLoading = false
     },
 

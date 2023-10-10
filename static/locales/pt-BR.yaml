@@ -34,11 +34,15 @@ Global:
   Videos: 'Vídeos'
   Shorts: Shorts
   Live: Ao vivo
+  Community: Comunidade
 
 # Search Bar
   Counts:
     Video Count: Contagem de videos
     Channel Count: Contagem de Canais
+    Subscriber Count: 1 assinante | {count} assinantes
+    View Count: 1 visualização | {count} visualizações
+    Watching Count: 1 assistindo | {count} assistindo
 Search / Go to URL: 'Buscar/Ir ao URL'
   # In Filter Button
 Search Filters:
@@ -96,6 +100,8 @@ Subscriptions:
   Subscriptions Tabs: Abas de inscrição
   All Subscription Tabs Hidden: Todos as abas de inscrição estão ocultas. Para ver
     o conteúdo aqui, exiba algumas abas na seção "{subsection}" em "{settingsSection}".
+  Load More Posts: Carregar mais posts
+  Empty Posts: No momento, seus canais inscritos não têm nenhum post.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Abas de Tendências
@@ -438,6 +444,7 @@ Settings:
     Hide Subscriptions Live: Ocultar inscrições de transmissões ao vivo
     Hide Profile Pictures in Comments: Esconder imagens do perfil nos comentários
     Blur Thumbnails: Desfocar Miniaturas
+    Hide Subscriptions Community: Ocultar comunidade inscritas
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -609,7 +616,6 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Este
     canal tem restrição de idade e atualmente não pode ser visualizado no FreeTube.
   Community:
-    Community: Comunidade
     This channel currently does not have any posts: Neste momento, este canal não
       tem publicações
     votes: '{votes} Votos'
@@ -850,6 +856,7 @@ Comments:
   Member: Membro
   Hearted: Coração
   View {replyCount} replies: Exibir {replyCount} respostas
+  Subscribed: Inscrito
 Up Next: 'Próximo'
 
 # Toast Messages

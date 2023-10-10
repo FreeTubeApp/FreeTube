@@ -8,6 +8,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
 import debounce from 'lodash.debounce'
+import allLocales from '../../../../static/locales/activeLocales.json'
 import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
@@ -108,7 +109,7 @@ export default defineComponent({
     localeOptions: function () {
       return [
         'system',
-        ...this.$i18n.allLocales
+        ...allLocales
       ]
     },
 

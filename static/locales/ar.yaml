@@ -35,11 +35,15 @@ Global:
   Videos: 'الفيديوهات'
   Shorts: القصيرة
   Live: مباشر
+  Community: المجتمع
 
 # Search Bar
   Counts:
     Video Count: 1 فيديو | {count} مقاطع فيديو
     Channel Count: 1 قناة | {count} القنوات
+    Subscriber Count: 1 مشترك | {count} المشتركين
+    View Count: 1 مشاهدة | {count} مشاهدات
+    Watching Count: 1 مشاهدة | {count} مشاهدة
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -95,6 +99,8 @@ Subscriptions:
   All Subscription Tabs Hidden: جميع علامات تبويب الاشتراك مخفية. لمشاهدة المحتوى
     هنا ، يرجى إظهار بعض علامات التبويب في قسم "{subection}" في "{settingsSection}".
   Subscriptions Tabs: تبويب الاشتراكات
+  Load More Posts: تحميل المزيد من المشاركات
+  Empty Posts: القنوات التي اشتركت بها حاليا لا تحتوي على أي مشاركات.
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -426,6 +432,7 @@ Settings:
     Hide Subscriptions Videos: إخفاء مقاطع فيديو الاشتراكات
     Hide Profile Pictures in Comments: إخفاء صور الملف الشخصي في التعليقات
     Blur Thumbnails: اخفاء الصور المصغرة
+    Hide Subscriptions Community: إخفاء مجتمع الاشتراكات
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -637,7 +644,6 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه
     القناة مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
   Community:
-    Community: المجتمع
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
     Hide Answers: إخفاء الأجوبة

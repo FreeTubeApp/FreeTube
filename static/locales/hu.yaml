@@ -36,10 +36,14 @@ Global:
   Videos: 'Videók'
   Shorts: Rövidfilmek
   Live: Élő
+  Community: Közösség
 
   Counts:
     Video Count: 1 videó | {count} videó
     Channel Count: 1 csatorna | {count} csatorna
+    Subscriber Count: 1 feliratkozó | {count} feliratkozó
+    View Count: 1 megtekintés | {count} megtekintés
+    Watching Count: 1 néz | {count} néz
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
   verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
@@ -106,6 +110,8 @@ Subscriptions:
     tartalom megtekintéséhez, kérjük, jelenítse meg néhány lap elrejtését a(z) „{settingsSection}”
     „{subsection}” szakaszában.
   Subscriptions Tabs: Feliratkozások lapok
+  Load More Posts: További bejegyzések betöltése
+  Empty Posts: A feliratkozott csatornáidnak jelenleg nincsenek bejegyzései.
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
@@ -441,6 +447,7 @@ Settings:
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Blur Thumbnails: Indexkép elhomályosítása
     Hide Profile Pictures in Comments: Profilképek elrejtése a megjegyzésekben
+    Hide Subscriptions Community: Közösségi feliratkozások elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -662,7 +669,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
       bejegyzések
-    Community: Közösség
     Reveal Answers: Válaszok feltárása
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
@@ -889,6 +895,7 @@ Comments:
   Member: Tag
   View {replyCount} replies: '{replyCount} válasz megtekintése'
   Hearted: Kedvenc
+  Subscribed: Feliratkozott
 Up Next: 'Következő'
 
 # Toast Messages

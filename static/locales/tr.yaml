@@ -35,10 +35,14 @@ Global:
   Videos: 'Videolar'
   Shorts: Kısa Videolar
   Live: Canlı
+  Community: Topluluk
 
   Counts:
     Video Count: 1 video | {count} video
     Channel Count: 1 kanal | {count} kanal
+    Subscriber Count: 1 abone | {count} abone
+    View Count: 1 izlenme | {count} izlenme
+    Watching Count: 1 izliyor | {count} izliyor
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -102,6 +106,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği
     görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı
     sekmelerin gizliliğini kaldırın.
+  Load More Posts: Daha Fazla Gönderi Yükle
+  Empty Posts: Abone olduğunuz kanallarda şu anda herhangi bir gönderi yok.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -404,7 +410,7 @@ Settings:
     Hide Comment Likes: Yorum Beğenmelerini Gizle
     Hide Channel Subscribers: Kanal Abonelerini Gizle
     Hide Video Likes And Dislikes: Video Beğenmeleri Ve Beğenmemelerini Gizle
-    Hide Video Views: Video Görüntülenme Sayılarını Gizle
+    Hide Video Views: Video İzlenme Sayılarını Gizle
     Distraction Free Settings: Dikkat Dağıtmama Ayarları
     Hide Active Subscriptions: Etkin Abonelikleri Gizle
     Hide Playlists: Oynatma Listelerini Gizle
@@ -435,6 +441,7 @@ Settings:
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
     Blur Thumbnails: Küçük Resimleri Bulanıklaştır
+    Hide Subscriptions Community: Abonelik Topluluğunu Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -659,7 +666,6 @@ Channel:
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
   This channel does not exist: Bu kanal mevcut değil
   Community:
-    Community: Topluluk
     This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
       gönderi yok
     votes: '{votes} oy'
@@ -691,7 +697,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Youtube Bütünleşik Oynatıcı Bağlantısını Kopyala'
   Open in Invidious: 'Invidious''da aç'
   Copy Invidious Link: 'Invidious Bağlantısını Kopyala'
-  Views: 'Görüntülenme'
+  Views: 'İzlenme'
   Loop Playlist: 'Oynatma Listesini Döngüye Al'
   Shuffle Playlist: 'Oynatma Listesini Karıştır'
   Reverse Playlist: 'Oynatma Listesini Geriden Oynat'
@@ -833,7 +839,7 @@ Playlist:
   View Full Playlist: 'Tüm Oynatma Listesini Görüntüle'
   Videos: 'Videolar'
   View: 'Görüntüle'
-  Views: 'Görüntülenme'
+  Views: 'İzlenme'
   Last Updated On: 'Son Güncelleme Tarihi'
 
 # On Video Watch Page
