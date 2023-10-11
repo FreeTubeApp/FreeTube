@@ -14,6 +14,10 @@
   flex: 1 1 0%;
   margin-block: 18px;
   margin-inline: 10px;
+
+  &.fullWidth {
+    margin-block: 5px;
+  }
 }
 
 .banner {
@@ -50,6 +54,10 @@
   .routerView {
     margin-block: 68px;
     margin-inline: 8px;
+
+    &.fullWidth {
+      margin-block: 68px;
+    }
   }
 
   .banner {
@@ -60,5 +68,9 @@
   .flexBox {
     margin-block-start: 60px;
     margin-block-end: -75px;
+
+    &.fullWidth {
+      margin-block-start: 0;
+    }
   }
 }

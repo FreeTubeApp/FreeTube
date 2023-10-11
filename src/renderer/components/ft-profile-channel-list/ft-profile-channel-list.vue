@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ft-card class="card">
+    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
       <h2>
         {{ $t("Profile.Subscription List") }}
       </h2>
@@ -47,4 +47,4 @@
 </template>
 
 <script src="./ft-profile-channel-list.js" />
-<style scoped src="./ft-profile-channel-list.css" />
+<style scoped src="./ft-profile-channel-list.scss" lang="scss" />

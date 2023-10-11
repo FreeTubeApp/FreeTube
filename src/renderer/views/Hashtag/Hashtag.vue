@@ -7,6 +7,7 @@
     <ft-card
       v-else
       class="card"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ hashtag }}</h2>
       <ft-element-list
@@ -37,4 +38,4 @@
   </div>
 </template>
 <script src="./Hashtag.js" />
-<style scoped src="./Hashtag.css" />
+<style scoped src="./Hashtag.scss" lang="scss" />

@@ -37,6 +37,12 @@
           :default-value="hideHeaderLogo"
           @change="updateHideHeaderLogo"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Theme Settings.Use Full-Width Layout')"
+          :compact="true"
+          :default-value="useFullWidthLayout"
+          @change="updateUseFullWidthLayout"
+        />
       </div>
     </div>
     <ft-flex-box>

@@ -1,14 +1,20 @@
 .card {
   position: relative;
-  inline-size: 85%;
   margin-block: 0 20px;
   margin-inline: auto;
   box-sizing: border-box;
+
+  &:not(.fullWidth) {
+    inline-size: 85%;
+  }
 }
 
 .channelDetails {
   padding: 0;
-  max-inline-size: 92vw;
+
+  &:not(.fullWidth) {
+    max-inline-size: 92vw;
+  }
 }
 
 .channelBannerContainer {
@@ -237,7 +243,7 @@
 }
 
 @media only screen and (max-width: 260px) {
-   .channelDetails {
+  .channelDetails {
     max-inline-size: none;
   }
 }

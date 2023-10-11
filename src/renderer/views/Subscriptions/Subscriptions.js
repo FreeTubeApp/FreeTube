@@ -68,6 +68,10 @@ export default defineComponent({
       }
 
       return tabs
+    },
+
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

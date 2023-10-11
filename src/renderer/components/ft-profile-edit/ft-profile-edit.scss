@@ -1,7 +1,10 @@
 .card {
-  inline-size: 85%;
   margin-block: 0 15px;
   margin-inline: auto;
+
+  &:not(.fullWidth) {
+    inline-size: 85%;
+  }
 }
 
 .message {
@@ -42,7 +45,7 @@
 }
 
 @media only screen and (max-width: 680px) {
-  .card {
+  .card:not(.fullWidth) {
     inline-size: 90%;
   }
 }

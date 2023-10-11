@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ft-card class="card">
+    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
       <h2>{{ $t("Subscriptions.Subscriptions") }}</h2>
       <ft-flex-box
         class="subscriptionTabs"
@@ -103,4 +103,4 @@
 </template>
 
 <script src="./Subscriptions.js" />
-<style scoped src="./Subscriptions.css" />
+<style scoped src="./Subscriptions.scss" lang="scss" />

@@ -288,6 +288,10 @@ export default defineComponent({
       })
 
       return values
+    },
+
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

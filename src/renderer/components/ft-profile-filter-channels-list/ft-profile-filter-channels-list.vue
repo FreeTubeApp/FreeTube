@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ft-card class="card">
+    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
       <h2>
         {{ $t("Profile.Other Channels") }}
       </h2>
@@ -49,4 +49,4 @@
 </template>
 
 <script src="./ft-profile-filter-channels-list.js" />
-<style scoped src="./ft-profile-filter-channels-list.css" />
+<style scoped src="./ft-profile-filter-channels-list.scss" lang="scss" />

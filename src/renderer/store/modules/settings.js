@@ -297,6 +297,7 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  useFullWidthLayout: false,
 }
 
 const stateWithSideEffects = {

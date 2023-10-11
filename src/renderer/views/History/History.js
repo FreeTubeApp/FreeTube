@@ -38,6 +38,10 @@ export default defineComponent({
       } else {
         return this.historyCacheSorted.slice(0, this.dataLimit)
       }
+    },
+
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

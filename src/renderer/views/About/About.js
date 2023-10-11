@@ -83,5 +83,10 @@ export default defineComponent({
         }
       ]
     }
+  },
+  computed: {
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
+    }
   }
 })

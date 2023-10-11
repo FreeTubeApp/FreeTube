@@ -7,6 +7,7 @@
     <ft-card
       v-else
       class="card"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("Most Popular") }}</h2>
       <ft-element-list
@@ -25,4 +26,4 @@
 </template>
 
 <script src="./Popular.js" />
-<style scoped src="./Popular.css" />
+<style scoped src="./Popular.scss" lang="scss" />

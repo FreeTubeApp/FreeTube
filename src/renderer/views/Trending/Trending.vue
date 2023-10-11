@@ -7,6 +7,7 @@
     <ft-card
       v-else
       class="card"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("Trending.Trending") }}</h2>
       <ft-flex-box
@@ -97,4 +98,4 @@
 </template>
 
 <script src="./Trending.js" />
-<style scoped src="./Trending.css" />
+<style scoped src="./Trending.scss" lang="scss" />

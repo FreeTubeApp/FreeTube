@@ -121,6 +121,10 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
+    },
+
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

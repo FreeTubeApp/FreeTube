@@ -7,6 +7,7 @@
     <ft-card
       v-show="!isLoading"
       class="card"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("History.History") }}</h2>
       <ft-input
@@ -53,4 +54,4 @@
 </template>
 
 <script src="./History.js" />
-<style scoped src="./History.css" />
+<style scoped src="./History.scss" lang="scss" />

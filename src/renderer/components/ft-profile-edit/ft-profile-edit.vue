@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ft-card class="card">
+    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
       <h2>{{ $t("Profile.Edit Profile") }}</h2>
       <ft-flex-box>
         <ft-input
@@ -102,4 +102,4 @@
 </template>
 
 <script src="./ft-profile-edit.js" />
-<style scoped src="./ft-profile-edit.css" />
+<style scoped src="./ft-profile-edit.scss" lang="scss" />

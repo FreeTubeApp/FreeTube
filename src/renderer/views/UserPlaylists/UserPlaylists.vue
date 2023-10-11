@@ -7,6 +7,7 @@
     <ft-card
       v-show="!isLoading"
       class="card"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>
         {{ $t("User Playlists.Your Playlists") }}
@@ -59,4 +60,4 @@
 </template>
 
 <script src="./UserPlaylists.js" />
-<style scoped src="./UserPlaylists.css" />
+<style scoped src="./UserPlaylists.scss" lang="scss" />

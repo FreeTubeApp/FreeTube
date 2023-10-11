@@ -65,6 +65,9 @@ export default defineComponent({
         this.$t('Yes'),
         this.$t('No')
       ]
+    },
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

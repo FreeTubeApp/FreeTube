@@ -82,6 +82,10 @@ export default defineComponent({
       return this.$store.getters.getHideHeaderLogo
     },
 
+    useFullWidthLayout: function () {
+      return this.$store.getters.getUseFullWidthLayout
+    },
+
     restartPromptMessage: function () {
       return this.$t('Settings["The app needs to restart for changes to take effect. Restart and apply change?"]')
     },
@@ -168,7 +172,8 @@ export default defineComponent({
       'updateUiScale',
       'updateDisableSmoothScrolling',
       'updateHideLabelsSideBar',
-      'updateHideHeaderLogo'
+      'updateHideHeaderLogo',
+      'updateUseFullWidthLayout'
     ])
   }
 })

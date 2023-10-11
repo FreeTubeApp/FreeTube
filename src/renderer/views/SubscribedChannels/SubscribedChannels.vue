@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ft-card class="card">
+    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
       <h2>{{ $t('Channels.Title') }}</h2>
       <ft-input
         v-show="subscribedChannels.length > 0"
@@ -66,4 +66,4 @@
 </template>
 
 <script src="./SubscribedChannels.js" />
-<style scoped src="./SubscribedChannels.css" />
+<style scoped src="./SubscribedChannels.scss" lang="scss" />

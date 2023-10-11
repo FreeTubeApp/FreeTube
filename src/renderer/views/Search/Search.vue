@@ -9,6 +9,7 @@
     <ft-card
       v-else
       class="card"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("Search Filters.Search Results") }}</h2>
       <ft-element-list
@@ -29,4 +30,4 @@
 </template>
 
 <script src="./Search.js" />
-<style scoped src="./Search.css" />
+<style scoped src="./Search.scss" lang="scss" />

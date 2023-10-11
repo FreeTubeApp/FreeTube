@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ft-card class="card">
+    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
       <h2>{{ $t("Profile.Profile Manager") }}</h2>
       <ft-flex-box
         class="profileList"
@@ -25,4 +25,4 @@
 </template>
 
 <script src="./ProfileSettings.js" />
-<style scoped src="./ProfileSettings.css" />
+<style scoped src="./ProfileSettings.scss" lang="scss" />

@@ -11,6 +11,7 @@
     <side-nav ref="sideNav" />
     <ft-flex-box
       class="flexBox routerView"
+      :class="{ fullWidth: useFullWidthLayout }"
       role="main"
     >
       <div
@@ -41,6 +42,7 @@
         <RouterView
           ref="router"
           class="routerView"
+          :class="{ fullWidth: useFullWidthLayout }"
         />
       <!-- </keep-alive> -->
       </transition>
@@ -85,4 +87,4 @@
 
 <style src="./themes.css" />
 <style src="./videoJS.css" />
-<style scoped src="./App.css" />
+<style scoped src="./App.scss" lang="scss" />
