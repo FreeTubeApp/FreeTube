@@ -234,20 +234,21 @@ Settings:
       Catppuccin Mocha Sky: Cappuccino moka cielo
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
-    UI Scale: Dimensioni interfaccia utente
-    Disable Smooth Scrolling: Disabilita scorrimento fluido
+    UI Scale: Dimensioni dell'interfaccia utente
+    Disable Smooth Scrolling: Disabilita lo scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Impostazioni del lettore'
-    Force Local Backend for Legacy Formats: 'Forza backend locale per formati obsoleti'
+    Force Local Backend for Legacy Formats: 'Forza il backend locale per i formati
+      obsoleti'
     Play Next Video: 'Riproduci il prossimo video'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
     Autoplay Videos: 'Riproduci i video automaticamente'
     Proxy Videos Through Invidious: 'Proxy dei video tramite Invidious'
     Autoplay Playlists: 'Riproduci le playlist automaticamente'
-    Enable Theatre Mode by Default: 'Abilita modalità teatro come predefinita'
+    Enable Theatre Mode by Default: 'Abilita la modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
     Default Video Format:
@@ -327,8 +328,8 @@ Settings:
     Import Subscriptions: 'Importa Iscrizioni'
     Export Subscriptions: 'Esporta Iscrizioni'
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
-    Fetch Feeds from RSS: Scarica aggiornamenti dai flussi RSS
-    Fetch Automatically: Recupera feed automaticamente
+    Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
+    Fetch Automatically: Recupera i feed automaticamente
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -446,7 +447,7 @@ Settings:
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
     Blur Thumbnails: Miniature sfocate
-    Hide Subscriptions Community: Nascondi comunità di iscritti
+    Hide Subscriptions Community: Nascondi la comunità di iscritti
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -804,7 +805,7 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
-Toggle Theatre Mode: 'Attiva/disattiva modalità teatro'
+Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
