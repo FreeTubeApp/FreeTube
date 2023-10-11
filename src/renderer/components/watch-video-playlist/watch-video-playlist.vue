@@ -8,7 +8,7 @@
     >
       <h3
         class="playlistTitle"
-        :title="`${playlistTitle}`"
+        :title="playlistTitle"
       >
         <router-link
           class="playlistTitleLink"
