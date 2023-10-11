@@ -6,9 +6,12 @@
     <div
       v-else
     >
-      <h3>
+      <h3
+        class="playlistTitle"
+        :title="`${playlistTitle}`"
+      >
         <router-link
-          class="playlistTitle"
+          class="playlistTitleLink"
           :to="`/playlist/${playlistId}`"
         >
           {{ playlistTitle }}
