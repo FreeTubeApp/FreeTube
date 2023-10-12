@@ -202,7 +202,6 @@
 
   .tabs {
     flex: 1 1 0;
-    flex-wrap: wrap;
   }
 
   .tab {
