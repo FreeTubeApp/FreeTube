@@ -82,9 +82,14 @@ export default defineComponent({
       this.channelName = this.data.author
       this.id = this.data.authorId
       this.subscriberCount = this.data.subCount
-      this.videoCount = this.data.videoCount
-      this.formattedVideoCount = formatNumber(this.data.videoCount)
       this.formattedSubscriberCount = formatNumber(this.data.subCount)
+      this.handle = this.data.channelHandle
+      if (this.handle != null) {
+        this.videoCount = null
+      } else {
+        this.videoCount = this.data.videoCount
+        this.formattedVideoCount = formatNumber(this.data.videoCount)
+      }
       this.description = this.data.description
     }
   }

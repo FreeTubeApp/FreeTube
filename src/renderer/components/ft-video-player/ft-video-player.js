@@ -1727,6 +1727,9 @@ export default defineComponent({
       const VjsButton = videojs.getComponent('Button')
       class dashQualitySelector extends VjsButton {
         handleClick(event) {
+          if (!event.target.classList.contains('quality-item') && !event.target.classList.contains('vjs-menu-item-text')) {
+            return
+          }
           const selectedQuality = event.target.innerText
           const bitrate = selectedQuality === 'auto' ? 'auto' : parseInt(event.target.attributes.bitrate.value)
           setDashQualityLevel(bitrate)
