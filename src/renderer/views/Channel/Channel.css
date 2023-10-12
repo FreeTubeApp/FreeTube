@@ -103,7 +103,8 @@
 
 .tabs {
   display: flex;
-  flex: 0 1 33%;
+  flex: 0 1 66%;
+  flex-wrap: wrap;
 }
 
 .tab {
