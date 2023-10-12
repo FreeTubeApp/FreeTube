@@ -15,6 +15,8 @@ export const colors = [
   { name: 'Amber', value: '#FFAB00' },
   { name: 'Orange', value: '#FF6D00' },
   { name: 'DeepOrange', value: '#DD2C00' },
+  { name: 'LightGrey', value: '#B1B1B1'},
+  { name: 'DarkGrey', value: '#696969'},
   { name: 'DraculaCyan', value: '#8BE9FD' },
   { name: 'DraculaGreen', value: '#50FA7B' },
   { name: 'DraculaOrange', value: '#FFB86C' },

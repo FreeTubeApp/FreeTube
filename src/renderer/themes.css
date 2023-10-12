@@ -263,6 +263,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
+.mainLightGrey,
+.mainDarkGrey,
+
 .mainRed {
   --primary-color: #f44336;
   --primary-color-hover: #e53935;
@@ -357,6 +360,18 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #FF5722;
   --primary-color-hover: #F4511E;
   --primary-color-active: #D84315;
+}
+
+.mainLightGrey {
+  --primary-color: #B1B1B1;
+  --primary-color-hover: #848482;
+  --primary-color-active: #7E7E7E;
+}
+
+.mainDarkGrey {
+  --primary-color: #696969;
+  --primary-color-hover: #555555;
+  --primary-color-active: #4E4E4E;
 }
 
 .mainDraculaCyan,
@@ -542,6 +557,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secDeepOrange {
   --text-with-accent-color: #000000;
 }
+
+.secLightGrey,
+.secDarkGrey,
 
 .secRed {
   --accent-color: #f44336;
@@ -733,6 +751,30 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity2: rgba(255,87,34,0.12);
   --accent-color-opacity3: rgba(255,87,34,0.16);
   --accent-color-opacity4: rgba(255,87,34,0.24);
+}
+
+.secLightGrey {
+  --accent-color: #B1B1B1;
+  --accent-color-hover: #848482;
+  --accent-color-active: #7E7E7E;
+  --accent-color-light: #cfcfcf;
+  --accent-color-visited: #797979;
+  --accent-color-opacity1: rgba(177,177,177,0.04);
+  --accent-color-opacity2: rgba(177,177,177,0.12);
+  --accent-color-opacity3: rgba(177,177,177,0.16);
+  --accent-color-opacity4: rgba(177,177,177,0.24);
+}
+
+.secDarkGrey {
+  --accent-color: #696969;
+  --accent-color-hover: #555555;
+  --accent-color-active: #4E4E4E;
+  --accent-color-light: #A5A5A5;
+  --accent-color-visited: #444444;
+  --accent-color-opacity1: rgba(105,105,105,0.04);
+  --accent-color-opacity2: rgba(105,105,105,0.12);
+  --accent-color-opacity3: rgba(105,105,105,0.16);
+  --accent-color-opacity4: rgba(105,105,105,0.24);
 }
 
 .secDraculaCyan,
