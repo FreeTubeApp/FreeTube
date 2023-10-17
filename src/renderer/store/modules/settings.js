@@ -283,6 +283,7 @@ const state = {
   videoPlaybackRateMouseScroll: false,
   videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
+  downloadAskPath: true,
   downloadFolderPath: '',
   downloadBehavior: 'download',
   enableScreenshot: false,

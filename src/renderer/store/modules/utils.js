@@ -150,9 +150,10 @@ const actions = {
 
     const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
     const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
+    const askFolderPath = rootState.settings.downloadAskPath
     let folderPath = rootState.settings.downloadFolderPath
 
-    if (folderPath === '') {
+    if (askFolderPath) {
       const options = {
         defaultPath: fileName,
         filters: [
