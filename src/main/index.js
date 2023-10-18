@@ -171,7 +171,7 @@ function runApp() {
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
 
   // command line switches need to be added before the app ready event first
-  // that means we can't use the normal settings system as that is asynchonous,
+  // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
   const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
   if (replaceHttpCache) {
@@ -311,7 +311,7 @@ function runApp() {
       // For the DASH formats we are fine as video.js doesn't seem to ever request chunks that big.
       // The legacy formats don't have any chunk size limits.
       // For the audio formats we need to handle it ourselves, as the browser requests the entire audio file,
-      // which means that for most videos that are loger than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
+      // which means that for most videos that are longer than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
 
       // This code checks if the file is larger than the limit, by checking the `clen` query param,
       // which YouTube helpfully populates with the content length for us.
