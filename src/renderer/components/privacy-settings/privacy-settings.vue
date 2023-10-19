@@ -60,7 +60,7 @@
         @click="showRemoveSubscriptionsPrompt = true"
       />
       <ft-button
-        :label="'Remove All Playlists'"
+        :label="$t('Settings.Privacy Settings.Remove All Playlists')"
         text-color="var(--text-with-main-color)"
         background-color="var(--primary-color)"
         @click="showRemovePlaylistsPrompt = true"
@@ -89,7 +89,7 @@
     />
     <ft-prompt
       v-if="showRemovePlaylistsPrompt"
-      :label="'Are you sure you want to remove all your playlists?'"
+      :label="$t('Settings.Privacy Settings.Are you sure you want to remove all your playlists?')"
       :option-names="promptNames"
       :option-values="promptValues"
       @click="handleRemovePlaylists"

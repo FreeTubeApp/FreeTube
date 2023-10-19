@@ -47,7 +47,7 @@
         <ft-icon-button
           v-if="showPlaylists"
           ref="addToPlaylistIcon"
-          title="Add to playlist"
+          :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
           class="addToPlaylistIcon"
           :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
@@ -57,7 +57,7 @@
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
-          title="Move video up"
+          :title="$t('User Playlists.Move Video Up')"
           :icon="['fas', 'arrow-up']"
           class="upArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
@@ -66,7 +66,7 @@
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoDown"
-          title="Move video down"
+          :title="$t('User Playlists.Move Video Down')"
           :icon="['fas', 'arrow-down']"
           class="downArrowIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
@@ -75,7 +75,7 @@
         />
         <ft-icon-button
           v-if="inUserPlaylist && canRemoveFromPlaylist"
-          title="Remove from playlist"
+          :title="$t('User Playlists.Remove from Playlist')"
           :icon="['fas', 'trash']"
           class="trashIcon"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"

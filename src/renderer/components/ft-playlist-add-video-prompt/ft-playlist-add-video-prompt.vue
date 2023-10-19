@@ -3,15 +3,19 @@
     @click="hide"
   >
     <h2 class="heading">
-      Select a Playlist to add your {{ toBeAddedToPlaylistVideoCount }} video(s) to
+      {{ $tc('User Playlists.AddVideoPrompt.Select a playlist to add your N videos to', toBeAddedToPlaylistVideoCount, {
+        videoCount: toBeAddedToPlaylistVideoCount,
+      }) }}
     </h2>
     <p class="selected-count">
-      {{ selectedPlaylistCount }} Selected
+      {{ $tc('User Playlists.AddVideoPrompt.N playlists selected', selectedPlaylistCount, {
+        playlistCount: selectedPlaylistCount,
+      }) }}
     </p>
     <ft-input
       v-show="allPlaylists.length > 1"
       ref="searchBar"
-      placeholder="Search in Playlist"
+      :placeholder="$t('User Playlists.AddVideoPrompt.Search in Playlists')"
       :show-clear-text-button="true"
       :show-action-button="false"
       :input-tabindex="tabindex"
@@ -43,17 +47,17 @@
     <div class="actions-container">
       <ft-flex-box>
         <ft-button
-          label="Create New Playlist"
+          :label="$t('User Playlists.Create New Playlist')"
           :tabindex="tabindex"
           @click="openCreatePlaylistPrompt"
         />
         <ft-button
-          label="Save"
+          :label="$t('User Playlists.AddVideoPrompt.Save')"
           :tabindex="tabindex"
           @click="addSelectedToPlaylists"
         />
         <ft-button
-          label="Cancel"
+          :label="$t('User Playlists.Cancel')"
           :tabindex="tabindex"
           @click="hide"
         />

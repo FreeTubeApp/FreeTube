@@ -25,7 +25,7 @@
       <ft-input
         v-if="editMode"
         ref="playlistTitleInput"
-        placeholder="Playlist Name"
+        :placeholder="$t('User Playlists.Playlist Name')"
         :input-tabindex="0"
         :show-action-button="false"
         :show-label="false"
@@ -53,7 +53,7 @@
 
     <ft-input
       v-if="editMode"
-      placeholder="Playlist Description"
+      :placeholder="$t('User Playlists.Playlist Description')"
       :input-tabindex="0"
       :show-action-button="false"
       :show-label="false"
@@ -101,14 +101,14 @@
       <div class="playlistOptions">
         <ft-icon-button
           v-if="editMode"
-          title="Save Changes"
+          :title="$t('User Playlists.Save Changes')"
           :icon="['fas', 'save']"
           theme="secondary"
           @click="savePlaylistInfo"
         />
         <ft-icon-button
           v-if="editMode"
-          title="Cancel"
+          :title="$t('User Playlists.Cancel')"
           :icon="['fas', 'times']"
           theme="secondary"
           @click="exitEditMode"
@@ -116,28 +116,28 @@
 
         <ft-icon-button
           v-if="!editMode && infoSource === 'user'"
-          title="Edit Playlist Info"
+          :title="$t('User Playlists.Edit Playlist Info')"
           :icon="['fas', 'edit']"
           theme="secondary"
           @click="enterEditMode"
         />
         <ft-icon-button
           v-if="videoCount > 0 && showPlaylists && !editMode"
-          title="Copy Playlist"
+          :title="$t('User Playlists.Copy Playlist')"
           :icon="['fas', 'copy']"
           theme="secondary"
           @click="toggleCopyVideosPrompt"
         />
         <ft-icon-button
           v-if="!editMode && infoSource === 'user' && videoCount > 0"
-          title="Remove Watched Videos"
+          :title="$t('User Playlists.Remove Watched Videos')"
           :icon="['fas', 'eye-slash']"
           theme="secondary"
           @click="showRemoveVideosOnWatchPrompt = true"
         />
         <ft-icon-button
           v-if="deletePlaylistButtonVisible"
-          title="Delete Playlist"
+          :title="$t('User Playlists.Delete Playlist')"
           :icon="['fas', 'trash']"
           theme="secondary"
           @click="showDeletePlaylistPrompt = true"
@@ -152,14 +152,14 @@
 
       <ft-prompt
         v-if="showDeletePlaylistPrompt"
-        label="Are you sure you want to delete this playlist? This cannot be undone."
+        :label="$t('User Playlists.Are you sure you want to delete this playlist? This cannot be undone.')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         @click="handleDeletePlaylistPromptAnswer"
       />
       <ft-prompt
         v-if="showRemoveVideosOnWatchPrompt"
-        label="Are you sure you want to remove all watched videos from this playlist? This cannot be undone."
+        :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone.')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         @click="handleRemoveVideosOnWatchPromptAnswer"

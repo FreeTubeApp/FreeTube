@@ -83,7 +83,7 @@
       <div class="videoOptions">
         <ft-icon-button
           v-if="showPlaylists && !isUpcoming"
-          title="Add to playlist"
+          :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
           class="option"
           theme="base"

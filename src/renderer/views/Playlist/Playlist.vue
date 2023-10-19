@@ -87,7 +87,7 @@
         v-else
       >
         <p class="message">
-          This playlist currently has no videos.
+          {{ $t("User Playlists['This playlist currently has no videos.']") }}
         </p>
       </ft-flex-box>
     </ft-card>
