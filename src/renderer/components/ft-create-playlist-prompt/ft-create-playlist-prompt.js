@@ -31,9 +31,6 @@ export default Vue.extend({
     newPlaylistVideoObject: function () {
       return this.$store.getters.getNewPlaylistVideoObject
     },
-    videoImportLength: function () {
-      return this.newPlaylistVideoObject.videos.length
-    },
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
@@ -62,12 +59,11 @@ export default Vue.extend({
         return
       }
 
-      const videosObject = (this.videoImportLength > 0 ? this.newPlaylistVideoObject.videos : [])
       const playlistObject = {
         playlistName: this.playlistName,
         protected: false,
         description: '',
-        videos: videosObject,
+        videos: [],
       }
 
       try {

@@ -18,12 +18,6 @@
         @click="createNewPlaylist"
       />
     </ft-flex-box>
-    <p
-      v-if="videoImportLength > 0"
-      class="center"
-    >
-      {{ videoImportLength }} video(s) will also be imported when created
-    </p>
     <ft-flex-box>
       <ft-button
         label="Create"

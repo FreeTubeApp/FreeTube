@@ -218,7 +218,6 @@ export default defineComponent({
     createNewPlaylist: function () {
       this.showCreatePlaylistPrompt({
         title: '',
-        videos: []
       })
     },
 

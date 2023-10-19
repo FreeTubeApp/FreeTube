@@ -331,9 +331,9 @@ const actions = {
     commit('resetNewPlaylistDefaultProperties')
   },
 
-  showCreatePlaylistPrompt ({ commit }, videoArray) {
+  showCreatePlaylistPrompt ({ commit }, data) {
     commit('setShowCreatePlaylistPrompt', true)
-    commit('setNewPlaylistVideoObject', videoArray)
+    commit('setNewPlaylistVideoObject', data)
   },
 
   hideCreatePlaylistPrompt ({ commit }) {

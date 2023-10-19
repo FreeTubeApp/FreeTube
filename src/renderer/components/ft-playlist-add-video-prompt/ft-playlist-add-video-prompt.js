@@ -242,7 +242,6 @@ export default Vue.extend({
 
       this.showCreatePlaylistPrompt({
         title: this.newPlaylistDefaultProperties.title || '',
-        videos: [],
       })
     },
 
