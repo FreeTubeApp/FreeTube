@@ -9,7 +9,7 @@
       v-if="!isLoading"
       :id="playlistId"
       :first-video-id="firstVideoId"
-      :first-video-unique-id="firstVideoUniqueId"
+      :first-video-playlist-item-id="firstVideoPlaylistItemId"
       :playlist-thumbnail="playlistThumbnail"
       :title="playlistTitle"
       :channel-name="channelName"
@@ -40,7 +40,7 @@
         >
           <div
             v-for="(item, index) in playlistItems"
-            :key="`${item.videoId}-${item.uniqueId || index}`"
+            :key="`${item.videoId}-${item.playlistItemId || index}`"
             class="playlistItem"
           >
             <p
@@ -53,16 +53,16 @@
               :playlist-id="playlistId"
               :playlist-type="infoSource"
               :playlist-index="index"
-              :unique-id="item.uniqueId"
+              :playlist-item-id="item.playlistItemId"
               appearance="result"
               force-list-type="list"
               :always-show-add-to-playlist-button="true"
               :can-move-video-up="index > 0"
               :can-move-video-down="index < playlistItems.length - 1"
               :can-remove-from-playlist="true"
-              @move-video-up="moveVideoUp(item.videoId, item.uniqueId)"
-              @move-video-down="moveVideoDown(item.videoId, item.uniqueId)"
-              @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.uniqueId)"
+              @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
+              @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
+              @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
             />
           </div>
         </transition-group>

@@ -42,12 +42,12 @@ class History {
     )
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedUniqueId) {
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_HISTORY,
       {
         action: DBActions.HISTORY.UPDATE_PLAYLIST,
-        data: { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedUniqueId }
+        data: { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }
       }
     )
   }
@@ -160,12 +160,12 @@ class Playlists {
     )
   }
 
-  static deleteVideoIdByPlaylistId(_id, uniqueId) {
+  static deleteVideoIdByPlaylistId(_id, playlistItemId) {
     return ipcRenderer.invoke(
       IpcChannels.DB_PLAYLISTS,
       {
         action: DBActions.PLAYLISTS.DELETE_VIDEO_ID,
-        data: { _id, uniqueId }
+        data: { _id, playlistItemId }
       }
     )
   }

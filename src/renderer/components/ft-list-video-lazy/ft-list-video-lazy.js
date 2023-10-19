@@ -35,7 +35,7 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    uniqueId: {
+    playlistItemId: {
       type: String,
       default: null,
     },

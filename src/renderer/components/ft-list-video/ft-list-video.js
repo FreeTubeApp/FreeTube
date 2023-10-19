@@ -30,7 +30,7 @@ export default defineComponent({
       type: String,
       default: null
     },
-    uniqueId: {
+    playlistItemId: {
       type: String,
       default: null
     },
@@ -350,7 +350,7 @@ export default defineComponent({
         return {
           playlistId: this.playlistId,
           playlistType: this.playlistType,
-          uniqueId: this.uniqueId,
+          playlistItemId: this.playlistItemId,
         }
       }
 
@@ -361,7 +361,7 @@ export default defineComponent({
       return {
         playlistId: this.historyEntry?.lastViewedPlaylistId,
         playlistType: this.historyEntry?.lastViewedPlaylistType,
-        uniqueId: this.historyEntry?.lastViewedUniqueId,
+        playlistItemId: this.historyEntry?.lastViewedPlaylistItemId,
       }
     },
 
@@ -371,8 +371,8 @@ export default defineComponent({
     playlistTypeFinal: function () {
       return this.playlistIdTypePairFinal?.playlistType
     },
-    uniqueIdFinal: function () {
-      return this.playlistIdTypePairFinal?.uniqueId
+    playlistItemIdFinal: function () {
+      return this.playlistIdTypePairFinal?.playlistItemId
     },
 
     watchPageLinkTo() {
@@ -386,7 +386,7 @@ export default defineComponent({
       const query = {}
       if (this.playlistIdFinal) { query.playlistId = this.playlistIdFinal }
       if (this.playlistTypeFinal) { query.playlistType = this.playlistTypeFinal }
-      if (this.uniqueIdFinal) { query.uniqueId = this.uniqueIdFinal }
+      if (this.playlistItemIdFinal) { query.playlistItemId = this.playlistItemIdFinal }
       return query
     },
 

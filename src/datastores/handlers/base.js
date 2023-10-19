@@ -64,8 +64,8 @@ class History {
     return db.history.updateAsync({ videoId }, { $set: { watchProgress } }, { upsert: true })
   }
 
-  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedUniqueId) {
-    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType, lastViewedUniqueId } }, { upsert: true })
+  static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
+    return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId } }, { upsert: true })
   }
 
   static delete(videoId) {
@@ -136,10 +136,10 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistId(_id, uniqueId) {
+  static deleteVideoIdByPlaylistId(_id, playlistItemId) {
     return db.playlists.updateAsync(
       { _id },
-      { $pull: { videos: { uniqueId } } },
+      { $pull: { videos: { playlistItemId } } },
       { upsert: true }
     )
   }

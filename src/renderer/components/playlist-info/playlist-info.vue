@@ -8,7 +8,7 @@
           path: `/watch/${firstVideoId}`,
           query: {
             playlistId: id,
-            uniqueId: firstVideoUniqueId,
+            playlistItemId: firstVideoPlaylistItemId,
           },
         }"
         tabindex="-1"

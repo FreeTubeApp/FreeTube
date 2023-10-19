@@ -70,8 +70,8 @@ const actions = {
         if (videoData.timeAdded == null) {
           videoData.timeAdded = new Date().getTime()
         }
-        if (videoData.uniqueId == null) {
-          videoData.uniqueId = generateRandomUniqueId()
+        if (videoData.playlistItemId == null) {
+          videoData.playlistItemId = generateRandomUniqueId()
         }
       })
     }
@@ -132,8 +132,8 @@ const actions = {
       if (videoData.timeAdded == null) {
         videoData.timeAdded = new Date().getTime()
       }
-      if (videoData.uniqueId == null) {
-        videoData.uniqueId = generateRandomUniqueId()
+      if (videoData.playlistItemId == null) {
+        videoData.playlistItemId = generateRandomUniqueId()
       }
       // For backward compatibility
       if (videoData.type == null) {
@@ -153,8 +153,8 @@ const actions = {
         if (videoData.timeAdded == null) {
           videoData.timeAdded = new Date().getTime()
         }
-        if (videoData.uniqueId == null) {
-          videoData.uniqueId = generateRandomUniqueId()
+        if (videoData.playlistItemId == null) {
+          videoData.playlistItemId = generateRandomUniqueId()
         }
         // For backward compatibility
         if (videoData.type == null) {
@@ -210,9 +210,9 @@ const actions = {
               anythingUpdated = true
             }
 
-            // Ensure all videos has `uniqueId` property
-            if (v.uniqueId == null) {
-              v.uniqueId = generateRandomUniqueId()
+            // Ensure all videos has `playlistItemId` property
+            if (v.playlistItemId == null) {
+              v.playlistItemId = generateRandomUniqueId()
               anythingUpdated = true
             }
 
@@ -325,8 +325,8 @@ const actions = {
 
   async removeVideo({ commit }, payload) {
     try {
-      const { _id, uniqueId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, uniqueId)
+      const { _id, playlistItemId } = payload
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, playlistItemId)
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -394,7 +394,7 @@ const mutations = {
   removeVideo(state, payload) {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video.uniqueId !== payload.uniqueId)
+      playlist.videos = playlist.videos.filter(video => video.playlistItemId !== payload.playlistItemId)
     }
   },
 

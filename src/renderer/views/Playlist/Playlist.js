@@ -44,7 +44,7 @@ export default defineComponent({
       playlistTitle: '',
       playlistDescription: '',
       firstVideoId: '',
-      firstVideoUniqueId: '',
+      firstVideoPlaylistItemId: '',
       playlistThumbnail: '',
       viewCount: 0,
       videoCount: 0,
@@ -273,10 +273,10 @@ export default defineComponent({
 
       if (playlist.videos.length > 0) {
         this.firstVideoId = playlist.videos[0].videoId
-        this.firstVideoUniqueId = playlist.videos[0].uniqueId
+        this.firstVideoPlaylistItemId = playlist.videos[0].playlistItemId
       } else {
         this.firstVideoId = ''
-        this.firstVideoUniqueId = ''
+        this.firstVideoPlaylistItemId = ''
       }
       this.viewCount = 0
       this.videoCount = playlist.videos.length
@@ -324,10 +324,10 @@ export default defineComponent({
       })
     },
 
-    moveVideoUp: function (videoId, uniqueId) {
+    moveVideoUp: function (videoId, playlistItemId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
-        return video.videoId === videoId && video.uniqueId === uniqueId
+        return video.videoId === videoId && video.playlistItemId === playlistItemId
       })
 
       if (videoIndex === 0) {
@@ -356,10 +356,10 @@ export default defineComponent({
       }
     },
 
-    moveVideoDown: function (videoId, uniqueId) {
+    moveVideoDown: function (videoId, playlistItemId) {
       const playlistItems = [].concat(this.playlistItems)
       const videoIndex = playlistItems.findIndex((video) => {
-        return video.videoId === videoId && video.uniqueId === uniqueId
+        return video.videoId === videoId && video.playlistItemId === playlistItemId
       })
 
       if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
@@ -388,12 +388,12 @@ export default defineComponent({
       }
     },
 
-    removeVideoFromPlaylist: function (videoId, uniqueId) {
+    removeVideoFromPlaylist: function (videoId, playlistItemId) {
       try {
         this.removeVideo({
           _id: this.playlistId,
           videoId: videoId,
-          uniqueId: uniqueId,
+          playlistItemId: playlistItemId,
         })
         // Update playlist's `lastUpdatedAt`
         this.updatePlaylist({ _id: this.playlistId })

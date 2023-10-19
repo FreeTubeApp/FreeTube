@@ -27,7 +27,7 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    uniqueId: {
+    playlistItemId: {
       type: String,
       default: null,
     },
@@ -82,8 +82,8 @@ export default defineComponent({
 
     currentVideoIndexZeroBased: function () {
       return this.playlistItems.findIndex((item) => {
-        if (item.uniqueId != null && this.uniqueId != null) {
-          return item.uniqueId === this.uniqueId
+        if (item.playlistItemId != null && this.playlistItemId != null) {
+          return item.playlistItemId === this.playlistItemId
         } else if (item.videoId != null) {
           return item.videoId === this.videoId
         } else {
@@ -121,8 +121,8 @@ export default defineComponent({
       const playlistItems = this.shuffleEnabled ? this.randomizedPlaylistItems : this.playlistItems
 
       return playlistItems.findIndex((item) => {
-        if (item.uniqueId != null && this.uniqueId != null) {
-          return item.uniqueId === this.uniqueId
+        if (item.playlistItemId != null && this.playlistItemId != null) {
+          return item.playlistItemId === this.playlistItemId
         } else if (item.videoId != null) {
           return item.videoId === this.videoId
         } else {
@@ -153,7 +153,7 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist updated
       this.parseUserPlaylist(this.selectedUserPlaylist, { allowPlayingVideoRemoval: true })
     },
-    uniqueId (newId, _oldId) {
+    playlistItemId (newId, _oldId) {
       // Playing online video
       if (newId == null) { return }
 
@@ -301,7 +301,7 @@ export default defineComponent({
         this.$router.push(
           {
             path: `/watch/${targetPlaylistItem.videoId}`,
-            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
           }
         )
         showToast(this.$t('Playing Next Video'))
@@ -318,7 +318,7 @@ export default defineComponent({
         this.$router.push(
           {
             path: `/watch/${targetPlaylistItem.videoId}`,
-            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
           }
         )
         showToast(this.$t('Playing Next Video'))
@@ -340,7 +340,7 @@ export default defineComponent({
         this.$router.push(
           {
             path: `/watch/${targetPlaylistItem.videoId}`,
-            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
           }
         )
       } else {
@@ -349,7 +349,7 @@ export default defineComponent({
         this.$router.push(
           {
             path: `/watch/${targetPlaylistItem.videoId}`,
-            query: Object.assign(playlistInfo, { uniqueId: targetPlaylistItem.uniqueId }),
+            query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
           }
         )
       }
@@ -457,7 +457,7 @@ export default defineComponent({
         this.playlistItems = playlist.videos
       } else {
         // `this.currentVideo` relies on `playlistItems`
-        const latestPlaylistContainsCurrentVideo = playlist.videos.find(v => v.uniqueId === this.uniqueId) != null
+        const latestPlaylistContainsCurrentVideo = playlist.videos.find(v => v.playlistItemId === this.playlistItemId) != null
         // Only update list of videos if latest video list still contains currently playing video
         if (latestPlaylistContainsCurrentVideo) {
           this.playlistItems = playlist.videos

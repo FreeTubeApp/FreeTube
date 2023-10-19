@@ -14,7 +14,7 @@
       :playlist-reverse="playlistReverse"
       :playlist-shuffle="playlistShuffle"
       :playlist-loop="playlistLoop"
-      :unique-id="uniqueId"
+      :playlist-item-id="playlistItemId"
       :force-list-type="forceListType"
       :appearance="appearance"
       :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"

@@ -27,7 +27,7 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    firstVideoUniqueId: {
+    firstVideoPlaylistItemId: {
       type: String,
       required: true,
     },

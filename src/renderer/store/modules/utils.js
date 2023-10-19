@@ -287,8 +287,8 @@ const actions = {
         // Not when a prompt is displayed
         // 'timeAdded',
 
-        // `uniqueId` should be generated anyway
-        // 'uniqueId',
+        // `playlistItemId` should be generated anyway
+        // 'playlistItemId',
 
         // `type` should be added in action anyway
         // 'type',

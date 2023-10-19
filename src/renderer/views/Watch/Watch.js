@@ -122,7 +122,7 @@ export default defineComponent({
       watchingPlaylist: false,
       playlistId: '',
       playlistType: '',
-      uniqueId: null,
+      playlistItemId: null,
       timestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
@@ -1081,7 +1081,7 @@ export default defineComponent({
         // Whether there is a playlist ID or not, save it
         lastViewedPlaylistId: this.playlistId,
         lastViewedPlaylistType: this.playlistType,
-        lastViewedUniqueId: this.uniqueId,
+        lastViewedPlaylistItemId: this.playlistItemId,
       })
     },
 
@@ -1137,11 +1137,11 @@ export default defineComponent({
       }
 
       this.playlistId = this.$route.query.playlistId
-      this.uniqueId = this.$route.query.uniqueId
+      this.playlistItemId = this.$route.query.playlistItemId
 
       if (this.playlistId == null || this.playlistId.length === 0) {
         this.playlistType = ''
-        this.uniqueId = null
+        this.playlistItemId = null
         this.watchingPlaylist = false
         return
       }
@@ -1160,7 +1160,7 @@ export default defineComponent({
       this.playlistType = this.$route.query.playlistType
       if (this.playlistType !== 'user') {
         // Remote playlist
-        this.uniqueId = null
+        this.playlistItemId = null
         this.watchingPlaylist = true
         return
       }
@@ -1171,7 +1171,7 @@ export default defineComponent({
         // Clear playlist data so that watch history will be properly updated
         this.playlistId = ''
         this.playlistType = ''
-        this.uniqueId = null
+        this.playlistItemId = null
       }
       this.watchingPlaylist = this.selectedUserPlaylist != null
     },

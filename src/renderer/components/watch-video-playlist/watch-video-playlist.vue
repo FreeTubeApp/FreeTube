@@ -118,7 +118,7 @@
       >
         <div
           v-for="(item, index) in playlistItems"
-          :key="`index-${item.uniqueId || item.videoId}`"
+          :key="`index-${item.playlistItemId || item.videoId}`"
           :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
           class="playlistItem"
         >
@@ -140,7 +140,7 @@
             :playlist-id="playlistId"
             :playlist-type="playlistType"
             :playlist-index="reversePlaylist ? playlistItems.length - index - 1 : index"
-            :unique-id="item.uniqueId"
+            :playlist-item-id="item.playlistItemId"
             :playlist-reverse="reversePlaylist"
             :playlist-shuffle="shuffleEnabled"
             :playlist-loop="loopEnabled"
