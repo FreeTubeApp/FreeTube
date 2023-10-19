@@ -1149,7 +1149,6 @@ export default defineComponent({
       // `playlistId` present
       if (this.selectedUserPlaylist != null) {
         // If playlist ID matches a user playlist, it must be user playlist
-        // (Assuming FT never generates an ID same as a remote playlist)
         this.playlistType = 'user'
         this.watchingPlaylist = true
         return

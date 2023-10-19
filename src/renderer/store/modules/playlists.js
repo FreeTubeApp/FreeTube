@@ -2,7 +2,7 @@ import crypto from 'crypto'
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
 function generateRandomPlaylistId() {
-  return `${Date.now()}-${Math.floor(Math.random() * 10000)}`
+  return `ft-playlist--${generateRandomUniqueId()}`
 }
 
 function generateRandomPlaylistName() {
