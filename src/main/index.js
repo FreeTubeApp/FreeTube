@@ -724,10 +724,12 @@ function runApp() {
     session.defaultSession.setProxy({
       proxyRules: url
     })
+    session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
     session.defaultSession.setProxy({})
+    session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
