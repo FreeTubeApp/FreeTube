@@ -644,11 +644,11 @@ export default defineComponent({
           this.toggleFullscreenClass()
         })
 
-        if (this.defaultFullWindow) {
+        if (this.defaultFullWindow && this.format !== 'audio') {
           this.toggleFullWindow()
         }
 
-        if (this.defaultFullscreen) {
+        if (this.defaultFullscreen && this.format !== 'audio') {
           this.toggleFullscreen()
         }
 
@@ -680,6 +680,14 @@ export default defineComponent({
 
           if ('mediaSession' in navigator) {
             navigator.mediaSession.playbackState = 'none'
+          }
+
+          if (this.defaultFullscreen && this.player.isFullscreen()) {
+            this.toggleFullscreen()
+          }
+
+          if ((this.defaultFullWindow || this.defaultFullscreen) && this.player.isFullWindow) {
+            this.exitFullWindow()
           }
 
           this.stopPowerSaveBlocker()
