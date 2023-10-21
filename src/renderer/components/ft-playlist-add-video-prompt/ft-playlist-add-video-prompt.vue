@@ -28,7 +28,7 @@
       :value="sortBy"
       :select-names="sortBySelectNames"
       :select-values="sortBySelectValues"
-      :placeholder="'Sort By'"
+      :placeholder="$t('User Playlists.Sort By.Sort By')"
       @change="sortBy = $event"
     />
     <div class="playlists-container">

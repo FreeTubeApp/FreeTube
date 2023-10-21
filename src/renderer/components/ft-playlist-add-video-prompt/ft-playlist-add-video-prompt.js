@@ -21,16 +21,6 @@ const SORT_BY_VALUES = {
   LatestUpdatedFirst: 'latest_updated_first',
   EarliestUpdatedFirst: 'earliest_updated_first',
 }
-const SORT_BY_NAMES = {
-  NameAscending: 'A-Z',
-  NameDescending: 'Z-A',
-
-  LatestCreatedFirst: 'Recently Created',
-  EarliestCreatedFirst: 'Earliest Created',
-
-  LatestUpdatedFirst: 'Recently Updated',
-  EarliestUpdatedFirst: 'Earliest Updated',
-}
 
 export default Vue.extend({
   name: 'FtPlaylistAddVideoPrompt',
@@ -139,7 +129,25 @@ export default Vue.extend({
     },
 
     sortBySelectNames() {
-      return Object.keys(SORT_BY_VALUES).map(k => SORT_BY_NAMES[k])
+      return Object.values(SORT_BY_VALUES).map((k) => {
+        switch (k) {
+          case SORT_BY_VALUES.NameAscending:
+            return this.$t('User Playlists.Sort By.NameAscending')
+          case SORT_BY_VALUES.NameDescending:
+            return this.$t('User Playlists.Sort By.NameDescending')
+          case SORT_BY_VALUES.LatestCreatedFirst:
+            return this.$t('User Playlists.Sort By.LatestCreatedFirst')
+          case SORT_BY_VALUES.EarliestCreatedFirst:
+            return this.$t('User Playlists.Sort By.EarliestCreatedFirst')
+          case SORT_BY_VALUES.LatestUpdatedFirst:
+            return this.$t('User Playlists.Sort By.LatestUpdatedFirst')
+          case SORT_BY_VALUES.EarliestUpdatedFirst:
+            return this.$t('User Playlists.Sort By.EarliestUpdatedFirst')
+          default:
+            console.error(`Unknown sortBy: ${k}`)
+            return k
+        }
+      })
     },
     sortBySelectValues() {
       return Object.values(SORT_BY_VALUES)

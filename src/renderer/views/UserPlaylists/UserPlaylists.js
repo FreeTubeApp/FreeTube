@@ -24,19 +24,6 @@ const SORT_BY_VALUES = {
   LatestPlayedFirst: 'latest_played_first',
   EarliestPlayedFirst: 'earliest_played_first',
 }
-const SORT_BY_NAMES = {
-  NameAscending: 'A-Z',
-  NameDescending: 'Z-A',
-
-  LatestCreatedFirst: 'Recently Created',
-  EarliestCreatedFirst: 'Earliest Created',
-
-  LatestUpdatedFirst: 'Recently Updated',
-  EarliestUpdatedFirst: 'Earliest Updated',
-
-  LatestPlayedFirst: 'Recently Played',
-  EarliestPlayedFirst: 'Earliest Played',
-}
 
 export default defineComponent({
   name: 'UserPlaylists',
@@ -149,7 +136,29 @@ export default defineComponent({
     },
 
     sortBySelectNames() {
-      return Object.keys(SORT_BY_VALUES).map(k => SORT_BY_NAMES[k])
+      return Object.values(SORT_BY_VALUES).map((k) => {
+        switch (k) {
+          case SORT_BY_VALUES.NameAscending:
+            return this.$t('User Playlists.Sort By.NameAscending')
+          case SORT_BY_VALUES.NameDescending:
+            return this.$t('User Playlists.Sort By.NameDescending')
+          case SORT_BY_VALUES.LatestCreatedFirst:
+            return this.$t('User Playlists.Sort By.LatestCreatedFirst')
+          case SORT_BY_VALUES.EarliestCreatedFirst:
+            return this.$t('User Playlists.Sort By.EarliestCreatedFirst')
+          case SORT_BY_VALUES.LatestUpdatedFirst:
+            return this.$t('User Playlists.Sort By.LatestUpdatedFirst')
+          case SORT_BY_VALUES.EarliestUpdatedFirst:
+            return this.$t('User Playlists.Sort By.EarliestUpdatedFirst')
+          case SORT_BY_VALUES.LatestPlayedFirst:
+            return this.$t('User Playlists.Sort By.LatestPlayedFirst')
+          case SORT_BY_VALUES.EarliestPlayedFirst:
+            return this.$t('User Playlists.Sort By.EarliestPlayedFirst')
+          default:
+            console.error(`Unknown sortBy: ${k}`)
+            return k
+        }
+      })
     },
     sortBySelectValues() {
       return Object.values(SORT_BY_VALUES)

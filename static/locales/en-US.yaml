@@ -162,6 +162,21 @@ User Playlists:
   Delete Playlist: Delete Playlist
   Are you sure you want to delete this playlist? This cannot be undone.: Are you sure you want to delete this playlist? This cannot be undone.
 
+  Sort By:
+    Sort By: Sort By
+
+    NameAscending: 'A-Z'
+    NameDescending: 'Z-A'
+
+    LatestCreatedFirst: 'Recently Created'
+    EarliestCreatedFirst: 'Earliest Created'
+
+    LatestUpdatedFirst: 'Recently Updated'
+    EarliestUpdatedFirst: 'Earliest Updated'
+
+    LatestPlayedFirst: 'Recently Played'
+    EarliestPlayedFirst: 'Earliest Played'
+
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
