@@ -27,20 +27,6 @@ export default defineComponent({
         'invidious',
         'local'
       ],
-      defaultPageNames: [
-        'Subscriptions',
-        'Trending',
-        'Most Popular',
-        'Playlists',
-        'History'
-      ],
-      defaultPageValues: [
-        'subscriptions',
-        'trending',
-        'mostPopular',
-        'playlists',
-        'history'
-      ],
       viewTypeValues: [
         'grid',
         'list'
@@ -74,6 +60,17 @@ export default defineComponent({
     },
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
+    },
+    defaultPages: function () {
+      // filter out default '/' route and routes with params
+      return this.$router.getRoutes().filter((route, i) => i !== 0 && !route.path.includes(':'))
+    },
+    defaultPageNames: function () {
+      return this.defaultPages.map((route) => this.$t(route.meta.title))
+    },
+    defaultPageValues: function () {
+      // avoid Vue parsing issues by excluding '/' from path values
+      return this.defaultPages.map((route) => route.path.substring(1))
     },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference

@@ -111,6 +111,10 @@ export default defineComponent({
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     },
 
+    landingPage: function() {
+      return '/' + this.$store.getters.getLandingPage
+    },
+
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
@@ -136,7 +140,7 @@ export default defineComponent({
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
-      this.$refs.topNav.hideFilters()
+      this.$refs.topNav?.hideFilters()
     }
   },
   created () {
@@ -178,7 +182,13 @@ export default defineComponent({
       })
 
       this.$router.afterEach((to, from) => {
-        this.$refs.topNav.navigateHistory()
+        this.$refs.topNav?.navigateHistory()
+      })
+
+      this.$router.onReady(() => {
+        if (this.$router.currentRoute.path !== this.landingPage && this.landingPage !== '/subscriptions') {
+          this.$router.push({ path: this.landingPage })
+        }
       })
     })
   },
