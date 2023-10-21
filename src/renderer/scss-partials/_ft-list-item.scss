@@ -77,7 +77,7 @@ $watched-transition-duration: 0.5s;
     background-color: var(--primary-text-color) !important;
     transition-duration: $watched-transition-duration;
 
-    &, .info .title, .info div.infoLine, .info div.infoLine .channelName {
+    &, .info .title, .info div.infoLine, .info div.infoLine .channelName, .info .description {
       color: var(--card-bg-color) !important;
       transition-duration: $watched-transition-duration;
     }

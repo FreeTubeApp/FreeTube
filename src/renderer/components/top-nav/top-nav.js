@@ -392,19 +392,17 @@ export default defineComponent({
     },
 
     toggleSelectionMode: function () {
-      // prevents all page elements from being highlighted if Ctrl+A was used in Selection Mode
-      if (this.isSelectionModeEnabled) {
-        if (window.getSelection) {
-          window.getSelection().empty()
-        }
-      }
-
       this.setSelectionMode(!this.isSelectionModeEnabled)
     },
 
     setSelectionMode: function (value) {
       if (this.isSelectionModeEnabled === value) {
         return
+      }
+
+      // prevents all page elements from being highlighted if Ctrl+A was used in Selection Mode
+      if (this.isSelectionModeEnabled && window.getSelection) {
+        window.getSelection().empty()
       }
 
       this.$store.commit('setSelectionMode', value)

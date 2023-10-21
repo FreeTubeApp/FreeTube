@@ -93,6 +93,17 @@
   }
 }
 
+.selectionModeToggleButton {
+  &.selectionModeEnabled {
+    $effect-distance: 5px;
+    box-shadow: 0 0 $effect-distance var(--primary-color);
+
+    @include top-nav-is-colored {
+      box-shadow: 0 0 $effect-distance var(--text-with-main-color);
+    }
+  }
+}
+
 .ftIconButton.selectionModeOptionsButton {
   line-height: normal;
   block-size: normal;

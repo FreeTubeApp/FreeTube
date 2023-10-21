@@ -601,6 +601,7 @@ export default defineComponent({
     },
 
     handlePointerEnter(event) {
+      // only update selection if device is a pressed down mouse
       if (event.pointerType !== 'mouse' || event.pressure === 0) {
         return
       }
@@ -610,7 +611,6 @@ export default defineComponent({
 
     clearSelectionModeSelections: function () {
       this.clearSelectionModeSelections()
-      // showToast(this.$t('Video.Saved videos have been cleared'))
     },
 
     ...mapActions([

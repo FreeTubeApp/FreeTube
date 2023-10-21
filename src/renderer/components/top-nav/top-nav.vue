@@ -54,7 +54,8 @@
         @keydown.enter.prevent="createNewWindow"
       />
       <font-awesome-icon
-        class="navIcon"
+        class="navIcon selectionModeToggleButton"
+        :class="{ selectionModeEnabled: isSelectionModeEnabled }"
         :icon="['fas', 'square-check']"
         :title="selectVideosText"
         role="button"
