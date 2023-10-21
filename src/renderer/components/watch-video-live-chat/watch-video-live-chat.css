@@ -22,6 +22,10 @@
   row-gap: 16px;
 }
 
+.watchingCount {
+  font-weight: normal;
+}
+
 .message {
   font-size: 18px;
   color: var(--tertiary-text-color);
