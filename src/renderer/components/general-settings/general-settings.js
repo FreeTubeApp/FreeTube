@@ -42,6 +42,15 @@ export default defineComponent({
         '',
         'openLinkAfterPrompt',
         'doNothing'
+      ],
+      includedDefaultPageNames: [
+        'subscriptions',
+        'subscribedChannels',
+        'trending',
+        'popular',
+        'userPlaylists',
+        'history',
+        'settings'
       ]
     }
   },
@@ -62,8 +71,7 @@ export default defineComponent({
       return this.$store.getters.getCheckForBlogPosts
     },
     defaultPages: function () {
-      // filter out default '/' route and routes with params
-      return this.$router.getRoutes().filter((route, i) => i !== 0 && !route.path.includes(':'))
+      return this.$router.getRoutes().filter((route) => this.includedDefaultPageNames.includes(route.name))
     },
     defaultPageNames: function () {
       return this.defaultPages.map((route) => this.$t(route.meta.title))
