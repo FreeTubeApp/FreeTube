@@ -18,7 +18,7 @@ export default defineComponent({
       type: String,
       required: true
     },
-    minTagLength: {
+    minInputLength: {
       type: Number,
       default: 1
     },
@@ -40,8 +40,8 @@ export default defineComponent({
       // text entered add tag and update tag list
       const trimmedText = text.trim()
 
-      if (trimmedText && trimmedText.length < this.minTagLength) {
-        showToast(this.$t('Global.Input Tags.Length Requirement', { number: this.minTagLength }))
+      if (trimmedText && trimmedText.length < this.minInputLength) {
+        showToast(this.$t('Global.Input Tags.Length Requirement', { number: this.minInputLength }))
         return
       }
 

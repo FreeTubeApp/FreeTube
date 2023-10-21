@@ -54,6 +54,10 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
+    minInputLength: {
+      type: Number,
+      default: 1
+    },
     dataList: {
       type: Array,
       default: () => { return [] }
@@ -99,7 +103,7 @@ export default defineComponent({
     },
 
     inputDataPresent: function () {
-      return this.inputData.length > 0
+      return this.inputData.length >= this.minInputLength
     },
     inputDataDisplayed() {
       if (!this.isSearch) { return this.inputData }

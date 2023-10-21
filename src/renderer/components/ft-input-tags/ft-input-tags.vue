@@ -6,6 +6,7 @@
       ref="childinput"
       :placeholder="placeholder"
       :label="label"
+      :min-input-length="minInputLength"
       :show-label="true"
       :tooltip="tooltip"
       :show-action-button="showActionButton"
