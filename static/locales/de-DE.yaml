@@ -242,20 +242,20 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
     Player Settings: Videoabspieler-Einstellungen
-    Force Local Backend for Legacy Formats: Lokales System für Legacy Formate erzwingen
+    Force Local Backend for Legacy Formats: Lokales Backend für alte Formate erzwingen
     Remember History: Verlauf speichern
-    Play Next Video: Spiele nächstes Video
+    Play Next Video: Nächstes Video abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
-    Autoplay Videos: Automatische Videowiedergabe
-    Proxy Videos Through Invidious: Invidious als Vermittler der Videos
-    Autoplay Playlists: Automatisch Wiedergabelisten abspielen
-    Enable Theatre Mode by Default: Aktiviere standardmäßig Kinomodus
+    Autoplay Videos: Videos automatisch abspielen
+    Proxy Videos Through Invidious: Proxy-Videos durch Invidious
+    Autoplay Playlists: Wiedergabelisten automatisch abspielen
+    Enable Theatre Mode by Default: Kinomodus standardmäßig aktivieren
     Default Volume: Standard-Lautstärke
     Default Playback Rate: Standard-Wiedergabegeschwindigkeit
     Default Video Format:
       Default Video Format: Standard-Videoformat
-      Dash Formats: DASH-Format
-      Legacy Formats: Legacy Formate
+      Dash Formats: DASH-Formate
+      Legacy Formats: Alte Formate
       Audio Formats: Audioformate
     Default Quality:
       Default Quality: Standardqualität
@@ -270,19 +270,19 @@ Settings:
       4k: 4k
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
-    Next Video Interval: Zeit bis zum nächsten Video
-    Display Play Button In Video Player: Wiedergabetaste im Videoplayer anzeigen
+    Next Video Interval: Intervall bis zum nächsten Video
+    Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
-    Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Video-Player
-    Video Playback Rate Interval: Intervall für die Videowiedergaberate
+    Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Videoabspieler
+    Video Playback Rate Interval: Intervall für die Videowiedergabegeschwindigkeit
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
     Screenshot:
-      Enable: Bildschirmfotos aktivieren
+      Enable: Bildschirmfoto aktivieren
       Format Label: Bildschirmfotoformat
       Quality Label: Bildschirmfotoqualität
-      Ask Path: Nach dem Ordner fragen
-      Folder Label: Bildschirmfoto-Ordner
+      Ask Path: Nach dem Ordner zum Speichern fragen
+      Folder Label: Bildschirmfotoordner
       Folder Button: Ordner auswählen
       File Name Label: Dateinamen-Muster
       Error:
@@ -293,14 +293,14 @@ Settings:
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
         Millisekunde 3 Ziffern. %i Video-ID. Du kannst auch \ oder / verwenden, um
         Unterordner zu erstellen.
-    Enter Fullscreen on Display Rotate: Bei drehen des Bildschirms zu Vollbild wechseln
-    Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoplayer
+    Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
+    Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
     Allow DASH AV1 formats: DASH AV1-Formate zulassen
     Comment Auto Load:
       Comment Auto Load: Kommentare automatisch laden
   Subscription Settings:
     Subscription Settings: Abo-Einstellungen
-    Hide Videos on Watch: Verstecke Videos bei Wiedergabe
+    Hide Videos on Watch: Videos bei Wiedergabe ausblenden
     Subscriptions Export Format:
       Subscriptions Export Format: Abonnement Exportierformat
       #& Freetube
@@ -310,7 +310,7 @@ Settings:
     Import Subscriptions: Importiere Abonnements
     Export Subscriptions: Exportiere Abonnements
     How do I import my subscriptions?: Wie importiere ich meine Abonnements?
-    Fetch Feeds from RSS: Abrufen von RSS-Feeds
+    Fetch Feeds from RSS: Feeds von RSS abrufen
     Fetch Automatically: Feed automatisch abrufen
   Advanced Settings:
     Advanced Settings: Erweiterte Einstellungen
@@ -340,35 +340,35 @@ Settings:
       #& No
 
   Privacy Settings:
-    Watch history has been cleared: Verlauf wurde gelöscht
+    Watch history has been cleared: Wiedergabeverlauf wurde gelöscht
     Are you sure you want to remove your entire watch history?: Bist du sicher, dass
-      du deinen gesamten Verlauf löschen willst?
-    Remove Watch History: Verlauf löschen
-    Search cache has been cleared: Suchanfragen wurden gelöscht
+      du deinen gesamten Wiedergabeverlauf entfernen willst?
+    Remove Watch History: Wiedergabeverlauf entfernen
+    Search cache has been cleared: Suchcache wurde gelöscht
     Are you sure you want to clear out your search cache?: Bist du sicher, dass du
-      deine Suchanfragen löschen möchtest?
-    Clear Search Cache: Suchanfragen löschen
+      deinen Suchcache löschen möchtest?
+    Clear Search Cache: Suchcache löschen
     Save Watched Progress: Videofortschritt speichern
-    Remember History: Verlauf speichern
+    Remember History: Verlauf merken
     Privacy Settings: Datenschutzeinstellungen
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
       nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abos / Profile entfernen
-    Automatically Remove Video Meta Files: Meta-Dateien von Videos automatisch löschen
-    Save Watched Videos With Last Viewed Playlist: Gesehene Videos mit der zuletzt
-      gesehenen Wiedergabeliste speichern
+    Automatically Remove Video Meta Files: Video-Metadateien automatisch entfernen
+    Save Watched Videos With Last Viewed Playlist: Angesehene Videos mit der zuletzt
+      angesehenen Wiedergabeliste speichern
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
     Unable to write file: Datei kann nicht geschrieben werden
     Unable to read file: Datei kann nicht gelesen werden
-    All watched history has been successfully exported: Der gesamte Verlauf wurde
-      erfolgreich exportiert
-    All watched history has been successfully imported: Der gesamte Verlauf wurde
-      erfolgreich importiert
-    History object has insufficient data, skipping item: Ein Verlaufsobjekt hat fehlerhafte
-      Daten, überspringe Objekt
+    All watched history has been successfully exported: Der gesamte Wiedergabeverlauf
+      wurde erfolgreich exportiert
+    All watched history has been successfully imported: Der gesamte Wiedergabeverlauf
+      wurde erfolgreich importiert
+    History object has insufficient data, skipping item: Verlaufsobjekt hat unzureichende
+      Daten, Element wird übersprungen
     Subscriptions have been successfully exported: Abos wurden erfolgreich exportiert
     Invalid history file: Ungültige Verlaufsdatei
     This might take a while, please wait: Dies dauert einen Moment, bitte warten
@@ -379,27 +379,27 @@ Settings:
       Profile wurden erfolgreich importiert
     All subscriptions have been successfully imported: Alle Abos wurden erfolgreich
       importiert
-    Profile object has insufficient data, skipping item: Ein Profilobjekt hat fehlerhafte
-      Daten, überspringe Objekt
+    Profile object has insufficient data, skipping item: Profilobjekt hat unzureichende
+      Daten, Element wird übersprungen
     Export History: Verlauf exportieren
     Import History: Verlauf importieren
-    Export NewPipe: Exportiere NewPipe
-    Export YouTube: Exportiere YouTube
-    Export FreeTube: Exportiere FreeTube
+    Export NewPipe: NewPipe exportieren
+    Export YouTube: YouTube exportieren
+    Export FreeTube: FreeTube exportieren
     Export Subscriptions: Abos exportieren
     Import NewPipe: Importiere NewPipe
     Import YouTube: Importiere YouTube
     Import FreeTube: Importiere FreeTube
     Import Subscriptions: Abos importieren
-    Select Export Type: Wähle Exporttyp
-    Select Import Type: Wähle Importtyp
+    Select Export Type: Exporttyp auswählen
+    Select Import Type: Importtyp auswählen
     Data Settings: Dateneinstellungen
     Check for Legacy Subscriptions: Auf ältere Abos prüfen
     Manage Subscriptions: Abos verwalten
     Export Playlists: Wiedergabelisten exportieren
     Import Playlists: Wiedergabelisten importieren
     Playlist insufficient data: Unzureichende Daten für „{playlist}“-Wiedergabeliste,
-      Element übersprungen
+      Element wird übersprungen
     All playlists has been successfully imported: Alle Wiedergabelisten wurden erfolgreich
       importiert
     All playlists has been successfully exported: Alle Wiedergabelisten wurden erfolgreich
@@ -410,17 +410,17 @@ Settings:
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
-    Hide Trending Videos: Trends ausblenden
-    Hide Recommended Videos: Vorgeschlagene Videos ausblenden
+    Hide Trending Videos: Trend-Videos ausblenden
+    Hide Recommended Videos: Empfohlene Videos ausblenden
     Hide Channel Subscribers: Kanal-Abonnenten ausblenden
     Hide Comment Likes: Kommentarbewertungen ausblenden
     Hide Video Likes And Dislikes: Videobewertungen ausblenden
-    Hide Video Views: Video-Aufrufe verbergen
+    Hide Video Views: Video-Aufrufe ausblenden
     Distraction Free Settings: Einstellungen für ablenkungsfreien Modus
     Hide Active Subscriptions: Aktive Abos ausblenden
     Hide Playlists: Wiedergabelisten ausblenden
     Hide Comments: Kommentare ausblenden
-    Hide Video Description: Videobeschreibung verstecken
+    Hide Video Description: Videobeschreibung ausblenden
     Hide Live Streams: Livestreams ausblenden
     Hide Sharing Actions: Freigabe-Aktionen ausblenden
     Hide Chapters: Kapitel ausblenden
@@ -431,7 +431,7 @@ Settings:
       anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
     Hide Channel Community: Kanal-Gemeinschaft ausblenden
-    Hide Channel Shorts: Kurzvideos des Kanals ausblenden
+    Hide Channel Shorts: Kanal-Kurzvideos ausblenden
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
       Side Bar: Seitenleiste
@@ -440,12 +440,12 @@ Settings:
       Watch Page: Seite beobachten
       Subscriptions Page: Abos-Seite
     Hide Channel Podcasts: Kanal-Podcasts ausblenden
-    Hide Subscriptions Videos: Videos der Abos ausblenden
-    Hide Subscriptions Shorts: Kurzvideos der Abos ausblenden
+    Hide Subscriptions Videos: Abo-Videos ausblenden
+    Hide Subscriptions Shorts: Abo-Kurzvideos ausblenden
     Hide Channel Releases: Kanalveröffentlichungen ausblenden
     Hide Subscriptions Live: Live der Abos ausblenden
     Blur Thumbnails: Vorschaubilder unscharf machen
-    Hide Profile Pictures in Comments: Profilbilder in den Kommentaren verbergen
+    Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
@@ -459,7 +459,7 @@ Settings:
     Country: Land / Nation
     Your Info: Deine Info
     Test Proxy: Proxy testen
-    Clicking on Test Proxy will send a request to: In dem du auf Proxy Testen klickst,
+    Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst,
       schickst du eine Anfrage an
     Proxy Port Number: Proxy-Portnummer
     Proxy Host: Proxy-Host
@@ -482,11 +482,12 @@ Settings:
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Video-Titel verwenden
   External Player Settings:
-    Ignore Unsupported Action Warnings: Nicht unterstützte Aktionswarnungen ignorieren
-    External Player: Externer Player
-    External Player Settings: Externe Player-Einstellungen
-    Custom External Player Executable: Ausführbares, externes Player-Programm
-    Custom External Player Arguments: Gewählte Einstellungen für externen Player
+    Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
+      ignorieren
+    External Player: Externer Abspieler
+    External Player Settings: Einstellungen für externe Abspieler
+    Custom External Player Executable: Benutzerdefinierte ausführbare Datei des Abspielers
+    Custom External Player Arguments: Benutzerdefinierte Argumente für externe Abspieler
     Players:
       None:
         Name: Keine
