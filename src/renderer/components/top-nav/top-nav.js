@@ -45,9 +45,13 @@ export default defineComponent({
     },
 
     headerLogoTitle: function () {
-      return this.$t(this.$router.getRoutes()
-        .find((route) => route.path === '/' + this.landingPage)
-        .meta.title)
+      return this.$t('Go to page',
+        {
+          page: this.$t(this.$router.getRoutes()
+            .find((route) => route.path === '/' + this.landingPage)
+            .meta.title
+          )
+        })
     },
 
     enableSearchSuggestions: function () {
