@@ -40,6 +40,16 @@ export default defineComponent({
       return this.$store.getters.getHideHeaderLogo
     },
 
+    landingPage: function () {
+      return this.$store.getters.getLandingPage
+    },
+
+    headerLogoTitle: function () {
+      return this.$t(this.$router.getRoutes()
+        .find((route) => route.path === '/' + this.landingPage)
+        .meta.title)
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
