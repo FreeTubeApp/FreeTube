@@ -8,7 +8,7 @@ FreeTube: 'FreeTube'
 
 # Webkit Menu Bar
 File: 'Archivo'
-Quit: 'Quitar'
+Quit: 'Salir'
 Edit: 'Editar'
 Undo: 'Deshacer'
 Redo: 'Rehacer'
@@ -19,8 +19,8 @@ Delete: 'Eliminar'
 Select all: 'Seleccionar todo'
 Reload: 'Recargar'
 Force Reload: 'Forzar recarga'
-Toggle Developer Tools: 'Alternar herramientas para desarrolladores'
-Actual size: 'Tamaño real'
+Toggle Developer Tools: 'Activar/Desactivar Herramientas de Desarrollo'
+Actual size: 'Escala : 100%'
 Zoom in: 'Acercarse'
 Zoom out: 'Alejarse'
 Toggle fullscreen: 'Alternar pantalla completa'
@@ -28,7 +28,7 @@ Window: 'Ventana'
 Minimize: 'Minimizar'
 Close: 'Cerrar'
 Back: 'Volver'
-Forward: 'Adelante'
+Forward: 'Avanzar'
 
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a URL'
@@ -52,17 +52,19 @@ Search Filters:
   Type:
     Type: 'Tipo'
     All Types: 'Todos los tipos'
-    Videos: 'Videos'
+    Videos: 'Vidéos'
     Channels: 'Canales'
     #& Playlists
+    Movies: Películas
   Duration:
     Duration: 'Duración'
     All Durations: 'Todas las duraciones'
     Short (< 4 minutes): 'Corto (< 4 minutos)'
     Long (> 20 minutes): 'Larga (> 20 minutos)'
   # On Search Page
+    Medium (4 - 20 minutes): Media (4 - 20 minutos)
   Search Results: 'Resultados de la búsqueda'
-  Fetching results. Please wait: 'Obteniendo resultados. Por favor espere'
+  Fetching results. Please wait: 'Obteniendo resultados. Por favor esperá'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
@@ -73,18 +75,28 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Su
     lista de suscripción está actualmente vacía. Comience a agregar suscripciones
     para verlas aquí.'
-  'Getting Subscriptions. Please wait.': 'Obtención de suscripciones. Por favor espere.'
+  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, esperá.'
   Refresh Subscriptions: 'Actualizar suscripciones'
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
-    perfil tiene un gran número de suscriptores.  Forzando RSS para evitar límites
+    perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
+  Load More Posts: Cargar más publicaciones
+  Empty Channels: Tus canales suscriptos actualmente no tienen ningún video.
+  Subscriptions Tabs: Pestañas de suscripciones
+  Empty Posts: Tus canales suscriptos actualmente no tienen ninguna publicación.
+  All Subscription Tabs Hidden: Todas las pestañas de suscripciones están ocultas.
+    Para ver contenido acá, por favor, desocultá algunas pestañas en la sección "{subsection}"
+    en "{settingsSection}".
+  Disabled Automatic Fetching: Has desactivado la recuperación automática de suscripciones.
+    Actualizá las suscripciones para verlas acá.
+  Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
   Movies: Películas
-  Gaming: Juego
+  Gaming: Juegos
   Music: Música
   Default: Por defecto
-  Trending Tabs: Pestañas de Tendencias
+  Trending Tabs: Tendencias
 Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
 User Playlists:
@@ -292,9 +304,30 @@ A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog est
   disponible, {blogTitle}. Hacé clic para ver más'
 Download From Site: Descargar desde el sitio
 Version {versionNumber} is now available!  Click for more details: La versión {versionNumber}
-  ya está disponible.  Hacé clic acá para más detalles.
+  ya está disponible. Hacé clic acá para más detalles.
 More: Más
 Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?
 Open New Window: Abrir nueva ventana
 Search Bar:
   Clear Input: Limpiar Entrada
+New Window: Nueva ventana
+Global:
+  Counts:
+    Video Count: 1 vidéo | {count} vidéos
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    View Count: 1 vista | {count} vistas
+    Watching Count: 1 espectador | {count} espectadores
+    Channel Count: 1 canal | {count} canales
+  Community: Comunidad
+  Videos: Videos
+  Shorts: Shorts
+Channels:
+  Search bar placeholder: Buscar Canales
+  Unsubscribe Prompt: ¿Deseás confirmar la desuscripción de "{channelName}"?
+  Channels: Canales
+  Title: Lista de canales
+  Empty: Tu lista de canales está actualmente vacía.
+  Unsubscribe: Desuscribirse
+  Count: '{number} canal(es) encontrado(s).'
+  Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
+Preferences: Preferencias
