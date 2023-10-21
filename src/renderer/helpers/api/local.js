@@ -238,6 +238,17 @@ export async function getLocalChannelId(url) {
 
     if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
       return navigationEndpoint.payload.browseId
+    } else if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_UNKNOWN' && navigationEndpoint.payload.url?.startsWith('https://www.youtube.com/')) {
+      // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
+
+      // while we could just have this function recursively call itself, YouTube should only ever redirect once, so if they do it multiple times, we should assume something is wrong
+      const secondNavigationEndpoint = await innertube.resolveURL(navigationEndpoint.payload.url)
+
+      if (secondNavigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
+        return secondNavigationEndpoint.payload.browseId
+      } else {
+        return null
+      }
     } else {
       return null
     }
