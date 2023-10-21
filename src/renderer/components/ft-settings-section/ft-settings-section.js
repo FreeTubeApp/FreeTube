@@ -6,6 +6,15 @@ export default defineComponent({
     title: {
       type: String,
       required: true
+    },
+    isOpenOverride: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    allSettingsTabsOpenedOrClosedDefault: function () {
+      return this.$store.getters.getAllSettingsTabsOpenedOrClosedDefault
     }
   }
 })

@@ -1,5 +1,8 @@
 <template>
-  <details class="settingsSection">
+  <details
+    :open="allSettingsTabsOpenedOrClosedDefault || isOpenOverride ? 'open' : null"
+    class="settingsSection"
+  >
     <summary class="sectionHeader">
       <h3 class="sectionTitle">
         {{ title }}
