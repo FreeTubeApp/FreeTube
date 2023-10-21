@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtInputTags',
@@ -16,6 +17,10 @@ export default defineComponent({
     label: {
       type: String,
       required: true
+    },
+    minTagLength: {
+      type: Number,
+      default: 1
     },
     showActionButton: {
       type: Boolean,
@@ -34,6 +39,12 @@ export default defineComponent({
     updateTags: function (text, e) {
       // text entered add tag and update tag list
       const trimmedText = text.trim()
+
+      if (trimmedText && trimmedText.length < this.minTagLength) {
+        showToast(this.$t('Global.Input Tags.Length Requirement', { number: this.minTagLength }))
+        return
+      }
+
       if (!this.tagList.includes(trimmedText)) {
         const newList = this.tagList.slice(0)
         newList.push(trimmedText)

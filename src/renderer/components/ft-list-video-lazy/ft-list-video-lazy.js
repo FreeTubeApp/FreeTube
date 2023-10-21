@@ -47,6 +47,10 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    hideVideosWithForbiddenTextInTitle: {
+      type: Boolean,
+      default: false
+    }
   },
   data: function () {
     return {
@@ -57,13 +61,18 @@ export default defineComponent({
     channelsHidden() {
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
-
       return JSON.parse(this.$store.getters.getChannelsHidden)
+    },
+
+    forbiddenVideoTitleText() {
+      if (!this.hideVideosWithForbiddenTextInTitle) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
     },
 
     shouldBeVisible() {
       return !(this.channelsHidden.includes(this.data.authorId) ||
-        this.channelsHidden.includes(this.data.author))
+        this.channelsHidden.includes(this.data.author) ||
+        this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase())))
     }
   },
   created() {

@@ -204,6 +204,7 @@ const state = {
   hideComments: false,
   hideFeaturedChannels: false,
   channelsHidden: '[]',
+  forbiddenVideoTitleText: '[]',
   hideVideoDescription: false,
   hideLiveChat: false,
   hideLiveStreams: false,

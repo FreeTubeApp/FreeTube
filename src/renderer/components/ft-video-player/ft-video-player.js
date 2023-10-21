@@ -771,7 +771,7 @@ export default defineComponent({
       let newTime = null
       let skippedCategory = null
       skipSegments.forEach(({ category, segment: [startTime, endTime] }) => {
-        if (startTime <= currentTime && currentTime < endTime) {
+        if (startTime <= currentTime && currentTime <= endTime) {
           newTime = endTime
           skippedCategory = category
         }

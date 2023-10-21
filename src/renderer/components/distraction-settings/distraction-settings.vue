@@ -245,6 +245,17 @@
         @change="handleChannelsHidden"
       />
     </ft-flex-box>
+    <ft-flex-box>
+      <ft-input-tags
+        :label="$t('Settings.Distraction Free Settings.Hide Videos Containing Text')"
+        :placeholder="$t('Settings.Distraction Free Settings.Hide Videos Containing Text Placeholder')"
+        :show-action-button="true"
+        :tag-list="forbiddenVideoTitleText"
+        :min-tag-length="3"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos Containing Text')"
+        @change="handleForbiddenVideoTitleText"
+      />
+    </ft-flex-box>
   </ft-settings-section>
 </template>
 

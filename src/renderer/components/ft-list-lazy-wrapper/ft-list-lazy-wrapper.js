@@ -39,6 +39,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    hideVideosWithForbiddenTextInTitle: {
+      type: Boolean,
+      default: true
+    },
   },
   data: function () {
     return {
@@ -54,6 +58,10 @@ export default defineComponent({
       if (!this.useChannelsHiddenPreference) { return [] }
 
       return JSON.parse(this.$store.getters.getChannelsHidden)
+    },
+    forbiddenVideoTitleText: function() {
+      if (!this.hideVideosWithForbiddenTextInTitle) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
     },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
@@ -89,6 +97,9 @@ export default defineComponent({
         }
         if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
           // hide videos by author
+          return false
+        }
+        if (this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
           return false
         }
       } else if (data.type === 'channel') {

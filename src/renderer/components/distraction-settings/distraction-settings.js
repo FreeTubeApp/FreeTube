@@ -107,13 +107,16 @@ export default defineComponent({
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
     },
+    forbiddenVideoTitleText: function() {
+      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
+    },
     hideSubscriptionsLiveTooltip: function () {
       return this.$t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {
         appWideSetting: this.$t('Settings.Distraction Free Settings.Hide Live Streams'),
         subsection: this.$t('Settings.Distraction Free Settings.Sections.General'),
         settingsSection: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
       })
-    }
+    },
   },
   methods: {
     handleHideRecommendedVideos: function (value) {
@@ -125,6 +128,9 @@ export default defineComponent({
     },
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
+    },
+    handleForbiddenVideoTitleText: function (value) {
+      this.updateForbiddenVideoTitleText(JSON.stringify(value))
     },
 
     ...mapActions([
@@ -148,6 +154,7 @@ export default defineComponent({
       'updateHideSharingActions',
       'updateHideChapters',
       'updateChannelsHidden',
+      'updateForbiddenVideoTitleText',
       'updateShowDistractionFreeTitles',
       'updateHideFeaturedChannels',
       'updateHideChannelShorts',

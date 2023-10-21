@@ -26,6 +26,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    hideVideosWithForbiddenTextInTitle: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     listType: function () {

@@ -27,6 +27,10 @@ export default defineComponent({
     appearance: {
       type: String,
       required: true
+    },
+    hideVideosWithForbiddenTextInTitle: {
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
@@ -57,6 +61,15 @@ export default defineComponent({
 
     listType: function () {
       return this.$store.getters.getListType
+    },
+
+    forbiddenVideoTitleText() {
+      if (!this.hideVideosWithForbiddenTextInTitle) { return [] }
+      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
+    },
+
+    hideVideo() {
+      return this.forbiddenVideoTitleText.some((text) => this.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
     }
   },
   created: function () {

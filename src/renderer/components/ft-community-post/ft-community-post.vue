@@ -82,9 +82,16 @@
       v-if="type === 'video'"
     >
       <ft-list-video
+        v-if="!hideVideo"
         :data="data.postContent.content"
         appearance=""
       />
+      <p
+        v-else
+        class="hiddenVideo"
+      >
+        {{ '[' + $t('Channel.Community.Video hidden by FreeTube') + ']' }}
+      </p>
     </div>
     <div
       v-if="type === 'poll' || type === 'quiz'"
