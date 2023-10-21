@@ -28,7 +28,7 @@
 
 .playlistItem {
   display: grid;
-  grid-template-columns: max-content auto;
+  grid-template-columns: 30px 1fr;
   column-gap: 8px;
   align-items: center;
 }
@@ -59,6 +59,7 @@
 
 .videoIndex {
   color: var(--tertiary-text-color);
+  text-align: center;
 }
 
 .loadNextPageWrapper {
