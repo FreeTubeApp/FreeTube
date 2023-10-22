@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'português'
+Locale Name: 'Português'
 FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -22,7 +22,7 @@ Toggle Developer Tools: 'Alternar ferramentas de desenvolvimento'
 Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
 Zoom out: 'Reduzir'
-Toggle fullscreen: 'Alternar ecrã inteiro'
+Toggle fullscreen: 'Alternar ecrã completo'
 Window: 'Janela'
 Minimize: 'Minimizar'
 Close: 'Fechar'
@@ -33,8 +33,8 @@ Forward: 'Avançar'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Vídeos'
-  Shorts: Curtas
-  Live: Em directo
+  Shorts: Curtos
+  Live: Em direto
   Community: Comunidade
 
   Counts:
@@ -44,10 +44,10 @@ Global:
     View Count: 1 visualização | {contagem} visualizações
     Watching Count: 1 a assistir | {count} a assistir
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
-  está disponível! Clique aqui para mais informações'
+  está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
 A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um
-  novo blogue, {blogTitle}. Clique aqui para ver mais'
+  novo blogue, {blogTitle}. Clique aqui para ver mais.'
 
 # Search Bar
 Search / Go to URL: 'Pesquisar/Ir para o URL'
@@ -83,7 +83,7 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Médio (4 - 20 minutos)
   Search Results: 'Resultados'
-  Fetching results. Please wait: 'A procurar. Por favor aguarde'
+  Fetching results. Please wait: 'A procurar. Por favor aguarde.'
   Fetch more results: 'Obter mais resultados'
 # Sidebar
   There are no more results for this search: Não existem mais resultados
@@ -97,8 +97,8 @@ Subscriptions:
   Refresh Subscriptions: 'Recarregar subscrições'
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
-    perfil contém um elevado número de subscrições. A forçar a utilização do RSS para
-    evitar que a sua rede seja bloqueada
+    perfil contém um elevado número de subscrições. A forçar utilização de RSS para
+    evitar que a sua rede seja bloqueada.
   Error Channels: Canais com erros
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
@@ -107,11 +107,11 @@ Subscriptions:
   All Subscription Tabs Hidden: Todos os separadores de subscrição estão ocultos.
     Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsection}"
     em "{settingsSection}".
-  Load More Posts: Carregar mais posts
-  Empty Posts: Os canais inscritos atualmente não tem nenhum post.
+  Load More Posts: Carregar mais publicações
+  Empty Posts: Os canais subscritos não tem quaisquer publicações.
 Trending:
   Trending: 'Tendências'
-  Trending Tabs: Separador de tendências
+  Trending Tabs: Separadores de tendências
   Movies: Filmes
   Gaming: Jogos
   Music: Música
@@ -121,21 +121,21 @@ Playlists: 'Listas de reprodução'
 User Playlists:
   Your Playlists: 'As suas listas de reprodução'
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: A
-    lista está vazia. Carregue no botão Guardar no canto de um vídeo para o mostrar
-    aqui
+    lista está vazia. Clique no botão Guardar no canto de um vídeo para o mostrar
+    aqui.
   Playlist Message: Esta página não é indicativa do resultado final. Apenas mostra
-    vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
+    os vídeos que foram guardados ou marcados como favoritos. Quando estiver pronta,
     todos os vídeos que estiverem aqui serão postos numa lista chamada 'Favoritos'.
   Search bar placeholder: Procurar na lista de reprodução
-  Empty Search Message: Não há vídeos nesta lista de reprodução que correspondam à
-    sua pesquisa
+  Empty Search Message: Não há vídeos, nesta lista de reprodução, que coincidam com
+    a sua pesquisa
 History:
   # On History Page
   History: 'Histórico'
   Watch History: 'Histórico de visualizações'
   Your history list is currently empty.: 'O seu histórico está vazio.'
   Search bar placeholder: Procurar no histórico
-  Empty Search Message: Não há vídeos no seu histórico que correspondam à sua pesquisa
+  Empty Search Message: Não há vídeos no histórico que coincidam com a sua pesquisa
 Settings:
   # On Settings Page
   Settings: 'Definições'
@@ -143,7 +143,7 @@ Settings:
     General Settings: 'Definições gerais'
     Check for Updates: 'Verificar se há atualizações'
     Check for Latest Blog Posts: 'Verificar se há novas publicações no blogue'
-    Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário
+    Fallback to Non-Preferred Backend on Failure: 'Utilizar sistema de ligação secundário,
       em caso de falha'
     Enable Search Suggestions: 'Ativar sugestões de pesquisa'
     Default Landing Page: 'Página inicial'
@@ -153,7 +153,7 @@ Settings:
       Local API: 'API local'
       Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: 'Disposição dos vídeos'
+      Video View Type: 'Tipo de exibição dos vídeos'
       Grid: 'Grelha'
       List: 'Lista'
     Thumbnail Preference:
@@ -171,8 +171,8 @@ Settings:
       instância Invidious
     Clear Default Instance: Remover instância padrão
     Set Current Instance as Default: Utilizar instância atual como padrão
-    Current instance will be randomized on startup: A instância irá ser escolhida
-      aleatoriamente ao iniciar
+    Current instance will be randomized on startup: A instância, ao iniciar, será
+      escolhida aleatoriamente
     No default instance has been set: Não foi definida uma instância
     The currently set default instance is {instance}: A instância padrão é {instance}
     Current Invidious Instance: Instância Invidious atual
@@ -194,7 +194,7 @@ Settings:
       System Default: Definição do sistema
       Catppuccin Mocha: Cappuccino mocha
       Pastel Pink: Rosa pastel
-      Hot Pink: Rosa Choque
+      Hot Pink: Rosa choque
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -205,7 +205,7 @@ Settings:
       Blue: 'Azul'
       Light Blue: 'Azul claro'
       Cyan: 'Ciano'
-      Teal: 'Azul-petróleo'
+      Teal: 'Azul esverdeado'
       Green: 'Verde'
       Light Green: 'Verde claro'
       Lime: 'Lima'
@@ -220,27 +220,27 @@ Settings:
       Dracula Purple: 'Drácula roxo'
       Dracula Red: 'Drácula vermelho'
       Dracula Yellow: 'Drácula amarelo'
-      Catppuccin Mocha Rosewater: Cappuccino Mocha Rosewater
-      Catppuccin Mocha Flamingo: Cappuccino Mocha Flamingo
-      Catppuccin Mocha Pink: Cappuccino Mocha Rosa
-      Catppuccin Mocha Mauve: Cappuccino Mocha Mauve
-      Catppuccin Mocha Red: Cappuccino Mocha Vermelho
-      Catppuccin Mocha Maroon: Cappuccino Mocha Castanho
-      Catppuccin Mocha Peach: Cappuccino Mocha Pêssego
-      Catppuccin Mocha Yellow: Cappuccino Mocha Amarelo
-      Catppuccin Mocha Green: Cappuccino Mocha Verde
-      Catppuccin Mocha Teal: Cappuccino Mocha Verde Azulado
-      Catppuccin Mocha Sky: Cappuccino Mocha Céu
-      Catppuccin Mocha Sapphire: Cappuccino Mocha Safira
-      Catppuccin Mocha Blue: Cappuccino Mocha Azul
-      Catppuccin Mocha Lavender: Cappuccino Mocha Lavanda
+      Catppuccin Mocha Rosewater: Cappuccino mocha rosewater
+      Catppuccin Mocha Flamingo: Cappuccino mocha flamingo
+      Catppuccin Mocha Pink: Cappuccino mocha rosa
+      Catppuccin Mocha Mauve: Cappuccino mocha mauve
+      Catppuccin Mocha Red: Cappuccino mocha vermelho
+      Catppuccin Mocha Maroon: Cappuccino mocha castanho
+      Catppuccin Mocha Peach: Cappuccino mocha pêssego
+      Catppuccin Mocha Yellow: Cappuccino mocha amarelo
+      Catppuccin Mocha Green: Cappuccino mocha verde
+      Catppuccin Mocha Teal: Cappuccino mocha azul esverdeado
+      Catppuccin Mocha Sky: Cappuccino mocha céu
+      Catppuccin Mocha Sapphire: Cappuccino mocha safira
+      Catppuccin Mocha Blue: Cappuccino mocha azul
+      Catppuccin Mocha Lavender: Cappuccino mocha lavanda
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da interface gráfica
     Disable Smooth Scrolling: Desativar deslocação suave
     Expand Side Bar by Default: Expandir barra lateral por definição
     Hide Side Bar Labels: Ocultar texto na barra lateral
-    Hide FreeTube Header Logo: Ocultar o logotipo do FreeTube no cabeçalho
+    Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: 'Definições do reprodutor'
     Force Local Backend for Legacy Formats: 'Forçar sistema de ligação local para
@@ -251,16 +251,16 @@ Settings:
     Proxy Videos Through Invidious: 'Utilizar Invidious com proxy'
     Autoplay Playlists: 'Reproduzir listas de reprodução automaticamente'
     Enable Theatre Mode by Default: 'Ativar modo cinema por definição'
-    Default Volume: 'Volume'
-    Default Playback Rate: 'Velocidade de reprodução'
+    Default Volume: 'Volume padrão'
+    Default Playback Rate: 'Velocidade de reprodução padrão'
     Default Video Format:
-      Default Video Format: 'Formato de vídeo'
+      Default Video Format: 'Formato de vídeo padrão'
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos antigos'
       Audio Formats: 'Formatos de áudio'
     Default Quality:
-      Default Quality: 'Qualidade'
-      Auto: 'Auto'
+      Default Quality: 'Qualidade padrão'
+      Auto: 'Automática'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -274,9 +274,10 @@ Settings:
     Next Video Interval: Intervalo entre vídeos
     Display Play Button In Video Player: Mostrar botão Reproduzir
     Scroll Volume Over Video Player: Utilizar roda do rato para alterar o volume
-    Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
-    Max Video Playback Rate: Velocidade máxima de reprodução de vídeos
-    Video Playback Rate Interval: Intervalo da velocidade de reprodução de vídeos
+    Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao deslocar
+      por cima do reprodutor
+    Max Video Playback Rate: Velocidade máxima de reprodução
+    Video Playback Rate Interval: Intervalo entre velocidades de reprodução
     Screenshot:
       Enable: Permitir capturas de ecrã
       Format Label: Formato das capturas de ecrã
@@ -294,7 +295,7 @@ Settings:
       Folder Label: Pasta das capturas de ecrã
       Ask Path: Perguntar onde guardar
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
-    Skip by Scrolling Over Video Player: Saltar ao rolar por cima do leitor de vídeo
+    Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Comment Auto Load:
       Comment Auto Load: Comentário Carga automática
