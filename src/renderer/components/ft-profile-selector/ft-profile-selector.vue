@@ -46,7 +46,7 @@
           :key="index"
           class="profile"
           :aria-labelledby="'profile-' + index + '-name'"
-          aria-selected="false"
+          :aria-selected="isActiveProfile(profile)"
           tabindex="0"
           role="option"
           @click="setActiveProfile(profile)"

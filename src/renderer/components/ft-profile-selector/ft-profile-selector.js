@@ -35,6 +35,10 @@ export default defineComponent({
     }
   },
   methods: {
+    isActiveProfile: function (profile) {
+      return profile._id === this.activeProfile._id
+    },
+
     toggleProfileList: function () {
       this.profileListShown = !this.profileListShown
 
