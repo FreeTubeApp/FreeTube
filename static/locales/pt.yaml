@@ -327,8 +327,8 @@ Settings:
     Fetch Automatically: Obter fontes automaticamente
   Data Settings:
     Data Settings: 'Definições de dados'
-    Select Import Type: 'Escolher tipo de importação'
-    Select Export Type: 'Escolher tipo de exportação'
+    Select Import Type: 'Selecione o tipo de importação'
+    Select Export Type: 'Selecione o tipo de exportação'
     Import Subscriptions: 'Importar subscrições'
     Import FreeTube: 'Importar FreeTube'
     Import YouTube: 'Importar YouTube'
@@ -339,8 +339,8 @@ Settings:
     Export NewPipe: 'Exportar NewPipe'
     Import History: 'Importar histórico'
     Export History: 'Exportar histórico'
-    Profile object has insufficient data, skipping item: 'O objeto perfil tem dados
-      em falta, a ignorar'
+    Profile object has insufficient data, skipping item: 'O perfil tem dados em falta,
+      a ignorar'
     All subscriptions and profiles have been successfully imported: 'Todas as subscrições
       e perfis foram importados com sucesso'
     All subscriptions have been successfully imported: 'Todas as subscrições foram
@@ -348,18 +348,18 @@ Settings:
     One or more subscriptions were unable to be imported: 'Uma ou mais subscrições
       não foram importadas'
     Invalid subscriptions file: 'Ficheiro de subscrições inválido'
-    This might take a while, please wait: 'Este processo pode demorar, por favor espere'
+    This might take a while, please wait: 'Este processo pode ser demorado.'
     Invalid history file: 'Ficheiro de histórico inválido'
-    Subscriptions have been successfully exported: 'Subscrições foram exportadas com
-      sucesso'
-    History object has insufficient data, skipping item: 'O objeto histórico tem dados
-      em falta, a ignorar'
-    All watched history has been successfully imported: 'Histórico foi importado com
-      sucesso'
-    All watched history has been successfully exported: 'Histórico foi exportado com
-      sucesso'
-    Unable to read file: 'Ficheiro não foi lido'
-    Unable to write file: 'Ficheiro não foi escrito'
+    Subscriptions have been successfully exported: 'As subscrições foram exportadas
+      com sucesso'
+    History object has insufficient data, skipping item: 'O histórico tem dados em
+      falta, a ignorar'
+    All watched history has been successfully imported: 'O histórico foi importado
+      com sucesso'
+    All watched history has been successfully exported: 'O histórico foi exportado
+      com sucesso'
+    Unable to read file: 'Ficheiro não lido'
+    Unable to write file: 'Ficheiro não escrito'
     Unknown data key: 'Chave de dados desconhecida'
     How do I import my subscriptions?: 'Como posso importar as minhas subscrições?'
     Manage Subscriptions: Gerir subscrições
@@ -367,11 +367,11 @@ Settings:
     Import Playlists: Importar listas de reprodução
     Export Playlists: Exportar listas de reprodução
     Playlist insufficient data: Dados insuficientes para a lista de reprodução "{playlist}",
-      a ignorar o item
+      a ignorar
     All playlists has been successfully imported: Todas as listas de reprodução foram
-      importadas com êxito
+      importadas com sucesso
     All playlists has been successfully exported: Todas as listas de reprodução foram
-      exportadas com êxito
+      exportadas com sucesso
     Subscription File: Ficheiro de subscrição
     History File: Ficheiro de histórico
     Playlist File: Ficheiro de lista de reprodução
@@ -406,7 +406,7 @@ Settings:
     Notify when sponsor segment is skipped: Notificar se um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (padrão é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ativar bloqueio da publicidade
+    Enable SponsorBlock: Ativar SponsorBlock
     SponsorBlock Settings: Definições SponsorBlock
     Skip Options:
       Skip Option: Opção para ignorar
@@ -428,7 +428,7 @@ Settings:
     Clicking on Test Proxy will send a request to: Carregar em "Testar proxy" irá
       enviar um pedido a
     Proxy Port Number: Porta do proxy
-    Proxy Host: Anfitrião do proxy
+    Proxy Host: Servidor do proxy
     Proxy Protocol: Protocolo do proxy
     Enable Tor / Proxy: Ativar Tor/Proxy
     Proxy Settings: Definições de proxy
@@ -455,9 +455,9 @@ Settings:
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem maiúsculas
       em excesso
     Hide Featured Channels: Ocultar canais em destaque
-    Hide Channel Playlists: Ocultar listas de reprodução de canais
+    Hide Channel Playlists: Ocultar listas de reprodução dos canais
     Hide Channel Community: Ocultar canal Comunidade
-    Hide Channel Shorts: Esconder as curtas do canal
+    Hide Channel Shorts: Ocultar curtos do canal
     Sections:
       Side Bar: Barra lateral
       Channel Page: Página do canal
@@ -465,13 +465,13 @@ Settings:
       General: Geral
       Subscriptions Page: Página de subscrições
     Hide Channel Podcasts: Ocultar podcasts do canal
-    Hide Channel Releases: Ocultar as libertações do canal
+    Hide Channel Releases: Ocultar novidades do canal
     Hide Subscriptions Videos: Ocultar subscrições de vídeos
-    Hide Subscriptions Shorts: Ocultar subscrições de vídeos curtos
-    Hide Subscriptions Live: Ocultar subscrições de vídeos em direto
+    Hide Subscriptions Shorts: Ocultar subscrições de curtos
+    Hide Subscriptions Live: Ocultar subscrições de emissões em direto
     Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
     Blur Thumbnails: Desfocar miniaturas
-    Hide Subscriptions Community: Ocultar comunidade inscritas
+    Hide Subscriptions Community: Ocultar subscrições de comunidades
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
