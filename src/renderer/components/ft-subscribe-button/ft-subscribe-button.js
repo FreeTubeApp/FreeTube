@@ -25,10 +25,19 @@ export default defineComponent({
       type: String,
       required: true
     },
+    hideProfileDropdownToggle: {
+      type: Boolean,
+      default: false
+    },
     subscriptionCountText: {
       default: '',
       type: String,
       required: false
+    }
+  },
+  data: function () {
+    return {
+      isProfileDropdownOpen: false
     }
   },
   computed: {
@@ -60,6 +69,10 @@ export default defineComponent({
         subscribedValue += ' ' + this.subscriptionCountText
       }
       return subscribedValue
+    },
+
+    isProfileDropdownEnabled: function () {
+      return !this.hideProfileDropdownToggle && this.profileList.length > 1
     }
 
   },
@@ -122,6 +135,10 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    toggleProfileDropdown: function() {
+      this.isProfileDropdownOpen = !this.isProfileDropdownOpen
     },
 
     unsubscribe: function(profile, channelId) {

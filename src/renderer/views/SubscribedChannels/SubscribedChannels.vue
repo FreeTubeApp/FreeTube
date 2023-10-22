@@ -53,7 +53,7 @@
               class="unsubscribeContainer"
             >
               <ft-subscribe-button
-                class="btn"
+                :hide-profile-dropdown-toggle="false"
                 :channel-id="channel.id"
                 :channel-name="channel.name"
                 :channel-thumbnail="channel.thumbnail"
