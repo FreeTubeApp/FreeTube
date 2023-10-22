@@ -1,6 +1,6 @@
 <template>
   <details
-    :open="allSettingsTabsOpenedOrClosedDefault || isOpenOverride ? 'open' : null"
+    :open="allSettingsSectionsExpandedByDefault || isOpenOverride ? 'open' : null"
     class="settingsSection"
   >
     <summary class="sectionHeader">

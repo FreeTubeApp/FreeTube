@@ -162,7 +162,7 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  allSettingsTabsOpenedOrClosedDefault: false,
+  allSettingsSectionsExpandedByDefault: false,
   autoplayPlaylists: true,
   autoplayVideos: true,
   backendFallback: process.env.IS_ELECTRON,

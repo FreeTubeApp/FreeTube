@@ -25,7 +25,7 @@ export default defineComponent({
       uiScaleStep: 5,
       disableSmoothScrollingToggleValue: false,
       showRestartPrompt: false,
-      allSettingsTabsOpenedOrClosedDefaultModified: false,
+      allSettingsSectionsExpandedByDefaultModified: false,
       restartPromptValues: [
         'yes',
         'no'
@@ -43,8 +43,8 @@ export default defineComponent({
     }
   },
   computed: {
-    allSettingsTabsOpenedOrClosedDefault: function () {
-      return this.$store.getters.getAllSettingsTabsOpenedOrClosedDefault
+    allSettingsSectionsExpandedByDefault: function () {
+      return this.$store.getters.getAllSettingsSectionsExpandedByDefault
     },
     barColor: function () {
       return this.$store.getters.getBarColor
@@ -147,9 +147,9 @@ export default defineComponent({
       this.showRestartPrompt = true
     },
 
-    handleAllSettingsTabsOpenedOrClosedDefault: function (value) {
-      this.allSettingsTabsOpenedOrClosedDefaultModified = true
-      this.updateAllSettingsTabsOpenedOrClosedDefault(value)
+    handleallSettingsSectionsExpandedByDefault: function (value) {
+      this.allSettingsSectionsExpandedByDefaultModified = true
+      this.updateAllSettingsSectionsExpandedByDefault(value)
     },
 
     handleSmoothScrolling: function (value) {
@@ -171,7 +171,7 @@ export default defineComponent({
     ...mapActions([
       'updateBarColor',
       'updateBaseTheme',
-      'updateAllSettingsTabsOpenedOrClosedDefault',
+      'updateAllSettingsSectionsExpandedByDefault',
       'updateMainColor',
       'updateSecColor',
       'updateExpandSideBar',

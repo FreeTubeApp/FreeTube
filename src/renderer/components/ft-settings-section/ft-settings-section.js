@@ -13,8 +13,8 @@ export default defineComponent({
     }
   },
   computed: {
-    allSettingsTabsOpenedOrClosedDefault: function () {
-      return this.$store.getters.getAllSettingsTabsOpenedOrClosedDefault
+    allSettingsSectionsExpandedByDefault: function () {
+      return this.$store.getters.getAllSettingsSectionsExpandedByDefault
     }
   }
 })
