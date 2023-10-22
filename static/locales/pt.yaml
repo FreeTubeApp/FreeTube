@@ -286,7 +286,7 @@ Settings:
       File Name Label: Padrão do nome de ficheiro
       Error:
         Forbidden Characters: Caracteres proibidos
-        Empty File Name: Nome do ficheiro vazio
+        Empty File Name: Nome de ficheiro vazio
       File Name Tooltip: 'Pode utilizar estas variáveis: %Y ano com 4 dígitos, %M
         mês com 2 dígitos, %D dia com 2 dígitos, %H hora com 2 dígitos, %N minuto
         com 2 dígitos, %S segundos com 2 dígitos, %T milissegundos com 3 dígitos,
@@ -298,7 +298,7 @@ Settings:
     Skip by Scrolling Over Video Player: Ignorar ao deslocar por cima do reprodutor
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Comment Auto Load:
-      Comment Auto Load: Comentário Carga automática
+      Comment Auto Load: Carregamento automático de comentários
   Privacy Settings:
     Privacy Settings: 'Definições de privacidade'
     Remember History: 'Memorizar histórico'
@@ -310,12 +310,12 @@ Settings:
     Remove Watch History: 'Limpar histórico'
     Are you sure you want to remove your entire watch history?: 'Tem a certeza de
       que pretende apagar o seu histórico?'
-    Watch history has been cleared: 'Histórico foi apagado'
-    Remove All Subscriptions / Profiles: 'Apagar todas as subscrições/perfis'
+    Watch history has been cleared: 'Histórico apagado'
+    Remove All Subscriptions / Profiles: 'Remover todas as subscrições/perfis'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tem
-      a certeza de que pretende apagar todas as suas subscrições e perfis? Esta ação
+      a certeza de que pretende remover todas as suas subscrições e perfis? Esta ação
       não pode ser revertida.'
-    Automatically Remove Video Meta Files: Remover automaticamente os meta ficheiros
+    Automatically Remove Video Meta Files: Remover automaticamente os meta-ficheiros
       dos vídeos
     Save Watched Videos With Last Viewed Playlist: Guardar os vídeos vistos com a
       última lista de reprodução vista
@@ -434,13 +434,13 @@ Settings:
     Proxy Settings: Definições de proxy
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar subscrições ativas
-    Hide Live Chat: Ocultar conversação em direto
+    Hide Live Chat: Ocultar conversas em direto
     Hide Playlists: Ocultar listas de reprodução
     Hide Popular Videos: Ocultar mais populares
     Hide Trending Videos: Ocultar tendências
     Hide Recommended Videos: Ocultar vídeos recomendados
     Hide Comment Likes: Ocultar "gostos" em comentários
-    Hide Channel Subscribers: Ocultar n.º de subscritores
+    Hide Channel Subscribers: Ocultar número de subscritores
     Hide Video Likes And Dislikes: Ocultar "gostos" em vídeos
     Hide Video Views: Ocultar visualizações
     Distraction Free Settings: Definições de distrações
@@ -473,11 +473,11 @@ Settings:
     Blur Thumbnails: Desfocar miniaturas
     Hide Subscriptions Community: Ocultar comunidade inscritas
   External Player Settings:
-    Custom External Player Arguments: Argumentos do reprodutor externo personalizado
-    Custom External Player Executable: Executável de reprodutor externo personalizado
+    Custom External Player Arguments: Argumentos do reprodutor externo
+    Custom External Player Executable: Executável do reprodutor externo
     Ignore Unsupported Action Warnings: Ignorar avisos sobre ações inválidas
-    External Player: Leitor externo
-    External Player Settings: Definições para leitores externos
+    External Player: Reprodutor externo
+    External Player Settings: Definições para reprodutores externos
     Players:
       None:
         Name: Nenhum
