@@ -128,7 +128,12 @@ export default defineComponent({
       if (this.mouseDownOnIcon) {
         this.mouseDownOnIcon = false
       } else if (!this.$refs.dropdown.matches(':focus-within')) {
-        this.dropdownShown = false
+        // workaround to close dropdown when originating ft-button is clicked
+        if (this.showFtButton) {
+          setTimeout(() => { this.dropdownShown = false }, 85)
+        } else {
+          this.dropdownShown = false
+        }
       }
     },
 

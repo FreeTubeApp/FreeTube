@@ -55,9 +55,9 @@
               aria-selected="false"
               tabindex="-1"
               :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
-              @click="handleDropdownClick({url: option.value, index: index})"
-              @keydown.enter="handleDropdownClick({url: option.value, index: index})"
-              @keydown.space="handleDropdownClick({url: option.value, index: index})"
+              @click="handleDropdownClick({url: option.value, index})"
+              @keydown.enter="handleDropdownClick({url: option.value, index})"
+              @keydown.space="handleDropdownClick({url: option.value, index})"
             >
               {{ option.type === 'divider' ? '' : option.label }}
             </li>
@@ -136,9 +136,9 @@
                 listItem: option.type !== 'divider',
                 listItemDivider: option.type === 'divider'
               }"
-              @click="handleDropdownClick({url: option.value, index: index})"
-              @keydown.enter="handleDropdownClick({url: option.value, index: index})"
-              @keydown.space="handleDropdownClick({url: option.value, index: index})"
+              @click="handleDropdownClick({url: option.value, index})"
+              @keydown.enter="handleDropdownClick({url: option.value, index})"
+              @keydown.space="handleDropdownClick({url: option.value, index})"
             >
               <span>
                 {{ option.type === 'divider' ? '' : option.label }}
