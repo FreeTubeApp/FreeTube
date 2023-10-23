@@ -238,10 +238,13 @@
     <ft-flex-box>
       <ft-input-tags
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
-        :placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+        :tag-desc-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Description Placeholder')"
         :show-action-button="true"
         :tag-list="channelsHidden"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
+        :include-tag-desc="true"
+        :find-secondary-name="findChannelNameById"
         @change="handleChannelsHidden"
       />
     </ft-flex-box>

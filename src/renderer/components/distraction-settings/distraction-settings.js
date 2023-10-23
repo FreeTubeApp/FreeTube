@@ -4,6 +4,8 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getLocalChannel } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -14,6 +16,9 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
   },
   computed: {
+    backendPreference: function () {
+      return this.$store.getters.getBackendPreference
+    },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
     },
@@ -92,7 +97,7 @@ export default defineComponent({
     hideSubscriptionsLive: function () {
       return this.$store.getters.getHideSubscriptionsLive
     },
-    hideSubscriptionsCommunity: function() {
+    hideSubscriptionsCommunity: function () {
       return this.$store.getters.getHideSubscriptionsCommunity
     },
     showDistractionFreeTitles: function () {
@@ -125,6 +130,20 @@ export default defineComponent({
     },
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
+    },
+    findChannelNameById: async function (text) {
+      if (this.backendPreference === 'invidious') {
+        const channelPayload = {
+          resource: 'channels',
+          id: text,
+          params: {}
+        }
+        const res = await invidiousAPICall(channelPayload)
+        return res.author
+      } else {
+        const channel = await getLocalChannel(text)
+        return channel.header.author.name
+      }
     },
 
     ...mapActions([
