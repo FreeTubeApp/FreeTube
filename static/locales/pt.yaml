@@ -841,9 +841,9 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lista de reprodução
-Toggle Theatre Mode: 'Alternar modo cinema'
+Toggle Theatre Mode: 'Alternar modo teatro'
 Change Format:
-  Change Media Formats: 'Alterar formatos do vídeo'
+  Change Media Formats: 'Alterar formatos multimédia'
   Use Dash Formats: 'Utilizar formatos DASH'
   Use Legacy Formats: 'Utilizar formatos antigos'
   Use Audio Formats: 'Utilizar formatos de áudio'
@@ -884,7 +884,7 @@ Comments:
   Hide: 'Ocultar'
   Replies: 'Respostas'
   Reply: 'Resposta'
-  There are no comments available for this video: 'Este vídeo não contém comentários'
+  There are no comments available for this video: 'Este vídeo não tem comentários'
   Load More Comments: 'Carregar mais comentários'
   There are no more comments for this video: Não há mais comentários para este vídeo
   No more comments available: Não existem mais comentários
@@ -896,10 +896,10 @@ Comments:
   And others: e outros
   From {channelName}: de {channelName}
   Member: Membro
-  Hearted: Marcado
+  Hearted: Favorito
   View {replyCount} replies: Ver {replyCount} respostas
   Subscribed: Subscrito
-Up Next: 'Próximo'
+Up Next: 'A seguir'
 
 # Toast Messages
 Local API Error (Click to copy): 'API local encontrou um erro (clique para copiar)'
@@ -991,8 +991,8 @@ Tooltips:
     Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas
       por um fotograma do vídeo em vez da miniatura original.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
-      um problema, FreeTube tentará usar automaticamente a API secundária como alternativa,
-      caso esta opção esteja ativada.
+      um problema, FreeTube tentará usar automaticamente a API secundária, caso esta
+      opção esteja ativada.
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube.
       A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
       para fazer a ligação.
