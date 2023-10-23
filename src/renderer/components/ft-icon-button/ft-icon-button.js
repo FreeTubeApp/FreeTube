@@ -1,10 +1,12 @@
 import { defineComponent } from 'vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtButton from '../ft-button/ft-button.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({
   name: 'FtIconButton',
   components: {
+    'ft-button': FtButton,
     'ft-prompt': FtPrompt
   },
   props: {
@@ -50,13 +52,27 @@ export default defineComponent({
     },
     dropdownOptions: {
       // Array of objects with these properties
-      // - type: ('labelValue'|'divider', default to 'labelValue' for less typing)
+      // - type: ('labelValue'|'divider'|'radiogroup', default to 'labelValue' for less typing)
+      // - radios: ({ type?: 'radio', label: String, value: String, checked: Boolean } | { type: divider })[]
+      //          (if type == 'radiogroup', representing a separate group of checkboxes)
       // - label: String (if type == 'labelValue')
       // - value: String (if type == 'labelValue')
       type: Array,
       default: () => { return [] }
     },
     dropdownModalOnMobile: {
+      type: Boolean,
+      default: false
+    },
+    closeOnClick: {
+      type: Boolean,
+      default: true
+    },
+    hideIcon: {
+      type: Boolean,
+      default: false
+    },
+    useFtButton: {
       type: Boolean,
       default: false
     }
@@ -123,7 +139,58 @@ export default defineComponent({
         this.$emit('click', url)
       }
 
-      this.dropdownShown = false
+      if (this.closeOnClick) {
+        this.dropdownShown = false
+      }
+    },
+
+    handleRadioDropdownKeydown: function({ url, index, groupIndex }, event) {
+      if (!(event instanceof KeyboardEvent) || event.altKey) {
+        return
+      }
+
+      let isNext = null
+      switch (event.key) {
+        case ' ':
+        case 'Spacebar':
+          this.handleDropdownClick({ url, index })
+          return
+        case 'ArrowRight':
+        case 'ArrowDown':
+          isNext = true
+          break
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          isNext = false
+          break
+        default:
+          return
+      }
+
+      this.focusElement(
+        {
+          isNext,
+          index,
+          list: this.dropdownOptions[groupIndex].radios,
+          idPrefix: this.title,
+          groupIndex
+        }
+      )
+    },
+
+    focusElement: function ({ isNext, index, list, idPrefix, groupIndex }) {
+      let newIndex = index
+      const max = list.length - 1
+      do {
+        newIndex += (isNext ? 1 : -1)
+        if (newIndex === -1) {
+          newIndex = max
+        } else if (newIndex > max) {
+          newIndex = 0
+        }
+      } while (list[newIndex].type === 'divider')
+      const newElement = document.getElementById(sanitizeForHtmlId(idPrefix + groupIndex + '-' + newIndex))
+      newElement?.focus()
     },
 
     handleResize: function () {

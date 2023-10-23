@@ -1,6 +1,7 @@
 <template>
   <div class="ftIconButton">
     <font-awesome-icon
+      v-if="!hideIcon && !useFtButton"
       class="iconButton"
       :title="title"
       :icon="icon"
@@ -19,6 +20,17 @@
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
     />
+    <ft-button
+      v-if="useFtButton"
+      class="iconFtButton"
+      @click="handleIconClick"
+    >
+      <font-awesome-icon
+        :icon="!hideIcon ? icon : null"
+        :class="{ [theme]: true }"
+      />
+      {{ title }}
+    </ft-button>
     <template
       v-if="dropdownShown"
     >
@@ -67,8 +79,48 @@
         @focusout="handleDropdownFocusOut"
       >
         <slot>
+          <template
+            v-if="dropdownOptions[0]?.type === 'radiogroup'"
+          >
+            <div
+              v-for="(option, radioGroupIndex) in dropdownOptions"
+              :id="sanitizeForHtmlId(title + radioGroupIndex)"
+              :key="radioGroupIndex"
+              class="radiogroup"
+              role="radiogroup"
+            >
+              <div
+                v-for="(radio, radioButtonIndex) in option.radios"
+                :id="sanitizeForHtmlId(title + radioGroupIndex + '-' + radioButtonIndex)"
+                :key="radioGroupIndex + '-' + radioButtonIndex"
+                :role="radio.type === 'divider' ? 'separator' : 'radio'"
+                :aria-checked="radio.checked"
+                :tabindex="radio.checked ? '0' : '-1'"
+                :class="{
+                  radioItem: radio.type !== 'divider',
+                  listItemDivider: radio.type === 'divider',
+                  checked: radio.checked
+                }"
+                @click="handleDropdownClick({url: radio.value, index: radioButtonIndex})"
+                @keydown.left.right.up.down.space.prevent="handleRadioDropdownKeydown({url: radio.value, index: radioButtonIndex, groupIndex: radioGroupIndex}, $event)"
+              >
+                <span class="radioOptionLabel">
+                  {{ radio.type === 'divider' ? '' : radio.label }}
+                </span>
+                <font-awesome-icon
+                  v-if="radio.checked"
+                  :icon="['fas', 'check']"
+                  class="radioCheckedIcon"
+                />
+                <div
+                  v-else
+                  class="uncheckedFiller"
+                />
+              </div>
+            </div>
+          </template>
           <ul
-            v-if="dropdownOptions.length > 0"
+            v-else-if="dropdownOptions.length > 0"
             class="list"
             role="listbox"
             :aria-expanded="dropdownShown"
@@ -80,12 +132,17 @@
               :role="option.type === 'divider' ? 'separator' : 'option'"
               aria-selected="false"
               :tabindex="option.type === 'divider' ? '-1' : '0'"
-              :class="option.type === 'divider' ? 'listItemDivider' : 'listItem'"
-              @click="handleDropdownClick({url: option.value, index: index}, $event)"
-              @keydown.enter="handleDropdownClick({url: option.value, index: index}, $event)"
-              @keydown.space="handleDropdownClick({url: option.value, index: index}, $event)"
+              :class="{
+                listItem: option.type !== 'divider',
+                listItemDivider: option.type === 'divider'
+              }"
+              @click="handleDropdownClick({url: option.value, index: index})"
+              @keydown.enter="handleDropdownClick({url: option.value, index: index})"
+              @keydown.space="handleDropdownClick({url: option.value, index: index})"
             >
-              {{ option.type === 'divider' ? '' : option.label }}
+              <span>
+                {{ option.type === 'divider' ? '' : option.label }}
+              </span>
             </li>
           </ul>
         </slot>

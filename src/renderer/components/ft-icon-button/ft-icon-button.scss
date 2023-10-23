@@ -110,13 +110,13 @@
     inset-block-start: 45px;
   }
 
-  .list {
+  .list, .radiogroup {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
 
-  .listItem {
+  .listItem, .radioItem {
     cursor: pointer;
     margin: 0;
     padding-block: 8px;
@@ -136,6 +136,18 @@
       color: var(--side-nav-active-text-color);
       transition: background 0.1s ease-in;
     }
+  }
+
+  .radioItem {
+    padding-inline: 10px;
+    display: flex;
+    gap: 15px;
+    text-align: start;
+    justify-content: space-between;
+  }
+
+  .uncheckedFiller {
+    inline-size: 10.5px;
   }
 
   .listItemDivider {
