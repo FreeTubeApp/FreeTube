@@ -8,7 +8,7 @@
 }
 
 .ft-tag-box ul {
-  overflow: auto;
+  overflow: visible;
   display: block;
   padding: 0;
   margin: 0;
@@ -32,6 +32,10 @@
   hyphens: auto;
 }
 
+.ft-tag-box li .tooltip {
+  margin-inline-start: 5px;
+  padding-block: 10px;
+}
 
 .removeTagButton {
   color: var(--primary-text-color);

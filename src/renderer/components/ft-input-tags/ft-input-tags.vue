@@ -27,6 +27,11 @@
         >
           <span>{{ tag.name }}</span>
           <span v-if="tag.secondaryName">{{ tag.secondaryName }}</span>
+          <ft-tooltip
+            v-if="tag.description !== ''"
+            position="bottom-left"
+            :tooltip="tag.description"
+          />
           <font-awesome-icon
             :icon="['fas', 'fa-times']"
             class="removeTagButton"
