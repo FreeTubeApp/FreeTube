@@ -4,12 +4,18 @@ import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
+import store from '../store/index'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+
+function locale() {
+  return i18n.locale.replace('_', '-')
+}
+
 /**
  * @param {string} publishedText
  */
@@ -671,4 +677,95 @@ export function escapeHTML(untrusted) {
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
+}
+
+export function listDisplayDropdownOptions(currentSort, showDefaultOption, currentCondensedOption) {
+  const radioGroup1 = []
+  const options = [
+    {
+      type: 'radiogroup',
+      radios: radioGroup1
+    }
+  ]
+  if (showDefaultOption) {
+    radioGroup1.push(
+      {
+        type: 'radiogroup',
+        label: i18n.t('Settings.List Display Settings.Use Default Sort'),
+        value: 'defaultSort',
+        checked: currentSort === 'defaultSort',
+      }
+    )
+  }
+
+  radioGroup1.push(
+    {
+      type: 'checkbox',
+      label: i18n.t('Settings.List Display Settings.Sort by Title (Ascending)'),
+      value: 'alphabeticalAscending',
+      checked: currentSort === 'alphabeticalAscending',
+    },
+    {
+      type: 'checkbox',
+      label: i18n.t('Settings.List Display Settings.Sort by Title (Descending)'),
+      value: 'alphabeticalDescending',
+      checked: currentSort === 'alphabeticalDescending',
+    }
+  )
+
+  if (currentCondensedOption) {
+    const radioGroup2 = []
+    options.push(
+      {
+        type: 'radiogroup',
+        radios: radioGroup2
+      }
+    )
+    radioGroup2.push(
+      {
+        type: 'divider'
+      },
+      {
+        type: 'checkbox',
+        label: i18n.t('Settings.List Display Settings.Show title when space is available'),
+        value: 'useSpaceForTitle',
+        checked: currentCondensedOption === 'useSpaceForTitle',
+      },
+      {
+        type: 'checkbox',
+        label: i18n.t('Settings.List Display Settings.Show more entries when space is available'),
+        value: 'useSpaceForMoreEntries',
+        checked: currentCondensedOption === 'useSpaceForMoreEntries',
+      }
+    )
+  }
+
+  return options
+}
+
+export function handleListDisplayDropdownOptionClick(option, sortCallback, condensedOptionCallback) {
+  switch (option) {
+    case 'defaultSort':
+    case 'alphabeticalAscending':
+    case 'alphabeticalDescending':
+      sortCallback(option)
+      break
+    case 'useSpaceForTitle':
+    case 'useSpaceForMoreEntries':
+      condensedOptionCallback(option)
+      break
+  }
+}
+
+export function sortListUsingMethod(list, property, method) {
+  switch (method) {
+    case 'defaultSort':
+      break
+    case 'alphabeticalAscending':
+      list.sort((a, b) => a[property]?.toLowerCase().localeCompare(b[property]?.toLowerCase(), locale()))
+      break
+    case 'alphabeticalDescending':
+      list.sort((a, b) => b[property]?.toLowerCase().localeCompare(a[property]?.toLowerCase(), locale()))
+      break
+  }
 }

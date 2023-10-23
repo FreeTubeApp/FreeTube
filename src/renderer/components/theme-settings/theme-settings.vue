@@ -51,6 +51,37 @@
       />
     </ft-flex-box>
     <br>
+    <!-- theme="base-no-default" -->
+    <ft-flex-box>
+      <ft-icon-button
+        :icon="['fas', 'bars']"
+        :title="$t('Settings.List Display Settings.Subscription List Display Options')"
+        :use-ft-button="true"
+        :close-on-click="false"
+        dropdown-position-x="bottom"
+        :dropdown-options="subscriptionListDisplayDropdownOptions"
+        @click="handleSubscriptionListDisplayDropdownOptionClick"
+      />
+      <ft-icon-button
+        :icon="['fas', 'user']"
+        :title="$t('Settings.List Display Settings.Profile List Display Options')"
+        :use-ft-button="true"
+        :close-on-click="false"
+        dropdown-position-x="bottom"
+        :dropdown-options="profileListDisplayDropdownOptions"
+        @click="handleProfileListDisplayDropdownOptionClick"
+      />
+      <ft-icon-button
+        :icon="['fas', 'sliders']"
+        :title="$t('Settings.List Display Settings.Settings Section List Display Options')"
+        :use-ft-button="true"
+        :close-on-click="false"
+        dropdown-position-x="bottom"
+        :dropdown-options="settingsSectionListDisplayDropdownOptions"
+        @click="handleSettingsSectionListDisplayDropdownOptionClick"
+      />
+    </ft-flex-box>
+    <br>
     <ft-flex-box>
       <ft-select
         :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"

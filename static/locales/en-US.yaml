@@ -52,7 +52,6 @@ Global:
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
     Watching Count: 1 watching | {count} watching
-
 # Search Bar
 Search / Go to URL: Search / Go to URL
 Search Bar:
@@ -474,6 +473,15 @@ Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
+  List Display Settings:
+    Subscription List Display Options: Subscription List Display Options
+    Profile List Display Options: Profile List Display Options
+    Settings Section List Display Options: Settings Section List Display Options
+    Use Default Sort: Use Default Sort
+    Sort by Title (Ascending): Sort by Title (Ascending)
+    Sort by Title (Descending): Sort by Title (Descending)
+    Show title when space is available: Show title when space is available
+    Show more entries when space is available: Show more entries when space is available
 About:
   #On About page
   About: About

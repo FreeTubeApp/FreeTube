@@ -1,9 +1,8 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
-import { showToast } from '../../helpers/utils'
+import { deepCopy, showToast, sortListUsingMethod } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtProfileSelector',
@@ -21,6 +20,14 @@ export default defineComponent({
     profileList: function () {
       return this.$store.getters.getProfileList
     },
+    sortedProfileList: function () {
+      const profileList = deepCopy(this.profileList)
+      // profiles are already sorted
+      if (this.profileListSort !== 'alphabeticalAscending') {
+        sortListUsingMethod(profileList, 'name', this.profileListSort)
+      }
+      return profileList
+    },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
     },
@@ -32,7 +39,13 @@ export default defineComponent({
       return this.profileList.map((profile) => {
         return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
-    }
+    },
+    profileListSort: function () {
+      return this.$store.getters.getProfileListSort
+    },
+    profileListCondensedOption: function () {
+      return this.$store.getters.getProfileListCondensedOption
+    },
   },
   methods: {
     toggleProfileList: function () {

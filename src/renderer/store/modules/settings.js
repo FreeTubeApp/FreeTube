@@ -297,6 +297,11 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  profileListCondensedOption: 'useSpaceForTitle',
+  profileListSort: 'alphabeticalAscending',
+  subscriptionListCondensedOption: 'useSpaceForTitle',
+  subscriptionListSort: 'alphabeticalAscending',
+  settingsSectionListSort: 'defaultSort',
 }
 
 const stateWithSideEffects = {

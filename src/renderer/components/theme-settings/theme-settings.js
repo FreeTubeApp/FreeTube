@@ -7,6 +7,8 @@ import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { colors } from '../../helpers/colors'
+import { listDisplayDropdownOptions, handleListDisplayDropdownOptionClick } from '../../helpers/utils'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
 export default defineComponent({
   name: 'ThemeSettings',
@@ -16,6 +18,7 @@ export default defineComponent({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-slider': FtSlider,
     'ft-flex-box': FtFlexBox,
+    'ft-icon-button': FtIconButton,
     'ft-prompt': FtPrompt
   },
   data: function () {
@@ -124,7 +127,39 @@ export default defineComponent({
 
     usingElectron: function () {
       return process.env.IS_ELECTRON
-    }
+    },
+
+    subscriptionListSort: function () {
+      return this.$store.getters.getSubscriptionListSort
+    },
+
+    subscriptionListCondensedOption: function () {
+      return this.$store.getters.getSubscriptionListCondensedOption
+    },
+
+    profileListSort: function () {
+      return this.$store.getters.getProfileListSort
+    },
+
+    profileListCondensedOption: function () {
+      return this.$store.getters.getProfileListCondensedOption
+    },
+
+    settingsSectionListSort: function () {
+      return this.$store.getters.getSettingsSectionListSort
+    },
+
+    subscriptionListDisplayDropdownOptions: function () {
+      return listDisplayDropdownOptions(this.subscriptionListSort, false, this.subscriptionListCondensedOption)
+    },
+
+    profileListDisplayDropdownOptions: function () {
+      return listDisplayDropdownOptions(this.profileListSort, false, this.profileListCondensedOption)
+    },
+
+    settingsSectionListDisplayDropdownOptions: function () {
+      return listDisplayDropdownOptions(this.settingsSectionListSort, true)
+    },
   },
   mounted: function () {
     this.disableSmoothScrollingToggleValue = this.disableSmoothScrolling
@@ -159,6 +194,18 @@ export default defineComponent({
       })
     },
 
+    handleSubscriptionListDisplayDropdownOptionClick: function (option) {
+      handleListDisplayDropdownOptionClick(option, (o) => this.updateSubscriptionListSort(o), (o) => this.subscriptionListCondensedOption(o))
+    },
+
+    handleProfileListDisplayDropdownOptionClick: function (option) {
+      handleListDisplayDropdownOptionClick(option, (o) => this.updateProfileListSort(o), (o) => this.updateProfileListCondensedOption(o))
+    },
+
+    handleSettingsSectionListDisplayDropdownOptionClick: function (option) {
+      handleListDisplayDropdownOptionClick(option, (o) => this.updateSettingsSectionListSort(o))
+    },
+
     ...mapActions([
       'updateBarColor',
       'updateBaseTheme',
@@ -168,7 +215,12 @@ export default defineComponent({
       'updateUiScale',
       'updateDisableSmoothScrolling',
       'updateHideLabelsSideBar',
-      'updateHideHeaderLogo'
+      'updateHideHeaderLogo',
+      'updateSubscriptionListSort',
+      'updateSubscriptionListCondensedOption',
+      'updateProfileListSort',
+      'updateProfileListCondensedOption',
+      'updateSettingsSectionListSort'
     ])
   }
 })

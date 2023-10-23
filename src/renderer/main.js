@@ -62,6 +62,7 @@ import {
   faThumbtack,
   faTimes,
   faTimesCircle,
+  faUser,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -134,6 +135,7 @@ library.add(
   faThumbtack,
   faTimes,
   faTimesCircle,
+  faUser,
   faUsers,
 
   // brand icons

@@ -41,7 +41,7 @@
         aria-labelledby="profileListTitle"
       >
         <div
-          v-for="(profile, index) in profileList"
+          v-for="(profile, index) in sortedProfileList"
           :id="'profile-' + index"
           :key="index"
           class="profile"
