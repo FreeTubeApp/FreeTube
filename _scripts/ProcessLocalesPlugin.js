@@ -8,6 +8,7 @@ const brotliCompressAsync = promisify(brotliCompress)
 class ProcessLocalesPlugin {
   constructor(options = {}) {
     this.compress = !!options.compress
+    this.isIncrementalBuild = false
 
     if (typeof options.inputDir !== 'string') {
       throw new Error('ProcessLocalesPlugin: no input directory `inputDir` specified.')
@@ -42,15 +43,23 @@ class ProcessLocalesPlugin {
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
         const promises = []
-        this.loadLocales(true)
+        // Prevents `loadLocales` called twice on first time (e.g. release build)
+        if (this.isIncrementalBuild) {
+          this.loadLocales(true)
+        } else {
+          this.isIncrementalBuild = true
+        }
 
         Object.values(this.locales).forEach((localeEntry) => {
           const { locale, data, mtimeMs } = localeEntry
+
           promises.push(new Promise(async (resolve) => {
             if (IS_DEV_SERVER) {
               const cacheEntry = this.cache[locale]
+
               if (cacheEntry != null) {
                 const { filename, source, mtimeMs: cachedMtimeMs } = cacheEntry
+
                 if (cachedMtimeMs === mtimeMs) {
                   compilation.emitAsset(filename, source, { minimized: true })
                   resolve()
@@ -119,7 +128,9 @@ class ProcessLocalesPlugin {
       this.locales[locale] = { locale, data, mtimeMs: mtimeMsFromStats }
 
       const localeName = data['Locale Name'] ?? locale
-      if (!this.localeNames.includes(localeName)) { this.localeNames.push(localeName) }
+      if (!loadModifiedFilesOnly) {
+        this.localeNames.push(localeName)
+      }
     }
   }
 

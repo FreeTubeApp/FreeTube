@@ -1,4 +1,5 @@
 const path = require('path')
+const { readFileSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -148,10 +149,12 @@ const config = {
 }
 
 if (isDevMode) {
+  const activeLocales = JSON.parse(readFileSync(path.join(__dirname, '../static/locales/activeLocales.json')))
+
   config.plugins.push(
     new WatchExternalFilesPlugin({
       files: [
-        './static/locales/*.yaml',
+        `./static/locales/{${activeLocales.join(',')}}.yaml`,
       ],
     }),
   )
