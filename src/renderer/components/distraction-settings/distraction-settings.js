@@ -132,17 +132,22 @@ export default defineComponent({
       this.updateChannelsHidden(JSON.stringify(value))
     },
     findChannelNameById: async function (text) {
-      if (this.backendPreference === 'invidious') {
-        const channelPayload = {
-          resource: 'channels',
-          id: text,
-          params: {}
+      try {
+        if (this.backendPreference === 'invidious') {
+          const channelPayload = {
+            resource: 'channels',
+            id: text,
+            params: {}
+          }
+          const res = await invidiousAPICall(channelPayload)
+          return res.author
+        } else {
+          const channel = await getLocalChannel(text)
+          return channel.header.author.name
         }
-        const res = await invidiousAPICall(channelPayload)
-        return res.author
-      } else {
-        const channel = await getLocalChannel(text)
-        return channel.header.author.name
+      } catch (_) {
+        // Will generally throw errors if a non channel ID is provided
+        return ''
       }
     },
 

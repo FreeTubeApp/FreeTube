@@ -58,7 +58,7 @@ export default defineComponent({
         this.$emit('change', newList)
       }
 
-      // clear input box
+      // clear input boxes
       this.$refs.tagNameInput.handleClearTextClick()
       this.$refs.tagDescInput.handleClearTextClick()
     },

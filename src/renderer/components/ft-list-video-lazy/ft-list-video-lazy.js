@@ -58,12 +58,19 @@ export default defineComponent({
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
 
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+      let hidden = JSON.parse(this.$store.getters.getChannelsHidden)
+      hidden = hidden.map((ch) => {
+        if (ch instanceof String) {
+          return { name: ch, secondaryName: '', description: '' }
+        }
+        return ch
+      })
+      return hidden
     },
 
     shouldBeVisible() {
-      return !(this.channelsHidden.includes(this.data.authorId) ||
-        this.channelsHidden.includes(this.data.author))
+      return !(this.channelsHidden.some(ch => ch.name === this.data.authorId) ||
+        this.channelsHidden.some(ch => ch.name === this.data.author))
     }
   },
   created() {
