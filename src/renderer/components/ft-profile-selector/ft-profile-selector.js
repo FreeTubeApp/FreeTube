@@ -22,9 +22,9 @@ export default defineComponent({
     },
     sortedProfileList: function () {
       const profileList = deepCopy(this.profileList)
-      // profiles are already sorted
-      if (this.profileListSort !== 'alphabeticalAscending') {
-        sortListUsingMethod(profileList, 'name', this.profileListSort)
+      // profiles are already sorted alphabetically ascending
+      if (this.profileListOptions.sort !== 'alphabeticalAscending') {
+        sortListUsingMethod(profileList, 'name', this.profileListOptions.sort)
       }
       return profileList
     },
@@ -40,11 +40,8 @@ export default defineComponent({
         return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     },
-    profileListSort: function () {
-      return this.$store.getters.getProfileListSort
-    },
-    profileListCondensedOption: function () {
-      return this.$store.getters.getProfileListCondensedOption
+    profileListOptions: function () {
+      return this.$store.getters.getProfileListOptions
     },
   },
   methods: {

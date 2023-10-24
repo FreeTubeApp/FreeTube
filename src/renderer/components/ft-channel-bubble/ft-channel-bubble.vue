@@ -2,6 +2,9 @@
   <router-link
     v-if="!showSelected"
     class="bubblePadding"
+    :class="{
+      [appearance]: true
+    }"
     :aria-labelledby="sanitizedId"
     :to="`/channel/${channelId}`"
   >

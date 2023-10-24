@@ -477,11 +477,18 @@ Settings:
     Subscription List Display Options: Subscription List Display Options
     Profile List Display Options: Profile List Display Options
     Settings Section List Display Options: Settings Section List Display Options
-    Use Default Sort: Use Default Sort
-    Sort by Title (Ascending): Sort by Title (Ascending)
-    Sort by Title (Descending): Sort by Title (Descending)
-    Show title when space is available: Show title when space is available
-    Show more entries when space is available: Show more entries when space is available
+    Sort:
+      Use Default Sort: Use Default Sort
+      Sort by Title (Ascending): Sort by Title (Ascending)
+      Sort by Title (Descending): Sort by Title (Descending)
+    Display Type:
+      List: List
+      Grid:
+        Grid: Grid
+        Item per grid row: 1 item per grid row | {number} items per grid row
+        Show Grid Item Titles: Show Grid Item Titles
+        Hide Grid Item Titles: Hide Grid Item Titles
+
 About:
   #On About page
   About: About

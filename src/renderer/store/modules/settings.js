@@ -297,11 +297,21 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
-  profileListCondensedOption: 'useSpaceForTitle',
-  profileListSort: 'alphabeticalAscending',
-  subscriptionListCondensedOption: 'useSpaceForTitle',
-  subscriptionListSort: 'alphabeticalAscending',
-  settingsSectionListSort: 'defaultSort',
+  profileListOptions: {
+    sort: 'alphabeticalAscending',
+    displayType: 'list',
+    showGridItemTitles: true,
+    itemsPerGridRow: 2
+  },
+  subscriptionListOptions: {
+    sort: 'alphabeticalAscending',
+    displayType: 'list',
+    showGridItemTitles: true,
+    itemsPerGridRow: 2
+  },
+  settingsSectionListOptions: {
+    sort: 'alphabeticalAscending'
+  }
 }
 
 const stateWithSideEffects = {

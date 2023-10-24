@@ -7,7 +7,6 @@ import FtSlider from '../ft-slider/ft-slider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import { colors } from '../../helpers/colors'
-import { listDisplayDropdownOptions, handleListDisplayDropdownOptionClick } from '../../helpers/utils'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
 export default defineComponent({
@@ -129,36 +128,28 @@ export default defineComponent({
       return process.env.IS_ELECTRON
     },
 
-    subscriptionListSort: function () {
-      return this.$store.getters.getSubscriptionListSort
+    subscriptionListOptions: function () {
+      return this.$store.getters.getSubscriptionListOptions
     },
 
-    subscriptionListCondensedOption: function () {
-      return this.$store.getters.getSubscriptionListCondensedOption
+    profileListOptions: function () {
+      return this.$store.getters.getProfileListOptions
     },
 
-    profileListSort: function () {
-      return this.$store.getters.getProfileListSort
-    },
-
-    profileListCondensedOption: function () {
-      return this.$store.getters.getProfileListCondensedOption
-    },
-
-    settingsSectionListSort: function () {
-      return this.$store.getters.getSettingsSectionListSort
+    settingsSectionListOptions: function () {
+      return this.$store.getters.getSettingsSectionListOptions
     },
 
     subscriptionListDisplayDropdownOptions: function () {
-      return listDisplayDropdownOptions(this.subscriptionListSort, false, this.subscriptionListCondensedOption)
+      return this.listDisplayDropdownOptions(this.subscriptionListOptions, false)
     },
 
     profileListDisplayDropdownOptions: function () {
-      return listDisplayDropdownOptions(this.profileListSort, false, this.profileListCondensedOption)
+      return this.listDisplayDropdownOptions(this.profileListOptions, false)
     },
 
     settingsSectionListDisplayDropdownOptions: function () {
-      return listDisplayDropdownOptions(this.settingsSectionListSort, true)
+      return this.listDisplayDropdownOptions(this.settingsSectionListOptions, true)
     },
   },
   mounted: function () {
@@ -195,15 +186,161 @@ export default defineComponent({
     },
 
     handleSubscriptionListDisplayDropdownOptionClick: function (option) {
-      handleListDisplayDropdownOptionClick(option, (o) => this.updateSubscriptionListSort(o), (o) => this.subscriptionListCondensedOption(o))
+      const newListOptions = this.getNewListOptions(this.subscriptionListOptions, option)
+      this.updateSubscriptionListOptions(newListOptions)
     },
 
     handleProfileListDisplayDropdownOptionClick: function (option) {
-      handleListDisplayDropdownOptionClick(option, (o) => this.updateProfileListSort(o), (o) => this.updateProfileListCondensedOption(o))
+      const newListOptions = this.getNewListOptions(this.profileListOptions, option)
+      this.updateProfileListOptions(newListOptions)
     },
 
     handleSettingsSectionListDisplayDropdownOptionClick: function (option) {
-      handleListDisplayDropdownOptionClick(option, (o) => this.updateSettingsSectionListSort(o))
+      const newListOptions = this.getNewListOptions(this.settingsSectionListOptions, option)
+      this.updateSettingsSectionListOptions(newListOptions)
+    },
+
+    getNewListOptions: function(list, option) {
+      switch (option) {
+        case 'defaultSort':
+        case 'alphabeticalAscending':
+        case 'alphabeticalDescending':
+          return {
+            ...list,
+            sort: option
+          }
+        case 'showGridItemTitles':
+        case 'hideGridItemTitles':
+          return {
+            ...list,
+            showGridItemTitles: option === 'showGridItemTitles'
+          }
+        case 'list':
+        case 'grid':
+          return {
+            ...list,
+            displayType: option
+          }
+        default:
+          return {
+            ...list,
+            itemsPerGridRow: option
+          }
+      }
+    },
+
+    listDisplayDropdownOptions: function (listOptions, showDefaultOption) {
+      const radioGroupSort = []
+      const options = [
+        {
+          type: 'radiogroup',
+          radios: radioGroupSort
+        }
+      ]
+      if (showDefaultOption) {
+        radioGroupSort.push(
+          {
+            type: 'checkbox',
+            label: this.$t('Settings.List Display Settings.Sort.Use Default Sort'),
+            value: 'defaultSort',
+            checked: listOptions.sort === 'defaultSort',
+          }
+        )
+      }
+
+      radioGroupSort.push(
+        {
+          type: 'checkbox',
+          label: this.$t('Settings.List Display Settings.Sort.Sort by Title (Ascending)'),
+          value: 'alphabeticalAscending',
+          checked: listOptions.sort === 'alphabeticalAscending',
+        },
+        {
+          type: 'checkbox',
+          label: this.$t('Settings.List Display Settings.Sort.Sort by Title (Descending)'),
+          value: 'alphabeticalDescending',
+          checked: listOptions.sort === 'alphabeticalDescending',
+        }
+      )
+
+      if (listOptions.displayType) {
+        const radioGroupDisplayType = []
+        options.push(
+          {
+            type: 'radiogroup',
+            radios: radioGroupDisplayType
+          }
+        )
+        radioGroupDisplayType.push(
+          {
+            type: 'divider'
+          },
+          {
+            type: 'checkbox',
+            label: this.$t('Settings.List Display Settings.Display Type.List'),
+            value: 'list',
+            checked: listOptions.displayType === 'list',
+          },
+          {
+            type: 'checkbox',
+            label: this.$t('Settings.List Display Settings.Display Type.Grid.Grid'),
+            value: 'grid',
+            checked: listOptions.displayType === 'grid',
+          }
+        )
+
+        if (listOptions.displayType === 'grid') {
+          const radioGroupItemsPerGridRow = []
+          options.push(
+            {
+              type: 'radiogroup',
+              radios: radioGroupItemsPerGridRow
+            }
+          )
+
+          radioGroupItemsPerGridRow.push(
+            {
+              type: 'divider'
+            }
+          )
+
+          for (let i = 2; i <= 5; ++i) {
+            radioGroupItemsPerGridRow.push({
+              type: 'checkbox',
+              label: this.$tc('Settings.List Display Settings.Display Type.Grid.Item per grid row', i, { number: i }),
+              value: i,
+              checked: listOptions.itemsPerGridRow === i
+            })
+          }
+
+          const radioGroupShowGridItemTitles = []
+          options.push(
+            {
+              type: 'radiogroup',
+              radios: radioGroupShowGridItemTitles
+            }
+          )
+          radioGroupShowGridItemTitles.push(
+            {
+              type: 'divider'
+            },
+            {
+              type: 'checkbox',
+              label: this.$t('Settings.List Display Settings.Titles.Grid.Show Grid Item Titles'),
+              value: 'showGridItemTitles',
+              checked: listOptions.showGridItemTitles
+            },
+            {
+              type: 'checkbox',
+              label: this.$t('Settings.List Display Settings.Titles.Grid.Hide Grid Item Titles'),
+              value: 'hideGridItemTitles',
+              checked: !listOptions.showGridItemTitles,
+            }
+          )
+        }
+      }
+
+      return options
     },
 
     ...mapActions([
@@ -217,10 +354,9 @@ export default defineComponent({
       'updateHideLabelsSideBar',
       'updateHideHeaderLogo',
       'updateSubscriptionListSort',
-      'updateSubscriptionListCondensedOption',
-      'updateProfileListSort',
-      'updateProfileListCondensedOption',
-      'updateSettingsSectionListSort'
+      'updateSubscriptionListOptions',
+      'updateProfileListOptions',
+      'updateSettingsSectionListOptions'
     ])
   }
 })

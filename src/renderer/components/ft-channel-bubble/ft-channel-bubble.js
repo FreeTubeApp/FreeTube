@@ -18,6 +18,10 @@ export default defineComponent({
     showSelected: {
       type: Boolean,
       default: false
+    },
+    appearance: {
+      type: String,
+      default: 'default'
     }
   },
   data: function () {

@@ -200,7 +200,7 @@
       </router-link>
       <hr>
       <div
-        v-if="!hideActiveSubscriptions"
+        v-if="!hideActiveSubscriptions && (!isOpen | subscriptionList.displayType === 'list')"
       >
         <router-link
           v-for="(channel, index) in activeSubscriptions"
@@ -208,7 +208,7 @@
           :to="`/channel/${channel.id}`"
           class="navChannel channelLink mobileHidden"
           :title="channel.name"
-          role="button"
+          role="link"
         >
           <div
             class="thumbnailContainer"
@@ -229,6 +229,24 @@
             {{ channel.name }}
           </p>
         </router-link>
+      </div>
+      <!-- && !(subscriptionListOptions.displayType === 'grid' &&
+              !subscriptionListOptions.showGridItemTitles) -->
+      <div
+        v-if="isOpen && subscriptionListOptions.displayType === 'grid'"
+        class="grid"
+        :style="{ minInlineSize: (subscriptionListOptions.itemsPerGridRow * 100) + '%'} "
+      >
+        <ft-channel-bubble
+          v-for="(channel, index) in activeSubscriptions"
+          :id="`sidenav-channel-${index}`"
+          :key="index"
+          :channel-id="channel.id"
+          :channel-name="channel.name"
+          :channel-thumbnail="channel.thumbnail"
+          appearance="small"
+          @click="navigate(`channel/${channel.id}`)"
+        />
       </div>
     </div>
   </ft-flex-box>

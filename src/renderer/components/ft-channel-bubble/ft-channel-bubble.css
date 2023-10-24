@@ -25,6 +25,20 @@
   transition: background 0.2s ease-in;
 }
 
+.bubblePadding.small {
+  min-inline-size: 40%;
+  min-block-size: 55px;
+  gap: 0px;
+  padding-block: 5px;
+  padding-inline: 5px;
+  box-sizing: border-box;
+}
+
+.bubblePadding.small > .bubble {
+  inline-size: 35px;
+  block-size: 35px;
+}
+
 .bubble {
   inline-size: 50px;
   block-size: 50px;
