@@ -1577,6 +1577,10 @@ export default defineComponent({
       }
     },
 
+    toggleautoplay: function () {
+      this.$store.dispatch('updatePlayNextVideo', !this.$store.getters.getPlayNextVideo)
+    },
+
     takeScreenshot: async function () {
       if (!this.enableScreenshot || this.format === 'audio') {
         return
@@ -2068,7 +2072,6 @@ export default defineComponent({
           })
         })
     },
-
     // This function should always be at the bottom of this file
     /**
      * @param {KeyboardEvent} event
@@ -2238,6 +2241,11 @@ export default defineComponent({
           case 'u':
             // Take screenshot
             this.takeScreenshot()
+            break
+          case 'A':
+          case 'a':
+            event.preventDefault()
+            this.toggleautoplay()
             break
         }
       }
