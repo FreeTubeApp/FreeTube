@@ -211,6 +211,10 @@ export default defineComponent({
               type: 'divider'
             },
             {
+              label: this.$t('Video.Hide Channel'),
+              value: 'hideChannel'
+            },
+            {
               label: this.$t('Video.Copy YouTube Channel Link'),
               value: 'copyYoutubeChannel'
             },
@@ -434,6 +438,9 @@ export default defineComponent({
         case 'openInvidiousChannel':
           openExternalLink(this.invidiousChannelUrl)
           break
+        case 'hideChannel':
+          this.hideChannel(this.channelName)
+          break
       }
     },
 
@@ -621,12 +628,21 @@ export default defineComponent({
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
+    hideChannel: function(channelName) {
+      const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+      hiddenChannels.push(channelName)
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels))
+
+      showToast(this.$t('Channel Hidden', { channel: channelName }))
+    },
+
     ...mapActions([
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'addVideo',
-      'removeVideo'
+      'removeVideo',
+      'updateChannelsHidden'
     ])
   }
 })
