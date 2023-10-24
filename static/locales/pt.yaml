@@ -950,44 +950,43 @@ Tooltips:
       subscrições quando uma nova janela for aberta e quando mudar de perfil.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
-      por ponto e vírgula (';'), que quiser dar ao leitor externo.
-    Ignore Warnings: Ignorar avisos quando o leitor externo escolhido não suporta
-      uma ação (por exemplo inverter listas de reprodução).
-    Custom External Player Executable: Por omissão, FreeTube assume que o leitor externo
-      escolhido pode ser encontrado através da variável PATH. Se for preciso, um caminho
-      personalizado pode ser escolhido aqui.
-    External Player: Escolher um leitor externo irá mostrar um ícone para abrir o
-      vídeo (lista de reprodução, se suportado) no leitor externo, na miniatura do
-      vídeo. Aviso, as definições Invidious não afetam os reprodutores externos.
-    DefaultCustomArgumentsTemplate: "(padrão: '{defaultCustomArguments}')"
+      por ponto e vírgula (';'), que quiser passar ao reprodutor externo.
+    Ignore Warnings: Ignorar avisos quando o reprodutor externo escolhido não suporte
+      uma ação (por exemplo, inverter listas de reprodução).
+    Custom External Player Executable: Por omissão, FreeTube assume que o reprodutor
+      externo pode ser encontrado através da variável PATH. Se for preciso, pode escolher
+      um caminho personalizado aqui.
+    External Player: Escolher um reprodutor externo mostra um ícone para abrir o vídeo
+      (lista de reprodução, se suportado) nessa aplicação. Mas tenha em conta que
+      as definições Invidious não afetam os reprodutores externos.
+    DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
-      Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos estão
-      limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
-      áudio são para transmissões sem vídeo.
+      Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos
+      estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos
+      de áudio são apenas para emissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
       vídeos em vez de fazer uma ligação direta ao YouTube. Ignora a preferência de
       API.
     Force Local Backend for Legacy Formats: Apenas funciona quando a API Invidious
-      é o seu sistema usado. Quando ativada, a API local será executada para usar
-      os formatos antigos em vez dos usados pelo Invidious. Útil quando os vídeos
-      do Invidious não funcionam devido a restrições geográficas.
-    Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione
-      e mantenha premida a tecla Ctrl (Comando no Mac) e rode a roda do rato para
-      controlar a taxa de reprodução. Pressione e mantenha premida a tecla Ctrl (Comando
-      no Mac) e clique com o botão esquerdo do rato para voltar rapidamente à taxa
-      de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
-    Skip by Scrolling Over Video Player: Use a roda de rolagem para saltar o vídeo,
+      é o seu sistema usado. Se ativa, a API local será executada para usar os formatos
+      antigos em vez dos usados pelo Invidious. Útil quando os vídeos do Invidious
+      não funcionam devido a restrições geográficas.
+    Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha
+      premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
+      a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)
+      e clique com o botão esquerdo do rato para voltar rapidamente à taxa de reprodução
+      padrão (1 a não ser que tenha sido alterada nas definições).
+    Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
       estilo MPV.
     Allow DASH AV1 formats: Os formatos DASH AV1 podem parecer melhores do que os
       formatos DASH H.264. Os formatos DASH AV1 requerem mais potência para reprodução!
-      Eles não estão disponíveis em todos os vídeos, nesses casos, o reprodutor usará
-      os formatos DASH H.264.
+      Eles não estão disponíveis em todos os vídeos e, nesses casos, o reprodutor
+      usará os formatos DASH H.264.
   General Settings:
-    Region for Trending: A região de tendências permite-lhe escolher de que país virão
-      os vídeos na secção das tendências.
-    Invidious Instance: O servidor Invidious ao qual o FreeTube se irá ligar para
-      fazer chamadas através da API.
+    Region for Trending: A região permite-lhe escolher de que país virão os vídeos
+      na secção de tendências.
+    Invidious Instance: A instância Invidious à qual o FreeTube se irá ligar à API.
     Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas
       por um fotograma do vídeo em vez da miniatura original.
     Fallback to Non-Preferred Backend on Failure: Quando a sua API preferida tiver
@@ -997,16 +996,16 @@ Tooltips:
       A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
       para fazer a ligação.
     External Link Handling: "Escolha o comportamento padrão quando uma ligação, que
-      não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá
+      não pode ser aberta no FreeTube, é clicada.\nPor definição, FreeTube abrirá
       a ligação no seu navegador de Internet.\n"
   Experimental Settings:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Levará ao aumento da utilização de RAM.
   Distraction Free Settings:
-    Hide Channels: Introduza um nome de canal ou um ID de canal para ocultar todos
-      os vídeos, listas de reprodução e o próprio canal de aparecerem na pesquisa,
-      tendências, mais populares e recomendados. O nome do canal introduzido tem de
-      corresponder na totalidade e é sensível a maiúsculas e minúsculas.
+    Hide Channels: Introduza o nome ou ID de um canal para impedir que os vídeos,
+      listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais
+      populares e recomendados. O nome do canal introduzido tem que ser uma correspondência
+      exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
       aplicação "{appWideSetting}", na secção "{subsection}" da "{settingsSection}"
   SponsorBlock Settings:
