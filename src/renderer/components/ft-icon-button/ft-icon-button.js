@@ -80,8 +80,12 @@ export default defineComponent({
   data: function () {
     return {
       dropdownShown: false,
-      mouseDownOnIcon: false,
       useModal: false
+    }
+  },
+  computed: {
+    id: function () {
+      return sanitizeForHtmlId(`iconButton-${this.title}`)
     }
   },
   mounted: function () {
@@ -118,22 +122,9 @@ export default defineComponent({
       }
     },
 
-    handleIconMouseDown: function () {
-      if (this.dropdownShown) {
-        this.mouseDownOnIcon = true
-      }
-    },
-
     handleDropdownFocusOut: function () {
-      if (this.mouseDownOnIcon) {
-        this.mouseDownOnIcon = false
-      } else if (!this.$refs.dropdown.matches(':focus-within')) {
-        // workaround to close dropdown when originating ft-button is clicked
-        if (this.showFtButton) {
-          setTimeout(() => { this.dropdownShown = false }, 85)
-        } else {
-          this.dropdownShown = false
-        }
+      if (this.dropdownShown && !this.$refs.iconButton.matches(':focus-within')) {
+        this.dropdownShown = false
       }
     },
 

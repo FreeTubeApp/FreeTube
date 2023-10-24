@@ -1,7 +1,12 @@
 <template>
-  <div class="ftIconButton">
+  <div
+    ref="iconButton"
+    class="ftIconButton"
+    @focusout="handleDropdownFocusOut()"
+  >
     <font-awesome-icon
       v-if="!hideIcon && !useFtButton"
+      :id="id"
       class="iconButton"
       :title="title"
       :icon="icon"
@@ -16,12 +21,12 @@
       tabindex="0"
       role="button"
       @click="handleIconClick"
-      @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
     />
     <ft-button
       v-if="useFtButton"
+      :id="id"
       class="iconFtButton"
       @click="handleIconClick"
     >
@@ -76,7 +81,6 @@
           bottom: dropdownPositionY === 'bottom',
           top: dropdownPositionY === 'top'
         }"
-        @focusout="handleDropdownFocusOut"
       >
         <slot>
           <template
