@@ -157,7 +157,17 @@ function parsePipedVideos(videoList) {
       description: video.shortDescription,
       uploaded: video.uploaded, // uploaded time stamp
       viewCount: video.views,
-      thumbnail: video.thumbnail
+      thumbnail: video.thumbnail,
+      type: 'video'
     }
   })
+}
+
+export async function getPipedTrending(region) {
+  const trendingInfo = await pipedRequest({ resource: 'trending', params: { region } })
+  if (trendingInfo.isError) {
+    throw trendingInfo.error
+  } else {
+    return parsePipedVideos(trendingInfo)
+  }
 }
