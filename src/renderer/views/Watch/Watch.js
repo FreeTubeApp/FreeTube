@@ -29,7 +29,13 @@ import {
   parseLocalTextRuns,
   parseLocalWatchNextVideo
 } from '../../helpers/api/local'
-import { filterInvidiousFormats, invidiousGetVideoInformation, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import {
+  convertInvidiousToLocalFormat,
+  filterInvidiousFormats,
+  generateInvidiousDashManifestLocally,
+  invidiousGetVideoInformation,
+  youtubeImageUrlToInvidious
+} from '../../helpers/api/invidious'
 
 /**
  * @typedef {object} AudioSource
@@ -123,8 +129,11 @@ export default defineComponent({
     }
   },
   computed: {
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyEntry: function () {
+      return this.$store.getters.getHistoryCacheById[this.videoId]
+    },
+    historyEntryExists: function () {
+      return typeof this.historyEntry !== 'undefined'
     },
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
@@ -187,7 +196,7 @@ export default defineComponent({
     hideVideoDescription: function () {
       return this.$store.getters.getHideVideoDescription
     },
-    showFamilyFriendlyOnly: function() {
+    showFamilyFriendlyOnly: function () {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
     hideChannelSubscriptions: function () {
@@ -244,7 +253,7 @@ export default defineComponent({
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
-    this.useTheatreMode = this.defaultTheatreMode
+    this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
 
     this.checkIfPlaylist()
     this.checkIfTimestamp()
@@ -317,7 +326,8 @@ export default defineComponent({
           channelId: this.channelId
         })
 
-        this.videoPublished = new Date(result.page[0].microformat.publish_date.replace('-', '/')).getTime()
+        // `result.page[0].microformat.publish_date` example value: `2023-08-12T08:59:59-07:00`
+        this.videoPublished = new Date(result.page[0].microformat.publish_date).getTime()
 
         if (result.secondary_info?.description.runs) {
           try {
@@ -595,63 +605,11 @@ export default defineComponent({
             const hasMultipleAudioTracks = audioFormats.some(format => format.audio_track)
 
             if (hasMultipleAudioTracks) {
-              /** @type {string[]} */
-              const ids = []
-
-              /** @type {AudioTrack[]} */
-              const audioTracks = []
-
-              /** @type {import('youtubei.js').Misc.Format[][]} */
-              const sourceLists = []
-
-              for (const format of audioFormats) {
-                // Some videos with multiple audio tracks, have a broken one, that doesn't have any audio track information
-                // It seems to be the same as default audio track but broken
-                // At the time of writing, this video has a broken audio track: https://youtu.be/UJeSWbR6W04
-                if (!format.audio_track) {
-                  continue
-                }
-
-                const index = ids.indexOf(format.audio_track.id)
-                if (index === -1) {
-                  ids.push(format.audio_track.id)
-
-                  let kind
-
-                  if (format.audio_track.audio_is_default) {
-                    kind = 'main'
-                  } else if (format.is_dubbed) {
-                    kind = 'translation'
-                  } else if (format.is_descriptive) {
-                    kind = 'descriptions'
-                  } else {
-                    kind = 'alternative'
-                  }
-
-                  audioTracks.push({
-                    id: format.audio_track.id,
-                    kind,
-                    label: format.audio_track.display_name,
-                    language: format.language,
-                    isDefault: format.audio_track.audio_is_default,
-                    sourceList: []
-                  })
-
-                  sourceLists.push([
-                    format
-                  ])
-                } else {
-                  sourceLists[index].push(format)
-                }
-              }
-
-              for (let i = 0; i < audioTracks.length; i++) {
-                audioTracks[i].sourceList = this.createLocalAudioSourceList(sourceLists[i])
-              }
+              const audioTracks = this.createAudioTracksFromLocalFormats(audioFormats)
 
               this.audioTracks = audioTracks
 
-              this.audioSourceList = this.audioTracks.find(track => track.isDefault).sourceList
+              this.audioSourceList = audioTracks.find(track => track.isDefault).sourceList
             } else {
               this.audioTracks = []
 
@@ -714,7 +672,6 @@ export default defineComponent({
         this.isLoading = true
       }
 
-      this.dashSrc = this.createInvidiousDashManifest()
       this.videoStoryboardSrc = `${this.currentInvidiousInstance}/api/v1/storyboards/${this.videoId}?height=90`
 
       invidiousGetVideoInformation(this.videoId)
@@ -854,18 +811,28 @@ export default defineComponent({
               return object
             }))
 
-            this.audioSourceList = result.adaptiveFormats.filter((format) => {
-              return format.type.includes('audio')
-            }).map((format) => {
-              return {
-                url: format.url,
-                type: format.type,
-                label: 'Audio',
-                qualityLabel: parseInt(format.bitrate)
-              }
-            }).sort((a, b) => {
-              return a.qualityLabel - b.qualityLabel
-            })
+            this.audioTracks = []
+            this.dashSrc = await this.createInvidiousDashManifest()
+
+            if (process.env.IS_ELECTRON && this.audioTracks.length > 0) {
+              // when we are in Electron and the video has multiple audio tracks,
+              // we populate the list inside createInvidiousDashManifest
+              // as we need to work out the different audio tracks for the DASH manifest anyway
+              this.audioSourceList = this.audioTracks.find(track => track.isDefault).sourceList
+            } else {
+              this.audioSourceList = result.adaptiveFormats.filter((format) => {
+                return format.type.includes('audio')
+              }).map((format) => {
+                return {
+                  url: format.url,
+                  type: format.type,
+                  label: 'Audio',
+                  qualityLabel: parseInt(format.bitrate)
+                }
+              }).sort((a, b) => {
+                return a.qualityLabel - b.qualityLabel
+              })
+            }
 
             if (this.activeFormat === 'audio') {
               this.activeSourceList = this.audioSourceList
@@ -956,6 +923,68 @@ export default defineComponent({
 
     /**
      * @param {import('../../helpers/api/local').LocalFormat[]} audioFormats
+     * @returns {AudioTrack[]}
+     */
+    createAudioTracksFromLocalFormats: function (audioFormats) {
+      /** @type {string[]} */
+      const ids = []
+
+      /** @type {AudioTrack[]} */
+      const audioTracks = []
+
+      /** @type {import('youtubei.js').Misc.Format[][]} */
+      const sourceLists = []
+
+      for (const format of audioFormats) {
+        // Some videos with multiple audio tracks, have a broken one, that doesn't have any audio track information
+        // It seems to be the same as default audio track but broken
+        // At the time of writing, this video has a broken audio track: https://youtu.be/UJeSWbR6W04
+        if (!format.audio_track) {
+          continue
+        }
+
+        const index = ids.indexOf(format.audio_track.id)
+        if (index === -1) {
+          ids.push(format.audio_track.id)
+
+          let kind
+
+          if (format.audio_track.audio_is_default) {
+            kind = 'main'
+          } else if (format.is_dubbed) {
+            kind = 'translation'
+          } else if (format.is_descriptive) {
+            kind = 'descriptions'
+          } else {
+            kind = 'alternative'
+          }
+
+          audioTracks.push({
+            id: format.audio_track.id,
+            kind,
+            label: format.audio_track.display_name,
+            language: format.language,
+            isDefault: format.audio_track.audio_is_default,
+            sourceList: []
+          })
+
+          sourceLists.push([
+            format
+          ])
+        } else {
+          sourceLists[index].push(format)
+        }
+      }
+
+      for (let i = 0; i < audioTracks.length; i++) {
+        audioTracks[i].sourceList = this.createLocalAudioSourceList(sourceLists[i])
+      }
+
+      return audioTracks
+    },
+
+    /**
+     * @param {import('../../helpers/api/local').LocalFormat[]} audioFormats
      * @returns {AudioSource[]}
      */
     createLocalAudioSourceList: function (audioFormats) {
@@ -1003,8 +1032,7 @@ export default defineComponent({
         watchProgress: watchProgress,
         timeWatched: new Date().getTime(),
         isLive: false,
-        paid: false,
-        type: 'video'
+        type: 'video',
       }
 
       this.updateHistory(videoData)
@@ -1044,10 +1072,6 @@ export default defineComponent({
     },
 
     checkIfWatched: function () {
-      const historyIndex = this.historyCache.findIndex((video) => {
-        return video.videoId === this.videoId
-      })
-
       if (!this.isLive) {
         if (this.timestamp) {
           if (this.timestamp < 0) {
@@ -1057,9 +1081,9 @@ export default defineComponent({
           } else {
             this.$refs.videoPlayer.player.currentTime(this.timestamp)
           }
-        } else if (this.saveWatchedProgress && historyIndex !== -1) {
+        } else if (this.saveWatchedProgress && this.historyEntryExists) {
           // For UX consistency, no progress reading if writing disabled
-          const watchProgress = this.historyCache[historyIndex].watchProgress
+          const watchProgress = this.historyEntry.watchProgress
 
           if (watchProgress < (this.videoLengthSeconds - 10)) {
             this.$refs.videoPlayer.player.currentTime(watchProgress)
@@ -1070,8 +1094,8 @@ export default defineComponent({
       if (this.rememberHistory) {
         if (this.timestamp) {
           this.addToHistory(this.timestamp)
-        } else if (historyIndex !== -1) {
-          this.addToHistory(this.historyCache[historyIndex].watchProgress)
+        } else if (this.historyEntryExists) {
+          this.addToHistory(this.historyEntry.watchProgress)
         } else {
           this.addToHistory(0)
         }
@@ -1083,6 +1107,10 @@ export default defineComponent({
     },
 
     checkIfPlaylist: function () {
+      // On the off chance that user selected pause on current video
+      // Then clicks on another video in the playlist
+      this.disablePlaylistPauseOnCurrent()
+
       if (typeof (this.$route.query) !== 'undefined') {
         this.playlistId = this.$route.query.playlistId
 
@@ -1211,6 +1239,11 @@ export default defineComponent({
 
     handleVideoEnded: function () {
       if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+        return
+      }
+
+      if (this.watchingPlaylist && this.getPlaylistPauseOnCurrent()) {
+        this.disablePlaylistPauseOnCurrent()
         return
       }
 
@@ -1379,10 +1412,72 @@ export default defineComponent({
       ]
     },
 
-    createInvidiousDashManifest: function () {
+    createInvidiousDashManifest: async function () {
       let url = `${this.currentInvidiousInstance}/api/manifest/dash/id/${this.videoId}`
 
-      if (!process.env.IS_ELECTRON || this.proxyVideos) {
+      // If we are in Electron,
+      // we can use YouTube.js' DASH manifest generator to generate the manifest.
+      // Using YouTube.js' gives us support for multiple audio tracks (currently not supported by Invidious)
+      if (process.env.IS_ELECTRON) {
+        // Invidious' API response doesn't include the height and width (and fps and qualityLabel for AV1) of video streams
+        // so we need to extract them from Invidious' manifest
+        const response = await fetch(url)
+        const originalText = await response.text()
+
+        const parsedManifest = new DOMParser().parseFromString(originalText, 'application/xml')
+
+        /** @type {import('youtubei.js').Misc.Format[]} */
+        const formats = []
+
+        /** @type {import('youtubei.js').Misc.Format[]} */
+        const audioFormats = []
+
+        let hasMultipleAudioTracks = false
+
+        for (const format of this.adaptiveFormats) {
+          if (format.type.startsWith('video/')) {
+            const representation = parsedManifest.querySelector(`Representation[id="${format.itag}"][bandwidth="${format.bitrate}"]`)
+
+            format.height = parseInt(representation.getAttribute('height'))
+            format.width = parseInt(representation.getAttribute('width'))
+            format.fps = parseInt(representation.getAttribute('frameRate'))
+
+            // the quality label is missing for AV1 formats
+            if (!format.qualityLabel) {
+              format.qualityLabel = format.width > format.height ? `${format.height}p` : `${format.width}p`
+            }
+          }
+
+          const localFormat = convertInvidiousToLocalFormat(format)
+
+          if (localFormat.has_audio) {
+            audioFormats.push(localFormat)
+
+            if (localFormat.is_dubbed || localFormat.is_descriptive) {
+              hasMultipleAudioTracks = true
+            }
+          }
+
+          formats.push(localFormat)
+        }
+
+        if (hasMultipleAudioTracks) {
+          // match YouTube's local API response with English
+          const languageNames = new Intl.DisplayNames('en-US', { type: 'language' })
+          for (const format of audioFormats) {
+            this.generateAudioTrackFieldInvidious(format, languageNames)
+          }
+
+          this.audioTracks = this.createAudioTracksFromLocalFormats(audioFormats)
+        }
+
+        const manifest = await generateInvidiousDashManifestLocally(
+          formats,
+          this.proxyVideos ? this.currentInvidiousInstance : undefined
+        )
+
+        url = `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(manifest)}`
+      } else if (this.proxyVideos) {
         url += '?local=true'
       }
 
@@ -1396,7 +1491,40 @@ export default defineComponent({
       ]
     },
 
-    getAdaptiveFormatsInvidious: async function(existingInfoResult = null) {
+    /**
+     * @param {import('youtubei.js').Misc.Format} format
+     * @param {Intl.DisplayNames} languageNames
+     */
+    generateAudioTrackFieldInvidious: function (format, languageNames) {
+      let type = ''
+
+      // use the same id numbers as YouTube (except -1, when we aren't sure what it is)
+      let idNumber = ''
+
+      if (format.is_descriptive) {
+        type = ' descriptive'
+        idNumber = 2
+      } else if (format.is_dubbed) {
+        type = ''
+        idNumber = 3
+      } else if (format.is_original) {
+        type = ' original'
+        idNumber = 4
+      } else {
+        type = ' alternative'
+        idNumber = -1
+      }
+
+      const languageName = languageNames.of(format.language)
+
+      format.audio_track = {
+        audio_is_default: !!format.is_original,
+        id: `${format.language}.${idNumber}`,
+        display_name: `${languageName}${type}`
+      }
+    },
+
+    getAdaptiveFormatsInvidious: async function (existingInfoResult = null) {
       let result
       if (existingInfoResult) {
         result = existingInfoResult
@@ -1563,6 +1691,16 @@ export default defineComponent({
 
     getPlaylistLoop: function () {
       return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
+    },
+
+    getPlaylistPauseOnCurrent: function () {
+      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.pauseOnCurrentVideo : false
+    },
+
+    disablePlaylistPauseOnCurrent: function () {
+      if (this.$refs.watchVideoPlaylist) {
+        this.$refs.watchVideoPlaylist.pauseOnCurrentVideo = false
+      }
     },
 
     updateTitle: function () {

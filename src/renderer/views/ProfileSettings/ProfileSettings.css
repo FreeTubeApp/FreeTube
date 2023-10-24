@@ -1,7 +1,7 @@
 .card {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 60px;
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
 }
 
 .message {
@@ -9,13 +9,13 @@
 }
 
 .profileList {
-  max-width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  max-inline-size: 1000px;
+  margin-block: 0 10px;
+  margin-inline: auto;
 }
 
 @media only screen and (max-width: 680px) {
   .card {
-    width: 90%;
+    inline-size: 90%;
   }
 }

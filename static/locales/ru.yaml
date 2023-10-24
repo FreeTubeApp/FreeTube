@@ -33,6 +33,7 @@ Global:
   Videos: 'Видео'
   Shorts: Короткие видео
   Live: Трансляции
+  Community: Сообщество
 
 # Search Bar
 Search / Go to URL: 'Поиск / Перейти по адресу'
@@ -598,7 +599,6 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Этот
     канал ограничен по возрасту и в настоящее время не может быть просмотрен во FreeTube.
   Community:
-    Community: Сообщество
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
     votes: 'Голосов: {votes}'
@@ -631,10 +631,7 @@ Video:
     YouTube'
   Open in Invidious: 'Открыть в Invidious'
   Copy Invidious Link: 'Скопировать ссылку Invidious'
-  View: 'Вид'
   Views: 'Просмотров'
-  # Context is "X People Watching"
-  Watching: 'Смотрят'
   Watched: 'Просмотрено'
   # As in a Live Video
   Live: 'Трансляция'

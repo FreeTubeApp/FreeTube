@@ -11,9 +11,9 @@
 .iconButton {
   border-radius: 50%;
   cursor: pointer;
-  height: 1em;
+  block-size: 1em;
   transition: background 0.15s ease-out;
-  width: 1em;
+  inline-size: 1em;
 
   &.shadow {
     box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
@@ -24,23 +24,27 @@
     color: var(--primary-text-color);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
     }
 
     &:active {
       background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
     }
   }
 
   &.base-no-default {
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
     }
 
     &:active {
       background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
     }
   }
 
@@ -49,7 +53,7 @@
     color: var(--text-with-main-color);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--primary-color-hover);
     }
 
@@ -63,7 +67,7 @@
     color: var(--text-with-accent-color);
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--accent-color-hover);
     }
 
@@ -72,7 +76,7 @@
     }
   }
 
-  &.favorite {
+  &.favorite, &.favorite:hover, &.favorite:focus-visible {
     color: var(--favorite-icon-color);
   }
 }
@@ -91,19 +95,19 @@
   z-index: 3;
 
   &.left {
-    right: calc(50% - 10px);
+    inset-inline-end: calc(50% - 10px);
   }
 
   &.right {
-    left: calc(50% - 10px);
+    inset-inline-start: calc(50% - 10px);
   }
 
   &.top {
-    bottom: 45px;
+    inset-block-end: 45px;
   }
 
   &.bottom {
-    top: 45px;
+    inset-block-start: 45px;
   }
 
   .list {
@@ -115,27 +119,31 @@
   .listItem {
     cursor: pointer;
     margin: 0;
-    padding: 8px 10px;
+    padding-block: 8px;
+    padding-inline: 10px;
     transition: background 0.2s ease-out;
     white-space: nowrap;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
       transition: background 0.2s ease-in;
     }
 
     &:active {
       background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
       transition: background 0.1s ease-in;
     }
   }
 
   .listItemDivider {
-    border-top: 1px solid var(--tertiary-text-color);
-    margin: 1px auto;
+    border-block-start: 1px solid var(--tertiary-text-color);
+    margin-block: 1px;
+    margin-inline: auto;
     // Too "visible" with current color
     opacity: 0.5;
-    width: 95%;
+    inline-size: 95%;
   }
 }

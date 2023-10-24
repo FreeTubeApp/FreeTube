@@ -125,9 +125,10 @@ const actions = {
 
     const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
     const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
+    const askFolderPath = rootState.settings.downloadAskPath
     let folderPath = rootState.settings.downloadFolderPath
 
-    if (folderPath === '') {
+    if (askFolderPath) {
       const options = {
         defaultPath: fileName,
         filters: [
@@ -501,6 +502,10 @@ const actions = {
     const externalPlayerMap = JSON.parse(fileData).map((entry) => {
       return { name: entry.name, nameTranslationKey: entry.nameTranslationKey, value: entry.value, cmdArguments: entry.cmdArguments }
     })
+    // Sort external players alphabetically & case-insensitive, keep default entry at the top
+    const playerNone = externalPlayerMap.shift()
+    externalPlayerMap.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+    externalPlayerMap.unshift(playerNone)
 
     const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
     const externalPlayerNameTranslationKeys = externalPlayerMap.map((entry) => { return entry.nameTranslationKey })

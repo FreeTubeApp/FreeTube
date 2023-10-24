@@ -35,7 +35,14 @@ Global:
   Videos: 'Videod'
   Shorts: Lühivideod
   Live: Otseeeter
+  Community: Kogukond
 
+  Counts:
+    Video Count: 1 video | {count} videot
+    Channel Count: 1 kanal | {count} kanalit
+    Subscriber Count: 1 tellija | {count} tellijat
+    View Count: 1 vaatamine | {count} vaatamist
+    Watching Count: 1 vaatamas | {count} vaatamas
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber}
   in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
@@ -99,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Tellimuste vahekaardid
   All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu
     nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
+  Load More Posts: Lisa järgmised postitused
+  Empty Posts: Sinu tellitud kanalites hetkel pole ühtegi postitust.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -151,6 +160,7 @@ Settings:
       Beginning: 'Alguses'
       Middle: 'Keskel'
       End: 'Lõpus'
+      Hidden: Peidetud
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
       veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
     Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
@@ -183,6 +193,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Süsteemi vaikeseadistus
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelne roosa
+      Hot Pink: Säravroosa
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -396,6 +408,9 @@ Settings:
     Hide Subscriptions Videos: Peida tellimuste videod
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
+    Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
+    Blur Thumbnails: Hägusta pisipildid
+    Hide Subscriptions Community: Peida tellijate loend
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -541,8 +556,6 @@ Profile:
   Profile Settings: Profiili seadistused
   Toggle Profile List: Lülita profiilide loend sisse/välja
 Channel:
-  Subscriber: 'Tellija'
-  Subscribers: 'Tellijad'
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
   Channel has been removed from your subscriptions: 'Kustutasin kanali sinu tellimustest'
@@ -587,7 +600,6 @@ Channel:
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
       ühtegi otseeetrit
   Community:
-    Community: Kogukond
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused
@@ -615,15 +627,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopeeri YouTube''i lõimitud meediamängija link'
   Open in Invidious: 'Ava Invidious''e veebirakenduses'
   Copy Invidious Link: 'Kopeeri Invidious''e veebirakenduse link'
-  View: 'Vaatamine'
   Views: 'Vaatamist'
   Loop Playlist: 'Korda esitusloendit'
   Shuffle Playlist: 'Sega esitusloend'
   Reverse Playlist: 'Pööra esitusloend tagurpidi'
   Play Next Video: 'Esita järgmist videot'
   Play Previous Video: 'Esita eelmist videot'
-  # Context is "X People Watching"
-  Watching: 'vaatajat'
   Watched: 'Vaadatud'
   Autoplay: 'Automaatne esitus'
   Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel
@@ -746,6 +755,7 @@ Video:
   Upcoming: Tulemas
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Otsevestlus
     pole selle videovoo puhul saadaval. Võib-olla on üleslaadija vestluse keelanud.
+  Pause on Current Video: Peata hetkel esitatav video
 Videos:
   #& Sort By
   Sort By:
@@ -819,6 +829,7 @@ Comments:
   Member: Liige
   Hearted: Südamlik
   View {replyCount} replies: Näita {replyCount} vastust
+  Subscribed: Tellitud
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -968,3 +979,7 @@ Hashtag:
   Hashtag: Teemaviide
   This hashtag does not currently have any videos: Selle teemaviite ehk haaksõna alusel
     ei leidu hetkel ühtegi videot
+Playlist will pause when current video is finished: Hetkel mängiva video lõppemisel
+  esitusloendi esitamine peatub
+Playlist will not pause when current video is finished: Hetkel mängiva video lõppemisel
+  esitusloendi esitamine jätkub

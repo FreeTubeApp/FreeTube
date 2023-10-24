@@ -64,6 +64,10 @@ export default defineComponent({
       return this.$store.getters.getHideCommentLikes
     },
 
+    hideCommentPhotos: function () {
+      return this.$store.getters.getHideCommentPhotos
+    },
+
     commentAutoLoadEnabled: function () {
       return this.$store.getters.getCommentAutoLoadEnabled
     },
@@ -86,7 +90,7 @@ export default defineComponent({
       return (this.sortNewest) ? 'newest' : 'top'
     },
 
-    observeVisibilityOptions: function() {
+    observeVisibilityOptions: function () {
       if (!this.commentAutoLoadEnabled) { return false }
       if (!this.videoPlayerReady) { return false }
 
@@ -111,13 +115,17 @@ export default defineComponent({
       }
     },
 
-    canPerformInitialCommentLoading: function() {
+    canPerformInitialCommentLoading: function () {
       return this.commentData.length === 0 && !this.isLoading && !this.showComments
     },
 
-    canPerformMoreCommentLoading: function() {
+    canPerformMoreCommentLoading: function () {
       return this.commentData.length > 0 && !this.isLoading && this.showComments && this.nextPageToken
     },
+
+    subscriptions: function() {
+      return this.$store.getters.getActiveProfile.subscriptions
+    }
   },
   mounted: function () {
     // region No comment detection

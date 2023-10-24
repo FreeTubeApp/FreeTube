@@ -25,6 +25,8 @@ export default defineComponent({
       searchFilterValueChanged: false,
       historyIndex: 1,
       isForwardOrBack: false,
+      isArrowBackwardDisabled: true,
+      isArrowForwardDisabled: true,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -284,8 +286,8 @@ export default defineComponent({
     navigateHistory: function () {
       if (!this.isForwardOrBack) {
         this.historyIndex = window.history.length
-        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
-        this.$refs.historyArrowForward.classList.add('fa-arrow-right')
+        this.isArrowBackwardDisabled = false
+        this.isArrowForwardDisabled = true
       } else {
         this.isForwardOrBack = false
       }
@@ -297,9 +299,9 @@ export default defineComponent({
 
       if (this.historyIndex > 1) {
         this.historyIndex--
-        this.$refs.historyArrowForward.classList.remove('fa-arrow-right')
+        this.isArrowForwardDisabled = false
         if (this.historyIndex === 1) {
-          this.$refs.historyArrowBack.classList.add('fa-arrow-left')
+          this.isArrowBackwardDisabled = true
         }
       }
     },
@@ -310,10 +312,10 @@ export default defineComponent({
 
       if (this.historyIndex < window.history.length) {
         this.historyIndex++
-        this.$refs.historyArrowBack.classList.remove('fa-arrow-left')
+        this.isArrowBackwardDisabled = false
 
         if (this.historyIndex === window.history.length) {
-          this.$refs.historyArrowForward.classList.add('fa-arrow-right')
+          this.isArrowForwardDisabled = true
         }
       }
     },

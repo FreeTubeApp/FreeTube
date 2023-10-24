@@ -1,6 +1,6 @@
 .colorOption {
-  width: 40px;
-  height: 40px;
+  inline-size: 40px;
+  block-size: 40px;
   cursor: pointer;
   align-items: center;
   display: flex;
@@ -24,24 +24,24 @@
 .profileList {
   display: inline;
   position: absolute;
-  top: 60px;
-  right: 10px;
-  min-width: 250px;
-  height: 400px;
+  inset-block-start: 60px;
+  inset-inline-end: 10px;
+  min-inline-size: 250px;
+  block-size: 400px;
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
 }
 
 .profileWrapper {
-  margin-top: 60px;
-  height: 340px;
+  margin-block-start: 60px;
+  block-size: 340px;
   overflow-y: auto;
 }
 
 .profile {
   cursor: pointer;
-  height: 50px;
+  block-size: 50px;
   -webkit-transition: background 0.2s ease-out;
   -moz-transition: background 0.2s ease-out;
   -o-transition: background 0.2s ease-out;
@@ -50,34 +50,35 @@
 
 .profile:hover {
   background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .profile .colorOption {
-  float: left;
+  float: var(--float-left-ltr-rtl-value);
   position: relative;
-  bottom: 5px;
+  inset-block-end: 5px;
   margin: 10px;
 }
 
 .profileName {
   display: flex;
   align-items: center;
-  height: 50px;
-  padding-right: 10px;
+  block-size: 50px;
+  padding-inline-end: 10px;
 }
 
 .profileListTitle {
   position: absolute;
   margin: 0;
-  left: 10px;
+  inset-inline-start: 10px;
 }
 
 .profileSettings {
-  float: right;
+  float: var(--float-right-ltr-rtl-value);
   position: absolute;
-  top: 10px;
-  right: 5px;
+  inset-block-start: 10px;
+  inset-inline-end: 5px;
 }

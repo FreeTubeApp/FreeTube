@@ -1,4 +1,5 @@
-import i18n from '../../i18n/index'
+import i18n, { loadLocale } from '../../i18n/index'
+import allLocales from '../../../../static/locales/activeLocales.json'
 import { MAIN_PROFILE_ID, IpcChannels, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
 import { getSystemLocale, showToast } from '../../helpers/utils'
@@ -200,6 +201,7 @@ const state = {
   hideChannelShorts: false,
   hideChannelSubscriptions: false,
   hideCommentLikes: false,
+  hideCommentPhotos: false,
   hideComments: false,
   hideFeaturedChannels: false,
   channelsHidden: '[]',
@@ -215,6 +217,7 @@ const state = {
   hideSubscriptionsVideos: false,
   hideSubscriptionsShorts: false,
   hideSubscriptionsLive: false,
+  hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
   hideUnsubscribeButton: false,
   hideUpcomingPremieres: false,
@@ -273,6 +276,7 @@ const state = {
     skip: 'doNothing'
   },
   thumbnailPreference: '',
+  blurThumbnails: false,
   useProxy: false,
   useRssFeeds: false,
   useSponsorBlock: false,
@@ -280,6 +284,7 @@ const state = {
   videoPlaybackRateMouseScroll: false,
   videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
+  downloadAskPath: true,
   downloadFolderPath: '',
   downloadBehavior: 'download',
   enableScreenshot: false,
@@ -305,7 +310,7 @@ const stateWithSideEffects = {
       if (value === 'system') {
         const systemLocaleName = (await getSystemLocale()).replace('-', '_') // ex: en_US
         const systemLocaleLang = systemLocaleName.split('_')[0] // ex: en
-        const targetLocaleOptions = i18n.allLocales.filter((locale) => { // filter out other languages
+        const targetLocaleOptions = allLocales.filter((locale) => { // filter out other languages
           const localeLang = locale.replace('-', '_').split('_')[0]
           return localeLang.includes(systemLocaleLang)
         }).sort((a, b) => {
@@ -339,7 +344,7 @@ const stateWithSideEffects = {
         }
       }
 
-      await i18n.loadLocale(targetLocale)
+      await loadLocale(targetLocale)
 
       i18n.locale = targetLocale
       await dispatch('getRegionData', {
@@ -477,7 +482,8 @@ const customActions = {
           break
 
         case SyncEvents.GENERAL.DELETE_ALL:
-          commit('setHistoryCache', [])
+          commit('setHistoryCacheSorted', [])
+          commit('setHistoryCacheById', {})
           break
 
         default:

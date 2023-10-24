@@ -1,10 +1,10 @@
 .card {
-  margin: 0 auto;
-  margin-bottom: 60px;
-  width: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
+  inline-size: 85%;
 
   @media only screen and (max-width: 680px) {
-    width: 90%;
+    inline-size: 90%;
   }
 }
 
@@ -13,11 +13,12 @@
 }
 
 .logo {
-  max-width: 100%;
-  width: 500px;
+  max-inline-size: 100%;
+  inline-size: 500px;
 }
 
 .version {
+  text-align: center;
   font-size: 2em;
 }
 
@@ -25,8 +26,9 @@
   display: grid;
   grid-gap: 16px;
   grid-template-columns: 1fr 1fr;
-  margin: 80px auto;
-  max-width: 860px;
+  margin-block: 80;
+  margin-inline: auto;
+  max-inline-size: 860px;
 
   @media only screen and (max-width: 650px) {
     grid-template-columns: 1fr;

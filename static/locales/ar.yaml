@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'العربية'
+Locale Name: 'الإنجليزية (الولايات المتحدة)'
 FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -18,7 +18,7 @@ Delete: 'حذف'
 Select all: 'حدد الكل'
 Reload: 'إعادة تحميل'
 Force Reload: 'فرض إعادة التحميل'
-Toggle Developer Tools: 'فتح أدوات المطوّر'
+Toggle Developer Tools: 'إظهار/إخفاء أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
 Zoom out: 'تصغير'
@@ -34,15 +34,22 @@ Forward: 'إلى الأمام'
 Global:
   Videos: 'الفيديوهات'
   Shorts: القصيرة
-  Live: مباشر
+  Live: بث مباشر
+  Community: المجتمع
 
 # Search Bar
+  Counts:
+    Video Count: 1 فيديو | {count} مقاطع فيديو
+    Channel Count: 1 قناة | {count} قنوات
+    Subscriber Count: 1 مشترك | {count} مشتركين
+    View Count: 1 مشاهدة | {count} مشاهدات
+    Watching Count: 1 مشاهد | {count} مشاهدون
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
   Search Filters: 'فلاتر البحث'
   Sort By:
-    Sort By: 'فرز بحسب'
+    Sort By: 'ترتيب حسب'
     Most Relevant: 'الأكثر صلة'
     Rating: 'التقييم'
     Upload Date: 'تاريخ الرفع'
@@ -92,6 +99,8 @@ Subscriptions:
   All Subscription Tabs Hidden: جميع علامات تبويب الاشتراك مخفية. لمشاهدة المحتوى
     هنا ، يرجى إظهار بعض علامات التبويب في قسم "{subection}" في "{settingsSection}".
   Subscriptions Tabs: تبويب الاشتراكات
+  Load More Posts: تحميل المزيد من المشاركات
+  Empty Posts: القنوات التي اشتركت بها حاليا لا تحتوي على أي مشاركات.
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
@@ -141,6 +150,7 @@ Settings:
       Beginning: 'بداية'
       Middle: 'وسط'
       End: 'نهاية'
+      Hidden: مخفي
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious
       (الافتراضية هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
@@ -173,6 +183,8 @@ Settings:
       Dracula: 'دراكولا'
       System Default: افتراضيات النظام
       Catppuccin Mocha: كاتبوتشين موكا
+      Pastel Pink: الباستيل الوردي
+      Hot Pink: وردي فاقع
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -418,6 +430,9 @@ Settings:
     Hide Subscriptions Live: إخفاء الاشتراكات مباشرة
     Hide Subscriptions Shorts: إخفاء الاشتراكات الفيدوهات القصيرة
     Hide Subscriptions Videos: إخفاء مقاطع فيديو الاشتراكات
+    Hide Profile Pictures in Comments: إخفاء صور الملف الشخصي في التعليقات
+    Blur Thumbnails: اخفاء الصور المصغرة
+    Hide Subscriptions Community: إخفاء مجتمع الاشتراكات
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -588,8 +603,6 @@ Profile:
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
 Channel:
-  Subscriber: 'مُشترِك'
-  Subscribers: 'مُشترِكين'
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
   Search Channel: 'ابحث في القناة'
@@ -631,7 +644,6 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه
     القناة مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
   Community:
-    Community: المجتمع
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
     Hide Answers: إخفاء الأجوبة
@@ -663,10 +675,7 @@ Video:
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
   Open in Invidious: 'إفتح على انفيديوس'
   Copy Invidious Link: 'انسخ رابط انفيديوس'
-  View: 'عرض'
   Views: 'مشاهدات'
-  # Context is "X People Watching"
-  Watching: 'يتم مشاهدته'
   Watched: 'مُشاهد'
   # As in a Live Video
   Live: '‏‏‪مُباشر'
@@ -794,6 +803,7 @@ Video:
   Upcoming: القادمة
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': الدردشة
     المباشرة غير متاحة لهذا البث. ربما تم تعطيلها من قبل القائم بالتحميل.
+  Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
 Videos:
   #& Sort By
   Sort By:
@@ -863,6 +873,7 @@ Comments:
   Member: عضو
   View {replyCount} replies: عرض {replyCount} ردود
   Hearted: القلب
+  Subscribed: مشترك
 Up Next: 'التالي'
 
 # Toast Messages
@@ -1015,3 +1026,7 @@ Hashtag:
   This hashtag does not currently have any videos: هذا الهاشتاج ليس لديه حاليا أي
     مقاطع فيديو
   Hashtag: هاشتاج
+Playlist will pause when current video is finished: ستتوقف قائمة التشغيل مؤقتًا عند
+  انتهاء الفيديو الحالي
+Playlist will not pause when current video is finished: لن تتوقف قائمة التشغيل مؤقتًا
+  عند انتهاء الفيديو الحالي

@@ -28,15 +28,15 @@ export default defineComponent({
     }
   },
   computed: {
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyCacheSorted: function () {
+      return this.$store.getters.getHistoryCacheSorted
     },
 
     fullData: function () {
-      if (this.historyCache.length < this.dataLimit) {
-        return this.historyCache
+      if (this.historyCacheSorted.length < this.dataLimit) {
+        return this.historyCacheSorted
       } else {
-        return this.historyCache.slice(0, this.dataLimit)
+        return this.historyCacheSorted.slice(0, this.dataLimit)
       }
     }
   },
@@ -59,7 +59,7 @@ export default defineComponent({
 
     this.activeData = this.fullData
 
-    if (this.activeData.length < this.historyCache.length) {
+    if (this.activeData.length < this.historyCacheSorted.length) {
       this.showLoadMoreButton = true
     } else {
       this.showLoadMoreButton = false
@@ -85,14 +85,14 @@ export default defineComponent({
     filterHistory: function() {
       if (this.query === '') {
         this.activeData = this.fullData
-        if (this.activeData.length < this.historyCache.length) {
+        if (this.activeData.length < this.historyCacheSorted.length) {
           this.showLoadMoreButton = true
         } else {
           this.showLoadMoreButton = false
         }
       } else {
         const lowerCaseQuery = this.query.toLowerCase()
-        const filteredQuery = this.historyCache.filter((video) => {
+        const filteredQuery = this.historyCacheSorted.filter((video) => {
           if (typeof (video.title) !== 'string' || typeof (video.author) !== 'string') {
             return false
           } else {

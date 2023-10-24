@@ -1,7 +1,7 @@
 .card {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  inline-size: 85%;
+  margin-block: 0 30px;
+  margin-inline: auto;
 }
 
 .selected {
@@ -9,7 +9,7 @@
 }
 
 :deep(.select-label) {
-  width: 95%;
+  inline-size: 95%;
 }
 
 :deep(.select) {

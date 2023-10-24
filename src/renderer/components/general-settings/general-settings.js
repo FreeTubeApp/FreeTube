@@ -6,6 +6,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInstanceSelector from '../ft-instance-selector/ft-instance-selector.vue'
 
 import debounce from 'lodash.debounce'
+import allLocales from '../../../../static/locales/activeLocales.json'
 import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
@@ -45,7 +46,8 @@ export default defineComponent({
         '',
         'start',
         'middle',
-        'end'
+        'end',
+        'hidden'
       ],
       externalLinkHandlingValues: [
         '',
@@ -116,7 +118,7 @@ export default defineComponent({
     localeOptions: function () {
       return [
         'system',
-        ...this.$i18n.allLocales
+        ...allLocales
       ]
     },
 
@@ -147,7 +149,8 @@ export default defineComponent({
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         this.$t('Settings.General Settings.Thumbnail Preference.Beginning'),
         this.$t('Settings.General Settings.Thumbnail Preference.Middle'),
-        this.$t('Settings.General Settings.Thumbnail Preference.End')
+        this.$t('Settings.General Settings.Thumbnail Preference.End'),
+        this.$t('Settings.General Settings.Thumbnail Preference.Hidden')
       ]
     },
 

@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { formatNumber } from '../../helpers/utils'
+import { parseLocalSubscriberCount } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'FtListChannel',
@@ -20,7 +21,9 @@ export default defineComponent({
       thumbnail: '',
       channelName: '',
       subscriberCount: 0,
-      videoCount: '',
+      videoCount: 0,
+      formattedSubscriberCount: '',
+      formattedVideoCount: '',
       handle: null,
       description: ''
     }
@@ -53,13 +56,15 @@ export default defineComponent({
 
       this.channelName = this.data.name
       this.id = this.data.id
-      this.subscriberCount = this.data.subscribers != null ? this.data.subscribers.replace(/ subscriber(s)?/, '') : null
-
-      if (this.data.videos === null) {
-        this.videoCount = 0
+      if (this.data.subscribers != null) {
+        this.subscriberCount = parseLocalSubscriberCount(this.data.subscribers.replace(/ subscriber(s)?/, ''))
+        this.formattedSubscriberCount = formatNumber(this.subscriberCount)
       } else {
-        this.videoCount = formatNumber(this.data.videos)
+        this.subscriberCount = null
       }
+
+      this.videoCount = this.data.videos ?? 0
+      this.formattedVideoCount = formatNumber(this.videoCount)
 
       if (this.data.handle) {
         this.handle = this.data.handle
@@ -76,8 +81,15 @@ export default defineComponent({
 
       this.channelName = this.data.author
       this.id = this.data.authorId
-      this.subscriberCount = formatNumber(this.data.subCount)
-      this.videoCount = formatNumber(this.data.videoCount)
+      this.subscriberCount = this.data.subCount
+      this.formattedSubscriberCount = formatNumber(this.data.subCount)
+      this.handle = this.data.channelHandle
+      if (this.handle != null) {
+        this.videoCount = null
+      } else {
+        this.videoCount = this.data.videoCount
+        this.formattedVideoCount = formatNumber(this.data.videoCount)
+      }
       this.description = this.data.description
     }
   }

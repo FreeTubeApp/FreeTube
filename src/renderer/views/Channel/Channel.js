@@ -27,7 +27,7 @@ import {
   getLocalChannelId,
   parseLocalChannelShorts,
   parseLocalChannelVideos,
-  parseLocalCommunityPost,
+  parseLocalCommunityPosts,
   parseLocalListPlaylist,
   parseLocalListVideo,
   parseLocalSubscriberCount
@@ -1195,13 +1195,20 @@ export default defineComponent({
         // for the moment we just want the "Created Playlists" category that has all playlists in it
 
         if (playlistsTab.content_type_filters.length > 1) {
+          let viewId = '1'
+
+          // Artist topic channels don't have any created playlists, so we went to select the "Albums & Singles" category instead
+          if (this.channelName.endsWith('- Topic') && channel.metadata.music_artist_name) {
+            viewId = '50'
+          }
+
           /**
            * @type {import('youtubei.js').YTNodes.ChannelSubMenu}
            */
           const menu = playlistsTab.current_tab.content.sub_menu
           const createdPlaylistsFilter = menu.content_type_sub_menu_items.find(contentType => {
             const url = `https://youtube.com/${contentType.endpoint.metadata.url}`
-            return new URL(url).searchParams.get('view') === '1'
+            return new URL(url).searchParams.get('view') === viewId
           }).title
 
           playlistsTab = await playlistsTab.applyContentTypeFilter(createdPlaylistsFilter)
@@ -1580,7 +1587,7 @@ export default defineComponent({
           posts = communityTab.posts
         }
 
-        this.latestCommunityPosts = posts.map(parseLocalCommunityPost)
+        this.latestCommunityPosts = parseLocalCommunityPosts(posts)
         this.communityContinuationData = communityTab.has_continuation ? communityTab : null
       } catch (err) {
         console.error(err)
@@ -1612,7 +1619,7 @@ export default defineComponent({
           posts = continuation.posts
         }
 
-        this.latestCommunityPosts = this.latestCommunityPosts.concat(posts.map(parseLocalCommunityPost))
+        this.latestCommunityPosts = this.latestCommunityPosts.concat(parseLocalCommunityPosts(posts))
         this.communityContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)

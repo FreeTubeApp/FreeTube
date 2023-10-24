@@ -36,7 +36,14 @@ Global:
   Videos: 'Videók'
   Shorts: Rövidfilmek
   Live: Élő
+  Community: Közösség
 
+  Counts:
+    Video Count: 1 videó | {count} videó
+    Channel Count: 1 csatorna | {count} csatorna
+    Subscriber Count: 1 feliratkozó | {count} feliratkozó
+    View Count: 1 megtekintés | {count} megtekintés
+    Watching Count: 1 néz | {count} néz
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
   verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
@@ -103,6 +110,8 @@ Subscriptions:
     tartalom megtekintéséhez, kérjük, jelenítse meg néhány lap elrejtését a(z) „{settingsSection}”
     „{subsection}” szakaszában.
   Subscriptions Tabs: Feliratkozások lapok
+  Load More Posts: További bejegyzések betöltése
+  Empty Posts: A feliratkozott csatornáidnak jelenleg nincsenek bejegyzései.
 Trending:
   Trending: 'Népszerű'
   Trending Tabs: Népszerű lapok
@@ -158,6 +167,7 @@ Settings:
       Beginning: 'Kezdet'
       Middle: 'Középső'
       End: 'Vég'
+      Hidden: Rejtett
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious példány
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
@@ -188,6 +198,8 @@ Settings:
       Dracula: 'Drakula'
       System Default: Rendszer alapértelmezett
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pasztell rózsaszín
+      Hot Pink: Forró rózsaszín
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -433,6 +445,9 @@ Settings:
     Hide Subscriptions Shorts: Feliratkozások rövidfilmek elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
+    Blur Thumbnails: Indexkép elhomályosítása
+    Hide Profile Pictures in Comments: Profilképek elrejtése a megjegyzésekben
+    Hide Subscriptions Community: Közösségi feliratkozások elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -608,8 +623,6 @@ Profile:
   Profile Settings: Profilbeállítások
   Toggle Profile List: Profillista be-/kikapcsolása
 Channel:
-  Subscriber: 'Feliratkozó'
-  Subscribers: 'Feliratkozók'
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
   Channel has been removed from your subscriptions: 'A csatornát eltávolítottuk a
@@ -656,7 +669,6 @@ Channel:
   Community:
     This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
       bejegyzések
-    Community: Közösség
     Reveal Answers: Válaszok feltárása
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
@@ -684,15 +696,12 @@ Video:
   Copy YouTube Embedded Player Link: 'YouTube beágyazott lejátszói hivatkozás másolása'
   Open in Invidious: 'Invidious megnyitása'
   Copy Invidious Link: 'Invidious hivatkozás másolása'
-  View: 'Nézet'
   Views: 'Megtekintés'
   Loop Playlist: 'Lejátszási lista folyamatos lejátszása'
   Shuffle Playlist: 'Véletlen sorrendű lejátszás'
   Reverse Playlist: 'Fordított lejátszási lista'
   Play Next Video: 'Következő videó lejátszása'
   Play Previous Video: 'Előző videó lejátszása'
-  # Context is "X People Watching"
-  Watching: 'Megtekintő'
   Watched: 'Megtekintett'
   Autoplay: 'Önműködő lejátszás'
   Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, kérjük,
@@ -808,6 +817,7 @@ Video:
   Upcoming: Közelgő
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
     élő csevegés nem érhető el ehhez az adatfolyamhoz. Lehet, hogy a feltöltő letiltotta.
+  Pause on Current Video: Jelenlegi videó szüneteltetése
 Videos:
   #& Sort By
   Sort By:
@@ -885,6 +895,7 @@ Comments:
   Member: Tag
   View {replyCount} replies: '{replyCount} válasz megtekintése'
   Hearted: Kedvenc
+  Subscribed: Feliratkozott
 Up Next: 'Következő'
 
 # Toast Messages
@@ -1042,3 +1053,7 @@ Hashtag:
   Hashtag: Kettőskereszt
   This hashtag does not currently have any videos: Ez a kettőskereszt jelenleg nem
     rendelkezik videókkal
+Playlist will pause when current video is finished: Szünetel a lejátszási lista, amikor
+  a jelenlegi videó véget ér
+Playlist will not pause when current video is finished: Nem szünetel a lejátszási
+  lista, amikor a jelenlegi videó véget ér

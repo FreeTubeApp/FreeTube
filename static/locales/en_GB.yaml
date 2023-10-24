@@ -35,7 +35,14 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
+  Community: Community
 
+  Counts:
+    Video Count: 1 video | {count} videos
+    Subscriber Count: 1 subscriber | {count} subscribers
+    View Count: 1 view | {count} views
+    Watching Count: 1 watching | {count} watching
+    Channel Count: 1 channel | {count} channels
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
 Download From Site: 'Download From Site'
@@ -98,6 +105,7 @@ Subscriptions:
   Subscriptions Tabs: Subscriptions tabs
   All Subscription Tabs Hidden: All subscription tabs are hidden. To see content here,
     please unhide some tabs in the ‘{subsection}’ section in ‘{settingsSection}’.
+  Empty Posts: Your subscribed channels currently do not have any posts.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -575,8 +583,6 @@ Profile:
   Profile Filter: Profile Filter
   '{number} selected': '{number} selected'
 Channel:
-  Subscriber: 'Subscriber'
-  Subscribers: 'Subscribers'
   Subscribe: 'Subscribe'
   Unsubscribe: 'Unsubscribe'
   Channel has been removed from your subscriptions: 'Channel has been removed from
@@ -622,7 +628,6 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not
       have any posts
-    Community: Community
   Live:
     This channel does not currently have any live streams: This channel does not currently
       have any live streams
@@ -649,15 +654,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Copy YouTube Embedded Player Link'
   Open in Invidious: 'Open in Invidious'
   Copy Invidious Link: 'Copy Invidious Link'
-  View: 'View'
   Views: 'Views'
   Loop Playlist: 'Loop Playlist'
   Shuffle Playlist: 'Shuffle Playlist'
   Reverse Playlist: 'Reverse Playlist'
   Play Next Video: 'Play Next Video'
   Play Previous Video: 'Play Previous Video'
-  # Context is "X People Watching"
-  Watching: 'Watching'
   Watched: 'Watched'
   Autoplay: 'Autoplay'
   Starting soon, please refresh the page to check again: 'Starting soon, please refresh

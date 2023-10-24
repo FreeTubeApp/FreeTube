@@ -6,9 +6,12 @@
     <div
       v-else
     >
-      <h3>
+      <h3
+        class="playlistTitle"
+        :title="playlistTitle"
+      >
         <router-link
-          class="playlistTitle"
+          class="playlistTitleLink"
           :to="`/playlist/${playlistId}`"
         >
           {{ playlistTitle }}
@@ -91,6 +94,17 @@
           @click="playNextVideo"
           @keydown.enter.prevent="playNextVideo"
           @keydown.space.prevent="playNextVideo"
+        />
+        <font-awesome-icon
+          class="playlistIcon"
+          :class="{ playlistIconActive: pauseOnCurrentVideo }"
+          :icon="['fas', 'pause']"
+          :title="$t('Video.Pause on Current Video')"
+          role="button"
+          tabindex="0"
+          @click="togglePauseOnCurrentVideo"
+          @keydown.enter.prevent="togglePauseOnCurrentVideo"
+          @keydown.space.prevent="togglePauseOnCurrentVideo"
         />
       </p>
       <div

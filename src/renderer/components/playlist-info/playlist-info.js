@@ -45,6 +45,14 @@ export default defineComponent({
       return this.$store.getters.getThumbnailPreference
     },
 
+    blurThumbnails: function () {
+      return this.$store.getters.getBlurThumbnails
+    },
+
+    blurThumbnailsStyle: function () {
+      return this.blurThumbnails ? 'blur(20px)' : null
+    },
+
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -58,6 +66,10 @@ export default defineComponent({
     },
 
     thumbnail: function () {
+      if (this.thumbnailPreference === 'hidden') {
+        return require('../../assets/img/thumbnail_placeholder.svg')
+      }
+
       if (this.backendPreference === 'local') {
         return this.data.playlistThumbnail
       }

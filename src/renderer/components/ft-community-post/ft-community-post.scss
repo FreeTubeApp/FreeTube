@@ -3,9 +3,9 @@
 
 .outside {
   margin: auto;
-  width: 40%;
+  inline-size: 40%;
   @media screen and (max-width: 768px) {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -14,16 +14,16 @@
 }
 
 .communityImage {
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .communityThumbnail {
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  height: 55px;
-  margin-right: 5px;
-  width: 55px;
+  block-size: 55px;
+  margin-inline-end: 5px;
+  inline-size: 55px;
 }
 
 .author-div {
@@ -32,12 +32,18 @@
   .authorName {
     font-size: 15px;
     font-weight: bold;
-    margin: 5px 6px 0 5px;
+    margin-block: 5px 0;
+    margin-inline: 5px 6px;
+    .authorNameLink {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   .publishedText {
     font-size: 15px;
-    margin: 5px 6px 0 5px;
+    margin-block: 5px 0;
+    margin-inline: 5px 6px;
   }
 }
 
@@ -51,24 +57,24 @@
   display: block;
   flex-direction: column;
   font-size: 15px;
-  margin-top: 4px;
-  max-width: 210px;
-  text-align: left;
+  margin-block-start: 4px;
+  max-inline-size: 210px;
+  text-align: start;
 
   @media screen and (max-width: 680px) {
-    margin-left: 0;
-    text-align: left;
+    margin-inline-start: 0;
+    text-align: start;
   }
 
   .likeBar {
     border-radius: 4px;
-    height: 8px;
-    margin-bottom: 4px;
+    block-size: 8px;
+    margin-block-end: 4px;
   }
 
   .likeCount {
-    margin-left: 5px;
-    margin-right: 6px;
+    margin-inline-start: 5px;
+    margin-inline-end: 6px;
   }
 }
 
@@ -77,22 +83,22 @@
 
   .videoThumbnail {
     display: flex;
-    margin-bottom: auto;
-    margin-top: auto;
+    margin-block-end: auto;
+    margin-block-start: auto;
     position: relative;
-    width: fit-content;
+    inline-size: fit-content;
 
     .thumbnailImage {
       display: block;
-      height: auto;
-      max-width: 100%;
-      width: auto;
+      block-size: auto;
+      max-inline-size: 100%;
+      inline-size: auto;
     }
   }
 
   .playlistText {
-    margin-left: 10px;
-    width: 50%;
+    margin-inline-start: 10px;
+    inline-size: 50%;
     word-wrap: break-word;
 
     .playlistAuthor {
@@ -111,9 +117,9 @@
       color: var(--primary-text-color);
       display: flex;
       font-size: small;
-      padding-top: 10px;
+      padding-block-start: 10px;
       text-decoration-line: none;
-      width: 100%;
+      inline-size: 100%;
     }
 
     .playlistPreviewVideoTitle {
@@ -121,12 +127,12 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      width: 100%;
+      inline-size: 100%;
     }
   }
 }
 
 .ft-list-item.grid {
-  min-height: 0 !important;
-  padding-bottom: 20px;
+  min-block-size: 0 !important;
+  padding-block-end: 20px;
 }

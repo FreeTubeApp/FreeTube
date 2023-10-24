@@ -538,8 +538,6 @@ Profile:
   Profile Filter: Profilfilter
   Profile Settings: Profilindstillinger
 Channel:
-  Subscriber: 'Abonnent'
-  Subscribers: 'Abonnenter'
   Subscribe: 'Abonnér'
   Unsubscribe: 'Afmeld'
   Channel has been removed from your subscriptions: 'Kanal er blevet fjernet fra dine
@@ -581,15 +579,12 @@ Video:
   Copy YouTube Embedded Player Link: 'Kopiér YouTube Indbygget Afspiller-Link'
   Open in Invidious: 'Åbn i Invidious'
   Copy Invidious Link: 'Kopiér Indvidious-Link'
-  View: 'Vis'
   Views: 'Visninger'
   Loop Playlist: 'Gentag Playliste'
   Shuffle Playlist: 'Bland Playliste'
   Reverse Playlist: 'Vend Playliste Om'
   Play Next Video: 'Afspil Næste Video'
   Play Previous Video: 'Afspil Forrige Video'
-  # Context is "X People Watching"
-  Watching: 'Ser'
   Watched: 'Set'
   Autoplay: 'Autospil'
   Starting soon, please refresh the page to check again: 'Begynder snart, genopfrisk

@@ -29,7 +29,8 @@ export default defineComponent({
     return {
       isLoading: false,
       dataAvailable: false,
-      proxyTestUrl: 'https://ipwho.is/',
+      proxyTestUrl: 'https://ipwho.is/?output=json&fields=ip,country,city,region',
+      proxyIp: '',
       proxyCountry: '',
       proxyRegion: '',
       proxyCity: '',
@@ -44,7 +45,8 @@ export default defineComponent({
         'https',
         'socks4',
         'socks5'
-      ]
+      ],
+      debounceEnableProxy: () => { }
     }
   },
   computed: {
@@ -64,7 +66,7 @@ export default defineComponent({
       return `${this.proxyProtocol}://${this.proxyHostname}:${this.proxyPort}`
     }
   },
-  mounted: function () {
+  created: function () {
     this.debounceEnableProxy = debounce(this.enableProxy, 200)
   },
   beforeDestroy: function () {
@@ -113,6 +115,12 @@ export default defineComponent({
 
     disableProxy: function () {
       ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+
+      this.dataAvailable = false
+      this.proxyIp = ''
+      this.proxyCountry = ''
+      this.proxyRegion = ''
+      this.proxyCity = ''
     },
 
     testProxy: function () {

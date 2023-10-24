@@ -34,8 +34,15 @@ Global:
   Videos: 'Vidéos'
   Shorts: Shorts
   Live: En direct
+  Community: Communauté
 
 # Search Bar
+  Counts:
+    Video Count: 1 vidéo | {count} vidéos
+    Channel Count: 1 chaîne | {count} chaînes
+    View Count: 1 vue | {count} vues
+    Subscriber Count: 1 abonné | {count} abonnés
+    Watching Count: 1 spectateur | {count} spectateurs
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -98,6 +105,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tous les onglets d'abonnement sont cachés. Pour voir
     le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} »
     dans « {settingsSection} ».
+  Load More Posts: Charger plus de billets
+  Empty Posts: Les chaînes abonnées ne contiennent actuellement aucun billet.
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -151,6 +160,7 @@ Settings:
       Beginning: 'Début'
       Middle: 'Milieu'
       End: 'Fin'
+      Hidden: Caché
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious
       (https://invidious.snopyta.org par défaut)'
     Region for Trending: 'Pays pour les tendances'
@@ -186,6 +196,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Paramètres système
       Catppuccin Mocha: Catppuccin Moka
+      Pastel Pink: Rose Pastel
+      Hot Pink: Rose Vif
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -444,6 +456,9 @@ Settings:
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
+    Blur Thumbnails: Flouter les miniatures
+    Hide Profile Pictures in Comments: Cacher les photos de profil dans les commentaires
+    Hide Subscriptions Community: Occulter les communautés abonnées
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -588,8 +603,6 @@ About:
   Downloads / Changelog: Téléchargements / Journal des modifications
   Discussions: Discussions
 Channel:
-  Subscriber: 'Abonnement'
-  Subscribers: 'Abonnés'
   Subscribe: 'S''abonner'
   Unsubscribe: 'Se désabonner'
   Search Channel: 'Chercher une chaîne'
@@ -633,7 +646,6 @@ Channel:
     chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
   Community:
-    Community: Communauté
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
     votes: '{votes} votes'
@@ -665,10 +677,7 @@ Video:
   Copy YouTube Embedded Player Link: 'Copier le lien YouTube-NoCookie'
   Open in Invidious: 'Ouvrir sur Individious'
   Copy Invidious Link: 'Copier le lien Individious'
-  View: 'Vue'
   Views: 'Vues'
-  # Context is "X People Watching"
-  Watching: 'En cours de lecture'
   Watched: 'Vu'
   # As in a Live Video
   Live: 'En direct'
@@ -800,6 +809,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le
     chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé
     par le téléchargeur.
+  Pause on Current Video: Pause sur la vidéo en cours
 Videos:
   #& Sort By
   Sort By:
@@ -877,6 +887,7 @@ Comments:
   Member: Membre
   Hearted: Aimé
   View {replyCount} replies: Voir les {replyCount} réponses
+  Subscribed: Abonné(e)
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -1096,3 +1107,7 @@ Hashtag:
   Hashtag: Mot-clé
   This hashtag does not currently have any videos: Ce mot-clé n'a actuellement aucune
     vidéo
+Playlist will pause when current video is finished: La liste de lecture se met en
+  pause lorsque la vidéo en cours est terminée
+Playlist will not pause when current video is finished: La liste de lecture ne se
+  met pas en pause lorsque la vidéo en cours est terminée

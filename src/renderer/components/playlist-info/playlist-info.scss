@@ -1,10 +1,10 @@
 .playListThumbnail {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .playlistThumbnail img {
   cursor: pointer;
-  width: 100%;
+  inline-size: 100%;
 
   @media only screen and (max-width: 800px) {
     display: none;
@@ -21,16 +21,16 @@
 }
 
 .playlistTitle {
-  margin-bottom: 0.1em;
+  margin-block-end: 0.1em;
 }
 
 .playlistDescription {
-  max-height: 20vh;
+  max-block-size: 20vh;
   overflow-y: auto;
   white-space: break-spaces;
 
   @media only screen and (max-width: 500px) {
-    max-height: 10vh;
+    max-block-size: 10vh;
   }
 }
 
@@ -39,14 +39,14 @@
   color: inherit;
   display: flex;
   gap: 8px;
-  height: 40px;
+  block-size: 40px;
   text-decoration: none;
 }
 
 .channelThumbnail {
   border-radius: 200px;
-  float: left;
-  width: 40px;
+  float: var(--float-left-ltr-rtl-value);
+  inline-size: 40px;
 }
 
 .channelName {

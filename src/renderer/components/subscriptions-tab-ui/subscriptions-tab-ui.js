@@ -28,6 +28,10 @@ export default defineComponent({
       type: Array,
       default: () => ([])
     },
+    isCommunity: {
+      type: Boolean,
+      default: false
+    },
     errorChannels: {
       type: Array,
       default: () => ([])
@@ -36,6 +40,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    initialDataLimit: {
+      type: Number,
+      default: 100
+    }
   },
   data: function () {
     return {
@@ -68,6 +76,8 @@ export default defineComponent({
 
     if (dataLimit !== null) {
       this.dataLimit = dataLimit
+    } else {
+      this.dataLimit = this.initialDataLimit
     }
   },
   mounted: async function () {
@@ -77,12 +87,8 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
-    goToChannel: function (id) {
-      this.$router.push({ path: `/channel/${id}` })
-    },
-
     increaseLimit: function () {
-      this.dataLimit += 100
+      this.dataLimit += this.initialDataLimit
       sessionStorage.setItem('subscriptionLimit', this.dataLimit)
     },
 
