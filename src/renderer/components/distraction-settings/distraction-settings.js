@@ -159,7 +159,7 @@ export default defineComponent({
       }
     },
     findChannelNameById: async function (text) {
-      if (!/UC.{22}/.test(text)) return ''
+      if (!/UC\S{22}/.test(text)) return ''
       try {
         const channel = await this.findChannelById(text)
         if (this.backendPreference === 'invidious') {
@@ -172,7 +172,7 @@ export default defineComponent({
       }
     },
     findChannelIconById: async function (text) {
-      if (!/UC.{22}/.test(text)) return ''
+      if (!/UC\S{22}/.test(text)) return ''
       try {
         const channel = await this.findChannelById(text)
         if (this.backendPreference === 'invidious') {
