@@ -101,7 +101,7 @@ export default defineComponent({
     hideSubscriptionsLive: function () {
       return this.$store.getters.getHideSubscriptionsLive
     },
-    hideSubscriptionsCommunity: function () {
+    hideSubscriptionsCommunity: function() {
       return this.$store.getters.getHideSubscriptionsCommunity
     },
     showDistractionFreeTitles: function () {

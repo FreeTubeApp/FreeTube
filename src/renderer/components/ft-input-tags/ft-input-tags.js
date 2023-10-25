@@ -1,12 +1,10 @@
 import { defineComponent } from 'vue'
-import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
 export default defineComponent({
   name: 'FtInputTags',
   components: {
-    'ft-button': FtButton,
     'ft-input': FtInput,
     'ft-tooltip': FtTooltip
   },
@@ -57,7 +55,7 @@ export default defineComponent({
         this.$emit('already-exists')
       }
 
-      // clear input boxes
+      // clear input box
       this.$refs.tagNameInput.handleClearTextClick()
     },
     removeTag: function (tag) {
