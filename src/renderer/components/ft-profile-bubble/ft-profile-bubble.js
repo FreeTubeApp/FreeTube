@@ -4,6 +4,10 @@ import { sanitizeForHtmlId } from '../../helpers/accessibility'
 export default defineComponent({
   name: 'FtProfileBubble',
   props: {
+    action: {
+      type: Function,
+      default: null
+    },
     profileName: {
       type: String,
       required: true
@@ -12,6 +16,14 @@ export default defineComponent({
       type: String,
       required: true
     },
+    profileSelectorGrid: {
+      type: Boolean,
+      default: false
+    },
+    showTitle: {
+      type: Boolean,
+      default: true
+    },
     backgroundColor: {
       type: String,
       required: true
@@ -19,7 +31,7 @@ export default defineComponent({
     textColor: {
       type: String,
       required: true
-    }
+    },
   },
   computed: {
     sanitizedId: function() {
@@ -31,6 +43,11 @@ export default defineComponent({
   },
   methods: {
     goToProfile: function (event) {
+      if (this.action) {
+        this.action(this.profileId)
+        return
+      }
+
       if (event instanceof KeyboardEvent) {
         if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
           return

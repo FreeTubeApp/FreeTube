@@ -1,8 +1,12 @@
 <template>
   <div
     class="bubblePadding"
+    :class="{
+      profileSelectorGrid
+    }"
     tabindex="0"
     :aria-labelledby="sanitizedId"
+    :title="showTitle ? null : profileName"
     @click="goToProfile"
     @keydown.space.prevent="goToProfile($event)"
     @keydown.enter.prevent="goToProfile($event)"
@@ -17,6 +21,7 @@
     </div>
     <div
       :id="sanitizedId"
+      :hidden="!showTitle"
       class="profileName"
     >
       {{ profileName }}

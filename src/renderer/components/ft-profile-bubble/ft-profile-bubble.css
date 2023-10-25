@@ -27,6 +27,34 @@
   -webkit-border-radius: 50%;
 }
 
+.bubblePadding.profileSelectorGrid {
+  padding-block: 5px;
+  padding-inline: 0;
+  block-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bubblePadding.profileSelectorGrid > .bubble {
+  inline-size: 40px;
+  block-size: 40px;
+  margin-block: 0;
+}
+
+.bubblePadding.profileSelectorGrid > .profileName {
+  max-inline-size: 90%;
+  font-size: 16px;
+  line-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bubblePadding.profileSelectorGrid .initial {
+  font-size: 20px;
+  padding-block: 10px;
+}
+
 .initial {
   font-size: 35px;
   line-height: 1em;

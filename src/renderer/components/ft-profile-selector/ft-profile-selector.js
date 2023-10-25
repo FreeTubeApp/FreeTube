@@ -2,13 +2,15 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtProfileBubble from '../ft-profile-bubble/ft-profile-bubble.vue'
 import { deepCopy, showToast, sortListUsingMethod } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtProfileSelector',
   components: {
     'ft-card': FtCard,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-profile-bubble': FtProfileBubble
   },
   data: function () {
     return {
@@ -79,15 +81,19 @@ export default defineComponent({
     },
 
     setActiveProfile: function (profile) {
-      if (this.activeProfile._id !== profile._id) {
+      this.setActiveProfileGivenId(profile._id)
+    },
+
+    setActiveProfileGivenId: function (id) {
+      if (this.activeProfile._id !== id) {
         const targetProfile = this.profileList.find((x) => {
-          return x._id === profile._id
+          return x._id === id
         })
 
         if (targetProfile) {
           this.updateActiveProfile(targetProfile._id)
 
-          showToast(this.$t('Profile.{profile} is now the active profile', { profile: profile.name }))
+          showToast(this.$t('Profile.{profile} is now the active profile', { profile: targetProfile.name }))
         }
       }
 
