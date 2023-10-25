@@ -6,6 +6,7 @@ import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import { invidiousGetChannelInfo } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
+import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -141,6 +142,9 @@ export default defineComponent({
     },
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
+    },
+    handleChannelsExists: function () {
+      showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
     findChannelById: async function (id) {
       try {

@@ -2,7 +2,6 @@ import { defineComponent } from 'vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtInputTags',
@@ -42,20 +41,20 @@ export default defineComponent({
     },
     findSecondaryName: {
       type: Function,
-      default: async (_) => '',
+      default: (_) => '',
     },
     findIcon: {
       type: Function,
-      default: async (_) => '',
+      default: (_) => '',
     }
   },
   methods: {
-    updateTags: async function (text, _) {
+    updateTags: async function (text, _e) {
       // text entered add tag and update tag list
       const name = text.trim()
 
       if (!this.tagList.some((tag) => tag.name === name)) {
-        // secondary name and icon assumes an api call may be used
+        // secondary name and icon searching allow api calls to be used
         const secondaryName = await this.findSecondaryName(name) ?? ''
         const icon = await this.findIcon(name) ?? ''
 
@@ -63,7 +62,7 @@ export default defineComponent({
         newList.push({ name, secondaryName, icon })
         this.$emit('change', newList)
       } else {
-        showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
+        this.$emit('already-exists')
       }
 
       // clear input boxes

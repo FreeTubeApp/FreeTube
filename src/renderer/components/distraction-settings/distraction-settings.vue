@@ -247,6 +247,7 @@
         :find-secondary-name="findChannelNameById"
         :find-icon="findChannelIconById"
         @change="handleChannelsHidden"
+        @already-exists="handleChannelsExists"
       />
     </ft-flex-box>
   </ft-settings-section>
