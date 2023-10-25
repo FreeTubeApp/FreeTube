@@ -63,18 +63,19 @@ function parsePipedComments(comments) {
       author: comment.author,
       authorLink: comment.commentorUrl.replace('/channel/'),
       authorThumb: comment.thumbnail,
-      comemntId: comment.commentId,
+      commentId: comment.commentId,
       text: comment.commentText,
       isPinned: comment.pinned,
       isVerified: comment.verified,
       numReplies: comment.replyCount,
       likes: comment.likeCount,
-      isHearted: comment.isHearted,
+      isHearted: comment.hearted,
       replyToken: comment.repliesPage,
       isMember: false,
       isOwner: false,
       showReplies: false,
       replies: [],
+      hasOwnerReplied: comment.creatorReplied,
       time: toLocalePublicationString({
         publishText: comment.commentedTime
       })
@@ -155,9 +156,10 @@ function parsePipedVideos(videoList) {
       authorId: video.uploaderUrl.replace('/channel/', ''),
       lengthSeconds: video.duration,
       description: video.shortDescription,
-      uploaded: video.uploaded, // uploaded time stamp
+      publishedText: video.uploadedDate, // uploaded time stamp
       viewCount: video.views,
       thumbnail: video.thumbnail,
+      isVerified: video.uploaderVerified,
       type: 'video'
     }
   })
