@@ -4,9 +4,8 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import { invidiousGetChannelInfo } from '../../helpers/api/invidious'
-import { getLocalChannel } from '../../helpers/api/local'
 import { showToast } from '../../helpers/utils'
+import { findChannelIconById, findChannelNameById } from '../../helpers/channels'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -17,11 +16,11 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
   },
   computed: {
-    backendPreference: function () {
-      return this.$store.getters.getBackendPreference
-    },
-    backendFallback: function () {
-      return this.$store.getters.getBackendFallback
+    backendOptions: function () {
+      return {
+        preference: this.$store.getters.getBackendPreference,
+        fallback: this.$store.getters.getBackendFallback
+      }
     },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
@@ -144,47 +143,11 @@ export default defineComponent({
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
-    findChannelById: async function (id) {
-      try {
-        if (this.backendPreference === 'invidious') {
-          return await invidiousGetChannelInfo(id)
-        } else {
-          return await getLocalChannel(id)
-        }
-      } catch (err) {
-        if (this.backendFallback && this.backendPreference === 'invidious') {
-          return await getLocalChannel(id)
-        }
-        if (this.backendFallback && this.backendPreference === 'local') {
-          return await invidiousGetChannelInfo(id)
-        }
-      }
-    },
     findChannelNameById: async function (text) {
-      if (!/UC\S{22}/.test(text)) return ''
-      try {
-        const channel = await this.findChannelById(text)
-        if (this.backendPreference === 'invidious') {
-          return channel.author
-        } else {
-          return channel.header.author.name
-        }
-      } catch (err) {
-        return ''
-      }
+      return await findChannelNameById(text, this.backendOptions)
     },
     findChannelIconById: async function (text) {
-      if (!/UC\S{22}/.test(text)) return ''
-      try {
-        const channel = await this.findChannelById(text)
-        if (this.backendPreference === 'invidious') {
-          return channel.authorThumbnails[0].url
-        } else {
-          return channel.header.author.thumbnails.pop().url
-        }
-      } catch (err) {
-        return ''
-      }
+      return await findChannelIconById(text, this.backendOptions)
     },
 
     ...mapActions([
