@@ -47,10 +47,8 @@ export default defineComponent({
         // secondary name and icon searching allow api calls to be used
         const secondaryName = await this.findSecondaryName(name) ?? ''
         const icon = await this.findIcon(name) ?? ''
-
-        const newList = this.tagList.slice(0)
-        newList.push({ name, secondaryName, icon })
-        this.$emit('change', newList)
+        const newTag = { name, secondaryName, icon }
+        this.$emit('change', [...this.tagList, newTag])
       } else {
         this.$emit('already-exists')
       }
