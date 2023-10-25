@@ -50,6 +50,7 @@ export default defineComponent({
       const name = text.trim()
 
       if (!this.tagList.some((tag) => tag.name === name)) {
+        // secondary name assumes an api call may be used
         const secondaryName = await this.findSecondaryName(name)
         const description = this.$refs.tagDescInput.inputData.trim()
 
@@ -64,9 +65,8 @@ export default defineComponent({
     },
     removeTag: function (tag) {
       // Remove tag from list
-      const tagName = tag.trim()
-      if (this.tagList.some((tag) => tag.name === tagName)) {
-        const newList = this.tagList.filter((tag) => tag.name !== tagName)
+      if (this.tagList.some((tmpTag) => tmpTag.name === tag.name)) {
+        const newList = this.tagList.filter((tmpTag) => tmpTag.name !== tag.name)
         this.$emit('change', newList)
       }
     }

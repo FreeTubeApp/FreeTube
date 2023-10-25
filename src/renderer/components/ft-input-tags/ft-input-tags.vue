@@ -37,8 +37,8 @@
             class="removeTagButton"
             tabindex="0"
             role="button"
-            @click="removeTag(tag.name)"
-            @keydown.enter.prevent="removeTag(tag.name)"
+            @click="removeTag(tag)"
+            @keydown.enter.prevent="removeTag(tag)"
           />
         </li>
       </ul>
