@@ -26,7 +26,7 @@
           :key="tag.id"
         >
           <span>{{ tag.name }}</span>
-          <span v-if="tag.secondaryName">{{ tag.secondaryName }}</span>
+          <span v-if="tag.secondaryName">({{ tag.secondaryName }})</span>
           <ft-tooltip
             v-if="tag.description !== ''"
             position="bottom-left"
