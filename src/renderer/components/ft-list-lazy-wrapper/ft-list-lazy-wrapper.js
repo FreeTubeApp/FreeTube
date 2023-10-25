@@ -46,16 +46,17 @@ export default defineComponent({
     }
   },
   computed: {
-    hideLiveStreams: function() {
+    hideLiveStreams: function () {
       return this.$store.getters.getHideLiveStreams
     },
-    channelsHidden: function() {
+    channelsHidden: function () {
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
 
       let hidden = JSON.parse(this.$store.getters.getChannelsHidden)
       hidden = hidden.map((ch) => {
-        if (ch instanceof String) {
+        // Legacy support
+        if (typeof ch === 'string') {
           return { name: ch, secondaryName: '', description: '' }
         }
         return ch
@@ -81,16 +82,16 @@ export default defineComponent({
           return false
         }
         if (this.hideUpcomingPremieres &&
-            // Observed for premieres in Local API Channels.
-            (data.premiereDate != null ||
-              // Invidious API
-              // `premiereTimestamp` only available on premiered videos
-              // https://docs.invidious.io/api/common_types/#videoobject
-              data.premiereTimestamp != null ||
-             // viewCount is our only method of detecting premieres in RSS
-             // data without sending an additional request.
-             // If we ever get a better flag, use it here instead.
-             (data.isRSS && data.viewCount === '0'))) {
+          // Observed for premieres in Local API Channels.
+          (data.premiereDate != null ||
+            // Invidious API
+            // `premiereTimestamp` only available on premiered videos
+            // https://docs.invidious.io/api/common_types/#videoobject
+            data.premiereTimestamp != null ||
+            // viewCount is our only method of detecting premieres in RSS
+            // data without sending an additional request.
+            // If we ever get a better flag, use it here instead.
+            (data.isRSS && data.viewCount === '0'))) {
           // hide upcoming
           return false
         }

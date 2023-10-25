@@ -60,7 +60,8 @@ export default defineComponent({
 
       let hidden = JSON.parse(this.$store.getters.getChannelsHidden)
       hidden = hidden.map((ch) => {
-        if (ch instanceof String) {
+        // Legacy support
+        if (typeof ch === 'string') {
           return { name: ch, secondaryName: '', description: '' }
         }
         return ch

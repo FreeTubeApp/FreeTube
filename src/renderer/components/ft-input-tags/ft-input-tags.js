@@ -66,9 +66,7 @@ export default defineComponent({
       // Remove tag from list
       const tagName = tag.trim()
       if (this.tagList.some((tag) => tag.name === tagName)) {
-        const newList = this.tagList.slice(0)
-        const index = newList.indexOf(tagName)
-        newList.splice(index, 1)
+        const newList = this.tagList.filter((tag) => tag.name !== tagName)
         this.$emit('change', newList)
       }
     }
