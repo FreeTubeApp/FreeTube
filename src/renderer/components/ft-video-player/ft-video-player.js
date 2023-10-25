@@ -1441,6 +1441,10 @@ export default defineComponent({
       videojs.registerComponent('loopButton', loopButton)
     },
 
+    toggleAutoPlay: function (){
+      this.$store.dispatch('updatePlayNextVideo', !this.$store.getters.getPlayNextVideo)
+    },
+
     toggleVideoLoop: function () {
       const loopButton = document.getElementById('loopButton')
 
