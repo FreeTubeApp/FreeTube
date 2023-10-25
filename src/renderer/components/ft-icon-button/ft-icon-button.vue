@@ -33,8 +33,13 @@
       <font-awesome-icon
         :icon="!hideIcon ? icon : null"
         :class="{ [theme]: true }"
+        :style="{
+          fontSize: size + 'px'
+        }"
       />
-      {{ title }}
+      <span>
+        {{ title }}
+      </span>
     </ft-button>
     <template
       v-if="dropdownShown"

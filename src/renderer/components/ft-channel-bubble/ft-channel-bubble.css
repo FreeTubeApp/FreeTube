@@ -25,23 +25,25 @@
   transition: background 0.2s ease-in;
 }
 
-.bubblePadding.small {
-  min-inline-size: 40%;
-  min-block-size: 55px;
-  gap: 0px;
+.bubblePadding.sideNavGrid {
   padding-block: 5px;
-  padding-inline: 5px;
-  box-sizing: border-box;
+  padding-inline: 0;
+  gap: 10px;
+  block-size: unset;
 }
 
-.bubblePadding.small > .bubble {
+.bubblePadding.sideNavGrid > .bubble {
   inline-size: 35px;
   block-size: 35px;
 }
 
+.bubblePadding.sideNavGrid > .channelName {
+  max-inline-size: 90%;
+  font-size: 10.5px;
+  white-space: nowrap;
+}
+
 .bubble {
-  inline-size: 50px;
-  block-size: 50px;
   border-radius: 100%;
   -webkit-border-radius: 100%;
 }

@@ -478,16 +478,16 @@ Settings:
     Profile List Display Options: Profile List Display Options
     Settings Section List Display Options: Settings Section List Display Options
     Sort:
-      Use Default Sort: Use Default Sort
-      Sort by Title (Ascending): Sort by Title (Ascending)
-      Sort by Title (Descending): Sort by Title (Descending)
+      Use default sort: Use default sort
+      Sort by title (A to Z): Sort by title (A to Z)
+      Sort by title (Z to A): Sort by title (Z to A)
     Display Type:
       List: List
       Grid:
         Grid: Grid
         Item per grid row: 1 item per grid row | {number} items per grid row
-        Show Grid Item Titles: Show Grid Item Titles
-        Hide Grid Item Titles: Hide Grid Item Titles
+        Show grid item titles: Show grid item titles
+        Hide grid item titles: Hide grid item titles
 
 About:
   #On About page

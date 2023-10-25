@@ -3,17 +3,23 @@
     v-if="!showSelected"
     class="bubblePadding"
     :class="{
-      [appearance]: true
+      sideNavGrid
     }"
     :aria-labelledby="sanitizedId"
+    :title="showTitle ? null : channelName"
     :to="`/channel/${channelId}`"
   >
     <img
       class="bubble"
+      :style="{
+        blockSize: bubbleSize + 'px',
+        inlineSize: bubbleSize + 'px'
+      }"
       :src="channelThumbnail"
       alt=""
     >
     <div
+      v-if="showTitle"
       :id="sanitizedId"
       class="channelName"
     >
@@ -26,11 +32,16 @@
     role="button"
     tabindex="0"
     :aria-labelledby="sanitizedId"
+    :title="showTitle ? null : channelName"
     @click="handleClick"
     @keydown.space.enter.prevent="handleClick($event)"
   >
     <img
       class="bubble"
+      :style="{
+        blockSize: bubbleSize + 'px',
+        inlineSize: bubbleSize + 'px'
+      }"
       :src="channelThumbnail"
       alt=""
     >
@@ -45,6 +56,7 @@
     </div>
     <div
       :id="sanitizedId"
+      :hidden="!showTitle"
       class="channelName"
     >
       {{ channelName }}

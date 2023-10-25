@@ -169,13 +169,9 @@
   margin-block-end: 0.3em;
 }
 
-.grid {
+.iconGrid {
   display: flex;
   flex-wrap: wrap;
-}
-
-.useSpaceForMoreEntriesWithTitles > * {
-  flex: 1;
 }
 
 @media only screen and (max-width: 680px) {

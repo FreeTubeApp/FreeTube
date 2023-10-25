@@ -200,7 +200,7 @@
       </router-link>
       <hr>
       <div
-        v-if="!hideActiveSubscriptions && (!isOpen | subscriptionList.displayType === 'list')"
+        v-if="!hideActiveSubscriptions && (!isOpen | subscriptionListOptions.displayType === 'list')"
       >
         <router-link
           v-for="(channel, index) in activeSubscriptions"
@@ -230,21 +230,21 @@
           </p>
         </router-link>
       </div>
-      <!-- && !(subscriptionListOptions.displayType === 'grid' &&
-              !subscriptionListOptions.showGridItemTitles) -->
       <div
         v-if="isOpen && subscriptionListOptions.displayType === 'grid'"
-        class="grid"
-        :style="{ minInlineSize: (subscriptionListOptions.itemsPerGridRow * 100) + '%'} "
+        class="iconGrid"
       >
         <ft-channel-bubble
           v-for="(channel, index) in activeSubscriptions"
           :id="`sidenav-channel-${index}`"
           :key="index"
+          :style="{ inlineSize: 100 / subscriptionListOptions.itemsPerGridRow + '%' }"
           :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
-          appearance="small"
+          :side-nav-grid="true"
+          :bubble-size="subscriptionListOptions.itemsPerGridRow > 2 ? 35 : 50"
+          :show-title="subscriptionListOptions.showGridItemTitles"
           @click="navigate(`channel/${channel.id}`)"
         />
       </div>

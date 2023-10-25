@@ -39,25 +39,14 @@
         />
       </div>
     </div>
-    <ft-flex-box>
-      <ft-slider
-        :label="$t('Settings.Theme Settings.UI Scale')"
-        :default-value="uiScale"
-        :min-value="minUiScale"
-        :max-value="maxUiScale"
-        :step="uiScaleStep"
-        value-extension="%"
-        @change="updateUiScale(parseInt($event))"
-      />
-    </ft-flex-box>
     <br>
-    <!-- theme="base-no-default" -->
     <ft-flex-box>
       <ft-icon-button
         :icon="['fas', 'bars']"
         :title="$t('Settings.List Display Settings.Subscription List Display Options')"
         :use-ft-button="true"
         :close-on-click="false"
+        :size="22"
         dropdown-position-x="bottom"
         :dropdown-options="subscriptionListDisplayDropdownOptions"
         @click="handleSubscriptionListDisplayDropdownOptionClick"
@@ -67,6 +56,7 @@
         :title="$t('Settings.List Display Settings.Profile List Display Options')"
         :use-ft-button="true"
         :close-on-click="false"
+        :size="22"
         dropdown-position-x="bottom"
         :dropdown-options="profileListDisplayDropdownOptions"
         @click="handleProfileListDisplayDropdownOptionClick"
@@ -76,9 +66,21 @@
         :title="$t('Settings.List Display Settings.Settings Section List Display Options')"
         :use-ft-button="true"
         :close-on-click="false"
+        :size="22"
         dropdown-position-x="bottom"
         :dropdown-options="settingsSectionListDisplayDropdownOptions"
         @click="handleSettingsSectionListDisplayDropdownOptionClick"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-slider
+        :label="$t('Settings.Theme Settings.UI Scale')"
+        :default-value="uiScale"
+        :min-value="minUiScale"
+        :max-value="maxUiScale"
+        :step="uiScaleStep"
+        value-extension="%"
+        @change="updateUiScale(parseInt($event))"
       />
     </ft-flex-box>
     <br>

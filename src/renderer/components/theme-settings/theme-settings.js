@@ -241,7 +241,7 @@ export default defineComponent({
         radioGroupSort.push(
           {
             type: 'checkbox',
-            label: this.$t('Settings.List Display Settings.Sort.Use Default Sort'),
+            label: this.$t('Settings.List Display Settings.Sort.Use default sort'),
             value: 'defaultSort',
             checked: listOptions.sort === 'defaultSort',
           }
@@ -251,13 +251,13 @@ export default defineComponent({
       radioGroupSort.push(
         {
           type: 'checkbox',
-          label: this.$t('Settings.List Display Settings.Sort.Sort by Title (Ascending)'),
+          label: this.$t('Settings.List Display Settings.Sort.Sort by title (A to Z)'),
           value: 'alphabeticalAscending',
           checked: listOptions.sort === 'alphabeticalAscending',
         },
         {
           type: 'checkbox',
-          label: this.$t('Settings.List Display Settings.Sort.Sort by Title (Descending)'),
+          label: this.$t('Settings.List Display Settings.Sort.Sort by title (Z to A)'),
           value: 'alphabeticalDescending',
           checked: listOptions.sort === 'alphabeticalDescending',
         }
@@ -326,13 +326,13 @@ export default defineComponent({
             },
             {
               type: 'checkbox',
-              label: this.$t('Settings.List Display Settings.Titles.Grid.Show Grid Item Titles'),
+              label: this.$t('Settings.List Display Settings.Display Type.Grid.Show grid item titles'),
               value: 'showGridItemTitles',
               checked: listOptions.showGridItemTitles
             },
             {
               type: 'checkbox',
-              label: this.$t('Settings.List Display Settings.Titles.Grid.Hide Grid Item Titles'),
+              label: this.$t('Settings.List Display Settings.Display Type.Grid.Hide grid item titles'),
               value: 'hideGridItemTitles',
               checked: !listOptions.showGridItemTitles,
             }
