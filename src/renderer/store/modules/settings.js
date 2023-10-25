@@ -310,7 +310,7 @@ const state = {
     itemsPerGridRow: 2
   },
   settingsSectionListOptions: {
-    sort: 'alphabeticalAscending'
+    sort: 'defaultSort'
   }
 }
 

@@ -14,6 +14,7 @@ import ParentControlSettings from '../../components/parental-control-settings/pa
 import ExperimentalSettings from '../../components/experimental-settings/experimental-settings.vue'
 import PasswordSettings from '../../components/password-settings/password-settings.vue'
 import PasswordDialog from '../../components/password-dialog/password-dialog.vue'
+import { deepCopy, sortListUsingMethod } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'Settings',
@@ -36,17 +37,96 @@ export default defineComponent({
   },
   data: function () {
     return {
-      unlocked: false
+      unlocked: false,
+      settingsComponentsData: [
+        {
+          type: 'general-settings',
+          title: this.$t('Settings.General Settings.General Settings')
+        },
+        {
+          type: 'theme-settings',
+          title: this.$t('Settings.Theme Settings.Theme Settings')
+        },
+        {
+          type: 'player-settings',
+          title: this.$t('Settings.Player Settings.Player Settings')
+        },
+        {
+          type: 'external-player-settings',
+          title: this.$t('Settings.External Player Settings.External Player Settings'),
+          electronNeeded: true
+        },
+        {
+          type: 'subscription-settings',
+          title: this.$t('Settings.Subscription Settings.Subscription Settings')
+        },
+        {
+          type: 'distraction-settings',
+          title: this.$t('Settings.Distraction Settings.Distraction Settings')
+        },
+        {
+          type: 'privacy-settings',
+          title: this.$t('Settings.Privacy Settings.Privacy Settings')
+        },
+        {
+          type: 'data-settings',
+          title: this.$t('Settings.Data Settings.Data Settings')
+        },
+        {
+          type: 'proxy-settings',
+          title: this.$t('Settings.Proxy Settings.Proxy Settings'),
+          electronNeeded: true
+        },
+        {
+          type: 'download-settings',
+          title: this.$t('Settings.Download Settings.Download Settings'),
+          electronNeeded: true
+        },
+        {
+          type: 'parental-control-settings',
+          title: this.$t('Settings.Parental Control Settings.Parental Control Settings')
+        },
+        {
+          type: 'sponsor-block-settings',
+          title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
+        },
+        {
+          type: 'experimental-settings',
+          title: this.$t('Settings.Experimental Settings.Experimental Settings'),
+          electronNeeded: true
+        },
+        {
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings')
+        },
+      ]
     }
   },
   computed: {
+    settingsComponents: function () {
+      if (!this.usingElectron) {
+        return this.settingsComponentsData.filter((settingsComponent) => !settingsComponent.electronNeeded)
+      }
+      return this.settingsComponentsData
+    },
+
+    sortedSettingsSectionComponents: function () {
+      const settingsComponents = deepCopy(this.settingsComponents)
+      sortListUsingMethod(settingsComponents, 'title', this.settingsSectionListOptions.sort)
+      return settingsComponents
+    },
+
     usingElectron: function () {
       return process.env.IS_ELECTRON
     },
 
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
-    }
+    },
+
+    settingsSectionListOptions: function () {
+      return this.$store.getters.getSettingsSectionListOptions
+    },
   },
   created: function () {
     if (this.settingsPassword === '') {
