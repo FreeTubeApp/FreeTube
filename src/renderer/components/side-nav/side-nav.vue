@@ -232,12 +232,13 @@
       </div>
       <div
         v-if="isOpen && subscriptionListOptions.displayType === 'grid'"
-        class="iconGrid"
+        class="iconGrid mobileHidden"
       >
         <ft-channel-bubble
           v-for="(channel, index) in activeSubscriptions"
           :id="`sidenav-channel-${index}`"
           :key="index"
+          class="mobileHidden"
           :style="{ inlineSize: 100 / subscriptionListOptions.itemsPerGridRow + '%' }"
           :channel-id="channel.id"
           :channel-name="channel.name"
