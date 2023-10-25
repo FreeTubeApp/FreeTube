@@ -239,7 +239,7 @@ export default defineComponent({
           )
 
           const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-          const channelShouldBeHidden = hiddenChannels.filter(c => c === this.channelName || c === this.channelId).length > 0
+          const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelName || c === this.channelId)
           if (channelShouldBeHidden) {
             options.push({
               label: this.$t('Video.Unhide Channel'),
