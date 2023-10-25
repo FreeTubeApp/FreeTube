@@ -459,7 +459,7 @@ export default defineComponent({
           this.hideChannel(this.channelName)
           break
         case 'unhideChannel':
-          this.unhideChannel(this.channelName)
+          this.unhideChannel(this.channelName, this.channelId)
           break
       }
     },
@@ -656,9 +656,9 @@ export default defineComponent({
       showToast(this.$t('Channel Hidden', { channel: channelName }))
     },
 
-    unhideChannel: function(channelName) {
+    unhideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelName)))
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelName && c !== channelId)))
 
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
