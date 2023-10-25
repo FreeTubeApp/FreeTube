@@ -4,7 +4,7 @@ import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import { invidiousAPICall } from '../../helpers/api/invidious'
+import { invidiousGetChannelInfo } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
 
 export default defineComponent({
@@ -18,6 +18,9 @@ export default defineComponent({
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
+    },
+    backendFallback: function () {
+      return this.$store.getters.getBackendFallback
     },
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
@@ -139,22 +142,45 @@ export default defineComponent({
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
     },
-    findChannelNameById: async function (text) {
+    findChannelById: async function (id) {
       try {
         if (this.backendPreference === 'invidious') {
-          const channelPayload = {
-            resource: 'channels',
-            id: text,
-            params: {}
-          }
-          const res = await invidiousAPICall(channelPayload)
-          return res.author
+          return await invidiousGetChannelInfo(id)
         } else {
-          const channel = await getLocalChannel(text)
+          return await getLocalChannel(id)
+        }
+      } catch (err) {
+        if (this.backendFallback && this.backendPreference === 'invidious') {
+          return await getLocalChannel(id)
+        }
+        if (this.backendFallback && this.backendPreference === 'local') {
+          return await invidiousGetChannelInfo(id)
+        }
+      }
+    },
+    findChannelNameById: async function (text) {
+      if (!/UC.{22}/.test(text)) return ''
+      try {
+        const channel = await this.findChannelById(text)
+        if (this.backendPreference === 'invidious') {
+          return channel.author
+        } else {
           return channel.header.author.name
         }
-      } catch (_) {
-        // Will generally throw errors if a non channel ID is provided
+      } catch (err) {
+        return ''
+      }
+    },
+    findChannelIconById: async function (text) {
+      if (!/UC.{22}/.test(text)) return ''
+      try {
+        const channel = await this.findChannelById(text)
+        if (this.backendPreference === 'invidious') {
+          return channel.authorThumbnails[0].url
+        } else {
+          return channel.header.author.thumbnails.pop().url
+        }
+      } catch (err) {
         return ''
       }
     },

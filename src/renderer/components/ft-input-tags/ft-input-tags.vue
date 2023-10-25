@@ -13,24 +13,23 @@
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
-    <ft-input
-      v-if="includeTagDesc"
-      ref="tagDescInput"
-      :placeholder="tagDescPlaceholder"
-      :show-action-button="false"
-    />
     <div class="ft-tag-box">
       <ul>
         <li
           v-for="tag in tagList"
           :key="tag.id"
         >
+          <img
+            v-if="tag.icon"
+            :src="tag.icon"
+            alt="icon"
+            class="tag-icon"
+          >
           <span>{{ tag.name }}</span>
-          <span v-if="tag.secondaryName">({{ tag.secondaryName }})</span>
           <ft-tooltip
-            v-if="tag.description !== ''"
+            v-if="tag.secondaryName !== ''"
             position="bottom-left"
-            :tooltip="tag.description"
+            :tooltip="tag.secondaryName"
           />
           <font-awesome-icon
             :icon="['fas', 'fa-times']"

@@ -19,7 +19,7 @@
   background-color: var(--card-bg-color);
   margin: 5px;
   border-radius: 5px;
-  display:flex;
+  display: flex;
   float: var(--float-left-ltr-rtl-value);
 }
 
@@ -35,6 +35,13 @@
 .ft-tag-box li .tooltip {
   margin-inline-start: 5px;
   padding-block: 10px;
+}
+
+.tag-icon {
+  border-radius: 50%;
+  block-size: 24px;
+  margin: auto;
+  margin-inline-start: 10px;
 }
 
 .removeTagButton {

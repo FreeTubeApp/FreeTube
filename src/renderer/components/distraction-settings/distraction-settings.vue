@@ -245,6 +245,7 @@
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
         :include-tag-desc="true"
         :find-secondary-name="findChannelNameById"
+        :find-icon="findChannelIconById"
         @change="handleChannelsHidden"
       />
     </ft-flex-box>

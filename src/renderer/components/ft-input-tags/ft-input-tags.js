@@ -2,6 +2,7 @@ import { defineComponent } from 'vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtInputTags',
@@ -42,6 +43,10 @@ export default defineComponent({
     findSecondaryName: {
       type: Function,
       default: async (_) => '',
+    },
+    findIcon: {
+      type: Function,
+      default: async (_) => '',
     }
   },
   methods: {
@@ -50,18 +55,19 @@ export default defineComponent({
       const name = text.trim()
 
       if (!this.tagList.some((tag) => tag.name === name)) {
-        // secondary name assumes an api call may be used
-        const secondaryName = await this.findSecondaryName(name)
-        const description = this.$refs.tagDescInput.inputData.trim()
+        // secondary name and icon assumes an api call may be used
+        const secondaryName = await this.findSecondaryName(name) ?? ''
+        const icon = await this.findIcon(name) ?? ''
 
         const newList = this.tagList.slice(0)
-        newList.push({ name, secondaryName, description })
+        newList.push({ name, secondaryName, icon })
         this.$emit('change', newList)
+      } else {
+        showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
       }
 
       // clear input boxes
       this.$refs.tagNameInput.handleClearTextClick()
-      this.$refs.tagDescInput.handleClearTextClick()
     },
     removeTag: function (tag) {
       // Remove tag from list
