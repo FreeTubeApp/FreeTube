@@ -15,10 +15,6 @@ export default defineComponent({
       type: String,
       required: true
     },
-    tagDescPlaceholder: {
-      type: String,
-      required: true
-    },
     label: {
       type: String,
       required: true
@@ -34,10 +30,6 @@ export default defineComponent({
     tooltip: {
       type: String,
       default: ''
-    },
-    includeTagDesc: {
-      type: Boolean,
-      default: false
     },
     findSecondaryName: {
       type: Function,
