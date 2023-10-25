@@ -114,15 +114,13 @@ export default defineComponent({
       return this.$store.getters.getBlurThumbnails
     },
     channelsHidden: function () {
-      let hidden = JSON.parse(this.$store.getters.getChannelsHidden)
-      hidden = hidden.map((ch) => {
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
         // Legacy support
         if (typeof ch === 'string') {
           return { name: ch, secondaryName: '', icon: '' }
         }
         return ch
       })
-      return hidden
     },
     hideSubscriptionsLiveTooltip: function () {
       return this.$t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {

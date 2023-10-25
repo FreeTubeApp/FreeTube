@@ -53,15 +53,13 @@ export default defineComponent({
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
 
-      let hidden = JSON.parse(this.$store.getters.getChannelsHidden)
-      hidden = hidden.map((ch) => {
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
         // Legacy support
         if (typeof ch === 'string') {
           return { name: ch, secondaryName: '', icon: '' }
         }
         return ch
       })
-      return hidden
     },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
