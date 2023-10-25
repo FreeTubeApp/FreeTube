@@ -62,7 +62,7 @@ export default defineComponent({
       hidden = hidden.map((ch) => {
         // Legacy support
         if (typeof ch === 'string') {
-          return { name: ch, secondaryName: '', description: '' }
+          return { name: ch, secondaryName: '', icon: '' }
         }
         return ch
       })
