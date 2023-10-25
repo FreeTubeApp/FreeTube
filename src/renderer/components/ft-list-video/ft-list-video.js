@@ -232,8 +232,25 @@ export default defineComponent({
             {
               label: this.$t('Video.Open Channel in Invidious'),
               value: 'openInvidiousChannel'
+            },
+            {
+              type: 'divider'
             }
           )
+
+          const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+          const channelShouldBeHidden = hiddenChannels.filter(c => c === this.channelName || c === this.channelId).length > 0
+          if (channelShouldBeHidden) {
+            options.push({
+              label: this.$t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            })
+          } else {
+            options.push({
+              label: this.$t('Video.Hide Channel'),
+              value: 'hideChannel'
+            })
+          }
         }
       }
 
@@ -441,6 +458,9 @@ export default defineComponent({
         case 'hideChannel':
           this.hideChannel(this.channelName)
           break
+        case 'unhideChannel':
+          this.unhideChannel(this.channelName)
+          break
       }
     },
 
@@ -634,6 +654,13 @@ export default defineComponent({
       this.updateChannelsHidden(JSON.stringify(hiddenChannels))
 
       showToast(this.$t('Channel Hidden', { channel: channelName }))
+    },
+
+    unhideChannel: function(channelName) {
+      const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelName)))
+
+      showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
 
     ...mapActions([
