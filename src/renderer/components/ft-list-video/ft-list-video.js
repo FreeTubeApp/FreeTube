@@ -211,10 +211,6 @@ export default defineComponent({
               type: 'divider'
             },
             {
-              label: this.$t('Video.Hide Channel'),
-              value: 'hideChannel'
-            },
-            {
               label: this.$t('Video.Copy YouTube Channel Link'),
               value: 'copyYoutubeChannel'
             },
