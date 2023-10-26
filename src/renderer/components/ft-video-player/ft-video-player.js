@@ -167,6 +167,7 @@ export default defineComponent({
             'remainingTimeDisplay',
             'customControlSpacer',
             'screenshotButton',
+            'autoPlayToggleButton',
             'playbackRateMenuButton',
             'loopButton',
             'audioTrackButton',
@@ -390,6 +391,7 @@ export default defineComponent({
       this.determineDefaultQualityDash()
     }
 
+    this.createAutoPlayToggleButton()
     this.createFullWindowButton()
     this.createLoopButton()
     this.createToggleTheatreModeButton()
@@ -1441,10 +1443,6 @@ export default defineComponent({
       videojs.registerComponent('loopButton', loopButton)
     },
 
-    toggleAutoPlay: function (){
-      this.$store.dispatch('updatePlayNextVideo', !this.$store.getters.getPlayNextVideo)
-    },
-
     toggleVideoLoop: function () {
       const loopButton = document.getElementById('loopButton')
 
@@ -1496,6 +1494,37 @@ export default defineComponent({
       }
 
       videojs.registerComponent('fullWindowButton', fullWindowButton)
+    },
+    // copying format of previous function
+    createAutoPlayToggleButton: function () {
+      const toggleAutoPlay = this.toggleAutoPlay
+
+      const VjsButton = videojs.getComponent('Button')
+      class autoPlayToggleButton extends VjsButton {
+        handleClick() {
+          toggleAutoPlay()
+        }
+
+        createControlTextEl(button) {
+          // Add class name to button to be able to target it with CSS selector
+          button.classList.add('vjs-button-spinner')
+          button.title = 'AutoPlay'
+
+          const div = document.createElement('div')
+          div.id = 'autoPlay'
+          // div.className = 'vjs-icon-spinner-spin vjs-button'
+          div.className = 'vjs-icon-spinner vjs-button'
+
+          button.appendChild(div)
+
+          return div
+        }
+      }
+
+      videojs.registerComponent('autoPlayToggleButton', autoPlayToggleButton)
+    },
+    toggleAutoPlay: function () {
+      this.$store.dispatch('updatePlayNextVideo', !this.$store.getters.getPlayNextVideo)
     },
 
     createToggleTheatreModeButton: function () {

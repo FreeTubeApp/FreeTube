@@ -108,9 +108,11 @@
 }
 
 .vjs-icon-spinner {
+  margin-top: 10px !important;
   font-family: VideoJS;
   font-weight: normal;
   font-style: normal;
+  position: relative;
 }
 .vjs-icon-spinner:before {
   content: "\f10b";
