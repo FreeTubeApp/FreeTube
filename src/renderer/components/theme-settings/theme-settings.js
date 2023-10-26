@@ -40,6 +40,10 @@ export default defineComponent({
         'catppuccinMocha',
         'pastelPink',
         'hotPink'
+      ],
+      settingsSectionListOrderValues: [
+        'defaultSort',
+        'alphabeticalAscending'
       ]
     }
   },
@@ -136,20 +140,23 @@ export default defineComponent({
       return this.$store.getters.getProfileListOptions
     },
 
-    settingsSectionListOptions: function () {
-      return this.$store.getters.getSettingsSectionListOptions
+    settingsSectionListOrder: function () {
+      return this.$store.getters.getSettingsSectionListOrder
+    },
+
+    settingsSectionListOrderNames: function () {
+      return [
+        this.$t('Settings.Theme Settings.List Display Settings.Sort.Default'),
+        this.$t('Settings.Theme Settings.List Display Settings.Sort.Sort by title (A to Z)'),
+      ]
     },
 
     subscriptionListDisplayDropdownOptions: function () {
-      return this.listDisplayDropdownOptions(this.subscriptionListOptions, false)
+      return this.listDisplayDropdownOptions(this.subscriptionListOptions)
     },
 
     profileListDisplayDropdownOptions: function () {
-      return this.listDisplayDropdownOptions(this.profileListOptions, false)
-    },
-
-    settingsSectionListDisplayDropdownOptions: function () {
-      return this.listDisplayDropdownOptions(this.settingsSectionListOptions, true)
+      return this.listDisplayDropdownOptions(this.profileListOptions)
     },
   },
   mounted: function () {
@@ -195,11 +202,6 @@ export default defineComponent({
       this.updateProfileListOptions(newListOptions)
     },
 
-    handleSettingsSectionListDisplayDropdownOptionClick: function (option) {
-      const newListOptions = this.getNewListOptions(this.settingsSectionListOptions, option)
-      this.updateSettingsSectionListOptions(newListOptions)
-    },
-
     getNewListOptions: function(list, option) {
       switch (option) {
         case 'defaultSort':
@@ -229,7 +231,7 @@ export default defineComponent({
       }
     },
 
-    listDisplayDropdownOptions: function (listOptions, showDefaultOption) {
+    listDisplayDropdownOptions: function (listOptions) {
       const radioGroupSort = []
       const options = [
         {
@@ -237,36 +239,21 @@ export default defineComponent({
           radios: radioGroupSort
         }
       ]
-      if (showDefaultOption) {
-        radioGroupSort.push(
-          {
-            type: 'checkbox',
-            label: this.$t('Settings.List Display Settings.Sort.Use default sort'),
-            value: 'defaultSort',
-            checked: listOptions.sort === 'defaultSort',
-          }
-        )
-      }
 
       radioGroupSort.push(
         {
           type: 'checkbox',
-          label: this.$t('Settings.List Display Settings.Sort.Sort by title (A to Z)'),
+          label: this.$t('Settings.Theme Settings.List Display Settings.Sort.Sort by title (A to Z)'),
           value: 'alphabeticalAscending',
           checked: listOptions.sort === 'alphabeticalAscending',
+        },
+        {
+          type: 'checkbox',
+          label: this.$t('Settings.Theme Settings.List Display Settings.Sort.Sort by title (Z to A)'),
+          value: 'alphabeticalDescending',
+          checked: listOptions.sort === 'alphabeticalDescending',
         }
       )
-
-      if (!showDefaultOption) {
-        radioGroupSort.push(
-          {
-            type: 'checkbox',
-            label: this.$t('Settings.List Display Settings.Sort.Sort by title (Z to A)'),
-            value: 'alphabeticalDescending',
-            checked: listOptions.sort === 'alphabeticalDescending',
-          }
-        )
-      }
 
       if (listOptions.displayType) {
         const radioGroupDisplayType = []
@@ -282,13 +269,13 @@ export default defineComponent({
           },
           {
             type: 'checkbox',
-            label: this.$t('Settings.List Display Settings.Display Type.List'),
+            label: this.$t('Settings.Theme Settings.List Display Settings.Display Type.List'),
             value: 'list',
             checked: listOptions.displayType === 'list',
           },
           {
             type: 'checkbox',
-            label: this.$t('Settings.List Display Settings.Display Type.Grid.Grid'),
+            label: this.$t('Settings.Theme Settings.List Display Settings.Display Type.Grid.Grid'),
             value: 'grid',
             checked: listOptions.displayType === 'grid',
           }
@@ -312,7 +299,7 @@ export default defineComponent({
           for (let i = 2; i <= 5; ++i) {
             radioGroupItemsPerGridRow.push({
               type: 'checkbox',
-              label: this.$tc('Settings.List Display Settings.Display Type.Grid.Item per grid row', i, { number: i }),
+              label: this.$tc('Settings.Theme Settings.List Display Settings.Display Type.Grid.Item per grid row', i, { number: i }),
               value: i,
               checked: listOptions.itemsPerGridRow === i
             })
@@ -331,13 +318,13 @@ export default defineComponent({
             },
             {
               type: 'checkbox',
-              label: this.$t('Settings.List Display Settings.Display Type.Grid.Show grid item titles'),
+              label: this.$t('Settings.Theme Settings.List Display Settings.Display Type.Grid.Show grid item titles'),
               value: 'showGridItemTitles',
               checked: listOptions.showGridItemTitles
             },
             {
               type: 'checkbox',
-              label: this.$t('Settings.List Display Settings.Display Type.Grid.Hide grid item titles'),
+              label: this.$t('Settings.Theme Settings.List Display Settings.Display Type.Grid.Hide grid item titles'),
               value: 'hideGridItemTitles',
               checked: !listOptions.showGridItemTitles,
             }
@@ -361,7 +348,7 @@ export default defineComponent({
       'updateSubscriptionListSort',
       'updateSubscriptionListOptions',
       'updateProfileListOptions',
-      'updateSettingsSectionListOptions'
+      'updateSettingsSectionListOrder'
     ])
   }
 })

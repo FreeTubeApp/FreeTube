@@ -112,7 +112,7 @@ export default defineComponent({
 
     sortedSettingsSectionComponents: function () {
       const settingsComponents = deepCopy(this.settingsComponents)
-      sortListUsingMethod(settingsComponents, 'title', this.settingsSectionListOptions.sort)
+      sortListUsingMethod(settingsComponents, 'title', this.settingsSectionListOrder)
       return settingsComponents
     },
 
@@ -124,8 +124,8 @@ export default defineComponent({
       return this.$store.getters.getSettingsPassword
     },
 
-    settingsSectionListOptions: function () {
-      return this.$store.getters.getSettingsSectionListOptions
+    settingsSectionListOrder: function () {
+      return this.$store.getters.getSettingsSectionListOrder
     },
   },
   created: function () {

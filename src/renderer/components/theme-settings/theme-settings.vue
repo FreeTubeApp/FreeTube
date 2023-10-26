@@ -41,38 +41,6 @@
     </div>
     <br>
     <ft-flex-box>
-      <ft-icon-button
-        :icon="['fas', 'bars']"
-        :title="$t('Settings.List Display Settings.Subscription List Display Options')"
-        :use-ft-button="true"
-        :close-on-click="false"
-        :size="22"
-        dropdown-position-x="bottom"
-        :dropdown-options="subscriptionListDisplayDropdownOptions"
-        @click="handleSubscriptionListDisplayDropdownOptionClick"
-      />
-      <ft-icon-button
-        :icon="['fas', 'user']"
-        :title="$t('Settings.List Display Settings.Profile List Display Options')"
-        :use-ft-button="true"
-        :close-on-click="false"
-        :size="22"
-        dropdown-position-x="bottom"
-        :dropdown-options="profileListDisplayDropdownOptions"
-        @click="handleProfileListDisplayDropdownOptionClick"
-      />
-      <ft-icon-button
-        :icon="['fas', 'sliders']"
-        :title="$t('Settings.List Display Settings.Settings Section List Display Options')"
-        :use-ft-button="true"
-        :close-on-click="false"
-        :size="22"
-        dropdown-position-x="bottom"
-        :dropdown-options="settingsSectionListDisplayDropdownOptions"
-        @click="handleSettingsSectionListDisplayDropdownOptionClick"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
       <ft-slider
         :label="$t('Settings.Theme Settings.UI Scale')"
         :default-value="uiScale"
@@ -83,6 +51,42 @@
         @change="updateUiScale(parseInt($event))"
       />
     </ft-flex-box>
+    <br>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-select
+          :placeholder="$t('Settings.Theme Settings.Settings Section Sort Order')"
+          :value="settingsSectionListOrder"
+          :select-names="settingsSectionListOrderNames"
+          :select-values="settingsSectionListOrderValues"
+          @change="updateSettingsSectionListOrder"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-icon-button
+          class="listDisplayOptions"
+          :icon="['fas', 'bars']"
+          :title="$t('Settings.Theme Settings.List Display Settings.Subscription List Display Options')"
+          :use-ft-button="true"
+          :close-on-click="false"
+          :size="22"
+          dropdown-position-x="bottom"
+          :dropdown-options="subscriptionListDisplayDropdownOptions"
+          @click="handleSubscriptionListDisplayDropdownOptionClick"
+        />
+        <ft-icon-button
+          class="listDisplayOptions"
+          :icon="['fas', 'user']"
+          :title="$t('Settings.Theme Settings.List Display Settings.Profile List Display Options')"
+          :use-ft-button="true"
+          :close-on-click="false"
+          :size="22"
+          dropdown-position-x="bottom"
+          :dropdown-options="profileListDisplayDropdownOptions"
+          @click="handleProfileListDisplayDropdownOptionClick"
+        />
+      </div>
+    </div>
     <br>
     <ft-flex-box>
       <ft-select
@@ -120,3 +124,4 @@
 </template>
 
 <script src="./theme-settings.js" />
+<style scoped lang="scss" src="./theme-settings.scss" />

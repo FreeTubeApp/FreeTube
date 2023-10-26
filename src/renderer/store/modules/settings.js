@@ -309,9 +309,7 @@ const state = {
     showGridItemTitles: true,
     itemsPerGridRow: 2
   },
-  settingsSectionListOptions: {
-    sort: 'defaultSort'
-  }
+  settingsSectionListOrder: 'defaultSort'
 }
 
 const stateWithSideEffects = {

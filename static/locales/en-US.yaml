@@ -197,6 +197,21 @@ Settings:
     UI Scale: UI Scale
     Hide Side Bar Labels: Hide Side Bar Labels
     Hide FreeTube Header Logo: Hide FreeTube Header Logo
+    Settings Section Sort Order: Settings Section Sort Order
+    List Display Settings:
+      Subscription List Display Options: Subscription List Display Options
+      Profile List Display Options: Profile List Display Options
+      Sort:
+        Default: Default
+        Sort by title (A to Z): Sort by title (A to Z)
+        Sort by title (Z to A): Sort by title (Z to A)
+      Display Type:
+        List: List
+        Grid:
+          Grid: Grid
+          Item per grid row: 1 item per grid row | {number} items per grid row
+          Show grid item titles: Show grid item titles
+          Hide grid item titles: Hide grid item titles
     Base Theme:
       Base Theme: Base Theme
       Black: Black
@@ -473,21 +488,6 @@ Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
-  List Display Settings:
-    Subscription List Display Options: Subscription List Display Options
-    Profile List Display Options: Profile List Display Options
-    Settings Section List Display Options: Settings Section List Display Options
-    Sort:
-      Use default sort: Use default sort
-      Sort by title (A to Z): Sort by title (A to Z)
-      Sort by title (Z to A): Sort by title (Z to A)
-    Display Type:
-      List: List
-      Grid:
-        Grid: Grid
-        Item per grid row: 1 item per grid row | {number} items per grid row
-        Show grid item titles: Show grid item titles
-        Hide grid item titles: Hide grid item titles
 
 About:
   #On About page
