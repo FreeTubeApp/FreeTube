@@ -254,14 +254,19 @@ export default defineComponent({
           label: this.$t('Settings.List Display Settings.Sort.Sort by title (A to Z)'),
           value: 'alphabeticalAscending',
           checked: listOptions.sort === 'alphabeticalAscending',
-        },
-        {
-          type: 'checkbox',
-          label: this.$t('Settings.List Display Settings.Sort.Sort by title (Z to A)'),
-          value: 'alphabeticalDescending',
-          checked: listOptions.sort === 'alphabeticalDescending',
         }
       )
+
+      if (!showDefaultOption) {
+        radioGroupSort.push(
+          {
+            type: 'checkbox',
+            label: this.$t('Settings.List Display Settings.Sort.Sort by title (Z to A)'),
+            value: 'alphabeticalDescending',
+            checked: listOptions.sort === 'alphabeticalDescending',
+          }
+        )
+      }
 
       if (listOptions.displayType) {
         const radioGroupDisplayType = []
