@@ -11,10 +11,6 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
-function locale() {
-  return i18n.locale.replace('_', '-')
-}
-
 /**
  * @param {string} publishedText
  */
@@ -679,14 +675,15 @@ export function deepCopy(obj) {
 }
 
 export function sortListUsingMethod(list, property, method) {
+  const locale = i18n.locale.replace('_', '-')
   switch (method) {
     case 'defaultSort':
       break
     case 'alphabeticalAscending':
-      list.sort((a, b) => a[property]?.toLowerCase().localeCompare(b[property]?.toLowerCase(), locale()))
+      list.sort((a, b) => a[property]?.toLowerCase().localeCompare(b[property]?.toLowerCase(), locale))
       break
     case 'alphabeticalDescending':
-      list.sort((a, b) => b[property]?.toLowerCase().localeCompare(a[property]?.toLowerCase(), locale()))
+      list.sort((a, b) => b[property]?.toLowerCase().localeCompare(a[property]?.toLowerCase(), locale))
       break
   }
 }
