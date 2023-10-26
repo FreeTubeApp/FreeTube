@@ -2,7 +2,7 @@
   <div
     ref="iconButton"
     class="ftIconButton"
-    @focusout="handleDropdownFocusOut()"
+    @focusout="handleDropdownFocusOut"
   >
     <font-awesome-icon
       v-if="!hideIcon && !useFtButton"

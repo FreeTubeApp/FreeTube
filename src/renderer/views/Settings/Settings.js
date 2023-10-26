@@ -104,7 +104,7 @@ export default defineComponent({
   },
   computed: {
     settingsComponents: function () {
-      if (!this.usingElectron) {
+      if (!process.env.IS_ELECTRON) {
         return this.settingsComponentsData.filter((settingsComponent) => !settingsComponent.electronNeeded)
       }
       return this.settingsComponentsData

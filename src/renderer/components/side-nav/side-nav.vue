@@ -200,7 +200,7 @@
       </router-link>
       <hr>
       <div
-        v-if="!hideActiveSubscriptions && (!isOpen | subscriptionListOptions.displayType === 'list')"
+        v-if="!hideActiveSubscriptions && (!isOpen || subscriptionListOptions.displayType === 'list')"
       >
         <router-link
           v-for="(channel, index) in activeSubscriptions"
@@ -208,7 +208,6 @@
           :to="`/channel/${channel.id}`"
           class="navChannel channelLink mobileHidden"
           :title="channel.name"
-          role="link"
         >
           <div
             class="thumbnailContainer"

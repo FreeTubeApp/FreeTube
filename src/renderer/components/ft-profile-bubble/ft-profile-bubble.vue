@@ -21,7 +21,7 @@
     </div>
     <div
       :id="sanitizedId"
-      :hidden="!showTitle"
+      v-show="showTitle"
       class="profileName"
     >
       {{ profileName }}
