@@ -1,15 +1,18 @@
 <template>
   <div>
     <template v-if="unlocked">
-      <div
+      <template
         v-for="(settingsComponent, i) in sortedSettingsSectionComponents"
-        :key="i"
       >
-        <hr v-if="i !== 0">
+        <hr
+          v-if="i !== 0"
+          :key="settingsComponent.type + 'hr'"
+        >
         <component
           :is="settingsComponent.type"
+          :key="settingsComponent.type + 'component'"
         />
-      </div>
+      </template>
     </template>
     <password-dialog
       v-else

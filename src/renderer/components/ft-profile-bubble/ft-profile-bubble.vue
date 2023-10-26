@@ -20,8 +20,8 @@
       </div>
     </div>
     <div
-      :id="sanitizedId"
       v-show="showTitle"
+      :id="sanitizedId"
       class="profileName"
     >
       {{ profileName }}

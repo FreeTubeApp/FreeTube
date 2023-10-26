@@ -62,7 +62,7 @@ export default defineComponent({
         },
         {
           type: 'distraction-settings',
-          title: this.$t('Settings.Distraction Settings.Distraction Settings')
+          title: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
         },
         {
           type: 'privacy-settings',

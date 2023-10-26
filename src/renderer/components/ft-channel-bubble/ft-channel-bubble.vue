@@ -55,8 +55,8 @@
       />
     </div>
     <div
-      :id="sanitizedId"
       v-show="showTitle"
+      :id="sanitizedId"
       class="channelName"
     >
       {{ channelName }}
