@@ -675,7 +675,7 @@ export function deepCopy(obj) {
 
 /**
  * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
- * @param {number} milliseconds
+ * @param {number} timeoutMs
  * @param {RequestInfo|URL} input
  * @param {RequestInit=} init
  */
