@@ -679,8 +679,8 @@ export function deepCopy(obj) {
  * @param {RequestInfo|URL} input
  * @param {RequestInit=} init
  */
-export async function fetchWithTimeout(milliseconds, input, init) {
-  const timeoutSignal = AbortSignal.timeout(milliseconds)
+export async function fetchWithTimeout(timeoutMs, input, init) {
+  const timeoutSignal = AbortSignal.timeout(timeoutMs)
 
   if (typeof init !== 'undefined') {
     init.signal = timeoutSignal
