@@ -10,12 +10,10 @@
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
       />
-      <ft-flex-box>
-        <ft-button
-          :label="$t('Settings.Data Settings.Manage Subscriptions')"
-          @click="openProfileSettings"
-        />
-      </ft-flex-box>
+      <ft-button
+        :label="$t('Settings.Data Settings.Manage Subscriptions')"
+        @click="openProfileSettings"
+      />
       <ft-button
         :label="$t('Settings.Data Settings.Export Subscriptions')"
         @click="showExportSubscriptionsPrompt = true"
