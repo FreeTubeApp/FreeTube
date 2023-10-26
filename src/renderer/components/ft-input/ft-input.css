@@ -100,6 +100,7 @@
   padding: 1rem;
   border: none;
   margin-block-end: 10px;
+  margin-block-start: 10px;
   font-size: 16px;
   block-size: 45px;
   color: var(--secondary-text-color);

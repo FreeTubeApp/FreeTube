@@ -2,16 +2,35 @@
   <ft-settings-section
     :title="$t('Settings.Data Settings.Data Settings')"
   >
+    <h4 class="groupTitle">
+      {{ $t('Subscriptions.Subscriptions') }}
+    </h4>
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
       />
+      <ft-flex-box>
+        <ft-button
+          :label="$t('Settings.Data Settings.Manage Subscriptions')"
+          @click="openProfileSettings"
+        />
+      </ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Export Subscriptions')"
         @click="showExportSubscriptionsPrompt = true"
       />
     </ft-flex-box>
+    <ft-flex-box>
+      <p>
+        <a href="https://docs.freetubeapp.io/usage/importing-subscriptions/">
+          {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
+        </a>
+      </p>
+    </ft-flex-box>
+    <h4 class="groupTitle">
+      {{ $t('History.History') }}
+    </h4>
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import History')"
@@ -22,19 +41,9 @@
         @click="exportHistory"
       />
     </ft-flex-box>
-    <ft-flex-box>
-      <p>
-        <a href="https://docs.freetubeapp.io/usage/importing-subscriptions/">
-          {{ $t("Settings.Data Settings.How do I import my subscriptions?") }}
-        </a>
-      </p>
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-button
-        :label="$t('Settings.Data Settings.Manage Subscriptions')"
-        @click="openProfileSettings"
-      />
-    </ft-flex-box>
+    <h4 class="groupTitle">
+      {{ $t('Playlists') }}
+    </h4>
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Playlists')"
