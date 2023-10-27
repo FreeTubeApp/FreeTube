@@ -687,3 +687,35 @@ export function sortListUsingMethod(list, property, method) {
       break
   }
 }
+
+/**
+ * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
+ * @param {number} timeoutMs
+ * @param {RequestInfo|URL} input
+ * @param {RequestInit=} init
+ */
+export async function fetchWithTimeout(timeoutMs, input, init) {
+  const timeoutSignal = AbortSignal.timeout(timeoutMs)
+
+  if (typeof init !== 'undefined') {
+    init.signal = timeoutSignal
+  } else {
+    init = {
+      signal: timeoutSignal
+    }
+  }
+
+  try {
+    return await fetch(input, init)
+  } catch (err) {
+    if (err.name === 'AbortError' && timeoutSignal.aborted) {
+      // According to the spec, fetch should use the original abort reason.
+      // Unfortunately chromium browsers always throw an AbortError, even when it was caused by a TimeoutError,
+      // so we need manually throw the original abort reason
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=1431720
+      throw timeoutSignal.reason
+    } else {
+      throw err
+    }
+  }
+}
