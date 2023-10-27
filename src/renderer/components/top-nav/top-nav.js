@@ -263,7 +263,7 @@ export default defineComponent({
         console.error(err)
         if (process.env.IS_ELECTRON && this.backendFallback) {
           console.error(
-            'Error gettings search suggestions.  Falling back to Local API'
+            'Error gettings search suggestions.  Falling back to the local API'
           )
           this.getSearchSuggestionsLocal(query)
         }

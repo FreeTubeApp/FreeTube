@@ -240,7 +240,7 @@ export default defineComponent({
           copyToClipboard(err)
         })
         if (process.env.IS_ELECTRON && this.backendPreference === 'invidious' && this.backendFallback) {
-          showToast(this.$t('Falling back to Local API'))
+          showToast(this.$t('Falling back to the local API'))
           this.performSearchLocal(payload)
         } else {
           this.isLoading = false

@@ -92,22 +92,22 @@
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
           <span class="viewCount">
-            <template v-if="channelId !== null"> • </template>
+            <template v-if="channelId !== null">{{ $t("Grammar.BulletSeparator") }}</template>
             {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
           </span>
         </template>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
           class="uploadedTime"
-        > • {{ uploadedTime }}</span>
+        >{{ $t("Grammar.BulletSeparator") }}{{ uploadedTime }}</span>
         <span
           v-if="inHistory"
           class="uploadedTime"
-        > • {{ publishedText }}</span>
+        >{{ $t("Grammar.BulletSeparator") }}{{ publishedText }}</span>
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
-        > • {{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
+        >{{ $t("Grammar.BulletSeparator") }}{{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
       </div>
       <ft-icon-button
         class="optionsButton"

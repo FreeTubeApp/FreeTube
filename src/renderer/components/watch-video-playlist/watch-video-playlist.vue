@@ -33,7 +33,7 @@
       <span
         class="playlistIndex"
       >
-        - {{ currentVideoIndex }} / {{ playlistVideoCount }}
+        {{ $t('Grammar.DashSeparator') }}{{ $t('Grammar.Index / Count', {index: currentVideoIndex, count: playlistVideoCount}) }}
         <progress
           v-if="!shuffleEnabled && !reversePlaylist"
           class="playlistProgressBar"

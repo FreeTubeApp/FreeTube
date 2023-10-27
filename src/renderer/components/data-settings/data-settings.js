@@ -1081,7 +1081,7 @@ export default defineComponent({
         })
 
         if (this.backendFallback && this.backendPreference === 'local') {
-          showToast(this.$t('Falling back to the Invidious API'))
+          showToast(this.$t('Falling back to Invidious API'))
           return await this.getChannelInfoInvidious(channelId)
         } else {
           return []

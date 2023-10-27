@@ -60,16 +60,16 @@
           {{ $t('Settings.Proxy Settings.Your Info') }}
         </h3>
         <p>
-          {{ $t('Settings.Proxy Settings.Ip') }}: {{ proxyIp }}
+          {{ $t('Grammar.ColonText', {text: $t('Settings.Proxy Settings.Ip')}) }} {{ proxyIp }}
         </p>
         <p>
-          {{ $t('Settings.Proxy Settings.Country') }}: {{ proxyCountry }}
+          {{ $t('Grammar.ColonText', {text: $t('Settings.Proxy Settings.Country')}) }} {{ proxyCountry }}
         </p>
         <p>
-          {{ $t('Settings.Proxy Settings.Region') }}: {{ proxyRegion }}
+          {{ $t('Grammar.ColonText', {text: $t('Settings.Proxy Settings.Region')}) }} {{ proxyRegion }}
         </p>
         <p>
-          {{ $t('Settings.Proxy Settings.City') }}: {{ proxyCity }}
+          {{ $t('Grammar.ColonText', {text: $t('Settings.Proxy Settings.City')}) }} {{ proxyCity }}
         </p>
       </div>
     </template>

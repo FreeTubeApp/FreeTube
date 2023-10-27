@@ -75,7 +75,7 @@
         id="invidiousShare"
         class="header invidious"
       >
-        <span class="invidiousLogo" />Invidious
+        <span class="invidiousLogo" /> {{ $t('Invidious') }}
       </div>
 
       <div class="buttons">

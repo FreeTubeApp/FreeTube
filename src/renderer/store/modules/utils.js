@@ -224,7 +224,7 @@ const actions = {
       }
 
       if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-        reject(new Error('Forbidden Characters')) // use message as translation key
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))) // use message as translation key
       }
 
       let filename
@@ -236,7 +236,7 @@ const actions = {
       }
 
       if (!filename) {
-        reject(new Error('Empty File Name'))
+        reject(new Error('Settings.Player Settings.Screenshot.Error.Empty File Name'))
       }
 
       resolve(parsedString)

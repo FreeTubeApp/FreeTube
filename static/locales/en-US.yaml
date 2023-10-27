@@ -1,6 +1,7 @@
 # Put the name of your locale in the same language
 Locale Name: English (US)
 FreeTube: FreeTube
+Invidious: Invidious
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   This part of the app is not ready yet. Come back later when progress has been made.
@@ -31,6 +32,7 @@ Close: Close
 Back: Back
 Forward: Forward
 Open New Window: Open New Window
+Close Banner: Close Banner
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -928,3 +930,13 @@ Hashtag:
 Yes: Yes
 No: No
 Ok: Ok
+
+Grammar:
+  # add colon after text
+  ColonText: '{text}:'
+  # separates some fields (ex: 5 videos - 10 channels)
+  DashSeparator: ' - '
+  # separates some fields (ex: 5 videos - 10 channels)
+  BulletSeparator: ' • '
+  # Index / Count
+  Index / Count: '{index} / {count}'

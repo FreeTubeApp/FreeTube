@@ -1111,3 +1111,7 @@ Playlist will pause when current video is finished: La liste de lecture se met e
   pause lorsque la vidéo en cours est terminée
 Playlist will not pause when current video is finished: La liste de lecture ne se
   met pas en pause lorsque la vidéo en cours est terminée
+
+Grammar:
+  # add colon after text
+  ColonText: '{text} :'

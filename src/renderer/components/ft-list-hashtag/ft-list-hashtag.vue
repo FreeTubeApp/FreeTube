@@ -39,7 +39,7 @@
           v-if="videoCount"
           class="videoCount"
         >
-          <template v-if="channelCount"> • </template>
+          <template v-if="channelCount">{{ $t("Grammar.BulletSeparator") }}</template>
           {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideosCount}) }}
         </span>
       </div>
