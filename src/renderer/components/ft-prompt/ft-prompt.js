@@ -68,9 +68,7 @@ export default defineComponent({
     this.focusItem(0)
   },
   destroyed() {
-    if (this.lastActiveElement != null) {
-      this.lastActiveElement.focus()
-    }
+    this.lastActiveElement?.focus()
   },
   methods: {
     hide: function() {

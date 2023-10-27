@@ -40,9 +40,7 @@ export default Vue.extend({
     this.$refs.playlistNameInput.focus()
   },
   destroyed() {
-    if (this.lastActiveElement != null) {
-      this.lastActiveElement.focus()
-    }
+    this.lastActiveElement?.focus()
   },
   methods: {
     createNewPlaylist: function () {

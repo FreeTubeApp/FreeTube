@@ -196,9 +196,7 @@ export default Vue.extend({
     this.$refs.searchBar.focus()
   },
   destroyed() {
-    if (this.lastActiveElement != null) {
-      this.lastActiveElement.focus()
-    }
+    this.lastActiveElement?.focus()
   },
   methods: {
     hide: function () {
