@@ -24,6 +24,7 @@
         class="profileDropdownToggle"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
+        :aria-expanded="isProfileDropdownOpen"
         @click="toggleProfileDropdown"
       >
         <font-awesome-icon
@@ -38,17 +39,14 @@
       >
         <ul
           class="profileList"
-          :aria-expanded="isProfileDropdownOpen"
         >
-          <!-- may want to make role="checkbox" -->
           <li
             v-for="(profile, index) in profileDisplayList"
             :id="'profile-' + index"
             :key="'subscription-profile-' + index"
             class="profile"
             :class="{
-              subscribed: isProfileSubscribed(profile),
-              unsubscribed: !isProfileSubscribed(profile)
+              subscribed: isProfileSubscribed(profile)
             }"
             :aria-labelledby="'profile-' + index + '-name'"
             :aria-selected="isActiveProfile(profile)"
