@@ -1,5 +1,10 @@
 <template>
-  <div class="subscribeButton">
+  <div
+    ref="subscribeButton"
+    class="ftSubscribeButton"
+    :class="{ dropdownOpened: isProfileDropdownOpen}"
+    @focusout="handleProfileDropdownFocusOut"
+  >
     <div
       class="buttonList"
       :class="{ hasProfileDropdownToggle: isProfileDropdownEnabled}"
@@ -27,51 +32,54 @@
       </ft-button>
     </div>
     <template v-if="isProfileDropdownOpen">
-      <ul
-        ref="profileDropdown"
+      <div
         tabindex="-1"
-        class="profileDropdown bottom"
-        @focusout="handleProfileDropdownFocusOut"
+        class="profileDropdown"
       >
-        <!-- may want to make role="checkbox" -->
-        <li
-          v-for="(profile, index) in profileDisplayList"
-          :id="'profile-' + index"
-          :key="'subscription-profile-' + index"
-          class="profile"
-          :class="{
-            subscribed: isProfileSubscribed(profile),
-            unsubscribed: !isProfileSubscribed(profile)
-          }"
-          :aria-labelledby="'profile-' + index + '-name'"
-          :aria-selected="isActiveProfile(profile)"
-          :aria-checked="isProfileSubscribed(profile)"
-          tabindex="0"
-          role="checkbox"
-          @click.stop.prevent="handleSubscription(profile)"
-          @keydown.space.stop.prevent="handleSubscription(profile)"
+        <ul
+          class="profileList"
+          :aria-expanded="isProfileDropdownOpen"
         >
-          <div
-            class="colorOption"
-            :style="{ background: profile.bgColor, color: profile.textColor }"
+          <!-- may want to make role="checkbox" -->
+          <li
+            v-for="(profile, index) in profileDisplayList"
+            :id="'profile-' + index"
+            :key="'subscription-profile-' + index"
+            class="profile"
+            :class="{
+              subscribed: isProfileSubscribed(profile),
+              unsubscribed: !isProfileSubscribed(profile)
+            }"
+            :aria-labelledby="'profile-' + index + '-name'"
+            :aria-selected="isActiveProfile(profile)"
+            :aria-checked="isProfileSubscribed(profile)"
+            tabindex="0"
+            role="checkbox"
+            @click.stop.prevent="handleSubscription(profile)"
+            @keydown.space.stop.prevent="handleSubscription(profile)"
           >
             <div
-              class="initial"
+              class="colorOption"
+              :style="{ background: profile.bgColor, color: profile.textColor }"
             >
-              {{ profileInitials[index] }}
+              <div
+                class="initial"
+              >
+                {{ isProfileSubscribed(profile) ? '✓' : profileInitials[index] }}
+              </div>
             </div>
-          </div>
-          <p
-            :id="'profile-' + index + '-name'"
-            class="profileName"
-          >
-            {{ profile.name }}
-          </p>
-        </li>
-      </ul>
+            <p
+              :id="'profile-' + index + '-name'"
+              class="profileName"
+            >
+              {{ profile.name }}
+            </p>
+          </li>
+        </ul>
+      </div>
     </template>
   </div>
 </template>
 
 <script src="./ft-subscribe-button.js" />
-<style src="./ft-subscribe-button.css" />
+<style lang="scss" src="./ft-subscribe-button.scss" />

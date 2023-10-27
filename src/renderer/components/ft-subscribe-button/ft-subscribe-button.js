@@ -42,7 +42,7 @@ export default defineComponent({
   },
   computed: {
     profileInitials: function () {
-      return this.profileList.map((profile) => {
+      return this.profileDisplayList.map((profile) => {
         return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
     },
@@ -51,15 +51,19 @@ export default defineComponent({
       return this.$store.getters.getProfileList
     },
 
+    /* sort by 'All Channels' -> active profile -> unsubscribed channels -> unsubscribed channels */
     profileDisplayList: function () {
-      if (this.activeProfile._id === MAIN_PROFILE_ID) {
-        return this.profileList
+      const mainProfileAndActiveProfile = [this.profileList[0]]
+      if (this.activeProfile._id !== MAIN_PROFILE_ID) {
+        mainProfileAndActiveProfile.push(this.activeProfile)
       }
 
       return [
-        this.profileList[0],
-        this.activeProfile,
-        ...this.profileList.filter((profile, i) => i !== 0 && !this.isActiveProfile(profile))
+        ...mainProfileAndActiveProfile,
+        ...this.profileList.filter((profile, i) =>
+          i !== 0 && !this.isActiveProfile(profile) && !this.isProfileSubscribed(profile)),
+        ...this.profileList.filter((profile, i) =>
+          i !== 0 && !this.isActiveProfile(profile) && this.isProfileSubscribed(profile))
       ]
     },
 
@@ -154,7 +158,7 @@ export default defineComponent({
     },
 
     handleProfileDropdownFocusOut: function () {
-      if (!this.$refs.profileDropdown.matches(':focus-within')) {
+      if (!this.$refs.subscribeButton.matches(':focus-within')) {
         this.isProfileDropdownOpen = false
       }
     },
