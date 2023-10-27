@@ -259,7 +259,7 @@ export default defineComponent({
         playlistLoop: this.getPlaylistLoop(),
       }
       // Only play video in non playlist mode when user playlist detected
-      if (!this.inUserPlaylist) {
+      if (this.inUserPlaylist) {
         Object.assign(payload, {
           playlistId: null,
           playlistIndex: null,
