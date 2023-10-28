@@ -237,6 +237,7 @@
     <br class="hide-on-mobile">
     <ft-flex-box>
       <ft-input-tags
+        :disabled="channelHiderDisabled"
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"

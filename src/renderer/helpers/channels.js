@@ -50,6 +50,15 @@ export async function findChannelTagInfo(id, backendOptions) {
     }
   } catch (err) {
     console.error(err)
-    return { preferredName: '', icon: '' }
+    return { preferredName: '', icon: '', err }
   }
+}
+
+/**
+ * Check whether Id provided might be a YouTube Id
+ * @param {string} id
+ * @returns {boolean}
+ */
+export function checkYoutubeId(id) {
+  return /UC\S{22}/.test(id)
 }

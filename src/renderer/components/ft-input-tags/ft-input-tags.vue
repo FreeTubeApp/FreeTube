@@ -2,8 +2,16 @@
   <div
     class="ft-input-tags-component"
   >
+    <div
+      v-if="disabled"
+      class="disabledMsg"
+    >
+      Some channels were blocked using ID and weren't processed.
+      Feature is blocked while those IDs are updating
+    </div>
     <ft-input
       ref="tagNameInput"
+      :disabled="disabled"
       :placeholder="tagNamePlaceholder"
       :label="label"
       :show-label="true"
@@ -27,6 +35,7 @@
           >
           <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
           <font-awesome-icon
+            v-if="!disabled"
             :icon="['fas', 'fa-times']"
             class="removeTagButton"
             tabindex="0"

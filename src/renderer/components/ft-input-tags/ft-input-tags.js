@@ -7,6 +7,10 @@ export default defineComponent({
     'ft-input': FtInput,
   },
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     tagNamePlaceholder: {
       type: String,
       required: true

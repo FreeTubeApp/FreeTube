@@ -5,7 +5,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import { showToast } from '../../helpers/utils'
-import { findChannelTagInfo } from '../../helpers/channels'
+import { checkYoutubeId, findChannelTagInfo } from '../../helpers/channels'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -14,6 +14,11 @@ export default defineComponent({
     'ft-toggle-switch': FtToggleSwitch,
     'ft-input-tags': FtInputTags,
     'ft-flex-box': FtFlexBox,
+  },
+  data: function () {
+    return {
+      channelHiderDisabled: false,
+    }
   },
   computed: {
     backendOptions: function () {
@@ -100,7 +105,7 @@ export default defineComponent({
     hideSubscriptionsLive: function () {
       return this.$store.getters.getHideSubscriptionsLive
     },
-    hideSubscriptionsCommunity: function() {
+    hideSubscriptionsCommunity: function () {
       return this.$store.getters.getHideSubscriptionsCommunity
     },
     showDistractionFreeTitles: function () {
@@ -129,6 +134,9 @@ export default defineComponent({
       })
     }
   },
+  mounted: function () {
+    this.verifyChannelsHidden()
+  },
   methods: {
     handleHideRecommendedVideos: function (value) {
       if (value) {
@@ -145,6 +153,24 @@ export default defineComponent({
     },
     findChannelTagInfo: async function (text) {
       return await findChannelTagInfo(text, this.backendOptions)
+    },
+    verifyChannelsHidden: async function () {
+      const channelsHiddenCpy = [...this.channelsHidden]
+
+      for (let i = 0; i < channelsHiddenCpy.length; i++) {
+        const tag = this.channelsHidden[i]
+        if (tag.preferredName === '' && checkYoutubeId(tag.name)) {
+          this.channelHiderDisabled = true
+
+          const { preferredName, icon, err } = await this.findChannelTagInfo(tag.name)
+          if (err) continue
+          const newTag = { name: tag.name, preferredName, icon }
+          channelsHiddenCpy[i] = newTag
+
+          // update on every tag in case it closes
+          this.handleChannelsHidden(channelsHiddenCpy)
+        }
+      }
     },
 
     ...mapActions([

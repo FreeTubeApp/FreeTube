@@ -7,6 +7,11 @@
   inline-size: 60%;
 }
 
+.disabledMsg {
+  color: rgb(233, 255, 108);
+  padding-block-end: 10px;
+}
+
 .ft-tag-box ul {
   overflow: visible;
   display: block;
@@ -25,16 +30,11 @@
 
 .ft-tag-box li>span {
   padding-block: 10px;
-  padding-inline-start: 10px;
+  padding-inline: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
   hyphens: auto;
-}
-
-.ft-tag-box li .tooltip {
-  margin-inline-start: 5px;
-  padding-block: 10px;
 }
 
 .tag-icon {
@@ -48,6 +48,7 @@
   color: var(--primary-text-color);
   opacity: 0.5;
   padding: 10px;
+  padding-inline-start: 0px;
 }
 
 .removeTagButton:hover {
