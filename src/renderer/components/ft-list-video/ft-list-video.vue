@@ -112,7 +112,7 @@
       <ft-icon-button
         class="optionsButton"
         :icon="['fas', 'ellipsis-v']"
-        title="More Options"
+        :title="$t('Video.More Options')"
         theme="base-no-default"
         :size="16"
         :use-shadow="false"

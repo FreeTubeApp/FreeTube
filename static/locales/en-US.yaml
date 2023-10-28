@@ -2,6 +2,7 @@
 Locale Name: English (US)
 FreeTube: FreeTube
 Invidious: Invidious
+YouTube: YouTube
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   This part of the app is not ready yet. Come back later when progress has been made.
@@ -734,6 +735,7 @@ Video:
     Buffered: Buffered
     Dropped / Total Frames: Dropped / Total Frames
     Mimetype: Mimetype
+  More Options: More Options
 #& Videos
 Videos:
   #& Sort By

@@ -24,7 +24,7 @@
           id="youtubeShareImage"
           class="youtubeLogo"
           src="~../../assets/img/yt_logo_mono_dark.png"
-          alt="YouTube"
+          :alt="$t('YouTube')"
           width="794"
           height="178"
         >

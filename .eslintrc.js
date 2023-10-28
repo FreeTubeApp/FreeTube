@@ -85,7 +85,25 @@ module.exports = {
     //     extensions: ['.js', '.vue']
     //   }
     // ],
-    '@intlify/vue-i18n/no-duplicate-keys-in-locale': 'error'
+    '@intlify/vue-i18n/no-duplicate-keys-in-locale': 'error',
+    '@intlify/vue-i18n/no-raw-text': [
+      'error',
+      {
+        attributes: {
+          '/.+/': [
+            'title',
+            'aria-label',
+            'aria-placeholder',
+            'aria-roledescription',
+            'aria-valuetext',
+            'tooltip',
+            'message'
+          ],
+          input: ['placeholder', 'value'],
+          img: ['alt']
+        },
+      }
+    ],
   },
   settings: {
     'vue-i18n': {
