@@ -1,6 +1,5 @@
 import { defineComponent } from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 
 export default defineComponent({
   name: 'FtInputTags',
