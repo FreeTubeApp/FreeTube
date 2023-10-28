@@ -694,13 +694,13 @@ Video:
     Hour: Stunde
     Hours: Stunden
     Day: Tag
-    Days: Tagen
+    Days: Tage
     Week: Woche
     Weeks: Wochen
     Month: Monat
-    Months: Monaten
+    Months: Monate
     Year: Jahr
-    Years: Jahren
+    Years: Jahre
     Ago: vor
     Upcoming: Premiere am
     Minutes: Minuten
@@ -724,7 +724,7 @@ Video:
   Starting soon, please refresh the page to check again: Es beginnt bald, bitte aktualisiere
     die Seite, um es erneut zu überprüfen
   Audio:
-    Best: Bestes
+    Best: Am besten
     High: Hoch
     Medium: Mittel
     Low: Niedrig
@@ -741,7 +741,7 @@ Video:
     Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
-  translated from English: Aus dem Englischen übersetzt
+  translated from English: aus dem Englischen übersetzt
   Sponsor Block category:
     music offtopic: Musik Offtopic
     interaction: Interaktion
@@ -756,16 +756,15 @@ Video:
     OpenInTemplate: In {externalPlayer} öffnen
     Unsupported Actions:
       setting a playback rate: Wiedergabegeschwindigkeit festlegen
-      starting video at offset: Starte Video an Stelle
-      looping playlists: Wiedergabeliste wiederholen
-      shuffling playlists: Wiedergabeliste durcheinandermischen
-      reversing playlists: Wiedergabeliste umkehren
-      opening specific video in a playlist (falling back to opening the video): Öffne
-        gewähltes Video aus einer Wiedergabeliste (Falle zurück auf normales Öffnen
-        des Videos)
+      starting video at offset: Video mit Versatz starten
+      looping playlists: Wiedergabelisten wiederholen
+      shuffling playlists: Wiedergabelisten durcheinander mischen
+      reversing playlists: Wiedergabelisten umkehren
+      opening specific video in a playlist (falling back to opening the video): Bestimmtes
+        Video aus einer Wiedergabeliste öffnen (Rückgriff auf Öffnen des Videos)
       opening playlists: Wiedergabelisten öffnen
-    UnsupportedActionTemplate: '{externalPlayer} unterstützt das nicht: {action}'
-    OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet …'
+    UnsupportedActionTemplate: '{externalPlayer} unterstützt nicht: {action}'
+    OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet ...'
     playlist: Wiedergabeliste
     video: Video
   Premieres on: Premiere am
@@ -780,13 +779,13 @@ Video:
     buffered: Gepuffert
     Video ID: Video-ID
     Resolution: Auflösung
-    Player Dimensions: Player-Größe
+    Player Dimensions: Abspieler-Größe
     Bitrate: Bitrate
     Volume: Lautstärke
     Bandwidth: Bandbreite
     Buffered: Gepuffert
-    Dropped / Total Frames: Entfallene Einzelbilder / Gesamtzahl der Einzelbilder
-    Mimetype: Medientyp
+    Dropped / Total Frames: Entfallene / gesamte Einzelbilder
+    Mimetype: MIME-Typ
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
   Premieres in: Premieren in
@@ -800,13 +799,13 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: Neuestes
-    Oldest: Ältestes
+    Newest: Neueste
+    Oldest: Älteste
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: Zeige ganze Wiedergabeliste
+  View Full Playlist: Vollständige Wiedergabeliste ansehen
   Videos: Videos
   View: Aufruf
   Views: Aufrufe
@@ -818,21 +817,21 @@ Playlist:
 #& Views
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
-  Change Media Formats: Ändere Videoformat
-  Use Dash Formats: DASH-Format benutzen
-  Use Legacy Formats: Nutze Altformat
-  Use Audio Formats: Nutze Audioformat
-  Audio formats are not available for this video: Es sind keine Audioformate für dieses
-    Video verfügbar
+  Change Media Formats: Medienformate ändern
+  Use Dash Formats: DASH-Formate verwenden
+  Use Legacy Formats: Altformate verwenden
+  Use Audio Formats: Audioformate verwenden
+  Audio formats are not available for this video: Audioformate sind für dieses Video
+    nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
 Share:
-  Share Video: Teile das Video
+  Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
-  Copy Link: Kopiere Link
-  Open Link: Öffne Link
-  Copy Embed: Kopiere eingebettete Version
-  Open Embed: Öffne eingebettete Version
+  Copy Link: Link kopieren
+  Open Link: Link öffnen
+  Copy Embed: Eingebettete Version kopieren
+  Open Embed: Eingebettete Version öffnen
   # On Click
   Invidious URL copied to clipboard: Invidious-URL in die Zwischenablage kopiert
   Invidious Embed URL copied to clipboard: Invidious' eingebettete URL in die Zwischenablage
@@ -840,33 +839,34 @@ Share:
   YouTube URL copied to clipboard: YouTube-URL in die Zwischenablage kopiert
   YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage
     kopiert
-  Include Timestamp: Zeitstempel einfügen
-  YouTube Channel URL copied to clipboard: YouTube Kanallink in die Zwischenablage
+  Include Timestamp: Zeitstempel miteinbeziehen
+  YouTube Channel URL copied to clipboard: YouTube-Kanal-URL in die Zwischenablage
     kopiert
-  Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
+  Invidious Channel URL copied to clipboard: Invidious-Kanal-URL in die Zwischenablage
     kopiert
   Share Channel: Kanal teilen
-Mini Player: Mini-Wiedergabefenster
+Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
-  Click to View Comments: Hier klicken, um Kommentare anzuzeigen
-  Getting comment replies, please wait: Kommentare werden geladen, bitte warten
-  Show Comments: Zeige Kommentare
-  Hide Comments: Verstecke Kommentare
+  Click to View Comments: Klicke, um Kommentare anzuzeigen
+  Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
+    warten
+  Show Comments: Kommentare anzeigen
+  Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
-  View: Zeige
-  Hide: Verstecke
+  View: Anzeigen
+  Hide: Ausblenden
   Replies: Antworten
   Reply: Antworten
   There are no comments available for this video: Für dieses Video gibt es keine Kommentare
-  Load More Comments: Mehr Kommentare laden
+  Load More Comments: Weitere Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
-  No more comments available: Keine Kommentare mehr verfügbar
-  Newest first: Neuste zuerst
+  No more comments available: Keine weiteren Kommentare verfügbar
+  Newest first: Neueste zuerst
   Top comments: Top-Kommentare
-  Sort by: Sortiert nach
-  Show More Replies: Mehr Antworten zeigen
+  Sort by: Sortieren nach
+  Show More Replies: Weitere Antworten anzeigen
   From {channelName}: von {channelName}
   And others: und andere
   Pinned by: Angeheftet von
@@ -952,12 +952,15 @@ Tooltips:
   General Settings:
     Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
       aus dem Video ersetzt und entsprechen somit nicht mehr dem Standard-Vorschaubild.
-    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
-    Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
-      API nicht verfügbar sein sollte, automatisch eine alternative API zu nutzen.
-    Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
-      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious-API
-      dagegen verwendet einen externen Server.
+    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe
+      verbinden wird.
+    Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem
+      hat, wird FreeTube automatisch versuchen, deine nicht-bevorzugte API als Ausweichmethode
+      zu verwenden, wenn sie aktiviert ist.
+    Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten
+      nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API
+      erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden
+      muss.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen.
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
@@ -975,12 +978,14 @@ Tooltips:
     Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
       bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
       dafür aber auch weniger Bandbreite. Audioformate beinhalten nur den Ton.
-    Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
-      eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
+    Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
+      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
+      die API-Einstellung außer Kraft.
     Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
-      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von Legacy-Formaten
-      diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft dann, wenn
-      Videos von Invidious aufgrund von Ländersperren nicht abspielbar sind.
+      als Standard ausgewählt hast. Wenn aktiviert, wird die lokale API ausgeführt
+      und verwendet die von ihr zurückgegebenen Altformate anstelle der von Invidious
+      zurückgegebenen Formate. Dies hilft, wenn die von Invidious zurückgegebenen
+      Videos aufgrund von Länderbeschränkungen nicht abgespielt werden können.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
       befindet, halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
       bewegen Sie das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit
