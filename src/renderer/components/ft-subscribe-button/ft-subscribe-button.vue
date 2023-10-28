@@ -42,13 +42,13 @@
         >
           <li
             v-for="(profile, index) in profileDisplayList"
-            :id="'profile-' + index"
-            :key="'subscription-profile-' + index"
+            :id="'subscription-profile-' + index"
+            :key="index"
             class="profile"
             :class="{
               subscribed: isProfileSubscribed(profile)
             }"
-            :aria-labelledby="'profile-' + index + '-name'"
+            :aria-labelledby="'subscription-profile-' + index + '-name'"
             :aria-selected="isActiveProfile(profile)"
             :aria-checked="isProfileSubscribed(profile)"
             tabindex="0"
@@ -67,7 +67,7 @@
               </div>
             </div>
             <p
-              :id="'profile-' + index + '-name'"
+              :id="'subscription-profile-' + index + '-name'"
               class="profileName"
             >
               {{ profile.name }}

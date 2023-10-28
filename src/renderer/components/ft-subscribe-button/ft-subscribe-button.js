@@ -51,7 +51,7 @@ export default defineComponent({
       return this.$store.getters.getProfileList
     },
 
-    /* sort by 'All Channels' -> active profile -> unsubscribed channels -> unsubscribed channels */
+    /* sort by 'All Channels' -> active profile -> unsubscribed channels -> subscribed channels */
     profileDisplayList: function () {
       const mainProfileAndActiveProfile = [this.profileList[0]]
       if (this.activeProfile._id !== MAIN_PROFILE_ID) {
