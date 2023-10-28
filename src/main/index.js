@@ -1016,6 +1016,45 @@ function runApp() {
   })
 
   // *********** //
+  // Highlighted Comments
+  ipcMain.handle(IpcChannels.DB_HIGHLIGHTED_COMMENTS, async (event, { action, data }) => {
+    console.error('mario index.js cases')
+    try {
+      switch (action) {
+        case DBActions.GENERAL.CREATE:
+          await baseHandlers.highlightedComments.create(data)
+          return null
+
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.highlightedComments.find()
+
+        case DBActions.HIGHLIGHTED_COMMENTS.UPSERT_COMMENT:
+          await baseHandlers.highlightedComments.upsertHighlightedComment(data.videoId, data.comment)
+          return null
+
+        case DBActions.HIGHLIGHTED_COMMENTS.DELETE_COMMENT:
+          await baseHandlers.highlightedComments.deleteHighlightedComment(data.videoId, data.comment)
+          return null
+
+        case DBActions.HIGHLIGHTED_COMMENTS.UPSERT_REPLY:
+          await baseHandlers.highlightedComments.upsertHighlightedReply(data.videoId, data.comment, data.reply)
+          return null
+
+        case DBActions.HIGHLIGHTED_COMMENTS.DELETE_REPLY:
+          await baseHandlers.highlightedComments.deleteHighlightedReply(data.videoId, data.comment, data.reply)
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid highlighted comments db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  // *********** //
 
   function syncOtherWindows(channel, event, payload) {
     const otherWindows = BrowserWindow.getAllWindows().filter((window) => {

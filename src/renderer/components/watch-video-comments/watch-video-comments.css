@@ -102,10 +102,27 @@
   margin-block-end: 5px;
 }
 
+.commentHighlighted {
+  font-weight: normal;
+  font-size: 12px;
+  margin-block-start: 0;
+  margin-inline-start: 68px;
+  margin-block-end: 5px;
+}
+
+.replyHighlighted {
+  font-weight: normal;
+  font-size: 12px;
+  margin-block-start: 0;
+  margin-inline-start: 68px;
+  margin-block-end: 5px;
+}
+
 .commentDate {
   font-weight: normal;
   margin-inline-start: 5px;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .commentMemberIcon {

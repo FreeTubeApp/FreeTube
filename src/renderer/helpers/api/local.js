@@ -892,7 +892,9 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasOwnerReplied,
     replyToken,
     showReplies: false,
-    replies: []
+    replies: [],
+    commentId: comment.comment_id,
+    commentIndex: 0
   }
 }
 

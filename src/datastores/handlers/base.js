@@ -169,12 +169,139 @@ class Playlists {
   }
 }
 
+class HighlightedComments {
+  static create(videoId) {
+    return db.highlightedComments.insertAsync(videoId)
+  }
+
+  static find() {
+    return db.highlightedComments.findAsync({})
+  }
+
+  static async upsertHighlightedComment(videoId, comment) {
+    const highlightedComment = await db.highlightedComments.findOneAsync(
+      { _id: videoId })
+    let commentIndex = -1
+    if (highlightedComment !== null) {
+      commentIndex = highlightedComment.comments.findIndex(c => {
+        return JSON.parse(c.comment).commentId === JSON.parse(comment).commentId
+      })
+    }
+    if (commentIndex !== -1) {
+      // Update the 'isCommentHighlighted' field of the found comment
+      return db.highlightedComments.updateAsync(
+        { _id: videoId },
+        { $set: { [`comments.${commentIndex}.isCommentHighlighted`]: true } },
+        {}
+      )
+    } else {
+      // Append the comment to the 'comments' array.
+      return db.highlightedComments.updateAsync(
+        { _id: videoId },
+        { $push: { comments: { comment: comment, replies: [], isCommentHighlighted: true } } },
+        { upsert: true }
+      )
+    }
+  }
+
+  static async deleteHighlightedComment(videoId, comment) {
+    const highlightedComment = await db.highlightedComments.findOneAsync(
+      { _id: videoId })
+    let commentIndex = -1
+    if (highlightedComment !== null) {
+      commentIndex = highlightedComment.comments.findIndex(c => {
+        return JSON.parse(c.comment).commentId === JSON.parse(comment).commentId
+      })
+    }
+    if (commentIndex !== -1) {
+      const hasReplies = highlightedComment.comments[commentIndex].replies.length > 0
+      if (hasReplies) {
+        // Update 'isCommentHighlighted' to false if replies are non-empty
+        return db.highlightedComments.updateAsync(
+          { _id: videoId },
+          { $set: { [`comments.${commentIndex}.isCommentHighlighted`]: false } },
+          {}
+        )
+      } else {
+        // Remove the entire entry from the 'comments' array if replies are empty
+        highlightedComment.comments.splice(commentIndex, 1)
+        db.highlightedComments.updateAsync(
+          { _id: videoId },
+          highlightedComment,
+          {}
+        )
+      }
+    }
+  }
+
+  static async upsertHighlightedReply(videoId, comment, reply) {
+    const highlightedComment = await db.highlightedComments.findOneAsync({ _id: videoId })
+    let commentIndex = -1
+    if (highlightedComment !== null) {
+      commentIndex = highlightedComment.comments.findIndex(c => {
+        return JSON.parse(c.comment).commentId === JSON.parse(comment).commentId
+      })
+    }
+    if (commentIndex === -1) {
+      // Append a new entry to the comments array
+      return db.highlightedComments.updateAsync(
+        { _id: videoId },
+        { $push: { comments: { comment: comment, replies: [reply], isCommentHighlighted: false } } },
+        { upsert: true }
+      )
+    } else {
+      // Append the reply to found comment's replies entry
+      return db.highlightedComments.updateAsync(
+        { _id: videoId },
+        { $push: { [`comments.${commentIndex}.replies`]: reply } },
+        { upsert: true }
+      )
+    }
+  }
+
+  static async deleteHighlightedReply(videoId, comment, reply) {
+    const highlightedComment = await db.highlightedComments.findOneAsync({ _id: videoId })
+    let commentIndex = -1
+    if (highlightedComment !== null) {
+      commentIndex = highlightedComment.comments.findIndex(c => {
+        return JSON.parse(c.comment).commentId === JSON.parse(comment).commentId
+      })
+    }
+    if (commentIndex !== -1) {
+      const moreReplies = highlightedComment.comments[commentIndex].replies.length > 1
+      const isCommentHighlighted = highlightedComment.comments[commentIndex].isCommentHighlighted
+      if (!moreReplies && !isCommentHighlighted) {
+        // Remove the entire entry from the 'comments' array if there are no more
+        // highlighted replies and the comment is not highlighted
+        highlightedComment.comments.splice(commentIndex, 1)
+      } else {
+        // Remove the reply entry from the 'replies' array for the found comment.
+        highlightedComment.comments[commentIndex].replies = (
+          highlightedComment.comments[commentIndex].replies.filter(
+            r => JSON.parse(r).commentId !== JSON.parse(reply).commentId
+          )
+        )
+      }
+      db.highlightedComments.updateAsync(
+        { _id: videoId },
+        highlightedComment,
+        {}
+      )
+    }
+  }
+
+  static persist() {
+    return db.highlightedComments.compactDatafileAsync()
+  }
+}
+
 function compactAllDatastores() {
   return Promise.allSettled([
     Settings.persist(),
     History.persist(),
     Profiles.persist(),
-    Playlists.persist()
+    Playlists.persist(),
+    HighlightedComments.persist()
   ])
 }
 
@@ -183,6 +310,7 @@ const baseHandlers = {
   history: History,
   profiles: Profiles,
   playlists: Playlists,
+  highlightedComments: HighlightedComments,
 
   compactAllDatastores
 }

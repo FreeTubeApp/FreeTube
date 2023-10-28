@@ -27,5 +27,9 @@ db.settings = new Datastore({ filename: dbPath('settings'), autoload: true })
 db.profiles = new Datastore({ filename: dbPath('profiles'), autoload: true })
 db.playlists = new Datastore({ filename: dbPath('playlists'), autoload: true })
 db.history = new Datastore({ filename: dbPath('history'), autoload: true })
+db.highlightedComments = new Datastore({
+  filename: dbPath('highlightedComments'),
+  autoload: true
+})
 
 export default db

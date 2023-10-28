@@ -156,6 +156,7 @@ export default defineComponent({
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {
         this.grabHistory()
         this.grabAllPlaylists()
+        this.grabAllHighlightedComments()
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -532,6 +533,7 @@ export default defineComponent({
 
     ...mapActions([
       'grabUserSettings',
+      'grabAllHighlightedComments',
       'grabAllProfiles',
       'grabHistory',
       'grabAllPlaylists',

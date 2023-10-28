@@ -19,6 +19,7 @@ const IpcChannels = {
   DB_HISTORY: 'db-history',
   DB_PROFILES: 'db-profiles',
   DB_PLAYLISTS: 'db-playlists',
+  DB_HIGHLIGHTED_COMMENTS: 'db-highlighted-comments',
 
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
@@ -48,6 +49,13 @@ const DBActions = {
     DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
     DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
     DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos'
+  },
+
+  HIGHLIGHTED_COMMENTS: {
+    UPSERT_COMMENT: 'db-action-highlighted-comments-upsert-comment',
+    DELETE_COMMENT: 'db-action-higlighted-comments-delete-comment',
+    UPSERT_REPLY: 'db-action-highlighted-comments-upsert-reply',
+    DELETE_REPLY: 'db-action-higlighted-comments-delete-reply'
   }
 }
 

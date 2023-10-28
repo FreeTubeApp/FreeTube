@@ -79,6 +79,12 @@
           </template>
         </router-link>
         <p
+          v-if="isCommentHighlighted(comment)"
+          class="commentHighlighted"
+        >
+          {{ $t("Highlighted comment") }}
+        </p>
+        <p
           v-if="comment.isPinned"
           class="commentPinned"
         >
@@ -114,7 +120,13 @@
             class="commentSubscribedIcon"
             alt=""
           >
-          <span class="commentDate">
+          <span
+            class="commentDate"
+            :title="isCommentHighlighted(comment) ? $t('Unhighlight comment') : $t('Highlight comment')"
+            @click="toggleCommentHighlight(comment)"
+            @keydown.space.prevent="toggleCommentHighlight(comment)"
+            @keydown.enter.prevent="toggleCommentHighlight(comment)"
+          >
             {{ comment.time }}
           </span>
         </p>
@@ -200,6 +212,12 @@
                 >
               </template>
             </router-link>
+            <p
+              v-if="isReplyHighlighted(comment, reply)"
+              class="replyHighlighted"
+            >
+              {{ $t("Highlighted reply") }}
+            </p>
             <p class="commentAuthorWrapper">
               <router-link
                 class="commentAuthor"
@@ -223,7 +241,13 @@
                 class="commentSubscribedIcon"
                 alt=""
               >
-              <span class="commentDate">
+              <span
+                class="commentDate"
+                :title="isReplyHighlighted(comment.commentId, reply) ? $t('Unhighlight reply') : $t('Highlight reply')"
+                @click="toggleReplyHighlight(comment, reply)"
+                @keydown.space.prevent="toggleReplyHighlight(comment, reply)"
+                @keydown.enter.prevent="toggleReplyHighlight(comment, reply)"
+              >
                 {{ reply.time }}
               </span>
             </p>

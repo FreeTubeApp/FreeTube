@@ -3,6 +3,7 @@
  * in a one-shot manner.
  */
 
+import highlightedComments from './highlighted-comments'
 import history from './history'
 import invidious from './invidious'
 import playlists from './playlists'
@@ -12,6 +13,7 @@ import subscriptions from './subscriptions'
 import utils from './utils'
 
 export default {
+  highlightedComments,
   history,
   invidious,
   playlists,

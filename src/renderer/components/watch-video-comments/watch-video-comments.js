@@ -6,6 +6,7 @@ import FtTimestampCatcher from '../../components/ft-timestamp-catcher/ft-timesta
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { invidiousGetCommentReplies, invidiousGetComments } from '../../helpers/api/invidious'
 import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
+import { mapActions } from 'vuex'
 
 export default defineComponent({
   name: 'WatchVideoComments',
@@ -120,6 +121,25 @@ export default defineComponent({
 
     subscriptions: function() {
       return this.$store.getters.getActiveProfile.subscriptions
+    },
+
+    highlightedComments: function () {
+      return this.$store.getters.getHighlightedComments(this.id)
+    },
+    highlightedReplyComments: function () {
+      return this.$store.getters.getHighlightedReplyComments(this.id)
+    },
+    isCommentHighlighted: function () {
+      return (comment) => !!this.$store.getters.getHighlightedComments(this.id).find((entry) => entry.commentId === comment.commentId)
+    },
+    isReplyHighlighted: function () {
+      return (comment, reply) => !!this.$store.getters.getHighlightedReplies(this.id, comment.commentId).find(entry => entry.commentId === reply.commentId)
+    },
+    getHighlightedReplies: function () {
+      return (commentId) => this.$store.getters.getHighlightedReplies(this.id, commentId)
+    },
+    isCommentOrReplyHighlighted: function () {
+      return (comment) => this.isCommentHighlighted(comment) || this.getHighlightedReplies(comment.commentId).length > 0
     }
   },
   mounted: function () {
@@ -151,6 +171,11 @@ export default defineComponent({
 
     getCommentData: function () {
       this.isLoading = true
+      this.commentIndexCount = -1
+      this.commentData = this.commentData.concat(this.highlightedComments)
+      this.commentData = Array.from([...this.commentData, ...this.highlightedReplyComments]
+        .reduce((m, o) => m.set(o.commentId, o), new Map())
+        .values())
       if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
         this.getCommentDataInvidious()
       } else {
@@ -174,6 +199,8 @@ export default defineComponent({
       if (this.commentData[index].showReplies || this.commentData[index].replies.length > 0) {
         this.commentData[index].showReplies = !this.commentData[index].showReplies
       } else {
+        const comment = this.commentData[index]
+        comment.replies = this.getHighlightedReplies(comment.commentId)
         this.getCommentReplies(index)
       }
     },
@@ -205,12 +232,16 @@ export default defineComponent({
 
         const parsedComments = comments.contents
           .map(commentThread => parseLocalComment(commentThread.comment, commentThread))
+        parsedComments.forEach(
+          comment => {
+            comment.commentIndex = ++this.commentIndexCount
+          }
+        )
 
-        if (more) {
-          this.commentData = this.commentData.concat(parsedComments)
-        } else {
-          this.commentData = parsedComments
-        }
+        // Append and remove duplicate comments based on commentId.
+        this.commentData = Array.from([...this.commentData, ...parsedComments]
+          .reduce((m, o) => m.set(o.commentId, o), new Map())
+          .values())
 
         this.nextPageToken = comments.has_continuation ? comments : null
         this.isLoading = false
@@ -238,12 +269,19 @@ export default defineComponent({
         /** @type {import('youtubei.js').YTNodes.CommentThread} */
         const commentThread = comment.replyToken
 
-        if (comment.replies.length > 0) {
+        if (comment.replies.length > 0 &&
+            comment.replies.length !== this.getHighlightedReplies(comment.commentId).length) {
           await commentThread.getContinuation()
-          comment.replies = comment.replies.concat(commentThread.replies.map(reply => parseLocalComment(reply)))
+          comment.replies = Array.from(
+            [...comment.replies, ...commentThread.replies.map(reply => parseLocalComment(reply))]
+              .reduce((m, o) => m.set(o.commentId, o), new Map())
+              .values())
         } else {
           await commentThread.getReplies()
-          comment.replies = commentThread.replies.map(reply => parseLocalComment(reply))
+          comment.replies = Array.from(
+            [...comment.replies, ...commentThread.replies.map(reply => parseLocalComment(reply))]
+              .reduce((m, o) => m.set(o.commentId, o), new Map())
+              .values())
         }
 
         comment.replyToken = commentThread.has_continuation ? commentThread : null
@@ -269,7 +307,12 @@ export default defineComponent({
         nextPageToken: this.nextPageToken,
         sortNewest: this.sortNewest
       }).then(({ response, commentData }) => {
-        this.commentData = this.commentData.concat(commentData)
+        commentData.forEach(function(comment) {
+          comment.commentIndex = ++this.commentIndexCount
+        }.bind(this))
+        this.commentData = Array.from([...this.commentData, ...commentData]
+          .reduce((m, o) => m.set(o.commentId, o), new Map())
+          .values())
         this.nextPageToken = response.continuation
         this.isLoading = false
         this.showComments = true
@@ -306,7 +349,10 @@ export default defineComponent({
       const replyToken = this.commentData[index].replyToken
       invidiousGetCommentReplies({ id: this.id, replyToken: replyToken })
         .then(({ commentData, continuation }) => {
-          this.commentData[index].replies = this.commentData[index].replies.concat(commentData)
+          this.commentData[index].replies = Array.from(
+            [...this.commentData[index].replies, ...commentData]
+              .reduce((m, o) => m.set(o.commentId, o), new Map())
+              .values())
           this.commentData[index].showReplies = true
           this.commentData[index].replyToken = continuation
           this.isLoading = false
@@ -319,5 +365,86 @@ export default defineComponent({
           this.isLoading = false
         })
     },
+
+    toggleCommentHighlight: async function (comment) {
+      if (this.isCommentHighlighted(comment)) {
+        showToast(this.$t('Unhighlighting comment'))
+        await this.$store.dispatch('unhighlightComment', { videoId: this.id, comment: comment })
+        const indexToRemove = this.commentData.findIndex(entry => entry.commentId === comment.commentId)
+        if (this.isCommentOrReplyHighlighted(comment)) {
+          this.commentData.splice(indexToRemove, 1)
+          this.commentData.unshift(comment)
+        } else {
+          // find number of highlighted comments before the comment
+          const highlightedOrReplyComments = this.$store.getters.getHighlightedComments(this.id).concat(this.$store.getters.getHighlightedReplyComments(this.id))
+          const filteredComments = highlightedOrReplyComments.filter(c => c.commentIndex < comment.commentIndex)
+          const uniqueCommentCount = new Set(filteredComments.map(comment => comment.commentId)).size
+          const highlightedCommentCount = new Set(highlightedOrReplyComments.map(comment => comment.commentId)).size
+          const newIndex = comment.commentIndex + highlightedCommentCount - uniqueCommentCount
+
+          // move comment to original index
+          if (indexToRemove !== -1) {
+            this.commentData.splice(indexToRemove, 1)
+          }
+          this.commentData.splice(newIndex, 0, comment)
+        }
+      } else {
+        showToast(this.$t('Highlighting comment'))
+        await this.$store.dispatch('highlightComment', { videoId: this.id, comment: comment })
+        // move comment to top
+        const indexToRemove = this.commentData.findIndex(entry => entry.commentId === comment.commentId)
+        if (indexToRemove !== -1) {
+          this.commentData.splice(indexToRemove, 1)
+        }
+        this.commentData.unshift(comment)
+      }
+    },
+
+    toggleReplyHighlight: async function (comment, reply) {
+      if (this.isReplyHighlighted(comment, reply)) {
+        showToast(this.$t('Unhighlighting reply'))
+        await this.$store.dispatch('unhighlightReply', { videoId: this.id, comment: comment, reply: reply })
+        if (!this.isCommentOrReplyHighlighted(comment)) {
+          const indexToRemove = this.commentData.findIndex(entry => entry.commentId === comment.commentId)
+          const highlightedOrReplyComments = this.$store.getters.getHighlightedComments(this.id).concat(this.$store.getters.getHighlightedReplyComments(this.id))
+          const filteredComments = highlightedOrReplyComments.filter(c => c.commentIndex < comment.commentIndex)
+          const uniqueCommentCount = new Set(filteredComments.map(comment => comment.commentId)).size
+          const highlightedCommentCount = new Set(highlightedOrReplyComments.map(comment => comment.commentId)).size
+          const newIndex = comment.commentIndex + highlightedCommentCount - uniqueCommentCount
+
+          // move comment to original index
+          if (indexToRemove !== -1) {
+            this.commentData.splice(indexToRemove, 1)
+          }
+          this.commentData.splice(newIndex, 0, comment)
+        }
+        const replyIndex = comment.replies.findIndex(entry => entry.commentId === reply.commentId)
+        if (replyIndex !== -1) {
+          comment.replies.splice(replyIndex, 1)
+          comment.replies.splice(replyIndex, 0, reply)
+        }
+      } else {
+        showToast(this.$t('Highlighting reply'))
+        await this.$store.dispatch('highlightReply', { videoId: this.id, comment: comment, reply: reply })
+        // move reply to top
+        const replyIndex = comment.replies.findIndex(entry => entry.commentId === reply.commentId)
+        if (replyIndex !== -1) {
+          comment.replies.splice(replyIndex, 1)
+        }
+        comment.replies.unshift(reply)
+
+        // move comment to top
+        const indexToRemove = this.commentData.findIndex(entry => entry.commentId === comment.commentId)
+        if (indexToRemove !== -1) {
+          this.commentData.splice(indexToRemove, 1)
+        }
+        this.commentData.unshift(comment)
+      }
+    },
+
+    ...mapActions([
+      'highlightComment',
+      'unhighlightComment'
+    ])
   }
 })

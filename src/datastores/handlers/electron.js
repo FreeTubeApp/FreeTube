@@ -198,11 +198,75 @@ class Playlists {
   }
 }
 
+class HighlightedComments {
+  static create(videoId) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      { action: DBActions.GENERAL.CREATE, data: videoId }
+    )
+  }
+
+  static find() {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      { action: DBActions.GENERAL.FIND }
+    )
+  }
+
+  static upsertHighlightedComment(videoId, comment) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      {
+        action: DBActions.HIGHLIGHTED_COMMENTS.UPSERT_COMMENT,
+        data: { videoId: videoId, comment: JSON.stringify(comment) }
+      }
+    )
+  }
+
+  static deleteHighlightedComment(videoId, comment) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      {
+        action: DBActions.HIGHLIGHTED_COMMENTS.DELETE_COMMENT,
+        data: { videoId: videoId, comment: JSON.stringify(comment) }
+      }
+    )
+  }
+
+  static upsertHighlightedReply(videoId, comment, reply) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      {
+        action: DBActions.HIGHLIGHTED_COMMENTS.UPSERT_REPLY,
+        data: { videoId: videoId, comment: JSON.stringify(comment), reply: JSON.stringify(reply) }
+      }
+    )
+  }
+
+  static deleteHighlightedReply(videoId, comment, reply) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      {
+        action: DBActions.HIGHLIGHTED_COMMENTS.DELETE_REPLY,
+        data: { videoId: videoId, comment: JSON.stringify(comment), reply: JSON.stringify(reply) }
+      }
+    )
+  }
+
+  static persist() {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_HIGHLIGHTED_COMMENTS,
+      { action: DBActions.GENERAL.PERSIST }
+    )
+  }
+}
+
 const handlers = {
   settings: Settings,
   history: History,
   profiles: Profiles,
-  playlists: Playlists
+  playlists: Playlists,
+  highlightedComments: HighlightedComments
 }
 
 export default handlers
