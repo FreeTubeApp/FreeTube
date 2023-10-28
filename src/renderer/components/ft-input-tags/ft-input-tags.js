@@ -11,6 +11,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    disabledMsg: {
+      type: String,
+      default: ''
+    },
     tagNamePlaceholder: {
       type: String,
       required: true

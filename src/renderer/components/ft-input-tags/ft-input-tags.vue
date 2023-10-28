@@ -6,8 +6,7 @@
       v-if="disabled"
       class="disabledMsg"
     >
-      Some channels were blocked using ID and weren't processed.
-      Feature is blocked while those IDs are updating
+      {{ disabledMsg }}
     </div>
     <ft-input
       ref="tagNameInput"

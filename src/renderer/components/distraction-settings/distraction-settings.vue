@@ -238,6 +238,7 @@
     <ft-flex-box>
       <ft-input-tags
         :disabled="channelHiderDisabled"
+        :disabled-msg="$t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
         :show-action-button="true"
