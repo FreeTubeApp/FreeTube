@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
@@ -9,7 +9,7 @@ import {
   showToast,
 } from '../../helpers/utils'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtCreatePlaylistPrompt',
   components: {
     FtFlexBox,

@@ -20,12 +20,12 @@
   text-align: center;
 }
 
-// Style for `ft-prompt`
+/* Style for `ft-prompt` */
 :deep(.promptCard) {
-  // Currently only this prompt has enough content to make prompt too high
+  /* Currently only this prompt has enough content to make prompt too high */
   max-block-size: 95%;
 
-  // Some child(s) will grow vertically
+  /* Some child(s) will grow vertically */
   display: flex;
   flex-direction: column;
 }
@@ -38,7 +38,7 @@
 .playlists-container {
   box-shadow: inset 0 0 5px rgba(0,0,0,.5);
 
-  // Use remaining height
+  /* Use remaining height */
   flex-grow: 1;
 
   overflow-y: scroll;

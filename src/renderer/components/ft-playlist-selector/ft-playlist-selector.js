@@ -1,8 +1,8 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtPlaylistSelector',
   components: {
     'ft-icon-button': FtIconButton
@@ -47,7 +47,7 @@ export default Vue.extend({
       return `${this.title.substring(0, 255)}...`
     },
   },
-  mounted: function () {
+  created: function () {
     this.parseUserData()
   },
   methods: {

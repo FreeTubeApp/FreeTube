@@ -35,7 +35,7 @@
       <ft-flex-box>
         <ft-playlist-selector
           v-for="(playlist, index) in activePlaylists"
-          :key="`${playlist._id}-${index}`"
+          :key="playlist._id"
           :tabindex="tabindex"
           :data="playlist"
           :index="index"
@@ -67,4 +67,4 @@
 </template>
 
 <script src="./ft-playlist-add-video-prompt.js" />
-<style scoped lang="scss" src="./ft-playlist-add-video-prompt.scss" />
+<style scoped src="./ft-playlist-add-video-prompt.css" />

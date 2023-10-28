@@ -80,8 +80,7 @@ export default defineComponent({
       return this.$store.getters.getPlaylistsReady
     },
     selectedUserPlaylist: function () {
-      if (this.playlistId == null) { return null }
-      if (this.playlistId === '') { return null }
+      if (this.playlistId == null || this.playlistId === '') { return null }
 
       return this.$store.getters.getPlaylist(this.playlistId)
     },

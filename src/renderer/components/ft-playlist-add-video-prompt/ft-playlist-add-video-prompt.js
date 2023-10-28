@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -22,7 +22,7 @@ const SORT_BY_VALUES = {
   EarliestUpdatedFirst: 'earliest_updated_first',
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: 'FtPlaylistAddVideoPrompt',
   components: {
     'ft-flex-box': FtFlexBox,

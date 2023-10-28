@@ -183,7 +183,7 @@ export default defineComponent({
       return !this.hideSharingActions
     },
   },
-  mounted: function () {
+  created: function () {
     this.newTitle = this.title
     this.newDescription = this.description
   },
