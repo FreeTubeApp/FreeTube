@@ -62,6 +62,7 @@ $watched-transition-duration: 0.5s;
       opacity: 0.3;
     }
   }
+
   &.selected {
     background-color: var(--bg-color);
     @include low-contrast-when-watched(var(--primary-text-color));
@@ -71,12 +72,14 @@ $watched-transition-duration: 0.5s;
       transition-duration: $watched-transition-duration;
     }
   }
+
   .videoThumbnail {
     position: relative;
 
     .thumbnailLink {
       display: flex;
     }
+
     .videoWatched {
       position: absolute;
       inset-block-start: 0;
@@ -86,20 +89,25 @@ $watched-transition-duration: 0.5s;
       background-color: var(--bg-color);
       pointer-events: none;
     }
+
     .videoDuration {
       position: absolute;
-      inset-block-end: 4px;
-      inset-inline-end: 4px;
-      padding-block: 3px;
-      padding-inline: 4px;
-      line-height: 1.2;
-      font-size: 15px;
+
       border-radius: 5px;
       margin: 0;
+
       opacity: $thumbnail-overlay-opacity;
       color: var(--primary-text-color);
       background-color: var(--card-bg-color);
       pointer-events: none;
+
+      inset-block-end: 4px;
+      inset-inline-end: 4px;
+      padding-block: 3px;
+      padding-inline: 4px;
+
+      line-height: 1.2;
+      font-size: 15px;
 
       &.live {
         background-color: #f22;
@@ -109,32 +117,44 @@ $watched-transition-duration: 0.5s;
         font-size: 12px;
       }
     }
+
     .externalPlayerIcon {
       position: absolute;
+
       inset-block-end: 4px;
       inset-inline-start: 4px;
+
       font-size: 17px;
       opacity: $thumbnail-overlay-opacity;
     }
+
     .playlistIcon {
       position: absolute;
+
       inset-block-start: 40px;
       inset-inline-end: 3px;
+
       font-size: 17px;
       opacity: $thumbnail-overlay-opacity;
     }
+
     .watchedProgressBar {
-      block-size: 2px;
       position: absolute;
-      inset-block-end: 0;
-      background-color: var(--primary-color);
       z-index: 2;
+
+      block-size: 2px;
+      inset-block-end: 0;
+
+      background-color: var(--primary-color);
     }
+
     .videoCountContainer {
       position: absolute;
+
       inset-inline-end: 0;
       inset-block: 0;
       inline-size: 60px;
+
       font-size: 20px;
 
       .background,
@@ -142,19 +162,23 @@ $watched-transition-duration: 0.5s;
         position: absolute;
         inset: 0;
       }
+
       .background {
         background-color: var(--bg-color);
         opacity: 0.9;
       }
+
       .inner {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         color: var(--primary-text-color);
       }
     }
   }
+
   .channelThumbnail {
     display: flex;
     justify-content: center;
@@ -164,6 +188,7 @@ $watched-transition-duration: 0.5s;
       border-radius: 50%;
     }
   }
+
   .info {
     flex: 1;
     position: relative;
@@ -171,9 +196,11 @@ $watched-transition-duration: 0.5s;
     .optionsButton {
       float: right; // ohhhh man, float was finally the right choice for something;
     }
+
     .externalPlayerButton {
       float: right;
     }
+
     .title {
       font-size: 20px;
       @include low-contrast-when-watched(var(--primary-text-color));
@@ -185,6 +212,7 @@ $watched-transition-duration: 0.5s;
         font-size: 15px;
       }
     }
+
     .infoLine {
       margin-block-start: 5px;
       font-size: 14px;
@@ -199,6 +227,7 @@ $watched-transition-duration: 0.5s;
         @include low-contrast-when-watched(var(--secondary-text-color));
       }
     }
+
     .description {
       font-size: 14px;
       max-block-size: 50px;
@@ -206,9 +235,11 @@ $watched-transition-duration: 0.5s;
       @include low-contrast-when-watched(var(--secondary-text-color));
     }
   }
+
   &.grid {
     display: flex;
     flex-direction: column;
+
     inline-size: 245px;
     min-block-size: 230px;
     padding-block-end: 20px;
@@ -228,6 +259,7 @@ $watched-transition-duration: 0.5s;
     }
     .infoLine {
       margin-block-start: 8px;
+
       font-size: 13px;
     }
   }
@@ -240,7 +272,9 @@ $watched-transition-duration: 0.5s;
 
 .selectedIcon {
   position: absolute;
+
   inset-block-start: calc(50% - 25px);
   inset-inline-start: calc(50% - 25px);
+
   font-size: 50px;
 }
