@@ -6,7 +6,6 @@ export default defineComponent({
   name: 'FtInputTags',
   components: {
     'ft-input': FtInput,
-    'ft-tooltip': FtTooltip
   },
   props: {
     tagNamePlaceholder: {
@@ -29,13 +28,9 @@ export default defineComponent({
       type: String,
       default: ''
     },
-    findPreferredName: {
+    findTagInfo: {
       type: Function,
-      default: (_) => '',
-    },
-    findIcon: {
-      type: Function,
-      default: (_) => '',
+      default: (_) => ({ preferredName: '', icon: '' }),
     }
   },
   methods: {
@@ -44,9 +39,8 @@ export default defineComponent({
       const name = text.trim()
 
       if (!this.tagList.some((tag) => tag.name === name)) {
-        // secondary name and icon searching allow api calls to be used
-        const preferredName = await this.findPreferredName(name) ?? ''
-        const icon = await this.findIcon(name) ?? ''
+        // tag info searching allow api calls to be used
+        const { preferredName, icon } = await this.findTagInfo(name)
         const newTag = { name, preferredName, icon }
         this.$emit('change', [...this.tagList, newTag])
       } else {

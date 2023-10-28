@@ -242,8 +242,7 @@
         :show-action-button="true"
         :tag-list="channelsHidden"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
-        :find-preferred-name="findChannelNameById"
-        :find-icon="findChannelIconById"
+        :find-tag-info="findChannelTagInfo"
         @change="handleChannelsHidden"
         @already-exists="handleChannelsExists"
       />

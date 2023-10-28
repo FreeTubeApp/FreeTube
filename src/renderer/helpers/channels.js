@@ -31,40 +31,25 @@ async function findChannelById(id, backendOptions) {
 *   preference: string,
 *   fallback: boolean,
 * }} backendOptions
-* @returns {Promise<string>}
+* @returns {Promise<{icon: string, preferredName: string}>}
 */
-export async function findChannelNameById(id, backendOptions) {
+export async function findChannelTagInfo(id, backendOptions) {
   if (!/UC\S{22}/.test(id)) return ''
   try {
     const channel = await findChannelById(id, backendOptions)
     if (backendOptions.preference === 'invidious') {
-      return channel.author
+      return {
+        preferredName: channel.author,
+        icon: channel.authorThumbnails[0].url
+      }
     } else {
-      return channel.header.author.name
+      return {
+        preferredName: channel.header.author.name,
+        icon: channel.header.author.thumbnails.pop().url
+      }
     }
   } catch (err) {
-    return ''
-  }
-}
-
-/**
- * @param {string} id
- * @param {{
- *   preference: string,
- *   fallback: boolean,
- * }} backendOptions
- * @returns {Promise<string>}
- */
-export async function findChannelIconById(id, backendOptions) {
-  if (!/UC\S{22}/.test(id)) return ''
-  try {
-    const channel = await findChannelById(id, backendOptions)
-    if (backendOptions.preference === 'invidious') {
-      return channel.authorThumbnails[0].url
-    } else {
-      return channel.header.author.thumbnails.pop().url
-    }
-  } catch (err) {
-    return ''
+    console.error(err)
+    return { preferredName: '', icon: '' }
   }
 }

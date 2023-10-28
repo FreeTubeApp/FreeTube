@@ -5,7 +5,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import { showToast } from '../../helpers/utils'
-import { findChannelIconById, findChannelNameById } from '../../helpers/channels'
+import { findChannelTagInfo } from '../../helpers/channels'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -143,11 +143,8 @@ export default defineComponent({
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
     },
-    findChannelNameById: async function (text) {
-      return await findChannelNameById(text, this.backendOptions)
-    },
-    findChannelIconById: async function (text) {
-      return await findChannelIconById(text, this.backendOptions)
+    findChannelTagInfo: async function (text) {
+      return await findChannelTagInfo(text, this.backendOptions)
     },
 
     ...mapActions([
