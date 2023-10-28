@@ -877,10 +877,10 @@ Comments:
 Up Next: Nächster Titel
 
 # Toast Messages
-Local API Error (Click to copy): Lokaler API-Fehler (Klicke zum Kopieren)
-Invidious API Error (Click to copy): Invidious-API-Fehler (Klicke zum Kopieren)
-Falling back to Invidious API: Falle auf Invidious-API zurück
-Falling back to the local API: Falle auf lokale API zurück
+Local API Error (Click to copy): Lokaler API-Fehler (Zum Kopieren anklicken)
+Invidious API Error (Click to copy): Invidious-API-Fehler (Zum Kopieren anklicken)
+Falling back to Invidious API: Rückgriff auf Invidious-API
+Falling back to the local API: Rückgriff auf lokale API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
@@ -889,11 +889,11 @@ Loop is now disabled: Wiederholung ist jetzt deaktiviert
 Loop is now enabled: Wiederholung ist jetzt aktiviert
 Shuffle is now disabled: Zufallswiedergabe ist jetzt deaktiviert
 Shuffle is now enabled: Zufallswiedergabe ist jetzt aktiviert
-Playing Next Video: Spiele nächstes Video
-Playing Previous Video: Spiele vorheriges Video
-Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended. Enable loop to continue playing': 'Ende der Wiedergabeliste
-  erreicht.  Aktiviere Wiederholung um weiter abzuspielen'
+Playing Next Video: Nächstes Video wird abgespielt
+Playing Previous Video: Vorheriges Video wird abgespielt
+Canceled next video autoplay: Automatische Wiedergabe des nächsten Videos abgebrochen
+'The playlist has ended. Enable loop to continue playing': 'Die Wiedergabeliste ist
+  beendet. Aktiviere die Wiederholung, um die Wiedergabe fortzusetzen'
 
 Yes: Ja
 No: Nein
@@ -967,17 +967,16 @@ Tooltips:
       wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
       den angeklickten Link in deinem Standardbrowser öffnen.\n"
   Subscription Settings:
-    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standardmethode
-      nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
-      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
-      des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
-    Fetch Automatically: Wenn diese Option aktiviert ist, holt FreeTube automatisch
-      deinen Abo-Feed, wenn ein neues Fenster geöffnet wird und wenn du das Profil
-      wechselst.
+    Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
+      um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
+      liefert aber bestimmte Informationen wie Videodauer oder Live-Status nicht
+    Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
+      ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
   Player Settings:
-    Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
-      bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
-      dafür aber auch weniger Bandbreite. Audioformate beinhalten nur den Ton.
+    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos
+      verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate
+      sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
+      sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
       bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
       die API-Einstellung außer Kraft.
@@ -987,50 +986,51 @@ Tooltips:
       zurückgegebenen Formate. Dies hilft, wenn die von Invidious zurückgegebenen
       Videos aufgrund von Länderbeschränkungen nicht abgespielt werden können.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
-      befindet, halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
-      bewegen Sie das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit
-      zu steuern. Halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
-      klicken Sie mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit
-      zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
+      befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
+      das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.
+      Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der
+      linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren
+      (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
       zu springen, MPV-Stil.
     Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
       Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
-      bei allen Videos verfügbar. In diesen Fällen verwendet der Player stattdessen
+      bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
       die DASH H.264-Formate.
   Privacy Settings:
-    Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
-      während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
+    Remove Video Meta Files: Wenn aktiviert, löscht FreeTube automatisch die während
+      der Videowiedergabe erstellten Metadateien, wenn die Abspielseite geschlossen
       wird.
   External Player Settings:
-    Custom External Player Arguments: Alle Kommandozeilen Argumente, getrennt durch
-      Semikolons (';'), die an den externen Player weitergegeben werden sollen.
-    Ignore Warnings: Unterdrücke Warnungen, wenn der aktuell gewählte externe Player
-      die gewählte Aktion nicht unterstützt (z.B. Wiedergabeliste umkehren, usw.).
+    Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
+      getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
+      sollen.
+    Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Abspieler die
+      aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Wiedergabelisten usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
-      der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
-      kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
-    External Player: Wenn Sie einen externen Player auswählen, wird auf der Miniaturansicht
-      ein Symbol angezeigt, mit dem Sie das Video (und die Wiedergabeliste, falls
-      unterstützt) im externen Player öffnen können. Achtung, die Einstellungen von
-      Invidious wirken sich nicht auf externe Player aus.
+      der gewählte externe Abspieler unter der PATH-Umgebungsvariable gefunden werden
+      kann. Falls nötig, kann hier ein benutzerdefinierter Pfad festgelegt werden.
+    External Player: Wenn du einen externen Abspieler auswählst, wird auf dem Vorschaubild
+      ein Symbol angezeigt, mit dem du das Video (die Wiedergabeliste, falls unterstützt)
+      im externen Abspieler öffnen kannst. Achtung, die Einstellungen von Invidious
+      wirken sich nicht auf externe Abspieler aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
-      einer erhöhten Nutzung des Direktzugriffsspeichers.
+      einer erhöhten RAM-Auslastung.
   Distraction Free Settings:
-    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
+    Hide Channels: Gebe einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
       dass alle Videos, Wiedergabelisten und der Kanal selbst in der Suche, den Trends,
       den beliebtesten und den empfohlenen Videos angezeigt werden. Der eingegebene
       Kanalname muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung
       unterschieden.
-    Hide Subscriptions Live: Diese Einstellung wird durch die app-weite Einstellung
-      „{appWideSetting}“ im Abschnitt „{subsection}“ des Abschnitts „{settingsSection}“
-      außer Kraft gesetzt
+    Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
+      „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
+      Kraft gesetzt
   SponsorBlock Settings:
-    UseDeArrowTitles: Ersetzen Sie Videotitel durch von Benutzern eingereichte Titel
-      von DeArrow.
+    UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
+      ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1038,22 +1038,23 @@ Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrech
 More: Weiteres
 Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
   implementiert, bitte versuche es später noch einmal
-Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
-  in FreeTube nicht geöffnet werden
+Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann
+  in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
-Default Invidious instance has been cleared: Standard-Invidious-Instanz wurde zurückgesetzt
-Default Invidious instance has been set to {instance}: Standard-Invidious-Instanz
-  wurde auf {instance} gesetzt
+Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde
+  gelöscht
+Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz
+  wurde auf {instance} festgelegt
 Search Bar:
   Clear Input: Eingabe löschen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
   Links wurde in den allgemeinen Einstellungen deaktiviert
-Downloading has completed: Das Herunterladen von {videoTitle} ist abgeschlossen
-Starting download: Das Herunterladen von {videoTitle} hat begonnen
-Downloading failed: Es gab ein Problem beim Herunterladen von {videoTitle}
-Screenshot Success: Bildschirmfoto gespeichert als „{filePath}“
+Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
+Starting download: Herunterladen von „{videoTitle}“ wird gestartet
+Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
+Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Age Restricted:
@@ -1084,9 +1085,9 @@ Chapters:
 Preferences: Einstellungen
 Ok: OK
 Hashtag:
-  Hashtag: Schlagwort
-  This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
-    derzeit keine Videos gefunden werden
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit
+    keine Videos
 Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
   wenn das aktuelle Video beendet ist
 Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
