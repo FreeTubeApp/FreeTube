@@ -1,6 +1,5 @@
 <template>
   <ft-settings-section
-    :is-open-override="allSettingsSectionsExpandedByDefaultModified"
     :title="$t('Settings.Theme Settings.Theme Settings')"
   >
     <div class="switchColumnGrid">
@@ -37,12 +36,6 @@
           :compact="true"
           :default-value="hideHeaderLogo"
           @change="updateHideHeaderLogo"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Theme Settings.Expand All Settings Sections By Default')"
-          :default-value="allSettingsSectionsExpandedByDefault"
-          :compact="true"
-          @change="handleallSettingsSectionsExpandedByDefault"
         />
       </div>
     </div>

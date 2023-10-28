@@ -149,6 +149,7 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
+  Expand All Settings Sections: Expand All Settings Sections
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
@@ -198,7 +199,6 @@ Settings:
     UI Scale: UI Scale
     Hide Side Bar Labels: Hide Side Bar Labels
     Hide FreeTube Header Logo: Hide FreeTube Header Logo
-    Expand All Settings Sections By Default: Expand All Settings Sections By Default
     Base Theme:
       Base Theme: Base Theme
       Black: Black

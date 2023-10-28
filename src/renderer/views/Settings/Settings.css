@@ -6,3 +6,13 @@ hr {
   border: 0;
   background-color: var(--scrollbar-color-hover);
 }
+
+.switchColumnGrid {
+  inline-size: 85%;
+  margin-inline: auto;
+}
+
+.settingsToggle {
+  padding-block: 0;
+  margin-block: 10px 5px;
+}
