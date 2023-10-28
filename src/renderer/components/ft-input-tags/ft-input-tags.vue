@@ -25,12 +25,7 @@
             alt="icon"
             class="tag-icon"
           >
-          <span>{{ tag.name }}</span>
-          <ft-tooltip
-            v-if="tag.secondaryName !== ''"
-            position="bottom-left"
-            :tooltip="tag.secondaryName"
-          />
+          <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
           <font-awesome-icon
             :icon="['fas', 'fa-times']"
             class="removeTagButton"

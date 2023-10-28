@@ -29,7 +29,7 @@ export default defineComponent({
       type: String,
       default: ''
     },
-    findSecondaryName: {
+    findPreferredName: {
       type: Function,
       default: (_) => '',
     },
@@ -45,9 +45,9 @@ export default defineComponent({
 
       if (!this.tagList.some((tag) => tag.name === name)) {
         // secondary name and icon searching allow api calls to be used
-        const secondaryName = await this.findSecondaryName(name) ?? ''
+        const preferredName = await this.findPreferredName(name) ?? ''
         const icon = await this.findIcon(name) ?? ''
-        const newTag = { name, secondaryName, icon }
+        const newTag = { name, preferredName, icon }
         this.$emit('change', [...this.tagList, newTag])
       } else {
         this.$emit('already-exists')

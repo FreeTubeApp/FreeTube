@@ -61,7 +61,7 @@ export default defineComponent({
       return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
         // Legacy support
         if (typeof ch === 'string') {
-          return { name: ch, secondaryName: '', icon: '' }
+          return { name: ch, preferredName: '', icon: '' }
         }
         return ch
       })
