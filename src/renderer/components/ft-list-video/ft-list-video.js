@@ -452,7 +452,7 @@ export default defineComponent({
           openExternalLink(this.invidiousChannelUrl)
           break
         case 'hideChannel':
-          this.hideChannel(this.channelName)
+          this.hideChannel(this.channelName, this.channelId)
           break
         case 'unhideChannel':
           this.unhideChannel(this.channelName, this.channelId)
@@ -644,9 +644,9 @@ export default defineComponent({
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
 
-    hideChannel: function(channelName) {
+    hideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      hiddenChannels.push(channelName)
+      hiddenChannels.push(channelId)
       this.updateChannelsHidden(JSON.stringify(hiddenChannels))
 
       showToast(this.$t('Channel Hidden', { channel: channelName }))
