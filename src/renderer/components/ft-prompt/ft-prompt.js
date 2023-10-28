@@ -54,6 +54,7 @@ export default defineComponent({
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.closeEventFunction, true)
+    this.lastActiveElement?.focus()
   },
   mounted: function () {
     this.lastActiveElement = document.activeElement
@@ -66,9 +67,6 @@ export default defineComponent({
       return e.id && e.id.startsWith('prompt')
     })
     this.focusItem(0)
-  },
-  destroyed() {
-    this.lastActiveElement?.focus()
   },
   methods: {
     hide: function() {

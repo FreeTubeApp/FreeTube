@@ -39,7 +39,7 @@ export default defineComponent({
     // Faster to input required playlist name
     this.$refs.playlistNameInput.focus()
   },
-  destroyed() {
+  beforeDestroy() {
     this.lastActiveElement?.focus()
   },
   methods: {
