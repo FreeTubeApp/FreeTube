@@ -145,11 +145,20 @@ export default defineComponent({
 
       this.updateHideRecommendedVideos(value)
     },
+    handleInvalidChannel: function () {
+      showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Invalid'))
+    },
+    handleChannelAPIError: function () {
+      showToast(this.$t('Settings.Distraction Free Settings.Hide Channels API Error'))
+    },
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
     },
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
+    },
+    validateChannelId: function (text) {
+      return checkYoutubeId(text)
     },
     findChannelTagInfo: async function (text) {
       return await findChannelTagInfo(text, this.backendOptions)
@@ -159,6 +168,8 @@ export default defineComponent({
 
       for (let i = 0; i < channelsHiddenCpy.length; i++) {
         const tag = this.channelsHidden[i]
+
+        // process if no preferred name and is possibly a YouTube ID
         if (tag.preferredName === '' && checkYoutubeId(tag.name)) {
           this.channelHiderDisabled = true
 
@@ -171,6 +182,8 @@ export default defineComponent({
           this.handleChannelsHidden(channelsHiddenCpy)
         }
       }
+
+      this.channelHiderDisabled = false
     },
 
     ...mapActions([

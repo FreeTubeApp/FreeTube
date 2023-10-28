@@ -243,7 +243,10 @@
         :show-action-button="true"
         :tag-list="channelsHidden"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
+        :validate-tag-name="validateChannelId"
         :find-tag-info="findChannelTagInfo"
+        @invalid-name="handleInvalidChannel"
+        @error-find-tag-info="handleChannelAPIError"
         @change="handleChannelsHidden"
         @already-exists="handleChannelsExists"
       />

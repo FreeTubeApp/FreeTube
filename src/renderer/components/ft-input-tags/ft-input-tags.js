@@ -31,6 +31,10 @@ export default defineComponent({
       type: String,
       default: ''
     },
+    validateTagName: {
+      type: Function,
+      default: (_) => true
+    },
     findTagInfo: {
       type: Function,
       default: (_) => ({ preferredName: '', icon: '' }),
@@ -41,9 +45,20 @@ export default defineComponent({
       // text entered add tag and update tag list
       const name = text.trim()
 
+      if (!this.validateTagName(name)) {
+        this.$emit('invalid-name')
+        return
+      }
+
       if (!this.tagList.some((tag) => tag.name === name)) {
         // tag info searching allow api calls to be used
-        const { preferredName, icon } = await this.findTagInfo(name)
+        const { preferredName, icon, err } = await this.findTagInfo(name)
+
+        if (err) {
+          this.$emit('error-find-tag-info')
+          return
+        }
+
         const newTag = { name, preferredName, icon }
         this.$emit('change', [...this.tagList, newTag])
       } else {
