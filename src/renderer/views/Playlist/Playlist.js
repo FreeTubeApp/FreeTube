@@ -166,21 +166,6 @@ export default defineComponent({
           channelName = subtitle.substring(0, index).trim()
         }
 
-        this.infoData = {
-          id: this.playlistId,
-          title: result.info.title,
-          description: result.info.description ?? '',
-          firstVideoId: result.items[0].id,
-          playlistThumbnail: result.info.thumbnails[0].url,
-          viewCount: extractNumberFromString(result.info.views),
-          videoCount: extractNumberFromString(result.info.total_items),
-          lastUpdated: result.info.last_updated ?? '',
-          channelName,
-          channelThumbnail: result.info.author?.best_thumbnail?.url ?? '',
-          channelId: result.info.author?.id,
-          infoSource: 'local'
-        }
-
         this.playlistTitle = result.info.title
         this.playlistDescription = result.info.description ?? ''
         this.firstVideoId = result.items[0].id
@@ -219,19 +204,6 @@ export default defineComponent({
 
     getPlaylistInvidious: function () {
       invidiousGetPlaylistInfo(this.playlistId).then((result) => {
-        this.infoData = {
-          id: result.playlistId,
-          title: result.title,
-          description: result.description,
-          firstVideoId: result.videos[0].videoId,
-          viewCount: result.viewCount,
-          videoCount: result.videoCount,
-          channelName: result.author,
-          channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails[2].url, this.currentInvidiousInstance),
-          channelId: result.authorId,
-          infoSource: 'invidious'
-        }
-
         this.playlistTitle = result.title
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
@@ -292,7 +264,7 @@ export default defineComponent({
     },
 
     getNextPage: function () {
-      switch (this.infoData.infoSource) {
+      switch (this.infoSource) {
         case 'local':
           this.getNextPageLocal()
           break
