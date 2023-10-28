@@ -271,20 +271,6 @@ export default defineComponent({
       this.openInExternalPlayer(payload)
     },
 
-    handleFormatChange: function (format) {
-      switch (format) {
-        case 'dash':
-          this.$parent.enableDashFormat()
-          break
-        case 'legacy':
-          this.$parent.enableLegacyFormat()
-          break
-        case 'audio':
-          this.$parent.enableAudioFormat()
-          break
-      }
-    },
-
     handleDownload: function (index) {
       const selectedDownloadLinkOption = this.downloadLinkOptions[index]
       const url = selectedDownloadLinkOption.value
