@@ -29,7 +29,6 @@ export default defineComponent({
     return {
       isLoading: false,
       dataAvailable: false,
-      proxyTestUrl: 'https://ipwho.is/?output=json&fields=ip,country,city,region',
       proxyIp: '',
       proxyCountry: '',
       proxyRegion: '',
@@ -64,6 +63,24 @@ export default defineComponent({
     },
     proxyUrl: function () {
       return `${this.proxyProtocol}://${this.proxyHostname}:${this.proxyPort}`
+    },
+    lang: function() {
+      return this.$i18n.locale.replace('_', '-')
+    },
+    localeToUse: function() {
+      // locales found here: https://ipwhois.io/documentation
+      const supportedLangs = ['en', 'ru', 'de', 'es', 'pt-BR', 'fr', 'zh-CN', 'ja']
+      return supportedLangs.find(lang => {
+        return (this.lang === lang) || (this.lang.substring(0, 2) === lang.substring(0, 2))
+      })
+    },
+    proxyTestUrl: function() {
+      let proxyTestUrl = 'https://ipwho.is/?output=json&fields=ip,country,city,region'
+      if (this.localeToUse) {
+        proxyTestUrl += `&lang=${this.localeToUse}`
+      }
+
+      return proxyTestUrl
     }
   },
   created: function () {
