@@ -58,10 +58,12 @@ export async function getPipedCommentsMore({ videoId, continuation }) {
 }
 function parsePipedComments(comments) {
   return comments.map(comment => {
+    const authorId = comment.commentorUrl.replace('/channel/', '')
     return {
       dataType: 'piped',
       author: comment.author,
-      authorLink: comment.commentorUrl.replace('/channel/'),
+      authorId: authorId,
+      authorLink: authorId,
       authorThumb: comment.thumbnail,
       commentId: comment.commentId,
       text: comment.commentText,
@@ -72,7 +74,7 @@ function parsePipedComments(comments) {
       isHearted: comment.hearted,
       replyToken: comment.repliesPage,
       isMember: false,
-      isOwner: false,
+      isOwner: comment.channelOwner,
       showReplies: false,
       replies: [],
       hasOwnerReplied: comment.creatorReplied,
