@@ -73,7 +73,7 @@
         :select-names="thumbnailTypeNames"
         :select-values="thumbnailTypeValues"
         :tooltip="$t('Tooltips.General Settings.Thumbnail Preference')"
-        @change="updateThumbnailPreference"
+        @change="handleThumbnailPreferenceChange"
       />
       <ft-select
         :placeholder="$t('Settings.General Settings.Locale Preference')"
