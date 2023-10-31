@@ -108,7 +108,7 @@ module.exports = {
   },
   settings: {
     'vue-i18n': {
-      localeDir: './static/locales/*.yaml', // extension is glob formatting!
+      localeDir: './static/locales/*.yaml'
     }
   }
 }
