@@ -15,7 +15,7 @@
       {{ $t("Chapters.Chapters") }}
 
       <span class="currentChapter">
-        {{ $t("Grammar.BulletSeparator") }}{{ currentTitle }}
+        • {{ currentTitle }}
       </span>
 
       <font-awesome-icon

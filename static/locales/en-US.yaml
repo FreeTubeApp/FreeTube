@@ -936,9 +936,5 @@ Ok: Ok
 Grammar:
   # adds a colon after a form label
   ColonText: '{text}:'
-  # separates some fields (ex: 5 videos - 10 channels)
-  DashSeparator: ' - '
-  # separates some fields (ex: 5 videos - 10 channels)
-  BulletSeparator: ' • '
   # Index / Count
   Index / Count: '{index} / {count}'

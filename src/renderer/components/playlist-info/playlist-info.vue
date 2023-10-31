@@ -23,8 +23,8 @@
         {{ title }}
       </h2>
       <p>
-        {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }}{{ $t('Grammar.DashSeparator') }}
-        <span v-if="!hideViews">{{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}{{ $t('Grammar.DashSeparator') }}</span>
+        {{ $tc('Global.Counts.Video Count', videoCount, {count: parsedVideoCount}) }} -
+        <span v-if="!hideViews">{{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }} - </span>
         <span v-if="infoSource !== 'local'">
           {{ $t("Playlist.Last Updated On") }}
         </span>
