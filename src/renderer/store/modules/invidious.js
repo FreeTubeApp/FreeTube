@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import { pathExists } from '../../helpers/filesystem'
-import { createWebURL } from '../../helpers/utils'
+import { createWebURL, fetchWithTimeout } from '../../helpers/utils'
 
 const state = {
   currentInvidiousInstance: '',
@@ -23,7 +23,7 @@ const actions = {
 
     let instances = []
     try {
-      const response = await fetch(requestUrl)
+      const response = await fetchWithTimeout(15_000, requestUrl)
       const json = await response.json()
       instances = json.filter((instance) => {
         return !(instance[0].includes('.onion') ||
@@ -34,7 +34,11 @@ const actions = {
         return instance[1].uri.replace(/\/$/, '')
       })
     } catch (err) {
-      console.error(err)
+      if (err.name === 'TimeoutError') {
+        console.error('Fetching the Invidious instance list timed out after 15 seconds. Falling back to local copy.')
+      } else {
+        console.error(err)
+      }
     }
     // If the invidious instance fetch isn't returning anything interpretable
     if (instances.length === 0) {

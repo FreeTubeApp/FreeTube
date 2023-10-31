@@ -37,6 +37,12 @@ Global:
   Live: Live
   Community: Gemenskap
 
+  Counts:
+    Video Count: 1 video | {count} videor
+    Subscriber Count: 1 prenumerant | {count} prenumeranter
+    View Count: 1 visning | {count} visningar
+    Watching Count: 1 tittar | {count} tittare
+    Channel Count: 1 kanal | {count} kanaler
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -100,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Prenumeration Flik
   All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll
     här, vänligen avdölj några flikar i avsnittet "{subsection}" i "{settingsSection}".
+  Load More Posts: Ladda fler inlägg
+  Empty Posts: Dina prenumererade kanaler har för närvarande inga inlägg.
 Trending:
   Trending: 'Populärt'
   Movies: Filmer
@@ -422,6 +430,7 @@ Settings:
     Hide Subscriptions Live: Dölj prenumerations Live-sändningar
     Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
     Blur Thumbnails: Oskärpa tumnaglar
+    Hide Subscriptions Community: Dölj prenumerationsgemenskap
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -861,6 +870,7 @@ Comments:
   View {replyCount} replies: Visa {replyCount} repliker
   Pinned by: Nålad av
   Hearted: Hjärtade
+  Subscribed: Prenumererar
 Up Next: 'Kommer härnäst'
 
 # Toast Messages

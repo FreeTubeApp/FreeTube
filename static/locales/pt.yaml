@@ -902,11 +902,10 @@ Comments:
 Up Next: 'A seguir'
 
 # Toast Messages
-Local API Error (Click to copy): 'API local encontrou um erro (clique para copiar)'
-Invidious API Error (Click to copy): 'API Invidious encontrou um erro (clique para
-  copiar)'
-Falling back to Invidious API: 'Ocorreu uma falha, a mudar para API Invidious'
-Falling back to the local API: 'Ocorreu uma falha, a mudar para API local'
+Local API Error (Click to copy): 'Erro na API local (clique para copiar)'
+Invidious API Error (Click to copy): 'Erro na API Invidious (clique para copiar)'
+Falling back to Invidious API: 'Ocorreu um erro e vamos usar a API Invidious'
+Falling back to the local API: 'Ocorreu um erro e vamos usar a API local'
 Subscriptions have not yet been implemented: 'As subscrições ainda não foram implementadas'
 Loop is now disabled: 'Repetição desativada'
 Loop is now enabled: 'Repetição ativada'
@@ -923,31 +922,31 @@ Yes: 'Sim'
 No: 'Não'
 More: Mais
 Open New Window: Abrir nova janela
-Default Invidious instance has been cleared: Predefinição apagada
-Default Invidious instance has been set to {instance}: Servidor Invidious {instance}
-  foi estabelecido como predefenição
+Default Invidious instance has been cleared: A instância padrão Invidious foi removida
+Default Invidious instance has been set to {instance}: A instância Invidious padrão
+  foi definida para {instance}
 Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para
   cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique
   para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos.
   Clique para cancelar.
 Hashtags have not yet been implemented, try again later: As 'hashtags' ainda não foram
   implementadas, tente mais tarde
-Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecido,
-  não pode ser aberto numa aplicação
+Unknown YouTube url type, cannot be opened in app: O tipo de URL YouTube e desconhecido
+  e não pode ser aberto na aplicação
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
   vídeo não está disponível porque faltam formatos. Isto pode acontecer devido à indisponibilidade
   no seu país.
 Tooltips:
   Privacy Settings:
-    Remove Video Meta Files: Quando ativado, ao fechar uma página, FreeTube apagará
-      automaticamente os meta ficheiros criados durante a reprodução de um vídeo.
+    Remove Video Meta Files: Se ativa, ao fechar uma página, FreeTube apagará automaticamente
+      os meta-ficheiros criados durante a reprodução de um vídeo.
   Subscription Settings:
-    Fetch Feeds from RSS: Quando ativado, FreeTube irá obter as suas subscrições através
-      de RSS em vez do método normal. O RSS é mais rápido e impede que seja bloqueado
-      pelo YouTube, mas não disponibiliza informações como a duração dos vídeos ou
-      se são transmissões em direto
-    Fetch Automatically: Quando ativado, FreeTube irá obter automaticamente as suas
-      subscrições quando uma nova janela for aberta e quando mudar de perfil.
+    Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS
+      em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo
+      YouTube, mas não disponibiliza certas informações como, por exemplo, a duração
+      dos vídeos ou se são emissões em direto.
+    Fetch Automatically: Se ativa, FreeTube irá obter automaticamente as subscrições
+      ao abrir uma nova janela e/ou quando mudar de perfil.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, separados
       por ponto e vírgula (';'), que quiser passar ao reprodutor externo.
@@ -1000,14 +999,14 @@ Tooltips:
       a ligação no seu navegador de Internet.\n"
   Experimental Settings:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
-      na memória personalizada. Levará ao aumento da utilização de RAM.
+      na memória personalizada. Implica o aumento da utilização de memória RAM.
   Distraction Free Settings:
     Hide Channels: Introduza o nome ou ID de um canal para impedir que os vídeos,
       listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais
       populares e recomendados. O nome do canal introduzido tem que ser uma correspondência
       exata e diferencia maiúsculas de minúsculas.
-    Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
-      aplicação "{appWideSetting}", na secção "{subsection}" da "{settingsSection}"
+    Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}",
+      existente na secção "{subsection}" de "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.
@@ -1020,7 +1019,7 @@ Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Downloading has completed: '"{videoTitle}" foi descarregado'
 Screenshot Success: Captura de ecrã guardada como "{filePath}"
-Screenshot Error: A captura de ecrã falhou. {error}
+Screenshot Error: Erro ao capturar o ecrã. {error}
 Age Restricted:
   The currently set default instance is {instance}: Este {instance} tem restrição
     de idade
@@ -1049,11 +1048,11 @@ Clipboard:
   Cannot access clipboard without a secure connection: Não é possível aceder à área
     de transferência sem uma ligação segura
 Preferences: Preferências
-Ok: Ok
+Ok: OK
 Hashtag:
-  Hashtag: Marcador
-  This hashtag does not currently have any videos: Esta hashtag não tem atualmente
-    quaisquer vídeos
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Esta 'hashtag' não tem quaisquer
+    vídeos
 Playlist will pause when current video is finished: A lista de reprodução será colocada
   em pausa quando o vídeo atual terminar
 Playlist will not pause when current video is finished: A lista de reprodução não

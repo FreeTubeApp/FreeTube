@@ -36,6 +36,8 @@ Global:
   Community: Сообщество
 
 # Search Bar
+  Counts:
+    Video Count: 1 видео | {count} видео
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
