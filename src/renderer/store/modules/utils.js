@@ -556,7 +556,7 @@ const actions = {
           args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
         }
       } else if (!ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'starting video at offset')
+        showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.starting video at offset'))
       }
     }
 
@@ -564,7 +564,7 @@ const actions = {
       if (typeof cmdArgs.playbackRate === 'string') {
         args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
       } else if (!ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'setting a playback rate')
+        showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.setting a playback rate'))
       }
     }
 
@@ -574,7 +574,7 @@ const actions = {
         if (typeof cmdArgs.playlistIndex === 'string') {
           args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening specific video in a playlist (falling back to opening the video)')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
         }
       }
 
@@ -582,7 +582,7 @@ const actions = {
         if (typeof cmdArgs.playlistReverse === 'string') {
           args.push(cmdArgs.playlistReverse)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'reversing playlists')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.reversing playlists'))
         }
       }
 
@@ -590,7 +590,7 @@ const actions = {
         if (typeof cmdArgs.playlistShuffle === 'string') {
           args.push(cmdArgs.playlistShuffle)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'shuffling playlists')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.shuffling playlists'))
         }
       }
 
@@ -598,7 +598,7 @@ const actions = {
         if (typeof cmdArgs.playlistLoop === 'string') {
           args.push(cmdArgs.playlistLoop)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, 'looping playlists')
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.looping playlists'))
         }
       }
 
@@ -610,7 +610,7 @@ const actions = {
       }
     } else {
       if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-        showExternalPlayerUnsupportedActionToast(externalPlayer, 'opening playlists')
+        showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening playlists'))
       }
       if (payload.videoId != null) {
         args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)

@@ -79,6 +79,7 @@ module.exports = {
     'unicorn/prefer-keyboard-event-key': 'error',
     'unicorn/prefer-regexp-test': 'error',
     'unicorn/prefer-string-replace-all': 'error',
+    // '@intlify/vue-i18n/no-dynamic-keys': 'error',
     // '@intlify/vue-i18n/no-unused-keys': [
     //   'error',
     //   {

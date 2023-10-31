@@ -449,12 +449,7 @@ export default defineComponent({
 
           default: {
             // Unknown URL type
-            let message = 'Unknown YouTube url type, cannot be opened in app'
-            if (this.$te(message) && this.$t(message) !== '') {
-              message = this.$t(message)
-            }
-
-            showToast(message)
+            showToast(this.$t('Unknown YouTube url type, cannot be opened in app'))
           }
         }
       })

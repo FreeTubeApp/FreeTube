@@ -516,7 +516,7 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, subscriptionsDb, 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, subscriptionsDb, this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportYouTubeSubscriptions: async function () {
@@ -569,7 +569,7 @@ export default defineComponent({
         return object
       })
 
-      await this.promptAndWriteToFile(options, JSON.stringify(subscriptionsObject), 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, JSON.stringify(subscriptionsObject), this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportOpmlYouTubeSubscriptions: async function () {
@@ -597,7 +597,7 @@ export default defineComponent({
 
       opmlData += '</outline></body></opml>'
 
-      await this.promptAndWriteToFile(options, opmlData, 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, opmlData, this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportCsvYouTubeSubscriptions: async function () {
@@ -624,7 +624,7 @@ export default defineComponent({
       })
       exportText += '\n'
 
-      await this.promptAndWriteToFile(options, exportText, 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, exportText, this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     exportNewPipeSubscriptions: async function () {
@@ -658,7 +658,7 @@ export default defineComponent({
         newPipeObject.subscriptions.push(subscription)
       })
 
-      await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), 'Subscriptions have been successfully exported')
+      await this.promptAndWriteToFile(options, JSON.stringify(newPipeObject), this.$t('Settings.Data Settings.Subscriptions have been successfully exported'))
     },
 
     importHistory: async function () {
@@ -852,7 +852,7 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, historyDb, 'All watched history has been successfully exported')
+      await this.promptAndWriteToFile(options, historyDb, this.$t('Settings.Data Settings.All watched history has been successfully exported'))
     },
 
     importPlaylists: async function () {
@@ -983,7 +983,7 @@ export default defineComponent({
         ]
       }
 
-      await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), 'All playlists has been successfully exported')
+      await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), this.$t('Settings.Data Settings.All playlists has been successfully exported'))
     },
 
     convertOldFreeTubeFormatToNew(oldData) {
@@ -1017,7 +1017,7 @@ export default defineComponent({
       return convertedData
     },
 
-    promptAndWriteToFile: async function (saveOptions, content, successMessageKeySuffix) {
+    promptAndWriteToFile: async function (saveOptions, content, successMessage) {
       const response = await showSaveDialog(saveOptions)
       if (response.canceled || response.filePath === '') {
         // User canceled the save dialog
@@ -1032,7 +1032,7 @@ export default defineComponent({
         return
       }
 
-      showToast(this.$t(`Settings.Data Settings.${successMessageKeySuffix}`))
+      showToast(successMessage)
     },
 
     getChannelInfoInvidious: function (channelId) {
