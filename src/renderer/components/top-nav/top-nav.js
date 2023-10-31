@@ -6,7 +6,7 @@ import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
 import debounce from 'lodash.debounce'
 
 import { IpcChannels } from '../../../constants'
-import { openInternalPath } from '../../helpers/utils'
+import { decodeHTML, openInternalPath } from '../../helpers/utils'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -258,7 +258,7 @@ export default defineComponent({
       }
 
       invidiousAPICall(searchPayload).then((results) => {
-        this.searchSuggestionsDataList = results.suggestions
+        this.searchSuggestionsDataList = results.suggestions.map(suggestion => decodeHTML(suggestion))
       }).catch((err) => {
         console.error(err)
         if (process.env.IS_ELECTRON && this.backendFallback) {

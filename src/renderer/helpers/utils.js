@@ -665,6 +665,17 @@ export function escapeHTML(untrusted) {
 }
 
 /**
+ * Decode an html encoded string (for when we're not displaying something as html)
+ * @param {string} htmlEncodedString
+ * @returns {string}
+ */
+export function decodeHTML(htmlEncodedString) {
+  const testDiv = document.createElement('div')
+  testDiv.innerHTML = htmlEncodedString
+  return testDiv.innerText
+}
+
+/**
  * Performs a deep copy of a javascript object
  * @param {Object} obj
  * @returns {Object}
