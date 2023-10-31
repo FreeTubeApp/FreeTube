@@ -194,7 +194,7 @@ Settings:
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
     Expand Side Bar by Default: 'Fletta sjálfgefið út hliðarstiku'
     Disable Smooth Scrolling: 'Gera mjúkt skrun óvirkt'
-    UI Scale: 'Kvörðun viðmóts'
+    UI Scale: 'Kvörðun viðmóts: '
     Base Theme:
       Base Theme: 'Grunnþema'
       Black: 'Svart'
@@ -259,8 +259,8 @@ Settings:
     Autoplay Playlists: 'Spila spilunarlista sjálfkrafa'
     Enable Theatre Mode by Default: 'Sjálfgefið virkja bíóham (theater mode)'
     Playlist Next Video Interval: 'Millibil afspilunar næsta myndskeiðs í spilunarlista'
-    Default Volume: 'Sjálfgefinn hljóðstyrkur'
-    Default Playback Rate: 'Sjálfgefinn afspilunarhraði'
+    Default Volume: 'Sjálfgefinn hljóðstyrkur: '
+    Default Playback Rate: 'Sjálfgefinn afspilunarhraði: '
     Default Video Format:
       Default Video Format: 'Sjálfgefið skráasnið myndskeiða'
       Dash Formats: 'DASH-skráasnið'
@@ -278,17 +278,17 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Bil í næsta myndskeið
+    Next Video Interval: 'Bil í næsta myndskeið: '
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
-    Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
+    Fast-Forward / Rewind Interval: 'Millibil hraðspólunar / spóla til baka: '
     Scroll Playback Rate Over Video Player: Skruna afspilunarhraða ofan á myndspilara
     Video Playback Rate Interval: Hámarksbil milli afspilunar myndskeiða
-    Max Video Playback Rate: Hámarkshraði afspilunar myndskeiða
+    Max Video Playback Rate: 'Hámarkshraði afspilunar myndskeiða: '
     Screenshot:
       Enable: Virkja skjámyndatöku
       Format Label: Snið skjámynda
-      Quality Label: Gæði skjámynda
+      Quality Label: 'Gæði skjámynda: '
       Error:
         Forbidden Characters: Bannaðir stafir
         Empty File Name: Autt skráaheiti

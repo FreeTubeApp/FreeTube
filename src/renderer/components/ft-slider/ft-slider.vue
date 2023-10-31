@@ -13,7 +13,7 @@
       @change="$emit('change', currentValue)"
     >
     <span>
-      {{ $t('Grammar.ColonText', {text: label}) }}
+      {{ label }}
       <span>
         {{ displayLabel }}
       </span>

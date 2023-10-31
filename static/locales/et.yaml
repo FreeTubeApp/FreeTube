@@ -236,7 +236,7 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Safiir
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
-    UI Scale: Kasutajaliidese suurus
+    UI Scale: 'Kasutajaliidese suurus: '
     Disable Smooth Scrolling: Ära kasuta sujuvat kerimist
     Expand Side Bar by Default: Vaikimisi näita külgriba laiana
     Hide Side Bar Labels: Peida külgriba sildid
@@ -251,8 +251,8 @@ Settings:
     Proxy Videos Through Invidious: 'Puhverda videosid Invidious''e veebiteenuse kaudu'
     Autoplay Playlists: 'Automaatselt mängi esitusloendit'
     Enable Theatre Mode by Default: 'Vaikimisi kasuta teatrivaadet (laia vaadet)'
-    Default Volume: 'Vaikimisi helivaljus'
-    Default Playback Rate: 'Vaikimisi videoesituse kiirus'
+    Default Volume: 'Vaikimisi helivaljus: '
+    Default Playback Rate: 'Vaikimisi videoesituse kiirus: '
     Default Video Format:
       Default Video Format: 'Vaikimisi videovorming'
       Dash Formats: 'DASH-vormingud'
@@ -270,18 +270,18 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Viivitus järgmise video esitamisel
+    Next Video Interval: 'Viivitus järgmise video esitamisel: '
     Display Play Button In Video Player: Kuva videomängijas esitamise nuppu
     Scroll Volume Over Video Player: Muuda helivaljust videovaate kohal kerides
-    Fast-Forward / Rewind Interval: Kiirkerimise välp
+    Fast-Forward / Rewind Interval: 'Kiirkerimise välp: '
     Scroll Playback Rate Over Video Player: Videomängija kohal saad muuta taasesituskiirust
     Max Video Playback Rate: Video suurim taasesituskiirus
-    Video Playback Rate Interval: Video taasesituskiiruse intervall
+    Video Playback Rate Interval: 'Video taasesituskiiruse intervall: '
     Screenshot:
       Ask Path: Küsi salvestuskausta
       Folder Label: Kuvatõmmise kaust
       Format Label: Kuvatõmmise vorming
-      Quality Label: Kuvatõmmise kvaliteet
+      Quality Label: 'Kuvatõmmise kvaliteet: '
       Folder Button: Vali kaust
       File Name Label: Failinime muster
       Error:

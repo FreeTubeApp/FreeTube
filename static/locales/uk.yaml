@@ -190,7 +190,7 @@ Settings:
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
     Expand Side Bar by Default: 'Усталено розгортати бічну панель'
     Disable Smooth Scrolling: 'Відключити плавну прокрутку'
-    UI Scale: 'Масштаб інтерфейсу'
+    UI Scale: 'Масштаб інтерфейсу: '
     Base Theme:
       Base Theme: 'Базова тема'
       Black: 'Чорна'
@@ -254,8 +254,8 @@ Settings:
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
     Autoplay Playlists: 'Автовідтворення добірок'
     Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
-    Default Volume: 'Типова гучність'
-    Default Playback Rate: 'Типова швидкість відтворення'
+    Default Volume: 'Типова гучність: '
+    Default Playback Rate: 'Типова швидкість відтворення: '
     Default Video Format:
       Default Video Format: 'Типовий формат відео'
       Dash Formats: 'Формати DASH'
@@ -274,14 +274,14 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Інтервал відтворення наступного відео
-    Next Video Interval: Інтервал до наступного відео
+    Next Video Interval: 'Інтервал до наступного відео: '
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
-    Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
+    Fast-Forward / Rewind Interval: 'Інтервал перемотування вперед/назад: '
     Scroll Playback Rate Over Video Player: Контроль швидкості відтворення коліщам
       миші у відеопрогравачі
     Video Playback Rate Interval: Інтервал швидкості відтворення відео
-    Max Video Playback Rate: Максимальна швидкість відтворення відео
+    Max Video Playback Rate: 'Максимальна швидкість відтворення відео: '
     Screenshot:
       Folder Label: Тека зі знімками екрана
       File Name Label: Шаблон назви файлу
@@ -291,7 +291,7 @@ Settings:
       Enable: Увімкнути знімок екрана
       Format Label: Формат знімка екрана
       Folder Button: Вибрати теку
-      Quality Label: Якість знімка екрана
+      Quality Label: 'Якість знімка екрана: '
       Ask Path: Запитувати у якій теці зберігати
       File Name Tooltip: Нижче ви можете використовувати змінні. %Y Рік 4 цифри. %M
         Місяць 2 цифри. %D день 2 цифри. %H Година 2 цифри. %N Хвилина 2 цифри. %S

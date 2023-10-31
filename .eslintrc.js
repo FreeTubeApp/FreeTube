@@ -103,7 +103,7 @@ module.exports = {
           input: ['placeholder', 'value'],
           img: ['alt']
         },
-        ignoreText: ['-', '•']
+        ignoreText: ['-', '•', '/']
       }
     ],
   },

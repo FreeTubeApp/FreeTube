@@ -187,7 +187,7 @@ Settings:
     Match Top Bar with Main Color: ''
     Expand Side Bar by Default: ''
     Disable Smooth Scrolling: 'Atspējot plūdeno ritināšanu'
-    UI Scale: 'Saskarnes izmērs'
+    UI Scale: 'Saskarnes izmērs: '
     Hide Side Bar Labels: 'Paslēpt sānu paneļa etiķetes'
     Hide FreeTube Header Logo: 'Paslēpt FreeTube galvenes logo'
     Base Theme:
@@ -257,11 +257,11 @@ Settings:
     Skip by Scrolling Over Video Player: 'Izlaist ritinot pāri video atskaņotājam'
     Display Play Button In Video Player: 'Attēlot Atskaņošanas pogu video atskaņotājā'
     Enter Fullscreen on Display Rotate: 'Pagriežot ekrānu pārslēgt uz pilnekrānu'
-    Next Video Interval: 'Nākošā video intervāls'
+    Next Video Interval: 'Nākošā video intervāls: '
     Fast-Forward / Rewind Interval: ''
     Default Volume: ''
     Default Playback Rate: ''
-    Max Video Playback Rate: 'Maksimālais video atskaņošanas ātrums'
+    Max Video Playback Rate: 'Maksimālais video atskaņošanas ātrums: '
     Video Playback Rate Interval: 'Video atskaņošanas ātruma intervāls'
     Default Video Format:
       Default Video Format: ''
@@ -284,7 +284,7 @@ Settings:
     Screenshot:
       Enable: 'Iespējot ekrānšāviņu'
       Format Label: 'Ekrānšāviņa formāti'
-      Quality Label: 'Ekrānšāviņa kvalitāte'
+      Quality Label: 'Ekrānšāviņa kvalitāte: '
       Ask Path: 'Jautāt saglabāšanas mapi'
       Folder Label: 'Ekrānšāviņa mape'
       Folder Button: 'Izvēlēties mapi'

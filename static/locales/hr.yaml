@@ -230,7 +230,7 @@ Settings:
       Catppuccin Mocha Green: Catppuccin Mocha Zelena
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
-    UI Scale: Uvećanje korisničkog sučelja
+    UI Scale: 'Uvećanje korisničkog sučelja: '
     Disable Smooth Scrolling: Deaktiviraj neisprekidano pomicanje
     Expand Side Bar by Default: Standardno proširi bočnu traku
     Hide Side Bar Labels: Sakrij oznake bočnih traka
@@ -245,8 +245,8 @@ Settings:
     Proxy Videos Through Invidious: 'Koristi Invidious kao posrednika videa'
     Autoplay Playlists: 'Automatski reproduciraj zbirke'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
-    Default Volume: 'Standardna glasnoća'
-    Default Playback Rate: 'Standardna brzina reprodukcije'
+    Default Volume: 'Standardna glasnoća: '
+    Default Playback Rate: 'Standardna brzina reprodukcije: '
     Default Video Format:
       Default Video Format: 'Standardni videoformat'
       Dash Formats: 'DASH formati'
@@ -265,17 +265,17 @@ Settings:
       4k: '4 k'
       8k: '8 k'
     Playlist Next Video Interval: Interval sljedećeg videa zbirke
-    Next Video Interval: Interval za sljedeći video
+    Next Video Interval: 'Interval za sljedeći video: '
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
-    Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
+    Fast-Forward / Rewind Interval: 'Interval za premotavanje naprijed/natrag: '
     Scroll Playback Rate Over Video Player: Mijenjaj brzinu reprodukcije u video playeru
     Video Playback Rate Interval: Interval brzine reprodukcije videa
-    Max Video Playback Rate: Maksimalna brzina reprodukcije videa
+    Max Video Playback Rate: 'Maksimalna brzina reprodukcije videa: '
     Screenshot:
       Enable: Aktiviraj snimanje ekrana
       Format Label: Format snimke ekrana
-      Quality Label: Kvaliteta snimke ekrana
+      Quality Label: 'Kvaliteta snimke ekrana: '
       Error:
         Forbidden Characters: Zabranjeni znakovi
         Empty File Name: Prazno ime datoteke

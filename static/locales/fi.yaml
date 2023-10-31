@@ -222,7 +222,7 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender -teema
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
-    UI Scale: Käyttöliittymän koko
+    UI Scale: 'Käyttöliittymän koko: '
     Disable Smooth Scrolling: Poista tasainen vieritys käytöstä
     Expand Side Bar by Default: Laajenna sivupalkki oletusarvoisesti
     Hide Side Bar Labels: Piilota sivupalkin nimikkeet
@@ -238,8 +238,8 @@ Settings:
     Proxy Videos Through Invidious: 'Välitä videot Invidiousin kautta'
     Autoplay Playlists: 'Toista soittolistat automaattisesti'
     Enable Theatre Mode by Default: 'Ota teatteritila käyttöön oletusarvoisesti'
-    Default Volume: 'Äänenvoimakkuuden oletusarvo'
-    Default Playback Rate: 'Toiston oletusnopeus'
+    Default Volume: 'Äänenvoimakkuuden oletusarvo: '
+    Default Playback Rate: 'Toiston oletusnopeus: '
     Default Video Format:
       Default Video Format: 'Videon oletusmuoto'
       Dash Formats: 'DASH-formaatit'
@@ -257,13 +257,13 @@ Settings:
       1440p: '1440p'
       4k: '4K'
       8k: '8K'
-    Next Video Interval: Seuraavan videon väli
+    Next Video Interval: 'Seuraavan videon väli: '
     Display Play Button In Video Player: Näytä toista-nappula videotoistimessa
     Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
       päällä
-    Fast-Forward / Rewind Interval: Pikakelauksen intervalli
+    Fast-Forward / Rewind Interval: 'Pikakelauksen intervalli: '
     Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
-    Max Video Playback Rate: Videon maksimitoistonopeus
+    Max Video Playback Rate: 'Videon maksimitoistonopeus: '
     Video Playback Rate Interval: Videon toistonopeuden aikaväli
     Screenshot:
       Error:
@@ -273,7 +273,7 @@ Settings:
       Folder Label: Kuvakaappauskansio
       Folder Button: Valitse kansio
       Format Label: Kuvakaappauksen muoto
-      Quality Label: Kuvakaappauksen laatu
+      Quality Label: 'Kuvakaappauksen laatu: '
       File Name Label: Tiedostonimimalli
       Ask Path: Kysy tallennuskansiota
       File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M

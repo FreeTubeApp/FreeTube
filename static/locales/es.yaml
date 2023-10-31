@@ -232,7 +232,7 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Moka Lavanda
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
-    UI Scale: Escala de interfaz gráfica
+    UI Scale: 'Escala de interfaz gráfica: '
     Expand Side Bar by Default: Expandir barra lateral por defecto
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar las etiquetas de la barra lateral
@@ -246,8 +246,8 @@ Settings:
     Proxy Videos Through Invidious: 'Enmascarar vídeos a través de Invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
-    Default Volume: 'Volumen predeterminado'
-    Default Playback Rate: 'Velocidad de reproducción predeterminada'
+    Default Volume: 'Volumen predeterminado: '
+    Default Playback Rate: 'Velocidad de reproducción predeterminada: '
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formatos DASH'
@@ -266,15 +266,15 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
-    Next Video Interval: Siguiente segmento de vídeo
+    Next Video Interval: 'Siguiente segmento de vídeo: '
     Display Play Button In Video Player: Mostrar el botón de reproducción sobre el
       vídeo
     Scroll Volume Over Video Player: Cambiar el volumen con la rueda del ratón sobre
       el vídeo
-    Fast-Forward / Rewind Interval: Intervalo de avance/rebobinado rápido
+    Fast-Forward / Rewind Interval: 'Intervalo de avance/rebobinado rápido: '
     Scroll Playback Rate Over Video Player: Cambiar la velocidad de reproducción con
       el ratón
-    Max Video Playback Rate: Velocidad máxima de reproducción de vídeo
+    Max Video Playback Rate: 'Velocidad máxima de reproducción de vídeo: '
     Video Playback Rate Interval: Intervalo de velocidad de reproducción de vídeo
     Screenshot:
       Folder Button: Seleccionar una carpeta
@@ -282,7 +282,7 @@ Settings:
         Forbidden Characters: Caracteres prohibidos
         Empty File Name: Nombre de archivo vacío
       Enable: Habilitar capturas de pantalla
-      Quality Label: Calidad de las capturas de pantalla
+      Quality Label: 'Calidad de las capturas de pantalla: '
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla

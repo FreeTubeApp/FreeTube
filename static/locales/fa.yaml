@@ -167,7 +167,7 @@ Settings:
     Match Top Bar with Main Color: 'یکسان سازی قطعه بالا با رنگ اصلی'
     Expand Side Bar by Default: 'گسترش ستون فرعی به صورت پیشفرض'
     Disable Smooth Scrolling: 'غیرفعال کردن حرکت ملایم'
-    UI Scale: 'نسبت رابط کاربری'
+    UI Scale: ' :نسبت رابط کاربری'
     Base Theme:
       Base Theme: 'تم اصلی'
       Black: 'سیاه'
@@ -232,10 +232,10 @@ Settings:
     Enable Theatre Mode by Default: 'فعال کردن حالت تئاتر به عنوان پیشفرض'
     Scroll Volume Over Video Player: 'کنترل صدا با حرکت اسکرول موس روی پخش کننده ویدیو'
     Display Play Button In Video Player: 'نمایش دکمه پخش داخل پخش کننده ویدیو'
-    Next Video Interval: 'بازه زمانی ویدیو بعدی'
-    Fast-Forward / Rewind Interval: 'بازه زمانی جلو / عقب رفتن سریع'
-    Default Volume: 'میزان صدای پیشفرض'
-    Default Playback Rate: 'سرعت پخش پیشفرض'
+    Next Video Interval: ' :بازه زمانی ویدیو بعدی'
+    Fast-Forward / Rewind Interval: ' :بازه زمانی جلو / عقب رفتن سریع'
+    Default Volume: ' :میزان صدای پیشفرض'
+    Default Playback Rate: ' :سرعت پخش پیشفرض'
     Default Video Format:
       Default Video Format: 'فرمت ویدیو پیشفرض'
       Dash Formats: 'فرمت های DASH'
@@ -256,7 +256,7 @@ Settings:
     Scroll Playback Rate Over Video Player: کنترل سرعت پخش با حرکت اسکرول موس روی
       پخش کننده ویدیو
     Video Playback Rate Interval: فاصله سرعت پخش ویدیو
-    Max Video Playback Rate: حداکثر سرعت پخش ویدیو
+    Max Video Playback Rate: ' :حداکثر سرعت پخش ویدیو'
     Comment Auto Load:
       Comment Auto Load: نظرات اتوماتیک بارگذاری شود
     Enter Fullscreen on Display Rotate: در چرخه نمایشگر وارد صفحه تمام صفحه شوید
@@ -266,7 +266,7 @@ Settings:
         Forbidden Characters: کاراکتر های ممنوعه
         Empty File Name: نام فایل خالی
       File Name Label: الگوی نام فایل
-      Quality Label: کیفیت اسکرین شات
+      Quality Label: ' :کیفیت اسکرین شات'
       File Name Tooltip: می توانید از متغیرهای زیر استفاده کنید. %Y سال 4 رقم. رقم
         %M ماه 2. %D رقم روز دوم. %H ساعت 2 رقمی. %N دقیقه 2 رقم. %S 2 رقم دوم. %T
         میلی ثانیه 3 رقمی. %s ویدیو دوم. %t ویدیو میلی ثانیه 3 رقمی. %i شناسه ویدیو.

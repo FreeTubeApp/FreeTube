@@ -168,7 +168,7 @@ Settings:
     Match Top Bar with Main Color: '상단바를 메인컬러와 동기화'
     Expand Side Bar by Default: '기본으로 사이드바 확장'
     Disable Smooth Scrolling: '부드러운 스크롤 사용안하기'
-    UI Scale: 'UI 스케일'
+    UI Scale: 'UI 스케일: '
     Base Theme:
       Base Theme: '기본 테마'
       Black: '검정'
@@ -229,8 +229,8 @@ Settings:
     Proxy Videos Through Invidious: 'Invidious를 통한 프록시 비디오'
     Autoplay Playlists: '재생목록 자동재생'
     Enable Theatre Mode by Default: '기본으로 극장모드 설정'
-    Default Volume: '기본 음량'
-    Default Playback Rate: '기본 재생속도'
+    Default Volume: '기본 음량: '
+    Default Playback Rate: '기본 재생속도: '
     Default Video Format:
       Default Video Format: '기본 비디오 포맷'
       Dash Formats: 'DASH 포맷'
@@ -249,12 +249,12 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 재생 목록 다음 비디오 간격
-    Fast-Forward / Rewind Interval: 빨리 감기/되감기 간격
-    Next Video Interval: 다음 비디오 재생 간격
+    Fast-Forward / Rewind Interval: '빨리 감기/되감기 간격: '
+    Next Video Interval: '다음 비디오 재생 간격: '
     Scroll Volume Over Video Player: 플레이어 위로 스크롤하여 볼륨조정
     Display Play Button In Video Player: 비디오 플레이어 위에 재생 버튼 표시
     Scroll Playback Rate Over Video Player: 비디오 플레이어 위로 스크롤 재생 속도
-    Max Video Playback Rate: 최대 비디오 재생 속도
+    Max Video Playback Rate: '최대 비디오 재생 속도: '
     Video Playback Rate Interval: 비디오 재생 속도 간격
     Screenshot:
       Folder Label: 스크린샷 폴더
@@ -265,7 +265,7 @@ Settings:
         Forbidden Characters: 금지된 문자
       Enable: 스크린샷 사용
       Format Label: 스크린샷 형식
-      Quality Label: 스크린샷 품질
+      Quality Label: '스크린샷 품질: '
       File Name Label: 파일 이름 패턴
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
         %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는

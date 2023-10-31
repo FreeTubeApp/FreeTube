@@ -235,7 +235,7 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanta
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
-    UI Scale: Kullanıcı Arayüzü Ölçeği
+    UI Scale: 'Kullanıcı Arayüzü Ölçeği: '
     Expand Side Bar by Default: Kenar Çubuğunu Öntanımlı Olarak Genişlet
     Disable Smooth Scrolling: Düzgün Kaydırmayı Devre Dışı Bırak
     Hide Side Bar Labels: Kenar Çubuğu Etiketlerini Gizle
@@ -250,8 +250,8 @@ Settings:
     Proxy Videos Through Invidious: 'Videolari Invidious Üzerinden Aktar'
     Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
     Enable Theatre Mode by Default: 'Sinema Modunu Öntanımlı Olarak Etkinleştir'
-    Default Volume: 'Öntanımlı Ses Düzeyi'
-    Default Playback Rate: 'Öntanımlı Oynatma Hızı'
+    Default Volume: 'Öntanımlı Ses Düzeyi: '
+    Default Playback Rate: 'Öntanımlı Oynatma Hızı: '
     Default Video Format:
       Default Video Format: 'Öntanımlı Video Biçimi'
       Dash Formats: 'DASH Biçimleri'
@@ -270,16 +270,16 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
-    Next Video Interval: Sonraki Video Aralığı
+    Next Video Interval: 'Sonraki Video Aralığı: '
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
-    Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
+    Fast-Forward / Rewind Interval: 'Hızlı İleri / Geri Sarma Aralığı: '
     Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
       Hızını Denetle
     Video Playback Rate Interval: Video Oynatma Hızı Aralığı
-    Max Video Playback Rate: En Yüksek Video Oynatma Hızı
+    Max Video Playback Rate: 'En Yüksek Video Oynatma Hızı: '
     Screenshot:
-      Quality Label: Ekran Görüntüsü Kalitesi
+      Quality Label: 'Ekran Görüntüsü Kalitesi: '
       Ask Path: Kaydedileceği Klasörü Sor
       Folder Label: Ekran Görüntüsü Klasörü
       File Name Label: Dosya Adı Kalıbı

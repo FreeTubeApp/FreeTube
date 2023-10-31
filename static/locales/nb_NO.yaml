@@ -217,7 +217,7 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin-mokka-rosévann
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
-    UI Scale: Grensesnittskala
+    UI Scale: 'Grensesnittskala: '
     Disable Smooth Scrolling: Slå av myk rulling
     Expand Side Bar by Default: Utvidet sidefelt som forvalg
     Hide Side Bar Labels: Skjul sidefeltsetiketter
@@ -231,8 +231,8 @@ Settings:
     Proxy Videos Through Invidious: 'Mellomtjen videoer gjennom Invidious'
     Autoplay Playlists: 'Spill av spillelister automatisk'
     Enable Theatre Mode by Default: 'Kinomodus som forvalg'
-    Default Volume: 'Standardvolum'
-    Default Playback Rate: 'Avspillingshastighet'
+    Default Volume: 'Standardvolum: '
+    Default Playback Rate: 'Avspillingshastighet: '
     Default Video Format:
       Default Video Format: 'Forvalgt videoformat'
       Dash Formats: 'DASH-formater'
@@ -251,10 +251,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervall for avspilling av neste i spilleliste
-    Next Video Interval: Tid mellom videoer
+    Next Video Interval: 'Tid mellom videoer: '
     Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
-    Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
+    Fast-Forward / Rewind Interval: 'Intervall for spoling frem og tilbake: '
     Screenshot:
       File Name Label: Filnavnsmønster
       Error:
@@ -264,14 +264,14 @@ Settings:
       Folder Label: Skjermavbildningsmappe
       Folder Button: Velg mappe
       Format Label: Skjermavbildningsformat
-      Quality Label: Skjermavbildningskvalitet
+      Quality Label: 'Skjermavbildningskvalitet: '
       Ask Path: Spør om hvor ting skal lagres
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
         i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
         %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t
         videomillisekunder, i tre siffer. %i video-ID. Du kan også bruke «\», eller
         «/» for å lage undermapper.
-    Max Video Playback Rate: Maks. videoavspillingshastighet
+    Max Video Playback Rate: 'Maks. videoavspillingshastighet: '
     Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
       videoavspiller
     Video Playback Rate Interval: Intervall for videoavspillingshastighet

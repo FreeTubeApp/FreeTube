@@ -238,7 +238,7 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
-    UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
+    UI Scale: 'Μέγεθος κλίμακας διεπαφής χρήστη: '
     Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
     Disable Smooth Scrolling: Απενεργοποίηση ομαλής κύλισης
     Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής γραμμής
@@ -253,8 +253,8 @@ Settings:
     Proxy Videos Through Invidious: 'Βίντεο μέσω του διακομιστή μεσολάβησης Invidious'
     Autoplay Playlists: 'Αυτόματη αναπαραγωγή της λίστας αναπαραγωγής'
     Enable Theatre Mode by Default: 'Ενεργοποίηση λειτουργίας κινηματογράφου από προεπιλογή'
-    Default Volume: 'Προεπιλεγμένο επίπεδο έντασης'
-    Default Playback Rate: 'Προεπιλεγμένη ταχύτητα αναπαραγωγής'
+    Default Volume: 'Προεπιλεγμένο επίπεδο έντασης: '
+    Default Playback Rate: 'Προεπιλεγμένη ταχύτητα αναπαραγωγής: '
     Default Video Format:
       Default Video Format: 'Προεπιλεγμένη μορφή βίντεο'
       Dash Formats: 'Dash Μορφή'
@@ -273,22 +273,22 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Παύση μεταξύ Βίντεο στη λίστα αναπαραγωγής
-    Next Video Interval: Επόμενο διάστημα του βίντεο
+    Next Video Interval: 'Επόμενο διάστημα του βίντεο: '
     Scroll Volume Over Video Player: Αυξομείωση έντασης ήχου με κύλιση πάνω στο πρόγραμμα
       αναπαραγωγής βίντεο
     Display Play Button In Video Player: Εμφάνιση του κουμπιού αναπαραγωγής στο πρόγραμμα
       αναπαραγωγής βίντεο
     Scroll Playback Rate Over Video Player: Ποσοστό Αναπαραγωγής Κύλισης Πάνω Από
       Το Πρόγραμμα Αναπαραγωγής Βίντεο
-    Fast-Forward / Rewind Interval: Διάστημα Γρήγορης προώθησης / Επανατύλιξης
-    Max Video Playback Rate: Μέγιστος ρυθμός αναπαραγωγής βίντεο
+    Fast-Forward / Rewind Interval: 'Διάστημα Γρήγορης προώθησης / Επανατύλιξης: '
+    Max Video Playback Rate: 'Μέγιστος ρυθμός αναπαραγωγής βίντεο: '
     Video Playback Rate Interval: Διάστημα ρυθμού αναπαραγωγής βίντεο
     Screenshot:
       Error:
         Forbidden Characters: Απαγορευμένοι Χαρακτήρες
         Empty File Name: Κενό Όνομα Αρχείου
       Enable: Ενεργοποίηση Στιγμιότυπου οθόνης
-      Quality Label: Ποιότητα Στιγμιότυπου Οθόνης
+      Quality Label: 'Ποιότητα Στιγμιότυπου Οθόνης: '
       Ask Path: Ερώτηση για Αποθήκευση Φακέλου
       Folder Button: Επιλέξτε φάκελο
       Folder Label: Φάκελος Στιγμιότυπου Οθόνης

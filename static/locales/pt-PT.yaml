@@ -181,7 +181,7 @@ Settings:
     Match Top Bar with Main Color: Utilizar cor principal na barra superior
     Expand Side Bar by Default: Expandir barra lateral por definição
     Disable Smooth Scrolling: Desativar deslocação suave
-    UI Scale: Escala da interface gráfica
+    UI Scale: 'Escala da interface gráfica: '
     Base Theme:
       Base Theme: Tema base
       Black: Preto
@@ -244,8 +244,8 @@ Settings:
     Proxy Videos Through Invidious: Utilizar Invidious com proxy
     Autoplay Playlists: Reproduzir listas de reprodução automaticamente
     Enable Theatre Mode by Default: Ativar modo cinema por definição
-    Default Volume: Volume
-    Default Playback Rate: Velocidade de reprodução
+    Default Volume: 'Volume: '
+    Default Playback Rate: 'Velocidade de reprodução: '
     Default Video Format:
       Default Video Format: Formato de vídeo
       Dash Formats: Formatos DASH
@@ -263,15 +263,15 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Next Video Interval: Intervalo entre vídeos
-    Fast-Forward / Rewind Interval: Tempo para avançar/recuar
+    Next Video Interval: 'Intervalo entre vídeos: '
+    Fast-Forward / Rewind Interval: 'Tempo para avançar/recuar: '
     Display Play Button In Video Player: Mostrar botão Reproduzir
     Scroll Volume Over Video Player: Utilizar roda do rato para alterar o volume
     Screenshot:
       File Name Label: Padrão do nome de ficheiro
       Enable: Permitir capturas de ecrã
       Format Label: Formato das capturas de ecrã
-      Quality Label: Qualidade da captura de ecrã
+      Quality Label: 'Qualidade da captura de ecrã: '
       Ask Path: Perguntar onde guardar
       Folder Label: Pasta das capturas de ecrã
       Folder Button: Selecionar pasta
@@ -283,7 +283,7 @@ Settings:
         com 2 dígitos, %S segundos com 2 dígitos, %T milissegundos com 3 dígitos,
         %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.
         Também pode usar "\" ou "/" para criar subpastas.'
-    Max Video Playback Rate: Velocidade máxima de reprodução de vídeos
+    Max Video Playback Rate: 'Velocidade máxima de reprodução de vídeos: '
     Video Playback Rate Interval: Intervalo da velocidade de reprodução de vídeos
     Scroll Playback Rate Over Video Player: Alterar a taxa de reprodução sobre o vídeo
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã

@@ -176,7 +176,7 @@ Settings:
       hovudfargen'
     Expand Side Bar by Default: 'Utvid sidefeltet som standard'
     Disable Smooth Scrolling: 'Slå av jamn rulling'
-    UI Scale: 'Skalering av brukargrensesnitt'
+    UI Scale: 'Skalering av brukargrensesnitt: '
     Base Theme:
       Base Theme: 'Hovudtema'
       Black: 'Svart'
@@ -237,8 +237,8 @@ Settings:
     Proxy Videos Through Invidious: 'Mellomten videoar gjennom Invidious'
     Autoplay Playlists: 'Spel av spelelister automatisk'
     Enable Theatre Mode by Default: 'Kinomodus som standard'
-    Default Volume: 'Standardvolum'
-    Default Playback Rate: 'Avspelingshastigheit'
+    Default Volume: 'Standardvolum: '
+    Default Playback Rate: 'Avspelingshastigheit: '
     Default Video Format:
       Default Video Format: 'Videoformat'
       Dash Formats: 'DASH-format'
@@ -256,7 +256,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Tid mellom videoar
+    Next Video Interval: 'Tid mellom videoar: '
     Display Play Button In Video Player: Vis videoavspelingsknappen i videoavspelaren
     Scroll Volume Over Video Player: Juster volum ved å bla på video
     Screenshot:
@@ -268,7 +268,7 @@ Settings:
       Enable: Aktiver skjermbilete
       Folder Label: Skjermbiletemappe
       Folder Button: Vel mappe
-      Quality Label: Skjermbiletekvalitet
+      Quality Label: 'Skjermbiletekvalitet: '
       File Name Label: Filnamnmøster
       File Name Tooltip: Du kan bruke variablane nedanfor. %Y for år, med fire siffer.
         %M for månad, med to siffer. %D for dag, med to siffer. %H for time, med to
@@ -276,12 +276,12 @@ Settings:
         millisekund, med tre siffer. %s for videosekund. %t for videomillisekund,
         med tre siffer. %i for Video-ID. Du kan òg bruke "\" eller "/" for å lage
         undermapper.
-    Fast-Forward / Rewind Interval: Intervall for framover- og bakoverspoling
+    Fast-Forward / Rewind Interval: 'Intervall for framover- og bakoverspoling: '
     Skip by Scrolling Over Video Player: Hopp over ved å blad over videoavspelaren
     Scroll Playback Rate Over Video Player: Blaavspelingshastigheit over videoavspelar
     Video Playback Rate Interval: Intervall for videoavspelinghastigheit
     Enter Fullscreen on Display Rotate: Bytt til fullskjerm ved skjermrotasjon
-    Max Video Playback Rate: Maksimal videoavspelinghastigheit
+    Max Video Playback Rate: 'Maksimal videoavspelinghastigheit: '
   Privacy Settings:
     Privacy Settings: 'Personverninnstillingar'
     Remember History: 'Husk historikk'

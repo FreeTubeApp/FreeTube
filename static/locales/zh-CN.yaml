@@ -216,7 +216,7 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
-    UI Scale: UI缩放
+    UI Scale: 'UI缩放: '
     Expand Side Bar by Default: 默认展开侧边栏
     Disable Smooth Scrolling: 禁用平滑滚动
     Hide Side Bar Labels: 隐藏侧边栏标签
@@ -231,8 +231,8 @@ Settings:
     Proxy Videos Through Invidious: '通过Invidious代理视频'
     Autoplay Playlists: '自动播放列表'
     Enable Theatre Mode by Default: '默认允许剧场模式'
-    Default Volume: '默认音量'
-    Default Playback Rate: '默认回放速率'
+    Default Volume: '默认音量: '
+    Default Playback Rate: '默认回放速率: '
     Default Video Format:
       Default Video Format: '默认视频格式'
       Dash Formats: 'Dash格式'
@@ -251,16 +251,16 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放列表 下一个影片时间间隔
-    Next Video Interval: 下个视频的间隔时间
+    Next Video Interval: '下个视频的间隔时间: '
     Display Play Button In Video Player: 在视频播放器上显示播放按钮
     Scroll Volume Over Video Player: 在视频播放器上滑动音量
-    Fast-Forward / Rewind Interval: 快进/快退间隔
+    Fast-Forward / Rewind Interval: '快进/快退间隔: '
     Scroll Playback Rate Over Video Player: 滚动调整视频播放器回放速度
-    Max Video Playback Rate: 视频最大播放速率
+    Max Video Playback Rate: '视频最大播放速率: '
     Video Playback Rate Interval: 视频播放速率间隔
     Screenshot:
       Format Label: 截屏格式
-      Quality Label: 截屏质量
+      Quality Label: '截屏质量: '
       Ask Path: 询问保存文件夹
       File Name Label: 文件名模式
       Error:

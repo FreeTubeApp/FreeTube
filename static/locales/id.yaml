@@ -209,7 +209,7 @@ Settings:
     Secondary Color Theme: 'Warna Tema Sekunder'
         #* Main Color Theme
     Expand Side Bar by Default: Perluas Bilah Samping
-    UI Scale: Skala UI
+    UI Scale: 'Skala UI: '
     Disable Smooth Scrolling: Nonaktifkan Gulir Halus
     Hide Side Bar Labels: Sembunyikan Label Bilah Samping
     Hide FreeTube Header Logo: Sembunyikan Logo Header FreeTube
@@ -222,8 +222,8 @@ Settings:
     Proxy Videos Through Invidious: 'Proksi Video Lewat Invidious'
     Autoplay Playlists: 'Putar-Otomatis Daftar Putar'
     Enable Theatre Mode by Default: 'Aktifkan Mode Teater'
-    Default Volume: 'Volume Bawaan'
-    Default Playback Rate: 'Laju Pemutaran Bawaan'
+    Default Volume: 'Volume Bawaan: '
+    Default Playback Rate: 'Laju Pemutaran Bawaan: '
     Default Video Format:
       Default Video Format: 'Format Video Bawaan'
       Dash Formats: 'Format DASH'
@@ -242,13 +242,13 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval Video dalam Daftar Putar
-    Next Video Interval: Interval Video Selanjutnya
+    Next Video Interval: 'Interval Video Selanjutnya: '
     Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
     Scroll Volume Over Video Player: Gulir Volume di Atas Pemutar Video
-    Fast-Forward / Rewind Interval: Interval Fast-Forward / Rewind
+    Fast-Forward / Rewind Interval: 'Interval Fast-Forward / Rewind: '
     Scroll Playback Rate Over Video Player: Scroll Tingkat Pemutaran Di Atas Pemutar
       Video
-    Max Video Playback Rate: Maks Laju Pemutaran Video
+    Max Video Playback Rate: 'Maks Laju Pemutaran Video: '
     Video Playback Rate Interval: Interval Laju Pemutaran Video
     Screenshot:
       Folder Label: Folder Tangkapan Layar
@@ -259,7 +259,7 @@ Settings:
       Format Label: Format Tangkapan Layar
       Enable: Aktifkan Tangkapan Layar
       Ask Path: Tanya Lokasi Penyimpanan
-      Quality Label: Kualitas Tangkapan Layar
+      Quality Label: 'Kualitas Tangkapan Layar: '
       File Name Label: Pola Nama Berkas
     Allow DASH AV1 formats: Izinkan format DASH AV1
     Comment Auto Load:

@@ -198,7 +198,7 @@ Settings:
     Match Top Bar with Main Color: Match Top Bar with Main Color
     Expand Side Bar by Default: Expand Side Bar by Default
     Disable Smooth Scrolling: Disable Smooth Scrolling
-    UI Scale: UI Scale
+    UI Scale: 'UI Scale: '
     Hide Side Bar Labels: Hide Side Bar Labels
     Hide FreeTube Header Logo: Hide FreeTube Header Logo
     Base Theme:
@@ -266,11 +266,11 @@ Settings:
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
-    Next Video Interval: Next Video Interval
-    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
-    Default Volume: Default Volume
-    Default Playback Rate: Default Playback Rate
-    Max Video Playback Rate: Max Video Playback Rate
+    Next Video Interval: 'Next Video Interval: '
+    Fast-Forward / Rewind Interval: 'Fast-Forward / Rewind Interval: '
+    Default Volume: 'Default Volume: '
+    Default Playback Rate: 'Default Playback Rate: '
+    Max Video Playback Rate: 'Max Video Playback Rate: '
     Video Playback Rate Interval: Video Playback Rate Interval
     Default Video Format:
       Default Video Format: Default Video Format
@@ -293,7 +293,7 @@ Settings:
     Screenshot:
       Enable: Enable Screenshot
       Format Label: Screenshot Format
-      Quality Label: Screenshot Quality
+      Quality Label: 'Screenshot Quality: '
       Ask Path: Ask for Save Folder
       Folder Label: Screenshot Folder
       Folder Button: Select Folder
@@ -932,9 +932,3 @@ Hashtag:
 Yes: Yes
 No: No
 Ok: Ok
-
-Grammar:
-  # adds a colon after a form label
-  ColonText: '{text}:'
-  # Index / Count
-  Index / Count: '{index} / {count}'

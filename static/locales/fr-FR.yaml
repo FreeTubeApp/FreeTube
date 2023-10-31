@@ -239,7 +239,7 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin moka bleu sarcelle
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
-    UI Scale: Échelle de l'interface utilisateur
+    UI Scale: 'Échelle de l''interface utilisateur : '
     Expand Side Bar by Default: Développer la barre latérale par défaut
     Disable Smooth Scrolling: Désactiver le défilement fluide
     Hide Side Bar Labels: Masquer les étiquettes de la barre latérale
@@ -255,8 +255,8 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
     Autoplay Playlists: 'Lecture automatique des listes de lecture'
     Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
-    Default Volume: 'Volume par défaut'
-    Default Playback Rate: 'Vitesse de lecture par défaut'
+    Default Volume: 'Volume par défaut: '
+    Default Playback Rate: 'Vitesse de lecture par défaut : '
     Default Video Format:
       Default Video Format: 'Format de vidéo par défaut'
       Dash Formats: 'Format DASH'
@@ -276,16 +276,16 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Intervalle de la prochaine vidéo dans la liste de
       lecture
-    Next Video Interval: Intervalle vidéo suivante
+    Next Video Interval: 'Intervalle vidéo suivante: '
     Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
       au dessus du lecteur vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
-    Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
+    Fast-Forward / Rewind Interval: 'Intervalle d''avance / de recul rapide : '
     Scroll Playback Rate Over Video Player: Faire défiler le taux de lecture sur le
       lecteur vidéo
     Video Playback Rate Interval: Intervalle de débit de lecture vidéo
-    Max Video Playback Rate: Débit de lecture vidéo maximal
+    Max Video Playback Rate: 'Débit de lecture vidéo maximal : '
     Screenshot:
       Enable: Activer les captures d'écran
       Ask Path: Demander le dossier de sauvegarde
@@ -298,7 +298,7 @@ Settings:
         Minute 2 chiffres. %S Second 2 chiffres. %T Milliseconde 3 chiffres. %s Video
         Second. %t Milliseconde vidéo 3 chiffres. %i Video ID. Vous pouvez également
         utiliser \ ou / pour créer des sous-dossiers.
-      Quality Label: Qualité des captures d'écran
+      Quality Label: 'Qualité des captures d''écran : '
       Format Label: Format des captures d'écran
       File Name Label: Modèle de nom de fichier
       Folder Label: Dossier de capture d'écran
@@ -1111,7 +1111,3 @@ Playlist will pause when current video is finished: La liste de lecture se met e
   pause lorsque la vidéo en cours est terminée
 Playlist will not pause when current video is finished: La liste de lecture ne se
   met pas en pause lorsque la vidéo en cours est terminée
-
-Grammar:
-  # adds a colon after a form label
-  ColonText: '{text} :'

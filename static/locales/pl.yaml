@@ -232,7 +232,7 @@ Settings:
       Catppuccin Mocha Maroon: Catppuccin Mocha Kasztanowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
-    UI Scale: Skala UI
+    UI Scale: 'Skala UI: '
     Expand Side Bar by Default: Domyślnie rozwiń pasek boczny
     Disable Smooth Scrolling: Wyłącz płynne przewijanie
     Hide Side Bar Labels: Schowaj etykiety paska bocznego
@@ -246,8 +246,8 @@ Settings:
     Proxy Videos Through Invidious: 'Odtwarzaj filmy przez proxy Invidious'
     Autoplay Playlists: 'Autoodtwarzanie playlist'
     Enable Theatre Mode by Default: 'Domyślnie włącz tryb kinowy'
-    Default Volume: 'Domyślna głośność'
-    Default Playback Rate: 'Domyślna szybkość odtwarzania'
+    Default Volume: 'Domyślna głośność: '
+    Default Playback Rate: 'Domyślna szybkość odtwarzania: '
     Default Video Format:
       Default Video Format: 'Domyślny format filmów'
       Dash Formats: 'Formaty DASH'
@@ -266,18 +266,18 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
-    Next Video Interval: Czas do następnego filmu
+    Next Video Interval: 'Czas do następnego filmu: '
     Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
-    Fast-Forward / Rewind Interval: Interwał przewijania
+    Fast-Forward / Rewind Interval: 'Interwał przewijania: '
     Scroll Playback Rate Over Video Player: Kontroluj szybkość odtwarzania kółkiem
       myszy na obszarze odtwarzacza
-    Max Video Playback Rate: Maksymalna szybkość odtwarzania
+    Max Video Playback Rate: 'Maksymalna szybkość odtwarzania: '
     Video Playback Rate Interval: Przeskoki w wyborze prędkości odtwarzania
     Screenshot:
       Format Label: Format zrzutu
-      Quality Label: Jakość zrzutu
+      Quality Label: 'Jakość zrzutu: '
       Ask Path: Pytaj o folder zapisu
       Folder Label: Folder ze zrzutami
       Folder Button: Wybierz folder

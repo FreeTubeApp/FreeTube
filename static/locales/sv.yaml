@@ -235,7 +235,7 @@ Settings:
       Catppuccin Mocha Sky: Catppuccin Mocha Sky
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
-    UI Scale: Skala för användargränssnitt
+    UI Scale: 'Skala för användargränssnitt: '
     Expand Side Bar by Default: Expandera sidpanelen som standard
     Disable Smooth Scrolling: Inaktivera mjuk rullning
     Hide Side Bar Labels: Göm text i sidpanelen
@@ -249,8 +249,8 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
     Autoplay Playlists: 'Autospela spellistor'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
-    Default Volume: 'Standardvolym'
-    Default Playback Rate: 'Standard uppspelningshastighet'
+    Default Volume: 'Standardvolym: '
+    Default Playback Rate: 'Standard uppspelningshastighet: '
     Default Video Format:
       Default Video Format: 'Standard videoformat'
       Dash Formats: 'DASH-format'
@@ -268,10 +268,10 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Intervall till nästa video
+    Next Video Interval: 'Intervall till nästa video: '
     Display Play Button In Video Player: Visa Spelaknapp i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
-    Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
+    Fast-Forward / Rewind Interval: 'Spola fram / spola bak intervall: '
     Screenshot:
       File Name Label: Filnamnsformat
       Enable: Aktivera skärmdump
@@ -280,7 +280,7 @@ Settings:
         Forbidden Characters: Förbjudna symboler
       Ask Path: Fråga om nerladdnigsmapp
       Folder Label: Skärmdumpsmapp
-      Quality Label: Skärmdumpskvalité
+      Quality Label: 'Skärmdumpskvalité: '
       Format Label: Skärmdumpsformat
       File Name Tooltip: Du kan använda variabler nedanför. %Y 4 siffror. %M Månad
         2 siffror. %D Dag 2 siffror. %H Hour 2 siffror. %N Minut 2 siffror. %S Sekund
@@ -288,7 +288,7 @@ Settings:
         siffror. %i Video-ID.
       Folder Button: Välj mapp
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
-    Max Video Playback Rate: Maximal uppspelningshastighet
+    Max Video Playback Rate: 'Maximal uppspelningshastighet: '
     Video Playback Rate Interval: Uppspelningshastighetsintervall
     Allow DASH AV1 formats: Tillåt DASH AV1-format
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren

@@ -222,7 +222,7 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha safir
     Secondary Color Theme: 'Sekundarna barvna tema'
         #* Main Color Theme
-    UI Scale: Merilo uporabniškega vmesnika
+    UI Scale: 'Merilo uporabniškega vmesnika: '
     Disable Smooth Scrolling: Izklopi gladko drsenje
     Expand Side Bar by Default: Prevzeto razširi stransko vrstico
     Hide FreeTube Header Logo: Skrij logotip v glavi FreeTube
@@ -237,8 +237,8 @@ Settings:
     Proxy Videos Through Invidious: 'Uporabi Invidious kot namestnik'
     Autoplay Playlists: 'Samodejno predvajaj sezname predvajanja'
     Enable Theatre Mode by Default: 'Samodejno vklopi gledališki način'
-    Default Volume: 'Prevzeta glasnost'
-    Default Playback Rate: 'Prevzeta hitrost predvajanja'
+    Default Volume: 'Prevzeta glasnost: '
+    Default Playback Rate: 'Prevzeta hitrost predvajanja: '
     Default Video Format:
       Default Video Format: 'Prevzeta oblika videoposnetka'
       Dash Formats: 'DASH oblike'
@@ -268,16 +268,16 @@ Settings:
       Error:
         Empty File Name: Prazno ime datoteke
         Forbidden Characters: Prepovedani znaki
-      Quality Label: Kakovost posnetka zaslona
+      Quality Label: 'Kakovost posnetka zaslona: '
       Folder Label: Mapa posnetkov zaslona
       Folder Button: Izberi mapo
       File Name Label: Vzorec imena datoteke
     Enter Fullscreen on Display Rotate: Pri vrtenju zaslona vstopite v celozaslonski
       način
     Allow DASH AV1 formats: Dovoli oblike DASH AV1
-    Next Video Interval: Interval do naslednjega videa
+    Next Video Interval: 'Interval do naslednjega videa: '
     Display Play Button In Video Player: Prikaz gumba za predvajanje v video predvajalniku
-    Fast-Forward / Rewind Interval: Interval za hitro previjanje naprej/nazaj
+    Fast-Forward / Rewind Interval: 'Interval za hitro previjanje naprej/nazaj: '
     Video Playback Rate Interval: Interval hitrosti predvajanja videa
   Privacy Settings:
     Privacy Settings: 'Nastavitve zasebnosti'

@@ -170,7 +170,7 @@ Settings:
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
     Expand Side Bar by Default: 'Zabaldu alboko barra lehenespenez'
     Disable Smooth Scrolling: 'Desgaitu korritze leuna'
-    UI Scale: 'Erabiltzaile interfazearen eskala'
+    UI Scale: 'Erabiltzaile interfazearen eskala: '
     Base Theme:
       Base Theme: 'Oinarrizko Gaia'
       Black: 'Beltza'
@@ -230,8 +230,8 @@ Settings:
     Proxy Videos Through Invidious: 'Invidious bitarteko Proxy bideoak'
     Autoplay Playlists: 'Automatikoki erreproduzitu erreprodukzio-zerrendak'
     Enable Theatre Mode by Default: 'Gaitu antzerki modua lehenespenez'
-    Default Volume: 'Lehenetsitako bolumena'
-    Default Playback Rate: 'Lehenetsitako erreprodukzio tasa'
+    Default Volume: 'Lehenetsitako bolumena: '
+    Default Playback Rate: 'Lehenetsitako erreprodukzio tasa: '
     Default Video Format:
       Default Video Format: 'Lehenetsitako bideo formatua'
       Dash Formats: 'DASH formatuak'
@@ -249,16 +249,16 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Aurrera / atzera egiteko tartea
+    Fast-Forward / Rewind Interval: 'Aurrera / atzera egiteko tartea: '
     Scroll Volume Over Video Player: Aldatu bolumena bideo erreproduzitzailean
-    Next Video Interval: Hurrengo bideo tartea
+    Next Video Interval: 'Hurrengo bideo tartea: '
     Screenshot:
       Enable: Bidea eman pantaila argazkiei
       Error:
         Empty File Name: Fitxategi izena hutsik
         Forbidden Characters: Debekatutako karaktereak
       Format Label: Pantaila-argazkiaren formatua
-      Quality Label: Pantaila-argazkiaren kalitatea
+      Quality Label: 'Pantaila-argazkiaren kalitatea: '
       Ask Path: Eskatu Gordetzeko karpeta
       Folder Label: Pantaila-argazkien karpeta
       Folder Button: Hautatu karpeta
@@ -270,7 +270,7 @@ Settings:
         ahal dituzu azpikarpetak sortzeko.
     Scroll Playback Rate Over Video Player: Aldatu Erreprodukzio-tasa Bideo Erreproduzitzailean
     Display Play Button In Video Player: Bistaratu Erreproduzitzeko botoia bideo erreproduzitzailean
-    Max Video Playback Rate: Gehienezko bideoen erreprodukzio-tasa
+    Max Video Playback Rate: 'Gehienezko bideoen erreprodukzio-tasa: '
     Video Playback Rate Interval: Bideo Erreprodukzio-tasa tartea
   Privacy Settings:
     Privacy Settings: 'Pribatutasunari buruzko ezarpenak'

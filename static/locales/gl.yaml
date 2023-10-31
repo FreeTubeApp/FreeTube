@@ -177,7 +177,7 @@ Settings:
     Match Top Bar with Main Color: 'Combinar cor principal coa barra superior'
     Expand Side Bar by Default: 'Expandir barra lateral por defecto'
     Disable Smooth Scrolling: 'Desactivar desprazamento suavizado'
-    UI Scale: 'Escala da interface'
+    UI Scale: 'Escala da interface: '
     Base Theme:
       Base Theme: 'Tema base'
       Black: 'Negro'
@@ -239,8 +239,8 @@ Settings:
     Proxy Videos Through Invidious: 'Utilizar Invidious como intermediario'
     Autoplay Playlists: 'Reproducir listaxes de reprodución automaticamente'
     Enable Theatre Mode by Default: 'Activar modo cinema por defecto'
-    Default Volume: 'Volume predeterminado'
-    Default Playback Rate: 'Velocidade de reprodución predeterminada'
+    Default Volume: 'Volume predeterminado: '
+    Default Playback Rate: 'Velocidade de reprodución predeterminada: '
     Default Video Format:
       Default Video Format: 'Formato de vídeo predeterminado'
       Dash Formats: 'Formato dash'
@@ -258,7 +258,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Seguinte intervalo do vídeo
+    Next Video Interval: 'Seguinte intervalo do vídeo: '
     Display Play Button In Video Player: Amosar o botón de Reprodución no reprodutor
       de vídeo
     Scroll Volume Over Video Player: Desprazar o volume do reprodutor de vídeo
@@ -267,7 +267,7 @@ Settings:
       Error:
         Forbidden Characters: Personaxes prohibidos
         Empty File Name: Nome do ficheiro baleiro
-      Quality Label: Calidade da captura da pantalla
+      Quality Label: 'Calidade da captura da pantalla: '
       Format Label: Formato da captura da pantalla
       Ask Path: Pregunta onde se garda o cartafol
       File Name Tooltip: Podes usalas variables a continuación. %Y 4 díxitos do ano.
@@ -279,10 +279,10 @@ Settings:
       File Name Label: Patrón do nome do fixeiro
       Enable: Activalas capturas da pantalla
     Video Playback Rate Interval: Intervalo da taxa da reprodución do vídeo
-    Fast-Forward / Rewind Interval: Intervalo do avance/retroceso rápido
+    Fast-Forward / Rewind Interval: 'Intervalo do avance/retroceso rápido: '
     Scroll Playback Rate Over Video Player: Desprácese a taxa da reprodución sobre
       a reproducción do vídeo
-    Max Video Playback Rate: Velocidade máxima da reprodución do vídeo
+    Max Video Playback Rate: 'Velocidade máxima da reprodución do vídeo: '
     Enter Fullscreen on Display Rotate: Poñase a pantalla enteira o xirala pantalla
     Skip by Scrolling Over Video Player: Saltar desprazándose polo reprodutor de vídeo
     Allow DASH AV1 formats: Permitilos formatos DASH AV1

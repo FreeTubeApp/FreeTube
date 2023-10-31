@@ -235,7 +235,7 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
-    UI Scale: Skalierung der Benutzeroberfläche
+    UI Scale: 'Skalierung der Benutzeroberfläche: '
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
     Expand Side Bar by Default: Seitenleiste standardmäßig erweitern
     Hide Side Bar Labels: Seitenleisten-Beschriftungen ausblenden
@@ -250,8 +250,8 @@ Settings:
     Proxy Videos Through Invidious: Proxy-Videos durch Invidious
     Autoplay Playlists: Wiedergabelisten automatisch abspielen
     Enable Theatre Mode by Default: Kinomodus standardmäßig aktivieren
-    Default Volume: Standard-Lautstärke
-    Default Playback Rate: Standard-Wiedergabegeschwindigkeit
+    Default Volume: 'Standard-Lautstärke: '
+    Default Playback Rate: 'Standard-Wiedergabegeschwindigkeit: '
     Default Video Format:
       Default Video Format: Standard-Videoformat
       Dash Formats: DASH-Formate
@@ -270,17 +270,17 @@ Settings:
       4k: 4k
       8k: 8k
     Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
-    Next Video Interval: Intervall bis zum nächsten Video
+    Next Video Interval: 'Intervall bis zum nächsten Video: '
     Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
-    Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
+    Fast-Forward / Rewind Interval: 'Intervall für schnelles Vor-/Zurückspulen: '
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Videoabspieler
     Video Playback Rate Interval: Intervall für die Videowiedergabegeschwindigkeit
-    Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
+    Max Video Playback Rate: 'Maximale Wiedergabegeschwindigkeit: '
     Screenshot:
       Enable: Bildschirmfoto aktivieren
       Format Label: Bildschirmfotoformat
-      Quality Label: Bildschirmfotoqualität
+      Quality Label: 'Bildschirmfotoqualität: '
       Ask Path: Nach dem Ordner zum Speichern fragen
       Folder Label: Bildschirmfotoordner
       Folder Button: Ordner auswählen

@@ -191,7 +191,7 @@ Settings:
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
     Expand Side Bar by Default: 'Ve výchozím stavu rozbalený postranní panel'
     Disable Smooth Scrolling: 'Zakázat plynulé posouvání'
-    UI Scale: 'Měřítko rozhraní'
+    UI Scale: 'Měřítko rozhraní: '
     Base Theme:
       Base Theme: 'Základní motiv'
       Black: 'Černý'
@@ -254,8 +254,8 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy videa prostřednictvím Invidious'
     Autoplay Playlists: 'Automaticky přehrávat playlist'
     Enable Theatre Mode by Default: 'Ve výchozím nastavení povolit režim kino'
-    Default Volume: 'Výchozí hlasitost'
-    Default Playback Rate: 'Výchozí rychlost přehrávání'
+    Default Volume: 'Výchozí hlasitost: '
+    Default Playback Rate: 'Výchozí rychlost přehrávání: '
     Default Video Format:
       Default Video Format: 'Výchozí formát videa'
       Dash Formats: 'Formát DASH'
@@ -274,13 +274,13 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Interval pro další video na playlistu
-    Next Video Interval: Další interval videa
+    Next Video Interval: 'Další interval videa: '
     Display Play Button In Video Player: Zobrazit tlačítko Přehrát v přehrávači videa
     Scroll Volume Over Video Player: Změnit hlasitost posouváním na videu
-    Fast-Forward / Rewind Interval: Interval rychlého přetáčení vpřed / vzad
+    Fast-Forward / Rewind Interval: 'Interval rychlého přetáčení vpřed / vzad: '
     Scroll Playback Rate Over Video Player: Změna rychlosti přehrávání posuvem kolečka
       myši
-    Max Video Playback Rate: Maximální rychlost přehrávání videa
+    Max Video Playback Rate: 'Maximální rychlost přehrávání videa: '
     Video Playback Rate Interval: Interval rychlosti přehrávání videa
     Screenshot:
       Error:
@@ -295,7 +295,7 @@ Settings:
       Folder Label: Složka snímků obrazovky
       Enable: Povolit snímek obrazovky
       Format Label: Formát snímku obrazovky
-      Quality Label: Kvalita snímku obrazovky
+      Quality Label: 'Kvalita snímku obrazovky: '
       Folder Button: Vybrat složku
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Přeskočení posouváním na přehrávači videa

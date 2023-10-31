@@ -236,7 +236,7 @@ Settings:
       Catppuccin Mocha Lavender: Cappuccino mocha lavanda
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
-    UI Scale: Escala da interface gráfica
+    UI Scale: 'Escala da interface gráfica: '
     Disable Smooth Scrolling: Desativar deslocação suave
     Expand Side Bar by Default: Expandir barra lateral por definição
     Hide Side Bar Labels: Ocultar texto na barra lateral
@@ -251,8 +251,8 @@ Settings:
     Proxy Videos Through Invidious: 'Utilizar Invidious com proxy'
     Autoplay Playlists: 'Reproduzir listas de reprodução automaticamente'
     Enable Theatre Mode by Default: 'Ativar modo cinema por definição'
-    Default Volume: 'Volume padrão'
-    Default Playback Rate: 'Velocidade de reprodução padrão'
+    Default Volume: 'Volume padrão: '
+    Default Playback Rate: 'Velocidade de reprodução padrão: '
     Default Video Format:
       Default Video Format: 'Formato de vídeo padrão'
       Dash Formats: 'Formatos DASH'
@@ -270,18 +270,18 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Tempo para avançar/recuar
-    Next Video Interval: Intervalo entre vídeos
+    Fast-Forward / Rewind Interval: 'Tempo para avançar/recuar: '
+    Next Video Interval: 'Intervalo entre vídeos: '
     Display Play Button In Video Player: Mostrar botão Reproduzir
     Scroll Volume Over Video Player: Utilizar roda do rato para alterar o volume
     Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao deslocar
       por cima do reprodutor
-    Max Video Playback Rate: Velocidade máxima de reprodução
+    Max Video Playback Rate: 'Velocidade máxima de reprodução: '
     Video Playback Rate Interval: Intervalo entre velocidades de reprodução
     Screenshot:
       Enable: Permitir capturas de ecrã
       Format Label: Formato das capturas de ecrã
-      Quality Label: Qualidade da captura de ecrã
+      Quality Label: 'Qualidade da captura de ecrã: '
       Folder Button: Selecionar pasta
       File Name Label: Padrão do nome de ficheiro
       Error:

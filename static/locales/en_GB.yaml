@@ -231,7 +231,7 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
     Secondary Color Theme: 'Secondary Colour Theme'
         #* Main Color Theme
-    UI Scale: UI Scale
+    UI Scale: 'UI Scale: '
     Disable Smooth Scrolling: Disable smooth scrolling
     Expand Side Bar by Default: Expand side bar by default
     Hide Side Bar Labels: Hide side bar labels
@@ -246,8 +246,8 @@ Settings:
     Autoplay Playlists: 'Autoplay Playlists'
     Enable Theatre Mode by Default: 'Enable Theatre Mode by Default'
     Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
-    Default Volume: 'Default volume'
-    Default Playback Rate: 'Default playback rate'
+    Default Volume: 'Default volume: '
+    Default Playback Rate: 'Default playback rate: '
     Default Video Format:
       Default Video Format: 'Default video format'
       Dash Formats: 'DASH formats'
@@ -266,13 +266,13 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Playlist Next Video Interval
-    Next Video Interval: Next video interval
+    Next Video Interval: 'Next video interval: '
     Display Play Button In Video Player: Display play button in video player
     Enter Fullscreen on Display Rotate: Enter fullscreen on display rotate
-    Fast-Forward / Rewind Interval: Fast-forward / rewind interval
+    Fast-Forward / Rewind Interval: 'Fast-forward / rewind interval: '
     Scroll Playback Rate Over Video Player: Scroll playback rate over video player
     Video Playback Rate Interval: Video playback rate interval
-    Max Video Playback Rate: Max video playback rate
+    Max Video Playback Rate: 'Max video playback rate: '
     Screenshot:
       File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2
         digits. %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2
@@ -283,7 +283,7 @@ Settings:
         Empty File Name: Empty file name
       Folder Button: Select folder
       Enable: Enable screenshot
-      Quality Label: Screenshot quality
+      Quality Label: 'Screenshot quality: '
       Folder Label: Screenshot folder
       Format Label: Screenshot format
       Ask Path: Ask for Save Folder

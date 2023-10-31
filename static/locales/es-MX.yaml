@@ -194,7 +194,7 @@ Settings:
     Secondary Color Theme: 'Color secundario de la apariencia'
         #* Main Color Theme
     Expand Side Bar by Default: Expandir barra lateral por defecto
-    UI Scale: Escala de la interfaz
+    UI Scale: 'Escala de la interfaz: '
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
   Player Settings:
@@ -207,8 +207,8 @@ Settings:
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
     Autoplay Playlists: 'Reproducción automática de listas de reproducción'
     Enable Theatre Mode by Default: 'Activar modo teatro por defecto'
-    Default Volume: 'Volumen predeterminado'
-    Default Playback Rate: 'Velocidad de reproducción predeterminada'
+    Default Volume: 'Volumen predeterminado: '
+    Default Playback Rate: 'Velocidad de reproducción predeterminada: '
     Default Video Format:
       Default Video Format: 'Formato de video predeterminado'
       Dash Formats: 'Formatos DASH'
@@ -229,11 +229,11 @@ Settings:
     Display Play Button In Video Player: Mostrar botón de reproducir antes de empezar
       el video
     Scroll Playback Rate Over Video Player: Acelerar video con la rueda del ratón
-    Next Video Interval: Intervalo para el video siguiente
+    Next Video Interval: 'Intervalo para el video siguiente: '
     Scroll Volume Over Video Player: Barra de volumen sobre el reproductor
-    Max Video Playback Rate: Velocidad máxima del video
+    Max Video Playback Rate: 'Velocidad máxima del video: '
     Video Playback Rate Interval: Intervalo entre velocidades del video
-    Fast-Forward / Rewind Interval: Intervalo para adelantar/retrasar el video
+    Fast-Forward / Rewind Interval: 'Intervalo para adelantar/retrasar el video: '
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
     Hide Videos on Watch: 'Ocultar videos vistos'

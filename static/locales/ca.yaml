@@ -204,7 +204,7 @@ Settings:
     Secondary Color Theme: 'Tema de color secundari'
         #* Main Color Theme
     Expand Side Bar by Default: Expandeix la barra lateral per defecte
-    UI Scale: Escala de la interfície gràfica
+    UI Scale: 'Escala de la interfície gràfica: '
     Disable Smooth Scrolling: Desactiva el desplaçament suau
     Hide Side Bar Labels: Oculta les etiquetes de la barra lateral
   Player Settings:
@@ -218,8 +218,8 @@ Settings:
       els vídeos'
     Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
     Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
-    Default Volume: 'Volum per defecte'
-    Default Playback Rate: 'Velocitat de reproducció predeterminada'
+    Default Volume: 'Volum per defecte: '
+    Default Playback Rate: 'Velocitat de reproducció predeterminada: '
     Default Video Format:
       Default Video Format: 'Format de vídeo predeterminat'
       Dash Formats: 'Formats DASH'
@@ -241,11 +241,11 @@ Settings:
       el vídeo
     Display Play Button In Video Player: Mostra el botó de reproducció al reproductor
       de vídeo
-    Next Video Interval: Interval de vídeo següent
+    Next Video Interval: 'Interval de vídeo següent: '
     Scroll Playback Rate Over Video Player: Canvia la velocitat de reproducció amb
       la roda del ratolí sobre el vídeo
-    Fast-Forward / Rewind Interval: Interval d'Avançament / Retrocés Ràpid
-    Max Video Playback Rate: Velocitat màxima de reproducció de vídeo
+    Fast-Forward / Rewind Interval: 'Interval d''Avançament / Retrocés Ràpid: '
+    Max Video Playback Rate: 'Velocitat màxima de reproducció de vídeo: '
     Video Playback Rate Interval: Interval de velocitat de reproducció de vídeo
   Privacy Settings:
     Privacy Settings: 'Configuració de la Privacitat'

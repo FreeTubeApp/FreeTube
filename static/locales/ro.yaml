@@ -234,7 +234,7 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Apă de Trandafiri
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
-    UI Scale: Scala UI
+    UI Scale: 'Scala UI: '
     Disable Smooth Scrolling: Dezactivați derularea lină
     Expand Side Bar by Default: Extindeți bara laterală în mod implicit
     Hide Side Bar Labels: Ascunde etichetele din bara laterală
@@ -249,8 +249,8 @@ Settings:
     Proxy Videos Through Invidious: 'Videoclipuri prin proxy-ul Invidious'
     Autoplay Playlists: 'Redați automat listele de redare'
     Enable Theatre Mode by Default: 'Activați modul teatru în mod implicit'
-    Default Volume: 'Volum implicit'
-    Default Playback Rate: 'Viteza de redare implicită'
+    Default Volume: 'Volum implicit: '
+    Default Playback Rate: 'Viteza de redare implicită: '
     Default Video Format:
       Default Video Format: 'Format video implicit'
       Dash Formats: 'Formate DASH'
@@ -268,12 +268,12 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Intervalul de derulare înainte / înapoi
-    Next Video Interval: Următorul interval video
+    Fast-Forward / Rewind Interval: 'Intervalul de derulare înainte / înapoi: '
+    Next Video Interval: 'Următorul interval video: '
     Display Play Button In Video Player: Afișați butonul de redare în playerul video
     Scroll Volume Over Video Player: Derulați volumul peste playerul video
     Screenshot:
-      Quality Label: Calitatea capturii de ecran
+      Quality Label: 'Calitatea capturii de ecran: '
       Ask Path: Întreabă pentru dosarul de salvare
       Folder Label: Dosarul pentru capturi de ecran
       Folder Button: Selectează dosar
@@ -289,7 +289,7 @@ Settings:
       Enable: Activează captura de ecran
       Format Label: Formatul capturii de ecran
     Video Playback Rate Interval: Intervalul de redare video
-    Max Video Playback Rate: Viteza maximă de redare
+    Max Video Playback Rate: 'Viteza maximă de redare: '
     Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
       de scroll
     Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire

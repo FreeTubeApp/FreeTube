@@ -216,7 +216,7 @@ Settings:
       Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
-    UI Scale: UI縮放
+    UI Scale: 'UI縮放: '
     Expand Side Bar by Default: 預設展開側邊欄
     Disable Smooth Scrolling: 停用平滑捲動
     Hide Side Bar Labels: 隱藏側邊欄標籤
@@ -231,8 +231,8 @@ Settings:
     Proxy Videos Through Invidious: '透過Invidious代理影片'
     Autoplay Playlists: '自動播放 播放清單'
     Enable Theatre Mode by Default: '預設開啟劇場模式'
-    Default Volume: '預設音量'
-    Default Playback Rate: '預設播放速度'
+    Default Volume: '預設音量: '
+    Default Playback Rate: '預設播放速度: '
     Default Video Format:
       Default Video Format: '預設影片格式'
       Dash Formats: 'DASH 格式'
@@ -251,17 +251,17 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: 播放清單 下一個影片間隔時間
-    Next Video Interval: 下一個影片區段
+    Next Video Interval: '下一個影片區段: '
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
-    Fast-Forward / Rewind Interval: 快轉／倒帶間隔
+    Fast-Forward / Rewind Interval: '快轉／倒帶間隔: '
     Scroll Playback Rate Over Video Player: 在影片播放程式上捲動播放速度
-    Max Video Playback Rate: 最大影片播放速率
+    Max Video Playback Rate: '最大影片播放速率: '
     Video Playback Rate Interval: 影片播放速率間隔
     Screenshot:
       Enable: 啟用螢幕截圖
       Format Label: 螢幕截圖格式
-      Quality Label: 螢幕截圖品質
+      Quality Label: '螢幕截圖品質: '
       Folder Button: 選取資料夾
       File Name Label: 檔案名稱模式
       Error:

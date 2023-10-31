@@ -231,7 +231,7 @@ Settings:
       Catppuccin Mocha Blue: מוקה קפוצ׳ינו כחול
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
-    UI Scale: יחס גודל הממשק
+    UI Scale: ' :יחס גודל הממשק'
     Expand Side Bar by Default: הרחבת סרגל צד כברירת מחדל
     Disable Smooth Scrolling: השבתת גלילה חלקה
     Hide Side Bar Labels: הסתרת התוויות בסרגל הצד
@@ -245,8 +245,8 @@ Settings:
     Proxy Videos Through Invidious: 'שימוש במתווך (פרוקסי) לניגון סרטונים דרך Invidious'
     Autoplay Playlists: 'הפעלה אוטומטית לרשימות נגינה'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
-    Default Volume: 'ברירת המחדל לעוצמת השמע'
-    Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
+    Default Volume: ' :ברירת המחדל לעוצמת השמע'
+    Default Playback Rate: ' :ברירת המחדל למהירות הצפייה'
     Default Video Format:
       Default Video Format: 'תצורת הסרטונים כברירת המחדל'
       Dash Formats: 'תצורות DASH'
@@ -265,12 +265,12 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
-    Next Video Interval: משך הסרטון הבא
+    Next Video Interval: ' :משך הסרטון הבא'
     Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עוצמת השמע
     Scroll Playback Rate Over Video Player: גלילת מהירות הנגינה על גבי נגן הווידאו
-    Fast-Forward / Rewind Interval: משך קפיצה / חזרה
-    Max Video Playback Rate: קצב מרבי לנגינת וידאו
+    Fast-Forward / Rewind Interval: ' :משך קפיצה / חזרה'
+    Max Video Playback Rate: ' :קצב מרבי לנגינת וידאו'
     Video Playback Rate Interval: הפרש קצב נגינת וידאו
     Screenshot:
       Enable: הפעלת צילום מסך
@@ -281,7 +281,7 @@ Settings:
         Forbidden Characters: תווים אסורים
         Empty File Name: שם קובץ ריק
       Folder Label: תיקיית צילומי מסך
-      Quality Label: איכות צילום מסך
+      Quality Label: ' :איכות צילום מסך'
       Folder Button: בחירת תיקייה
       File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
         ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות

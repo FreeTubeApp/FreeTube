@@ -241,7 +241,7 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
-    UI Scale: Felhasználói felület méretezése
+    UI Scale: 'Felhasználói felület méretezése: '
     Expand Side Bar by Default: Alapértelmezés szerint oldalsáv megjelenítése
     Disable Smooth Scrolling: Finomgörgetés kikapcsolása
     Hide Side Bar Labels: Oldalsáv címkéi elrejtése
@@ -256,8 +256,8 @@ Settings:
     Proxy Videos Through Invidious: 'Meghatalmazás videók az Invidious révén'
     Autoplay Playlists: 'Lejátszási listák önműködően lejátszása'
     Enable Theatre Mode by Default: 'Alapértelmezés szerint mozi mód engedélyezése'
-    Default Volume: 'Alapértelmezett hangerő'
-    Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
+    Default Volume: 'Alapértelmezett hangerő: '
+    Default Playback Rate: 'Alapértelmezett lejátszási sebesség: '
     Default Video Format:
       Default Video Format: 'Alapértelmezett videóformátum'
       Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
@@ -277,11 +277,11 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
-    Next Video Interval: Következő videó időköze
+    Next Video Interval: 'Következő videó időköze: '
     Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
       szabályozhatja
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
-    Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
+    Fast-Forward / Rewind Interval: 'Gyors előre- és visszatekerési időköz: '
     Screenshot:
       Ask Path: Mentési mappa kérése
       File Name Label: Fájlnévminta
@@ -297,10 +297,10 @@ Settings:
         perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc.
         %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító. Almappák létrehozásához
         használhatja a "\" vagy a "/" jelet is.
-      Quality Label: Képernyőkép minősége
+      Quality Label: 'Képernyőkép minősége: '
     Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó
       feletti kerékkel szabályozhatja
-    Max Video Playback Rate: Legfeljebb videó lejátszási sebesség
+    Max Video Playback Rate: 'Legfeljebb videó lejátszási sebesség: '
     Video Playback Rate Interval: Videó lejátszási sebesség időköze
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve

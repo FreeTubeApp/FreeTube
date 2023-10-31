@@ -234,7 +234,7 @@ Settings:
       Catppuccin Mocha Sky: Cappuccino moka cielo
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
-    UI Scale: Dimensioni dell'interfaccia utente
+    UI Scale: 'Dimensioni dell''interfaccia utente: '
     Disable Smooth Scrolling: Disabilita lo scorrimento fluido
     Expand Side Bar by Default: Espandi automaticamente la barra laterale
     Hide Side Bar Labels: Nascondi le etichette della barra laterale
@@ -249,8 +249,8 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy dei video tramite Invidious'
     Autoplay Playlists: 'Riproduci le playlist automaticamente'
     Enable Theatre Mode by Default: 'Abilita la modalità teatro come predefinita'
-    Default Volume: 'Volume predefinito'
-    Default Playback Rate: 'Velocità di riproduzione predefinita'
+    Default Volume: 'Volume predefinito: '
+    Default Playback Rate: 'Velocità di riproduzione predefinita: '
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
@@ -269,15 +269,15 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Intervallo video successivo nella playlist
-    Fast-Forward / Rewind Interval: Avanzamento veloce o riavvolgimento video
-    Next Video Interval: Prossimo intervallo video
+    Fast-Forward / Rewind Interval: 'Avanzamento veloce o riavvolgimento video: '
+    Next Video Interval: 'Prossimo intervallo video: '
     Display Play Button In Video Player: Visualizza il pulsante di riproduzione nel
       lettore video
     Scroll Volume Over Video Player: Controlla il volume scorrendo sul lettore video
     Scroll Playback Rate Over Video Player: Scorri la velocità di riproduzione sul
       lettore video
     Video Playback Rate Interval: Intervallo di riproduzione video
-    Max Video Playback Rate: Velocità massima di riproduzione video
+    Max Video Playback Rate: 'Velocità massima di riproduzione video: '
     Screenshot:
       Folder Label: Cartella screenshot
       Folder Button: Seleziona cartella
@@ -285,7 +285,7 @@ Settings:
       Error:
         Forbidden Characters: Caratteri non accettati
         Empty File Name: Nome file vuoto
-      Quality Label: Qualità screenshot
+      Quality Label: 'Qualità screenshot: '
       Enable: Abilita screenshot
       Format Label: Formato screenshot
       Ask Path: Chiedi cartella di salvataggio

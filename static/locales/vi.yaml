@@ -209,7 +209,7 @@ Settings:
       Catppuccin Mocha Blue: Catppuccin Mocha Blue Màu xanh
     Secondary Color Theme: 'Màu chủ đề thứ hai'
         #* Main Color Theme
-    UI Scale: Tỉ lệ UI
+    UI Scale: 'Tỉ lệ UI: '
     Disable Smooth Scrolling: Tắt cuộn mượt
     Expand Side Bar by Default: Mở rộng thanh bên theo mặc định
     Hide Side Bar Labels: Ẩn Nhãn Thanh Bên
@@ -225,8 +225,8 @@ Settings:
     Proxy Videos Through Invidious: 'Proxy video qua Invidious'
     Autoplay Playlists: 'Danh sách tự động phát'
     Enable Theatre Mode by Default: 'Bật chế độ rạp hát theo mặc định'
-    Default Volume: 'Âm lượng mặc định'
-    Default Playback Rate: 'Tốc độ phát mặc định'
+    Default Volume: 'Âm lượng mặc định: '
+    Default Playback Rate: 'Tốc độ phát mặc định: '
     Default Video Format:
       Default Video Format: 'Định dạng video theo mặc định'
       Dash Formats: 'Định dạng DASH'
@@ -247,12 +247,12 @@ Settings:
     Scroll Playback Rate Over Video Player: Tốc độ Phát lại Cuộn qua Trình phát Video
     Scroll Volume Over Video Player: Cuộn Âm lượng qua Trình phát Video
     Display Play Button In Video Player: Hiển thị nút phát trong trình phát video
-    Next Video Interval: Khoảng thời gian Video Tiếp theo
-    Fast-Forward / Rewind Interval: Khoảng thời gian tua đi / tua lại
+    Next Video Interval: 'Khoảng thời gian Video Tiếp theo: '
+    Fast-Forward / Rewind Interval: 'Khoảng thời gian tua đi / tua lại: '
     Screenshot:
       Enable: Bật chức năng Chụp màn hình
       Format Label: Định dạng chụp màn hình
-      Quality Label: Chất lượng chụp màn hình
+      Quality Label: 'Chất lượng chụp màn hình: '
       File Name Label: Kiểu tên tệp
       Folder Label: Chụp màn hình thư mục
       Ask Path: Yêu cầu thứ mục lưu
@@ -265,7 +265,7 @@ Settings:
         2 chữ số. %T Phầm trăm giây 3 chữ số. %s Giây Video. %t Phần trăm giây Video
         3 chữ số. %i Video ID. Bạn cũng có thể dùng dấu "\" hoặc "/" để tạo các thư
         mục con.
-    Max Video Playback Rate: Tốc độ phát lại tối đa
+    Max Video Playback Rate: 'Tốc độ phát lại tối đa: '
     Video Playback Rate Interval: khoảng cách phát lại video
     Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay
   Subscription Settings:

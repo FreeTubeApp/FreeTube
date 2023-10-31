@@ -219,7 +219,7 @@ Settings:
       Catppuccin Mocha Lavender: Catppuccin Mokka Lavendelblå
     Secondary Color Theme: 'Sekundært Farvetema'
         #* Main Color Theme
-    UI Scale: Skalering af Brugerflade
+    UI Scale: 'Skalering af Brugerflade: '
     Disable Smooth Scrolling: Deaktivér Jævn Rulning
     Expand Side Bar by Default: Udvid Sidebar som Standard
     Hide Side Bar Labels: Skjul Sidebarens Etiketter
@@ -232,8 +232,8 @@ Settings:
     Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
     Autoplay Playlists: 'Autospil Playlister'
     Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
-    Default Volume: 'Standard Lydstyrke'
-    Default Playback Rate: 'Standard Afspilningshastighed'
+    Default Volume: 'Standard Lydstyrke: '
+    Default Playback Rate: 'Standard Afspilningshastighed: '
     Default Video Format:
       Default Video Format: 'Standard Videoformat'
       Dash Formats: 'DASH-Formater'
@@ -254,7 +254,7 @@ Settings:
     Screenshot:
       Enable: Aktivér Skærmbillede
       Format Label: Skærmbillede Format
-      Quality Label: Skærmbillede Kvalitet
+      Quality Label: 'Skærmbillede Kvalitet: '
       Folder Button: Vælg Mappe
       File Name Label: Filnavn Mønster
       Error:
@@ -266,10 +266,10 @@ Settings:
         bruge "\" eller "/" til at oprette undermapper.
       Ask Path: Spørg efter Mappe til at Gemme
       Folder Label: Mappe til Skærmbilleder
-    Next Video Interval: Næste Videointerval
-    Max Video Playback Rate: Maks Videoafspilningshastighed
+    Next Video Interval: 'Næste Videointerval: '
+    Max Video Playback Rate: 'Maks Videoafspilningshastighed: '
     Display Play Button In Video Player: Vis Afspilningsknap I Videoafspiller
-    Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
+    Fast-Forward / Rewind Interval: 'Spol fremad / Spol tilbage Interval: '
     Video Playback Rate Interval: Videoafspilningshastighed Interval
     Scroll Playback Rate Over Video Player: Scroll-afspilningshastighed i Videoafspiller
     Scroll Volume Over Video Player: Scroll-lydstyrke i Videoafspiller

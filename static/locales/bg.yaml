@@ -239,7 +239,7 @@ Settings:
       Catppuccin Mocha Green: Catppuccin Mocha Зелено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
-    UI Scale: Мащаб на интерфейса
+    UI Scale: 'Мащаб на интерфейса: '
     Disable Smooth Scrolling: Изключване на плавното превъртане
     Expand Side Bar by Default: Разширяване на страничната лента по подразбиране
     Hide Side Bar Labels: Скриване етикетите на страничната лента
@@ -254,8 +254,8 @@ Settings:
     Proxy Videos Through Invidious: 'Прекарване на видеата през Invidious'
     Autoplay Playlists: 'Автоматични плейлисти'
     Enable Theatre Mode by Default: 'Активиране на широкоекранен режим по подразбиране'
-    Default Volume: 'Сила на звука'
-    Default Playback Rate: 'Скорост на възпроизвеждане'
+    Default Volume: 'Сила на звука: '
+    Default Playback Rate: 'Скорост на възпроизвеждане: '
     Default Video Format:
       Default Video Format: 'Видео формат'
       Dash Formats: 'DASH формати'
@@ -274,18 +274,18 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Интервал за следващо видео в плейлист
-    Next Video Interval: Интервал за следващо видео
+    Next Video Interval: 'Интервал за следващо видео: '
     Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
       видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
-    Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
+    Fast-Forward / Rewind Interval: 'Интервал за бързо превъртане напред / назад: '
     Scroll Playback Rate Over Video Player: Промяна на скоростта на възпроизвеждане
       над видео плейъра
-    Max Video Playback Rate: Максимална скорост на възпроизвеждане
+    Max Video Playback Rate: 'Максимална скорост на възпроизвеждане: '
     Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане
     Screenshot:
       Enable: Включване на снимки на екрана
-      Quality Label: Качество
+      Quality Label: 'Качество: '
       Ask Path: Питане за папка за запазване
       Folder Label: Папка
       File Name Label: Модел за име на файл

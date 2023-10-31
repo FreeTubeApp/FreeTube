@@ -186,7 +186,7 @@ Settings:
       Dracula Yellow: 'Dracula Žltá'
     Secondary Color Theme: 'Sekundárna Farebná Téma'
         #* Main Color Theme
-    UI Scale: Veľkosť UI
+    UI Scale: 'Veľkosť UI: '
     Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
     Expand Side Bar by Default: Roztvárať bočný panel ako východzie nastavenie
     Hide Side Bar Labels: Skryť označenia v bočnom paneli
@@ -200,8 +200,8 @@ Settings:
     Proxy Videos Through Invidious: 'Prehnať videá cez Invidious'
     Autoplay Playlists: 'Automaticky prehrávať nasledujúce videá v zoznamoch videí'
     Enable Theatre Mode by Default: 'Predvolene zapínať Kino mód'
-    Default Volume: 'Predvolená hlasitosť'
-    Default Playback Rate: 'Východzia rýchlosť prehrávania'
+    Default Volume: 'Predvolená hlasitosť: '
+    Default Playback Rate: 'Východzia rýchlosť prehrávania: '
     Default Video Format:
       Default Video Format: 'Predvolený formát videa'
       Dash Formats: 'Formáty DASH'
@@ -220,10 +220,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Playlist Next Video Interval: Čas spustenia nasledujúceho videa v zozname videí
-    Next Video Interval: Interval Nasledujúceho Videa
+    Next Video Interval: 'Interval Nasledujúceho Videa: '
     Scroll Playback Rate Over Video Player: Posúvanie vo videu kolieskom myši cez
       prehrávač videa
-    Fast-Forward / Rewind Interval: Citlivosť rýchleho pretáčania dopredu/dozadu
+    Fast-Forward / Rewind Interval: 'Citlivosť rýchleho pretáčania dopredu/dozadu: '
     Display Play Button In Video Player: Zobraziť tlačidlo prehrávania v prehrávači
       videa
     Scroll Volume Over Video Player: Ovládanie hlasitosti kolieskom myši cez prehrávač

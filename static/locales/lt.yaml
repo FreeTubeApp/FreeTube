@@ -181,7 +181,7 @@ Settings:
     Match Top Bar with Main Color: 'Derinti viršutinė juosta prie pagrindinės spalvos'
     Expand Side Bar by Default: 'Išskleisti šoninę juostą pagal numatytuosius nustatymus'
     Disable Smooth Scrolling: 'Išjungti sklandų slinkimą'
-    UI Scale: 'Naudotojo sąsajos skalė'
+    UI Scale: 'Naudotojo sąsajos skalė: '
     Base Theme:
       Base Theme: 'Bazinė tema'
       Black: 'Juoda'
@@ -246,9 +246,9 @@ Settings:
     Enable Theatre Mode by Default: 'Įjungti teatro rėžimą automatiškai'
     Scroll Volume Over Video Player: 'Slinkti per vaizdo grotuvą, kad pakeisti garsumą'
     Display Play Button In Video Player: 'Rodyti grojimo mygtuką vaizdo grotuve'
-    Next Video Interval: 'Sekantis vaizdo įrašas bus paleistas po'
-    Default Volume: 'Numatytasis garsumas'
-    Default Playback Rate: 'Numatytasis atkūrimo greitis'
+    Next Video Interval: 'Sekantis vaizdo įrašas bus paleistas po: '
+    Default Volume: 'Numatytasis garsumas: '
+    Default Playback Rate: 'Numatytasis atkūrimo greitis: '
     Default Video Format:
       Default Video Format: 'Numatytasis vaizdo įrašo formatas'
       Dash Formats: 'DASH formatai'
@@ -266,7 +266,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Fast-Forward / Rewind Interval: Greito persukimo pirmyn / atgal intervalas
+    Fast-Forward / Rewind Interval: 'Greito persukimo pirmyn / atgal intervalas: '
     Scroll Playback Rate Over Video Player: Slinkties atkūrimo dažnis vaizdo įrašų
       grotuve
     Screenshot:
@@ -276,7 +276,7 @@ Settings:
       Folder Label: Ekrano kopijų aplankas
       Folder Button: Pasirinkite aplanką
       File Name Label: Failo pavadinimo šablonas
-      Quality Label: Ekrano kopijos kokybė
+      Quality Label: 'Ekrano kopijos kokybė: '
       File Name Tooltip: Galite naudoti toliau nurodytus kintamuosius. %Y Metai 4
         skaitmenys. %M Mėnuo 2 skaitmenys. %D Diena 2 skaitmenys. %H Valanda 2 skaitmenys.
         %N Minutė 2 skaitmenys. %S Sekundė 2 skaitmenys. %T Milisekundė 3 skaitmenys.
@@ -286,7 +286,7 @@ Settings:
         Forbidden Characters: Draudžiami simboliai
         Empty File Name: Tuščias failo pavadinimas
     Video Playback Rate Interval: Vaizdo įrašų atkūrimo dažnio intervalas
-    Max Video Playback Rate: Maksimalus vaizdo įrašų atkūrimo dažnis
+    Max Video Playback Rate: 'Maksimalus vaizdo įrašų atkūrimo dažnis: '
     Enter Fullscreen on Display Rotate: Viso ekrano režimas pasukus ekraną
     Skip by Scrolling Over Video Player: Praleiskite slinkdami per vaizdo grotuvą
     Comment Auto Load:

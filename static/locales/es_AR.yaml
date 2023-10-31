@@ -218,7 +218,7 @@ Settings:
       Catppuccin Mocha Green: Cappuccino Mocca Verde
     Secondary Color Theme: 'Color secundario del tema'
         #* Main Color Theme
-    UI Scale: Escala de la interfaz de usuario
+    UI Scale: 'Escala de la interfaz de usuario: '
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Expand Side Bar by Default: Expandir la barra lateral por defecto
     Hide Side Bar Labels: Esconder las etiquetas de la barra lateral
@@ -232,8 +232,8 @@ Settings:
     Proxy Videos Through Invidious: 'Redirigir Videos a Través de Invidious'
     Autoplay Playlists: 'Reproducción Automática de Listas'
     Enable Theatre Mode by Default: 'Habilitar modo cine por defecto'
-    Default Volume: 'Volumen por defecto'
-    Default Playback Rate: 'Velocidad de reproducción por defecto'
+    Default Volume: 'Volumen por defecto: '
+    Default Playback Rate: 'Velocidad de reproducción por defecto: '
     Default Video Format:
       Default Video Format: 'Formato de video por defecto'
       Dash Formats: 'Formatos de Transmisión de Video DASH'
@@ -260,7 +260,7 @@ Settings:
       Format Label: Formato de las capturas de pantalla
       Enable: Habilitar capturas de pantalla
       Ask Path: Solicitar Carpeta de Guardado
-      Quality Label: Calidad de Captura de Pantalla
+      Quality Label: 'Calidad de Captura de Pantalla: '
       File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos).
         %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2
         dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del
@@ -272,13 +272,13 @@ Settings:
       Video
     Allow DASH AV1 formats: Permitir formatos DASH AV1
     Scroll Playback Rate Over Video Player: Acelerar video con la rueda del mouse
-    Fast-Forward / Rewind Interval: Período de Avance Rápido / Retroceso
+    Fast-Forward / Rewind Interval: 'Período de Avance Rápido / Retroceso: '
     Comment Auto Load:
       Comment Auto Load: Cargar los comentarios automáticamente
     Video Playback Rate Interval: Intervalo entre velocidades del video
-    Max Video Playback Rate: Velocidad máxima de reproducción de video
+    Max Video Playback Rate: 'Velocidad máxima de reproducción de video: '
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
-    Next Video Interval: Siguiente segmento de video
+    Next Video Interval: 'Siguiente segmento de video: '
     Display Play Button In Video Player: Mostrar botón de reproducir antes de empezar
       el video
   Privacy Settings:

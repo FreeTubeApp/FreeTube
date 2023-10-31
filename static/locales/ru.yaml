@@ -220,7 +220,7 @@ Settings:
       Catppuccin Mocha Lavender: Лавандовый - Catppuccin Mocha
     Secondary Color Theme: 'Вторичный цвет темы'
         #* Main Color Theme
-    UI Scale: Масштаб интерфейса
+    UI Scale: 'Масштаб интерфейса: '
     Expand Side Bar by Default: Расширить боковую панель
     Disable Smooth Scrolling: Отключить плавную прокрутку
     Hide Side Bar Labels: Скрыть надписи боковой панели
@@ -236,8 +236,8 @@ Settings:
     Proxy Videos Through Invidious: 'Смотреть видео через прокси Invidious'
     Autoplay Playlists: 'Автовоспроизведение подборок'
     Enable Theatre Mode by Default: 'Включать режим широкого экрана'
-    Default Volume: 'Громкость по умолчанию'
-    Default Playback Rate: 'Скорость воспроизведения по умолчанию'
+    Default Volume: 'Громкость по умолчанию: '
+    Default Playback Rate: 'Скорость воспроизведения по умолчанию: '
     Default Video Format:
       Default Video Format: 'Формат видео по умолчанию'
       Dash Formats: 'DASH'
@@ -257,12 +257,12 @@ Settings:
       8k: '8k'
     Playlist Next Video Interval: Задержка перед автовоспроизведением
     Scroll Volume Over Video Player: Прокрутка громкости поверх видеопроигрывателя
-    Next Video Interval: Шаг перехода на следующее видео
+    Next Video Interval: 'Шаг перехода на следующее видео: '
     Display Play Button In Video Player: Отображать кнопку воспроизведения в видеопроигрывателе
-    Fast-Forward / Rewind Interval: Шаг перемотки вперёд/назад
+    Fast-Forward / Rewind Interval: 'Шаг перемотки вперёд/назад: '
     Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх
       видеопроигрывателя
-    Max Video Playback Rate: Предельная скорость воспроизведения
+    Max Video Playback Rate: 'Предельная скорость воспроизведения: '
     Video Playback Rate Interval: Промежуток скорости воспроизведения видео
     Screenshot:
       Ask Path: Спрашивать, куда сохранять
@@ -273,7 +273,7 @@ Settings:
       Folder Label: Папка снимков экрана
       Folder Button: Выбрать папку
       Enable: Включить снимки экрана
-      Quality Label: Качество снимков экрана
+      Quality Label: 'Качество снимков экрана: '
       File Name Label: Шаблон имени файла
       File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M
         Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды

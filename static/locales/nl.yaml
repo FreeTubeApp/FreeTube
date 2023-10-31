@@ -234,7 +234,7 @@ Settings:
       Catppuccin Mocha Sky: Catppuccin Mokka Hemel
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
-    UI Scale: Interface­schaal
+    UI Scale: 'Interface­schaal: '
     Expand Side Bar by Default: Zijbalk standaard uitklappen
     Disable Smooth Scrolling: Vloeiend scrollen uitschakelen
     Hide Side Bar Labels: Labels op zijbalk verbergen
@@ -248,8 +248,8 @@ Settings:
     Proxy Videos Through Invidious: 'Video''s via Invidious-proxy afspelen'
     Autoplay Playlists: 'Afspeellijsten automatisch afspelen'
     Enable Theatre Mode by Default: 'Theatermodus standaard inschakelen'
-    Default Volume: 'Standaardvolume'
-    Default Playback Rate: 'Standaard­afspeel­snelheid'
+    Default Volume: 'Standaardvolume: '
+    Default Playback Rate: 'Standaard­afspeel­snelheid: '
     Default Video Format:
       Default Video Format: 'Standaard­video­formaat'
       Dash Formats: 'DASH-formaten'
@@ -268,17 +268,17 @@ Settings:
       4k: '2160p (4K)'
       8k: '4320p (8K)'
     Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
-    Next Video Interval: Wachtpauze voor volgende video
+    Next Video Interval: 'Wachtpauze voor volgende video: '
     Display Play Button In Video Player: Afspeelknop in videokader weergeven
     Scroll Volume Over Video Player: Volume veranderen door in het videokader te scrollen
-    Fast-Forward / Rewind Interval: Snelheid van doorspoelen/terugspoelen
+    Fast-Forward / Rewind Interval: 'Snelheid van doorspoelen/terugspoelen: '
     Scroll Playback Rate Over Video Player: Afspeelsnelheid op videospeler scrollen
-    Max Video Playback Rate: Maximale afspeelsnelheid
+    Max Video Playback Rate: 'Maximale afspeelsnelheid: '
     Video Playback Rate Interval: Interval video-afspeelsnelheid
     Screenshot:
       Enable: Schermafdruk inschakelen
       Format Label: Schermafdruk­formaat
-      Quality Label: Schermafdruk­kwaliteit
+      Quality Label: 'Schermafdruk­kwaliteit: '
       Ask Path: Vragen in welke map op te slaan
       Folder Label: Schermafdruk­map
       Folder Button: Map selecteren
