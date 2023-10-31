@@ -910,12 +910,6 @@ Starting download: 正在開始下載「{videoTitle}」
 Screenshot Success: 已儲存螢幕截圖為 "{filePath}"
 Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗
-Age Restricted:
-  The currently set default instance is {instance}: 此 {instance} 有年齡限制
-  Type:
-    Channel: 頻道
-    Video: 影片
-  This {videoOrPlaylist} is age restricted: 此 {videoOrPlaylist} 有年齡限制
 Channels:
   Channels: 頻道
   Title: 頻道清單

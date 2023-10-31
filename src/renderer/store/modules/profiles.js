@@ -54,7 +54,7 @@ const actions = {
 
     if (profiles.length === 0) {
       // Create a default profile and persist it
-      const randomColor = getRandomColor()
+      const randomColor = getRandomColor().value
       const textColor = calculateColorLuminance(randomColor)
       const defaultProfile = {
         _id: MAIN_PROFILE_ID,

@@ -993,7 +993,7 @@ export default defineComponent({
         for (const profile of channel.profile) {
           let index = convertedData.findIndex(p => p.name === profile.value)
           if (index === -1) { // profile doesn't exist yet
-            const randomBgColor = getRandomColor()
+            const randomBgColor = getRandomColor().value
             const contrastyTextColor = calculateColorLuminance(randomBgColor)
             convertedData.push({
               name: profile.value,

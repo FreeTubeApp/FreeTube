@@ -1017,11 +1017,6 @@ Starting download: Početak preuzimanja „{videoTitle}”
 Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Ovaj {videoOrPlaylist} je dobno ograničen
-  Type:
-    Channel: Kanal
-    Video: Video
 Channels:
   Channels: Kanali
   Title: Popis kanala

@@ -954,12 +954,6 @@ Downloading has completed: '"{videoTitle}" rematou de descargarse'
 External link opening has been disabled in the general settings: A apertura das ligazóns
   externas desactivouse na configuración xeral
 Starting download: Comenzando a descarga de "{videoTitle}"
-Age Restricted:
-  Type:
-    Channel: Canle
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: Esta {videoOrPlaylist} ten restricións
-    de idade
 Default Invidious instance has been cleared: Borrouse a instancia predeterminada de
   Invidious
 Screenshot Error: Produciuse un erro na captura de pantalla. {error}

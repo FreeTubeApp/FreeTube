@@ -1028,12 +1028,6 @@ Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor"
 Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
-Age Restricted:
-  The currently set default instance is {instance}: Bu {instance} yaş kısıtlamalıdır
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Bu {videoOrPlaylist} yaş kısıtlamalıdır
 Channels:
   Empty: Kanal listeniz şu anda boş.
   Channels: Kanallar

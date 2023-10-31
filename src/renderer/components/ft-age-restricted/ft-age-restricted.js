@@ -15,8 +15,11 @@ export default defineComponent({
     },
 
     restrictedMessage: function () {
-      const contentType = this.$t('Age Restricted.Type.' + this.contentTypeString)
-      return this.$t('Age Restricted.This {videoOrPlaylist} is age restricted', { videoOrPlaylist: contentType })
+      if (this.contentTypeString === 'Channel') {
+        return this.$t('Age Restricted.This channel is age restricted')
+      } else {
+        return this.$t('Age Restricted.This video is age restricted')
+      }
     }
   }
 })

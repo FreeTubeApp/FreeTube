@@ -1027,11 +1027,6 @@ Channels:
   Unsubscribe: Leiratkozás
   Unsubscribed: '{channelName} eltávolítva az feliratkozásáiból'
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
-Age Restricted:
-  Type:
-    Video: Videó
-    Channel: Csatorna
-  This {videoOrPlaylist} is age restricted: A(z) {videoOrPlaylist} korhatáros
 Downloading failed: Hiba történt a(z) „{videoTitle}” letöltése során
 Starting download: „{videoTitle}” letöltésének indítása
 Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött

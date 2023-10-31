@@ -1014,13 +1014,6 @@ Downloading failed: Возникла проблема с загрузкой «{v
 Screenshot Success: Снимок экрана сохранён как «{filePath}»
 Screenshot Error: Снимок экрана не удался. {error}
 New Window: Новое окно
-Age Restricted:
-  The currently set default instance is {instance}: У {instance} ограничение по возрасту
-  Type:
-    Channel: Канал
-    Video: Видео
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} имеет ограничение по
-    возрасту'
 Channels:
   Title: Список каналов
   Count: '{number} канал(ов) найдено.'

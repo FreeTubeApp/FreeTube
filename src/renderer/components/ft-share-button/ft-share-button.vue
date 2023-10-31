@@ -1,7 +1,7 @@
 <template>
   <ft-icon-button
     ref="iconButton"
-    :title="$t(`Share.Share ${shareTargetType}`)"
+    :title="shareTitle"
     theme="secondary"
     :icon="['fas', 'share-alt']"
     :dropdown-modal-on-mobile="true"

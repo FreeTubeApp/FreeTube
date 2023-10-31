@@ -907,12 +907,6 @@ Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"{videoTitle}" のダウンロードを開始します'
 Downloading has completed: '"{videoTitle}" のダウンロードが終了しました'
 Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
-Age Restricted:
-  The currently set default instance is {instance}: '{instance} は 18 歳以上の視聴者向け動画です'
-  Type:
-    Channel: チャンネル
-    Video: 動画
-  This {videoOrPlaylist} is age restricted: この {videoOrPlaylist} は年齢制限があります
 Channels:
   Channels: チャンネル
   Unsubscribe: 登録解除

@@ -1022,12 +1022,6 @@ Downloading failed: Имаше проблем при изтеглянето на
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана като "{filePath}"
 New Window: Нов прозорец
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Този {videoOrPlaylist} е с възрастово
-    ограничение
-  Type:
-    Channel: Канал
-    Video: Видео
 Channels:
   Count: Намерени са {number} канала.
   Unsubscribe: Отписване

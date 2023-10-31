@@ -59,7 +59,7 @@ export default defineComponent({
 
     if (profileType === 'newProfile') {
       this.isNew = true
-      const bgColor = getRandomColor()
+      const bgColor = getRandomColor().value
       const textColor = calculateColorLuminance(bgColor)
       this.profile = {
         name: '',

@@ -982,11 +982,6 @@ Channels:
   Search bar placeholder: Search channels
   Channels: Channels
   Count: '{number} channel(s) found.'
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Video: Video
-    Channel: Channel
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible,
     current chapter: {chapterName}'

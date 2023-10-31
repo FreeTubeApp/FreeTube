@@ -998,11 +998,6 @@ Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparade skärmdump som "{filePath}"
 Screenshot Error: Skärmdump misslyckades {felkod}
-Age Restricted:
-  Type:
-    Channel: Kanal
-    Video: Video
-  This {videoOrPlaylist} is age restricted: Denna {videoOrPlaylist} är åldersbegränsad
 Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
     utan en säker anslutning

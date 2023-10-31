@@ -900,12 +900,6 @@ Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیر�
 Ok: تایید
 Downloading has completed: دانلود '{videoTitle}' به پایان رسید
 Loop is now enabled: حلقه اکنون فعال است
-Age Restricted:
-  Type:
-    Video: ویدیو
-    Channel: کانال
-  This {videoOrPlaylist} is age restricted: این {videoOrPlaylist} دارای محدودیت سنی
-    است
 Shuffle is now enabled: Shuffle اکنون فعال است
 Falling back to Invidious API: بازگشت به Invidious API
 Local API Error (Click to copy): خطای Local API (برای کپی کلیک کنید)

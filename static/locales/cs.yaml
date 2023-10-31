@@ -995,11 +995,6 @@ Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
 Downloading failed: Došlo k problému při stahování "{videoTitle}"
 Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Toto {videoOrPlaylist} je omezeno věkem
-  Type:
-    Channel: kanál
-    Video: Video
 Channels:
   Channels: Kanály
   Title: Seznam kanálů

@@ -236,7 +236,7 @@ const actions = {
       }
 
       if (!filename) {
-        reject(new Error('Settings.Player Settings.Screenshot.Error.Empty File Name'))
+        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name')))
       }
 
       resolve(parsedString)

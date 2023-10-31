@@ -914,10 +914,8 @@ Default Invidious instance has been cleared: Default Invidious instance has been
 'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
   loop to continue playing'
 Age Restricted:
-  This {videoOrPlaylist} is age restricted: This {videoOrPlaylist} is age restricted
-  Type:
-    Channel: Channel
-    Video: Video
+  This channel is age restricted: This channel is age restricted
+  This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'

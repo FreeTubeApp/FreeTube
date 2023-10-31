@@ -868,11 +868,6 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du vil avslutte abonnementet på "{channelName}"?
   Unsubscribe: Opphev abonnement
 Screenshot Success: Lagra skjermbilete som "{filePath}"
-Age Restricted:
-  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er alderavgrensa
-  Type:
-    Video: Video
-    Channel: Kanal
 Screenshot Error: Skjermbilete feila. {error}
 Downloading has completed: Nedlastinga av "{videoTitle}" er fullført
 Ok: OK

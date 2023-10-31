@@ -858,11 +858,6 @@ Default Invidious instance has been cleared: Standard Invidious-instans er bleve
 Are you sure you want to open this link?: Er du sikker på at du vil åbne dette link?
 Search Bar:
   Clear Input: Ryd Input
-Age Restricted:
-  Type:
-    Video: Video
-    Channel: Kanal
-  This {videoOrPlaylist} is age restricted: Denne {videoOrPlaylist} er aldersbegrænset
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
   åbnes i appen

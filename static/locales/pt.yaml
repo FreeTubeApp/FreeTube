@@ -1020,13 +1020,6 @@ Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Downloading has completed: '"{videoTitle}" foi descarregado'
 Screenshot Success: Captura de ecrã guardada como "{filePath}"
 Screenshot Error: Erro ao capturar o ecrã. {error}
-Age Restricted:
-  The currently set default instance is {instance}: Este {instance} tem restrição
-    de idade
-  Type:
-    Channel: Canal
-    Video: Vídeo
-  This {videoOrPlaylist} is age restricted: '{videoOrPlaylist} tem restrição de idade'
 New Window: Nova janela
 Channels:
   Count: '{number} canais encontrados.'
