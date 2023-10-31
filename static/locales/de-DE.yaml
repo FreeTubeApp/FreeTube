@@ -455,8 +455,8 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Fehler
       beim Abrufen von Netzwerkinformationen. Ist dein Proxy richtig konfiguriert?
     City: 'Stadt: {city}'
-    Region: 'Region / Bundesland: {region}'
-    Country: 'Land / Nation: {country}'
+    Region: 'Region: {region}'
+    Country: 'Land: {country}'
     Your Info: Deine Info
     Test Proxy: Proxy testen
     Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst,
@@ -467,11 +467,11 @@ Settings:
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy-Einstellungen
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Melden, falls ein Sponsorsegment übersprungen
-      wird
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      URL (Standard ist https://sponsor.ajay.app)
-    Enable SponsorBlock: Aktiviere SponsorBlock
+    Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Sponsorsegment
+      übersprungen wird
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-URL
+      (Standard ist https://sponsor.ajay.app)
+    Enable SponsorBlock: SponsorBlock aktivieren
     SponsorBlock Settings: SponsorBlock-Einstellungen
     Skip Options:
       Skip Option: Option überspringen
@@ -480,7 +480,7 @@ Settings:
       Prompt To Skip: Aufforderung zum Überspringen
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
-    UseDeArrowTitles: DeArrow-Video-Titel verwenden
+    UseDeArrowTitles: DeArrow-Videotitel verwenden
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
       ignorieren
@@ -493,14 +493,14 @@ Settings:
         Name: Keine
   Download Settings:
     Download Settings: Herunterladen-Einstellungen
-    Ask Download Path: Nach dem Herunterladen-Pfad fragen
-    Choose Path: Pfad wählen
-    Download Behavior: Download-Verhalten
-    Download in app: In der Anwendung herunterladen
+    Ask Download Path: Nach dem Herunterladepfad fragen
+    Choose Path: Pfad auswählen
+    Download Behavior: Herunterladeverhalten
+    Download in app: In der App herunterladen
     Open in web browser: Im Webbrowser öffnen
   Parental Control Settings:
     Parental Control Settings: Einstellungen der Kindersicherung
-    Hide Unsubscribe Button: „Abo entfernen“-Schaltfläche ausblenden
+    Hide Unsubscribe Button: Schaltfläche zum Entfernen des Abos ausblenden
     Show Family Friendly Only: Nur familienfreundlich anzeigen
     Hide Search Bar: Suchleiste ausblenden
   Experimental Settings:
@@ -511,8 +511,8 @@ Settings:
     Replace HTTP Cache: HTTP-Cache ersetzen
   Password Dialog:
     Password: Passwort
-    Enter Password To Unlock: Gib das Passwort ein, um die Einstellungen zu entsperren
-    Password Incorrect: Passwort falsch
+    Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
+    Password Incorrect: Falsches Passwort
     Unlock: Entsperren
   Password Settings:
     Remove Password: Passwort entfernen
@@ -556,11 +556,11 @@ About:
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
   Translate via Weblate: Auf Weblate übersetzen
-  Website: Website
+  Website: Webseite
   Source Code: Quellcode
   Release Notes: Versionshinweise
   Blog: Blog
-  Credits: Beiträge
+  Credits: Danksagungen
   FAQ: Häufig gestellte Fragen
   Wiki: Wiki
   Report an Issue: Fehler melden
@@ -577,25 +577,25 @@ About:
   Translate: Übersetzen
   room rules: Raum-Regeln
   Please read the: Bitte lese die
-  Chat on Matrix: Chatten bei Matrix
+  Chat on Matrix: Über Matrix chatten
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Absenden, ob
     es Duplikate gibt
   GitHub issues: GitHub-Probleme
   Report a problem: Problem melden
-  FreeTube Wiki: FreeTube Wiki
-  GitHub releases: GitHub Veröffentlichungen
-  Downloads / Changelog: Downloads / Änderungsverlauf
-  View License: Lizenz einsehen
-  Licensed under the AGPLv3: Lizensiert unter der AGPLv3
+  FreeTube Wiki: FreeTube-Wiki
+  GitHub releases: GitHub-Veröffentlichungen
+  Downloads / Changelog: Downloads / Änderungsprotokoll
+  View License: Lizenz ansehen
+  Licensed under the AGPLv3: Lizenziert unter der AGPLv3
   Source code: Quellcode
   Discussions: Diskussionen
 Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
-  Search Channel: Durchsuche Kanal
+  Search Channel: Kanal durchsuchen
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
-  Sort By: Sortiere nach
+  Sort By: Sortieren nach
   Videos:
     Videos: Videos
     This channel does not currently have any videos: Dieser Kanal hat aktuell keine
@@ -606,7 +606,7 @@ Channel:
       Most Popular: Beliebteste
   Playlists:
     Playlists: Wiedergabelisten
-    This channel does not currently have any playlists: Dieser Kanal hat aktuell keine
+    This channel does not currently have any playlists: Dieser Kanal hat derzeit keine
       Wiedergabelisten
     Sort Types:
       Last Video Added: Zuletzt hinzugefügtes Video
@@ -618,13 +618,13 @@ Channel:
     Featured Channels: Empfohlene Kanäle
     Tags:
       Search for: Nach „{tag}“ suchen
-      Tags: Markierungen
-    Details: Einzelheiten
+      Tags: Schlagwörter
+    Details: Details
     Location: Standort
     Joined: Beigetreten
   Added channel to your subscriptions: Der Kanal wurde deinen Abos hinzugefügt
-  Removed subscription from {count} other channel(s): Es wurden {count} anderen Kanälen
-    gekündigt
+  Removed subscription from {count} other channel(s): Abo von {count} anderen Kanal/
+    Kanälen entfernt
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abos
     entfernt
   Channel Tabs: Kanal-Registerkarten
@@ -647,35 +647,35 @@ Channel:
       Kurzvideos
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Dieser Kanal hat aktuell keine
+    This channel does not currently have any podcasts: Dieser Kanal hat derzeit keine
       Podcasts
   Releases:
     Releases: Veröffentlichungen
-    This channel does not currently have any releases: Dieser Kanel hat aktuell keine
+    This channel does not currently have any releases: Dieser Kanal hat derzeit keine
       Veröffentlichungen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
-  Open YouTube Embedded Player: Öffne eingebetteter Abspieler von YouTube
-  Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspieler kopieren
+  Open YouTube Embedded Player: Eingebetteten Abspieler von YouTube öffnen
+  Copy YouTube Embedded Player Link: Link des eingebetteten YouTube-Abspielers kopieren
   Open in Invidious: In Invidious öffnen
   Copy Invidious Link: Invidious-Link kopieren
   Views: Aufrufe
-  Watched: Gesehen
+  Watched: Angesehen
   # As in a Live Video
   Live: Live
   Live Now: Jetzt live
   Live Chat: Live-Chat
-  Enable Live Chat: Aktiviere Live-Chat
-  Live Chat is currently not supported in this build.: Live-Chat ist in der aktuellen
-    Version nicht unterstützt.
-  'Chat is disabled or the Live Stream has ended.': Der Chat ist deaktiviert oder
-    der Livestream ist beendet.
-  Live chat is enabled. Chat messages will appear here once sent.: Der Live-Chat ist
-    aktiviert.  Chatnachrichten tauchen hier auf, wenn sie abgesendet wurden.
+  Enable Live Chat: Live-Chat aktivieren
+  Live Chat is currently not supported in this build.: Live-Chat wird in diesem Build
+    derzeit nicht unterstützt.
+  'Chat is disabled or the Live Stream has ended.': Chat ist deaktiviert oder der
+    Livestream ist beendet.
+  Live chat is enabled. Chat messages will appear here once sent.: Live-Chat ist aktiviert.
+    Chat-Nachrichten werden hier angezeigt, sobald sie gesendet wurden.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
-    ist in der aktuellen Invidious-API nicht unterstützt.  Eine direkte Verbindung
-    zu YouTube wird benötigt.
+    wird von der Invidious-API derzeit nicht unterstützt. Eine direkte Verbindung
+    zu YouTube ist erforderlich.
   Published:
     Jan: Jan
     Feb: Feb
@@ -694,13 +694,13 @@ Video:
     Hour: Stunde
     Hours: Stunden
     Day: Tag
-    Days: Tagen
+    Days: Tage
     Week: Woche
     Weeks: Wochen
     Month: Monat
-    Months: Monaten
+    Months: Monate
     Year: Jahr
-    Years: Jahren
+    Years: Jahre
     Ago: vor
     Upcoming: Premiere am
     Minutes: Minuten
@@ -711,20 +711,20 @@ Video:
   Publicationtemplate: vor {number} {unit}
 
 #& Videos
-  Video has been removed from your history: Das Video wurde aus deinem Verlauf entfernt
-  Video has been marked as watched: Das Video wurde als gesehen markiert
+  Video has been removed from your history: Video wurde aus deinem Verlauf entfernt
+  Video has been marked as watched: Video wurde als angesehen markiert
   Remove From History: Aus dem Verlauf entfernen
-  Mark As Watched: Als gesehen markieren
+  Mark As Watched: Als angesehen markieren
   Autoplay: Automatische Wiedergabe
-  Play Previous Video: Voriges Video abspielen
+  Play Previous Video: Vorheriges Video abspielen
   Play Next Video: Nächstes Video abspielen
-  Reverse Playlist: Umgekehrte Wiedergabe
-  Shuffle Playlist: Zufällige Wiedergabe
-  Loop Playlist: Wiederhole Wiedergabeliste
-  Starting soon, please refresh the page to check again: Es beginnt bald, bitte aktualisieren
-    Sie die Seite, um es erneut zu überprüfen
+  Reverse Playlist: Umgekehrte Wiedergabeliste
+  Shuffle Playlist: Zufallswiedergabeliste
+  Loop Playlist: Wiedergabeliste wiederholen
+  Starting soon, please refresh the page to check again: Es beginnt bald, bitte aktualisiere
+    die Seite, um es erneut zu überprüfen
   Audio:
-    Best: Bestes
+    Best: Am besten
     High: Hoch
     Medium: Mittel
     Low: Niedrig
@@ -737,11 +737,11 @@ Video:
   Open Channel in YouTube: Kanal auf YouTube öffnen
   Started streaming on: Streaming angefangen am
   Streamed on: Gestreamt am
-  Video has been removed from your saved list: Video wurde aus der Liste der gespeicherten
+  Video has been removed from your saved list: Video wurde aus deiner Liste der gespeicherten
     Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
-  translated from English: Aus dem Englischen übersetzt
+  translated from English: aus dem Englischen übersetzt
   Sponsor Block category:
     music offtopic: Musik Offtopic
     interaction: Interaktion
@@ -756,16 +756,15 @@ Video:
     OpenInTemplate: In {externalPlayer} öffnen
     Unsupported Actions:
       setting a playback rate: Wiedergabegeschwindigkeit festlegen
-      starting video at offset: Starte Video an Stelle
-      looping playlists: Wiedergabeliste wiederholen
-      shuffling playlists: Wiedergabeliste durcheinandermischen
-      reversing playlists: Wiedergabeliste umkehren
-      opening specific video in a playlist (falling back to opening the video): Öffne
-        gewähltes Video aus einer Wiedergabeliste (Falle zurück auf normales Öffnen
-        des Videos)
+      starting video at offset: Video mit Versatz starten
+      looping playlists: Wiedergabelisten wiederholen
+      shuffling playlists: Wiedergabelisten durcheinander mischen
+      reversing playlists: Wiedergabelisten umkehren
+      opening specific video in a playlist (falling back to opening the video): Bestimmtes
+        Video aus einer Wiedergabeliste öffnen (Rückgriff auf Öffnen des Videos)
       opening playlists: Wiedergabelisten öffnen
-    UnsupportedActionTemplate: '{externalPlayer} unterstützt das nicht: {action}'
-    OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet …'
+    UnsupportedActionTemplate: '{externalPlayer} unterstützt nicht: {action}'
+    OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet ...'
     playlist: Wiedergabeliste
     video: Video
   Premieres on: Premiere am
@@ -780,13 +779,13 @@ Video:
     buffered: Gepuffert
     Video ID: Video-ID
     Resolution: Auflösung
-    Player Dimensions: Player-Größe
+    Player Dimensions: Abspieler-Größe
     Bitrate: Bitrate
     Volume: Lautstärke
     Bandwidth: Bandbreite
     Buffered: Gepuffert
-    Dropped / Total Frames: Entfallene Einzelbilder / Gesamtzahl der Einzelbilder
-    Mimetype: Medientyp
+    Dropped / Total Frames: Entfallene / gesamte Einzelbilder
+    Mimetype: MIME-Typ
     Video statistics are not available for legacy videos: Videostatistiken sind für
       ältere Videos nicht verfügbar
   Premieres in: Premieren in
@@ -800,13 +799,13 @@ Video:
 Videos:
   #& Sort By
   Sort By:
-    Newest: Neuestes
-    Oldest: Ältestes
+    Newest: Neueste
+    Oldest: Älteste
     #& Most Popular
 #& Playlists
 Playlist:
   #& About
-  View Full Playlist: Zeige ganze Wiedergabeliste
+  View Full Playlist: Vollständige Wiedergabeliste ansehen
   Videos: Videos
   View: Aufruf
   Views: Aufrufe
@@ -818,21 +817,21 @@ Playlist:
 #& Views
 Toggle Theatre Mode: Kinomodus umschalten
 Change Format:
-  Change Media Formats: Ändere Videoformat
-  Use Dash Formats: DASH-Format benutzen
-  Use Legacy Formats: Nutze Altformat
-  Use Audio Formats: Nutze Audioformat
-  Audio formats are not available for this video: Es sind keine Audioformate für dieses
-    Video verfügbar
+  Change Media Formats: Medienformate ändern
+  Use Dash Formats: DASH-Formate verwenden
+  Use Legacy Formats: Altformate verwenden
+  Use Audio Formats: Audioformate verwenden
+  Audio formats are not available for this video: Audioformate sind für dieses Video
+    nicht verfügbar
   Dash formats are not available for this video: DASH-Formate sind für dieses Video
     nicht verfügbar
 Share:
-  Share Video: Teile das Video
+  Share Video: Video teilen
   Share Playlist: Wiedergabeliste teilen
-  Copy Link: Kopiere Link
-  Open Link: Öffne Link
-  Copy Embed: Kopiere eingebettete Version
-  Open Embed: Öffne eingebettete Version
+  Copy Link: Link kopieren
+  Open Link: Link öffnen
+  Copy Embed: Eingebettete Version kopieren
+  Open Embed: Eingebettete Version öffnen
   # On Click
   Invidious URL copied to clipboard: Invidious-URL in die Zwischenablage kopiert
   Invidious Embed URL copied to clipboard: Invidious' eingebettete URL in die Zwischenablage
@@ -840,33 +839,34 @@ Share:
   YouTube URL copied to clipboard: YouTube-URL in die Zwischenablage kopiert
   YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage
     kopiert
-  Include Timestamp: Zeitstempel einfügen
-  YouTube Channel URL copied to clipboard: YouTube Kanallink in die Zwischenablage
+  Include Timestamp: Zeitstempel miteinbeziehen
+  YouTube Channel URL copied to clipboard: YouTube-Kanal-URL in die Zwischenablage
     kopiert
-  Invidious Channel URL copied to clipboard: Invidious Kanallink in die Zwischenablage
+  Invidious Channel URL copied to clipboard: Invidious-Kanal-URL in die Zwischenablage
     kopiert
   Share Channel: Kanal teilen
-Mini Player: Mini-Wiedergabefenster
+Mini Player: Mini-Abspieler
 Comments:
   Comments: Kommentare
-  Click to View Comments: Hier klicken, um Kommentare anzuzeigen
-  Getting comment replies, please wait: Kommentare werden geladen, bitte warten
-  Show Comments: Zeige Kommentare
-  Hide Comments: Verstecke Kommentare
+  Click to View Comments: Klicke, um Kommentare anzuzeigen
+  Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
+    warten
+  Show Comments: Kommentare anzeigen
+  Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
-  View: Zeige
-  Hide: Verstecke
+  View: Anzeigen
+  Hide: Ausblenden
   Replies: Antworten
   Reply: Antworten
   There are no comments available for this video: Für dieses Video gibt es keine Kommentare
-  Load More Comments: Mehr Kommentare laden
+  Load More Comments: Weitere Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
-  No more comments available: Keine Kommentare mehr verfügbar
-  Newest first: Neuste zuerst
+  No more comments available: Keine weiteren Kommentare verfügbar
+  Newest first: Neueste zuerst
   Top comments: Top-Kommentare
-  Sort by: Sortiert nach
-  Show More Replies: Mehr Antworten zeigen
+  Sort by: Sortieren nach
+  Show More Replies: Weitere Antworten anzeigen
   From {channelName}: von {channelName}
   And others: und andere
   Pinned by: Angeheftet von
@@ -877,10 +877,10 @@ Comments:
 Up Next: Nächster Titel
 
 # Toast Messages
-Local API Error (Click to copy): Lokaler API-Fehler (Klicke zum Kopieren)
-Invidious API Error (Click to copy): Invidious-API-Fehler (Klicke zum Kopieren)
-Falling back to Invidious API: Falle auf Invidious-API zurück
-Falling back to the local API: Falle auf lokale API zurück
+Local API Error (Click to copy): Lokaler API-Fehler (Zum Kopieren anklicken)
+Invidious API Error (Click to copy): Invidious-API-Fehler (Zum Kopieren anklicken)
+Falling back to Invidious API: Rückgriff auf Invidious-API
+Falling back to the local API: Rückgriff auf lokale API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
@@ -889,25 +889,25 @@ Loop is now disabled: Wiederholung ist jetzt deaktiviert
 Loop is now enabled: Wiederholung ist jetzt aktiviert
 Shuffle is now disabled: Zufallswiedergabe ist jetzt deaktiviert
 Shuffle is now enabled: Zufallswiedergabe ist jetzt aktiviert
-Playing Next Video: Spiele nächstes Video
-Playing Previous Video: Spiele vorheriges Video
-Canceled next video autoplay: Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended. Enable loop to continue playing': 'Ende der Wiedergabeliste
-  erreicht.  Aktiviere Wiederholung um weiter abzuspielen'
+Playing Next Video: Nächstes Video wird abgespielt
+Playing Previous Video: Vorheriges Video wird abgespielt
+Canceled next video autoplay: Automatische Wiedergabe des nächsten Videos abgebrochen
+'The playlist has ended. Enable loop to continue playing': 'Die Wiedergabeliste ist
+  beendet. Aktiviere die Wiederholung, um die Wiedergabe fortzusetzen'
 
 Yes: Ja
 No: Nein
 Locale Name: Deutsch
 Profile:
   '{profile} is now the active profile': '{profile} ist jetzt dein aktives Profil'
-  Your default profile has been changed to your primary profile: Dein Hauptprofil
-    wurde als Standardprofil festgelegt
+  Your default profile has been changed to your primary profile: Dein Standardprofil
+    wurde in dein Hauptprofil geändert
   Removed {profile} from your profiles: '{profile} wurde aus deinen Profilen entfernt'
-  Your default profile has been set to {profile}: '{profile} wurde als Standardprofil
-    festgelegt'
-  Profile has been created: Das Profil wurde erstellt
-  Profile has been updated: Das Profil wurde aktualisiert
-  Your profile name cannot be empty: Der Profilname darf nicht leer sein
+  Your default profile has been set to {profile}: 'Dein Standardprofil wurde auf {profile}
+    eingestellt'
+  Profile has been created: Profil wurde erstellt
+  Profile has been updated: Profil wurde aktualisiert
+  Your profile name cannot be empty: Dein Profilname darf nicht leer sein
   Profile could not be found: Profil wurde nicht gefunden
   All subscriptions will also be deleted.: Alle Abos werden ebenfalls gelöscht.
   Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil
@@ -924,13 +924,13 @@ Profile:
   Profile Manager: Profilverwalter
   All Channels: Alle Kanäle
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist
-    du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dies löscht den Kanal
-    nur aus diesem Profil.
+    du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dadurch wird der
+    Kanal nicht aus einem anderen Profil gelöscht.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
   : Dies ist dein Hauptprofil. Bist du sicher, dass du die ausgewählten Kanäle löschen
-    möchtest? Diese Kanäle werden auch in allen anderen Profilen gelöscht.
-  No channel(s) have been selected: Es wurden keinen Kanäle ausgewählt
+    möchtest? Die gleichen Kanäle werden auch in allen anderen Profilen gelöscht.
+  No channel(s) have been selected: Es wurde kein Kanal/keine Kanäle ausgewählt
   Add Selected To Profile: Ausgewählte zum Profil hinzufügen
   Delete Selected: Ausgewählte löschen
   Select None: Alles abwählen
@@ -952,80 +952,85 @@ Tooltips:
   General Settings:
     Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
       aus dem Video ersetzt und entsprechen somit nicht mehr dem Standard-Vorschaubild.
-    Invidious Instance: Die Invidious-Instanz, welche FreeTube für API-Calls verwendet.
-    Fallback to Non-Preferred Backend on Failure: Erlaube FreeTube, falls die bevorzugte
-      API nicht verfügbar sein sollte, automatisch eine alternative API zu nutzen.
-    Preferred API Backend: Wähle das Backend, welches FreeTube zum Laden der Daten
-      nutzen soll. Die lokale API ist ein integrierter Extrahierer. Die Invidious-API
-      dagegen verwendet einen externen Server.
+    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe
+      verbinden wird.
+    Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem
+      hat, wird FreeTube automatisch versuchen, deine nicht-bevorzugte API als Ausweichmethode
+      zu verwenden, wenn sie aktiviert ist.
+    Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten
+      nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API
+      erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden
+      muss.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
       die Trends angezeigt werden sollen.
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
       wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
       den angeklickten Link in deinem Standardbrowser öffnen.\n"
   Subscription Settings:
-    Fetch Feeds from RSS: Sobald aktiviert wird FreeTube RSS anstatt der Standardmethode
-      nutzen, um deine Abos zu aktualisieren. RSS ist schneller und verhindert das
-      Blockieren deiner IP-Adresse, doch gewisse Informationen, wie z. B. die Dauer
-      des Videos oder der Status eines Livestreams, werden nicht mehr verfügbar sein
-    Fetch Automatically: Wenn diese Option aktiviert ist, holt FreeTube automatisch
-      deinen Abo-Feed, wenn ein neues Fenster geöffnet wird und wenn du das Profil
-      wechselst.
+    Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
+      um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
+      liefert aber bestimmte Informationen wie Videodauer oder Live-Status nicht
+    Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
+      ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
   Player Settings:
-    Default Video Format: Auswahl der Formate bei der Videowiedergabe. DASH-Formate
-      bieten eine höhere Qualität, LEGACY-Formate sind auf 720p begrenzt, benötigen
-      dafür aber auch weniger Bandbreite. Audioformate beinhalten nur den Ton.
-    Proxy Videos Through Invidious: Zu Invidious verbinden, um Videos abzurufen, anstatt
-      eine direkten Verbindung zu YouTube aufzubauen. Überschreibt die API-Präferenz.
+    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos
+      verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate
+      sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
+      sind reine Audiostreams.
+    Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
+      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen. Setzt
+      die API-Einstellung außer Kraft.
     Force Local Backend for Legacy Formats: Funktioniert nur, wenn du die Invidious-API
-      als Standard ausgewählt hast. Die lokale API wird bei der Verwendung von Legacy-Formaten
-      diese verwenden, anstatt auf Invidious zurückzugreifen. Dies hilft dann, wenn
-      Videos von Invidious aufgrund von Ländersperren nicht abspielbar sind.
+      als Standard ausgewählt hast. Wenn aktiviert, wird die lokale API ausgeführt
+      und verwendet die von ihr zurückgegebenen Altformate anstelle der von Invidious
+      zurückgegebenen Formate. Dies hilft, wenn die von Invidious zurückgegebenen
+      Videos aufgrund von Länderbeschränkungen nicht abgespielt werden können.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
-      befindet, halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
-      bewegen Sie das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit
-      zu steuern. Halten Sie die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und
-      klicken Sie mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit
-      zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
+      befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
+      das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.
+      Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der
+      linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren
+      (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
       zu springen, MPV-Stil.
     Allow DASH AV1 formats: DASH AV1-Formate können besser aussehen als DASH H.264-Formate.
       Die DASH AV1-Formate benötigen mehr Leistung für die Wiedergabe! Sie sind nicht
-      bei allen Videos verfügbar. In diesen Fällen verwendet der Player stattdessen
+      bei allen Videos verfügbar. In diesen Fällen verwendet der Abspieler stattdessen
       die DASH H.264-Formate.
   Privacy Settings:
-    Remove Video Meta Files: Bei Aktivierung löscht FreeTube alle Meta-Dateien die
-      während der Videowiedergabe erzeugt werden, sobald die Videoseite verlassen
+    Remove Video Meta Files: Wenn aktiviert, löscht FreeTube automatisch die während
+      der Videowiedergabe erstellten Metadateien, wenn die Abspielseite geschlossen
       wird.
   External Player Settings:
-    Custom External Player Arguments: Alle Kommandozeilen Argumente, getrennt durch
-      Semikolons (';'), die an den externen Player weitergegeben werden sollen.
-    Ignore Warnings: Unterdrücke Warnungen, wenn der aktuell gewählte externe Player
-      die gewählte Aktion nicht unterstützt (z.B. Wiedergabeliste umkehren, usw.).
+    Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
+      getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
+      sollen.
+    Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Abspieler die
+      aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Wiedergabelisten usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
-      der gewählte externe Player unter der PATH Umgebungsvariable gefunden werden
-      kann. Falls nötig, kann ein benutzerdefinierter Pfad hier gewählt werden.
-    External Player: Wenn Sie einen externen Player auswählen, wird auf der Miniaturansicht
-      ein Symbol angezeigt, mit dem Sie das Video (und die Wiedergabeliste, falls
-      unterstützt) im externen Player öffnen können. Achtung, die Einstellungen von
-      Invidious wirken sich nicht auf externe Player aus.
+      der gewählte externe Abspieler unter der PATH-Umgebungsvariable gefunden werden
+      kann. Falls nötig, kann hier ein benutzerdefinierter Pfad festgelegt werden.
+    External Player: Wenn du einen externen Abspieler auswählst, wird auf dem Vorschaubild
+      ein Symbol angezeigt, mit dem du das Video (die Wiedergabeliste, falls unterstützt)
+      im externen Abspieler öffnen kannst. Achtung, die Einstellungen von Invidious
+      wirken sich nicht auf externe Abspieler aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
-      einer erhöhten Nutzung des Direktzugriffsspeichers.
+      einer erhöhten RAM-Auslastung.
   Distraction Free Settings:
-    Hide Channels: Geben Sie einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
+    Hide Channels: Gebe einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
       dass alle Videos, Wiedergabelisten und der Kanal selbst in der Suche, den Trends,
       den beliebtesten und den empfohlenen Videos angezeigt werden. Der eingegebene
       Kanalname muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung
       unterschieden.
-    Hide Subscriptions Live: Diese Einstellung wird durch die app-weite Einstellung
-      „{appWideSetting}“ im Abschnitt „{subsection}“ des Abschnitts „{settingsSection}“
-      außer Kraft gesetzt
+    Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
+      „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
+      Kraft gesetzt
   SponsorBlock Settings:
-    UseDeArrowTitles: Ersetzen Sie Videotitel durch von Benutzern eingereichte Titel
-      von DeArrow.
+    UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
+      ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1033,22 +1038,23 @@ Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrech
 More: Weiteres
 Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
   implementiert, bitte versuche es später noch einmal
-Unknown YouTube url type, cannot be opened in app: Unbekannte YouTube-Adresse, kann
-  in FreeTube nicht geöffnet werden
+Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann
+  in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
-Default Invidious instance has been cleared: Standard-Invidious-Instanz wurde zurückgesetzt
-Default Invidious instance has been set to {instance}: Standard-Invidious-Instanz
-  wurde auf {instance} gesetzt
+Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde
+  gelöscht
+Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz
+  wurde auf {instance} festgelegt
 Search Bar:
   Clear Input: Eingabe löschen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
   Links wurde in den allgemeinen Einstellungen deaktiviert
-Downloading has completed: Das Herunterladen von {videoTitle} ist abgeschlossen
-Starting download: Das Herunterladen von {videoTitle} hat begonnen
-Downloading failed: Es gab ein Problem beim Herunterladen von {videoTitle}
-Screenshot Success: Bildschirmfoto gespeichert als „{filePath}“
+Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
+Starting download: Herunterladen von „{videoTitle}“ wird gestartet
+Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
+Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Age Restricted:
@@ -1079,9 +1085,9 @@ Chapters:
 Preferences: Einstellungen
 Ok: OK
 Hashtag:
-  Hashtag: Schlagwort
-  This hashtag does not currently have any videos: Unter diesem Schlagwort konnten
-    derzeit keine Videos gefunden werden
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit
+    keine Videos
 Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
   wenn das aktuelle Video beendet ist
 Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
