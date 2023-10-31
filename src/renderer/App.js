@@ -151,14 +151,17 @@ export default defineComponent({
     this.grabUserSettings().then(async () => {
       this.checkThemeSettings()
 
-      await this.fetchInvidiousInstances()
+      await Promise.allSettled([
+        this.fetchInvidiousInstances(),
+        this.fetchPipedInstances()
+      ])
+
       if (this.defaultInvidiousInstance === '') {
-        await this.setRandomCurrentInvidiousInstance()
+        this.setRandomCurrentInvidiousInstance()
       }
 
-      await this.fetchPipedInstances()
       if (this.defaultPipedInstance === '') {
-        await this.setRandomCurrentPipedInstance()
+        this.setRandomCurrentPipedInstance()
       }
 
       this.grabAllProfiles(this.$t('Profile.All Channels')).then(async () => {

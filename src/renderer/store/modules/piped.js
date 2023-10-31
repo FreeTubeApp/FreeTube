@@ -1,5 +1,6 @@
 import fs from 'fs/promises'
 import { pathExists } from '../../helpers/filesystem'
+import { fetchWithTimeout } from '../../helpers/utils'
 
 const state = {
   currentPipedInstance: '',
@@ -22,7 +23,7 @@ const actions = {
 
     let instances = []
     try {
-      const response = await (await fetch(requestUrl)).json()
+      const response = await (await fetchWithTimeout(15_000, requestUrl)).json()
       instances = response.map(instance => instance.api_url)
     } catch (err) {
       console.error(err)
