@@ -70,8 +70,7 @@ export default defineComponent({
     localeToUse: function() {
       // locales found here: https://ipwhois.io/documentation
       const supportedLangs = ['en', 'ru', 'de', 'es', 'pt-BR', 'fr', 'zh-CN', 'ja']
-      return supportedLangs.find(lang => {
-        return (this.lang === lang) || (this.lang.substring(0, 2) === lang.substring(0, 2))
+      return supportedLangs.find(lang => this.lang === lang) ?? supportedLangs.find(lang => this.lang.substring(0, 2) === lang.substring(0, 2))
       })
     },
     proxyTestUrl: function() {
