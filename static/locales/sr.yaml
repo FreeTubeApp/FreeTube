@@ -428,10 +428,10 @@ Settings:
       захтев на'
     Test Proxy: 'Тестирај прокси'
     Your Info: 'Ваше информације'
-    Ip: 'IP'
-    Country: 'Држава'
-    Region: 'Регион'
-    City: 'Град'
+    Ip: 'IP: {ip}'
+    Country: 'Држава: {country}'
+    Region: 'Регион: {region}'
+    City: 'Град: {city}'
     Error getting network information. Is your proxy configured properly?: 'Грешка
       при набављању информација о мрежи. Да ли је ваш прокси исправно конфигурисан?'
   Experimental Settings:

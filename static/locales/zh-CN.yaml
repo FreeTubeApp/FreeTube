@@ -410,10 +410,10 @@ Settings:
     Enable Tor / Proxy: 使用Tor/代理
     Proxy Settings: 代理设置
     Error getting network information. Is your proxy configured properly?: 获取网络信息错误。您的代理配置是否正确？
-    City: 城市
-    Region: 地区
-    Country: 国家
-    Ip: IP地址
+    City: '城市: {city}'
+    Region: '地区: {region}'
+    Country: '国家: {country}'
+    Ip: 'IP地址: {ip}'
     Your Info: 你的信息
     Test Proxy: 测试代理
     Clicking on Test Proxy will send a request to: 点击测试代理将会发送一个请求给

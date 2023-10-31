@@ -122,10 +122,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: کێشە لە
       وەرگرتنی زانیاری نێتۆرک. ئایە پرۆکسێکەت بە رێکوپێکی رێکخراوە؟
-    City: شار
-    Region: ناوچە
-    Country: وڵات
-    Ip: ئەدرێسی ئەلکترۆنی
+    City: '{city} :شار'
+    Region: '{region} :ناوچە'
+    Country: '{country} :وڵات'
+    Ip: '{ip} :ئەدرێسی ئەلکترۆنی'
     Your Info: زانیاریت
     Test Proxy: تاقیکردنەوەی پرۆکسی
     Clicking on Test Proxy will send a request to: کلیکردن لەسەر تێستی پرۆکسی داواکارییەک

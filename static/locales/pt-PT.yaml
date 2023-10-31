@@ -419,10 +419,10 @@ Settings:
       enviar um pedido a
     Test Proxy: Testar proxy
     Your Info: A sua informação
-    Ip: IP
-    Country: País
-    Region: Região
-    City: Cidade
+    Ip: 'IP: {ip}'
+    Country: 'País: {country}'
+    Region: 'Região: {region}'
+    City: 'Cidade: {city}'
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. O seu proxy está configurado corretamente?
   SponsorBlock Settings:

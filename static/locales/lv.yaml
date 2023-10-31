@@ -415,10 +415,10 @@ Settings:
       tiks nosūtīts pieprasījums uz'
     Test Proxy: 'Pārbaudīt starpniekserveri'
     Your Info: 'Tavs info'
-    Ip: 'IP'
-    Country: 'Valsts'
-    Region: 'Apgabals'
-    City: 'Pilsēta'
+    Ip: 'IP: {ip}'
+    Country: 'Valsts: {country}'
+    Region: 'Apgabals: {region}'
+    City: 'Pilsēta: {city}'
     Error getting network information. Is your proxy configured properly?: 'Kļūda
       saņemot tīkla informāciju. Vai jūsu starpniekserveris ir uzstādīts pareizi?'
   SponsorBlock Settings:

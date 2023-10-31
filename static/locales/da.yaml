@@ -372,10 +372,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
       anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
-    City: By
-    Region: Område
-    Country: Land
-    Ip: IP
+    City: 'By: {city}'
+    Region: 'Område: {region}'
+    Country: 'Land: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Din Info
     Test Proxy: Afprøv Proxy
     Clicking on Test Proxy will send a request to: Klik på Afprøv Proxy vil sende

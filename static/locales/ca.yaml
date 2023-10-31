@@ -332,12 +332,12 @@ Settings:
     Proxy Settings: Configuració del servidor intermediari
     Clicking on Test Proxy will send a request to: En fer clic a "Prova el servidor
       intermediari" s'enviarà una sol·licitud a
-    Ip: IP
-    Country: País
+    Ip: 'IP: {ip}'
+    Country: 'País: {country}'
     Error getting network information. Is your proxy configured properly?: Error en
       obtenir informació de la xarxa. El servidor intermediari està ben configurat?
-    Region: Regió
-    City: Ciutat
+    Region: 'Regió: {region}'
+    City: 'Ciutat: {city}'
     Proxy Port Number: Port del servidor intermediari
     Test Proxy: Prova el servidor intermediari
     Enable Tor / Proxy: Activa Tor / Servidor intermediari

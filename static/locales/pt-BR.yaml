@@ -449,8 +449,8 @@ Settings:
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
   Proxy Settings:
-    Country: País
-    Ip: IP
+    Country: 'País: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Suas Informações
     Test Proxy: Testar Proxy
     Clicking on Test Proxy will send a request to: Clicando em Test Proxy, será enviado
@@ -462,8 +462,8 @@ Settings:
     Proxy Settings: Configurações de Proxy
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. Seu proxy está configurado corretamente?
-    City: Cidade
-    Region: Região
+    City: 'Cidade: {city}'
+    Region: 'Região: {region}'
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar quando vídeos publicitários
       são pulados

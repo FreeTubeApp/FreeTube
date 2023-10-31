@@ -433,10 +433,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: קבלת פרטי
       הרשת נכשלה. המתווך שלך מוגדר כראוי?
-    City: עיר
-    Region: אזור
-    Country: מדינה
-    Ip: IP
+    City: '{city} :עיר'
+    Region: '{region} :אזור'
+    Country: '{country} :מדינה'
+    Ip: 'IP: {ip}'
     Your Info: הפרטים שלך
     Test Proxy: בדיקת המתווך
     Clicking on Test Proxy will send a request to: לחיצה על בדיקת המתווך תשלח בקשה

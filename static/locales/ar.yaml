@@ -436,10 +436,10 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
-    City: المدينة
-    Region: المنطقة
-    Country: البلد
-    Ip: عنوان الإيبي
+    City: '{city} :المدينة'
+    Region: '{region} :المنطقة'
+    Country: '{country} :البلد'
+    Ip: '{ip} :عنوان الإيبي'
     Your Info: معلوماتك
     Test Proxy: اختبار البروكسي
     Proxy Port Number: رقم منفذ البروكسي

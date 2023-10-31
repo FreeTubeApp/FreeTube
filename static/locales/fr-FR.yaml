@@ -466,10 +466,10 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Erreur
       lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement
       configuré ?
-    City: Ville
-    Region: Région
-    Country: Pays
-    Ip: Ip
+    City: 'Ville : {city}'
+    Region: 'Région : {region}'
+    Country: 'Pays : {country}'
+    Ip: 'Ip : {ip}'
     Your Info: Vos informations
     Test Proxy: Test du Proxy
     Clicking on Test Proxy will send a request to: En cliquant sur Test du Proxy,
@@ -1113,5 +1113,5 @@ Playlist will not pause when current video is finished: La liste de lecture ne s
   met pas en pause lorsque la vidéo en cours est terminée
 
 Grammar:
-  # add colon after text
+  # adds a colon after a form label
   ColonText: '{text} :'

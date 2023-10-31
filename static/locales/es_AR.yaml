@@ -403,11 +403,11 @@ Settings:
       una solicitud a
     Proxy Protocol: Protocolo de Proxy
     Proxy Port Number: Puerto del Proxy
-    Region: Región
-    Country: País
-    City: Ciudad
+    Region: 'Región: {region}'
+    Country: 'País: {country}'
+    City: 'Ciudad: {city}'
     Proxy Settings: Configuración del Proxy
-    Ip: IP
+    Ip: 'IP: {ip}'
     Enable Tor / Proxy: Habilitar Tor/Proxy
     Test Proxy: Probar proxy
     Error getting network information. Is your proxy configured properly?: Error al

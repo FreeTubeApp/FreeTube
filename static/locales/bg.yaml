@@ -450,10 +450,10 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Грешка
       при получаване на информация за мрежата. Правилно ли е конфигуриран вашият прокси
       сървър?
-    City: Град
-    Region: Регион
-    Country: Държава
-    Ip: Ip
+    City: 'Град: {city}'
+    Region: 'Регион: {region}'
+    Country: 'Държава: {country}'
+    Ip: 'Ip: {ip}'
     Your Info: Вашата информация
     Test Proxy: Тестване на прокси
     Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси"

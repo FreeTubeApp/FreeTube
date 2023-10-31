@@ -445,10 +445,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Error al
       obtener información sobre la red. ¿Has configurado el proxy correctamente?
-    City: Ciudad
-    Region: Región
-    Country: País
-    Ip: IP
+    City: 'Ciudad: {city}'
+    Region: 'Región: {region}'
+    Country: 'País: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Tu información
     Test Proxy: Probar proxy
     Clicking on Test Proxy will send a request to: Al hacer clic en «Probar proxy»

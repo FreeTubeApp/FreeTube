@@ -427,10 +427,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fel uppstod
       vid hämtning av nätverksinformationen. Är din proxy korrekt konfigurerad?
-    City: Stad
-    Region: Område
-    Country: Land
-    Ip: IP
+    City: 'Stad: {city}'
+    Region: 'Område: {region}'
+    Country: 'Land: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Din info
     Test Proxy: Testa proxy
     Clicking on Test Proxy will send a request to: Om du klickar på TestProxy skickas

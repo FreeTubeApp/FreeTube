@@ -441,10 +441,10 @@ Settings:
     Proxy Port Number: Порт прокси-сервера
     Proxy Host: Адрес прокси-сервера
     Proxy Protocol: Протокол прокси
-    City: Город
-    Region: Регион
-    Country: Страна
-    Ip: Ip
+    City: 'Город: {city}'
+    Region: 'Регион: {region}'
+    Country: 'Страна: {country}'
+    Ip: 'Ip: {ip}'
     Enable Tor / Proxy: Включить Tor/Прокси
     Proxy Settings: Прокси
   SponsorBlock Settings:

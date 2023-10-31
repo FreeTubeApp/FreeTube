@@ -445,10 +445,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fout bij
       het opvragen van netwerkinformatie. Is uw proxy correct geconfigureerd?
-    City: Stad
-    Region: Regio
-    Country: Land
-    Ip: IP
+    City: 'Stad: {city}'
+    Region: 'Regio: {region}'
+    Country: 'Land: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Uw informatie
     Test Proxy: Proxy testen
     Clicking on Test Proxy will send a request to: Door op Test Proxy te klikken zal

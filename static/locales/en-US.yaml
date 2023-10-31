@@ -433,10 +433,10 @@ Settings:
     Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
     Test Proxy: Test Proxy
     Your Info: Your Info
-    Ip: Ip
-    Country: Country
-    Region: Region
-    City: City
+    Ip: 'Ip: {ip}'
+    Country: 'Country: {country}'
+    Region: 'Region: {region}'
+    City: 'City: {city}'
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
   SponsorBlock Settings:
     SponsorBlock Settings: SponsorBlock Settings
@@ -934,7 +934,7 @@ No: No
 Ok: Ok
 
 Grammar:
-  # add colon after text
+  # adds a colon after a form label
   ColonText: '{text}:'
   # separates some fields (ex: 5 videos - 10 channels)
   DashSeparator: ' - '

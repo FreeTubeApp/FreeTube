@@ -451,12 +451,12 @@ Settings:
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
   Proxy Settings:
-    Ip: IP-Adresse
+    Ip: 'IP-Adresse: {ip}'
     Error getting network information. Is your proxy configured properly?: Fehler
       beim Abrufen von Netzwerkinformationen. Ist dein Proxy richtig konfiguriert?
-    City: Stadt
-    Region: Region / Bundesland
-    Country: Land / Nation
+    City: 'Stadt: {city}'
+    Region: 'Region / Bundesland: {region}'
+    Country: 'Land / Nation: {country}'
     Your Info: Deine Info
     Test Proxy: Proxy testen
     Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst,

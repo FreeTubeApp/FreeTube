@@ -453,10 +453,10 @@ Settings:
     Your Info: O Tobie
     Error getting network information. Is your proxy configured properly?: Wystąpił
       błąd przy pozyskiwaniu informacji o sieci. Czy Twoje proxy jest poprawnie ustawione?
-    City: Miasto
-    Region: Region
-    Country: Kraj
-    Ip: IP
+    City: 'Miasto: {city}'
+    Region: 'Region: {region}'
+    Country: 'Kraj: {country}'
+    Ip: 'IP: {ip}'
     Test Proxy: Sprawdź proxy
     Clicking on Test Proxy will send a request to: Kliknięcie „Sprawdź proxy” wyśle
       żądanie do

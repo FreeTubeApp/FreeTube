@@ -429,10 +429,10 @@ Settings:
       verður send beiðni á'
     Test Proxy: 'Prófa milliþjón'
     Your Info: 'Upplýsingar um þig'
-    Ip: 'IP-vistfang'
-    Country: 'Land'
-    Region: 'Hérað'
-    City: 'Borg/Sveitarfélag'
+    Ip: 'IP-vistfang: {ip}'
+    Country: 'Land: {country}'
+    Region: 'Hérað: {region}'
+    City: 'Borg/Sveitarfélag: {city}'
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
   SponsorBlock Settings:

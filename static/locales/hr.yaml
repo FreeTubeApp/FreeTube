@@ -442,12 +442,12 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
-    Country: Zemlja
+    Country: 'Zemlja: {country}'
     Error getting network information. Is your proxy configured properly?: Greška
       pri dohvaćanju mrežnih podataka. Je li tvoj posrednik pravilno konfiguriran?
-    City: Grad
-    Region: Regija
-    Ip: IP
+    City: 'Grad: {city}'
+    Region: 'Regija: {region}'
+    Ip: 'IP: {ip}'
     Your Info: Tvoji podaci
     Test Proxy: Provjeri posrednika
     Clicking on Test Proxy will send a request to: Pritiskom gumba „Provjeri posrednika”

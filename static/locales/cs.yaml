@@ -441,12 +441,12 @@ Settings:
 
   Proxy Settings:
     Proxy Settings: Nastavení proxy
-    City: Město
-    Ip: IP
+    City: 'Město: {city}'
+    Ip: 'IP: {ip}'
     Your Info: Vaše informace
     Enable Tor / Proxy: Povolit Tor / proxy
-    Region: Region
-    Country: Země
+    Region: 'Region: {region}'
+    Country: 'Země: {country}'
     Test Proxy: Otestovat proxy
     Clicking on Test Proxy will send a request to: Kliknutím na Otestovat proxy se
       odešle dotaz na

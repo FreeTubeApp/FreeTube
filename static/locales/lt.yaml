@@ -414,10 +414,10 @@ Settings:
       serverį“ bus išsiųsta užklausa į'
     Test Proxy: 'Testuoti įgaliotąjį serverį'
     Your Info: 'Tavo informacija'
-    Ip: 'IP'
-    Country: 'Šalis'
-    Region: 'Regionas'
-    City: 'Miestas'
+    Ip: 'IP: {ip}'
+    Country: 'Šalis: {country}'
+    Region: 'Regionas: {region}'
+    City: 'Miestas: {city}'
     Error getting network information. Is your proxy configured properly?: 'Gaunant
       tinklo informaciją įvyko klaida. Ar jūsų įgaliotasis serveris sukonfigūruotas
       tinkamai?'

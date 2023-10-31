@@ -386,10 +386,10 @@ Settings:
       sender me ein førespurnad til'
     Test Proxy: 'Test mellomtenar'
     Your Info: 'Din informasjon'
-    Ip: 'IP-adresse'
-    Country: 'Land'
-    Region: 'Region'
-    City: 'By'
+    Ip: 'IP-adresse: {ip}'
+    Country: 'Land: {country}'
+    Region: 'Region: {region}'
+    City: 'By: {city}'
     Error getting network information. Is your proxy configured properly?: 'Kunne
       ikkje hente nettverksinformasjon. Er mellomtenaren din konfigurert skikkeleg?'
   SponsorBlock Settings:

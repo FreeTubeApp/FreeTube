@@ -446,10 +446,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Error getting
       network information. Is your proxy configured properly?
-    City: City
-    Region: Region
-    Country: Country
-    Ip: Ip
+    Ip: 'Ip: {ip}'
+    Country: 'Country: {country}'
+    Region: 'Region: {region}'
+    City: 'City: {city}'
     Your Info: Your Info
     Test Proxy: Test Proxy
     Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send

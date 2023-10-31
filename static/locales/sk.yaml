@@ -329,10 +329,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri
       získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
-    City: Mesto
-    Region: Región
-    Country: Krajina
-    Ip: Internetový Protokol
+    City: 'Mesto: {city}'
+    Region: 'Región: {region}'
+    Country: 'Krajina: {country}'
+    Ip: 'Internetový Protokol: {ip}'
     Your Info: Informácie o Vás
     Test Proxy: Vyskúšať proxy
     Clicking on Test Proxy will send a request to: Kliknutím na "Vyskúšať Proxy" pošlete

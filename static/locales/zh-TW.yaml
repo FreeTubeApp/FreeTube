@@ -408,10 +408,10 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
-    City: 城市
-    Region: 區域
-    Country: 國家
-    Ip: IP
+    City: '城市: {city}'
+    Region: '區域: {region}'
+    Country: '國家: {country}'
+    Ip: 'IP: {ip}'
     Your Info: 您的資訊
     Test Proxy: 測試代理伺服器
     Clicking on Test Proxy will send a request to: 點擊測試代理伺服器將會傳送請求給

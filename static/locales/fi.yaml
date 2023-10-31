@@ -435,12 +435,12 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Virhe verkkoyhteyden
       tietojen saamisessa. Onko välityspalvelin määritetty oikein?
-    Ip: Ip-osoite
+    Ip: 'Ip-osoite: {ip}'
     Your Info: Tietosi
-    Country: Valtio
+    Country: 'Valtio: {country}'
     Test Proxy: Testaa välityspalvelin
-    Region: Alue
-    City: Kaupunki
+    Region: 'Alue: {region}'
+    City: 'Kaupunki: {city}'
     Proxy Port Number: Välityspalvelimen portin numero
     Proxy Host: Välityspalvelin
     Proxy Settings: Välityspalvelimen asetukset

@@ -367,10 +367,10 @@ Settings:
       eskaera bat bidaliko da'
     Test Proxy: 'Proxy-a frogatu'
     Your Info: 'Zure informazioa'
-    Ip: 'Ip'
-    Country: 'Herrialdea'
-    Region: 'Eskualdea'
-    City: 'Hiria'
+    Ip: 'Ip: {ip}'
+    Country: 'Herrialdea: {country}'
+    Region: 'Eskualdea: {region}'
+    City: 'Hiria: {city}'
     Error getting network information. Is your proxy configured properly?: 'Errore
       bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta
       al dago?'

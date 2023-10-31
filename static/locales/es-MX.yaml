@@ -343,8 +343,8 @@ Settings:
   Proxy Settings:
     Proxy Host: Host del Proxy
     Enable Tor / Proxy: Habilitar Tor/Proxy
-    Region: Estado
-    City: Ciudad
+    Region: 'Estado: {region}'
+    City: 'Ciudad: {city}'
     Error getting network information. Is your proxy configured properly?: Error al
       recibir datos de la red. ¿Configuró bien su Proxy?
     Proxy Settings: Configuración del Proxy
@@ -354,8 +354,8 @@ Settings:
     Clicking on Test Proxy will send a request to: Al cliquear "Probar Proxy" se enviará
       una solicitud a
     Your Info: Sus datos
-    Country: País
-    Ip: Ip
+    Country: 'País: {country}'
+    Ip: 'Ip: {ip}'
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar los "Me gusta" y "No me gusta" del video
     Hide Popular Videos: Ocultar los videos populares

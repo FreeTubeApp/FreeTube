@@ -443,10 +443,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Eroare
       la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
-    City: Oraș
-    Region: Regiune
-    Country: Țară
-    Ip: IP
+    City: 'Oraș: {city}'
+    Region: 'Regiune: {region}'
+    Country: 'Țară: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Informațiile tale
     Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se
       va trimite o cerere către

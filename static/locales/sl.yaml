@@ -394,10 +394,10 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Prišlo
       je do napake pri pridobivanju informacij o omrežju. Ali je vaš namestnik pravilno
       nastavljen?
-    City: Mesto
-    Region: Regija
-    Country: Država
-    Ip: IP naslov
+    City: 'Mesto: {city}'
+    Region: 'Regija: {region}'
+    Country: 'Država: {country}'
+    Ip: 'IP naslov: {ip}'
     Your Info: Vaši podatki
     Test Proxy: Preizkusi namestnik
     Clicking on Test Proxy will send a request to: Ko kliknete na Preizkusi namestnik,

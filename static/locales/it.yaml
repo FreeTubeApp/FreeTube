@@ -458,10 +458,10 @@ Settings:
     Error getting network information. Is your proxy configured properly?: C'è stato
       un errore di acquisizione delle informazioni di rete. Il proxy è stato configurato
       correttamente?
-    City: Città
-    Region: Regione
-    Country: Nazione
-    Ip: Ip
+    City: 'Città: {city}'
+    Region: 'Regione: {region}'
+    Country: 'Nazione: {country}'
+    Ip: 'Ip: {ip}'
     Your Info: Le tue informazioni
     Test Proxy: Testa proxy
     Clicking on Test Proxy will send a request to: Cliccando su Testa proxy verrà

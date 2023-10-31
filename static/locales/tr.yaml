@@ -448,10 +448,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ağ bilgileri
       alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
-    City: Şehir
-    Region: Bölge
-    Country: Ülke
-    Ip: IP
+    City: 'Şehir: {city}'
+    Region: 'Bölge: {region}'
+    Country: 'Ülke: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Bilgileriniz
     Test Proxy: Vekil Sunucuyu Test Et
     Clicking on Test Proxy will send a request to: Vekil Sunucuyu Test Et düğmesine

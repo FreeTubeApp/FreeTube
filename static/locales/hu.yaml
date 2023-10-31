@@ -452,10 +452,10 @@ Settings:
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
   Proxy Settings:
-    City: Helység
-    Region: Körzet
-    Country: Ország
-    Ip: IP-cím
+    City: 'Helység: {city}'
+    Region: 'Körzet: {region}'
+    Country: 'Ország: {country}'
+    Ip: 'IP-cím: {ip}'
     Your Info: Az Ön adatai
     Clicking on Test Proxy will send a request to: 'A Meghatalmazás-ellenőrzés gombra
       kattintva kérést küld a következő címre'

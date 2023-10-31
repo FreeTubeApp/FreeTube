@@ -355,10 +355,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 네트워크 정보를
       가져오는 중 오류가 발생했습니다. 프록시가 올바르게 구성되어 있습니까?
-    City: 도시
-    Region: 지역
-    Country: 국가
-    Ip: Ip
+    City: '도시: {city}'
+    Region: '지역: {region}'
+    Country: '국가: {country}'
+    Ip: 'Ip: {ip}'
     Your Info: 사용자 정보
     Test Proxy: 프록시 테스트
     Clicking on Test Proxy will send a request to: 프록시 테스트를 클릭하면 다음 주소로 요청이 전송됩니다

@@ -456,10 +456,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Σφάλμα
       κατά τη λήψη πληροφοριών δικτύου. Ο διακομιστής μεσολάβησης έχει ρυθμιστεί σωστά;
-    City: Πόλη
-    Region: Περιοχή
-    Country: Χώρα
-    Ip: Πρωτόκολλο Διαδικτύου (Ip)
+    City: 'Πόλη: {city}'
+    Region: 'Περιοχή: {region}'
+    Country: 'Χώρα: {country}'
+    Ip: 'Πρωτόκολλο Διαδικτύου (Ip): {ip}'
     Your Info: Τα στοιχεία σας
     Test Proxy: Έλεγχος Διακομιστή Μεσολάβησης
     Clicking on Test Proxy will send a request to: Κάνοντας κλικ στο Έλεγχος Διακομιστή

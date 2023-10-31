@@ -418,10 +418,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Помилка
       отримання відомостей про мережу. Чи правильно налаштовано ваш проксі?
-    City: Місто
-    Region: Регіон
-    Country: Країна
-    Ip: IP
+    City: 'Місто: {city}'
+    Region: 'Регіон: {region}'
+    Country: 'Країна: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Ваші дані
     Test Proxy: Перевірка проксі
     Clicking on Test Proxy will send a request to: Натискання кнопки Перевірити проксі

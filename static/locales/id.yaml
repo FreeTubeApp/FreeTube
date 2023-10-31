@@ -377,10 +377,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Galat mendapatkan
       informasi jaringan. Apakah proksi Anda dikonfigurasi dengan benar?
-    City: Kota
-    Region: Wilayah
-    Country: Negara
-    Ip: IP
+    City: 'Kota: {city}'
+    Region: 'Wilayah: {region}'
+    Country: 'Negara: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Info Anda
     Test Proxy: Tes Proksi
     Clicking on Test Proxy will send a request to: Klik pada Tes Proksi akan mengirim

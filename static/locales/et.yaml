@@ -414,10 +414,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
-    City: Linn
-    Region: Piirkond
-    Country: Riik
-    Ip: IP-aadress
+    City: 'Linn: {city}'
+    Region: 'Piirkond: {region}'
+    Country: 'Riik: {country}'
+    Ip: 'IP-aadress: {ip}'
     Your Info: Sinu andmed
     Clicking on Test Proxy will send a request to: Puhverserveri testimisel saadame
       päringu aadressile

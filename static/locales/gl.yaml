@@ -426,10 +426,10 @@ Settings:
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter información de rede. O teu proxy está configurado correctamente?
-    City: Cidade
-    Region: Rexión
-    Country: País
-    Ip: IP
+    City: 'Cidade: {city}'
+    Region: 'Rexión: {region}'
+    Country: 'País: {country}'
+    Ip: 'IP: {ip}'
     Your Info: A túa información
     Test Proxy: Probar Proxy
     Clicking on Test Proxy will send a request to: Ao premer en Probar Proxy, enviarase

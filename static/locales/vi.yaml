@@ -400,14 +400,14 @@ Settings:
     cần khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp đặt?
   Proxy Settings:
     Proxy Host: Máy chủ Proxy
-    Region: Vùng
-    Country: Quốc gia
+    Region: 'Vùng: {region}'
+    Country: 'Quốc gia: {country}'
     Proxy Settings: Cài đặt proxy
     Enable Tor / Proxy: Bật Tor / Proxy
     Proxy Protocol: Giao thức proxy
     Proxy Port Number: Số Cổng Proxy
-    City: Thành phố
-    Ip: Ip
+    City: 'Thành phố: {city}'
+    Ip: 'Ip: {ip}'
     Your Info: Thông tin của bạn
     Error getting network information. Is your proxy configured properly?: Lỗi nhận
       thông tin mạng. Proxy của bạn đã được cài đặc đúng cách chưa?

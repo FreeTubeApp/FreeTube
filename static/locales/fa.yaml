@@ -402,17 +402,17 @@ Settings:
       شدن از مورد
   Proxy Settings:
     Proxy Host: میزبان پروکسی
-    Region: منطقه
+    Region: '{region} :منطقه'
     Error getting network information. Is your proxy configured properly?: خطا در
       دریافت اطلاعات شبکه. آیا پروکسی شما به درستی پیکربندی شده است؟
-    Ip: آی پی
-    Country: کشور
+    Ip: '{ip} :آی پی'
+    Country: '{country} :کشور'
     Proxy Settings: تنظیمات پروکسی
     Proxy Port Number: شماره پورت پروکسی
     Test Proxy: تست پروکسی
     Enable Tor / Proxy: پروکسی / تور را فعال کنید
     Proxy Protocol: پروتکل پروکسی
-    City: شهر
+    City: '{city} :شهر'
     Clicking on Test Proxy will send a request to: با کلیک بر روی تست پروکسی یک درخواست
       ارسال می شود
     Your Info: اطلاعات شما

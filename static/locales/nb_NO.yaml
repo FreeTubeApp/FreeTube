@@ -378,15 +378,15 @@ Settings:
     Playlist insufficient data: Utilstrekkelig data for «{playlist}»-spillelisten.
       Hopper over elementet.
   Proxy Settings:
-    Region: Region
+    Region: 'Region: {region}'
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
       å sende en forespørsel til
     Error getting network information. Is your proxy configured properly?: Klarte
       ikke å hente nettverksinformasjon. Er din mellomtjener satt opp riktig?
     Test Proxy: Test mellomtjener …
-    City: By
-    Country: Land
-    Ip: IP
+    City: 'By: {city}'
+    Country: 'Land: {country}'
+    Ip: 'IP: {ip}'
     Your Info: Din informasjon
     Proxy Port Number: Mellomtjener-portnummer
     Proxy Host: Mellomtjenervert
