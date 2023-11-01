@@ -1,4 +1,3 @@
-import crypto from 'crypto'
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 
 function generateRandomPlaylistId() {
@@ -10,7 +9,8 @@ function generateRandomPlaylistName() {
 }
 
 function generateRandomUniqueId() {
-  return crypto.randomUUID()
+  // To avoid importing `crypto` from NodeJS
+  return crypto.randomUUID ? crypto.randomUUID() : `id-${Date.now()}-${Math.floor(Math.random() * 10000)}`
 }
 
 const state = {
