@@ -161,6 +161,7 @@ Settings:
       Middle: 'Milieu'
       End: 'Fin'
       Hidden: Caché
+      Blur: Flou
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious
       (https://invidious.snopyta.org par défaut)'
     Region for Trending: 'Pays pour les tendances'
