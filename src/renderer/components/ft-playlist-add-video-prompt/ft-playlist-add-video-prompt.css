@@ -43,3 +43,8 @@
 
   overflow-y: scroll;
 }
+
+.playlist-selector-container {
+  /* Make them look selectable */
+  cursor: pointer;
+}

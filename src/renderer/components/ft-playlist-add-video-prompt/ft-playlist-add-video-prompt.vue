@@ -33,15 +33,19 @@
     />
     <div class="playlists-container">
       <ft-flex-box>
-        <ft-playlist-selector
+        <div
           v-for="(playlist, index) in activePlaylists"
           :key="playlist._id"
-          :tabindex="tabindex"
-          :data="playlist"
-          :index="index"
-          :selected="selectedPlaylistIdList.includes(playlist._id)"
-          @selected="countSelected(playlist._id)"
-        />
+          class="playlist-selector-container"
+        >
+          <ft-playlist-selector
+            :tabindex="tabindex"
+            :data="playlist"
+            :index="index"
+            :selected="selectedPlaylistIdList.includes(playlist._id)"
+            @selected="countSelected(playlist._id)"
+          />
+        </div>
       </ft-flex-box>
     </div>
     <div class="actions-container">
