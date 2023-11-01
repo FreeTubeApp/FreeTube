@@ -17,7 +17,7 @@
           {{ playlistTitle }}
         </router-link>
       </h3>
-      <span
+      <template
         v-if="channelName !== ''"
       >
         <router-link
@@ -33,7 +33,7 @@
         >
           {{ channelName }} -
         </span>
-      </span>
+      </template>
       <span
         class="playlistIndex"
       >
