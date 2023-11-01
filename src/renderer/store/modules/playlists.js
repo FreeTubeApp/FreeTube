@@ -228,18 +228,16 @@ const actions = {
           }
         })
 
-        const findFavorites = payload.filter((playlist) => {
+        const favoritesPlaylist = payload.find((playlist) => {
           return playlist.playlistName === 'Favorites' || playlist._id === 'favorites'
         })
-        const findWatchLater = payload.filter((playlist) => {
+        const watchLaterPlaylist = payload.find((playlist) => {
           return playlist.playlistName === 'Watch Later' || playlist._id === 'watchLater'
         })
 
         const defaultFavoritesPlaylist = state.defaultPlaylists.find((e) => e._id === 'favorites')
-        if (findFavorites.length > 0) {
+        if (favoritesPlaylist != null) {
           // Update existing matching playlist only if it exists
-          const favoritesPlaylist = findFavorites[0]
-
           if (favoritesPlaylist._id !== defaultFavoritesPlaylist._id || favoritesPlaylist.protected !== defaultFavoritesPlaylist.protected) {
             const oldId = favoritesPlaylist._id
             favoritesPlaylist._id = defaultFavoritesPlaylist._id
@@ -258,10 +256,8 @@ const actions = {
         }
 
         const defaultWatchLaterPlaylist = state.defaultPlaylists.find((e) => e._id === 'watchLater')
-        if (findWatchLater.length > 0) {
+        if (watchLaterPlaylist != null) {
           // Update existing matching playlist only if it exists
-          const watchLaterPlaylist = findWatchLater[0]
-
           if (watchLaterPlaylist._id !== defaultWatchLaterPlaylist._id || watchLaterPlaylist.protected !== defaultWatchLaterPlaylist.protected) {
             const oldId = watchLaterPlaylist._id
             watchLaterPlaylist._id = defaultWatchLaterPlaylist._id
