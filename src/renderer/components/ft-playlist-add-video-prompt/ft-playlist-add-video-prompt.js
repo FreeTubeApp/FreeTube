@@ -216,7 +216,7 @@ export default defineComponent({
       const addedPlaylistIds = new Set()
 
       if (this.selectedPlaylistIdList.length === 0) {
-        showToast('You haven\'t selected any playlist yet.')
+        showToast(this.$t('User Playlists.AddVideoPrompt.Toast["You haven\'t selected any playlist yet."]'))
         return
       }
 
@@ -234,7 +234,10 @@ export default defineComponent({
         this.updatePlaylist({ _id: playlist._id })
       })
 
-      showToast(`${this.toBeAddedToPlaylistVideoCount} video(s) added to ${addedPlaylistIds.size} playlist(s).`)
+      showToast(this.$t('User Playlists.AddVideoPrompt.Toast["{videoCount} video(s) added to {playlistCount} playlist(s)."]', {
+        videoCount: this.toBeAddedToPlaylistVideoCount,
+        playlistCount: addedPlaylistIds.size,
+      }))
       this.hide()
     },
 

@@ -302,7 +302,7 @@ export default defineComponent({
       })
 
       if (videoIndex === 0) {
-        showToast('This video cannot be moved up.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved up."]'))
         return
       }
 
@@ -322,7 +322,7 @@ export default defineComponent({
         this.updatePlaylist(playlist)
         this.playlistItems = playlistItems
       } catch (e) {
-        showToast('There was an issue with updating this playlist.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
         console.error(e)
       }
     },
@@ -334,7 +334,7 @@ export default defineComponent({
       })
 
       if (videoIndex + 1 === playlistItems.length || videoIndex + 1 > playlistItems.length) {
-        showToast('This video cannot be moved down.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
         return
       }
 
@@ -354,7 +354,7 @@ export default defineComponent({
         this.updatePlaylist(playlist)
         this.playlistItems = playlistItems
       } catch (e) {
-        showToast('There was an issue with updating this playlist.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
         console.error(e)
       }
     },
@@ -368,9 +368,9 @@ export default defineComponent({
         })
         // Update playlist's `lastUpdatedAt`
         this.updatePlaylist({ _id: this.playlistId })
-        showToast('Video has been removed')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Video has been removed'))
       } catch (e) {
-        showToast('There was a problem with removing this video')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
       }
     },

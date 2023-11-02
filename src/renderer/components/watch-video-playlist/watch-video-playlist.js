@@ -325,7 +325,7 @@ export default defineComponent({
     },
 
     playPreviousVideo: function () {
-      showToast('Playing previous video')
+      showToast(this.$t('Playing Previous Video'))
 
       const playlistInfo = {
         playlistId: this.playlistId

@@ -177,14 +177,38 @@ User Playlists:
     LatestPlayedFirst: 'Recently Played'
     EarliestPlayedFirst: 'Earliest Played'
 
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: This video cannot be moved up.
+      This video cannot be moved down.: This video cannot be moved down.
+      Video has been removed: Video has been removed
+      There was a problem with removing this video: There was a problem with removing this video
+
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Some videos in the playlist are not loaded yet. Click here to copy anyway.
+      Playlist name cannot be empty. Please input a name.: Playlist name cannot be empty. Please input a name.
+      Playlist has been updated.: Playlist has been updated.
+      There was an issue with updating this playlist.: There was an issue with updating this playlist.
+      "{videoCount} video(s) have been removed.": "{videoCount} video(s) have been removed."
+      There were no videos to remove.: There were no videos to remove.
+      This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
+      Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
     N playlists selected: '{playlistCount} Selected'
     Search in Playlists: Search in Playlists
     Save: Save
+
+    Toast:
+      You haven't selected any playlist yet.: You haven't selected any playlist yet.
+      "{videoCount} video(s) added to {playlistCount} playlist(s).": "{videoCount} video(s) added to {playlistCount} playlist(s)."
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist Name
     Create: Create
+
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: There is already a playlist with this name. Please pick a different name.
+      Playlist {playlistName} has been successfully created.: Playlist {playlistName} has been successfully created.
+      There was an issue with creating the playlist.: There was an issue with creating the playlist.
 History:
   # On History Page
   History: History
@@ -377,6 +401,7 @@ Settings:
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.
     Remove All Playlists: Remove All Playlists
+    All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
   Subscription Settings:
     Subscription Settings: Subscription Settings

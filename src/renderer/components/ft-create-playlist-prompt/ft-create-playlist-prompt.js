@@ -45,7 +45,7 @@ export default defineComponent({
   methods: {
     createNewPlaylist: function () {
       if (this.playlistName === '') {
-        showToast('Playlist name cannot be empty. Please input a name.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
         return
       }
 
@@ -53,7 +53,7 @@ export default defineComponent({
         return playlist.playlistName === this.playlistName
       })
       if (nameExists !== -1) {
-        showToast('There is already a playlist with this name. Please pick a different name.')
+        showToast(this.$t('User Playlists.CreatePlaylistPrompt.Toast["There is already a playlist with this name. Please pick a different name."]'))
         return
       }
 
@@ -66,9 +66,11 @@ export default defineComponent({
 
       try {
         this.addPlaylist(playlistObject)
-        showToast(`Playlist ${this.playlistName} has been successfully created.`)
+        showToast(this.$t('User Playlists.CreatePlaylistPrompt.Toast["Playlist {playlistName} has been successfully created."]', {
+          playlistName: this.playlistName,
+        }))
       } catch (e) {
-        showToast('There was an issue with creating the playlist.')
+        showToast(this.$t('User Playlists.CreatePlaylistPrompt.Toast["There was an issue with creating the playlist."]'))
         console.error(e)
       } finally {
         this.hideCreatePlaylistPrompt()

@@ -102,8 +102,8 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
-    historyCache: function () {
-      return this.$store.getters.getHistoryCache
+    historyCacheById: function () {
+      return this.$store.getters.getHistoryCacheById
     },
 
     thumbnailPreference: function () {
@@ -190,7 +190,7 @@ export default defineComponent({
   methods: {
     toggleCopyVideosPrompt: function (force = false) {
       if (this.moreVideoDataAvailable && !force) {
-        showToast('Some videos in the playlist are not loaded yet. Click here to copy anyway.', 5000, () => {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Some videos in the playlist are not loaded yet. Click here to copy anyway."]'), 5000, () => {
           this.toggleCopyVideosPrompt(true)
         })
         return
@@ -204,7 +204,7 @@ export default defineComponent({
 
     savePlaylistInfo: function () {
       if (this.newTitle === '') {
-        showToast('Playlist name cannot be empty. Please input a name.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist name cannot be empty. Please input a name."]'))
         return
       }
 
@@ -217,9 +217,9 @@ export default defineComponent({
       }
       try {
         this.updatePlaylist(playlist)
-        showToast('Playlist has been updated.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist has been updated."]'))
       } catch (e) {
-        showToast('There was an issue with updating this playlist.')
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
         console.error(e)
       } finally {
         this.exitEditMode()
@@ -248,17 +248,13 @@ export default defineComponent({
     handleRemoveVideosOnWatchPromptAnswer: function (option) {
       if (option === 'yes') {
         const videosToWatch = this.selectedUserPlaylist.videos.filter((video) => {
-          const watchedIndex = this.historyCache.findIndex((history) => {
-            return history.videoId === video.videoId
-          })
-
-          return watchedIndex === -1
+          return this.historyCacheById[video.videoId] == null
         })
 
         const videosRemoved = this.selectedUserPlaylist.videos.length - videosToWatch.length
 
         if (videosRemoved === 0) {
-          showToast('There were no videos to remove.')
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There were no videos to remove."]'))
           this.showRemoveVideosOnWatchPrompt = false
           return
         }
@@ -272,9 +268,11 @@ export default defineComponent({
         }
         try {
           this.updatePlaylist(playlist)
-          showToast(`${videosRemoved} video(s) have been removed.`)
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["{videoCount} video(s) have been removed."]', {
+            videoCount: videosRemoved,
+          }))
         } catch (e) {
-          showToast('There was an issue with updating this playlist.')
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
           console.error(e)
         }
       }
@@ -284,7 +282,7 @@ export default defineComponent({
     handleDeletePlaylistPromptAnswer: function (option) {
       if (option === 'yes') {
         if (this.selectedUserPlaylist.protected) {
-          showToast('This playlist is protected and cannot be removed.')
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["This playlist is protected and cannot be removed."]'))
         } else {
           this.removePlaylist(this.id)
           this.$router.push(
@@ -292,7 +290,9 @@ export default defineComponent({
               path: '/userPlaylists'
             }
           )
-          showToast(`${this.title} has been deleted.`)
+          showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Playlist {playlistName} has been deleted."]', {
+            playlistName: this.title,
+          }))
         }
       }
       this.showDeletePlaylistPrompt = false
