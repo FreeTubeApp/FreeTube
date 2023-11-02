@@ -98,12 +98,6 @@ export default defineComponent({
     showDistractionFreeTitles: function () {
       return this.$store.getters.getShowDistractionFreeTitles
     },
-    thumbnailPreference: function () {
-      return this.$store.getters.getThumbnailPreference
-    },
-    blurThumbnails: function () {
-      return this.$store.getters.getBlurThumbnails
-    },
     channelsHidden: function () {
       return JSON.parse(this.$store.getters.getChannelsHidden)
     },
@@ -159,7 +153,6 @@ export default defineComponent({
       'updateHideSubscriptionsShorts',
       'updateHideSubscriptionsLive',
       'updateHideSubscriptionsCommunity',
-      'updateBlurThumbnails'
     ])
   }
 })
