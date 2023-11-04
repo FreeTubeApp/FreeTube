@@ -38,6 +38,10 @@ Global:
 # Search Bar
   Counts:
     Video Count: 1 видео | {count} видео
+    Subscriber Count: 1 подписчик | {count} подписчика(ов)
+    View Count: 1 просмотр | {count} просмотра(ов)
+    Watching Count: 1 смотрящий | {count} смотрящих
+    Channel Count: 1 канал | {count} канала(ов)
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
