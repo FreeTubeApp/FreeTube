@@ -154,6 +154,7 @@ Settings:
       Middle: 'В середине'
       End: 'В конце'
       Blur: Размытие
+      Hidden: Скрыто
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
       (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион подбора трендов'
@@ -772,6 +773,7 @@ Video:
   Upcoming: Предстоящее
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
     прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
+  Pause on Current Video: Остановиться на запущенном видео
 Videos:
   #& Sort By
   Sort By:
