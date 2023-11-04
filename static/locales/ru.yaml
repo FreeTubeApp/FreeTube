@@ -1059,7 +1059,7 @@ Hashtag:
   Hashtag: Распределительная метка
   This hashtag does not currently have any videos: Этой распределительной метки пока
     нет ни у одного видео
-Playlist will not pause when current video is finished: Подборка не остановится, если
-  запущенное видео закончится
+Playlist will not pause when current video is finished: Подборка не будет останавливаться,
+  если текущее видео закончится
 Playlist will pause when current video is finished: Подборка остановится, если запущенное
   видео закончится
