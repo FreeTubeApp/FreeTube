@@ -773,7 +773,7 @@ Video:
   Upcoming: Предстоящее
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
     прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
-  Pause on Current Video: Остановиться на запущенном видео
+  Pause on Current Video: Остановиться на текущем видео
 Videos:
   #& Sort By
   Sort By:
@@ -850,6 +850,7 @@ Comments:
   Member: Участник
   View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
   Hearted: С сердечком
+  Subscribed: Подписан(а)
 Up Next: 'Следующий'
 
 # Toast Messages
