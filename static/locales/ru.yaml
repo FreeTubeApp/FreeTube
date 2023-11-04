@@ -101,7 +101,7 @@ Subscriptions:
   All Subscription Tabs Hidden: Все вкладки подписок скрыты. Чтобы увидеть содержимое
     здесь, пожалуйста, раскройте некоторые вкладки в разделе «{subsection}» в «{settingsSection}».
   Empty Posts: Каналы, на которые вы подписаны, сейчас без постов.
-  Load More Posts: Загрузить больше записей
+  Load More Posts: Загрузить больше постов
 Trending:
   Trending: 'Тренды'
   Trending Tabs: Тренды
@@ -153,6 +153,7 @@ Settings:
       Beginning: 'В начале'
       Middle: 'В середине'
       End: 'В конце'
+      Blur: Размытие
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
       (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион подбора трендов'
@@ -185,6 +186,8 @@ Settings:
       Dracula: 'Дракула'
       System Default: Системная
       Catppuccin Mocha: Мокко с капучино
+      Pastel Pink: Пастельно-розовый
+      Hot Pink: Ярко-розовый
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -434,6 +437,7 @@ Settings:
     Hide Subscriptions Live: Скрыть трансляции из подписок
     Hide Channel Podcasts: Скрыть звукопередачи канала
     Hide Subscriptions Shorts: Скрыть короткие видео из подписок
+    Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
