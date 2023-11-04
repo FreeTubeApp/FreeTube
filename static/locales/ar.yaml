@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'العربية'
+Locale Name: 'الإنجليزية (الولايات المتحدة)'
 FreeTube: 'فري تيوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
@@ -18,7 +18,7 @@ Delete: 'حذف'
 Select all: 'حدد الكل'
 Reload: 'إعادة تحميل'
 Force Reload: 'فرض إعادة التحميل'
-Toggle Developer Tools: 'فتح أدوات المطوّر'
+Toggle Developer Tools: 'إظهار/إخفاء أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
 Zoom out: 'تصغير'
@@ -34,22 +34,22 @@ Forward: 'إلى الأمام'
 Global:
   Videos: 'الفيديوهات'
   Shorts: القصيرة
-  Live: مباشر
+  Live: بث مباشر
   Community: المجتمع
 
 # Search Bar
   Counts:
     Video Count: 1 فيديو | {count} مقاطع فيديو
-    Channel Count: 1 قناة | {count} القنوات
-    Subscriber Count: 1 مشترك | {count} المشتركين
+    Channel Count: 1 قناة | {count} قنوات
+    Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
-    Watching Count: 1 مشاهدة | {count} مشاهدة
+    Watching Count: 1 مشاهد | {count} مشاهدون
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
   Search Filters: 'فلاتر البحث'
   Sort By:
-    Sort By: 'فرز بحسب'
+    Sort By: 'ترتيب حسب'
     Most Relevant: 'الأكثر صلة'
     Rating: 'التقييم'
     Upload Date: 'تاريخ الرفع'
@@ -151,6 +151,7 @@ Settings:
       Middle: 'وسط'
       End: 'نهاية'
       Hidden: مخفي
+      Blur: الضبابية
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious
       (الافتراضية هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'

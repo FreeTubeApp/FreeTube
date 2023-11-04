@@ -1,4 +1,10 @@
-.playlistTitle, .channelName {
+.playlistTitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.playlistTitleLink, .channelName {
   text-decoration: none;
   color: inherit;
 }

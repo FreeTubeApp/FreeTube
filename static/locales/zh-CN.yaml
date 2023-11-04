@@ -144,6 +144,7 @@ Settings:
       Middle: '中间'
       End: '结尾'
       Hidden: 隐藏缩略图
+      Blur: 模糊
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries

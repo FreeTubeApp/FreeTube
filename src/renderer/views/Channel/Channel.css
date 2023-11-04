@@ -98,13 +98,12 @@
   gap: 32px;
   padding-block: .3em;
   padding-inline: 0;
-  flex-direction: column;
   flex-wrap: nowrap;
 }
 
 .tabs {
   display: flex;
-  flex: 0 1 33%;
+  flex: 0 1 66%;
   flex-wrap: wrap;
 }
 
@@ -112,7 +111,6 @@
   padding: 15px;
   font-size: 15px;
   cursor: pointer;
-  flex: 1 1 0%;
   align-self: flex-end;
   text-align: center;
   color: var(--tertiary-text-color);
@@ -204,7 +202,10 @@
 
   .tabs {
     flex: 1 1 0;
-    flex-wrap: wrap;
+  }
+
+  .tab {
+    flex: 1 1 0%;
   }
 
   #communityPanel {
