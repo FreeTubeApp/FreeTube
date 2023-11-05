@@ -485,3 +485,7 @@ Channels:
   Count: '{number} canal(es) encontrado(s).'
   Unsubscribed: '{channelName} ha sido eliminado de tus suscripciones'
 Preferences: Preferencias
+Tooltips:
+  Distraction Free Settings:
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
+      «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
