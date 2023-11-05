@@ -205,10 +205,17 @@ export default defineComponent({
       this.showFilters = false
     },
 
-    focusSearch: function () {
+    focusSearch: function (select) {
       if (!this.hideSearchBar) {
         this.$refs.searchInput.focus()
+        if (select) {
+          this.$refs.searchInput.select()
+        }
       }
+    },
+
+    isSearchFocused: function () {
+      return this.$refs.searchInput.isFocused()
     },
 
     getSearchSuggestionsDebounce: function (query) {

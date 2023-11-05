@@ -310,7 +310,7 @@ export default defineComponent({
         switch (event.key) {
           case 'D':
           case 'd':
-            this.$refs.topNav.focusSearch()
+            this.$refs.topNav.focusSearch(true)
             break
         }
       }
@@ -322,8 +322,15 @@ export default defineComponent({
         case 'l':
           if ((process.platform !== 'darwin' && event.ctrlKey) ||
             (process.platform === 'darwin' && event.metaKey)) {
-            this.$refs.topNav.focusSearch()
+            this.$refs.topNav.focusSearch(true)
           }
+          break
+        case '/':
+          if (!this.$refs.topNav.isSearchFocused()) {
+            // prevent entering slash character into input
+            event.preventDefault()
+          }
+          this.$refs.topNav.focusSearch(false)
           break
       }
     },
