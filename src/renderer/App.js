@@ -329,8 +329,8 @@ export default defineComponent({
           if (!this.$refs.topNav.isSearchFocused()) {
             // prevent entering slash character into input
             event.preventDefault()
+            this.$refs.topNav.focusSearch(false)
           }
-          this.$refs.topNav.focusSearch(false)
           break
       }
     },
