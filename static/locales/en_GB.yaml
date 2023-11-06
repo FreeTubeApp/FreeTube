@@ -106,6 +106,7 @@ Subscriptions:
   All Subscription Tabs Hidden: All subscription tabs are hidden. To see content here,
     please unhide some tabs in the ‘{subsection}’ section in ‘{settingsSection}’.
   Empty Posts: Your subscribed channels currently do not have any posts.
+  Load More Posts: Load more posts
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -158,6 +159,8 @@ Settings:
       Beginning: 'Beginning'
       Middle: 'Middle'
       End: 'End'
+      Blur: Blur
+      Hidden: Hidden
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Instance
       (Default is https://invidious.snopyta.org)'
     Region for Trending: 'Region for Trending'
@@ -190,6 +193,8 @@ Settings:
       Light: 'Light'
       Dracula: 'Dracula'
       Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastel pink
+      Hot Pink: Hot pink
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -440,6 +445,8 @@ Settings:
     Hide Subscriptions Shorts: Hide subscriptions shorts
     Hide Subscriptions Live: Hide subscriptions live
     Hide Subscriptions Videos: Hide subscriptions videos
+    Hide Subscriptions Community: Hide subscriptions community
+    Hide Profile Pictures in Comments: Hide profile pictures in comments
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -537,6 +544,7 @@ About:
   View License: View Licence
   Licensed under the AGPLv3: Licensed under the AGPLv3
   Source code: Source code
+  Discussions: Discussions
 Profile:
   Profile Settings: Profile Settings
   Profile Select: 'Profile Select'
@@ -545,7 +553,7 @@ Profile:
   Create New Profile: 'Create New Profile'
   Edit Profile: 'Edit Profile'
   Color Picker: 'Colour Picker'
-  Custom Color: 'Custom Colour'
+  Custom Color: 'Custom colour'
   Profile Preview: 'Profile Preview'
   Create Profile: 'Create Profile'
   Update Profile: 'Update Profile'
@@ -582,6 +590,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profile Filter
   '{number} selected': '{number} selected'
+  Toggle Profile List: Toggle profile list
 Channel:
   Subscribe: 'Subscribe'
   Unsubscribe: 'Unsubscribe'
@@ -628,6 +637,9 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not
       have any posts
+    Reveal Answers: Reveal answers
+    Hide Answers: Hide answers
+    votes: '{votes} votes'
   Live:
     This channel does not currently have any live streams: This channel does not currently
       have any live streams
@@ -784,6 +796,7 @@ Video:
   Upcoming: Upcoming
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
     Chat is unavailable for this stream. It may have been disabled by the uploader.
+  Pause on Current Video: Pause on current video
 Videos:
   #& Sort By
   Sort By:
@@ -857,6 +870,7 @@ Comments:
   Member: Member
   Hearted: Hearted
   View {replyCount} replies: View {replyCount} replies
+  Subscribed: Subscribed
 Up Next: 'Up Next'
 
 # Toast Messages
@@ -1003,3 +1017,7 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
     have any videos
+Playlist will pause when current video is finished: Playlist will pause when current
+  video is finished
+Playlist will not pause when current video is finished: Playlist will not pause when
+  current video is finished

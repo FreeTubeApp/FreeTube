@@ -167,6 +167,7 @@ Settings:
       Middle: 'Средина'
       End: 'Крај'
       Hidden: Скривено
+      Blur: Замагљено
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious инстанца
       (Подразумевано је https://invidious.snopyta.org)'
     View all Invidious instance information: 'Погледај све информације о Invidious

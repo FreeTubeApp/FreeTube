@@ -151,6 +151,7 @@ Settings:
       Middle: 'وسط'
       End: 'نهاية'
       Hidden: مخفي
+      Blur: الضبابية
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'حالة Invidious
       (الافتراضية هي https://invidious.snopyta.org)'
     Region for Trending: 'المنطقة للأكثر شيوعاً'
