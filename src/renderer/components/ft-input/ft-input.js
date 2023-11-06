@@ -61,6 +61,10 @@ export default defineComponent({
     tooltip: {
       type: String,
       default: ''
+    },
+    maxLength: {
+      type: Number,
+      default: null
     }
   },
   data: function () {

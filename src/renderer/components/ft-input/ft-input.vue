@@ -54,6 +54,7 @@
         @focus="handleFocus"
         @blur="handleInputBlur"
         @keydown="handleKeyDown"
+        :maxLength="maxLength"
       >
       <font-awesome-icon
         v-if="showActionButton"

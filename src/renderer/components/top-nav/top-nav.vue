@@ -89,6 +89,7 @@
           :show-clear-text-button="true"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
+          :maxLength="100"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"
