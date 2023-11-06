@@ -166,6 +166,7 @@ Settings:
       Middle: 'Střed'
       End: 'Konec'
       Hidden: Skryté
+      Blur: Rozmazané
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
       (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Oblast pro trendy'
@@ -179,7 +180,7 @@ Settings:
       instance
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádná výchozí instance
-    The currently set default instance is {instance}: Současné výchozí instance je
+    The currently set default instance is {instance}: Aktuální výchozí instance je
       {instance}
     External Link Handling:
       No Action: Žádná akce

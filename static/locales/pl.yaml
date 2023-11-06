@@ -156,6 +156,7 @@ Settings:
       Middle: 'Środek'
       End: 'Koniec'
       Hidden: Nie pokazuj
+      Blur: Rozmyte
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Serwer Invidious
       (Domyślnie jest https://invidious.snopyta.org)'
     Region for Trending: '„Na czasie” z obszaru'

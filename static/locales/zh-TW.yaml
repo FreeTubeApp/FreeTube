@@ -143,6 +143,7 @@ Settings:
       Middle: '中間'
       End: '結尾'
       Hidden: 隱藏
+      Blur: 模糊
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
       https://invidious.snopyta.org )'
     Region for Trending: '發燒影片區域'

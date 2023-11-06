@@ -158,6 +158,7 @@ Settings:
       Middle: 'Nel mezzo'
       End: 'Fine'
       Hidden: Nascoste
+      Blur: Sfocatura
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Istanza Invidious
       (La predefinita è https://invidious.snopyta.org)'
     Region for Trending: 'Regione per le tendenze'

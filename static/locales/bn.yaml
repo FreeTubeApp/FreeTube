@@ -78,8 +78,28 @@ Subscriptions:
   Subscriptions: 'সদস্যতা'
   Latest Subscriptions: 'শেষ সদস্যতা'
   Error Channels: ত্রুটিপূর্ণ চ্যানেল
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': আপনার
+    সাবস্ক্রিপশন লিস্ট খালি, দেখতে সাবস্ক্রিপশন করুন
+  Load More Posts: অতিরিক্ত পোস্ট লোড করুন
+  Empty Channels: আপনি যেসকল চ্যানেল সাবস্ক্রাইব করেছেন তাদের কোন ভিডিও নেই ।
+  Subscriptions Tabs: সাবস্ক্রিপশন ট্যাব
+  Empty Posts: আপনার সাবস্ক্রাইব কৃত চ্যানেলে কোন পোস্ট নেই ।
+  All Subscription Tabs Hidden: সকল সাবস্ক্রিপশন ট্যা গোপন করা হয়েছে ।এখানে কনটেন্ট
+    দেখতে কিছু ট্যাব আনহাইড করুন"{subsection}"এর "{settingsSection}"।
+  'Getting Subscriptions. Please wait.': সাবস্ক্রিপশন আনা হচ্ছে ।অপেক্ষা করুন ।
+  Load More Videos: অতিরিক্ত ভিডিও লোড করুন
+  Refresh Subscriptions: সাবস্ক্রিপশন রিফ্রেশ করুন
+  Disabled Automatic Fetching: আপনি সাবস্ক্রিপশন পেচ বন্ধ করে রেখেছেন। সাবস্ক্রিপশন
+    রিফ্রেশ করুন দেখার জন্য।
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: এই
+    প্রোফাইলের অনেক সাবস্ক্রাইবার রয়েছে।   জোরপূর্বক লিমিট এড়ানোর চেষ্টা করা হচ্ছে
 Trending:
   Trending: 'চলছে'
+  Gaming: গেমিং
+  Default: পূর্বনির্ধারিত
+  Music: সঙ্গীত
+  Movies: সিনেমা
+  Trending Tabs: চলমান ভিডিও ট্যাব
 History:
   # On History Page
   History: 'ইতিহাস'
@@ -104,7 +124,28 @@ Global:
   Videos: ভিডিও
   Shorts: খাটো
   Live: সরাসরি
+  Counts:
+    Video Count: ১ ভিডিও |{সমষ্টি }ভিডিও
+    Subscriber Count: ১ সাবস্ক্রাইবার |{সমষ্টি }সাবস্ক্রাইবার
+    View Count: ১ দেখা হয়েছে |{সমষ্টি }দর্শন সংখ্যা
+    Watching Count: ১ দেখছি |{গণনা }দেখছেন
+    Channel Count: ১ চ্যানেল |{সমষ্টি }চ্যানেল সমূহ
+  Community: গোষ্ঠী
 External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে
   বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
 Are you sure you want to open this link?: তুমি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
 Preferences: পছন্দসমূহ
+Most Popular: অতিপরিচিত
+Channels:
+  Search bar placeholder: চ্যানেল খুঁজুন
+  Unsubscribe Prompt: আপনি নিশ্চিত আপনি "{channelName}"আনসাবস্ক্রাইব করতে চান ?
+  Channels: চ্যানেলসমূহ
+  Title: চ্যানেল সুচি
+  Empty: আপনার চ্যানেল সুচি এখন খালি ।
+  Unsubscribe: আনসাবস্ক্রাইব
+  Count: '{number}চ্যানেল পাওয়া গিয়েছে ।'
+  Unsubscribed: '{channelName} সরিয়ে দেয়া হয়েছে আপনার সাবস্ক্রিপশন থেকে'
+Playlists: প্লে লিস্ট
+User Playlists:
+  Your Playlists: আপনার প্লেলিস্ট
+More: অতিরিক্ত

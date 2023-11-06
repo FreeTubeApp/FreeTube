@@ -155,6 +155,7 @@ Settings:
       Middle: 'Mitad'
       End: 'Final'
       Hidden: Oculto
+      Blur: Difuminar
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instancia de
       Invidious (por defecto es https://invidious.snopyta.org)'
     Region for Trending: 'Región de las tendencias'

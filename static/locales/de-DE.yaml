@@ -43,7 +43,7 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
-Search / Go to URL: Suche / Gehe zu URL
+Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
@@ -89,7 +89,7 @@ Subscriptions:
     Aboliste ist aktuell leer. Beginne mit dem Hinzufügen von Abos, um sie hier zu
     sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
-  Refresh Subscriptions: Abos auffrischen
+  Refresh Subscriptions: Abos aktualisieren
   Getting Subscriptions. Please wait.: Abos werden geholt. Bitte warten.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
@@ -159,6 +159,7 @@ Settings:
       Middle: Mitte
       End: Ende
       Hidden: Versteckt
+      Blur: Unschärfe
     'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
@@ -556,7 +557,7 @@ About:
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
   Translate via Weblate: Auf Weblate übersetzen
-  Website: Webseite
+  Website: Website
   Source Code: Quellcode
   Release Notes: Versionshinweise
   Blog: Blog
@@ -1035,7 +1036,7 @@ Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrech
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken.
-More: Weiteres
+More: Mehr
 Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
   implementiert, bitte versuche es später noch einmal
 Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann

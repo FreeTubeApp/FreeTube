@@ -156,12 +156,13 @@ Settings:
       Grid: 'Izgara'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Küçük Resim Tercihi'
+      Thumbnail Preference: 'Önizleme Görseli Tercihi'
       Default: 'Öntanımlı'
       Beginning: 'Başlangıç'
       Middle: 'Orta'
       End: 'Bitiş'
       Hidden: Gizli
+      Blur: Bulanıklık
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
       (Öntanımlı olarak https://invidious.snopyta.org)'
     Region for Trending: 'Öne Çıkanlar İçin Bölge Tercihi'
