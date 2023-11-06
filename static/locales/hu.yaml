@@ -168,6 +168,7 @@ Settings:
       Middle: 'Középső'
       End: 'Vég'
       Hidden: Rejtett
+      Blur: Elhomályosítás
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious példány
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
