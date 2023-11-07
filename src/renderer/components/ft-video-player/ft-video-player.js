@@ -1523,7 +1523,7 @@ export default defineComponent({
     createAutoPlayToggle: function() {
       const toggleAutoPlay = this.toggleAutoPlay
       const VjsButton = videojs.getComponent('slider')
-      //figure out way to include videojs-slider here
+      // figure out way to include videojs-slider here
       class autoPlayToggle extends VjsButton {
         handleClick() {
           toggleAutoPlay()
