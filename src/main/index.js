@@ -171,7 +171,7 @@ function runApp() {
   app.commandLine.appendSwitch('ignore-gpu-blacklist')
 
   // command line switches need to be added before the app ready event first
-  // that means we can't use the normal settings system as that is asynchonous,
+  // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
   const replaceHttpCache = existsSync(`${app.getPath('userData')}/experiment-replace-http-cache`)
   if (replaceHttpCache) {
@@ -285,6 +285,13 @@ function runApp() {
       })
     })
 
+    session.defaultSession.cookies.set({
+      url: 'https://www.youtube.com',
+      name: 'SOCS',
+      value: 'CAI',
+      sameSite: 'no_restriction',
+    })
+
     // make InnerTube requests work with the fetch function
     // InnerTube rejects requests if the referer isn't YouTube or empty
     const innertubeAndMediaRequestFilter = { urls: ['https://www.youtube.com/youtubei/*', 'https://*.googlevideo.com/videoplayback?*'] }
@@ -304,7 +311,7 @@ function runApp() {
       // For the DASH formats we are fine as video.js doesn't seem to ever request chunks that big.
       // The legacy formats don't have any chunk size limits.
       // For the audio formats we need to handle it ourselves, as the browser requests the entire audio file,
-      // which means that for most videos that are loger than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
+      // which means that for most videos that are longer than 10 mins, we get throttled, as the audio track file sizes surpass that 10MiB limit.
 
       // This code checks if the file is larger than the limit, by checking the `clen` query param,
       // which YouTube helpfully populates with the content length for us.
@@ -336,93 +343,81 @@ function runApp() {
       callback({ requestHeaders })
     })
 
+    // when we create a real session on the watch page, youtube returns tracking cookies, which we definitely don't want
+    const trackingCookieRequestFilter = { urls: ['https://www.youtube.com/sw.js_data', 'https://www.youtube.com/iframe_api'] }
+
+    session.defaultSession.webRequest.onHeadersReceived(trackingCookieRequestFilter, ({ responseHeaders }, callback) => {
+      if (responseHeaders) {
+        delete responseHeaders['set-cookie']
+      }
+      // eslint-disable-next-line n/no-callback-literal
+      callback({ responseHeaders })
+    })
+
     if (replaceHttpCache) {
       // in-memory image cache
 
       const imageCache = new ImageCache()
 
-      protocol.registerBufferProtocol('imagecache', (request, callback) => {
-        // Remove `imagecache://` prefix
-        const url = decodeURIComponent(request.url.substring(13))
-        if (imageCache.has(url)) {
-          const cached = imageCache.get(url)
+      protocol.handle('imagecache', (request) => {
+        return new Promise((resolve, reject) => {
+          const url = decodeURIComponent(request.url.substring(13))
+          if (imageCache.has(url)) {
+            const cached = imageCache.get(url)
 
-          callback(cached)
-          return
-        }
-
-        const newRequest = net.request({
-          method: request.method,
-          url
-        })
-
-        // Electron doesn't allow certain headers to be set:
-        // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
-        // also blacklist Origin and Referrer as we don't want to let YouTube know about them
-        const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
-
-        for (const header of Object.keys(request.headers)) {
-          if (!blacklistedHeaders.includes(header.toLowerCase())) {
-            newRequest.setHeader(header, request.headers[header])
+            resolve(new Response(cached.data, {
+              headers: { 'content-type': cached.mimeType }
+            }))
+            return
           }
-        }
 
-        newRequest.on('response', (response) => {
-          const chunks = []
-          response.on('data', (chunk) => {
-            chunks.push(chunk)
+          const newRequest = net.request({
+            method: request.method,
+            url
           })
 
-          response.on('end', () => {
-            const data = Buffer.concat(chunks)
+          // Electron doesn't allow certain headers to be set:
+          // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
+          // also blacklist Origin and Referrer as we don't want to let YouTube know about them
+          const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
 
-            const expiryTimestamp = extractExpiryTimestamp(response.headers)
-            const mimeType = response.headers['content-type']
+          for (const header of Object.keys(request.headers)) {
+            if (!blacklistedHeaders.includes(header.toLowerCase())) {
+              newRequest.setHeader(header, request.headers[header])
+            }
+          }
 
-            imageCache.add(url, mimeType, data, expiryTimestamp)
+          newRequest.on('response', (response) => {
+            const chunks = []
+            response.on('data', (chunk) => {
+              chunks.push(chunk)
+            })
 
-            // eslint-disable-next-line n/no-callback-literal
-            callback({
-              mimeType,
-              data: data
+            response.on('end', () => {
+              const data = Buffer.concat(chunks)
+
+              const expiryTimestamp = extractExpiryTimestamp(response.headers)
+              const mimeType = response.headers['content-type']
+
+              imageCache.add(url, mimeType, data, expiryTimestamp)
+
+              resolve(new Response(data, {
+                headers: { 'content-type': mimeType }
+              }))
+            })
+
+            response.on('error', (error) => {
+              console.error('image cache error', error)
+              reject(error)
             })
           })
 
-          response.on('error', (error) => {
-            console.error('image cache error', error)
-
-            // error objects don't get serialised properly
-            // https://stackoverflow.com/a/53624454
-
-            const errorJson = JSON.stringify(error, (key, value) => {
-              if (value instanceof Error) {
-                return {
-                  // Pull all enumerable properties, supporting properties on custom Errors
-                  ...value,
-                  // Explicitly pull Error's non-enumerable properties
-                  name: value.name,
-                  message: value.message,
-                  stack: value.stack
-                }
-              }
-
-              return value
-            })
-
-            // eslint-disable-next-line n/no-callback-literal
-            callback({
-              statusCode: response.statusCode ?? 400,
-              mimeType: 'application/json',
-              data: Buffer.from(errorJson)
-            })
+          newRequest.on('error', (err) => {
+            console.error(err)
           })
+
+          newRequest.end()
         })
-
-        newRequest.on('error', (err) => {
-          console.error(err)
-        })
-
-        newRequest.end()
       })
 
       const imageRequestFilter = { urls: ['https://*/*', 'http://*/*'] }
@@ -706,10 +701,12 @@ function runApp() {
     session.defaultSession.setProxy({
       proxyRules: url
     })
+    session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
     session.defaultSession.setProxy({})
+    session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
@@ -1032,6 +1029,8 @@ function runApp() {
 
   // ************************************************* //
 
+  let resourcesCleanUpDone = false
+
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     cleanUpResources().finally(() => {
@@ -1041,8 +1040,32 @@ function runApp() {
     })
   })
 
-  function cleanUpResources() {
-    return Promise.allSettled([
+  if (process.platform === 'darwin') {
+    // `window-all-closed` doesn't fire for Cmd+Q
+    // https://www.electronjs.org/docs/latest/api/app#event-window-all-closed
+    // This is also fired when `app.quit` called
+    // Not using `before-quit` since that one is fired before windows are closed
+    app.on('will-quit', e => {
+      // Let app quit when the cleanup is finished
+
+      if (resourcesCleanUpDone) { return }
+
+      e.preventDefault()
+      cleanUpResources().finally(() => {
+        // Quit AFTER the resources cleanup is finished
+        // Which calls the listener again, which is why we have the variable
+
+        app.quit()
+      })
+    })
+  }
+
+  async function cleanUpResources() {
+    if (resourcesCleanUpDone) {
+      return
+    }
+
+    await Promise.allSettled([
       baseHandlers.compactAllDatastores(),
       session.defaultSession.clearCache(),
       session.defaultSession.clearStorageData({
@@ -1058,6 +1081,8 @@ function runApp() {
         ]
       })
     ])
+
+    resourcesCleanUpDone = true
   }
 
   // MacOS event

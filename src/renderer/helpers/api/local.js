@@ -76,6 +76,47 @@ export async function getLocalPlaylist(id) {
 }
 
 /**
+ * @param {Playlist} playlist
+ * @returns {Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
+ */
+export async function getLocalPlaylistContinuation(playlist) {
+  try {
+    return await playlist.getContinuation()
+  } catch (error) {
+    // Youtube can provide useless continuation data
+    if (!error.message.includes('Got empty continuation response.')) {
+      // Re-throw unhandled error
+      throw error
+    }
+
+    return null
+  }
+}
+
+/**
+ * Callback for adding two numbers.
+ *
+ * @callback untilEndOfLocalPlayListCallback
+ * @param {Playlist} playlist
+ */
+
+/**
+ * @param {Playlist} playlist
+ * @param {untilEndOfLocalPlayListCallback} callback
+ * @param {object} options
+ * @param {boolean} options.runCallbackOnceFirst
+ */
+export async function untilEndOfLocalPlayList(playlist, callback, options = { runCallbackOnceFirst: true }) {
+  if (options.runCallbackOnceFirst) { callback(playlist) }
+
+  while (playlist != null && playlist.has_continuation) {
+    playlist = await getLocalPlaylistContinuation(playlist)
+
+    if (playlist != null) { callback(playlist) }
+  }
+}
+
+/**
  * @param {string} location
  * @param {'default'|'music'|'gaming'|'movies'} tab
  * @param {import('youtubei.js').Mixins.TabbedFeed|null} instance
@@ -192,17 +233,24 @@ export async function getLocalChannelId(url) {
   try {
     const innertube = await createInnertube()
 
-    // resolveURL throws an error if the URL doesn't exist
-    const navigationEndpoint = await innertube.resolveURL(url)
+    // Resolve URL and allow 1 redirect, as YouTube should just do 1
+    // We want to avoid an endless loop
+    for (let i = 0; i < 2; i++) {
+      // resolveURL throws an error if the URL doesn't exist
+      const navigationEndpoint = await innertube.resolveURL(url)
 
-    if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
-      return navigationEndpoint.payload.browseId
-    } else {
-      return null
+      if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
+        return navigationEndpoint.payload.browseId
+      } else if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_UNKNOWN' && navigationEndpoint.payload.url?.startsWith('https://www.youtube.com/')) {
+        // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
+        url = navigationEndpoint.payload.url
+      } else {
+        return null
+      }
     }
-  } catch {
-    return null
-  }
+  } catch { }
+
+  return null
 }
 
 /**

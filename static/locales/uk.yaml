@@ -160,11 +160,12 @@ Settings:
       List: 'Список'
     Thumbnail Preference:
       Thumbnail Preference: 'Налаштування мініатюр'
-      Default: 'За замовчуванням'
+      Default: 'Типово'
       Beginning: 'На початку'
-      Middle: 'В середині'
+      Middle: 'У середині'
       End: 'У кінці'
       Hidden: Сховано
+      Blur: Розмиття
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Екземпляр Invidious
       (За замовчуванням https://invidious.snopyta.org)'
     Region for Trending: 'Регіон для Популярних'

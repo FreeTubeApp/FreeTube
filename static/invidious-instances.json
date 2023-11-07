@@ -1,22 +1,10 @@
 [
   {
+    "url": "https://invidious.fdn.fr",
+    "cors": true
+  },
+  {
     "url": "https://vid.puffyan.us",
-    "cors": true
-  },
-  {
-    "url": "https://inv.riverside.rocks",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.nerdvpn.de",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.tiekoetter.com",
-    "cors": true
-  },
-  {
-    "url": "https://inv.bp.projectsegfau.lt",
     "cors": true
   },
   {
@@ -24,31 +12,7 @@
     "cors": true
   },
   {
-    "url": "https://yt.artemislena.eu",
-    "cors": true
-  },
-  {
-    "url": "https://inv.pistasjis.net",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.sethforprivacy.com",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.projectsegfau.lt",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.baczek.me",
-    "cors": true
-  },
-  {
-    "url": "https://yt.funami.tech",
-    "cors": true
-  },
-  {
-    "url": "https://iv.ggtyler.dev",
+    "url": "https://inv.bp.projectsegfau.lt",
     "cors": true
   },
   {
@@ -56,7 +20,19 @@
     "cors": true
   },
   {
+    "url": "https://invidious.io.lol",
+    "cors": true
+  },
+  {
+    "url": "https://inv.tux.pizza",
+    "cors": true
+  },
+  {
     "url": "https://invidious.privacydev.net",
+    "cors": true
+  },
+  {
+    "url": "https://yt.artemislena.eu",
     "cors": true
   },
   {
@@ -64,11 +40,51 @@
     "cors": true
   },
   {
-    "url": "https://invidious.0011.lt",
+    "url": "https://onion.tube",
     "cors": true
   },
   {
-    "url": "https://inv.zzls.xyz",
+    "url": "https://yt.oelrichsgarcia.de",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.protokolla.fi",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.asir.dev",
+    "cors": true
+  },
+  {
+    "url": "https://iv.nboeck.de",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.private.coffee",
+    "cors": true
+  },
+  {
+    "url": "https://iv.datura.network",
+    "cors": true
+  },
+  {
+    "url": "https://anontube.lvkaszus.pl",
+    "cors": true
+  },
+  {
+    "url": "https://inv.us.projectsegfau.lt",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.perennialte.ch",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.drgns.space",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.einfachzocken.eu",
     "cors": true
   },
   {
@@ -76,11 +92,15 @@
     "cors": true
   },
   {
-    "url": "https://yt.floss.media",
-    "cors": false
+    "url": "https://invidious.no-logs.com",
+    "cors": true
   },
   {
-    "url": "https://invidious.nogafa.org",
+    "url": "https://yt.drgnz.club",
+    "cors": true
+  },
+  {
+    "url": "https://yt.cdaut.de",
     "cors": true
   },
   {
@@ -88,11 +108,7 @@
     "cors": true
   },
   {
-    "url": "https://invidious.esmailelbob.xyz",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.snopyta.org",
+    "url": "https://inv.citw.lgbt",
     "cors": true
   }
 ]
