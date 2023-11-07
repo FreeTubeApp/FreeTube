@@ -38,6 +38,10 @@ Global:
 # Search Bar
   Counts:
     Video Count: 1 видео | {count} видео
+    Subscriber Count: 1 подписчик | {count} подписчика(ов)
+    View Count: 1 просмотр | {count} просмотра(ов)
+    Watching Count: 1 смотрящий | {count} смотрящих
+    Channel Count: 1 канал | {count} канала(ов)
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -96,6 +100,8 @@ Subscriptions:
   Subscriptions Tabs: Вкладки подписок
   All Subscription Tabs Hidden: Все вкладки подписок скрыты. Чтобы увидеть содержимое
     здесь, пожалуйста, раскройте некоторые вкладки в разделе «{subsection}» в «{settingsSection}».
+  Empty Posts: Каналы, на которые вы подписаны, сейчас без постов.
+  Load More Posts: Загрузить больше постов
 Trending:
   Trending: 'Тренды'
   Trending Tabs: Тренды
@@ -147,6 +153,8 @@ Settings:
       Beginning: 'В начале'
       Middle: 'В середине'
       End: 'В конце'
+      Blur: Размытие
+      Hidden: Скрыто
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Экземпляр Invidious
       (по умолчанию https://invidious.snopyta.org)'
     Region for Trending: 'Регион подбора трендов'
@@ -179,6 +187,8 @@ Settings:
       Dracula: 'Дракула'
       System Default: Системная
       Catppuccin Mocha: Мокко с капучино
+      Pastel Pink: Пастельно-розовый
+      Hot Pink: Ярко-розовый
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -428,6 +438,7 @@ Settings:
     Hide Subscriptions Live: Скрыть трансляции из подписок
     Hide Channel Podcasts: Скрыть звукопередачи канала
     Hide Subscriptions Shorts: Скрыть короткие видео из подписок
+    Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -762,6 +773,7 @@ Video:
   Upcoming: Предстоящее
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
     прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
+  Pause on Current Video: Остановиться на текущем видео
 Videos:
   #& Sort By
   Sort By:
@@ -838,6 +850,7 @@ Comments:
   Member: Участник
   View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
   Hearted: С сердечком
+  Subscribed: Подписан(а)
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -1046,3 +1059,7 @@ Hashtag:
   Hashtag: Распределительная метка
   This hashtag does not currently have any videos: Этой распределительной метки пока
     нет ни у одного видео
+Playlist will not pause when current video is finished: Подборка не будет останавливаться,
+  если текущее видео закончится
+Playlist will pause when current video is finished: Подборка остановится, если текущее
+  видео закончится

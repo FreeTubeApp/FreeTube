@@ -1,15 +1,16 @@
 # Put the name of your locale in the same language
-Locale Name: ''
-FreeTube: ''
+Locale Name: 'Беларуская'
+FreeTube: 'FreeTube'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Гэтая частка праграмы яшчэ не гатова. Прыходзьце пазней.
 
 # Webkit Menu Bar
-File: ''
-New Window: ''
-Preferences: ''
-Quit: ''
-Edit: ''
+File: 'Файл'
+New Window: 'Новае акно'
+Preferences: 'Параметры'
+Quit: 'Выйсці'
+Edit: 'Рэдагаваць'
 Undo: ''
 Redo: ''
 Cut: ''

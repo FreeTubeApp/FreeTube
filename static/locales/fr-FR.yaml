@@ -160,7 +160,7 @@ Settings:
       Beginning: 'Début'
       Middle: 'Milieu'
       End: 'Fin'
-      Hidden: Caché
+      Hidden: Masqué
       Blur: Flou
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Individious
       (https://invidious.snopyta.org par défaut)'
@@ -197,8 +197,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Paramètres système
       Catppuccin Mocha: Catppuccin Moka
-      Pastel Pink: Rose Pastel
-      Hot Pink: Rose Vif
+      Pastel Pink: Rose pastel
+      Hot Pink: Rose vif
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -458,8 +458,8 @@ Settings:
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
     Blur Thumbnails: Flouter les miniatures
-    Hide Profile Pictures in Comments: Cacher les photos de profil dans les commentaires
-    Hide Subscriptions Community: Occulter les communautés abonnées
+    Hide Profile Pictures in Comments: Masquer les photos de profil dans les commentaires
+    Hide Subscriptions Community: Masquer les communautés abonnées
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
