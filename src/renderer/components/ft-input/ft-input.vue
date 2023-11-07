@@ -50,11 +50,11 @@
         :disabled="disabled"
         :spellcheck="spellcheck"
         :aria-label="!showLabel ? placeholder : null"
+        :maxLength="maxLength"
         @input="e => handleInput(e.target.value)"
         @focus="handleFocus"
         @blur="handleInputBlur"
         @keydown="handleKeyDown"
-        :maxLength="maxLength"
       >
       <font-awesome-icon
         v-if="showActionButton"

@@ -87,9 +87,9 @@
           :data-list="searchSuggestionsDataList"
           :spellcheck="false"
           :show-clear-text-button="true"
+          :max-length="100"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
-          :maxLength="100"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"
