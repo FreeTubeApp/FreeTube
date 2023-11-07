@@ -343,6 +343,10 @@ export default defineComponent({
 
     proxyVideos: function () {
       return this.$store.getters.getProxyVideos
+    },
+
+    keyboardShortcuts: function() {
+      return this.$store.getters.getKeyboardShortcuts
     }
   },
   watch: {
@@ -2091,7 +2095,7 @@ export default defineComponent({
         return
       }
 
-      if (this.player !== null) {
+      if (this.player !== null && this.keyboardShortcuts === true) {
         switch (event.key) {
           case ' ':
           case 'Spacebar': // older browsers might return spacebar instead of a space character

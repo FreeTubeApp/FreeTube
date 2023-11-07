@@ -207,6 +207,10 @@ export default defineComponent({
     hideComments: function () {
       return this.$store.getters.getHideComments
     },
+
+    keyboardShortcuts: function() {
+      return this.$store.getters.getKeyboardShortcuts
+    },
   },
   watch: {
     screenshotFolder: function() {
@@ -321,6 +325,7 @@ export default defineComponent({
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
       'updateCommentAutoLoadEnabled',
+      'updateKeyboardShortcuts'
     ])
   }
 })
