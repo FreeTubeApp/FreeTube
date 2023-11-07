@@ -1495,6 +1495,45 @@ export default defineComponent({
 
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
+    /*
+    createNextVideoButton: function(){
+      const toggleNextVideo = this.toggleNextVideo
+      const VjsButton = videojs.getComponent('Button')
+
+      class nextVideoButton extends VjsButton {
+        handleClick(){
+          toggleNextVideo()
+        }
+
+      createControlTextEl(button){
+        // next item is a 'next play' icon from videojs
+        button.classList.add('vjs-button-next-item')
+        button.title = 'Next Video'
+
+        const div = document.createElement('div')
+        div.id = 'nextPlay'
+        div.className = 'vjs-icon-next-item vjs-button'
+        button.appendChild(div)
+        return div
+      }
+    }
+    videojs.registerComponent('nextVideoButton', nextVideoButton)
+    },
+    */
+    createAutoPlayToggle: function() {
+      const toggleAutoPlay = this.toggleAutoPlay
+      const VjsButton = videojs.getComponent('slider')
+      //figure out way to include videojs-slider here
+      class autoPlayToggle extends VjsButton {
+        handleClick() {
+          toggleAutoPlay()
+        }
+
+        createControlTextEl(button) {
+          button.classList.add('')
+        }
+      }
+    },
     // copying format of previous function
     createAutoPlayToggleButton: function () {
       const toggleAutoPlay = this.toggleAutoPlay
@@ -1526,7 +1565,6 @@ export default defineComponent({
     toggleAutoPlay: function () {
       this.$store.dispatch('updatePlayNextVideo', !this.$store.getters.getPlayNextVideo)
     },
-
     createToggleTheatreModeButton: function () {
       if (!this.theatrePossible) {
         return
