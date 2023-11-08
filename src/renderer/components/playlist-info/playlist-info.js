@@ -23,10 +23,13 @@ export default defineComponent({
       channelName: '',
       channelId: null,
       videoCount: 0,
-      viewCount: 0,
+      viewCount: null,
       lastUpdated: '',
       description: '',
-      infoSource: ''
+      infoSource: '',
+      // if the playlist only exists on invidious
+      isInvidiousPlaylist: false,
+      origin: ''
     }
   },
   computed: {
@@ -62,10 +65,10 @@ export default defineComponent({
       if (this.thumbnailPreference === 'hidden') {
         return require('../../assets/img/thumbnail_placeholder.svg')
       }
-      let baseUrl
+      let baseUrl = 'https://i.ytimg.com'
       if (this.backendPreference === 'invidious') {
         baseUrl = this.currentInvidiousInstance
-      } else {
+      } else if (this.data.playlistThumbnail) {
         return this.data.playlistThumbnail
       }
 
@@ -91,9 +94,11 @@ export default defineComponent({
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
     this.infoSource = this.data.infoSource
+    this.origin = this.data.origin
+    this.isInvidiousPlaylist = this.data.isInvidiousPlaylist
 
     // Causes errors if not put inside of a check
-    if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
+    if (this.data.viewCount !== null && typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
       this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
     }
 
@@ -106,7 +111,12 @@ export default defineComponent({
   methods: {
     sharePlaylist: function (method) {
       const youtubeUrl = `https://youtube.com/playlist?list=${this.id}`
-      const invidiousUrl = `${this.currentInvidiousInstance}/playlist?list=${this.id}`
+      let invidiousUrl
+      if (this.isInvidiousPlaylist) {
+        invidiousUrl = `${this.origin}/playlist?list=${this.id}`
+      } else {
+        invidiousUrl = `${this.currentInvidiousInstance}/playlist?list=${this.id}`
+      }
 
       switch (method) {
         case 'copyYoutube':

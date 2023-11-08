@@ -19,7 +19,10 @@
       />
     </ft-flex-box>
     <div class="shareLinks">
-      <div class="header">
+      <div
+        v-if="!isIVPlaylist"
+        class="header"
+      >
         <img
           id="youtubeShareImage"
           class="youtubeLogo"
@@ -30,7 +33,10 @@
         >
       </div>
 
-      <div class="buttons">
+      <div
+        v-if="!isIVPlaylist"
+        class="buttons"
+      >
         <ft-button
           class="action"
           aria-describedby="youtubeShareImage"
@@ -69,7 +75,10 @@
         </ft-button>
       </div>
 
-      <div class="divider" />
+      <div
+        v-if="!isIVPlaylist"
+        class="divider"
+      />
 
       <div
         id="invidiousShare"

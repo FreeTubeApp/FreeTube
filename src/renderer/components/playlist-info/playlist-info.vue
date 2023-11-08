@@ -23,7 +23,7 @@
         {{ title }}
       </h2>
       <p>
-        {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
+        {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews && viewCount != null">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
         <span v-if="infoSource !== 'local'">
           {{ $t("Playlist.Last Updated On") }}
         </span>
@@ -72,7 +72,8 @@
         v-if="!hideSharingActions"
         :id="id"
         :dropdown-position-y="description ? 'top' : 'bottom'"
-        share-target-type="Playlist"
+        :share-target-type="isInvidiousPlaylist ? 'IVPlaylist' : 'Playlist'"
+        :invidious-instance="origin"
       />
     </div>
   </div>

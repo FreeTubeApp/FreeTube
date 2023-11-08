@@ -154,12 +154,14 @@ export default defineComponent({
           title: result.title,
           description: result.description,
           firstVideoId: result.videos[0].videoId,
-          viewCount: result.viewCount,
+          viewCount: (!this.query.playlistType === 'invidious') ? result.viewCount : null,
           videoCount: result.videoCount,
           channelName: result.author,
           channelThumbnail: youtubeImageUrlToInvidious(result.authorThumbnails.at(2)?.url, this.currentInvidiousInstance),
           channelId: result.authorId,
-          infoSource: 'invidious'
+          infoSource: 'invidious',
+          isInvidiousPlaylist: this.query.playlistType === 'invidious',
+          origin: origin
         }
 
         if (!this.query.playlistType === 'invidious') {
