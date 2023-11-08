@@ -35,6 +35,7 @@
   word-wrap: break-word;
   word-break: break-all;
   hyphens: auto;
+  user-select: text;
 }
 
 .tag-icon {
