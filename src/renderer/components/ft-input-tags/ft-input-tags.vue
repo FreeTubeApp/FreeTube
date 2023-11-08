@@ -29,7 +29,7 @@
           <img
             v-if="tag.icon"
             :src="tag.icon"
-            alt="icon"
+            alt=""
             class="tag-icon"
           >
           <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
