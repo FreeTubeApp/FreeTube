@@ -1116,6 +1116,11 @@ function runApp() {
   }
 
   function baseUrl(arg) {
+    // freetube.exe s="query"
+    if (arg.startsWith('s=')) {
+      return `https://www.youtube.com/results?search_query=${arg.substring(2)}`
+    }
+
     let newArg = arg.replace('freetube://', '')
     // add support for authority free url
       .replace('freetube:', '')
