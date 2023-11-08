@@ -56,14 +56,14 @@ export default defineComponent({
 
       if (!this.tagList.some((tag) => tag.name === name)) {
         // tag info searching allow api calls to be used
-        const { preferredName, icon, err } = await this.findTagInfo(name)
+        const { preferredName, icon, iconHref, err } = await this.findTagInfo(name)
 
         if (err) {
           this.$emit('error-find-tag-info')
           return
         }
 
-        const newTag = { name, preferredName, icon }
+        const newTag = { name, preferredName, icon, iconHref }
         this.$emit('change', [...this.tagList, newTag])
       } else {
         this.$emit('already-exists')

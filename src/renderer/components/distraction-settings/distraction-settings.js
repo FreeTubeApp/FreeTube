@@ -176,11 +176,11 @@ export default defineComponent({
         if (tag.preferredName === '' && checkYoutubeId(tag.name)) {
           this.channelHiderDisabled = true
 
-          const { preferredName, icon, invalidId } = await this.findChannelTagInfo(tag.name)
+          const { preferredName, icon, iconHref, invalidId } = await this.findChannelTagInfo(tag.name)
           if (invalidId) {
             channelsHiddenCpy[i] = { name: tag.name, invalid: invalidId }
           } else {
-            channelsHiddenCpy[i] = { name: tag.name, preferredName, icon }
+            channelsHiddenCpy[i] = { name: tag.name, preferredName, icon, iconHref }
           }
 
           // update on every tag in case it closes

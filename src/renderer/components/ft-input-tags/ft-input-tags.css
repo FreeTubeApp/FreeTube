@@ -41,6 +41,10 @@
 .tag-icon {
   border-radius: 50%;
   block-size: 24px;
+  vertical-align: middle;
+}
+
+.tag-icon-link {
   margin: auto;
   margin-inline-start: 10px;
 }

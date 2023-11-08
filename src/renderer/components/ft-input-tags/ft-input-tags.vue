@@ -26,12 +26,17 @@
           v-for="tag in tagList"
           :key="tag.id"
         >
-          <img
-            v-if="tag.icon"
-            :src="tag.icon"
-            alt=""
-            class="tag-icon"
+          <router-link
+            :to="tag.iconHref"
+            class="tag-icon-link"
           >
+            <img
+              v-if="tag.icon"
+              :src="tag.icon"
+              alt=""
+              class="tag-icon"
+            >
+          </router-link>
           <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
           <font-awesome-icon
             v-if="!disabled"

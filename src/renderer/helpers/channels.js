@@ -36,10 +36,10 @@ async function findChannelById(id, backendOptions) {
 *   preference: string,
 *   fallback: boolean,
 * }} backendOptions
-* @returns {Promise<{icon: string, preferredName: string, invalidId: boolean}>}
+* @returns {Promise<{icon: string, iconHref: string, preferredName: string, invalidId: boolean}>}
 */
 export async function findChannelTagInfo(id, backendOptions) {
-  if (!/UC\S{22}/.test(id)) return ''
+  if (!/UC\S{22}/.test(id)) return { invalidId: true }
   try {
     const channel = await findChannelById(id, backendOptions)
     if (backendOptions.preference === 'invidious') {
@@ -52,12 +52,13 @@ export async function findChannelTagInfo(id, backendOptions) {
       if (channel.alert) return { invalidId: true }
       return {
         preferredName: channel.header.author.name,
-        icon: channel.header.author.thumbnails.pop().url
+        icon: channel.header.author.thumbnails.pop().url,
+        iconHref: `/channel/${id}`
       }
     }
   } catch (err) {
     console.error(err)
-    return { preferredName: '', icon: '', err }
+    return { preferredName: '', icon: '', iconHref: '', err }
   }
 }
 
