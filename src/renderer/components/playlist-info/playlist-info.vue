@@ -152,14 +152,14 @@
 
       <ft-prompt
         v-if="showDeletePlaylistPrompt"
-        :label="$t('User Playlists.Are you sure you want to delete this playlist? This cannot be undone.')"
+        :label="$t('User Playlists.Are you sure you want to delete this playlist? This cannot be undone')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         @click="handleDeletePlaylistPromptAnswer"
       />
       <ft-prompt
         v-if="showRemoveVideosOnWatchPrompt"
-        :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone.')"
+        :label="$t('User Playlists.Are you sure you want to remove all watched videos from this playlist? This cannot be undone')"
         :option-names="deletePlaylistPromptNames"
         :option-values="deletePlaylistPromptValues"
         @click="handleRemoveVideosOnWatchPromptAnswer"
