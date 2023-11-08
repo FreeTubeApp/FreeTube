@@ -27,11 +27,11 @@
           :key="tag.id"
         >
           <router-link
-            :to="tag.iconHref"
+            v-if="tag.icon"
+            :to="tag.iconHref ?? ''"
             class="tag-icon-link"
           >
             <img
-              v-if="tag.icon"
               :src="tag.icon"
               alt=""
               class="tag-icon"
