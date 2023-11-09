@@ -428,7 +428,7 @@ Settings:
     Hide Chapters: Nascondi i capitoli
     Hide Upcoming Premieres: Nascondi le prossime Première
     Hide Channels: Nascondi i video dai canali
-    Hide Channels Placeholder: Nome o ID del canale
+    Hide Channels Placeholder: ID del canale
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
       uso eccessivo di maiuscole
     Hide Featured Channels: Nascondi i canali in evidenza
@@ -449,6 +449,13 @@ Settings:
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
     Blur Thumbnails: Miniature sfocate
     Hide Subscriptions Community: Nascondi la comunità di iscritti
+    Hide Channels Invalid: L'ID canale fornito non è valido
+    Hide Channels Disabled Message: Alcuni canali sono stati bloccati utilizzando
+      l'ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
+      di tali ID
+    Hide Channels Already Exists: L'ID canale esiste già
+    Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito.
+      Controlla di nuovo se l'ID è corretto.
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -1005,9 +1012,9 @@ Tooltips:
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
       della RAM.
   Distraction Free Settings:
-    Hide Channels: Inserisci il nome o l'ID di un canale per impedire che tutti i
-      video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze,
-      più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
+    Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le
+      playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze, più
+      popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
       completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
       "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"

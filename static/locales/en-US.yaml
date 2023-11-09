@@ -365,7 +365,11 @@ Settings:
     Hide Sharing Actions: Hide Sharing Actions
     Hide Chapters: Hide Chapters
     Hide Channels: Hide Videos From Channels
-    Hide Channels Placeholder: Channel Name or ID
+    Hide Channels Disabled Message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating
+    Hide Channels Placeholder: Channel ID
+    Hide Channels Invalid: Channel ID provided was invalid
+    Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
+    Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
     Hide Channel Playlists: Hide Channel Playlists
     Hide Channel Community: Hide Channel Community
@@ -866,8 +870,8 @@ Tooltips:
       you want to be passed to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: Enter a channel name or channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
-       The channel name entered must be a complete match and is case sensitive.
+    Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
+       The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
