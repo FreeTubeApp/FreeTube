@@ -167,6 +167,7 @@ Settings:
       Middle: 'Средина'
       End: 'Крај'
       Hidden: Скривено
+      Blur: Замагљено
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious инстанца
       (Подразумевано је https://invidious.snopyta.org)'
     View all Invidious instance information: 'Погледај све информације о Invidious
@@ -345,7 +346,7 @@ Settings:
     Hide Live Chat: 'Сакриј ћаскање уживо'
     Hide Active Subscriptions: 'Сакриј активна праћења'
     Blur Thumbnails: Замагли сличице
-    Hide Channels Placeholder: Назив канала или ID канала
+    Hide Channels Placeholder: ID канала
     Hide Video Description: Сакриј опис видео снимка
     Hide Chapters: Сакриј поглавља
     Sections:
@@ -372,6 +373,12 @@ Settings:
     Hide Profile Pictures in Comments: Сакриј слике профила у коментарима
     Hide Upcoming Premieres: Сакриј предстојеће премијере
     Hide Channel Releases: Сакриј издања канала
+    Hide Channels Invalid: Наведени ID канала је неважећи
+    Hide Channels Disabled Message: Неки канали су блокирани помоћу ID-а и нису обрађени.
+      Функција је блокирана док се ти ID-ови ажурирају
+    Hide Channels Already Exists: ID канала већ постоји
+    Hide Channels API Error: Грешка при преузимању корисника са наведеним ID-ом. Проверите
+      поново да ли је ID тачан.
   Data Settings:
     Data Settings: 'Подешавања података'
     Select Import Type: 'Избор врсте увоза'
@@ -795,7 +802,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Унесите назив канала или ID канала да бисте сакрили све видео снимке,
       плејлисте и сам канал, да се не појављују у претрази, у тренду, најпопуларнијима
-      и препорученима. Назив канала који сте унели мора се потпуно подударати и разликовати
+      и препорученима. ID канала који сте унели мора се потпуно подударати и разликовати
       велика и мала слова.
     Hide Subscriptions Live: Ово подешавање је замењено подешавањем за целу апликацију
       „{appWideSetting}“ у одељку „{subsection}“ у „{settingsSection}“
