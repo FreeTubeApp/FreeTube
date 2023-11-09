@@ -57,7 +57,13 @@ export default defineComponent({
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
 
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
     },
     forbiddenVideoTitleText: function() {
       if (!this.hideVideosWithForbiddenTextInTitle) { return [] }
@@ -95,7 +101,7 @@ export default defineComponent({
           // hide upcoming
           return false
         }
-        if (this.channelsHidden.includes(data.authorId) || this.channelsHidden.includes(data.author)) {
+        if (this.channelsHidden.some(ch => ch.name === data.authorId) || this.channelsHidden.some(ch => ch.name === data.author)) {
           // hide videos by author
           return false
         }
@@ -112,7 +118,7 @@ export default defineComponent({
           data.author,
           data.authorId,
         ]
-        if (attrsToCheck.some(a => a != null && this.channelsHidden.includes(a))) {
+        if (attrsToCheck.some(a => a != null && this.channelsHidden.some(ch => ch.name === a))) {
           // hide channels by author
           return false
         }
@@ -126,7 +132,7 @@ export default defineComponent({
           data.author,
           data.authorId,
         ]
-        if (attrsToCheck.some(a => a != null && this.channelsHidden.includes(a))) {
+        if (attrsToCheck.some(a => a != null && this.channelsHidden.some(ch => ch.name === a))) {
           // hide playlists by author
           return false
         }

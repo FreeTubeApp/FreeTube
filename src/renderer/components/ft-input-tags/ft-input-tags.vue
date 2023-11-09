@@ -2,9 +2,16 @@
   <div
     class="ft-input-tags-component"
   >
+    <div
+      v-if="disabled"
+      class="disabledMsg"
+    >
+      {{ disabledMsg }}
+    </div>
     <ft-input
-      ref="childinput"
-      :placeholder="placeholder"
+      ref="tagNameInput"
+      :disabled="disabled"
+      :placeholder="tagNamePlaceholder"
       :label="label"
       :min-input-length="minInputLength"
       :show-label="true"
@@ -14,15 +21,29 @@
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
-
     <div class="ft-tag-box">
       <ul>
         <li
           v-for="tag in tagList"
           :key="tag.id"
         >
-          <span>{{ tag }}</span>
+          <template v-if="areChannelTags">
+            <router-link
+              v-if="tag.icon"
+              :to="tag.iconHref ?? ''"
+              class="tag-icon-link"
+            >
+              <img
+                :src="tag.icon"
+                alt=""
+                class="tag-icon"
+              >
+            </router-link>
+            <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
+          </template>
+          <span v-else>{{ tag }}</span>
           <font-awesome-icon
+            v-if="!disabled"
             :icon="['fas', 'fa-times']"
             class="removeTagButton"
             tabindex="0"

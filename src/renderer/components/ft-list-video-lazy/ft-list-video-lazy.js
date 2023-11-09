@@ -61,7 +61,14 @@ export default defineComponent({
     channelsHidden() {
       // Some component users like channel view will have this disabled
       if (!this.useChannelsHiddenPreference) { return [] }
-      return JSON.parse(this.$store.getters.getChannelsHidden)
+
+      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
     },
 
     forbiddenVideoTitleText() {
@@ -70,8 +77,8 @@ export default defineComponent({
     },
 
     shouldBeVisible() {
-      return !(this.channelsHidden.includes(this.data.authorId) ||
-        this.channelsHidden.includes(this.data.author) ||
+      return !(this.channelsHidden.some(ch => ch.name === this.data.authorId) ||
+        this.channelsHidden.some(ch => ch.name === this.data.author) ||
         this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase())))
     }
   },
