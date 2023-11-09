@@ -263,9 +263,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
 
-.mainLightGrey,
-.mainDarkGrey,
-
 .mainRed {
   --primary-color: #f44336;
   --primary-color-hover: #e53935;
@@ -557,9 +554,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secDeepOrange {
   --text-with-accent-color: #000000;
 }
-
-.secLightGrey,
-.secDarkGrey,
 
 .secRed {
   --accent-color: #f44336;
