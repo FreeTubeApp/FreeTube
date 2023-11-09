@@ -345,8 +345,8 @@ export default defineComponent({
       return this.$store.getters.getProxyVideos
     },
 
-    keyboardShortcuts: function() {
-      return this.$store.getters.getKeyboardShortcuts
+    disableKeyboardShortcuts: function() {
+      return this.$store.getters.getDisableKeyboardShortcuts
     }
   },
   watch: {
@@ -2090,8 +2090,8 @@ export default defineComponent({
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
         return
       }
-
-      if (this.player !== null && this.keyboardShortcuts === true) {
+      // 'this.disableKeyboardShortcuts === true' address disabling keyboard shortcuts
+      if (this.player !== null && this.disableKeyboardShortcuts === true) {
         switch (event.key) {
           case ' ':
           case 'Spacebar': // older browsers might return spacebar instead of a space character

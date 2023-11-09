@@ -208,8 +208,8 @@ export default defineComponent({
       return this.$store.getters.getHideComments
     },
 
-    keyboardShortcuts: function() {
-      return this.$store.getters.getKeyboardShortcuts
+    disableKeyboardShortcuts: function() {
+      return this.$store.getters.getDisableKeyboardShortcuts
     },
   },
   watch: {
@@ -325,7 +325,7 @@ export default defineComponent({
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
       'updateCommentAutoLoadEnabled',
-      'updateKeyboardShortcuts'
+      'updateDisableKeyboardShortcuts'
     ])
   }
 })

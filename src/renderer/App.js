@@ -160,7 +160,7 @@ export default defineComponent({
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
-          this.activateKeyboardShortcuts()
+          this.activatedisableKeyboardShortcuts()
           this.activateIPCListeners()
           this.openAllLinksExternally()
           this.enableSetSearchQueryText()
@@ -288,8 +288,8 @@ export default defineComponent({
       this.showUpdatesBanner = false
     },
 
-    activateKeyboardShortcuts: function () {
-      document.addEventListener('keydown', this.handleKeyboardShortcuts)
+    activatedisableKeyboardShortcuts: function () {
+      document.addEventListener('keydown', this.handledisableKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
         this.hideOutlines = true
       })
@@ -305,7 +305,7 @@ export default defineComponent({
       })
     },
 
-    handleKeyboardShortcuts: function (event) {
+    handledisableKeyboardShortcuts: function (event) {
       if (event.altKey) {
         switch (event.key) {
           case 'D':

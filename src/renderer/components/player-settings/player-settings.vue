@@ -63,10 +63,10 @@
           @change="updateAutoplayVideos"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Keyboard Shortcuts')"
+          :label="$t('Settings.Player Settings.Disable Keyboard Shortcuts')"
           :compact="true"
-          :default-value="keyboardShortcuts"
-          @change="updateKeyboardShortcuts"
+          :default-value="disableKeyboardShortcuts"
+          @change="updateDisableKeyboardShortcuts"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Autoplay Playlists')"
