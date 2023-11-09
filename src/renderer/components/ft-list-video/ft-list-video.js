@@ -144,6 +144,19 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
+    inFavoritesPlaylist: function () {
+      return false
+      // const index = this.favoritesPlaylist.videos.findIndex((video) => {
+      //   return video.videoId === this.id
+      // })
+
+      // return index !== -1
+    },
+
+    favoriteIconTheme: function () {
+      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+    },
+
     inUserPlaylist: function () {
       return this.playlistTypeFinal === 'user' || this.selectedUserPlaylist != null
     },
@@ -727,6 +740,14 @@ export default defineComponent({
       this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
 
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
+    },
+
+    toggleSave: function () {
+      if (this.inFavoritesPlaylist) {
+        this.removeFromPlaylist()
+      } else {
+        this.addToPlaylist()
+      }
     },
 
     ...mapActions([

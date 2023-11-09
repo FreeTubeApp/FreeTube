@@ -43,7 +43,10 @@
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
         @click="handleExternalPlayer"
       />
-      <span class="playlistIcons">
+      <span
+        class="playlistIcons"
+        :class="{ inUserPlaylist }"
+      >
         <ft-icon-button
           v-if="showPlaylists"
           ref="addToPlaylistIcon"
@@ -54,6 +57,20 @@
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
+        />
+        <ft-icon-button
+          v-if="!isUpcoming"
+          :title="$t('Add to Watch Later')"
+          :icon="['fas', 'star']"
+          class="favoritesIcon"
+          :class="{
+            favorited: favoriteIconTheme === 'base favorite',
+            alwaysVisible: alwaysShowAddToPlaylistButton
+          }"
+          :theme="favoriteIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleSave"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
