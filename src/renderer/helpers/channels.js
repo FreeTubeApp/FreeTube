@@ -11,7 +11,7 @@ import { getLocalChannel } from './api/local'
 */
 async function findChannelById(id, backendOptions) {
   try {
-    if (backendOptions.preference === 'invidious') {
+    if (!process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
       return await invidiousGetChannelInfo(id)
     } else {
       return await getLocalChannel(id)
@@ -21,11 +21,15 @@ async function findChannelById(id, backendOptions) {
     if (err.message && err.message === 'This channel does not exist.') {
       return { invalid: true }
     }
-    if (backendOptions.fallback && backendOptions.preference === 'invidious') {
-      return await getLocalChannel(id)
-    }
-    if (backendOptions.fallback && backendOptions.preference === 'local') {
-      return await invidiousGetChannelInfo(id)
+    if (process.env.IS_ELECTRON && backendOptions.fallback) {
+      if (backendOptions.preference === 'invidious') {
+        return await getLocalChannel(id)
+      }
+      if (backendOptions.preference === 'local') {
+        return await invidiousGetChannelInfo(id)
+      }
+    } else {
+      throw err
     }
   }
 }
@@ -36,13 +40,13 @@ async function findChannelById(id, backendOptions) {
 *   preference: string,
 *   fallback: boolean,
 * }} backendOptions
-* @returns {Promise<{icon: string, iconHref: string, preferredName: string, invalidId: boolean}>}
+* @returns {Promise<{icon: string, iconHref: string, preferredName: string} | { invalidId: boolean }>}
 */
 export async function findChannelTagInfo(id, backendOptions) {
   if (!/UC\S{22}/.test(id)) return { invalidId: true }
   try {
     const channel = await findChannelById(id, backendOptions)
-    if (backendOptions.preference === 'invidious') {
+    if (process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
       if (channel.invalid) return { invalidId: true }
       return {
         preferredName: channel.author,
