@@ -46,7 +46,7 @@ export async function findChannelTagInfo(id, backendOptions) {
   if (!/UC\S{22}/.test(id)) return { invalidId: true }
   try {
     const channel = await findChannelById(id, backendOptions)
-    if (process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
+    if (!process.env.IS_ELECTRON || backendOptions.preference === 'invidious') {
       if (channel.invalid) return { invalidId: true }
       return {
         preferredName: channel.author,
