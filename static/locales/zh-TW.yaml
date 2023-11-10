@@ -385,7 +385,7 @@ Settings:
     Hide Sharing Actions: 隱藏分享動作
     Hide Chapters: 隱藏章節
     Hide Upcoming Premieres: 隱藏即將到來的首映
-    Hide Channels Placeholder: 頻道名稱或 ID
+    Hide Channels Placeholder: 頻道 ID
     Hide Channels: 隱藏頻道中的影片
     Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫的標題
     Hide Featured Channels: 隱藏精選頻道
@@ -406,6 +406,10 @@ Settings:
     Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
     Blur Thumbnails: 模糊縮圖
     Hide Subscriptions Community: 隱藏訂閱社群
+    Hide Channels Invalid: 提供的頻道 ID 無效
+    Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
+    Hide Channels Already Exists: 頻道 ID 已存在
+    Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
   The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -889,7 +893,7 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
   Distraction Free Settings:
-    Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道名稱必須完全符合，且區分大小寫。
+    Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
