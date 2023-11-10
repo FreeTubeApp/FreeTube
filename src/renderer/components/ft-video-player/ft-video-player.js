@@ -1425,7 +1425,7 @@ export default defineComponent({
         }
 
         createControlTextEl(button) {
-          button.title = 'Toggle Loop'
+          button.title = 'Toggle Loop (Shortcut R or r)'
 
           const div = document.createElement('div')
 
@@ -1479,7 +1479,7 @@ export default defineComponent({
         createControlTextEl(button) {
           // Add class name to button to be able to target it with CSS selector
           button.classList.add('vjs-button-fullwindow')
-          button.title = 'Full Window'
+          button.title = 'Full Window (S or s)'
 
           const div = document.createElement('div')
           div.id = 'fullwindow'
@@ -2145,6 +2145,11 @@ export default defineComponent({
             // Toggle Captions
             event.preventDefault()
             this.toggleCaptions()
+            break
+          case 'R':
+          case 'r':
+            event.preventDefault()
+            this.toggleVideoLoop()
             break
           case 'ArrowUp':
             // Increase volume
