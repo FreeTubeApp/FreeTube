@@ -2090,8 +2090,8 @@ export default defineComponent({
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c') {
         return
       }
-      // 'this.disableKeyboardShortcuts === true' address disabling keyboard shortcuts
-      if (this.player !== null && this.disableKeyboardShortcuts === true) {
+      // 'this.disableKeyboardShortcuts === false' address disabling keyboard shortcuts
+      if (this.player !== null && this.disableKeyboardShortcuts === false) {
         switch (event.key) {
           case ' ':
           case 'Spacebar': // older browsers might return spacebar instead of a space character

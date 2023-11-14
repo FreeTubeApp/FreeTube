@@ -226,7 +226,7 @@ const state = {
   hideLabelsSideBar: false,
   hideChapters: false,
   showDistractionFreeTitles: false,
-  disableKeyboardShortcuts: true,
+  disableKeyboardShortcuts: false,
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
