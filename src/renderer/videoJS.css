@@ -1387,11 +1387,11 @@ body.vjs-full-window {
   position: relative;
   top: -1px;
 }
-/*
-.video-js .vjs-play-control .vjs-icon-placeholder {spinner
+
+.video-js .vjs-play-control .vjs-icon-placeholder {
   flex: none;
 }
-*/
+
 .vjs-text-track-display {
   position: absolute;
   bottom: 3em;
