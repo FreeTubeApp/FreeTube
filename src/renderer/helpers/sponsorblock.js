@@ -11,7 +11,7 @@ async function getVideoHash(videoId) {
     .join('')
 }
 export async function sponsorBlockSkipSegments(videoId, categories) {
-  const videoIdHashPrefix = await getVideoHash(videoId)
+  const videoIdHashPrefix = (await getVideoHash(videoId)).substring(0, 4)
   const requestUrl = `${store.getters.getSponsorBlockUrl}/api/skipSegments/${videoIdHashPrefix}?categories=${JSON.stringify(categories)}`
 
   try {
