@@ -82,7 +82,7 @@
           v-if="isCommentHighlighted(comment)"
           class="commentHighlighted"
         >
-          {{ $t("Highlighted comment") }}
+          {{ $t("Comments.Highlighted comment") }}
         </p>
         <p
           v-if="comment.isPinned"
@@ -216,7 +216,7 @@
               v-if="isReplyHighlighted(comment, reply)"
               class="replyHighlighted"
             >
-              {{ $t("Highlighted reply") }}
+              {{ $t("Comments.Highlighted reply") }}
             </p>
             <p class="commentAuthorWrapper">
               <router-link
