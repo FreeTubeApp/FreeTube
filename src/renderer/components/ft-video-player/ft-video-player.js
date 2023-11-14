@@ -1500,16 +1500,8 @@ export default defineComponent({
 
       const VjsButton = videojs.getComponent('Button')
       class autoPlayToggleButton extends VjsButton {
-        constructor(player, options) {
-          super(player, options)
-          // Initialize a variable to track the state
-          this.isSpinning = false
-        }
-
         handleClick() {
-          this.isSpinning = !this.isSpinning
           toggleAutoPlay()
-          this.updateSpinningAnimation()
         }
 
         createControlTextEl(button) {
@@ -1523,18 +1515,6 @@ export default defineComponent({
           button.appendChild(div)
 
           return div
-        }
-
-        updateSpinningAnimation() {
-          // Get the spinner element
-          const spinnerElement = document.getElementById('autoPlay')
-
-          // Update the animation based on the state
-          if (this.isSpinning) {
-            spinnerElement.style.animation = 'vjs-spinner-hue-rotate is linear infinite'
-          } else {
-            spinnerElement.style.animation = 'none'
-          }
         }
       }
 
