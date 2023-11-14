@@ -1330,6 +1330,13 @@ function runApp() {
             },
             type: 'normal'
           },
+          {
+            label: 'Profile',
+            click: (_menuItem, browserWindow, _event) => {
+              navigateTo('/settings/profile/', browserWindow)
+            },
+            type: 'normal'
+          },
         ].filter((v) => v !== false),
       },
       {
