@@ -1495,68 +1495,46 @@ export default defineComponent({
 
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
-    /*
-    createNextVideoButton: function(){
-      const toggleNextVideo = this.toggleNextVideo
-      const VjsButton = videojs.getComponent('Button')
-
-      class nextVideoButton extends VjsButton {
-        handleClick(){
-          toggleNextVideo()
-        }
-
-      createControlTextEl(button){
-        // next item is a 'next play' icon from videojs
-        button.classList.add('vjs-button-next-item')
-        button.title = 'Next Video'
-
-        const div = document.createElement('div')
-        div.id = 'nextPlay'
-        div.className = 'vjs-icon-next-item vjs-button'
-        button.appendChild(div)
-        return div
-      }
-    }
-    videojs.registerComponent('nextVideoButton', nextVideoButton)
-    },
-    */
-    createAutoPlayToggle: function() {
-      const toggleAutoPlay = this.toggleAutoPlay
-      const VjsButton = videojs.getComponent('slider')
-      // figure out way to include videojs-slider here
-      class autoPlayToggle extends VjsButton {
-        handleClick() {
-          toggleAutoPlay()
-        }
-
-        createControlTextEl(button) {
-          button.classList.add('')
-        }
-      }
-    },
-    // copying format of previous function
     createAutoPlayToggleButton: function () {
       const toggleAutoPlay = this.toggleAutoPlay
 
       const VjsButton = videojs.getComponent('Button')
       class autoPlayToggleButton extends VjsButton {
+        constructor(player, options) {
+          super(player, options)
+          // Initialize a variable to track the state
+          this.isSpinning = false
+        }
+
         handleClick() {
+          this.isSpinning = !this.isSpinning
           toggleAutoPlay()
+          this.updateSpinningAnimation()
         }
 
         createControlTextEl(button) {
-          // Add class name to button to be able to target it with CSS selector
           button.classList.add('vjs-button-spinner')
           button.title = 'AutoPlay'
 
           const div = document.createElement('div')
           div.id = 'autoPlay'
-          // div.className = 'vjs-icon-spinner-spin vjs-button'
           div.className = 'vjs-icon-spinner vjs-button'
 
           button.appendChild(div)
 
           return div
+        }
+
+        updateSpinningAnimation() {
+          // Get the spinner element
+          const spinnerElement = document.getElementById('autoPlay')
+
+          // Update the animation based on the state
+          if (this.isSpinning) {
+            spinnerElement.style.animation = 'vjs-spinner-hue-rotate is linear infinite'
+          } else {
+            spinnerElement.style.animation = 'none'
+          }
         }
       }
 
