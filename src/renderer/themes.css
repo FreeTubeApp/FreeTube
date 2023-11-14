@@ -359,13 +359,13 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #D84315;
 }
 
-.mainLightGrey {
+.mainLightGray {
   --primary-color: #B1B1B1;
   --primary-color-hover: #848482;
   --primary-color-active: #7E7E7E;
 }
 
-.mainDarkGrey {
+.mainDarkGray {
   --primary-color: #696969;
   --primary-color-hover: #555555;
   --primary-color-active: #4E4E4E;
@@ -747,7 +747,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgba(255,87,34,0.24);
 }
 
-.secLightGrey {
+.secLightGray {
   --accent-color: #B1B1B1;
   --accent-color-hover: #848482;
   --accent-color-active: #7E7E7E;
@@ -759,7 +759,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity4: rgba(177,177,177,0.24);
 }
 
-.secDarkGrey {
+.secDarkGray {
   --accent-color: #696969;
   --accent-color-hover: #555555;
   --accent-color-active: #4E4E4E;
