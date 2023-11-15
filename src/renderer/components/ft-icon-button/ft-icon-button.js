@@ -59,6 +59,15 @@ export default defineComponent({
     dropdownModalOnMobile: {
       type: Boolean,
       default: false
+    },
+    hideLabel: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    buttonPaddingProperty: function () {
+      return this.hideLabel ? 'padding' : 'padding-block'
     }
   },
   data: function () {

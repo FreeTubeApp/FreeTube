@@ -83,6 +83,7 @@
       <div class="videoOptions">
         <ft-icon-button
           v-if="!isUpcoming"
+          :hide-label="true"
           :title="$t('Video.Save Video')"
           :icon="['fas', 'star']"
           class="option"

@@ -57,6 +57,7 @@
     </ft-flex-box>
     <ft-icon-button
       v-if="!isLoading"
+      :hide-label="true"
       :icon="['fas', 'sync']"
       class="floatingTopButton"
       :title="$t('Subscriptions.Refresh Subscriptions')"

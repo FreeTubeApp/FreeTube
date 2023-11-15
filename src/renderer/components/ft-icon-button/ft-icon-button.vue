@@ -1,16 +1,10 @@
 <template>
   <div class="ftIconButton">
-    <font-awesome-icon
-      class="iconButton"
-      :title="title"
-      :icon="icon"
+    <div
+      class="iconButtonContainer"
       :class="{
         [theme]: true,
         shadow: useShadow
-      }"
-      :style="{
-        padding: padding + 'px',
-        fontSize: size + 'px'
       }"
       tabindex="0"
       role="button"
@@ -18,7 +12,21 @@
       @mousedown="handleIconMouseDown"
       @keydown.enter.prevent="handleIconClick"
       @keydown.space.prevent="handleIconClick"
-    />
+    >
+      <font-awesome-icon
+        class="iconButton"
+        :title="title"
+        :icon="icon"
+        :style="{
+          [buttonPaddingProperty]: padding + 'px',
+          fontSize: size + 'px'
+        }"
+      />
+      <p
+        v-if="!hideLabel"
+        class="iconButtonLabel"
+      >{{ title }}</p>
+    </div>
     <template
       v-if="dropdownShown"
     >
