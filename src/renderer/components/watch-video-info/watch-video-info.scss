@@ -1,25 +1,27 @@
 .watchVideoInfo {
-  column-gap: 15px;
-  display: grid;
-  grid-template-columns: auto minmax(min-content, 1fr);
+  display: flex;
+  flex-direction: column;
   padding: 16px;
-
-  @media screen and (max-width: 680px) {
-    grid-template-columns: auto;
-  }
+  gap: 8px;
 }
 
 .videoTitle {
   display: block;
   font-size: 22px;
   font-weight: normal;
-  margin-block: 0 24px;
+  margin-block: 0;
   margin-inline: 0;
-  margin-block-end: 1em;
   word-break: break-word;
 }
 
-.channelInformation {
+.videoMetrics, .videoButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.videoButtons {
   .profileRow {
     display: flex;
   }
@@ -47,38 +49,30 @@
     margin-block-start: 6px;
     padding: 6px;
   }
-}
 
-.viewCount,
-.datePublished {
-  color: var(--secondary-text-color);
-  font-size: 15px;
-  text-align: end;
+  .videoOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 4px;
 
-  @media screen and (max-width: 680px) {
-    text-align: start;
+    @media screen and (max-width: 680px) {
+      :deep(.iconDropdown) {
+        inset-inline-start: calc(50% - 20px);
+        inset-inline-end: auto;
+      }
+    }
   }
 }
 
-.viewCount {
-  margin-block: 18px 0;
-  margin-inline: 0;
-}
+.videoMetrics {
+  font-size: 12px;
+  color: var(--tertiary-text-color);
 
-.datePublished {
-  margin-block: 4px 0;
-  margin-inline: 0;
-
-  @media screen and (max-width: 680px) {
-    margin-block-start: 16px;
-  }
-}
-
-.likeSection {
+  .likeSection {
   color: var(--tertiary-text-color);
   display: flex;
   flex-direction: column;
-  font-size: 16px;
   margin-inline-start: auto;
   margin-block-start: 4px;
   max-inline-size: 210px;
@@ -99,22 +93,4 @@
     margin-inline-end: 0;
   }
 }
-
-.videoOptions {
-  display: flex;
-  justify-content: flex-end;
-  margin-block-start: 16px;
-
-  .option:not(:first-child) {
-    margin-inline-start: 4px;
-  }
-
-  @media screen and (max-width: 680px) {
-    justify-content: flex-start;
-
-    :deep(.iconDropdown) {
-      inset-inline-start: calc(50% - 20px);
-      inset-inline-end: auto;
-    }
-  }
 }
