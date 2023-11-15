@@ -24,6 +24,7 @@
 .videoButtons {
   .profileRow {
     display: flex;
+    align-items: center;
   }
 
   .channelThumbnail {
@@ -38,6 +39,7 @@
     cursor: pointer;
     display: block;
     margin-inline-start: 6px;
+    margin-block-end: 3px;
     position: relative;
     text-decoration: inherit;
     inset-block-start: -2px;
@@ -46,7 +48,7 @@
   .subscribeButton {
     font-size: 14px;
     margin-inline-start: 6px;
-    margin-block-start: 6px;
+    margin-block: 0;
     padding: 6px;
   }
 
