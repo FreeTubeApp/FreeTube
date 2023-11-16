@@ -120,8 +120,8 @@ export default defineComponent({
       return this.$store.getters.getAllowDashAv1Formats
     },
 
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultTheaterMode: function () {
+      return this.$store.getters.getDefaultTheaterMode
     },
 
     hideRecommendedVideos: function () {
@@ -298,7 +298,7 @@ export default defineComponent({
       'updateEnableSubtitles',
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
-      'updateDefaultTheatreMode',
+      'updateDefaultTheaterMode',
       'updateDefaultSkipInterval',
       'updateDefaultInterval',
       'updateDefaultVolume',

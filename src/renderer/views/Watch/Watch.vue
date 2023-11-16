@@ -3,8 +3,8 @@
     class="videoLayout"
     :class="{
       isLoading,
-      useTheatreMode: useTheatreMode && !isLoading,
-      noSidebar: !theatrePossible
+      useTheaterMode: useTheaterMode && !isLoading,
+      noSidebar: !theaterPossible
     }"
   >
     <ft-loader
@@ -31,15 +31,15 @@
           :length-seconds="videoLengthSeconds"
           :chapters="videoChapters"
           :current-chapter-index="videoCurrentChapterIndex"
-          :theatre-possible="theatrePossible"
-          :use-theatre-mode="useTheatreMode"
+          :theater-possible="theaterPossible"
+          :use-theater-mode="useTheaterMode"
           class="videoPlayer"
-          :class="{ theatrePlayer: useTheatreMode }"
+          :class="{ theaterPlayer: useTheaterMode }"
           @ready="handleVideoReady"
           @ended="handleVideoEnded"
           @error="handleVideoError"
           @store-caption-list="captionHybridList = $event"
-          @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
+          @toggle-theater-mode="useTheaterMode = !useTheaterMode"
           v-on="!hideChapters && videoChapters.length > 0 ? { timeupdate: updateCurrentChapter } : {}"
         />
         <div
@@ -120,7 +120,7 @@
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
         class="watchVideo"
-        :class="{ theatreWatchVideo: useTheatreMode }"
+        :class="{ theaterWatchVideo: useTheaterMode }"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @set-info-area-sticky="infoAreaSticky = $event"
@@ -131,7 +131,7 @@
         :chapters="videoChapters"
         :current-chapter-index="videoCurrentChapterIndex"
         class="watchVideo"
-        :class="{ theatreWatchVideo: useTheatreMode }"
+        :class="{ theaterWatchVideo: useTheaterMode }"
         @timestamp-event="changeTimestamp"
       />
       <watch-video-description
@@ -139,14 +139,14 @@
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
         class="watchVideo"
-        :class="{ theatreWatchVideo: useTheatreMode }"
+        :class="{ theaterWatchVideo: useTheaterMode }"
         @timestamp-event="changeTimestamp"
       />
       <watch-video-comments
         v-if="!isLoading && !isLive && !hideComments"
         :id="videoId"
         class="watchVideo"
-        :class="{ theatreWatchVideo: useTheatreMode }"
+        :class="{ theaterWatchVideo: useTheaterMode }"
         :channel-thumbnail="channelThumbnail"
         :channel-name="channelName"
         :video-player-ready="videoPlayerReady"
@@ -164,7 +164,7 @@
         :video-id="videoId"
         :channel-id="channelId"
         class="watchVideoSideBar watchVideoPlaylist"
-        :class="{ theatrePlaylist: useTheatreMode }"
+        :class="{ theaterPlaylist: useTheaterMode }"
       />
       <watch-video-playlist
         v-if="watchingPlaylist"
@@ -174,7 +174,7 @@
         :playlist-id="playlistId"
         :video-id="videoId"
         class="watchVideoSideBar watchVideoPlaylist"
-        :class="{ theatrePlaylist: useTheatreMode }"
+        :class="{ theaterPlaylist: useTheaterMode }"
         @pause-player="pausePlayer"
       />
       <watch-video-recommendations
@@ -183,7 +183,7 @@
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{
-          theatreRecommendations: useTheatreMode,
+          theaterRecommendations: useTheaterMode,
           watchVideoRecommendationsLowerCard: watchingPlaylist || isLive,
           watchVideoRecommendationsNoCard: !watchingPlaylist || !isLive
         }"

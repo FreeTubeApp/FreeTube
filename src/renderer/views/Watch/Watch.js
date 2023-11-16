@@ -76,7 +76,7 @@ export default defineComponent({
     return {
       isLoading: true,
       firstLoad: true,
-      useTheatreMode: false,
+      useTheaterMode: false,
       videoPlayerReady: false,
       showDashPlayer: true,
       showLegacyPlayer: false,
@@ -162,8 +162,8 @@ export default defineComponent({
     defaultInterval: function () {
       return this.$store.getters.getDefaultInterval
     },
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultTheaterMode: function () {
+      return this.$store.getters.getDefaultTheaterMode
     },
     defaultVideoFormat: function () {
       return this.$store.getters.getDefaultVideoFormat
@@ -201,7 +201,7 @@ export default defineComponent({
     hideVideoLikesAndDislikes: function () {
       return this.$store.getters.getHideVideoLikesAndDislikes
     },
-    theatrePossible: function () {
+    theaterPossible: function () {
       return !this.hideRecommendedVideos || (!this.hideLiveChat && this.isLive) || this.watchingPlaylist
     },
     currentLocale: function () {
@@ -249,7 +249,7 @@ export default defineComponent({
   mounted: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
-    this.useTheatreMode = this.defaultTheatreMode && this.theatrePossible
+    this.useTheaterMode = this.defaultTheaterMode && this.theaterPossible
 
     this.checkIfPlaylist()
     this.checkIfTimestamp()

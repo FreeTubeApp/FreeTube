@@ -197,7 +197,7 @@ export default defineComponent({
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
       'updateEnableAutoplay',
-      'updateDefaultTheatreMode',
+      'updateDefaultTheaterMode',
       'updateHideVideoDescription',
       'updateHideComments',
       'updateHideCommentPhotos',

@@ -108,11 +108,11 @@ export default defineComponent({
       type: Array,
       default: () => ([])
     },
-    theatrePossible: {
+    theaterPossible: {
       type: Boolean,
       default: false
     },
-    useTheatreMode: {
+    useTheaterMode: {
       type: Boolean,
       default: false
     }
@@ -174,7 +174,7 @@ export default defineComponent({
             'descriptionsButton',
             'subsCapsButton',
             'pictureInPictureToggle',
-            'toggleTheatreModeButton',
+            'toggleTheaterModeButton',
             'fullWindowButton',
             'qualitySelector',
             'fullscreenToggle'
@@ -392,7 +392,7 @@ export default defineComponent({
 
     this.createFullWindowButton()
     this.createLoopButton()
-    this.createToggleTheatreModeButton()
+    this.createToggleTheaterModeButton()
     this.createScreenshotButton()
     this.determineFormatType()
 
@@ -1494,28 +1494,28 @@ export default defineComponent({
       videojs.registerComponent('fullWindowButton', fullWindowButton)
     },
 
-    createToggleTheatreModeButton: function () {
-      if (!this.theatrePossible) {
+    createToggleTheaterModeButton: function () {
+      if (!this.theaterPossible) {
         return
       }
 
-      const theatreModeActive = this.useTheatreMode ? ' vjs-icon-theatre-active' : ''
+      const theaterModeActive = this.useTheaterMode ? ' vjs-icon-theatre-active' : ''
 
-      const toggleTheatreMode = this.toggleTheatreMode
+      const toggleTheaterMode = this.toggleTheaterMode
 
       const VjsButton = videojs.getComponent('Button')
-      class toggleTheatreModeButton extends VjsButton {
+      class toggleTheaterModeButton extends VjsButton {
         handleClick() {
-          toggleTheatreMode()
+          toggleTheaterMode()
         }
 
         createControlTextEl(button) {
           button.classList.add('vjs-button-theatre')
-          button.title = 'Toggle Theatre Mode'
+          button.title = 'Toggle Theater Mode'
 
           const div = document.createElement('div')
-          div.id = 'toggleTheatreModeButton'
-          div.className = `vjs-icon-theatre-inactive${theatreModeActive} vjs-button`
+          div.id = 'toggleTheaterModeButton'
+          div.className = `vjs-icon-theatre-inactive${theaterModeActive} vjs-button`
 
           button.appendChild(div)
 
@@ -1523,20 +1523,20 @@ export default defineComponent({
         }
       }
 
-      videojs.registerComponent('toggleTheatreModeButton', toggleTheatreModeButton)
+      videojs.registerComponent('toggleTheaterModeButton', toggleTheaterModeButton)
     },
 
-    toggleTheatreMode: function () {
+    toggleTheaterMode: function () {
       if (!this.player.isFullscreen_) {
-        const toggleTheatreModeButton = document.getElementById('toggleTheatreModeButton')
-        if (!this.useTheatreMode) {
-          toggleTheatreModeButton.classList.add('vjs-icon-theatre-active')
+        const toggleTheaterModeButton = document.getElementById('toggleTheaterModeButton')
+        if (!this.useTheaterMode) {
+          toggleTheaterModeButton.classList.add('vjs-icon-theatre-active')
         } else {
-          toggleTheatreModeButton.classList.remove('vjs-icon-theatre-active')
+          toggleTheaterModeButton.classList.remove('vjs-icon-theatre-active')
         }
       }
 
-      this.$emit('toggle-theatre-mode')
+      this.$emit('toggle-theater-mode')
     },
 
     createScreenshotButton: function () {
@@ -2231,8 +2231,8 @@ export default defineComponent({
             break
           case 'T':
           case 't':
-            // Toggle Theatre Mode
-            this.toggleTheatreMode()
+            // Toggle Theater Mode
+            this.toggleTheaterMode()
             break
           case 'U':
           case 'u':

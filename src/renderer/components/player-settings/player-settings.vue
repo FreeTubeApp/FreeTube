@@ -29,8 +29,8 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
-          :default-value="defaultTheatreMode"
-          @change="updateDefaultTheatreMode"
+          :default-value="defaultTheaterMode"
+          @change="updateDefaultTheaterMode"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
