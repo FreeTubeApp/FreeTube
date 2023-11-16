@@ -321,8 +321,8 @@ export default defineComponent({
       return playbackRates
     },
 
-    enableVideoScreenshot: function () {
-      return this.$store.getters.getEnableVideoScreenshot
+    enableScreenshot: function () {
+      return this.$store.getters.getEnableScreenshot
     },
 
     screenshotFormat: function () {
@@ -350,7 +350,7 @@ export default defineComponent({
       this.player.trigger(this.statsModalEventName)
     },
 
-    enableVideoScreenshot: function () {
+    enableScreenshot: function () {
       this.toggleScreenshotButton()
     }
   },
@@ -1570,7 +1570,7 @@ export default defineComponent({
 
     toggleScreenshotButton: function () {
       const button = document.getElementById('screenshotButton').parentNode
-      if (this.enableVideoScreenshot && this.format !== 'audio') {
+      if (this.enableScreenshot && this.format !== 'audio') {
         button.classList.remove('vjs-hidden')
       } else {
         button.classList.add('vjs-hidden')
@@ -1578,7 +1578,7 @@ export default defineComponent({
     },
 
     takeScreenshot: async function () {
-      if (!this.enableVideoScreenshot || this.format === 'audio') {
+      if (!this.enableScreenshot || this.format === 'audio') {
         return
       }
 

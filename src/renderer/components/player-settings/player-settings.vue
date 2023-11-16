@@ -175,11 +175,11 @@
     >
       <ft-toggle-switch
         :label="$t('Settings.Player Settings.Screenshot.Enable')"
-        :default-value="enableVideoScreenshot"
-        @change="updateEnableVideoScreenshot"
+        :default-value="enableScreenshot"
+        @change="updateEnableScreenshot"
       />
     </ft-flex-box>
-    <div v-if="usingElectron && enableVideoScreenshot">
+    <div v-if="usingElectron && enableScreenshot">
       <ft-flex-box>
         <ft-select
           :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"

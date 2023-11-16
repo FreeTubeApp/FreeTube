@@ -306,7 +306,6 @@ const aliasToOriginal = {
   defaultTheaterMode: 'defaultTheatreMode',
   enableAutoplay: 'playNextVideo',
   enablePlaylistAutoplay: 'autoplayPlaylists',
-  enableVideoScreenshot: 'enableScreenshot',
   hideSubscribeButton: 'hideUnsubscribeButton',
   startVideosAutomatically: 'autoplayVideos'
 }

@@ -176,8 +176,8 @@ export default defineComponent({
       ]
     },
 
-    enableVideoScreenshot: function() {
-      return this.$store.getters.getEnableVideoScreenshot
+    enableScreenshot: function() {
+      return this.$store.getters.getEnableScreenshot
     },
 
     screenshotFormat: function() {
@@ -313,7 +313,7 @@ export default defineComponent({
       'updateEnterFullscreenOnDisplayRotate',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
-      'updateEnableVideoScreenshot',
+      'updateEnableScreenshot',
       'updateScreenshotFormat',
       'updateScreenshotQuality',
       'updateScreenshotAskPath',
