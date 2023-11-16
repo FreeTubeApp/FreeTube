@@ -431,7 +431,7 @@ export default defineComponent({
       const videoId = this.id
       const data = await deArrowData(this.id)
       const cacheData = { videoId, title: null }
-      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
+      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes >= 0)) {
         cacheData.title = data.titles[0].title
       }
 
