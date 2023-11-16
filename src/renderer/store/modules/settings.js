@@ -162,8 +162,8 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  enablePlaylistAutoplay: true,
-  startVideosAutomatically: true,
+  autoplayPlaylists: true,
+  autoplayVideos: true,
   backendFallback: process.env.IS_ELECTRON,
   backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
   barColor: false,
@@ -178,7 +178,7 @@ const state = {
   defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
-  defaultTheaterMode: false,
+  defaultTheatreMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
@@ -218,7 +218,7 @@ const state = {
   hideSubscriptionsLive: false,
   hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
-  hideSubscribeButton: false,
+  hideUnsubscribeButton: false,
   hideUpcomingPremieres: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
@@ -229,7 +229,7 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
-  enableAutoplay: false,
+  playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
@@ -286,7 +286,7 @@ const state = {
   downloadAskPath: true,
   downloadFolderPath: '',
   downloadBehavior: 'download',
-  enableVideoScreenshot: false,
+  enableScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
   screenshotAskPath: false,
@@ -297,6 +297,18 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+}
+
+// NOTE: when an old setting's variable name is changed, place the new value here as the key
+// and keep the original key in the state object above. This preserves users' settings selections
+// even after these variable names are altered, and even in older versions of FreeTube.
+const aliasToOriginal = {
+  defaultTheaterMode: 'defaultTheatreMode',
+  enableAutoplay: 'playNextVideo',
+  enablePlaylistAutoplay: 'autoplayPlaylists',
+  enableVideoScreenshot: 'enableScreenshot',
+  hideSubscribeButton: 'hideUnsubscribeButton',
+  startVideosAutomatically: 'autoplayVideos'
 }
 
 const stateWithSideEffects = {
@@ -542,6 +554,24 @@ Object.assign(
 
 // Build default getters, mutations and actions for every setting id
 for (const settingId of Object.keys(state)) {
+  buildSettingsStoreMethods(settingId)
+}
+
+// point alias keys to their original values
+for (const alias of Object.keys(aliasToOriginal)) {
+  const aliasFor = aliasToOriginal[alias]
+  const originalGetter = getters[defaultGetterId(aliasFor)]
+  const originalMutation = mutations[defaultMutationId(aliasFor)]
+  const originalTrigger = actions[defaultSideEffectsTriggerId(aliasFor)]
+  const originalAction = actions[defaultUpdaterId(aliasFor)]
+
+  if (originalGetter) getters[defaultGetterId(alias)] = originalGetter
+  if (originalMutation) mutations[defaultMutationId(alias)] = originalMutation
+  if (originalTrigger) actions[defaultSideEffectsTriggerId(alias)] = originalTrigger
+  if (originalAction) actions[defaultUpdaterId(alias)] = originalAction
+}
+
+function buildSettingsStoreMethods(settingId) {
   const getterId = defaultGetterId(settingId)
   const mutationId = defaultMutationId(settingId)
   const updaterId = defaultUpdaterId(settingId)
