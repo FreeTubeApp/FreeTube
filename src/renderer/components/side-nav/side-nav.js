@@ -1,7 +1,9 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
-import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { getLocalChannel } from '../../helpers/api/local'
+import { invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { deepCopy } from '../../helpers/utils'
 
 export default defineComponent({
@@ -9,6 +11,11 @@ export default defineComponent({
   components: {
     'ft-flex-box': FtFlexBox,
     'side-nav-more-options': SideNavMoreOptions
+  },
+  data: function () {
+    return {
+      errorCount: 0
+    }
   },
   computed: {
     isOpen: function () {
@@ -75,5 +82,38 @@ export default defineComponent({
         hiddenLabels: this.hideText
       }
     }
+  },
+  methods: {
+    updateThumbnail: function(channel) {
+      this.errorCount += 1
+      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+        // avoid too many concurrent requests
+        setTimeout(() => {
+          invidiousGetChannelInfo(channel.id).then(response => {
+            this.updateSubscriptionDetails({
+              channelThumbnailUrl: response.authorThumbnails[0].url,
+              channelName: channel.name,
+              channelId: channel.id
+            })
+          })
+        }, this.errorCount * 500)
+      } else {
+        setTimeout(() => {
+          getLocalChannel(channel.id).then(response => {
+            if (!response.alert) {
+              this.updateSubscriptionDetails({
+                channelThumbnailUrl: response.header.author.thumbnails[0].url,
+                channelName: channel.name,
+                channelId: channel.id
+              })
+            }
+          })
+        }, this.errorCount * 500)
+      }
+    },
+
+    ...mapActions([
+      'updateSubscriptionDetails'
+    ])
   }
 })

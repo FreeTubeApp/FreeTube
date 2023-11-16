@@ -4,6 +4,8 @@ import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+
 import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
@@ -27,10 +29,12 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-button': FtButton,
     'ft-flex-box': FtFlexBox,
-    'ft-prompt': FtPrompt
+    'ft-prompt': FtPrompt,
+    'ft-toggle-switch': FtToggleSwitch
   },
   data: function () {
     return {
+      showImportSubscriptionsPrompt: false,
       showExportSubscriptionsPrompt: false,
       subscriptionsPromptValues: [
         'freetube',
@@ -38,7 +42,8 @@ export default defineComponent({
         'youtube',
         'youtubeold',
         'newpipe'
-      ]
+      ],
+      fetchChannelImages: true
     }
   },
   computed: {
@@ -364,6 +369,7 @@ export default defineComponent({
 
       feedData.forEach(async (channel) => {
         const xmlUrl = channel.getAttribute('xmlUrl')
+        const channelName = channel.getAttribute('title')
         let channelId
         if (xmlUrl.includes('https://www.youtube.com/feeds/videos.xml?channel_id=')) {
           channelId = new URL(xmlUrl).searchParams.get('channel_id')
@@ -378,10 +384,18 @@ export default defineComponent({
         })
         if (subExists === -1) {
           let channelInfo
-          if (this.backendPreference === 'invidious') {
-            channelInfo = await this.getChannelInfoInvidious(channelId)
+          if (this.fetchChannelImages) {
+            if (this.backendPreference === 'invidious') {
+              channelInfo = await this.getChannelInfoInvidious(channelId)
+            } else {
+              channelInfo = await this.getChannelInfoLocal(channelId)
+            }
           } else {
-            channelInfo = await this.getChannelInfoLocal(channelId)
+            channelInfo = {
+              id: xmlUrl,
+              author: channelName,
+              authorThumbnails: [null, { url: null }]
+            }
           }
 
           if (typeof channelInfo.author !== 'undefined') {
@@ -1090,8 +1104,6 @@ export default defineComponent({
     },
 
     /*
-    TODO: allow default thumbnail to be used to limit requests to YouTube
-    (thumbnail will get updated when user goes to their channel page)
     Returns:
     -1: an error occured
     0: already subscribed
@@ -1105,7 +1117,7 @@ export default defineComponent({
 
       let channelInfo
       let subscription = null
-      if (channelName === null || thumbnail === null) {
+      if ((channelName === null || thumbnail === null) && this.fetchChannelImages) {
         try {
           if (this.backendPreference === 'invidious') {
             channelInfo = await this.getChannelInfoInvidious(channelId)

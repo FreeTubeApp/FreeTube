@@ -218,8 +218,9 @@
               height="35"
               width="35"
               loading="lazy"
-              :src="channel.thumbnail"
+              :src="channel.thumbnail ?? '//'"
               :alt="isOpen ? '' : channel.name"
+              @error.once="updateThumbnail(channel)"
             >
           </div>
           <p

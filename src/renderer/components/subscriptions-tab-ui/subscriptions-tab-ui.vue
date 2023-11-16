@@ -13,7 +13,7 @@
           :key="index"
           :channel-name="channel.name"
           :channel-id="channel.id"
-          :channel-thumbnail="channel.thumbnail"
+          :channel-thumbnail="channel.thumbnail ?? '//'"
         />
       </ft-flex-box>
     </div>

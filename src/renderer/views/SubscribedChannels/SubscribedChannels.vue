@@ -36,8 +36,9 @@
             >
               <img
                 class="channelThumbnail"
-                :src="thumbnailURL(channel.thumbnail)"
+                :src="thumbnailURL(channel.thumbnail) ?? '//'"
                 alt=""
+                loading="lazy"
                 @error.once="updateThumbnail(channel)"
               >
             </router-link>

@@ -428,6 +428,7 @@ Settings:
     Unknown data key: Unknown data key
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
+    Fetch Channel Images: Fetch channel images while importing
   Proxy Settings:
     Proxy Settings: Proxy Settings
     Enable Tor / Proxy: Enable Tor / Proxy
@@ -895,6 +896,8 @@ Tooltips:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
+  Data Settings:
+    Fetch Channel Images: Fetches missing data from your subscription file. Turn this off if you're running into import issues
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
