@@ -48,29 +48,30 @@
         :class="{ inUserPlaylist }"
       >
         <ft-icon-button
+          v-if="!isUpcoming && playlistId !== 'watchLater'"
+          :title="watchLaterText"
+          :icon="['fas', 'star']"
+          class="favoritesIcon"
+          :class="{
+            alwaysVisible: alwaysShowAddToPlaylistButton || favoriteIconTheme === 'base favorite'
+          }"
+          :theme="favoriteIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleSaveToWatchLater"
+        />
+        <ft-icon-button
           v-if="showPlaylists"
           ref="addToPlaylistIcon"
           :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
           class="addToPlaylistIcon"
-          :class="alwaysShowAddToPlaylistButton ? 'alwaysVisible' : ''"
+          :class="{
+            alwaysVisible: alwaysShowAddToPlaylistButton || favoriteIconTheme === 'base favorite'
+          }"
           :padding="appearance === `watchPlaylistItem` ? 5 : 6"
           :size="appearance === `watchPlaylistItem` ? 14 : 18"
           @click="togglePlaylistPrompt"
-        />
-        <ft-icon-button
-          v-if="!isUpcoming"
-          :title="$t('Add to Watch Later')"
-          :icon="['fas', 'star']"
-          class="favoritesIcon"
-          :class="{
-            favorited: favoriteIconTheme === 'base favorite',
-            alwaysVisible: alwaysShowAddToPlaylistButton
-          }"
-          :theme="favoriteIconTheme"
-          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
-          :size="appearance === `watchPlaylistItem` ? 14 : 18"
-          @click="toggleSave"
         />
         <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"

@@ -144,17 +144,22 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
-    inFavoritesPlaylist: function () {
-      return false
-      // const index = this.favoritesPlaylist.videos.findIndex((video) => {
-      //   return video.videoId === this.id
-      // })
+    watchLaterPlaylist: function () {
+      return this.$store.getters.getWatchLater
+    },
 
-      // return index !== -1
+    inWatchLaterPlaylist: function () {
+      return this.watchLaterPlaylist.videos.some((video) =>
+        video.videoId === this.id
+      )
     },
 
     favoriteIconTheme: function () {
-      return this.inFavoritesPlaylist ? 'base favorite' : 'base'
+      return this.inWatchLaterPlaylist ? 'base favorite' : 'base'
+    },
+
+    watchLaterText: function () {
+      return this.inWatchLaterPlaylist ? this.$t('User Playlists.Remove from Watch Later') : this.$t('User Playlists.Add to Watch Later')
     },
 
     inUserPlaylist: function () {
@@ -742,16 +747,59 @@ export default defineComponent({
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
 
-    toggleSave: function () {
-      if (this.inFavoritesPlaylist) {
-        this.removeFromPlaylist()
+    toggleSaveToWatchLater: function () {
+      if (this.inWatchLaterPlaylist) {
+        this.removeFromWatchLater()
       } else {
-        this.addToPlaylist()
+        this.addToWatchLater()
+      }
+    },
+
+    addToWatchLater: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.data.lengthSeconds,
+      }
+
+      const payload = {
+        _id: 'watchLater',
+        videoData: videoData
+      }
+
+      this.addVideo(payload)
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: 'watchLater' })
+
+      showToast(this.$t('Video.Video has been saved'))
+    },
+
+    removeFromWatchLater: function () {
+      const payload = {
+        _id: 'watchLater',
+        videoIds: [this.id]
+      }
+
+      try {
+        this.removeVideos(payload)
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: 'watchLater' })
+        showToast(this.$t('Video.Video has been removed from your saved list'))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
+        console.error(e)
       }
     },
 
     ...mapActions([
       'openInExternalPlayer',
+      'addVideo',
+      'removeVideos',
+      'updatePlaylist',
       'updateHistory',
       'removeFromHistory',
       'updateChannelsHidden',

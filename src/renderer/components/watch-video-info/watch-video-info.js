@@ -4,7 +4,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
-import { formatNumber, openExternalLink } from '../../helpers/utils'
+import { formatNumber, openExternalLink, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'WatchVideoInfo',
@@ -123,6 +123,28 @@ export default defineComponent({
 
     hideVideoViews: function () {
       return this.$store.getters.getHideVideoViews
+    },
+
+    watchLaterPlaylist: function () {
+      return this.$store.getters.getWatchLater
+    },
+
+    inWatchLaterPlaylist: function () {
+      return this.watchLaterPlaylist.videos.some((video) =>
+        video.videoId === this.id
+      )
+    },
+
+    favoriteIconTheme: function () {
+      return this.inWatchLaterPlaylist ? 'base favorite' : 'base'
+    },
+
+    watchLaterText: function () {
+      return this.inWatchLaterPlaylist ? this.$t('User Playlists.Remove from Watch Later') : this.$t('User Playlists.Add to Watch Later')
+    },
+
+    inUserPlaylist: function () {
+      return this.playlistTypeFinal === 'user' || this.selectedUserPlaylist != null
     },
 
     showPlaylists: function () {
@@ -311,7 +333,58 @@ export default defineComponent({
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
     },
 
+    toggleSaveToWatchLater: function () {
+      if (this.inWatchLaterPlaylist) {
+        this.removeFromWatchLater()
+      } else {
+        this.addToWatchLater()
+      }
+    },
+
+    addToWatchLater: function () {
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+      }
+
+      const payload = {
+        _id: 'watchLater',
+        videoData: videoData
+      }
+
+      this.addVideo(payload)
+      // Update playlist's `lastUpdatedAt`
+      this.updatePlaylist({ _id: 'watchLater' })
+
+      showToast(this.$t('Video.Video has been saved'))
+    },
+
+    removeFromWatchLater: function () {
+      const payload = {
+        _id: 'watchLater',
+        videoIds: [this.id]
+      }
+
+      try {
+        this.removeVideos(payload)
+        // Update playlist's `lastUpdatedAt`
+        this.updatePlaylist({ _id: 'watchLater' })
+        showToast(this.$t('Video.Video has been removed from your saved list'))
+      } catch (e) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
+        console.error(e)
+      }
+    },
+
     ...mapActions([
+      'addVideo',
+      'removeVideos',
+      'updatePlaylist',
       'openInExternalPlayer',
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',

@@ -147,6 +147,8 @@ User Playlists:
   Create New Playlist: Create New Playlist
 
   Add to Playlist: Add to Playlist
+  Add to Watch Later: Add to Watch Later
+  Remove from Watch Later: Remove from Watch Later
   Move Video Up: Move Video Up
   Move Video Down: Move Video Down
   Remove from Playlist: Remove from Playlist
@@ -707,7 +709,6 @@ Video:
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
-  Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
   Open in YouTube: Open in YouTube

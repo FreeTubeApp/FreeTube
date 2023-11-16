@@ -29,7 +29,7 @@ const state = {
     },
     {
       playlistName: 'Watch Later',
-      protected: false,
+      protected: true,
       description: 'Videos to watch later',
       videos: [],
       _id: 'watchLater',
@@ -417,9 +417,9 @@ const mutations = {
   },
 
   removeVideos(state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload.playlistId)
+    const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => payload.videoId.indexOf(video) === -1)
+      playlist.videos = playlist.videos.filter(video => !payload.videoIds.includes(video.videoId))
     }
   },
 

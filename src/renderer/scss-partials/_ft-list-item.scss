@@ -371,14 +371,14 @@ $watched-transition-duration: 0.5s;
     &:hover .addToPlaylistIcon:not(.alwaysVisible),
     &:hover .favoritesIcon:not(.alwaysVisible),
     &:hover .externalPlayerIcon,
-    &:focus-within .addToPlaylistIcon:not(.alwaysVisible),
-    &:focus-within .favoritesIcon:not(.alwaysVisible),
-    &:focus-within .externalPlayerIcon {
+    &:has(:focus-visible) .addToPlaylistIcon:not(.alwaysVisible),
+    &:has(:focus-visible) .favoritesIcon:not(.alwaysVisible),
+    &:has(:focus-visible) .externalPlayerIcon {
       opacity: $thumbnail-overlay-opacity;
     }
 
     &:hover .optionsButton,
-    &:focus-within .optionsButton {
+    &:has(:focus-visible) .optionsButton {
       opacity: 1;
     }
 
