@@ -54,10 +54,6 @@ export default defineComponent({
       return this.$i18n.locale.replace('_', '-')
     },
 
-    favoritesPlaylist: function () {
-      return this.$store.getters.getFavorites
-    },
-
     allPlaylists: function () {
       const playlists = this.$store.getters.getAllPlaylists
       return [].concat(playlists).sort((a, b) => {

@@ -40,11 +40,9 @@ const state = {
 const getters = {
   getPlaylistsReady: () => state.playlistsReady,
   getAllPlaylists: () => state.playlists,
-  getFavorites: () => state.playlists.find(playlist => playlist._id === 'favorites'),
   getPlaylist: (state) => (playlistId) => {
     return state.playlists.find(playlist => playlist._id === playlistId)
   },
-  getWatchLater: () => state.playlists.find(playlist => playlist._id === 'watchLater')
 }
 
 const actions = {
