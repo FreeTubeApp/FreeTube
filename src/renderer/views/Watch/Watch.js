@@ -174,11 +174,11 @@ export default defineComponent({
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
-    playNextVideo: function () {
-      return this.$store.getters.getPlayNextVideo
+    enableAutoplay: function () {
+      return this.$store.getters.getEnableAutoplay
     },
-    autoplayPlaylists: function () {
-      return this.$store.getters.getAutoplayPlaylists
+    enablePlaylistAutoplay: function () {
+      return this.$store.getters.getEnablePlaylistAutoplay
     },
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
@@ -1234,7 +1234,7 @@ export default defineComponent({
     },
 
     handleVideoEnded: function () {
-      if ((!this.watchingPlaylist || !this.autoplayPlaylists) && !this.playNextVideo) {
+      if ((!this.watchingPlaylist || !this.enablePlaylistAutoplay) && !this.enableAutoplay) {
         return
       }
 
@@ -1245,7 +1245,7 @@ export default defineComponent({
 
       if (this.watchingPlaylist && this.$refs.watchVideoPlaylist.shouldStopDueToPlaylistEnd) {
         // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
-        this.$refs.watchVideoPlaylist.playNextVideo()
+        this.$refs.watchVideoPlaylist.enableAutoplay()
         return
       }
       const nextVideoInterval = this.defaultInterval
@@ -1253,7 +1253,7 @@ export default defineComponent({
         const player = this.$refs.videoPlayer.player
         if (player !== null && player.paused()) {
           if (this.watchingPlaylist) {
-            this.$refs.watchVideoPlaylist.playNextVideo()
+            this.$refs.watchVideoPlaylist.enableAutoplay()
           } else {
             const nextVideoId = this.recommendedVideos[0].videoId
             this.$router.push({

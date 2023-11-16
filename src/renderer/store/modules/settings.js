@@ -162,8 +162,8 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  autoplayPlaylists: true,
-  autoplayVideos: true,
+  enablePlaylistAutoplay: true,
+  startVideosAutomatically: true,
   backendFallback: process.env.IS_ELECTRON,
   backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
   barColor: false,
@@ -218,7 +218,7 @@ const state = {
   hideSubscriptionsLive: false,
   hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
-  hideUnsubscribeButton: false,
+  hideSubscribeButton: false,
   hideUpcomingPremieres: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
@@ -229,7 +229,7 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
-  playNextVideo: false,
+  enableAutoplay: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
@@ -286,7 +286,7 @@ const state = {
   downloadAskPath: true,
   downloadFolderPath: '',
   downloadBehavior: 'download',
-  enableScreenshot: false,
+  enableVideoScreenshot: false,
   screenshotFormat: 'png',
   screenshotQuality: 95,
   screenshotAskPath: false,

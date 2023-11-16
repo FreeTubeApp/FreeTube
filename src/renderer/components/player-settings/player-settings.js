@@ -68,16 +68,16 @@ export default defineComponent({
       return this.$store.getters.getBackendPreference
     },
 
-    autoplayVideos: function () {
-      return this.$store.getters.getAutoplayVideos
+    startVideosAutomatically: function () {
+      return this.$store.getters.getStartVideosAutomatically
     },
 
-    autoplayPlaylists: function () {
-      return this.$store.getters.getAutoplayPlaylists
+    enablePlaylistAutoplay: function () {
+      return this.$store.getters.getEnablePlaylistAutoplay
     },
 
-    playNextVideo: function () {
-      return this.$store.getters.getPlayNextVideo
+    enableAutoplay: function () {
+      return this.$store.getters.getEnableAutoplay
     },
 
     enableSubtitles: function () {
@@ -176,8 +176,8 @@ export default defineComponent({
       ]
     },
 
-    enableScreenshot: function() {
-      return this.$store.getters.getEnableScreenshot
+    enableVideoScreenshot: function() {
+      return this.$store.getters.getEnableVideoScreenshot
     },
 
     screenshotFormat: function() {
@@ -292,9 +292,9 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateAutoplayVideos',
-      'updateAutoplayPlaylists',
-      'updatePlayNextVideo',
+      'updateStartVideosAutomatically',
+      'updateEnablePlaylistAutoplay',
+      'updateEnableAutoplay',
       'updateEnableSubtitles',
       'updateForceLocalBackendForLegacy',
       'updateProxyVideos',
@@ -313,7 +313,7 @@ export default defineComponent({
       'updateEnterFullscreenOnDisplayRotate',
       'updateMaxVideoPlaybackRate',
       'updateVideoPlaybackRateInterval',
-      'updateEnableScreenshot',
+      'updateEnableVideoScreenshot',
       'updateScreenshotFormat',
       'updateScreenshotQuality',
       'updateScreenshotAskPath',

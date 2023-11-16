@@ -134,7 +134,7 @@ export default defineComponent({
   methods: {
     handleHideRecommendedVideos: function (value) {
       if (value) {
-        this.updatePlayNextVideo(false)
+        this.updateEnableAutoplay(false)
       }
 
       this.updateHideRecommendedVideos(value)
@@ -196,7 +196,7 @@ export default defineComponent({
       'updateHidePlaylists',
       'updateHideLiveChat',
       'updateHideActiveSubscriptions',
-      'updatePlayNextVideo',
+      'updateEnableAutoplay',
       'updateDefaultTheatreMode',
       'updateHideVideoDescription',
       'updateHideComments',

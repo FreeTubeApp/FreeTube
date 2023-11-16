@@ -13,8 +13,8 @@ export default defineComponent({
     hideSearchBar: function () {
       return this.$store.getters.getHideSearchBar
     },
-    hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
+    hideSubscribeButton: function() {
+      return this.$store.getters.getHideSubscribeButton
     },
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
@@ -23,7 +23,7 @@ export default defineComponent({
   methods: {
     ...mapActions([
       'updateHideSearchBar',
-      'updateHideUnsubscribeButton',
+      'updateHideSubscribeButton',
       'updateShowFamilyFriendlyOnly'
     ])
   }

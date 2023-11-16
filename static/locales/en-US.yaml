@@ -253,18 +253,18 @@ Settings:
   Player Settings:
     Player Settings: Player Settings
     Force Local Backend for Legacy Formats: Force Local Backend for Legacy Formats
-    Play Next Video: Play Next Video
+    Play Next Video: Autoplay (Recommended Channels and Playlists)
     Turn on Subtitles by Default: Turn on Subtitles by Default
-    Autoplay Videos: Autoplay Videos
+    Autoplay Videos: Start Videos Automatically
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
-    Autoplay Playlists: Autoplay Playlists
-    Enable Theatre Mode by Default: Enable Theatre Mode by Default
+    Autoplay Playlists: Autoplay (Playlists Only)
+    Enable Theatre Mode by Default: Enable Theater Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
-    Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
-    Next Video Interval: Next Video Interval
+    Enter Fullscreen on Display Rotate: Enter Fullscreen On Rotating the Device
+    Next Video Interval: Autoplay Countdown Timer
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
     Default Volume: Default Volume
     Default Playback Rate: Default Playback Rate
@@ -289,7 +289,7 @@ Settings:
       8k: 8k
     Allow DASH AV1 formats: Allow DASH AV1 formats
     Screenshot:
-      Enable: Enable Screenshot
+      Enable: Enable Video Screenshot
       Format Label: Screenshot Format
       Quality Label: Screenshot Quality
       Ask Path: Ask for Save Folder
@@ -454,7 +454,7 @@ Settings:
     Category Color: Category Color
   Parental Control Settings:
     Parental Control Settings: Parental Control Settings
-    Hide Unsubscribe Button: Hide Unsubscribe Button
+    Hide Unsubscribe Button: Hide Subscribe Button
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
   Download Settings:

@@ -212,8 +212,8 @@ export default defineComponent({
       }
     },
 
-    autoplayVideos: function () {
-      return this.$store.getters.getAutoplayVideos
+    startVideosAutomatically: function () {
+      return this.$store.getters.getStartVideosAutomatically
     },
 
     videoVolumeMouseScroll: function () {
@@ -321,8 +321,8 @@ export default defineComponent({
       return playbackRates
     },
 
-    enableScreenshot: function () {
-      return this.$store.getters.getEnableScreenshot
+    enableVideoScreenshot: function () {
+      return this.$store.getters.getEnableVideoScreenshot
     },
 
     screenshotFormat: function () {
@@ -350,7 +350,7 @@ export default defineComponent({
       this.player.trigger(this.statsModalEventName)
     },
 
-    enableScreenshot: function () {
+    enableVideoScreenshot: function () {
       this.toggleScreenshotButton()
     }
   },
@@ -589,7 +589,7 @@ export default defineComponent({
           })
         }
 
-        if (this.autoplayVideos) {
+        if (this.startVideosAutomatically) {
           // Calling play() won't happen right away, so a quick timeout will make it function properly.
           setTimeout(() => {
             // `this.player` can be destroyed before this runs
@@ -1570,7 +1570,7 @@ export default defineComponent({
 
     toggleScreenshotButton: function () {
       const button = document.getElementById('screenshotButton').parentNode
-      if (this.enableScreenshot && this.format !== 'audio') {
+      if (this.enableVideoScreenshot && this.format !== 'audio') {
         button.classList.remove('vjs-hidden')
       } else {
         button.classList.add('vjs-hidden')
@@ -1578,7 +1578,7 @@ export default defineComponent({
     },
 
     takeScreenshot: async function () {
-      if (!this.enableScreenshot || this.format === 'audio') {
+      if (!this.enableVideoScreenshot || this.format === 'audio') {
         return
       }
 

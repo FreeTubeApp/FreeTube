@@ -22,8 +22,8 @@ export default defineComponent({
     }
   },
   computed: {
-    playNextVideo: function () {
-      return this.$store.getters.getPlayNextVideo
+    enableAutoplay: function () {
+      return this.$store.getters.getEnableAutoplay
     },
     hideRecommendedVideos: function () {
       return this.$store.getters.getHideRecommendedVideos
@@ -31,7 +31,7 @@ export default defineComponent({
   },
   methods: {
     ...mapActions([
-      'updatePlayNextVideo'
+      'updateEnableAutoplay'
     ])
   }
 })
