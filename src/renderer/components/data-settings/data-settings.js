@@ -108,6 +108,9 @@ export default defineComponent({
         showToast(`${message}: ${err}`)
         return
       }
+
+      this.showImportSubscriptionsPrompt = false
+
       response.filePaths.forEach(filePath => {
         if (filePath.endsWith('.csv')) {
           this.importCsvYouTubeSubscriptions(textDecode)

@@ -67,11 +67,11 @@
     >
       <ft-flex-box>
         <ft-toggle-switch
-            :label="$t('Settings.Data Settings.Fetch Channel Images')"
-            :compact="true"
-            :default-value="fetchChannelImages"
-            :tooltip="$t('Tooltips.Data Settings.Fetch Channel Images')"
-            @change="fetchChannelImages = !fetchChannelImages"
+          :label="$t('Settings.Data Settings.Fetch Channel Images')"
+          :compact="true"
+          :default-value="fetchChannelImages"
+          :tooltip="$t('Tooltips.Data Settings.Fetch Channel Images')"
+          @change="fetchChannelImages = !fetchChannelImages"
         />
       </ft-flex-box>
       <ft-flex-box>
