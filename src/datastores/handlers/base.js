@@ -13,6 +13,10 @@ class Settings {
     return db.settings.compactDatafileAsync()
   }
 
+  static delete(setting) {
+    return db.settings.removeAsync({ _id: setting })
+  }
+
   // ******************** //
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {

@@ -162,8 +162,8 @@ const defaultSideEffectsTriggerId = settingId =>
 /*****/
 
 const state = {
-  autoplayPlaylists: true,
-  autoplayVideos: true,
+  enablePlaylistAutoplay: true,
+  startVideosAutomatically: true,
   backendFallback: process.env.IS_ELECTRON,
   backendPreference: !process.env.IS_ELECTRON ? 'invidious' : 'local',
   barColor: false,
@@ -178,7 +178,7 @@ const state = {
   defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
-  defaultTheatreMode: false,
+  defaultTheaterMode: false,
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   displayVideoPlayButton: true,
@@ -218,7 +218,7 @@ const state = {
   hideSubscriptionsLive: false,
   hideSubscriptionsCommunity: false,
   hideTrendingVideos: false,
-  hideUnsubscribeButton: false,
+  hideSubscribeButton: false,
   hideUpcomingPremieres: false,
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
@@ -229,7 +229,7 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
-  playNextVideo: false,
+  enableAutoplay: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyProtocol: 'socks5',
@@ -299,15 +299,13 @@ const state = {
   useDeArrowTitles: false,
 }
 
-// NOTE: when an old setting's variable name is changed, place the new value here as the key
-// and keep the original key in the state object above. This preserves users' settings selections
-// even after these variable names are altered, and even in older versions of FreeTube.
-const aliasToOriginal = {
-  defaultTheaterMode: 'defaultTheatreMode',
-  enableAutoplay: 'playNextVideo',
-  enablePlaylistAutoplay: 'autoplayPlaylists',
-  hideSubscribeButton: 'hideUnsubscribeButton',
-  startVideosAutomatically: 'autoplayVideos'
+/* Mapping of older settings whose variable names have changed to their newer values */
+const outdatedSettings = {
+  defaultTheatreMode: 'defaultTheaterMode',
+  playNextVideo: 'enableAutoplay',
+  autoplayPlaylists: 'enablePlaylistAutoplay',
+  hideUnsubscribeButton: 'hideSubscribeButton',
+  autoplayVideos: 'startVideosAutomatically'
 }
 
 const stateWithSideEffects = {
@@ -429,8 +427,7 @@ const customActions = {
         Object.fromEntries((await DBSettingHandlers.find()).map(({ _id, value }) => { return [_id, value] })))
       )
 
-      for (const setting of userSettings) {
-        const [_id, value] = setting
+      const loadSetting = (_id, value) => {
         if (getters.settingHasSideEffects(_id)) {
           dispatch(defaultSideEffectsTriggerId(_id), value)
         }
@@ -438,6 +435,24 @@ const customActions = {
         if (Object.keys(mutations).includes(defaultMutationId(_id))) {
           commit(defaultMutationId(_id), value)
         }
+      }
+
+      for (const setting of userSettings) {
+        const [_id, value] = setting
+        loadSetting(_id, value)
+      }
+
+      // Apply existing values of outdated setting variables in the DB to their newer equivalents,
+      // then delete those older settings
+      for (const outdatedSetting of Object.keys(outdatedSettings)) {
+        const outdatedSettingInDB = userSettings.find((setting) => setting[0] === outdatedSetting)
+        if (!outdatedSettingInDB) {
+          return
+        }
+        const newSetting = outdatedSettings[outdatedSetting]
+        const oldValue = outdatedSettingInDB[1]
+        loadSetting(newSetting, oldValue)
+        await DBSettingHandlers.delete(outdatedSetting)
       }
     } catch (errMessage) {
       console.error(errMessage)
@@ -554,20 +569,6 @@ Object.assign(
 // Build default getters, mutations and actions for every setting id
 for (const settingId of Object.keys(state)) {
   buildSettingsStoreMethods(settingId)
-}
-
-// point alias keys to their original values
-for (const alias of Object.keys(aliasToOriginal)) {
-  const aliasFor = aliasToOriginal[alias]
-  const originalGetter = getters[defaultGetterId(aliasFor)]
-  const originalMutation = mutations[defaultMutationId(aliasFor)]
-  const originalTrigger = actions[defaultSideEffectsTriggerId(aliasFor)]
-  const originalAction = actions[defaultUpdaterId(aliasFor)]
-
-  if (originalGetter) getters[defaultGetterId(alias)] = originalGetter
-  if (originalMutation) mutations[defaultMutationId(alias)] = originalMutation
-  if (originalTrigger) actions[defaultSideEffectsTriggerId(alias)] = originalTrigger
-  if (originalAction) actions[defaultUpdaterId(alias)] = originalAction
 }
 
 function buildSettingsStoreMethods(settingId) {
