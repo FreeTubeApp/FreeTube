@@ -1,5 +1,5 @@
 {
-  "plugins": ["stylelint-use-logical-spec"],
+  "plugins": ["stylelint-use-logical-spec", "@double-great/stylelint-a11y"],
   "overrides": [
     {
       "files": ["**/*.scss"],
@@ -16,6 +16,13 @@
     }
   ],
   "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["deep"]
+      }
+    ],
+    "a11y/no-outline-none": true,
     "liberty/use-logical-spec": ["always", { "except": ["float"] }]
   }
 }

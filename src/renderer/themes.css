@@ -229,11 +229,11 @@
 /* Given that the Hot Pink theme does not need link underlining due to meeting
 WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
 it can be safely elided. This looks quite pleasant on this theme. */
-.hotPink a:not(:hover), .hotPink a.navOption:hover, .hotPink *:not(:hover) {
+.hotPink a:not(:hover):not(:focus), .hotPink a.navOption:hover, .hotPink a.navOption:focus .hotPink *:not(:hover):not(:focus) {
   text-decoration: none;
 }
 
-.hotPink a:hover {
+.hotPink a:hover, .hotPink a:focus {
   text-decoration: underline;
 }
 
@@ -1042,6 +1042,7 @@ body {
   background-color: var(--bg-color);
 }
 
+/* stylelint-disable-next-line a11y/no-outline-none */
 .hideOutlines *:focus {
   outline: none;
 }
@@ -1064,6 +1065,6 @@ a:visited {
   border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:focus {
   background: var(--scrollbar-color-hover);
 }

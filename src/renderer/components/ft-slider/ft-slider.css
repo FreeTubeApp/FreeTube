@@ -41,6 +41,7 @@
 }
 
 /* Focus */
+/* stylelint-disable-next-line a11y/no-outline-none */
 .pure-material-slider > input:focus {
   outline: none;
 }

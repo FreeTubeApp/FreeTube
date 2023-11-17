@@ -52,7 +52,7 @@
   background-color: var(--card-bg-color);
 }
 
-/* Remove focus */
+/* stylelint-disable-next-line a11y/no-outline-none */
 .select-text:focus {
   outline: none;
 }
