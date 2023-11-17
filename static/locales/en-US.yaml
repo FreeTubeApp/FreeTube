@@ -922,8 +922,8 @@ Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
 Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
-Channel Hidden: Channel {channel} added to filter
-Channel Unhidden: Channel {channel} removed from filter
+Channel Hidden: {channel} added to channel filter
+Channel Unhidden: {channel} removed from channel filter
 
 Hashtag:
   Hashtag: Hashtag
