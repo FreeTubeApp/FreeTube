@@ -229,6 +229,7 @@ const state = {
   landingPage: 'subscriptions',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
+  onlyShowLatestFromChannel: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',

@@ -8,10 +8,19 @@ import { calculatePublishedDate } from './utils'
 export function updateVideoListAfterProcessing(videos) {
   let videoList = videos
 
-  // Filtering and sorting based in preference
-  videoList.sort((a, b) => {
-    return b.publishedDate - a.publishedDate
-  })
+  if (store.getters.getOnlyShowLatestFromChannel) {
+    const authors = new Set()
+    videoList = videoList.filter((video) => {
+      if (!video.authorId) {
+        return true
+      } else if (!authors.has(video.authorId)) {
+        authors.add(video.authorId)
+        return true
+      }
+
+      return false
+    })
+  }
 
   if (store.getters.getHideLiveStreams) {
     videoList = videoList.filter(item => {
@@ -44,6 +53,10 @@ export function updateVideoListAfterProcessing(videos) {
       return !Object.hasOwn(historyCacheById, video.videoId)
     })
   }
+
+  videoList.sort((a, b) => {
+    return b.publishedDate - a.publishedDate
+  })
 
   return videoList
 }
