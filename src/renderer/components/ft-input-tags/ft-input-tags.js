@@ -46,8 +46,8 @@ export default defineComponent({
   },
   methods: {
     updateTags: async function (text, _e) {
-      // text entered add tag and update tag list
-      const name = text.trim()
+      // get text without spaces after last '/' in url, if any
+      const name = text.split('/').pop().trim()
 
       if (!this.validateTagName(name)) {
         this.$emit('invalid-name')
