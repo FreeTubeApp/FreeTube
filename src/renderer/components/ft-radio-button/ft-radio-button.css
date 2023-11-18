@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], .pure-checkbox input[type="radio"], .pure-radiobutton input[type="radio"] {
   border: 0;
   clip: rect(0 0 0 0);
@@ -18,7 +19,6 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 .pure-checkbox input[type="checkbox"] + label, .pure-radiobutton input[type="checkbox"] + label, .pure-checkbox input[type="radio"] + label, .pure-radiobutton input[type="radio"] + label {
   position: relative;
   padding-inline-start: 2em;
-  vertical-align: middle;
   user-select: none;
   cursor: pointer;
   display: block;
@@ -93,7 +93,7 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   background: var(--primary-color);
 }
 
-.pure-checkbox input[type="checkbox"]:checked + label::after, .pure-radiobutton input[type="checkbox"]:checked + label::after { transform: rotate(-45deg) scale(1); }
+.pure-radiobutton input[type="checkbox"]:checked + label::after { transform: rotate(-45deg) scale(1); }
 
 @keyframes
 borderscale {  50% {

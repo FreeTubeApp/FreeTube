@@ -28,7 +28,6 @@
   margin: 10px;
   cursor: pointer;
   border-radius: 50%;
-  border-radius: 50%;
 }
 
 .initial {
@@ -40,7 +39,7 @@
   user-select: none;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;
   }

@@ -31,7 +31,7 @@
   float: var(--float-right-ltr-rtl-value);
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .commentSort {
     float: none;
     inline-size: fit-content;
@@ -56,7 +56,6 @@
   inline-size: 60px;
   block-size: 60px;
   border-radius: 200px;
-  border-radius: 200px;
 }
 
 .commentThumbnailHidden {
@@ -71,7 +70,6 @@
   text-transform: capitalize;
   color: rgb(0 0 0);
   background-color: rgb(235 160 172);
-  border-radius: 50%;
   border-radius: 50%;
 }
 
@@ -106,9 +104,8 @@
 .commentPinned {
   font-weight: normal;
   font-size: 12px;
-  margin-block-start: 0;
+  margin-block: 0 5px;
   margin-inline-start: 68px;
-  margin-block-end: 5px;
 }
 
 .commentDate {
@@ -151,7 +148,6 @@
   inset-inline-start: 0;
   inline-size: 15px;
   block-size: 15px;
-  border-radius: 50%;
   border-radius: 50%;
 }
 

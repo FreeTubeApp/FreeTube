@@ -41,15 +41,14 @@
 }
 
 :deep(.videoThumbnail) {
-  margin-block-start: auto;
-  margin-block-end: auto;
+  margin-block: auto;
 }
 
 :deep(.thumbnailImage) {
   max-inline-size: 25vw;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (width <= 850px) {
   .routerView {
     flex-direction: column;
   }

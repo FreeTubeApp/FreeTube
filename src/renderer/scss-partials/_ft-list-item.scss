@@ -54,6 +54,17 @@ $watched-transition-duration: 0.5s;
 .ft-list-item {
   padding: 6px;
 
+  .thumbnailImage {
+    @include is-sidebar-item {
+      block-size: 75px;
+    }
+
+    @include is-recommendation {
+      block-size: auto;
+      inline-size: 163px;
+    }
+  }
+
   &.watched {
     @include low-contrast-when-watched(var(--primary-text-color));
 
@@ -71,56 +82,66 @@ $watched-transition-duration: 0.5s;
     }
   }
 
+  .favoritesIcon,
+  .externalPlayerIcon {
+    opacity: $thumbnail-overlay-opacity;
+  }
+
+  .favoritesIcon,
+  .externalPlayerIcon,
+  .optionsButton {
+    visibility: none;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+  }
+
+  @media (hover: hover) {
+    .favoritesIcon.favorited,
+    &:hover .favoritesIcon,
+    &:hover .externalPlayerIcon,
+    &:focus-within .favoritesIcon,
+    &:focus-within .externalPlayerIcon {
+      visibility: visible;
+      opacity: $thumbnail-overlay-opacity;
+    }
+
+    &:hover .optionsButton,
+    &:focus-within .optionsButton {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
   .videoThumbnail {
     display: grid;
-
-    .thumbnailLink,
-    .videoWatched,
-    .videoDuration,
-    .externalPlayerIcon,
-    .favoritesIcon,
-    .watchedProgressBar,
-    .videoCountContainer,
-    .background,
-    .inner {
-      grid-column: 1;
-      grid-row: 1;
-      user-select: none;
-    }
 
     .thumbnailLink {
       display: flex;
       overflow: hidden;
     }
 
-    .thumbnailImage {
-      @include is-sidebar-item {
-        block-size: 75px;
-      }
-
-      @include is-recommendation {
-        block-size: auto;
-        inline-size: 163px;
-      }
-    }
-
     .videoWatched {
-      align-self: flex-start;
+      place-self: flex-start start;
       background-color: var(--bg-color);
       color: var(--primary-text-color);
-      justify-self: start;
       opacity: $thumbnail-overlay-opacity;
       padding: 2px;
       pointer-events: none;
     }
 
+    .videoWatched,
+    .live,
+    .upcoming {
+      text-transform: uppercase;
+      user-select: none;
+    }
+
     .videoDuration {
-      align-self: flex-end;
+      place-self: flex-end end;
       background-color: var(--card-bg-color);
       border-radius: 5px;
       color: var(--primary-text-color);
       font-size: 15px;
-      justify-self: end;
       line-height: 1.2;
       margin-block: 0 4px;
       margin-inline: 0 4px;
@@ -140,9 +161,8 @@ $watched-transition-duration: 0.5s;
     }
 
     .externalPlayerIcon {
-      align-self: flex-end;
+      place-self: flex-end start;
       font-size: 17px;
-      justify-self: start;
       margin-block-end: 4px;
       margin-inline-start: 4px;
     }
@@ -156,18 +176,30 @@ $watched-transition-duration: 0.5s;
     }
 
     .watchedProgressBar {
-      align-self: flex-end;
+      place-self: flex-end stretch;
       background-color: var(--primary-color);
       block-size: 2px;
-      justify-self: stretch;
       z-index: 2;
     }
 
+    .thumbnailLink,
+    .videoWatched,
+    .videoDuration,
+    .externalPlayerIcon,
+    .favoritesIcon,
+    .watchedProgressBar,
+    .videoCountContainer,
+    .background,
+    .inner {
+      grid-column: 1;
+      grid-row: 1;
+      user-select: none;
+    }
+
     .videoCountContainer {
-      align-self: stretch;
+      place-self: stretch end;
       display: grid;
       font-size: 20px;
-      justify-self: end;
       inline-size: 60px;
 
       .background {
@@ -301,43 +333,6 @@ $watched-transition-duration: 0.5s;
       margin-block-start: 8px;
     }
   }
-
-  .favoritesIcon,
-  .externalPlayerIcon {
-    opacity: $thumbnail-overlay-opacity;
-  }
-
-  @media (hover: hover) {
-    .favoritesIcon.favorited,
-    &:hover .favoritesIcon,
-    &:hover .externalPlayerIcon,
-    &:focus-within .favoritesIcon,
-    &:focus-within .externalPlayerIcon {
-      visibility: visible;
-      opacity: $thumbnail-overlay-opacity;
-    }
-
-    &:hover .optionsButton,
-    &:focus-within .optionsButton {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .favoritesIcon,
-    .externalPlayerIcon,
-    .optionsButton {
-      visibility: none;
-      opacity: 0;
-      transition: visibility 0s, opacity 0.2s linear;
-    }
-  }
-}
-
-.videoWatched,
-.live,
-.upcoming {
-  text-transform: uppercase;
-  user-select: none;
 }
 
 // we use h3 for semantic reasons but don't want to keep the h3 style

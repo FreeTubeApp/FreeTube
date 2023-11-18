@@ -6,7 +6,7 @@
 .app {
   display: flex;
   flex-wrap: wrap;
-  font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: Roboto, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   block-size: 100%;
 }
 
@@ -46,7 +46,7 @@
   opacity: 0;
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .routerView {
     margin-block: 68px;
     margin-inline: 8px;
@@ -58,7 +58,6 @@
   }
 
   .flexBox {
-    margin-block-start: 60px;
-    margin-block-end: -75px;
+    margin-block: 60px -75px;
   }
 }

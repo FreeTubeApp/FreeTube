@@ -15,7 +15,7 @@
   margin: 5px;
   text-align: center;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(0 0 0 / 70%);
   color: #FFF;
   opacity: 0;
   border-radius: 20px;

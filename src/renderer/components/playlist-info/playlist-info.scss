@@ -6,7 +6,7 @@
   cursor: pointer;
   inline-size: 100%;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (width <= 800px) {
     display: none;
   }
 }
@@ -29,7 +29,7 @@
   overflow-y: auto;
   white-space: break-spaces;
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (width <= 500px) {
     max-block-size: 10vh;
   }
 }

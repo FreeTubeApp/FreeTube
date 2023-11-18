@@ -79,6 +79,8 @@
 }
 
 .channelSearch {
+  margin-block-start: 10px;
+  max-inline-size: 250px;
   inline-size: 220px;
   margin-inline-start: auto;
   align-self: flex-end;
@@ -129,11 +131,6 @@
   box-sizing: border-box;
 }
 
-.channelSearch {
-  margin-block-start: 10px;
-  max-inline-size: 250px;
-}
-
 .elementListLoading {
   margin-block-start: 200px;
 }
@@ -176,16 +173,14 @@
 
 .ft-community-image {
   display: block;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
+  margin-inline: auto;
 }
 
 .community-post-container {
-  padding-inline-start: 30%;
-  padding-inline-end: 30%;
+  padding-inline: 30%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .channelInfoTabs {
     block-size: auto;
     flex-flow: column-reverse;
@@ -210,7 +205,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (width <= 400px) {
   .channelInfo {
     justify-content: center;
     gap: 10px;
@@ -232,7 +227,7 @@
   }
 }
 
-@media only screen and (max-width: 260px) {
+@media only screen and (width <= 260px) {
    .channelDetails {
     max-inline-size: none;
   }

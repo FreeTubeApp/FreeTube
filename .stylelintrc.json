@@ -1,6 +1,6 @@
 {
   "plugins": ["stylelint-use-logical-spec", "@double-great/stylelint-a11y"],
-  "extends": ["stylelint-config-sass-guidelines"],
+  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
   "overrides": [
     {
       "files": ["**/*.scss"],

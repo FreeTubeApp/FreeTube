@@ -29,10 +29,10 @@
   inset-block-end: 60px;
   inline-size: 70px;
   z-index: 0;
-  box-shadow: 3px -3px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 3px -3px 5px 0 rgb(0 0 0 / 20%);
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .sideNavMoreOptions {
     display: block;
   }
@@ -41,8 +41,7 @@
     margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
-    inset-block-end: 0;
-    inset-block-start: auto;
+    inset-block: auto 0;
     overflow-y: inherit;
   }
 

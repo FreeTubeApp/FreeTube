@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .ft-input-component {
   position: relative;
 }
@@ -49,6 +50,7 @@
   position: absolute;
   inset-block-start: 5px;
   inset-inline-start: 0;
+
   /* To be higher than `.inputWrapper` */
   z-index: 1;
   margin-block: 0;
@@ -57,7 +59,6 @@
   border-radius: 100%;
   color: var(--primary-text-color);
   opacity: 0;
-  transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -73,7 +74,6 @@
 .clearInputTextButton.visible:active {
   background-color: var(--tertiary-text-color);
   color: var(--side-nav-active-text-color);
-  transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -135,12 +135,14 @@
   inset-inline-end: 0;
   border-radius: 100%;
   color: var(--primary-text-color);
+
   /* this should look disabled by default */
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .inputAction.enabled {
-  opacity: 100%;
+  opacity: 1;
+
   /* Only look respond to cursor when enabled */
   cursor: pointer;
 }

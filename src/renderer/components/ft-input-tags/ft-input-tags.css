@@ -8,7 +8,7 @@
 }
 
 .disabledMsg {
-  color: rgb(233, 255, 108);
+  color: rgb(233 255 108);
   padding-block-end: 10px;
 }
 
@@ -64,7 +64,7 @@
   margin-block-start: 10px;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (width <= 576px) {
   .ft-input-tags-component {
     inline-size: 100%;
   }

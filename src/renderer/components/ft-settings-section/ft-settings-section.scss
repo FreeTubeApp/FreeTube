@@ -4,7 +4,7 @@
   margin-inline: auto;
   inline-size: 85%;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (width <= 800px) {
     inline-size: 100%;
   }
 
@@ -20,7 +20,7 @@
   }
 
   > div:not(:last-child, .ft-flex-box) {
-    @media only screen and (max-width: 800px) {
+    @media only screen and (width <= 800px) {
       margin-block-end: 20px;
     }
   }
@@ -51,7 +51,7 @@
   grid-template-columns: auto auto;
   justify-content: space-evenly;
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     grid-template-columns: auto;
   }
 }
@@ -62,6 +62,7 @@
 
 :deep(.switchColumnGrid) {
   @extend %switch-grid;
+
   align-items: start;
 }
 
@@ -75,19 +76,19 @@
   text-align: center;
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (width <= 460px) {
   :deep(.settingsFlexStart460px) {
     justify-content: flex-start;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (width <= 500px) {
   :deep(.settingsFlexStart500px) {
     justify-content: flex-start;
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .settingsSection {
     > div {
       :deep(.text.bottom) {

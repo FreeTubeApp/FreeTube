@@ -33,11 +33,10 @@
 .option {
   display: flex;
   align-items: center;
-  padding-block-end: 10px;
+  padding-block: 5px;
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
-  padding-block: 5px;
   padding-inline-start: 10px;
   margin-block-end: 10px;
 }

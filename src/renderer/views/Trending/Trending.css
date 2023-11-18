@@ -14,9 +14,8 @@
   inline-size: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-block-start: -3px;
+  margin-block: -3px 10px;
   color: var(--tertiary-text-color);
-  margin-block-end: 10px;
 }
 
 .selectedTab {
@@ -39,13 +38,13 @@
   font-weight: bold;
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (width <= 350px) {
   .floatingTopButton {
     position: absolute
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;
   }

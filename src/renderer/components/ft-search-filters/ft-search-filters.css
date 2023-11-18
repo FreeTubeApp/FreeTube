@@ -1,16 +1,12 @@
 .searchFilterInner {
   max-inline-size: 800px;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-
+  margin-inline: auto;
   padding-block: 20px 70px;
   padding-inline: 20px;
   max-block-size: 410px;
   overflow-y: auto;
-
   background-color: var(--card-bg-color);
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
-
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
   opacity: 0.9;
 }
 
@@ -28,7 +24,7 @@
   margin-inline: auto;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (width <= 600px) {
   .searchRadio {
     border-inline-end: 0;
   }

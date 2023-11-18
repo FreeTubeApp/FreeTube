@@ -20,18 +20,13 @@
 * https://codepen.io/pavelvaravko/pen/qjojOr
 */
 
-/* select starting stylings ------------------------------*/
+/* select starting stylings ------------------------------ */
 .select {
   position: relative;
   inline-size: 200px;
   padding-block: 0 10px;
   padding-inline: 0 10px;
   margin-block-start: 30px;
-}
-
-.disabled, .disabled + .iconSelect {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 
 .select-text {
@@ -59,7 +54,6 @@
 
   /* Use custom arrow */
 .select .select-text {
-  appearance: none;
   appearance:none;
   text-overflow: ellipsis;
   padding-inline-end: 1.1rem;
@@ -69,6 +63,7 @@
   position: absolute;
   inset-block-start: 10px;
   inset-inline-end: 15px;
+
   /* Styling the down arrow */
   padding: 0;
   content: '';
@@ -76,6 +71,11 @@
   border-inline-end: 6px solid transparent;
   pointer-events: none;
   color: var(--tertiary-text-color);
+}
+
+.disabled, .disabled + .iconSelect {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .selectTooltip {
@@ -145,13 +145,13 @@
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (width <= 1000px) {
   .select .select-text {
     max-inline-size: 240px;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (width <= 800px) {
   .select {
     inline-size: 100%;
   }
@@ -162,7 +162,7 @@
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .select {
     padding: 0;
     margin-inline-end: -15px;

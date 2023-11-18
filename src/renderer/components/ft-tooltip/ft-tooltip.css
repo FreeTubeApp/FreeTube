@@ -7,30 +7,8 @@
   padding: 0;
 }
 
-.button:focus + .text,
-.button:hover + .text {
-  opacity: 1;
-  visibility: visible;
-}
-
-.button:focus + .text.bottom,
-.button:hover + .text.bottom,
-.button:hover + .text.bottom-left,
-.button:hover + .text.bottom-left,
-.button:focus + .text.top,
-.button:hover + .text.top {
-  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
-}
-
-.button:focus + .text.left,
-.button:hover + .text.left,
-.button:focus + .text.right,
-.button:hover + .text.right {
-  transform: translate(0, -50%);
-}
-
 .text {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0 0 0 / 80%);
   border-radius: 20px;
   color: #fff;
   font-size: 1rem;
@@ -83,6 +61,28 @@
   inset-inline-start: 50%;
   margin-block-end: 1em;
   transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
+}
+
+.button:focus + .text,
+.button:hover + .text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:focus + .text.bottom,
+.button:hover + .text.bottom,
+.button:focus + .text.bottom-left,
+.button:hover + .text.bottom-left,
+.button:focus + .text.top,
+.button:hover + .text.top {
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
+}
+
+.button:focus + .text.left,
+.button:hover + .text.left,
+.button:focus + .text.right,
+.button:hover + .text.right {
+  transform: translate(0, -50%);
 }
 
 .tooltip {

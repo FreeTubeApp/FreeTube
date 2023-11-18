@@ -16,7 +16,7 @@
   display: inline-block;
   max-inline-size: calc(80vh * 1.78);
 
-  @media only screen and (min-width: 901px) {
+  @media only screen and (width >= 901px) {
     inline-size: 300%;
   }
 }
@@ -99,7 +99,7 @@
   .sidebarArea {
     grid-area: sidebar;
 
-    @media only screen and (min-width: 901px) {
+    @media only screen and (width >= 901px) {
       min-inline-size: 380px;
     }
 
@@ -122,10 +122,10 @@
 
   .watchVideoPlaylist {
     :deep(.videoThumbnail) {
-      margin-block-start: auto;
-      margin-block-end: auto;
+      margin-block: auto;
     }
-    @media (max-width: 768px) {
+
+    @media (width <= 768px) {
       block-size: auto;
     }
   }
@@ -135,27 +135,27 @@
     margin-block: 0 16px;
     margin-inline: 0;
 
-    @media only screen and (min-width: 901px) {
+    @media only screen and (width >= 901px) {
       margin-block: 0 16px;
       margin-inline: 8px;
     }
   }
 
-  @media only screen and (max-width: 1350px) {
+  @media only screen and (width <= 1350px) {
     @include theatre-mode-template;
   }
 
-  @media only screen and (min-width: 901px) {
+  @media only screen and (width >= 901px) {
     &.useTheatreMode {
       @include theatre-mode-template;
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (width <= 900px) {
     @include single-column-template;
   }
 
-  @media only screen and (min-width: 901px) {
+  @media only screen and (width >= 901px) {
     .infoArea {
       scroll-margin-block-start: 76px;
     }

@@ -4,7 +4,8 @@
 .outside {
   margin: auto;
   inline-size: 40%;
-  @media screen and (max-width: 768px) {
+
+  @media screen and (width <= 768px) {
     inline-size: 100%;
   }
 }
@@ -61,7 +62,7 @@
   max-inline-size: 210px;
   text-align: start;
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     margin-inline-start: 0;
     text-align: start;
   }
@@ -73,8 +74,7 @@
   }
 
   .likeCount {
-    margin-inline-start: 5px;
-    margin-inline-end: 6px;
+    margin-inline: 5px 6px;
   }
 }
 
@@ -83,8 +83,7 @@
 
   .videoThumbnail {
     display: flex;
-    margin-block-end: auto;
-    margin-block-start: auto;
+    margin-block: auto;
     position: relative;
     inline-size: fit-content;
 
