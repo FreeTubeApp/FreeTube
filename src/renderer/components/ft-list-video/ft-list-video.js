@@ -654,7 +654,7 @@ export default defineComponent({
 
     unhideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelName && c !== channelId)))
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
 
       showToast(this.$t('Channel Unhidden', { channel: channelName }))
     },
