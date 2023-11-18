@@ -280,7 +280,6 @@
           id="videoPanel"
           :data="latestVideos"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
           role="tabpanel"
           aria-labelledby="videosTab"
         />
@@ -296,7 +295,6 @@
           id="shortPanel"
           :data="latestShorts"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
           role="tabpanel"
           aria-labelledby="shortsTab"
         />
@@ -313,7 +311,6 @@
           id="livePanel"
           :data="latestLive"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
           role="tabpanel"
           aria-labelledby="liveTab"
         />
@@ -329,7 +326,6 @@
           id="podcastPanel"
           :data="latestPodcasts"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
           role="tabpanel"
           aria-labelledby="podcastsTab"
         />
@@ -345,7 +341,6 @@
           id="releasePanel"
           :data="latestReleases"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
           role="tabpanel"
           aria-labelledby="releasesTab"
         />
@@ -376,7 +371,6 @@
           id="communityPanel"
           :data="latestCommunityPosts"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
           role="tabpanel"
           aria-labelledby="communityTab"
           display="list"
@@ -392,7 +386,6 @@
           v-show="currentTab === 'search'"
           :data="searchResults"
           :use-channels-hidden-preference="false"
-          :hide-videos-with-forbidden-text-in-title="false"
         />
         <ft-flex-box
           v-if="currentTab === 'search' && searchResults.length === 0"

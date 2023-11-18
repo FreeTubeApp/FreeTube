@@ -37,7 +37,6 @@
         :data="activeData"
         :show-video-with-last-viewed-playlist="true"
         :use-channels-hidden-preference="false"
-        :hide-videos-with-forbidden-text-in-title="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

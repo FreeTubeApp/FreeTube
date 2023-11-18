@@ -23,7 +23,6 @@
       appearance="recommendation"
       force-list-type="list"
       :use-channels-hidden-preference="true"
-      :hide-videos-with-forbidden-text-in-title="true"
     />
   </ft-card>
 </template>

@@ -43,7 +43,6 @@
       v-if="!isLoading && activeVideoList.length > 0"
       :data="activeVideoList"
       :use-channels-hidden-preference="false"
-      :hide-videos-with-forbidden-text-in-title="true"
       :display="isCommunity ? 'list' : ''"
     />
     <ft-flex-box
