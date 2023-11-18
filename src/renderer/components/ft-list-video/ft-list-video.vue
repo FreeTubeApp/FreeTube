@@ -56,6 +56,20 @@
           @click="togglePlaylistPrompt"
         />
         <ft-icon-button
+          v-if="isQuickBookmarkEnabled"
+          :title="$t('Video.Save Video')"
+          :icon="['fas', 'star']"
+          class="quickBookmarkVideoIcon"
+          :class="{
+            bookmarked: isInQuickBookmarkPlaylist,
+            alwaysVisible: alwaysShowAddToPlaylistButton,
+          }"
+          :theme="quickBookmarkIconTheme"
+          :padding="appearance === `watchPlaylistItem` ? 5 : 6"
+          :size="appearance === `watchPlaylistItem` ? 14 : 18"
+          @click="toggleQuickBookmarked"
+        />
+        <ft-icon-button
           v-if="inUserPlaylist && canMoveVideoUp"
           :title="$t('User Playlists.Move Video Up')"
           :icon="['fas', 'arrow-up']"

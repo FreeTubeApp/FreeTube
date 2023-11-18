@@ -6,6 +6,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import {
+  copyToClipboard,
   showToast,
 } from '../../helpers/utils'
 
@@ -194,6 +195,23 @@ export default defineComponent({
       // Cannot delete protected playlist
       return !this.hideSharingActions
     },
+
+    quickBookmarkPlaylistId() {
+      return this.$store.getters.getQuickBookmarkTargetPlaylistId
+    },
+    quickBookmarkPlaylist() {
+      return this.$store.getters.getPlaylist(this.quickBookmarkPlaylistId)
+    },
+    quickBookmarkEnabled() {
+      return this.quickBookmarkPlaylist != null
+    },
+    markedAsQuickBookmarkTarget() {
+      // Only user playlists can be target
+      if (this.selectedUserPlaylist == null) { return false }
+      if (this.quickBookmarkPlaylist == null) { return false }
+
+      return this.quickBookmarkPlaylist._id === this.selectedUserPlaylist._id
+    },
   },
   watch: {
     showDeletePlaylistPrompt(shown) {
@@ -318,10 +336,27 @@ export default defineComponent({
       this.showDeletePlaylistPrompt = false
     },
 
+    enableQuickBookmarkForThisPlaylist() {
+      if (this.quickBookmarkEnabled) {
+        showToast(this.$t('User Playlists.SinglePlaylistView.Toast["Another playlist is already used for quick bookmark. Click here to use this playlist anyway"]'), 5000, () => {
+          this.updateQuickBookmarkTargetPlaylistId(this.id)
+        })
+        return
+      }
+
+      this.updateQuickBookmarkTargetPlaylistId(this.id)
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.This playlist is now used for quick bookmark'))
+    },
+    disableQuickBookmark() {
+      this.updateQuickBookmarkTargetPlaylistId(null)
+      showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Quick bookmark disabled'))
+    },
+
     ...mapActions([
       'showAddToPlaylistPromptForManyVideos',
       'updatePlaylist',
       'removePlaylist',
+      'updateQuickBookmarkTargetPlaylistId',
     ]),
   },
 })

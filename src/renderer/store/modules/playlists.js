@@ -343,8 +343,8 @@ const actions = {
 
   async removeVideo({ commit }, payload) {
     try {
-      const { _id, playlistItemId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, playlistItemId)
+      const { _id, videoId, playlistItemId } = payload
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId })
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -359,7 +359,7 @@ const actions = {
     } catch (errMessage) {
       console.error(errMessage)
     }
-  }
+  },
 }
 
 const mutations = {
@@ -409,10 +409,14 @@ const mutations = {
     }
   },
 
-  removeVideo(state, payload) {
-    const playlist = state.playlists.find(playlist => playlist._id === payload._id)
+  removeVideo(state, { _id, videoId, playlistItemId }) {
+    const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => video.playlistItemId !== payload.playlistItemId)
+      if (playlistItemId != null) {
+        playlist.videos = playlist.videos.filter(video => video.playlistItemId !== playlistItemId)
+      } else if (videoId != null) {
+        playlist.videos = playlist.videos.filter(video => video.videoId !== videoId)
+      }
     }
   },
 

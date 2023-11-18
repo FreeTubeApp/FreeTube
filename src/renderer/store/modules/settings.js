@@ -299,6 +299,7 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  quickBookmarkTargetPlaylistId: null,
 }
 
 const stateWithSideEffects = {
