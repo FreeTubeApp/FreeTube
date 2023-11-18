@@ -1059,6 +1059,13 @@ a:visited {
     color: var(--link-visited-color);
 }
 
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 ::-webkit-scrollbar {
 	inline-size: 6px;
   block-size: 6px;
