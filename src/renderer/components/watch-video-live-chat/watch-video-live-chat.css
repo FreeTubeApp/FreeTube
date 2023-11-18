@@ -65,7 +65,7 @@
   cursor: pointer;
   background-color: var(--primary-color);
   border-radius: 200px;
-  -webkit-border-radius: 200px;
+  border-radius: 200px;
 }
 
 .superChatContent {
@@ -105,7 +105,7 @@
 }
 
 .comment .upperSuperChatMessage {
-  padding: 0px;
+  padding: 0;
 }
 
 .comment {
@@ -125,7 +125,7 @@
   margin-block-end: 10px;
   background-color: var(--primary-color);
   border-radius: 5px;
-  -webkit-border-radius: 5px;
+  border-radius: 5px;
   position: relative;
 }
 
@@ -134,8 +134,8 @@
   inline-size: 100%;
   block-size: 55px;
   background-color: var(--primary-color-hover);
-  border-radius: 5px 5px 0px 0px;
-  -webkit-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .upperSuperChatMessage .channelThumbnail {
@@ -157,7 +157,7 @@
   font-weight: bold;
   margin-inline-start: 65px;
   position: absolute;
-  inset-block-start: 0px;
+  inset-block-start: 0;
 }
 
 .superChatMessage .chatMessage {
@@ -173,7 +173,7 @@
 .channelThumbnail {
   inline-size: 25px;
   border-radius: 200px;
-  -webkit-border-radius: 200px;
+  border-radius: 200px;
 }
 
 .chatContent {
@@ -216,7 +216,7 @@
   inset-block-end: 20px;
   cursor: pointer;
   border-radius: 200px;
-  -webkit-border-radius: 200px;
+  border-radius: 200px;
   text-align: center;
   transition: background 0.2s ease-out;
 }

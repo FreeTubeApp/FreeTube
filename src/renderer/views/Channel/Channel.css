@@ -20,7 +20,7 @@
 }
 
 .channelBannerContainer.default {
-  background-color: black;
+  background-color: #000;
   background-image: url("../../assets/img/defaultBanner.png");
   background-repeat: repeat;
   background-size: contain;
@@ -49,7 +49,6 @@
   inline-size: 100px;
   block-size: 100px;
   border-radius: 200px;
-  -webkit-border-radius: 200px;
   object-fit: cover;
 }
 
@@ -170,8 +169,6 @@
 }
 
 .communityThumbnail {
-  /* stylelint-disable-next-line property-no-vendor-prefix */
-  -webkit-border-radius: 200px;
   border-radius: 200px;
   block-size: 12%;
   inline-size: 12%;
@@ -208,7 +205,7 @@
     flex: 1 1 0%;
   }
 
-  #communityPanel {
+  .communityPanel {
     margin-block-start: 1rem;
   }
 }

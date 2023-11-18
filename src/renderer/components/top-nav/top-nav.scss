@@ -58,10 +58,9 @@
 
   &.arrowBackwardDisabled,
   &.arrowForwardDisabled {
-    color: gray;
+    color: #808080;
     opacity: 0.5;
     pointer-events: none;
-    -webkit-user-select: none;
     user-select: none;
   }
 

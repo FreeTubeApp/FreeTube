@@ -41,12 +41,11 @@
 }
 
 .sectionTitle {
-  -webkit-user-select: none;
   user-select: none;
   margin-inline-start: 2%;
 }
 
-:deep(.switchGrid) {
+%switch-grid {
   align-items: center;
   display: grid;
   grid-template-columns: auto auto;
@@ -57,9 +56,12 @@
   }
 }
 
-:deep(.switchColumnGrid) {
-  @extend :deep(.switchGrid);
+:deep(.switchGrid) {
+  @extend %switch-grid;
+}
 
+:deep(.switchColumnGrid) {
+  @extend %switch-grid;
   align-items: start;
 }
 

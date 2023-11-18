@@ -29,7 +29,7 @@
   margin-block-start: 30px;
 }
 
-.disabled, .disabled + svg.iconSelect {
+.disabled, .disabled + .iconSelect {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -44,7 +44,7 @@
   padding-inline: 0 10px;
   font-size: 18px;
   border-radius: 0;
-  border: none;
+  border: 0;
 }
 
 .select option {
@@ -60,7 +60,7 @@
   /* Use custom arrow */
 .select .select-text {
   appearance: none;
-  -webkit-appearance:none;
+  appearance:none;
   text-overflow: ellipsis;
   padding-inline-end: 1.1rem;
 }
@@ -111,7 +111,7 @@
   inline-size: 200px;
 }
 
-.select-bar:before, .select-bar:after {
+.select-bar::before, .select-bar::after {
   content: '';
   block-size: 2px;
   inline-size: 0;
@@ -121,16 +121,16 @@
   transition: 0.2s ease all;
 }
 
-.select-bar:before {
+.select-bar::before {
   inset-inline-start: 50%;
 }
 
-.select-bar:after {
+.select-bar::after {
   inset-inline-end: 50%;
 }
 
 /* active state */
-.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+.select-text:focus ~ .select-bar::before, .select-text:focus ~ .select-bar::after {
   inline-size: 50%;
 }
 
@@ -155,6 +155,7 @@
   .select {
     inline-size: 100%;
   }
+
   .select .select-text {
     display:block;
     max-inline-size: 95%;
@@ -163,7 +164,7 @@
 
 @media only screen and (max-width: 680px) {
   .select {
-    padding: 0px;
+    padding: 0;
     margin-inline-end: -15px;
   }
 }

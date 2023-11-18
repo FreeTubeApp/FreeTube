@@ -13,7 +13,6 @@
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .inner {
@@ -53,16 +52,12 @@
 .navOption:hover, .navChannel:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .navOption:active, .navChannel:active {
   background-color: var(--side-nav-active-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -88,7 +83,6 @@
   margin: 0;
   position: absolute;
   inset-block-start: 50%;
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -131,22 +125,23 @@
 }
 
 .closed .navIcon {
-  margin-inline-start: 0px;
+  margin-inline-start: 0;
   inline-size: 100%;
   display: block;
-  margin-block-end: 0px;
+  margin-block-end: 0;
 }
+
 .closed .navIconExpand{
   block-size:1.3em;
 }
 
 .closed .navLabel {
-  margin-inline-start: 0px;
+  margin-inline-start: 0;
   inline-size: 100%;
   text-align: center;
-  inset-inline-start: 0px;
+  inset-inline-start: 0;
   font-size: 11px;
-  margin-block-end: 0em;
+  margin-block-end: 0;
 }
 
 .closed .navChannel {
@@ -162,8 +157,7 @@
   float: none;
   margin-block: 0;
   margin-inline: auto;
-  inset-block-start: 0px;
-  -ms-transform: none;
+  inset-block-start: 0;
   transform: none;
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
@@ -187,16 +181,16 @@
   }
 
   .topNavOption {
-    margin-block-start: 0px;
+    margin-block-start: 0;
     padding-inline-start: 10px;
     padding-inline-end: 10px;
   }
 
   .sideNav, .closed {
-    margin-block-start: 0px;
+    margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
-    inset-block-end: 0px;
+    inset-block-end: 0;
     inset-block-start: auto;
     overflow-y: hidden;
   }
@@ -204,22 +198,23 @@
   .navOption, .closed .navOption {
     inline-size: 70px;
     block-size: 40px;
-    padding: 0px;
+    padding: 0;
     padding-block-start: 10px;
     padding-block-end: 10px;
   }
 
   .navLabel {
-    margin-inline-start: 0px;
+    margin-inline-start: 0;
     inline-size: 100%;
     text-align: center;
-    inset-inline-start: 0px;
+    inset-inline-start: 0;
     font-size: 11px;
   }
 
   .moreOption {
     display: block;
   }
+
   .closed.hiddenLabels{
     inline-size: 100%;
   }

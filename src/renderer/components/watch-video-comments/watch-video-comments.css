@@ -56,7 +56,7 @@
   inline-size: 60px;
   block-size: 60px;
   border-radius: 200px;
-  -webkit-border-radius: 200px;
+  border-radius: 200px;
 }
 
 .commentThumbnailHidden {
@@ -72,7 +72,7 @@
   color: rgb(0 0 0);
   background-color: rgb(235 160 172);
   border-radius: 50%;
-  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .commentAuthorWrapper {
@@ -152,7 +152,7 @@
   inline-size: 15px;
   block-size: 15px;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .commentHeartBadgeWhite {

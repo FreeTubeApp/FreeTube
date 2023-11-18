@@ -14,16 +14,12 @@
 .navOption:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
 .navOption:active {
   background-color: var(--side-nav-active-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -33,9 +29,7 @@
   inset-block-end: 60px;
   inline-size: 70px;
   z-index: 0;
-  -webkit-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
-  box-shadow: 3px -3px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 3px -3px 5px 0 rgba(0,0,0,0.2);
 }
 
 @media only screen and (max-width: 680px) {
@@ -44,10 +38,10 @@
   }
 
   .sideNav, .closed {
-    margin-block-start: 0px;
+    margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
-    inset-block-end: 0px;
+    inset-block-end: 0;
     inset-block-start: auto;
     overflow-y: inherit;
   }
@@ -60,15 +54,15 @@
   }
 
   .navLabel {
-    margin-inline-start: 0px;
+    margin-inline-start: 0;
     inline-size: 100%;
     text-align: center;
-    inset-inline-start: 0px;
+    inset-inline-start: 0;
     font-size: 11px;
   }
 
   .navIcon {
-    margin-inline-start: 0px;
+    margin-inline-start: 0;
     inline-size: 100%;
     display: block;
     margin-block-start: 0.5em;

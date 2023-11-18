@@ -16,7 +16,7 @@
 
 /* Input */
 .pure-material-slider > input {
-  -webkit-appearance: none;
+  appearance: none;
   position: relative;
   inset-block-start: 24px;
   display: block;
@@ -69,8 +69,8 @@
 /* Webkit | Thumb */
 .pure-material-slider > input::-webkit-slider-thumb {
   appearance: none;
-  -webkit-appearance: none;
-  border: none;
+  appearance: none;
+  border: 0;
   border-radius: 50%;
   block-size: 2px;
   inline-size: 2px;
@@ -112,7 +112,7 @@
 /* Moz | Track */
 .pure-material-slider > input::-moz-range-track {
   margin-block: 0;
-  margin-auto: 17px;
+  margin: 17px;
   border-radius: 1px;
   inline-size: 100%;
   block-size: 2px;
@@ -122,8 +122,8 @@
 /* Moz | Thumb */
 .pure-material-slider > input::-moz-range-thumb {
   appearance: none;
-  -moz-appearance: none;
-  border: none;
+  appearance: none;
+  border: 0;
   border-radius: 50%;
   block-size: 2px;
   inline-size: 2px;
@@ -165,6 +165,7 @@
 .pure-material-slider > input:disabled::-moz-range-progress {
   background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
 }
+
 .pure-material-slider > input:disabled::-moz-range-thumb {
   background-color: rgb(var(--pure-material-onsurface-rgb, 0, 0, 0));
   box-shadow: 0 0 0 1px rgb(var(--pure-material-surface-rgb, 255, 255, 255)) !important;
@@ -172,7 +173,7 @@
 }
 
 .pure-material-slider > input::-moz-focus-outer {
-  border: none;
+  border: 0;
 }
 
 /* MS | Track */
@@ -180,7 +181,7 @@
   box-sizing: border-box;
   margin-block: 17px;
   margin-inline: 0;
-  border: none;
+  border: 0;
   border-radius: 1px;
   padding-block: 0;
   padding-inline: 17px;
@@ -207,7 +208,7 @@
   appearance: none;
   margin-block: 0;
   margin-inline: 17px;
-  border: none;
+  border: 0;
   border-radius: 50%;
   block-size: 2px;
   inline-size: 2px;

@@ -3,7 +3,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  br.hide-on-mobile {
+  .hide-on-mobile {
     display: none;
   }
 }

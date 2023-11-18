@@ -11,17 +11,12 @@
   overflow: hidden;
   color: inherit;
   text-decoration: none;
-  -webkit-transition: background 0.2s ease-out;
-  -moz-transition: background 0.2s ease-out;
-  -o-transition: background 0.2s ease-out;
   transition: background 0.2s ease-out;
 }
 
 .bubblePadding:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -29,7 +24,7 @@
   inline-size: 50px;
   block-size: 50px;
   border-radius: 100%;
-  -webkit-border-radius: 100%;
+  border-radius: 100%;
 }
 
 .selected {
@@ -39,7 +34,7 @@
 }
 
 .icon {
-  color: #EEEEEE;
+  color: #EEE;
   font-size: 25px;
   position: absolute;
   inset-block-start: 12px;

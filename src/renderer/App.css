@@ -1,9 +1,9 @@
 @font-face {
   font-family: Roboto;
-  src: url(assets/font/Roboto-Regular.ttf);
+  src: url("assets/font/Roboto-Regular.ttf");
 }
 
-#app {
+.app {
   display: flex;
   flex-wrap: wrap;
   font-family: 'Roboto', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -30,18 +30,18 @@
 .flexBox {
   display: block;
   user-select: unset;
-  -webkit-user-select: unset;
 }
 
-#changeLogText {
+.changeLogText {
   overflow-y: scroll;
   block-size: 40vh;
-  display: block
+  display: block;
 }
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .15s;
 }
+
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }

@@ -28,7 +28,7 @@
   margin: 10px;
   cursor: pointer;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .initial {
@@ -36,9 +36,8 @@
   line-height: 1em;
   text-align: center;
   padding-block: 25px;
-  padding-inline: 0px;
+  padding-inline: 0;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 @media only screen and (max-width: 680px) {

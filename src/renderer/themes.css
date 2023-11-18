@@ -68,21 +68,21 @@
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
   --favorite-icon-color: #FFD600;
-  --card-bg-color: #FFFFFF;
-  --secondary-card-bg-color: #eeeeee;
-  --scrollbar-color: #CCCCCC;
+  --card-bg-color: #FFF;
+  --secondary-card-bg-color: #eee;
+  --scrollbar-color: #CCC;
   --scrollbar-color-hover: #BDBDBD;
-  --side-nav-color: #FFFFFF;
+  --side-nav-color: #FFF;
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
   --search-bar-color: #f5f5f5;
 }
 
 .system[data-system-theme*='dark'], .dark {
-  --primary-text-color: #EEEEEE;
+  --primary-text-color: #EEE;
   --secondary-text-color: #ddd;
   --tertiary-text-color: #999;
-  --title-color: #EEEEEE;
+  --title-color: #EEE;
   --bg-color: #212121;
   --favorite-icon-color: #FFEA00;
   --card-bg-color: #303030;
@@ -96,13 +96,13 @@
 }
 
 .black {
-    --primary-text-color: #EEEEEE;
+    --primary-text-color: #EEE;
     --secondary-text-color: #ddd;
-    --tertiary-text-color: #EEEEEE;
-    --title-color: #EEEEEE;
-    --bg-color: #000000;
+    --tertiary-text-color: #EEE;
+    --title-color: #EEE;
+    --bg-color: #000;
     --favorite-icon-color: #FFEA00;
-    --card-bg-color: #000000;
+    --card-bg-color: #000;
     --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
     --scrollbar-color: #515151;
     --scrollbar-color-hover: #424242;
@@ -113,10 +113,10 @@
 }
 
 .gray {
-  --primary-text-color: #EEEEEE;
+  --primary-text-color: #EEE;
   --secondary-text-color: #E0E0E0;
   --tertiary-text-color: #F5F5F5;
-  --title-color: #EEEEEE;
+  --title-color: #EEE;
   --bg-color: #212121;
   --card-bg-color: #303030;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
@@ -173,7 +173,7 @@
   --bg-color: #ffeadd;
   --favorite-icon-color: #760278;
   --card-bg-color: #ffd1dc;
-  --secondary-card-bg-color: #FFFFFF;
+  --secondary-card-bg-color: #FFF;
   --scrollbar-color: #f5c8d3;
   --scrollbar-color-hover: #760278;
   --scrollbar-text-color-hover: var(--scrollbar-color);
@@ -190,19 +190,19 @@
   --primary-text-color: #FFFF;
   --secondary-text-color: #FFFF;
   --tertiary-text-color: #FFFF;
-  --title-color: #000000;
+  --title-color: #000;
   --bg-color: #ff008a;
   --favorite-icon-color: #FFEA00;
   --card-bg-color: #DE1C85;
   --secondary-card-bg-color: rgba(0, 0, 0, 0.75);
-  --scrollbar-color: #FFFFFF;
+  --scrollbar-color: #FFF;
   --scrollbar-color-hover: #C0F6FF;
-  --scrollbar-text-color-hover: #000000;
+  --scrollbar-text-color-hover: #000;
   --side-nav-color: #EE1E90;
-  --side-nav-hover-color: #FFFFFF;
-  --side-nav-hover-text-color: #000000;
+  --side-nav-hover-color: #FFF;
+  --side-nav-hover-text-color: #000;
   --side-nav-active-color: #959595;
-  --side-nav-active-text-color: #000000;
+  --side-nav-active-text-color: #000;
   --search-bar-color: #9C2D5D;
   --logo-icon: url("../../_icons/iconWhiteSmall.png");
   --logo-text: url("../../_icons/textWhiteSmall.png");
@@ -210,16 +210,16 @@
   many other colors than black and white. This means that the primary and
   secondary theme colors are forced here to be black so as to avoid any
   accessibility concerns. */
-  --primary-color: #000000 !important;
-  --primary-color-hover: #000000 !important;
-  --primary-color-active: #000000 !important;
-  --text-with-main-color: #FFFFFF !important;
-  --text-with-accent-color: #FFFFFF !important;
-  --accent-color: #000000 !important;
+  --primary-color: #000 !important;
+  --primary-color-hover: #000 !important;
+  --primary-color-active: #000 !important;
+  --text-with-main-color: #FFF !important;
+  --text-with-accent-color: #FFF !important;
+  --accent-color: #000 !important;
   --accent-color-hover: #808080 !important;
   --accent-color-active: #6A739A !important;
-  --accent-color-light: #000000 !important;
-  --accent-color-visited: #000000 !important;
+  --accent-color-light: #000 !important;
+  --accent-color-visited: #000 !important;
   --accent-color-opacity1: rgba(0,0,0,0.04) !important;
   --accent-color-opacity2: rgba(0,0,0,0.12) !important;
   --accent-color-opacity3: rgba(255,255,255,0.16) !important;
@@ -229,7 +229,7 @@
 /* Given that the Hot Pink theme does not need link underlining due to meeting
 WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
 it can be safely elided. This looks quite pleasant on this theme. */
-.hotPink a:not(:hover):not(:focus), .hotPink a.navOption:hover, .hotPink a.navOption:focus .hotPink *:not(:hover):not(:focus) {
+.hotPink a:not(:hover):not(:focus), .hotPink .navOption:hover, .hotPink .navOption:focus, .hotPink *:not(:hover):not(:focus) {
   text-decoration: none;
 }
 
@@ -247,7 +247,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainCyan,
 .mainTeal,
 .mainGreen {
-  --text-with-main-color: #FFFFFF;
+  --text-with-main-color: #FFF;
   --logo-icon-bar-color: url("../../_icons/iconWhiteSmall.png");
   --logo-text-bar-color: url("../../_icons/textWhiteSmall.png");
 }
@@ -258,7 +258,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .mainAmber,
 .mainOrange,
 .mainDeepOrange {
-  --text-with-main-color: #000000;
+  --text-with-main-color: #000;
   --logo-icon-bar-color: url("../../_icons/iconBlackSmall.png");
   --logo-text-bar-color: url("../../_icons/textBlackSmall.png");
 }
@@ -407,8 +407,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .mainDraculaRed {
-  --primary-color: #FF5555;
-  --primary-color-hover: #FF6666;
+  --primary-color: #F55;
+  --primary-color-hover: #F66;
   --primary-color-active: #E64D4D;
 }
 
@@ -531,7 +531,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secCyan,
 .secTeal,
 .secGreen {
-  --text-with-accent-color: #FFFFFF;
+  --text-with-accent-color: #FFF;
 }
 
 .secLightGreen,
@@ -540,7 +540,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .secAmber,
 .secOrange,
 .secDeepOrange {
-  --text-with-accent-color: #000000;
+  --text-with-accent-color: #000;
 }
 
 .secRed {
@@ -803,11 +803,11 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaRed {
-  --accent-color: #FF5555;
-  --accent-color-hover: #FF6666;
+  --accent-color: #F55;
+  --accent-color-hover: #F66;
   --accent-color-active: #E64D4D;
-  --accent-color-light: #FF7777;
-  --accent-color-visited: #CC4444;
+  --accent-color-light: #F77;
+  --accent-color-visited: #C44;
 }
 
 .secDraculaYellow {
@@ -1037,7 +1037,7 @@ body {
   --red-500: #f44336;
 }
 
-#app {
+.app {
   color: var(--primary-text-color);
   background-color: var(--bg-color);
 }

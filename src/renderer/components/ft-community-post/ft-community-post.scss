@@ -19,7 +19,6 @@
 }
 
 .communityThumbnail {
-  -webkit-border-radius: 50%;
   border-radius: 50%;
   block-size: 55px;
   margin-inline-end: 5px;
@@ -34,6 +33,7 @@
     font-weight: bold;
     margin-block: 5px 0;
     margin-inline: 5px 6px;
+
     .authorNameLink {
       color: inherit;
       text-decoration: none;

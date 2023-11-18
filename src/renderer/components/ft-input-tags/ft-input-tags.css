@@ -53,7 +53,7 @@
   color: var(--primary-text-color);
   opacity: 0.5;
   padding: 10px;
-  padding-inline-start: 0px;
+  padding-inline-start: 0;
 }
 
 .removeTagButton:hover {
