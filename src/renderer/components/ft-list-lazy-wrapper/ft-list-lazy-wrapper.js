@@ -123,6 +123,9 @@ export default defineComponent({
           return false
         }
       } else if (data.type === 'playlist') {
+        if (this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+          return false
+        }
         const attrsToCheck = [
           // Local API
           data.channelId,

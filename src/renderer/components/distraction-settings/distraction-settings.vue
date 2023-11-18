@@ -248,12 +248,12 @@
     </ft-flex-box>
     <ft-flex-box>
       <ft-input-tags
-        :label="$t('Settings.Distraction Free Settings.Hide Videos Containing Text')"
-        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos Containing Text Placeholder')"
+        :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
         :show-action-button="true"
         :tag-list="forbiddenVideoTitleText"
         :min-input-length="3"
-        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos Containing Text')"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         @change="handleForbiddenVideoTitleText"
       />
     </ft-flex-box>
