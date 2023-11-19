@@ -156,13 +156,13 @@ $watched-transition-duration: 0.5s;
       display: grid;
       grid-auto-flow: column;
       justify-content: flex-end;
+      block-size: fit-content;
     }
     .addToPlaylistIcon,
     .trashIcon,
     .upArrowIcon,
     .downArrowIcon {
       font-size: 17px;
-      block-size: fit-content;
     }
 
     .watchedProgressBar {
