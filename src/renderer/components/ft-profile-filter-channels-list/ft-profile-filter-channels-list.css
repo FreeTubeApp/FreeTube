@@ -4,6 +4,10 @@
   margin-inline: auto;
 }
 
+h2 {
+  text-align: center;
+}
+
 .selected {
   text-align: center;
 }

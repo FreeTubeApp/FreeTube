@@ -65,6 +65,12 @@ export default defineComponent({
         this.$t('Yes'),
         this.$t('No')
       ]
+    },
+    editOrCreateProfileLabel: function () {
+      return this.isNew ? this.$t('Profile.Create Profile') : this.$t('Profile.Edit Profile')
+    },
+    editOrCreateProfileNameLabel: function () {
+      return this.isNew ? this.$t('Profile.Create Profile Name') : this.$t('Profile.Edit Profile Name')
     }
   },
   watch: {

@@ -3,3 +3,7 @@
   margin-block: 0 15px;
   margin-inline: auto;
 }
+
+h2, .selectedCount {
+  text-align: center;
+}
