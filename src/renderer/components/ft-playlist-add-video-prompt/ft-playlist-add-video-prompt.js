@@ -41,7 +41,6 @@ export default defineComponent({
       lastShownAt: Date.now(),
       lastActiveElement: null,
       interactionsLocked: false,
-      preventOpenCreatePlaylistPromptOnce: false,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
@@ -227,13 +226,6 @@ export default defineComponent({
     },
 
     openCreatePlaylistPrompt: function () {
-      // Solution/Workaround for strange click event
-      // Prevents prompt from reopening right after close
-      if (this.preventOpenCreatePlaylistPromptOnce) {
-        this.preventOpenCreatePlaylistPromptOnce = false
-        return
-      }
-
       this.showCreatePlaylistPrompt({
         title: this.newPlaylistDefaultProperties.title || '',
       })
