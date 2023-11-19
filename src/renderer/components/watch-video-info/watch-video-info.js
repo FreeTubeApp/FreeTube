@@ -322,7 +322,7 @@ export default defineComponent({
       }
 
       const payload = {
-        playlistName: 'Favorites',
+        playlistName: this.$store.getters.getFavorites.playlistName,
         videoData: videoData
       }
 
@@ -333,7 +333,7 @@ export default defineComponent({
 
     removeFromPlaylist: function () {
       const payload = {
-        playlistName: 'Favorites',
+        playlistName: this.$store.getters.getFavorites.playlistName,
         videoId: this.id
       }
 
