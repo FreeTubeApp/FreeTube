@@ -120,10 +120,6 @@ export default defineComponent({
       })
     },
 
-    createPlaylistPromptShown: function () {
-      return this.$store.getters.getShowCreatePlaylistPrompt
-    },
-
     tabindex() {
       return this.interactionsLocked ? -1 : 0
     },
@@ -175,17 +171,6 @@ export default defineComponent({
       // Focus back to search input
       // Allow search and easier deselecting new created playlist
       this.$refs.searchBar.focus()
-    },
-
-    createPlaylistPromptShown(value) {
-      // Lock interactions when create playlist prompt opened
-      this.interactionsLocked = value
-
-      if (!value) {
-        // create playlist prompt closing
-        // Solution/Workaround for strange click event
-        this.preventOpenCreatePlaylistPromptOnce = true
-      }
     },
   },
   mounted: function () {
