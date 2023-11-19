@@ -9,7 +9,7 @@ h2 {
 }
 
 h3 {
-  margin-block: 10px;
+  margin-block: 0 10px;
   text-align: center;
 }
 
@@ -17,14 +17,14 @@ h3 {
   color: var(--tertiary-text-color);
 }
 
-.profileName {
-  max-inline-size: 400px;
+.profileName, .colorSelection {
   margin: auto;
+  inline-size: 350px;
 }
 
 .profileEdit {
-  flex-direction: row;
-  gap: 10px;
+  flex-direction: column;
+  column-gap: 10px;
 }
 
 .profileEdit > * {
@@ -33,8 +33,8 @@ h3 {
 
 .colorOptions {
   margin-inline: auto;
-  justify-content: flex-start;
-  min-inline-size: 300px;
+  justify-content: center;
+  min-inline-size: 250px;
 }
 
 .customColorSection {
@@ -48,7 +48,7 @@ h3 {
 .colorOption {
   inline-size: 40px;
   block-size: 40px;
-  margin: 5px;
+  margin: 2px;
   cursor: pointer;
   border-radius: 50%;
   -webkit-border-radius: 50%;

@@ -28,15 +28,13 @@
               type="color"
             >
           </div>
-          <ft-flex-box class="profileNameSection">
-            <ft-input
-              class="profileName"
-              placeholder=""
-              :value="profileBgColor"
-              :show-action-button="false"
-              :disabled="true"
-            />
-          </ft-flex-box>
+          <ft-input
+            class="colorSelection"
+            placeholder=""
+            :value="profileBgColor"
+            :show-action-button="false"
+            :disabled="true"
+          />
         </div>
         <div>
           <div>
