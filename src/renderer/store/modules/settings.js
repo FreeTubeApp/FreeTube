@@ -227,6 +227,7 @@ const state = {
   hideChapters: false,
   showDistractionFreeTitles: false,
   landingPage: 'subscriptions',
+  lastSubscriptionRefreshTimestamp: '',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
   playNextVideo: false,

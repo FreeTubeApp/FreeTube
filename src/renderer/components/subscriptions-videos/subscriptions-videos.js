@@ -33,6 +33,10 @@ export default defineComponent({
       return this.$store.getters.getCurrentInvidiousInstance
     },
 
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
     useRssFeeds: function () {
       return this.$store.getters.getUseRssFeeds
     },
@@ -155,6 +159,7 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
+      this.updateLastSubscriptionRefreshTimestamp(new Date().toLocaleDateString(this.currentLocale, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }))
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -333,6 +338,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'updateLastSubscriptionRefreshTimestamp',
       'updateShowProgressBar',
       'updateSubscriptionVideosCacheByChannel',
     ]),

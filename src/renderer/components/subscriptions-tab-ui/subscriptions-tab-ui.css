@@ -8,14 +8,33 @@
   color: var(--tertiary-text-color);
 }
 
-.floatingTopButton {
+.refreshSubscriptionsButton {
+}
+
+.floatingRefreshSection {
   position: fixed;
   inset-block-start: 70px;
   inset-inline-end: 10px;
+  display: flex;
+  align-items: center;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 1px 6px rgba(0,0,0,.1);
+  padding: 5px;
+  gap: 5px;
+}
+
+.lastSubscriptionRefreshTimestamp {
+  text-align: center;
+  inset-block-start: 100px;
+  inset-inline-end: 0px;
+  margin-block: 0;
+  max-inline-size: 100px;
+  inline-size: min-content;
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 350px) {
-  .floatingTopButton {
+  .refreshSubscriptionsButton {
     position: absolute
   }
 }

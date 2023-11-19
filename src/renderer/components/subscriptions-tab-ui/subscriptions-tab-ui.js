@@ -51,6 +51,16 @@ export default defineComponent({
     }
   },
   computed: {
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
+    },
+
+    lastSubscriptionRefreshTimestamp: function () {
+      // note: may need to store base date string and reformat on load,
+      // as the user can change their locale
+      return this.$store.getters.getLastSubscriptionRefreshTimestamp
+    },
+
     activeVideoList: function () {
       if (this.videoList.length < this.dataLimit) {
         return this.videoList
