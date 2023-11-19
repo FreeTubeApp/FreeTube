@@ -38,7 +38,7 @@
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Data Settings.Import Playlists')"
-        @click="importPlaylists"
+        @click="importPlaylistsIntoFavoritesPlaylist"
       />
       <ft-button
         :label="$t('Settings.Data Settings.Export Playlists')"

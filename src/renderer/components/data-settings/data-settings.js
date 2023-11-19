@@ -969,6 +969,134 @@ export default defineComponent({
       showToast(this.$t('Settings.Data Settings.All playlists has been successfully imported'))
     },
 
+    importPlaylistsIntoFavoritesPlaylist: async function () {
+      const options = {
+        properties: ['openFile'],
+        filters: [
+          {
+            name: this.$t('Settings.Data Settings.Playlist File'),
+            extensions: ['db']
+          }
+        ]
+      }
+
+      const response = await showOpenDialog(options)
+      if (response.canceled || response.filePaths?.length === 0) {
+        return
+      }
+      let data
+      try {
+        data = await readFileFromDialog(response)
+      } catch (err) {
+        const message = this.$t('Settings.Data Settings.Unable to read file')
+        showToast(`${message}: ${err}`)
+        return
+      }
+      const playlists = JSON.parse(data)
+
+      const requiredKeys = [
+        'playlistName',
+        'videos',
+      ]
+
+      const optionalKeys = [
+        'description',
+        'createdAt',
+      ]
+
+      const ignoredKeys = [
+        '_id',
+        'title',
+        'type',
+        'protected',
+        'lastUpdatedAt',
+        'lastPlayedAt',
+        'removeOnWatched',
+
+        'thumbnail',
+        'channelName',
+        'channelId',
+        'playlistId',
+        'videoCount',
+      ]
+
+      const requiredVideoKeys = [
+        'videoId',
+        'title',
+        'author',
+        'authorId',
+        'lengthSeconds',
+        'timeAdded',
+        // `type` still required in old version
+        'type',
+
+        // `playlistItemId` should be optional for backward compatibility
+        // 'playlistItemId',
+      ]
+
+      playlists.forEach((playlistData) => {
+        // We would technically already be done by the time the data is parsed,
+        // however we want to limit the possibility of malicious data being sent
+        // to the app, so we'll only grab the data we need here.
+
+        const playlistObject = {}
+
+        Object.keys(playlistData).forEach((key) => {
+          if ([requiredKeys, optionalKeys, ignoredKeys].every((ks) => !ks.includes(key))) {
+            const message = `${this.$t('Settings.Data Settings.Unknown data key')}: ${key}`
+            showToast(message)
+          } else if (key === 'videos') {
+            const videoArray = []
+            playlistData.videos.forEach((video) => {
+              const videoPropertyKeys = Object.keys(video)
+              const videoObjectHasAllRequiredKeys = requiredVideoKeys.every((k) => videoPropertyKeys.includes(k))
+
+              if (videoObjectHasAllRequiredKeys) {
+                videoArray.push(video)
+              }
+            })
+
+            playlistObject[key] = videoArray
+          } else if (ignoredKeys.includes(key)) {
+            // Do nothing for keys to be ignored
+          } else {
+            playlistObject[key] = playlistData[key]
+          }
+        })
+
+        const playlistObjectKeys = Object.keys(playlistObject)
+        const playlistObjectHasAllRequiredKeys = requiredKeys.every((k) => playlistObjectKeys.includes(k))
+
+        if (playlistObjectHasAllRequiredKeys) {
+          const existingPlaylist = this.$store.getters.getFavorites
+
+          playlistObject.videos.forEach((video) => {
+            // Older playlist exports have no `playlistItemId` but have `timeAdded`
+            // Which might be duplicate for copied playlists with duplicate `videoId`
+            const videoExists = existingPlaylist.videos.some((x) => {
+              // Allow duplicate (by videoId) videos to be added
+              return x.videoId === video.videoId && x.timeAdded === video.timeAdded
+            })
+
+            if (!videoExists) {
+              // Keep original `timeAdded` value
+              const payload = {
+                playlistName: existingPlaylist.playlistName,
+                videoData: video,
+              }
+
+              this.addVideo(payload)
+            }
+          })
+        } else {
+          const message = this.$t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
+          showToast(message)
+        }
+      })
+
+      showToast(this.$t('Settings.Data Settings.All playlists has been successfully imported'))
+    },
+
     exportPlaylists: async function () {
       const dateStr = getTodayDateStrLocalTimezone()
       const exportFileName = 'freetube-playlists-' + dateStr + '.db'
