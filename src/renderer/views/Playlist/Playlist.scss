@@ -54,7 +54,7 @@
 }
 .playlistItem-enter, .playlistItem-leave-to {
   opacity: 0;
-  transform: translateX(10%);
+  transform: translate(calc(10% * var(--horizontal-directionality-coefficient)));
 }
 
 .videoIndex {
