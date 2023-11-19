@@ -42,7 +42,7 @@
         v-if="fullData.length === 0"
       >
         <p class="message">
-          {{ $t("User Playlists['You have no playlist. Click on the create new playlist button to create a new one.']") }}
+          {{ $t("User Playlists['You have no playlists. Click on the create new playlist button to create a new one.']") }}
         </p>
       </ft-flex-box>
       <ft-flex-box
