@@ -113,9 +113,6 @@ export default defineComponent({
         if (typeof (playlist.playlistName) !== 'string') { return false }
 
         return playlist.playlistName.toLowerCase().includes(this.processedQuery)
-      }).sort((a, b) => {
-        // Latest updated first
-        return b.lastUpdatedAt - a.lastUpdatedAt
       })
     },
 
