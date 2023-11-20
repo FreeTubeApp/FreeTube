@@ -31,12 +31,15 @@
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
+  height: fit-content;
 }
 
 .profileWrapper {
   margin-block-start: 60px;
   block-size: 340px;
   overflow-y: auto;
+  height: fit-content;
+  max-height: 80vh;
 }
 
 .profile {
