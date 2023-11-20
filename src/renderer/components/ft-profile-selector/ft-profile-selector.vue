@@ -66,7 +66,7 @@
             :id="'profile-' + index + '-name'"
             class="profileName"
           >
-            {{ profile.name }}
+            {{ translatedProfileName(profile) }}
           </p>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default defineComponent({
       return colors.map(color => color.value)
     },
     profileInitial: function () {
-      return this?.profileName?.length > 0 ? Array.from(this.profileName)[0].toUpperCase() : ''
+      return this?.profileName?.length > 0 ? Array.from(this.translatedProfileName)[0].toUpperCase() : ''
     },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
@@ -71,6 +71,9 @@ export default defineComponent({
     },
     editOrCreateProfileNameLabel: function () {
       return this.isNew ? this.$t('Profile.Create Profile Name') : this.$t('Profile.Edit Profile Name')
+    },
+    translatedProfileName: function () {
+      return this.isMainProfile ? this.$t('Profile.All Channels') : this.profileName
     }
   },
   watch: {

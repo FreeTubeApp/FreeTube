@@ -4,6 +4,7 @@ import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import { showToast } from '../../helpers/utils'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default defineComponent({
   name: 'FtProfileSelector',
@@ -26,11 +27,11 @@ export default defineComponent({
     },
     activeProfileInitial: function () {
       // use Array.from, so that emojis don't get split up into individual character codes
-      return this.activeProfile?.name?.length > 0 ? Array.from(this.activeProfile.name)[0].toUpperCase() : ''
+      return this.activeProfile?.name?.length > 0 ? Array.from(this.translatedProfileName(this.activeProfile))[0].toUpperCase() : ''
     },
     profileInitials: function () {
       return this.profileList.map((profile) => {
-        return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
+        return profile?.name?.length > 0 ? Array.from(this.translatedProfileName(profile))[0].toUpperCase() : ''
       })
     }
   },
@@ -82,6 +83,10 @@ export default defineComponent({
       }
 
       this.profileListShown = false
+    },
+
+    translatedProfileName: function (profile) {
+      return profile._id === MAIN_PROFILE_ID ? this.$t('Profile.All Channels') : profile.name
     },
 
     ...mapActions([

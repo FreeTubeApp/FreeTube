@@ -19,7 +19,7 @@
       :id="sanitizedId"
       class="profileName"
     >
-      {{ profileName }}
+      {{ translatedProfileName }}
     </div>
   </div>
 </template>

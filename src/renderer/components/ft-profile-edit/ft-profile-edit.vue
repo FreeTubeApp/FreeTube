@@ -42,7 +42,8 @@
             <ft-input
               class="profileName"
               :placeholder="editOrCreateProfileNameLabel"
-              :value="profileName"
+              :disabled="isMainProfile"
+              :value="translatedProfileName"
               :show-action-button="false"
               @input="e => profileName = e"
             />
