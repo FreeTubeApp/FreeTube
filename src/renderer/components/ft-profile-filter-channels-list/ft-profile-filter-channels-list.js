@@ -77,7 +77,9 @@ export default defineComponent({
   },
   methods: {
     updateChannelList () {
-      this.channels = deepCopy(this.profileList[this.filteredProfileIndex].subscriptions).sort((a, b) => {
+      const filterProfileName = this.profileNameList[this.filteredProfileIndex]
+      const filterProfile = this.profileList.find((profile) => this.translatedProfileName(profile) === filterProfileName)
+      this.channels = deepCopy(filterProfile.subscriptions).sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       }).filter((channel) => {
         const index = this.profile.subscriptions.findIndex((sub) => {
@@ -103,7 +105,7 @@ export default defineComponent({
 
     handleProfileFilterChange: function (change) {
       this.selectNone()
-      this.filteredProfileIndex = this.profileList.findIndex(profile => profile.name === change)
+      this.filteredProfileIndex = this.profileNameList.indexOf(change)
     },
 
     addChannelToProfile: function () {

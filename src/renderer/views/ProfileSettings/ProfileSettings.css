@@ -1,3 +1,7 @@
+h2 {
+  text-align: center;
+}
+
 .message {
   color: var(--tertiary-text-color);
 }
