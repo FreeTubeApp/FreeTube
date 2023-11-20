@@ -102,6 +102,7 @@ export default defineComponent({
     },
 
     handleProfileFilterChange: function (change) {
+      this.selectNone()
       this.filteredProfileIndex = this.profileList.findIndex(profile => profile.name === change)
     },
 
