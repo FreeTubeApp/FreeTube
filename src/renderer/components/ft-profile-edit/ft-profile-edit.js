@@ -19,12 +19,16 @@ export default defineComponent({
     'ft-button': FtButton
   },
   props: {
-    profile: {
-      type: Object,
+    isMainProfile: {
+      type: Boolean,
       required: true
     },
     isNew: {
       type: Boolean,
+      required: true
+    },
+    profile: {
+      type: Object,
       required: true
     }
   },
@@ -42,9 +46,6 @@ export default defineComponent({
     }
   },
   computed: {
-    isMainProfile: function () {
-      return this.profileId === MAIN_PROFILE_ID
-    },
     colorValues: function () {
       return colors.map(color => color.value)
     },

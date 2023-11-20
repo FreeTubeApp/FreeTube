@@ -35,17 +35,5 @@ export default defineComponent({
     translatedProfileName: function () {
       return this.isMainProfile ? this.$t('Profile.All Channels') : this.profileName
     }
-  },
-  methods: {
-    goToProfile: function (event) {
-      if (event instanceof KeyboardEvent) {
-        if (event.target.getAttribute('role') === 'link' && event.key !== 'Enter') {
-          return
-        }
-      }
-      this.$router.push({
-        path: `/settings/profile/edit/${this.profileId}`
-      })
-    }
   }
 })

@@ -2,10 +2,10 @@
   <div
     class="bubblePadding"
     tabindex="0"
+    role="button"
     :aria-labelledby="sanitizedId"
-    @click="goToProfile"
-    @keydown.space.prevent="goToProfile($event)"
-    @keydown.enter.prevent="goToProfile($event)"
+    @click="$emit('click')"
+    @keydown.space.enter.prevent="$emit('click')"
   >
     <div
       class="bubble"

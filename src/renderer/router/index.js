@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
 import SubscribedChannels from '../views/SubscribedChannels/SubscribedChannels.vue'
 import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
-import ProfileEdit from '../views/ProfileEdit/ProfileEdit.vue'
 import Trending from '../views/Trending/Trending.vue'
 import Popular from '../views/Popular/Popular.vue'
 import UserPlaylists from '../views/UserPlaylists/UserPlaylists.vue'
@@ -47,22 +46,6 @@ const router = new Router({
         title: 'Profile.Profile Settings'
       },
       component: ProfileSettings
-    },
-    {
-      path: '/settings/profile/new',
-      name: 'newProfile',
-      meta: {
-        title: 'Profile.Create New Profile'
-      },
-      component: ProfileEdit
-    },
-    {
-      path: '/settings/profile/edit/:id',
-      name: 'editProfile',
-      meta: {
-        title: 'Profile.Edit Profile'
-      },
-      component: ProfileEdit
     },
     {
       path: '/trending',
