@@ -59,10 +59,10 @@
         dir="ltr"
         role="link"
         tabindex="0"
-        :title="$t('Subscriptions.Subscriptions')"
-        @click="navigate('subscriptions')"
-        @keydown.space.prevent="navigate('subscriptions')"
-        @keydown.enter.prevent="navigate('subscriptions')"
+        :title="headerLogoTitle"
+        @click="navigate(landingPage)"
+        @keydown.space.prevent="navigate(landingPage)"
+        @keydown.enter.prevent="navigate(landingPage)"
       >
         <div
           class="logoIcon"
