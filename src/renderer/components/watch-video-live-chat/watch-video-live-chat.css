@@ -24,6 +24,9 @@
 
 .watchingCount {
   font-weight: normal;
+  margin-inline-start: 5px;
+  font-size: 15px;
+  color: var(--tertiary-text-color);
 }
 
 .message {
