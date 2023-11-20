@@ -53,7 +53,10 @@ export default defineComponent({
     }
   },
   watch: {
-    profile: 'updateChannelList',
+    profile: function () {
+      this.updateChannelList()
+      this.selectNone()
+    },
     filteredProfileIndex: 'updateChannelList'
   },
   mounted: function () {

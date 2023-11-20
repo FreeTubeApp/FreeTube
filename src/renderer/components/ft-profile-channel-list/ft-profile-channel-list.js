@@ -82,6 +82,7 @@ export default defineComponent({
       })
 
       this.subscriptions = subscriptions
+      this.selectNone()
     }
   },
   mounted: function () {
@@ -110,20 +111,13 @@ export default defineComponent({
     handleDeletePromptClick: function (value) {
       if (value !== 'no' && value !== null) {
         if (this.isMainProfile) {
-          const channelsToRemove = this.subscriptions.filter((channel) => {
-            return channel.selected
-          })
-
-          this.subscriptions = this.subscriptions.filter((channel) => {
-            return !channel.selected
-          })
+          const channelsToRemove = this.subscriptions.filter((channel) => channel.selected)
+          this.subscriptions = this.subscriptions.filter((channel) => !channel.selected)
 
           this.profileList.forEach((x) => {
             const profile = deepCopy(x)
             profile.subscriptions = profile.subscriptions.filter((channel) => {
-              const index = channelsToRemove.findIndex((y) => {
-                return y.id === channel.id
-              })
+              const index = channelsToRemove.findIndex((y) => y.id === channel.id)
 
               return index === -1
             })
@@ -153,9 +147,7 @@ export default defineComponent({
 
     handleChannelClick: function (index) {
       this.subscriptions[index].selected = !this.subscriptions[index].selected
-      this.selectedLength = this.subscriptions.filter((channel) => {
-        return channel.selected
-      }).length
+      this.selectedLength = this.subscriptions.filter((channel) => channel.selected).length
     },
 
     selectAll: function () {
@@ -170,9 +162,7 @@ export default defineComponent({
         return channel
       })
 
-      this.selectedLength = this.subscriptions.filter((channel) => {
-        return channel.selected
-      }).length
+      this.selectedLength = this.subscriptions.filter((channel) => channel.selected).length
     },
 
     selectNone: function () {
@@ -187,9 +177,7 @@ export default defineComponent({
         return channel
       })
 
-      this.selectedLength = this.subscriptions.filter((channel) => {
-        return channel.selected
-      }).length
+      this.selectedLength = this.subscriptions.filter((channel) => channel.selected).length
     },
 
     ...mapActions([
