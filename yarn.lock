@@ -1431,10 +1431,10 @@
     localforage "^1.9.0"
     util "^0.12.4"
 
-"@silvermine/videojs-quality-selector@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@silvermine/videojs-quality-selector/-/videojs-quality-selector-1.3.0.tgz#6527d73929edea60419b0a189d4babbc21cb2600"
-  integrity sha512-Ps63kVXHyod0vNEEtogkVtE+8I6ozMTcRowAPqKF1Ggjr0yl7d8L2fGCnHL919MV2tBRVxnGpYaMmVVcRq6Hjw==
+"@silvermine/videojs-quality-selector@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@silvermine/videojs-quality-selector/-/videojs-quality-selector-1.3.1.tgz#23307dd3d5be442f7aa127c01820f16a3d9476a3"
+  integrity sha512-uo6gs2HVG2TD0bpZAl0AT6RkDXzk9PnAxtmmW5zXexa2uJvkdFT64QvJoMlEUd2FUUwqYqqAuWGFDJdBh5+KcQ==
   dependencies:
     underscore "1.13.1"
 
