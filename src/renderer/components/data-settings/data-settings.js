@@ -4,6 +4,7 @@ import { mapActions, mapMutations } from 'vuex'
 import FtButton from '../ft-button/ft-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
@@ -27,7 +28,8 @@ export default defineComponent({
     'ft-settings-section': FtSettingsSection,
     'ft-button': FtButton,
     'ft-flex-box': FtFlexBox,
-    'ft-prompt': FtPrompt
+    'ft-prompt': FtPrompt,
+    'ft-toggle-switch': FtToggleSwitch,
   },
   data: function () {
     return {
@@ -38,7 +40,9 @@ export default defineComponent({
         'youtube',
         'youtubeold',
         'newpipe'
-      ]
+      ],
+
+      shouldExportPlaylistForOlderVersions: false,
     }
   },
   computed: {
@@ -1013,6 +1017,55 @@ export default defineComponent({
       }
 
       await this.promptAndWriteToFile(options, JSON.stringify(this.allPlaylists), 'All playlists has been successfully exported')
+    },
+
+    exportPlaylistsForOlderVersionsSometimes: function () {
+      if (this.shouldExportPlaylistForOlderVersions) {
+        this.exportPlaylistsForOlderVersions()
+      } else {
+        this.exportPlaylists()
+      }
+    },
+
+    exportPlaylistsForOlderVersions: async function () {
+      const dateStr = getTodayDateStrLocalTimezone()
+      const exportFileName = 'freetube-playlists-for-single-favorites-playlist-' + dateStr + '.db'
+
+      const options = {
+        defaultPath: exportFileName,
+        filters: [
+          {
+            name: 'Database File',
+            extensions: ['db']
+          }
+        ]
+      }
+
+      const favoritesPlaylistData = {
+        playlistName: 'Favorites',
+        protected: true,
+        videos: [],
+      }
+
+      this.allPlaylists.forEach((playlist) => {
+        playlist.videos.forEach((video) => {
+          const videoAlreadyAdded = favoritesPlaylistData.videos.some((v) => {
+            return v.videoId === video.videoId
+          })
+          if (videoAlreadyAdded) { return }
+
+          favoritesPlaylistData.videos.push(
+            Object.assign({
+              // The "required" keys during import (but actually unused) in older versions
+              isLive: false,
+              paid: false,
+              published: '',
+            }, video)
+          )
+        })
+      })
+
+      await this.promptAndWriteToFile(options, JSON.stringify([favoritesPlaylistData]), 'All playlists has been successfully exported')
     },
 
     convertOldFreeTubeFormatToNew(oldData) {

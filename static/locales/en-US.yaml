@@ -470,6 +470,13 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
+    Export Playlists For Older FreeTube Versions:
+      Label: Export Playlists For Older FreeTube Versions
+      Tooltip: Older FreeTube versions cannot import playlist exports from newer versions
+        due to old code and assumption on single playlist.
+        Enable this option & export playlists if you intend to downgrade FreeTube.
+        You should also remove all playlists after export & before downgrade
+        to ensure that the older versions of FreeTube would regenerate playlist data compatible for those versions.
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
