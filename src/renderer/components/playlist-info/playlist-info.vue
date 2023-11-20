@@ -26,7 +26,6 @@
         v-if="editMode"
         ref="playlistTitleInput"
         :placeholder="$t('User Playlists.Playlist Name')"
-        :input-tabindex="0"
         :show-action-button="false"
         :show-label="false"
         :value="newTitle"
@@ -54,7 +53,6 @@
     <ft-input
       v-if="editMode"
       :placeholder="$t('User Playlists.Playlist Description')"
-      :input-tabindex="0"
       :show-action-button="false"
       :show-label="false"
       :value="newDescription"

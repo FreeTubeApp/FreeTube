@@ -45,7 +45,6 @@
         :value="inputDataDisplayed"
         :list="idDataList"
         class="ft-input"
-        :tabindex="inputTabindex >= -1 ? inputTabindex : null"
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"

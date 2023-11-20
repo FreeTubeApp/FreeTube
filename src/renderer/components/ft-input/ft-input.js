@@ -61,12 +61,7 @@ export default defineComponent({
     tooltip: {
       type: String,
       default: ''
-    },
-    inputTabindex: {
-      type: Number,
-      // Relies on template to not output tabindex on values < -1
-      default: -2,
-    },
+    }
   },
   data: function () {
     let actionIcon = ['fas', 'search']

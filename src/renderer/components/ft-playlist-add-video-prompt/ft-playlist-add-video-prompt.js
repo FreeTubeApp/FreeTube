@@ -40,7 +40,6 @@ export default defineComponent({
       updateQueryDebounce: function() {},
       lastShownAt: Date.now(),
       lastActiveElement: null,
-      interactionsLocked: false,
       sortBy: SORT_BY_VALUES.LatestUpdatedFirst,
     }
   },
@@ -114,10 +113,6 @@ export default defineComponent({
 
         return playlist.playlistName.toLowerCase().includes(this.processedQuery)
       })
-    },
-
-    tabindex() {
-      return this.interactionsLocked ? -1 : 0
     },
 
     sortBySelectNames() {

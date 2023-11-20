@@ -9,7 +9,6 @@
       <ft-input
         ref="playlistNameInput"
         :placeholder="$t('User Playlists.Playlist Name')"
-        :input-tabindex="0"
         :show-action-button="false"
         :show-label="false"
         :value="playlistName"
