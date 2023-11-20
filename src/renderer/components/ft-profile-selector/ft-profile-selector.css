@@ -27,7 +27,7 @@
   inset-block-start: 60px;
   inset-inline-end: 10px;
   min-inline-size: 250px;
-  block-size: 400px;
+  block-size: auto;
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
@@ -35,8 +35,10 @@
 
 .profileWrapper {
   margin-block-start: 60px;
-  block-size: 340px;
+  block-size: auto;
   overflow-y: auto;
+  max-block-size: calc(90vh - 100px);
+  min-block-size: 340px;
 }
 
 .profile {
