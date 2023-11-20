@@ -1,9 +1,3 @@
-.card {
-  inline-size: 85%;
-  margin-block: 0 60px;
-  margin-inline: auto;
-}
-
 .message {
   color: var(--tertiary-text-color);
 }
@@ -11,6 +5,23 @@
 .profileList {
   max-inline-size: 1000px;
   margin-block: 0 10px;
+  margin-inline: auto;
+}
+
+.profileList > .openedProfile {
+  background-color: var(--primary-text-color);
+  transition: background 0.2s ease-out;
+  color: var(--card-bg-color);
+}
+
+.profileList > .openedProfile:hover, .profileList > .openedProfile:focus-visible {
+  background-color: var(--tertiary-text-color);
+  transition: background 0.2s ease-in;
+}
+
+.card {
+  inline-size: 85%;
+  margin-block: 0 15px;
   margin-inline: auto;
 }
 

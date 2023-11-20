@@ -78,7 +78,7 @@ export default defineComponent({
         if (targetProfile) {
           this.updateActiveProfile(targetProfile._id)
 
-          showToast(this.$t('Profile.{profile} is now the active profile', { profile: profile.name }))
+          showToast(this.$t('Profile.{profile} is now the active profile', { profile: this.translatedProfileName(profile) }))
         }
       }
 

@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtProfileBubble from '../../components/ft-profile-bubble/ft-profile-bubble.vue'
@@ -24,29 +25,36 @@ export default defineComponent({
   },
   data: function () {
     return {
-      isOpenProfileNew: false,
+      isNewProfileOpen: false,
+      openSettingsProfileId: null,
       openSettingsProfile: null
     }
   },
   computed: {
+    ...mapGetters([
+      'profileById'
+    ]),
     profileList: function () {
       return this.$store.getters.getProfileList
     },
     isMainProfile: function () {
-      return this.profileId === MAIN_PROFILE_ID
+      return this.openSettingsProfileId === MAIN_PROFILE_ID
     }
   },
+  watch: {
+    profileList: {
+      handler: function () {
+        this.openSettingsProfile = this.getProfileById(this.openSettingsProfileId)
+      },
+      deep: true
+    }
+  },
+  mounted: function () {
+    this.deletePromptLabel = `${this.$t('Profile.Are you sure you want to delete this profile?')} ${this.$t('Profile["All subscriptions will also be deleted."]')}`
+  },
   methods: {
-    newProfile: function () {
-      this.$router.push({
-        path: '/settings/profile/new/'
-      })
-    },
     openSettingsForNewProfile: function () {
-      if (this.isOpenProfileNew) {
-        return
-      }
-      this.isOpenProfileNew = true
+      this.isNewProfileOpen = true
       const bgColor = getRandomColor()
       const textColor = calculateColorLuminance(bgColor)
       this.openSettingsProfile = {
@@ -55,10 +63,31 @@ export default defineComponent({
         textColor: textColor,
         subscriptions: []
       }
+      this.openSettingsProfileId = -1
     },
-    openSettingsForProfile: function (profile) {
-      this.isOpenProfileNew = false
-      this.openSettingsProfile = profile
+    openSettingsForProfileWithId: function (profileId) {
+      if (this.profileId === this.openSettingsProfileId) {
+        return
+      }
+      this.isNewProfileOpen = false
+      this.openSettingsProfileId = profileId
+      this.openSettingsProfile = this.getProfileById(profileId)
+    },
+    getProfileById: function (profileId) {
+      if (!profileId) {
+        return null
+      }
+
+      return this.profileById(profileId)
+    },
+    handleNewProfileCreated: function () {
+      this.isNewProfileOpen = false
+      this.openSettingsProfile = null
+      this.openSettingsProfileId = -1
+    },
+    handleProfileDeleted: function () {
+      this.openSettingsProfile = null
+      this.openSettingsProfileId = -1
     }
   }
 })

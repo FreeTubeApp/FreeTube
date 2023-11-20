@@ -36,12 +36,12 @@
             :disabled="true"
           />
         </div>
-        <div>
+        <div class="secondEditRow">
           <div>
             <h3>{{ editOrCreateProfileNameLabel }}</h3>
             <ft-input
               class="profileName"
-              :placeholder="editOrCreateProfileNameLabel"
+              :placeholder="$t('Profile.Profile Name')"
               :disabled="isMainProfile"
               :value="translatedProfileName"
               :show-action-button="false"

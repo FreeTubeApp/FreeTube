@@ -83,7 +83,7 @@ export default defineComponent({
     }
   },
   created: function () {
-    this.profileId = this.$route.params.id
+    this.profileId = this.profile._id
     this.profileName = this.profile.name
     this.profileBgColor = this.profile.bgColor
     this.profileTextColor = this.profile.textColor
@@ -120,9 +120,7 @@ export default defineComponent({
       if (this.isNew) {
         this.createProfile(profile)
         showToast(this.$t('Profile.Profile has been created'))
-        this.$router.push({
-          path: '/settings/profile/'
-        })
+        this.$emit('new-profile-created')
       } else {
         this.updateProfile(profile)
         showToast(this.$t('Profile.Profile has been updated'))
@@ -150,9 +148,7 @@ export default defineComponent({
         showToast(this.$t('Profile.Your default profile has been changed to your primary profile'))
       }
 
-      this.$router.push({
-        path: '/settings/profile/'
-      })
+      this.$emit('profile-deleted')
     },
 
     ...mapActions([

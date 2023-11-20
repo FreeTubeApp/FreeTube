@@ -8,6 +8,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import { deepCopy, showToast } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default defineComponent({
   name: 'FtProfileFilterChannelsList',
@@ -42,14 +43,14 @@ export default defineComponent({
       return this.$store.getters.getProfileList
     },
     profileNameList: function () {
-      return this.profileList.flatMap((profile) => profile.name !== this.profile.name ? [profile.name] : [])
+      return this.profileList.flatMap((profile) => profile.name !== this.profile.name ? [this.translatedProfileName(profile)] : [])
     },
     selectedText: function () {
       return this.$t('Profile.{number} selected', { number: this.selectedLength })
     },
     locale: function () {
       return this.$i18n.locale.replace('_', '-')
-    },
+    }
   },
   watch: {
     profile: 'updateChannelList',
@@ -152,6 +153,10 @@ export default defineComponent({
       this.selectedLength = this.channels.filter((channel) => {
         return channel.selected
       }).length
+    },
+
+    translatedProfileName: function (profile) {
+      return profile._id === MAIN_PROFILE_ID ? this.$t('Profile.All Channels') : profile.name
     },
 
     ...mapActions([
