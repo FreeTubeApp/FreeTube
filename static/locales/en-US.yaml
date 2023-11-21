@@ -628,6 +628,8 @@ Video:
   Copy YouTube Channel Link: Copy YouTube Channel Link
   Open Channel in Invidious: Open Channel in Invidious
   Copy Invidious Channel Link: Copy Invidious Channel Link
+  Hide Channel: Hide Channel
+  Unhide Channel: Show Channel
   Views: Views
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
@@ -925,6 +927,8 @@ Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
 Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
+Channel Hidden: '{channel} added to channel filter'
+Channel Unhidden: '{channel} removed from channel filter'
 
 Hashtag:
   Hashtag: Hashtag
