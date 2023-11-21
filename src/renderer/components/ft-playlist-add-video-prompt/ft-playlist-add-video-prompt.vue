@@ -38,7 +38,7 @@
           class="playlist-selector-container"
         >
           <ft-playlist-selector
-            :tabindex="tabindex"
+            tabindex="0"
             :data="playlist"
             :index="index"
             :selected="selectedPlaylistIdList.includes(playlist._id)"
@@ -51,17 +51,17 @@
       <ft-flex-box>
         <ft-button
           :label="$t('User Playlists.Create New Playlist')"
-          :tabindex="tabindex"
+          tabindex="0"
           @click="openCreatePlaylistPrompt"
         />
         <ft-button
           :label="$t('User Playlists.AddVideoPrompt.Save')"
-          :tabindex="tabindex"
+          tabindex="0"
           @click="addSelectedToPlaylists"
         />
         <ft-button
           :label="$t('User Playlists.Cancel')"
-          :tabindex="tabindex"
+          tabindex="0"
           @click="hide"
         />
       </ft-flex-box>
