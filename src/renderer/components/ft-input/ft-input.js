@@ -315,10 +315,6 @@ export default defineComponent({
       this.$refs.input.focus()
     },
 
-    isFocused() {
-      return document.activeElement === this.$refs.input
-    },
-
     select() {
       this.$refs.input.select()
     },
