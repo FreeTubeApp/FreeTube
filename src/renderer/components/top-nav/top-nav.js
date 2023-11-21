@@ -205,7 +205,7 @@ export default defineComponent({
       this.showFilters = false
     },
 
-    focusSearch: function (select) {
+    focusSearch: function () {
       if (!this.hideSearchBar) {
         // In order to prevent Klipper's "Synchronize contents of the clipboard
         // and the selection" feature from being triggered when running
@@ -213,15 +213,9 @@ export default defineComponent({
         // select() have to be called asynchronously (see issue #2019).
         setTimeout(() => {
           this.$refs.searchInput.focus()
-          if (select) {
-            this.$refs.searchInput.select()
-          }
+          this.$refs.searchInput.select()
         }, 0)
       }
-    },
-
-    isSearchFocused: function () {
-      return this.$refs.searchInput.isFocused()
     },
 
     getSearchSuggestionsDebounce: function (query) {
