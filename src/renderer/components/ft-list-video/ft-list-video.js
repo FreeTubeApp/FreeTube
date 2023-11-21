@@ -272,8 +272,25 @@ export default defineComponent({
             {
               label: this.$t('Video.Open Channel in Invidious'),
               value: 'openInvidiousChannel'
+            },
+            {
+              type: 'divider'
             }
           )
+
+          const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+          const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
+          if (channelShouldBeHidden) {
+            options.push({
+              label: this.$t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            })
+          } else {
+            options.push({
+              label: this.$t('Video.Hide Channel'),
+              value: 'hideChannel'
+            })
+          }
         }
       }
 
@@ -509,6 +526,12 @@ export default defineComponent({
         case 'openInvidiousChannel':
           openExternalLink(this.invidiousChannelUrl)
           break
+        case 'hideChannel':
+          this.hideChannel(this.channelName, this.channelId)
+          break
+        case 'unhideChannel':
+          this.unhideChannel(this.channelName, this.channelId)
+          break
       }
     },
 
@@ -684,10 +707,26 @@ export default defineComponent({
       }
     },
 
+    hideChannel: function(channelName, channelId) {
+      const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+      hiddenChannels.push(channelId)
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels))
+
+      showToast(this.$t('Channel Hidden', { channel: channelName }))
+    },
+
+    unhideChannel: function(channelName, channelId) {
+      const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+      this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c !== channelId)))
+
+      showToast(this.$t('Channel Unhidden', { channel: channelName }))
+    },
+
     ...mapActions([
       'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
+      'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
     ])
   }
