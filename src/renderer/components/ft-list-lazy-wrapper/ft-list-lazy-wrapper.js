@@ -66,7 +66,6 @@ export default defineComponent({
       })
     },
     forbiddenVideoTitleText: function() {
-      if (!this.hideVideosWithForbiddenTextInTitle) { return [] }
       return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
     },
     hideUpcomingPremieres: function () {
