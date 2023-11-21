@@ -420,7 +420,7 @@ Settings:
     Hide Chapters: Ocultar los capítulos
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar los vídeos de los canales
-    Hide Channels Placeholder: Nombre o ID del canal
+    Hide Channels Placeholder: ID del canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
       mayúsculas
     Hide Featured Channels: Ocultar los canales recomendados
@@ -441,6 +441,12 @@ Settings:
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
     Blur Thumbnails: Difuminar las miniaturas
     Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
+    Hide Channels Invalid: El ID del canal proporcionado no es válido
+    Hide Channels Disabled Message: Algunos canales se bloquearon por ID y no se procesaron.
+      La función está bloqueada mientras se actualizan esos ID
+    Hide Channels Already Exists: El ID del canal ya existe
+    Hide Channels API Error: Error al recuperar el usuario con el ID proporcionado.
+      Por favor, compruebe de nuevo si el ID es correcto.
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -996,10 +1002,10 @@ Tooltips:
       una caché para la imagen en la memoria personalizada. Esto aumentará el uso
       de la memoria RAM.
   Distraction Free Settings:
-    Hide Channels: Ingresa un nombre del canal o un ID del canal para ocultar todos
-      los videos, listas de reproducción y el propio canal para que no aparezcan en
-      la búsqueda, tendencias, más populares y recomendados. El nombre del canal ingresado
-      debe ser una coincidencia completa y distinguir entre mayúsculas y minúsculas.
+    Hide Channels: Introduzca un ID del canal para ocultar todos los vídeos, listas
+      de reproducción y el propio canal para que no aparezcan en las búsquedas, tendencias,
+      más populares y recomendados. El ID del canal introducido debe coincidir completamente
+      y se debe distinguir entre mayúsculas y minúsculas.
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
   SponsorBlock Settings:
@@ -1066,3 +1072,4 @@ Playlist will pause when current video is finished: La lista de reproducción se
   cuando termine el vídeo actual
 Playlist will not pause when current video is finished: La lista de reproducción no
   se detendrá cuando termine el vídeo actual
+Go to page: Ir a la {page}

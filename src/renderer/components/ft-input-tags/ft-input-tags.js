@@ -58,7 +58,7 @@ export default defineComponent({
         await this.updateChannelTags(text, _e)
         return
       }
-      // text entered add tag and update tag list
+      // add tag and update tag list
       const trimmedText = text.trim()
       if (!this.tagList.includes(trimmedText)) {
         const newList = this.tagList.slice(0)
@@ -69,8 +69,8 @@ export default defineComponent({
       this.$refs.tagNameInput.handleClearTextClick()
     },
     updateChannelTags: async function (text, _e) {
-      // text entered add tag and update tag list
-      const name = text.trim()
+      // get text without spaces after last '/' in url, if any
+      const name = text.split('/').pop().trim()
 
       if (!this.validateTagName(name)) {
         this.$emit('invalid-name')

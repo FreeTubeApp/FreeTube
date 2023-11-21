@@ -3,7 +3,7 @@
     v-if="dataReady"
     id="app"
     :class="{
-      hideOutlines: hideOutlines,
+      hideOutlines: outlinesHidden,
       isLocaleRightToLeft: isLocaleRightToLeft
     }"
   >

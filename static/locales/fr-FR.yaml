@@ -439,7 +439,7 @@ Settings:
     Hide Chapters: Masquer les chapitres
     Hide Upcoming Premieres: Cacher les avant-premières à venir
     Hide Channels: Masquer les vidéos des chaînes
-    Hide Channels Placeholder: Nom ou identifiant de la chaîne
+    Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
       excessives
     Hide Channel Playlists: Masquer les listes de lecture des chaînes
@@ -460,6 +460,13 @@ Settings:
     Blur Thumbnails: Flouter les miniatures
     Hide Profile Pictures in Comments: Masquer les photos de profil dans les commentaires
     Hide Subscriptions Community: Masquer les communautés abonnées
+    Hide Channels Invalid: L'identifiant de la chaîne fourni n'est pas valide
+    Hide Channels Disabled Message: Certaines chaînes ont été bloquées à l'aide d'un
+      identifiant et n'ont pas été traitées. La fonctionnalité est bloquée tant que
+      ces identifiants sont mis à jour
+    Hide Channels Already Exists: L'identifiant de la chaîne existe déjà
+    Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant
+      fourni. Veuillez vérifier à nouveau si l'ID est correct.
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -1038,11 +1045,10 @@ Tooltips:
       un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de
       l'utilisation de la mémoire vive.
   Distraction Free Settings:
-    Hide Channels: Entrez un nom de chaîne ou un identifiant de chaîne pour empêcher
-      toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître
-      dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés.
-      Le nom de la chaîne entré doit correspondre exactement et est sensible à la
-      casse.
+    Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos,
+      les listes de lecture et la chaîne elle-même d'apparaître dans les recherches,
+      dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant
+      de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} »
       applicable à l'ensemble de l'application, dans la section « {subsection} » de
       la section « {settingsSection} »

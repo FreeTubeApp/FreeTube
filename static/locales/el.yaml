@@ -161,6 +161,7 @@ Settings:
       Middle: 'Μέση'
       End: 'Τέλος'
       Hidden: Κρυμμένο
+      Blur: ''
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Διακομιστής
       Invidious (προεπιλογή https://invidious.snopyta.org)'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
