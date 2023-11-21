@@ -54,7 +54,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      visible: false
+      visible: false,
+      display: 'block'
     }
   },
   computed: {
@@ -88,6 +89,8 @@ export default defineComponent({
     onVisibilityChanged: function (visible) {
       if (visible && this.shouldBeVisible) {
         this.visible = visible
+      } else if (visible) {
+        this.display = 'none'
       }
     }
   }
