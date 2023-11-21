@@ -64,6 +64,7 @@ export default defineComponent({
     },
 
     forbiddenTitles() {
+      if (!this.hideForbiddenTitles) { return [] }
       return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
 
