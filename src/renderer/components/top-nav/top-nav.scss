@@ -153,6 +153,16 @@
     padding-block: 0;
     padding-inline: 10px 25px;
 
+    &:hover {
+      background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
+      transition: background 0.2s ease-in;
+
+      @include top-nav-is-colored {
+        background-color: var(--primary-color-hover);
+      }
+    }
+
     &:active {
       background-color: var(--tertiary-text-color);
       transition: background 0.2s ease-in;

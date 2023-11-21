@@ -106,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Tellimuste vahekaardid
   All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu
     nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
+  Load More Posts: Lisa järgmised postitused
+  Empty Posts: Sinu tellitud kanalites hetkel pole ühtegi postitust.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -159,6 +161,7 @@ Settings:
       Middle: 'Keskel'
       End: 'Lõpus'
       Hidden: Peidetud
+      Blur: Hägusta pildid
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious''e
       veebirakendus (vaikimisi kasutatav sait on https://invidious.snopyta.org)'
     Region for Trending: 'Mis geograafia alusel tuvastame hetkel menukad ehk populaarsust
@@ -388,7 +391,7 @@ Settings:
     Hide Upcoming Premieres: Peida tulevased esilinastused
     Hide Chapters: Peida peatükid
     Hide Channels: Peida kanalites leiduvad videod
-    Hide Channels Placeholder: Kanali nimi või tunnus
+    Hide Channels Placeholder: Kanali tunnus
     Display Titles Without Excessive Capitalisation: Näita pealkirju ilma liigsete
       suurtähtedeta
     Sections:
@@ -408,6 +411,14 @@ Settings:
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
     Blur Thumbnails: Hägusta pisipildid
+    Hide Subscriptions Community: Peida tellijate loend
+    Hide Channels Invalid: Sisestatud kanali tunnus on vigane
+    Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel
+      ja nende andmeid ei töödelda. See funktsionaalsus pole kasutusel, kui nendes
+      kanalites toimub muutusi
+    Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
+    Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete
+      laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -915,10 +926,10 @@ Tooltips:
     Skip by Scrolling Over Video Player: MPV-stiilis video läbilappamiseks kasuta
       hiire ratast.
   Distraction Free Settings:
-    Hide Channels: Sisesta kanali nimi või kanali ID, et kõik videod, esitusloendid
-      ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote
-      ja populaarsust koguvate videote vaates. Sisestatud kanali nimi peab otsingule
-      vastama täielikult ja on tõstutundlik.
+    Hide Channels: Sisesta kanali tunnus, et kõik videod, esitusloendid ja kanal ise
+      ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote ja populaarsust
+      koguvate videote vaates. Sisestatud kanali tunnus peab otsingule vastama täpselt
+      ja on tõstutundlik.
     Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“
       seadistus „{subsection}“/„{settingsSection}“
   Experimental Settings:

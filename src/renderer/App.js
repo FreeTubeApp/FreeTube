@@ -10,7 +10,7 @@ import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
-import { Injectables, IpcChannels } from '../constants'
+import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
@@ -30,15 +30,9 @@ export default defineComponent({
     FtToast,
     FtProgressBar
   },
-  provide: function () {
-    return {
-      [Injectables.SHOW_OUTLINES]: this.showOutlines
-    }
-  },
   data: function () {
     return {
       dataReady: false,
-      hideOutlines: true,
       showUpdatesBanner: false,
       showBlogBanner: false,
       showReleaseNotes: false,
@@ -58,6 +52,9 @@ export default defineComponent({
   computed: {
     showProgressBar: function () {
       return this.$store.getters.getShowProgressBar
+    },
+    outlinesHidden: function () {
+      return this.$store.getters.getOutlinesHidden
     },
     isLocaleRightToLeft: function () {
       return this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' ||
@@ -111,6 +108,10 @@ export default defineComponent({
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     },
 
+    landingPage: function() {
+      return '/' + this.$store.getters.getLandingPage
+    },
+
     externalLinkOpeningPromptNames: function () {
       return [
         this.$t('Yes'),
@@ -140,7 +141,7 @@ export default defineComponent({
     $route () {
       // react to route changes...
       // Hide top nav filter panel on page change
-      this.$refs.topNav.hideFilters()
+      this.$refs.topNav?.hideFilters()
     }
   },
   created () {
@@ -182,7 +183,13 @@ export default defineComponent({
       })
 
       this.$router.afterEach((to, from) => {
-        this.$refs.topNav.navigateHistory()
+        this.$refs.topNav?.navigateHistory()
+      })
+
+      this.$router.onReady(() => {
+        if (this.$router.currentRoute.path !== this.landingPage && this.landingPage !== '/subscriptions') {
+          this.$router.push({ path: this.landingPage })
+        }
       })
     })
   },
@@ -295,7 +302,7 @@ export default defineComponent({
     activateKeyboardShortcuts: function () {
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
-        this.hideOutlines = true
+        this.hideOutlines()
       })
     },
 
@@ -320,7 +327,7 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'Tab':
-          this.hideOutlines = false
+          this.showOutlines()
           break
         case 'L':
         case 'l':
@@ -530,15 +537,6 @@ export default defineComponent({
       }
     },
 
-    /**
-     * provided to all child components, see `provide` near the top of this file
-     * after injecting it, they can show outlines during keyboard navigation
-     * e.g. cycling through tabs with the arrow keys
-     */
-    showOutlines: function () {
-      this.hideOutlines = false
-    },
-
     ...mapMutations([
       'setInvidiousInstancesList'
     ]),
@@ -556,7 +554,9 @@ export default defineComponent({
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
-      'selectAllVideosInSelectionMode'
+      'selectAllVideosInSelectionMode',
+      'showOutlines',
+      'hideOutlines'
     ])
   }
 })

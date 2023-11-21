@@ -44,6 +44,7 @@ Global:
     View Count: 1 weergave | {count} weergaven
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
+  Community: Gemeenschap
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -102,6 +103,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle abonnementstabbladen zijn verborgen. Om de inhoud
     hier te zien moet u enkele tabbladen zichtbaar maken in de sectie ‘{subsection}’
     onder ‘{settingsSection}’.
+  Load More Posts: Meer berichten laden
+  Empty Posts: De kanalen waarop u geabonneerd bent hebben momenteel geen berichten.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Tending-tabbladen
@@ -409,7 +412,7 @@ Settings:
     Hide Active Subscriptions: Actieve abonnementen verbergen
     Hide Playlists: Afspeellijsten verbergen
     Hide Sharing Actions: Verberg knoppen om te delen
-    Hide Video Description: Verberg de beschrijving van de video
+    Hide Video Description: Video-omschrijving verbergen
     Hide Comments: Opmerkingen verbergen
     Hide Live Streams: Verberg rechtstreekse uitzendingen
     Display Titles Without Excessive Capitalisation: Toon titels zonder overmatig
@@ -435,6 +438,7 @@ Settings:
     Hide Channel Shorts: Kanaal-Shorts verbergen
     Hide Subscriptions Shorts: Abonnement-Shorts verbergen
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
+    Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: De
     app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
     opnieuw starten en veranderingen toepassen?
@@ -951,6 +955,8 @@ Tooltips:
       van de standaard methode om de videolijsten van je abonnementen te verzamelen.
       RSS is sneller en voorkomt dat je IP wordt geblokkeerd maar geeft geen toegang
       tot sommige informatie zoals de videoduur en live-status
+    Fetch Automatically: Indien ingeschakeld, haalt FreeTube automatisch uw abonnementen­feed
+      op wanneer een nieuw venster wordt geopend en wanneer u van profiel verandert.
   General Settings:
     Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden
       om API calls te maken.
@@ -980,8 +986,8 @@ Tooltips:
       videospeler kan worden benaderd via het PATH omgevingsvariabele. Wanneer nodig
       kan er hier een aangepast pad worden ingevoerd.
     External Player: 'Door het kiezen van een externe videospeler zal er een icoontje
-      verschijnen op het thumbnail waarmee de video (of afspeellijst indien ondersteund)
-      in de gekozen externe videospeler kan worden geopend. Let op: Invidious instellingen
+      verschijnen op de miniatuur waarmee de video (of afspeellijst indien ondersteund)
+      in de gekozen externe videospeler kan worden geopend. Let op: Invidious-instellingen
       beïnvloeden externe videospelers niet.'
     DefaultCustomArgumentsTemplate: "(standaard: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
@@ -989,9 +995,15 @@ Tooltips:
       en het kanaal zelf te verbergen zodat ze niet worden weergegeven in zoeken,
       trending, populairst en aanbevolen. De ingevoerde kanaalnaam moet volledig overeenkomen
       en is hoofdlettergevoelig.
+    Hide Subscriptions Live: Deze instelling wordt overschreven door de app-brede
+      instelling ‘{appWideSetting}’, in het gedeelte ‘{subsection}’ van ‘{settingsSection}’
   SponsorBlock Settings:
     UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van
       DeArrow.
+  Experimental Settings:
+    Replace HTTP Cache: Schakelt de schijfgebaseerde HTTP-cache van Electron uit en
+      schakelt een aangepaste afbeeldings­cache in het geheugen in. Zal leiden tot
+      een verhoogd RAM-gebruik.
 Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
   | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.

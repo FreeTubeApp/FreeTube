@@ -169,7 +169,7 @@ export default defineComponent({
     },
 
     dropdownOptions: function () {
-      return getVideoDropdownOptions(...this.videoDropdownOptionArguments.slice(1))
+      return getVideoDropdownOptions(...this.videoDropdownOptionArguments)
     },
 
     thumbnail: function () {
@@ -300,15 +300,25 @@ export default defineComponent({
       const savedVideosCount = this.inFavoritesPlaylist ? 1 : 0
       const unsavedVideosCount = count - savedVideosCount
 
+      const channelsHidden = JSON.parse(this.$store.getters.getChannelsHidden)
+      const hiddenChannels = new Set()
+      const unhiddenChannels = new Set()
+      if (channelsHidden.includes(this.channelId)) {
+        hiddenChannels.add(this.channelId)
+      } else {
+        unhiddenChannels.add(this.channelId)
+      }
+
       return [
-        videoComponents,
         count,
         watchedVideosCount,
         unwatchedVideosCount,
         savedVideosCount,
         unsavedVideosCount,
         videosWithChannelIdsCount,
-        this.hideSharingActions
+        hiddenChannels,
+        unhiddenChannels,
+        videoComponents
       ]
     }
   },
@@ -343,7 +353,7 @@ export default defineComponent({
       const videoId = this.id
       const data = await deArrowData(this.id)
       const cacheData = { videoId, title: null }
-      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes > 0)) {
+      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes >= 0)) {
         cacheData.title = data.titles[0].title
       }
 
@@ -388,7 +398,8 @@ export default defineComponent({
     },
 
     handleOptionsClick: function (option) {
-      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments)
+      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments,
+        (channelsHidden) => this.updateChannelsHidden(channelsHidden))
     },
 
     parseVideoData: function () {
@@ -522,7 +533,6 @@ export default defineComponent({
         watchProgress: 0,
         timeWatched: new Date().getTime(),
         isLive: false,
-        paid: false,
         type: 'video'
       }
       this.updateHistory(videoData)
@@ -557,8 +567,7 @@ export default defineComponent({
         lengthSeconds: this.data.lengthSeconds,
         timeAdded: new Date().getTime(),
         isLive: false,
-        paid: false,
-        type: 'video'
+        type: 'video',
       }
 
       const payload = {
@@ -613,6 +622,18 @@ export default defineComponent({
       this.clearSelectionModeSelections()
     },
 
+    hideChannel: function (hiddenChannels) {
+      if (!hiddenChannels.includes(this.channelId)) {
+        return
+      }
+
+      hiddenChannels.push(this.channelId)
+    },
+
+    unhideChannel: function (hiddenChannels) {
+      hiddenChannels = hiddenChannels.filter(c => c !== this.channelId)
+    },
+
     ...mapActions([
       'openInExternalPlayer',
       'updateHistory',
@@ -620,7 +641,8 @@ export default defineComponent({
       'addVideo',
       'removeVideo',
       'clearSelectionModeSelections',
-      'removeFromSelectionModeSelections'
+      'removeFromSelectionModeSelections',
+      'updateChannelsHidden'
     ])
   }
 })

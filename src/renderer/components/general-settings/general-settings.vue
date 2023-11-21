@@ -43,7 +43,6 @@
         @change="handlePreferredApiBackend"
       />
       <ft-select
-        v-if="false"
         :placeholder="$t('Settings.General Settings.Default Landing Page')"
         :value="landingPage"
         :select-names="defaultPageNames"
@@ -63,7 +62,7 @@
         :select-names="thumbnailTypeNames"
         :select-values="thumbnailTypeValues"
         :tooltip="$t('Tooltips.General Settings.Thumbnail Preference')"
-        @change="updateThumbnailPreference"
+        @change="handleThumbnailPreferenceChange"
       />
       <ft-select
         :placeholder="$t('Settings.General Settings.Locale Preference')"

@@ -108,6 +108,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да виждате
     съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}"
     на "{settingsSection}".
+  Load More Posts: Зареждане на още публикации
+  Empty Posts: В момента в абонираните от вас канали няма публикации.
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
@@ -441,6 +443,7 @@ Settings:
     Hide Channel Podcasts: Скриване на подкастите на канала
     Blur Thumbnails: Размазване на миниатюрите
     Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
+    Hide Subscriptions Community: Скриване на абонаментите Общност
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:

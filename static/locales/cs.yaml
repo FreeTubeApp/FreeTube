@@ -166,6 +166,7 @@ Settings:
       Middle: 'Střed'
       End: 'Konec'
       Hidden: Skryté
+      Blur: Rozmazané
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Instance Invidious
       (Výchozí je https://invidious.snopyta.org)'
     Region for Trending: 'Oblast pro trendy'
@@ -179,7 +180,7 @@ Settings:
       instance
     Current Invidious Instance: Současná instance Invidious
     No default instance has been set: Není nastavena žádná výchozí instance
-    The currently set default instance is {instance}: Současné výchozí instance je
+    The currently set default instance is {instance}: Aktuální výchozí instance je
       {instance}
     External Link Handling:
       No Action: Žádná akce
@@ -345,7 +346,7 @@ Settings:
     Hide Chapters: Skrýt kapitoly
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
     Hide Channels: Skrýt videa z kanálů
-    Hide Channels Placeholder: Název nebo ID kanálu
+    Hide Channels Placeholder: ID kanálu
     Display Titles Without Excessive Capitalisation: Zobrazit názvy bez nadměrného
       použití velkých písmen
     Hide Featured Channels: Skrýt doporučené kanály
@@ -366,6 +367,12 @@ Settings:
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
     Blur Thumbnails: Rozmazat náhledy
     Hide Subscriptions Community: Skrýt komunitu odběratelů
+    Hide Channels Invalid: Zadané ID kanálu je neplatné
+    Hide Channels Disabled Message: Některé kanály byly zablokovány pomocí ID a nebyly
+      zpracovány. Při aktualizaci těchto ID je funkce zablokována
+    Hide Channels Already Exists: ID kanálu již existuje
+    Hide Channels API Error: Chyba při načítání uživatele se zadaným ID. Zkontrolujte
+      prosím, zda je zadané ID správné.
   Data Settings:
     Data Settings: 'Nastavení dat'
     Select Import Type: 'Vybrat typ importu'
@@ -586,7 +593,7 @@ Profile:
   Your default profile has been changed to your primary profile: 'Váš výchozí profil
     byl změněn na primární profil'
   '{profile} is now the active profile': '{profile} je nyní aktivním profilem'
-  Subscription List: 'List odebíraných kanálů'
+  Subscription List: 'Seznam odebíraných kanálů'
   Other Channels: 'Ostatní kanály'
   '{number} selected': '{number} vybrán'
   Select All: 'Vybrat vše'
@@ -945,10 +952,9 @@ Tooltips:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní paměťovou
       mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
   Distraction Free Settings:
-    Hide Channels: Zadejte název nebo ID kanálu pro skrytí všech videí, playlistů
-      a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších
-      a doporučených. Zadaný název kanálu se musí zcela shodovat a rozlišují se v
-      něm velká a malá písmena.
+    Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného
+      kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených.
+      Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace
       „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
   SponsorBlock Settings:

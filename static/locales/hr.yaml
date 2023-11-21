@@ -101,6 +101,8 @@ Subscriptions:
   Subscriptions Tabs: Kartica pretplata
   All Subscription Tabs Hidden: Sve kartice pretplate su skrivene. Za prikaz sadržaja
     na ovom mjestu, sakrij neke kartice u odjeljku „{subsection}” u „{settingsSection}”.
+  Empty Posts: Kanali na koje si pretplaćen/a trenutačno nemaju objave.
+  Load More Posts: Učitaj još objava
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
@@ -153,6 +155,7 @@ Settings:
       Middle: 'Sredina'
       End: 'Kraj'
       Hidden: Skriveno
+      Blur: Neoštro
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious primjerak
       (standardno se koristi https://invidious.snopyta.org)'
     Region for Trending: 'Regija za videa u trendu'
@@ -416,7 +419,7 @@ Settings:
     Hide Chapters: Sakrij poglavlja
     Hide Upcoming Premieres: Sakrij nadolazeće premijere
     Hide Channels: Sakrij videa iz kanala
-    Hide Channels Placeholder: Ime kanala ili ID
+    Hide Channels Placeholder: ID kanala
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
       korištenja velikih slova
     Hide Featured Channels: Sakrij istaknute kanale
@@ -431,11 +434,18 @@ Settings:
       Subscriptions Page: Stranica pretplata
     Hide Channel Podcasts: Sakrij kanal podcastova
     Hide Channel Releases: Sakrij kanal izdanja
-    Hide Subscriptions Shorts: Sakrij kratka videa pretplate
-    Hide Subscriptions Live: Sakrij videa uživo pretplate
-    Hide Subscriptions Videos: Sakrij videa pretplate
+    Hide Subscriptions Shorts: Sakrij pretplate kratkih videa
+    Hide Subscriptions Live: Sakrij pretplate videa uživo
+    Hide Subscriptions Videos: Sakrij pretplate videa
     Blur Thumbnails: Zamuti minijature
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
+    Hide Subscriptions Community: Sakrij pretplate zajednice
+    Hide Channels Invalid: Navedeni ID kanala nije bio ispravan
+    Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu
+      obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
+    Hide Channels Already Exists: ID kanala već postoji
+    Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo
+      provjeri točnost ID-a.
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -984,9 +994,9 @@ Tooltips:
     Replace HTTP Cache: Deaktivira Electronovu HTTP predmemoriju temeljenu na disku
       i aktivira prilagođenu predmemoriju slika u memoriji. Povećava korištenje RAM-a.
   Distraction Free Settings:
-    Hide Channels: Upiši ime kanala ili ID kanala za skrivanje svih videa, zbirki
-      kao i samog kanala u pretrazi, trendovima popularnim i preporučenim. Upisano
-      ime kanala se mora potpuno poklapati i razlikuje velika i mala slova.
+    Hide Channels: Upiši ID kanala za skrivanje svih videa, zbirki kao i samog kanala
+      u prikazu pretrage, trendova, najpopularniji i preporučeni. Upisani ID kanala
+      se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava aplikacijska postavka „{appWideSetting}”,
       u odjeljku „{subsection}” u „{settingsSection}”
   SponsorBlock Settings:

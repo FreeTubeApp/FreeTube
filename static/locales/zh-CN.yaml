@@ -144,6 +144,7 @@ Settings:
       Middle: '中间'
       End: '结尾'
       Hidden: 隐藏缩略图
+      Blur: 模糊
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious实例（默认https://invidious.snopyta.org）'
     Region for Trending: '热门区域'
         #! List countries
@@ -384,7 +385,7 @@ Settings:
     Hide Chapters: 隐藏章节
     Hide Upcoming Premieres: 隐藏即将到来的首映
     Hide Channels: 隐藏频道中的视频
-    Hide Channels Placeholder: 频道名称或 ID
+    Hide Channels Placeholder: 频道ID
     Display Titles Without Excessive Capitalisation: 不用过度大写字母的方式显示标题名称
     Hide Featured Channels: 隐藏精选频道
     Hide Channel Playlists: 隐藏频道播放列表
@@ -404,6 +405,10 @@ Settings:
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
     Blur Thumbnails: 模糊缩略图
     Hide Subscriptions Community: 隐藏订阅社区
+    Hide Channels Invalid: 提供的频道 ID 无效
+    Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
+    Hide Channels Already Exists: 频道 ID 已存在
+    Hide Channels API Error: 获取 ID 为所提供值的用户出错。请再次检查 ID 是否正确。
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -876,7 +881,7 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: 禁用 Electron 基于磁盘的 HTTP 缓存，启用自定义内存中图像缓存。会增加内存的使用。
   Distraction Free Settings:
-    Hide Channels: 输入频道名称或频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道名称必须完全匹配，并且区分大小写。
+    Hide Channels: 输入频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道 ID 必须完全匹配，并且区分大小写。
     Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}"
       位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
   SponsorBlock Settings:
@@ -930,3 +935,4 @@ Hashtag:
   This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频
 Playlist will pause when current video is finished: 当前视频播完后播放列表会暂停
 Playlist will not pause when current video is finished: 当前视频播完后播放列表不会暂停
+Go to page: 转到页{page}

@@ -4,6 +4,7 @@ import { IpcChannels } from '../../constants'
 import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
+import store from '../store/index'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -12,6 +13,10 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
 const MAX_NEW_TABS = 15
+
+function hideSharingActions() {
+  return store.getters.getHideSharingActions
+}
 
 /**
  * @param {string} publishedText
@@ -683,7 +688,8 @@ export function getVideoDropdownOptions(
   savedVideosCount,
   unsavedVideosCount,
   videosWithChannelIdsCount,
-  hideSharingActions
+  hiddenChannels,
+  unhiddenChannels
 ) {
   const options = []
   if (count > 1) {
@@ -744,7 +750,7 @@ export function getVideoDropdownOptions(
     )
   }
 
-  if (!hideSharingActions) {
+  if (!hideSharingActions()) {
     options.push(
       {
         type: 'divider'
@@ -813,6 +819,26 @@ export function getVideoDropdownOptions(
           }
         )
       }
+
+      options.push(
+        {
+          type: 'divider'
+        }
+      )
+
+      if (hiddenChannels.size) {
+        options.push({
+          label: i18n.tc('Video.Unhide Channel', hiddenChannels.size, { count: hiddenChannels.size }),
+          value: 'unhideChannel'
+        })
+      }
+
+      if (unhiddenChannels.size) {
+        options.push({
+          label: i18n.tc('Video.Hide Channel', unhiddenChannels.size, { count: unhiddenChannels.size }),
+          value: 'hideChannel'
+        })
+      }
     }
   }
 
@@ -821,14 +847,18 @@ export function getVideoDropdownOptions(
 
 export function handleVideoDropdownOptionsClick(
   option,
-  videoComponents,
   count,
   watchedVideosCount,
   unwatchedVideosCount,
   savedVideosCount,
   unsavedVideosCount,
-  videosWithChannelIdsCount
+  videosWithChannelIdsCount,
+  hiddenChannels,
+  unhiddenChannels,
+  videoComponents,
+  updateChannelsHidden
 ) {
+  let channelsHidden = JSON.parse(store.getters.getChannelsHidden)
   switch (option) {
     case 'clear':
       videoComponents[0].clearSelectionModeSelections()
@@ -894,5 +924,47 @@ export function handleVideoDropdownOptionsClick(
       videoComponents.filter(videoComponent => videoComponent.channelId !== null)
         .forEach((videoComponent) => openExternalLink(videoComponent.invidiousChannelUrl))
       break
+    case 'hideChannel':
+      unhiddenChannels.forEach((channelId) => channelsHidden.push(channelId))
+      updateChannelsHidden(JSON.stringify(channelsHidden))
+      showToast(i18n.tc('Video.Channel Hidden', unhiddenChannels.size, { count: unhiddenChannels.size }))
+      break
+    case 'unhideChannel':
+      channelsHidden = channelsHidden.filter((channel) => !hiddenChannels.has(channel.name))
+      updateChannelsHidden(JSON.stringify(channelsHidden))
+      showToast(i18n.tc('Video.Channel Unhidden', hiddenChannels.size, { count: hiddenChannels.size }))
+      break
+  }
+}
+
+/**
+ * Check if the `name` of the error is `TimeoutError` to know if the error was caused by a timeout or something else.
+ * @param {number} timeoutMs
+ * @param {RequestInfo|URL} input
+ * @param {RequestInit=} init
+ */
+export async function fetchWithTimeout(timeoutMs, input, init) {
+  const timeoutSignal = AbortSignal.timeout(timeoutMs)
+
+  if (typeof init !== 'undefined') {
+    init.signal = timeoutSignal
+  } else {
+    init = {
+      signal: timeoutSignal
+    }
+  }
+
+  try {
+    return await fetch(input, init)
+  } catch (err) {
+    if (err.name === 'AbortError' && timeoutSignal.aborted) {
+      // According to the spec, fetch should use the original abort reason.
+      // Unfortunately chromium browsers always throw an AbortError, even when it was caused by a TimeoutError,
+      // so we need manually throw the original abort reason
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=1431720
+      throw timeoutSignal.reason
+    } else {
+      throw err
+    }
   }
 }

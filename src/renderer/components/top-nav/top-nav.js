@@ -46,6 +46,20 @@ export default defineComponent({
       return this.$store.getters.getHideHeaderLogo
     },
 
+    landingPage: function () {
+      return this.$store.getters.getLandingPage
+    },
+
+    headerLogoTitle: function () {
+      return this.$t('Go to page',
+        {
+          page: this.$t(this.$router.getRoutes()
+            .find((route) => route.path === '/' + this.landingPage)
+            .meta.title
+          )
+        })
+    },
+
     enableSearchSuggestions: function () {
       return this.$store.getters.getEnableSearchSuggestions
     },
@@ -119,20 +133,43 @@ export default defineComponent({
       const savedVideosCount = videoComponents.filter((videoComponent) => videoComponent.inFavoritesPlaylist).length
       const unsavedVideosCount = count - savedVideosCount
 
+      const channelsHidden = JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
+        // Legacy support
+        if (typeof ch === 'string') {
+          return { name: ch, preferredName: '', icon: '' }
+        }
+        return ch
+      })
+
+      const hiddenChannels = new Set()
+      const unhiddenChannels = new Set()
+      videoComponents.forEach((videoComponent) => {
+        const channelIdentifier = channelsHidden.find(ch => ch.name === videoComponent.channelId)?.name ??
+          channelsHidden.find(ch => ch.name === videoComponent.channelName)?.name
+        if (channelIdentifier) {
+          if (!hiddenChannels.has(channelIdentifier)) {
+            hiddenChannels.add(channelIdentifier)
+          }
+        } else if (!unhiddenChannels.has(videoComponent.channelId)) {
+          unhiddenChannels.add(videoComponent.channelId)
+        }
+      })
+
       return [
-        videoComponents,
         count,
         watchedVideosCount,
         unwatchedVideosCount,
         savedVideosCount,
         unsavedVideosCount,
         videosWithChannelIdsCount,
-        this.hideSharingActions
+        hiddenChannels,
+        unhiddenChannels,
+        videoComponents
       ]
     },
 
     dropdownOptions: function () {
-      return getVideoDropdownOptions(...this.videoDropdownOptionArguments.slice(1))
+      return getVideoDropdownOptions(...this.videoDropdownOptionArguments)
     }
   },
 
@@ -388,7 +425,8 @@ export default defineComponent({
     },
 
     handleOptionsClick: function (option) {
-      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments)
+      handleVideoDropdownOptionsClick(option, ...this.videoDropdownOptionArguments,
+        (channelsHidden) => this.updateChannelsHidden(channelsHidden))
     },
 
     toggleSelectionMode: function () {
@@ -424,7 +462,8 @@ export default defineComponent({
     },
     ...mapActions([
       'getYoutubeUrlInfo',
-      'clearSelectionModeSelections'
+      'clearSelectionModeSelections',
+      'updateChannelsHidden'
     ])
   }
 })
