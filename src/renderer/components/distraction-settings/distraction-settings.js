@@ -120,8 +120,8 @@ export default defineComponent({
         return ch
       })
     },
-    forbiddenVideoTitleText: function() {
-      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
+    forbiddenTitles: function() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
     hideSubscriptionsLiveTooltip: function () {
       return this.$t('Tooltips.Distraction Free Settings.Hide Subscriptions Live', {
@@ -151,8 +151,8 @@ export default defineComponent({
     handleChannelsHidden: function (value) {
       this.updateChannelsHidden(JSON.stringify(value))
     },
-    handleForbiddenVideoTitleText: function (value) {
-      this.updateForbiddenVideoTitleText(JSON.stringify(value))
+    handleForbiddenTitles: function (value) {
+      this.updateForbiddenTitles(JSON.stringify(value))
     },
     handleChannelsExists: function () {
       showToast(this.$t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
@@ -212,7 +212,7 @@ export default defineComponent({
       'updateHideSharingActions',
       'updateHideChapters',
       'updateChannelsHidden',
-      'updateForbiddenVideoTitleText',
+      'updateForbiddenTitles',
       'updateShowDistractionFreeTitles',
       'updateHideFeaturedChannels',
       'updateHideChannelShorts',

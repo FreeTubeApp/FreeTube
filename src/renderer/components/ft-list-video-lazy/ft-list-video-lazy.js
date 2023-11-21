@@ -47,7 +47,7 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    hideVideosWithForbiddenTextInTitle: {
+    hideForbiddenTitles: {
       type: Boolean,
       default: true
     }
@@ -72,14 +72,14 @@ export default defineComponent({
       })
     },
 
-    forbiddenVideoTitleText() {
-      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
+    forbiddenTitles() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
 
     shouldBeVisible() {
       return !(this.channelsHidden.some(ch => ch.name === this.data.authorId) ||
         this.channelsHidden.some(ch => ch.name === this.data.author) ||
-        this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase())))
+        this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase())))
     }
   },
   created() {

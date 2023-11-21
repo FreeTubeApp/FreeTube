@@ -43,6 +43,7 @@
         v-if="activeData.length > 0 && !isLoading"
         :data="activeData"
         :use-channels-hidden-preference="false"
+        :hide-forbidden-titles="false"
       />
       <ft-flex-box
         v-if="showLoadMoreButton"

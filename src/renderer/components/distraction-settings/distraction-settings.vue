@@ -251,10 +251,10 @@
         :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
         :show-action-button="true"
-        :tag-list="forbiddenVideoTitleText"
+        :tag-list="forbiddenTitles"
         :min-input-length="3"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
-        @change="handleForbiddenVideoTitleText"
+        @change="handleForbiddenTitles"
       />
     </ft-flex-box>
   </ft-settings-section>

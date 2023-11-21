@@ -26,7 +26,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    hideVideosWithForbiddenTextInTitle: {
+    hideForbiddenTitles: {
       type: Boolean,
       default: true
     }

@@ -31,7 +31,7 @@
       />
       <ft-community-post
         v-else-if="data.type === 'community'"
-        :hide-videos-with-forbidden-text-in-title="hideVideosWithForbiddenTextInTitle"
+        :hide-forbidden-titles="hideForbiddenTitles"
         :appearance="appearance"
         :data="data"
       />

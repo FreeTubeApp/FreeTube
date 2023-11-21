@@ -39,7 +39,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    hideVideosWithForbiddenTextInTitle: {
+    hideForbiddenTitles: {
       type: Boolean,
       default: true
     },
@@ -65,8 +65,8 @@ export default defineComponent({
         return ch
       })
     },
-    forbiddenVideoTitleText: function() {
-      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
+    forbiddenTitles: function() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
     hideUpcomingPremieres: function () {
       return this.$store.getters.getHideUpcomingPremieres
@@ -104,7 +104,7 @@ export default defineComponent({
           // hide videos by author
           return false
         }
-        if (this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
           return false
         }
       } else if (data.type === 'channel') {
@@ -122,7 +122,7 @@ export default defineComponent({
           return false
         }
       } else if (data.type === 'playlist') {
-        if (this.forbiddenVideoTitleText.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
+        if (this.forbiddenTitles.some((text) => this.data.title?.toLowerCase().includes(text.toLowerCase()))) {
           return false
         }
         const attrsToCheck = [

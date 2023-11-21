@@ -29,6 +29,7 @@
           :data="item"
           :playlist-id="playlistId"
           :playlist-index="index"
+          :hide-forbidden-titles="false"
           appearance="result"
           force-list-type="list"
         />

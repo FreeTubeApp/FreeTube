@@ -11,7 +11,7 @@
       :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
-      :hide-videos-with-forbidden-text-in-title="hideVideosWithForbiddenTextInTitle"
+      :hide-forbidden-titles="hideForbiddenTitles"
     />
   </ft-auto-grid>
 </template>

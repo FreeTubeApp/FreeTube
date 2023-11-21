@@ -222,8 +222,8 @@ export default defineComponent({
         return ch
       })
     },
-    forbiddenVideoTitleText() {
-      return JSON.parse(this.$store.getters.getForbiddenVideoTitleText)
+    forbiddenTitles() {
+      return JSON.parse(this.$store.getters.getForbiddenTitles)
     },
   },
   watch: {
@@ -1263,10 +1263,10 @@ export default defineComponent({
 
       let nextVideoId = null
       if (!this.watchingPlaylist) {
-        const forbiddenVideoTitleText = this.forbiddenVideoTitleText
+        const forbiddenTitles = this.forbiddenTitles
         const channelsHidden = this.channelsHidden
         nextVideoId = this.recommendedVideos.find((video) =>
-          !this.isHiddenVideo(forbiddenVideoTitleText, channelsHidden, video)
+          !this.isHiddenVideo(forbiddenTitles, channelsHidden, video)
         )?.videoId
         if (!nextVideoId) {
           return
@@ -1727,10 +1727,10 @@ export default defineComponent({
       document.title = `${this.videoTitle} - FreeTube`
     },
 
-    isHiddenVideo: function (forbiddenVideoTitleText, channelsHidden, video) {
+    isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
       return channelsHidden.some(ch => ch.name === video.authorId) ||
         channelsHidden.some(ch => ch.name === video.author) ||
-        forbiddenVideoTitleText.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
+        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
     },
 
     ...mapActions([
