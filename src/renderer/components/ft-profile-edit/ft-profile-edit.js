@@ -129,7 +129,7 @@ export default defineComponent({
 
     setDefaultProfile: function () {
       this.updateDefaultProfile(this.profileId)
-      const message = this.$t('Profile.Your default profile has been set to {profile}', { profile: this.profileName })
+      const message = this.$t('Profile.Your default profile has been set to {profile}', { profile: this.translatedProfileName })
       showToast(message)
     },
 
@@ -140,7 +140,7 @@ export default defineComponent({
 
       this.removeProfile(this.profileId)
 
-      const message = this.$t('Profile.Removed {profile} from your profiles', { profile: this.profileName })
+      const message = this.$t('Profile.Removed {profile} from your profiles', { profile: this.translatedProfileName })
       showToast(message)
 
       if (this.defaultProfile === this.profileId) {

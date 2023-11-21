@@ -49,9 +49,6 @@ export default defineComponent({
       deep: true
     }
   },
-  mounted: function () {
-    this.deletePromptLabel = `${this.$t('Profile.Are you sure you want to delete this profile?')} ${this.$t('Profile["All subscriptions will also be deleted."]')}`
-  },
   methods: {
     openSettingsForNewProfile: function () {
       this.isNewProfileOpen = true
