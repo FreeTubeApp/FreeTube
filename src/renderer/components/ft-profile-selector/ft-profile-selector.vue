@@ -6,6 +6,8 @@
       :style="{ background: activeProfile.bgColor, color: activeProfile.textColor }"
       tabindex="0"
       role="button"
+      :aria-expanded="profileListShown"
+      aria-controls="profileSelectorList"
       @click="toggleProfileList"
       @mousedown="handleIconMouseDown"
       @keydown.space.prevent="toggleProfileList"
@@ -19,6 +21,7 @@
     </div>
     <ft-card
       v-show="profileListShown"
+      id="profileSelectorList"
       ref="profileList"
       class="profileList"
       tabindex="-1"
@@ -46,7 +49,7 @@
           :key="index"
           class="profile"
           :aria-labelledby="'profile-' + index + '-name'"
-          aria-selected="false"
+          :aria-selected="isActiveProfile(profile)"
           tabindex="0"
           role="option"
           @click="setActiveProfile(profile)"

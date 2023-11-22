@@ -761,6 +761,8 @@ Video:
     YouTube-ом.
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Ћаскање
     уживо није доступно за овај стрим. Можда га је онемогућио аутор.
+  Unhide Channel: Прикажи канал
+  Hide Channel: Сакриј канал
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
@@ -982,3 +984,6 @@ Screenshot Error: Снимак екрана није успео. {error}
 Downloading has completed: „{videoTitle}“ је завршио преузимање
 Loop is now enabled: Понављање је сада омогућено
 Downloading failed: Дошло је до проблема при преузимању „{videoTitle}“
+Channel Hidden: '{channel} је додат на филтер канала'
+Go to page: Иди на {page}
+Channel Unhidden: '{channel} је уклоњен из филтера канала'
