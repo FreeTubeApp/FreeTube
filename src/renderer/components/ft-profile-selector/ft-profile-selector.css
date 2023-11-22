@@ -46,9 +46,9 @@
 /* Navbar changes position to horizontal with this media rule.
 Height adjust for profile list so it won't cover navbar.  */
 @media only screen and (max-width: 680px){
-	 .profileWrapper {
-		  max-block-size: calc(95vh - 180px);
-		}
+  .profileWrapper {
+    max-block-size: calc(95vh - 180px);
+  }
 }
 
 .profile {
