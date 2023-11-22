@@ -36,7 +36,14 @@
 .profileWrapper {
   margin-block-start: 60px;
   block-size: 340px;
+  inline-size: 260px;
   overflow-y: auto;
+}
+
+.iconGrid {
+  display: flex;
+  flex-wrap: wrap;
+  block-size: unset;
 }
 
 .profile {

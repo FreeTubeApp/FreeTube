@@ -36,12 +36,13 @@
         @click="openProfileSettings"
       />
       <div
+        v-if="profileListOptions.displayType === 'list'"
         class="profileWrapper"
         role="listbox"
         aria-labelledby="profileListTitle"
       >
         <div
-          v-for="(profile, index) in profileList"
+          v-for="(profile, index) in sortedProfileList"
           :id="'profile-' + index"
           :key="index"
           class="profile"
@@ -68,6 +69,33 @@
           >
             {{ profile.name }}
           </p>
+        </div>
+      </div>
+      <div
+        v-else
+        class="profileWrapper"
+      >
+        <div
+          role="listbox"
+          class="iconGrid"
+          aria-labelledby="profileListTitle"
+        >
+          <ft-profile-bubble
+            v-for="(profile, index) in sortedProfileList"
+            :id="'profile-' + index"
+            :key="index"
+            :profile-id="profile._id"
+            :profile-name="profile.name"
+            :background-color="profile.bgColor"
+            :text-color="profile.textColor"
+            class="gridProfile"
+            :style="{ inlineSize: 100 / profileListOptions.itemsPerGridRow + '%' }"
+            :profile-selector-grid="true"
+            :show-title="profileListOptions.showGridItemTitles"
+            aria-selected="false"
+            role="option"
+            :action="setActiveProfileGivenId"
+          />
         </div>
       </div>
     </ft-card>

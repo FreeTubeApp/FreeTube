@@ -1,12 +1,14 @@
 import { defineComponent } from 'vue'
+import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { deepCopy } from '../../helpers/utils'
+import { deepCopy, sortListUsingMethod } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SideNav',
   components: {
+    'ft-channel-bubble': FtChannelBubble,
     'ft-flex-box': FtFlexBox,
     'side-nav-more-options': SideNavMoreOptions
   },
@@ -35,9 +37,7 @@ export default defineComponent({
     activeSubscriptions: function () {
       const subscriptions = deepCopy(this.activeProfile.subscriptions)
 
-      subscriptions.sort((a, b) => {
-        return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
-      })
+      sortListUsingMethod(subscriptions, 'name', this.subscriptionListOptions.sort)
 
       if (this.backendPreference === 'invidious') {
         subscriptions.forEach((channel) => {
@@ -65,6 +65,9 @@ export default defineComponent({
     hideText: function () {
       return !this.isOpen && this.hideLabelsSideBar
     },
+    subscriptionListOptions: function () {
+      return this.$store.getters.getSubscriptionListOptions
+    },
     applyNavIconExpand: function() {
       return {
         navIconExpand: this.hideText
@@ -74,6 +77,11 @@ export default defineComponent({
       return {
         hiddenLabels: this.hideText
       }
-    }
+    },
+  },
+  methods: {
+    navigate: function (route) {
+      this.$router.push('/' + route)
+    },
   }
 })

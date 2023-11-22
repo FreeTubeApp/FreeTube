@@ -10,6 +10,7 @@ import router from '../router/index'
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+
 /**
  * @param {string} publishedText
  */
@@ -671,6 +672,20 @@ export function escapeHTML(untrusted) {
  */
 export function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj))
+}
+
+export function sortListUsingMethod(list, property, method) {
+  const locale = i18n.locale.replace('_', '-')
+  switch (method) {
+    case 'defaultSort':
+      break
+    case 'alphabeticalAscending':
+      list.sort((a, b) => a[property]?.toLowerCase().localeCompare(b[property]?.toLowerCase(), locale))
+      break
+    case 'alphabeticalDescending':
+      list.sort((a, b) => b[property]?.toLowerCase().localeCompare(a[property]?.toLowerCase(), locale))
+      break
+  }
 }
 
 /**

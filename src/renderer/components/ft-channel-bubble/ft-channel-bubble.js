@@ -15,10 +15,22 @@ export default defineComponent({
       type: String,
       required: true
     },
+    bubbleSize: {
+      type: Number,
+      default: 50
+    },
     showSelected: {
       type: Boolean,
       default: false
-    }
+    },
+    showTitle: {
+      type: Boolean,
+      default: true
+    },
+    sideNavGrid: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {

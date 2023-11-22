@@ -53,7 +53,6 @@ Global:
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
     Watching Count: 1 watching | {count} watching
-
 # Search Bar
 Search / Go to URL: Search / Go to URL
 Search Bar:
@@ -200,6 +199,21 @@ Settings:
     UI Scale: UI Scale
     Hide Side Bar Labels: Hide Side Bar Labels
     Hide FreeTube Header Logo: Hide FreeTube Header Logo
+    Settings Section Sort Order: Settings Section Sort Order
+    List Display Settings:
+      Subscription List Display Options: Subscription List Display Options
+      Profile List Display Options: Profile List Display Options
+      Sort:
+        Default: Default
+        Sort by title (A to Z): Sort by title (A to Z)
+        Sort by title (Z to A): Sort by title (Z to A)
+      Display Type:
+        List: List
+        Grid:
+          Grid: Grid
+          Item per grid row: 1 item per grid row | {number} items per grid row
+          Show grid item titles: Show grid item titles
+          Hide grid item titles: Hide grid item titles
     Base Theme:
       Base Theme: Base Theme
       Black: Black
@@ -479,6 +493,7 @@ Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
+
 About:
   #On About page
   About: About

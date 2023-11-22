@@ -169,6 +169,11 @@
   margin-block-end: 0.3em;
 }
 
+.iconGrid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media only screen and (max-width: 680px) {
   .inner {
     display: contents; /* sunglasses emoji */

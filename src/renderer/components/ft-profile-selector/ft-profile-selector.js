@@ -1,15 +1,16 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
-import { showToast } from '../../helpers/utils'
+import FtProfileBubble from '../ft-profile-bubble/ft-profile-bubble.vue'
+import { deepCopy, showToast, sortListUsingMethod } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtProfileSelector',
   components: {
     'ft-card': FtCard,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-profile-bubble': FtProfileBubble
   },
   data: function () {
     return {
@@ -20,6 +21,14 @@ export default defineComponent({
   computed: {
     profileList: function () {
       return this.$store.getters.getProfileList
+    },
+    sortedProfileList: function () {
+      const profileList = deepCopy(this.profileList)
+      // profiles are already sorted alphabetically ascending
+      if (this.profileListOptions.sort !== 'alphabeticalAscending') {
+        sortListUsingMethod(profileList, 'name', this.profileListOptions.sort)
+      }
+      return profileList
     },
     activeProfile: function () {
       return this.$store.getters.getActiveProfile
@@ -32,7 +41,10 @@ export default defineComponent({
       return this.profileList.map((profile) => {
         return profile?.name?.length > 0 ? Array.from(profile.name)[0].toUpperCase() : ''
       })
-    }
+    },
+    profileListOptions: function () {
+      return this.$store.getters.getProfileListOptions
+    },
   },
   methods: {
     toggleProfileList: function () {
@@ -69,15 +81,19 @@ export default defineComponent({
     },
 
     setActiveProfile: function (profile) {
-      if (this.activeProfile._id !== profile._id) {
+      this.setActiveProfileGivenId(profile._id)
+    },
+
+    setActiveProfileGivenId: function (id) {
+      if (this.activeProfile._id !== id) {
         const targetProfile = this.profileList.find((x) => {
-          return x._id === profile._id
+          return x._id === id
         })
 
         if (targetProfile) {
           this.updateActiveProfile(targetProfile._id)
 
-          showToast(this.$t('Profile.{profile} is now the active profile', { profile: profile.name }))
+          showToast(this.$t('Profile.{profile} is now the active profile', { profile: targetProfile.name }))
         }
       }
 

@@ -297,6 +297,19 @@ const state = {
   allowDashAv1Formats: false,
   commentAutoLoadEnabled: false,
   useDeArrowTitles: false,
+  profileListOptions: {
+    sort: 'alphabeticalAscending',
+    displayType: 'list',
+    showGridItemTitles: true,
+    itemsPerGridRow: 2
+  },
+  subscriptionListOptions: {
+    sort: 'alphabeticalAscending',
+    displayType: 'list',
+    showGridItemTitles: true,
+    itemsPerGridRow: 2
+  },
+  settingsSectionListOrder: 'defaultSort'
 }
 
 const stateWithSideEffects = {
