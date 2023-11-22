@@ -3,7 +3,7 @@ Locale Name: 'ئیگلیزی (وڵاتە یەکگرتووەکانی ئەمریک
 FreeTube: 'فریتیوب'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  بەشێک لە بەرنامۆچکە هێشتا ئامادە نییە. کە ڕەوتەکە درووست کرا دووبارە وەرەوە.
+  بەشێک لە نەرمەواڵەکە هێشتا ئامادە نییە. کە ڕەوتەکە درووست کرا دووبارە وەرەوە.
 
 # Webkit Menu Bar
 File: 'پەڕگە'
@@ -32,9 +32,9 @@ Back: 'دواوە'
 Forward: 'پێشەوە'
 Open New Window: 'کردنەوەی پەنجەرەیەکی نوێ'
 
-Version {versionNumber} is now available!  Click for more details: 'وەشانی {versionNumber}
-  ئێستا بەردەستە!  بۆ زانیاری زۆرتر کرتە بکە'
-Download From Site: 'داگرتن لە وێبگە'
+Version {versionNumber} is now available!  Click for more details: 'ئێستا وەشانی {versionNumber}
+  بەردەستە..بۆ زانیاری زۆرتر کرتە بکە'
+Download From Site: 'لە وێبگەوە دایگرە'
 A new blog is now available, {blogTitle}. Click to view more: ''
 Are you sure you want to open this link?: 'دڵنیایت دەتەوێت ئەم بەستەرە بکەیتەوە؟'
 
@@ -44,13 +44,13 @@ Global:
   Videos: 'ڤیدیۆکان'
   Shorts: ''
   Live: 'ڕاستەوخۆ'
-  Community: ''
+  Community: 'کۆمەڵگە'
   Counts:
     Video Count: '١ ڤیدیۆ | {count} ڤیدیۆ'
     Channel Count: '١ کەناڵ | {count} کەناڵ'
     Subscriber Count: '١ بەشداربوو | {count} بەشداربوو'
     View Count: 'بینینەک | {count} بینین'
-    Watching Count: ''
+    Watching Count: '١ تەمەشاکردن | {count} تەمەشاکردن'
 
 # Search Bar
 Search / Go to URL: ''
@@ -58,7 +58,7 @@ Search Bar:
   Clear Input: ''
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'پاڵفتەکردنی گەڕان'
   Sort By:
     Sort By: 'ڕیزکردن بە'
     Most Relevant: ''
@@ -87,10 +87,10 @@ Search Filters:
     Medium (4 - 20 minutes): 'ناوەند (٤ - ٢٠ خولەک)'
     Long (> 20 minutes): 'درێژ (> ٢٠ خولەک)'
   # On Search Page
-  Search Results: ''
+  Search Results: 'ئەنجامەکانی گەڕان'
   Fetching results. Please wait: ''
   Fetch more results: ''
-  There are no more results for this search: ''
+  There are no more results for this search: 'ئەنجامەکی تر نییە بۆ ئەم گەڕانە'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -121,26 +121,27 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
+  Default: 'بنەڕەت'
   Music: 'مۆسیقا'
   Gaming: 'یاری'
   Movies: 'فیلم'
   Trending Tabs: ''
 Most Popular: 'باوترین'
-Playlists: ''
+Playlists: 'پێڕستی لێدانەکان'
 User Playlists:
-  Your Playlists: ''
+  Your Playlists: 'پێڕستی لێدانەکانت'
   Playlist Message: ''
   Your saved videos are empty. Click on the save button on the corner of a video to have it listed here: ''
   Empty Search Message: ''
-  Search bar placeholder: ''
+  Search bar placeholder: 'لەناو پێڕستی لێدان بگەڕێ'
 History:
   # On History Page
   History: 'مێژوو'
   Watch History: 'مێژووی تەمەشاکردن'
-  Your history list is currently empty.: ''
-  Empty Search Message: ''
-  Search bar placeholder: ""
+  Your history list is currently empty.: 'ئێستا لیستەی مێژووت بەتاڵە.'
+  Empty Search Message: 'هیچ ڤیدیۆیەک لە مێژووت نەدۆزرایەوە کە بەرانبەری گەڕانەکەت
+    بێت'
+  Search bar placeholder: "لەناو مێژوو بگەڕێ"
 Settings:
   # On Settings Page
   Settings: 'ڕێکخستنەکان'
@@ -153,7 +154,7 @@ Settings:
     Enable Search Suggestions: ''
     Default Landing Page: ''
     Locale Preference: ''
-    System Default: ''
+    System Default: 'بنەڕەتی سیستەم'
     Preferred API Backend:
       Preferred API Backend: ''
       Local API: ''
@@ -164,8 +165,8 @@ Settings:
       List: 'پێڕست'
     Thumbnail Preference:
       Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
+      Default: 'بنەڕەت'
+      Beginning: 'سەرەتا'
       Middle: 'ناوەڕاست'
       End: 'کۆتایی'
       Hidden: 'شاراوە'
@@ -193,10 +194,10 @@ Settings:
     Hide Side Bar Labels: ''
     Hide FreeTube Header Logo: ''
     Base Theme:
-      Base Theme: ''
+      Base Theme: 'ڕووکاری بنچینە'
       Black: 'ڕەش'
       Dark: 'تاریک'
-      System Default: ''
+      System Default: 'بنەڕەتی سیستەم'
       Light: 'ڕووناک'
       Dracula: ''
       Catppuccin Mocha: ''
@@ -208,11 +209,11 @@ Settings:
       Pink: 'پەمبە'
       Purple: 'وەنەوشەیی'
       Deep Purple: 'وەنەوشەیی تۆخ'
-      Indigo: ''
+      Indigo: 'نیلی'
       Blue: 'شین'
       Light Blue: 'شینی ئاڵ'
-      Cyan: ''
-      Teal: ''
+      Cyan: 'شینی تۆخ'
+      Teal: 'شەدری'
       Green: 'کەسک'
       Light Green: 'کەسکی ئاڵ'
       Lime: ''
@@ -856,3 +857,4 @@ Hashtag:
 Yes: ''
 No: ''
 Ok: ''
+Go to page: بڕۆ بۆ {page}
