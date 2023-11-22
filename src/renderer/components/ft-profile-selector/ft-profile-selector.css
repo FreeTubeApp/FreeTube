@@ -37,8 +37,10 @@
   margin-block-start: 60px;
   block-size: auto;
   overflow-y: auto;
-  /* profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution. 
-  Offset of 100px is to compensate for the fixed size of elements above the list, which takes more screen space on lower resolutions */
+  /*
+  profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution. 
+  Offset of 100px is to compensate for the fixed size of elements above the list, which takes more screen space on lower resolutions
+  */
   max-block-size: calc(90vh - 100px); 
   min-block-size: 340px;
 }
