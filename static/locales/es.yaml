@@ -620,6 +620,8 @@ Profile:
   Profile Filter: Filtro de perfil
   Profile Settings: Ajustes del perfil
   Toggle Profile List: Alternar la lista de los perfiles
+  Open Profile Dropdown: Abrir el desplegable del Perfil
+  Close Profile Dropdown: Cerrar el desplegable del Perfil
 Channel:
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'
