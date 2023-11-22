@@ -43,14 +43,20 @@
     <ft-flex-box>
       <ft-button
         :label="$t('Settings.Privacy Settings.Clear Search Cache')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
         @click="showSearchCachePrompt = true"
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove Watch History')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
         @click="showRemoveHistoryPrompt = true"
       />
       <ft-button
         :label="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
+        text-color="var(--text-with-main-color)"
+        background-color="var(--primary-color)"
         @click="showRemoveSubscriptionsPrompt = true"
       />
     </ft-flex-box>
