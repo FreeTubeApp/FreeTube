@@ -6,14 +6,6 @@ h2 {
   text-align: center;
 }
 
-:deep(.select-label) {
-  inline-size: 95%;
-}
-
-:deep(.select) {
-  text-align-last: center;
-}
-
 .card {
   inline-size: 85%;
   margin-block: 0 15px;
