@@ -51,6 +51,7 @@
         :compact="true"
         :default-value="shouldExportPlaylistForOlderVersions"
         :tooltip="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Tooltip')"
+        :tooltip-allow-newlines="true"
         @change="shouldExportPlaylistForOlderVersions = !shouldExportPlaylistForOlderVersions"
       />
     </ft-flex-box>
