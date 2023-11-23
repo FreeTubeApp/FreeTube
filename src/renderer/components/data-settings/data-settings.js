@@ -1029,7 +1029,7 @@ export default defineComponent({
 
     exportPlaylistsForOlderVersions: async function () {
       const dateStr = getTodayDateStrLocalTimezone()
-      const exportFileName = 'freetube-playlists-for-single-favorites-playlist-' + dateStr + '.db'
+      const exportFileName = 'freetube-playlists-as-single-favorites-playlist-' + dateStr + '.db'
 
       const options = {
         defaultPath: exportFileName,
