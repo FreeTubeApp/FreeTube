@@ -15,8 +15,8 @@
         allowNewlines,
       }"
       role="tooltip"
+      v-text="tooltip"
     >
-      {{ tooltip }}
     </p>
   </div>
 </template>
