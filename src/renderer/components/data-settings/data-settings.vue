@@ -42,7 +42,17 @@
       />
       <ft-button
         :label="$t('Settings.Data Settings.Export Playlists')"
-        @click="exportPlaylists"
+        @click="exportPlaylistsForOlderVersionsSometimes"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-toggle-switch
+        :label="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Label')"
+        :compact="true"
+        :default-value="shouldExportPlaylistForOlderVersions"
+        :tooltip="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Tooltip')"
+        :tooltip-allow-newlines="true"
+        @change="shouldExportPlaylistForOlderVersions = !shouldExportPlaylistForOlderVersions"
       />
     </ft-flex-box>
     <ft-prompt
