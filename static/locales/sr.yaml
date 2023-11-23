@@ -566,6 +566,8 @@ Profile:
 #On Channel Page
   Profile Settings: Подешавања профила
   Toggle Profile List: Укључи листу профила
+  Open Profile Dropdown: Отвори падајући мени профила
+  Close Profile Dropdown: Затвори падајући мени профила
 Channel:
   Subscriber: 'Пратилац'
   Subscribers: 'Пратиоци'
