@@ -633,6 +633,8 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are
     you sure you want to delete the selected channels?  This will not delete the channel
     from any other profile.
+  Close Profile Dropdown: Close Profile Dropdown
+  Open Profile Dropdown: Open Profile Dropdown
 #On Channel Page
 Channel:
   Subscribe: Subscribe

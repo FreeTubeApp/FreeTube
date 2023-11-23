@@ -798,6 +798,8 @@ Video:
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
   Pause on Current Video: Zatrzymaj po tym filmie
+  Unhide Channel: Pokaż kanał
+  Hide Channel: Ukryj kanał
 Videos:
   #& Sort By
   Sort By:
@@ -939,6 +941,8 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Ustawienia profilu
   Toggle Profile List: Włącz/wyłącz listę profili
+  Open Profile Dropdown: Otwórz rozwijane menu profilu
+  Close Profile Dropdown: Zamknij rozwijane menu profilu
 The playlist has been reversed: Playlista została odwrócona
 A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu
   jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
@@ -1086,3 +1090,6 @@ Playlist will pause when current video is finished: Playlista zatrzyma się, gdy
   film się zakończy
 Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
   gdy obecny film się zakończy
+Channel Hidden: '{channel} dodany do filtra kanałów'
+Go to page: Idź do {page}
+Channel Unhidden: '{channel} usunięty z filtra kanału'

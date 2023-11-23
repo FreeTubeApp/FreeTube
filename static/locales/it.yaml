@@ -794,6 +794,8 @@ Video:
     chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
   Pause on Current Video: Pausa sul video attuale
+  Unhide Channel: Mostra canale
+  Hide Channel: Nascondi canale
 Videos:
   #& Sort By
   Sort By:
@@ -942,6 +944,8 @@ Profile:
   Profile Filter: Filtro del profilo
   Profile Settings: Impostazioni dei profili
   Toggle Profile List: Attiva/disattiva elenco profili
+  Open Profile Dropdown: Apri il menu a discesa del profilo
+  Close Profile Dropdown: Chiudi il menu a discesa del profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
@@ -1082,3 +1086,6 @@ Playlist will pause when current video is finished: La playlist verrà messa in 
   al termine del video attuale
 Playlist will not pause when current video is finished: La playlist non verrà messa
   in pausa al termine del video attuale
+Channel Hidden: '{channel} aggiunto al filtro canali'
+Go to page: Vai a {page}
+Channel Unhidden: '{channel} rimosso dal filtro canali'
