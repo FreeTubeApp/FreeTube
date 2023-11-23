@@ -34,8 +34,8 @@ export default defineComponent({
       subscriptions: [],
       selectedLength: 0,
       deletePromptValues: [
-        'yes',
-        'no'
+        'delete',
+        'cancel'
       ]
     }
   },
@@ -61,8 +61,8 @@ export default defineComponent({
     },
     deletePromptNames: function () {
       return [
-        this.$t('Yes'),
-        this.$t('No')
+        this.$t('Yes, Delete'),
+        this.$t('Cancel')
       ]
     },
     locale: function () {
