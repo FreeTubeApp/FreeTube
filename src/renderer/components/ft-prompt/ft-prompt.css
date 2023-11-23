@@ -1,10 +1,10 @@
 .prompt {
   position: fixed;
-  inset-block-start: 0px;
-  inset-inline-start: 0px;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   inline-size: 100%;
   block-size: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(0 0 0 / 70%);
   z-index: 10;
   padding: 15px;
   box-sizing: border-box;

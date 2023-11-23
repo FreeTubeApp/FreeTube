@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .shareLinks {
   display: grid;
   grid-auto-flow: column;
@@ -89,7 +90,7 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (width <= 450px) {
   .shareLinks {
     grid-auto-flow: row;
     margin-inline: auto;

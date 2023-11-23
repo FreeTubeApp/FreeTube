@@ -3,7 +3,7 @@
   padding-block: 0;
   padding-inline: 10px;
 
-  @media only screen and (max-width: 680px) {
+  @media only screen and (width <= 680px) {
     inline-size: 100%;
   }
 

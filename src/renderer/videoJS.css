@@ -620,7 +620,7 @@ body.vjs-full-window {
 
 .video-js button {
   background: none;
-  border: none;
+  border: 0;
   color: inherit;
   display: inline-block;
   font-size: inherit;
@@ -1090,10 +1090,7 @@ body.vjs-full-window {
   cursor: pointer;
   padding: 0;
   margin: 0 0.45em 0 0.45em;
-
-  -webkit-user-select: none;
   user-select: none;
-
   background-color: #73859f;
   background-color: rgba(115, 133, 159, 0.5);
 }
@@ -1736,7 +1733,7 @@ video::-webkit-media-text-track-display {
 .vjs-text-track-settings fieldset {
   margin: 5px;
   padding: 3px;
-  border: none;
+  border: 0;
 }
 
 .vjs-text-track-settings fieldset span {
@@ -1799,7 +1796,7 @@ video::-webkit-media-text-track-display {
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
+  border: 0;
   z-index: -1000;
 }
 
@@ -2028,7 +2025,7 @@ video::-webkit-media-text-track-display {
     width: 2em;
     height: 2em;
     line-height: 2em;
-    border: none;
+    border: 0;
     border-radius: 50%;
     font-size: 3.5em;
     background-color: rgba(0,0,0,.45);

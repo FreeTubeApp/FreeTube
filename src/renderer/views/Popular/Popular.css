@@ -10,13 +10,13 @@
   inset-inline-end: 10px;
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (width <= 350px) {
   .floatingTopButton {
     position: absolute
   }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;
   }

@@ -19,7 +19,6 @@
   margin-block: 20px 5px;
   margin-inline: auto;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .initial {
@@ -29,7 +28,6 @@
   padding-block: 17.5px;
   padding-inline: 0;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .profileName {

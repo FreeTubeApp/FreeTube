@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .colorOption:hover {
@@ -18,7 +17,6 @@
   line-height: 1em;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 .profileList {

@@ -74,7 +74,7 @@
     }
   }
 
-  @media (max-width: 680px) {
+  @media (width <= 680px) {
     max-inline-size: 250px;
   }
 }

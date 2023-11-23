@@ -3,5 +3,4 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   user-select: none;
-  -webkit-user-select: none;
 }

@@ -4,7 +4,7 @@
   grid-template-columns: auto minmax(min-content, 1fr);
   padding: 16px;
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     grid-template-columns: auto;
   }
 }
@@ -55,7 +55,7 @@
   font-size: 15px;
   text-align: end;
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     text-align: start;
   }
 }
@@ -69,7 +69,7 @@
   margin-block: 4px 0;
   margin-inline: 0;
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     margin-block-start: 16px;
   }
 }
@@ -84,7 +84,7 @@
   max-inline-size: 210px;
   text-align: end;
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     margin-inline-start: 0;
     text-align: start;
   }
@@ -109,12 +109,11 @@
     margin-inline-start: 4px;
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (width <= 680px) {
     justify-content: flex-start;
 
     :deep(.iconDropdown) {
-      inset-inline-start: calc(50% - 20px);
-      inset-inline-end: auto;
+      inset-inline: calc(50% - 20px) auto;
     }
   }
 }
