@@ -612,6 +612,8 @@ Profile:
   Profile Filter: Filtr profilu
   Profile Settings: Nastavení profilu
   Toggle Profile List: Přepnout seznam profilů
+  Open Profile Dropdown: Otevřít rozbalovací nabídku profilu
+  Close Profile Dropdown: Zavřít rozbalovací nabídku profilu
 Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
