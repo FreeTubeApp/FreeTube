@@ -94,6 +94,7 @@
 
 .text.allowNewlines {
   white-space: pre;
+  text-align: start;
 }
 
 .tooltip {
