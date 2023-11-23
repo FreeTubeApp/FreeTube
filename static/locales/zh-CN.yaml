@@ -844,6 +844,8 @@ Profile:
   Profile Settings: 个人资料设置
   Profile Filter: 个人资料筛选器
   Toggle Profile List: 切换个人资料列表
+  Open Profile Dropdown: 打开配置文件下拉菜单
+  Close Profile Dropdown: 关闭配置文件下拉菜单
 The playlist has been reversed: 播放列表已反转
 A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
