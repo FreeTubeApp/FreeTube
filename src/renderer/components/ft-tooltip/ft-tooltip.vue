@@ -16,8 +16,7 @@
       }"
       role="tooltip"
       v-text="tooltip"
-    >
-    </p>
+    />
   </div>
 </template>
 
