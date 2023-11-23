@@ -609,6 +609,8 @@ Profile:
   Profile Filter: مرشح الملف الشخصي
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
+  Open Profile Dropdown: فتح القائمة المنسدلة للملف الشخصي
+  Close Profile Dropdown: إغلاق القائمة المنسدلة للملف الشخصي
 Channel:
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
