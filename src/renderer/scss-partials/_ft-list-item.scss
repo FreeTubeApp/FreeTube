@@ -336,6 +336,28 @@ $watched-transition-duration: 0.5s;
   }
 }
 
+.ft-list-channel {
+  &.grid {
+    align-items: center;
+    text-align: center;
+
+    .info {
+      margin-block-end: 12px;
+
+      .infoLine {
+        text-align: center;
+      }
+    }
+  }
+
+  &.list {
+    .channelSubscribeButton {
+      margin-block: auto;
+      margin-inline-start: 12px;
+    }
+  }
+}
+
 .videoWatched,
 .live,
 .upcoming {

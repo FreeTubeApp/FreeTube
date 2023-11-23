@@ -58,6 +58,12 @@
         v-html="description"
       />
     </div>
+    <ft-subscribe-button
+      class="channelSubscribeButton"
+        :channel-id="id"
+        :channel-name="channelName"
+        :channel-thumbnail="thumbnail"
+      />
   </div>
 </template>
 
