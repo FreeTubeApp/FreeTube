@@ -53,8 +53,8 @@
   }
 
   .banner {
-    inline-size: 80%;
-    margin-block-start: 20px;
+    inline-size: 90%;
+    margin-block: 60px 0;
   }
 
   .flexBox {

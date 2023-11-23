@@ -8,9 +8,6 @@
   color: var(--tertiary-text-color);
 }
 
-.refreshSubscriptionsButton {
-}
-
 .floatingRefreshSection {
   position: fixed;
   inset-block-start: 60px;
