@@ -7,10 +7,10 @@
 .pastelPink,
 .hotPink {
   --primary-input-color: rgba(0, 0, 0, 0.50);
-  --destructive-color: #7F0000;
+  --destructive-color: #f44336;
   --destructive-text-color: #FFFFFF;
-  --destructive-hover-color: #FF2F2F;
-  --destructive-active-color: #AD6060;
+  --destructive-hover-color: #e53935;
+  --destructive-active-color: #c62828;
 }
 
 .system[data-system-theme*='light'], .light,
@@ -239,6 +239,13 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 .hotPink a:hover {
   text-decoration: underline;
+}
+
+.mainRed, .secRed {
+  --destructive-color: #7F0000 !important;
+  --destructive-text-color: #FFFFFF !important;
+  --destructive-hover-color: #FF2F2F !important;
+  --destructive-active-color: #AD6060 !important;
 }
 
 .mainRed,
