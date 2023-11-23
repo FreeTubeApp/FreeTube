@@ -311,10 +311,10 @@ $watched-transition-duration: 0.5s;
     .videoThumbnail,
     .channelThumbnail {
       margin-block-end: 12px;
+    }
 
-      .thumbnailImage {
-        inline-size: 100%;
-      }
+    .thumbnailImage, .channelThumbnail {
+      inline-size: 100%;
     }
 
     .title {
