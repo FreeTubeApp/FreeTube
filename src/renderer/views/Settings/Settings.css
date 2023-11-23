@@ -1,8 +1,13 @@
 hr {
-  block-size: 2px;
   inline-size: 85%;
   margin-block: 0;
   margin-inline: auto;
   border: 0;
-  background-color: var(--scrollbar-color-hover);
+  border-block-start: 2px solid var(--scrollbar-color-hover);
+}
+
+@media only screen and (max-width: 800px) {
+  hr {
+    inline-size: 100%;
+  }
 }
