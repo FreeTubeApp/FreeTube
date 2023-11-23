@@ -474,7 +474,7 @@ Settings:
       Label: Export Playlists For Older FreeTube Versions
       # |- = Keep newlines, No newline at end
       Tooltip: |-
-        This option exports videos from all playlists into one playlist named `Favorites`.
+        This option exports videos from all playlists into one playlist named 'Favorites'.
         How to export & import videos in playlists for an older version of FreeTube:
         1. Export your playlists with this option enabled.
         2. Delete all of your existing playlists using the Remove All Playlists option under Privacy Settings.
