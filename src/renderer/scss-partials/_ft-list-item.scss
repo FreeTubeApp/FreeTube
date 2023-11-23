@@ -170,6 +170,7 @@ $watched-transition-duration: 0.5s;
       font-size: 20px;
       justify-self: end;
       inline-size: 60px;
+      pointer-events: none;
 
       .background {
         background-color: var(--bg-color);
