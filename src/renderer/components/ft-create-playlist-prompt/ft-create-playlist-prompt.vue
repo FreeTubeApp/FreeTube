@@ -20,12 +20,10 @@
     <ft-flex-box>
       <ft-button
         :label="$t('User Playlists.CreatePlaylistPrompt.Create')"
-        :tabindex="0"
         @click="createNewPlaylist"
       />
       <ft-button
         :label="$t('User Playlists.Cancel')"
-        :tabindex="0"
         @click="hideCreatePlaylistPrompt"
       />
     </ft-flex-box>

@@ -51,17 +51,14 @@
       <ft-flex-box>
         <ft-button
           :label="$t('User Playlists.Create New Playlist')"
-          :tabindex="0"
           @click="openCreatePlaylistPrompt"
         />
         <ft-button
           :label="$t('User Playlists.AddVideoPrompt.Save')"
-          :tabindex="0"
           @click="addSelectedToPlaylists"
         />
         <ft-button
           :label="$t('User Playlists.Cancel')"
-          :tabindex="0"
           @click="hide"
         />
       </ft-flex-box>

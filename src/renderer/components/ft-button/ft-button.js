@@ -18,11 +18,6 @@ export default defineComponent({
     id: {
       type: String,
       default: ''
-    },
-    tabindex: {
-      type: Number,
-      // Relies on template to not output tabindex on values < -1
-      default: -2,
-    },
+    }
   }
 })

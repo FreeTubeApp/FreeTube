@@ -2,7 +2,6 @@
   <button
     :id="id.length > 0 ? id : null"
     class="btn ripple"
-    :tabindex="tabindex >= -1 ? tabindex : null"
     :style="{
       color: textColor,
       backgroundColor: backgroundColor,
