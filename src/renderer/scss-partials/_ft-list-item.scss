@@ -274,13 +274,28 @@ $watched-transition-duration: 0.5s;
       }
     }
 
+    &.result {
+      .videoThumbnail,
+      .channelThumbnailLink,
+      .thumbnailLink,
+      .thumbnailImage {
+        inline-size: 336px;
+        max-inline-size: 25vw;
+
+        @media only screen and (max-width: 850px) {
+          max-inline-size: 35vw;
+        }
+      }
+    }
+
+
     .videoThumbnail,
     .channelThumbnail {
       margin-inline-end: 20px;
     }
 
-    .channelThumbnail {
-      inline-size: 231px;
+    .info .description {
+      margin-inline-end: 10px;
     }
   }
 
