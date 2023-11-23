@@ -30,8 +30,8 @@
         />
         <ft-button
           :label="$t('Profile.Delete Selected')"
-          text-color="var(--text-with-main-color)"
-          background-color="var(--primary-color)"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
           @click="displayDeletePrompt"
         />
       </ft-flex-box>
@@ -41,6 +41,7 @@
       :label="deletePromptMessage"
       :option-names="deletePromptNames"
       :option-values="deletePromptValues"
+      :is-first-option-destructive="true"
       @click="handleDeletePromptClick"
     />
   </div>

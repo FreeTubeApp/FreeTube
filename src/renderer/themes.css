@@ -7,6 +7,10 @@
 .pastelPink,
 .hotPink {
   --primary-input-color: rgba(0, 0, 0, 0.50);
+  --destructive-color: #7F0000;
+  --destructive-text-color: #FFFFFF;
+  --destructive-hover-color: #FF2F2F;
+  --destructive-active-color: #AD6060;
 }
 
 .system[data-system-theme*='light'], .light,

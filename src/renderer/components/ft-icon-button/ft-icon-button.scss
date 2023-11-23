@@ -76,6 +76,20 @@
     }
   }
 
+  &.destructive {
+    background-color: var(--destructive-color);
+    color: var(--destructive-text-color);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--destructive-hover-color);
+    }
+
+    &:active {
+      background-color: var(--destructive-active-color);
+    }
+  }
+
   &.favorite, &.favorite:hover, &.favorite:focus-visible {
     color: var(--favorite-icon-color);
   }
