@@ -9,10 +9,12 @@
     </button>
     <p
       :id="id"
+      ref="tooltip"
       class="text"
       :class="{
         [position]: true,
         allowNewlines,
+        wrap: tooltipOutsideViewPort,
       }"
       role="tooltip"
       v-text="tooltip"

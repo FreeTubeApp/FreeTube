@@ -93,13 +93,11 @@
 }
 
 .text.allowNewlines {
-  white-space: pre-wrap;
+  white-space: pre;
   text-align: start;
-
-  @media only screen and (min-width: 1000px) {
-    /* Enough space to NOT wrap */
-    white-space: pre;
-  }
+}
+.text.allowNewlines.wrap {
+  white-space: pre-wrap;
 }
 
 .tooltip {
