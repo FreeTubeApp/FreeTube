@@ -55,12 +55,15 @@
         @click="increaseLimit"
       />
     </ft-flex-box>
-    <div class="floatingRefreshSection">
+    <div
+      class="floatingRefreshSection"
+      :class="{ sideNavOpen: isSideNavOpen }"
+    >
       <p
         v-if="lastSubscriptionRefreshTimestamp"
         class="lastSubscriptionRefreshTimestamp"
       >
-        {{ lastSubscriptionRefreshTimestamp }}
+        {{ $t('Subscriptions.Feed last updated', { date: lastSubscriptionRefreshTimestamp }) }}
       </p>
       <ft-icon-button
         v-if="!isLoading"

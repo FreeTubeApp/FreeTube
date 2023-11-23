@@ -106,6 +106,7 @@ Subscriptions:
   Empty Channels: Your subscribed channels currently does not have any videos.
   'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Empty Posts: Your subscribed channels currently do not have any posts.
+  Feed last updated: 'Feed last updated: {date}'
   Refresh Subscriptions: Refresh Subscriptions
   Load More Videos: Load More Videos
   Load More Posts: Load More Posts

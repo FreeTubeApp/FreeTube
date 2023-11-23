@@ -80,6 +80,10 @@ export default defineComponent({
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
     },
+
+    isSideNavOpen: function () {
+      return this.$store.getters.getIsSideNavOpen
+    },
   },
   created: function () {
     const dataLimit = sessionStorage.getItem('subscriptionLimit')
