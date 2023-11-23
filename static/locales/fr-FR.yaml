@@ -818,6 +818,7 @@ Video:
     chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé
     par le téléchargeur.
   Pause on Current Video: Pause sur la vidéo en cours
+  Hide Channel: Cacher la chaîne
 Videos:
   #& Sort By
   Sort By:
@@ -963,6 +964,8 @@ Profile:
   Profile Filter: Filtre de profil
   Profile Settings: Paramètres du profil
   Toggle Profile List: Afficher la liste des profils
+  Open Profile Dropdown: Ouvrir la liste déroulante du profil
+  Close Profile Dropdown: Fermer la liste déroulante du profil
 The playlist has been reversed: La liste de lecture a été inversée
 A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet est
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
@@ -1118,3 +1121,4 @@ Playlist will pause when current video is finished: La liste de lecture se met e
   pause lorsque la vidéo en cours est terminée
 Playlist will not pause when current video is finished: La liste de lecture ne se
   met pas en pause lorsque la vidéo en cours est terminée
+Go to page: Aller à {page}
