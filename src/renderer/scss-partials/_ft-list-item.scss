@@ -283,8 +283,8 @@ $watched-transition-duration: 0.5s;
         inline-size: 336px;
         max-inline-size: 25vw;
 
-        @media only screen and (max-width: 850px) {
-          max-inline-size: 35vw;
+        @media only screen and (max-width: 680px) {
+          max-inline-size: 30vw;
         }
       }
     }
@@ -375,7 +375,7 @@ $watched-transition-duration: 0.5s;
   &.list {
     .channelSubscribeButton {
       margin-block: auto;
-      margin-inline-start: 12px;
+      margin-inline: 7px;
     }
   }
 }
