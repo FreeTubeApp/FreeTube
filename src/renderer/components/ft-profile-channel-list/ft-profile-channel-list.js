@@ -108,7 +108,7 @@ export default defineComponent({
     },
 
     handleDeletePromptClick: function (value) {
-      if (value !== 'no' && value !== null) {
+      if (value !== 'cancel' && value !== null) {
         if (this.isMainProfile) {
           const channelsToRemove = this.subscriptions.filter((channel) => {
             return channel.selected
