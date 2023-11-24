@@ -10,6 +10,11 @@ import router from '../router/index'
 export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
+
+function currentLocale () {
+  return i18n.locale.replace('_', '-')
+}
+
 /**
  * @param {string} publishedText
  */
@@ -649,6 +654,51 @@ export function getTodayDateStrLocalTimezone() {
   // e.g. 2011-10-05T14:48:00.000Z
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
   return timeNowStr.split('T')[0]
+}
+
+export function getRelativeTimeFromDate(date, hideSeconds = false) {
+  const now = new Date()
+  // Convert from ms to second
+  // For easier code interpretation the value is made to be positive
+  // `comparisonDate` is sometimes a string
+  const comparisonDate = Date.parse(date)
+  let timeDiffFromNow = ((now - comparisonDate) / 1000)
+  let timeUnit = 'second'
+
+  if (timeDiffFromNow <= 60 && hideSeconds) {
+    return i18n.t('Moments Ago')
+  }
+
+  if (timeDiffFromNow > 60) {
+    timeDiffFromNow /= 60
+    timeUnit = 'minute'
+  }
+
+  if (timeUnit === 'minute' && timeDiffFromNow > 60) {
+    timeDiffFromNow /= 60
+    timeUnit = 'hour'
+  }
+
+  if (timeUnit === 'hour' && timeDiffFromNow > 24) {
+    timeDiffFromNow /= 24
+    timeUnit = 'day'
+  }
+
+  // Diff month might have diff no. of days
+  // To ensure the display is fine we use 31
+  if (timeUnit === 'day' && timeDiffFromNow > 31) {
+    timeDiffFromNow /= 24
+    timeUnit = 'month'
+  }
+
+  if (timeUnit === 'month' && timeDiffFromNow > 12) {
+    timeDiffFromNow /= 12
+    timeUnit = 'year'
+  }
+
+  // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
+  // Notice that the value is turned to negative to be displayed as "ago"
+  return new Intl.RelativeTimeFormat(currentLocale()).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**
