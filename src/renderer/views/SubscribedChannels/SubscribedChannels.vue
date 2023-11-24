@@ -56,6 +56,7 @@
                 :channel-id="channel.id"
                 :channel-name="channel.name"
                 :channel-thumbnail="channel.thumbnail"
+                :open-dropdown-on-subscribe="false"
               />
             </div>
           </div>

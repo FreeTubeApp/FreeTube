@@ -29,6 +29,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    openDropdownOnSubscribe: {
+      type: Boolean,
+      default: true
+    },
     subscriptionCountText: {
       default: '',
       type: String,
@@ -152,7 +156,7 @@ export default defineComponent({
         }
       }
 
-      if (this.isProfileDropdownEnabled && !this.isProfileDropdownOpen) {
+      if (this.isProfileDropdownEnabled && this.openDropdownOnSubscribe && !this.isProfileDropdownOpen) {
         this.toggleProfileDropdown()
       }
     },
