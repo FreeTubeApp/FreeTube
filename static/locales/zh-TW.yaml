@@ -853,6 +853,8 @@ Profile:
   Profile Filter: 設定檔篩選器
   Profile Settings: 設定檔設定
   Toggle Profile List: 切換個人檔案清單
+  Open Profile Dropdown: 開啟個人資料下拉式選單
+  Close Profile Dropdown: 關閉個人資料下拉式選單
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
