@@ -36,7 +36,11 @@ export default defineComponent({
     autosize: {
       type: Boolean,
       default: false
-    }
+    },
+    isFirstOptionDestructive: {
+      type: Boolean,
+      default: false
+    },
   },
   data: function () {
     return {

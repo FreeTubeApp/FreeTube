@@ -32,6 +32,8 @@
             :id="'prompt-' + sanitizedLabel + '-' + index"
             :key="index"
             :label="option"
+            :text-color="index === 0 && isFirstOptionDestructive ? 'var(--destructive-text-color)' : null"
+            :background-color="index === 0 && isFirstOptionDestructive ? 'var(--destructive-color)' : null"
             @click="$emit('click', optionValues[index])"
           />
           <ft-button

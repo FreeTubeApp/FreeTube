@@ -81,6 +81,7 @@
       :label="restartPromptMessage"
       :option-names="restartPromptNames"
       :option-values="restartPromptValues"
+      :is-first-option-destructive="true"
       @click="handleSmoothScrolling"
     />
   </ft-settings-section>
