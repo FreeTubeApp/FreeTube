@@ -1331,7 +1331,7 @@ function runApp() {
             type: 'normal'
           },
           {
-            label: 'Profile',
+            label: 'Profile Manager',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/settings/profile/', browserWindow)
             },
