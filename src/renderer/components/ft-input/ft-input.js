@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { mapActions } from 'vuex'
+
+import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
 export default defineComponent({
@@ -54,10 +55,6 @@ export default defineComponent({
       type: Boolean,
       default: true
     },
-    minInputLength: {
-      type: Number,
-      default: 1
-    },
     dataList: {
       type: Array,
       default: () => { return [] }
@@ -103,7 +100,7 @@ export default defineComponent({
     },
 
     inputDataPresent: function () {
-      return this.inputData.length >= this.minInputLength
+      return this.inputData.length > 0
     },
     inputDataDisplayed() {
       if (!this.isSearch) { return this.inputData }
@@ -147,7 +144,9 @@ export default defineComponent({
   methods: {
     handleClick: function (e) {
       // No action if no input text
-      if (!this.inputDataPresent) { return }
+      if (!this.inputDataPresent) {
+        return
+      }
 
       this.searchState.showOptions = false
       this.searchState.selectedOption = -1

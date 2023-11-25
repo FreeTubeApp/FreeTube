@@ -935,6 +935,7 @@ Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
+Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
 
 Hashtag:
   Hashtag: Hashtag

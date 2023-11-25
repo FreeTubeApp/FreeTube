@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import FtInput from '../ft-input/ft-input.vue'
+import { showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'FtInputTags',
@@ -60,6 +61,12 @@ export default defineComponent({
       }
       // add tag and update tag list
       const trimmedText = text.trim()
+
+      if (this.minInputLength > trimmedText.length) {
+        showToast(this.$tc('Trimmed input must be at least N characters long', this.minInputLength, { length: this.minInputLength }))
+        return
+      }
+
       if (!this.tagList.includes(trimmedText)) {
         const newList = this.tagList.slice(0)
         newList.push(trimmedText)
