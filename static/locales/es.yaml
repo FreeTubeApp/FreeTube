@@ -622,6 +622,9 @@ Profile:
   Toggle Profile List: Alternar la lista de los perfiles
   Open Profile Dropdown: Abrir el desplegable del Perfil
   Close Profile Dropdown: Cerrar el desplegable del Perfil
+  Profile Name: Nombre del perfil
+  Edit Profile Name: Editar el nombre del perfil
+  Create Profile Name: Crear un nombre para el perfil
 Channel:
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'
