@@ -8,20 +8,6 @@ import { calculatePublishedDate } from './utils'
 export function updateVideoListAfterProcessing(videos) {
   let videoList = videos
 
-  if (store.getters.getOnlyShowLatestFromChannel) {
-    const authors = new Set()
-    videoList = videoList.filter((video) => {
-      if (!video.authorId) {
-        return true
-      } else if (!authors.has(video.authorId)) {
-        authors.add(video.authorId)
-        return true
-      }
-
-      return false
-    })
-  }
-
   if (store.getters.getHideLiveStreams) {
     videoList = videoList.filter(item => {
       return (!item.liveNow && !item.isUpcoming)
@@ -51,6 +37,22 @@ export function updateVideoListAfterProcessing(videos) {
 
     videoList = videoList.filter((video) => {
       return !Object.hasOwn(historyCacheById, video.videoId)
+    })
+  }
+
+  // ordered last to show first eligible video from channel
+  // if the first one incidentally failed one of the above checks
+  if (store.getters.getOnlyShowLatestFromChannel) {
+    const authors = new Set()
+    videoList = videoList.filter((video) => {
+      if (!video.authorId) {
+        return true
+      } else if (!authors.has(video.authorId)) {
+        authors.add(video.authorId)
+        return true
+      }
+
+      return false
     })
   }
 
