@@ -29,8 +29,8 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
           :compact="true"
-          :default-value="defaultTheatreMode"
-          @change="updateDefaultTheatreMode"
+          :default-value="defaultTheaterMode"
+          @change="updateDefaultTheaterMode"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
@@ -59,21 +59,22 @@
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Autoplay Videos')"
           :compact="true"
-          :default-value="autoplayVideos"
-          @change="updateAutoplayVideos"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Autoplay Playlists')"
-          :compact="true"
-          :default-value="autoplayPlaylists"
-          @change="updateAutoplayPlaylists"
+          :default-value="startVideosAutomatically"
+          @change="updateStartVideosAutomatically"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Play Next Video')"
           :compact="true"
           :disabled="hideRecommendedVideos"
-          :default-value="playNextVideo"
-          @change="updatePlayNextVideo"
+          :default-value="enableAutoplay"
+          @change="updateEnableAutoplay"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Autoplay Playlists')"
+          :compact="true"
+          :disabled="enableAutoplay"
+          :default-value="enablePlaylistAutoplay"
+          @change="updateEnablePlaylistAutoplay"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Display Play Button In Video Player')"

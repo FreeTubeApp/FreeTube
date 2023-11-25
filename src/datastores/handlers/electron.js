@@ -15,6 +15,13 @@ class Settings {
       { action: DBActions.GENERAL.UPSERT, data: { _id, value } }
     )
   }
+
+  static delete(setting) {
+    return ipcRenderer.invoke(
+      IpcChannels.DB_SETTINGS,
+      { action: DBActions.GENERAL.DELETE, data: setting }
+    )
+  }
 }
 
 class History {

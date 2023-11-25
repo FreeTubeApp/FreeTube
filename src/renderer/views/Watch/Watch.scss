@@ -2,7 +2,7 @@
   grid-template: 'video video sidebar' 0fr 'info info sidebar' auto 'info info sidebar' 1fr / 1fr 1fr 1fr;
 }
 
-@mixin theatre-mode-template {
+@mixin theater-mode-template {
   grid-template: 'video video video' auto 'info info sidebar' auto 'info info sidebar' auto / 1fr 1fr 1fr;
 }
 
@@ -110,7 +110,7 @@
 
   .watchVideoPlaylist,
   .watchVideoSidebar,
-  .theatrePlaylist {
+  .theaterPlaylist {
     margin-block: 0 16px;
     margin-inline: 8px;
   }
@@ -131,7 +131,7 @@
   }
 
   .watchVideoRecommendations,
-  .theatreRecommendations {
+  .theaterRecommendations {
     margin-block: 0 16px;
     margin-inline: 0;
 
@@ -142,12 +142,12 @@
   }
 
   @media only screen and (max-width: 1350px) {
-    @include theatre-mode-template;
+    @include theater-mode-template;
   }
 
   @media only screen and (min-width: 901px) {
-    &.useTheatreMode {
-      @include theatre-mode-template;
+    &.useTheaterMode {
+      @include theater-mode-template;
     }
   }
 

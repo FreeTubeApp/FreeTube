@@ -31,7 +31,7 @@
               {{ channelName }}
             </router-link>
             <ft-subscribe-button
-              v-if="!hideUnsubscribeButton"
+              v-if="!hideSubscribeButton"
               :channel-id="channelId"
               :channel-name="channelName"
               :channel-thumbnail="channelThumbnail"

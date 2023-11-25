@@ -91,9 +91,9 @@
           :title="$t('Video.Play Next Video')"
           role="button"
           tabindex="0"
-          @click="playNextVideo"
-          @keydown.enter.prevent="playNextVideo"
-          @keydown.space.prevent="playNextVideo"
+          @click="enableAutoplay"
+          @keydown.enter.prevent="enableAutoplay"
+          @keydown.space.prevent="enableAutoplay"
         />
         <font-awesome-icon
           class="playlistIcon"

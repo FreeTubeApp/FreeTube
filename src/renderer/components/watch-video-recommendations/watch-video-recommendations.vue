@@ -12,8 +12,8 @@
         class="autoPlayToggle"
         :label="$t('Video.Autoplay')"
         :compact="true"
-        :default-value="playNextVideo"
-        @change="updatePlayNextVideo"
+        :default-value="enableAutoplay"
+        @change="updateEnableAutoplay"
       />
     </div>
     <ft-list-video-lazy

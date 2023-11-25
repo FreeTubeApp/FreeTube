@@ -805,7 +805,14 @@ function runApp() {
               // Do nothing for unmatched settings
           }
           return null
-
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.settings.delete(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SETTINGS,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
+          return null
         default:
           // eslint-disable-next-line no-throw-literal
           throw 'invalid settings db action'

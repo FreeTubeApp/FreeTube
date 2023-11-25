@@ -7,8 +7,8 @@
         <ft-toggle-switch
           :label="$t('Settings.Parental Control Settings.Hide Unsubscribe Button')"
           :compact="true"
-          :default-value="hideUnsubscribeButton"
-          @change="updateHideUnsubscribeButton"
+          :default-value="hideSubscribeButton"
+          @change="updateHideSubscribeButton"
         />
         <ft-toggle-switch
           :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"

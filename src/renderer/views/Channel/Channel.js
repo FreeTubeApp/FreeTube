@@ -143,8 +143,8 @@ export default defineComponent({
       return this.$store.getters.getBackendFallback
     },
 
-    hideUnsubscribeButton: function() {
-      return this.$store.getters.getHideUnsubscribeButton
+    hideSubscribeButton: function() {
+      return this.$store.getters.getHideSubscribeButton
     },
 
     showFamilyFriendlyOnly: function() {

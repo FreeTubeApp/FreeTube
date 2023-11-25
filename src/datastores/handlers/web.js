@@ -18,6 +18,10 @@ class Settings {
   static upsert(_id, value) {
     return baseHandlers.settings.upsert(_id, value)
   }
+
+  static delete(setting) {
+    return baseHandlers.settings.delete(setting)
+  }
 }
 
 class History {
