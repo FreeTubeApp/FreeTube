@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -69,7 +69,7 @@ export default defineComponent({
       this.shownResults = result.filter((item) => {
         return item.type === 'video' || item.type === 'shortVideo' || item.type === 'channel' || item.type === 'playlist'
       })
-      this.updateLastPopularRefreshTimestamp(new Date())
+      this.setLastPopularRefreshTimestamp(new Date())
       this.isLoading = false
       this.$store.commit('setPopularCache', this.shownResults)
     },
@@ -96,8 +96,8 @@ export default defineComponent({
       }
     },
 
-    ...mapActions([
-      'updateLastPopularRefreshTimestamp'
+    ...mapMutations([
+      'setLastPopularRefreshTimestamp'
     ])
   }
 })

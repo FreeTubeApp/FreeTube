@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -96,7 +96,7 @@ export default defineComponent({
         this.getTrendingInfoLocal()
       }
 
-      this.updateLastTrendingRefreshTimestamp(new Date())
+      this.setLastTrendingRefreshTimestamp(new Date())
     },
 
     getTrendingInfoLocal: async function () {
@@ -198,8 +198,11 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateLastTrendingRefreshTimestamp',
       'showOutlines'
+    ]),
+
+    ...mapMutations([
+      'setLastTrendingRefreshTimestamp'
     ])
   }
 })

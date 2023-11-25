@@ -145,7 +145,7 @@ export default defineComponent({
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
-      this.updateLastCommunityRefreshTimestamp(new Date())
+      this.setLastCommunityRefreshTimestamp(new Date())
       postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
@@ -216,12 +216,12 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateLastCommunityRefreshTimestamp',
       'updateShowProgressBar',
       'updateSubscriptionPostsCacheByChannel',
     ]),
 
     ...mapMutations([
+      'setLastCommunityRefreshTimestamp',
       'setProgressBarPercentage'
     ])
   }

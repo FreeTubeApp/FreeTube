@@ -136,7 +136,7 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
-      this.updateLastShortRefreshTimestamp(new Date())
+      this.setLastShortRefreshTimestamp(new Date())
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -230,12 +230,12 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateLastShortRefreshTimestamp',
       'updateShowProgressBar',
       'updateSubscriptionShortsCacheByChannel',
     ]),
 
     ...mapMutations([
+      'setLastShortRefreshTimestamp',
       'setProgressBarPercentage'
     ])
   }

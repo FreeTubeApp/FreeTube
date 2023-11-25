@@ -44,7 +44,13 @@ const state = {
   externalPlayerNames: [],
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
-  externalPlayerCmdArguments: {}
+  externalPlayerCmdArguments: {},
+  lastVideoRefreshTimestamp: '',
+  lastShortRefreshTimestamp: '',
+  lastLiveRefreshTimestamp: '',
+  lastCommunityRefreshTimestamp: '',
+  lastPopularRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: '',
 }
 
 const getters = {
@@ -118,6 +124,30 @@ const getters = {
 
   getExternalPlayerCmdArguments () {
     return state.externalPlayerCmdArguments
+  },
+
+  getLastTrendingRefreshTimestamp () {
+    return state.lastTrendingRefreshTimestamp
+  },
+
+  getLastPopularRefreshTimestamp () {
+    return state.lastPopularRefreshTimestamp
+  },
+
+  getLastCommunityRefreshTimestamp () {
+    return state.lastCommunityRefreshTimestamp
+  },
+
+  getLastShortRefreshTimestamp () {
+    return state.lastShortRefreshTimestamp
+  },
+
+  getLastLiveRefreshTimestamp () {
+    return state.lastLiveRefreshTimestamp
+  },
+
+  getLastVideoRefreshTimestamp () {
+    return state.lastVideoRefreshTimestamp
   }
 }
 
@@ -701,6 +731,30 @@ const mutations = {
 
   setTrendingCache (state, { value, page }) {
     state.trendingCache[page] = value
+  },
+
+  setLastTrendingRefreshTimestamp (state, value) {
+    state.lastTrendingRefreshTimestamp = value
+  },
+
+  setLastPopularRefreshTimestamp (state, value) {
+    state.lastPopularRefreshTimestamp = value
+  },
+
+  setLastCommunityRefreshTimestamp (state, value) {
+    state.lastCommunityRefreshTimestamp = value
+  },
+
+  setLastShortRefreshTimestamp (state, value) {
+    state.lastShortRefreshTimestamp = value
+  },
+
+  setLastLiveRefreshTimestamp (state, value) {
+    state.lastLiveRefreshTimestamp = value
+  },
+
+  setLastVideoRefreshTimestamp (state, value) {
+    state.lastVideoRefreshTimestamp = value
   },
 
   clearTrendingCache(state) {
