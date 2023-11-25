@@ -49,9 +49,6 @@ export default defineComponent({
     },
     locale: function () {
       return this.$i18n.locale.replace('_', '-')
-    },
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

@@ -8,7 +8,9 @@
     />
     <ft-card
       v-else-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
-      class="card channelDetails" :class="{ fullWidth: useFullWidthLayout }"
+      big
+      class="card channelDetails"
+      :class="{ fullWidth: useFullWidthLayout }"
     >
       <div
         class="channelBannerContainer"
@@ -216,7 +218,8 @@
     </ft-card>
     <ft-card
       v-if="!isLoading && !errorMessage && (isFamilyFriendly || !showFamilyFriendlyOnly)"
-      class="card" :class="{ fullWidth: useFullWidthLayout }"
+      big
+      class="card"
     >
       <channel-about
         v-if="currentTab === 'about'"
@@ -409,7 +412,8 @@
     </ft-card>
     <ft-card
       v-if="errorMessage"
-      class="card" :class="{ fullWidth: useFullWidthLayout }"
+      big
+      class="card"
     >
       <p>
         {{ errorMessage }}

@@ -38,10 +38,6 @@ export default defineComponent({
 
     showFetchMoreButton() {
       return !isNullOrEmpty(this.hashtagContinuationData) || this.apiUsed === 'invidious'
-    },
-
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

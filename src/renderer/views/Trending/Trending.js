@@ -39,9 +39,6 @@ export default defineComponent({
     },
     trendingCache () {
       return this.$store.getters.getTrendingCache
-    },
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   mounted: function () {

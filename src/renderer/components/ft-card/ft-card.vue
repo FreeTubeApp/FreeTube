@@ -1,6 +1,7 @@
 <template>
   <div
     class="ft-card"
+    :class="{ fullWidth: useFullWidthLayout, big }"
     @focusout="$emit('focusout')"
   >
     <slot />
@@ -8,4 +9,4 @@
 </template>
 
 <script src="./ft-card.js" />
-<style scoped src="./ft-card.css" />
+<style scoped src="./ft-card.scss" lang="scss" />

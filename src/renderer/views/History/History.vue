@@ -6,8 +6,8 @@
     />
     <ft-card
       v-show="!isLoading"
+      big
       class="card"
-      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("History.History") }}</h2>
       <ft-input

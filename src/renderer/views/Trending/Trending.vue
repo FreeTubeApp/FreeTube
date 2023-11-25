@@ -6,8 +6,8 @@
     />
     <ft-card
       v-else
+      big
       class="card"
-      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("Trending.Trending") }}</h2>
       <ft-flex-box

@@ -1,8 +1,4 @@
 .card {
   margin-block: 0 15px;
   margin-inline: auto;
-
-  &:not(.fullWidth) {
-    inline-size: 85%;
-  }
 }

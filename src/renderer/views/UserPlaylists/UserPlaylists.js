@@ -41,10 +41,6 @@ export default defineComponent({
       } else {
         return data.slice(0, this.dataLimit)
       }
-    },
-
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

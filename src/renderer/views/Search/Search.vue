@@ -8,8 +8,8 @@
     />
     <ft-card
       v-else
+      big
       class="card"
-      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ $t("Search Filters.Search Results") }}</h2>
       <ft-element-list

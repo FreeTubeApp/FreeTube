@@ -64,10 +64,6 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    },
-
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   watch: {

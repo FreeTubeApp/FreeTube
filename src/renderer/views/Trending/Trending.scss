@@ -1,10 +1,6 @@
 .card {
   margin-block: 0 60px;
   margin-inline: auto;
-
-  &:not(.fullWidth) {
-    inline-size: 85%;
-  }
 }
 
 .floatingTopButton {
@@ -45,11 +41,5 @@
 @media only screen and (max-width: 350px) {
   .floatingTopButton {
     position: absolute
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .card:not(.fullWidth) {
-    inline-size: 90%;
   }
 }

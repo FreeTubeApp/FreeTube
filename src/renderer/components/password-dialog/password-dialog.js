@@ -12,9 +12,6 @@ export default defineComponent({
   computed: {
     settingsPassword: function () {
       return this.$store.getters.getSettingsPassword
-    },
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   mounted: function () {

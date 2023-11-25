@@ -1,6 +1,9 @@
 <template>
   <div>
-    <ft-card class="card" :class="{ fullWidth: useFullWidthLayout }">
+    <ft-card
+      big
+      class="card"
+    >
       <h1>
         {{ $t("About.About") }}
       </h1>

@@ -24,10 +24,6 @@ export default defineComponent({
   computed: {
     popularCache: function () {
       return this.$store.getters.getPopularCache
-    },
-
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   mounted: function () {

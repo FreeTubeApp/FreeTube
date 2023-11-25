@@ -1,7 +1,6 @@
 <template>
   <ft-card
     class="card"
-    :class="{ fullWidth: useFullWidthLayout }"
   >
     <h3>{{ $t("Settings.Password Dialog.Enter Password To Unlock") }}</h3>
 

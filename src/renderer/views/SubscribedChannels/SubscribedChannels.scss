@@ -1,10 +1,6 @@
 .card {
   margin-block: 0 60px;
   margin-inline: auto;
-
-  &:not(.fullWidth) {
-    inline-size: 85%;
-  }
 }
 
 .message {
@@ -70,10 +66,6 @@
 }
 
 @media only screen and (max-width: 680px) {
-  .card:not(.fullWidth) {
-    inline-size: 90%;
-  }
-
   .channels {
     gap: 1.5rem;
   }

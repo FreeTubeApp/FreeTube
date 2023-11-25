@@ -6,8 +6,8 @@
     />
     <ft-card
       v-else
+      big
       class="card"
-      :class="{ fullWidth: useFullWidthLayout }"
     >
       <h2>{{ hashtag }}</h2>
       <ft-element-list

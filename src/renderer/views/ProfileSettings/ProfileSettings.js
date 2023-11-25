@@ -15,10 +15,6 @@ export default defineComponent({
   computed: {
     profileList: function () {
       return this.$store.getters.getProfileList
-    },
-
-    useFullWidthLayout: function () {
-      return this.$store.getters.getUseFullWidthLayout
     }
   },
   methods: {
