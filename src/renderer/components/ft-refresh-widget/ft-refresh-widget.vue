@@ -9,12 +9,12 @@
       v-if="lastRefreshTimestamp"
       class="lastRefreshTimestamp"
     >
-      {{ $t('Subscriptions.Feed last updated', { date: lastRefreshTimestamp }) }}
+      {{ $t('Feed.Feed Last Updated', { feedName: title, date: lastRefreshTimestamp }) }}
     </p>
     <ft-icon-button
       :icon="['fas', 'sync']"
       class="refreshButton"
-      :title="title"
+      :title="$t('Feed.Refresh Feed', { subscriptionName: title })"
       :size="12"
       theme="primary"
       @click="$emit('click')"

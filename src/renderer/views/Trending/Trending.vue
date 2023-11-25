@@ -88,7 +88,7 @@
     <ft-refresh-widget
       v-if="!isLoading"
       :last-refresh-timestamp="lastTrendingRefreshTimestamp"
-      :title="$t('Refresh Trending')"
+      :title="$t('Trending.Trending')"
       @click="getTrendingInfo(true)"
     />
   </div>

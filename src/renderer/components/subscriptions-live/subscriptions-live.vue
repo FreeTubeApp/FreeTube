@@ -5,6 +5,7 @@
     :error-channels="errorChannels"
     :attempted-fetch="attemptedFetch"
     :last-refresh-timestamp="lastLiveRefreshTimestamp"
+    :title="$t('Global.Live')"
     @refresh="loadVideosForSubscriptionsFromRemote"
   />
 </template>

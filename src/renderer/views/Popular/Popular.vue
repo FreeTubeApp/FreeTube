@@ -16,7 +16,7 @@
     <ft-refresh-widget
       v-if="!isLoading"
       :last-refresh-timestamp="lastPopularRefreshTimestamp"
-      :title="$t('Refresh Most Popular')"
+      :title="$t('Most Popular')"
       @click="fetchPopularInfo"
     />
   </div>
