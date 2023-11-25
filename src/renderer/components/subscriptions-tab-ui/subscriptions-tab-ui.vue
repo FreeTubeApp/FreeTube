@@ -55,26 +55,13 @@
         @click="increaseLimit"
       />
     </ft-flex-box>
-    <div
-      class="floatingRefreshSection"
-      :class="{ sideNavOpen: isSideNavOpen }"
-    >
-      <p
-        v-if="lastRefreshTimestamp"
-        class="lastRefreshTimestamp"
-      >
-        {{ $t('Subscriptions.Feed last updated', { date: lastRefreshTimestamp }) }}
-      </p>
-      <ft-icon-button
-        v-if="!isLoading"
-        :icon="['fas', 'sync']"
-        class="refreshSubscriptionsButton"
-        :title="$t('Subscriptions.Refresh Subscriptions')"
-        :size="12"
-        theme="primary"
-        @click="$emit('refresh')"
-      />
-    </div>
+    <ft-refresh-widget
+      v-if="!isLoading"
+      class="ref"
+      :last-refresh-timestamp="lastRefreshTimestamp"
+      :title="$t('Subscriptions.Refresh Subscriptions')"
+      @click="$emit('refresh')"
+    />
   </div>
 </template>
 

@@ -8,44 +8,11 @@
   color: var(--tertiary-text-color);
 }
 
-.floatingRefreshSection {
-  position: fixed;
-  inset-block-start: 60px;
-  inset-inline-end: 0;
-  box-sizing: border-box;
-  inline-size: calc(100% - 80px);
-  display: flex;
-  align-items: center;
-  background-color: var(--card-bg-color);
-  box-shadow: 0 1px 6px rgba(0,0,0,.1);
-  padding-block: 5px;
-  padding-inline: 10px;
-  gap: 5px;
-  justify-content: space-between;
-  border-inline-start: 2px solid var(--primary-color);
-}
-
-.floatingRefreshSection.sideNavOpen {
-  inline-size: calc(100% - 200px);
-}
-
-@media only screen and (max-width: 680px) {
-  .floatingRefreshSection, .floatingRefreshSection.sideNavOpen {
-    inline-size: 100%;
-  }
-}
-
-.lastRefreshTimestamp {
-  text-align: center;
-  margin-block: 0;
-  font-size: 16px;
-}
-
-@media only screen and (max-width: 350px) {
+/* @media only screen and (max-width: 350px) {
   .refreshSubscriptionsButton {
     position: absolute
   }
-}
+} */
 
 @media only screen and (max-width: 680px) {
   .card {
