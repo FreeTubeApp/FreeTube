@@ -518,6 +518,7 @@ Settings:
     Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
+  Expand All Settings Sections: Expandir todas las secciones de los ajustes
 About:
   #On About page
   About: 'Acerca de'
