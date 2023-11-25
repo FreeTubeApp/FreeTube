@@ -145,7 +145,7 @@ export default defineComponent({
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
-      this.updateLastCommunityRefreshTimestamp(new Date().toLocaleDateString(this.currentLocale, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }))
+      this.updateLastCommunityRefreshTimestamp(new Date())
       postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })

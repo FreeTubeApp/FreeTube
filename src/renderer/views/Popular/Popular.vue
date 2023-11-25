@@ -13,12 +13,11 @@
         :data="shownResults"
       />
     </ft-card>
-    <ft-icon-button
+    <ft-refresh-widget
       v-if="!isLoading"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :size="12"
-      theme="primary"
+      class="ref"
+      :last-refresh-timestamp="lastPopularRefreshTimestamp"
+      :title="$t('Refresh Most Popular')"
       @click="fetchPopularInfo"
     />
   </div>

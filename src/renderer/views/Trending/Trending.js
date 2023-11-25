@@ -5,8 +5,9 @@ import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 
@@ -17,7 +18,8 @@ export default defineComponent({
     'ft-loader': FtLoader,
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton,
-    'ft-flex-box': FtFlexBox
+    'ft-flex-box': FtFlexBox,
+    'ft-refresh-widget': FtRefreshWidget,
   },
   data: function () {
     return {
@@ -33,6 +35,9 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    lastTrendingRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastTrendingRefreshTimestamp, true)
     },
     region: function () {
       return this.$store.getters.getRegion.toUpperCase()
@@ -90,6 +95,8 @@ export default defineComponent({
       } else {
         this.getTrendingInfoLocal()
       }
+
+      this.updateLastTrendingRefreshTimestamp(new Date())
     },
 
     getTrendingInfoLocal: async function () {
@@ -191,6 +198,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'updateLastTrendingRefreshTimestamp',
       'showOutlines'
     ])
   }

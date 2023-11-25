@@ -85,12 +85,10 @@
         :data="shownResults"
       />
     </ft-card>
-    <ft-icon-button
+    <ft-refresh-widget
       v-if="!isLoading"
-      :icon="['fas', 'sync']"
-      class="floatingTopButton"
-      :size="12"
-      theme="primary"
+      :last-refresh-timestamp="lastTrendingRefreshTimestamp"
+      :title="$t('Refresh Trending')"
       @click="getTrendingInfo(true)"
     />
   </div>

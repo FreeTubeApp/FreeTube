@@ -231,6 +231,8 @@ const state = {
   lastShortRefreshTimestamp: '',
   lastLiveRefreshTimestamp: '',
   lastCommunityRefreshTimestamp: '',
+  lastPopularRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: '',
   listType: 'grid',
   maxVideoPlaybackRate: 3,
   playNextVideo: false,
