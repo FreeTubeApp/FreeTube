@@ -11,22 +11,26 @@
   padding-block: 5px;
   padding-inline: 10px;
   gap: 5px;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-inline-start: 2px solid var(--primary-color);
+}
+
+.floatingRefreshSection:has(.lastRefreshTimestamp + .refreshButton) {
+  justify-content: space-between;
 }
 
 .floatingRefreshSection.sideNavOpen {
   inline-size: calc(100% - 200px);
 }
 
-@media only screen and (max-width: 680px) {
-  .floatingRefreshSection, .floatingRefreshSection.sideNavOpen {
-    inline-size: 100%;
-  }
-}
-
 .lastRefreshTimestamp {
   text-align: center;
   margin-block: 0;
   font-size: 16px;
+}
+
+@media only screen and (max-width: 680px) {
+  .floatingRefreshSection, .floatingRefreshSection.sideNavOpen {
+    inline-size: 100%;
+  }
 }

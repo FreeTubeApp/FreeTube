@@ -1,7 +1,9 @@
 <template>
   <div
     class="floatingRefreshSection"
-    :class="{ sideNavOpen: isSideNavOpen }"
+    :class="{
+      sideNavOpen: isSideNavOpen
+    }"
   >
     <p
       v-if="lastRefreshTimestamp"
