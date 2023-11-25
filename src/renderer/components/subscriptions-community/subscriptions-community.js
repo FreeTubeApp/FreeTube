@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { calculatePublishedDate, copyToClipboard, showToast } from '../../helpers/utils'
+import { calculatePublishedDate, copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalChannelCommunity } from '../../helpers/api/local'
 import { invidiousGetCommunityPosts } from '../../helpers/api/invidious'
 
@@ -49,6 +49,11 @@ export default defineComponent({
       })
       return entries
     },
+
+    lastCommunityRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastCommunityRefreshTimestamp, true)
+    },
+
     postCacheForAllActiveProfileChannelsPresent() {
       if (this.cacheEntriesForAllActiveProfileChannels.length === 0) { return false }
       if (this.cacheEntriesForAllActiveProfileChannels.length < this.activeSubscriptionList.length) { return false }
@@ -140,6 +145,7 @@ export default defineComponent({
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
+      this.updateLastCommunityRefreshTimestamp(new Date().toLocaleDateString(this.currentLocale, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }))
       postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
@@ -210,6 +216,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'updateLastCommunityRefreshTimestamp',
       'updateShowProgressBar',
       'updateSubscriptionPostsCacheByChannel',
     ]),

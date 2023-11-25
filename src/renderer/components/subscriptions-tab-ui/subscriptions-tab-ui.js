@@ -7,7 +7,6 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
-import { getRelativeTimeFromDate } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SubscriptionsTabUI',
@@ -44,6 +43,10 @@ export default defineComponent({
     initialDataLimit: {
       type: Number,
       default: 100
+    },
+    lastRefreshTimestamp: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -54,10 +57,6 @@ export default defineComponent({
   computed: {
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
-    },
-
-    lastSubscriptionRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastSubscriptionRefreshTimestamp, true)
     },
 
     activeVideoList: function () {

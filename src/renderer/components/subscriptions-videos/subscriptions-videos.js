@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelVideos } from '../../helpers/api/local'
 import { addPublishedDatesInvidious, addPublishedDatesLocal, parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
@@ -35,6 +35,10 @@ export default defineComponent({
 
     currentLocale: function () {
       return this.$i18n.locale.replace('_', '-')
+    },
+
+    lastVideoRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastVideoRefreshTimestamp, true)
     },
 
     useRssFeeds: function () {
@@ -159,7 +163,7 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
-      this.updateLastSubscriptionRefreshTimestamp(new Date().toLocaleDateString(this.currentLocale, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }))
+      this.updateLastVideoRefreshTimestamp(new Date().toLocaleDateString(this.currentLocale, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }))
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -338,7 +342,7 @@ export default defineComponent({
     },
 
     ...mapActions([
-      'updateLastSubscriptionRefreshTimestamp',
+      'updateLastVideoRefreshTimestamp',
       'updateShowProgressBar',
       'updateSubscriptionVideosCacheByChannel',
     ]),

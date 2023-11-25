@@ -35,7 +35,7 @@
   }
 }
 
-.lastSubscriptionRefreshTimestamp {
+.lastRefreshTimestamp {
   text-align: center;
   margin-block: 0;
   font-size: 16px;

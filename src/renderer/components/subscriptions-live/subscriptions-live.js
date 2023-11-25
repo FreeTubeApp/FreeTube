@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { invidiousAPICall } from '../../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../../helpers/api/local'
 import { addPublishedDatesInvidious, addPublishedDatesLocal, parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../../helpers/subscriptions'
@@ -70,6 +70,10 @@ export default defineComponent({
     fetchSubscriptionsAutomatically: function() {
       return this.$store.getters.getFetchSubscriptionsAutomatically
     },
+
+    lastLiveRefreshTimestamp: function () {
+      return getRelativeTimeFromDate(this.$store.getters.getLastLiveRefreshTimestamp, true)
+    }
   },
   watch: {
     activeProfile: async function (_) {
@@ -155,6 +159,7 @@ export default defineComponent({
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
+      this.updateLastLiveRefreshTimestamp(new Date().toLocaleDateString(this.currentLocale, { year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }))
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -335,6 +340,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'updateLastLiveRefreshTimestamp',
       'updateShowProgressBar',
       'updateSubscriptionLiveCacheByChannel',
     ]),

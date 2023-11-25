@@ -60,10 +60,10 @@
       :class="{ sideNavOpen: isSideNavOpen }"
     >
       <p
-        v-if="lastSubscriptionRefreshTimestamp"
-        class="lastSubscriptionRefreshTimestamp"
+        v-if="lastRefreshTimestamp"
+        class="lastRefreshTimestamp"
       >
-        {{ $t('Subscriptions.Feed last updated', { date: lastSubscriptionRefreshTimestamp }) }}
+        {{ $t('Subscriptions.Feed last updated', { date: lastRefreshTimestamp }) }}
       </p>
       <ft-icon-button
         v-if="!isLoading"

@@ -4,6 +4,7 @@
     :video-list="videoList"
     :error-channels="errorChannels"
     :attempted-fetch="attemptedFetch"
+    :last-refresh-timestamp="lastLiveRefreshTimestamp"
     @refresh="loadVideosForSubscriptionsFromRemote"
   />
 </template>

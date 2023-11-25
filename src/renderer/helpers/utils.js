@@ -657,6 +657,10 @@ export function getTodayDateStrLocalTimezone() {
 }
 
 export function getRelativeTimeFromDate(date, hideSeconds = false) {
+  if (!date) {
+    return ''
+  }
+
   const now = new Date()
   // Convert from ms to second
   // For easier code interpretation the value is made to be positive
