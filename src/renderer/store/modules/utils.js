@@ -45,10 +45,10 @@ const state = {
   externalPlayerNameTranslationKeys: [],
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
-  lastVideoRefreshTimestamp: '',
-  lastShortRefreshTimestamp: '',
-  lastLiveRefreshTimestamp: '',
-  lastCommunityRefreshTimestamp: '',
+  lastVideoRefreshTimestampByProfile: {},
+  lastShortRefreshTimestampByProfile: {},
+  lastLiveRefreshTimestampByProfile: {},
+  lastCommunityRefreshTimestampByProfile: {},
   lastPopularRefreshTimestamp: '',
   lastTrendingRefreshTimestamp: '',
 }
@@ -126,28 +126,28 @@ const getters = {
     return state.externalPlayerCmdArguments
   },
 
-  getLastTrendingRefreshTimestamp () {
+  getLastTrendingRefreshTimestamp() {
     return state.lastTrendingRefreshTimestamp
   },
 
-  getLastPopularRefreshTimestamp () {
+  getLastPopularRefreshTimestamp() {
     return state.lastPopularRefreshTimestamp
   },
 
-  getLastCommunityRefreshTimestamp () {
-    return state.lastCommunityRefreshTimestamp
+  getLastCommunityRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastCommunityRefreshTimestampByProfile[profileId]
   },
 
-  getLastShortRefreshTimestamp () {
-    return state.lastShortRefreshTimestamp
+  getLastShortRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastShortRefreshTimestampByProfile[profileId]
   },
 
-  getLastLiveRefreshTimestamp () {
-    return state.lastLiveRefreshTimestamp
+  getLastLiveRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastLiveRefreshTimestampByProfile[profileId]
   },
 
-  getLastVideoRefreshTimestamp () {
-    return state.lastVideoRefreshTimestamp
+  getLastVideoRefreshTimestampByProfile: (state) => (profileId) => {
+    return state.lastVideoRefreshTimestampByProfile[profileId]
   }
 }
 
@@ -668,7 +668,24 @@ const actions = {
 
     const { ipcRenderer } = require('electron')
     ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
-  }
+  },
+
+  updateLastCommunityRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastCommunityRefreshTimestampByProfile', payload)
+  },
+
+  updateLastShortRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastShortRefreshTimestampByProfile', payload)
+  },
+
+  updateLastLiveRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastLiveRefreshTimestampByProfile', payload)
+  },
+
+  updateLastVideoRefreshTimestampByProfile ({ commit }, payload) {
+    commit('updateLastVideoRefreshTimestampByProfile', payload)
+  },
+
 }
 
 const mutations = {
@@ -733,28 +750,28 @@ const mutations = {
     state.trendingCache[page] = value
   },
 
-  setLastTrendingRefreshTimestamp (state, value) {
-    state.lastTrendingRefreshTimestamp = value
+  setLastTrendingRefreshTimestamp (state, timestamp) {
+    state.lastTrendingRefreshTimestamp = timestamp
   },
 
-  setLastPopularRefreshTimestamp (state, value) {
-    state.lastPopularRefreshTimestamp = value
+  setLastPopularRefreshTimestamp (state, timestamp) {
+    state.lastPopularRefreshTimestamp = timestamp
   },
 
-  setLastCommunityRefreshTimestamp (state, value) {
-    state.lastCommunityRefreshTimestamp = value
+  updateLastCommunityRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastCommunityRefreshTimestampByProfile, profileId, timestamp)
   },
 
-  setLastShortRefreshTimestamp (state, value) {
-    state.lastShortRefreshTimestamp = value
+  updateLastShortRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastShortRefreshTimestampByProfile, profileId, timestamp)
   },
 
-  setLastLiveRefreshTimestamp (state, value) {
-    state.lastLiveRefreshTimestamp = value
+  updateLastLiveRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastLiveRefreshTimestampByProfile, profileId, timestamp)
   },
 
-  setLastVideoRefreshTimestamp (state, value) {
-    state.lastVideoRefreshTimestamp = value
+  updateLastVideoRefreshTimestampByProfile (state, { profileId, timestamp }) {
+    vueSet(state.lastVideoRefreshTimestampByProfile, profileId, timestamp)
   },
 
   clearTrendingCache(state) {

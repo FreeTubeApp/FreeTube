@@ -51,7 +51,7 @@ export default defineComponent({
     },
 
     lastCommunityRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastCommunityRefreshTimestamp, true)
+      return getRelativeTimeFromDate(this.$store.getters.getLastCommunityRefreshTimestampByProfile(this.activeProfileId), true)
     },
 
     postCacheForAllActiveProfileChannelsPresent() {
@@ -74,17 +74,27 @@ export default defineComponent({
   watch: {
     activeProfile: async function (_) {
       this.isLoading = true
-      this.loadpostsFromCacheSometimes()
+      this.loadPostsFromCacheSometimes()
     },
   },
   mounted: async function () {
     this.isLoading = true
 
-    this.loadpostsFromCacheSometimes()
+    this.loadPostsFromCacheSometimes()
   },
   methods: {
-    loadpostsFromCacheSometimes() {
+    loadPostsFromCacheSometimes() {
       // This method is called on view visible
+      if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+        let minTimestamp = null
+        this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+          if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+            minTimestamp = cacheEntry.timestamp
+          }
+        })
+        this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+      }
+
       if (this.postCacheForAllActiveProfileChannelsPresent) {
         this.loadPostsFromCacheForAllActiveProfileChannels()
         return
@@ -141,11 +151,12 @@ export default defineComponent({
         this.updateSubscriptionPostsCacheByChannel({
           channelId: channel.id,
           posts: posts,
+          timestamp: new Date()
         })
         return posts
       }))).flatMap((o) => o)
       postList.push(...postListFromRemote)
-      this.setLastCommunityRefreshTimestamp(new Date())
+      this.updateLastCommunityRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
       postList.sort((a, b) => {
         return calculatePublishedDate(b.publishedText) - calculatePublishedDate(a.publishedText)
       })
@@ -218,10 +229,10 @@ export default defineComponent({
     ...mapActions([
       'updateShowProgressBar',
       'updateSubscriptionPostsCacheByChannel',
+      'updateLastCommunityRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([
-      'setLastCommunityRefreshTimestamp',
       'setProgressBarPercentage'
     ])
   }

@@ -71,37 +71,41 @@ const actions = {
 }
 
 const mutations = {
-  updateVideoCacheByChannel(state, { channelId, videos }) {
+  updateVideoCacheByChannel(state, { channelId, videos, timestamp }) {
     const existingObject = state.videoCache[channelId]
     const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
     if (videos != null) { newObject.videos = videos }
+    if (timestamp != null) newObject.timestamp = timestamp
     state.videoCache[channelId] = newObject
   },
   clearVideoCache(state) {
     state.videoCache = {}
   },
-  updateShortsCacheByChannel(state, { channelId, videos }) {
+  updateShortsCacheByChannel(state, { channelId, videos, timestamp }) {
     const existingObject = state.shortsCache[channelId]
     const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
     if (videos != null) { newObject.videos = videos }
+    if (timestamp != null) newObject.timestamp = timestamp
     state.shortsCache[channelId] = newObject
   },
   clearShortsCache(state) {
     state.shortsCache = {}
   },
-  updateLiveCacheByChannel(state, { channelId, videos }) {
+  updateLiveCacheByChannel(state, { channelId, videos, timestamp }) {
     const existingObject = state.liveCache[channelId]
     const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
     if (videos != null) { newObject.videos = videos }
+    if (timestamp != null) newObject.timestamp = timestamp
     state.liveCache[channelId] = newObject
   },
   clearLiveCache(state) {
     state.liveCache = {}
   },
-  updatePostsCacheByChannel(state, { channelId, posts }) {
+  updatePostsCacheByChannel(state, { channelId, posts, timestamp }) {
     const existingObject = state.postsCache[channelId]
     const newObject = existingObject != null ? existingObject : deepCopy(defaultCacheEntryValueForForOneChannel)
     if (posts != null) { newObject.posts = posts }
+    if (timestamp != null) newObject.timestamp = timestamp
     state.postsCache[channelId] = newObject
   },
   clearPostsCache(state) {

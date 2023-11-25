@@ -32,7 +32,7 @@ export default defineComponent({
     },
 
     lastShortRefreshTimestamp: function () {
-      return getRelativeTimeFromDate(this.$store.getters.getLastShortRefreshTimestamp, true)
+      return getRelativeTimeFromDate(this.$store.getters.getLastShortRefreshTimestampByProfile(this.activeProfileId), true)
     },
 
     activeProfile: function () {
@@ -83,6 +83,16 @@ export default defineComponent({
   methods: {
     loadVideosFromCacheSometimes() {
       // This method is called on view visible
+      if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+        let minTimestamp = null
+        this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+          if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+            minTimestamp = cacheEntry.timestamp
+          }
+        })
+        this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+      }
+
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
         return
@@ -132,11 +142,12 @@ export default defineComponent({
         this.updateSubscriptionShortsCacheByChannel({
           channelId: channel.id,
           videos: videos,
+          timestamp: new Date()
         })
         return videos
       }))).flatMap((o) => o)
       videoList.push(...videoListFromRemote)
-      this.setLastShortRefreshTimestamp(new Date())
+      this.updateLastShortRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: new Date() })
 
       this.videoList = updateVideoListAfterProcessing(videoList)
       this.isLoading = false
@@ -232,10 +243,10 @@ export default defineComponent({
     ...mapActions([
       'updateShowProgressBar',
       'updateSubscriptionShortsCacheByChannel',
+      'updateLastShortRefreshTimestampByProfile'
     ]),
 
     ...mapMutations([
-      'setLastShortRefreshTimestamp',
       'setProgressBarPercentage'
     ])
   }
