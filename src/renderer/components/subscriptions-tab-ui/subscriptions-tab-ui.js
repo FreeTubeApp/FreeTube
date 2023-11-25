@@ -55,10 +55,6 @@ export default defineComponent({
     }
   },
   computed: {
-    currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
-    },
-
     activeVideoList: function () {
       if (this.videoList.length < this.dataLimit) {
         return this.videoList

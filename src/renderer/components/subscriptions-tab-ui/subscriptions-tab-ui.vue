@@ -57,7 +57,6 @@
     </ft-flex-box>
     <ft-refresh-widget
       v-if="!isLoading"
-      class="ref"
       :last-refresh-timestamp="lastRefreshTimestamp"
       :title="$t('Subscriptions.Refresh Subscriptions')"
       @click="$emit('refresh')"

@@ -15,7 +15,6 @@
     </ft-card>
     <ft-refresh-widget
       v-if="!isLoading"
-      class="ref"
       :last-refresh-timestamp="lastPopularRefreshTimestamp"
       :title="$t('Refresh Most Popular')"
       @click="fetchPopularInfo"
