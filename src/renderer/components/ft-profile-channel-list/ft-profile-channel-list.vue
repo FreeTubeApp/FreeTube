@@ -7,7 +7,7 @@
       <h2>
         {{ $t("Profile.Subscription List") }}
       </h2>
-      <p>
+      <p class="selectedCount">
         {{ selectedText }}
       </p>
       <ft-flex-box>

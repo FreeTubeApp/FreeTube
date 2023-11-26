@@ -10,7 +10,7 @@
       <ft-flex-box>
         <ft-select
           :placeholder="$t('Profile.Profile Filter')"
-          :value="profileNameList[0]"
+          :value="profileNameList[filteredProfileIndex]"
           :select-names="profileNameList"
           :select-values="profileNameList"
           @change="handleProfileFilterChange"

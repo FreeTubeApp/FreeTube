@@ -11,3 +11,13 @@ hr {
     inline-size: 100%;
   }
 }
+
+.switchColumnGrid {
+  inline-size: 85%;
+  margin-inline: auto;
+}
+
+.settingsToggle {
+  padding-block: 0;
+  margin-block: 10px 5px;
+}
