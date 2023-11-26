@@ -331,6 +331,8 @@ Settings:
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
     Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
     Fetch Automatically: Recupera i feed automaticamente
+    Only Show Latest Video for Each Channel: Mostra solo il video più recente per
+      ciascun canale
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -515,10 +517,10 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Impostazioni sperimentali
-    Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
+    Warning: Queste Impostazioni sono sperimentali, causano arresti anomali se abilitate.
       Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
   Password Dialog:
-    Enter Password To Unlock: Inserisci la password per sbloccare le impostazioni
+    Enter Password To Unlock: Inserisci la password per sbloccare le Impostazioni
     Password Incorrect: Password non corretta
     Password: Password
     Unlock: Sblocca
@@ -526,8 +528,9 @@ Settings:
     Set Password: Imposta password
     Password Settings: Impostazioni password
     Set Password To Prevent Access: Imposta una password per impedire l'accesso alle
-      impostazioni
+      Impostazioni
     Remove Password: Rimuovi password
+  Expand All Settings Sections: Espandi tutte le sezioni delle Impostazioni
 About:
   #On About page
   About: 'Informazioni'
@@ -946,6 +949,9 @@ Profile:
   Toggle Profile List: Attiva/disattiva elenco profili
   Open Profile Dropdown: Apri il menu a discesa del profilo
   Close Profile Dropdown: Chiudi il menu a discesa del profilo
+  Profile Name: Nome del profilo
+  Edit Profile Name: Modifica il nome del profilo
+  Create Profile Name: Crea un nome per il profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
@@ -966,7 +972,7 @@ Tooltips:
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
       CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
       alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
-      nelle impostazioni).
+      nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
     Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
@@ -1005,7 +1011,7 @@ Tooltips:
       un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
       un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
-      Attenzione, le impostazioni Invidious non influiscono sui lettori esterni.
+      Attenzione, le Impostazioni Invidious non influiscono sui lettori esterni.
     DefaultCustomArgumentsTemplate: '(Predefinito: {defaultCustomArguments})'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
@@ -1042,7 +1048,7 @@ Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconos
 Search Bar:
   Clear Input: Pulisci ricerca
 External link opening has been disabled in the general settings: L'apertura dei link
-  esterni è stata disabilitata nelle impostazioni generali
+  esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Downloading has completed: 'Il download di "{videoTitle}" è terminato'
 Starting download: Avvio del download di "{videoTitle}"
