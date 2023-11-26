@@ -4,7 +4,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { getLocalChannel } from '../../helpers/api/local'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { copyToClipboard, deepCopy, showToast } from '../../helpers/utils'
+import { deepCopy } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SideNav',

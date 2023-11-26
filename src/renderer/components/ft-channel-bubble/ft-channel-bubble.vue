@@ -6,10 +6,16 @@
     :to="`/channel/${channelId}`"
   >
     <img
+      v-if="channelThumbnail !== '_'"
       class="bubble"
       :src="channelThumbnail"
       alt=""
     >
+    <font-awesome-icon
+      v-else
+      class="bubble"
+      :icon="['fas', 'circle-user']"
+    />
     <div
       :id="sanitizedId"
       class="channelName"
@@ -27,10 +33,16 @@
     @keydown.space.enter.prevent="handleClick($event)"
   >
     <img
+      v-if="channelThumbnail !== '_'"
       class="bubble"
       :src="channelThumbnail"
       alt=""
     >
+    <font-awesome-icon
+      v-else
+      class="bubble"
+      :icon="['fas', 'circle-user']"
+    />
     <div
       v-if="selected"
       class="bubble selected"
