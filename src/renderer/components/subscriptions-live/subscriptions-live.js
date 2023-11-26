@@ -89,18 +89,17 @@ export default defineComponent({
   methods: {
     loadVideosFromCacheSometimes() {
       // This method is called on view visible
-      if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
-        let minTimestamp = null
-        this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
-          if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
-            minTimestamp = cacheEntry.timestamp
-          }
-        })
-        this.updateLastLiveRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
-      }
-
       if (this.videoCacheForAllActiveProfileChannelsPresent) {
         this.loadVideosFromCacheForAllActiveProfileChannels()
+        if (this.cacheEntriesForAllActiveProfileChannels.length > 0) {
+          let minTimestamp = null
+          this.cacheEntriesForAllActiveProfileChannels.forEach((cacheEntry) => {
+            if (!minTimestamp || cacheEntry.timestamp.getTime() < minTimestamp.getTime()) {
+              minTimestamp = cacheEntry.timestamp
+            }
+          })
+          this.updateLastLiveRefreshTimestampByProfile({ profileId: this.activeProfileId, timestamp: minTimestamp })
+        }
         return
       }
 
