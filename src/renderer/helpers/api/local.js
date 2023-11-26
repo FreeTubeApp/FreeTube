@@ -516,7 +516,7 @@ function handleSearchResponse(response) {
 
   const results = response.results
     .filter((item) => {
-      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile'
+      return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie'
     })
     .map((item) => parseListItem(item))
 
@@ -609,8 +609,8 @@ export function parseLocalListVideo(video) {
     author: video.author.name,
     authorId: video.author.id,
     description: video.description,
-    viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.isEmpty() ? null : video.published.text,
+    viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+    publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
     lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
     liveNow: video.is_live,
     isUpcoming: video.is_upcoming || video.is_premiere,
@@ -623,6 +623,7 @@ export function parseLocalListVideo(video) {
  */
 function parseListItem(item) {
   switch (item.type) {
+    case 'Movie':
     case 'Video':
       return parseLocalListVideo(item)
     case 'Channel': {
@@ -689,8 +690,8 @@ export function parseLocalWatchNextVideo(video) {
     title: video.title.text,
     author: video.author.name,
     authorId: video.author.id,
-    viewCount: extractNumberFromString(video.view_count.text),
-    publishedText: video.published.isEmpty() ? null : video.published.text,
+    viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+    publishedText: (video.published == null || video.published.isEmpty()) ? null : video.published.text,
     lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
     liveNow: video.is_live,
     isUpcoming: video.is_premiere

@@ -274,11 +274,12 @@ export default defineComponent({
 
       try {
         let result = await getLocalVideoInfo(this.videoId)
+        let trailerResult = null
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
         this.recommendedVideos = result.watch_next_feed
-          ?.filter((item) => item.type === 'CompactVideo')
+          ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
           .map(parseLocalWatchNextVideo) ?? []
 
         if (this.showFamilyFriendlyOnly && !this.isFamilyFriendly) {
@@ -300,7 +301,12 @@ export default defineComponent({
            * @type {import ('youtubei.js').YTNodes.PlayerErrorMessage}
            */
           const errorScreen = playabilityStatus.error_screen
-          throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
+
+          if (result.has_trailer) {
+            trailerResult = result.getTrailerInfo()
+          } else {
+            throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
+          }
         }
 
         // extract localised title first and fall back to the not localised one
@@ -430,6 +436,8 @@ export default defineComponent({
           result = bypassedResult
         }
 
+        const streamingData = trailerResult?.streaming_data ?? result.streaming_data
+
         if ((this.isLive || this.isPostLiveDvr) && !this.isUpcoming) {
           try {
             const formats = await getFormatsFromHLSManifest(result.streaming_data.hls_manifest_url)
@@ -518,17 +526,17 @@ export default defineComponent({
             this.upcomingTimeLeft = null
           }
         } else {
-          this.videoLengthSeconds = result.basic_info.duration
-          if (result.streaming_data) {
-            if (result.streaming_data.formats.length > 0) {
-              this.videoSourceList = result.streaming_data.formats.map(mapLocalFormat).reverse()
+          this.videoLengthSeconds = trailerResult?.basic_info?.duration ?? result.basic_info.duration
+          if (streamingData) {
+            if (streamingData.formats.length > 0) {
+              this.videoSourceList = streamingData.formats.map(mapLocalFormat).reverse()
             } else {
-              this.videoSourceList = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats).map(mapLocalFormat).reverse()
+              this.videoSourceList = filterLocalFormats(streamingData.adaptive_formats, this.allowDashAv1Formats).map(mapLocalFormat).reverse()
             }
             this.adaptiveFormats = this.videoSourceList
 
             /** @type {import('../../helpers/api/local').LocalFormat[]} */
-            const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
+            const formats = [...streamingData.formats, ...streamingData.adaptive_formats]
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
               const fps = format.fps ? `${format.fps}fps` : 'kbps'
@@ -549,8 +557,9 @@ export default defineComponent({
               }
             })
 
-            if (result.captions) {
-              const captionTracks = result.captions.caption_tracks.map((caption) => {
+            const captions = trailerResult?.captions ?? result.captions
+            if (captions) {
+              const captionTracks = captions.caption_tracks.map((caption) => {
                 return {
                   url: caption.base_url,
                   label: caption.name.text,
@@ -593,8 +602,8 @@ export default defineComponent({
             return
           }
 
-          if (result.streaming_data?.adaptive_formats.length > 0) {
-            const audioFormats = result.streaming_data.adaptive_formats.filter((format) => {
+          if (streamingData?.adaptive_formats.length > 0) {
+            const audioFormats = streamingData.adaptive_formats.filter((format) => {
               return format.has_audio
             })
 
@@ -613,7 +622,7 @@ export default defineComponent({
             }
 
             // we need to alter the result object so the toDash function uses the filtered formats too
-            result.streaming_data.adaptive_formats = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
+            streamingData.adaptive_formats = filterLocalFormats(streamingData.adaptive_formats, this.allowDashAv1Formats)
 
             // When `this.proxyVideos` is true
             // It's possible that the Invidious instance used, only supports a subset of the formats from Local API
@@ -623,8 +632,8 @@ export default defineComponent({
               this.adaptiveFormats = await this.getAdaptiveFormatsInvidious()
               this.dashSrc = await this.createInvidiousDashManifest()
             } else {
-              this.adaptiveFormats = result.streaming_data.adaptive_formats.map(mapLocalFormat)
-              this.dashSrc = await this.createLocalDashManifest(result)
+              this.adaptiveFormats = streamingData.adaptive_formats.map(mapLocalFormat)
+              this.dashSrc = await this.createLocalDashManifest(trailerResult ?? result)
             }
 
             if (this.activeFormat === 'audio') {
