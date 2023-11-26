@@ -281,6 +281,12 @@ export default defineComponent({
           ?.filter((item) => item.type === 'CompactVideo')
           .map(parseLocalWatchNextVideo) ?? []
 
+        // place watched recommended videos last
+        this.recommendedVideos = [
+          ...this.recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+          ...this.recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+        ]
+
         if (this.showFamilyFriendlyOnly && !this.isFamilyFriendly) {
           this.isLoading = false
           this.handleVideoEnded()
@@ -700,6 +706,11 @@ export default defineComponent({
           this.videoPublished = result.published * 1000
           this.videoDescriptionHtml = result.descriptionHtml
           this.recommendedVideos = result.recommendedVideos
+          // place watched recommended videos last
+          this.recommendedVideos = [
+            ...this.recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
+            ...this.recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
+          ]
           this.adaptiveFormats = await this.getAdaptiveFormatsInvidious(result)
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
@@ -1065,6 +1076,10 @@ export default defineComponent({
     handleVideoReady: function () {
       this.videoPlayerReady = true
       this.checkIfWatched()
+    },
+
+    isRecommendedVideoWatched: function (videoId) {
+      return !!this.$store.getters.getHistoryCacheById[videoId]
     },
 
     checkIfWatched: function () {
