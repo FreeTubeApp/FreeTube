@@ -69,11 +69,12 @@ export default defineComponent({
 
       if (this.tagList.includes(trimmedText)) {
         showToast(this.$t('Tag already exists', { tagName: trimmedText }))
-      } else {
-        const newList = this.tagList.slice(0)
-        newList.push(trimmedText)
-        this.$emit('change', newList)
+        return
       }
+
+      const newList = this.tagList.slice(0)
+      newList.push(trimmedText)
+      this.$emit('change', newList)
       // clear input box
       this.$refs.tagNameInput.handleClearTextClick()
     },
