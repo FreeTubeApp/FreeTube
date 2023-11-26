@@ -8,6 +8,10 @@ export default defineComponent({
     'ft-icon-button': FtIconButton,
   },
   props: {
+    disableRefresh: {
+      type: Boolean,
+      default: false
+    },
     lastRefreshTimestamp: {
       type: String,
       default: ''

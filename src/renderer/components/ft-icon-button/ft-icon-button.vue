@@ -6,7 +6,8 @@
       :icon="icon"
       :class="{
         [theme]: true,
-        shadow: useShadow
+        shadow: useShadow,
+        disabled
       }"
       :style="{
         padding: padding + 'px',

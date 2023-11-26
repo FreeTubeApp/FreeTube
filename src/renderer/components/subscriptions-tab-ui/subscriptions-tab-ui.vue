@@ -56,7 +56,7 @@
       />
     </ft-flex-box>
     <ft-refresh-widget
-      v-if="!isLoading"
+      :disable-refresh="isLoading"
       :last-refresh-timestamp="lastRefreshTimestamp"
       :title="title"
       @click="$emit('refresh')"

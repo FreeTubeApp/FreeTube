@@ -12,6 +12,7 @@
       {{ $t('Feed.Feed Last Updated', { feedName: title, date: lastRefreshTimestamp }) }}
     </p>
     <ft-icon-button
+      :disabled="disableRefresh"
       :icon="['fas', 'sync']"
       class="refreshButton"
       :title="$t('Feed.Refresh Feed', { subscriptionName: title })"
