@@ -356,7 +356,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'Egy vagy több feliratkozást
       nem sikerült importálni'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
-    This might take a while, please wait: 'Ez eltarthat egy ideig. Kis türelmet kérünk'
     Invalid history file: 'Érvénytelen előzményfájl'
     Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'
     History object has insufficient data, skipping item: 'Az előzményobjektum nem

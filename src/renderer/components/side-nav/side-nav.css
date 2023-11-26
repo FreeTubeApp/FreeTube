@@ -97,6 +97,8 @@
 .channelThumbnail {
   border-radius: 50%;
   vertical-align: middle;
+  /* font-size is used for font-icon */
+  font-size: 35px;
 }
 
 .closed {

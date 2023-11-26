@@ -383,7 +383,6 @@ Settings:
     All subscriptions have been successfully imported: ''
     One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
-    This might take a while, please wait: ''
     Invalid history file: ''
     Subscriptions have been successfully exported: ''
     History object has insufficient data, skipping item: ''

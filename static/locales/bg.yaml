@@ -352,8 +352,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'Един или повече абонаменти
       не беше внесен'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
-    This might take a while, please wait: 'Това може да отнеме повече време, моля
-      изчакайте'
     Invalid history file: 'Невалиден файл с история'
     Subscriptions have been successfully exported: 'Абонаментите бяха изнесени успешно'
     History object has insufficient data, skipping item: 'Историята няма достатъчно

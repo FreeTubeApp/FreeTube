@@ -29,7 +29,7 @@
             class="thumbnailContainer"
           >
             <img
-              v-if="thumbnailUrl"
+              v-if="thumbnailUrl && thumbnailUrl !== '_'"
               class="channelThumbnail"
               :src="thumbnailUrl"
               alt=""

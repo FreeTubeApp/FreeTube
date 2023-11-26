@@ -404,7 +404,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'Није могуће увести једно
       или више праћења'
     Invalid subscriptions file: 'Неважећи фајл праћења'
-    This might take a while, please wait: 'Ово може потрајати, сачекајте'
     Invalid history file: 'Неважећи фајл историје'
     Subscriptions have been successfully exported: 'Праћења су успешно извезена'
     History object has insufficient data, skipping item: 'Објекат историје нема довољно

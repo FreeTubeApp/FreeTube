@@ -8,7 +8,7 @@
     <ft-flex-box class="dataSettingsBox">
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
-        @click="showImportSubscriptionsPrompt = true"
+        @click="importSubscriptions"
       />
       <ft-button
         :label="$t('Settings.Data Settings.Manage Subscriptions')"
@@ -60,31 +60,6 @@
       :show-close="true"
       @click="exportSubscriptions"
     />
-    <ft-prompt
-      v-if="showImportSubscriptionsPrompt"
-      :label="$t('Settings.Data Settings.Import Subscriptions')"
-      @click="showImportSubscriptionsPrompt = !showImportSubscriptionsPrompt"
-    >
-      <ft-flex-box>
-        <ft-toggle-switch
-          :label="$t('Settings.Data Settings.Fetch Channel Images')"
-          :compact="true"
-          :default-value="fetchChannelImages"
-          :tooltip="$t('Tooltips.Data Settings.Fetch Channel Images')"
-          @change="fetchChannelImages = !fetchChannelImages"
-        />
-      </ft-flex-box>
-      <ft-flex-box>
-        <ft-button
-          :label="$t('Settings.Data Settings.Import Subscriptions')"
-          @click="importSubscriptions"
-        />
-        <ft-button
-          :label="$t('Close')"
-          @click="showImportSubscriptionsPrompt = !showImportSubscriptionsPrompt"
-        />
-      </ft-flex-box>
-    </ft-prompt>
   </ft-settings-section>
 </template>
 

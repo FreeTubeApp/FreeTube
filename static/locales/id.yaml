@@ -309,8 +309,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'Satu atau lebih langganan
       tidak dapat diimpor'
     Invalid subscriptions file: 'Berkas langganan tidak valid'
-    This might take a while, please wait: 'Mungkin memakan waktu cukup lama, silakan
-      tunggu'
     Invalid history file: 'Berkas riwayat tidak valid'
     Subscriptions have been successfully exported: 'Langganan telah berhasil diekspor'
     History object has insufficient data, skipping item: 'Obyek riwayat tidak memiliki

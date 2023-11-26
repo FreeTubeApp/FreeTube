@@ -334,8 +334,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'Zenbait harpidetza ezin
       izan dira inportatu'
     Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
-    This might take a while, please wait: 'Baliteke denbora pixka bat behar izatea,
-      itxaron mesedez'
     Invalid history file: 'Historia fitxategi baliogabea'
     Subscriptions have been successfully exported: 'Harpidetzak ongi esportatu dira'
     History object has insufficient data, skipping item: 'Historiako objektuak ez

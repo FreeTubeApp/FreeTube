@@ -214,6 +214,7 @@
             class="thumbnailContainer"
           >
             <img
+              v-if="channel.thumbnail != '_'"
               class="channelThumbnail"
               height="35"
               width="35"
@@ -222,6 +223,11 @@
               :alt="isOpen ? '' : channel.name"
               @error.once="updateThumbnail(channel)"
             >
+            <font-awesome-icon
+              v-else
+              class="channelThumbnail"
+              :icon="['fas', 'circle-user']"
+            />
           </div>
           <p
             v-if="isOpen"

@@ -338,7 +338,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'לא ניתן היה לייבא אחד או
       יותר מהמינויים'
     Invalid subscriptions file: 'קובץ מינויים בלתי קריא'
-    This might take a while, please wait: 'זה עלול לקחת זמן מה, נא להמתין'
     Invalid history file: 'קובץ היסטוריה בלתי קריא'
     Subscriptions have been successfully exported: 'המינויים יוצאו בהצלחה'
     History object has insufficient data, skipping item: 'לאובייקט ההיסטוריה אין מספיק

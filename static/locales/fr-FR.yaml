@@ -395,8 +395,6 @@ Settings:
     Unable to write file: Impossible d'écrire le fichier
     Unable to read file: Impossible de lire le fichier
     Invalid history file: Fichier d'historique non valide
-    This might take a while, please wait: Cela pourrait prendre un certain temps,
-      veuillez patienter
     Invalid subscriptions file: Fichier d'abonnements invalide
     Data Settings: Paramètres des données
     All watched history has been successfully exported: Tout votre historique de visionnage

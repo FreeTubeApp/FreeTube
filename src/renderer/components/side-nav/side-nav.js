@@ -4,7 +4,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.vue'
 import { getLocalChannel } from '../../helpers/api/local'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { deepCopy } from '../../helpers/utils'
+import { copyToClipboard, deepCopy, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'SideNav',
@@ -95,6 +95,12 @@ export default defineComponent({
               channelName: channel.name,
               channelId: channel.id
             })
+          }).catch(() => {
+            this.updateSubscriptionDetails({
+              channelThumbnailUrl: '_',
+              channelName: channel.name,
+              channelId: channel.id
+            })
           })
         }, this.errorCount * 500)
       } else {
@@ -103,6 +109,13 @@ export default defineComponent({
             if (!response.alert) {
               this.updateSubscriptionDetails({
                 channelThumbnailUrl: response.header.author.thumbnails[0].url,
+                channelName: channel.name,
+                channelId: channel.id
+              })
+            } else {
+              // channel is likely deleted. We will show a default icon instead from now on.
+              this.updateSubscriptionDetails({
+                channelThumbnailUrl: '_',
                 channelName: channel.name,
                 channelId: channel.id
               })

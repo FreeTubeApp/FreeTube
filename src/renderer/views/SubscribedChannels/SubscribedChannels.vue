@@ -35,12 +35,18 @@
               :to="`/channel/${channel.id}`"
             >
               <img
+                v-if="channel.thumbnail != '_'"
                 class="channelThumbnail"
                 :src="thumbnailURL(channel.thumbnail) ?? '//'"
                 alt=""
                 loading="lazy"
                 @error.once="updateThumbnail(channel)"
               >
+              <font-awesome-icon
+                v-else
+                class="channelThumbnail"
+                :icon="['fas', 'circle-user']"
+              />
             </router-link>
             <router-link
               class="channelName"

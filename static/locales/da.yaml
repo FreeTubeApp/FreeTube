@@ -319,7 +319,6 @@ Settings:
     One or more subscriptions were unable to be imported: 'Et eller flere abonnementer
       kunne ikke importeres'
     Invalid subscriptions file: 'Ugyldig abonnementer-fil'
-    This might take a while, please wait: 'Dette kan tage et stykke tid. Vent venligst'
     Invalid history file: 'Ugyldig historik-fil'
     Subscriptions have been successfully exported: 'Det lykkedes at eksportere abonnementer'
     History object has insufficient data, skipping item: 'Historik-objekt har utilstrækkelig

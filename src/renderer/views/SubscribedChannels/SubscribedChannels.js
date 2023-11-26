@@ -140,6 +140,12 @@ export default defineComponent({
               channelName: channel.name,
               channelId: channel.id
             })
+          }).catch(e => {
+            this.updateSubscriptionDetails({
+              channelThumbnailUrl: '_',
+              channelName: channel.name,
+              channelId: channel.id
+            })
           })
         }, this.errorCount * 500)
       } else {
@@ -148,6 +154,12 @@ export default defineComponent({
             if (!response.alert) {
               this.updateSubscriptionDetails({
                 channelThumbnailUrl: response.header.author.thumbnails[0].url,
+                channelName: channel.name,
+                channelId: channel.id
+              })
+            } else {
+              this.updateSubscriptionDetails({
+                channelThumbnailUrl: '_',
                 channelName: channel.name,
                 channelId: channel.id
               })
