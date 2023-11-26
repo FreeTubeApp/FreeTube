@@ -38,4 +38,4 @@
   </div>
 </template>
 <script src="./Hashtag.js" />
-<style scoped src="./Hashtag.scss" lang="scss" />
+<style scoped src="./Hashtag.css" />

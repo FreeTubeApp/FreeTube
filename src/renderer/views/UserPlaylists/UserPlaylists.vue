@@ -60,4 +60,4 @@
 </template>
 
 <script src="./UserPlaylists.js" />
-<style scoped src="./UserPlaylists.scss" lang="scss" />
+<style scoped src="./UserPlaylists.css" />

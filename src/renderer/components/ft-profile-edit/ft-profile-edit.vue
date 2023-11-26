@@ -107,4 +107,4 @@
 </template>
 
 <script src="./ft-profile-edit.js" />
-<style scoped src="./ft-profile-edit.scss" lang="scss" />
+<style scoped src="./ft-profile-edit.css" />

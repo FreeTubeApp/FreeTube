@@ -98,4 +98,4 @@
 </template>
 
 <script src="./Trending.js" />
-<style scoped src="./Trending.scss" lang="scss" />
+<style scoped src="./Trending.css" />

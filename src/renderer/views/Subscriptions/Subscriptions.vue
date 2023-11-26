@@ -106,4 +106,4 @@
 </template>
 
 <script src="./Subscriptions.js" />
-<style scoped src="./Subscriptions.scss" lang="scss" />
+<style scoped src="./Subscriptions.css" />

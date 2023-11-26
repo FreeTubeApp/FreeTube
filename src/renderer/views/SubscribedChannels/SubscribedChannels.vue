@@ -70,4 +70,4 @@
 </template>
 
 <script src="./SubscribedChannels.js" />
-<style scoped src="./SubscribedChannels.scss" lang="scss" />
+<style scoped src="./SubscribedChannels.css" />

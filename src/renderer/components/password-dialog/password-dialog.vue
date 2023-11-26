@@ -16,4 +16,4 @@
 </template>
 
 <script src="./password-dialog.js" />
-<style scoped src="./password-dialog.scss" lang="scss" />
+<style scoped src="./password-dialog.css" />

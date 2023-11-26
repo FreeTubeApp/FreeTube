@@ -54,4 +54,4 @@
 </template>
 
 <script src="./History.js" />
-<style scoped src="./History.scss" lang="scss" />
+<style scoped src="./History.css" />

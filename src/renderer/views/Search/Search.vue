@@ -30,4 +30,4 @@
 </template>
 
 <script src="./Search.js" />
-<style scoped src="./Search.scss" lang="scss" />
+<style scoped src="./Search.css" />

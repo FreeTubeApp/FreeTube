@@ -52,4 +52,4 @@
 </template>
 
 <script src="./ProfileSettings.js" />
-<style scoped src="./ProfileSettings.scss" lang="scss" />
+<style scoped src="./ProfileSettings.css" />

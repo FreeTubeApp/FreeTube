@@ -50,4 +50,4 @@
 </template>
 
 <script src="./ft-profile-channel-list.js" />
-<style scoped src="./ft-profile-channel-list.scss" lang="scss" />
+<style scoped src="./ft-profile-channel-list.css" />

@@ -52,4 +52,4 @@
 </template>
 
 <script src="./ft-profile-filter-channels-list.js" />
-<style scoped src="./ft-profile-filter-channels-list.scss" lang="scss" />
+<style scoped src="./ft-profile-filter-channels-list.css" />
