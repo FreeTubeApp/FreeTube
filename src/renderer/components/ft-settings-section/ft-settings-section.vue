@@ -1,5 +1,8 @@
 <template>
-  <details class="settingsSection">
+  <details
+    :open="allSettingsSectionsExpandedByDefault ? 'true' : null"
+    class="settingsSection"
+  >
     <summary class="sectionHeader">
       <h3 class="sectionTitle">
         {{ title }}

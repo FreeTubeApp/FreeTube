@@ -31,6 +31,7 @@ Close: Close
 Back: Back
 Forward: Forward
 Open New Window: Open New Window
+Go to page: Go to {page}
 
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
@@ -149,6 +150,7 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
+  Expand All Settings Sections: Expand All Settings Sections
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
   General Settings:
@@ -337,6 +339,7 @@ Settings:
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Manage Subscriptions: Manage Subscriptions
     Fetch Automatically: Fetch Feed Automatically
+    Only Show Latest Video for Each Channel: Only Show Latest Video for Each Channel
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free Settings
     Sections:
@@ -516,6 +519,9 @@ Profile:
   Profile Manager: Profile Manager
   Create New Profile: Create New Profile
   Edit Profile: Edit Profile
+  Edit Profile Name: Edit Profile Name
+  Create Profile Name: Create Profile Name
+  Profile Name: Profile Name
   Color Picker: Color Picker
   Custom Color: Custom Color
   Profile Preview: Profile Preview
@@ -550,6 +556,8 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are
     you sure you want to delete the selected channels?  This will not delete the channel
     from any other profile.
+  Close Profile Dropdown: Close Profile Dropdown
+  Open Profile Dropdown: Open Profile Dropdown
 #On Channel Page
 Channel:
   Subscribe: Subscribe
@@ -627,6 +635,8 @@ Video:
   Copy YouTube Channel Link: Copy YouTube Channel Link
   Open Channel in Invidious: Open Channel in Invidious
   Copy Invidious Channel Link: Copy Invidious Channel Link
+  Hide Channel: Hide Channel
+  Unhide Channel: Show Channel
   Views: Views
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
@@ -924,6 +934,8 @@ Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
 Screenshot Success: Saved screenshot as "{filePath}"
 Screenshot Error: Screenshot failed. {error}
+Channel Hidden: '{channel} added to channel filter'
+Channel Unhidden: '{channel} removed from channel filter'
 
 Hashtag:
   Hashtag: Hashtag

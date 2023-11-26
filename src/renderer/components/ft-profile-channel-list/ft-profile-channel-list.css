@@ -1,5 +1,15 @@
+h2, .selectedCount {
+  text-align: center;
+}
+
 .card {
   inline-size: 85%;
   margin-block: 0 15px;
   margin-inline: auto;
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    inline-size: 90%;
+  }
 }
