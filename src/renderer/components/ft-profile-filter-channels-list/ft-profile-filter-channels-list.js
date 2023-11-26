@@ -8,6 +8,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import { deepCopy, showToast } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
+import { MAIN_PROFILE_ID } from '../../../constants'
 
 export default defineComponent({
   name: 'FtProfileFilterChannelsList',
@@ -46,17 +47,20 @@ export default defineComponent({
       return this.$store.getters.getProfileList
     },
     profileNameList: function () {
-      return this.profileList.flatMap((profile) => profile.name !== this.profile.name ? [profile.name] : [])
+      return this.profileList.flatMap((profile) => profile.name !== this.profile.name ? [this.translatedProfileName(profile)] : [])
     },
     selectedText: function () {
       return this.$t('Profile.{number} selected', { number: this.selectedLength })
     },
     locale: function () {
       return this.$i18n.locale.replace('_', '-')
-    },
+    }
   },
   watch: {
-    profile: 'updateChannelList',
+    profile: function () {
+      this.updateChannelList()
+      this.selectNone()
+    },
     filteredProfileIndex: 'updateChannelList'
   },
   mounted: function () {
@@ -80,7 +84,9 @@ export default defineComponent({
   },
   methods: {
     updateChannelList () {
-      this.channels = deepCopy(this.profileList[this.filteredProfileIndex].subscriptions).sort((a, b) => {
+      const filterProfileName = this.profileNameList[this.filteredProfileIndex]
+      const filterProfile = this.profileList.find((profile) => this.translatedProfileName(profile) === filterProfileName)
+      this.channels = deepCopy(filterProfile.subscriptions).sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       }).filter((channel) => {
         const index = this.profile.subscriptions.findIndex((sub) => {
@@ -105,7 +111,8 @@ export default defineComponent({
     },
 
     handleProfileFilterChange: function (change) {
-      this.filteredProfileIndex = this.profileList.findIndex(profile => profile.name === change)
+      this.selectNone()
+      this.filteredProfileIndex = this.profileNameList.indexOf(change)
     },
 
     addChannelToProfile: function () {
@@ -156,6 +163,10 @@ export default defineComponent({
       this.selectedLength = this.channels.filter((channel) => {
         return channel.selected
       }).length
+    },
+
+    translatedProfileName: function (profile) {
+      return profile._id === MAIN_PROFILE_ID ? this.$t('Profile.All Channels') : profile.name
     },
 
     ...mapActions([

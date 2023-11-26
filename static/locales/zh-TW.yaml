@@ -131,7 +131,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: '偏好API伺服器'
       Local API: '本機 API'
-      Invidious API: 'Invidious API(應用程式介面)'
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: '影片觀看類別'
       Grid: '網格'
@@ -141,7 +141,7 @@ Settings:
       Default: '預設'
       Beginning: '片頭'
       Middle: '中間'
-      End: '結尾'
+      End: '片尾'
       Hidden: 隱藏
       Blur: 模糊
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious實例(預設為
@@ -292,6 +292,7 @@ Settings:
     How do I import my subscriptions?: '如何導入我的訂閱？'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
+    Only Show Latest Video for Each Channel: 只顯示每個頻道的最新影片
   Advanced Settings:
     Advanced Settings: '進階設定'
     Enable Debug Mode (Prints data to the console): '允許除錯型態（列印資料在控制板）'
@@ -385,7 +386,7 @@ Settings:
     Hide Sharing Actions: 隱藏分享動作
     Hide Chapters: 隱藏章節
     Hide Upcoming Premieres: 隱藏即將到來的首映
-    Hide Channels Placeholder: 頻道名稱或 ID
+    Hide Channels Placeholder: 頻道 ID
     Hide Channels: 隱藏頻道中的影片
     Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫的標題
     Hide Featured Channels: 隱藏精選頻道
@@ -406,7 +407,11 @@ Settings:
     Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
     Blur Thumbnails: 模糊縮圖
     Hide Subscriptions Community: 隱藏訂閱社群
-  The app needs to restart for changes to take effect. Restart and apply change?: 此變更需要重啟讓修改生效。重啟並且套用變更?
+    Hide Channels Invalid: 提供的頻道 ID 無效
+    Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
+    Hide Channels Already Exists: 頻道 ID 已存在
+    Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
+  The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
     City: 城市
@@ -470,6 +475,7 @@ Settings:
     Enter Password To Unlock: 輸入密碼以解鎖設定
     Password Incorrect: 密碼不正確
     Unlock: 解鎖
+  Expand All Settings Sections: 展開所有設定
 About:
   #On About page
   About: '關於'
@@ -586,12 +592,12 @@ Channel:
     Releases: 發布
     This channel does not currently have any releases: 此頻道目前沒有任何發布
 Video:
-  Open in YouTube: '在YouTube中開啟'
-  Copy YouTube Link: '複製YouTube連結'
-  Open YouTube Embedded Player: '開啟YouTube內嵌播放器'
-  Copy YouTube Embedded Player Link: '複製YouTube內嵌播放器連結'
-  Open in Invidious: '在Invidious中開啟'
-  Copy Invidious Link: '複製Invidious連結'
+  Open in YouTube: '在 YouTube 中開啟'
+  Copy YouTube Link: '複製 YouTube 連結'
+  Open YouTube Embedded Player: '開啟 YouTube 內嵌播放器'
+  Copy YouTube Embedded Player Link: '複製 YouTube 內嵌播放器連結'
+  Open in Invidious: '在 Invidious 中開啟'
+  Copy Invidious Link: '複製 Invidious 連結'
   Views: '觀看'
   Watched: '已觀看'
   # As in a Live Video
@@ -657,10 +663,10 @@ Video:
   audio only: 僅音訊
   video only: 僅影片
   Download Video: 下載影片
-  Copy Invidious Channel Link: 複製Invidious頻道連結
-  Open Channel in Invidious: 在Invidious開啟頻道
-  Copy YouTube Channel Link: 複製YouTube頻道連結
-  Open Channel in YouTube: 在YouTube開啟頻道
+  Copy Invidious Channel Link: 複製 Invidious 頻道連結
+  Open Channel in Invidious: 在 Invidious 開啟頻道
+  Copy YouTube Channel Link: 複製 YouTube 頻道連結
+  Open Channel in YouTube: 在 YouTube 開啟頻道
   Started streaming on: '開始直播時間'
   Streamed on: 直播於
   Video has been removed from your saved list: 影片已從您的播放清單移除
@@ -718,6 +724,8 @@ Video:
   Upcoming: 即將到來
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 即時聊天在此串流不可用。其可能被上傳者停用了。
   Pause on Current Video: 暫停目前影片
+  Unhide Channel: 顯示頻道
+  Hide Channel: 隱藏頻道
 Videos:
   #& Sort By
   Sort By:
@@ -847,6 +855,11 @@ Profile:
   Profile Filter: 設定檔篩選器
   Profile Settings: 設定檔設定
   Toggle Profile List: 切換個人檔案清單
+  Open Profile Dropdown: 開啟個人資料下拉式選單
+  Close Profile Dropdown: 關閉個人資料下拉式選單
+  Profile Name: 設定檔名稱
+  Edit Profile Name: 修改設定檔名稱
+  Create Profile Name: 建立設定檔名稱
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
@@ -889,7 +902,7 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
   Distraction Free Settings:
-    Hide Channels: 輸入頻道名稱或頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道名稱必須完全符合，且區分大小寫。
+    Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
@@ -940,3 +953,6 @@ Hashtag:
   This hashtag does not currently have any videos: 此標籤目前沒有任何影片
 Playlist will pause when current video is finished: 當目前影片結束時，播放清單將會暫停
 Playlist will not pause when current video is finished: 當目前影片結束時，播放清單將不會暫停
+Channel Hidden: '{channel} 已新增至頻道過濾條件'
+Go to page: 到 {page}
+Channel Unhidden: '{channel} 已從頻道過濾條件移除'

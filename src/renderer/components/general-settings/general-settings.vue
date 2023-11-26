@@ -53,7 +53,6 @@
         @change="handleFallbackApiBackend"
       />
       <ft-select
-        v-if="false"
         :placeholder="$t('Settings.General Settings.Default Landing Page')"
         :value="landingPage"
         :select-names="defaultPageNames"

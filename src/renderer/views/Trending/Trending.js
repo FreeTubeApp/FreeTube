@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtElementList from '../../components/ft-element-list/ft-element-list.vue'
@@ -8,7 +9,6 @@ import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
 import { invidiousAPICall } from '../../helpers/api/invidious'
-import { Injectables } from '../../../constants'
 import { getPipedTrending } from '../../helpers/api/piped'
 
 export default defineComponent({
@@ -19,9 +19,6 @@ export default defineComponent({
     'ft-element-list': FtElementList,
     'ft-icon-button': FtIconButton,
     'ft-flex-box': FtFlexBox
-  },
-  inject: {
-    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -248,6 +245,10 @@ export default defineComponent({
           }
           break
       }
-    }
+    },
+
+    ...mapActions([
+      'showOutlines'
+    ])
   }
 })

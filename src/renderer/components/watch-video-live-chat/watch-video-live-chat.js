@@ -6,6 +6,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import autolinker from 'autolinker'
 import { getRandomColorClass } from '../../helpers/colors'
 import { getLocalVideoInfo, parseLocalTextRuns } from '../../helpers/api/local'
+import { formatNumber } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'WatchVideoLiveChat',
@@ -30,6 +31,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      /** @type {import('youtubei.js').YT.LiveChat|null} */
       liveChatInstance: null,
       isLoading: true,
       hasError: false,
@@ -52,7 +54,9 @@ export default defineComponent({
           amount: '',
           colorClass: ''
         }
-      }
+      },
+      /** @type {number|null} */
+      watchingCount: null,
     }
   },
   computed: {
@@ -78,6 +82,14 @@ export default defineComponent({
 
     scrollingBehaviour: function () {
       return this.$store.getters.getDisableSmoothScrolling ? 'auto' : 'smooth'
+    },
+
+    hideVideoViews: function () {
+      return this.$store.getters.getHideVideoViews
+    },
+
+    formattedWatchingCount: function () {
+      return this.watchingCount !== null ? formatNumber(this.watchingCount) : '0'
     }
   },
   beforeDestroy: function () {
@@ -182,6 +194,12 @@ export default defineComponent({
               this.parseLiveChatSuperChat(action.item)
               break
           }
+        }
+      })
+
+      this.liveChatInstance.on('metadata-update', metadata => {
+        if (!this.hideVideoViews && metadata.views && !isNaN(metadata.views.original_view_count)) {
+          this.watchingCount = metadata.views.original_view_count
         }
       })
 

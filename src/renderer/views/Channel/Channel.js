@@ -32,7 +32,6 @@ import {
   parseLocalListVideo,
   parseLocalSubscriberCount
 } from '../../helpers/api/local'
-import { Injectables } from '../../../constants'
 
 export default defineComponent({
   name: 'Channel',
@@ -47,9 +46,6 @@ export default defineComponent({
     'ft-share-button': FtShareButton,
     'ft-subscribe-button': FtSubscribeButton,
     'channel-about': ChannelAbout
-  },
-  inject: {
-    showOutlines: Injectables.SHOW_OUTLINES
   },
   data: function () {
     return {
@@ -1874,6 +1870,7 @@ export default defineComponent({
     },
 
     ...mapActions([
+      'showOutlines',
       'updateSubscriptionDetails'
     ])
   }

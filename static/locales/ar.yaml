@@ -413,7 +413,7 @@ Settings:
     Hide Chapters: إخفاء الفصول
     Hide Upcoming Premieres: إخفاء العروض الأولى القادمة
     Hide Channels: إخفاء مقاطع الفيديو من القنوات
-    Hide Channels Placeholder: اسم القناة أو معرفها
+    Hide Channels Placeholder: معرف القناة
     Display Titles Without Excessive Capitalisation: عرض العناوين بدون احرف كبيرة
       بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
@@ -434,6 +434,12 @@ Settings:
     Hide Profile Pictures in Comments: إخفاء صور الملف الشخصي في التعليقات
     Blur Thumbnails: اخفاء الصور المصغرة
     Hide Subscriptions Community: إخفاء مجتمع الاشتراكات
+    Hide Channels Invalid: معرف القناة المقدم غير صالح
+    Hide Channels Disabled Message: تم حظر بعض القنوات باستخدام المعرّف ولم تتم معالجتها.
+      يتم حظر الميزة أثناء تحديث هذه المعرفات
+    Hide Channels Already Exists: معرف القناة موجود بالفعل
+    Hide Channels API Error: ‬حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى
+      التحقق مرة أخرى إذا كان المعرف صحيحا.
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -603,6 +609,8 @@ Profile:
   Profile Filter: مرشح الملف الشخصي
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
+  Open Profile Dropdown: فتح القائمة المنسدلة للملف الشخصي
+  Close Profile Dropdown: إغلاق القائمة المنسدلة للملف الشخصي
 Channel:
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
@@ -805,6 +813,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': الدردشة
     المباشرة غير متاحة لهذا البث. ربما تم تعطيلها من قبل القائم بالتحميل.
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
+  Unhide Channel: عرض القناة
+  Hide Channel: إخفاء القناة
 Videos:
   #& Sort By
   Sort By:
@@ -964,9 +974,9 @@ Tooltips:
       وتمكين ذاكرة تخزين مؤقت للصور في الذاكرة. سيؤدي إلى زيادة استخدام ذاكرة الوصول
       العشوائي.
   Distraction Free Settings:
-    Hide Channels: أدخل اسم قناة أو معرّف القناة لإخفاء جميع مقاطع الفيديو وقوائم
-      التشغيل والقناة نفسها من الظهور في البحث والشهرة والأكثر شعبية والموصى بها.
-      يجب أن يكون اسم القناة الذي تم إدخاله مطابقًا تمامًا وحساسًا لحالة الأحرف.
+    Hide Channels: أدخل معرف القناة لإخفاء جميع مقاطع الفيديو وقوائم التشغيل والقناة
+      نفسها من الظهور في نتائج البحث والشائعة والأكثر شهرة والموصى بها. يجب أن يكون
+      معرف القناة الذي تم إدخاله متطابقًا تمامًا وأن يكون حساسًا لحالة الأحرف.
     Hide Subscriptions Live: يتم تجاوز هذا الإعداد من خلال إعداد "{appWideSetting}"
       على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
   SponsorBlock Settings:
@@ -1031,3 +1041,6 @@ Playlist will pause when current video is finished: ستتوقف قائمة ال
   انتهاء الفيديو الحالي
 Playlist will not pause when current video is finished: لن تتوقف قائمة التشغيل مؤقتًا
   عند انتهاء الفيديو الحالي
+Channel Hidden: تم إضافة {channel} إلى مرشح القناة
+Go to page: إذهب إلى {page}
+Channel Unhidden: تمت إزالة {channel} من مرشح القناة
