@@ -1,6 +1,6 @@
 <template>
   <details
-    :open="allSettingsSectionsExpandedByDefault ? 'true' : null"
+    :open="allSettingsSectionsExpandedByDefault"
     class="settingsSection"
   >
     <summary class="sectionHeader">

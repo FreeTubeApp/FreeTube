@@ -6,7 +6,7 @@ export default defineComponent({
     title: {
       type: String,
       required: true
-    }
+    },
   },
   computed: {
     allSettingsSectionsExpandedByDefault: function () {
