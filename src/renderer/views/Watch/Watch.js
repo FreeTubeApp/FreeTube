@@ -1657,10 +1657,6 @@ export default defineComponent({
       }))
     },
 
-    showTranscript: function () {
-      this.transcriptShown = true
-    },
-
     pausePlayer: function () {
       const player = this.$refs.videoPlayer.player
       if (player && !player.paused()) {
