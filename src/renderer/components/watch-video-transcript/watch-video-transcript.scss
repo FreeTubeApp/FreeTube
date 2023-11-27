@@ -15,4 +15,12 @@
       margin-inline-end: 8px;
     }
   }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-block-start: 8px;
+    block-size: 48px;
+  }
 }

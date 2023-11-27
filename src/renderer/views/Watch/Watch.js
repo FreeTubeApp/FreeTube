@@ -128,7 +128,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
-      transcriptShown: false,
+      transcriptShown: true,
     }
   },
   computed: {

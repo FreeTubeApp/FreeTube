@@ -20,6 +20,22 @@
         @click="$emit('hide-transcript')"
       />
     </div>
+
+    <div
+      v-if="activeCaption"
+      class="body"
+    >
+      {{ activeCaption.label }}
+    </div>
+    <div class="footer">
+      <ft-select
+        :value="activeLanguage"
+        :select-names="captionLanguages"
+        :select-values="captionLanguages"
+        :placeholder="$t('Transcript.Transcript Language')"
+        @change="handleLanguageChange"
+      />
+    </div>
   </ft-card>
 </template>
 

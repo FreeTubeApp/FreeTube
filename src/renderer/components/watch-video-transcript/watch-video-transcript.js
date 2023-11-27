@@ -2,12 +2,14 @@ import { defineComponent } from 'vue'
 import { transformCaptions } from '../../helpers/captions'
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtSelect from '../ft-select/ft-select.vue'
 
 export default defineComponent({
   name: 'Watch',
   components: {
     'ft-card': FtCard,
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-select': FtSelect,
   },
 
   props: {
@@ -23,7 +25,10 @@ export default defineComponent({
 
   data: function () {
     return {
+      activeLanguage: '',
+      activeCaption: undefined,
       captions: [],
+      captionLanguages: [],
       timestampShown: true,
     }
   },
@@ -44,6 +49,9 @@ export default defineComponent({
 
   mounted: async function () {
     this.captions = await transformCaptions(this.captionHybridList, this.currentLocale)
+    this.activeCaption = this.captions[0]
+    this.activeLanguage = this.activeCaption.label
+    this.captionLanguages = this.captions.map(caption => caption.label)
   },
 
   methods: {
@@ -53,6 +61,10 @@ export default defineComponent({
           this.timestampShown = !this.timestampShown
           break
       }
+    },
+
+    handleLanguageChange: function (language) {
+      this.activeCaption = this.captions.find(caption => caption.label === language)
     }
   }
 })
