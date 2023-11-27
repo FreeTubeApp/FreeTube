@@ -305,7 +305,7 @@ export default defineComponent({
         if (videoIndex === 0) {
           this.$router.push(
             {
-              path: `/watch/${this.playlistItems[this.randomizedPlaylistItems.length - 1].id ?? this.playlistItems[this.randomizedPlaylistItems.length - 1].videoId}`,
+              path: `/watch/${this.playlistItems[this.playlistItems.length - 1].id ?? this.playlistItems[this.playlistItems.length - 1].videoId}`,
               query: playlistInfo
             }
           )
