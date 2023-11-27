@@ -1,4 +1,5 @@
 import { isUrl } from './strings'
+import { WebVTT } from 'videojs-vtt.js'
 
 /**
  * @param {Promise[] | object[]} captionHybridList
@@ -61,8 +62,37 @@ function sortCaptions(captionList, currentLocale) {
 }
 
 /**
- * @param {string} file Either VTT file content or a URL to the file
+ * Parses and inserts caption cues as an array
+ *
+ * @param {{ label: string, language_code: string, type: string, url: string }}
+ *
+ * @returns {Promise<{ label: string, language_code: string, type: string, url: string,
+ * cues: {
+ *  startTime: number,
+ *  endTime: number,
+ *  text: string,
+ *  startTimeFormatted: string,
+ * }
+ * }>}
  */
-export async function parseVTTFile(file) {
-  const vttString = (isUrl(file)) ? await (await fetch(file)).text() : file
+export async function parseCaptionString(caption) {
+  caption.cues = []
+
+  // Download vtt file if necessary
+  const vttString = (isUrl(caption.url)) ? await (await fetch(caption.url)).text() : caption.url
+
+  const parser = new WebVTT.Parser(window, WebVTT.StringDecoder())
+  parser.oncue = function ({ startTime, endTime, text }) {
+    const startTimeFormatted = formatCueTime(startTime)
+    caption.cues.push({ startTime, endTime, text, startTimeFormatted })
+  }
+  parser.parse(vttString.substring(vttString.indexOf('WEBVTT')))
+
+  return caption
+}
+
+function formatCueTime(time) {
+  const min = Math.floor(time / 60)
+  const sec = Math.floor(time % 60)
+  return `${min}:${(sec < 10) ? '0' : ''}${sec}`
 }

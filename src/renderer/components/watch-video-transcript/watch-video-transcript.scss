@@ -1,14 +1,20 @@
+
+
 .transcriptContainer {
   margin-block-start: 0px;
 
   .header {
     display: flex;
     align-items: center;
-    padding-block: 4px 4px;
+    padding-block: 4px 0;
     padding-inline: 8px 2px;
 
     .titleContainer {
       flex: 1;
+
+      h2 {
+        margin-block-end: 0.5em;
+      }
     }
 
     .menuButton {
@@ -16,11 +22,47 @@
     }
   }
 
+  .body {
+    max-block-size: 360px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-size-adjust: 100%;
+
+    .cue {
+      &:hover{
+        background-color: color-mix(in srgb, var(--card-bg-color) 90%, white);
+      }
+
+      display: flex;
+      padding-block: 6px 12px;
+      padding-inline: 4px 8px;
+      cursor: pointer;
+
+      .timeContainer {
+        margin-inline: 6px 12px;
+
+        .time {
+          font-size: smaller;
+          font-weight: bold;
+          padding-inline: 4px 4px;
+          background-color: var(--link-color);
+          border-radius: 4px;
+        }
+      }
+
+      .text {
+        font-size: small;
+        overflow-wrap: break-word;
+        inline-size: 100%;
+      }
+    }
+  }
+
   .footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-block-start: 8px;
+    margin-block-start: 20px;
     block-size: 48px;
   }
 }

@@ -25,7 +25,23 @@
       v-if="activeCaption"
       class="body"
     >
-      {{ activeCaption.label }}
+      <div
+        v-for="(cue, index) in activeCaption.cues"
+        :key="index"
+        class="cue"
+      >
+        <div
+          v-if="timestampShown"
+          class="timeContainer"
+        >
+          <div class="time">
+            {{ cue.startTimeFormatted }}
+          </div>
+        </div>
+        <div class="text">
+          {{ cue.text }}
+        </div>
+      </div>
     </div>
     <div class="footer">
       <ft-select
