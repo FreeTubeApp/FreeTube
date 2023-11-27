@@ -5,7 +5,7 @@
     <h4 class="groupTitle">
       {{ $t('Subscriptions.Subscriptions') }}
     </h4>
-    <ft-flex-box>
+    <ft-flex-box class="dataSettingsBox">
       <ft-button
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
@@ -29,7 +29,7 @@
     <h4 class="groupTitle">
       {{ $t('History.History') }}
     </h4>
-    <ft-flex-box>
+    <ft-flex-box class="dataSettingsBox">
       <ft-button
         :label="$t('Settings.Data Settings.Import History')"
         @click="importHistory"
@@ -42,7 +42,7 @@
     <h4 class="groupTitle">
       {{ $t('Playlists') }}
     </h4>
-    <ft-flex-box>
+    <ft-flex-box class="dataSettingsBox">
       <ft-button
         :label="$t('Settings.Data Settings.Import Playlists')"
         @click="importPlaylists"
