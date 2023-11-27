@@ -274,7 +274,6 @@ export default defineComponent({
 
       try {
         let result = await getLocalVideoInfo(this.videoId)
-        let trailerResult = null
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
@@ -290,10 +289,26 @@ export default defineComponent({
 
         let playabilityStatus = result.playability_status
         let bypassedResult = null
-        if (playabilityStatus.status === 'LOGIN_REQUIRED') {
+        let streamingVideoId = this.videoId
+        let trailerIsNull = false
+        if (playabilityStatus.status === 'UNPLAYABLE' && result.has_trailer) {
+          bypassedResult = result.getTrailerInfo()
+          /**
+           * @type {import ('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer}
+           */
+          const trailerScreen = result.playability_status.error_screen
+          streamingVideoId = trailerScreen.video_id
+          // if the trailer is null then it is likely age restricted.
+          trailerIsNull = bypassedResult == null
+          if (!trailerIsNull) {
+            playabilityStatus = bypassedResult.playability_status
+          }
+        }
+
+        if (playabilityStatus.status === 'LOGIN_REQUIRED' || trailerIsNull) {
           // try to bypass the age restriction
-          bypassedResult = await getLocalVideoInfo(this.videoId, true)
-          playabilityStatus = result.playability_status
+          bypassedResult = await getLocalVideoInfo(streamingVideoId, true)
+          playabilityStatus = bypassedResult.playability_status
         }
 
         if (playabilityStatus.status === 'UNPLAYABLE') {
@@ -301,12 +316,7 @@ export default defineComponent({
            * @type {import ('youtubei.js').YTNodes.PlayerErrorMessage}
            */
           const errorScreen = playabilityStatus.error_screen
-
-          if (result.has_trailer) {
-            trailerResult = result.getTrailerInfo()
-          } else {
-            throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
-          }
+          throw new Error(`[${playabilityStatus.status}] ${errorScreen.reason.text}: ${errorScreen.subreason.text}`)
         }
 
         // extract localised title first and fall back to the not localised one
@@ -436,7 +446,7 @@ export default defineComponent({
           result = bypassedResult
         }
 
-        const streamingData = trailerResult?.streaming_data ?? result.streaming_data
+        const streamingData = result.streaming_data
 
         if ((this.isLive || this.isPostLiveDvr) && !this.isUpcoming) {
           try {
@@ -526,7 +536,7 @@ export default defineComponent({
             this.upcomingTimeLeft = null
           }
         } else {
-          this.videoLengthSeconds = trailerResult?.basic_info?.duration ?? result.basic_info.duration
+          this.videoLengthSeconds = result.basic_info.duration
           if (streamingData) {
             if (streamingData.formats.length > 0) {
               this.videoSourceList = streamingData.formats.map(mapLocalFormat).reverse()
@@ -557,7 +567,7 @@ export default defineComponent({
               }
             })
 
-            const captions = trailerResult?.captions ?? result.captions
+            const captions = result.captions
             if (captions) {
               const captionTracks = captions.caption_tracks.map((caption) => {
                 return {
@@ -633,7 +643,7 @@ export default defineComponent({
               this.dashSrc = await this.createInvidiousDashManifest()
             } else {
               this.adaptiveFormats = streamingData.adaptive_formats.map(mapLocalFormat)
-              this.dashSrc = await this.createLocalDashManifest(trailerResult ?? result)
+              this.dashSrc = await this.createLocalDashManifest(result)
             }
 
             if (this.activeFormat === 'audio') {
