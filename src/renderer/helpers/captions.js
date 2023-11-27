@@ -1,3 +1,5 @@
+import { isUrl } from './strings'
+
 /**
  * @param {Promise[] | object[]} captionHybridList
  * @param {string} currentLocale
@@ -56,4 +58,11 @@ function sortCaptions(captionList, currentLocale) {
     // sort alphabetically
     return aName.localeCompare(bName, currentLocale)
   })
+}
+
+/**
+ * @param {string} file Either VTT file content or a URL to the file
+ */
+export async function parseVTTFile(file) {
+  const vttString = (isUrl(file)) ? await (await fetch(file)).text() : file
 }

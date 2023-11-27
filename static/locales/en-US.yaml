@@ -801,6 +801,11 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
+Description:
+  Transcript: Transcript
+  Follow along using the transcript: Follow along using the transcript.
+  Show Transcript: Show Transcript
+
 Mini Player: Mini Player
 Comments:
   Comments: Comments

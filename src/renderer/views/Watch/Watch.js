@@ -10,6 +10,7 @@ import WatchVideoComments from '../../components/watch-video-comments/watch-vide
 import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/watch-video-recommendations/watch-video-recommendations.vue'
+import WatchVideoTranscript from '../../components/watch-video-transcript/watch-video-transcript.vue'
 import FtAgeRestricted from '../../components/ft-age-restricted/ft-age-restricted.vue'
 import { pathExists } from '../../helpers/filesystem'
 import {
@@ -65,6 +66,7 @@ export default defineComponent({
     'watch-video-live-chat': WatchVideoLiveChat,
     'watch-video-playlist': WatchVideoPlaylist,
     'watch-video-recommendations': WatchVideoRecommendations,
+    'watch-video-transcript': WatchVideoTranscript,
     'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: function (to, from, next) {
@@ -126,6 +128,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
+      transcriptShown: false,
     }
   },
   computed: {
@@ -1652,6 +1655,10 @@ export default defineComponent({
             reject(error)
           })
       }))
+    },
+
+    showTranscript: function () {
+      this.transcriptShown = true
     },
 
     pausePlayer: function () {

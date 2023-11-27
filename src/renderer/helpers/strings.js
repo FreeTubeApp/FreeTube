@@ -23,3 +23,15 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
 
   return false
 }
+
+export function isUrl(_string) {
+  const urlPattern = new RegExp(
+    '^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain or
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // ipv4 address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port/path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '(\\#[-a-z\\d_]*)?$', 'i' // fragment locator
+  )
+  return !!urlPattern.test(_string)
+}

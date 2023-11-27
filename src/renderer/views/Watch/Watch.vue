@@ -138,9 +138,11 @@
         v-if="!isLoading && !hideVideoDescription"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
+        :has-transcripts="captionHybridList.length > 0"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
+        @show-transcript="transcriptShown = true"
       />
       <watch-video-comments
         v-if="!isLoading && !isLive && !hideComments"
@@ -165,6 +167,11 @@
         :channel-id="channelId"
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
+      />
+      <watch-video-transcript
+        v-if="!isLoading && transcriptShown"
+        :caption-hybrid-list="captionHybridList"
+        class="watchVideoSideBar"
       />
       <watch-video-playlist
         v-if="watchingPlaylist"
