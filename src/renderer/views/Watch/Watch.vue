@@ -172,6 +172,7 @@
         v-if="!isLoading && transcriptShown"
         :caption-hybrid-list="captionHybridList"
         class="watchVideoSideBar"
+        @hide-transcript="transcriptShown = false"
       />
       <watch-video-playlist
         v-if="watchingPlaylist"

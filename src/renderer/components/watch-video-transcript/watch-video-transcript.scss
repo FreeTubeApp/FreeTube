@@ -1,0 +1,18 @@
+.transcriptContainer {
+  margin-block-start: 0px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding-block: 4px 4px;
+    padding-inline: 8px 2px;
+
+    .titleContainer {
+      flex: 1;
+    }
+
+    .menuButton {
+      margin-inline-end: 8px;
+    }
+  }
+}
