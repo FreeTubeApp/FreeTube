@@ -170,6 +170,7 @@ Settings:
       Middle: 'Miðja'
       End: 'Endir'
       Hidden: Falið
+      Blur: Móska
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious-tilvik
       (sjálfgefið er https://invidious.snopyta.org)'
     View all Invidious instance information: 'Skoða allar upplýsingar um Invidious-tilvik'
@@ -350,7 +351,7 @@ Settings:
     Hide Chapters: Fela kafla
     Hide Upcoming Premieres: Fela væntanlegar frumsýningar
     Hide Channels: Fela myndskeið úr rásum
-    Hide Channels Placeholder: Heiti eða auðkenni rásar
+    Hide Channels Placeholder: Auðkenni rásar
     Display Titles Without Excessive Capitalisation: Birta titla án umfram-hástafa
     Sections:
       Side Bar: Hliðarspjald
@@ -765,6 +766,8 @@ Video:
     í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
     gert það óvirkt.
   Pause on Current Video: Setja núverandi myndskeið í bið
+  Unhide Channel: Birta rás
+  Hide Channel: Fela rás
 Videos:
   #& Sort By
   Sort By:
@@ -912,10 +915,10 @@ Tooltips:
     Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna
       minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
   Distraction Free Settings:
-    Hide Channels: Settu inn heiti eða auðkenni rásar til að fela öll myndskeið, spilunarlista
+    Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista
       og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með.
-      Heiti rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit
-      til hástafa/lágstafa.
+      Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur
+      tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}"
       stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
   SponsorBlock Settings:
@@ -1002,3 +1005,4 @@ Playlist will pause when current video is finished: Spilunarlisti mun fara í bi
   að núverandi myndskeið klárast
 Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
   í bið eftir að núverandi myndskeið klárast
+Go to page: Fara á {page}
