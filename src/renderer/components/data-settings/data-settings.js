@@ -353,12 +353,7 @@ export default defineComponent({
 
       this.primaryProfile.subscriptions = this.primaryProfile.subscriptions.concat(subscriptions)
       this.updateProfile(this.primaryProfile)
-      if (subscriptions.length < count) {
-        showToast(this.$t('Settings.Data Settings.One or more subscriptions were unable to be imported'))
-      } else {
-        showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
-      }
-
+      showToast(this.$t('Settings.Data Settings.All subscriptions have been successfully imported'))
       this.updateShowProgressBar(false)
     },
 

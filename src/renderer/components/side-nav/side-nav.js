@@ -5,6 +5,7 @@ import SideNavMoreOptions from '../side-nav-more-options/side-nav-more-options.v
 import { getLocalChannel } from '../../helpers/api/local'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { deepCopy } from '../../helpers/utils'
+import { MiscConstants } from '../../../constants'
 
 export default defineComponent({
   name: 'SideNav',
@@ -83,6 +84,10 @@ export default defineComponent({
       }
     }
   },
+  created () {
+    this.CHANNEL_IMAGE_BROKEN = MiscConstants.CHANNEL_IMAGE_BROKEN
+    this.CHANNEL_IMAGE_NOT_EXISTENT = MiscConstants.CHANNEL_IMAGE_NOT_EXISTENT
+  },
   methods: {
     updateThumbnail: function(channel) {
       this.errorCount += 1
@@ -97,7 +102,7 @@ export default defineComponent({
             })
           }).catch(() => {
             this.updateSubscriptionDetails({
-              channelThumbnailUrl: '_',
+              channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
               channelName: channel.name,
               channelId: channel.id
             })
@@ -115,7 +120,7 @@ export default defineComponent({
             } else {
               // channel is likely deleted. We will show a default icon instead from now on.
               this.updateSubscriptionDetails({
-                channelThumbnailUrl: '_',
+                channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
                 channelName: channel.name,
                 channelId: channel.id
               })

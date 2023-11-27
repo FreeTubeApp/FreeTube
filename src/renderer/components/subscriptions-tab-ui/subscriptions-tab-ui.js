@@ -7,6 +7,7 @@ import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../ft-element-list/ft-element-list.vue'
 import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
+import { MiscConstants } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscriptionsTabUI',
@@ -72,6 +73,8 @@ export default defineComponent({
     },
   },
   created: function () {
+    this.CHANNEL_IMAGE_NOT_EXISTENT = MiscConstants.CHANNEL_IMAGE_NOT_EXISTENT
+
     const dataLimit = sessionStorage.getItem('subscriptionLimit')
 
     if (dataLimit !== null) {

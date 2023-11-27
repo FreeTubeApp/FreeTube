@@ -323,8 +323,6 @@ Settings:
       in profili so bili uspešno uvoženi'
     All subscriptions have been successfully imported: 'Vse naročnine so bile uspešno
       uvožene'
-    One or more subscriptions were unable to be imported: 'Ene ali več naročnin ni
-      bilo mogoče uvoziti'
     Invalid subscriptions file: 'Neveljavna datoteka z naročninami'
     Invalid history file: 'Neveljavna datoteka z zgodovino'
     Subscriptions have been successfully exported: 'Naročnine so bile uspešno izvožene'

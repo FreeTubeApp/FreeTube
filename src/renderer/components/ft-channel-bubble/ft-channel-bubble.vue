@@ -6,7 +6,7 @@
     :to="`/channel/${channelId}`"
   >
     <img
-      v-if="channelThumbnail !== '_'"
+      v-if="channelThumbnail !== CHANNEL_IMAGE_BROKEN"
       class="bubble"
       :src="channelThumbnail"
       alt=""
@@ -33,7 +33,7 @@
     @keydown.space.enter.prevent="handleClick($event)"
   >
     <img
-      v-if="channelThumbnail !== '_'"
+      v-if="channelThumbnail !== CHANNEL_IMAGE_BROKEN"
       class="bubble"
       :src="channelThumbnail"
       alt=""

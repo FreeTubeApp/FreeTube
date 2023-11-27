@@ -35,9 +35,9 @@
               :to="`/channel/${channel.id}`"
             >
               <img
-                v-if="channel.thumbnail != '_'"
+                v-if="channel.thumbnail !== CHANNEL_IMAGE_BROKEN"
                 class="channelThumbnail"
-                :src="thumbnailURL(channel.thumbnail) ?? '//'"
+                :src="thumbnailURL(channel.thumbnail) ?? CHANNEL_IMAGE_NOT_EXISTENT"
                 alt=""
                 loading="lazy"
                 @error.once="updateThumbnail(channel)"

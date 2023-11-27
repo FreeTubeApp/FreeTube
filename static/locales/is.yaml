@@ -401,8 +401,6 @@ Settings:
       á öllum áskriftum og notkunarsniðum tókst'
     All subscriptions have been successfully imported: 'Innflutningur á öllum áskriftum
       tókst'
-    One or more subscriptions were unable to be imported: 'Ekki tókst að flytja inn
-      eina eða fleiri áskriftir'
     Invalid subscriptions file: 'Ógild áskriftaskrá'
     Invalid history file: 'Ógild áhorfsferilskrá'
     Subscriptions have been successfully exported: 'Úflutningur á áskriftum tókst'

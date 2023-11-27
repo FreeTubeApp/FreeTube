@@ -349,8 +349,6 @@ Settings:
       и профили бяха внесени успешно'
     All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени
       успешно'
-    One or more subscriptions were unable to be imported: 'Един или повече абонаменти
-      не беше внесен'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
     Invalid history file: 'Невалиден файл с история'
     Subscriptions have been successfully exported: 'Абонаментите бяха изнесени успешно'

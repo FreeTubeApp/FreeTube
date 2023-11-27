@@ -401,8 +401,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Сва праћења и
       профили су успешно увезени'
     All subscriptions have been successfully imported: 'Сва праћења су успешно увезена'
-    One or more subscriptions were unable to be imported: 'Није могуће увести једно
-      или више праћења'
     Invalid subscriptions file: 'Неважећи фајл праћења'
     Invalid history file: 'Неважећи фајл историје'
     Subscriptions have been successfully exported: 'Праћења су успешно извезена'

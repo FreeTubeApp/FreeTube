@@ -6,6 +6,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/ft-subscribe-button/ft-subscribe-button.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious, invidiousImageUrlToYoutube } from '../../helpers/api/invidious'
 import { getLocalChannel } from '../../helpers/api/local'
+import { MiscConstants } from '../../../constants'
 
 export default defineComponent({
   name: 'SubscribedChannels',
@@ -75,6 +76,10 @@ export default defineComponent({
       this.filterChannels()
     }
   },
+  created: function () {
+    this.CHANNEL_IMAGE_BROKEN = MiscConstants.CHANNEL_IMAGE_BROKEN
+    this.CHANNEL_IMAGE_NOT_EXISTENT = MiscConstants.CHANNEL_IMAGE_NOT_EXISTENT
+  },
   mounted: function () {
     this.getSubscription()
   },
@@ -142,7 +147,7 @@ export default defineComponent({
             })
           }).catch(e => {
             this.updateSubscriptionDetails({
-              channelThumbnailUrl: '_',
+              channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
               channelName: channel.name,
               channelId: channel.id
             })
@@ -159,7 +164,7 @@ export default defineComponent({
               })
             } else {
               this.updateSubscriptionDetails({
-                channelThumbnailUrl: '_',
+                channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
                 channelName: channel.name,
                 channelId: channel.id
               })

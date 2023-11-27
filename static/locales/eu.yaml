@@ -331,8 +331,6 @@ Settings:
       guztiak ongi inportatu dira'
     All subscriptions have been successfully imported: 'Harpidetza guztiak ongi inportatu
       dira'
-    One or more subscriptions were unable to be imported: 'Zenbait harpidetza ezin
-      izan dira inportatu'
     Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
     Invalid history file: 'Historia fitxategi baliogabea'
     Subscriptions have been successfully exported: 'Harpidetzak ongi esportatu dira'

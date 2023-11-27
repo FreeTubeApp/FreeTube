@@ -80,3 +80,26 @@
     block-size: 80px;
   }
 }
+
+/*
+ display loading image when we dont have a channel thumbnail yet
+*/
+.channelThumbnail[src="//"] {
+  content: url('../../assets/img/loading-spinner.svg');
+  animation: rotation 1s infinite linear;
+}
+
+@media (prefers-reduced-motion) {
+  .channelThumbnail[src="//"] {
+    animation: rotation 2s infinite linear;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

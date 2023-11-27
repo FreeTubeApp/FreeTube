@@ -341,8 +341,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer
       och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
-    One or more subscriptions were unable to be imported: 'En eller flera prenumerationer
-      kunde inte importeras'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'

@@ -333,7 +333,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: '모든 구독 및 프로필을
       성공적으로 가져왔습니다'
     All subscriptions have been successfully imported: '모든 구독을 성공적으로 가져왔습니다'
-    One or more subscriptions were unable to be imported: '하나 이상의 구독을 가져올 수 없습니다'
     Invalid subscriptions file: '잘못된 구독 파일입니다'
     Invalid history file: '잘못된 기록 파일입니다'
     Subscriptions have been successfully exported: '구독을 성공적으로 내보냈습니다'

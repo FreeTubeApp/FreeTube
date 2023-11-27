@@ -214,18 +214,18 @@
             class="thumbnailContainer"
           >
             <img
-              v-if="channel.thumbnail != '_'"
+              v-if="channel.thumbnail !== CHANNEL_IMAGE_BROKEN"
               class="channelThumbnail"
               height="35"
               width="35"
               loading="lazy"
-              :src="channel.thumbnail ?? '//'"
+              :src="channel.thumbnail ?? CHANNEL_IMAGE_NOT_EXISTENT"
               :alt="isOpen ? '' : channel.name"
               @error.once="updateThumbnail(channel)"
             >
             <font-awesome-icon
               v-else
-              class="channelThumbnail"
+              class="channelThumbnail noThumbnail"
               :icon="['fas', 'circle-user']"
             />
           </div>

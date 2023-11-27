@@ -353,8 +353,6 @@ Settings:
       és a profilt sikeresen importált'
     All subscriptions have been successfully imported: 'Az összes feliratkozást sikeresen
       importált'
-    One or more subscriptions were unable to be imported: 'Egy vagy több feliratkozást
-      nem sikerült importálni'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
     Invalid history file: 'Érvénytelen előzményfájl'
     Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'

@@ -49,3 +49,26 @@
   text-overflow: ellipsis;
   inline-size: 100%;
 }
+
+/*
+ display loading image when we dont have a channel thumbnail yet
+*/
+.bubble[src="//"] {
+  content: url('../../assets/img/loading-spinner.svg');
+  animation: rotation 1s infinite linear;
+}
+
+@media (prefers-reduced-motion) {
+  .bubble[src="//"] {
+    animation: rotation 2s infinite linear;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

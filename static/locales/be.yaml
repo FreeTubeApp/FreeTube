@@ -381,7 +381,6 @@ Settings:
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
-    One or more subscriptions were unable to be imported: ''
     Invalid subscriptions file: ''
     Invalid history file: ''
     Subscriptions have been successfully exported: ''

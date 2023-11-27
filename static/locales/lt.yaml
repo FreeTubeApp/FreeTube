@@ -378,8 +378,6 @@ Settings:
       ir profiliai sėkmingai importuoti'
     All subscriptions have been successfully imported: 'Visos prenumeratos sėkmingai
       importuotos'
-    One or more subscriptions were unable to be imported: 'Nepavyko importuoti vienos
-      ar daugiau prenumeratų'
     Invalid subscriptions file: 'Netinkamas prenumeratų failas'
     Invalid history file: 'Netinkamas žiūrėjimo istorijos failas'
     Subscriptions have been successfully exported: 'Prenumeratos sėkmingai eksportuotos'

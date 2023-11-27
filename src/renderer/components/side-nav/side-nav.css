@@ -97,8 +97,11 @@
 .channelThumbnail {
   border-radius: 50%;
   vertical-align: middle;
-  /* font-size is used for font-icon */
-  font-size: 35px;
+}
+
+.noThumbnail {
+    /* font-size is used for font-icon */
+    font-size: 35px;
 }
 
 .closed {
@@ -220,5 +223,29 @@
   }
   .closed.hiddenLabels{
     inline-size: 100%;
+  }
+}
+
+/*
+ display loading image when we dont have a channel thumbnail yet
+*/
+.channelThumbnail[src="//"] {
+  content: url('../../assets/img/loading-spinner.svg');
+  animation: rotation 2s infinite linear;
+  display: block;
+}
+
+@media (prefers-reduced-motion) {
+  .channelThumbnail[src="//"] {
+    animation: rotation 3s infinite linear;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }
