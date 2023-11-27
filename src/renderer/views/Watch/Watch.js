@@ -446,8 +446,6 @@ export default defineComponent({
           result = bypassedResult
         }
 
-        const streamingData = result.streaming_data
-
         if ((this.isLive || this.isPostLiveDvr) && !this.isUpcoming) {
           try {
             const formats = await getFormatsFromHLSManifest(result.streaming_data.hls_manifest_url)
@@ -537,16 +535,16 @@ export default defineComponent({
           }
         } else {
           this.videoLengthSeconds = result.basic_info.duration
-          if (streamingData) {
-            if (streamingData.formats.length > 0) {
-              this.videoSourceList = streamingData.formats.map(mapLocalFormat).reverse()
+          if (result.streaming_data) {
+            if (result.streaming_data.formats.length > 0) {
+              this.videoSourceList = result.streaming_data.formats.map(mapLocalFormat).reverse()
             } else {
-              this.videoSourceList = filterLocalFormats(streamingData.adaptive_formats, this.allowDashAv1Formats).map(mapLocalFormat).reverse()
+              this.videoSourceList = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats).map(mapLocalFormat).reverse()
             }
             this.adaptiveFormats = this.videoSourceList
 
             /** @type {import('../../helpers/api/local').LocalFormat[]} */
-            const formats = [...streamingData.formats, ...streamingData.adaptive_formats]
+            const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
             this.downloadLinks = formats.map((format) => {
               const qualityLabel = format.quality_label ?? format.bitrate
               const fps = format.fps ? `${format.fps}fps` : 'kbps'
@@ -567,9 +565,8 @@ export default defineComponent({
               }
             })
 
-            const captions = result.captions
-            if (captions) {
-              const captionTracks = captions.caption_tracks.map((caption) => {
+            if (result.captions) {
+              const captionTracks = result.captions.caption_tracks.map((caption) => {
                 return {
                   url: caption.base_url,
                   label: caption.name.text,
@@ -612,8 +609,8 @@ export default defineComponent({
             return
           }
 
-          if (streamingData?.adaptive_formats.length > 0) {
-            const audioFormats = streamingData.adaptive_formats.filter((format) => {
+          if (result.streaming_data?.adaptive_formats.length > 0) {
+            const audioFormats = result.streaming_data.adaptive_formats.filter((format) => {
               return format.has_audio
             })
 
@@ -632,7 +629,7 @@ export default defineComponent({
             }
 
             // we need to alter the result object so the toDash function uses the filtered formats too
-            streamingData.adaptive_formats = filterLocalFormats(streamingData.adaptive_formats, this.allowDashAv1Formats)
+            result.streaming_data.adaptive_formats = filterLocalFormats(result.streaming_data.adaptive_formats, this.allowDashAv1Formats)
 
             // When `this.proxyVideos` is true
             // It's possible that the Invidious instance used, only supports a subset of the formats from Local API
@@ -642,7 +639,7 @@ export default defineComponent({
               this.adaptiveFormats = await this.getAdaptiveFormatsInvidious()
               this.dashSrc = await this.createInvidiousDashManifest()
             } else {
-              this.adaptiveFormats = streamingData.adaptive_formats.map(mapLocalFormat)
+              this.adaptiveFormats = result.streaming_data.adaptive_formats.map(mapLocalFormat)
               this.dashSrc = await this.createLocalDashManifest(result)
             }
 
