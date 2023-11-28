@@ -2,10 +2,10 @@
     - '(visual bug)'
 
 'B: Unofficial Download':
-    - '(AUR \(Unofficial\)|Chocolatey \(Unofficial\)|\.apk \(Android, FreeTubeCordova Unofficial\)|PortableApps \(Unofficial\)|winget \(Unofficial\)|Scoop \(Unofficial\)|Snapcraft \(Unofficial\)|MPR \(Unofficial\)|Nix \(Unofficial\))'
+    - '(AUR \(Unofficial\)|Chocolatey \(Unofficial\)|\.apk \(Android, FreeTubeCordova Unofficial\)|(Homebrew \(Unofficial\)|PortableApps \(Unofficial\)|winget \(Unofficial\)|Scoop \(Unofficial\)|Snapcraft \(Unofficial\)|MPR \(Unofficial\)|Nix \(Unofficial\))'
 
 'B: keyboard control':
-    - '(keyboard control not working)' 
+    - '(keyboard control not working)'
 
 'B: text/string':
     - '(text/string issue)'

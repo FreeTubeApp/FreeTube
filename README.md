@@ -89,6 +89,8 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * FreeTubeCordova (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeCordova/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeCordova)
 
+* Homebrew Formulae (Mac only):[Download](https://formulae.brew.sh/cask/freetube)
+
 * makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
 
 * Nix Packages: [Download](https://search.nixos.org/packages?query=freetube)
@@ -101,7 +103,6 @@ These builds are maintained by the community. While they should be safe, downloa
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
-* Homebrew Formulae (Mac only):[Download](https://formulae.brew.sh/cask/freetube)
 
 ## Contributing
 If you like to get your hands dirty and want to contribute, we would love to
