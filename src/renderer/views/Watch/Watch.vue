@@ -143,7 +143,7 @@
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"
-        @show-transcript="transcriptShown = true"
+        @show-transcript="hideTranscript = false"
       />
       <watch-video-comments
         v-if="!isLoading && !isLive && !hideComments"
@@ -170,12 +170,12 @@
         :class="{ theatrePlaylist: useTheatreMode }"
       />
       <watch-video-transcript
-        v-if="!isLoading && transcriptShown"
+        v-if="!isLoading && !hideTranscript"
         :caption-hybrid-list="captionHybridList"
         :video-id="videoId"
         :video-timestamp="videoTimestamp"
         class="watchVideoSideBar"
-        @hide-transcript="transcriptShown = false"
+        @hide-transcript="hideTranscript = true"
         @timestamp-event="changeTimestamp"
       />
       <watch-video-playlist

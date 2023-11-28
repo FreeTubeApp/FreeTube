@@ -50,6 +50,7 @@
     </div>
     <div class="footer">
       <ft-select
+        class="languageSelect"
         :value="activeLanguage"
         :select-names="captionLanguages"
         :select-values="captionLanguages"

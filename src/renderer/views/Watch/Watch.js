@@ -129,7 +129,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
-      transcriptShown: false,
+      hideTranscript: true,
     }
   },
   computed: {
@@ -923,7 +923,7 @@ export default defineComponent({
 
     handleTimeUpdate: function () {
       if (!this.hideChapters && this.videoChapters.length > 0) this.updateCurrentChapter()
-      if (this.transcriptShown && this.captionHybridList.length > 0) this.videoTimestamp = this.getWatchedProgress()
+      if (!this.hideTranscript && this.captionHybridList.length > 0) this.videoTimestamp = this.getWatchedProgress()
     },
 
     /**

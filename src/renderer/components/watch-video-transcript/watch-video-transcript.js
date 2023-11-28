@@ -106,6 +106,12 @@ export default defineComponent({
       body.scrollTo({ top: offsetTop })
     },
 
+    /**
+     * If scroll was detected and it was from the user, disable autoscroll
+     * from video playback for a couple of seconds
+     * @param {Event} event
+     * @returns
+     */
     disableAutoScroll: function (event) {
       // If scroll was automated, do not disable autoscroll
       if (event.target.hasAttribute('data-autoscroll')) {

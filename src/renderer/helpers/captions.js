@@ -82,6 +82,8 @@ export async function parseCaptionString(caption) {
 
   // Download vtt file if necessary
   let vttString = (isUrl(caption.url)) ? await (await fetch(caption.url)).text() : caption.url
+
+  // Must start with WEBVTT, sometimes file comes with header junk at the start
   vttString = vttString.substring(vttString.indexOf('WEBVTT'))
 
   const parser = new WebVTT.Parser(window, WebVTT.StringDecoder())
@@ -104,7 +106,7 @@ export async function parseCaptionString(caption) {
 }
 
 /**
- * Replaces VTT styling for auto generated cues
+ * Replaces VTT styling for Local API auto generated cues
  * Eg: I did go swimming<00:08:52.480><c> how</c><00:08:52.560><c> much</c>
  * @param {String} text
  */
