@@ -15,7 +15,8 @@ export default defineComponent({
   },
   data: function () {
     return {
-      errorCount: 0
+      errorCount: 0,
+      updatingChannels: new Set()
     }
   },
   computed: {
@@ -46,12 +47,13 @@ export default defineComponent({
       subscriptions.sort((a, b) => {
         return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), this.locale)
       })
-
-      if (this.backendPreference === 'invidious') {
-        subscriptions.forEach((channel) => {
+      subscriptions.forEach((channel) => {
+        if (channel.thumbnail === null) {
+          this.updateThumbnail(channel)
+        } else if (this.backendPreference === 'invidious') {
           channel.thumbnail = youtubeImageUrlToInvidious(channel.thumbnail, this.currentInvidiousInstance)
-        })
-      }
+        }
+      })
 
       return subscriptions
     },
@@ -90,43 +92,54 @@ export default defineComponent({
   },
   methods: {
     updateThumbnail: function(channel) {
-      this.errorCount += 1
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-        // avoid too many concurrent requests
-        setTimeout(() => {
-          invidiousGetChannelInfo(channel.id).then(response => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: response.authorThumbnails[0].url,
-              channelName: channel.name,
-              channelId: channel.id
-            })
-          }).catch(() => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
-              channelName: channel.name,
-              channelId: channel.id
-            })
-          })
-        }, this.errorCount * 500)
-      } else {
-        setTimeout(() => {
-          getLocalChannel(channel.id).then(response => {
-            if (!response.alert) {
-              this.updateSubscriptionDetails({
-                channelThumbnailUrl: response.header.author.thumbnails[0].url,
-                channelName: channel.name,
-                channelId: channel.id
-              })
-            } else {
-              // channel is likely deleted. We will show a default icon instead from now on.
-              this.updateSubscriptionDetails({
-                channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
-                channelName: channel.name,
-                channelId: channel.id
+      if (!this.updatingChannels.has(channel.id)) {
+        this.updatingChannels.add(channel.id)
+        this.errorCount += 1
+        if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+          // avoid too many concurrent requests
+          setTimeout(() => {
+            const existChannel = this.activeSubscriptions.find(e => e.id === channel.id)
+            // check again in-case someone unsubscribed
+            if (existChannel && existChannel.thumbnail === null) {
+              invidiousGetChannelInfo(channel.id).then(response => {
+                this.updateSubscriptionDetails({
+                  channelThumbnailUrl: response.authorThumbnails[0].url,
+                  channelName: channel.name,
+                  channelId: channel.id
+                })
+              }).catch(() => {
+                this.updateSubscriptionDetails({
+                  channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
+                  channelName: channel.name,
+                  channelId: channel.id
+                })
               })
             }
-          })
-        }, this.errorCount * 500)
+          }, this.errorCount * 500)
+        } else {
+          setTimeout(() => {
+            const existChannel = this.activeSubscriptions.find(e => e.id === channel.id)
+            // check again in-case someone unsubscribed
+            if (existChannel && existChannel.thumbnail === null) {
+              getLocalChannel(channel.id).then(response => {
+                if (!response.alert) {
+                  this.updateSubscriptionDetails({
+                    channelThumbnailUrl: response.header.author.thumbnails[0].url,
+                    channelName: channel.name,
+                    channelId: channel.id
+                  })
+                } else {
+                  // channel is likely deleted. We will show a default icon instead from now on.
+                  this.updateSubscriptionDetails({
+                    channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
+                    channelName: channel.name,
+                    channelId: channel.id
+                  })
+                }
+              })
+            }
+          }, this.errorCount * 500)
+        }
       }
     },
 

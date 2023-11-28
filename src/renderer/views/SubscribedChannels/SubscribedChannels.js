@@ -25,7 +25,8 @@ export default defineComponent({
       thumbnailSize: 176,
       subscribedChannels: [],
       filteredChannels: [],
-      errorCount: 0
+      errorCount: 0,
+      updatingChannels: new Set()
     }
   },
   computed: {
@@ -63,7 +64,11 @@ export default defineComponent({
 
     currentInvidiousInstance: function () {
       return this.$store.getters.getCurrentInvidiousInstance
-    }
+    },
+
+    hideActiveSubscriptions: function () {
+      return this.$store.getters.getHideActiveSubscriptions
+    },
   },
   watch: {
     activeProfileId: function() {
@@ -82,6 +87,11 @@ export default defineComponent({
   },
   mounted: function () {
     this.getSubscription()
+    this.subscribedChannels.forEach(channel => {
+      if (channel.thumbnail === null) {
+        this.updateThumbnail(channel)
+      }
+    })
   },
   methods: {
     getSubscription: function () {
@@ -135,42 +145,55 @@ export default defineComponent({
     },
 
     updateThumbnail: function(channel) {
-      this.errorCount += 1
-      if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
-        // avoid too many concurrent requests
-        setTimeout(() => {
-          invidiousGetChannelInfo(channel.id).then(response => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: response.authorThumbnails[0].url,
-              channelName: channel.name,
-              channelId: channel.id
-            })
-          }).catch(e => {
-            this.updateSubscriptionDetails({
-              channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
-              channelName: channel.name,
-              channelId: channel.id
-            })
-          })
-        }, this.errorCount * 500)
-      } else {
-        setTimeout(() => {
-          getLocalChannel(channel.id).then(response => {
-            if (!response.alert) {
-              this.updateSubscriptionDetails({
-                channelThumbnailUrl: response.header.author.thumbnails[0].url,
-                channelName: channel.name,
-                channelId: channel.id
-              })
-            } else {
-              this.updateSubscriptionDetails({
-                channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
-                channelName: channel.name,
-                channelId: channel.id
-              })
-            }
-          })
-        }, this.errorCount * 500)
+      if (this.hideActiveSubscriptions) {
+        if (!this.updatingChannels.has(channel.id)) {
+          this.updatingChannels.add(channel.id)
+          this.errorCount += 1
+          if (!process.env.IS_ELECTRON || this.backendPreference === 'invidious') {
+            // avoid too many concurrent requests
+            setTimeout(() => {
+              const existChannel = this.activeSubscriptions.find(e => e.id === channel.id)
+              // check again in-case someone unsubscribed
+              if (existChannel && existChannel.thumbnail === null) {
+                invidiousGetChannelInfo(channel.id).then(response => {
+                  this.updateSubscriptionDetails({
+                    channelThumbnailUrl: response.authorThumbnails[0].url,
+                    channelName: channel.name,
+                    channelId: channel.id
+                  })
+                }).catch(e => {
+                  this.updateSubscriptionDetails({
+                    channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
+                    channelName: channel.name,
+                    channelId: channel.id
+                  })
+                })
+              }
+            }, this.errorCount * 500)
+          } else {
+            setTimeout(() => {
+              const existChannel = this.activeSubscriptions.find(e => e.id === channel.id)
+              // check again in-case someone unsubscribed
+              if (existChannel && existChannel.thumbnail === null) {
+                getLocalChannel(channel.id).then(response => {
+                  if (!response.alert) {
+                    this.updateSubscriptionDetails({
+                      channelThumbnailUrl: response.header.author.thumbnails[0].url,
+                      channelName: channel.name,
+                      channelId: channel.id
+                    })
+                  } else {
+                    this.updateSubscriptionDetails({
+                      channelThumbnailUrl: MiscConstants.CHANNEL_IMAGE_BROKEN,
+                      channelName: channel.name,
+                      channelId: channel.id
+                    })
+                  }
+                })
+              }
+            }, this.errorCount * 500)
+          }
+        }
       }
     },
 

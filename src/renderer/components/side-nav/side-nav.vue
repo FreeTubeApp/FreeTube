@@ -221,7 +221,6 @@
               loading="lazy"
               :src="channel.thumbnail ?? CHANNEL_IMAGE_NOT_EXISTENT"
               :alt="isOpen ? '' : channel.name"
-              @error.once="updateThumbnail(channel)"
             >
             <font-awesome-icon
               v-else

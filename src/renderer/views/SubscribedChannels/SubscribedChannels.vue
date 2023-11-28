@@ -40,7 +40,6 @@
                 :src="thumbnailURL(channel.thumbnail) ?? CHANNEL_IMAGE_NOT_EXISTENT"
                 alt=""
                 loading="lazy"
-                @error.once="updateThumbnail(channel)"
               >
               <font-awesome-icon
                 v-else
