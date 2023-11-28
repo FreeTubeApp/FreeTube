@@ -91,6 +91,9 @@ export async function parseCaptionString(caption) {
   return caption
 }
 
+/**
+ * @param {Number} time
+ */
 function formatCueTime(time) {
   const min = Math.floor(time / 60)
   const sec = Math.floor(time % 60)

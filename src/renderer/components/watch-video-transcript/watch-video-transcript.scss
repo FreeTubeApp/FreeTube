@@ -30,7 +30,8 @@
 
     .cue {
       &:hover, &.active {
-        background-color: color-mix(in srgb, var(--card-bg-color) 90%, white);
+        background-color: var(--secondary-card-bg-color);
+        font-weight: bold;
       }
 
       display: flex;
@@ -43,7 +44,7 @@
 
         .time {
           font-size: smaller;
-          font-weight: bold;
+          font-weight: 500;
           padding-inline: 4px 4px;
           background-color: var(--link-color);
           border-radius: 4px;
