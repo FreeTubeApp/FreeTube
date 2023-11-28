@@ -324,6 +324,8 @@ Settings:
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Manage Subscriptions: 'Gestionar suscripciones'
     Fetch Automatically: Obtener los feed automáticamente
+    Only Show Latest Video for Each Channel: Mostrar solo los últimos vídeos de cada
+      canal
   Data Settings:
     Data Settings: 'Datos'
     Select Import Type: 'Seleccionar tipo de importación'
@@ -420,7 +422,7 @@ Settings:
     Hide Chapters: Ocultar los capítulos
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar los vídeos de los canales
-    Hide Channels Placeholder: Nombre o ID del canal
+    Hide Channels Placeholder: ID del canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sin demasiadas
       mayúsculas
     Hide Featured Channels: Ocultar los canales recomendados
@@ -441,6 +443,12 @@ Settings:
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
     Blur Thumbnails: Difuminar las miniaturas
     Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
+    Hide Channels Invalid: El ID del canal proporcionado no es válido
+    Hide Channels Disabled Message: Algunos canales se bloquearon por ID y no se procesaron.
+      La función está bloqueada mientras se actualizan esos ID
+    Hide Channels Already Exists: El ID del canal ya existe
+    Hide Channels API Error: Error al recuperar el usuario con el ID proporcionado.
+      Por favor, compruebe de nuevo si el ID es correcto.
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -512,6 +520,7 @@ Settings:
     Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
     Password Incorrect: Contraseña incorrecta
     Unlock: Desbloquear
+  Expand All Settings Sections: Expandir todas las secciones de los ajustes
 About:
   #On About page
   About: 'Acerca de'
@@ -614,6 +623,11 @@ Profile:
   Profile Filter: Filtro de perfil
   Profile Settings: Ajustes del perfil
   Toggle Profile List: Alternar la lista de los perfiles
+  Open Profile Dropdown: Abrir el desplegable del Perfil
+  Close Profile Dropdown: Cerrar el desplegable del Perfil
+  Profile Name: Nombre del perfil
+  Edit Profile Name: Editar el nombre del perfil
+  Create Profile Name: Crear un nombre para el perfil
 Channel:
   Subscribe: 'Suscribirse'
   Unsubscribe: 'Anular suscripción'
@@ -821,6 +835,8 @@ Video:
     chat en vivo no está disponible para esta transmisión. Tal vez estaba deshabilitado
     antes de la retransmisión.
   Pause on Current Video: Pausa en el vídeo actual
+  Unhide Channel: Mostrar el canal
+  Hide Channel: Ocultar el canal
 Videos:
   #& Sort By
   Sort By:
@@ -996,10 +1012,10 @@ Tooltips:
       una caché para la imagen en la memoria personalizada. Esto aumentará el uso
       de la memoria RAM.
   Distraction Free Settings:
-    Hide Channels: Ingresa un nombre del canal o un ID del canal para ocultar todos
-      los videos, listas de reproducción y el propio canal para que no aparezcan en
-      la búsqueda, tendencias, más populares y recomendados. El nombre del canal ingresado
-      debe ser una coincidencia completa y distinguir entre mayúsculas y minúsculas.
+    Hide Channels: Introduzca un ID del canal para ocultar todos los vídeos, listas
+      de reproducción y el propio canal para que no aparezcan en las búsquedas, tendencias,
+      más populares y recomendados. El ID del canal introducido debe coincidir completamente
+      y se debe distinguir entre mayúsculas y minúsculas.
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
   SponsorBlock Settings:
@@ -1066,3 +1082,6 @@ Playlist will pause when current video is finished: La lista de reproducción se
   cuando termine el vídeo actual
 Playlist will not pause when current video is finished: La lista de reproducción no
   se detendrá cuando termine el vídeo actual
+Go to page: Ir a la {page}
+Channel Hidden: '{channel} añadido al filtro de canales'
+Channel Unhidden: '{channel} eliminado del filtro de canales'

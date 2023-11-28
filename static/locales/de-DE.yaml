@@ -43,7 +43,7 @@ Global:
     Subscriber Count: 1 Abonnent | {count} Abonnenten
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
-Search / Go to URL: Suche / Gehe zu URL
+Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
@@ -89,7 +89,7 @@ Subscriptions:
     Aboliste ist aktuell leer. Beginne mit dem Hinzufügen von Abos, um sie hier zu
     sehen.
   'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
-  Refresh Subscriptions: Abos auffrischen
+  Refresh Subscriptions: Abos aktualisieren
   Getting Subscriptions. Please wait.: Abos werden geholt. Bitte warten.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
@@ -159,6 +159,7 @@ Settings:
       Middle: Mitte
       End: Ende
       Hidden: Versteckt
+      Blur: Unschärfe
     'Invidious Instance (Default is https://invidious.snopyta.org)': Invidious-Instanz
       (Standard ist https://invidious.snopyta.org)
     Region for Trending: Region für Trends
@@ -426,7 +427,7 @@ Settings:
     Hide Chapters: Kapitel ausblenden
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
     Hide Channels: Videos aus Kanälen ausblenden
-    Hide Channels Placeholder: Kanalname oder Kanal-ID
+    Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
@@ -447,6 +448,12 @@ Settings:
     Blur Thumbnails: Vorschaubilder unscharf machen
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
+    Hide Channels Invalid: Kanal-ID war ungültig
+    Hide Channels Disabled Message: Einige Kanäle wurden mit ID gesperrt und nicht
+      verarbeitet. Die Funktion wird blockiert, während diese IDs aktualisieren
+    Hide Channels Already Exists: Kanal-ID bereits vorhanden
+    Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
+      ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -556,7 +563,7 @@ About:
   This software is FOSS and released under the GNU Affero General Public License v3.0.: Diese
     freie Software ist unter der AGPL-3.0 lizenziert.
   Translate via Weblate: Auf Weblate übersetzen
-  Website: Webseite
+  Website: Website
   Source Code: Quellcode
   Release Notes: Versionshinweise
   Blog: Blog
@@ -1020,11 +1027,10 @@ Tooltips:
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
       einer erhöhten RAM-Auslastung.
   Distraction Free Settings:
-    Hide Channels: Gebe einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
-      dass alle Videos, Wiedergabelisten und der Kanal selbst in der Suche, den Trends,
-      den beliebtesten und den empfohlenen Videos angezeigt werden. Der eingegebene
-      Kanalname muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung
-      unterschieden.
+    Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Wiedergabelisten
+      und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen
+      Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen
+      und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
       „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
       Kraft gesetzt
@@ -1035,7 +1041,7 @@ Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrech
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken.
-More: Weiteres
+More: Mehr
 Hashtags have not yet been implemented, try again later: Hashtags wurden noch nicht
   implementiert, bitte versuche es später noch einmal
 Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann

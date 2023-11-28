@@ -168,6 +168,7 @@ Settings:
       Middle: 'Középső'
       End: 'Vég'
       Hidden: Rejtett
+      Blur: Elhomályosítás
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious példány
       (Alapértelmezés: https://invidious.snopyta.org)'
     Region for Trending: 'Népszerű területe'
@@ -427,7 +428,7 @@ Settings:
     Hide Chapters: Fejezetek elrejtése
     Hide Upcoming Premieres: Közelgő első előadások elrejtése
     Hide Channels: Videók elrejtése a csatornákból
-    Hide Channels Placeholder: Csatorna neve vagy azonosítója
+    Hide Channels Placeholder: Csatornaazonosító
     Display Titles Without Excessive Capitalisation: Címek megjelenítése túlzott nagybetűk
       nélkül
     Hide Featured Channels: Kiemelt csatornák elrejtése
@@ -448,6 +449,13 @@ Settings:
     Blur Thumbnails: Indexkép elhomályosítása
     Hide Profile Pictures in Comments: Profilképek elrejtése a megjegyzésekben
     Hide Subscriptions Community: Közösségi feliratkozások elrejtése
+    Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
+    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító használatával,
+      és nem dolgozták fel őket. A jellemző le van tiltva az azonosítók frissítése
+      közben
+    Hide Channels Already Exists: Már létezik a csatornaazonosító
+    Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
+      lekérésekor. Kérjük, ellenőrizze még egyszer, hogy helyes-e az azonosító.
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Indítsa
     újra és alkalmazza a módosítást?
@@ -989,10 +997,10 @@ Tooltips:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
   Distraction Free Settings:
-    Hide Channels: Adja meg a csatorna nevét vagy csatornaazonosítóját, hogy elrejtse
-      az összes videót, lejátszási listát és magát a csatornát, hogy ne jelenjen meg
-      a keresésben, illetve a felkapott, legnépszerűbb és legajánlottabb. A megadott
-      csatornanévnek teljes egyezésnek kell lennie, és megkülönbözteti a kis- és nagybetűket.
+    Hide Channels: Csatornaazonosító megadása, hogy elrejtse az összes videót, lejátszási
+      listát és magát a csatornát, nehogy megjelenjen a keresésben, a felkapott, legnépszerűbb
+      és legnépszerűbb. A megadott csatornaazonosítónak teljes egyezésnek kell lennie,
+      és megkülönbözteti a kis- és nagybetűket.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}”
       beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
   SponsorBlock Settings:

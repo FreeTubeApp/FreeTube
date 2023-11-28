@@ -331,6 +331,8 @@ Settings:
     How do I import my subscriptions?: 'Come importo le mie iscrizioni?'
     Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
     Fetch Automatically: Recupera i feed automaticamente
+    Only Show Latest Video for Each Channel: Mostra solo il video più recente per
+      ciascun canale
   Advanced Settings:
     Advanced Settings: 'Impostazioni Avanzate'
     Enable Debug Mode (Prints data to the console): 'Abilità modalità Sviluppatore
@@ -428,7 +430,7 @@ Settings:
     Hide Chapters: Nascondi i capitoli
     Hide Upcoming Premieres: Nascondi le prossime Première
     Hide Channels: Nascondi i video dai canali
-    Hide Channels Placeholder: Nome o ID del canale
+    Hide Channels Placeholder: ID del canale
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza un
       uso eccessivo di maiuscole
     Hide Featured Channels: Nascondi i canali in evidenza
@@ -449,6 +451,13 @@ Settings:
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
     Blur Thumbnails: Miniature sfocate
     Hide Subscriptions Community: Nascondi la comunità di iscritti
+    Hide Channels Invalid: L'ID canale fornito non è valido
+    Hide Channels Disabled Message: Alcuni canali sono stati bloccati utilizzando
+      l'ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
+      di tali ID
+    Hide Channels Already Exists: L'ID canale esiste già
+    Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito.
+      Controlla di nuovo se l'ID è corretto.
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -508,10 +517,10 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Impostazioni sperimentali
-    Warning: Queste impostazioni sono sperimentali, causano arresti anomali se abilitate.
+    Warning: Queste Impostazioni sono sperimentali, causano arresti anomali se abilitate.
       Si consiglia prima di fare un backup. Utilizzare a proprio rischio!
   Password Dialog:
-    Enter Password To Unlock: Inserisci la password per sbloccare le impostazioni
+    Enter Password To Unlock: Inserisci la password per sbloccare le Impostazioni
     Password Incorrect: Password non corretta
     Password: Password
     Unlock: Sblocca
@@ -519,8 +528,9 @@ Settings:
     Set Password: Imposta password
     Password Settings: Impostazioni password
     Set Password To Prevent Access: Imposta una password per impedire l'accesso alle
-      impostazioni
+      Impostazioni
     Remove Password: Rimuovi password
+  Expand All Settings Sections: Espandi tutte le sezioni delle Impostazioni
 About:
   #On About page
   About: 'Informazioni'
@@ -787,6 +797,8 @@ Video:
     chat dal vivo non è disponibile per questo video. Potrebbe essere stata disattivata
     dall'autore del caricamento.
   Pause on Current Video: Pausa sul video attuale
+  Unhide Channel: Mostra canale
+  Hide Channel: Nascondi canale
 Videos:
   #& Sort By
   Sort By:
@@ -935,6 +947,11 @@ Profile:
   Profile Filter: Filtro del profilo
   Profile Settings: Impostazioni dei profili
   Toggle Profile List: Attiva/disattiva elenco profili
+  Open Profile Dropdown: Apri il menu a discesa del profilo
+  Close Profile Dropdown: Chiudi il menu a discesa del profilo
+  Profile Name: Nome del profilo
+  Edit Profile Name: Modifica il nome del profilo
+  Create Profile Name: Crea un nome per il profilo
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo
   video non è disponibile a causa di alcuni formati mancanti. Questo può succedere
   in caso di mancata disponibilità della nazione.
@@ -955,7 +972,7 @@ Tooltips:
       o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto
       CTRL (Command su Mac) e clicca con il tasto sinistro del mouse per tornare rapidamente
       alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata
-      nelle impostazioni).
+      nelle Impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare
       il video, in stile MPV.
     Allow DASH AV1 formats: I formati DASH AV1 possono avere un aspetto migliore dei
@@ -994,7 +1011,7 @@ Tooltips:
       un percorso personalizzato può essere impostato qui.
     External Player: Scegliendo un lettore esterno sarà visualizzata sulla miniatura
       un'icona per aprire il video nel lettore esterno (se la playlist lo supporta).
-      Attenzione, le impostazioni Invidious non influiscono sui lettori esterni.
+      Attenzione, le Impostazioni Invidious non influiscono sui lettori esterni.
     DefaultCustomArgumentsTemplate: '(Predefinito: {defaultCustomArguments})'
   Privacy Settings:
     Remove Video Meta Files: Se abilitato, quando chiuderai la pagina di riproduzione
@@ -1005,9 +1022,9 @@ Tooltips:
       una cache di immagini in memoria personalizzata. Comporta un aumento dell'utilizzo
       della RAM.
   Distraction Free Settings:
-    Hide Channels: Inserisci il nome o l'ID di un canale per impedire che tutti i
-      video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze,
-      più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
+    Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le
+      playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze, più
+      popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza
       completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione
       "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
@@ -1031,7 +1048,7 @@ Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconos
 Search Bar:
   Clear Input: Pulisci ricerca
 External link opening has been disabled in the general settings: L'apertura dei link
-  esterni è stata disabilitata nelle impostazioni generali
+  esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Downloading has completed: 'Il download di "{videoTitle}" è terminato'
 Starting download: Avvio del download di "{videoTitle}"
@@ -1075,3 +1092,6 @@ Playlist will pause when current video is finished: La playlist verrà messa in 
   al termine del video attuale
 Playlist will not pause when current video is finished: La playlist non verrà messa
   in pausa al termine del video attuale
+Channel Hidden: '{channel} aggiunto al filtro canali'
+Go to page: Vai a {page}
+Channel Unhidden: '{channel} rimosso dal filtro canali'

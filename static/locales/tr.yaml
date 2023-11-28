@@ -156,12 +156,13 @@ Settings:
       Grid: 'Izgara'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Küçük Resim Tercihi'
+      Thumbnail Preference: 'Önizleme Görseli Tercihi'
       Default: 'Öntanımlı'
       Beginning: 'Başlangıç'
       Middle: 'Orta'
       End: 'Bitiş'
       Hidden: Gizli
+      Blur: Bulanıklık
     'Invidious Instance (Default is https://invidious.snopyta.org)': 'Invidious Örneği
       (Öntanımlı olarak https://invidious.snopyta.org)'
     Region for Trending: 'Öne Çıkanlar İçin Bölge Tercihi'
@@ -420,7 +421,7 @@ Settings:
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
-    Hide Channels Placeholder: Kanal Adı veya Kimliği
+    Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
     Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf Kullanmadan
       Görüntüle
@@ -442,6 +443,12 @@ Settings:
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
     Blur Thumbnails: Küçük Resimleri Bulanıklaştır
     Hide Subscriptions Community: Abonelik Topluluğunu Gizle
+    Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
+    Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
+      ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
+    Hide Channels Already Exists: Kanal kimliği zaten var
+    Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu.
+      Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -992,8 +999,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama,
       öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
-      bir kanal adı veya kanal kimliği girin. Girilen kanal adı tam olarak eşleşmelidir
-      ve büyük/küçük harfe duyarlıdır.
+      bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük
+      harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
       kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
       kılınıyor

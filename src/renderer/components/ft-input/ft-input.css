@@ -57,8 +57,6 @@
   border-radius: 100%;
   color: var(--primary-text-color);
   opacity: 0;
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -74,8 +72,6 @@
 .clearInputTextButton.visible:active {
   background-color: var(--tertiary-text-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -100,6 +96,7 @@
   padding: 1rem;
   border: none;
   margin-block-end: 10px;
+  margin-block-start: 10px;
   font-size: 16px;
   block-size: 45px;
   color: var(--secondary-text-color);
@@ -172,8 +169,6 @@
 .inputAction.enabled:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
@@ -184,8 +179,6 @@
 .inputAction.enabled:active {
   background-color: var(--tertiary-text-color);
   color: var(--side-nav-active-text-color);
-  -moz-transition: background 0.2s ease-in;
-  -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
