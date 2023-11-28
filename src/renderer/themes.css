@@ -369,6 +369,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #696969;
   --primary-color-hover: #555555;
   --primary-color-active: #4E4E4E;
+  --text-with-main-color: #FFFFFF;
 }
 
 .mainDraculaCyan,
@@ -765,6 +766,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-active: #4E4E4E;
   --accent-color-light: #A5A5A5;
   --accent-color-visited: #444444;
+  --text-with-accent-color: #FFFFFF;
   --accent-color-opacity1: rgba(105,105,105,0.04);
   --accent-color-opacity2: rgba(105,105,105,0.12);
   --accent-color-opacity3: rgba(105,105,105,0.16);
