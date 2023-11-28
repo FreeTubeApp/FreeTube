@@ -63,12 +63,6 @@
           @change="updateAutoplayVideos"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Disable Keyboard Shortcuts')"
-          :compact="true"
-          :default-value="disableKeyboardShortcuts"
-          @change="updateDisableKeyboardShortcuts"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Autoplay Playlists')"
           :compact="true"
           :default-value="autoplayPlaylists"
@@ -92,6 +86,12 @@
           :compact="true"
           :default-value="enterFullscreenOnDisplayRotate"
           @change="updateEnterFullscreenOnDisplayRotate"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Disable Keyboard Shortcuts')"
+          :compact="true"
+          :default-value="disableKeyboardShortcuts"
+          @change="updateDisableKeyboardShortcuts"
         />
       </div>
     </div>
