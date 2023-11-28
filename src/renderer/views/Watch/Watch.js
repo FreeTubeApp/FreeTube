@@ -129,7 +129,7 @@ export default defineComponent({
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
       commentsEnabled: true,
-      transcriptShown: true,
+      transcriptShown: false,
     }
   },
   computed: {

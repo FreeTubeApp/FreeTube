@@ -67,6 +67,7 @@ function sortCaptions(captionList, currentLocale) {
  * @param {{ label: string, language_code: string, type: string, url: string }}
  *
  * @returns {Promise<{ label: string, language_code: string, type: string, url: string,
+ * vttString: string
  * cues: {
  *  startTime: number,
  *  endTime: number,
@@ -80,7 +81,8 @@ export async function parseCaptionString(caption) {
   caption.cues = []
 
   // Download vtt file if necessary
-  const vttString = (isUrl(caption.url)) ? await (await fetch(caption.url)).text() : caption.url
+  let vttString = (isUrl(caption.url)) ? await (await fetch(caption.url)).text() : caption.url
+  vttString = vttString.substring(vttString.indexOf('WEBVTT'))
 
   const parser = new WebVTT.Parser(window, WebVTT.StringDecoder())
   parser.oncue = function ({ startTime, endTime, text }) {
@@ -95,8 +97,9 @@ export async function parseCaptionString(caption) {
     const startTimeFormatted = formatCueTime(startTime)
     caption.cues.push({ startTime, endTime, text, startTimeFormatted })
   }
-  parser.parse(vttString.substring(vttString.indexOf('WEBVTT')))
+  parser.parse(vttString)
 
+  caption.vttString = vttString
   return caption
 }
 

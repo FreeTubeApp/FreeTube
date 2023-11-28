@@ -172,6 +172,7 @@
       <watch-video-transcript
         v-if="!isLoading && transcriptShown"
         :caption-hybrid-list="captionHybridList"
+        :video-id="videoId"
         :video-timestamp="videoTimestamp"
         class="watchVideoSideBar"
         @hide-transcript="transcriptShown = false"

@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import { parseCaptionString, transformCaptions } from '../../helpers/captions'
+import { showSaveDialog, showToast, writeFileFromDialog } from '../../helpers/utils'
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -13,13 +14,17 @@ export default defineComponent({
   },
 
   props: {
-    videoTimestamp: {
-      type: Number,
-      default: -1
-    },
     captionHybridList: {
       type: Array,
       default: () => []
+    },
+    videoId: {
+      type: String,
+      required: true
+    },
+    videoTimestamp: {
+      type: Number,
+      default: -1
     }
   },
 
@@ -46,6 +51,14 @@ export default defineComponent({
         {
           label: this.$t('Transcript.Toggle timestamps'),
           value: 'toggle-timestamp'
+        },
+        {
+          label: this.$t('Transcript.Download Transcript (txt)'),
+          value: 'dl-transcript-txt'
+        },
+        {
+          label: this.$t('Transcript.Download Transcript (vtt)'),
+          value: 'dl-transcript-vtt'
         }
       ]
     }
@@ -113,7 +126,53 @@ export default defineComponent({
         case 'toggle-timestamp':
           this.timestampShown = !this.timestampShown
           break
+        case 'dl-transcript-txt':
+          this.downloadTranscript('txt')
+          break
+        case 'dl-transcript-vtt':
+          this.downloadTranscript('vtt')
+          break
       }
+    },
+
+    /**
+     * @param {('txt'|'vtt')} type
+     */
+    downloadTranscript: async function (type) {
+      const fileName = `${this.videoId}_${this.activeCaption.language_code}.${type}`
+
+      let fileContent
+      if (type === 'txt') {
+        fileContent = this.activeCaption.cues.reduce((acc, cur) => {
+          return `${acc}\n\n${cur.startTimeFormatted}\n${cur.text}`
+        }, '')
+      } else if (type === 'vtt') {
+        fileContent = this.activeCaption.vttString
+      }
+      fileContent = fileContent.trim()
+
+      const options = {
+        defaultPath: fileName,
+        filters: [
+          {
+            name: this.$t('Transcript.Transcript File'),
+            extensions: [type]
+          }
+        ]
+      }
+
+      const response = await showSaveDialog(options)
+      if (response.canceled || response.filePath === '') return
+
+      try {
+        await writeFileFromDialog(response, fileContent)
+      } catch (writeErr) {
+        const message = this.$t('Transcript.Unable to download transcript file')
+        showToast(`${message}: ${writeErr}`)
+        return
+      }
+
+      showToast(this.$t('Transcript.Transcript file downloaded'))
     },
 
     handleLanguageChange: async function (language) {

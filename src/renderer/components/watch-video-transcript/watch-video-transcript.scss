@@ -27,6 +27,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     text-size-adjust: 100%;
+    padding-inline-end: 6px;
 
     .cue {
       &:hover, &.active {

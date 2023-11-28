@@ -809,6 +809,11 @@ Description:
 Transcript:
   Transcript: Transcript
   Toggle timestamps: Toggle timestamps
+  Download Transcript (txt): Download Transcript (.txt)
+  Download Transcript (vtt): Download Transcript (.vtt)
+  Transcript File: Transcript File
+  Unable to download transcript file: Unable to download transcript file
+  Transcript file downloaded: Transcript file downloaded
   Transcript Language: Transcript Language
 
 Mini Player: Mini Player
