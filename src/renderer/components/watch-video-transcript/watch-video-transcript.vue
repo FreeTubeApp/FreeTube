@@ -23,13 +23,14 @@
 
     <div
       v-if="activeCaption"
+      ref="cueBody"
       class="body"
     >
       <div
         v-for="(cue, index) in activeCaption.cues"
         :key="index"
         class="cue"
-        :class="{ active: timestamp >= cue.startTime && timestamp < cue.endTime }"
+        :class="{ active: index === activeCueIndex }"
         @click="$emit('timestamp-event', cue.startTime)"
         @keydown.enter="$emit('timestamp-event', cue.startTime)"
       >

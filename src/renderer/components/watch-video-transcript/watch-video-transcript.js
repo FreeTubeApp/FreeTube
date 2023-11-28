@@ -27,6 +27,7 @@ export default defineComponent({
     return {
       activeLanguage: '',
       activeCaption: undefined,
+      activeCueIndex: -1,
       captions: [],
       captionLanguages: [],
       timestamp: -1,
@@ -50,7 +51,16 @@ export default defineComponent({
 
   watch: {
     videoTimestamp: function (value) {
-      if (this.timestamp !== value) this.timestamp = value
+      if (!this.activeCaption || this.timestamp === value) return
+      this.timestamp = value
+
+      for (const [index, cue] of this.activeCaption.cues.entries()) {
+        if (value >= cue.startTime && value < cue.endTime) {
+          this.activeCueIndex = index
+          this.autoScrollCue()
+          break
+        }
+      }
     }
   },
 
@@ -63,6 +73,20 @@ export default defineComponent({
   },
 
   methods: {
+    autoScrollCue: function () {
+      const body = this.$refs.cueBody
+      const activeCue = this.$refs.cueBody.children[this.activeCueIndex]
+      if (!body || !activeCue) return
+
+      let offsetTop = activeCue.offsetTop - body.offsetTop
+
+      // Show previous 2 cues if possible
+      if (this.activeCueIndex > 0) offsetTop -= this.$refs.cueBody.children[this.activeCueIndex - 1].offsetHeight
+      if (this.activeCueIndex > 1) offsetTop -= this.$refs.cueBody.children[this.activeCueIndex - 2].offsetHeight
+
+      body.scrollTo({ top: offsetTop })
+    },
+
     handleMenuClick: function (menuAction) {
       switch (menuAction) {
         case 'toggle-timestamp':
@@ -75,5 +99,5 @@ export default defineComponent({
       this.activeCaption = this.captions.find(caption => caption.label === language)
       this.activeCaption = await parseCaptionString(this.activeCaption)
     },
-  }
+  },
 })
