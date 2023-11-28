@@ -84,9 +84,9 @@ export async function parseCaptionString(caption) {
 
   const parser = new WebVTT.Parser(window, WebVTT.StringDecoder())
   parser.oncue = function ({ startTime, endTime, text }) {
-    // Auto-generated captions include full clean text but their start and end times are 0.01s apart
+    // YT.js auto-generated captions include full clean text but their start and end times are 0.01s apart
     // So just clean the styled ones and discard the clean text
-    if (isAutoGen) {
+    if (isAutoGen && caption.dataSource === 'local') {
       const cleanedText = cleanStyledText(text)
       if (text === cleanedText) return
       text = cleanedText

@@ -117,8 +117,10 @@ export default defineComponent({
     },
 
     handleLanguageChange: async function (language) {
+      this.activeCaption = false
       this.activeCaption = this.captions.find(caption => caption.label === language)
       this.activeCaption = await parseCaptionString(this.activeCaption)
+      this.activeLanguage = this.activeCaption.label
     },
   },
 })
