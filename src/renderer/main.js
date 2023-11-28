@@ -9,6 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // to avoid code conflict and duplicate entries
 import {
   faAngleDown,
+  faAngleUp,
   faArrowDown,
   faArrowLeft,
   faArrowRight,
@@ -81,6 +82,7 @@ Vue.config.productionTip = process.env.NODE_ENV === 'development'
 library.add(
   // solid icons
   faAngleDown,
+  faAngleUp,
   faArrowDown,
   faArrowLeft,
   faArrowRight,

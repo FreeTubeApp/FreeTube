@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
 import SubscribedChannels from '../views/SubscribedChannels/SubscribedChannels.vue'
 import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
-import ProfileEdit from '../views/ProfileEdit/ProfileEdit.vue'
 import Trending from '../views/Trending/Trending.vue'
 import Popular from '../views/Popular/Popular.vue'
 import UserPlaylists from '../views/UserPlaylists/UserPlaylists.vue'
@@ -22,6 +21,7 @@ const router = new Router({
   routes: [
     {
       path: '/',
+      name: 'default',
       meta: {
         title: 'Subscriptions.Subscriptions'
       },
@@ -29,6 +29,7 @@ const router = new Router({
     },
     {
       path: '/subscriptions',
+      name: 'subscriptions',
       meta: {
         title: 'Subscriptions.Subscriptions'
       },
@@ -36,36 +37,15 @@ const router = new Router({
     },
     {
       path: '/subscribedchannels',
+      name: 'subscribedChannels',
       meta: {
         title: 'Channels.Title'
       },
       component: SubscribedChannels
     },
     {
-      path: '/settings/profile',
-      meta: {
-        title: 'Profile.Profile Settings'
-      },
-      component: ProfileSettings
-    },
-    {
-      path: '/settings/profile/new',
-      name: 'newProfile',
-      meta: {
-        title: 'Profile.Create New Profile'
-      },
-      component: ProfileEdit
-    },
-    {
-      path: '/settings/profile/edit/:id',
-      name: 'editProfile',
-      meta: {
-        title: 'Profile.Edit Profile'
-      },
-      component: ProfileEdit
-    },
-    {
       path: '/trending',
+      name: 'trending',
       meta: {
         title: 'Trending.Trending'
       },
@@ -73,6 +53,7 @@ const router = new Router({
     },
     {
       path: '/popular',
+      name: 'popular',
       meta: {
         title: 'Most Popular'
       },
@@ -80,6 +61,7 @@ const router = new Router({
     },
     {
       path: '/userplaylists',
+      name: 'userPlaylists',
       meta: {
         title: 'User Playlists.Your Playlists'
       },
@@ -95,6 +77,7 @@ const router = new Router({
     },
     {
       path: '/settings',
+      name: 'settings',
       meta: {
         title: 'Settings.Settings'
       },
@@ -102,10 +85,19 @@ const router = new Router({
     },
     {
       path: '/about',
+      name: 'about',
       meta: {
         title: 'About.About'
       },
       component: About
+    },
+    {
+      path: '/settings/profile',
+      name: 'profileSettings',
+      meta: {
+        title: 'Profile.Profile Settings'
+      },
+      component: ProfileSettings
     },
     {
       path: '/search/:query',

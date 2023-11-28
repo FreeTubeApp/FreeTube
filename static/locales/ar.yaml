@@ -322,6 +322,7 @@ Settings:
     Export Subscriptions: 'تصدير الاشتراكات'
     How do I import my subscriptions?: 'كيف استورد اشتراكاتي؟'
     Fetch Automatically: جلب الخلاصة تلقائيا
+    Only Show Latest Video for Each Channel: عرض أحدث فيديو فقط لكل قناة
   Advanced Settings:
     Advanced Settings: 'الإعدادات المتقدمة'
     Enable Debug Mode (Prints data to the console): 'تمكين وضع التنقيح (يطبع البيانات
@@ -508,6 +509,7 @@ Settings:
     Password: كلمة السر
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
     Unlock: الغاء القفل
+  Expand All Settings Sections: توسيع كافة أقسام الإعدادات
 About:
   #On About page
   About: 'حول'
@@ -609,6 +611,11 @@ Profile:
   Profile Filter: مرشح الملف الشخصي
   Profile Settings: إعدادات الملف الشخصي
   Toggle Profile List: تبديل قائمة الملف الشخصي
+  Open Profile Dropdown: فتح القائمة المنسدلة للملف الشخصي
+  Close Profile Dropdown: إغلاق القائمة المنسدلة للملف الشخصي
+  Profile Name: اسم الملف الشخصي
+  Edit Profile Name: تحرير اسم الملف الشخصي
+  Create Profile Name: إنشاء اسم الملف الشخصي
 Channel:
   Subscribe: 'اشتراك'
   Unsubscribe: 'إلغاء الاشتراك'
@@ -811,6 +818,8 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': الدردشة
     المباشرة غير متاحة لهذا البث. ربما تم تعطيلها من قبل القائم بالتحميل.
   Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
+  Unhide Channel: عرض القناة
+  Hide Channel: إخفاء القناة
 Videos:
   #& Sort By
   Sort By:
@@ -1037,3 +1046,6 @@ Playlist will pause when current video is finished: ستتوقف قائمة ال
   انتهاء الفيديو الحالي
 Playlist will not pause when current video is finished: لن تتوقف قائمة التشغيل مؤقتًا
   عند انتهاء الفيديو الحالي
+Channel Hidden: تم إضافة {channel} إلى مرشح القناة
+Go to page: إذهب إلى {page}
+Channel Unhidden: تمت إزالة {channel} من مرشح القناة

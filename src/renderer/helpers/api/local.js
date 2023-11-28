@@ -482,9 +482,13 @@ export function parseLocalListPlaylist(playlist, author = undefined) {
       channelName = playlist.author.name
       channelId = playlist.author.id
     }
-  } else {
+  } else if (author) {
     channelName = author.name
     channelId = author.id
+  } else if (playlist.author?.name) {
+    // auto-generated album playlists don't have an author
+    // so in search results, the author text is "Playlist" and doesn't have a link or channel ID
+    channelName = playlist.author.name
   }
 
   return {

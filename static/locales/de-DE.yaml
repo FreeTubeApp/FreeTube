@@ -427,7 +427,7 @@ Settings:
     Hide Chapters: Kapitel ausblenden
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
     Hide Channels: Videos aus Kanälen ausblenden
-    Hide Channels Placeholder: Kanalname oder Kanal-ID
+    Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       anzeigen
     Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
@@ -448,6 +448,12 @@ Settings:
     Blur Thumbnails: Vorschaubilder unscharf machen
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
+    Hide Channels Invalid: Kanal-ID war ungültig
+    Hide Channels Disabled Message: Einige Kanäle wurden mit ID gesperrt und nicht
+      verarbeitet. Die Funktion wird blockiert, während diese IDs aktualisieren
+    Hide Channels Already Exists: Kanal-ID bereits vorhanden
+    Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
+      ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -1021,11 +1027,10 @@ Tooltips:
       und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
       einer erhöhten RAM-Auslastung.
   Distraction Free Settings:
-    Hide Channels: Gebe einen Kanalnamen oder eine Kanal-ID ein, um zu verhindern,
-      dass alle Videos, Wiedergabelisten und der Kanal selbst in der Suche, den Trends,
-      den beliebtesten und den empfohlenen Videos angezeigt werden. Der eingegebene
-      Kanalname muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung
-      unterschieden.
+    Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Wiedergabelisten
+      und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen
+      Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen
+      und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
       „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
       Kraft gesetzt
