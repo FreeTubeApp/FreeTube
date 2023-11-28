@@ -34,7 +34,6 @@
 @media only screen and (max-width: 800px) {
   .commentSort {
     float: none;
-    inline-size: fit-content;
   }
 }
 

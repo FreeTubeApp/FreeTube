@@ -24,8 +24,6 @@
 .select {
   position: relative;
   inline-size: 200px;
-  padding-block: 0 10px;
-  padding-inline: 0 10px;
   margin-block-start: 30px;
 }
 
@@ -37,13 +35,13 @@
 .select-text {
   position: relative;
   font-family: inherit;
-  background-color: transparent;
+  background-color: var(--search-bar-color);
   color: var(--primary-text-color);
-  inline-size: 240px;
-  padding-block: 10px;
-  padding-inline: 0 10px;
-  font-size: 18px;
-  border-radius: 0;
+  inline-size: 100%;
+  block-size: 45px;
+  padding-inline-start: 1rem;
+  font-size: 16px;
+  border-radius: 5px;
   border: none;
 }
 
@@ -62,13 +60,13 @@
   appearance: none;
   -webkit-appearance:none;
   text-overflow: ellipsis;
-  padding-inline-end: 1.1rem;
+  padding-inline-end: 1.5rem;
 }
 
 .iconSelect {
   position: absolute;
   inset-block-start: 10px;
-  inset-inline-end: 15px;
+  inset-inline-end: 10px;
   /* Styling the down arrow */
   padding: 0;
   content: '';
@@ -80,8 +78,8 @@
 
 .selectTooltip {
   position: absolute;
-  inset-block-start: -20px;
-  inset-inline-end: 17px;
+  inset-block-start: -22px;
+  inset-inline-end: 0;
 }
 
 
@@ -108,7 +106,6 @@
 .select-bar {
   position: relative;
   display: block;
-  inline-size: 200px;
 }
 
 .select-bar:before, .select-bar:after {
@@ -145,25 +142,8 @@
   opacity: 0.5;
 }
 
-@media only screen and (max-width: 1000px) {
-  .select .select-text {
-    max-inline-size: 240px;
-  }
-}
-
 @media only screen and (max-width: 800px) {
   .select {
     inline-size: 100%;
-  }
-  .select .select-text {
-    display:block;
-    max-inline-size: 95%;
-  }
-}
-
-@media only screen and (max-width: 680px) {
-  .select {
-    padding: 0px;
-    margin-inline-end: -15px;
   }
 }

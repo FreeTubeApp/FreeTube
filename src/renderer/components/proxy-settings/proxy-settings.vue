@@ -19,6 +19,7 @@
           :select-names="protocolNames"
           :select-values="protocolValues"
           @change="handleUpdateProxyProtocol"
+          class="protocol-dropdown"
         />
       </ft-flex-box>
       <ft-flex-box>
@@ -77,3 +78,4 @@
 </template>
 
 <script src="./proxy-settings.js" />
+<style scoped src="./proxy-settings.css" />
